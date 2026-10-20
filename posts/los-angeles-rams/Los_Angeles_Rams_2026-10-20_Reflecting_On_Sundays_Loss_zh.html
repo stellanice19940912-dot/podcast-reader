@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>复盘周日失利、伤病挑战、以正确心态继续前进等话题</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="h">JB·朗</option><option value="g">肖恩·麦克维</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Los Angeles Rams</span><span class="pill">2026-10-20</span></div>
+<h1>复盘周日失利、伤病挑战、以正确心态继续前进等话题</h1>
+<p class="sub">嘉宾：肖恩·麦克维（公羊队主教练） · 约 18 分钟（1104 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=wu9FWQi6V7U" target="_blank" rel="noopener">https://www.youtube.com/watch?v=wu9FWQi6V7U</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Los Angeles Rams</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-20</dd></div><div class="meta-row"><dt>时长</dt><dd>约 18 分钟（1104 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig，经 yt-dlp + Chrome cookies 补拉；非官方字幕），中文为逐句全文翻译</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>wu9FWQi6V7U</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>《麦克维教练秀》中，主持人 JB·朗与公羊队主教练肖恩·麦克维复盘周日主场负于布法罗的比赛，谈多名核心球员伤病、进攻不稳定与球队问责。</p>
+<h3>核心要点</h3><ul><li>普纳·福特、达万特·亚当斯、科比·特纳及踢球手布雷克受伤，亚当斯预计缺阵 6 到 10 周</li><li>连续四场比赛拖到最后一攻，其中三场落败；麦克维强调“从我开始”的问责</li><li>进攻端爆发性进攻不足、执行不稳定，防守端整体表现积极</li><li>开球前抢跑等关键犯规成为问题，强调先学会不打败自己</li><li>以 2024 赛季 1 胜 4 负后逆转为例，表示球队不会按下恐慌按钮</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">可跳过：约 18 分钟的球队内部复盘，信息主要面向公羊队球迷。</p>
+<h3>适合人群</h3><p>公羊队及国家橄榄球联盟硬核球迷</p>
+</section>
+<div class="legend"><span class="spk-0">JB·朗<em>主持</em></span><span class="spk-1">肖恩·麦克维<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>好的，大家晚上好，欢迎收看新一期由微软 Surface 冠名呈现的《麦克维教练秀》。我是 JB·朗，和我在一起的是你们洛杉矶公羊队的主教练肖恩·麦克维。昨天下午我们结束谈话时，我知道你还在寻找答案，所以我今天的第一个问题本来是：你一夜之间找到答案了吗？但不幸的是，听起来今天又冒出了更多的问题。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>是的，我想，你知道，你要做的就是继续战斗。你知道，JB，我为昨天受伤的那些球员感到非常难过，他们都是举足轻重的人物。他们对我们来说是很特别的人。嗯，我们会想念他们的。你知道，你会想念普纳·福特。我的意思是，他一直是我们一名了不起的球员，一位了不起的队友，对其他球员有很大影响。达万特·亚当斯和科比·特纳是队长，你知道，他们一直有着巨大的影响力和产出。所以，这三位，然后你还会为布雷克感到难过。你知道，我是说，他第一脚踢球就踢进了，然后在第一次开球弃踢掩护时就伤了前十字韧带。所以，嗯，你知道，正是在这样的时刻，你才会真正了解自己，了解你身边的人。第一，我为这些球员感到难过。这份工作最糟糕的部分之一，就是看到你爱着、关心着、为之付出了那么多的人，因为许多他们无法控制的事情而被夺走了比赛。嗯，然后接下来的是，你知道，赛季还要继续，你必须能够全力投入、做好准备，弄清楚该如何调整和适应，同时也要清醒地意识到：天哪，我们必须做得好得多，而这要从我开始。呃，不过我们基本上已经连续四场比赛都拖到了最后一攻才分出胜负，可以这么说，你知道，费城那场除外，但那场也是拼到了最后。而且，不幸的是，其中三场我们都输了。但是，我们会继续坚守我们的价值观，我们会努力追求更稳定的表现。呃，我觉得昨天防守端做了很多积极的事情。嗯，然后，你知道，进攻端太不稳定了，同时也要承认，对手在那些最关键的时刻发挥出最佳水平的能力，是你不能抹杀的。嗯，但我们确实希望看到自己打得更稳定一些，在每一次开球、每一次推进中都执行得更稳定。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>我不想略过任何伤病的具体情况，或者谁会顶上来。等我们稍后谈到昨天的进攻和防守时会讲到这些。但就你刚才描述的这种心情来说，过去十年里，你和这支球队经历过很多需要深刻反省的时刻，而你们能把其中很多扭转为积极的结果。这一次相比如何？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>你知道，我觉得这非常，你知道，每一次都不一样，但你会借鉴过去的经验，告诉自己：好吧，嘿，你该做什么？你要战斗。你知道，你回去工作。嗯，你要确保，你知道，领导力最好的体现就是以身作则。你知道，让我们自己去示范那些我们要求球员做到的事情。让我们和教练们一起这样做。让我们在比赛计划上继续保持一定的灵活性和适应性，并针对我们现有的新变化做出调整，以突出他们的技术特点。所以，这就是我们要做的。你知道，这就是我们签约时就承诺要做的事。你签约时并不只是为了赢下所有比赛、让一切都顺风顺水。嗯，你知道，你不一定喜欢这样的时刻，但你确实知道，真正的成长就发生在这样的时刻。这就是我热爱体育的原因。嗯，而且这一切也终将过去。我知道这一点：我们会继续战斗。我会战斗。我们的球员会战斗，我们的教练也会战斗。这就是我唯一会做的事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>是的。这是个有点傻的追问，但我还是要问，因为我想听你的回答。我敢打赌我们的观众也想听。这支球队内部还有信心吗？2026 赛季的公羊队还有时间把事情扭转过来吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>是的。哦，当然有。你知道，我是说，你看，有其他可以借鉴的例子，这也不是什么敷衍的回答，你知道。我的意思是，你看 2024 赛季，我们开局 1 胜 4 负，那时看起来非常黯淡。嗯，你知道，第二周我们在客场对亚利桑那打了一场非常让人难堪的比赛，那个赛季开局 0 胜 2 负。嗯，我们还经历过其他一些艰难时刻，但你知道，我们有能力坚持既定方向，屏蔽所有噪音，由内而外地去做。嗯，然后我真心相信，你知道，当我们去费城的时候——那年他们在季后赛中表现得非常出色——你知道，我们完全期待赢下那场比赛，然后主场举办国联冠军赛。那一年你最后还赢得了分区冠军。所以，再说一次，我甚至没兴趣想得太远。就像，当你从大局去看待这件事时，这不是重点。我们以前从来不是这样克服逆境的。而是一天一天来。是活在当下，是靠战斗走出困境，只为打出更高质量的橄榄球。嗯，永远不要忘记享受这一切，投入努力，保持正确的能量和正确的心态，并在这些方面培养技能，让你在生活中成为一个更好的人，同时也成为你们所能成为的最好的橄榄球队。</p>
+<p>嗯，你知道，因为你可以这么看，而且这甚至不是借口。就像，你知道，有那么几件事如果走向不同，我们现在可能就在进行另一番对话了。我对此非常现实：嘿，我们该如何进步？我们需要能够做到哪些事情？嗯，不幸的是，结果并没有像我们希望的那样到来。但是，呃，我也知道，你知道，你有足够的经验可以借鉴，从而明白，你知道，这不是重点。重点是回去工作。重点是继续进步。嗯，随着我们一天天积累、不断磨练技能，我们再看看自己处在什么位置。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>是的。说得好。这也是为什么我在问这个问题之前先说了，它可能对此刻来说太宏观了，对吧？就像——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>我觉得不管怎样它总是如此，你知道，而真正的问题是：好吧，替代那些球员会是什么样子？嗯，我们会想办法解决的，其他球员最终会站出来，能够书写属于他们自己的故事。但是，嗯，你知道，这个开局是否和任何人设想的都不一样？当然是。但这就是我们的现实。所以，你必须能够去面对它，去做艰难的事，而且就像我以前跟你们说过的，你知道，有过去的例子可以借鉴。嗯，你知道，我理解如果人们，你知道，希望看到不同的东西，我也感谢大家的支持。呃，但我们会战斗，我们会回去工作，没有人会按下恐慌按钮，同时我们也明白，我们需要有必要的紧迫感，开始进步，并在我们得到那些宝贵机会时，让它体现在我们的比赛方式上。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>让我们回到昨天比赛的开局。嗯，问题基本上是：是布法罗让我们输了两次，还是有周一夜赛的“宿醉效应”？你懂这些陈词滥调。球场里和你们球队的能量感觉不一样。你也感觉到了吗？是不是——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>我没有，你知道，我没有，但我觉得，你知道，我想我们的球员也会同意，那股能量和我们几天前看到的不一致。所以，嗯，这令人意外，你知道，但我觉得，你知道，这是我们所有人的问题，我觉得我和任何人一样对此负有责任。所以，你知道，你要试着向内反省。你知道，你要确保和球员们沟通，然后想清楚：好吧，我们怎么解决它、承认它，然后确保在我们能控制的事情上，嗯，不再让这种情况发生。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>是的。我们从进攻开始。我知道你有多密切地追踪和关注爆发性进攻。你知道，失误差值和爆发性进攻，是决定你们命运的两件事。马修和普卡那里肯定差不多应该完成一次，那样我们现在就会在进行另一番对话了。我明白。但从大局来看，为什么昨天这是个问题？你觉得其中有多少和保护有关？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>嗯，有些时候我们知道，你知道，他们会施加一些压迫，球必须能够及时传出去，你知道，我们有几次让他们付出了代价，然后其他一些时候，你知道，我们没有执行好，没有做到那些我们希望能够稳定做到的事情。嗯，你知道，但我会说，你知道，当你像你提到的那样错过一些宝贵机会时，这很遗憾。你知道，我们口袋里有一点漏人，没能真正把那一传完成，嗯，但我对我们的球员、对我们如何前进有信心，而且已经有足够多的积极时刻了。就像我说的，他们把进攻组织起来的能力让我印象非常深刻。你知道，下半场的推进次数非常有限，你有四次推进，你知道，每一次你都在推进球，然后因为不同的原因我们都有点停滞了，除了那第十次推进。嗯，但我相信这些球员，你知道，我相信教练们，我们会继续努力弄清楚：好吧，我们如何稳定地持续推进，我们如何确保把我们的——你知道，我想在这一切中我首先要承认的是，你知道，这要从我和我们如何做得更好开始，如何持续做好为我们的球员创造成功结果的工作。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>是的。DQ 在体育界最艰难的位置之一上替补表现如何？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>他做得很好。我觉得他昨天打了一场扎实的好比赛。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>而四分卫的表现决定了很多东西。我觉得我们已经有足够大的样本量可以说，马修今年到目前为止的数据大约处于联盟平均水平，这并不是说他是联盟平均水平的球员。我知道这反映的是进攻端更大的整体环境，但你知道，你会把多少归因于他，又有多少你会说需要 11 个人一起才能按你想要的方式完成？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>哦，这永远是最伟大的团队运动。你知道，他太出色了。他是如此特别，出于很多不同的原因，他对我们是如此重要。所以，你知道，这个位置受到极其严格的审视。我们知道他的产出、他的价值、他对我们意味着的一切。嗯，我觉得他的队友们也知道，你知道，这是集体的贡献，你知道，再说一次，我总是想先从自己开始，你知道，就像：好吧，我在多大程度上把他放在了能取得成功的位置上？嗯，你知道，我们在多大程度上做到了 11 人如一人？而且我觉得他做了很多非常好的事情。我觉得他在最关键的时刻表现最好。然后，你知道，像任何事一样，你知道，你给我看他最好的比赛，或者给我看他希望，你知道，做得更好一点的比赛，总会有几个我们想重来的地方，但是，嗯，他是最有担当的人。他内心非常笃定。他对我们是如此特别，而且他每次都能带来信念，因为他的队友和教练对他有信心——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>最后阶段他非常有胆量，完成了其中一些传球。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>完全同意。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>呃，事后一天来看，对那两次第四档进攻有什么反思？这两次可能让很多球迷印象深刻。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>是的，我是说，你知道，其中一次你对它感觉很好。只是，你知道，我们在短码数情况下没有执行好，嗯，至于另一次，你知道，对方用闪击抓住了我们，你知道，算是一次掩护传球，而且考虑到我们的踢球状况，在那种情况下也算是被迫去搏一把。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>是的。嗯，关于执行，谈谈到第二层去阻挡，也许你就拿下了那次第四档短码。是不是——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>当然。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>是的。嗯，有一个联盟范围的趋势我想和你聊聊，我不知道你愿意在这个平台上谈多少，但似乎对于很多球队试图采用的重型阵容加中锋身后接球打法，其中一个应对办法就是疯狂闪击，派大量人手压上去。你在对阵你们公羊队时看到了这种情况吗？你有没有观察整个联盟，看这是否是一种应对办法？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>是的，这是其中一件事。是的，我想你也看到了。你知道，我是说，在很多情况下，一些阵型也稍微更紧凑一些，所以，嗯，你可以防得更贴一点。你知道，就像在一个电话亭里一样。所以这是我们看到过的，无论是对阵联盟里的一些对手，你知道，这和去年并没有太大不同，但你知道，就像其他任何事一样。你知道，你必须能够调整和适应，而我们有一些新的变化。你知道，缺少几名一直是那个人员组合中关键因素的球员，你知道，也带来了一些挑战。所以，这是一种应对，但并不是那么新颖，也不是你没有预设应对方案的东西——</p>
+<p>我是说，你想要——我们必须正视，我不会坐在这里——我们整体上在进攻端执行得不稳定。嗯，这永远要从我开始，我必须做得更好。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>你知道，你一直在说我们必须停止自己打败自己，对吧？这很明显。但对于这样一支成就斐然、即便在国家橄榄球联盟层面都经验丰富的球队来说，问责是什么样子？比如你在考虑人员调整吗？或者你如何落实这种问责？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>我觉得你要看——我觉得第一，我认为这是件重要的事。好吧，这是一个持续存在的因素吗？你知道，你要去审视它。你知道，昨天前三节我们一次犯规都没有。嗯，然后出现了两次关键犯规。你知道，开球前的那些犯规是我最在意的，你知道，那是我觉得我们能控制的东西。你永远不可能完全消除它们，但是，嗯，你知道，在第四档还差 3 码时抢跑，变成第四档还差 8 码，这完全改变了局面。你知道，在那种情况下我们必须做得更好。然后在对方试图推进到射门范围以赢下比赛的第一次进攻时抢跑。你知道，我们也比那更好。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>好的，谈一些人员方面的事。阿拉里克本周回归。嗯，显然他在他那个位置上的表现对公羊队的成功至关重要。嗯，你有没有和他谈过，达到这里的标准有多重要，这样他才能为球队效力——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>当然。你知道，甚至在禁赛处罚下达之前，他和我就谈过这件事，然后你知道，根据联盟关于这类情况的规定，他上周不能进入球队设施，然后他今天回来了，我们会向前看。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>你有没有听到凯伦赛后的评论，快速说一下，它们让你意外吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>那种——他其实主动跟我提起了这件事。他说：“嘿，教练，我不知道你有没有听到。”我当时还没听到。“你知道，我的意思是，我总是想努力带来能量，如果我不上场就做不到这一点，但这话被断章取义了。我没有，你知道，那从来不是我的本意。”我了解这个人的内心。他是一位非常好的队友。他充满能量。他对这个集体充满了爱。他只是想带来影响，推动积极的改变。所以，他和我分享了这件事，我很感激。我了解他的内心。嗯，我能理解大家情绪高涨，但这个人想做的只是带来影响、推动积极的改变。他确实给我们的集体带来了能量。嗯，但他跟我沟通了，一旦他告诉了我，这件事就结束了。嗯，我信任他。我知道他对我、对我们集体意味着什么，我也知道他是什么样的人。所以他想做的只是，他只是想成为我们的光，为我们带来正能量，而且他从来没有想让那些评论，你知道，被以那种方式理解，这是他跟我沟通的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>当然。还想听听你是否愿意再详细说说达万特的伤情和时间表，然后这是否意味着像图图这样的人会有更多机会，或者 CJ·丹尼尔斯迎来他的第一次机会，又或者你们可能会考虑外部选项？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>我们会解决这些事情的。你知道，我是说，我也是最近才知道这些情况，所以花了一些时间陪达万特，为他感到难过，因为他为此付出了那么多。嗯，你知道，六到十周大概是沟通给我们的时间。这是一个很宽的范围。嗯，你知道，但我们会一天一天来。你知道，我知道他会尽一切努力尽快回来。他为这项运动付出了那么多。他对他的队友、对我们意义重大，所以我真的为他感到难过。然后我们会摸索着弄清楚，怎样才能填补这个巨大的空缺，而像他这样的人，你永远无法真正取代。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>同样在防守端，我是说，普纳在过去好几年的大部分时间里一直是我们的矛尖。呃，除了他的全部能力之外，他的耐用性也一直令人印象深刻。这是多大的打击？尤其是再加上科比·特纳——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>打击很大。你知道，他们是我们的两个关键因素。你知道，两个了不起的人，两个，你知道，非常出色的队友。你提到了。你知道，普纳一直那么稳定、那么可靠、那么高产。嗯，你知道，在他的整个职业生涯中，受伤对他来说是非常反常的事。我相信这是他的第一次。所以，你会为他感到难过，你知道，因为他非常爱他的队友。他只是想，你知道，以积极的方式影响比赛。科比·特纳也是一样。你知道，你真的很难过。我是说，这两个人比赛时的那股拼劲，嗯，那股能量，他们代表了公羊队很多正确的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>迈尔斯这周能上场吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>他不能。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>特伦特呢？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>呃，他会，你知道，我们会随着这一周的进展评估他的状况。他眼神里状态不错。你知道，他这周或许已经接近能上场了。所以，呃，希望随着这一周的推进，我们能对他的状况有更多了解，但我们乐观且充满希望。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>一个关于防守端压迫的问题，压迫是有的，干扰也是有的。但它们可能没有像我们希望的那样转化为擒杀和负码数推进。你在录像里看到这一点了吗？把更多这样的机会转化成功的关键是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>是的，我想，你知道，我觉得很大程度上在于：嗯，你是否在影响、迫使对方必须把球传出去？所以你知道，每个人都想谈论，你知道，压迫，或者真正的擒杀，或者，你知道，擒抱失码，但你知道，压迫是一个很好的指标。你知道，你冲到了那里，你迫使对方把球传出去，你在阻止对方对你打出爆发性进攻。嗯，所以我觉得有很多东西都体现出了积极的一面，你知道，也要称赞他们足够有耐心，但是，你知道，我们并没有真正——我们限制了很多那样的东西，而且对球必须多快传出这一点，你知道，确实产生了影响。所以，每一个小小的，每一次进攻背后都有不同的故事。所以，呃，我完全理解你在问什么，也理解球迷们在想什么，但是，呃，影响和干扰四分卫、迫使他把球传出去，确实会对一支进攻队伍产生累积效应。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>所以，比如看看我们在传球防守上的进步，或者我们在球在空中时做出的一些破坏，这些和我们同样地刺穿口袋的方式是相关的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>绝对是。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>呃，我很好奇你在这个时刻是如何指导乔什·华莱士的，你知道，关于他的竞争耐力，因为似乎每周他都会被判一次改变比赛走向的犯规，而那次犯规未必是必须的，但这并不能抹杀他打出的那些好表现。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>完全同意。他非常出色。我是说，他很有韧性。他明白，而且你知道，我们会担心那些我们无法控制的事情，嗯，我喜欢乔什·华莱士身上的一切。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>是的。就像你说的，前三节犯规几乎被完全消除了。那么这里要传递的信息是否是：嘿，如果你们的分差大到一面黄旗都无法影响比赛，那你们就完成了任务；而在做到这一点之前，你就不能把矛头指向别处？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>是的，我想，你知道，我觉得你必须先学会不打败自己，然后才能弄清楚怎么赢得比赛，你知道，所以我们在训练中能对此多投入多少注意力，你知道，让我们的训练准备表现等同于比赛中的实际情况。我们一直这么说，但有时这些会让人豁然开朗，你知道，产生意识，你知道，不是去按恐慌按钮，而是更多地投入到这些事情上，嗯，带着那种有意识的专注和集中去比赛，从而消除其中一些仅仅是因为，你知道，需要稍微更稳定地保持纪律才导致的问题。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>想以一个积极的话题结束。其中一个我觉得是昆汀·莱克的抄截，以及更大的主题：本赛季公羊队对对方近端锋的防守有多出色。接下来在拉斯维加斯要面对一场硬仗。你们防守的这一方面有多鼓舞人心？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>Q·莱克做得很棒，你知道，他能够在麦克布莱德的外切线路下方切入。他是一名很棒的球员。呃，我觉得，你知道，我们做得非常好。我们在防守端有很多积极的方面，呃，昨天那一次当然就是其中之一。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>教练，我们看到你带领球队渡过了很多这样的风暴，这让我们整个球队受益。所以，谢谢你来做客。我们让你回去连夜工作，为下一场比赛之前必须解决的人员问题寻找答案。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="肖恩·麦克维">麦克维</span></div><div class="content">
+<p>谢谢，JB。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="JB·朗">JB</span></div><div class="content">
+<p>好的，代表肖恩·麦克维，我是 JB·朗。感谢您收看新一期由微软 Surface 冠名呈现的《麦克维教练秀》。</p>
+</div></div>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Los Angeles Rams", "title": "复盘周日失利、伤病挑战、以正确心态继续前进等话题", "url": "https://www.youtube.com/watch?v=wu9FWQi6V7U", "videoId": "wu9FWQi6V7U", "published_at": "2026-10-20", "duration": 1104, "caption_source": "YouTube 自动生成字幕（en-orig，经 yt-dlp + Chrome cookies 补拉；非官方字幕），中文为逐句全文翻译", "guests": ["肖恩·麦克维（公羊队主教练）"], "speakers": [{"id": "h", "name": "JB·朗", "role": "host", "short": "JB"}, {"id": "g", "name": "肖恩·麦克维", "role": "guest", "short": "麦克维"}], "intro": {"summary": "《麦克维教练秀》中，主持人 JB·朗与公羊队主教练肖恩·麦克维复盘周日主场负于布法罗的比赛，谈多名核心球员伤病、进攻不稳定与球队问责。", "points": ["普纳·福特、达万特·亚当斯、科比·特纳及踢球手布雷克受伤，亚当斯预计缺阵 6 到 10 周", "连续四场比赛拖到最后一攻，其中三场落败；麦克维强调“从我开始”的问责", "进攻端爆发性进攻不足、执行不稳定，防守端整体表现积极", "开球前抢跑等关键犯规成为问题，强调先学会不打败自己", "以 2024 赛季 1 胜 4 负后逆转为例，表示球队不会按下恐慌按钮"], "verdict": "可跳过：约 18 分钟的球队内部复盘，信息主要面向公羊队球迷。", "audience": "公羊队及国家橄榄球联盟硬核球迷"}, "paragraphs": [{"start_sec": 0, "speaker_id": "h", "type": "text", "zh": "好的，大家晚上好，欢迎收看新一期由微软 Surface 冠名呈现的《麦克维教练秀》。我是 JB·朗，和我在一起的是你们洛杉矶公羊队的主教练肖恩·麦克维。昨天下午我们结束谈话时，我知道你还在寻找答案，所以我今天的第一个问题本来是：你一夜之间找到答案了吗？但不幸的是，听起来今天又冒出了更多的问题。"}, {"start_sec": 1, "speaker_id": "g", "type": "text", "zh": "是的，我想，你知道，你要做的就是继续战斗。你知道，JB，我为昨天受伤的那些球员感到非常难过，他们都是举足轻重的人物。他们对我们来说是很特别的人。嗯，我们会想念他们的。你知道，你会想念普纳·福特。我的意思是，他一直是我们一名了不起的球员，一位了不起的队友，对其他球员有很大影响。达万特·亚当斯和科比·特纳是队长，你知道，他们一直有着巨大的影响力和产出。所以，这三位，然后你还会为布雷克感到难过。你知道，我是说，他第一脚踢球就踢进了，然后在第一次开球弃踢掩护时就伤了前十字韧带。所以，嗯，你知道，正是在这样的时刻，你才会真正了解自己，了解你身边的人。第一，我为这些球员感到难过。这份工作最糟糕的部分之一，就是看到你爱着、关心着、为之付出了那么多的人，因为许多他们无法控制的事情而被夺走了比赛。嗯，然后接下来的是，你知道，赛季还要继续，你必须能够全力投入、做好准备，弄清楚该如何调整和适应，同时也要清醒地意识到：天哪，我们必须做得好得多，而这要从我开始。呃，不过我们基本上已经连续四场比赛都拖到了最后一攻才分出胜负，可以这么说，你知道，费城那场除外，但那场也是拼到了最后。而且，不幸的是，其中三场我们都输了。但是，我们会继续坚守我们的价值观，我们会努力追求更稳定的表现。呃，我觉得昨天防守端做了很多积极的事情。嗯，然后，你知道，进攻端太不稳定了，同时也要承认，对手在那些最关键的时刻发挥出最佳水平的能力，是你不能抹杀的。嗯，但我们确实希望看到自己打得更稳定一些，在每一次开球、每一次推进中都执行得更稳定。"}, {"start_sec": 2, "speaker_id": "h", "type": "text", "zh": "我不想略过任何伤病的具体情况，或者谁会顶上来。等我们稍后谈到昨天的进攻和防守时会讲到这些。但就你刚才描述的这种心情来说，过去十年里，你和这支球队经历过很多需要深刻反省的时刻，而你们能把其中很多扭转为积极的结果。这一次相比如何？"}, {"start_sec": 3, "speaker_id": "g", "type": "text", "zh": "你知道，我觉得这非常，你知道，每一次都不一样，但你会借鉴过去的经验，告诉自己：好吧，嘿，你该做什么？你要战斗。你知道，你回去工作。嗯，你要确保，你知道，领导力最好的体现就是以身作则。你知道，让我们自己去示范那些我们要求球员做到的事情。让我们和教练们一起这样做。让我们在比赛计划上继续保持一定的灵活性和适应性，并针对我们现有的新变化做出调整，以突出他们的技术特点。所以，这就是我们要做的。你知道，这就是我们签约时就承诺要做的事。你签约时并不只是为了赢下所有比赛、让一切都顺风顺水。嗯，你知道，你不一定喜欢这样的时刻，但你确实知道，真正的成长就发生在这样的时刻。这就是我热爱体育的原因。嗯，而且这一切也终将过去。我知道这一点：我们会继续战斗。我会战斗。我们的球员会战斗，我们的教练也会战斗。这就是我唯一会做的事。"}, {"start_sec": 4, "speaker_id": "h", "type": "text", "zh": "是的。这是个有点傻的追问，但我还是要问，因为我想听你的回答。我敢打赌我们的观众也想听。这支球队内部还有信心吗？2026 赛季的公羊队还有时间把事情扭转过来吗？"}, {"start_sec": 5, "speaker_id": "g", "type": "text", "zh": "是的。哦，当然有。你知道，我是说，你看，有其他可以借鉴的例子，这也不是什么敷衍的回答，你知道。我的意思是，你看 2024 赛季，我们开局 1 胜 4 负，那时看起来非常黯淡。嗯，你知道，第二周我们在客场对亚利桑那打了一场非常让人难堪的比赛，那个赛季开局 0 胜 2 负。嗯，我们还经历过其他一些艰难时刻，但你知道，我们有能力坚持既定方向，屏蔽所有噪音，由内而外地去做。嗯，然后我真心相信，你知道，当我们去费城的时候——那年他们在季后赛中表现得非常出色——你知道，我们完全期待赢下那场比赛，然后主场举办国联冠军赛。那一年你最后还赢得了分区冠军。所以，再说一次，我甚至没兴趣想得太远。就像，当你从大局去看待这件事时，这不是重点。我们以前从来不是这样克服逆境的。而是一天一天来。是活在当下，是靠战斗走出困境，只为打出更高质量的橄榄球。嗯，永远不要忘记享受这一切，投入努力，保持正确的能量和正确的心态，并在这些方面培养技能，让你在生活中成为一个更好的人，同时也成为你们所能成为的最好的橄榄球队。"}, {"start_sec": 6, "speaker_id": "g", "type": "text", "zh": "嗯，你知道，因为你可以这么看，而且这甚至不是借口。就像，你知道，有那么几件事如果走向不同，我们现在可能就在进行另一番对话了。我对此非常现实：嘿，我们该如何进步？我们需要能够做到哪些事情？嗯，不幸的是，结果并没有像我们希望的那样到来。但是，呃，我也知道，你知道，你有足够的经验可以借鉴，从而明白，你知道，这不是重点。重点是回去工作。重点是继续进步。嗯，随着我们一天天积累、不断磨练技能，我们再看看自己处在什么位置。"}, {"start_sec": 7, "speaker_id": "h", "type": "text", "zh": "是的。说得好。这也是为什么我在问这个问题之前先说了，它可能对此刻来说太宏观了，对吧？就像——"}, {"start_sec": 8, "speaker_id": "g", "type": "text", "zh": "我觉得不管怎样它总是如此，你知道，而真正的问题是：好吧，替代那些球员会是什么样子？嗯，我们会想办法解决的，其他球员最终会站出来，能够书写属于他们自己的故事。但是，嗯，你知道，这个开局是否和任何人设想的都不一样？当然是。但这就是我们的现实。所以，你必须能够去面对它，去做艰难的事，而且就像我以前跟你们说过的，你知道，有过去的例子可以借鉴。嗯，你知道，我理解如果人们，你知道，希望看到不同的东西，我也感谢大家的支持。呃，但我们会战斗，我们会回去工作，没有人会按下恐慌按钮，同时我们也明白，我们需要有必要的紧迫感，开始进步，并在我们得到那些宝贵机会时，让它体现在我们的比赛方式上。"}, {"start_sec": 9, "speaker_id": "h", "type": "text", "zh": "让我们回到昨天比赛的开局。嗯，问题基本上是：是布法罗让我们输了两次，还是有周一夜赛的“宿醉效应”？你懂这些陈词滥调。球场里和你们球队的能量感觉不一样。你也感觉到了吗？是不是——"}, {"start_sec": 10, "speaker_id": "g", "type": "text", "zh": "我没有，你知道，我没有，但我觉得，你知道，我想我们的球员也会同意，那股能量和我们几天前看到的不一致。所以，嗯，这令人意外，你知道，但我觉得，你知道，这是我们所有人的问题，我觉得我和任何人一样对此负有责任。所以，你知道，你要试着向内反省。你知道，你要确保和球员们沟通，然后想清楚：好吧，我们怎么解决它、承认它，然后确保在我们能控制的事情上，嗯，不再让这种情况发生。"}, {"start_sec": 11, "speaker_id": "h", "type": "text", "zh": "是的。我们从进攻开始。我知道你有多密切地追踪和关注爆发性进攻。你知道，失误差值和爆发性进攻，是决定你们命运的两件事。马修和普卡那里肯定差不多应该完成一次，那样我们现在就会在进行另一番对话了。我明白。但从大局来看，为什么昨天这是个问题？你觉得其中有多少和保护有关？"}, {"start_sec": 12, "speaker_id": "g", "type": "text", "zh": "嗯，有些时候我们知道，你知道，他们会施加一些压迫，球必须能够及时传出去，你知道，我们有几次让他们付出了代价，然后其他一些时候，你知道，我们没有执行好，没有做到那些我们希望能够稳定做到的事情。嗯，你知道，但我会说，你知道，当你像你提到的那样错过一些宝贵机会时，这很遗憾。你知道，我们口袋里有一点漏人，没能真正把那一传完成，嗯，但我对我们的球员、对我们如何前进有信心，而且已经有足够多的积极时刻了。就像我说的，他们把进攻组织起来的能力让我印象非常深刻。你知道，下半场的推进次数非常有限，你有四次推进，你知道，每一次你都在推进球，然后因为不同的原因我们都有点停滞了，除了那第十次推进。嗯，但我相信这些球员，你知道，我相信教练们，我们会继续努力弄清楚：好吧，我们如何稳定地持续推进，我们如何确保把我们的——你知道，我想在这一切中我首先要承认的是，你知道，这要从我和我们如何做得更好开始，如何持续做好为我们的球员创造成功结果的工作。"}, {"start_sec": 13, "speaker_id": "h", "type": "text", "zh": "是的。DQ 在体育界最艰难的位置之一上替补表现如何？"}, {"start_sec": 14, "speaker_id": "g", "type": "text", "zh": "他做得很好。我觉得他昨天打了一场扎实的好比赛。"}, {"start_sec": 15, "speaker_id": "h", "type": "text", "zh": "而四分卫的表现决定了很多东西。我觉得我们已经有足够大的样本量可以说，马修今年到目前为止的数据大约处于联盟平均水平，这并不是说他是联盟平均水平的球员。我知道这反映的是进攻端更大的整体环境，但你知道，你会把多少归因于他，又有多少你会说需要 11 个人一起才能按你想要的方式完成？"}, {"start_sec": 16, "speaker_id": "g", "type": "text", "zh": "哦，这永远是最伟大的团队运动。你知道，他太出色了。他是如此特别，出于很多不同的原因，他对我们是如此重要。所以，你知道，这个位置受到极其严格的审视。我们知道他的产出、他的价值、他对我们意味着的一切。嗯，我觉得他的队友们也知道，你知道，这是集体的贡献，你知道，再说一次，我总是想先从自己开始，你知道，就像：好吧，我在多大程度上把他放在了能取得成功的位置上？嗯，你知道，我们在多大程度上做到了 11 人如一人？而且我觉得他做了很多非常好的事情。我觉得他在最关键的时刻表现最好。然后，你知道，像任何事一样，你知道，你给我看他最好的比赛，或者给我看他希望，你知道，做得更好一点的比赛，总会有几个我们想重来的地方，但是，嗯，他是最有担当的人。他内心非常笃定。他对我们是如此特别，而且他每次都能带来信念，因为他的队友和教练对他有信心——"}, {"start_sec": 17, "speaker_id": "h", "type": "text", "zh": "最后阶段他非常有胆量，完成了其中一些传球。"}, {"start_sec": 18, "speaker_id": "g", "type": "text", "zh": "完全同意。"}, {"start_sec": 19, "speaker_id": "h", "type": "text", "zh": "呃，事后一天来看，对那两次第四档进攻有什么反思？这两次可能让很多球迷印象深刻。"}, {"start_sec": 20, "speaker_id": "g", "type": "text", "zh": "是的，我是说，你知道，其中一次你对它感觉很好。只是，你知道，我们在短码数情况下没有执行好，嗯，至于另一次，你知道，对方用闪击抓住了我们，你知道，算是一次掩护传球，而且考虑到我们的踢球状况，在那种情况下也算是被迫去搏一把。"}, {"start_sec": 21, "speaker_id": "h", "type": "text", "zh": "是的。嗯，关于执行，谈谈到第二层去阻挡，也许你就拿下了那次第四档短码。是不是——"}, {"start_sec": 22, "speaker_id": "g", "type": "text", "zh": "当然。"}, {"start_sec": 23, "speaker_id": "h", "type": "text", "zh": "是的。嗯，有一个联盟范围的趋势我想和你聊聊，我不知道你愿意在这个平台上谈多少，但似乎对于很多球队试图采用的重型阵容加中锋身后接球打法，其中一个应对办法就是疯狂闪击，派大量人手压上去。你在对阵你们公羊队时看到了这种情况吗？你有没有观察整个联盟，看这是否是一种应对办法？"}, {"start_sec": 24, "speaker_id": "g", "type": "text", "zh": "是的，这是其中一件事。是的，我想你也看到了。你知道，我是说，在很多情况下，一些阵型也稍微更紧凑一些，所以，嗯，你可以防得更贴一点。你知道，就像在一个电话亭里一样。所以这是我们看到过的，无论是对阵联盟里的一些对手，你知道，这和去年并没有太大不同，但你知道，就像其他任何事一样。你知道，你必须能够调整和适应，而我们有一些新的变化。你知道，缺少几名一直是那个人员组合中关键因素的球员，你知道，也带来了一些挑战。所以，这是一种应对，但并不是那么新颖，也不是你没有预设应对方案的东西——"}, {"start_sec": 25, "speaker_id": "g", "type": "text", "zh": "我是说，你想要——我们必须正视，我不会坐在这里——我们整体上在进攻端执行得不稳定。嗯，这永远要从我开始，我必须做得更好。"}, {"start_sec": 26, "speaker_id": "h", "type": "text", "zh": "你知道，你一直在说我们必须停止自己打败自己，对吧？这很明显。但对于这样一支成就斐然、即便在国家橄榄球联盟层面都经验丰富的球队来说，问责是什么样子？比如你在考虑人员调整吗？或者你如何落实这种问责？"}, {"start_sec": 27, "speaker_id": "g", "type": "text", "zh": "我觉得你要看——我觉得第一，我认为这是件重要的事。好吧，这是一个持续存在的因素吗？你知道，你要去审视它。你知道，昨天前三节我们一次犯规都没有。嗯，然后出现了两次关键犯规。你知道，开球前的那些犯规是我最在意的，你知道，那是我觉得我们能控制的东西。你永远不可能完全消除它们，但是，嗯，你知道，在第四档还差 3 码时抢跑，变成第四档还差 8 码，这完全改变了局面。你知道，在那种情况下我们必须做得更好。然后在对方试图推进到射门范围以赢下比赛的第一次进攻时抢跑。你知道，我们也比那更好。"}, {"start_sec": 28, "speaker_id": "h", "type": "text", "zh": "好的，谈一些人员方面的事。阿拉里克本周回归。嗯，显然他在他那个位置上的表现对公羊队的成功至关重要。嗯，你有没有和他谈过，达到这里的标准有多重要，这样他才能为球队效力——"}, {"start_sec": 29, "speaker_id": "g", "type": "text", "zh": "当然。你知道，甚至在禁赛处罚下达之前，他和我就谈过这件事，然后你知道，根据联盟关于这类情况的规定，他上周不能进入球队设施，然后他今天回来了，我们会向前看。"}, {"start_sec": 30, "speaker_id": "h", "type": "text", "zh": "你有没有听到凯伦赛后的评论，快速说一下，它们让你意外吗？"}, {"start_sec": 31, "speaker_id": "g", "type": "text", "zh": "那种——他其实主动跟我提起了这件事。他说：“嘿，教练，我不知道你有没有听到。”我当时还没听到。“你知道，我的意思是，我总是想努力带来能量，如果我不上场就做不到这一点，但这话被断章取义了。我没有，你知道，那从来不是我的本意。”我了解这个人的内心。他是一位非常好的队友。他充满能量。他对这个集体充满了爱。他只是想带来影响，推动积极的改变。所以，他和我分享了这件事，我很感激。我了解他的内心。嗯，我能理解大家情绪高涨，但这个人想做的只是带来影响、推动积极的改变。他确实给我们的集体带来了能量。嗯，但他跟我沟通了，一旦他告诉了我，这件事就结束了。嗯，我信任他。我知道他对我、对我们集体意味着什么，我也知道他是什么样的人。所以他想做的只是，他只是想成为我们的光，为我们带来正能量，而且他从来没有想让那些评论，你知道，被以那种方式理解，这是他跟我沟通的。"}, {"start_sec": 32, "speaker_id": "h", "type": "text", "zh": "当然。还想听听你是否愿意再详细说说达万特的伤情和时间表，然后这是否意味着像图图这样的人会有更多机会，或者 CJ·丹尼尔斯迎来他的第一次机会，又或者你们可能会考虑外部选项？"}, {"start_sec": 33, "speaker_id": "g", "type": "text", "zh": "我们会解决这些事情的。你知道，我是说，我也是最近才知道这些情况，所以花了一些时间陪达万特，为他感到难过，因为他为此付出了那么多。嗯，你知道，六到十周大概是沟通给我们的时间。这是一个很宽的范围。嗯，你知道，但我们会一天一天来。你知道，我知道他会尽一切努力尽快回来。他为这项运动付出了那么多。他对他的队友、对我们意义重大，所以我真的为他感到难过。然后我们会摸索着弄清楚，怎样才能填补这个巨大的空缺，而像他这样的人，你永远无法真正取代。"}, {"start_sec": 34, "speaker_id": "h", "type": "text", "zh": "同样在防守端，我是说，普纳在过去好几年的大部分时间里一直是我们的矛尖。呃，除了他的全部能力之外，他的耐用性也一直令人印象深刻。这是多大的打击？尤其是再加上科比·特纳——"}, {"start_sec": 35, "speaker_id": "g", "type": "text", "zh": "打击很大。你知道，他们是我们的两个关键因素。你知道，两个了不起的人，两个，你知道，非常出色的队友。你提到了。你知道，普纳一直那么稳定、那么可靠、那么高产。嗯，你知道，在他的整个职业生涯中，受伤对他来说是非常反常的事。我相信这是他的第一次。所以，你会为他感到难过，你知道，因为他非常爱他的队友。他只是想，你知道，以积极的方式影响比赛。科比·特纳也是一样。你知道，你真的很难过。我是说，这两个人比赛时的那股拼劲，嗯，那股能量，他们代表了公羊队很多正确的东西。"}, {"start_sec": 36, "speaker_id": "h", "type": "text", "zh": "迈尔斯这周能上场吗？"}, {"start_sec": 37, "speaker_id": "g", "type": "text", "zh": "他不能。"}, {"start_sec": 38, "speaker_id": "h", "type": "text", "zh": "特伦特呢？"}, {"start_sec": 39, "speaker_id": "g", "type": "text", "zh": "呃，他会，你知道，我们会随着这一周的进展评估他的状况。他眼神里状态不错。你知道，他这周或许已经接近能上场了。所以，呃，希望随着这一周的推进，我们能对他的状况有更多了解，但我们乐观且充满希望。"}, {"start_sec": 40, "speaker_id": "h", "type": "text", "zh": "一个关于防守端压迫的问题，压迫是有的，干扰也是有的。但它们可能没有像我们希望的那样转化为擒杀和负码数推进。你在录像里看到这一点了吗？把更多这样的机会转化成功的关键是什么？"}, {"start_sec": 41, "speaker_id": "g", "type": "text", "zh": "是的，我想，你知道，我觉得很大程度上在于：嗯，你是否在影响、迫使对方必须把球传出去？所以你知道，每个人都想谈论，你知道，压迫，或者真正的擒杀，或者，你知道，擒抱失码，但你知道，压迫是一个很好的指标。你知道，你冲到了那里，你迫使对方把球传出去，你在阻止对方对你打出爆发性进攻。嗯，所以我觉得有很多东西都体现出了积极的一面，你知道，也要称赞他们足够有耐心，但是，你知道，我们并没有真正——我们限制了很多那样的东西，而且对球必须多快传出这一点，你知道，确实产生了影响。所以，每一个小小的，每一次进攻背后都有不同的故事。所以，呃，我完全理解你在问什么，也理解球迷们在想什么，但是，呃，影响和干扰四分卫、迫使他把球传出去，确实会对一支进攻队伍产生累积效应。"}, {"start_sec": 42, "speaker_id": "h", "type": "text", "zh": "所以，比如看看我们在传球防守上的进步，或者我们在球在空中时做出的一些破坏，这些和我们同样地刺穿口袋的方式是相关的。"}, {"start_sec": 43, "speaker_id": "g", "type": "text", "zh": "绝对是。"}, {"start_sec": 44, "speaker_id": "h", "type": "text", "zh": "呃，我很好奇你在这个时刻是如何指导乔什·华莱士的，你知道，关于他的竞争耐力，因为似乎每周他都会被判一次改变比赛走向的犯规，而那次犯规未必是必须的，但这并不能抹杀他打出的那些好表现。"}, {"start_sec": 45, "speaker_id": "g", "type": "text", "zh": "完全同意。他非常出色。我是说，他很有韧性。他明白，而且你知道，我们会担心那些我们无法控制的事情，嗯，我喜欢乔什·华莱士身上的一切。"}, {"start_sec": 46, "speaker_id": "h", "type": "text", "zh": "是的。就像你说的，前三节犯规几乎被完全消除了。那么这里要传递的信息是否是：嘿，如果你们的分差大到一面黄旗都无法影响比赛，那你们就完成了任务；而在做到这一点之前，你就不能把矛头指向别处？"}, {"start_sec": 47, "speaker_id": "g", "type": "text", "zh": "是的，我想，你知道，我觉得你必须先学会不打败自己，然后才能弄清楚怎么赢得比赛，你知道，所以我们在训练中能对此多投入多少注意力，你知道，让我们的训练准备表现等同于比赛中的实际情况。我们一直这么说，但有时这些会让人豁然开朗，你知道，产生意识，你知道，不是去按恐慌按钮，而是更多地投入到这些事情上，嗯，带着那种有意识的专注和集中去比赛，从而消除其中一些仅仅是因为，你知道，需要稍微更稳定地保持纪律才导致的问题。"}, {"start_sec": 48, "speaker_id": "h", "type": "text", "zh": "想以一个积极的话题结束。其中一个我觉得是昆汀·莱克的抄截，以及更大的主题：本赛季公羊队对对方近端锋的防守有多出色。接下来在拉斯维加斯要面对一场硬仗。你们防守的这一方面有多鼓舞人心？"}, {"start_sec": 49, "speaker_id": "g", "type": "text", "zh": "Q·莱克做得很棒，你知道，他能够在麦克布莱德的外切线路下方切入。他是一名很棒的球员。呃，我觉得，你知道，我们做得非常好。我们在防守端有很多积极的方面，呃，昨天那一次当然就是其中之一。"}, {"start_sec": 50, "speaker_id": "h", "type": "text", "zh": "教练，我们看到你带领球队渡过了很多这样的风暴，这让我们整个球队受益。所以，谢谢你来做客。我们让你回去连夜工作，为下一场比赛之前必须解决的人员问题寻找答案。"}, {"start_sec": 51, "speaker_id": "g", "type": "text", "zh": "谢谢，JB。"}, {"start_sec": 52, "speaker_id": "h", "type": "text", "zh": "好的，代表肖恩·麦克维，我是 JB·朗。感谢您收看新一期由微软 Surface 冠名呈现的《麦克维教练秀》。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

@@ -1,1007 +1,371 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>What Makes Great Leaders &amp; How to Live an Extraordinary Life | Dr. Jared Diamond — 中文逐字译文</title>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>伟大领导者的特质与如何过上非凡人生｜贾里德·戴蒙德博士</title>
 <style>
-:root {
-  --bg: #f7f5f2;
-  --bg-card: #ffffff;
-  --text: #1c1917;
-  --text-muted: #78716c;
-  --border: #e7e5e4;
-  --huberman: #2563eb;
-  --huberman-bg: #eff6ff;
-  --diamond: #059669;
-  --diamond-bg: #ecfdf5;
-  --aside: #57534e;
-  --aside-bg: #f5f5f4;
-  --other: #0f766e;
-  --other-bg: #f0fdfa;
-  --tag-bg: #e7e5e4;
-  --tag-text: #57534e;
-  --asr-bg: #fef3c7;
-  --asr-text: #92400e;
-  --shadow: 0 1px 2px rgba(28,25,23,.04);
-  --radius: 12px;
-  --max: 760px;
-}
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0c0a09;
-    --bg-card: #1c1917;
-    --text: #f5f5f4;
-    --text-muted: #a8a29e;
-    --border: #292524;
-    --huberman-bg: #172554;
-    --diamond-bg: #064e3b;
-    --aside-bg: #292524;
-    --other-bg: #134e4a;
-    --tag-bg: #44403c;
-    --tag-text: #d6d3d1;
-    --asr-bg: #422006;
-    --asr-text: #fcd34d;
-    --shadow: 0 1px 2px rgba(0,0,0,.35);
-  }
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
-  font-size: 17.5px;
-  line-height: 1.8;
-  color: var(--text);
-  background: var(--bg);
-  -webkit-font-smoothing: antialiased;
-}
-.wrap {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 28px 20px 80px;
-}
-header.hero {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 28px 24px 22px;
-  box-shadow: var(--shadow);
-  margin-bottom: 28px;
-}
-.eyebrow {
-  display: inline-flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 12px;
-}
-.pill {
-  font-size: 12px;
-  letter-spacing: .02em;
-  padding: 3px 10px;
-  border-radius: 999px;
-  background: var(--tag-bg);
-  color: var(--tag-text);
-  font-weight: 500;
-}
-.pill.accent {
-  background: var(--huberman-bg);
-  color: var(--huberman);
-}
-h1 {
-  font-size: 1.45rem;
-  line-height: 1.35;
-  margin: 0 0 14px;
-  font-weight: 700;
-  letter-spacing: -.01em;
-}
-.sub {
-  color: var(--text-muted);
-  font-size: .95rem;
-  margin: 0 0 8px;
-}
-.yt-link {
-  color: var(--huberman);
-  word-break: break-all;
-  text-decoration: none;
-  border-bottom: 1px solid color-mix(in srgb, var(--huberman) 35%, transparent);
-}
-.yt-link:hover { border-bottom-color: var(--huberman); }
-details.meta {
-  margin-top: 16px;
-  border-top: 1px solid var(--border);
-  padding-top: 12px;
-}
-details.meta summary {
-  cursor: pointer;
-  color: var(--text-muted);
-  font-size: .9rem;
-  user-select: none;
-  list-style: none;
-}
-details.meta summary::-webkit-details-marker { display: none; }
-details.meta summary::before {
-  content: "▸ ";
-  display: inline-block;
-  transition: transform .15s;
-}
-details.meta[open] summary::before { transform: rotate(90deg); }
-.meta-grid {
-  display: grid;
-  gap: 10px;
-  margin-top: 12px;
-}
-.meta-row {
-  display: grid;
-  grid-template-columns: 88px 1fr;
-  gap: 8px;
-  font-size: .88rem;
-}
-.meta-row dt {
-  color: var(--text-muted);
-  margin: 0;
-  font-weight: 500;
-}
-.meta-row dd {
-  margin: 0;
-  color: var(--text);
-}
-.legend {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 16px;
-  margin: 0 0 22px;
-  padding: 0 4px;
-  font-size: 13px;
-  color: var(--text-muted);
-}
-.legend span::before {
-  content: "";
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  border-radius: 3px;
-  margin-right: 6px;
-  vertical-align: -1px;
-}
-.legend .l-huberman::before { background: var(--huberman); }
-.legend .l-diamond::before { background: var(--diamond); }
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
 
-main.transcript {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.turn {
-  display: grid;
-  grid-template-columns: 116px 1fr;
-  gap: 12px;
-  align-items: start;
-}
-@media (max-width: 560px) {
-  .turn { grid-template-columns: 1fr; gap: 6px; }
-  .label { position: sticky; top: 0; z-index: 1; }
-}
-.label {
-  padding-top: 10px;
-}
-.badge {
-  display: inline-block;
-  font-size: 12.5px;
-  font-weight: 600;
-  padding: 4px 10px;
-  border-radius: 8px;
-  letter-spacing: .01em;
-  white-space: nowrap;
-}
-.content {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 14px 18px;
-  box-shadow: var(--shadow);
-  border-left-width: 4px;
-}
-.content p {
-  margin: 0 0 0.85em;
-}
-.content p:last-child { margin-bottom: 0; }
-
-.spk-huberman .badge { background: var(--huberman-bg); color: var(--huberman); }
-.spk-huberman .content { border-left-color: var(--huberman); }
-.spk-diamond .badge { background: var(--diamond-bg); color: var(--diamond); }
-.spk-diamond .content { border-left-color: var(--diamond); }
-.spk-aside .badge,
-.spk-other .badge { background: var(--aside-bg); color: var(--aside); }
-.spk-aside .content,
-.spk-other .content { border-left-color: var(--aside); }
-
-.tag {
-  display: inline-block;
-  font-size: 11.5px;
-  line-height: 1.4;
-  padding: 1px 7px;
-  margin: 0 2px;
-  border-radius: 6px;
-  background: var(--tag-bg);
-  color: var(--tag-text);
-  font-weight: 500;
-  vertical-align: 1px;
-}
-.asr {
-  display: inline;
-  font-size: 0.86em;
-  padding: 0 4px;
-  border-radius: 4px;
-  background: var(--asr-bg);
-  color: var(--asr-text);
-  opacity: 0.92;
-}
-.marker-line {
-  text-align: center;
-  padding: 4px 0;
-}
-.marker-line .tag {
-  font-size: 12px;
-  opacity: 0.85;
-}
-footer.note {
-  margin-top: 36px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-  color: var(--text-muted);
-  font-size: .85rem;
-  text-align: center;
-}
-</style>
-</head>
-<body>
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="h">安德鲁·休伯曼</option><option value="g">贾里德·戴蒙德</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
 <div class="wrap">
-  <header class="hero">
-    <div class="eyebrow">
-      <span class="pill accent">中文逐字译文</span>
-      <span class="pill">YouTube 自动字幕</span>
-      <span class="pill">Andrew Huberman</span>
-    </div>
-    <h1>What Makes Great Leaders &amp; How to Live an Extraordinary Life | Dr. Jared Diamond</h1>
-    <p class="sub">嘉宾：Dr. Jared Diamond · 约 113 分钟（6800 秒）</p>
-    <p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=2oqBvTRYcv0" target="_blank" rel="noopener noreferrer">https://www.youtube.com/watch?v=2oqBvTRYcv0</a></p>
-    <details class="meta">
-      <summary>文件头元信息 / ASR 说明</summary>
-      <div class="meta-grid">
-        <div class="meta-row"><dt>频道</dt><dd>Andrew Huberman（Huberman Lab）</dd></div>
-        <div class="meta-row"><dt>嘉宾</dt><dd>Dr. Jared Diamond</dd></div>
-        <div class="meta-row"><dt>视频时长</dt><dd>约 113 分钟（6800 秒）</dd></div>
-        <div class="meta-row"><dt>说话人</dt><dd>Andrew Huberman / Jared Diamond（按对话内容标注；源 TXT 以 &gt;&gt; 分轮，共 103 轮）</dd></div>
-        <div class="meta-row"><dt>说明</dt><dd>中文逐字译文；源为 YouTube 自动字幕 en-orig（ASR，可能有错字与专名误差）</dd></div>
-        <div class="meta-row"><dt>ASR 已校正专名</dt><dd>Agusto Pinese→Augusto Pinochet；Achvitz→Auschwitz；Bunangona→Buna-Gona；Klaus Funstenberg→Claus von Stauffenberg；Lord Adrien→Lord Adrian；PAS→PFAS；ameritus→emeritus；opthalmology→ophthalmology；ortor→orator；Hubberman→Huberman 等</dd></div>
-        <div class="meta-row"><dt>ASR 疑难</dt><dd>书名源字幕 “Prophets, Prophets, Coaches, and Kings”（主持人说明与 profits 同音）；“I was not often” 语义不清；部分专名如 Galma、鸟种土名等存疑处已标〔？〕或保留音译</dd></div>
-      </div>
-    </details>
-  </header>
-
-  <div class="legend" aria-hidden="true">
-    <span class="l-huberman">Andrew Huberman</span>
-    <span class="l-diamond">Jared Diamond</span>
-  </div>
-
-  <main class="transcript">
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>人们经常寻找关于领导者的个人概括、个性概括。也许最常见的概括是领导者必须具有魅力。废话。有些领导者很有魅力。 斯大林（Stalin）、奥古斯托·皮诺切特（Augusto Pinochet），智利的独裁者，完全没有魅力。成为有效领导者的方法大约有 37 种，魅力就是其中之一。如果您或任何其他人会问我们如何概括领导者的个人问题，那么有一些关于领导者的概括，但不是个性概括，因为成为有效的领导者有不同的方法。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>欢迎来到 Huberman Lab 播客，我们在这里讨论科学<span class="tag">【音乐】</span>和基于科学的日常生活工具。</p>
-      </div>
-    </article>
-
-    <div class="marker-line"><span class="tag">【音乐】</span></div>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>我是 Andrew Huberman，是 斯坦福大学医学院（Stanford School of Medicine） 的神经生物学和眼科教授。今天我的嘉宾是 Jared Diamond 博士。 Jared Diamond 博士是 加州大学洛杉矶分校（UCLA） 的名誉教授。他在生物学、人类学等领域进行了研究，坦白说，他涉足的领域实在是太多了，以至于没有一个合适的头衔适合他。他还是《《枪炮、病菌与钢铁》（Guns, Germs, and Steel）》等书籍的著名作者，并因此获得了 普利策奖（Pulitzer Prize） 奖。他还被授予 国家科学奖章（National Medal of Science） 和 麦克阿瑟天才奖（MacArthur Genius Award）。今天我们讨论与贾里德最近出版的关于领导者和领导力的书相关的主题。它的标题是《Profits<span class="asr">〔ASR 多作 Prophets〕</span>, Prophets, Coaches, and Kings》。我们讨论政治领袖、宗教领袖、商业和体育领袖。今天，您将听到许多误解被消除，包括“魅力是成功领导力所必需的”这一常见神话。我们讨论了许多令人难以置信的生物学。例如，为什么观察鸟类，是的，鸟类，因为它们依赖视觉和声音，使它们成为理解人类行为和人性的最佳窗口之一。我们还讨论了贾里德本人，因为您很快就会看到，他是一个令人难以置信且非常不寻常的人。我们讨论了他从童年起就存在的强烈好奇心，以及这种好奇心如何从一个主题转移到另一个主题、从一本书转移到另一本书、从一篇论文转移到另一篇论文，以及他将难题带入实验室并深入野外观察自然状态的事物的过程，然后以不同于任何其他科学家或作家的形式带回所有这些知识。因此，接下来是与科学和公共教育领域绝对杰出人物的讨论。我确信它会给你带来启发、着迷和启发。在开始之前，我想强调一下，这个播客与我在斯坦福大学的教学和研究角色是分开的。然而，我的愿望和努力的一部分是向公众提供有关科学和科学相关工具的零成本消费者信息。为了与这个主题保持一致，今天的节目确实有赞助商。现在我与 Jared Diamond 博士进行讨论。 Jared Diamond 博士，欢迎光临。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>很高兴和你在一起。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>很高兴您来到这里。我非常喜欢你的书。 《枪炮、病菌与钢铁》（Guns, Germs, and Steel） 是我读到的第一个。我会抵制住询问你每本书中主题的诱惑，主要集中在你的书上，这是先知，发音相同，但先知是在创造先知和先知中，就像谁成为先知以及他们是什么一样。教练和国王。领导者什么时候重要？我认为现在人们比以往任何时候都更多地思考现代领导力和过去的领导力主题。首先我想知道什么是先知？先知。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>对我来说，先知意味着宗教领袖，因为我关于领导力的书着眼于四个领域的领导力。政治领域、商业领域、体育领域，最后是宗教领域。我用先知这个词来指代宗教领袖，因为它可以用来形容先知、先知、教练、副教练和国王。 U 我不在乎他们是否预言未来。这只是我对宗教领袖的话。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>让我们来谈谈每个类别中的领导力，以及每个类别中对您来说最光明和最黑暗的人。如果您愿意，我们也可以进入连续体的中间。但你的书一开始就谈论了希特勒（Hitler），对于绝大多数活着的人来说，希特勒（Hitler） 被认为是有史以来最黑暗的领导人之一。请告诉我们关于 希特勒（Hitler） 的信息以及您对他的了解，这或许可以帮助我们更全面地思考领导力。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>我出生于1937年，这意味着我是在第二次世界大战中长大的。我在美国长大，没有受到过轰炸。<span class="asr">〔ASR：I was not often，语义不清〕</span>但我记忆中的每一天都是由战争形成的。我的第一个记忆，我能记得的第一个数据是美国陆军发布的第一张死去的美国士兵的照片。这是《生活》杂志的著名封面。两名美国士兵面朝下死在 新几内亚（New Guinea） 的 布纳-戈纳海滩（Buna-Gona Beach） 上。所以我是在希特勒（Hitler）的阴影下长大的。我的家人来自东欧，是来自东欧的犹太人。最后我的家人当然是在 大屠杀（Holocaust） 中失踪了。我娶进了一个波兰家庭。我妻子的父母于 1948 年来到美国。我妻子的母亲在 奥斯维辛（Auschwitz） 中幸存下来。我妻子家庭的各个成员都没有幸存。于是我的人生和Marie的人生就在希特勒（Hitler）的阴影下形成了。最重要的是，还有一些领导人，非政治领导人，他们主要是为了好的方面而塑造了我的生活。 剑桥（Cambridge）生理学系有一位系主任。我留下了一个橡胶软管泵，水泵整夜运转以干燥放射性同位素。泵坏了。它淹没了我的实验室。它淹没了我实验室下面的实验室。那不是一个淹没实验室的好选择。那是实验室阿德里安勋爵（Lord Adrian），他是我论文导师的岳父，也是我学院的院长（Master）。第二天早上，生理学系主任 Brian Matthews 打电话给我，我以为我要被开除。相反，他说你知道那很草率。不要再这样做了。就是这样。所以有一位领导者本可以结束我的职业生涯，但他没有。还有其他领导者为我的职业生涯做出了决定性的好事。没有做任何事情的人很少，但他们不是做我的领导者。这些就是我个人对领导者感兴趣的原因，首先是 希特勒（Hitler） 的问题。如果没有 希特勒（Hitler），我在东欧的家人和 Marie 的家人还会活着吗？</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>我们离没有成年 希特勒（Hitler） 有多远？ 希特勒（Hitler） 的一生有两个著名的濒临结局。我的书的第一段是关于 1930 年 希特勒（Hitler） 就任总理之前发生的一场车祸，当时他的司机驾驶的豪华轿车驶入德国的一个十字路口。呃 希特勒（Hitler） 坐在副驾驶座的驾驶座上，右边的座位上，一辆大卡车与 希特勒（Hitler） 的轿车成直角驶入十字路口。嗯，希特勒（Hitler） 的司机和卡车司机最终要么刹车，要么加速，卡车撞上了 希特勒（Hitler） 的车脸，推上了弯道，正要从汽车上碾过去，压垮 希特勒（Hitler），就在这之前它停了下来。 希特勒（Hitler） 受伤，但没有死亡。如果他于 1930 年去世，是否会有 第二次世界大战 以及 大屠杀（Holocaust）？然后另一个著名的几乎是 1944 年，也就是战争的最后一年，克劳斯·冯·施陶芬贝格伯爵（Count Claus von Stauffenberg），一位幻灭的德国军官，试图杀死 希特勒（Hitler）。他带着一个装有炸弹的小手提箱进入 狼穴（Wolf&#x27;s Lair） 的会议室。他在希特勒（Hitler）旁边坐下，把装好炸弹的手提箱放进去。他把手提箱放在 希特勒（Hitler） 的脚下，炸弹爆炸了。但就在炸弹爆炸之前，希特勒（Hitler） 身体前倾。结果，房间里的另外四人被杀。嗯 希特勒（Hitler） 的耳膜被震破了。 希特勒（Hitler） 受了重伤，但没有被杀。但如果 希特勒（Hitler） 没有倾向于那是 1944 年，嗯，我妻子家里的很多成员都会幸存下来。所以，这些就是为什么 希特勒（Hitler） 差一点就没有成为总理，以及它差一点就结束于 1944 年的 第二次世界大战，以及结束于 1944 年的欧洲 第二次世界大战。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>还有其他人可以完成 希特勒（Hitler） 所取得的成就吗？</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>历史学家对此争论不休。这说明了判断领导者是否能发挥作用是困难的。历史学家和传记的传统方法是写传记。有很多人写过 希特勒（Hitler） 的传记。 希特勒（Hitler） 的大多数传记作者都得出结论，希特勒（Hitler） 在几个方面都是独一无二的。不幸的是，他是 20 世纪最具魅力的演说家。他是反犹太主义者。欧洲有很多反犹太分子，不仅在德国，而且在波兰。但是希特勒（Hitler），所有其他反犹太分子都一一杀害了犹太人。 希特勒（Hitler） 是唯一一个想到以工业规模进行这一想法的人。如果没有希特勒（Hitler），可能就不会发生大屠杀。他还擅长欺骗人们，在 慕尼黑（Munich） 欺骗了著名的 内维尔·张伯伦（Neville Chamberlain），但他也欺骗了德国政客。他欺骗了德国商界领袖。他欺骗了德国将军。他欺骗了他的纳粹同胞。他只是擅长欺骗别人而已。因此，这些都是他认为他可能做出改变的论据，如果没有 希特勒（Hitler） 的世界，可能就不会有 第二次世界大战，也不会有 大屠杀（Holocaust）。大多数历史学家倾向于认为领导者不会带来改变。但就 希特勒（Hitler） 而言，大多数历史学家都会认为 希特勒（Hitler） 确实发挥了作用。英国著名历史学家A. J. P. Taylor使用同样的事实在希特勒（Hitler）写了一本传记。基于同样的事实，A. J. P. Taylor 得出的结论是，希特勒（Hitler） 是一名普通的德国政治家，追求其他德国政治家的目标，这是事实，但如果 希特勒（Hitler） 不是一个领导人，就不会有任何区别。这些都是关于但说明了传统传记方法的弱点的争论。一个人受事实的限制，但同一事实不同的人会得出不同的结论。这就是为什么我的书使用了不同的方法，即自然实验的方法。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>在您看来，谁是最不可能成为一名取得积极或破坏性目标的极其成功领导者的领导者？</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>有很多候选人。一位候选人，第一个出生于 1937 年，嗯，我是在 罗斯福（Roosevelt） 的领导下长大的，但我对他感兴趣的第一位美国总统是因为我当时是 哈里·杜鲁门（Harry Truman），最不可能的重要美国总统。由于一些琐碎的政治原因，他被选为 罗斯福（Roosevelt） 的第三或第四任副总统。他是一位来自密苏里州的参议员，并不出名。他本来是通过不诚实的恶作剧成为参议员的。嗯，他是如此微不足道，以至于 罗斯福（Roosevelt） 在 杜鲁门（Truman） 成为副总统后就再也没有见过他。当罗斯福（Roosevelt）去世时，杜鲁门（Truman）完全不知道原子弹。然而他必须做出的第一个决定是是否投下原子弹。当时杜鲁门（Truman）受到广泛的鄙视。我记得我自己对 杜鲁门（Truman） 的看法。他、我和其他人都看不起特鲁姆，但回想起来，我们发现 杜鲁门（Truman） 很勇敢。嗯，他不在乎人们是否讨厌他。嗯，他做出了勇敢的决定，柏林空运（Berlin Airlift），氢弹的开发，朝鲜战争（Korean War），人们因此而讨厌他，发射了 麦克阿瑟将军（General MacArthur），人们因此而讨厌他。因此，当杜鲁门（Truman）下台时，他受到了广泛的厌恶，但回想起来，嗯，逐渐地，他被赞赏为不等于罗斯福（Roosevelt）和林肯，而是第二梯队，一位勇敢的美国总统，他做出了决定，并且不在乎他会因为这个决定而被厌恶，他的决定。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>这是一个不幸的现实，但自来水通常含有对我们的健康产生负面影响的污染物。事实上，环境工作组（Environmental Working Group） 2020 年的一项研究估计，超过 2 亿美国人通过饮用自来水接触到 PFAS 化学品（也称为 “永久化学品”（forever chemicals））。这些 “永久化学品”（forever chemicals） 与严重的健康问题有关，例如激素紊乱、肠道微生物群破坏、生育问题和许多其他健康问题。出于所有这些原因，我很高兴 Rorra 成为这个播客的赞助商。我认为 Rorra 制造的是市场上最好的滤水器。正如我之前讨论的，喝足够的水对于整体健康至关重要。您希望您的水清洁并含有支持水合作用和整体细胞功能的天然矿物质。 Rorra 的过滤技术可去除有害物质，包括内分泌干扰物和消毒副产物，同时保留镁和钙等有益矿物质。它不需要安装或管道。它由医用级不锈钢制成，其时尚的设计非常适合您的台面。事实上，我认为它对我的厨房来说是一个受欢迎的补充。看起来很棒，水也很美味。如果您想尝试 Rorra，可以前往 rorra.com/huberman 并获得独家折扣。同样，这是 r 或 a.com/huberman。今天的节目也是八位给我们带来的。 Eight Sleep 生产具有制冷、加热和睡眠跟踪功能的智能床垫套。 Eight Sleep刚刚推出了Pod 6，这是他们最先进的睡眠系统。 Pod 6 的尺寸是之前型号的一半。它的制冷和制热速度提高了 20%，并且用于跟踪睡眠的传感器数量是原来的九倍。八点之所以能如此有效地改善您的睡眠质量和持续时间，是因为它有助于控制您的核心体温。原因是，为了入睡并保持深度睡眠，您的核心体温必须下降约 1 至 3°。为了醒来时感觉完全神清气爽、精力充沛，您实际上希望自己的体温在睡眠的最后几个小时内有所升高。八号会整夜自动调节您的床温，并监控您的睡眠并动态调整您的睡眠环境温度，让您获得最大程度的深度睡眠和快速动眼睡眠。我已经睡在 Eight Sleep 床垫套上近 5 年了，每推出 8 个新版本，它就能越来越好地了解我的身体需要什么，以获得尽可能好的夜间睡眠。当然，它还为我提供了有关我的深度和快速眼动睡眠时间的出色数据。如果您想尝试 8 个，请访问 eightsleep.com/huberman，他们的新 pod 6.8 发往世界各地许多国家（包括墨西哥和阿联酋），可享受高达 200 美元的优惠。同样，访问 8.com/huberman 最多可节省 200 美元。如今，至少在科技领域和创业领域，有很多关于内省（清嗓子）对那些试图创造大事业、成为领导者、企业家的人造成的损害的讨论。我们必须小心不要用太宽泛的画笔来绘画。但我在研究不同的领导者时，无论是黑暗的还是光明的，是否存在一个主题，即强大的领导者能够直接进入下一个决策，而无需过多考虑过去或他们将如何被看待？这是内省的一种形式。我知道还有其他的，但是有相关性吗？</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>我会说不。这说明了一个广泛的观点。人们经常寻找关于领导者的个人概括、个性概括。也许最常见的概括是领导人必须具有魅力。废话。有些领导者很有魅力。 斯大林（Stalin）阿古斯托掐智利独裁者完全没有魅力。成为有效领导者的方法大约有 37 种，魅力就是其中之一。如果您或任何其他人会问我们如何概括领导者的任何问题，那么都会有一些关于领导者的概括，但不是个性概括，因为成为有效的领导者有不同的方法。我的感觉是，根据你刚才所说的，你对领导者和领导力的理解是，正是这种奇怪的环境融合在一起，无法更好地领导，也许是魅力或缺乏魅力，这是一系列奇怪的事情，导致了历史和我们现在正在经历的事情。所以对我来说，也许我错了，这与我根据你之前的书对你的理解有点对比，那就是你试图找到主题规律。你试图为那些表面上非常复杂的事物建立结构，比如我们是如何到达这里的，文化是如何演变的等等，等等。那么，在对领导力的探索中，你如何从认为能够解释每种情况到某种让你满意的分类法？我将与我们稍后要讨论的观鸟进行类比。我的意思是，每只鸟都是不同的，但每只鸟都属于一个特定的类别，并且具有特定的特征。在很多方面，我以同样的方式思考领导者和领导力。什么是令你满意的？什么样的理解程度和思想一致性是令人满意的？</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>我在写关于领导者的文章时得出了一些概括。但我想说，就像人们经常问我的背景一样，贾里德，你关于领导者的书现在似乎与枪支、细菌和钢铁相反。啊？贾里德，你的书《钢铁之旅》是关于大图案的。没有任何关于个人的事情。相反，它是关于驯化和大陆的形状。这是否意味着您改变了主意并且现在认识到个人的作用？我的回答是否定的。 《枪炮、德国和钢铁》讲述了过去一万年各大洲的历史模式。在过去的一万年里，在整个大陆上，我想不出有哪个人做出了改变。没有人对新月沃土的启动文明负有责任。肥沃的新月跳跃开始了文明。为什么？因为肥沃的新月地带是最多产的野生植物豌豆、小麦、大麦，最多产的野生动物牛、绵羊、山羊、猪、马居住的地方。因此，在枪蘑菇海豹中，根本没有任何关于个人的东西，而我关于领导力的书是关于人们在我一生中所做的事情，通常是在局部范围内，所以它是关于个人的，而枪钢根本不是关于我没有改变主意，而是我现在在Profits<span class="asr">〔ASR 多作 Prophets〕</span>, Prophets, Coaches, and Kings中看到与钢枪相比完全不同类型的问题</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>说《Profits<span class="asr">〔ASR 多作 Prophets〕</span>, Prophets, Coaches, and Kings》在某种程度上是一本自传，讲述了你一路走来影响你生活的事情，这是不是有点过分了。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>在动机方面，是的。从内容上看，没有。在动机上。是的，希特勒（Hitler）在我的家庭生活和我妻子的生活中扮演的角色，但是这本书的内容对我来说都是分离的。在引言中，我想我确实提到了 Brian Matthews 爵士作为 剑桥（Cambridge） 生理学系的领导者拯救了我在生理学方面的职业生涯。但是一旦我进入政界，一旦我进入商界，一旦我进入体育界，宗教，嗯，不，这就是我没有为这四个领域中的任何一个领域做出贡献的所有东西。现在，在本书的尾声中，我确实会问哪些领域或其他领域正在等待通过自然实验的方法进行探索，我指的是科学，我是一名科学家，艺术和音乐，我是一名音乐家，军事历史，我对军事历史，社会动荡非常感兴趣，我希望将来人们将这些领导力问题应用到涉及我个人的事情上，特别是音乐和科学，但那是未来的事情。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>你提到了关于实验室被淹没的故事，我应该指出，我听到你说放射性同位素呃水。您从那位教授的回应中得到什么启示？这是否让你更加宽容别人的错误？</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>我不是一个会因为别人的错误而指责别人的人。嗯，我犯了很多错误。我自己也曾经历过一次非常危险的情况。我做过一些可能当场结束我职业生涯的事情，比如还有其他一些可能当场结束我职业生涯的事情。所以，我不想因为别人的错误而责备他们。我记得J·罗伯特·奥恩海默的传记中提到，奥恩海默犯了盗窃罪，他很容易被解雇，他的职业生涯可能已经结束，但盗窃案被忽视了，所以他继续发展他的职业生涯。有趣的是，当我们在等级阶梯上处于非常低的位置时，嗯，就像在传统时代的学术界一样，嗯，人们显然拥有巨大的力量来影响我们，无论我们是否前进，但当嗯，像这位呃教授的宽恕，如果人们能听到的话，它总是令人放心，因为我认为很多人将强大的领导力与嗯在这里，我再次概括为一种对嗯不完美的缺乏宽容，缺乏宽容在这种情况下可能会威胁到整个部门的事情。所以，一方面，这是一个非常甜蜜的故事，但我想它不会再发生第二次。还有那个，对吧？ 36 年来，我一直在 UCLA 医学院做生理学教授，做实验室实验，所以我有研究生和博士后，但很多研究生后都搞砸了。他们犯了很大的错误。我记得我的第二个研究生我的部门想开除他，因为他考试成绩不好。我说服了我的部门让他留下来，事实证明他是一位杰出的研究员。我的其他几个学生也有过千钧一发的经历，但我再次想起我自己是多么接近结束我的职业生涯，人们原谅了我，我的职业生涯发展得很好</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>是的，我会这么说</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>既然我被原谅了，我就应该原谅我的学生</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>我喜欢它，我相信很多人都欣赏这与我认为大多数人所理解的学术界截然不同的景象。所以谢谢你。在你心目中，宗教领袖的重要性足以在本书中占据显着位置。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>书中有两章是关于宗教领袖的。嗯，第一章着眼于 19 世纪美国的三位宗教领袖，因为我们获得了很多关于他们的详细信息。约瑟夫·史密斯，摩门教摩门教的创始人。安·李（Anne Lee），震颤派创始人。 吉姆·琼斯（Jim Jones），琼斯敦创始人。所以，我们有很多关于他们的信息。关于宗教的第二章着眼于耶稣。我们对耶稣的了解很少。我们没有任何关于他的当代信息。我们掌握的关于他的第一个信息是圣保罗书信和圣马可福音，这两本书都是在他去世大约 20 年之后写的。所以没有关于他和耶稣的当代信息。耶稣有改变吗？好吧，如果你读过《新约》中谈到的另外六位弥赛亚的名字。耶稣不是唯一的弥赛亚。当时有很多人说：“我是弥赛亚。”其中六个在新约中被提及。其中有几个人被罗马人杀死了。施洗约翰的头被砍掉了。嗯，耶稣被杀了。但这是西罗马帝国，西欧亚大陆最强大的政治实体。正是建立主要宗教的正确地点。耶稣当然无法预见到这一点。在他去世1467年后，哥伦布扬帆起航，开启了欧洲人对世界的征服之旅，传播了欧洲宗教。但欧洲的宗教是基督教。为什么？因为基督教是当时最强大的实体西罗马帝国的宗教。因此，如果耶稣在苏丹也具有相同的属性，我们就不会了解耶稣。如果耶稣是公元前 100 年西欧的宗教领袖，我们就不会了解他。他是正确的地点和正确的时间。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>他绝对是所有呃宗教领袖中最高的 H 指数。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>在正确的时间出现在正确的地点。我相信基督教是当今世界上信奉人数最多的宗教。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>我知道你尽量不要一概而论，但是有什么关于耶稣的具体信息吗？我们确实几乎可以肯定地认识这个人，或者可以肯定地说，他的有效性，或者你说的是正确的地点，错误的，正确的时间，但这似乎是必要的，但还不够。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>正确的。在正确的时间、正确的地点还有其他人。新约中还提到了另外六位先知，他们就是死海古卷中的艾赛尼派。为什么世界宗教是由耶稣而不是由艾赛尼派领袖创立的？嗯，有几件事。第一，耶稣的信息和个人品质。他向所有人传达了一个普遍的信息。这不仅是给艾赛尼派的信息，也不仅仅是给犹太人的信息。是的，耶稣是犹太人，但他的信息不仅仅针对犹太人。这是当时罗马帝国宗教领袖的普遍信息。这对他来说是一件大事。对他有利的另一件事是，宗教不仅需要一个有魅力的创始人，还需要一个组织者。 在某些情况下，组织者和富有魅力的创始人是同一个人。穆罕默德是一位伟大的组织者，也很有魅力。苏丹的马迪是一位出色的组织者和出色的将军。也是一位杰出的宗教领袖。耶稣死得太早了。呃，他不是或组织者是圣保罗，但圣保罗是一位伟大的组织者，就像摩门教一样。约瑟夫·史密斯是罗马宗教的魅力创始人，即使在他的一生中，他作为组织者也有弱点，他是他，然后被私刑处死，组织者是杨百翰，他是一位伟大的组织者。所以你的问题是，为什么耶稣是普世信息，他很幸运，后来跟随他的是一位伟大的组织者圣保罗，他在正确的时间出现在西罗马帝国的正确地点</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>哥伦布显然能够传播他的想法，正如你所指出的那样，但仍希望避免概括。我得到的结论是，你需要一个领导者。你需要一个组织者。有时领导者是组织者，但很多时候听起来像是有其他人或其他人可以帮助组织信息。我们在科学中看到了这一点</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>很多时候，特别是在生物科学领域，嗯，呃，你的导师霍德金·赫胥黎（Hodgkin–Huxley）成双成对地获得了诺贝尔奖。他们因描述动作电位的生物物理学而闻名。胡巴尔黄鼠狼获得诺贝尔奖。这种配对很常见，而且在了解了大卫·哈布和托森·黄鼠狼之后，托森还活着。那里也经常有个性呃恭维。一个人往往更直言不讳，一个人更直言不讳，你知道，沃森和克里克。我确信还有很多不合适的例子。呃，但是在思考领导者，而不仅仅是宗教领袖时，我们能否对两个非常值得称赞的人进行任何形式的概括，他们在他们的领导力和信息方面特别有效地获得逃逸速度？</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>我不这么认为。就宗教而言，嗯，这不仅仅是配对，而且通常是三重奏，即要创立一个宗教，你需要有魅力的创始人，你需要一个组织者，但通常当你发现一个新宗教时，总是会受到现有宗教的抵制，而且这种抵制往往是暴力的，因此新宗教常常不得不保卫自己，不得不有嗯将军。嗯，例如，麦穆罕默德是一位杰出的将军、组织者和魅力。苏丹的马迪在 19 世纪末在东非建立了一个帝国。伟大的将军。他仅用棍棒就率领数百、数千苏丁部落用机枪消灭了英埃7000人的军队，一位伟大的将军，伟大的组织者，具有超凡的魅力。但在科学的其他领域，也有一些科学家是大规模的组织者。我的论文是艾伦·霍德金。艾伦·霍德金不是伟大的科学家，他没有将 50 人组织成一个实验室小组。艾伦·霍德金（Alan Hodkin）的策略是一次招收一名博士生。嗯，我是他的博士生三年了。他没有其他博士生。他确实成为了三一学院的院长，而且是一位有效的三一学院院长。但其中有科学家，也有杰出的组织者。杰拉尔德·阿德尔曼 (Gerald Adelman) 因研究抗体如何运作而获得诺贝尔奖。我相信杰拉尔德阿德尔曼和我的一个朋友在大约 50 名博士后发现了肾脏中存在所谓的本琼斯蛋白质。这一发现对于弄清楚抗体如何运作至关重要。呃，但是我朋友单独操作。他没有 50 个臀肌。因此，当我的朋友犯了一个战术错误，在发表文章之前就他发现本·琼斯蛋白质进行演讲时，杰拉尔德·阿德尔曼就在观众席上，我被告知然后立即告诉他的实验室，“改变一切。”他的 50 名同事去了那里，他们弄清楚了抗体是如何运作的。杰拉德·阿德尔曼获得诺贝尔奖。我的朋友没有获得诺贝尔奖，但杰拉尔德·阿德尔曼是一位非常有效的组织者和筹款人</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>和大个性。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>是的。是的。我见过他两次。是的。他是一个很有个性的人。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>是的。在免疫学之后，他开始涉足神经科学。呃，呃，是的，伟大的想法。嗯，大实验室，大想法。所以，对于我所做的陈述，我意识到，有很多例外，就像有一些符合它的事情一样。我很惊讶你提到了 吉姆·琼斯（Jim Jones）。嗯，大多数人可能都听说过琼斯敦大屠杀。在我看来，最重要的轮廓是一群人离开这个国家追随这个邪教领袖并喝毒药，这是集体自杀。当我听到邪教和邪教领袖时，出于某种原因，我默认更多地考虑邪教追随者的易受影响程度，而不是邪教领袖的说服力。你知道，在我看来，大卫·卡雷什和分支恶魔是被烧毁的建筑，杀死了里面的所有人。当我听到卡雷什的演讲时，除了他疯了之外，他们对说服我没有任何影响。当你想到一个有效的邪教领袖时，我认为大多数人可能会默认他们正在掠夺弱势群体。但是否有一个世界，那些有效的邪教领袖可以在正常社会的背景下做其他事情并成为有效的领导者？或者是有一些关于配对的功能失调的配对</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>容易成为邪教追随者和邪教领袖的人？</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>有趣的问题。领导者需要能够使她或他领导的个人特征。他们可能很有魅力。他们也许能够吓唬人们。他们也许能够说服人们。一方面是领导者，另一方面是追随者。并不是每个人都是追随者。有些人很容易追随有魅力的人，而还有很多人甚至不会追随大多数有魅力的人 希特勒（Hitler）。他们是追随 希特勒（Hitler） 的德国人，被 希特勒（Hitler） 说服了，但纳粹从未在选举中获得多数席位。大多数德国人没有被 希特勒（Hitler） 说服。琼斯镇的 吉姆·琼斯（Jim Jones），因在瓜纳建立殖民地而臭名昭著。殖民地以美国历史上最大规模的集体自杀而告终。 900 931人饮酒、殴打、用氰化物毒害。但是吉姆·琼斯（Jim Jones），他不能被视为一个疯子。呃，他领导了印第安纳波利斯废除种族隔离。他以他在印第安纳波利斯创立的教会的崇高理想吸引了人们。追随他的人可不是乱七八糟的。他们主要是穷人，主要是老年人。他们中很多人是非裔美国人。他们往往不是受过高等教育的人。所谓的人民圣殿需要有魅力的领袖。嗯，你提出的这个观点确实很有趣，但是它也需要有意愿的人去成为追随者。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>我没有意识到他领导了明尼阿波利斯废除种族隔离。如果他在从印第安纳波利斯搬到旧金山之前就去世了。如果他在旧金山的头几年就去世了，那么他会被任命为旧金山的住房专员之一。他吸引了旧金山许多理想主义者，但他却逐渐变得越来越疯狂。但这幅图说明了你提出的观点，这是一个有趣的观点，人们不仅要询问领导者，还要询问追随者。谁愿意跟随？呃，就纳粹而言，是的，很明显，有些德国人愿意追随 希特勒（Hitler）。就温斯顿·丘吉尔、富兰克林·德拉诺或 罗斯福（Roosevelt） 而言，嗯，我的父母三次投票支持 罗斯福（Roosevelt），一旦他们投票反对罗斯，我的父母和其他 罗斯福（Roosevelt） 就不是疯子。还有温斯顿·丘吉尔，那些投票给温斯顿·丘吉尔的人并不是疯狂的、病态的、病态的人。在这种情况下，人们不能像 吉姆·琼斯（Jim Jones） 的情况那样关注其追随者的病态或奇怪品质。我想稍微休息一下并感谢我们的赞助商 AG1。我很高兴与大家分享，AG1 刚刚推出了他们的最新配方 AG1 Pro。 AG1 Pro 采用经过临床支持的 AG1 配方，该配方混合了维生素、矿物质、益生菌和适应原，并添加了三种重要的新成分。一水肌酸、HMBB 钙和肌肽锌。每份含有 5 克一水肌酸，可支持肌肉力量和性能以及大脑健康。 HMBB 钙可支持肌肉恢复并减少肌肉分解，肌肽锌可支持和改善肠道内壁。所有这三种成分都有令人信服的科学支持，因此，我喜欢看到它们添加到现有的 AG1 配方中。正如你们大多数人所知，我每天服用 AG1 已有近 14 年了。早在我知道什么是播客之前我就开始服用它了。这是一款很棒的产品，现在新的 AG1 Pro 配方让它变得更好。如果您想尝试 AG1 Pro，可以访问 Drinkag1.com/huberman 获取特别优惠。 AG1 首次订阅即可免费赠送一瓶 Omega-3 辅酶 Q10。同样，请访问 Drinkag1.com/huberman，首次订阅 AG1 即可免费获得一瓶 omega-3 辅酶 Q10。我意识到可以根据一个人决定在哪里划分界限，将领导者、人、动物或任何东西分为不同的类别，但是对于那些声称自己不是在等级制度的顶层，他们服从某个或某个特定神的上帝，而不是在金字塔的顶端的强大领导者，可以说任何有用的信息吗？我们将把耶稣排除在外，因为这是显而易见的。但对于像 吉姆·琼斯（Jim Jones） 这样的人来说，你说他有一座教堂。嗯，他还在谈论上帝的存在吗？他是否试图利用上帝，让人们相信他对上帝很谦卑，或者他现在或正在说他真的是权力和理解力的顶峰？我想我们可以将此应用于我们讨论过的几乎任何人或其他任何人。这是一条信息丰富的分界线吗？</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>吉姆·琼斯（Jim Jones）当然没有否认神，也没有声称自己比神优越。这是领导者共有的另一个特征，我提到过，成为有效的领导者有不同的方法。魅力。嗯，我认为这是我书的第三章，我有一个表格，其中汇集了从 第二次世界大战 开始的那个时期的 22 位杰出政治领导人。我问自己，对于这 22 位领导人，我们可以得出什么概括？这22位显而易见的候选人你可以争论，但我包括斯大林（Stalin）和萨达特·墨索里尼希特勒（Hitler）等。我问自己，所有这些领导人是否有共同的品质，令我惊讶的是，在这22位领导人中，只有两人自愿下台。纳尔逊·曼德拉是南非后种族隔离时代的开国领袖，我想他已经80多岁了，他作为总理自愿退休部长。嗯然后新加坡独立的缔造者, 嗯, 担任总理可能长达30年可能长达40年但是他自愿下台了。.但在另外 20 人中，这 22 人中只有两人自愿辞职。所有其他主要领导人要么被暗杀和瓦萨达特要么自杀希特勒（Hitler）或者他们被投票下台温斯顿·丘吉尔或者他们被政变赶下台，这意味着在政治上一旦你成为一个强大的领导者，你就会得出这样的结论：你是一个有效的强大领导者。你不太可能自愿辞职。 22 人中只有两人做到了。所以这是我没有预料到的概括。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>是的，我想这也是一种生活方式的影响。呃，没有人愿意在他们的舒适度方面倒退。呃，但令我惊讶的是，尽管年纪大了，但有些人仍然有活力继续占据这些需求非常高的地方</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>令人疲劳。我的意思是你显然没有放慢速度，但是呃呃你知道但是呃我们会谈论你现在正在自学意大利语的事实。是这样吗？您正在自学一门新语言吗？我没听错吗？</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>我学了意大利语。意大利语是我 13 门语言中的最后一门。我学了意大利语</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>才 13 岁。是啊。当我61岁时。我每天都读意大利语。我所有的休闲读物都是意大利语的。我不做英语休闲阅读。我每天都读意大利语。每周我都会和我的意大利教授（南加州大学教授）进行一次 2 小时的意大利语对话。是什么促使您学习 13 种语言？这对你来说很有趣吗？或者你和/或你喜欢挑战，作为学习另一种语言的诱惑的一部分吗？</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>我的母亲是一位才华横溢的语言学家。我只是喜欢学习语言。在我的学校要求我们学习拉丁语五年。我喜欢它。嗯，我们可以选择学习希腊语或生物学选修课。我想我的余生都会从事生物学工作。我现在就说我花了三年时间学习希腊语。我仍然可以背诵主要内容的开头然后嗯在大学嗯我就在我母亲帮助我之前学了德语就在大学进入大学之前这是人造卫星的时代所以我学了俄语我学了西班牙语然后我大学毕业后的第一个夏天我在芬兰度过了夏天芬兰语不是印度语它是一种非常困难的语言。当我去芬兰时，我没有芬兰语语法，但我在芬兰搭便车。嗯，1959 年夏天，当时在芬兰，很少有芬兰人会说英语。为了搭便车，我必须开始学习芬兰语。最后我来到了芬兰北部的一个国家公园，徒步走进了一间由四名芬兰士兵看守的小屋。这四名芬兰士兵除了芬兰语外不会说任何语言。我和他们在一起好几天了。他们通过演示来教我芬兰语。嗯嗯杯子。他们拿起一个杯子。芬兰语中杯子的意思是 ki。然后完成而不是介词，它有后置词情况。所以当你想说杯子在桌子上时。当你想说我把杯子放到桌子上时，当你把杯子从桌子上拿下来时。因此，这四名芬兰士兵向我展示了如何将杯子戴上或取下，我非常喜欢它，并且我认真考虑过退出科学。嗯，我去芬兰后遇见了我的父母，在巴黎遇见了我的父母。他们一年来第一次来到欧洲，我正在认真考虑放弃科学并成为一名同声传译。我本来要去瑞士成为一名翻译。幸运的是，我的父亲，他轻轻地说，“也许现在放弃有点早了。我知道你现在的科学对你来说很沮丧，但你只做了一年。你为什么不再给自己六个月呢？六个月后，如果实验进展不顺利，你可以做一名翻译。但我很喜欢学芬兰语。然后当我去了新几内亚（New Guinea），新几内亚（New Guinea）和我一起工作的第一批 新几内亚（New Guinea） 人是一个因库鲁笑病而闻名的部落，当时有一种叫做“谈话视觉”的 新几内亚（New Guinea） 贸易语言，所以我能够通过谈话视觉进行交流，但我只是喜欢从几次尝试中学习“突进”，我记得，我向我询问线人，我试图找出“for”这个词。我们嗯，我已经学会了“我唠叨”这个词，所以我在谈话视觉中问了我的突袭线人，嗯“我唠叨”，他说然后他给了我一个“我们”的词，然后我回答说“哦，我们不是nag kasik”。事实证明，英语中的“突袭”有单数和复数“我”和“我们”。但是在欧洲，如斯洛文尼亚语和古希腊语中，有一个“决斗”，即我们两个人和三个人的单独代词。例如，如果我在谈论我们两个人，我们就会这样做。但是如果这里有第三个人，那将是一个不同的代词，而且我只是喜欢学习语言，我一直喜欢语言。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>看来你很喜欢它的谜题。你喜欢它的应用，因为一旦你学会了意大利语，你仍然每周用几个小时用意大利语进行这些对话。再一次，我感到震惊的是，尽管不同语言之间存在巨大差异，例如，嗯，我并不是想在这里扮演心理学家，但你的思想中有一些东西，你似乎对语言或领导者等类别中的大量信息多样性感到非常满意。大多数人进来后都会尝试简化以澄清，但你有这个，呃，你的想法似乎是让我们找到可能的最广泛的变化，并从中提取一些更深入的理解。你可能会想到这是我，但这是一种非常不寻常的做事方式。我的意思是，正如我们所说，在生物学中我们有集束器和分裂器。我教神经解剖学，所以你可以把它分成块或分开。你可以说大脑，或者我们可以开始划分它，如果你愿意的话，你可以将一切划分到线粒体的细分。正确的？所以你必须选择你的分析水平。但我们倾向于采用框架命名法，并尝试以我们可以思考其他相似基因的方式命名基因。你的思维以一种非常不同的方式运作。我想知道的是，一直都是这样吗？你是否看过世界上事物的分类并说这太疯狂了？他们为什么这样组织？也许我们应该通过最详细的镜头并从中提取清晰度来看待它。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>我从三岁起就这样了。我的母亲是一名教师，热爱教学，在我三岁的时候，妈妈就教我读书。于是我开始记笔记本。我的笔记本上还保留着我三岁的孩子。我列了清单。我列出了河流的名称、动物的名称、落基山脉的动物名称、欧洲的鸟类名称。我是一名名单员。这很尴尬，但我列出了波士顿有轨电车系统上有轨电车的数量。我很长地列出了街道号码。我喜欢列出清单，并且通过列出清单我在生物学方面取得了很多进展。获得博士学位后，我成为膜生物学家，在我对膜生物学的贡献中，我做了有史以来最大规模的研究，研究生物膜对不带电分子、非电解质的渗透性，我和我的第一个研究生，我们测量了兔子胆囊对 210 非 210 非电解质的渗透性。它们都是有机化学品，其中有很多细节。有支链非电解质，有非支链非电解质，有含氧基团的和有含硫基团的。所以有很多细节。嗯，我喜欢这个 200 名非电力人员的项目。然后当我去新几内亚（New Guinea）开始研究鸟类时，嗯我从1964年就开始研究新几内亚（New Guinea）鸟类了。</p>
-      </div>
-    </article>
-
-    <div class="marker-line"><span class="tag">【鼻息声】</span></div>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>新几内亚（New Guinea） 拥有约 600 种鸟类。我遇到过并认识了他们中的大多数。嗯，当我晚上睡着的时候，我经常会给自己背诵新几内亚（New Guinea）鸟的名单。有时我会念出他们的名字：马比塞纳人、帕萨基人、肯·马梅·托托人、斯瓦纳达巴人。有时我会用他们的拉丁名字来背诵他们。 Sarahornis Papois、Sarakornis Perspicoladus、Sarakornis Noi，我就是喜欢列清单。但我的一位老师，一位对我有影响力的老师，伟大的进化生物学家恩斯·迈耶（Erns Meyer）。 Erns Meyer 喜欢列出清单，他和我花了 30 年时间共同准备一本关于北美拉尼西亚（新几内亚（New Guinea） 以东的岛屿）的鸟类的书。厄恩斯和我非常合得来。我们俩都喜欢列清单。每当有问题出现时，厄恩斯厄恩斯都会说：“让我们列一个清单。”他会列出一个清单，我也会列出一个清单。然后我们会仔细检查这份清单，即美拉尼西亚北部所有山鸟的清单。关于这座山有哪些概括？我从三岁起就开始列清单，从中获得了很多科学知识吗？这与理查德·法恩曼谈论如何看待世界的方式完全相反。他实际上用了一个例子，如果你在树林里看到一只鸟，有人说那就像一只画眉鸟。他说知道这个名字并不能帮助你理解它。但我想说的是，基于花费大量时间思考不同大脑结构的名称和连接性，通常有一种在某个领域命名事物的方法，它实际上可以告诉你很多有关功能的信息。例如，在神经科学中，我们的第一个名字是视网膜膝状体。它告诉您源结构和接收结构是什么。所以就像名字实际上很重要一样。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>他们告诉你的不仅仅是这个与那个的不同。那么，当您列出这些列表并在入睡时背诵这些列表时，您是否还能回想起这些列表之间的功能区别？这只是批处理信息的方式，还是列表和名称有自己独立的唯一值？</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>名称是很多信息的锚。当我晚上念诵时，Sarakonus noi Craakonus noi 大大大灌木丛仁。那又怎样呢？嗯，它是按海拔顺序排列的两只鸟中较大的一只。嗯，它是两个非常相似的共存物种中较大的一个。帕萨基阿比人和马比人如此相似，直到新几内亚人向我解释他们行为上的差异之前，我无法区分它们。因此，有很多与该名称相关的信息。此外，这个名字本身就有Sarahornus。莎拉的意思是那只鸟属于萨拉科努斯 (Sarakornus) 属。在 Craicornus 属中，还有 um Sarah um Sarakornus Vatus，它是 Sarakornus noi 的低海拔版本。但还有 serornus perspicoladus，这是一种体型较小的灌木丛，具有相同的海拔范围。所以有一些信息伴随着</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>我的意思是，在科学界，你我都知道，有些人选择一件事，有时他们会在整个职业生涯中或一次钻研五年或十年，然后有人试图拥抱大量信息。显然你属于后一类。所以我再次要问的是，这一直是你的倾向吗？您想了解所有信息吗？</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>基本上是的。这意味着我一直对很多事情感兴趣。我很幸运能上一所中学，它为我提供了学习很多东西的选择。我的中学虽然我希望进入科学领域。我的中学有很棒的历史老师，比我在 哈佛（Harvard） 学院的所有历史老师都要好。很棒的拉丁语拉丁语希腊语老师。然后，我在英国 剑桥（Cambridge） 获得了生理学博士学位，并返回美国，获得了胆囊盐和水运输的博士学位。回想起来，我当时并不知道自己在做什么，但回想起来，我发现我现在惊恐地明白，我的余生竟然要奉献给胆囊。但这与我从三岁起所做的一切背道而驰。所以我开始寻找另一个职业。嗯，我认真考虑过在前哥伦比亚陶瓷领域另谋出路。我认真考虑过成为管弦乐队的指挥。我对前哥伦比亚陶瓷没有深入的了解。嗯，作为一名指挥，你必须能够忽略时滞。我可以忽略时间滞后。但嗯，我七岁时就成为了一名观鸟者。当我在第一个夏天获得博士学位后回到波士顿时，我和一位大学同学，这位大学同学是一位出色的观鸟者，我们在秘鲁度过了夏天。你在秘鲁做什么？我们爬山。我们看鸟。第二年夏天我们一起去了新几内亚（New Guinea）。为什么？ 新几内亚（New Guinea） 是世界上最狂野的地方。嗯，但是 新几内亚（New Guinea） 也有最美妙的鸟类。因此，我在鸟类领域发展了第二职业，<span class="tag">【清了清嗓子】</span>，然后我在历史和地理领域发展了第三职业。所以我有过三种职业。我的实验室生理学生涯最终于 2002 年结束。为什么？当我的双胞胎儿子出生时，我和妻子有双胞胎儿子，他们出生于 1987 年。当我们的双胞胎儿子出生时，我意识到马克斯和约书亚的未来不会依赖于胆囊。这将取决于历史和地理。就这样，渐渐地，我开始把更多的时间花在历史、地理上。我对胆囊不太感兴趣，最后好不容易，我让UCLA把我从医学院的胆囊生理学教授调到大学的地理学教授，我仍然保持着历史和地理的两个职业，同时我正在写关于领导者的书，同时我也一直在写关于新几内亚（New Guinea）鸟类的论文，我想一周前星期五我完成了一篇关于印度尼西亚 新几内亚（New Guinea） 钻石山鸟类的 P 长论文。明年我想写一篇关于印度尼西亚巴尼山鸟类的论文 新几内亚（New Guinea）。因为我已经 89 岁了，我必须弄清楚我剩下的时间是有限的。我要利用剩下的时间做什么？我想利用剩余时间做的一件事是通过观察 新几内亚（New Guinea） 10 个孤立山脉上的鸟类分布来综合我对 新几内亚（New Guinea） 鸟类的研究。对于优秀的殖民者鸟类，我可以认识到哪些概括？这就是我接下来的十年想要做的事情。我不得不说，尽管我的同事们都有很多兴趣，但很少有人能在严肃的科学探索的几个不同领域取得成功，更不用说写关于这些领域的书籍了。您是否曾在某个时候允许自己移动字段？据我们所知，在科学界人们这样做并不常见。如果人们这样做，他们往往会以某种神秘的方式然后或逐渐地这样做。也许这也不是为了窥探你的个人生活，但是呃，决定是一回事，嗯，你知道，我的双胞胎即将到来，你知道，也许我会换领域，但那里的配偶可能会想，呃呃，你有终身教职吗？呃，我们要如何支付账单呢？嗯，所以我想嗯，可能会有支持，或者也许你只是非常挑衅，你只是追随你的好奇心。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>它们是职业问题，也是人们感兴趣的问题。有趣的是，从我三岁起，我就对很多东西感兴趣。回想起来，我意识到，在我的人生危机中，我的人生危机之一是在获得博士学位后，我惊恐地意识到我的余生应该做一件事，但那不是我。在鸟类领域开辟第二职业生涯需要付出一些努力。我有一个术后奖学金。大多数术后奖学金都会约束你做一件事。我当时在 哈佛（Harvard） 医学院的生物物理学实验室。但我很幸运，我的毕业后奖学金是在 哈佛（Harvard） 协会（称为研究员协会）中进行的。我是 哈佛（Harvard） 的初级研究员。作为一名初级研究员，我有自由。我可以告诉我生物物理学实验室的老板，今年夏天我要去 新几内亚（New Guinea） 呆三个月，研究 新几内亚（New Guinea） 鸟类。我没有征求他的同意。我只是说，我正在做。现在，他本可以解雇我，他本可以说，好吧，如果你想这么做，就离开生物物理学实验室，但我在生物物理学方面做得很好。所以，他愿意容忍我去 新几内亚（New Guinea） 呆三个月。然后，当我搬到 UCLA 时，我与搬到 UCLA 进行谈判的关键部分是，我在那里获得了生理学系的教授职位、副教授职位。嗯，UCLA 的院长是 Sherm Melanchov 中任职时间最长的医学院院长。很棒的人。他给我提供了一份物理方面的工作。我告诉Sherm，“是的，但我对新几内亚（New Guinea）鸽子很感兴趣，你要明白，我打算在过去的几年里，每年夏天我都会花三个月三个月的时间研究新几内亚（New Guinea）鸽子，我想继续我对新几内亚（New Guinea）鸽子的工作，如果我接受你的立场，你会容忍我继续对新几内亚（New Guinea）鸽子工作吗？”大多数医学院院长都会说：“滚出去吧。” Sher Melanchov 说：“贾里德，UCLA 医学院对 新几内亚（New Guinea） 鸟类很感兴趣。我每年都会给你 5,000 美元，用于研究 新几内亚（New Guinea） 鸟类。”所以，他容忍了这一切，他让我这成为可能。我很幸运，有一位院长允许我这样做。嗯，至于我的妻子Marie，Marie 没有任何问题，因为当我遇到Marie 时，我已经在新几内亚（New Guinea） 工作了。事实上，我们关系的发展，我们关系中一个至关重要的问题是，贾里德每三个月就会去一次新几内亚（New Guinea）。 Marie 知道 New 发生了什么，我在 新几内亚（New Guinea） 中多次差点被杀。所以 Marie 必须愿意忍受这一点。嗯，当我们的孩子出生时，我在医学院的地位非常稳定。我本来要去新几内亚（New Guinea）。当我们的孩子出生时，Marie 并没有告诉我 Jared 三个月内不要去那里。正是那一刻，我意识到贾里德，你三个月内不会再去那里了。因此，当孩子们出生后，我将在 新几内亚（New Guinea） 的时间减少到一次一个月。我上次 新几内亚（New Guinea） 旅行是 2019 年。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>是的。它提出了冒险生活的一个非常有趣的特征，</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>更不用说研究和生活了，你知道，呃沉浸在不同的文化、不同的生态系统中，这对身体来说很难去你不熟悉的地方，吃你不熟悉的食物。大多数人会想，哦，你在说什么？你知道，现在你可以在世界任何地方的麦当劳买到芝士汉堡。也许这是真的，但是你是否一直愿意为了学习而牺牲你的身体舒适度？我的意思是学习语言很难。嗯，把自己置于一个丛林环境中，那里有各种各样的疾病，有政治和社会动荡，就像当你出去时会有很多变数。嗯，然后你就成为了一名真正的野外智力探险家。嗯，这是一件有趣的事情，是一种必要的罪恶吗？它在哪里降落在你身上</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>在 新几内亚（New Guinea） 工作？这是一个必要的罪恶。嗯，直到我去了新几内亚（New Guinea）。嗯，我呃，前一年我在秘鲁的时候，我去新几内亚（New Guinea），我和我的朋友去了秘鲁，在秘鲁度过了一个夏天，我们爬山。嗯，我们第一次攀登 17,000 英尺的山峰。在高海拔地区，从海平面直线上升到 10,000 英尺，然后三天后到达六点十六分之一是痛苦的。所以，是的，我在秘鲁经历了身体上的痛苦。在 新几内亚（New Guinea） 中，要在 新几内亚（New Guinea） 中执行任何操作，都会遇到很多物理内存问题。食物是红薯和米饭，一日三餐。在丛林中，我被灌木螨咬了。我在 新几内亚（New Guinea） 的第一年，我得了痢疾，哈佛（Harvard） 的医生无法治愈。它在我身边呆了一年。我在 新几内亚（New Guinea） 的第三年，最终患上了疟疾。在 新几内亚（New Guinea） 爬山。在 新几内亚（New Guinea） 的大部分时间里，身体都是痛苦的。偶尔大概有一到三个月，我可以坐在露营地，看着外面，看着另一个人，说天哪，这太美了，但其余时间我身体很痛苦，我不得不和新几内亚人打交道，他们对生活有自己的想法，在 新几内亚（New Guinea） 里，虽然很不舒服，但鸟儿们对弄清楚莫巴恩和波西亚布。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>我们来谈谈鸟类吧。嗯，我从科学中知道的另外两个观鸟者是吉姆·沃森</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>嗯一开始是</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>无论如何，某种鸟类学家决定共同解决呃 DNA 的结构。所以他走了一条不同的路。嗯，然后是已故的默里·吉尔曼（Murray Gilman），他发现了夸克，我认为两届诺贝尔奖得主也许是一个聪明的人，嗯，他痴迷于鸟类、鸟类分类学和观鸟。有趣的是，你们三个似乎都有一种对追求这些大人物的痴迷。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>像整个社会、领导力、嗯 DNA 结构、加尔曼、你知道、你知道、呃基本粒子等等问题，但是我知道一些鸟类，当然没有你那么多，有如此巨大的多样性</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>嗯，除非一个人真的很喜欢观鸟，否则很容易从外面说，“是的，好吧。所以，你有黑帽小鸡，你有这个，你有那个。”通过观察它们可以收集哪些信息、哪些丰富内容？我不是在贬低它。我本人很喜欢鸟。呃，事实上，很多年前，我在一次物理会议上有一个奇怪而独特的机会与默里谈论鸟类。但与你相比，我对鸟类的了解显然非常肤浅。那么，了解所有这些关于它们如何移动的术语和细节，以及在野外观察它们，它能告诉你什么，它对你有什么好处呢？</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>它告诉我们什么？鸟类向信息学家通报一切。地球。鸟类是所有动物中最容易观察和理解的。鸟类的感知能力与你我相同。鸟类通过视觉和声音进行活动。我们人类通过视觉和声音进行操作。而哺乳动物尤其靠嗅觉来运作。一个人不能观看。是的，你可以看羚羊，但你不能到处看老鼠。如果你想了解老鼠，你就必须有良好的嗅觉。你可以把他们困在<span class="tag">【笑声】</span>陷阱里。但你可以观赏鸟类。因此，我们对生态学、进化生物学、生物地理学和行为的大部分了解首先是在鸟类身上学到的，并且已经对鸟类进行了最详细的了解，然后我们可以学到的知识适用于其他动物。所以我写的关于鸟类的东西，嗯，很多关于生态学，很多关于鸟类如何划分生态位，很多关于进化，鸟类物种如何在新几内亚（New Guinea）中进化，如何在不间断的山脉中获得新物种，生物地理学，世界各地植物和动物的分布，特别是从鸟类的分布开始。鸟类，然后是哺乳动物、哺乳类和其他动物。最容易观察的动物是鸟类。所以，当你说我们能从鸟类身上学到什么时，一个诚实的答案是，我们可以学到关于鸟类的一切，而生物世界中的一切从鸟类身上学到比从其他动物身上学到的更容易。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>完全可以接受的答案。嗯，很多鸟都会唱歌，有些会说话。我不知道你是否对鸟类的语言进化感兴趣，但是彼得·马洛尔这个名字有什么意义吗？是的。是的。当我还是一名研究生时，他在戴维斯，我认为他所做的最有趣的观察之一是，同一种鸟类如果在马林海岬饲养，与在海洋岬的鸟父母自然饲养的鸟类相比，在其他地方自然饲养的鸟类，会发出不同的歌曲。与呃这个物种有一些天生的关系，比如你可以交换幼崽，他们可以学习另一个地点歌曲，但他们总是会最好地学习自己的地点歌曲，我觉得如果有一套科学发现，可以融合你对语言、地点和迁徙的一些兴趣，那就是彼得·马洛尔的研究，如果你遇到了你们谈论的内容，嗯，你认为关于鸟鸣和鸟语言可能有趣的是什么，可以告诉我们关于我们的信息</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>一切，一切，鸟鸣，嗯，这是一种交流，鸟类试图交流什么，所以鸟儿在唱歌，为什么它们唱歌，它们在鸟鸣中传达什么信息。 鸟鸣，嗯，人们认为鸟鸣是雄性的，是为了标定领地，但近年来，我们了解到，erd 呼叫中有非常详细的信息。例如，像山雀和山雀这样成群结队的牛群，如果它们看到鹰，就会有一个呼叫记录，一个小的简单的呼叫记录。当鸟儿看到鹰时，它们会发出呼唤声，然后 200 英尺外的鸟儿会听到呼唤声，并且在鹰飞 200 英尺之前它们就会知道鹰就在那里。因此，鸟鸣声中含有大量信息，这些信息激发了类似的研究，特别是针对猴子的研究。有一对夫妻，嗯 Safe Off 和切尼，他们在 UCLA 搬到了宾夕法尼亚州。嗯，他们对黑长尾猴做了精彩的研究。黑长尾猴会发出咕噜声。西夫和切尼认为其中一些咕哝声听起来有点不同。于是他们开始录制咕噜声并播放咕噜声。他们注意到一些咕噜声是猴子向上看的，一些咕噜声是猴子低头的，还有一些咕噜声是猴子支撑自己的。他们意识到不同的咕哝声起到了单词的作用。有一种咕噜声意味着鹰，当一只完美的猴子发出鹰的咕噜声时，猴子就会抬起头来。还有另一个咕噜咕噜，意思是蟒蛇。当绿领听到声音时，它们会低头看着草地。还有另一种咕噜声，意思是豹子。当他们听到豹子的声音时，他们就爬上树。这是声音首先在鸟类中然后在猴子中传递信息的例子。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>我想稍微休息一下并感谢我们的赞助商、职能部门。功能提供超过 160 种高级实验室测试，让您清晰了解自己的身体健康状况。通过此快照，您可以深入了解心脏健康状况、激素健康状况、自身免疫功能、营养水平等。他们最近还增加了先进的 MRI 和 CT 扫描的访问权限。 Function 不仅提供对您身心健康至关重要的 160 多种生物标记物的测试，还分析这些结果并提供顶级医生改善您健康的建议。例如，在最近的一次功能测试中，我发现我的一些血脂稍微超出了范围。因此，我决定开始补充纳豆激酶，它自然可以帮助降低低密度脂蛋白胆固醇。确实如此。在后续测试中，我可以确认这个策略是有效的。我的血脂现在完全回到了我想要的水平。功能提供的全面实验室测试对于健康非常重要。我的意思是，你还怎么知道幕后发生了什么？虽然我从事血液检查已有多年，但它曾经非常耗时、复杂且昂贵。事实上，我过去每年花费数千美元试图获取此类数据。坦率地说，数据并不那么好。但现在有了 Function，它变得非常简单且经济实惠。 Function 会员每天仅需 1 美元，每年 365 美元。如果您考虑一下它提供的信息、它可以帮助您避免的健康挑战以及它可以为您增强健康所做的积极主动的事情，我确实将其视为一种节省。要了解更多信息，请访问 functionhealth.com/huberman 并使用代码 Huberman 获得 50 美元的会员积分。同样，这是 functionhealth.com/huberman。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>我认为，复杂的层次和不同的动物确实被低估了。我的意思是，即使对于像我这样的生物学家来说，你知道，这些其他物种的复杂程度总是令人惊喜。即使这些东西是硬连线的，它也是狂野的。公平地说，对你之前的例子来说，有人原谅了你在实验室中犯的错误，而你放弃了，或者你说你已经相当宽容了，从而传播了这种情况。当你的一位研究生或博士后走进来说“听着”时，我意识到我们正在研究 X，但我想继续研究另一件事。你忍得好笑吗？因为实验室在研究项目中的生存也取决于人们对问题主旨的跳跃。我只是好奇。我不会把你的脚放在火上。我只是想知道你对你的科学后代能容忍多少冒险精神。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>当我的博士后和研究生与我一起工作时，我与他们协商以确保他们会做一个让我感兴趣并且让他们感兴趣的项目。它必须是一个我感兴趣的项目，必须是一个我感兴趣的项目，因为我努力寻找资金，而我一次只能带两到三个学生。一个学生会跟随我三四年。我的投资很大。只有当它对我有意义时我才会进行投资。只有一次，一名学生告诉我他想要拥有自己的项目。呃，有一个很棒的阿根廷学生，嗯，有一天他来找我，说他在生理学系打听过，他得知他被告知，对于posttos，嗯，这是该部门的常态，他声称，posttock 会花一半的时间在他导师的项目上，一半的时间在他自己的项目上。现在那是不真实的。呃，但是他找到了另一个邮递员，这是真的，他是一个有趣的夜晚，我被带回来了。好吧，你可以自己做，他做了一个自己的项目以及和我一起做的项目。呃，但那是我唯一一次让学生做一个我不感兴趣的项目。除此之外，这些项目一直是我和学生都感兴趣的项目。这对学生有好处，因为对学生来说，学生能得到我的全部关注并向我学习。嗯，如果我知道的话，学生可以向我学习。如果我一无所知，学生就无法向我学习。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>很明显，因为您已经告诉我们，您的职业生涯也证明了您拥有并保持着很多兴趣，深厚的兴趣和强烈的好奇心。呃，几乎是一种强迫症，要跟随他们并为自己解决某些问题。在今天开始录制之前，我们进行了一次简短的交谈，讨论一个人对某些宠物、世界上某些事物的偏好或缺乏偏好。我们不必深究。嗯，这没有争议。嗯，但令我如此震惊的是，你的表达是多么清晰。我想我们在大约 20 秒前就已经认识到，生活中的一些宠物、一些东西、一些话题对你来说只是一种消遣，就像你只是对它们不感兴趣一样。我认为这与对许多其他事情感兴趣非常吻合。所以，这是我要问的一个有点奇怪的问题，但是你考虑过时间吗？比如，我一生中有多少时间来做这件事？你一直这么想吗？作为一个刚满 51 岁的人，我越来越多地思考这个问题。但学术生涯的美妙之处在于，你知道，好吧，我有四到六年的时间来完成这篇论文。繁荣。然后就有机会稍微或或或大幅调整。但生活有些不同，对吧？但我很清楚，你是在说这对其他人来说都很好，但我不想为这些事情投资而烦恼。清除。时期。故事结束。事实上，这非常令人耳目一新，因为我嗯，它与你对一切都感兴趣的想法背道而驰。如果可以的话，你并不是对一切都感兴趣。你对很多事情都很感兴趣。这提供了一个非常好的剃须刀来分离出所有你不会被打扰的事情。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>这一直是你的一个特点吗？</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>绝对不是。当我 80 岁的时候，让你们预览一下即将发生的事情，80 岁对我来说并不感到震惊。 81更让人震惊，因为81意味着我已经牢牢地融入了80年代。但尽管我非常清楚美国男性出生时的预期寿命数字是 78 岁左右。美国男性 70 岁的预期寿命却并不广为人知。当你到了 70 岁时，你的预期寿命不是 78 岁。你的预期寿命是 93 岁，因为很多风险都已经过去了。我非常清楚这一点。当我81岁的时候，我并没有计算过我能做什么。嗯，但是在过去的几年里，自从我现在89岁以来，我非常清楚剩下的时间以及我想在剩下的时间里做什么。我想在剩下的时间里做一些具体的事情来综合我的理解。新吉迪有 10 条轮廓山脉。我对其中几个进行了第一次下降和第一次鸟类学探索，对其余的进行了最详细的探索。如果我不写下来，这些知识就会随着我一起消失，因为那些山脉很难进入。我想对这 10 座山脉进行综合分析，以了解是什么让一个物种成为优秀的殖民者？为什么有些鸟类分布在所有 10 座山脉上，而其他鸟类却只分布在一座山脉上？我拥有独特的数据集，我想在我还活着的时候把它写下来。还有一件事，我已经思考了很长一段时间了。嗯，我是音乐剧，我特别喜欢巴赫的音乐。嗯，我在波士顿的赫内尔和海登协会唱歌。我在 剑桥（Cambridge） 的 剑桥（Cambridge） 英格兰嗯音乐协会唱歌。当我在 剑桥（Cambridge） 合唱团唱歌时，我的本·本杰明英国来了，并进行了加拿大学术的首演。所以我很感兴趣，并且演唱了我特别喜欢的作曲家约安·塞巴斯蒂安·巴赫（Yoan Sebastian Bach）的作品。他写了210教堂。我演唱了大约 20 首歌曲，一年前的八月，我一直告诉自己，我想了解所有这些歌曲，时机已经到来。我面前的时间是有限的。现在最好从 Katadas 开始。所以我开始使用 Katadas，大约每周一次。昨晚我重听了《Canada 61》和《Canada 62》。接下来是《Canada 63》。嗯，按照我的节奏，我可能需要三到四年的时间才能了解所有的巴查德。但这是我想做的事情。但我现在非常清楚剩下的时间。我只是在过去的几年里才有了这种意识。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>是否有一些你过去出于义务感而不再做的事情，可以让你有更多的时间去做对你来说很重要、你希望拥有的事情和人</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>允许自己早点做吗？</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>我的第一个想法是不。总的来说，我已经做了我喜欢做的事情。是的，当然，有些事情是生活中必须要做的事情，但这些事情并不令人愉快。当然。我花了很多时间，可能每年至少花一个月甚至两个月的时间来处理复杂的所得税申报表。我对操纵数字有一种病态的容忍度。所以我并不像大多数其他人那样反对缴纳所得税。所得税必须完成，需要花费我很多时间。我还能做什么？我父亲洗碗。我和妻子一起洗碗。 Marie 负责园艺。我对园艺没有兴趣。 Marie 负责园艺。嗯，Marie 负责购物。嗯，我原谅自己，Marie Marie 知道我一年中的几个月花在所得税上，我负责保险，我负责组织旅行。我不介意处理保险。我不介意做所得税，我宁愿花时间做鸟类，但这并不是我非常反对的事情。我永远不会要求某人来这里为别人说话，但是我很高兴得知你是我的同事保罗·埃利克的亲密朋友。嗯和他的妻子桑德拉·汗仍在斯坦福大学任教。呃，保罗当然写了人口炸弹。嗯，保罗和桑德雷写的书《大白鲨》</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>我想你有一个转发，也许鲍勃·萨波尔斯基（Bob Sapolski）有关于嗯的介绍</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>用嘴呼吸可能不利于面部结构的发育，也不利于健康，他们称之为流行病。呃，人们对鼻呼吸和呼吸暂停等有些兴趣。如你所知，保罗是一个令人愉快的人。你比我更了解他。但他在某些事情上做对了，而有些人会认为他在某些事情上做错了。就像人口炸弹一样。我的理解是，它认为到我们现在到达的时候，我们将严重人口过剩，这是危险的。有些人会认为出生率正在下降。更换问题更是一个问题。但他对人口增长和环境影响等一些呃问题的看法正确吗？这不是我有任何专业知识的领域，但是呃，你认为他在哪些地方是非常正确的，因为他非常聪明，并且在很多方面都在这些主题上领先？他当然是正确的，人类今天面临的最大威胁当然包括灭绝我们自己的核风险。嗯，我想说，我们面临的三个最大的风险是核风险，以及全球化世界不平等的后果。现在，任何地方的任何人都受到其他地方任何人的影响，这是对世界贸易的邀请。因为在全球化世界中，不平等是危险的。第三个风险当然是资源耗尽的风险，以及我们正在快速破坏我们的资源的风险。为什么我们会过度开发我们的资源？因为世界人口增加了。现在有九十亿人口。一万年前，大概有一百万人。地球上有一百万人。现在我们得到了 90 亿。但重要的不仅仅是人数，还有人均消费率。第一世界的人均消费率有所上升。结果是我们正在耗尽渔业。但世界上有 40 亿人依赖鱼类和海鲜来获取蛋白质。我们正在耗尽世界上的森林。我们正在耗尽世界表层土壤。保罗和他的妻子安妮，《人口炸弹》一书呼吁人们关注人口增长的危险，现在可以将人口增长乘以人均消费。保罗预测未来几十年内会出现巨大的危险。他预测将会出现大范围的饥饿。如果你看一下他的维基百科条目，嗯，这是世界上最伟大的现代科学家之一和他该死的维基百科。相反，他的维基百科条目反复提及他的书《人口炸弹》，并表示事实证明这并不正确。那么，当今世界上九十亿人中，嗯，他们中有多少人吃不饱、挨饿，他们是饿死的吗？不，他们不会很快饿死，但他们的寿命很短，而且寿命很悲惨，因为世界上一小部分人过着第一世界的生活方式。即使在美国，拥有足够资源的人和缺乏足够资源的人之间的两极分化也在加剧。因此，要责怪保罗·埃里克犯了错误，不，他做对了，但他在更广泛的意义上做对了，比攻击他的白痴愿意承认的更广泛。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>很高兴听到你这么说。呃，长期以来一直是他的作品的粉丝，他和我都同意，《大白鲨》是一本很棒的书，我认为人口炸弹仍然具有很大的阅读价值，即使你指出的具体陈述有所不同，它仍然是一部非常重要的作品，我们谈论了政治领袖，我们谈论了宗教领袖，还谈论了一些邪教体育</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>你喜欢运动吗</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>我喜欢还是嗯，我很好，我锻炼了。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>是的，你看起来很健康。这也是你智力严谨的重要组成部分吗？</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>我一直都很活跃。我在大学时开始举重。嗯，我跑了很多年。我妻子临产的那一天，即将生下我们的双胞胎，我当时正在跑步，我非常兴奋，因为她即将生下双胞胎，所以我没有把我的午餐和午餐放在冰箱里，把鞋子放在地板上，而是把跑鞋放在冰箱里，午餐放在地板上。所以，我仍然每周锻炼几天。身体活动是我生活的重要组成部分。我从中得到满足。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>我认为现在人们进行体育锻炼的目的是为了增强和保护他们的身心，这是很常见的。但当你上大学时，如果我推断的话，呃，这并没有真正被谈论过。事实上，智力和体育活动的分离是一个主题。就像人们参加体育运动一样，对吧？但锻炼有点像军事运动员和健美运动员，而跑步则少一些，对吧？但我发现所有的</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>我认识的科学家们在职业生涯中取得了很长的成功，而且仍然很强大，他们都非常活跃，而且已经持续很长时间了。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>所有的人。老实说，那些没有死的人大多已经死了。伟大的 哈佛（Harvard） 有机化学家 um Woodward Aby Woodward，曾两次获得诺贝尔奖。伍德沃德没有进行任何体育锻炼。他不想花任何时间做除了有机化学家之外的任何事情，当然他很早就去世了</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>在实验室里我想必是在床上思考的。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>好的。嗯，比在办公室或实验室更好。因此，沿着这些思路，<span class="tag">【笑声】</span>嗯，田径运动和体育运动，嗯，你喜欢哪种运动？嗯，是什么促使您探索体育领域的领导者？</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>我探索体育领域的领导者的原因与商学院教授对体育成果进行大量研究的原因相同。事实上，我想说，很多甚至大部分关于体育成果的研究都是由商学院教授完成的。原因是商学院教授当然对商业成果感兴趣，但商业成果很难衡量。嗯，首席执行官往往是守口如瓶的。企业可能不会公布其结果，或者每五年公布一次。因此，商业世界的数据是有限的。但在体育比赛中，每周都会进行一次或一周几次。比赛结果公布。教练在场边经常跳来跳去尖叫。球员们都是众所周知的。体育节目​​正在电视上播出。结果是，商学院教授开发的用于分析首席执行官和分析商业世界的方法，嗯，通常是在体育中开发的，并且在体育中进行调试的。嗯，例如，在商业世界中，主要问题之一当然是，企业的成功有多少归功于首席执行官？这是一个大声反对的首席执行官说我对成功负责，因此你应该付给我数十亿美元，因为我的公司我们的公司赚了千亿美元，但因为我对这千亿美元的利润负责，你可以付给我100亿美元。这是真的吗？弄清楚这一点很复杂。有几种方法。其中之一涉及进行所谓的 ANOVA 方差分析。对体育运动的方差分析显示，体育运动成功的差异大约有 15% 到 30% 是由教练造成的，另外 30% 是由运动员造成的，另外大约 30% 是由体育机构造成的。在商业世界中，事实证明，同样，首席执行官约占方差分析的 30%，而个别公司则占另一家运营良好的宝洁公司的比重。 150 年来，它一直运行良好。另外30%是由于行业。香水公司、电脑公司和青少年 T 恤公司往往利润丰厚。而水利和电力部门往往无利可图。为什么？因为它们受到政府的严格监管。所以 NOVA 嗯被应用于体育界和商业界。但除此之外，如果赛季表现不佳，教练经常会被解雇；如果公司年度回报不佳，首席执行官也会被解雇。因此，如果你因为业绩不佳而解雇了首席执行官，那么下一年，新任首席执行官通常会有一个更好的业绩。为什么？因为体育比赛结果的 70% 差异是由于 CEO 的随机因素造成的。如果你扔一个骰子，嗯，你扔了一个骰子，你得到了一个，所以你通过骰子对那个人说，你是一个糟糕的骰子投掷者。你有一个。我要解雇你了出于统计原因，下一个掷骰子的人有六分之五的机会比前一个掷骰子的人做得更好。 2 3 4 5 六。在体育界，当你解雇教练时，通常新教练的战绩会更好。为什么？因为所有的随机因素。嗯，我的大学，UCLA，我们的体育部门现在负债 1.5 亿美元。为什么？因为我们解雇了自约翰·伍登以来所有的篮球教练。嗯，当我们解雇他们时，我们必须买断他们的合同。所以，买断他们的合同。 500万、1000万、15百万美元。简单来说，当你解雇一位首席执行官时，下一任首席执行官可能会因为各种随机原因做得更好，就像掷骰子一样。这说明了为什么商学院教授通过分析体育运动获得了很多见解。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>教练的理念以及首席执行官的理念对于我们为什么这样做有多重要？我们听说过很多这样的事情，比如为什么事情背后如此重要，但事实确实如此吗？</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>是的，但很少。所以约翰·伍登通常被认为是美国体育史上和任何体育运动中最伟大的教练。嗯，约翰·伍登 (John Wooden) UCLA 篮球队赢得了什么？九次全国冠军，其中包括连续七次。没有其他大学连续两次获得全国冠军。约翰·伍登为何如此成功？他成功的原因有很多。他让他的球员处于最佳身体状态。尽管他的球员可能比杜克大学的球员矮五英寸，但他让他的球员比杜克大学的球员跳得更高。嗯，他是一位细节大师。呃，他关心他们穿什么袜子，因为他们穿的袜子会影响，你<span class="tag">【笑】</span>知道，他们如何跳跃以及如何打球。呃，他非常注重让他的球员们不仅以五人一组的方式进行训练，因为他们将在球场上，而且以七人一组的方式进行训练，这样他就可以替补，但也许约翰·伍登最重要的事情是，对他来说，篮球不是一项运动，篮球是一种生活哲学，约翰·伍登的伟大球员比尔·沃顿和阿伦多说，伍登教练，我从伍登教练那里学到的东西比从我父母以外的任何人那里学到的东西都多。但我从他身上学到的是生活，而不是打篮球。那篮球，篮球是人生的典范。这在教练中是不寻常的。比尔·贝利奇奇.我从来没有听过有人说过比尔·比奇奇是生活的典范。还有鲍比·奈特，没有人说鲍比·奈特是人生哲学的典范。那么约翰·伍登为何如此成功呢？部分原因是他是一位细节大师，但也因为他将篮球视为一种生活方式。这是你无法伪造的。是的，你可以假装，你可以学习如何训练你的球员跳得更高，但你不能像约翰·伍登那样假装生活哲学。现在井里有没有一个类似的东西，似乎是科技首席执行官和企业家。我的意思是，我们有这些在旧金山湾区长大的超现实人物，你知道，我小时候是休莱特和帕卡德，然后是史蒂夫·乔布斯和比尔·盖茨</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>在西雅图，现在我们有马克·扎克伯格、埃隆·马斯克、山姆·阿尔曼，Anthropic 的达里奥正在迅速崛起，成为另一位大人物，但我可能错过了其中的一些人，但无论他们喜欢与否，这些都是大人物，人们关注的名人技术专家，就像人类要去哪里一样。撇开政治不谈，史蒂夫·乔布斯显然有一种创造美丽事物的哲学，将设计和技术以一种你知道的方式融合在一起，即你知道物体对他们或其他东西有友好性，即使它是一个苹果。所以，这里面似乎蕴含着某种哲学性的东西，甚至有点神秘。您如何看待这些技术领导者？您有何看法？你怎么认为？</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>我见过比尔·盖茨，并进行过几次长时间的交谈，我喜欢他。我和他的谈话经历很好。嗯，有些人在其他情况下见过他，对他有不同的看法。我见过埃隆·马斯克一次。杰夫·贝佐斯。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>哦，是的。所以请原谅我。我应该提到贝索斯。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>是的。杰夫·贝佐斯。贝佐斯我我见过一次。嗯，在商界的领导者中，我认识的人并不多。我最欣赏的人是巴塔哥尼亚的希纳德。对他来说，就像约翰·伍登一样，巴塔哥尼亚是生活的典范。他强调让他的员工有休息时间。他强调巴塔哥尼亚是可持续的。他有机会获得更多的棉花，生产更多的产品。不，他选择不购买更多的棉花，因为他不想过度发展棉花农业。他现在或曾经是一个完整的人，而不仅仅是一个商业领袖。他首次攀登了约塞蒂峰最困难的山壁。他是一位顶级登山运动员。我认识他。嗯，我为他的自传写了序言。嗯，他有自己的人生哲学。还有其他大牌吗？杰夫·贝兹有人生哲学吗？马克·扎克伯格有人生哲学吗？我不知道这些大人物有超越他们业务的生活哲学。现在，史蒂夫·乔布斯确实有自己的商业人生哲学。当他第一次被解雇后回到苹果公司时，苹果公司陷入了困境，他第二次又被带回来。他的理念是减少苹果的数量，而不是苹果生产 100 种产品，他说我们应该生产四种产品，这些产品应该看起来不错，应该有吸引力，并且应该易于操作。它们不应该像我妻子和我的电视观看世界杯足球赛的遥控器一样。我们的遥控器有 47 个按钮，我们每次都必须打电话给儿子告诉我们如何操作遥控器。所以史蒂夫·乔布斯的设备没有 47 种，但他有自己的产品哲学。我不知道他是否有像约翰·伍登那样更大的人生哲学。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>所以我们谈论了政治领袖、宗教领袖、体育。您说过您在书中涵盖了第四类。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>所以我们有政治领袖、商界领袖</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>体育领袖和宗教领袖。这是四类。四大类</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>商业和体育似乎有点交叉，对吧？听起来像</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>商业研究和体育研究之间的联系尤其紧密。但情况也是如此，商学院的教授们研究了体育运动，也研究了政治领域的成功。因此，这也许是我所知道的关于开发新方法来研究领导者和领导者成功的最好的一篇论文，但它也着眼于政治领域的领导者，得出的结论是，总理比州长更能发挥作用。州长比市长更能发挥作用。为什么？因为首相拥有更大的权力。此外，独裁者比民主领导人更能发挥作用。战时的民主领导人比和平时期的民主领导人发挥更大的作用，因为在战时民主领导人被赋予更多权力。嗯，商学院的教授们也将他们的方法应用于嗯政治。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>许多人对很多事情感兴趣，他们有真正的兴奋，他们对追求音乐、歌唱、乐器、学习主题或运动的想法产生共鸣。嗯，你会告诉那些人什么，因为我们都听过“只管去做”的口头禅，这很好，但嗯，我不是心理学家，但似乎你内心有一种或可能一直有这种几乎强迫性地朝某个方向前进的冲动，但你的结构是你如何去做，你不只是试图立即做所有事情，而且你显然在每个领域都取得了成功，我相信一路上都会遇到挑战。但是，如果您想将什么东西传递给任何年龄段的人，您会说什么？</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>我首先会说做你喜欢做的事，但它的范围必须更广泛。我的一位朋友，伟大的生物学家汤姆·洛夫乔伊，不幸去世了。嗯汤姆告诉我，当他十几岁的时候，汤姆问他的父亲，“爸爸，我应该做什么职业？”他的父亲说，“做一些你擅长的事情。做一些你喜欢的事情。做一些改变世界的事情。我会给人们什么建议？也许主要的建议是确保你做你喜欢的事情，因为这是大多数人不做的事情。如果人们告诉你不，你必须这样做，这个，这个，告诉他们见鬼去吧。从字面上看，很多人说你必须这样生活。你必须熨烫你的衬衫。当我是一名毕业生，我没有熨烫我的衬衫，但就我而言，如果有人告诉我，贾里德，我想用我的时间做其他事情。无论我的衬衫是熨烫的还是不熨烫的，这对生活来说并不重要。我在做一些对世界有益的事情吗？是的，我花了很多时间为印度尼西亚的国家公园系统设计，我写了很多关于世界面临的巨大风险的书。我喜欢做一些我想做的事情，但我发现我并不是我想成为的管弦乐队指挥，而是指挥一个管弦乐队，你必须在演奏者演奏时发出低音，但由于声音的速度，我无法在演奏者演奏之前发出低音。我尝试指挥或UCLA邀请我指挥或，我指挥过一次管弦乐队，因为我无法预料到悲观的情绪，所以我放弃了指挥管弦乐队的愿望，尽管我很乐意这样做，但我最终做了我擅长的事情，做我喜欢做的事情，对世界有益的事情。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>我在所有方面都同意。并不是说你需要我的同意。呃我说有两个问题。你在回答第一个问题的过程中回答了<span class="tag">【清嗓子】</span>第二个问题。所以，呃，最后我只想说谢谢你抽出宝贵的时间</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>百忙之中来与我们分享并教育我们。嗯，我对Profits<span class="asr">〔ASR 多作 Prophets〕</span>, Prophets, Coaches, and Kings感到非常兴奋。领导者什么时候重要？今天的谈话只会让我更加兴奋。我想说的是，你的父亲尽管鼓励你继续成为一名生物学家，而不是一名翻译家，但他还是部分失败了，因为对我和其他数以百万计的人来说，你已经成为我们从未遇到或考虑过的想法的翻译者，这通过你的书激发了我大量的好奇心和学习能力，嗯，今天只是这一点的另一个延伸，我相信下一本书将继续这一点。所以，谢谢你没有听从他的要求，同时也听从了他的要求。我非常感谢您今天来到这里，希望我们能再次这样做。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-diamond">
-      <div class="label" title="Jared Diamond"><span class="badge">Jared</span></div>
-      <div class="content">
-      <p>谢谢。我很高兴与你交谈，你知道，因为当采访、播客和采访者有所不同时，你知道自己写了一本书。它们并不完全相同。有些面试官比其他面试官准备得更好。有些面试官比其他面试者更了解这个主题。很高兴与您交谈。您是一位很高兴接受您的采访。</p>
-      </div>
-    </article>
-
-    <article class="turn spk-huberman">
-      <div class="label" title="Andrew Huberman"><span class="badge">Andrew</span></div>
-      <div class="content">
-      <p>谢谢。我很高兴，我们会再做一次。感谢您参加今天与 Jared Diamond 博士的讨论。要了解有关他的作品和他最近出版的书《Profits<span class="asr">〔ASR 多作 Prophets〕</span>, Prophets, Coaches, and Kings》的更多信息，请参阅节目注释标题中的链接。如果您正在学习或喜欢此播客，请订阅我们的 YouTube 频道。这是支持我们的绝佳零成本方式。此外，请通过单击 Spotify 和 Apple 上的关注按钮来关注播客。在 Spotify 和 Apple 上，您都可以给我们留下五星级评价。您现在可以在 Spotify 和 Apple 上给我们留下评论。另请查看今天节目开头和整个节目中提到的赞助商。这是支持这个播客的最佳方式。如果您对我有疑问，或者对播客、嘉宾或您希望我为 Huberman Lab 播客考虑的主题有意见，请将这些意见放入 YouTube 的评论部分。我确实阅读了所有评论。如果您还没有在社交媒体上关注我，我是所有社交媒体平台上的 Huberman Lab。这就是 Instagram、X、Threads、Facebook 和 LinkedIn。在所有这些平台上，我讨论科学和科学相关工具。其中一些内容与 Huberman Lab 播客的内容重叠，但其中大部分内容与 Huberman Lab 播客上的信息不同。同样，所有社交媒体平台上都是 Huberman Lab。如果您还没有订阅我们的神经网络时事通讯，神经网络时事通讯是一份零成本的月度时事通讯，其中包括播客摘要以及我们所说的 1 到三页 PDF 形式的协议，涵盖从如何优化睡眠、如何优化多巴胺、故意冷暴露等所有内容。我们有一个基本的健身方案，涵盖心血管训练和阻力训练。所有这些都是完全零成本的。您只需访问 hubermanlab.com，转到右上角的菜单选项卡，向下滚动到时事通讯，然后输入您的电子邮件即可。我要强调的是，我们不会与任何人分享您的电子邮件。再次感谢您参加今天与 Jared Diamond 博士的讨论。最后但同样重要的是，感谢您对科学的兴趣。</p>
-      </div>
-    </article>
-  </main>
-
-  <footer class="note">
-    全文共 101 个说话人块 · 源为 YouTube ASR 中文逐字译文 · 本地单页，无外链依赖
-  </footer>
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Andrew Huberman（Huberman Lab）</span><span class="pill">2026-10-19</span></div>
+<h1>伟大领导者的特质与如何过上非凡人生｜贾里德·戴蒙德博士</h1>
+<p class="sub">嘉宾：贾里德·戴蒙德博士 · 约 113 分钟（6800 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=2oqBvTRYcv0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=2oqBvTRYcv0</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Andrew Huberman（Huberman Lab）</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-19</dd></div><div class="meta-row"><dt>时长</dt><dd>约 113 分钟（6800 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig，经 yt-dlp + Chrome cookies 获取；非官方字幕），中文为逐句全文翻译，已移除赞助广告</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>2oqBvTRYcv0</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>神经科学家休伯曼对话《枪炮、病菌与钢铁》作者贾里德·戴蒙德，从历史与人性的角度剖析领导力，并讲述戴蒙德本人跨学科的好奇心与人生选择。</p>
+<h3>核心要点</h3><ul><li>魅力并非领导者的必要条件：成为有效领导者的方式有很多种，魅力只是其中之一</li><li>通过斯大林、皮诺切特、丘吉尔、吉姆·琼斯等案例，讨论领导者与追随者的关系及历史偶然性</li><li>观鸟为何是理解人类行为与本性的绝佳窗口</li><li>戴蒙德从童年起的强烈好奇心，如何驱动他在生理学、鸟类学、人类学与写作之间不断转向</li><li>关于反思、决断与在不同领域取得非凡成就的人生建议</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：约 113 分钟的高质量长访谈，信息密度高、案例丰富。</p>
+<h3>适合人群</h3><p>对领导力、历史、人类学、科学人生感兴趣的听众</p>
+</section>
+<div class="legend"><span class="spk-0">安德鲁·休伯曼<em>主持</em></span><span class="spk-1">贾里德·戴蒙德<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>人们经常寻找关于领导者的个人概括、个性概括。也许最常见的概括是领导者必须具有魅力。废话。有些领导者很有魅力。 斯大林、奥古斯托·皮诺切特，智利的独裁者，完全没有魅力。成为有效领导者的方法大约有 37 种，魅力就是其中之一。如果您或任何其他人会问我们如何概括领导者的个人问题，那么有一些关于领导者的概括，但不是个性概括，因为成为有效的领导者有不同的方法。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>欢迎来到 休伯曼实验室 播客，我们在这里讨论科学<span class="tag">【音乐】</span>和基于科学的日常生活工具。</p>
+</div></div>
+<div class="marker-line"><span class="tag">【音乐】</span></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>我是 安德鲁·休伯曼，是 斯坦福大学医学院 的神经生物学和眼科教授。今天我的嘉宾是 贾里德·戴蒙德 博士。 贾里德·戴蒙德 博士是 加州大学洛杉矶分校 的名誉教授。他在生物学、人类学等领域进行了研究，坦白说，他涉足的领域实在是太多了，以至于没有一个合适的头衔适合他。他还是《枪炮、病菌与钢铁》等书籍的著名作者，并因此获得了 普利策奖 奖。他还被授予 国家科学奖章 和 麦克阿瑟天才奖。今天我们讨论与贾里德最近出版的关于领导者和领导力的书相关的主题。它的标题是《利润、先知、教练与国王》。我们讨论政治领袖、宗教领袖、商业和体育领袖。今天，您将听到许多误解被消除，包括“魅力是成功领导力所必需的”这一常见神话。我们讨论了许多令人难以置信的生物学。例如，为什么观察鸟类，是的，鸟类，因为它们依赖视觉和声音，使它们成为理解人类行为和人性的最佳窗口之一。我们还讨论了贾里德本人，因为您很快就会看到，他是一个令人难以置信且非常不寻常的人。我们讨论了他从童年起就存在的强烈好奇心，以及这种好奇心如何从一个主题转移到另一个主题、从一本书转移到另一本书、从一篇论文转移到另一篇论文，以及他将难题带入实验室并深入野外观察自然状态的事物的过程，然后以不同于任何其他科学家或作家的形式带回所有这些知识。因此，接下来是与科学和公共教育领域绝对杰出人物的讨论。我确信它会给你带来启发、着迷和启发。在开始之前，我想强调一下，这个播客与我在斯坦福大学的教学和研究角色是分开的。然而，我的愿望和努力的一部分是向公众提供有关科学和科学相关工具的零成本消费者信息。为了与这个主题保持一致，今天的节目确实有赞助商。现在我与 贾里德·戴蒙德 博士进行讨论。 贾里德·戴蒙德 博士，欢迎光临。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>很高兴和你在一起。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>很高兴您来到这里。我非常喜欢你的书。 《枪炮、病菌与钢铁》 是我读到的第一个。我会抵制住询问你每本书中主题的诱惑，主要集中在你的书上，这是先知，发音相同，但先知是在创造先知和先知中，就像谁成为先知以及他们是什么一样。教练和国王。领导者什么时候重要？我认为现在人们比以往任何时候都更多地思考现代领导力和过去的领导力主题。首先我想知道什么是先知？先知。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>对我来说，先知意味着宗教领袖，因为我关于领导力的书着眼于四个领域的领导力。政治领域、商业领域、体育领域，最后是宗教领域。我用先知这个词来指代宗教领袖，因为它可以用来形容先知、先知、教练、副教练和国王。 U 我不在乎他们是否预言未来。这只是我对宗教领袖的话。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>让我们来谈谈每个类别中的领导力，以及每个类别中对您来说最光明和最黑暗的人。如果您愿意，我们也可以进入连续体的中间。但你的书一开始就谈论了希特勒，对于绝大多数活着的人来说，希特勒 被认为是有史以来最黑暗的领导人之一。请告诉我们关于 希特勒 的信息以及您对他的了解，这或许可以帮助我们更全面地思考领导力。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>我出生于1937年，这意味着我是在第二次世界大战中长大的。我在美国长大，没有受到过轰炸。但我记忆中的每一天都是由战争形成的。我的第一个记忆，我能记得的第一个数据是美国陆军发布的第一张死去的美国士兵的照片。这是《生活》杂志的著名封面。两名美国士兵面朝下死在 新几内亚 的 布纳-戈纳海滩 上。所以我是在希特勒的阴影下长大的。我的家人来自东欧，是来自东欧的犹太人。最后我的家人当然是在 大屠杀 中失踪了。我娶进了一个波兰家庭。我妻子的父母于 1948 年来到美国。我妻子的母亲在 奥斯维辛 中幸存下来。我妻子家庭的各个成员都没有幸存。于是我的人生和玛丽的人生就在希特勒的阴影下形成了。最重要的是，还有一些领导人，非政治领导人，他们主要是为了好的方面而塑造了我的生活。 剑桥生理学系有一位系主任。我留下了一个橡胶软管泵，水泵整夜运转以干燥放射性同位素。泵坏了。它淹没了我的实验室。它淹没了我实验室下面的实验室。那不是一个淹没实验室的好选择。那是实验室阿德里安勋爵，他是我论文导师的岳父，也是我学院的院长。第二天早上，生理学系主任 布莱恩·马修斯 打电话给我，我以为我要被开除。相反，他说你知道那很草率。不要再这样做了。就是这样。所以有一位领导者本可以结束我的职业生涯，但他没有。还有其他领导者为我的职业生涯做出了决定性的好事。没有做任何事情的人很少，但他们不是做我的领导者。这些就是我个人对领导者感兴趣的原因，首先是 希特勒 的问题。如果没有 希特勒，我在东欧的家人和 玛丽 的家人还会活着吗？</p>
+<p>我们离没有成年 希特勒 有多远？ 希特勒 的一生有两个著名的濒临结局。我的书的第一段是关于 1930 年 希特勒 就任总理之前发生的一场车祸，当时他的司机驾驶的豪华轿车驶入德国的一个十字路口。呃 希特勒 坐在副驾驶座的驾驶座上，右边的座位上，一辆大卡车与 希特勒 的轿车成直角驶入十字路口。嗯，希特勒 的司机和卡车司机最终要么刹车，要么加速，卡车撞上了 希特勒 的车脸，推上了弯道，正要从汽车上碾过去，压垮 希特勒，就在这之前它停了下来。 希特勒 受伤，但没有死亡。如果他于 1930 年去世，是否会有 第二次世界大战 以及 大屠杀？然后另一个著名的几乎是 1944 年，也就是战争的最后一年，克劳斯·冯·施陶芬贝格伯爵，一位幻灭的德国军官，试图杀死 希特勒。他带着一个装有炸弹的小手提箱进入 狼穴 的会议室。他在希特勒旁边坐下，把装好炸弹的手提箱放进去。他把手提箱放在 希特勒 的脚下，炸弹爆炸了。但就在炸弹爆炸之前，希特勒 身体前倾。结果，房间里的另外四人被杀。嗯 希特勒 的耳膜被震破了。 希特勒 受了重伤，但没有被杀。但如果 希特勒 没有倾向于那是 1944 年，嗯，我妻子家里的很多成员都会幸存下来。所以，这些就是为什么 希特勒 差一点就没有成为总理，以及它差一点就结束于 1944 年的 第二次世界大战，以及结束于 1944 年的欧洲 第二次世界大战。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>还有其他人可以完成 希特勒 所取得的成就吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>历史学家对此争论不休。这说明了判断领导者是否能发挥作用是困难的。历史学家和传记的传统方法是写传记。有很多人写过 希特勒 的传记。 希特勒 的大多数传记作者都得出结论，希特勒 在几个方面都是独一无二的。不幸的是，他是 20 世纪最具魅力的演说家。他是反犹太主义者。欧洲有很多反犹太分子，不仅在德国，而且在波兰。但是希特勒，所有其他反犹太分子都一一杀害了犹太人。 希特勒 是唯一一个想到以工业规模进行这一想法的人。如果没有希特勒，可能就不会发生大屠杀。他还擅长欺骗人们，在 慕尼黑 欺骗了著名的 内维尔·张伯伦，但他也欺骗了德国政客。他欺骗了德国商界领袖。他欺骗了德国将军。他欺骗了他的纳粹同胞。他只是擅长欺骗别人而已。因此，这些都是他认为他可能做出改变的论据，如果没有 希特勒 的世界，可能就不会有 第二次世界大战，也不会有 大屠杀。大多数历史学家倾向于认为领导者不会带来改变。但就 希特勒 而言，大多数历史学家都会认为 希特勒 确实发挥了作用。英国著名历史学家A. J. P. Taylor使用同样的事实在希特勒写了一本传记。基于同样的事实，A. J. P. Taylor 得出的结论是，希特勒 是一名普通的德国政治家，追求其他德国政治家的目标，这是事实，但如果 希特勒 不是一个领导人，就不会有任何区别。这些都是关于但说明了传统传记方法的弱点的争论。一个人受事实的限制，但同一事实不同的人会得出不同的结论。这就是为什么我的书使用了不同的方法，即自然实验的方法。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>在您看来，谁是最不可能成为一名取得积极或破坏性目标的极其成功领导者的领导者？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>有很多候选人。一位候选人，第一个出生于 1937 年，嗯，我是在 罗斯福 的领导下长大的，但我对他感兴趣的第一位美国总统是因为我当时是 哈里·杜鲁门，最不可能的重要美国总统。由于一些琐碎的政治原因，他被选为 罗斯福 的第三或第四任副总统。他是一位来自密苏里州的参议员，并不出名。他本来是通过不诚实的恶作剧成为参议员的。嗯，他是如此微不足道，以至于 罗斯福 在 杜鲁门 成为副总统后就再也没有见过他。当罗斯福去世时，杜鲁门完全不知道原子弹。然而他必须做出的第一个决定是是否投下原子弹。当时杜鲁门受到广泛的鄙视。我记得我自己对 杜鲁门 的看法。他、我和其他人都看不起特鲁姆，但回想起来，我们发现 杜鲁门 很勇敢。嗯，他不在乎人们是否讨厌他。嗯，他做出了勇敢的决定，柏林空运，氢弹的开发，朝鲜战争，人们因此而讨厌他，发射了 麦克阿瑟将军，人们因此而讨厌他。因此，当杜鲁门下台时，他受到了广泛的厌恶，但回想起来，嗯，逐渐地，他被赞赏为不等于罗斯福和林肯，而是第二梯队，一位勇敢的美国总统，他做出了决定，并且不在乎他会因为这个决定而被厌恶，他的决定。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Rorra、Eight Sleep]</span></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>如今，至少在科技领域和创业领域，有很多关于内省（清嗓子）对那些试图创造大事业、成为领导者、企业家的人造成的损害的讨论。我们必须小心不要用太宽泛的画笔来绘画。但我在研究不同的领导者时，无论是黑暗的还是光明的，是否存在一个主题，即强大的领导者能够直接进入下一个决策，而无需过多考虑过去或他们将如何被看待？这是内省的一种形式。我知道还有其他的，但是有相关性吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>我会说不。这说明了一个广泛的观点。人们经常寻找关于领导者的个人概括、个性概括。也许最常见的概括是领导人必须具有魅力。废话。有些领导者很有魅力。 斯大林阿古斯托掐智利独裁者完全没有魅力。成为有效领导者的方法大约有 37 种，魅力就是其中之一。如果您或任何其他人会问我们如何概括领导者的任何问题，那么都会有一些关于领导者的概括，但不是个性概括，因为成为有效的领导者有不同的方法。我的感觉是，根据你刚才所说的，你对领导者和领导力的理解是，正是这种奇怪的环境融合在一起，无法更好地领导，也许是魅力或缺乏魅力，这是一系列奇怪的事情，导致了历史和我们现在正在经历的事情。所以对我来说，也许我错了，这与我根据你之前的书对你的理解有点对比，那就是你试图找到主题规律。你试图为那些表面上非常复杂的事物建立结构，比如我们是如何到达这里的，文化是如何演变的等等，等等。那么，在对领导力的探索中，你如何从认为能够解释每种情况到某种让你满意的分类法？我将与我们稍后要讨论的观鸟进行类比。我的意思是，每只鸟都是不同的，但每只鸟都属于一个特定的类别，并且具有特定的特征。在很多方面，我以同样的方式思考领导者和领导力。什么是令你满意的？什么样的理解程度和思想一致性是令人满意的？</p>
+<p>我在写关于领导者的文章时得出了一些概括。但我想说，就像人们经常问我的背景一样，贾里德，你关于领导者的书现在似乎与枪支、细菌和钢铁相反。啊？贾里德，你的书《钢铁之旅》是关于大图案的。没有任何关于个人的事情。相反，它是关于驯化和大陆的形状。这是否意味着您改变了主意并且现在认识到个人的作用？我的回答是否定的。 《枪炮、德国和钢铁》讲述了过去一万年各大洲的历史模式。在过去的一万年里，在整个大陆上，我想不出有哪个人做出了改变。没有人对新月沃土的启动文明负有责任。肥沃的新月跳跃开始了文明。为什么？因为肥沃的新月地带是最多产的野生植物豌豆、小麦、大麦，最多产的野生动物牛、绵羊、山羊、猪、马居住的地方。因此，在枪蘑菇海豹中，根本没有任何关于个人的东西，而我关于领导力的书是关于人们在我一生中所做的事情，通常是在局部范围内，所以它是关于个人的，而枪钢根本不是关于我没有改变主意，而是我现在在利润、先知、教练与国王中看到与钢枪相比完全不同类型的问题</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>说《利润、先知、教练与国王》在某种程度上是一本自传，讲述了你一路走来影响你生活的事情，这是不是有点过分了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>在动机方面，是的。从内容上看，没有。在动机上。是的，希特勒在我的家庭生活和我妻子的生活中扮演的角色，但是这本书的内容对我来说都是分离的。在引言中，我想我确实提到了 布莱恩·马修斯 爵士作为 剑桥 生理学系的领导者拯救了我在生理学方面的职业生涯。但是一旦我进入政界，一旦我进入商界，一旦我进入体育界，宗教，嗯，不，这就是我没有为这四个领域中的任何一个领域做出贡献的所有东西。现在，在本书的尾声中，我确实会问哪些领域或其他领域正在等待通过自然实验的方法进行探索，我指的是科学，我是一名科学家，艺术和音乐，我是一名音乐家，军事历史，我对军事历史，社会动荡非常感兴趣，我希望将来人们将这些领导力问题应用到涉及我个人的事情上，特别是音乐和科学，但那是未来的事情。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>你提到了关于实验室被淹没的故事，我应该指出，我听到你说放射性同位素呃水。您从那位教授的回应中得到什么启示？这是否让你更加宽容别人的错误？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>我不是一个会因为别人的错误而指责别人的人。嗯，我犯了很多错误。我自己也曾经历过一次非常危险的情况。我做过一些可能当场结束我职业生涯的事情，比如还有其他一些可能当场结束我职业生涯的事情。所以，我不想因为别人的错误而责备他们。我记得J·罗伯特·奥恩海默的传记中提到，奥恩海默犯了盗窃罪，他很容易被解雇，他的职业生涯可能已经结束，但盗窃案被忽视了，所以他继续发展他的职业生涯。有趣的是，当我们在等级阶梯上处于非常低的位置时，嗯，就像在传统时代的学术界一样，嗯，人们显然拥有巨大的力量来影响我们，无论我们是否前进，但当嗯，像这位呃教授的宽恕，如果人们能听到的话，它总是令人放心，因为我认为很多人将强大的领导力与嗯在这里，我再次概括为一种对嗯不完美的缺乏宽容，缺乏宽容在这种情况下可能会威胁到整个部门的事情。所以，一方面，这是一个非常甜蜜的故事，但我想它不会再发生第二次。还有那个，对吧？ 36 年来，我一直在 加州大学洛杉矶分校 医学院做生理学教授，做实验室实验，所以我有研究生和博士后，但很多研究生后都搞砸了。他们犯了很大的错误。我记得我的第二个研究生我的部门想开除他，因为他考试成绩不好。我说服了我的部门让他留下来，事实证明他是一位杰出的研究员。我的其他几个学生也有过千钧一发的经历，但我再次想起我自己是多么接近结束我的职业生涯，人们原谅了我，我的职业生涯发展得很好</p>
+<p>是的，我会这么说</p>
+<p>既然我被原谅了，我就应该原谅我的学生</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>我喜欢它，我相信很多人都欣赏这与我认为大多数人所理解的学术界截然不同的景象。所以谢谢你。在你心目中，宗教领袖的重要性足以在本书中占据显着位置。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>书中有两章是关于宗教领袖的。嗯，第一章着眼于 19 世纪美国的三位宗教领袖，因为我们获得了很多关于他们的详细信息。约瑟夫·史密斯，摩门教摩门教的创始人。安·李，震颤派创始人。 吉姆·琼斯，琼斯敦创始人。所以，我们有很多关于他们的信息。关于宗教的第二章着眼于耶稣。我们对耶稣的了解很少。我们没有任何关于他的当代信息。我们掌握的关于他的第一个信息是圣保罗书信和圣马可福音，这两本书都是在他去世大约 20 年之后写的。所以没有关于他和耶稣的当代信息。耶稣有改变吗？好吧，如果你读过《新约》中谈到的另外六位弥赛亚的名字。耶稣不是唯一的弥赛亚。当时有很多人说：“我是弥赛亚。”其中六个在新约中被提及。其中有几个人被罗马人杀死了。施洗约翰的头被砍掉了。嗯，耶稣被杀了。但这是西罗马帝国，西欧亚大陆最强大的政治实体。正是建立主要宗教的正确地点。耶稣当然无法预见到这一点。在他去世1467年后，哥伦布扬帆起航，开启了欧洲人对世界的征服之旅，传播了欧洲宗教。但欧洲的宗教是基督教。为什么？因为基督教是当时最强大的实体西罗马帝国的宗教。因此，如果耶稣在苏丹也具有相同的属性，我们就不会了解耶稣。如果耶稣是公元前 100 年西欧的宗教领袖，我们就不会了解他。他是正确的地点和正确的时间。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>他绝对是所有呃宗教领袖中最高的 H 指数。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>在正确的时间出现在正确的地点。我相信基督教是当今世界上信奉人数最多的宗教。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>我知道你尽量不要一概而论，但是有什么关于耶稣的具体信息吗？我们确实几乎可以肯定地认识这个人，或者可以肯定地说，他的有效性，或者你说的是正确的地点，错误的，正确的时间，但这似乎是必要的，但还不够。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>正确的。在正确的时间、正确的地点还有其他人。新约中还提到了另外六位先知，他们就是死海古卷中的艾赛尼派。为什么世界宗教是由耶稣而不是由艾赛尼派领袖创立的？嗯，有几件事。第一，耶稣的信息和个人品质。他向所有人传达了一个普遍的信息。这不仅是给艾赛尼派的信息，也不仅仅是给犹太人的信息。是的，耶稣是犹太人，但他的信息不仅仅针对犹太人。这是当时罗马帝国宗教领袖的普遍信息。这对他来说是一件大事。对他有利的另一件事是，宗教不仅需要一个有魅力的创始人，还需要一个组织者。 在某些情况下，组织者和富有魅力的创始人是同一个人。穆罕默德是一位伟大的组织者，也很有魅力。苏丹的马迪是一位出色的组织者和出色的将军。也是一位杰出的宗教领袖。耶稣死得太早了。呃，他不是或组织者是圣保罗，但圣保罗是一位伟大的组织者，就像摩门教一样。约瑟夫·史密斯是罗马宗教的魅力创始人，即使在他的一生中，他作为组织者也有弱点，他是他，然后被私刑处死，组织者是杨百翰，他是一位伟大的组织者。所以你的问题是，为什么耶稣是普世信息，他很幸运，后来跟随他的是一位伟大的组织者圣保罗，他在正确的时间出现在西罗马帝国的正确地点</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>哥伦布显然能够传播他的想法，正如你所指出的那样，但仍希望避免概括。我得到的结论是，你需要一个领导者。你需要一个组织者。有时领导者是组织者，但很多时候听起来像是有其他人或其他人可以帮助组织信息。我们在科学中看到了这一点</p>
+<p>很多时候，特别是在生物科学领域，嗯，呃，你的导师霍德金·赫胥黎成双成对地获得了诺贝尔奖。他们因描述动作电位的生物物理学而闻名。胡巴尔黄鼠狼获得诺贝尔奖。这种配对很常见，而且在了解了大卫·哈布和托森·黄鼠狼之后，托森还活着。那里也经常有个性呃恭维。一个人往往更直言不讳，一个人更直言不讳，你知道，沃森和克里克。我确信还有很多不合适的例子。呃，但是在思考领导者，而不仅仅是宗教领袖时，我们能否对两个非常值得称赞的人进行任何形式的概括，他们在他们的领导力和信息方面特别有效地获得逃逸速度？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>我不这么认为。就宗教而言，嗯，这不仅仅是配对，而且通常是三重奏，即要创立一个宗教，你需要有魅力的创始人，你需要一个组织者，但通常当你发现一个新宗教时，总是会受到现有宗教的抵制，而且这种抵制往往是暴力的，因此新宗教常常不得不保卫自己，不得不有嗯将军。嗯，例如，麦穆罕默德是一位杰出的将军、组织者和魅力。苏丹的马迪在 19 世纪末在东非建立了一个帝国。伟大的将军。他仅用棍棒就率领数百、数千苏丁部落用机枪消灭了英埃7000人的军队，一位伟大的将军，伟大的组织者，具有超凡的魅力。但在科学的其他领域，也有一些科学家是大规模的组织者。我的论文是艾伦·霍德金。艾伦·霍德金不是伟大的科学家，他没有将 50 人组织成一个实验室小组。艾伦·霍德金的策略是一次招收一名博士生。嗯，我是他的博士生三年了。他没有其他博士生。他确实成为了三一学院的院长，而且是一位有效的三一学院院长。但其中有科学家，也有杰出的组织者。杰拉尔德·阿德尔曼 (杰拉尔德·埃德尔曼) 因研究抗体如何运作而获得诺贝尔奖。我相信杰拉尔德阿德尔曼和我的一个朋友在大约 50 名博士后发现了肾脏中存在所谓的本琼斯蛋白质。这一发现对于弄清楚抗体如何运作至关重要。呃，但是我朋友单独操作。他没有 50 个臀肌。因此，当我的朋友犯了一个战术错误，在发表文章之前就他发现本·琼斯蛋白质进行演讲时，杰拉尔德·阿德尔曼就在观众席上，我被告知然后立即告诉他的实验室，“改变一切。”他的 50 名同事去了那里，他们弄清楚了抗体是如何运作的。杰拉德·阿德尔曼获得诺贝尔奖。我的朋友没有获得诺贝尔奖，但杰拉尔德·阿德尔曼是一位非常有效的组织者和筹款人</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>和大个性。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>是的。是的。我见过他两次。是的。他是一个很有个性的人。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>是的。在免疫学之后，他开始涉足神经科学。呃，呃，是的，伟大的想法。嗯，大实验室，大想法。所以，对于我所做的陈述，我意识到，有很多例外，就像有一些符合它的事情一样。我很惊讶你提到了 吉姆·琼斯。嗯，大多数人可能都听说过琼斯敦大屠杀。在我看来，最重要的轮廓是一群人离开这个国家追随这个邪教领袖并喝毒药，这是集体自杀。当我听到邪教和邪教领袖时，出于某种原因，我默认更多地考虑邪教追随者的易受影响程度，而不是邪教领袖的说服力。你知道，在我看来，大卫·卡雷什和分支恶魔是被烧毁的建筑，杀死了里面的所有人。当我听到卡雷什的演讲时，除了他疯了之外，他们对说服我没有任何影响。当你想到一个有效的邪教领袖时，我认为大多数人可能会默认他们正在掠夺弱势群体。但是否有一个世界，那些有效的邪教领袖可以在正常社会的背景下做其他事情并成为有效的领导者？或者是有一些关于配对的功能失调的配对</p>
+<p>容易成为邪教追随者和邪教领袖的人？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>有趣的问题。领导者需要能够使她或他领导的个人特征。他们可能很有魅力。他们也许能够吓唬人们。他们也许能够说服人们。一方面是领导者，另一方面是追随者。并不是每个人都是追随者。有些人很容易追随有魅力的人，而还有很多人甚至不会追随大多数有魅力的人 希特勒。他们是追随 希特勒 的德国人，被 希特勒 说服了，但纳粹从未在选举中获得多数席位。大多数德国人没有被 希特勒 说服。琼斯镇的 吉姆·琼斯，因在瓜纳建立殖民地而臭名昭著。殖民地以美国历史上最大规模的集体自杀而告终。 900 931人饮酒、殴打、用氰化物毒害。但是吉姆·琼斯，他不能被视为一个疯子。呃，他领导了印第安纳波利斯废除种族隔离。他以他在印第安纳波利斯创立的教会的崇高理想吸引了人们。追随他的人可不是乱七八糟的。他们主要是穷人，主要是老年人。他们中很多人是非裔美国人。他们往往不是受过高等教育的人。所谓的人民圣殿需要有魅力的领袖。嗯，你提出的这个观点确实很有趣，但是它也需要有意愿的人去成为追随者。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>我没有意识到他领导了明尼阿波利斯废除种族隔离。如果他在从印第安纳波利斯搬到旧金山之前就去世了。如果他在旧金山的头几年就去世了，那么他会被任命为旧金山的住房专员之一。他吸引了旧金山许多理想主义者，但他却逐渐变得越来越疯狂。但这幅图说明了你提出的观点，这是一个有趣的观点，人们不仅要询问领导者，还要询问追随者。谁愿意跟随？呃，就纳粹而言，是的，很明显，有些德国人愿意追随 希特勒。就温斯顿·丘吉尔、富兰克林·德拉诺或 罗斯福 而言，嗯，我的父母三次投票支持 罗斯福，一旦他们投票反对罗斯，我的父母和其他 罗斯福 就不是疯子。还有温斯顿·丘吉尔，那些投票给温斯顿·丘吉尔的人并不是疯狂的、病态的、病态的人。在这种情况下，人们不能像 吉姆·琼斯 的情况那样关注其追随者的病态或奇怪品质。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：AG1]</span></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>我意识到可以根据一个人决定在哪里划分界限，将领导者、人、动物或任何东西分为不同的类别，但是对于那些声称自己不是在等级制度的顶层，他们服从某个或某个特定神的上帝，而不是在金字塔的顶端的强大领导者，可以说任何有用的信息吗？我们将把耶稣排除在外，因为这是显而易见的。但对于像 吉姆·琼斯 这样的人来说，你说他有一座教堂。嗯，他还在谈论上帝的存在吗？他是否试图利用上帝，让人们相信他对上帝很谦卑，或者他现在或正在说他真的是权力和理解力的顶峰？我想我们可以将此应用于我们讨论过的几乎任何人或其他任何人。这是一条信息丰富的分界线吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>吉姆·琼斯当然没有否认神，也没有声称自己比神优越。这是领导者共有的另一个特征，我提到过，成为有效的领导者有不同的方法。魅力。嗯，我认为这是我书的第三章，我有一个表格，其中汇集了从 第二次世界大战 开始的那个时期的 22 位杰出政治领导人。我问自己，对于这 22 位领导人，我们可以得出什么概括？这22位显而易见的候选人你可以争论，但我包括斯大林和萨达特·墨索里尼希特勒等。我问自己，所有这些领导人是否有共同的品质，令我惊讶的是，在这22位领导人中，只有两人自愿下台。纳尔逊·曼德拉是南非后种族隔离时代的开国领袖，我想他已经80多岁了，他作为总理自愿退休部长。嗯然后新加坡独立的缔造者, 嗯, 担任总理可能长达30年可能长达40年但是他自愿下台了。.但在另外 20 人中，这 22 人中只有两人自愿辞职。所有其他主要领导人要么被暗杀和瓦萨达特要么自杀希特勒或者他们被投票下台温斯顿·丘吉尔或者他们被政变赶下台，这意味着在政治上一旦你成为一个强大的领导者，你就会得出这样的结论：你是一个有效的强大领导者。你不太可能自愿辞职。 22 人中只有两人做到了。所以这是我没有预料到的概括。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>是的，我想这也是一种生活方式的影响。呃，没有人愿意在他们的舒适度方面倒退。呃，但令我惊讶的是，尽管年纪大了，但有些人仍然有活力继续占据这些需求非常高的地方</p>
+<p>令人疲劳。我的意思是你显然没有放慢速度，但是呃呃你知道但是呃我们会谈论你现在正在自学意大利语的事实。是这样吗？您正在自学一门新语言吗？我没听错吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>我学了意大利语。意大利语是我 13 门语言中的最后一门。我学了意大利语</p>
+<p>才 13 岁。是啊。当我61岁时。我每天都读意大利语。我所有的休闲读物都是意大利语的。我不做英语休闲阅读。我每天都读意大利语。每周我都会和我的意大利教授（南加州大学教授）进行一次 2 小时的意大利语对话。是什么促使您学习 13 种语言？这对你来说很有趣吗？或者你和/或你喜欢挑战，作为学习另一种语言的诱惑的一部分吗？</p>
+<p>我的母亲是一位才华横溢的语言学家。我只是喜欢学习语言。在我的学校要求我们学习拉丁语五年。我喜欢它。嗯，我们可以选择学习希腊语或生物学选修课。我想我的余生都会从事生物学工作。我现在就说我花了三年时间学习希腊语。我仍然可以背诵主要内容的开头然后嗯在大学嗯我就在我母亲帮助我之前学了德语就在大学进入大学之前这是人造卫星的时代所以我学了俄语我学了西班牙语然后我大学毕业后的第一个夏天我在芬兰度过了夏天芬兰语不是印度语它是一种非常困难的语言。当我去芬兰时，我没有芬兰语语法，但我在芬兰搭便车。嗯，1959 年夏天，当时在芬兰，很少有芬兰人会说英语。为了搭便车，我必须开始学习芬兰语。最后我来到了芬兰北部的一个国家公园，徒步走进了一间由四名芬兰士兵看守的小屋。这四名芬兰士兵除了芬兰语外不会说任何语言。我和他们在一起好几天了。他们通过演示来教我芬兰语。嗯嗯杯子。他们拿起一个杯子。芬兰语中杯子的意思是 ki。然后完成而不是介词，它有后置词情况。所以当你想说杯子在桌子上时。当你想说我把杯子放到桌子上时，当你把杯子从桌子上拿下来时。因此，这四名芬兰士兵向我展示了如何将杯子戴上或取下，我非常喜欢它，并且我认真考虑过退出科学。嗯，我去芬兰后遇见了我的父母，在巴黎遇见了我的父母。他们一年来第一次来到欧洲，我正在认真考虑放弃科学并成为一名同声传译。我本来要去瑞士成为一名翻译。幸运的是，我的父亲，他轻轻地说，“也许现在放弃有点早了。我知道你现在的科学对你来说很沮丧，但你只做了一年。你为什么不再给自己六个月呢？六个月后，如果实验进展不顺利，你可以做一名翻译。但我很喜欢学芬兰语。然后当我去了新几内亚，新几内亚和我一起工作的第一批 新几内亚 人是一个因库鲁笑病而闻名的部落，当时有一种叫做“谈话视觉”的 新几内亚 贸易语言，所以我能够通过谈话视觉进行交流，但我只是喜欢从几次尝试中学习“突进”，我记得，我向我询问线人，我试图找出“for”这个词。我们嗯，我已经学会了“我唠叨”这个词，所以我在谈话视觉中问了我的突袭线人，嗯“我唠叨”，他说然后他给了我一个“我们”的词，然后我回答说“哦，我们不是nag kasik”。事实证明，英语中的“突袭”有单数和复数“我”和“我们”。但是在欧洲，如斯洛文尼亚语和古希腊语中，有一个“决斗”，即我们两个人和三个人的单独代词。例如，如果我在谈论我们两个人，我们就会这样做。但是如果这里有第三个人，那将是一个不同的代词，而且我只是喜欢学习语言，我一直喜欢语言。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>看来你很喜欢它的谜题。你喜欢它的应用，因为一旦你学会了意大利语，你仍然每周用几个小时用意大利语进行这些对话。再一次，我感到震惊的是，尽管不同语言之间存在巨大差异，例如，嗯，我并不是想在这里扮演心理学家，但你的思想中有一些东西，你似乎对语言或领导者等类别中的大量信息多样性感到非常满意。大多数人进来后都会尝试简化以澄清，但你有这个，呃，你的想法似乎是让我们找到可能的最广泛的变化，并从中提取一些更深入的理解。你可能会想到这是我，但这是一种非常不寻常的做事方式。我的意思是，正如我们所说，在生物学中我们有集束器和分裂器。我教神经解剖学，所以你可以把它分成块或分开。你可以说大脑，或者我们可以开始划分它，如果你愿意的话，你可以将一切划分到线粒体的细分。正确的？所以你必须选择你的分析水平。但我们倾向于采用框架命名法，并尝试以我们可以思考其他相似基因的方式命名基因。你的思维以一种非常不同的方式运作。我想知道的是，一直都是这样吗？你是否看过世界上事物的分类并说这太疯狂了？他们为什么这样组织？也许我们应该通过最详细的镜头并从中提取清晰度来看待它。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>我从三岁起就这样了。我的母亲是一名教师，热爱教学，在我三岁的时候，妈妈就教我读书。于是我开始记笔记本。我的笔记本上还保留着我三岁的孩子。我列了清单。我列出了河流的名称、动物的名称、落基山脉的动物名称、欧洲的鸟类名称。我是一名名单员。这很尴尬，但我列出了波士顿有轨电车系统上有轨电车的数量。我很长地列出了街道号码。我喜欢列出清单，并且通过列出清单我在生物学方面取得了很多进展。获得博士学位后，我成为膜生物学家，在我对膜生物学的贡献中，我做了有史以来最大规模的研究，研究生物膜对不带电分子、非电解质的渗透性，我和我的第一个研究生，我们测量了兔子胆囊对 210 非 210 非电解质的渗透性。它们都是有机化学品，其中有很多细节。有支链非电解质，有非支链非电解质，有含氧基团的和有含硫基团的。所以有很多细节。嗯，我喜欢这个 200 名非电力人员的项目。然后当我去新几内亚开始研究鸟类时，嗯我从1964年就开始研究新几内亚鸟类了。</p>
+</div></div>
+<div class="marker-line"><span class="tag">【鼻息声】</span></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>新几内亚 拥有约 600 种鸟类。我遇到过并认识了他们中的大多数。嗯，当我晚上睡着的时候，我经常会给自己背诵新几内亚鸟的名单。有时我会念出他们的名字：马比塞纳人、帕萨基人、肯·马梅·托托人、斯瓦纳达巴人。有时我会用他们的拉丁名字来背诵他们。 Sarahornis Papois、Sarakornis Perspicoladus、Sarakornis Noi，我就是喜欢列清单。但我的一位老师，一位对我有影响力的老师，伟大的进化生物学家恩斯·迈耶。 恩斯特·迈尔 喜欢列出清单，他和我花了 30 年时间共同准备一本关于北美拉尼西亚（新几内亚 以东的岛屿）的鸟类的书。厄恩斯和我非常合得来。我们俩都喜欢列清单。每当有问题出现时，厄恩斯厄恩斯都会说：“让我们列一个清单。”他会列出一个清单，我也会列出一个清单。然后我们会仔细检查这份清单，即美拉尼西亚北部所有山鸟的清单。关于这座山有哪些概括？我从三岁起就开始列清单，从中获得了很多科学知识吗？这与理查德·法恩曼谈论如何看待世界的方式完全相反。他实际上用了一个例子，如果你在树林里看到一只鸟，有人说那就像一只画眉鸟。他说知道这个名字并不能帮助你理解它。但我想说的是，基于花费大量时间思考不同大脑结构的名称和连接性，通常有一种在某个领域命名事物的方法，它实际上可以告诉你很多有关功能的信息。例如，在神经科学中，我们的第一个名字是视网膜膝状体。它告诉您源结构和接收结构是什么。所以就像名字实际上很重要一样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>他们告诉你的不仅仅是这个与那个的不同。那么，当您列出这些列表并在入睡时背诵这些列表时，您是否还能回想起这些列表之间的功能区别？这只是批处理信息的方式，还是列表和名称有自己独立的唯一值？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>名称是很多信息的锚。当我晚上念诵时，Sarakonus noi Craakonus noi 大大大灌木丛仁。那又怎样呢？嗯，它是按海拔顺序排列的两只鸟中较大的一只。嗯，它是两个非常相似的共存物种中较大的一个。帕萨基阿比人和马比人如此相似，直到新几内亚人向我解释他们行为上的差异之前，我无法区分它们。因此，有很多与该名称相关的信息。此外，这个名字本身就有Sarahornus。莎拉的意思是那只鸟属于萨拉科努斯 (Sarakornus) 属。在 Craicornus 属中，还有 um Sarah um Sarakornus Vatus，它是 Sarakornus noi 的低海拔版本。但还有 serornus perspicoladus，这是一种体型较小的灌木丛，具有相同的海拔范围。所以有一些信息伴随着</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>我的意思是，在科学界，你我都知道，有些人选择一件事，有时他们会在整个职业生涯中或一次钻研五年或十年，然后有人试图拥抱大量信息。显然你属于后一类。所以我再次要问的是，这一直是你的倾向吗？您想了解所有信息吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>基本上是的。这意味着我一直对很多事情感兴趣。我很幸运能上一所中学，它为我提供了学习很多东西的选择。我的中学虽然我希望进入科学领域。我的中学有很棒的历史老师，比我在 哈佛 学院的所有历史老师都要好。很棒的拉丁语拉丁语希腊语老师。然后，我在英国 剑桥 获得了生理学博士学位，并返回美国，获得了胆囊盐和水运输的博士学位。回想起来，我当时并不知道自己在做什么，但回想起来，我发现我现在惊恐地明白，我的余生竟然要奉献给胆囊。但这与我从三岁起所做的一切背道而驰。所以我开始寻找另一个职业。嗯，我认真考虑过在前哥伦比亚陶瓷领域另谋出路。我认真考虑过成为管弦乐队的指挥。我对前哥伦比亚陶瓷没有深入的了解。嗯，作为一名指挥，你必须能够忽略时滞。我可以忽略时间滞后。但嗯，我七岁时就成为了一名观鸟者。当我在第一个夏天获得博士学位后回到波士顿时，我和一位大学同学，这位大学同学是一位出色的观鸟者，我们在秘鲁度过了夏天。你在秘鲁做什么？我们爬山。我们看鸟。第二年夏天我们一起去了新几内亚。为什么？ 新几内亚 是世界上最狂野的地方。嗯，但是 新几内亚 也有最美妙的鸟类。因此，我在鸟类领域发展了第二职业，[清了清嗓子]，然后我在历史和地理领域发展了第三职业。所以我有过三种职业。我的实验室生理学生涯最终于 2002 年结束。为什么？当我的双胞胎儿子出生时，我和妻子有双胞胎儿子，他们出生于 1987 年。当我们的双胞胎儿子出生时，我意识到马克斯和约书亚的未来不会依赖于胆囊。这将取决于历史和地理。就这样，渐渐地，我开始把更多的时间花在历史、地理上。我对胆囊不太感兴趣，最后好不容易，我让加州大学洛杉矶分校把我从医学院的胆囊生理学教授调到大学的地理学教授，我仍然保持着历史和地理的两个职业，同时我正在写关于领导者的书，同时我也一直在写关于新几内亚鸟类的论文，我想一周前星期五我完成了一篇关于印度尼西亚 新几内亚 钻石山鸟类的 P 长论文。明年我想写一篇关于印度尼西亚巴尼山鸟类的论文 新几内亚。因为我已经 89 岁了，我必须弄清楚我剩下的时间是有限的。我要利用剩下的时间做什么？我想利用剩余时间做的一件事是通过观察 新几内亚 10 个孤立山脉上的鸟类分布来综合我对 新几内亚 鸟类的研究。对于优秀的殖民者鸟类，我可以认识到哪些概括？这就是我接下来的十年想要做的事情。我不得不说，尽管我的同事们都有很多兴趣，但很少有人能在严肃的科学探索的几个不同领域取得成功，更不用说写关于这些领域的书籍了。您是否曾在某个时候允许自己移动字段？据我们所知，在科学界人们这样做并不常见。如果人们这样做，他们往往会以某种神秘的方式然后或逐渐地这样做。也许这也不是为了窥探你的个人生活，但是呃，决定是一回事，嗯，你知道，我的双胞胎即将到来，你知道，也许我会换领域，但那里的配偶可能会想，呃呃，你有终身教职吗？呃，我们要如何支付账单呢？嗯，所以我想嗯，可能会有支持，或者也许你只是非常挑衅，你只是追随你的好奇心。</p>
+<p>它们是职业问题，也是人们感兴趣的问题。有趣的是，从我三岁起，我就对很多东西感兴趣。回想起来，我意识到，在我的人生危机中，我的人生危机之一是在获得博士学位后，我惊恐地意识到我的余生应该做一件事，但那不是我。在鸟类领域开辟第二职业生涯需要付出一些努力。我有一个术后奖学金。大多数术后奖学金都会约束你做一件事。我当时在 哈佛 医学院的生物物理学实验室。但我很幸运，我的毕业后奖学金是在 哈佛 协会（称为研究员协会）中进行的。我是 哈佛 的初级研究员。作为一名初级研究员，我有自由。我可以告诉我生物物理学实验室的老板，今年夏天我要去 新几内亚 呆三个月，研究 新几内亚 鸟类。我没有征求他的同意。我只是说，我正在做。现在，他本可以解雇我，他本可以说，好吧，如果你想这么做，就离开生物物理学实验室，但我在生物物理学方面做得很好。所以，他愿意容忍我去 新几内亚 呆三个月。然后，当我搬到 加州大学洛杉矶分校 时，我与搬到 加州大学洛杉矶分校 进行谈判的关键部分是，我在那里获得了生理学系的教授职位、副教授职位。嗯，加州大学洛杉矶分校 的院长是 Sherm Melanchov 中任职时间最长的医学院院长。很棒的人。他给我提供了一份物理方面的工作。我告诉Sherm，“是的，但我对新几内亚鸽子很感兴趣，你要明白，我打算在过去的几年里，每年夏天我都会花三个月三个月的时间研究新几内亚鸽子，我想继续我对新几内亚鸽子的工作，如果我接受你的立场，你会容忍我继续对新几内亚鸽子工作吗？”大多数医学院院长都会说：“滚出去吧。” Sher Melanchov 说：“贾里德，加州大学洛杉矶分校 医学院对 新几内亚 鸟类很感兴趣。我每年都会给你 5,000 美元，用于研究 新几内亚 鸟类。”所以，他容忍了这一切，他让我这成为可能。我很幸运，有一位院长允许我这样做。嗯，至于我的妻子玛丽，玛丽 没有任何问题，因为当我遇到玛丽 时，我已经在新几内亚 工作了。事实上，我们关系的发展，我们关系中一个至关重要的问题是，贾里德每三个月就会去一次新几内亚。 玛丽 知道 New 发生了什么，我在 新几内亚 中多次差点被杀。所以 玛丽 必须愿意忍受这一点。嗯，当我们的孩子出生时，我在医学院的地位非常稳定。我本来要去新几内亚。当我们的孩子出生时，玛丽 并没有告诉我 Jared 三个月内不要去那里。正是那一刻，我意识到贾里德，你三个月内不会再去那里了。因此，当孩子们出生后，我将在 新几内亚 的时间减少到一次一个月。我上次 新几内亚 旅行是 2019 年。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>是的。它提出了冒险生活的一个非常有趣的特征，</p>
+<p>更不用说研究和生活了，你知道，呃沉浸在不同的文化、不同的生态系统中，这对身体来说很难去你不熟悉的地方，吃你不熟悉的食物。大多数人会想，哦，你在说什么？你知道，现在你可以在世界任何地方的麦当劳买到芝士汉堡。也许这是真的，但是你是否一直愿意为了学习而牺牲你的身体舒适度？我的意思是学习语言很难。嗯，把自己置于一个丛林环境中，那里有各种各样的疾病，有政治和社会动荡，就像当你出去时会有很多变数。嗯，然后你就成为了一名真正的野外智力探险家。嗯，这是一件有趣的事情，是一种必要的罪恶吗？它在哪里降落在你身上</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>在 新几内亚 工作？这是一个必要的罪恶。嗯，直到我去了新几内亚。嗯，我呃，前一年我在秘鲁的时候，我去新几内亚，我和我的朋友去了秘鲁，在秘鲁度过了一个夏天，我们爬山。嗯，我们第一次攀登 17,000 英尺的山峰。在高海拔地区，从海平面直线上升到 10,000 英尺，然后三天后到达六点十六分之一是痛苦的。所以，是的，我在秘鲁经历了身体上的痛苦。在 新几内亚 中，要在 新几内亚 中执行任何操作，都会遇到很多物理内存问题。食物是红薯和米饭，一日三餐。在丛林中，我被灌木螨咬了。我在 新几内亚 的第一年，我得了痢疾，哈佛 的医生无法治愈。它在我身边呆了一年。我在 新几内亚 的第三年，最终患上了疟疾。在 新几内亚 爬山。在 新几内亚 的大部分时间里，身体都是痛苦的。偶尔大概有一到三个月，我可以坐在露营地，看着外面，看着另一个人，说天哪，这太美了，但其余时间我身体很痛苦，我不得不和新几内亚人打交道，他们对生活有自己的想法，在 新几内亚 里，虽然很不舒服，但鸟儿们对弄清楚莫巴恩和波西亚布。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>我们来谈谈鸟类吧。嗯，我从科学中知道的另外两个观鸟者是吉姆·沃森</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>嗯一开始是</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>无论如何，某种鸟类学家决定共同解决呃 DNA 的结构。所以他走了一条不同的路。嗯，然后是已故的默里·吉尔曼，他发现了夸克，我认为两届诺贝尔奖得主也许是一个聪明的人，嗯，他痴迷于鸟类、鸟类分类学和观鸟。有趣的是，你们三个似乎都有一种对追求这些大人物的痴迷。</p>
+<p>像整个社会、领导力、嗯 DNA 结构、加尔曼、你知道、你知道、呃基本粒子等等问题，但是我知道一些鸟类，当然没有你那么多，有如此巨大的多样性</p>
+<p>嗯，除非一个人真的很喜欢观鸟，否则很容易从外面说，“是的，好吧。所以，你有黑帽小鸡，你有这个，你有那个。”通过观察它们可以收集哪些信息、哪些丰富内容？我不是在贬低它。我本人很喜欢鸟。呃，事实上，很多年前，我在一次物理会议上有一个奇怪而独特的机会与默里谈论鸟类。但与你相比，我对鸟类的了解显然非常肤浅。那么，了解所有这些关于它们如何移动的术语和细节，以及在野外观察它们，它能告诉你什么，它对你有什么好处呢？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>它告诉我们什么？鸟类向信息学家通报一切。地球。鸟类是所有动物中最容易观察和理解的。鸟类的感知能力与你我相同。鸟类通过视觉和声音进行活动。我们人类通过视觉和声音进行操作。而哺乳动物尤其靠嗅觉来运作。一个人不能观看。是的，你可以看羚羊，但你不能到处看老鼠。如果你想了解老鼠，你就必须有良好的嗅觉。你可以把他们困在<span class="tag">【笑声】</span>陷阱里。但你可以观赏鸟类。因此，我们对生态学、进化生物学、生物地理学和行为的大部分了解首先是在鸟类身上学到的，并且已经对鸟类进行了最详细的了解，然后我们可以学到的知识适用于其他动物。所以我写的关于鸟类的东西，嗯，很多关于生态学，很多关于鸟类如何划分生态位，很多关于进化，鸟类物种如何在新几内亚中进化，如何在不间断的山脉中获得新物种，生物地理学，世界各地植物和动物的分布，特别是从鸟类的分布开始。鸟类，然后是哺乳动物、哺乳类和其他动物。最容易观察的动物是鸟类。所以，当你说我们能从鸟类身上学到什么时，一个诚实的答案是，我们可以学到关于鸟类的一切，而生物世界中的一切从鸟类身上学到比从其他动物身上学到的更容易。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>完全可以接受的答案。嗯，很多鸟都会唱歌，有些会说话。我不知道你是否对鸟类的语言进化感兴趣，但是彼得·马洛尔这个名字有什么意义吗？是的。是的。当我还是一名研究生时，他在戴维斯，我认为他所做的最有趣的观察之一是，同一种鸟类如果在马林海岬饲养，与在海洋岬的鸟父母自然饲养的鸟类相比，在其他地方自然饲养的鸟类，会发出不同的歌曲。与呃这个物种有一些天生的关系，比如你可以交换幼崽，他们可以学习另一个地点歌曲，但他们总是会最好地学习自己的地点歌曲，我觉得如果有一套科学发现，可以融合你对语言、地点和迁徙的一些兴趣，那就是彼得·马洛尔的研究，如果你遇到了你们谈论的内容，嗯，你认为关于鸟鸣和鸟语言可能有趣的是什么，可以告诉我们关于我们的信息</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>一切，一切，鸟鸣，嗯，这是一种交流，鸟类试图交流什么，所以鸟儿在唱歌，为什么它们唱歌，它们在鸟鸣中传达什么信息。 鸟鸣，嗯，人们认为鸟鸣是雄性的，是为了标定领地，但近年来，我们了解到，erd 呼叫中有非常详细的信息。例如，像山雀和山雀这样成群结队的牛群，如果它们看到鹰，就会有一个呼叫记录，一个小的简单的呼叫记录。当鸟儿看到鹰时，它们会发出呼唤声，然后 200 英尺外的鸟儿会听到呼唤声，并且在鹰飞 200 英尺之前它们就会知道鹰就在那里。因此，鸟鸣声中含有大量信息，这些信息激发了类似的研究，特别是针对猴子的研究。有一对夫妻，嗯 Safe Off 和切尼，他们在 加州大学洛杉矶分校 搬到了宾夕法尼亚州。嗯，他们对黑长尾猴做了精彩的研究。黑长尾猴会发出咕噜声。西夫和切尼认为其中一些咕哝声听起来有点不同。于是他们开始录制咕噜声并播放咕噜声。他们注意到一些咕噜声是猴子向上看的，一些咕噜声是猴子低头的，还有一些咕噜声是猴子支撑自己的。他们意识到不同的咕哝声起到了单词的作用。有一种咕噜声意味着鹰，当一只完美的猴子发出鹰的咕噜声时，猴子就会抬起头来。还有另一个咕噜咕噜，意思是蟒蛇。当绿领听到声音时，它们会低头看着草地。还有另一种咕噜声，意思是豹子。当他们听到豹子的声音时，他们就爬上树。这是声音首先在鸟类中然后在猴子中传递信息的例子。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Function Health]</span></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>我认为，复杂的层次和不同的动物确实被低估了。我的意思是，即使对于像我这样的生物学家来说，你知道，这些其他物种的复杂程度总是令人惊喜。即使这些东西是硬连线的，它也是狂野的。公平地说，对你之前的例子来说，有人原谅了你在实验室中犯的错误，而你放弃了，或者你说你已经相当宽容了，从而传播了这种情况。当你的一位研究生或博士后走进来说“听着”时，我意识到我们正在研究 X，但我想继续研究另一件事。你忍得好笑吗？因为实验室在研究项目中的生存也取决于人们对问题主旨的跳跃。我只是好奇。我不会把你的脚放在火上。我只是想知道你对你的科学后代能容忍多少冒险精神。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>当我的博士后和研究生与我一起工作时，我与他们协商以确保他们会做一个让我感兴趣并且让他们感兴趣的项目。它必须是一个我感兴趣的项目，必须是一个我感兴趣的项目，因为我努力寻找资金，而我一次只能带两到三个学生。一个学生会跟随我三四年。我的投资很大。只有当它对我有意义时我才会进行投资。只有一次，一名学生告诉我他想要拥有自己的项目。呃，有一个很棒的阿根廷学生，嗯，有一天他来找我，说他在生理学系打听过，他得知他被告知，对于博士后，嗯，这是该部门的常态，他声称，博士后会花一半的时间在他导师的项目上，一半的时间在他自己的项目上。现在那是不真实的。呃，但是他找到了另一个博士后，这是真的，他是一个有趣的夜晚，我被带回来了。好吧，你可以自己做，他做了一个自己的项目以及和我一起做的项目。呃，但那是我唯一一次让学生做一个我不感兴趣的项目。除此之外，这些项目一直是我和学生都感兴趣的项目。这对学生有好处，因为对学生来说，学生能得到我的全部关注并向我学习。嗯，如果我知道的话，学生可以向我学习。如果我一无所知，学生就无法向我学习。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>很明显，因为您已经告诉我们，您的职业生涯也证明了您拥有并保持着很多兴趣，深厚的兴趣和强烈的好奇心。呃，几乎是一种强迫症，要跟随他们并为自己解决某些问题。在今天开始录制之前，我们进行了一次简短的交谈，讨论一个人对某些宠物、世界上某些事物的偏好或缺乏偏好。我们不必深究。嗯，这没有争议。嗯，但令我如此震惊的是，你的表达是多么清晰。我想我们在大约 20 秒前就已经认识到，生活中的一些宠物、一些东西、一些话题对你来说只是一种消遣，就像你只是对它们不感兴趣一样。我认为这与对许多其他事情感兴趣非常吻合。所以，这是我要问的一个有点奇怪的问题，但是你考虑过时间吗？比如，我一生中有多少时间来做这件事？你一直这么想吗？作为一个刚满 51 岁的人，我越来越多地思考这个问题。但学术生涯的美妙之处在于，你知道，好吧，我有四到六年的时间来完成这篇论文。繁荣。然后就有机会稍微或或或大幅调整。但生活有些不同，对吧？但我很清楚，你是在说这对其他人来说都很好，但我不想为这些事情投资而烦恼。清除。时期。故事结束。事实上，这非常令人耳目一新，因为我嗯，它与你对一切都感兴趣的想法背道而驰。如果可以的话，你并不是对一切都感兴趣。你对很多事情都很感兴趣。这提供了一个非常好的剃须刀来分离出所有你不会被打扰的事情。</p>
+<p>这一直是你的一个特点吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>绝对不是。当我 80 岁的时候，让你们预览一下即将发生的事情，80 岁对我来说并不感到震惊。 81更让人震惊，因为81意味着我已经牢牢地融入了80年代。但尽管我非常清楚美国男性出生时的预期寿命数字是 78 岁左右。美国男性 70 岁的预期寿命却并不广为人知。当你到了 70 岁时，你的预期寿命不是 78 岁。你的预期寿命是 93 岁，因为很多风险都已经过去了。我非常清楚这一点。当我81岁的时候，我并没有计算过我能做什么。嗯，但是在过去的几年里，自从我现在89岁以来，我非常清楚剩下的时间以及我想在剩下的时间里做什么。我想在剩下的时间里做一些具体的事情来综合我的理解。新吉迪有 10 条轮廓山脉。我对其中几个进行了第一次下降和第一次鸟类学探索，对其余的进行了最详细的探索。如果我不写下来，这些知识就会随着我一起消失，因为那些山脉很难进入。我想对这 10 座山脉进行综合分析，以了解是什么让一个物种成为优秀的殖民者？为什么有些鸟类分布在所有 10 座山脉上，而其他鸟类却只分布在一座山脉上？我拥有独特的数据集，我想在我还活着的时候把它写下来。还有一件事，我已经思考了很长一段时间了。嗯，我是音乐剧，我特别喜欢巴赫的音乐。嗯，我在波士顿的赫内尔和海登协会唱歌。我在 剑桥 的 剑桥 英格兰嗯音乐协会唱歌。当我在 剑桥 合唱团唱歌时，我的本·本杰明英国来了，并进行了加拿大学术的首演。所以我很感兴趣，并且演唱了我特别喜欢的作曲家约安·塞巴斯蒂安·巴赫的作品。他写了210教堂。我演唱了大约 20 首歌曲，一年前的八月，我一直告诉自己，我想了解所有这些歌曲，时机已经到来。我面前的时间是有限的。现在最好从 Katadas 开始。所以我开始使用 Katadas，大约每周一次。昨晚我重听了《加拿大 61》和《加拿大 62》。接下来是《加拿大 63》。嗯，按照我的节奏，我可能需要三到四年的时间才能了解所有的巴查德。但这是我想做的事情。但我现在非常清楚剩下的时间。我只是在过去的几年里才有了这种意识。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>是否有一些你过去出于义务感而不再做的事情，可以让你有更多的时间去做对你来说很重要、你希望拥有的事情和人</p>
+<p>允许自己早点做吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>我的第一个想法是不。总的来说，我已经做了我喜欢做的事情。是的，当然，有些事情是生活中必须要做的事情，但这些事情并不令人愉快。当然。我花了很多时间，可能每年至少花一个月甚至两个月的时间来处理复杂的所得税申报表。我对操纵数字有一种病态的容忍度。所以我并不像大多数其他人那样反对缴纳所得税。所得税必须完成，需要花费我很多时间。我还能做什么？我父亲洗碗。我和妻子一起洗碗。 玛丽 负责园艺。我对园艺没有兴趣。 玛丽 负责园艺。嗯，玛丽 负责购物。嗯，我原谅自己，玛丽 玛丽 知道我一年中的几个月花在所得税上，我负责保险，我负责组织旅行。我不介意处理保险。我不介意做所得税，我宁愿花时间做鸟类，但这并不是我非常反对的事情。我永远不会要求某人来这里为别人说话，但是我很高兴得知你是我的同事保罗·埃利克的亲密朋友。嗯和他的妻子桑德拉·汗仍在斯坦福大学任教。呃，保罗当然写了人口炸弹。嗯，保罗和桑德雷写的书《大白鲨》</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>我想你有一个转发，也许鲍勃·萨波尔斯基有关于嗯的介绍</p>
+<p>用嘴呼吸可能不利于面部结构的发育，也不利于健康，他们称之为流行病。呃，人们对鼻呼吸和呼吸暂停等有些兴趣。如你所知，保罗是一个令人愉快的人。你比我更了解他。但他在某些事情上做对了，而有些人会认为他在某些事情上做错了。就像人口炸弹一样。我的理解是，它认为到我们现在到达的时候，我们将严重人口过剩，这是危险的。有些人会认为出生率正在下降。更换问题更是一个问题。但他对人口增长和环境影响等一些呃问题的看法正确吗？这不是我有任何专业知识的领域，但是呃，你认为他在哪些地方是非常正确的，因为他非常聪明，并且在很多方面都在这些主题上领先？他当然是正确的，人类今天面临的最大威胁当然包括灭绝我们自己的核风险。嗯，我想说，我们面临的三个最大的风险是核风险，以及全球化世界不平等的后果。现在，任何地方的任何人都受到其他地方任何人的影响，这是对世界贸易的邀请。因为在全球化世界中，不平等是危险的。第三个风险当然是资源耗尽的风险，以及我们正在快速破坏我们的资源的风险。为什么我们会过度开发我们的资源？因为世界人口增加了。现在有九十亿人口。一万年前，大概有一百万人。地球上有一百万人。现在我们得到了 90 亿。但重要的不仅仅是人数，还有人均消费率。第一世界的人均消费率有所上升。结果是我们正在耗尽渔业。但世界上有 40 亿人依赖鱼类和海鲜来获取蛋白质。我们正在耗尽世界上的森林。我们正在耗尽世界表层土壤。保罗和他的妻子安妮，《人口炸弹》一书呼吁人们关注人口增长的危险，现在可以将人口增长乘以人均消费。保罗预测未来几十年内会出现巨大的危险。他预测将会出现大范围的饥饿。如果你看一下他的维基百科条目，嗯，这是世界上最伟大的现代科学家之一和他该死的维基百科。相反，他的维基百科条目反复提及他的书《人口炸弹》，并表示事实证明这并不正确。那么，当今世界上九十亿人中，嗯，他们中有多少人吃不饱、挨饿，他们是饿死的吗？不，他们不会很快饿死，但他们的寿命很短，而且寿命很悲惨，因为世界上一小部分人过着第一世界的生活方式。即使在美国，拥有足够资源的人和缺乏足够资源的人之间的两极分化也在加剧。因此，要责怪保罗·埃里克犯了错误，不，他做对了，但他在更广泛的意义上做对了，比攻击他的白痴愿意承认的更广泛。</p>
+<p>很高兴听到你这么说。呃，长期以来一直是他的作品的粉丝，他和我都同意，《大白鲨》是一本很棒的书，我认为人口炸弹仍然具有很大的阅读价值，即使你指出的具体陈述有所不同，它仍然是一部非常重要的作品，我们谈论了政治领袖，我们谈论了宗教领袖，还谈论了一些邪教体育</p>
+<p>你喜欢运动吗</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>我喜欢还是嗯，我很好，我锻炼了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>是的，你看起来很健康。这也是你智力严谨的重要组成部分吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>我一直都很活跃。我在大学时开始举重。嗯，我跑了很多年。我妻子临产的那一天，即将生下我们的双胞胎，我当时正在跑步，我非常兴奋，因为她即将生下双胞胎，所以我没有把我的午餐和午餐放在冰箱里，把鞋子放在地板上，而是把跑鞋放在冰箱里，午餐放在地板上。所以，我仍然每周锻炼几天。身体活动是我生活的重要组成部分。我从中得到满足。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>我认为现在人们进行体育锻炼的目的是为了增强和保护他们的身心，这是很常见的。但当你上大学时，如果我推断的话，呃，这并没有真正被谈论过。事实上，智力和体育活动的分离是一个主题。就像人们参加体育运动一样，对吧？但锻炼有点像军事运动员和健美运动员，而跑步则少一些，对吧？但我发现所有的</p>
+<p>我认识的科学家们在职业生涯中取得了很长的成功，而且仍然很强大，他们都非常活跃，而且已经持续很长时间了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>所有的人。老实说，那些没有死的人大多已经死了。伟大的 哈佛 有机化学家 um Woodward Aby Woodward，曾两次获得诺贝尔奖。伍德沃德没有进行任何体育锻炼。他不想花任何时间做除了有机化学家之外的任何事情，当然他很早就去世了</p>
+<p>在实验室里我想必是在床上思考的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>好的。嗯，比在办公室或实验室更好。因此，沿着这些思路，<span class="tag">【笑声】</span>嗯，田径运动和体育运动，嗯，你喜欢哪种运动？嗯，是什么促使您探索体育领域的领导者？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>我探索体育领域的领导者的原因与商学院教授对体育成果进行大量研究的原因相同。事实上，我想说，很多甚至大部分关于体育成果的研究都是由商学院教授完成的。原因是商学院教授当然对商业成果感兴趣，但商业成果很难衡量。嗯，首席执行官往往是守口如瓶的。企业可能不会公布其结果，或者每五年公布一次。因此，商业世界的数据是有限的。但在体育比赛中，每周都会进行一次或一周几次。比赛结果公布。教练在场边经常跳来跳去尖叫。球员们都是众所周知的。体育节目​​正在电视上播出。结果是，商学院教授开发的用于分析首席执行官和分析商业世界的方法，嗯，通常是在体育中开发的，并且在体育中进行调试的。嗯，例如，在商业世界中，主要问题之一当然是，企业的成功有多少归功于首席执行官？这是一个大声反对的首席执行官说我对成功负责，因此你应该付给我数十亿美元，因为我的公司我们的公司赚了千亿美元，但因为我对这千亿美元的利润负责，你可以付给我100亿美元。这是真的吗？弄清楚这一点很复杂。有几种方法。其中之一涉及进行所谓的 ANOVA 方差分析。对体育运动的方差分析显示，体育运动成功的差异大约有 15% 到 30% 是由教练造成的，另外 30% 是由运动员造成的，另外大约 30% 是由体育机构造成的。在商业世界中，事实证明，同样，首席执行官约占方差分析的 30%，而个别公司则占另一家运营良好的宝洁公司的比重。 150 年来，它一直运行良好。另外30%是由于行业。香水公司、电脑公司和青少年 T 恤公司往往利润丰厚。而水利和电力部门往往无利可图。为什么？因为它们受到政府的严格监管。所以 NOVA 嗯被应用于体育界和商业界。但除此之外，如果赛季表现不佳，教练经常会被解雇；如果公司年度回报不佳，首席执行官也会被解雇。因此，如果你因为业绩不佳而解雇了首席执行官，那么下一年，新任首席执行官通常会有一个更好的业绩。为什么？因为体育比赛结果的 70% 差异是由于 CEO 的随机因素造成的。如果你扔一个骰子，嗯，你扔了一个骰子，你得到了一个，所以你通过骰子对那个人说，你是一个糟糕的骰子投掷者。你有一个。我要解雇你了出于统计原因，下一个掷骰子的人有六分之五的机会比前一个掷骰子的人做得更好。 2 3 4 5 六。在体育界，当你解雇教练时，通常新教练的战绩会更好。为什么？因为所有的随机因素。嗯，我的大学，加州大学洛杉矶分校，我们的体育部门现在负债 1.5 亿美元。为什么？因为我们解雇了自约翰·伍登以来所有的篮球教练。嗯，当我们解雇他们时，我们必须买断他们的合同。所以，买断他们的合同。 500万、1000万、15百万美元。简单来说，当你解雇一位首席执行官时，下一任首席执行官可能会因为各种随机原因做得更好，就像掷骰子一样。这说明了为什么商学院教授通过分析体育运动获得了很多见解。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>教练的理念以及首席执行官的理念对于我们为什么这样做有多重要？我们听说过很多这样的事情，比如为什么事情背后如此重要，但事实确实如此吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>是的，但很少。所以约翰·伍登通常被认为是美国体育史上和任何体育运动中最伟大的教练。嗯，约翰·伍登 (约翰·伍登) 加州大学洛杉矶分校 篮球队赢得了什么？九次全国冠军，其中包括连续七次。没有其他大学连续两次获得全国冠军。约翰·伍登为何如此成功？他成功的原因有很多。他让他的球员处于最佳身体状态。尽管他的球员可能比杜克大学的球员矮五英寸，但他让他的球员比杜克大学的球员跳得更高。嗯，他是一位细节大师。呃，他关心他们穿什么袜子，因为他们穿的袜子会影响，你[笑]知道，他们如何跳跃以及如何打球。呃，他非常注重让他的球员们不仅以五人一组的方式进行训练，因为他们将在球场上，而且以七人一组的方式进行训练，这样他就可以替补，但也许约翰·伍登最重要的事情是，对他来说，篮球不是一项运动，篮球是一种生活哲学，约翰·伍登的伟大球员比尔·沃顿和阿伦多说，伍登教练，我从伍登教练那里学到的东西比从我父母以外的任何人那里学到的东西都多。但我从他身上学到的是生活，而不是打篮球。那篮球，篮球是人生的典范。这在教练中是不寻常的。比尔·贝利奇奇.我从来没有听过有人说过比尔·比奇奇是生活的典范。还有鲍比·奈特，没有人说鲍比·奈特是人生哲学的典范。那么约翰·伍登为何如此成功呢？部分原因是他是一位细节大师，但也因为他将篮球视为一种生活方式。这是你无法伪造的。是的，你可以假装，你可以学习如何训练你的球员跳得更高，但你不能像约翰·伍登那样假装生活哲学。现在井里有没有一个类似的东西，似乎是科技首席执行官和企业家。我的意思是，我们有这些在旧金山湾区长大的超现实人物，你知道，我小时候是休莱特和帕卡德，然后是史蒂夫·乔布斯和比尔·盖茨</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>在西雅图，现在我们有马克·扎克伯格、埃隆·马斯克、山姆·阿尔曼，Anthropic 的达里奥正在迅速崛起，成为另一位大人物，但我可能错过了其中的一些人，但无论他们喜欢与否，这些都是大人物，人们关注的名人技术专家，就像人类要去哪里一样。撇开政治不谈，史蒂夫·乔布斯显然有一种创造美丽事物的哲学，将设计和技术以一种你知道的方式融合在一起，即你知道物体对他们或其他东西有友好性，即使它是一个苹果。所以，这里面似乎蕴含着某种哲学性的东西，甚至有点神秘。您如何看待这些技术领导者？您有何看法？你怎么认为？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>我见过比尔·盖茨，并进行过几次长时间的交谈，我喜欢他。我和他的谈话经历很好。嗯，有些人在其他情况下见过他，对他有不同的看法。我见过埃隆·马斯克一次。杰夫·贝佐斯。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>哦，是的。所以请原谅我。我应该提到贝索斯。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>是的。杰夫·贝佐斯。贝佐斯我我见过一次。嗯，在商界的领导者中，我认识的人并不多。我最欣赏的人是巴塔哥尼亚的希纳德。对他来说，就像约翰·伍登一样，巴塔哥尼亚是生活的典范。他强调让他的员工有休息时间。他强调巴塔哥尼亚是可持续的。他有机会获得更多的棉花，生产更多的产品。不，他选择不购买更多的棉花，因为他不想过度发展棉花农业。他现在或曾经是一个完整的人，而不仅仅是一个商业领袖。他首次攀登了约塞蒂峰最困难的山壁。他是一位顶级登山运动员。我认识他。嗯，我为他的自传写了序言。嗯，他有自己的人生哲学。还有其他大牌吗？杰夫·贝兹有人生哲学吗？马克·扎克伯格有人生哲学吗？我不知道这些大人物有超越他们业务的生活哲学。现在，史蒂夫·乔布斯确实有自己的商业人生哲学。当他第一次被解雇后回到苹果公司时，苹果公司陷入了困境，他第二次又被带回来。他的理念是减少苹果的数量，而不是苹果生产 100 种产品，他说我们应该生产四种产品，这些产品应该看起来不错，应该有吸引力，并且应该易于操作。它们不应该像我妻子和我的电视观看世界杯足球赛的遥控器一样。我们的遥控器有 47 个按钮，我们每次都必须打电话给儿子告诉我们如何操作遥控器。所以史蒂夫·乔布斯的设备没有 47 种，但他有自己的产品哲学。我不知道他是否有像约翰·伍登那样更大的人生哲学。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>所以我们谈论了政治领袖、宗教领袖、体育。您说过您在书中涵盖了第四类。</p>
+<p>所以我们有政治领袖、商界领袖</p>
+<p>体育领袖和宗教领袖。这是四类。四大类</p>
+<p>商业和体育似乎有点交叉，对吧？听起来像</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>商业研究和体育研究之间的联系尤其紧密。但情况也是如此，商学院的教授们研究了体育运动，也研究了政治领域的成功。因此，这也许是我所知道的关于开发新方法来研究领导者和领导者成功的最好的一篇论文，但它也着眼于政治领域的领导者，得出的结论是，总理比州长更能发挥作用。州长比市长更能发挥作用。为什么？因为首相拥有更大的权力。此外，独裁者比民主领导人更能发挥作用。战时的民主领导人比和平时期的民主领导人发挥更大的作用，因为在战时民主领导人被赋予更多权力。嗯，商学院的教授们也将他们的方法应用于嗯政治。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>许多人对很多事情感兴趣，他们有真正的兴奋，他们对追求音乐、歌唱、乐器、学习主题或运动的想法产生共鸣。嗯，你会告诉那些人什么，因为我们都听过“只管去做”的口头禅，这很好，但嗯，我不是心理学家，但似乎你内心有一种或可能一直有这种几乎强迫性地朝某个方向前进的冲动，但你的结构是你如何去做，你不只是试图立即做所有事情，而且你显然在每个领域都取得了成功，我相信一路上都会遇到挑战。但是，如果您想将什么东西传递给任何年龄段的人，您会说什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>我首先会说做你喜欢做的事，但它的范围必须更广泛。我的一位朋友，伟大的生物学家汤姆·洛夫乔伊，不幸去世了。嗯汤姆告诉我，当他十几岁的时候，汤姆问他的父亲，“爸爸，我应该做什么职业？”他的父亲说，“做一些你擅长的事情。做一些你喜欢的事情。做一些改变世界的事情。我会给人们什么建议？也许主要的建议是确保你做你喜欢的事情，因为这是大多数人不做的事情。如果人们告诉你不，你必须这样做，这个，这个，告诉他们见鬼去吧。从字面上看，很多人说你必须这样生活。你必须熨烫你的衬衫。当我是一名毕业生，我没有熨烫我的衬衫，但就我而言，如果有人告诉我，贾里德，我想用我的时间做其他事情。无论我的衬衫是熨烫的还是不熨烫的，这对生活来说并不重要。我在做一些对世界有益的事情吗？是的，我花了很多时间为印度尼西亚的国家公园系统设计，我写了很多关于世界面临的巨大风险的书。我喜欢做一些我想做的事情，但我发现我并不是我想成为的管弦乐队指挥，而是指挥一个管弦乐队，你必须在演奏者演奏时发出低音，但由于声音的速度，我无法在演奏者演奏之前发出低音。我尝试指挥或加州大学洛杉矶分校邀请我指挥或，我指挥过一次管弦乐队，因为我无法预料到悲观的情绪，所以我放弃了指挥管弦乐队的愿望，尽管我很乐意这样做，但我最终做了我擅长的事情，做我喜欢做的事情，对世界有益的事情。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>我在所有方面都同意。并不是说你需要我的同意。呃我说有两个问题。你在回答第一个问题的过程中回答了[清嗓子]第二个问题。所以，呃，最后我只想说谢谢你抽出宝贵的时间</p>
+<p>百忙之中来与我们分享并教育我们。嗯，我对利润、先知、教练与国王感到非常兴奋。领导者什么时候重要？今天的谈话只会让我更加兴奋。我想说的是，你的父亲尽管鼓励你继续成为一名生物学家，而不是一名翻译家，但他还是部分失败了，因为对我和其他数以百万计的人来说，你已经成为我们从未遇到或考虑过的想法的翻译者，这通过你的书激发了我大量的好奇心和学习能力，嗯，今天只是这一点的另一个延伸，我相信下一本书将继续这一点。所以，谢谢你没有听从他的要求，同时也听从了他的要求。我非常感谢您今天来到这里，希望我们能再次这样做。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="贾里德·戴蒙德">戴蒙德</span></div><div class="content">
+<p>谢谢。我很高兴与你交谈，你知道，因为当采访、播客和采访者有所不同时，你知道自己写了一本书。它们并不完全相同。有些面试官比其他面试官准备得更好。有些面试官比其他面试者更了解这个主题。很高兴与您交谈。您是一位很高兴接受您的采访。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·休伯曼">休伯曼</span></div><div class="content">
+<p>谢谢。我很高兴，我们会再做一次。感谢您参加今天与 贾里德·戴蒙德 博士的讨论。要了解有关他的作品和他最近出版的书《利润、先知、教练与国王》的更多信息，请参阅节目注释标题中的链接。如果您正在学习或喜欢此播客，请订阅我们的 YouTube 频道。这是支持我们的绝佳零成本方式。此外，请通过单击 Spotify 和 Apple 上的关注按钮来关注播客。在 Spotify 和 Apple 上，您都可以给我们留下五星级评价。您现在可以在 Spotify 和 Apple 上给我们留下评论。另请查看今天节目开头和整个节目中提到的赞助商。这是支持这个播客的最佳方式。如果您对我有疑问，或者对播客、嘉宾或您希望我为 休伯曼实验室 播客考虑的主题有意见，请将这些意见放入 YouTube 的评论部分。我确实阅读了所有评论。如果您还没有在社交媒体上关注我，我是所有社交媒体平台上的 休伯曼实验室。这就是 Instagram、X、Threads、Facebook 和 LinkedIn。在所有这些平台上，我讨论科学和科学相关工具。其中一些内容与 休伯曼实验室 播客的内容重叠，但其中大部分内容与 休伯曼实验室 播客上的信息不同。同样，所有社交媒体平台上都是 休伯曼实验室。如果您还没有订阅我们的神经网络时事通讯，神经网络时事通讯是一份零成本的月度时事通讯，其中包括播客摘要以及我们所说的 1 到三页 PDF 形式的协议，涵盖从如何优化睡眠、如何优化多巴胺、故意冷暴露等所有内容。我们有一个基本的健身方案，涵盖心血管训练和阻力训练。所有这些都是完全零成本的。您只需访问 hubermanlab.com，转到右上角的菜单选项卡，向下滚动到时事通讯，然后输入您的电子邮件即可。我要强调的是，我们不会与任何人分享您的电子邮件。再次感谢您参加今天与 贾里德·戴蒙德 博士的讨论。最后但同样重要的是，感谢您对科学的兴趣。</p>
+</div></div>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
 </div>
-</body>
-</html>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Andrew Huberman（Huberman Lab）", "title": "伟大领导者的特质与如何过上非凡人生｜贾里德·戴蒙德博士", "url": "https://www.youtube.com/watch?v=2oqBvTRYcv0", "videoId": "2oqBvTRYcv0", "published_at": "2026-10-19", "duration": 6800, "caption_source": "YouTube 自动生成字幕（en-orig，经 yt-dlp + Chrome cookies 获取；非官方字幕），中文为逐句全文翻译，已移除赞助广告", "guests": ["贾里德·戴蒙德博士"], "speakers": [{"id": "h", "name": "安德鲁·休伯曼", "role": "host", "short": "休伯曼"}, {"id": "g", "name": "贾里德·戴蒙德", "role": "guest", "short": "戴蒙德"}], "intro": {"summary": "神经科学家休伯曼对话《枪炮、病菌与钢铁》作者贾里德·戴蒙德，从历史与人性的角度剖析领导力，并讲述戴蒙德本人跨学科的好奇心与人生选择。", "points": ["魅力并非领导者的必要条件：成为有效领导者的方式有很多种，魅力只是其中之一", "通过斯大林、皮诺切特、丘吉尔、吉姆·琼斯等案例，讨论领导者与追随者的关系及历史偶然性", "观鸟为何是理解人类行为与本性的绝佳窗口", "戴蒙德从童年起的强烈好奇心，如何驱动他在生理学、鸟类学、人类学与写作之间不断转向", "关于反思、决断与在不同领域取得非凡成就的人生建议"], "verdict": "值得看：约 113 分钟的高质量长访谈，信息密度高、案例丰富。", "audience": "对领导力、历史、人类学、科学人生感兴趣的听众"}, "paragraphs": [{"start_sec": 0, "speaker_id": "g", "type": "text", "zh": "人们经常寻找关于领导者的个人概括、个性概括。也许最常见的概括是领导者必须具有魅力。废话。有些领导者很有魅力。 斯大林、奥古斯托·皮诺切特，智利的独裁者，完全没有魅力。成为有效领导者的方法大约有 37 种，魅力就是其中之一。如果您或任何其他人会问我们如何概括领导者的个人问题，那么有一些关于领导者的概括，但不是个性概括，因为成为有效的领导者有不同的方法。"}, {"start_sec": 1, "speaker_id": "h", "type": "text", "zh": "欢迎来到 休伯曼实验室 播客，我们在这里讨论科学【音乐】和基于科学的日常生活工具。"}, {"start_sec": 2, "speaker_id": "h", "type": "text", "zh": "【音乐】"}, {"start_sec": 3, "speaker_id": "h", "type": "text", "zh": "我是 安德鲁·休伯曼，是 斯坦福大学医学院 的神经生物学和眼科教授。今天我的嘉宾是 贾里德·戴蒙德 博士。 贾里德·戴蒙德 博士是 加州大学洛杉矶分校 的名誉教授。他在生物学、人类学等领域进行了研究，坦白说，他涉足的领域实在是太多了，以至于没有一个合适的头衔适合他。他还是《枪炮、病菌与钢铁》等书籍的著名作者，并因此获得了 普利策奖 奖。他还被授予 国家科学奖章 和 麦克阿瑟天才奖。今天我们讨论与贾里德最近出版的关于领导者和领导力的书相关的主题。它的标题是《利润、先知、教练与国王》。我们讨论政治领袖、宗教领袖、商业和体育领袖。今天，您将听到许多误解被消除，包括“魅力是成功领导力所必需的”这一常见神话。我们讨论了许多令人难以置信的生物学。例如，为什么观察鸟类，是的，鸟类，因为它们依赖视觉和声音，使它们成为理解人类行为和人性的最佳窗口之一。我们还讨论了贾里德本人，因为您很快就会看到，他是一个令人难以置信且非常不寻常的人。我们讨论了他从童年起就存在的强烈好奇心，以及这种好奇心如何从一个主题转移到另一个主题、从一本书转移到另一本书、从一篇论文转移到另一篇论文，以及他将难题带入实验室并深入野外观察自然状态的事物的过程，然后以不同于任何其他科学家或作家的形式带回所有这些知识。因此，接下来是与科学和公共教育领域绝对杰出人物的讨论。我确信它会给你带来启发、着迷和启发。在开始之前，我想强调一下，这个播客与我在斯坦福大学的教学和研究角色是分开的。然而，我的愿望和努力的一部分是向公众提供有关科学和科学相关工具的零成本消费者信息。为了与这个主题保持一致，今天的节目确实有赞助商。现在我与 贾里德·戴蒙德 博士进行讨论。 贾里德·戴蒙德 博士，欢迎光临。"}, {"start_sec": 4, "speaker_id": "g", "type": "text", "zh": "很高兴和你在一起。"}, {"start_sec": 5, "speaker_id": "h", "type": "text", "zh": "很高兴您来到这里。我非常喜欢你的书。 《枪炮、病菌与钢铁》 是我读到的第一个。我会抵制住询问你每本书中主题的诱惑，主要集中在你的书上，这是先知，发音相同，但先知是在创造先知和先知中，就像谁成为先知以及他们是什么一样。教练和国王。领导者什么时候重要？我认为现在人们比以往任何时候都更多地思考现代领导力和过去的领导力主题。首先我想知道什么是先知？先知。"}, {"start_sec": 6, "speaker_id": "g", "type": "text", "zh": "对我来说，先知意味着宗教领袖，因为我关于领导力的书着眼于四个领域的领导力。政治领域、商业领域、体育领域，最后是宗教领域。我用先知这个词来指代宗教领袖，因为它可以用来形容先知、先知、教练、副教练和国王。 U 我不在乎他们是否预言未来。这只是我对宗教领袖的话。"}, {"start_sec": 7, "speaker_id": "h", "type": "text", "zh": "让我们来谈谈每个类别中的领导力，以及每个类别中对您来说最光明和最黑暗的人。如果您愿意，我们也可以进入连续体的中间。但你的书一开始就谈论了希特勒，对于绝大多数活着的人来说，希特勒 被认为是有史以来最黑暗的领导人之一。请告诉我们关于 希特勒 的信息以及您对他的了解，这或许可以帮助我们更全面地思考领导力。"}, {"start_sec": 8, "speaker_id": "g", "type": "text", "zh": "我出生于1937年，这意味着我是在第二次世界大战中长大的。我在美国长大，没有受到过轰炸。但我记忆中的每一天都是由战争形成的。我的第一个记忆，我能记得的第一个数据是美国陆军发布的第一张死去的美国士兵的照片。这是《生活》杂志的著名封面。两名美国士兵面朝下死在 新几内亚 的 布纳-戈纳海滩 上。所以我是在希特勒的阴影下长大的。我的家人来自东欧，是来自东欧的犹太人。最后我的家人当然是在 大屠杀 中失踪了。我娶进了一个波兰家庭。我妻子的父母于 1948 年来到美国。我妻子的母亲在 奥斯维辛 中幸存下来。我妻子家庭的各个成员都没有幸存。于是我的人生和玛丽的人生就在希特勒的阴影下形成了。最重要的是，还有一些领导人，非政治领导人，他们主要是为了好的方面而塑造了我的生活。 剑桥生理学系有一位系主任。我留下了一个橡胶软管泵，水泵整夜运转以干燥放射性同位素。泵坏了。它淹没了我的实验室。它淹没了我实验室下面的实验室。那不是一个淹没实验室的好选择。那是实验室阿德里安勋爵，他是我论文导师的岳父，也是我学院的院长。第二天早上，生理学系主任 布莱恩·马修斯 打电话给我，我以为我要被开除。相反，他说你知道那很草率。不要再这样做了。就是这样。所以有一位领导者本可以结束我的职业生涯，但他没有。还有其他领导者为我的职业生涯做出了决定性的好事。没有做任何事情的人很少，但他们不是做我的领导者。这些就是我个人对领导者感兴趣的原因，首先是 希特勒 的问题。如果没有 希特勒，我在东欧的家人和 玛丽 的家人还会活着吗？"}, {"start_sec": 9, "speaker_id": "g", "type": "text", "zh": "我们离没有成年 希特勒 有多远？ 希特勒 的一生有两个著名的濒临结局。我的书的第一段是关于 1930 年 希特勒 就任总理之前发生的一场车祸，当时他的司机驾驶的豪华轿车驶入德国的一个十字路口。呃 希特勒 坐在副驾驶座的驾驶座上，右边的座位上，一辆大卡车与 希特勒 的轿车成直角驶入十字路口。嗯，希特勒 的司机和卡车司机最终要么刹车，要么加速，卡车撞上了 希特勒 的车脸，推上了弯道，正要从汽车上碾过去，压垮 希特勒，就在这之前它停了下来。 希特勒 受伤，但没有死亡。如果他于 1930 年去世，是否会有 第二次世界大战 以及 大屠杀？然后另一个著名的几乎是 1944 年，也就是战争的最后一年，克劳斯·冯·施陶芬贝格伯爵，一位幻灭的德国军官，试图杀死 希特勒。他带着一个装有炸弹的小手提箱进入 狼穴 的会议室。他在希特勒旁边坐下，把装好炸弹的手提箱放进去。他把手提箱放在 希特勒 的脚下，炸弹爆炸了。但就在炸弹爆炸之前，希特勒 身体前倾。结果，房间里的另外四人被杀。嗯 希特勒 的耳膜被震破了。 希特勒 受了重伤，但没有被杀。但如果 希特勒 没有倾向于那是 1944 年，嗯，我妻子家里的很多成员都会幸存下来。所以，这些就是为什么 希特勒 差一点就没有成为总理，以及它差一点就结束于 1944 年的 第二次世界大战，以及结束于 1944 年的欧洲 第二次世界大战。"}, {"start_sec": 10, "speaker_id": "h", "type": "text", "zh": "还有其他人可以完成 希特勒 所取得的成就吗？"}, {"start_sec": 11, "speaker_id": "g", "type": "text", "zh": "历史学家对此争论不休。这说明了判断领导者是否能发挥作用是困难的。历史学家和传记的传统方法是写传记。有很多人写过 希特勒 的传记。 希特勒 的大多数传记作者都得出结论，希特勒 在几个方面都是独一无二的。不幸的是，他是 20 世纪最具魅力的演说家。他是反犹太主义者。欧洲有很多反犹太分子，不仅在德国，而且在波兰。但是希特勒，所有其他反犹太分子都一一杀害了犹太人。 希特勒 是唯一一个想到以工业规模进行这一想法的人。如果没有希特勒，可能就不会发生大屠杀。他还擅长欺骗人们，在 慕尼黑 欺骗了著名的 内维尔·张伯伦，但他也欺骗了德国政客。他欺骗了德国商界领袖。他欺骗了德国将军。他欺骗了他的纳粹同胞。他只是擅长欺骗别人而已。因此，这些都是他认为他可能做出改变的论据，如果没有 希特勒 的世界，可能就不会有 第二次世界大战，也不会有 大屠杀。大多数历史学家倾向于认为领导者不会带来改变。但就 希特勒 而言，大多数历史学家都会认为 希特勒 确实发挥了作用。英国著名历史学家A. J. P. Taylor使用同样的事实在希特勒写了一本传记。基于同样的事实，A. J. P. Taylor 得出的结论是，希特勒 是一名普通的德国政治家，追求其他德国政治家的目标，这是事实，但如果 希特勒 不是一个领导人，就不会有任何区别。这些都是关于但说明了传统传记方法的弱点的争论。一个人受事实的限制，但同一事实不同的人会得出不同的结论。这就是为什么我的书使用了不同的方法，即自然实验的方法。"}, {"start_sec": 12, "speaker_id": "h", "type": "text", "zh": "在您看来，谁是最不可能成为一名取得积极或破坏性目标的极其成功领导者的领导者？"}, {"start_sec": 13, "speaker_id": "g", "type": "text", "zh": "有很多候选人。一位候选人，第一个出生于 1937 年，嗯，我是在 罗斯福 的领导下长大的，但我对他感兴趣的第一位美国总统是因为我当时是 哈里·杜鲁门，最不可能的重要美国总统。由于一些琐碎的政治原因，他被选为 罗斯福 的第三或第四任副总统。他是一位来自密苏里州的参议员，并不出名。他本来是通过不诚实的恶作剧成为参议员的。嗯，他是如此微不足道，以至于 罗斯福 在 杜鲁门 成为副总统后就再也没有见过他。当罗斯福去世时，杜鲁门完全不知道原子弹。然而他必须做出的第一个决定是是否投下原子弹。当时杜鲁门受到广泛的鄙视。我记得我自己对 杜鲁门 的看法。他、我和其他人都看不起特鲁姆，但回想起来，我们发现 杜鲁门 很勇敢。嗯，他不在乎人们是否讨厌他。嗯，他做出了勇敢的决定，柏林空运，氢弹的开发，朝鲜战争，人们因此而讨厌他，发射了 麦克阿瑟将军，人们因此而讨厌他。因此，当杜鲁门下台时，他受到了广泛的厌恶，但回想起来，嗯，逐渐地，他被赞赏为不等于罗斯福和林肯，而是第二梯队，一位勇敢的美国总统，他做出了决定，并且不在乎他会因为这个决定而被厌恶，他的决定。"}, {"start_sec": 14, "speaker_id": "h", "type": "ad_omitted", "zh": "", "ad_brand": "Rorra、Eight Sleep"}, {"start_sec": 15, "speaker_id": "h", "type": "text", "zh": "如今，至少在科技领域和创业领域，有很多关于内省（清嗓子）对那些试图创造大事业、成为领导者、企业家的人造成的损害的讨论。我们必须小心不要用太宽泛的画笔来绘画。但我在研究不同的领导者时，无论是黑暗的还是光明的，是否存在一个主题，即强大的领导者能够直接进入下一个决策，而无需过多考虑过去或他们将如何被看待？这是内省的一种形式。我知道还有其他的，但是有相关性吗？"}, {"start_sec": 16, "speaker_id": "g", "type": "text", "zh": "我会说不。这说明了一个广泛的观点。人们经常寻找关于领导者的个人概括、个性概括。也许最常见的概括是领导人必须具有魅力。废话。有些领导者很有魅力。 斯大林阿古斯托掐智利独裁者完全没有魅力。成为有效领导者的方法大约有 37 种，魅力就是其中之一。如果您或任何其他人会问我们如何概括领导者的任何问题，那么都会有一些关于领导者的概括，但不是个性概括，因为成为有效的领导者有不同的方法。我的感觉是，根据你刚才所说的，你对领导者和领导力的理解是，正是这种奇怪的环境融合在一起，无法更好地领导，也许是魅力或缺乏魅力，这是一系列奇怪的事情，导致了历史和我们现在正在经历的事情。所以对我来说，也许我错了，这与我根据你之前的书对你的理解有点对比，那就是你试图找到主题规律。你试图为那些表面上非常复杂的事物建立结构，比如我们是如何到达这里的，文化是如何演变的等等，等等。那么，在对领导力的探索中，你如何从认为能够解释每种情况到某种让你满意的分类法？我将与我们稍后要讨论的观鸟进行类比。我的意思是，每只鸟都是不同的，但每只鸟都属于一个特定的类别，并且具有特定的特征。在很多方面，我以同样的方式思考领导者和领导力。什么是令你满意的？什么样的理解程度和思想一致性是令人满意的？"}, {"start_sec": 17, "speaker_id": "g", "type": "text", "zh": "我在写关于领导者的文章时得出了一些概括。但我想说，就像人们经常问我的背景一样，贾里德，你关于领导者的书现在似乎与枪支、细菌和钢铁相反。啊？贾里德，你的书《钢铁之旅》是关于大图案的。没有任何关于个人的事情。相反，它是关于驯化和大陆的形状。这是否意味着您改变了主意并且现在认识到个人的作用？我的回答是否定的。 《枪炮、德国和钢铁》讲述了过去一万年各大洲的历史模式。在过去的一万年里，在整个大陆上，我想不出有哪个人做出了改变。没有人对新月沃土的启动文明负有责任。肥沃的新月跳跃开始了文明。为什么？因为肥沃的新月地带是最多产的野生植物豌豆、小麦、大麦，最多产的野生动物牛、绵羊、山羊、猪、马居住的地方。因此，在枪蘑菇海豹中，根本没有任何关于个人的东西，而我关于领导力的书是关于人们在我一生中所做的事情，通常是在局部范围内，所以它是关于个人的，而枪钢根本不是关于我没有改变主意，而是我现在在利润、先知、教练与国王中看到与钢枪相比完全不同类型的问题"}, {"start_sec": 18, "speaker_id": "h", "type": "text", "zh": "说《利润、先知、教练与国王》在某种程度上是一本自传，讲述了你一路走来影响你生活的事情，这是不是有点过分了。"}, {"start_sec": 19, "speaker_id": "g", "type": "text", "zh": "在动机方面，是的。从内容上看，没有。在动机上。是的，希特勒在我的家庭生活和我妻子的生活中扮演的角色，但是这本书的内容对我来说都是分离的。在引言中，我想我确实提到了 布莱恩·马修斯 爵士作为 剑桥 生理学系的领导者拯救了我在生理学方面的职业生涯。但是一旦我进入政界，一旦我进入商界，一旦我进入体育界，宗教，嗯，不，这就是我没有为这四个领域中的任何一个领域做出贡献的所有东西。现在，在本书的尾声中，我确实会问哪些领域或其他领域正在等待通过自然实验的方法进行探索，我指的是科学，我是一名科学家，艺术和音乐，我是一名音乐家，军事历史，我对军事历史，社会动荡非常感兴趣，我希望将来人们将这些领导力问题应用到涉及我个人的事情上，特别是音乐和科学，但那是未来的事情。"}, {"start_sec": 20, "speaker_id": "h", "type": "text", "zh": "你提到了关于实验室被淹没的故事，我应该指出，我听到你说放射性同位素呃水。您从那位教授的回应中得到什么启示？这是否让你更加宽容别人的错误？"}, {"start_sec": 21, "speaker_id": "g", "type": "text", "zh": "我不是一个会因为别人的错误而指责别人的人。嗯，我犯了很多错误。我自己也曾经历过一次非常危险的情况。我做过一些可能当场结束我职业生涯的事情，比如还有其他一些可能当场结束我职业生涯的事情。所以，我不想因为别人的错误而责备他们。我记得J·罗伯特·奥恩海默的传记中提到，奥恩海默犯了盗窃罪，他很容易被解雇，他的职业生涯可能已经结束，但盗窃案被忽视了，所以他继续发展他的职业生涯。有趣的是，当我们在等级阶梯上处于非常低的位置时，嗯，就像在传统时代的学术界一样，嗯，人们显然拥有巨大的力量来影响我们，无论我们是否前进，但当嗯，像这位呃教授的宽恕，如果人们能听到的话，它总是令人放心，因为我认为很多人将强大的领导力与嗯在这里，我再次概括为一种对嗯不完美的缺乏宽容，缺乏宽容在这种情况下可能会威胁到整个部门的事情。所以，一方面，这是一个非常甜蜜的故事，但我想它不会再发生第二次。还有那个，对吧？ 36 年来，我一直在 加州大学洛杉矶分校 医学院做生理学教授，做实验室实验，所以我有研究生和博士后，但很多研究生后都搞砸了。他们犯了很大的错误。我记得我的第二个研究生我的部门想开除他，因为他考试成绩不好。我说服了我的部门让他留下来，事实证明他是一位杰出的研究员。我的其他几个学生也有过千钧一发的经历，但我再次想起我自己是多么接近结束我的职业生涯，人们原谅了我，我的职业生涯发展得很好"}, {"start_sec": 22, "speaker_id": "g", "type": "text", "zh": "是的，我会这么说"}, {"start_sec": 23, "speaker_id": "g", "type": "text", "zh": "既然我被原谅了，我就应该原谅我的学生"}, {"start_sec": 24, "speaker_id": "h", "type": "text", "zh": "我喜欢它，我相信很多人都欣赏这与我认为大多数人所理解的学术界截然不同的景象。所以谢谢你。在你心目中，宗教领袖的重要性足以在本书中占据显着位置。"}, {"start_sec": 25, "speaker_id": "g", "type": "text", "zh": "书中有两章是关于宗教领袖的。嗯，第一章着眼于 19 世纪美国的三位宗教领袖，因为我们获得了很多关于他们的详细信息。约瑟夫·史密斯，摩门教摩门教的创始人。安·李，震颤派创始人。 吉姆·琼斯，琼斯敦创始人。所以，我们有很多关于他们的信息。关于宗教的第二章着眼于耶稣。我们对耶稣的了解很少。我们没有任何关于他的当代信息。我们掌握的关于他的第一个信息是圣保罗书信和圣马可福音，这两本书都是在他去世大约 20 年之后写的。所以没有关于他和耶稣的当代信息。耶稣有改变吗？好吧，如果你读过《新约》中谈到的另外六位弥赛亚的名字。耶稣不是唯一的弥赛亚。当时有很多人说：“我是弥赛亚。”其中六个在新约中被提及。其中有几个人被罗马人杀死了。施洗约翰的头被砍掉了。嗯，耶稣被杀了。但这是西罗马帝国，西欧亚大陆最强大的政治实体。正是建立主要宗教的正确地点。耶稣当然无法预见到这一点。在他去世1467年后，哥伦布扬帆起航，开启了欧洲人对世界的征服之旅，传播了欧洲宗教。但欧洲的宗教是基督教。为什么？因为基督教是当时最强大的实体西罗马帝国的宗教。因此，如果耶稣在苏丹也具有相同的属性，我们就不会了解耶稣。如果耶稣是公元前 100 年西欧的宗教领袖，我们就不会了解他。他是正确的地点和正确的时间。"}, {"start_sec": 26, "speaker_id": "h", "type": "text", "zh": "他绝对是所有呃宗教领袖中最高的 H 指数。"}, {"start_sec": 27, "speaker_id": "g", "type": "text", "zh": "在正确的时间出现在正确的地点。我相信基督教是当今世界上信奉人数最多的宗教。"}, {"start_sec": 28, "speaker_id": "h", "type": "text", "zh": "我知道你尽量不要一概而论，但是有什么关于耶稣的具体信息吗？我们确实几乎可以肯定地认识这个人，或者可以肯定地说，他的有效性，或者你说的是正确的地点，错误的，正确的时间，但这似乎是必要的，但还不够。"}, {"start_sec": 29, "speaker_id": "g", "type": "text", "zh": "正确的。在正确的时间、正确的地点还有其他人。新约中还提到了另外六位先知，他们就是死海古卷中的艾赛尼派。为什么世界宗教是由耶稣而不是由艾赛尼派领袖创立的？嗯，有几件事。第一，耶稣的信息和个人品质。他向所有人传达了一个普遍的信息。这不仅是给艾赛尼派的信息，也不仅仅是给犹太人的信息。是的，耶稣是犹太人，但他的信息不仅仅针对犹太人。这是当时罗马帝国宗教领袖的普遍信息。这对他来说是一件大事。对他有利的另一件事是，宗教不仅需要一个有魅力的创始人，还需要一个组织者。 在某些情况下，组织者和富有魅力的创始人是同一个人。穆罕默德是一位伟大的组织者，也很有魅力。苏丹的马迪是一位出色的组织者和出色的将军。也是一位杰出的宗教领袖。耶稣死得太早了。呃，他不是或组织者是圣保罗，但圣保罗是一位伟大的组织者，就像摩门教一样。约瑟夫·史密斯是罗马宗教的魅力创始人，即使在他的一生中，他作为组织者也有弱点，他是他，然后被私刑处死，组织者是杨百翰，他是一位伟大的组织者。所以你的问题是，为什么耶稣是普世信息，他很幸运，后来跟随他的是一位伟大的组织者圣保罗，他在正确的时间出现在西罗马帝国的正确地点"}, {"start_sec": 30, "speaker_id": "h", "type": "text", "zh": "哥伦布显然能够传播他的想法，正如你所指出的那样，但仍希望避免概括。我得到的结论是，你需要一个领导者。你需要一个组织者。有时领导者是组织者，但很多时候听起来像是有其他人或其他人可以帮助组织信息。我们在科学中看到了这一点"}, {"start_sec": 31, "speaker_id": "h", "type": "text", "zh": "很多时候，特别是在生物科学领域，嗯，呃，你的导师霍德金·赫胥黎成双成对地获得了诺贝尔奖。他们因描述动作电位的生物物理学而闻名。胡巴尔黄鼠狼获得诺贝尔奖。这种配对很常见，而且在了解了大卫·哈布和托森·黄鼠狼之后，托森还活着。那里也经常有个性呃恭维。一个人往往更直言不讳，一个人更直言不讳，你知道，沃森和克里克。我确信还有很多不合适的例子。呃，但是在思考领导者，而不仅仅是宗教领袖时，我们能否对两个非常值得称赞的人进行任何形式的概括，他们在他们的领导力和信息方面特别有效地获得逃逸速度？"}, {"start_sec": 32, "speaker_id": "g", "type": "text", "zh": "我不这么认为。就宗教而言，嗯，这不仅仅是配对，而且通常是三重奏，即要创立一个宗教，你需要有魅力的创始人，你需要一个组织者，但通常当你发现一个新宗教时，总是会受到现有宗教的抵制，而且这种抵制往往是暴力的，因此新宗教常常不得不保卫自己，不得不有嗯将军。嗯，例如，麦穆罕默德是一位杰出的将军、组织者和魅力。苏丹的马迪在 19 世纪末在东非建立了一个帝国。伟大的将军。他仅用棍棒就率领数百、数千苏丁部落用机枪消灭了英埃7000人的军队，一位伟大的将军，伟大的组织者，具有超凡的魅力。但在科学的其他领域，也有一些科学家是大规模的组织者。我的论文是艾伦·霍德金。艾伦·霍德金不是伟大的科学家，他没有将 50 人组织成一个实验室小组。艾伦·霍德金的策略是一次招收一名博士生。嗯，我是他的博士生三年了。他没有其他博士生。他确实成为了三一学院的院长，而且是一位有效的三一学院院长。但其中有科学家，也有杰出的组织者。杰拉尔德·阿德尔曼 (杰拉尔德·埃德尔曼) 因研究抗体如何运作而获得诺贝尔奖。我相信杰拉尔德阿德尔曼和我的一个朋友在大约 50 名博士后发现了肾脏中存在所谓的本琼斯蛋白质。这一发现对于弄清楚抗体如何运作至关重要。呃，但是我朋友单独操作。他没有 50 个臀肌。因此，当我的朋友犯了一个战术错误，在发表文章之前就他发现本·琼斯蛋白质进行演讲时，杰拉尔德·阿德尔曼就在观众席上，我被告知然后立即告诉他的实验室，“改变一切。”他的 50 名同事去了那里，他们弄清楚了抗体是如何运作的。杰拉德·阿德尔曼获得诺贝尔奖。我的朋友没有获得诺贝尔奖，但杰拉尔德·阿德尔曼是一位非常有效的组织者和筹款人"}, {"start_sec": 33, "speaker_id": "h", "type": "text", "zh": "和大个性。"}, {"start_sec": 34, "speaker_id": "g", "type": "text", "zh": "是的。是的。我见过他两次。是的。他是一个很有个性的人。"}, {"start_sec": 35, "speaker_id": "h", "type": "text", "zh": "是的。在免疫学之后，他开始涉足神经科学。呃，呃，是的，伟大的想法。嗯，大实验室，大想法。所以，对于我所做的陈述，我意识到，有很多例外，就像有一些符合它的事情一样。我很惊讶你提到了 吉姆·琼斯。嗯，大多数人可能都听说过琼斯敦大屠杀。在我看来，最重要的轮廓是一群人离开这个国家追随这个邪教领袖并喝毒药，这是集体自杀。当我听到邪教和邪教领袖时，出于某种原因，我默认更多地考虑邪教追随者的易受影响程度，而不是邪教领袖的说服力。你知道，在我看来，大卫·卡雷什和分支恶魔是被烧毁的建筑，杀死了里面的所有人。当我听到卡雷什的演讲时，除了他疯了之外，他们对说服我没有任何影响。当你想到一个有效的邪教领袖时，我认为大多数人可能会默认他们正在掠夺弱势群体。但是否有一个世界，那些有效的邪教领袖可以在正常社会的背景下做其他事情并成为有效的领导者？或者是有一些关于配对的功能失调的配对"}, {"start_sec": 36, "speaker_id": "h", "type": "text", "zh": "容易成为邪教追随者和邪教领袖的人？"}, {"start_sec": 37, "speaker_id": "g", "type": "text", "zh": "有趣的问题。领导者需要能够使她或他领导的个人特征。他们可能很有魅力。他们也许能够吓唬人们。他们也许能够说服人们。一方面是领导者，另一方面是追随者。并不是每个人都是追随者。有些人很容易追随有魅力的人，而还有很多人甚至不会追随大多数有魅力的人 希特勒。他们是追随 希特勒 的德国人，被 希特勒 说服了，但纳粹从未在选举中获得多数席位。大多数德国人没有被 希特勒 说服。琼斯镇的 吉姆·琼斯，因在瓜纳建立殖民地而臭名昭著。殖民地以美国历史上最大规模的集体自杀而告终。 900 931人饮酒、殴打、用氰化物毒害。但是吉姆·琼斯，他不能被视为一个疯子。呃，他领导了印第安纳波利斯废除种族隔离。他以他在印第安纳波利斯创立的教会的崇高理想吸引了人们。追随他的人可不是乱七八糟的。他们主要是穷人，主要是老年人。他们中很多人是非裔美国人。他们往往不是受过高等教育的人。所谓的人民圣殿需要有魅力的领袖。嗯，你提出的这个观点确实很有趣，但是它也需要有意愿的人去成为追随者。"}, {"start_sec": 38, "speaker_id": "h", "type": "text", "zh": "我没有意识到他领导了明尼阿波利斯废除种族隔离。如果他在从印第安纳波利斯搬到旧金山之前就去世了。如果他在旧金山的头几年就去世了，那么他会被任命为旧金山的住房专员之一。他吸引了旧金山许多理想主义者，但他却逐渐变得越来越疯狂。但这幅图说明了你提出的观点，这是一个有趣的观点，人们不仅要询问领导者，还要询问追随者。谁愿意跟随？呃，就纳粹而言，是的，很明显，有些德国人愿意追随 希特勒。就温斯顿·丘吉尔、富兰克林·德拉诺或 罗斯福 而言，嗯，我的父母三次投票支持 罗斯福，一旦他们投票反对罗斯，我的父母和其他 罗斯福 就不是疯子。还有温斯顿·丘吉尔，那些投票给温斯顿·丘吉尔的人并不是疯狂的、病态的、病态的人。在这种情况下，人们不能像 吉姆·琼斯 的情况那样关注其追随者的病态或奇怪品质。"}, {"start_sec": 39, "speaker_id": "h", "type": "ad_omitted", "zh": "", "ad_brand": "AG1"}, {"start_sec": 40, "speaker_id": "h", "type": "text", "zh": "我意识到可以根据一个人决定在哪里划分界限，将领导者、人、动物或任何东西分为不同的类别，但是对于那些声称自己不是在等级制度的顶层，他们服从某个或某个特定神的上帝，而不是在金字塔的顶端的强大领导者，可以说任何有用的信息吗？我们将把耶稣排除在外，因为这是显而易见的。但对于像 吉姆·琼斯 这样的人来说，你说他有一座教堂。嗯，他还在谈论上帝的存在吗？他是否试图利用上帝，让人们相信他对上帝很谦卑，或者他现在或正在说他真的是权力和理解力的顶峰？我想我们可以将此应用于我们讨论过的几乎任何人或其他任何人。这是一条信息丰富的分界线吗？"}, {"start_sec": 41, "speaker_id": "g", "type": "text", "zh": "吉姆·琼斯当然没有否认神，也没有声称自己比神优越。这是领导者共有的另一个特征，我提到过，成为有效的领导者有不同的方法。魅力。嗯，我认为这是我书的第三章，我有一个表格，其中汇集了从 第二次世界大战 开始的那个时期的 22 位杰出政治领导人。我问自己，对于这 22 位领导人，我们可以得出什么概括？这22位显而易见的候选人你可以争论，但我包括斯大林和萨达特·墨索里尼希特勒等。我问自己，所有这些领导人是否有共同的品质，令我惊讶的是，在这22位领导人中，只有两人自愿下台。纳尔逊·曼德拉是南非后种族隔离时代的开国领袖，我想他已经80多岁了，他作为总理自愿退休部长。嗯然后新加坡独立的缔造者, 嗯, 担任总理可能长达30年可能长达40年但是他自愿下台了。.但在另外 20 人中，这 22 人中只有两人自愿辞职。所有其他主要领导人要么被暗杀和瓦萨达特要么自杀希特勒或者他们被投票下台温斯顿·丘吉尔或者他们被政变赶下台，这意味着在政治上一旦你成为一个强大的领导者，你就会得出这样的结论：你是一个有效的强大领导者。你不太可能自愿辞职。 22 人中只有两人做到了。所以这是我没有预料到的概括。"}, {"start_sec": 42, "speaker_id": "h", "type": "text", "zh": "是的，我想这也是一种生活方式的影响。呃，没有人愿意在他们的舒适度方面倒退。呃，但令我惊讶的是，尽管年纪大了，但有些人仍然有活力继续占据这些需求非常高的地方"}, {"start_sec": 43, "speaker_id": "h", "type": "text", "zh": "令人疲劳。我的意思是你显然没有放慢速度，但是呃呃你知道但是呃我们会谈论你现在正在自学意大利语的事实。是这样吗？您正在自学一门新语言吗？我没听错吗？"}, {"start_sec": 44, "speaker_id": "g", "type": "text", "zh": "我学了意大利语。意大利语是我 13 门语言中的最后一门。我学了意大利语"}, {"start_sec": 45, "speaker_id": "g", "type": "text", "zh": "才 13 岁。是啊。当我61岁时。我每天都读意大利语。我所有的休闲读物都是意大利语的。我不做英语休闲阅读。我每天都读意大利语。每周我都会和我的意大利教授（南加州大学教授）进行一次 2 小时的意大利语对话。是什么促使您学习 13 种语言？这对你来说很有趣吗？或者你和/或你喜欢挑战，作为学习另一种语言的诱惑的一部分吗？"}, {"start_sec": 46, "speaker_id": "g", "type": "text", "zh": "我的母亲是一位才华横溢的语言学家。我只是喜欢学习语言。在我的学校要求我们学习拉丁语五年。我喜欢它。嗯，我们可以选择学习希腊语或生物学选修课。我想我的余生都会从事生物学工作。我现在就说我花了三年时间学习希腊语。我仍然可以背诵主要内容的开头然后嗯在大学嗯我就在我母亲帮助我之前学了德语就在大学进入大学之前这是人造卫星的时代所以我学了俄语我学了西班牙语然后我大学毕业后的第一个夏天我在芬兰度过了夏天芬兰语不是印度语它是一种非常困难的语言。当我去芬兰时，我没有芬兰语语法，但我在芬兰搭便车。嗯，1959 年夏天，当时在芬兰，很少有芬兰人会说英语。为了搭便车，我必须开始学习芬兰语。最后我来到了芬兰北部的一个国家公园，徒步走进了一间由四名芬兰士兵看守的小屋。这四名芬兰士兵除了芬兰语外不会说任何语言。我和他们在一起好几天了。他们通过演示来教我芬兰语。嗯嗯杯子。他们拿起一个杯子。芬兰语中杯子的意思是 ki。然后完成而不是介词，它有后置词情况。所以当你想说杯子在桌子上时。当你想说我把杯子放到桌子上时，当你把杯子从桌子上拿下来时。因此，这四名芬兰士兵向我展示了如何将杯子戴上或取下，我非常喜欢它，并且我认真考虑过退出科学。嗯，我去芬兰后遇见了我的父母，在巴黎遇见了我的父母。他们一年来第一次来到欧洲，我正在认真考虑放弃科学并成为一名同声传译。我本来要去瑞士成为一名翻译。幸运的是，我的父亲，他轻轻地说，“也许现在放弃有点早了。我知道你现在的科学对你来说很沮丧，但你只做了一年。你为什么不再给自己六个月呢？六个月后，如果实验进展不顺利，你可以做一名翻译。但我很喜欢学芬兰语。然后当我去了新几内亚，新几内亚和我一起工作的第一批 新几内亚 人是一个因库鲁笑病而闻名的部落，当时有一种叫做“谈话视觉”的 新几内亚 贸易语言，所以我能够通过谈话视觉进行交流，但我只是喜欢从几次尝试中学习“突进”，我记得，我向我询问线人，我试图找出“for”这个词。我们嗯，我已经学会了“我唠叨”这个词，所以我在谈话视觉中问了我的突袭线人，嗯“我唠叨”，他说然后他给了我一个“我们”的词，然后我回答说“哦，我们不是nag kasik”。事实证明，英语中的“突袭”有单数和复数“我”和“我们”。但是在欧洲，如斯洛文尼亚语和古希腊语中，有一个“决斗”，即我们两个人和三个人的单独代词。例如，如果我在谈论我们两个人，我们就会这样做。但是如果这里有第三个人，那将是一个不同的代词，而且我只是喜欢学习语言，我一直喜欢语言。"}, {"start_sec": 47, "speaker_id": "h", "type": "text", "zh": "看来你很喜欢它的谜题。你喜欢它的应用，因为一旦你学会了意大利语，你仍然每周用几个小时用意大利语进行这些对话。再一次，我感到震惊的是，尽管不同语言之间存在巨大差异，例如，嗯，我并不是想在这里扮演心理学家，但你的思想中有一些东西，你似乎对语言或领导者等类别中的大量信息多样性感到非常满意。大多数人进来后都会尝试简化以澄清，但你有这个，呃，你的想法似乎是让我们找到可能的最广泛的变化，并从中提取一些更深入的理解。你可能会想到这是我，但这是一种非常不寻常的做事方式。我的意思是，正如我们所说，在生物学中我们有集束器和分裂器。我教神经解剖学，所以你可以把它分成块或分开。你可以说大脑，或者我们可以开始划分它，如果你愿意的话，你可以将一切划分到线粒体的细分。正确的？所以你必须选择你的分析水平。但我们倾向于采用框架命名法，并尝试以我们可以思考其他相似基因的方式命名基因。你的思维以一种非常不同的方式运作。我想知道的是，一直都是这样吗？你是否看过世界上事物的分类并说这太疯狂了？他们为什么这样组织？也许我们应该通过最详细的镜头并从中提取清晰度来看待它。"}, {"start_sec": 48, "speaker_id": "g", "type": "text", "zh": "我从三岁起就这样了。我的母亲是一名教师，热爱教学，在我三岁的时候，妈妈就教我读书。于是我开始记笔记本。我的笔记本上还保留着我三岁的孩子。我列了清单。我列出了河流的名称、动物的名称、落基山脉的动物名称、欧洲的鸟类名称。我是一名名单员。这很尴尬，但我列出了波士顿有轨电车系统上有轨电车的数量。我很长地列出了街道号码。我喜欢列出清单，并且通过列出清单我在生物学方面取得了很多进展。获得博士学位后，我成为膜生物学家，在我对膜生物学的贡献中，我做了有史以来最大规模的研究，研究生物膜对不带电分子、非电解质的渗透性，我和我的第一个研究生，我们测量了兔子胆囊对 210 非 210 非电解质的渗透性。它们都是有机化学品，其中有很多细节。有支链非电解质，有非支链非电解质，有含氧基团的和有含硫基团的。所以有很多细节。嗯，我喜欢这个 200 名非电力人员的项目。然后当我去新几内亚开始研究鸟类时，嗯我从1964年就开始研究新几内亚鸟类了。"}, {"start_sec": 49, "speaker_id": "g", "type": "text", "zh": "【鼻息声】"}, {"start_sec": 50, "speaker_id": "g", "type": "text", "zh": "新几内亚 拥有约 600 种鸟类。我遇到过并认识了他们中的大多数。嗯，当我晚上睡着的时候，我经常会给自己背诵新几内亚鸟的名单。有时我会念出他们的名字：马比塞纳人、帕萨基人、肯·马梅·托托人、斯瓦纳达巴人。有时我会用他们的拉丁名字来背诵他们。 Sarahornis Papois、Sarakornis Perspicoladus、Sarakornis Noi，我就是喜欢列清单。但我的一位老师，一位对我有影响力的老师，伟大的进化生物学家恩斯·迈耶。 恩斯特·迈尔 喜欢列出清单，他和我花了 30 年时间共同准备一本关于北美拉尼西亚（新几内亚 以东的岛屿）的鸟类的书。厄恩斯和我非常合得来。我们俩都喜欢列清单。每当有问题出现时，厄恩斯厄恩斯都会说：“让我们列一个清单。”他会列出一个清单，我也会列出一个清单。然后我们会仔细检查这份清单，即美拉尼西亚北部所有山鸟的清单。关于这座山有哪些概括？我从三岁起就开始列清单，从中获得了很多科学知识吗？这与理查德·法恩曼谈论如何看待世界的方式完全相反。他实际上用了一个例子，如果你在树林里看到一只鸟，有人说那就像一只画眉鸟。他说知道这个名字并不能帮助你理解它。但我想说的是，基于花费大量时间思考不同大脑结构的名称和连接性，通常有一种在某个领域命名事物的方法，它实际上可以告诉你很多有关功能的信息。例如，在神经科学中，我们的第一个名字是视网膜膝状体。它告诉您源结构和接收结构是什么。所以就像名字实际上很重要一样。"}, {"start_sec": 51, "speaker_id": "h", "type": "text", "zh": "他们告诉你的不仅仅是这个与那个的不同。那么，当您列出这些列表并在入睡时背诵这些列表时，您是否还能回想起这些列表之间的功能区别？这只是批处理信息的方式，还是列表和名称有自己独立的唯一值？"}, {"start_sec": 52, "speaker_id": "g", "type": "text", "zh": "名称是很多信息的锚。当我晚上念诵时，Sarakonus noi Craakonus noi 大大大灌木丛仁。那又怎样呢？嗯，它是按海拔顺序排列的两只鸟中较大的一只。嗯，它是两个非常相似的共存物种中较大的一个。帕萨基阿比人和马比人如此相似，直到新几内亚人向我解释他们行为上的差异之前，我无法区分它们。因此，有很多与该名称相关的信息。此外，这个名字本身就有Sarahornus。莎拉的意思是那只鸟属于萨拉科努斯 (Sarakornus) 属。在 Craicornus 属中，还有 um Sarah um Sarakornus Vatus，它是 Sarakornus noi 的低海拔版本。但还有 serornus perspicoladus，这是一种体型较小的灌木丛，具有相同的海拔范围。所以有一些信息伴随着"}, {"start_sec": 53, "speaker_id": "h", "type": "text", "zh": "我的意思是，在科学界，你我都知道，有些人选择一件事，有时他们会在整个职业生涯中或一次钻研五年或十年，然后有人试图拥抱大量信息。显然你属于后一类。所以我再次要问的是，这一直是你的倾向吗？您想了解所有信息吗？"}, {"start_sec": 54, "speaker_id": "g", "type": "text", "zh": "基本上是的。这意味着我一直对很多事情感兴趣。我很幸运能上一所中学，它为我提供了学习很多东西的选择。我的中学虽然我希望进入科学领域。我的中学有很棒的历史老师，比我在 哈佛 学院的所有历史老师都要好。很棒的拉丁语拉丁语希腊语老师。然后，我在英国 剑桥 获得了生理学博士学位，并返回美国，获得了胆囊盐和水运输的博士学位。回想起来，我当时并不知道自己在做什么，但回想起来，我发现我现在惊恐地明白，我的余生竟然要奉献给胆囊。但这与我从三岁起所做的一切背道而驰。所以我开始寻找另一个职业。嗯，我认真考虑过在前哥伦比亚陶瓷领域另谋出路。我认真考虑过成为管弦乐队的指挥。我对前哥伦比亚陶瓷没有深入的了解。嗯，作为一名指挥，你必须能够忽略时滞。我可以忽略时间滞后。但嗯，我七岁时就成为了一名观鸟者。当我在第一个夏天获得博士学位后回到波士顿时，我和一位大学同学，这位大学同学是一位出色的观鸟者，我们在秘鲁度过了夏天。你在秘鲁做什么？我们爬山。我们看鸟。第二年夏天我们一起去了新几内亚。为什么？ 新几内亚 是世界上最狂野的地方。嗯，但是 新几内亚 也有最美妙的鸟类。因此，我在鸟类领域发展了第二职业，[清了清嗓子]，然后我在历史和地理领域发展了第三职业。所以我有过三种职业。我的实验室生理学生涯最终于 2002 年结束。为什么？当我的双胞胎儿子出生时，我和妻子有双胞胎儿子，他们出生于 1987 年。当我们的双胞胎儿子出生时，我意识到马克斯和约书亚的未来不会依赖于胆囊。这将取决于历史和地理。就这样，渐渐地，我开始把更多的时间花在历史、地理上。我对胆囊不太感兴趣，最后好不容易，我让加州大学洛杉矶分校把我从医学院的胆囊生理学教授调到大学的地理学教授，我仍然保持着历史和地理的两个职业，同时我正在写关于领导者的书，同时我也一直在写关于新几内亚鸟类的论文，我想一周前星期五我完成了一篇关于印度尼西亚 新几内亚 钻石山鸟类的 P 长论文。明年我想写一篇关于印度尼西亚巴尼山鸟类的论文 新几内亚。因为我已经 89 岁了，我必须弄清楚我剩下的时间是有限的。我要利用剩下的时间做什么？我想利用剩余时间做的一件事是通过观察 新几内亚 10 个孤立山脉上的鸟类分布来综合我对 新几内亚 鸟类的研究。对于优秀的殖民者鸟类，我可以认识到哪些概括？这就是我接下来的十年想要做的事情。我不得不说，尽管我的同事们都有很多兴趣，但很少有人能在严肃的科学探索的几个不同领域取得成功，更不用说写关于这些领域的书籍了。您是否曾在某个时候允许自己移动字段？据我们所知，在科学界人们这样做并不常见。如果人们这样做，他们往往会以某种神秘的方式然后或逐渐地这样做。也许这也不是为了窥探你的个人生活，但是呃，决定是一回事，嗯，你知道，我的双胞胎即将到来，你知道，也许我会换领域，但那里的配偶可能会想，呃呃，你有终身教职吗？呃，我们要如何支付账单呢？嗯，所以我想嗯，可能会有支持，或者也许你只是非常挑衅，你只是追随你的好奇心。"}, {"start_sec": 55, "speaker_id": "g", "type": "text", "zh": "它们是职业问题，也是人们感兴趣的问题。有趣的是，从我三岁起，我就对很多东西感兴趣。回想起来，我意识到，在我的人生危机中，我的人生危机之一是在获得博士学位后，我惊恐地意识到我的余生应该做一件事，但那不是我。在鸟类领域开辟第二职业生涯需要付出一些努力。我有一个术后奖学金。大多数术后奖学金都会约束你做一件事。我当时在 哈佛 医学院的生物物理学实验室。但我很幸运，我的毕业后奖学金是在 哈佛 协会（称为研究员协会）中进行的。我是 哈佛 的初级研究员。作为一名初级研究员，我有自由。我可以告诉我生物物理学实验室的老板，今年夏天我要去 新几内亚 呆三个月，研究 新几内亚 鸟类。我没有征求他的同意。我只是说，我正在做。现在，他本可以解雇我，他本可以说，好吧，如果你想这么做，就离开生物物理学实验室，但我在生物物理学方面做得很好。所以，他愿意容忍我去 新几内亚 呆三个月。然后，当我搬到 加州大学洛杉矶分校 时，我与搬到 加州大学洛杉矶分校 进行谈判的关键部分是，我在那里获得了生理学系的教授职位、副教授职位。嗯，加州大学洛杉矶分校 的院长是 Sherm Melanchov 中任职时间最长的医学院院长。很棒的人。他给我提供了一份物理方面的工作。我告诉Sherm，“是的，但我对新几内亚鸽子很感兴趣，你要明白，我打算在过去的几年里，每年夏天我都会花三个月三个月的时间研究新几内亚鸽子，我想继续我对新几内亚鸽子的工作，如果我接受你的立场，你会容忍我继续对新几内亚鸽子工作吗？”大多数医学院院长都会说：“滚出去吧。” Sher Melanchov 说：“贾里德，加州大学洛杉矶分校 医学院对 新几内亚 鸟类很感兴趣。我每年都会给你 5,000 美元，用于研究 新几内亚 鸟类。”所以，他容忍了这一切，他让我这成为可能。我很幸运，有一位院长允许我这样做。嗯，至于我的妻子玛丽，玛丽 没有任何问题，因为当我遇到玛丽 时，我已经在新几内亚 工作了。事实上，我们关系的发展，我们关系中一个至关重要的问题是，贾里德每三个月就会去一次新几内亚。 玛丽 知道 New 发生了什么，我在 新几内亚 中多次差点被杀。所以 玛丽 必须愿意忍受这一点。嗯，当我们的孩子出生时，我在医学院的地位非常稳定。我本来要去新几内亚。当我们的孩子出生时，玛丽 并没有告诉我 Jared 三个月内不要去那里。正是那一刻，我意识到贾里德，你三个月内不会再去那里了。因此，当孩子们出生后，我将在 新几内亚 的时间减少到一次一个月。我上次 新几内亚 旅行是 2019 年。"}, {"start_sec": 56, "speaker_id": "h", "type": "text", "zh": "是的。它提出了冒险生活的一个非常有趣的特征，"}, {"start_sec": 57, "speaker_id": "h", "type": "text", "zh": "更不用说研究和生活了，你知道，呃沉浸在不同的文化、不同的生态系统中，这对身体来说很难去你不熟悉的地方，吃你不熟悉的食物。大多数人会想，哦，你在说什么？你知道，现在你可以在世界任何地方的麦当劳买到芝士汉堡。也许这是真的，但是你是否一直愿意为了学习而牺牲你的身体舒适度？我的意思是学习语言很难。嗯，把自己置于一个丛林环境中，那里有各种各样的疾病，有政治和社会动荡，就像当你出去时会有很多变数。嗯，然后你就成为了一名真正的野外智力探险家。嗯，这是一件有趣的事情，是一种必要的罪恶吗？它在哪里降落在你身上"}, {"start_sec": 58, "speaker_id": "g", "type": "text", "zh": "在 新几内亚 工作？这是一个必要的罪恶。嗯，直到我去了新几内亚。嗯，我呃，前一年我在秘鲁的时候，我去新几内亚，我和我的朋友去了秘鲁，在秘鲁度过了一个夏天，我们爬山。嗯，我们第一次攀登 17,000 英尺的山峰。在高海拔地区，从海平面直线上升到 10,000 英尺，然后三天后到达六点十六分之一是痛苦的。所以，是的，我在秘鲁经历了身体上的痛苦。在 新几内亚 中，要在 新几内亚 中执行任何操作，都会遇到很多物理内存问题。食物是红薯和米饭，一日三餐。在丛林中，我被灌木螨咬了。我在 新几内亚 的第一年，我得了痢疾，哈佛 的医生无法治愈。它在我身边呆了一年。我在 新几内亚 的第三年，最终患上了疟疾。在 新几内亚 爬山。在 新几内亚 的大部分时间里，身体都是痛苦的。偶尔大概有一到三个月，我可以坐在露营地，看着外面，看着另一个人，说天哪，这太美了，但其余时间我身体很痛苦，我不得不和新几内亚人打交道，他们对生活有自己的想法，在 新几内亚 里，虽然很不舒服，但鸟儿们对弄清楚莫巴恩和波西亚布。"}, {"start_sec": 59, "speaker_id": "h", "type": "text", "zh": "我们来谈谈鸟类吧。嗯，我从科学中知道的另外两个观鸟者是吉姆·沃森"}, {"start_sec": 60, "speaker_id": "g", "type": "text", "zh": "嗯一开始是"}, {"start_sec": 61, "speaker_id": "h", "type": "text", "zh": "无论如何，某种鸟类学家决定共同解决呃 DNA 的结构。所以他走了一条不同的路。嗯，然后是已故的默里·吉尔曼，他发现了夸克，我认为两届诺贝尔奖得主也许是一个聪明的人，嗯，他痴迷于鸟类、鸟类分类学和观鸟。有趣的是，你们三个似乎都有一种对追求这些大人物的痴迷。"}, {"start_sec": 62, "speaker_id": "h", "type": "text", "zh": "像整个社会、领导力、嗯 DNA 结构、加尔曼、你知道、你知道、呃基本粒子等等问题，但是我知道一些鸟类，当然没有你那么多，有如此巨大的多样性"}, {"start_sec": 63, "speaker_id": "h", "type": "text", "zh": "嗯，除非一个人真的很喜欢观鸟，否则很容易从外面说，“是的，好吧。所以，你有黑帽小鸡，你有这个，你有那个。”通过观察它们可以收集哪些信息、哪些丰富内容？我不是在贬低它。我本人很喜欢鸟。呃，事实上，很多年前，我在一次物理会议上有一个奇怪而独特的机会与默里谈论鸟类。但与你相比，我对鸟类的了解显然非常肤浅。那么，了解所有这些关于它们如何移动的术语和细节，以及在野外观察它们，它能告诉你什么，它对你有什么好处呢？"}, {"start_sec": 64, "speaker_id": "g", "type": "text", "zh": "它告诉我们什么？鸟类向信息学家通报一切。地球。鸟类是所有动物中最容易观察和理解的。鸟类的感知能力与你我相同。鸟类通过视觉和声音进行活动。我们人类通过视觉和声音进行操作。而哺乳动物尤其靠嗅觉来运作。一个人不能观看。是的，你可以看羚羊，但你不能到处看老鼠。如果你想了解老鼠，你就必须有良好的嗅觉。你可以把他们困在【笑声】陷阱里。但你可以观赏鸟类。因此，我们对生态学、进化生物学、生物地理学和行为的大部分了解首先是在鸟类身上学到的，并且已经对鸟类进行了最详细的了解，然后我们可以学到的知识适用于其他动物。所以我写的关于鸟类的东西，嗯，很多关于生态学，很多关于鸟类如何划分生态位，很多关于进化，鸟类物种如何在新几内亚中进化，如何在不间断的山脉中获得新物种，生物地理学，世界各地植物和动物的分布，特别是从鸟类的分布开始。鸟类，然后是哺乳动物、哺乳类和其他动物。最容易观察的动物是鸟类。所以，当你说我们能从鸟类身上学到什么时，一个诚实的答案是，我们可以学到关于鸟类的一切，而生物世界中的一切从鸟类身上学到比从其他动物身上学到的更容易。"}, {"start_sec": 65, "speaker_id": "h", "type": "text", "zh": "完全可以接受的答案。嗯，很多鸟都会唱歌，有些会说话。我不知道你是否对鸟类的语言进化感兴趣，但是彼得·马洛尔这个名字有什么意义吗？是的。是的。当我还是一名研究生时，他在戴维斯，我认为他所做的最有趣的观察之一是，同一种鸟类如果在马林海岬饲养，与在海洋岬的鸟父母自然饲养的鸟类相比，在其他地方自然饲养的鸟类，会发出不同的歌曲。与呃这个物种有一些天生的关系，比如你可以交换幼崽，他们可以学习另一个地点歌曲，但他们总是会最好地学习自己的地点歌曲，我觉得如果有一套科学发现，可以融合你对语言、地点和迁徙的一些兴趣，那就是彼得·马洛尔的研究，如果你遇到了你们谈论的内容，嗯，你认为关于鸟鸣和鸟语言可能有趣的是什么，可以告诉我们关于我们的信息"}, {"start_sec": 66, "speaker_id": "g", "type": "text", "zh": "一切，一切，鸟鸣，嗯，这是一种交流，鸟类试图交流什么，所以鸟儿在唱歌，为什么它们唱歌，它们在鸟鸣中传达什么信息。 鸟鸣，嗯，人们认为鸟鸣是雄性的，是为了标定领地，但近年来，我们了解到，erd 呼叫中有非常详细的信息。例如，像山雀和山雀这样成群结队的牛群，如果它们看到鹰，就会有一个呼叫记录，一个小的简单的呼叫记录。当鸟儿看到鹰时，它们会发出呼唤声，然后 200 英尺外的鸟儿会听到呼唤声，并且在鹰飞 200 英尺之前它们就会知道鹰就在那里。因此，鸟鸣声中含有大量信息，这些信息激发了类似的研究，特别是针对猴子的研究。有一对夫妻，嗯 Safe Off 和切尼，他们在 加州大学洛杉矶分校 搬到了宾夕法尼亚州。嗯，他们对黑长尾猴做了精彩的研究。黑长尾猴会发出咕噜声。西夫和切尼认为其中一些咕哝声听起来有点不同。于是他们开始录制咕噜声并播放咕噜声。他们注意到一些咕噜声是猴子向上看的，一些咕噜声是猴子低头的，还有一些咕噜声是猴子支撑自己的。他们意识到不同的咕哝声起到了单词的作用。有一种咕噜声意味着鹰，当一只完美的猴子发出鹰的咕噜声时，猴子就会抬起头来。还有另一个咕噜咕噜，意思是蟒蛇。当绿领听到声音时，它们会低头看着草地。还有另一种咕噜声，意思是豹子。当他们听到豹子的声音时，他们就爬上树。这是声音首先在鸟类中然后在猴子中传递信息的例子。"}, {"start_sec": 67, "speaker_id": "h", "type": "ad_omitted", "zh": "", "ad_brand": "Function Health"}, {"start_sec": 68, "speaker_id": "h", "type": "text", "zh": "我认为，复杂的层次和不同的动物确实被低估了。我的意思是，即使对于像我这样的生物学家来说，你知道，这些其他物种的复杂程度总是令人惊喜。即使这些东西是硬连线的，它也是狂野的。公平地说，对你之前的例子来说，有人原谅了你在实验室中犯的错误，而你放弃了，或者你说你已经相当宽容了，从而传播了这种情况。当你的一位研究生或博士后走进来说“听着”时，我意识到我们正在研究 X，但我想继续研究另一件事。你忍得好笑吗？因为实验室在研究项目中的生存也取决于人们对问题主旨的跳跃。我只是好奇。我不会把你的脚放在火上。我只是想知道你对你的科学后代能容忍多少冒险精神。"}, {"start_sec": 69, "speaker_id": "g", "type": "text", "zh": "当我的博士后和研究生与我一起工作时，我与他们协商以确保他们会做一个让我感兴趣并且让他们感兴趣的项目。它必须是一个我感兴趣的项目，必须是一个我感兴趣的项目，因为我努力寻找资金，而我一次只能带两到三个学生。一个学生会跟随我三四年。我的投资很大。只有当它对我有意义时我才会进行投资。只有一次，一名学生告诉我他想要拥有自己的项目。呃，有一个很棒的阿根廷学生，嗯，有一天他来找我，说他在生理学系打听过，他得知他被告知，对于博士后，嗯，这是该部门的常态，他声称，博士后会花一半的时间在他导师的项目上，一半的时间在他自己的项目上。现在那是不真实的。呃，但是他找到了另一个博士后，这是真的，他是一个有趣的夜晚，我被带回来了。好吧，你可以自己做，他做了一个自己的项目以及和我一起做的项目。呃，但那是我唯一一次让学生做一个我不感兴趣的项目。除此之外，这些项目一直是我和学生都感兴趣的项目。这对学生有好处，因为对学生来说，学生能得到我的全部关注并向我学习。嗯，如果我知道的话，学生可以向我学习。如果我一无所知，学生就无法向我学习。"}, {"start_sec": 70, "speaker_id": "h", "type": "text", "zh": "很明显，因为您已经告诉我们，您的职业生涯也证明了您拥有并保持着很多兴趣，深厚的兴趣和强烈的好奇心。呃，几乎是一种强迫症，要跟随他们并为自己解决某些问题。在今天开始录制之前，我们进行了一次简短的交谈，讨论一个人对某些宠物、世界上某些事物的偏好或缺乏偏好。我们不必深究。嗯，这没有争议。嗯，但令我如此震惊的是，你的表达是多么清晰。我想我们在大约 20 秒前就已经认识到，生活中的一些宠物、一些东西、一些话题对你来说只是一种消遣，就像你只是对它们不感兴趣一样。我认为这与对许多其他事情感兴趣非常吻合。所以，这是我要问的一个有点奇怪的问题，但是你考虑过时间吗？比如，我一生中有多少时间来做这件事？你一直这么想吗？作为一个刚满 51 岁的人，我越来越多地思考这个问题。但学术生涯的美妙之处在于，你知道，好吧，我有四到六年的时间来完成这篇论文。繁荣。然后就有机会稍微或或或大幅调整。但生活有些不同，对吧？但我很清楚，你是在说这对其他人来说都很好，但我不想为这些事情投资而烦恼。清除。时期。故事结束。事实上，这非常令人耳目一新，因为我嗯，它与你对一切都感兴趣的想法背道而驰。如果可以的话，你并不是对一切都感兴趣。你对很多事情都很感兴趣。这提供了一个非常好的剃须刀来分离出所有你不会被打扰的事情。"}, {"start_sec": 71, "speaker_id": "h", "type": "text", "zh": "这一直是你的一个特点吗？"}, {"start_sec": 72, "speaker_id": "g", "type": "text", "zh": "绝对不是。当我 80 岁的时候，让你们预览一下即将发生的事情，80 岁对我来说并不感到震惊。 81更让人震惊，因为81意味着我已经牢牢地融入了80年代。但尽管我非常清楚美国男性出生时的预期寿命数字是 78 岁左右。美国男性 70 岁的预期寿命却并不广为人知。当你到了 70 岁时，你的预期寿命不是 78 岁。你的预期寿命是 93 岁，因为很多风险都已经过去了。我非常清楚这一点。当我81岁的时候，我并没有计算过我能做什么。嗯，但是在过去的几年里，自从我现在89岁以来，我非常清楚剩下的时间以及我想在剩下的时间里做什么。我想在剩下的时间里做一些具体的事情来综合我的理解。新吉迪有 10 条轮廓山脉。我对其中几个进行了第一次下降和第一次鸟类学探索，对其余的进行了最详细的探索。如果我不写下来，这些知识就会随着我一起消失，因为那些山脉很难进入。我想对这 10 座山脉进行综合分析，以了解是什么让一个物种成为优秀的殖民者？为什么有些鸟类分布在所有 10 座山脉上，而其他鸟类却只分布在一座山脉上？我拥有独特的数据集，我想在我还活着的时候把它写下来。还有一件事，我已经思考了很长一段时间了。嗯，我是音乐剧，我特别喜欢巴赫的音乐。嗯，我在波士顿的赫内尔和海登协会唱歌。我在 剑桥 的 剑桥 英格兰嗯音乐协会唱歌。当我在 剑桥 合唱团唱歌时，我的本·本杰明英国来了，并进行了加拿大学术的首演。所以我很感兴趣，并且演唱了我特别喜欢的作曲家约安·塞巴斯蒂安·巴赫的作品。他写了210教堂。我演唱了大约 20 首歌曲，一年前的八月，我一直告诉自己，我想了解所有这些歌曲，时机已经到来。我面前的时间是有限的。现在最好从 Katadas 开始。所以我开始使用 Katadas，大约每周一次。昨晚我重听了《加拿大 61》和《加拿大 62》。接下来是《加拿大 63》。嗯，按照我的节奏，我可能需要三到四年的时间才能了解所有的巴查德。但这是我想做的事情。但我现在非常清楚剩下的时间。我只是在过去的几年里才有了这种意识。"}, {"start_sec": 73, "speaker_id": "h", "type": "text", "zh": "是否有一些你过去出于义务感而不再做的事情，可以让你有更多的时间去做对你来说很重要、你希望拥有的事情和人"}, {"start_sec": 74, "speaker_id": "h", "type": "text", "zh": "允许自己早点做吗？"}, {"start_sec": 75, "speaker_id": "g", "type": "text", "zh": "我的第一个想法是不。总的来说，我已经做了我喜欢做的事情。是的，当然，有些事情是生活中必须要做的事情，但这些事情并不令人愉快。当然。我花了很多时间，可能每年至少花一个月甚至两个月的时间来处理复杂的所得税申报表。我对操纵数字有一种病态的容忍度。所以我并不像大多数其他人那样反对缴纳所得税。所得税必须完成，需要花费我很多时间。我还能做什么？我父亲洗碗。我和妻子一起洗碗。 玛丽 负责园艺。我对园艺没有兴趣。 玛丽 负责园艺。嗯，玛丽 负责购物。嗯，我原谅自己，玛丽 玛丽 知道我一年中的几个月花在所得税上，我负责保险，我负责组织旅行。我不介意处理保险。我不介意做所得税，我宁愿花时间做鸟类，但这并不是我非常反对的事情。我永远不会要求某人来这里为别人说话，但是我很高兴得知你是我的同事保罗·埃利克的亲密朋友。嗯和他的妻子桑德拉·汗仍在斯坦福大学任教。呃，保罗当然写了人口炸弹。嗯，保罗和桑德雷写的书《大白鲨》"}, {"start_sec": 76, "speaker_id": "h", "type": "text", "zh": "我想你有一个转发，也许鲍勃·萨波尔斯基有关于嗯的介绍"}, {"start_sec": 77, "speaker_id": "h", "type": "text", "zh": "用嘴呼吸可能不利于面部结构的发育，也不利于健康，他们称之为流行病。呃，人们对鼻呼吸和呼吸暂停等有些兴趣。如你所知，保罗是一个令人愉快的人。你比我更了解他。但他在某些事情上做对了，而有些人会认为他在某些事情上做错了。就像人口炸弹一样。我的理解是，它认为到我们现在到达的时候，我们将严重人口过剩，这是危险的。有些人会认为出生率正在下降。更换问题更是一个问题。但他对人口增长和环境影响等一些呃问题的看法正确吗？这不是我有任何专业知识的领域，但是呃，你认为他在哪些地方是非常正确的，因为他非常聪明，并且在很多方面都在这些主题上领先？他当然是正确的，人类今天面临的最大威胁当然包括灭绝我们自己的核风险。嗯，我想说，我们面临的三个最大的风险是核风险，以及全球化世界不平等的后果。现在，任何地方的任何人都受到其他地方任何人的影响，这是对世界贸易的邀请。因为在全球化世界中，不平等是危险的。第三个风险当然是资源耗尽的风险，以及我们正在快速破坏我们的资源的风险。为什么我们会过度开发我们的资源？因为世界人口增加了。现在有九十亿人口。一万年前，大概有一百万人。地球上有一百万人。现在我们得到了 90 亿。但重要的不仅仅是人数，还有人均消费率。第一世界的人均消费率有所上升。结果是我们正在耗尽渔业。但世界上有 40 亿人依赖鱼类和海鲜来获取蛋白质。我们正在耗尽世界上的森林。我们正在耗尽世界表层土壤。保罗和他的妻子安妮，《人口炸弹》一书呼吁人们关注人口增长的危险，现在可以将人口增长乘以人均消费。保罗预测未来几十年内会出现巨大的危险。他预测将会出现大范围的饥饿。如果你看一下他的维基百科条目，嗯，这是世界上最伟大的现代科学家之一和他该死的维基百科。相反，他的维基百科条目反复提及他的书《人口炸弹》，并表示事实证明这并不正确。那么，当今世界上九十亿人中，嗯，他们中有多少人吃不饱、挨饿，他们是饿死的吗？不，他们不会很快饿死，但他们的寿命很短，而且寿命很悲惨，因为世界上一小部分人过着第一世界的生活方式。即使在美国，拥有足够资源的人和缺乏足够资源的人之间的两极分化也在加剧。因此，要责怪保罗·埃里克犯了错误，不，他做对了，但他在更广泛的意义上做对了，比攻击他的白痴愿意承认的更广泛。"}, {"start_sec": 78, "speaker_id": "h", "type": "text", "zh": "很高兴听到你这么说。呃，长期以来一直是他的作品的粉丝，他和我都同意，《大白鲨》是一本很棒的书，我认为人口炸弹仍然具有很大的阅读价值，即使你指出的具体陈述有所不同，它仍然是一部非常重要的作品，我们谈论了政治领袖，我们谈论了宗教领袖，还谈论了一些邪教体育"}, {"start_sec": 79, "speaker_id": "h", "type": "text", "zh": "你喜欢运动吗"}, {"start_sec": 80, "speaker_id": "g", "type": "text", "zh": "我喜欢还是嗯，我很好，我锻炼了。"}, {"start_sec": 81, "speaker_id": "h", "type": "text", "zh": "是的，你看起来很健康。这也是你智力严谨的重要组成部分吗？"}, {"start_sec": 82, "speaker_id": "g", "type": "text", "zh": "我一直都很活跃。我在大学时开始举重。嗯，我跑了很多年。我妻子临产的那一天，即将生下我们的双胞胎，我当时正在跑步，我非常兴奋，因为她即将生下双胞胎，所以我没有把我的午餐和午餐放在冰箱里，把鞋子放在地板上，而是把跑鞋放在冰箱里，午餐放在地板上。所以，我仍然每周锻炼几天。身体活动是我生活的重要组成部分。我从中得到满足。"}, {"start_sec": 83, "speaker_id": "h", "type": "text", "zh": "我认为现在人们进行体育锻炼的目的是为了增强和保护他们的身心，这是很常见的。但当你上大学时，如果我推断的话，呃，这并没有真正被谈论过。事实上，智力和体育活动的分离是一个主题。就像人们参加体育运动一样，对吧？但锻炼有点像军事运动员和健美运动员，而跑步则少一些，对吧？但我发现所有的"}, {"start_sec": 84, "speaker_id": "h", "type": "text", "zh": "我认识的科学家们在职业生涯中取得了很长的成功，而且仍然很强大，他们都非常活跃，而且已经持续很长时间了。"}, {"start_sec": 85, "speaker_id": "g", "type": "text", "zh": "所有的人。老实说，那些没有死的人大多已经死了。伟大的 哈佛 有机化学家 um Woodward Aby Woodward，曾两次获得诺贝尔奖。伍德沃德没有进行任何体育锻炼。他不想花任何时间做除了有机化学家之外的任何事情，当然他很早就去世了"}, {"start_sec": 86, "speaker_id": "g", "type": "text", "zh": "在实验室里我想必是在床上思考的。"}, {"start_sec": 87, "speaker_id": "h", "type": "text", "zh": "好的。嗯，比在办公室或实验室更好。因此，沿着这些思路，【笑声】嗯，田径运动和体育运动，嗯，你喜欢哪种运动？嗯，是什么促使您探索体育领域的领导者？"}, {"start_sec": 88, "speaker_id": "g", "type": "text", "zh": "我探索体育领域的领导者的原因与商学院教授对体育成果进行大量研究的原因相同。事实上，我想说，很多甚至大部分关于体育成果的研究都是由商学院教授完成的。原因是商学院教授当然对商业成果感兴趣，但商业成果很难衡量。嗯，首席执行官往往是守口如瓶的。企业可能不会公布其结果，或者每五年公布一次。因此，商业世界的数据是有限的。但在体育比赛中，每周都会进行一次或一周几次。比赛结果公布。教练在场边经常跳来跳去尖叫。球员们都是众所周知的。体育节目​​正在电视上播出。结果是，商学院教授开发的用于分析首席执行官和分析商业世界的方法，嗯，通常是在体育中开发的，并且在体育中进行调试的。嗯，例如，在商业世界中，主要问题之一当然是，企业的成功有多少归功于首席执行官？这是一个大声反对的首席执行官说我对成功负责，因此你应该付给我数十亿美元，因为我的公司我们的公司赚了千亿美元，但因为我对这千亿美元的利润负责，你可以付给我100亿美元。这是真的吗？弄清楚这一点很复杂。有几种方法。其中之一涉及进行所谓的 ANOVA 方差分析。对体育运动的方差分析显示，体育运动成功的差异大约有 15% 到 30% 是由教练造成的，另外 30% 是由运动员造成的，另外大约 30% 是由体育机构造成的。在商业世界中，事实证明，同样，首席执行官约占方差分析的 30%，而个别公司则占另一家运营良好的宝洁公司的比重。 150 年来，它一直运行良好。另外30%是由于行业。香水公司、电脑公司和青少年 T 恤公司往往利润丰厚。而水利和电力部门往往无利可图。为什么？因为它们受到政府的严格监管。所以 NOVA 嗯被应用于体育界和商业界。但除此之外，如果赛季表现不佳，教练经常会被解雇；如果公司年度回报不佳，首席执行官也会被解雇。因此，如果你因为业绩不佳而解雇了首席执行官，那么下一年，新任首席执行官通常会有一个更好的业绩。为什么？因为体育比赛结果的 70% 差异是由于 CEO 的随机因素造成的。如果你扔一个骰子，嗯，你扔了一个骰子，你得到了一个，所以你通过骰子对那个人说，你是一个糟糕的骰子投掷者。你有一个。我要解雇你了出于统计原因，下一个掷骰子的人有六分之五的机会比前一个掷骰子的人做得更好。 2 3 4 5 六。在体育界，当你解雇教练时，通常新教练的战绩会更好。为什么？因为所有的随机因素。嗯，我的大学，加州大学洛杉矶分校，我们的体育部门现在负债 1.5 亿美元。为什么？因为我们解雇了自约翰·伍登以来所有的篮球教练。嗯，当我们解雇他们时，我们必须买断他们的合同。所以，买断他们的合同。 500万、1000万、15百万美元。简单来说，当你解雇一位首席执行官时，下一任首席执行官可能会因为各种随机原因做得更好，就像掷骰子一样。这说明了为什么商学院教授通过分析体育运动获得了很多见解。"}, {"start_sec": 89, "speaker_id": "h", "type": "text", "zh": "教练的理念以及首席执行官的理念对于我们为什么这样做有多重要？我们听说过很多这样的事情，比如为什么事情背后如此重要，但事实确实如此吗？"}, {"start_sec": 90, "speaker_id": "g", "type": "text", "zh": "是的，但很少。所以约翰·伍登通常被认为是美国体育史上和任何体育运动中最伟大的教练。嗯，约翰·伍登 (约翰·伍登) 加州大学洛杉矶分校 篮球队赢得了什么？九次全国冠军，其中包括连续七次。没有其他大学连续两次获得全国冠军。约翰·伍登为何如此成功？他成功的原因有很多。他让他的球员处于最佳身体状态。尽管他的球员可能比杜克大学的球员矮五英寸，但他让他的球员比杜克大学的球员跳得更高。嗯，他是一位细节大师。呃，他关心他们穿什么袜子，因为他们穿的袜子会影响，你[笑]知道，他们如何跳跃以及如何打球。呃，他非常注重让他的球员们不仅以五人一组的方式进行训练，因为他们将在球场上，而且以七人一组的方式进行训练，这样他就可以替补，但也许约翰·伍登最重要的事情是，对他来说，篮球不是一项运动，篮球是一种生活哲学，约翰·伍登的伟大球员比尔·沃顿和阿伦多说，伍登教练，我从伍登教练那里学到的东西比从我父母以外的任何人那里学到的东西都多。但我从他身上学到的是生活，而不是打篮球。那篮球，篮球是人生的典范。这在教练中是不寻常的。比尔·贝利奇奇.我从来没有听过有人说过比尔·比奇奇是生活的典范。还有鲍比·奈特，没有人说鲍比·奈特是人生哲学的典范。那么约翰·伍登为何如此成功呢？部分原因是他是一位细节大师，但也因为他将篮球视为一种生活方式。这是你无法伪造的。是的，你可以假装，你可以学习如何训练你的球员跳得更高，但你不能像约翰·伍登那样假装生活哲学。现在井里有没有一个类似的东西，似乎是科技首席执行官和企业家。我的意思是，我们有这些在旧金山湾区长大的超现实人物，你知道，我小时候是休莱特和帕卡德，然后是史蒂夫·乔布斯和比尔·盖茨"}, {"start_sec": 91, "speaker_id": "h", "type": "text", "zh": "在西雅图，现在我们有马克·扎克伯格、埃隆·马斯克、山姆·阿尔曼，Anthropic 的达里奥正在迅速崛起，成为另一位大人物，但我可能错过了其中的一些人，但无论他们喜欢与否，这些都是大人物，人们关注的名人技术专家，就像人类要去哪里一样。撇开政治不谈，史蒂夫·乔布斯显然有一种创造美丽事物的哲学，将设计和技术以一种你知道的方式融合在一起，即你知道物体对他们或其他东西有友好性，即使它是一个苹果。所以，这里面似乎蕴含着某种哲学性的东西，甚至有点神秘。您如何看待这些技术领导者？您有何看法？你怎么认为？"}, {"start_sec": 92, "speaker_id": "g", "type": "text", "zh": "我见过比尔·盖茨，并进行过几次长时间的交谈，我喜欢他。我和他的谈话经历很好。嗯，有些人在其他情况下见过他，对他有不同的看法。我见过埃隆·马斯克一次。杰夫·贝佐斯。"}, {"start_sec": 93, "speaker_id": "h", "type": "text", "zh": "哦，是的。所以请原谅我。我应该提到贝索斯。"}, {"start_sec": 94, "speaker_id": "g", "type": "text", "zh": "是的。杰夫·贝佐斯。贝佐斯我我见过一次。嗯，在商界的领导者中，我认识的人并不多。我最欣赏的人是巴塔哥尼亚的希纳德。对他来说，就像约翰·伍登一样，巴塔哥尼亚是生活的典范。他强调让他的员工有休息时间。他强调巴塔哥尼亚是可持续的。他有机会获得更多的棉花，生产更多的产品。不，他选择不购买更多的棉花，因为他不想过度发展棉花农业。他现在或曾经是一个完整的人，而不仅仅是一个商业领袖。他首次攀登了约塞蒂峰最困难的山壁。他是一位顶级登山运动员。我认识他。嗯，我为他的自传写了序言。嗯，他有自己的人生哲学。还有其他大牌吗？杰夫·贝兹有人生哲学吗？马克·扎克伯格有人生哲学吗？我不知道这些大人物有超越他们业务的生活哲学。现在，史蒂夫·乔布斯确实有自己的商业人生哲学。当他第一次被解雇后回到苹果公司时，苹果公司陷入了困境，他第二次又被带回来。他的理念是减少苹果的数量，而不是苹果生产 100 种产品，他说我们应该生产四种产品，这些产品应该看起来不错，应该有吸引力，并且应该易于操作。它们不应该像我妻子和我的电视观看世界杯足球赛的遥控器一样。我们的遥控器有 47 个按钮，我们每次都必须打电话给儿子告诉我们如何操作遥控器。所以史蒂夫·乔布斯的设备没有 47 种，但他有自己的产品哲学。我不知道他是否有像约翰·伍登那样更大的人生哲学。"}, {"start_sec": 95, "speaker_id": "h", "type": "text", "zh": "所以我们谈论了政治领袖、宗教领袖、体育。您说过您在书中涵盖了第四类。"}, {"start_sec": 96, "speaker_id": "h", "type": "text", "zh": "所以我们有政治领袖、商界领袖"}, {"start_sec": 97, "speaker_id": "h", "type": "text", "zh": "体育领袖和宗教领袖。这是四类。四大类"}, {"start_sec": 98, "speaker_id": "h", "type": "text", "zh": "商业和体育似乎有点交叉，对吧？听起来像"}, {"start_sec": 99, "speaker_id": "g", "type": "text", "zh": "商业研究和体育研究之间的联系尤其紧密。但情况也是如此，商学院的教授们研究了体育运动，也研究了政治领域的成功。因此，这也许是我所知道的关于开发新方法来研究领导者和领导者成功的最好的一篇论文，但它也着眼于政治领域的领导者，得出的结论是，总理比州长更能发挥作用。州长比市长更能发挥作用。为什么？因为首相拥有更大的权力。此外，独裁者比民主领导人更能发挥作用。战时的民主领导人比和平时期的民主领导人发挥更大的作用，因为在战时民主领导人被赋予更多权力。嗯，商学院的教授们也将他们的方法应用于嗯政治。"}, {"start_sec": 100, "speaker_id": "h", "type": "text", "zh": "许多人对很多事情感兴趣，他们有真正的兴奋，他们对追求音乐、歌唱、乐器、学习主题或运动的想法产生共鸣。嗯，你会告诉那些人什么，因为我们都听过“只管去做”的口头禅，这很好，但嗯，我不是心理学家，但似乎你内心有一种或可能一直有这种几乎强迫性地朝某个方向前进的冲动，但你的结构是你如何去做，你不只是试图立即做所有事情，而且你显然在每个领域都取得了成功，我相信一路上都会遇到挑战。但是，如果您想将什么东西传递给任何年龄段的人，您会说什么？"}, {"start_sec": 101, "speaker_id": "g", "type": "text", "zh": "我首先会说做你喜欢做的事，但它的范围必须更广泛。我的一位朋友，伟大的生物学家汤姆·洛夫乔伊，不幸去世了。嗯汤姆告诉我，当他十几岁的时候，汤姆问他的父亲，“爸爸，我应该做什么职业？”他的父亲说，“做一些你擅长的事情。做一些你喜欢的事情。做一些改变世界的事情。我会给人们什么建议？也许主要的建议是确保你做你喜欢的事情，因为这是大多数人不做的事情。如果人们告诉你不，你必须这样做，这个，这个，告诉他们见鬼去吧。从字面上看，很多人说你必须这样生活。你必须熨烫你的衬衫。当我是一名毕业生，我没有熨烫我的衬衫，但就我而言，如果有人告诉我，贾里德，我想用我的时间做其他事情。无论我的衬衫是熨烫的还是不熨烫的，这对生活来说并不重要。我在做一些对世界有益的事情吗？是的，我花了很多时间为印度尼西亚的国家公园系统设计，我写了很多关于世界面临的巨大风险的书。我喜欢做一些我想做的事情，但我发现我并不是我想成为的管弦乐队指挥，而是指挥一个管弦乐队，你必须在演奏者演奏时发出低音，但由于声音的速度，我无法在演奏者演奏之前发出低音。我尝试指挥或加州大学洛杉矶分校邀请我指挥或，我指挥过一次管弦乐队，因为我无法预料到悲观的情绪，所以我放弃了指挥管弦乐队的愿望，尽管我很乐意这样做，但我最终做了我擅长的事情，做我喜欢做的事情，对世界有益的事情。"}, {"start_sec": 102, "speaker_id": "h", "type": "text", "zh": "我在所有方面都同意。并不是说你需要我的同意。呃我说有两个问题。你在回答第一个问题的过程中回答了[清嗓子]第二个问题。所以，呃，最后我只想说谢谢你抽出宝贵的时间"}, {"start_sec": 103, "speaker_id": "h", "type": "text", "zh": "百忙之中来与我们分享并教育我们。嗯，我对利润、先知、教练与国王感到非常兴奋。领导者什么时候重要？今天的谈话只会让我更加兴奋。我想说的是，你的父亲尽管鼓励你继续成为一名生物学家，而不是一名翻译家，但他还是部分失败了，因为对我和其他数以百万计的人来说，你已经成为我们从未遇到或考虑过的想法的翻译者，这通过你的书激发了我大量的好奇心和学习能力，嗯，今天只是这一点的另一个延伸，我相信下一本书将继续这一点。所以，谢谢你没有听从他的要求，同时也听从了他的要求。我非常感谢您今天来到这里，希望我们能再次这样做。"}, {"start_sec": 104, "speaker_id": "g", "type": "text", "zh": "谢谢。我很高兴与你交谈，你知道，因为当采访、播客和采访者有所不同时，你知道自己写了一本书。它们并不完全相同。有些面试官比其他面试官准备得更好。有些面试官比其他面试者更了解这个主题。很高兴与您交谈。您是一位很高兴接受您的采访。"}, {"start_sec": 105, "speaker_id": "h", "type": "text", "zh": "谢谢。我很高兴，我们会再做一次。感谢您参加今天与 贾里德·戴蒙德 博士的讨论。要了解有关他的作品和他最近出版的书《利润、先知、教练与国王》的更多信息，请参阅节目注释标题中的链接。如果您正在学习或喜欢此播客，请订阅我们的 YouTube 频道。这是支持我们的绝佳零成本方式。此外，请通过单击 Spotify 和 Apple 上的关注按钮来关注播客。在 Spotify 和 Apple 上，您都可以给我们留下五星级评价。您现在可以在 Spotify 和 Apple 上给我们留下评论。另请查看今天节目开头和整个节目中提到的赞助商。这是支持这个播客的最佳方式。如果您对我有疑问，或者对播客、嘉宾或您希望我为 休伯曼实验室 播客考虑的主题有意见，请将这些意见放入 YouTube 的评论部分。我确实阅读了所有评论。如果您还没有在社交媒体上关注我，我是所有社交媒体平台上的 休伯曼实验室。这就是 Instagram、X、Threads、Facebook 和 LinkedIn。在所有这些平台上，我讨论科学和科学相关工具。其中一些内容与 休伯曼实验室 播客的内容重叠，但其中大部分内容与 休伯曼实验室 播客上的信息不同。同样，所有社交媒体平台上都是 休伯曼实验室。如果您还没有订阅我们的神经网络时事通讯，神经网络时事通讯是一份零成本的月度时事通讯，其中包括播客摘要以及我们所说的 1 到三页 PDF 形式的协议，涵盖从如何优化睡眠、如何优化多巴胺、故意冷暴露等所有内容。我们有一个基本的健身方案，涵盖心血管训练和阻力训练。所有这些都是完全零成本的。您只需访问 hubermanlab.com，转到右上角的菜单选项卡，向下滚动到时事通讯，然后输入您的电子邮件即可。我要强调的是，我们不会与任何人分享您的电子邮件。再次感谢您参加今天与 贾里德·戴蒙德 博士的讨论。最后但同样重要的是，感谢您对科学的兴趣。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>为什么在人工智能时代，一家年收入百万美元的初创公司不值得做</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="h">亚历克斯·兰佩尔</option><option value="g">让-丹尼斯</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">a16z</span><span class="pill">2026-10-19</span></div>
+<h1>为什么在人工智能时代，一家年收入百万美元的初创公司不值得做</h1>
+<p class="sub">嘉宾：让-丹尼斯（Town 首席执行官兼创始人，前 Plaid 首席技术官） · 约 62 分钟（3719 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=o_5f4N6Nq80" target="_blank" rel="noopener">https://www.youtube.com/watch?v=o_5f4N6Nq80</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>a16z</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-19</dd></div><div class="meta-row"><dt>时长</dt><dd>约 62 分钟（3719 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig，经 yt-dlp + Chrome cookies 补拉；非官方字幕），中文为逐句全文翻译</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>o_5f4N6Nq80</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>a16z 合伙人亚历克斯·兰佩尔对话 Town 创始人让-丹尼斯：一家年收入接近百万美元的中小企业报税公司，为何在人工智能时代主动转型为基于邮件与日历的人工智能助理，以及如何与大模型实验室竞争。</p>
+<h3>核心要点</h3><ul><li>报税业务一年只卖一次、口碑传播弱，现有巨头能更快用人工智能自动化，因此“人工智能时代之前的好生意”不再具备风投规模</li><li>利用报税季周期带来的短暂窗口期果断转型，并在 Opus 4.5 等智能体能力提升时迅速找到产品市场契合</li><li>坚持先做消费级的用户体验、再补企业级合规，借鉴 iPhone 取代黑莓的路径</li><li>与实验室竞争的三大立场：模型中立、客户真正拥有数据与上下文、不用客户数据训练</li><li>人工智能扩散的瓶颈在于“爱捣鼓的人”太少，产品要主动展示价值并替用户做事；智能体时代供给汇聚型平台的价值下降</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：约 62 分钟，创业转型与人工智能产品策略的干货密集。</p>
+<h3>适合人群</h3><p>创业者、产品经理、投资人以及关注人工智能应用层竞争的从业者</p>
+</section>
+<div class="legend"><span class="spk-0">亚历克斯·兰佩尔<em>主持</em></span><span class="spk-1">让-丹尼斯<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>本·霍洛维茨给我发消息说，我发现了一个超棒的工具，叫 Town，它简直改变了我的生活。我心想，等等，那是让-丹尼斯的公司啊。可他做的是中小企业报税。这说不通啊。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>这原本不会是一家达到风险投资规模的公司。<span class="tag">【音乐】</span>还没有人围绕这些非常常见的知识工作者工作流程打造出出色的人工智能，比如会议、会前准备、让人们为自己的一天做好准备。我们正在努力打造一款与人协作的产品，为他们找到越来越多运用人工智能、把工作做得更好的机会。</p>
+<p>运行那个东西每个月大概只花你一美元。</p>
+<p>关键在于，一年里它真正发现问题的那一个月，它会为你找回几百甚至几千美元。</p>
+<p>产品体验不能只是一个文本框。你必须直接向用户展示价值主张，并替他们把事情做了。<span class="tag">【音乐】</span>我们会使用任何我们认为在当下对你最好的供应商。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>人类是很慢的路由器。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>没错。而且我认为，未来“人在回路中”的程度会比我们今天看到的低得多。而我认为我们的工作是——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>大家好，我是亚历克斯·兰佩尔，安德森·霍洛维茨的合伙人，和我在一起的是 Town 的首席执行官兼创始人让-丹尼斯。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>谢谢邀请。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>我觉得很酷的一点是，你担任 Plaid 首席技术官时我们就合作过，而当时是我在这里主导了我们对 Plaid 的投资。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>然后我听说你要离开去创业。接着我记得你告诉我，你在做一款中小企业报税工具。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>是的，我们喝过咖啡。我们在门洛帕克还是帕洛阿尔托这里喝过咖啡。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>然后，呃，我有点，呃，不太高兴。我当时就想，我本来那么兴奋，结果是个中小企业报税工具。哦，那个——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>那可不太妙。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>呃，现在嘛，你知道，把底牌都亮出来了，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>你当时没说——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>我知道。我，是的，我——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>你当时可没跟我这么说，你知道的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>我知道。我知道。但我，你知道，我得时刻保持一张非常开心的脸。嗯，你永远不知道会怎样。嗯，然后，呃，我觉得这件事特别好笑的地方在于，我想你知道整个故事。本·霍洛维茨给我发消息，说我发现了一个超棒的工具，叫 Town，它简直改变了我的生活，太棒了。我就想，好啊，对吧？它是个应用，所以属于我的基金的范畴。然后，嗯，我心想，等等，那是让-丹尼斯的公司啊。可他做的是中小企业报税。这说不通啊。我太困惑了。我就是这么给你发短信的。然后转眼间，一周后我们就成了合作伙伴，这让我极其兴奋。不过也许你可以给我们讲讲 Town 是做什么的，而且我想大家会非常感兴趣，你是如何从最初的起点走到今天的。就是你离开了 Plaid，开始做中小企业报税。给我们讲讲从那里到这里的创始人之路吧。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>我离开了 Plaid。我和家人一起休息了几个月，因为我知道，如果我要当创始人，接下来很长一段时间都不会再有休假了。嗯，是的，然后，嗯，开始以一种非常企业服务的方式去探索：哪些市场会很有意思，人工智能可以在那里真正改变产品体验。出于种种原因，税务非常合理。呃，税务里有大量文本，而大语言模型非常擅长处理文本。呃，你要处理大量结构化格式的输入，比如，呃，财务报表和租赁文件，感觉这是一个合适的领域，我们可以把编制企业纳税申报表的流程——这和个人报税很不一样——自动化。我做了工程师会做的事，就是我们做了技术尽职调查，向自己证明这件事可以做到。当时的感觉是，是的，在未来两年内，一家中小企业从，你知道，财务报表和一堆关于业务的文件，到一份完成的纳税申报表，这个过程可以用人工智能实现自动化。我们花了一年时间打造它。我觉得，呃，其中有不错的地方，从产品角度来说它是成功的，但从市场推广角度来说不成功。意思是，尽管我毫不怀疑报税准备会被自动化，但你如何高效地触达数百万家企业并销售这款产品？这里面的问号比我们预想的要多得多。基本上一年之后，我们拥有的是一门我会称之为“人工智能时代之前的好生意”。也就是说，如果我给你看我们第一年的收入数字和收入增长，大概略低于一百万美元，如果我再给你看我认为我们第二年能做到的数字，我们当时认为收入可以达到大约两百五十万到三百万美元，我想在人工智能时代之前，你会觉得：“这非常合理。”但在人工智能时代之后，这就不会是一家达到风险投资规模的公司。而且，我觉得更重要的是，我们意识到，现有的行业巨头将能够利用这项技术，为他们现有的客户自动化报税准备，速度比我们抢占市场份额更快。这是你作为创始人必须思考的一件关键的事。如果你是新进入者，你的优势在于你行动更快，你可以打造不同的产品，你可以使用不同的市场推广方式，但墙上有一个滴答作响的时钟，那就是你能多快获得真正的口碑、网络效应和市场渗透，赶在拥有其他优势的现有巨头之前。他们有渠道优势，对吧？比如说，赶在他们能够追上来、足够有效地复制你正在做的事情之前。而对于税务来说，感觉我们无法比我们的竞争对手、那些现有巨头更早达到数亿美元的收入，因为税务一年只能卖一次。是的。那就像是，你知道——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>而且不仅是一年只卖一次，还有交互的问题。它从根本上就不可能是一个日活跃型工具。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>没错。而且它也没有多少口碑传播，因为很少有人会炫耀自己的报税经历。而当他们炫耀时，同样，一年也只能炫耀一次。是在他们完成纳税申报之后，所以当你炫耀你的报税体验有多好时，通常也不是人们在购买、在寻找新的报税人或会计师的时候。所以——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>到第二年他们就忘了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>没错。这些不连续性让它很难实现超高速扩张。所以，这就是为什么它，你知道，作为一门生意不是一个好主意。说来好笑，我最好的朋友之一打造了一家很成功的教育科技公司。他总是抱怨教育科技的一件事，也是同样的问题。教育科技一年只能卖两次。你可以在夏天为秋季学期销售，然后在秋冬季末、新年之前有一个很短的窗口可以销售。只有这两个时间点你才能真正把软件卖给学校和学区。他说，你知道，这真的限制了我实现超高速扩张的能力。而我们做税务的时候，我选择忘记了这一点。嗯，所以，是的，我们做了税务产品。一年之后，在第一个报税季之后，基本上我和我的联合创始人，你知道，花了一周时间散了很多次步、喝了很多咖啡，认真思考了人生、创业和资本主义的意义，然后决定，嗯，我们应该做点别的。我们需要找到一个更好的、更有成果的市场去发力，如果我们想影响数百万人的话。有更好的方式去实现那个目标。于是我们开始——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>这是很勇敢的一件事。大多数人可能都不会这么做，尤其是因为它并不是行不通。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>在当时，那感觉像是失败，就像我们正在失败。但我觉得你——你创业的核心动机是什么，对吧？你必须——作为创始人，会有这样的时刻，它们出现的频率比你希望的要高，你会真正地问自己：“我为什么要做这件事？”而且，你知道，对我们来说，影响世界真的非常非常重要。我们真的想打造一些有意义的东西、帮助人们。嗯，所以，我们不再相信我们能对世界产生我们应有的那么大的影响，因为我们觉得无法足够快地扩张这门生意。第二个原因，我觉得你创办公司——对我们来说——是真的很享受和我们的团队一起工作。但我们团队里的每个人都有机会成本。他们可以在 Town 工作，也可以在，你知道，硅谷很多其他优秀的公司工作。所以如果你不再相信自己能取得好的结果，那么每天走进办公室、直视人们的眼睛就会非常困难，当他们告诉你：嘿，我在这件事上遇到了困难；或者我们正试图说服一位候选人加入你的公司，而你知道，你知道，他们手上有另一家公司的能变现的录用邀约，然后你知道，你会想：哦，那么作为一个人我算什么呢，你知道，我必须相信自己。我懂你的痛。我经历过。所以你知道，有几件事我们看了之后觉得，好吧，我们必须做出决定。你知道，反方的观点是，也许我们本可以找到办法，而且总有这种情况，你永远无法完全确定，对吧？而我们是非常有办法的人。所以你总是可以尝试别的东西，但感觉我们脑子里没有能让它成为一门真正突破性生意的点子。嗯，然后，你知道，最难的部分是向其他人承认你失败了，还有对你的一些员工，也许像我们的税务团队，如果我们不做税务了，他们在公司就没有未来了。你直面这一点，然后你会想，首先，谁在乎别人怎么看你？你知道，不管我成功还是失败，我的朋友仍然会是我的朋友。至于员工，我们会帮助他们。我们可以帮他们找到下一份工作。我们可以在遣散费和其他方面非常好地对待他们，让一切都好起来。然后你会意识到，这并不是像你最初情绪上反应的那样艰难的决定，而且这是正确的决定。你开始有了那种信念，然后你就去做。最后再补充一点，因为税务是按年度的，我觉得在那个时间点做决定，那是我们唯一能做决定的时候。我们不能——你不能在 4 月 16 日转型，在你已经告诉一堆人你要帮他们报税之后。你也不能在 1 月转型，在你已经签下一半合作伙伴之后，对吧？我们有一个窗口期，大概就在 10 月 15 日前后，可能有一个月，我们可以同时活在两个宇宙里。一个是我们继续做税务的宇宙，另一个是我们可以转型的宇宙。在那之后，门就要关上了。所以，我觉得那种时间压力帮助我们比在其他情况下更高效地做出了决定。我觉得如果你处在一个连续性的、而不是周期性的业务里，你总是可以告诉自己：“好吧，让我再试一个月下一个点子。让我在接下来三周试试下一件事。也许那会成功。也许这会成功。”我们只有一个很短的窗口，对吧？在这个窗口里我们有可能改变方向。而一旦窗口过去，就变成了：“嘿，我们必须现在就决定。否则，一年后我们还会在这里。而一年后，我们将没有资本去做出改变。”</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>嗯，那么，从那里开始——显然名字没变。还是叫 Town。这是个好域名。Town.com，一个非常好的域名。呃，但你是如何从那里走到现在的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>我们基本上相当认真地探索了大约四个点子。嗯，四个都讲一遍不值得。引导我们走向后来的 Town 的，是，嗯，这样一个问题：为什么没有人打造出一个基于邮件和日历工作的出色人工智能？我们开始问这个问题，一是因为我们在做税务产品时，很多客户告诉我们：“嘿，你们在自动化报税，这太棒了，但我也花了大量时间和我的客户安排会议。当我进入会议时，我在努力——当我进入会议时，我会忘了会议是关于什么的。客户总是问我同样的税务问题。如果你能为我预先起草答案，那不是很棒吗？”于是，我们从这些需求中意识到，这些并不是非常复杂的事情，但还没有人围绕这些非常常见的知识工作者工作流程打造出出色的人工智能，比如会议、会前准备、会议成果、回复那些一直在发生的非常简单的邮件、让人们为自己的一天做好准备。所以，我们就开始探索这个想法，而我们做这件事的时候，正值 Opus 4.5 推出，智能体，至少在编程方面，能够完成越来越多的自主工作。我会说，这个非常简单的洞察，加上模型突然变得更具智能体能力，意味着我们很快就找到了产品市场契合。而且你知道，产品市场契合是一件神奇的事。一旦你拥有了它，你就会想拼命抓住它，永远不停地顺着那根线往下拉。所以，我们并没有坐下来问自己，比如，潜在市场规模能有多大？或者，每个人都会想要这个吗？或者你知道，赢意味着什么？我们只是觉得，嘿，我们从用户那里得到了巨大的拉力。让我们用几个月时间全力以赴，了解这个市场，看看机会可能是什么样子。然后，你知道，在做的过程中，我们开始，你知道，我们开始意识到，嗯，大多数企业都是靠邮件和日历运转的，对吧？尤其是企业里任何对外的岗位，比如销售、商务拓展或招聘，你知道，公司之间合作的方式，主要是通过邮件。所以，我们就想，哦，潜在市场一定很大。而且不只是在美国，而是在世界各地。然后当我们的客户开始告诉我们他们喜欢产品的哪些方面时，我们意识到，哦，他们要求我们为他们解决的问题是有深度的。这不像把一个大语言模型接到你的邮箱上那么简单。要让这种体验变得越来越好，还需要投入更多的东西。所以，我们开始觉得，在产品方面，我不是说我们一定看得见护城河，但有足够的复杂性，让我们觉得，嘿，我们可以真正深挖下去，打造出很棒的产品体验。基本上，我们从去年 12 月一直做到 4 月，每天都在推进。就像每天产品都增长百分之一到一个半百分点。我们的客户不断向我们要更多东西，路线图非常清晰，而且你知道，我们被需求拉着走到了这样一个程度，我们觉得：“嘿，封闭测试够了。我们准备好把产品推向世界了。”</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>我觉得你的做法还有一点非常大胆。嗯，你有了产品市场契合，但你也——我们经常讨论这个——你是走产品驱动增长，对吧？还是走那种——你有大公司说：“嘿，把你的产品给我。我想要。”但你意识到，如果客户不是用户——客户是开支票的人，用户是必须使用产品的人——如果客户不是用户，你最终可能会打造出一个糟糕的产品，因为你是在让首席信息安全官满意，你是在让——你实际上并没有让用户满意，你是在让客户满意。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>是的，我和我的联合创始人都在 Dropbox 工作过，我觉得我们从 Dropbox 学到的一个重要经验是，你总是可以拿一个世界一流的产品体验，然后想办法让它适用于企业。往那个方向走真的很容易。我是说，让我换个说法。往那个方向走很难，但是可能的。而从一个以合规、信息技术、企业需求为出发点的体验开始，再想办法把产品体验做得令人惊艳——如果你把那个当作基线的话——几乎是不可能的。所以，我们觉得，而且我想直到现在，直到也许几个月前，我们都觉得仅仅把产品做得更好就有巨大的超额收益，那应该是我们的重点。增长自然而然地在发生。我们想：“如果我们把产品体验搞定，如果我们在企业层面、在数据安全和隐私层面的基础是好的，我们以后可以再想办法把产品的管理端打造得完美适合企业。”我觉得那对我们来说是正确的决定。就像我觉得，你知道，嗯，尤其是随着消费者对人工智能能做什么的期望提高，那些将会是消费级的体验。所以，我们的论点是，首席信息官、公司的首席执行官们会告诉自己：“嘿，我在个人生活中得到的这种了不起的私人助理体验，我想让我的公司也拥有。”所以，谁拥有一种感觉像消费级体验的企业级体验，谁就有望获胜。我们觉得：“这就是我们作为一家企业想要达到的位置。”而且我觉得，我们实际上基本已经成功做到了。现在的问题是：“好吧，你知道，我们首先有了一些在使用产品的大公司。所以，你知道，问题是：我们如何从只做一单企业交易，到能够高效地做几十单？我们如何满足的不只是几个客户的数据隐私和安全需求，而是，你知道，如何满足每一家企业的这些需求？”这现在感觉是一个可知得多的问题，我们可以全力以赴去解决它，因为核心产品体验是好的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>是的。你知道，我同意。我知道你和我聊过一点这个，我记得我以前用黑莓手机。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>大概 2007 年，iPhone 发布，然后史蒂夫·鲍尔默说：“没人会买一部 800 美元的手机。这会是个失败品。简直是个笑话。如此这般。”你知道，最终微软收购了诺基亚。但是，呃，黑莓很快就消亡了，因为，呃，至少我对此的理论是，那一年每个首席执行官都收到了一部 iPhone 作为圣诞礼物之类的，用它给孩子拍照，然后就像：“天哪，这东西真好用。那东西没那么好。嘿，我是老板。你们去想办法让这东西在这里能用。”</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>对吧？我们可能——我和很多企业领导者聊过，很有意思，那些看到了未来的人会说：“我需要这个。”还有一些人会说：“哦，是啊，人工智能没那么好用。我用沃森”之类的。就是说，仍然有很多怀疑者。但感觉 iPhone 时刻已经出现了，就是说人们已经在个人场景中领略到了人工智能的神奇，但在工作场景中还没有，而为什么会这样还是个悬而未决的问题。部分原因是权限问题，部分原因是——但我很想听听你的想法，你是否认同这种框架，以及未来几年工作场景中的人工智能会是什么样子。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>第一，我认同这个框架。我觉得有个小插曲，当时有一家公司，我记得叫 Good。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>对，Good Technologies。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>对，它是一款面向 iPhone 的、可用于企业的邮件客户端。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>是个应用。那是世界史上最丑的东西。是的，我以前用过。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>我之所以——因为我觉得这不只是黑莓的故事，就像我不想成为 Good，对吧？因为 Good 最终不是一门好生意，因为人们会说：“是啊，当然，你是 iPhone 上的企业应用，但你的质量达不到其他所有 iPhone 应用的水平，对吧？”所以我觉得这就是我们的风险所在。不只是成为黑莓，还有成为 Good，而不是像，嘿，人们直接在他们的 iPhone 上使用 Gmail 应用，对吧？因为一家企业会在意的，既有便利性，也有企业功能。嗯，是的，所以我经常思考那些以人的速度发生的事情，对吧？首先，助理这个品类，今天全世界只有几百万人在用，对吧？它仍处于采用曲线的非常早期。所以我甚至不认为所有首席执行官都已经用上了。就像 iPhone 一样，大多数人可能需要 6 个月、12 个月、18 个月，才能在个人生活中体验到这种神奇。一旦他们体验到了，接下来的问题就是，你如何在公司内部采用它？我觉得这比 iPhone 更复杂，因为智能体的工作方式是，如果它们能访问运行你业务的数据和接口，它们就会越来越有效。如果它们能以安全、保护隐私的方式访问这些东西，它们就能为你做很多事情。但如果不能，对吧？它们的聪明程度也就只取决于它们能访问的数据。所以，你知道，我觉得我们对这段旅程的思考是，首先，呃，能够走进任何一家公司，只需连接那家公司几个人的邮箱和日历——还不是核心记录系统——就让他们感受到足够的神奇，让他们觉得：“哦，这会给我的工作带来很多价值。”正如我所说，对于对外的岗位，日历和邮件是真正的洞察来源，能告诉你如何自动化某人的一部分工作。所以，接下来你就可以带着助理出现，你可以说：“我可以帮你为这些会议做准备。我可以调整那场会议的演示文稿，让它更好地使用设计语言，并更新为发给你的这份文件里的最新数字。”仅仅从这里开始，人们就会开始感受到这种神奇。然后你会问自己：“嗯，我是否已经赢得了请你连接你的客户关系管理系统的权利？我是否已经赢得了让你去找你的信息技术团队、要求连接所有其他工具的权利？”我觉得这段旅程会更多地以人的速度发生。而且你必须有硬币的另一面。你必须有审计日志，你必须有能够确保，你知道，特权信息不会被分享给智能体的安全态势。你需要所有这些——你需要为首席财务官提供成本控制，让他们明白，如果他们整个团队都在 Town 上运作，他们知道钱花在哪里，知道算力额度被高效使用，对吧，正是这一面的所有事情需要更多人的时间去适应，因为你仍然是在向，你知道，一家必须以一定程度的审慎来运营的《财富》100 强公司销售。当你向下沉到中低端市场时，对吧？当你转向中小企业和中型市场公司时，我觉得那些要求会少一些，对吧？采用也会快得多。所以，我们目前的押注是，从产品体验和自助式增长的角度，我们真正专注于中小企业市场和中型市场；然后从需要哪些安全、合规、财务功能的角度，专注于大企业。我们认为我们可以拿下这个领域的整个部分。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>是的，我是说，我觉得整个助理领域也存在一种杰文斯悖论，如果你仔细想想的话，对吧？我在这里有一位行政助理。嗯，但即便如此，我不——我是说，我信任她，我喜欢她。但我不想让她读我所有的邮件。嗯，实际上，这件事刚刚就发生过。我当时在伦敦。我以为我有一个晚宴要去。我敢发誓我收到过一封关于这件事的邮件。我给我的 Town 助理“斯纳普”发短信说：“我是不是有个晚宴要去？”它就回答：“是的，你有。”嗯，你有。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>而且它不在你的日历上。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>它不在我的日历上。那是我的错，不是我助理的错。是我的错，因为我没有回复一封邮件。嗯，他们没有抄送给她，那不是他们的错，是我的错。而它抓住了这件事，但现在我让它自动处理——它一直在读我的邮件。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>嗯哼。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>这就是一件——所以，我可以，或者说我的公司很慷慨地给我配了一位行政助理，但有很多人没有。结果你可能会说：“嗯，行政助理的市场相当小，因为大多数人都没有。”嗯，但结果是，如果你真的能用芯片把它生产出来，市场就相当大了，然后你会找到事情去做。就像，我会让某个东西一直读我的邮件，这是我以前绝不会做的，无论是从隐私的角度——这其实是一种双重的杰文斯——就像是一种关于隐私的杰文斯悖论，显然，对于不了解的人来说，杰文斯悖论讲的是，当蒸汽机变得更高效时，你知道，最初的——像詹姆斯·瓦特造出了更高效的蒸汽机，然后人们的假设是对煤的需求会下降，因为过去需要一磅煤的事情现在只需要一盎司煤，但实际上结果是需求增长了大约一千倍，因为现在你有了能非常高效地完成这件事的东西。所以，感觉这种情况在，你知道，助理市场可能也存在，但我想知道你如何定义你的市场？是助理吗？因为那似乎把它描绘得太狭窄了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>我对这个市场的理解是，我们正在努力打造一款与人协作的产品，为他们找到越来越多运用人工智能、把工作做得更好的机会。我觉得在某些情况下——所以我把我们的产品看作一台算力分配机器。我们努力向人提供选项，告诉他们可以在哪里使用算力，然后由人来选择是否想要那个结果。我觉得随着算力变得越来越便宜，会有越来越多的地方值得投入算力，而在今天昂贵的算力下你绝不会这么做，以前用人力你更绝不会这么做。所以，非常非常基础的例子是，为你参加的每一场会议撰写会前准备笔记。即使你有行政助理，你的行政助理也不会为每一场会议、为你参加的每一个 30 分钟会议撰写完美的会前笔记。这根本不是对时间的好利用。但一个大语言模型可以用，我也不知道，一美分做到这件事，对吧？于是突然之间，对任何人来说，你都可以为每一场会议准备会前笔记，对与会的其他人做一些调研，比如他们上周在社交平台上有没有说过什么可能与会议相关的话？所有这些长尾调研现在都值得做了，因为成本低得多。所以，我们的工作就是越来越多地找到类似这样的事情，然后告诉作为用户的你：“嘿，你想让我们为你做这件事吗？”我再给你举一个我最近相当着迷的例子。比如你是一位小企业主，在美国经营一家餐厅，你的批发商，也就是你从他们那里购买农产品和其他用于餐厅做菜的东西的人，呃，他们可能每个月、也许每个季度给你发一次邮件，附上一份电子表格或一份文件，列出他们所有库存的价格。比如几千甚至几万种商品。而价格总在变化。如果你是一位餐厅老板，有一位兼职的财务人员，那么这个人应该为你做的是，每个季度看一下价格的变化，看看你是否可以从不同的批发商那里订购某些东西，看看你是否，呃，可能被坑了，或者因为某样东西的价格上涨了 20% 或 30% 而付了太多钱。大多数情况下你不会这么做。因为这是件不常做的事，尽管它能帮你省钱，但它很麻烦，不是你日常运营的一部分，你也没有全职人员去做。有了 Town，让一个东西每个月运行一次并做这个分析，你简直只需要用提示词在五分钟内就能让它为你运转起来。如果它在一年 12 个月里有 11 个月都没发现值得做的事，运行那个东西每个月大概只花你一美元。但有意思的是，一年里它真正发现问题的那一个月，它会为你找回几百甚至几千美元，对吧？所以现在，这件以前可能值得也可能不值得做的事，你至少应该每个月做一次。每当有变化时你都应该做——如果你有一个每天都改价格的批发商，也许你应该每天都做，虽然那种情况不会发生。但是，你知道，我们的工作是向这位餐厅老板展示这个机会，因为他们不会——这不是说他们不够聪明或者不太了解自己的生意，他们是了解的。他们只是不会想到那件事有价值。所以，我们就像是告诉他们：“嘿，听着。你想让我始终确保你的批发商不会以对你的生意不利的方式改价格吗？”当然，去做吧。之后你其实并不在乎它多久运行一次。你在乎的是，偶尔你会收到一封邮件告诉你：嘿，你可能应该把所有这些东西转到另一家批发商那里，他们有折扣；或者这一家在这些东西上涨价涨得厉害，变得有点太贵了，也许你应该把那些菜从菜单上撤下。做到这一点不是什么高深的科学，对吧？嗯，但你必须有一个产品告诉你这件事是可能的，让它变得，你知道——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>嗯，这个例子有意思的地方在于，如果你去问一位餐厅老板：“你想要一位行政助理吗？”</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>他们会完全摸不着头脑。是的，是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>而如果你说：“你想省钱吗？”这就像盖可保险，对吧？就像：“你想在现有的——比如你想在球生菜上省钱吗？我每年能帮你省 500 美元，每年只收你 52 美元。”答案是肯定的。但你怎么知道——我是说，这有点像是产品营销的问题或挑战，因为我记得，当我们第一次讨论这件事、讨论报税之后公司未来的新方向时，我们谈到的两件事，一是产品驱动增长与销售驱动增长。嗯，你说的话让我印象深刻，就是如果你想打造一款为用户设计的产品，你就必须为用户打造它，而不是为那些，你知道，公司里的上层大佬、公司里所有的律师打造。最终你可以反向推进到企业销售和销售驱动增长。但另一件事是这种横向与纵向的问题。这是很多公司都非常纠结的一个问题。而这实际上会把我们带到另一个话题，就是你怎么看那些巨头，对吧？显然像 Anthropic 或 OpenAI，以及其他所有同时为企业和消费者打造产品的公司。但你是如何——你是如何思考横向与纵向的？因为你说的话，希望我能准确概括，是我们要尽可能从横向起步，因为我们不想被，你知道，我们不想被局限在某种可能非常——我们不想被局限、被贴上“帮你在球生菜上省钱的公司”的标签。我们想做那件事，并且我们会学习。顺便说一下，这现在就是我向你们候选人推销的话术了。所以希望我说得没错。我们会从希望是成千上万、数以万计的使用我们产品的企业和个人那里学习，然后最终我们可以从那里走向垂直化，因为我们会让市场来定义它，我们不会预设自己了解球生菜的问题。直到有人真正下载了 Town、使用 Town，从他们的 Town 助理那里学到东西，我们才会知道这件事，然后我们才能真正认识到那可以成为一个垂直领域。但我想问，你如何看待纵向与横向？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>所以，我对今天大多数人工智能产品的看法是，它们的能力会非常相似。意思是，在工作场景中，大多数智能体框架都能做同样的事情，所以差异化因素——我觉得在硅谷很长一段时间里，主要的差异化因素就是你拥有领先于市场的不同产品功能——要维持那种优势会变得越来越难。嗯，我们可以先把这个放一放，我们可以就此进行一场有趣的对话，我觉得软件的价值单位已经从应用变成了计算机，但这真正意味着，它已经从一个应用变成了人能做的任何事，而人用一台计算机几乎可以做任何事，所以我们正在完全抽象掉应用层，我觉得应用层的价值会下降。嗯，那么如果能力没有差别，你如何打造一家成功的公司？我觉得我们对此的看法是，我们押注随着人工智能变得更好，它可以更好地为每个用户定制产品，非常具体地满足他们的需求。意思是，如果你是一名电工，注册了 Town，在你的新手引导过程中，我们推荐给你的可以自动化的事情是非常针对电工的；如果你是一名风险投资人，它们就非常针对风险投资人；如果你是一名行政助理，它们就针对那个行业的行政助理，以此类推。那么你怎么做到这一点呢？嗯，模型还没有好到这种程度：当你直接问模型“嘿，为做风险投资的亚历克斯推荐一些他可以用 Town 自动化的事情”时，我觉得你会得到相当不错的表层建议，但不是真正深入的建议。所以，我们的做法是——因为我们不看用户数据，对吧？为企业做好准备的一部分就是你不能看用户数据。所以，我们的做法是查看汇总指标，了解今天平台上谁是我们的重度用户。然后我们去和他们交谈。当我们和他们交谈时，他们会告诉我们他们自动化了哪些事情。所以，我们可能会和 10 位经营餐厅的重度用户交谈。</p>
+<p>当我们和他们交谈时，我们会发现他们都在做的五件共同的事情。然后我们会在内部坐下来，为餐厅老板打造原型自动化流程——我们称之为“例程”——那些我们认为非常好的流程，比如关于批发商的那个。我们会把它当作种子，对吧？所以，当有人加入时，我们会看你的邮件和收件箱，然后我们会说：“你似乎是一位餐厅老板。”然后我们有一些模板，列出我们认为对餐厅老板来说非常好的问题和潜在解决方案，这些是我们从那些访谈中手工雕琢出来的。我们把它们放到你面前。你注册后开始使用产品。然后人工智能在进步，我们在和更多餐厅老板交谈，现在我们不只有五件，而是有大约 15 件可以为餐厅老板做的事情。仍然有点手工，但你可以加快速度。你可以自动安排访谈。你可以邀请餐厅老板，给他们一张亚马逊——给他们一张免费的亚马逊礼品卡，然后用人工智能录制对他们的访谈，了解他们用你的软件做些什么。所以，你不再以人的速度运作，而是以人工智能的速度运作。这个库在变得越来越好，然后模型也在变好，所以现在推荐对库的依赖越来越少，因为——我们的想法是，随着时间推移，通过这种方法，我们将能够为人们提供八二法则式的、高度定制化的软件。而且在未来，人们不只扮演一个角色。对吧？比如，是的，你是一位餐厅老板，但你也负责你餐厅的财务，因为你没有另外的人做这件事。而且你还有一套用来出租的度假屋。所以真正来说，你希望你的 Town 助理擅长这三件事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>而且你还有两个孩子在上学，它可以帮你，比如，安排他们暑假的活动。所以从头到尾都是定制化软件，而我们——你知道，我们的信念是，你可以用人工智能来打造它。我觉得你在市场上看到的另一种策略，我认为也是各大实验室在做的，是前线部署工程师的方法。这非常不同。前线部署工程师的方法就是，我派一个人进入你的企业，了解你的企业是如何运转的，然后他们会用人工智能打造定制化软件，使用我实验室的人工智能来更好地为你服务。我觉得前线部署工程师的方法，你知道，如果你是一家愿意每年花大约 500 万美元付给 OpenAI 购买前线部署工程师服务的企业，现在看起来非常好，但我觉得随着时间推移，随着模型变得更好，前线部署工程师的方法实际上会变得差得多，而我们的方法——更多是围绕自动化以及用人工智能来打造定制化软件——会扩展得好得多。所以我们的押注是，我们从产品驱动增长、中小企业、中型市场以及非常技术前沿的大企业开始，因为在那里我们的方法扩展得非常非常好。我们让别人在大企业领域为这种更像手工打造的软件去竞争，而我们的押注是，我们在能获得的飞轮中学到的东西，会让我们在长期比那些更定制化的方法更成功。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>但也许——但也许也说明一下，为什么 Town 比 OpenAI 和 Anthropic 更好，它们现在也有连接器了？比如，你可以连上你的 Slack，你可以连上你的领英。我是说，显然我相信——我既是 Town 的投资人，也是它的重度用户。所以我有我的答案，但我很想让你展开讲讲为什么要用 Town。而且，我是说，很多可能在听这期节目的人可能也是创业者，他们也在想，糟了，那些家伙会不会吃掉我的——不是说你，Town。就是，你面临这样一种奇怪的局面：有基础设施层，也有应用层。这一直都是这样。比如你知道，思科和阿卡迈在 90 年代是基础设施公司，然后亚马逊和易贝是应用公司。但思科做梦都不会说：你知道吗，我们要做一家书商。我们要做一个拍卖网站。我们要做一个像雅虎那样的目录网站来竞争——不，他们只乐于卖他们的交换机、负载均衡器之类的东西。所以，我会很好奇，你知道，也许说明一下你如何看待 Town 与那些你经常从他们那里购买算力的公司之间的关系。嗯，然后其他人或许该如何看待我们所处的这个奇怪的时代，就是基础设施正在变成应用。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>我是说，和你的供应商竞争总是有风险的，对吧？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>而且我们是在和他们更低的销货成本竞争，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>和你的供应商竞争。所以，你必须问问自己，这是否天然就是世界的正确状态？所以，简短的回答——不是好的那个——是，我们对用户体验、最初是围绕邮件和日历的体验，有着非常不同的看法，而出于某种原因，其他玩家都没有真正专注于这一点。邮件和日历有大量的复杂性，这让我们的产品在那里好得多得多。但那只是一个简短的回答，因为显然 OpenAI、Anthropic、谷歌的某个人可能某天醒来就决定去做这件事。所以，更好的回答其实是去思考我们的客户以及他们想要什么。当我们和比如一家中型市场公司——也就是一家有大约 500 到 1000 名员工的公司——谈论 Town 时，我们告诉他们的是：“嘿，听着，你知道未来三到五年哪家模型供应商会是最好的模型供应商吗？你对此怎么看？”他们不知道。他们不知道。然后你会说：“嗯，你知道，如果你买 OpenAI 的产品，那么那个产品里永远都是 OpenAI 的模型。如果 OpenAI 在未来三到五年不是最好的模型供应商、不能为你提供最好的智能，那怎么办？那么，随着人工智能为你做的事情越来越多，你可能会处于竞争劣势。”</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>还会涨租金？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>是的，所有这些。所以，第一件事是我们会说：“听着，我们是中立的应用。我们会使用任何我们认为在当下对你最好的供应商。”这是很重要的一部分。而且不只是通用智能，比如在那个时候哪家供应商在语音方面更好，在视频方面更好，在幻灯片方面更好。我们觉得，从所有人工智能能力——前沿模型、开放权重模型——中判断什么对作为企业的你是正确的，这是我们的工作。我觉得你可以在那里省钱，而且你也可以消除选错合作伙伴的风险。有些公司大概两年前选了 OpenAI。然后在 12 个月的时间里，Anthropic 在编程方面更好。那些公司不得不两个都用，因为他们意识到要保持竞争力，他们需要 Claude，对吧？他们需要那些模型。而且我不认为——我觉得如果你是一家聪明的企业，你真的会去思考为你提供智能的那一方以及做路由的那一方的中立性。所以，这是一个原因。我觉得第二个原因，非常重要，那就是我们的立场是，作为一家企业，你拥有——真正拥有——在 Town 上产生的数据、记忆和联系人。所以，你知道，在旧世界，在计算机时代之前，如果你是一家企业，你有不同的资产。你有实物资产。你可能还有人力资产，对吧？呃，而现在越来越多地——也许人们称之为上下文——有一类资产，就是人工智能所知道的关于你的企业的所有东西，用来帮助你有效地经营你的企业。我觉得你应该拥有那一整套东西。而且我觉得你应该拥有到这样的程度：如果有比 Town 更好的解决方案，切换到那个解决方案只需要，你知道，一天。而这，你知道，就是我在卖的东西。我在卖的是：你想拥有那项资产。而且我觉得，如果你看看任何部署前线部署工程师为你打造软件的公司，他们实际上想做的，是让你在任何时候都更难切换到别人那里。所以，我觉得这就是第二个——所以，首先你想要中立的智能，但我觉得你也希望智能之上的应用层是一个让你放心可以迁移到别处的应用层。而在新世界里，那真的就是，你知道，嗯，拥有这个上下文层，并且有人把它提供给你。现在，这意味着对 Town 来说，我承担的风险是我的客户的切换成本更低，对吧？但那就是我的卖点。而且听着，如果我无法拥有市场上最好的产品，那也没关系。那只意味着我会输。但这就是我面对，嗯，面对那些实验室时的竞争立场。而且，你知道，对我来说第三部分就是关于训练。我觉得你——如果你是一家足够大的公司，实验室不会用你的数据训练，但问题是你经营企业的方式，如果它某天进入了某个会转售给别人的模型的权重里，那么实际上你就是在把让你的企业成功的东西卖给别人。你真的不想那样做。所以，我觉得，你知道，在训练层面，我们就是，你知道，我们不——我们不训练。这根本不是我们作为一家企业的理念的一部分。然后关于竞争的最后一点是，我们对世界、对——我觉得是——人与人工智能之间的关系有着不同的看法，在这方面我们可能甚至比实验室更具前瞻性。所以，你知道，Town 的团队版产品有一个，嗯，模式，基本上是在构建一个内部客户关系管理系统，我们在其中信任智能体来决定公司里的哪些信息可以提供给公司的其他员工。我给你举个例子，比如你在 Town 里说：“有没有人认识这个潜在客户财务团队里的人？”Town 能够去和你所在公司其他员工的智能体交谈，找到与你想要的那个线索有联系的人。这是一个非常强大的产品，但从隐私的角度来说，你真的必须把它设计得非常非常好才能运作。我对此的思考是，我们真正在思考的是，如何让人工智能使人以人工智能的速度运作，而不是以人的速度运作。所以，我刚才问的那个问题，以人的速度的版本是，你会去 Slack 或微软 Teams 里说：“有没有人认识那个团队里的人？”然后你公司里的每个人都得读那条消息并思考一下，然后你会在——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>大概一天后得到答案。是的，正是如此。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>而用我们的——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>人类是很慢的路由器。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>没错。而用我们的产品，你会立刻得到答案，因为我们已经决定，对于那类问题，我们会信任人工智能在公司内部协调该请求的安全性和隐私性。而且，你知道，我们相信像这样能够真正加快公司速度的东西，而我没看到其他人在做。而且你知道，当你在打造一家初创公司时，你总是要思考，未来是什么样子？我认为，未来“人在回路中”的程度会比我们今天看到的低得多。我认为我们的工作是让公司对那个世界感到放心，因为它为他们带来的经济利益远远超过他们今天在那种体验中可能看到的任何风险。所以，这些就是差异化因素。我觉得数据所有权和中立性是非常非常重要的。而且，你知道，如果你看看 Rogo 正在发生什么，Harvey 正在发生什么，对吧？如果你看 OpenAI，他们正在打造与之竞争的垂直领域公司。从竞争的角度来看，你会觉得：“天哪，那些实验室真是势不可挡。”但如果一家中立的企业在选择与谁合作，你就得想想，嗯，他们会在技术栈上往上走多远，对吧？所以，我只是觉得从战略上讲，对大多数大公司来说，真正受制于任何一个应用都是不合理的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>这似乎也存在一个相关性的“金发姑娘区间”，就是如果你有一万亿美元的收入，作为股东我显然会非常高兴，作为首席执行官和联合创始人你也会非常高兴，但你可能会成为 OpenAI 和 Anthropic 的头号目标。如果你收入为零、没人用你的产品，他们根本不会在意。但如果你——可以说编程领域恰好落在了金发姑娘区间错误的那一边。就像你——如果你现在是一个编程智能体，比如谁每周增加 100 亿美元，或者谁知道是多少——Anthropic 增加了那么多——这对他们来说太重要了。他们不能——用双重否定来说——他们不能不忽视它。嗯，或者，抱歉，他们不能忽视它。单重否定就够了。而对于你正在做的事情——再说一次，这听起来像是在贬低。其实不是，对吧？只是说这可能不是最大的事。我觉得从长期来看它其实是最大的事，但从短期来看，它不是编程。对吧？它不是那种：天哪，我必须做这件事，否则我就完蛋了。因为像 OpenAI，似乎他们从 Anthropic 那里学到了这个教训，当时 OpenAI 有大约 50 个押注，然后 Anthropic 全力押注代码，结果做得非常非常好。所以，你知道，还有一个关于专注和相关性的因素，似乎他们不会去乱来。比如，你知道，医疗，非常大。比如法律，非常大。呃，编程，非常大。这些是他们几乎必须做的大押注。而这种分散的横向领域，似乎对他们来说更难全力投入。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>我觉得对于中小企业和中型市场，我会说我同意你的看法。但这个市场是——听着，人工智能为企业做更多事、帮助企业更成功的市场，比编程市场更大。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>哦，当然。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>所以，你知道，对我来说这是“何时”而不是“是否”的问题，对吧？我觉得在当前的环境下，它对那些公司来说还不会产生显著影响，但我觉得 12 个月后就会。所以它会发展得非常非常快。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>现在你不能不——这就是我要找的那句话。你不能不进入编程市场。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>没错。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>对吧？而这件事就像 iPhone 和黑莓。这里有一个扩散的拐点。实际上这是我很想问你的另一个问题。嗯，就是我有一个理论，很想看看你是否同意。所以，呃，硅谷几乎是在过度炒作人工智能，如果这有可能的话。我不认为过度炒作人工智能是可能的，因为它每周都在变好。我觉得世界其他地方几乎是低估了人工智能。我有点好奇，你怎么看待，你知道，人们谈论“跨越鸿沟”。但这不是一个很好的例子，因为这并不是一项只存在于这里、世界其他地方都没有的技术。不，全世界的人都在用它，只是分布并不均匀。但我想问，你如何看待我们在哪些地方对人工智能看空了，或者经济中的哪些角落——无论是按地理还是按职业——或者某些领域，因为我——这就是拥有一款非常横向的产品、一款非常横向的产品驱动增长型产品的酷之处，世界各地的人都在发现 Town。比如我记得你告诉过我：“哇，我们在日本很火。”那不是有意的。不是说“我们去日本做大吧”。它就是在日本火了。所以你在各个地方都看到了这种情况。有没有让你感到意外的角落？有没有一些角落让你觉得：“哇，这里的机会实际上比人们想象的要多得多。”</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>所以我在想——我在想一些具体的轶事。比如我在想这样一家企业，它在一个岛上向人们出租冲浪板，然后用 Town 来检查冲浪板和，呃，小型沙滩车是否有损坏，以决定之后是否应该退还押金给顾客。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>这很酷。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>是的，但这就像——我觉得那根本不在我的宾果卡上。不在我那张 128 乘 128 的宾果卡上。根本不在上面。真正发生的情况是，那家小企业里有一个爱捣鼓的人，有件事让他们很烦，然后他们用 Town 想出了如何自动比对这些照片并决定是否退还押金，而让它在那里奏效的，正是那个爱捣鼓的人。所以我给你的回答其实是，我们在经济中所有奇怪的角落都看到了使用，而解锁的关键在于，那里是否有一个足够懂人工智能、愿意捣鼓出解决方案来解决自己问题的人。而问题在于，世界上爱捣鼓的人不够多，或者没有足够多的人有时间去捣鼓来帮助他们的企业。我觉得这就是人工智能没有扩散开来的原因。它没有扩散开来的原因是，尽管在 Claude 或 ChatGPT 里，过去 12 个月一直存在一些功能，很多小企业可以用来节省大量时间。但相反，你却把它们当作一种替代品，当作一种更好的谷歌搜索来用，你会想，这是怎么回事。这是因为产品体验不能只是一个文本框。我们必须做的是——你无法教会别人。你必须直接向用户展示价值主张，并替他们把事情做了。我觉得这才是真正的解锁关键。所以，每当，你知道，对我们的产品来说，是什么让人留在 Town？就是这个。他们连接了自己的邮箱、日历，理想情况下还有一个对他们的业务非常重要的记录系统。然后他们打造了一个定制集成。这意味着他们打造了一个开箱即用之外的、很神奇的东西。而我正努力去掉这个定制集成。我要让每个人——就是一旦你连接了你的记录系统，我能否以一种非常贴合你的方式、真正帮助你的方式为你提供价值。这就是机会所在，这也是为什么你看不到它均匀扩散。这是因为在硅谷，我们都在工程师身边工作。所以我们离这种天生的解决问题和捣鼓精神近得多。就像我们的公司里到处都是爱捣鼓的人。所以，是的，我们的公司在有效地使用人工智能。而世界上大多数地方就是没有这些人。所以这才是真正的问题。如果你能解决这个问题，如果你能让一个不爱捣鼓的人在人工智能的世界里获得和爱捣鼓的人一样的价值，你今天就可能成为一家巨无霸企业，因为人工智能可以解决如此多的商业问题。你不需要更多的智能。智能已经在那里了。问题只是你如何有效地大规模部署它？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>是的，感觉这是一个集成问题。这是一个产品营销问题。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>因为每个人——而且我觉得这对我来说也非常有意思。我见过一位哈佛的教授。一位非常非常聪明的女士。她大概是那里的二号人物，我和她聊人工智能。她说：“是啊，是啊，我几年前试过。还行，不算太好。”我说：“不，不，不，它现在真的很好了。”于是我让 ChatGPT 改写了她的博士论文。嗯，那是她二十多年前写的，但现在一切都更新到了当下。就像把一切都按今天的情况来写，然后她说：“这太神奇了。这是什么人工智能？”我说：“是 ChatGPT。”她说：“不可能。”她说：“这怎么可能？”那是因为这东西发展得太快了。而且你知道，很多人是根据当下来评判事物的。我觉得另一件事是，硅谷倾向于根据它可能达到的程度来评判。所以有时你会夸大现实，会有现实扭曲力场之类的东西，但你看到了它可能的发展方向，而很多其他人看到的是它今天的样子，而且这东西的斜率又是这样的，如果你沿着这条曲线走——我是说，是的，就它今天的位置而言，感觉人们并没有充分利用它，部分原因是他们几乎很讽刺地成了早期采用者。他们两年前试过某样东西，然后说，是啊，这东西会产生幻觉，它并不怎么好用，然后他们就把那个版本的现实固化了，而如果他们现在再试一次——我做这个实验大概做了十次了，就像：你从哪里弄来的这个人工智能？那不是我用的那个人工智能。我说，是的，就是它，你只需要再试一次。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>我是说，因为产品领域发展得太快了，这种情况会一直发生，对吧？所以我觉得获胜的平台是那个能持续让企业适应最好的人工智能的平台。这就是问题所在，因为人工智能会一直不断地、永远地进步、进步、再进步，而人们对于什么可能、什么不可能、什么困难、什么不困难的心智模型也会随之更新。我是说，仅就今天的计算机操作和浏览器操作而言，在过去两个半月里，助理们能做到六个月前几乎不可能做到的事情，对吧？而且它们 90% 的情况下都能做到，而以前大概只有 30%。大多数人不——他们还没有体验过这一点，这就是为什么当你用 Town 做演示，让它为你购物，或者让它使用你的软件去做某件事，你会想“等等，做这件事不需要用户界面吗？”时，人们会说：“哇，我完全不知道它能做到这个。”</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>嗯，但我不认为——我不知道你该如何向人们推销这一点，因为我觉得如果你告诉人们“哦，Town 现在有计算机操作功能了”，你知道，那没有任何意义。它需要具体得多，比如：嘿，我可以为这个活动制作海报，看起来就和你一直在 Canva 上做的那些一模一样。嘿，我可以用你的 Canva 订阅来做，对吧？因为你已经在为它付费了，然后你想让我直接做吗？然后那个人会说：“那就先试一版吧。”然后五分钟后，花了第一个 25 美分，它给你展示了一些超级有价值的东西，接着它就需要说：“嘿，你想让我在我从你日历上注意到的每一个类似活动之前都这样做吗？”然后接下来发生的是，你另外更改了你的小企业或中型公司的设计，然后它应该——你甚至都不需要开口，下次它制作传单时，传单就应该是新设计的样子。因为它应该已经替你注意到了。而且，你知道，接下来当它能够有效地制作视频时，它应该说：“嘿，你想让我制作视频素材，好让你在照片墙上为此打广告吗？”它只需要不断提出这些在今天的技术下感觉越来越不可能的事情，但实际上它只是在沿着模型将能为你做到的事情的曲线前进。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>嗯，你可能已经看到了，智能体流量——这在很大程度上不是助理型智能体，而是广义上的智能体流量——已经大大超过了人类流量。所以，这是第一点。然后另一件经常上新闻的事，是关于对待智能体的这种对抗式与——姑且称之为——协同式的方法。就是这种新一代的智能体，不是像 ChatGPT 那种只是在互联网上搜索东西的智能体，而是真正主动代表你做事的智能体。所以，比如亚马逊显然采取了一种有点对抗式的方法，这很合理，因为他们是一家广告公司，而且互联网上长期以来存在着这样一种契约。我去雅虎财经查股票报价。雅虎付钱从纳斯达克之类的地方获取股票报价数据，然后我的眼球看到了一则亿创理财的广告。这个契约就是：“我雅虎给你亚历克斯免费的股票报价，条件是你把眼球给我。”</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>而这个契约已经被打破了。所以，那些——那些碰上了这个被打破的契约的人是对抗式的，但感觉有一个协同式的巨大机会。就像：“哇，这就像新的搜索引擎优化。”如果我能成为智能体流量的接收方而不是屏蔽它，不是去想如何阻止它，而是如何欢迎它？那一边似乎也有巨大的机会。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>是的，我是说，你知道，亚马逊的损失应该是沃尔玛的收获，对吧？我是说，沃尔玛，你知道，他们没有广告业务，所以，你知道，他们的激励会不同。而且我觉得一些——我是说，就你说的那点，分发渠道已经改变了。顺便说一下，我觉得智能体有意思的地方在于，如果你不再相信你的智能体本身没有利益牵扯，分发会如何改变，这是一个有点有趣的问号，对吧？所以，假设你使用，呃，Meta 的智能体，而 Meta 吸引了广告主，然后你问它，比如说美联航在 Meta 上投放的广告比，呃，比，你知道，某家无名航空公司多得多，然后你让它订一张机票。你知道，如果你觉得它不再给你中立的结果，会怎样？因为问题在于，总会有——人们仍然有推广产品和营销的激励。所以，在一个人类的眼球不再看这些东西的世界里，那会是什么样子，这是一个非常开放的问题。我坚信你想要一个属于你自己的中立智能体，你没有——就是智能体唯一的资金来源是作为用户的你的钱包。然后，无论谁在打造那个智能体，他们的激励都是为作为人的你提供最好的信息，不受，呃，强大的营销力量的扭曲。然后，作为人的你有品味，你在做出选择时表达你的品味。你也可以问你的智能体：“嘿，大家在照片墙上都在聊什么？”或者：“上面在推什么广告？”你可以问这个问题，因为在那里你想受到广告和营销世界的影响。但同样，你希望你的智能体在这方面保持中立。至于你谈到的对抗式与非对抗式，我觉得另一件在概念上让我感兴趣的事情，是那些你作为人享受的摩擦与你不享受的摩擦之间的体验。所以，我在纽约苏豪区逛街购物，那是我享受的摩擦。我喜欢在店与店之间走来走去。我喜欢有别人在排队，因为我可以模仿他们的穿搭风格。我喜欢这种摩擦。它是购物中令人愉快的一部分。我喜欢这样做。呃，然后还有我不享受的摩擦。我想在家里订购卫生纸。我不——我不是——你懂我的意思吗？我只想要我一直在订的那种卫生纸。尽快送到就行。而且尽可能便宜。所以，我觉得有时候当我们过多地思考智能体时，我们会过多地考虑，嗯，减少摩擦和劳作，让事情尽可能高效，但人类并不总是在，你知道，为效率而优化。所以，你知道，对我来说，亚马逊关于广告的例子是，实际上我觉得有时候我在亚马逊上，比如在给我的孩子买乐高的时候，我确实想看到其他建筑类，呃，比如给我儿子的玩具的广告。因为我可能会发现一个——不是乐高品牌的、我不知道的、很有意思的东西，然后我想让我的智能体给我找一些它的评价，我可能会说：“这很有意思。它在孩子们中间受欢迎吗？”也许我想买它。在那种体验中，我觉得亚马逊可以赚很多钱，对于那些汇聚供给并带有广告和营销的地方，仍然会有价值。但我觉得在很多时候，你是在为摩擦做优化，你不想要那些东西。所以，如果我是亚马逊，有着每年 800 亿或者 700 亿美元之类的广告业务，我会问的问题是：“嘿，我应该——我不认为你想屏蔽智能体，因为我觉得——我觉得可能会有一家比亚马逊更大的公司，比如一个‘无界面的亚马逊’，可能会成为一门非常非常大的生意，对吧？但我觉得这会给他们带来更大的压力，去打造一个你确实想要广告、而且非常好的独立体验。并让那个体验本身就值得一去。我觉得归根结底，我仍然会为了那些东西去亚马逊，你知道。但是，你知道，人工智能发展得如此之快，它将以一种我认为没有人能预测这些领域获胜平台会是什么的速度，改变分发渠道和人类习惯。而且会有巨大的输家，对吧？亚马逊可能会在试图对抗未来的过程中失去一大块广告业务。因为他们无法预测没有了——会是什么样子。我刚才想到的另一个例子是 Muse。不知道你有没有看到关于 Muse 的讨论。它就像是一个免费的个人智能体。很酷。人们会说：“嗯，总有一天他们必须在 Muse 里放广告。”但实际上，如果你——也许他们永远不必在 Muse 里放广告。也许 Muse 只是给他们提供数据，让它能够在照片墙上更好地定向投放给你。而当你去照片墙时，你在照片墙上是因为你在照片墙上并不想要效率。你想被娱乐，对吧？如果他们因为来自 Muse 的信息而能在照片墙上更好地定向投放，而 Muse 仍然是免费的。然后在照片墙上，当你看到你喜欢的商品时，他们还可以让你使用他们从 Muse 那里为你积累的钱包来付款。或者 Muse 可以在网上为你查找这件东西的不同款式。这就像一个非常好的飞轮。它意味着，在这个个人使用场景中，你把变现和智能体体验分离开了。这就是一个——你知道，这就是像亚马逊这样的资产处于劣势的地方，我觉得在智能体时代，仅仅作为供给的汇聚者，可能根本不是一个好的商业模式。它可能就是不再成立了。所以，他们对此真的无能为力。他们会输。老实说，他们的反制手段可能是应该拥有一个个人智能体。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>他们应该有一个 Muse 那样的公司——实际上这才是他们的反制手段。不是去屏蔽 Muse，而是拥有一个 Muse。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>拥有一个更好的 Muse。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>一个 Muse，并且拥有它的独家购物权，希望这足以成为激励，并把它作为会员服务的一部分。但是，你知道，我不知道他们能不能做到。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>嗯，有意思的是，就亚马逊而言，有一个网站叫 CamelCamelCamel。它是一个亚马逊的比价引擎。基本上你可以说：“我想知道胡椒博士汽水——现在是 8 美元。等它降到 6 美元时告诉我。”</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>然后基本上就买下来。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>一降到 6 美元就——不，它不负责购买。它只是给你发邮件，然后你得自己去买。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>有 2000 万人在用这个网站。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>2000 万人？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>是的。美国有 2000 万人。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>而这只是一个——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>而且它是一个联盟营销网站，已经存在 18 年了。所以，就像我——贾斯汀和我写过一篇关于这个的文章，说预测未来的最好方法就是观察现在。再说一次，回到那一点，就是它分布得并不均匀，而这个东西就是未来，因为我思考智能体的另一种方式是，有些人时间比钱多。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>是的，没错。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>然后有些人钱比时间多。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>而那些钱比时间多的人，他们不会去用 CamelCamelCamel。那些时间比钱多的人，他们会用。嗯，但等一下，如果你现在可以给每一个钱比时间多的人提供所有这些工具，然后由智能体来做呢？当然他们会用。这就像一场智商测试。所以，这些东西肯定会普及得多，而且，再说一次，有时候你甚至不需要去想象可能会发生什么。你只需要看看，比如，你知道，优惠券。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>优惠券，比如你很有钱的话就不应该用优惠券，因为太花时间了。你会花大概两个小时去寻找合适的优惠券，但你猜怎么着？所以，这又是另一个正在被打破的契约，因为它曾是一种划分世界的非常巧妙的方式。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>是的。我是说，美国运通的高端会员也是一样。现在，它会直接优化——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>你所有的高端会员权益。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>所有人都会去薅我们所有大通银行和美国运通的权益——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>然后他们就不得不改规则了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>这对我来说就不划算了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>因为那样就会变成对抗式的。这就是对抗式与协同式的问题。所以——</p>
+<p>顺便说一下，贯穿所有这些的主线是，我只是觉得供给汇聚的价值比以前低了很多。它过去非常有价值，因为人的注意力是有限的，而现在供给汇聚的价值低了很多，因为人的注意力可以被自动化掉了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>是的。这是一场很棒的对话。再次感谢你今天来做客，Town 加油。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="让-丹尼斯">让-丹尼斯</span></div><div class="content">
+<p>好的，非常感谢你，亚历克斯。和你聊天总是很愉快。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="亚历克斯·兰佩尔">兰佩尔</span></div><div class="content">
+<p>谢谢。</p>
+</div></div>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "a16z", "title": "为什么在人工智能时代，一家年收入百万美元的初创公司不值得做", "url": "https://www.youtube.com/watch?v=o_5f4N6Nq80", "videoId": "o_5f4N6Nq80", "published_at": "2026-10-19", "duration": 3719, "caption_source": "YouTube 自动生成字幕（en-orig，经 yt-dlp + Chrome cookies 补拉；非官方字幕），中文为逐句全文翻译", "guests": ["让-丹尼斯（Town 首席执行官兼创始人，前 Plaid 首席技术官）"], "speakers": [{"id": "h", "name": "亚历克斯·兰佩尔", "role": "host", "short": "兰佩尔"}, {"id": "g", "name": "让-丹尼斯", "role": "guest", "short": "让-丹尼斯"}], "intro": {"summary": "a16z 合伙人亚历克斯·兰佩尔对话 Town 创始人让-丹尼斯：一家年收入接近百万美元的中小企业报税公司，为何在人工智能时代主动转型为基于邮件与日历的人工智能助理，以及如何与大模型实验室竞争。", "points": ["报税业务一年只卖一次、口碑传播弱，现有巨头能更快用人工智能自动化，因此“人工智能时代之前的好生意”不再具备风投规模", "利用报税季周期带来的短暂窗口期果断转型，并在 Opus 4.5 等智能体能力提升时迅速找到产品市场契合", "坚持先做消费级的用户体验、再补企业级合规，借鉴 iPhone 取代黑莓的路径", "与实验室竞争的三大立场：模型中立、客户真正拥有数据与上下文、不用客户数据训练", "人工智能扩散的瓶颈在于“爱捣鼓的人”太少，产品要主动展示价值并替用户做事；智能体时代供给汇聚型平台的价值下降"], "verdict": "值得看：约 62 分钟，创业转型与人工智能产品策略的干货密集。", "audience": "创业者、产品经理、投资人以及关注人工智能应用层竞争的从业者"}, "paragraphs": [{"start_sec": 0, "speaker_id": "h", "type": "text", "zh": "本·霍洛维茨给我发消息说，我发现了一个超棒的工具，叫 Town，它简直改变了我的生活。我心想，等等，那是让-丹尼斯的公司啊。可他做的是中小企业报税。这说不通啊。"}, {"start_sec": 1, "speaker_id": "g", "type": "text", "zh": "这原本不会是一家达到风险投资规模的公司。【音乐】还没有人围绕这些非常常见的知识工作者工作流程打造出出色的人工智能，比如会议、会前准备、让人们为自己的一天做好准备。我们正在努力打造一款与人协作的产品，为他们找到越来越多运用人工智能、把工作做得更好的机会。"}, {"start_sec": 2, "speaker_id": "g", "type": "text", "zh": "运行那个东西每个月大概只花你一美元。"}, {"start_sec": 3, "speaker_id": "g", "type": "text", "zh": "关键在于，一年里它真正发现问题的那一个月，它会为你找回几百甚至几千美元。"}, {"start_sec": 4, "speaker_id": "g", "type": "text", "zh": "产品体验不能只是一个文本框。你必须直接向用户展示价值主张，并替他们把事情做了。【音乐】我们会使用任何我们认为在当下对你最好的供应商。"}, {"start_sec": 5, "speaker_id": "h", "type": "text", "zh": "人类是很慢的路由器。"}, {"start_sec": 6, "speaker_id": "g", "type": "text", "zh": "没错。而且我认为，未来“人在回路中”的程度会比我们今天看到的低得多。而我认为我们的工作是——"}, {"start_sec": 7, "speaker_id": "h", "type": "text", "zh": "大家好，我是亚历克斯·兰佩尔，安德森·霍洛维茨的合伙人，和我在一起的是 Town 的首席执行官兼创始人让-丹尼斯。"}, {"start_sec": 8, "speaker_id": "g", "type": "text", "zh": "谢谢邀请。"}, {"start_sec": 9, "speaker_id": "h", "type": "text", "zh": "我觉得很酷的一点是，你担任 Plaid 首席技术官时我们就合作过，而当时是我在这里主导了我们对 Plaid 的投资。"}, {"start_sec": 10, "speaker_id": "g", "type": "text", "zh": "是的。"}, {"start_sec": 11, "speaker_id": "h", "type": "text", "zh": "然后我听说你要离开去创业。接着我记得你告诉我，你在做一款中小企业报税工具。"}, {"start_sec": 12, "speaker_id": "g", "type": "text", "zh": "是的，我们喝过咖啡。我们在门洛帕克还是帕洛阿尔托这里喝过咖啡。"}, {"start_sec": 13, "speaker_id": "h", "type": "text", "zh": "然后，呃，我有点，呃，不太高兴。我当时就想，我本来那么兴奋，结果是个中小企业报税工具。哦，那个——"}, {"start_sec": 14, "speaker_id": "g", "type": "text", "zh": "那可不太妙。"}, {"start_sec": 15, "speaker_id": "h", "type": "text", "zh": "呃，现在嘛，你知道，把底牌都亮出来了，对吧？"}, {"start_sec": 16, "speaker_id": "g", "type": "text", "zh": "你当时没说——"}, {"start_sec": 17, "speaker_id": "h", "type": "text", "zh": "我知道。我，是的，我——"}, {"start_sec": 18, "speaker_id": "g", "type": "text", "zh": "你当时可没跟我这么说，你知道的。"}, {"start_sec": 19, "speaker_id": "h", "type": "text", "zh": "我知道。我知道。但我，你知道，我得时刻保持一张非常开心的脸。嗯，你永远不知道会怎样。嗯，然后，呃，我觉得这件事特别好笑的地方在于，我想你知道整个故事。本·霍洛维茨给我发消息，说我发现了一个超棒的工具，叫 Town，它简直改变了我的生活，太棒了。我就想，好啊，对吧？它是个应用，所以属于我的基金的范畴。然后，嗯，我心想，等等，那是让-丹尼斯的公司啊。可他做的是中小企业报税。这说不通啊。我太困惑了。我就是这么给你发短信的。然后转眼间，一周后我们就成了合作伙伴，这让我极其兴奋。不过也许你可以给我们讲讲 Town 是做什么的，而且我想大家会非常感兴趣，你是如何从最初的起点走到今天的。就是你离开了 Plaid，开始做中小企业报税。给我们讲讲从那里到这里的创始人之路吧。"}, {"start_sec": 20, "speaker_id": "g", "type": "text", "zh": "我离开了 Plaid。我和家人一起休息了几个月，因为我知道，如果我要当创始人，接下来很长一段时间都不会再有休假了。嗯，是的，然后，嗯，开始以一种非常企业服务的方式去探索：哪些市场会很有意思，人工智能可以在那里真正改变产品体验。出于种种原因，税务非常合理。呃，税务里有大量文本，而大语言模型非常擅长处理文本。呃，你要处理大量结构化格式的输入，比如，呃，财务报表和租赁文件，感觉这是一个合适的领域，我们可以把编制企业纳税申报表的流程——这和个人报税很不一样——自动化。我做了工程师会做的事，就是我们做了技术尽职调查，向自己证明这件事可以做到。当时的感觉是，是的，在未来两年内，一家中小企业从，你知道，财务报表和一堆关于业务的文件，到一份完成的纳税申报表，这个过程可以用人工智能实现自动化。我们花了一年时间打造它。我觉得，呃，其中有不错的地方，从产品角度来说它是成功的，但从市场推广角度来说不成功。意思是，尽管我毫不怀疑报税准备会被自动化，但你如何高效地触达数百万家企业并销售这款产品？这里面的问号比我们预想的要多得多。基本上一年之后，我们拥有的是一门我会称之为“人工智能时代之前的好生意”。也就是说，如果我给你看我们第一年的收入数字和收入增长，大概略低于一百万美元，如果我再给你看我认为我们第二年能做到的数字，我们当时认为收入可以达到大约两百五十万到三百万美元，我想在人工智能时代之前，你会觉得：“这非常合理。”但在人工智能时代之后，这就不会是一家达到风险投资规模的公司。而且，我觉得更重要的是，我们意识到，现有的行业巨头将能够利用这项技术，为他们现有的客户自动化报税准备，速度比我们抢占市场份额更快。这是你作为创始人必须思考的一件关键的事。如果你是新进入者，你的优势在于你行动更快，你可以打造不同的产品，你可以使用不同的市场推广方式，但墙上有一个滴答作响的时钟，那就是你能多快获得真正的口碑、网络效应和市场渗透，赶在拥有其他优势的现有巨头之前。他们有渠道优势，对吧？比如说，赶在他们能够追上来、足够有效地复制你正在做的事情之前。而对于税务来说，感觉我们无法比我们的竞争对手、那些现有巨头更早达到数亿美元的收入，因为税务一年只能卖一次。是的。那就像是，你知道——"}, {"start_sec": 21, "speaker_id": "h", "type": "text", "zh": "而且不仅是一年只卖一次，还有交互的问题。它从根本上就不可能是一个日活跃型工具。"}, {"start_sec": 22, "speaker_id": "g", "type": "text", "zh": "没错。而且它也没有多少口碑传播，因为很少有人会炫耀自己的报税经历。而当他们炫耀时，同样，一年也只能炫耀一次。是在他们完成纳税申报之后，所以当你炫耀你的报税体验有多好时，通常也不是人们在购买、在寻找新的报税人或会计师的时候。所以——"}, {"start_sec": 23, "speaker_id": "h", "type": "text", "zh": "到第二年他们就忘了。"}, {"start_sec": 24, "speaker_id": "g", "type": "text", "zh": "没错。这些不连续性让它很难实现超高速扩张。所以，这就是为什么它，你知道，作为一门生意不是一个好主意。说来好笑，我最好的朋友之一打造了一家很成功的教育科技公司。他总是抱怨教育科技的一件事，也是同样的问题。教育科技一年只能卖两次。你可以在夏天为秋季学期销售，然后在秋冬季末、新年之前有一个很短的窗口可以销售。只有这两个时间点你才能真正把软件卖给学校和学区。他说，你知道，这真的限制了我实现超高速扩张的能力。而我们做税务的时候，我选择忘记了这一点。嗯，所以，是的，我们做了税务产品。一年之后，在第一个报税季之后，基本上我和我的联合创始人，你知道，花了一周时间散了很多次步、喝了很多咖啡，认真思考了人生、创业和资本主义的意义，然后决定，嗯，我们应该做点别的。我们需要找到一个更好的、更有成果的市场去发力，如果我们想影响数百万人的话。有更好的方式去实现那个目标。于是我们开始——"}, {"start_sec": 25, "speaker_id": "h", "type": "text", "zh": "这是很勇敢的一件事。大多数人可能都不会这么做，尤其是因为它并不是行不通。"}, {"start_sec": 26, "speaker_id": "g", "type": "text", "zh": "在当时，那感觉像是失败，就像我们正在失败。但我觉得你——你创业的核心动机是什么，对吧？你必须——作为创始人，会有这样的时刻，它们出现的频率比你希望的要高，你会真正地问自己：“我为什么要做这件事？”而且，你知道，对我们来说，影响世界真的非常非常重要。我们真的想打造一些有意义的东西、帮助人们。嗯，所以，我们不再相信我们能对世界产生我们应有的那么大的影响，因为我们觉得无法足够快地扩张这门生意。第二个原因，我觉得你创办公司——对我们来说——是真的很享受和我们的团队一起工作。但我们团队里的每个人都有机会成本。他们可以在 Town 工作，也可以在，你知道，硅谷很多其他优秀的公司工作。所以如果你不再相信自己能取得好的结果，那么每天走进办公室、直视人们的眼睛就会非常困难，当他们告诉你：嘿，我在这件事上遇到了困难；或者我们正试图说服一位候选人加入你的公司，而你知道，你知道，他们手上有另一家公司的能变现的录用邀约，然后你知道，你会想：哦，那么作为一个人我算什么呢，你知道，我必须相信自己。我懂你的痛。我经历过。所以你知道，有几件事我们看了之后觉得，好吧，我们必须做出决定。你知道，反方的观点是，也许我们本可以找到办法，而且总有这种情况，你永远无法完全确定，对吧？而我们是非常有办法的人。所以你总是可以尝试别的东西，但感觉我们脑子里没有能让它成为一门真正突破性生意的点子。嗯，然后，你知道，最难的部分是向其他人承认你失败了，还有对你的一些员工，也许像我们的税务团队，如果我们不做税务了，他们在公司就没有未来了。你直面这一点，然后你会想，首先，谁在乎别人怎么看你？你知道，不管我成功还是失败，我的朋友仍然会是我的朋友。至于员工，我们会帮助他们。我们可以帮他们找到下一份工作。我们可以在遣散费和其他方面非常好地对待他们，让一切都好起来。然后你会意识到，这并不是像你最初情绪上反应的那样艰难的决定，而且这是正确的决定。你开始有了那种信念，然后你就去做。最后再补充一点，因为税务是按年度的，我觉得在那个时间点做决定，那是我们唯一能做决定的时候。我们不能——你不能在 4 月 16 日转型，在你已经告诉一堆人你要帮他们报税之后。你也不能在 1 月转型，在你已经签下一半合作伙伴之后，对吧？我们有一个窗口期，大概就在 10 月 15 日前后，可能有一个月，我们可以同时活在两个宇宙里。一个是我们继续做税务的宇宙，另一个是我们可以转型的宇宙。在那之后，门就要关上了。所以，我觉得那种时间压力帮助我们比在其他情况下更高效地做出了决定。我觉得如果你处在一个连续性的、而不是周期性的业务里，你总是可以告诉自己：“好吧，让我再试一个月下一个点子。让我在接下来三周试试下一件事。也许那会成功。也许这会成功。”我们只有一个很短的窗口，对吧？在这个窗口里我们有可能改变方向。而一旦窗口过去，就变成了：“嘿，我们必须现在就决定。否则，一年后我们还会在这里。而一年后，我们将没有资本去做出改变。”"}, {"start_sec": 27, "speaker_id": "h", "type": "text", "zh": "嗯，那么，从那里开始——显然名字没变。还是叫 Town。这是个好域名。Town.com，一个非常好的域名。呃，但你是如何从那里走到现在的？"}, {"start_sec": 28, "speaker_id": "g", "type": "text", "zh": "我们基本上相当认真地探索了大约四个点子。嗯，四个都讲一遍不值得。引导我们走向后来的 Town 的，是，嗯，这样一个问题：为什么没有人打造出一个基于邮件和日历工作的出色人工智能？我们开始问这个问题，一是因为我们在做税务产品时，很多客户告诉我们：“嘿，你们在自动化报税，这太棒了，但我也花了大量时间和我的客户安排会议。当我进入会议时，我在努力——当我进入会议时，我会忘了会议是关于什么的。客户总是问我同样的税务问题。如果你能为我预先起草答案，那不是很棒吗？”于是，我们从这些需求中意识到，这些并不是非常复杂的事情，但还没有人围绕这些非常常见的知识工作者工作流程打造出出色的人工智能，比如会议、会前准备、会议成果、回复那些一直在发生的非常简单的邮件、让人们为自己的一天做好准备。所以，我们就开始探索这个想法，而我们做这件事的时候，正值 Opus 4.5 推出，智能体，至少在编程方面，能够完成越来越多的自主工作。我会说，这个非常简单的洞察，加上模型突然变得更具智能体能力，意味着我们很快就找到了产品市场契合。而且你知道，产品市场契合是一件神奇的事。一旦你拥有了它，你就会想拼命抓住它，永远不停地顺着那根线往下拉。所以，我们并没有坐下来问自己，比如，潜在市场规模能有多大？或者，每个人都会想要这个吗？或者你知道，赢意味着什么？我们只是觉得，嘿，我们从用户那里得到了巨大的拉力。让我们用几个月时间全力以赴，了解这个市场，看看机会可能是什么样子。然后，你知道，在做的过程中，我们开始，你知道，我们开始意识到，嗯，大多数企业都是靠邮件和日历运转的，对吧？尤其是企业里任何对外的岗位，比如销售、商务拓展或招聘，你知道，公司之间合作的方式，主要是通过邮件。所以，我们就想，哦，潜在市场一定很大。而且不只是在美国，而是在世界各地。然后当我们的客户开始告诉我们他们喜欢产品的哪些方面时，我们意识到，哦，他们要求我们为他们解决的问题是有深度的。这不像把一个大语言模型接到你的邮箱上那么简单。要让这种体验变得越来越好，还需要投入更多的东西。所以，我们开始觉得，在产品方面，我不是说我们一定看得见护城河，但有足够的复杂性，让我们觉得，嘿，我们可以真正深挖下去，打造出很棒的产品体验。基本上，我们从去年 12 月一直做到 4 月，每天都在推进。就像每天产品都增长百分之一到一个半百分点。我们的客户不断向我们要更多东西，路线图非常清晰，而且你知道，我们被需求拉着走到了这样一个程度，我们觉得：“嘿，封闭测试够了。我们准备好把产品推向世界了。”"}, {"start_sec": 29, "speaker_id": "h", "type": "text", "zh": "我觉得你的做法还有一点非常大胆。嗯，你有了产品市场契合，但你也——我们经常讨论这个——你是走产品驱动增长，对吧？还是走那种——你有大公司说：“嘿，把你的产品给我。我想要。”但你意识到，如果客户不是用户——客户是开支票的人，用户是必须使用产品的人——如果客户不是用户，你最终可能会打造出一个糟糕的产品，因为你是在让首席信息安全官满意，你是在让——你实际上并没有让用户满意，你是在让客户满意。"}, {"start_sec": 30, "speaker_id": "g", "type": "text", "zh": "是的，我和我的联合创始人都在 Dropbox 工作过，我觉得我们从 Dropbox 学到的一个重要经验是，你总是可以拿一个世界一流的产品体验，然后想办法让它适用于企业。往那个方向走真的很容易。我是说，让我换个说法。往那个方向走很难，但是可能的。而从一个以合规、信息技术、企业需求为出发点的体验开始，再想办法把产品体验做得令人惊艳——如果你把那个当作基线的话——几乎是不可能的。所以，我们觉得，而且我想直到现在，直到也许几个月前，我们都觉得仅仅把产品做得更好就有巨大的超额收益，那应该是我们的重点。增长自然而然地在发生。我们想：“如果我们把产品体验搞定，如果我们在企业层面、在数据安全和隐私层面的基础是好的，我们以后可以再想办法把产品的管理端打造得完美适合企业。”我觉得那对我们来说是正确的决定。就像我觉得，你知道，嗯，尤其是随着消费者对人工智能能做什么的期望提高，那些将会是消费级的体验。所以，我们的论点是，首席信息官、公司的首席执行官们会告诉自己：“嘿，我在个人生活中得到的这种了不起的私人助理体验，我想让我的公司也拥有。”所以，谁拥有一种感觉像消费级体验的企业级体验，谁就有望获胜。我们觉得：“这就是我们作为一家企业想要达到的位置。”而且我觉得，我们实际上基本已经成功做到了。现在的问题是：“好吧，你知道，我们首先有了一些在使用产品的大公司。所以，你知道，问题是：我们如何从只做一单企业交易，到能够高效地做几十单？我们如何满足的不只是几个客户的数据隐私和安全需求，而是，你知道，如何满足每一家企业的这些需求？”这现在感觉是一个可知得多的问题，我们可以全力以赴去解决它，因为核心产品体验是好的。"}, {"start_sec": 31, "speaker_id": "h", "type": "text", "zh": "是的。你知道，我同意。我知道你和我聊过一点这个，我记得我以前用黑莓手机。"}, {"start_sec": 32, "speaker_id": "g", "type": "text", "zh": "是的。"}, {"start_sec": 33, "speaker_id": "h", "type": "text", "zh": "大概 2007 年，iPhone 发布，然后史蒂夫·鲍尔默说：“没人会买一部 800 美元的手机。这会是个失败品。简直是个笑话。如此这般。”你知道，最终微软收购了诺基亚。但是，呃，黑莓很快就消亡了，因为，呃，至少我对此的理论是，那一年每个首席执行官都收到了一部 iPhone 作为圣诞礼物之类的，用它给孩子拍照，然后就像：“天哪，这东西真好用。那东西没那么好。嘿，我是老板。你们去想办法让这东西在这里能用。”"}, {"start_sec": 34, "speaker_id": "g", "type": "text", "zh": "是的。"}, {"start_sec": 35, "speaker_id": "h", "type": "text", "zh": "对吧？我们可能——我和很多企业领导者聊过，很有意思，那些看到了未来的人会说：“我需要这个。”还有一些人会说：“哦，是啊，人工智能没那么好用。我用沃森”之类的。就是说，仍然有很多怀疑者。但感觉 iPhone 时刻已经出现了，就是说人们已经在个人场景中领略到了人工智能的神奇，但在工作场景中还没有，而为什么会这样还是个悬而未决的问题。部分原因是权限问题，部分原因是——但我很想听听你的想法，你是否认同这种框架，以及未来几年工作场景中的人工智能会是什么样子。"}, {"start_sec": 36, "speaker_id": "g", "type": "text", "zh": "第一，我认同这个框架。我觉得有个小插曲，当时有一家公司，我记得叫 Good。"}, {"start_sec": 37, "speaker_id": "h", "type": "text", "zh": "对，Good Technologies。"}, {"start_sec": 38, "speaker_id": "g", "type": "text", "zh": "对，它是一款面向 iPhone 的、可用于企业的邮件客户端。"}, {"start_sec": 39, "speaker_id": "h", "type": "text", "zh": "是个应用。那是世界史上最丑的东西。是的，我以前用过。"}, {"start_sec": 40, "speaker_id": "g", "type": "text", "zh": "我之所以——因为我觉得这不只是黑莓的故事，就像我不想成为 Good，对吧？因为 Good 最终不是一门好生意，因为人们会说：“是啊，当然，你是 iPhone 上的企业应用，但你的质量达不到其他所有 iPhone 应用的水平，对吧？”所以我觉得这就是我们的风险所在。不只是成为黑莓，还有成为 Good，而不是像，嘿，人们直接在他们的 iPhone 上使用 Gmail 应用，对吧？因为一家企业会在意的，既有便利性，也有企业功能。嗯，是的，所以我经常思考那些以人的速度发生的事情，对吧？首先，助理这个品类，今天全世界只有几百万人在用，对吧？它仍处于采用曲线的非常早期。所以我甚至不认为所有首席执行官都已经用上了。就像 iPhone 一样，大多数人可能需要 6 个月、12 个月、18 个月，才能在个人生活中体验到这种神奇。一旦他们体验到了，接下来的问题就是，你如何在公司内部采用它？我觉得这比 iPhone 更复杂，因为智能体的工作方式是，如果它们能访问运行你业务的数据和接口，它们就会越来越有效。如果它们能以安全、保护隐私的方式访问这些东西，它们就能为你做很多事情。但如果不能，对吧？它们的聪明程度也就只取决于它们能访问的数据。所以，你知道，我觉得我们对这段旅程的思考是，首先，呃，能够走进任何一家公司，只需连接那家公司几个人的邮箱和日历——还不是核心记录系统——就让他们感受到足够的神奇，让他们觉得：“哦，这会给我的工作带来很多价值。”正如我所说，对于对外的岗位，日历和邮件是真正的洞察来源，能告诉你如何自动化某人的一部分工作。所以，接下来你就可以带着助理出现，你可以说：“我可以帮你为这些会议做准备。我可以调整那场会议的演示文稿，让它更好地使用设计语言，并更新为发给你的这份文件里的最新数字。”仅仅从这里开始，人们就会开始感受到这种神奇。然后你会问自己：“嗯，我是否已经赢得了请你连接你的客户关系管理系统的权利？我是否已经赢得了让你去找你的信息技术团队、要求连接所有其他工具的权利？”我觉得这段旅程会更多地以人的速度发生。而且你必须有硬币的另一面。你必须有审计日志，你必须有能够确保，你知道，特权信息不会被分享给智能体的安全态势。你需要所有这些——你需要为首席财务官提供成本控制，让他们明白，如果他们整个团队都在 Town 上运作，他们知道钱花在哪里，知道算力额度被高效使用，对吧，正是这一面的所有事情需要更多人的时间去适应，因为你仍然是在向，你知道，一家必须以一定程度的审慎来运营的《财富》100 强公司销售。当你向下沉到中低端市场时，对吧？当你转向中小企业和中型市场公司时，我觉得那些要求会少一些，对吧？采用也会快得多。所以，我们目前的押注是，从产品体验和自助式增长的角度，我们真正专注于中小企业市场和中型市场；然后从需要哪些安全、合规、财务功能的角度，专注于大企业。我们认为我们可以拿下这个领域的整个部分。"}, {"start_sec": 41, "speaker_id": "h", "type": "text", "zh": "是的，我是说，我觉得整个助理领域也存在一种杰文斯悖论，如果你仔细想想的话，对吧？我在这里有一位行政助理。嗯，但即便如此，我不——我是说，我信任她，我喜欢她。但我不想让她读我所有的邮件。嗯，实际上，这件事刚刚就发生过。我当时在伦敦。我以为我有一个晚宴要去。我敢发誓我收到过一封关于这件事的邮件。我给我的 Town 助理“斯纳普”发短信说：“我是不是有个晚宴要去？”它就回答：“是的，你有。”嗯，你有。"}, {"start_sec": 42, "speaker_id": "g", "type": "text", "zh": "而且它不在你的日历上。"}, {"start_sec": 43, "speaker_id": "h", "type": "text", "zh": "它不在我的日历上。那是我的错，不是我助理的错。是我的错，因为我没有回复一封邮件。嗯，他们没有抄送给她，那不是他们的错，是我的错。而它抓住了这件事，但现在我让它自动处理——它一直在读我的邮件。"}, {"start_sec": 44, "speaker_id": "g", "type": "text", "zh": "嗯哼。"}, {"start_sec": 45, "speaker_id": "h", "type": "text", "zh": "这就是一件——所以，我可以，或者说我的公司很慷慨地给我配了一位行政助理，但有很多人没有。结果你可能会说：“嗯，行政助理的市场相当小，因为大多数人都没有。”嗯，但结果是，如果你真的能用芯片把它生产出来，市场就相当大了，然后你会找到事情去做。就像，我会让某个东西一直读我的邮件，这是我以前绝不会做的，无论是从隐私的角度——这其实是一种双重的杰文斯——就像是一种关于隐私的杰文斯悖论，显然，对于不了解的人来说，杰文斯悖论讲的是，当蒸汽机变得更高效时，你知道，最初的——像詹姆斯·瓦特造出了更高效的蒸汽机，然后人们的假设是对煤的需求会下降，因为过去需要一磅煤的事情现在只需要一盎司煤，但实际上结果是需求增长了大约一千倍，因为现在你有了能非常高效地完成这件事的东西。所以，感觉这种情况在，你知道，助理市场可能也存在，但我想知道你如何定义你的市场？是助理吗？因为那似乎把它描绘得太狭窄了。"}, {"start_sec": 46, "speaker_id": "g", "type": "text", "zh": "我对这个市场的理解是，我们正在努力打造一款与人协作的产品，为他们找到越来越多运用人工智能、把工作做得更好的机会。我觉得在某些情况下——所以我把我们的产品看作一台算力分配机器。我们努力向人提供选项，告诉他们可以在哪里使用算力，然后由人来选择是否想要那个结果。我觉得随着算力变得越来越便宜，会有越来越多的地方值得投入算力，而在今天昂贵的算力下你绝不会这么做，以前用人力你更绝不会这么做。所以，非常非常基础的例子是，为你参加的每一场会议撰写会前准备笔记。即使你有行政助理，你的行政助理也不会为每一场会议、为你参加的每一个 30 分钟会议撰写完美的会前笔记。这根本不是对时间的好利用。但一个大语言模型可以用，我也不知道，一美分做到这件事，对吧？于是突然之间，对任何人来说，你都可以为每一场会议准备会前笔记，对与会的其他人做一些调研，比如他们上周在社交平台上有没有说过什么可能与会议相关的话？所有这些长尾调研现在都值得做了，因为成本低得多。所以，我们的工作就是越来越多地找到类似这样的事情，然后告诉作为用户的你：“嘿，你想让我们为你做这件事吗？”我再给你举一个我最近相当着迷的例子。比如你是一位小企业主，在美国经营一家餐厅，你的批发商，也就是你从他们那里购买农产品和其他用于餐厅做菜的东西的人，呃，他们可能每个月、也许每个季度给你发一次邮件，附上一份电子表格或一份文件，列出他们所有库存的价格。比如几千甚至几万种商品。而价格总在变化。如果你是一位餐厅老板，有一位兼职的财务人员，那么这个人应该为你做的是，每个季度看一下价格的变化，看看你是否可以从不同的批发商那里订购某些东西，看看你是否，呃，可能被坑了，或者因为某样东西的价格上涨了 20% 或 30% 而付了太多钱。大多数情况下你不会这么做。因为这是件不常做的事，尽管它能帮你省钱，但它很麻烦，不是你日常运营的一部分，你也没有全职人员去做。有了 Town，让一个东西每个月运行一次并做这个分析，你简直只需要用提示词在五分钟内就能让它为你运转起来。如果它在一年 12 个月里有 11 个月都没发现值得做的事，运行那个东西每个月大概只花你一美元。但有意思的是，一年里它真正发现问题的那一个月，它会为你找回几百甚至几千美元，对吧？所以现在，这件以前可能值得也可能不值得做的事，你至少应该每个月做一次。每当有变化时你都应该做——如果你有一个每天都改价格的批发商，也许你应该每天都做，虽然那种情况不会发生。但是，你知道，我们的工作是向这位餐厅老板展示这个机会，因为他们不会——这不是说他们不够聪明或者不太了解自己的生意，他们是了解的。他们只是不会想到那件事有价值。所以，我们就像是告诉他们：“嘿，听着。你想让我始终确保你的批发商不会以对你的生意不利的方式改价格吗？”当然，去做吧。之后你其实并不在乎它多久运行一次。你在乎的是，偶尔你会收到一封邮件告诉你：嘿，你可能应该把所有这些东西转到另一家批发商那里，他们有折扣；或者这一家在这些东西上涨价涨得厉害，变得有点太贵了，也许你应该把那些菜从菜单上撤下。做到这一点不是什么高深的科学，对吧？嗯，但你必须有一个产品告诉你这件事是可能的，让它变得，你知道——"}, {"start_sec": 47, "speaker_id": "h", "type": "text", "zh": "嗯，这个例子有意思的地方在于，如果你去问一位餐厅老板：“你想要一位行政助理吗？”"}, {"start_sec": 48, "speaker_id": "g", "type": "text", "zh": "他们会完全摸不着头脑。是的，是的。"}, {"start_sec": 49, "speaker_id": "h", "type": "text", "zh": "而如果你说：“你想省钱吗？”这就像盖可保险，对吧？就像：“你想在现有的——比如你想在球生菜上省钱吗？我每年能帮你省 500 美元，每年只收你 52 美元。”答案是肯定的。但你怎么知道——我是说，这有点像是产品营销的问题或挑战，因为我记得，当我们第一次讨论这件事、讨论报税之后公司未来的新方向时，我们谈到的两件事，一是产品驱动增长与销售驱动增长。嗯，你说的话让我印象深刻，就是如果你想打造一款为用户设计的产品，你就必须为用户打造它，而不是为那些，你知道，公司里的上层大佬、公司里所有的律师打造。最终你可以反向推进到企业销售和销售驱动增长。但另一件事是这种横向与纵向的问题。这是很多公司都非常纠结的一个问题。而这实际上会把我们带到另一个话题，就是你怎么看那些巨头，对吧？显然像 Anthropic 或 OpenAI，以及其他所有同时为企业和消费者打造产品的公司。但你是如何——你是如何思考横向与纵向的？因为你说的话，希望我能准确概括，是我们要尽可能从横向起步，因为我们不想被，你知道，我们不想被局限在某种可能非常——我们不想被局限、被贴上“帮你在球生菜上省钱的公司”的标签。我们想做那件事，并且我们会学习。顺便说一下，这现在就是我向你们候选人推销的话术了。所以希望我说得没错。我们会从希望是成千上万、数以万计的使用我们产品的企业和个人那里学习，然后最终我们可以从那里走向垂直化，因为我们会让市场来定义它，我们不会预设自己了解球生菜的问题。直到有人真正下载了 Town、使用 Town，从他们的 Town 助理那里学到东西，我们才会知道这件事，然后我们才能真正认识到那可以成为一个垂直领域。但我想问，你如何看待纵向与横向？"}, {"start_sec": 50, "speaker_id": "g", "type": "text", "zh": "所以，我对今天大多数人工智能产品的看法是，它们的能力会非常相似。意思是，在工作场景中，大多数智能体框架都能做同样的事情，所以差异化因素——我觉得在硅谷很长一段时间里，主要的差异化因素就是你拥有领先于市场的不同产品功能——要维持那种优势会变得越来越难。嗯，我们可以先把这个放一放，我们可以就此进行一场有趣的对话，我觉得软件的价值单位已经从应用变成了计算机，但这真正意味着，它已经从一个应用变成了人能做的任何事，而人用一台计算机几乎可以做任何事，所以我们正在完全抽象掉应用层，我觉得应用层的价值会下降。嗯，那么如果能力没有差别，你如何打造一家成功的公司？我觉得我们对此的看法是，我们押注随着人工智能变得更好，它可以更好地为每个用户定制产品，非常具体地满足他们的需求。意思是，如果你是一名电工，注册了 Town，在你的新手引导过程中，我们推荐给你的可以自动化的事情是非常针对电工的；如果你是一名风险投资人，它们就非常针对风险投资人；如果你是一名行政助理，它们就针对那个行业的行政助理，以此类推。那么你怎么做到这一点呢？嗯，模型还没有好到这种程度：当你直接问模型“嘿，为做风险投资的亚历克斯推荐一些他可以用 Town 自动化的事情”时，我觉得你会得到相当不错的表层建议，但不是真正深入的建议。所以，我们的做法是——因为我们不看用户数据，对吧？为企业做好准备的一部分就是你不能看用户数据。所以，我们的做法是查看汇总指标，了解今天平台上谁是我们的重度用户。然后我们去和他们交谈。当我们和他们交谈时，他们会告诉我们他们自动化了哪些事情。所以，我们可能会和 10 位经营餐厅的重度用户交谈。"}, {"start_sec": 51, "speaker_id": "g", "type": "text", "zh": "当我们和他们交谈时，我们会发现他们都在做的五件共同的事情。然后我们会在内部坐下来，为餐厅老板打造原型自动化流程——我们称之为“例程”——那些我们认为非常好的流程，比如关于批发商的那个。我们会把它当作种子，对吧？所以，当有人加入时，我们会看你的邮件和收件箱，然后我们会说：“你似乎是一位餐厅老板。”然后我们有一些模板，列出我们认为对餐厅老板来说非常好的问题和潜在解决方案，这些是我们从那些访谈中手工雕琢出来的。我们把它们放到你面前。你注册后开始使用产品。然后人工智能在进步，我们在和更多餐厅老板交谈，现在我们不只有五件，而是有大约 15 件可以为餐厅老板做的事情。仍然有点手工，但你可以加快速度。你可以自动安排访谈。你可以邀请餐厅老板，给他们一张亚马逊——给他们一张免费的亚马逊礼品卡，然后用人工智能录制对他们的访谈，了解他们用你的软件做些什么。所以，你不再以人的速度运作，而是以人工智能的速度运作。这个库在变得越来越好，然后模型也在变好，所以现在推荐对库的依赖越来越少，因为——我们的想法是，随着时间推移，通过这种方法，我们将能够为人们提供八二法则式的、高度定制化的软件。而且在未来，人们不只扮演一个角色。对吧？比如，是的，你是一位餐厅老板，但你也负责你餐厅的财务，因为你没有另外的人做这件事。而且你还有一套用来出租的度假屋。所以真正来说，你希望你的 Town 助理擅长这三件事。"}, {"start_sec": 52, "speaker_id": "h", "type": "text", "zh": "对。"}, {"start_sec": 53, "speaker_id": "g", "type": "text", "zh": "而且你还有两个孩子在上学，它可以帮你，比如，安排他们暑假的活动。所以从头到尾都是定制化软件，而我们——你知道，我们的信念是，你可以用人工智能来打造它。我觉得你在市场上看到的另一种策略，我认为也是各大实验室在做的，是前线部署工程师的方法。这非常不同。前线部署工程师的方法就是，我派一个人进入你的企业，了解你的企业是如何运转的，然后他们会用人工智能打造定制化软件，使用我实验室的人工智能来更好地为你服务。我觉得前线部署工程师的方法，你知道，如果你是一家愿意每年花大约 500 万美元付给 OpenAI 购买前线部署工程师服务的企业，现在看起来非常好，但我觉得随着时间推移，随着模型变得更好，前线部署工程师的方法实际上会变得差得多，而我们的方法——更多是围绕自动化以及用人工智能来打造定制化软件——会扩展得好得多。所以我们的押注是，我们从产品驱动增长、中小企业、中型市场以及非常技术前沿的大企业开始，因为在那里我们的方法扩展得非常非常好。我们让别人在大企业领域为这种更像手工打造的软件去竞争，而我们的押注是，我们在能获得的飞轮中学到的东西，会让我们在长期比那些更定制化的方法更成功。"}, {"start_sec": 54, "speaker_id": "h", "type": "text", "zh": "但也许——但也许也说明一下，为什么 Town 比 OpenAI 和 Anthropic 更好，它们现在也有连接器了？比如，你可以连上你的 Slack，你可以连上你的领英。我是说，显然我相信——我既是 Town 的投资人，也是它的重度用户。所以我有我的答案，但我很想让你展开讲讲为什么要用 Town。而且，我是说，很多可能在听这期节目的人可能也是创业者，他们也在想，糟了，那些家伙会不会吃掉我的——不是说你，Town。就是，你面临这样一种奇怪的局面：有基础设施层，也有应用层。这一直都是这样。比如你知道，思科和阿卡迈在 90 年代是基础设施公司，然后亚马逊和易贝是应用公司。但思科做梦都不会说：你知道吗，我们要做一家书商。我们要做一个拍卖网站。我们要做一个像雅虎那样的目录网站来竞争——不，他们只乐于卖他们的交换机、负载均衡器之类的东西。所以，我会很好奇，你知道，也许说明一下你如何看待 Town 与那些你经常从他们那里购买算力的公司之间的关系。嗯，然后其他人或许该如何看待我们所处的这个奇怪的时代，就是基础设施正在变成应用。"}, {"start_sec": 55, "speaker_id": "g", "type": "text", "zh": "我是说，和你的供应商竞争总是有风险的，对吧？"}, {"start_sec": 56, "speaker_id": "h", "type": "text", "zh": "而且我们是在和他们更低的销货成本竞争，对吧？"}, {"start_sec": 57, "speaker_id": "g", "type": "text", "zh": "和你的供应商竞争。所以，你必须问问自己，这是否天然就是世界的正确状态？所以，简短的回答——不是好的那个——是，我们对用户体验、最初是围绕邮件和日历的体验，有着非常不同的看法，而出于某种原因，其他玩家都没有真正专注于这一点。邮件和日历有大量的复杂性，这让我们的产品在那里好得多得多。但那只是一个简短的回答，因为显然 OpenAI、Anthropic、谷歌的某个人可能某天醒来就决定去做这件事。所以，更好的回答其实是去思考我们的客户以及他们想要什么。当我们和比如一家中型市场公司——也就是一家有大约 500 到 1000 名员工的公司——谈论 Town 时，我们告诉他们的是：“嘿，听着，你知道未来三到五年哪家模型供应商会是最好的模型供应商吗？你对此怎么看？”他们不知道。他们不知道。然后你会说：“嗯，你知道，如果你买 OpenAI 的产品，那么那个产品里永远都是 OpenAI 的模型。如果 OpenAI 在未来三到五年不是最好的模型供应商、不能为你提供最好的智能，那怎么办？那么，随着人工智能为你做的事情越来越多，你可能会处于竞争劣势。”"}, {"start_sec": 58, "speaker_id": "h", "type": "text", "zh": "还会涨租金？"}, {"start_sec": 59, "speaker_id": "g", "type": "text", "zh": "是的，所有这些。所以，第一件事是我们会说：“听着，我们是中立的应用。我们会使用任何我们认为在当下对你最好的供应商。”这是很重要的一部分。而且不只是通用智能，比如在那个时候哪家供应商在语音方面更好，在视频方面更好，在幻灯片方面更好。我们觉得，从所有人工智能能力——前沿模型、开放权重模型——中判断什么对作为企业的你是正确的，这是我们的工作。我觉得你可以在那里省钱，而且你也可以消除选错合作伙伴的风险。有些公司大概两年前选了 OpenAI。然后在 12 个月的时间里，Anthropic 在编程方面更好。那些公司不得不两个都用，因为他们意识到要保持竞争力，他们需要 Claude，对吧？他们需要那些模型。而且我不认为——我觉得如果你是一家聪明的企业，你真的会去思考为你提供智能的那一方以及做路由的那一方的中立性。所以，这是一个原因。我觉得第二个原因，非常重要，那就是我们的立场是，作为一家企业，你拥有——真正拥有——在 Town 上产生的数据、记忆和联系人。所以，你知道，在旧世界，在计算机时代之前，如果你是一家企业，你有不同的资产。你有实物资产。你可能还有人力资产，对吧？呃，而现在越来越多地——也许人们称之为上下文——有一类资产，就是人工智能所知道的关于你的企业的所有东西，用来帮助你有效地经营你的企业。我觉得你应该拥有那一整套东西。而且我觉得你应该拥有到这样的程度：如果有比 Town 更好的解决方案，切换到那个解决方案只需要，你知道，一天。而这，你知道，就是我在卖的东西。我在卖的是：你想拥有那项资产。而且我觉得，如果你看看任何部署前线部署工程师为你打造软件的公司，他们实际上想做的，是让你在任何时候都更难切换到别人那里。所以，我觉得这就是第二个——所以，首先你想要中立的智能，但我觉得你也希望智能之上的应用层是一个让你放心可以迁移到别处的应用层。而在新世界里，那真的就是，你知道，嗯，拥有这个上下文层，并且有人把它提供给你。现在，这意味着对 Town 来说，我承担的风险是我的客户的切换成本更低，对吧？但那就是我的卖点。而且听着，如果我无法拥有市场上最好的产品，那也没关系。那只意味着我会输。但这就是我面对，嗯，面对那些实验室时的竞争立场。而且，你知道，对我来说第三部分就是关于训练。我觉得你——如果你是一家足够大的公司，实验室不会用你的数据训练，但问题是你经营企业的方式，如果它某天进入了某个会转售给别人的模型的权重里，那么实际上你就是在把让你的企业成功的东西卖给别人。你真的不想那样做。所以，我觉得，你知道，在训练层面，我们就是，你知道，我们不——我们不训练。这根本不是我们作为一家企业的理念的一部分。然后关于竞争的最后一点是，我们对世界、对——我觉得是——人与人工智能之间的关系有着不同的看法，在这方面我们可能甚至比实验室更具前瞻性。所以，你知道，Town 的团队版产品有一个，嗯，模式，基本上是在构建一个内部客户关系管理系统，我们在其中信任智能体来决定公司里的哪些信息可以提供给公司的其他员工。我给你举个例子，比如你在 Town 里说：“有没有人认识这个潜在客户财务团队里的人？”Town 能够去和你所在公司其他员工的智能体交谈，找到与你想要的那个线索有联系的人。这是一个非常强大的产品，但从隐私的角度来说，你真的必须把它设计得非常非常好才能运作。我对此的思考是，我们真正在思考的是，如何让人工智能使人以人工智能的速度运作，而不是以人的速度运作。所以，我刚才问的那个问题，以人的速度的版本是，你会去 Slack 或微软 Teams 里说：“有没有人认识那个团队里的人？”然后你公司里的每个人都得读那条消息并思考一下，然后你会在——"}, {"start_sec": 60, "speaker_id": "h", "type": "text", "zh": "大概一天后得到答案。是的，正是如此。"}, {"start_sec": 61, "speaker_id": "g", "type": "text", "zh": "而用我们的——"}, {"start_sec": 62, "speaker_id": "h", "type": "text", "zh": "人类是很慢的路由器。"}, {"start_sec": 63, "speaker_id": "g", "type": "text", "zh": "没错。而用我们的产品，你会立刻得到答案，因为我们已经决定，对于那类问题，我们会信任人工智能在公司内部协调该请求的安全性和隐私性。而且，你知道，我们相信像这样能够真正加快公司速度的东西，而我没看到其他人在做。而且你知道，当你在打造一家初创公司时，你总是要思考，未来是什么样子？我认为，未来“人在回路中”的程度会比我们今天看到的低得多。我认为我们的工作是让公司对那个世界感到放心，因为它为他们带来的经济利益远远超过他们今天在那种体验中可能看到的任何风险。所以，这些就是差异化因素。我觉得数据所有权和中立性是非常非常重要的。而且，你知道，如果你看看 Rogo 正在发生什么，Harvey 正在发生什么，对吧？如果你看 OpenAI，他们正在打造与之竞争的垂直领域公司。从竞争的角度来看，你会觉得：“天哪，那些实验室真是势不可挡。”但如果一家中立的企业在选择与谁合作，你就得想想，嗯，他们会在技术栈上往上走多远，对吧？所以，我只是觉得从战略上讲，对大多数大公司来说，真正受制于任何一个应用都是不合理的。"}, {"start_sec": 64, "speaker_id": "h", "type": "text", "zh": "这似乎也存在一个相关性的“金发姑娘区间”，就是如果你有一万亿美元的收入，作为股东我显然会非常高兴，作为首席执行官和联合创始人你也会非常高兴，但你可能会成为 OpenAI 和 Anthropic 的头号目标。如果你收入为零、没人用你的产品，他们根本不会在意。但如果你——可以说编程领域恰好落在了金发姑娘区间错误的那一边。就像你——如果你现在是一个编程智能体，比如谁每周增加 100 亿美元，或者谁知道是多少——Anthropic 增加了那么多——这对他们来说太重要了。他们不能——用双重否定来说——他们不能不忽视它。嗯，或者，抱歉，他们不能忽视它。单重否定就够了。而对于你正在做的事情——再说一次，这听起来像是在贬低。其实不是，对吧？只是说这可能不是最大的事。我觉得从长期来看它其实是最大的事，但从短期来看，它不是编程。对吧？它不是那种：天哪，我必须做这件事，否则我就完蛋了。因为像 OpenAI，似乎他们从 Anthropic 那里学到了这个教训，当时 OpenAI 有大约 50 个押注，然后 Anthropic 全力押注代码，结果做得非常非常好。所以，你知道，还有一个关于专注和相关性的因素，似乎他们不会去乱来。比如，你知道，医疗，非常大。比如法律，非常大。呃，编程，非常大。这些是他们几乎必须做的大押注。而这种分散的横向领域，似乎对他们来说更难全力投入。"}, {"start_sec": 65, "speaker_id": "g", "type": "text", "zh": "我觉得对于中小企业和中型市场，我会说我同意你的看法。但这个市场是——听着，人工智能为企业做更多事、帮助企业更成功的市场，比编程市场更大。"}, {"start_sec": 66, "speaker_id": "h", "type": "text", "zh": "哦，当然。"}, {"start_sec": 67, "speaker_id": "g", "type": "text", "zh": "所以，你知道，对我来说这是“何时”而不是“是否”的问题，对吧？我觉得在当前的环境下，它对那些公司来说还不会产生显著影响，但我觉得 12 个月后就会。所以它会发展得非常非常快。"}, {"start_sec": 68, "speaker_id": "h", "type": "text", "zh": "现在你不能不——这就是我要找的那句话。你不能不进入编程市场。"}, {"start_sec": 69, "speaker_id": "g", "type": "text", "zh": "没错。"}, {"start_sec": 70, "speaker_id": "h", "type": "text", "zh": "对吧？而这件事就像 iPhone 和黑莓。这里有一个扩散的拐点。实际上这是我很想问你的另一个问题。嗯，就是我有一个理论，很想看看你是否同意。所以，呃，硅谷几乎是在过度炒作人工智能，如果这有可能的话。我不认为过度炒作人工智能是可能的，因为它每周都在变好。我觉得世界其他地方几乎是低估了人工智能。我有点好奇，你怎么看待，你知道，人们谈论“跨越鸿沟”。但这不是一个很好的例子，因为这并不是一项只存在于这里、世界其他地方都没有的技术。不，全世界的人都在用它，只是分布并不均匀。但我想问，你如何看待我们在哪些地方对人工智能看空了，或者经济中的哪些角落——无论是按地理还是按职业——或者某些领域，因为我——这就是拥有一款非常横向的产品、一款非常横向的产品驱动增长型产品的酷之处，世界各地的人都在发现 Town。比如我记得你告诉过我：“哇，我们在日本很火。”那不是有意的。不是说“我们去日本做大吧”。它就是在日本火了。所以你在各个地方都看到了这种情况。有没有让你感到意外的角落？有没有一些角落让你觉得：“哇，这里的机会实际上比人们想象的要多得多。”"}, {"start_sec": 71, "speaker_id": "g", "type": "text", "zh": "所以我在想——我在想一些具体的轶事。比如我在想这样一家企业，它在一个岛上向人们出租冲浪板，然后用 Town 来检查冲浪板和，呃，小型沙滩车是否有损坏，以决定之后是否应该退还押金给顾客。"}, {"start_sec": 72, "speaker_id": "h", "type": "text", "zh": "这很酷。"}, {"start_sec": 73, "speaker_id": "g", "type": "text", "zh": "是的，但这就像——我觉得那根本不在我的宾果卡上。不在我那张 128 乘 128 的宾果卡上。根本不在上面。真正发生的情况是，那家小企业里有一个爱捣鼓的人，有件事让他们很烦，然后他们用 Town 想出了如何自动比对这些照片并决定是否退还押金，而让它在那里奏效的，正是那个爱捣鼓的人。所以我给你的回答其实是，我们在经济中所有奇怪的角落都看到了使用，而解锁的关键在于，那里是否有一个足够懂人工智能、愿意捣鼓出解决方案来解决自己问题的人。而问题在于，世界上爱捣鼓的人不够多，或者没有足够多的人有时间去捣鼓来帮助他们的企业。我觉得这就是人工智能没有扩散开来的原因。它没有扩散开来的原因是，尽管在 Claude 或 ChatGPT 里，过去 12 个月一直存在一些功能，很多小企业可以用来节省大量时间。但相反，你却把它们当作一种替代品，当作一种更好的谷歌搜索来用，你会想，这是怎么回事。这是因为产品体验不能只是一个文本框。我们必须做的是——你无法教会别人。你必须直接向用户展示价值主张，并替他们把事情做了。我觉得这才是真正的解锁关键。所以，每当，你知道，对我们的产品来说，是什么让人留在 Town？就是这个。他们连接了自己的邮箱、日历，理想情况下还有一个对他们的业务非常重要的记录系统。然后他们打造了一个定制集成。这意味着他们打造了一个开箱即用之外的、很神奇的东西。而我正努力去掉这个定制集成。我要让每个人——就是一旦你连接了你的记录系统，我能否以一种非常贴合你的方式、真正帮助你的方式为你提供价值。这就是机会所在，这也是为什么你看不到它均匀扩散。这是因为在硅谷，我们都在工程师身边工作。所以我们离这种天生的解决问题和捣鼓精神近得多。就像我们的公司里到处都是爱捣鼓的人。所以，是的，我们的公司在有效地使用人工智能。而世界上大多数地方就是没有这些人。所以这才是真正的问题。如果你能解决这个问题，如果你能让一个不爱捣鼓的人在人工智能的世界里获得和爱捣鼓的人一样的价值，你今天就可能成为一家巨无霸企业，因为人工智能可以解决如此多的商业问题。你不需要更多的智能。智能已经在那里了。问题只是你如何有效地大规模部署它？"}, {"start_sec": 74, "speaker_id": "h", "type": "text", "zh": "是的，感觉这是一个集成问题。这是一个产品营销问题。"}, {"start_sec": 75, "speaker_id": "g", "type": "text", "zh": "是的。"}, {"start_sec": 76, "speaker_id": "h", "type": "text", "zh": "因为每个人——而且我觉得这对我来说也非常有意思。我见过一位哈佛的教授。一位非常非常聪明的女士。她大概是那里的二号人物，我和她聊人工智能。她说：“是啊，是啊，我几年前试过。还行，不算太好。”我说：“不，不，不，它现在真的很好了。”于是我让 ChatGPT 改写了她的博士论文。嗯，那是她二十多年前写的，但现在一切都更新到了当下。就像把一切都按今天的情况来写，然后她说：“这太神奇了。这是什么人工智能？”我说：“是 ChatGPT。”她说：“不可能。”她说：“这怎么可能？”那是因为这东西发展得太快了。而且你知道，很多人是根据当下来评判事物的。我觉得另一件事是，硅谷倾向于根据它可能达到的程度来评判。所以有时你会夸大现实，会有现实扭曲力场之类的东西，但你看到了它可能的发展方向，而很多其他人看到的是它今天的样子，而且这东西的斜率又是这样的，如果你沿着这条曲线走——我是说，是的，就它今天的位置而言，感觉人们并没有充分利用它，部分原因是他们几乎很讽刺地成了早期采用者。他们两年前试过某样东西，然后说，是啊，这东西会产生幻觉，它并不怎么好用，然后他们就把那个版本的现实固化了，而如果他们现在再试一次——我做这个实验大概做了十次了，就像：你从哪里弄来的这个人工智能？那不是我用的那个人工智能。我说，是的，就是它，你只需要再试一次。"}, {"start_sec": 77, "speaker_id": "g", "type": "text", "zh": "我是说，因为产品领域发展得太快了，这种情况会一直发生，对吧？所以我觉得获胜的平台是那个能持续让企业适应最好的人工智能的平台。这就是问题所在，因为人工智能会一直不断地、永远地进步、进步、再进步，而人们对于什么可能、什么不可能、什么困难、什么不困难的心智模型也会随之更新。我是说，仅就今天的计算机操作和浏览器操作而言，在过去两个半月里，助理们能做到六个月前几乎不可能做到的事情，对吧？而且它们 90% 的情况下都能做到，而以前大概只有 30%。大多数人不——他们还没有体验过这一点，这就是为什么当你用 Town 做演示，让它为你购物，或者让它使用你的软件去做某件事，你会想“等等，做这件事不需要用户界面吗？”时，人们会说：“哇，我完全不知道它能做到这个。”"}, {"start_sec": 78, "speaker_id": "h", "type": "text", "zh": "是的。"}, {"start_sec": 79, "speaker_id": "g", "type": "text", "zh": "嗯，但我不认为——我不知道你该如何向人们推销这一点，因为我觉得如果你告诉人们“哦，Town 现在有计算机操作功能了”，你知道，那没有任何意义。它需要具体得多，比如：嘿，我可以为这个活动制作海报，看起来就和你一直在 Canva 上做的那些一模一样。嘿，我可以用你的 Canva 订阅来做，对吧？因为你已经在为它付费了，然后你想让我直接做吗？然后那个人会说：“那就先试一版吧。”然后五分钟后，花了第一个 25 美分，它给你展示了一些超级有价值的东西，接着它就需要说：“嘿，你想让我在我从你日历上注意到的每一个类似活动之前都这样做吗？”然后接下来发生的是，你另外更改了你的小企业或中型公司的设计，然后它应该——你甚至都不需要开口，下次它制作传单时，传单就应该是新设计的样子。因为它应该已经替你注意到了。而且，你知道，接下来当它能够有效地制作视频时，它应该说：“嘿，你想让我制作视频素材，好让你在照片墙上为此打广告吗？”它只需要不断提出这些在今天的技术下感觉越来越不可能的事情，但实际上它只是在沿着模型将能为你做到的事情的曲线前进。"}, {"start_sec": 80, "speaker_id": "h", "type": "text", "zh": "嗯，你可能已经看到了，智能体流量——这在很大程度上不是助理型智能体，而是广义上的智能体流量——已经大大超过了人类流量。所以，这是第一点。然后另一件经常上新闻的事，是关于对待智能体的这种对抗式与——姑且称之为——协同式的方法。就是这种新一代的智能体，不是像 ChatGPT 那种只是在互联网上搜索东西的智能体，而是真正主动代表你做事的智能体。所以，比如亚马逊显然采取了一种有点对抗式的方法，这很合理，因为他们是一家广告公司，而且互联网上长期以来存在着这样一种契约。我去雅虎财经查股票报价。雅虎付钱从纳斯达克之类的地方获取股票报价数据，然后我的眼球看到了一则亿创理财的广告。这个契约就是：“我雅虎给你亚历克斯免费的股票报价，条件是你把眼球给我。”"}, {"start_sec": 81, "speaker_id": "g", "type": "text", "zh": "是的。"}, {"start_sec": 82, "speaker_id": "h", "type": "text", "zh": "而这个契约已经被打破了。所以，那些——那些碰上了这个被打破的契约的人是对抗式的，但感觉有一个协同式的巨大机会。就像：“哇，这就像新的搜索引擎优化。”如果我能成为智能体流量的接收方而不是屏蔽它，不是去想如何阻止它，而是如何欢迎它？那一边似乎也有巨大的机会。"}, {"start_sec": 83, "speaker_id": "g", "type": "text", "zh": "是的，我是说，你知道，亚马逊的损失应该是沃尔玛的收获，对吧？我是说，沃尔玛，你知道，他们没有广告业务，所以，你知道，他们的激励会不同。而且我觉得一些——我是说，就你说的那点，分发渠道已经改变了。顺便说一下，我觉得智能体有意思的地方在于，如果你不再相信你的智能体本身没有利益牵扯，分发会如何改变，这是一个有点有趣的问号，对吧？所以，假设你使用，呃，Meta 的智能体，而 Meta 吸引了广告主，然后你问它，比如说美联航在 Meta 上投放的广告比，呃，比，你知道，某家无名航空公司多得多，然后你让它订一张机票。你知道，如果你觉得它不再给你中立的结果，会怎样？因为问题在于，总会有——人们仍然有推广产品和营销的激励。所以，在一个人类的眼球不再看这些东西的世界里，那会是什么样子，这是一个非常开放的问题。我坚信你想要一个属于你自己的中立智能体，你没有——就是智能体唯一的资金来源是作为用户的你的钱包。然后，无论谁在打造那个智能体，他们的激励都是为作为人的你提供最好的信息，不受，呃，强大的营销力量的扭曲。然后，作为人的你有品味，你在做出选择时表达你的品味。你也可以问你的智能体：“嘿，大家在照片墙上都在聊什么？”或者：“上面在推什么广告？”你可以问这个问题，因为在那里你想受到广告和营销世界的影响。但同样，你希望你的智能体在这方面保持中立。至于你谈到的对抗式与非对抗式，我觉得另一件在概念上让我感兴趣的事情，是那些你作为人享受的摩擦与你不享受的摩擦之间的体验。所以，我在纽约苏豪区逛街购物，那是我享受的摩擦。我喜欢在店与店之间走来走去。我喜欢有别人在排队，因为我可以模仿他们的穿搭风格。我喜欢这种摩擦。它是购物中令人愉快的一部分。我喜欢这样做。呃，然后还有我不享受的摩擦。我想在家里订购卫生纸。我不——我不是——你懂我的意思吗？我只想要我一直在订的那种卫生纸。尽快送到就行。而且尽可能便宜。所以，我觉得有时候当我们过多地思考智能体时，我们会过多地考虑，嗯，减少摩擦和劳作，让事情尽可能高效，但人类并不总是在，你知道，为效率而优化。所以，你知道，对我来说，亚马逊关于广告的例子是，实际上我觉得有时候我在亚马逊上，比如在给我的孩子买乐高的时候，我确实想看到其他建筑类，呃，比如给我儿子的玩具的广告。因为我可能会发现一个——不是乐高品牌的、我不知道的、很有意思的东西，然后我想让我的智能体给我找一些它的评价，我可能会说：“这很有意思。它在孩子们中间受欢迎吗？”也许我想买它。在那种体验中，我觉得亚马逊可以赚很多钱，对于那些汇聚供给并带有广告和营销的地方，仍然会有价值。但我觉得在很多时候，你是在为摩擦做优化，你不想要那些东西。所以，如果我是亚马逊，有着每年 800 亿或者 700 亿美元之类的广告业务，我会问的问题是：“嘿，我应该——我不认为你想屏蔽智能体，因为我觉得——我觉得可能会有一家比亚马逊更大的公司，比如一个‘无界面的亚马逊’，可能会成为一门非常非常大的生意，对吧？但我觉得这会给他们带来更大的压力，去打造一个你确实想要广告、而且非常好的独立体验。并让那个体验本身就值得一去。我觉得归根结底，我仍然会为了那些东西去亚马逊，你知道。但是，你知道，人工智能发展得如此之快，它将以一种我认为没有人能预测这些领域获胜平台会是什么的速度，改变分发渠道和人类习惯。而且会有巨大的输家，对吧？亚马逊可能会在试图对抗未来的过程中失去一大块广告业务。因为他们无法预测没有了——会是什么样子。我刚才想到的另一个例子是 Muse。不知道你有没有看到关于 Muse 的讨论。它就像是一个免费的个人智能体。很酷。人们会说：“嗯，总有一天他们必须在 Muse 里放广告。”但实际上，如果你——也许他们永远不必在 Muse 里放广告。也许 Muse 只是给他们提供数据，让它能够在照片墙上更好地定向投放给你。而当你去照片墙时，你在照片墙上是因为你在照片墙上并不想要效率。你想被娱乐，对吧？如果他们因为来自 Muse 的信息而能在照片墙上更好地定向投放，而 Muse 仍然是免费的。然后在照片墙上，当你看到你喜欢的商品时，他们还可以让你使用他们从 Muse 那里为你积累的钱包来付款。或者 Muse 可以在网上为你查找这件东西的不同款式。这就像一个非常好的飞轮。它意味着，在这个个人使用场景中，你把变现和智能体体验分离开了。这就是一个——你知道，这就是像亚马逊这样的资产处于劣势的地方，我觉得在智能体时代，仅仅作为供给的汇聚者，可能根本不是一个好的商业模式。它可能就是不再成立了。所以，他们对此真的无能为力。他们会输。老实说，他们的反制手段可能是应该拥有一个个人智能体。"}, {"start_sec": 84, "speaker_id": "h", "type": "text", "zh": "是的。"}, {"start_sec": 85, "speaker_id": "g", "type": "text", "zh": "他们应该有一个 Muse 那样的公司——实际上这才是他们的反制手段。不是去屏蔽 Muse，而是拥有一个 Muse。"}, {"start_sec": 86, "speaker_id": "h", "type": "text", "zh": "拥有一个更好的 Muse。"}, {"start_sec": 87, "speaker_id": "g", "type": "text", "zh": "一个 Muse，并且拥有它的独家购物权，希望这足以成为激励，并把它作为会员服务的一部分。但是，你知道，我不知道他们能不能做到。"}, {"start_sec": 88, "speaker_id": "h", "type": "text", "zh": "嗯，有意思的是，就亚马逊而言，有一个网站叫 CamelCamelCamel。它是一个亚马逊的比价引擎。基本上你可以说：“我想知道胡椒博士汽水——现在是 8 美元。等它降到 6 美元时告诉我。”"}, {"start_sec": 89, "speaker_id": "g", "type": "text", "zh": "然后基本上就买下来。"}, {"start_sec": 90, "speaker_id": "h", "type": "text", "zh": "一降到 6 美元就——不，它不负责购买。它只是给你发邮件，然后你得自己去买。"}, {"start_sec": 91, "speaker_id": "g", "type": "text", "zh": "是的。"}, {"start_sec": 92, "speaker_id": "h", "type": "text", "zh": "有 2000 万人在用这个网站。"}, {"start_sec": 93, "speaker_id": "g", "type": "text", "zh": "2000 万人？"}, {"start_sec": 94, "speaker_id": "h", "type": "text", "zh": "是的。美国有 2000 万人。"}, {"start_sec": 95, "speaker_id": "g", "type": "text", "zh": "而这只是一个——"}, {"start_sec": 96, "speaker_id": "h", "type": "text", "zh": "而且它是一个联盟营销网站，已经存在 18 年了。所以，就像我——贾斯汀和我写过一篇关于这个的文章，说预测未来的最好方法就是观察现在。再说一次，回到那一点，就是它分布得并不均匀，而这个东西就是未来，因为我思考智能体的另一种方式是，有些人时间比钱多。"}, {"start_sec": 97, "speaker_id": "g", "type": "text", "zh": "是的，没错。"}, {"start_sec": 98, "speaker_id": "h", "type": "text", "zh": "然后有些人钱比时间多。"}, {"start_sec": 99, "speaker_id": "g", "type": "text", "zh": "是的。"}, {"start_sec": 100, "speaker_id": "h", "type": "text", "zh": "而那些钱比时间多的人，他们不会去用 CamelCamelCamel。那些时间比钱多的人，他们会用。嗯，但等一下，如果你现在可以给每一个钱比时间多的人提供所有这些工具，然后由智能体来做呢？当然他们会用。这就像一场智商测试。所以，这些东西肯定会普及得多，而且，再说一次，有时候你甚至不需要去想象可能会发生什么。你只需要看看，比如，你知道，优惠券。"}, {"start_sec": 101, "speaker_id": "g", "type": "text", "zh": "是的。"}, {"start_sec": 102, "speaker_id": "h", "type": "text", "zh": "优惠券，比如你很有钱的话就不应该用优惠券，因为太花时间了。你会花大概两个小时去寻找合适的优惠券，但你猜怎么着？所以，这又是另一个正在被打破的契约，因为它曾是一种划分世界的非常巧妙的方式。"}, {"start_sec": 103, "speaker_id": "g", "type": "text", "zh": "是的。我是说，美国运通的高端会员也是一样。现在，它会直接优化——"}, {"start_sec": 104, "speaker_id": "h", "type": "text", "zh": "是的。"}, {"start_sec": 105, "speaker_id": "g", "type": "text", "zh": "你所有的高端会员权益。"}, {"start_sec": 106, "speaker_id": "h", "type": "text", "zh": "所有人都会去薅我们所有大通银行和美国运通的权益——"}, {"start_sec": 107, "speaker_id": "g", "type": "text", "zh": "然后他们就不得不改规则了。"}, {"start_sec": 108, "speaker_id": "h", "type": "text", "zh": "这对我来说就不划算了。"}, {"start_sec": 109, "speaker_id": "g", "type": "text", "zh": "因为那样就会变成对抗式的。这就是对抗式与协同式的问题。所以——"}, {"start_sec": 110, "speaker_id": "g", "type": "text", "zh": "顺便说一下，贯穿所有这些的主线是，我只是觉得供给汇聚的价值比以前低了很多。它过去非常有价值，因为人的注意力是有限的，而现在供给汇聚的价值低了很多，因为人的注意力可以被自动化掉了。"}, {"start_sec": 111, "speaker_id": "h", "type": "text", "zh": "是的。这是一场很棒的对话。再次感谢你今天来做客，Town 加油。"}, {"start_sec": 112, "speaker_id": "g", "type": "text", "zh": "好的，非常感谢你，亚历克斯。和你聊天总是很愉快。"}, {"start_sec": 113, "speaker_id": "h", "type": "text", "zh": "谢谢。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
