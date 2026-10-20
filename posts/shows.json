@@ -1,0 +1,178 @@
+[
+  {
+    "slug": "huberman-lab",
+    "name": "Huberman Lab",
+    "host": "Andrew Huberman",
+    "category": "健康",
+    "description": "官网逐字稿在会员区，公开订阅源里没有全文，所以这里先只保留入口。",
+    "videoUrl": "https://www.hubermanlab.com"
+  },
+  {
+    "slug": "athlean-x",
+    "name": "ATHLEAN-X",
+    "host": "Jeff Cavaliere",
+    "category": "健康",
+    "description": "订阅源是训练视频和短简介，没有公开逐字稿。",
+    "videoUrl": "https://athleanx.com"
+  },
+  {
+    "slug": "invest-like-the-best",
+    "name": "Invest Like the Best",
+    "host": "Patrick O'Shaughnessy",
+    "category": "商业",
+    "description": "单集页有访问限制，订阅源里只有介绍，没有可保存的全文。",
+    "videoUrl": "https://colossus.com"
+  },
+  {
+    "slug": "the-diary-of-a-ceo",
+    "name": "The Diary Of A CEO",
+    "host": "Steven Bartlett",
+    "category": "商业",
+    "description": "文字稿来自节目订阅源里公开的官方字幕。",
+    "videoUrl": "https://www.thediaryofaceo.com"
+  },
+  {
+    "slug": "acquired",
+    "name": "Acquired",
+    "host": "Ben Gilbert 与 David Rosenthal",
+    "category": "商业",
+    "description": "文字稿来自 acquired.fm 单集页面上公开的官方逐字稿。",
+    "videoUrl": "https://www.acquired.fm"
+  },
+  {
+    "slug": "founders",
+    "name": "Founders",
+    "host": "David Senra",
+    "category": "商业",
+    "description": "订阅源只有每集简介，没有公开全文。",
+    "videoUrl": "https://www.founderspodcast.com"
+  },
+  {
+    "slug": "20vc",
+    "name": "20VC",
+    "host": "Harry Stebbings",
+    "category": "商业",
+    "description": "这次没有稳定拿到公开全文，先保留节目入口。",
+    "videoUrl": "https://www.thetwentyminutevc.com"
+  },
+  {
+    "slug": "a16z",
+    "name": "The a16z Show",
+    "host": "Andreessen Horowitz",
+    "category": "科技",
+    "description": "单集页没有公开逐字稿，订阅源只有介绍。",
+    "videoUrl": "https://a16z.com"
+  },
+  {
+    "slug": "no-priors",
+    "name": "No Priors",
+    "host": "Sarah Guo 与 Elad Gil",
+    "category": "科技",
+    "description": "订阅源只有每集介绍，没有公开全文。",
+    "videoUrl": "https://www.nopriors.com"
+  },
+  {
+    "slug": "machine-learning-street-talk",
+    "name": "Machine Learning Street Talk",
+    "host": "Tim Scarfe",
+    "category": "科技",
+    "description": "这次没有稳定打开订阅源，先保留节目入口。",
+    "videoUrl": "https://www.youtube.com/@MachineLearningStreetTalk"
+  },
+  {
+    "slug": "practical-ai",
+    "name": "Practical AI",
+    "host": "Changelog",
+    "category": "科技",
+    "description": "文字稿来自节目订阅源里公开的官方字幕。",
+    "videoUrl": "https://changelog.com/practicalai"
+  },
+  {
+    "slug": "sharp-tech",
+    "name": "Sharp Tech",
+    "host": "Ben Thompson 与 Andrew Sharp",
+    "category": "科技",
+    "description": "节目订阅源这次无法打开，先保留入口。",
+    "videoUrl": "https://sharptech.fm"
+  },
+  {
+    "slug": "latent-space",
+    "name": "Latent Space",
+    "host": "swyx 与 Alessio",
+    "category": "科技",
+    "description": "文字稿来自 Latent Space 公开文章里的访谈正文，新闻汇编不收录。",
+    "videoUrl": "https://www.latent.space"
+  },
+  {
+    "slug": "dwarkesh-podcast",
+    "name": "Dwarkesh Podcast",
+    "host": "Dwarkesh Patel",
+    "category": "科技",
+    "description": "这次没有稳定打开节目订阅源，先保留入口。",
+    "videoUrl": "https://www.dwarkesh.com"
+  },
+  {
+    "slug": "moonshots",
+    "name": "Moonshots",
+    "host": "Peter H. Diamandis",
+    "category": "科技",
+    "description": "订阅源只有每集介绍，没有公开全文。",
+    "videoUrl": "https://www.diamandis.com"
+  },
+  {
+    "slug": "david-ondrej",
+    "name": "David Ondrej",
+    "host": "David Ondrej",
+    "category": "科技",
+    "description": "没有找到带公开全文的播客订阅源，先保留入口。",
+    "videoUrl": "https://www.youtube.com/@davidondrej"
+  },
+  {
+    "slug": "lennys-podcast",
+    "name": "Lenny's Podcast",
+    "host": "Lenny Rachitsky",
+    "category": "产品",
+    "description": "收录新闻通讯里已经公开的访谈正文。",
+    "videoUrl": "https://www.lennysnewsletter.com"
+  },
+  {
+    "slug": "the-pragmatic-engineer",
+    "name": "The Pragmatic Engineer",
+    "host": "Gergely Orosz",
+    "category": "产品",
+    "description": "收录新闻通讯里已经公开的长访谈，短讯不收录。",
+    "videoUrl": "https://newsletter.pragmaticengineer.com"
+  },
+  {
+    "slug": "lex-fridman",
+    "name": "Lex Fridman Podcast",
+    "host": "Lex Fridman",
+    "category": "访谈",
+    "description": "文字稿来自 lexfridman.com 公开的官方逐字稿。",
+    "videoUrl": "https://lexfridman.com/podcast/"
+  },
+  {
+    "slug": "modern-wisdom",
+    "name": "Modern Wisdom",
+    "host": "Chris Williamson",
+    "category": "访谈",
+    "description": "订阅源只有每集介绍，没有公开全文。",
+    "videoUrl": "https://chriswillx.com"
+  },
+  {
+    "slug": "los-angeles-rams",
+    "name": "Los Angeles Rams Audio",
+    "host": "Los Angeles Rams",
+    "category": "体育",
+    "description": "球队订阅源里有官方字幕地址，但这台机器打不开字幕文件，先保留入口。",
+    "videoUrl": "https://www.therams.com"
+  },
+  {
+    "slug": "top-gear",
+    "name": "Top Gear Magazine",
+    "host": "Top Gear",
+    "category": "体育",
+    "description": "订阅源只有每集介绍，没有公开全文。",
+    "videoUrl": "https://www.topgear.com"
+  }
+]
