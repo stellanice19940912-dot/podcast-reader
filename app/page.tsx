@@ -1,6 +1,5 @@
 import { EpisodeLink } from "@/components/EpisodeLink";
 import { ShowBrowser, type ShowCard } from "@/components/ShowBrowser";
-import { EmptyState } from "@/components/ui";
 import { loadSite } from "@/lib/content";
 import { formatDate } from "@/lib/format";
 import { groupShows } from "@/lib/groups";
@@ -30,12 +29,7 @@ export default async function HomePage() {
         </p>
       </section>
 
-      {site.episodes.length === 0 ? (
-        <div className="mt-12">
-          <EmptyState title="文字稿正在整理中">第一批内容很快上线，敬请期待。</EmptyState>
-        </div>
-      ) : (
-        <>
+      {site.recent.length > 0 ? (
           <section className="mt-12" aria-labelledby="recent">
             <h2 id="recent" className="text-sm font-medium text-muted">
               最近更新
@@ -57,15 +51,14 @@ export default async function HomePage() {
               ))}
             </ul>
           </section>
+      ) : null}
 
-          <section id="shows" className="mt-14 scroll-mt-20" aria-labelledby="shows-title">
-            <h2 id="shows-title" className="font-display text-2xl">
-              全部节目
-            </h2>
-            <ShowBrowser groups={groups} />
-          </section>
-        </>
-      )}
+      <section id="shows" className="mt-14 scroll-mt-20" aria-labelledby="shows-title">
+        <h2 id="shows-title" className="font-display text-2xl">
+          全部节目
+        </h2>
+        <ShowBrowser groups={groups} />
+      </section>
     </main>
   );
 }

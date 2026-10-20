@@ -15,14 +15,15 @@ export type ShowCard = {
 
 type Group = { category: string; shows: ShowCard[] };
 
-export function ShowBrowser({ groups: allGroups }: { groups: Group[] }) {
+export function ShowBrowser({ groups }: { groups: Group[] }) {
   const [active, setActive] = useState<string>("全部");
-  // 前台只展示已经有文字稿的节目，分类和数量也只按这些节目算。
-  const groups = allGroups
-    .map((group) => ({ ...group, shows: group.shows.filter((show) => show.count > 0) }))
-    .filter((group) => group.shows.length > 0);
   const visible = active === "全部" ? groups : groups.filter((group) => group.category === active);
-  const filled = visible.flatMap((group) => group.shows).sort((a, b) => b.latest.localeCompare(a.latest));
+  // 全部节目都列出来：有文字稿的按最近更新排在前面，还没有的保持原来的顺序排在后面。
+  const filled = visible
+    .flatMap((group) => group.shows)
+    .map((show, order) => ({ show, order }))
+    .sort((a, b) => b.show.latest.localeCompare(a.show.latest) || a.order - b.order)
+    .map(({ show }) => show);
   const tabs = ["全部", ...groups.map((group) => group.category)];
 
   return (
@@ -66,7 +67,11 @@ export function ShowBrowser({ groups: allGroups }: { groups: Group[] }) {
                   <span className="mt-2 line-clamp-3 text-sm leading-6 text-soft">{show.description}</span>
                 ) : null}
                 <span className="mt-auto flex items-center justify-between pt-4 text-xs text-muted">
-                  <span className="text-accent">{show.count} 集文字稿</span>
+                  {show.count > 0 ? (
+                    <span className="text-accent">{show.count} 集文字稿</span>
+                  ) : (
+                    <span>即将上线</span>
+                  )}
                   {show.latest ? <span>更新于 {formatDate(show.latest)}</span> : null}
                 </span>
               </Link>
