@@ -52,15 +52,15 @@ html {
   scroll-padding-top: 7.5rem;
 }
 
-/* 电脑大屏上整体放大一档：基准字号 16→17px，最小的两档辅助文字再额外加大。手机上保持不变。 */
+/* 电脑大屏上整体放大：基准字号 16→18px，最小的两档辅助文字再额外加大。手机上保持不变。 */
 @media (min-width: 1024px) {
   html {
-    font-size: 17px;
+    font-size: 18px;
   }
 
   :root {
     --text-xs: 0.8125rem;
-    --text-sm: 0.90625rem;
+    --text-sm: 0.9rem;
   }
 }
 
