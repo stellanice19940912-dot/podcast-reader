@@ -25,7 +25,7 @@ export default async function HomePage() {
       <section className="max-w-2xl">
         <h1 className="font-display text-[1.75rem] leading-tight min-[400px]:text-3xl sm:text-5xl">读播客，而不是听播客</h1>
         <p className="mt-3 text-base leading-7 text-soft sm:mt-4 sm:text-lg sm:leading-8">
-          直译海外最优质播客，内容涉及健康、商业、科技、产品等，适合没空听播客的朋友。如果有时间，还是推荐听一听。
+          直译海外最优质播客，内容涉及健康、商业、科技、产品等，适合没空听播客的朋友。
         </p>
       </section>
 
