@@ -34,7 +34,8 @@ jobs:
 
       - run: npm ci
 
-      - run: npx next build
+      # 构建时要从 Google 下载字体，偶尔会临时失败，失败后等一会儿自动重试，最多 3 次。
+      - run: npx next build || (sleep 30 && npx next build) || (sleep 60 && npx next build)
         env:
           # 用 用户名.github.io/仓库名 访问时是 /仓库名；绑定自定义域名后自动变成空。
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
