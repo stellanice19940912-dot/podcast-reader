@@ -146,7 +146,7 @@ export function SearchResults() {
 
       {shows.size > 1 ? (
         <div className="scrollbar-none -mx-4 mt-3 flex gap-2 overflow-x-auto px-4 pb-1">
-          <FilterChip href={base} active={!showFilter} label="全部节目" count={all.length} />
+          <FilterChip href={base} active={!showFilter} label="全部频道" count={all.length} />
           {[...shows.entries()]
             .sort((a, b) => b[1].count - a[1].count)
             .map(([slug, show]) => (

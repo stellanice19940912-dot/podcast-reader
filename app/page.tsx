@@ -56,7 +56,7 @@ export default async function HomePage() {
 
       <section id="shows" className="mt-14 scroll-mt-20" aria-labelledby="shows-title">
         <h2 id="shows-title" className="font-display text-2xl">
-          全部节目
+          全部频道
         </h2>
         <ShowBrowser groups={groups} />
       </section>

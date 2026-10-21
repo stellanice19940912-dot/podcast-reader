@@ -4,7 +4,7 @@
     "name": "Huberman Lab",
     "host": "Andrew Huberman",
     "category": "健康",
-    "description": "官网逐字稿在会员区，公开订阅源里没有全文，所以这里先只保留入口。",
+    "description": "斯坦福大学神经生物学教授安德鲁·休伯曼主持，用科学研究解读睡眠、运动、专注力和心理健康，给出能直接用在生活里的建议。",
     "videoUrl": "https://www.hubermanlab.com"
   },
   {
@@ -12,7 +12,7 @@
     "name": "ATHLEAN-X",
     "host": "Jeff Cavaliere",
     "category": "健康",
-    "description": "订阅源是训练视频和短简介，没有公开逐字稿。",
+    "description": "物理治疗师兼体能教练杰夫·卡瓦列尔的健身频道，讲解科学训练方法、动作要领和伤病预防。",
     "videoUrl": "https://athleanx.com"
   },
   {
@@ -20,7 +20,7 @@
     "name": "Invest Like the Best",
     "host": "Patrick O'Shaughnessy",
     "category": "商业",
-    "description": "单集页有访问限制，订阅源里只有介绍，没有可保存的全文。",
+    "description": "投资人帕特里克·奥肖内西对话顶尖投资者和创业者，探讨商业模式、投资方法与长期竞争优势。",
     "videoUrl": "https://colossus.com"
   },
   {
@@ -28,7 +28,7 @@
     "name": "The Diary Of A CEO",
     "host": "Steven Bartlett",
     "category": "商业",
-    "description": "文字稿来自节目订阅源里公开的官方字幕。",
+    "description": "创业者史蒂文·巴特利特的长篇访谈，嘉宾涵盖企业家、学者和医生，聊成功、心理健康与人生选择。",
     "videoUrl": "https://www.thediaryofaceo.com"
   },
   {
@@ -36,7 +36,7 @@
     "name": "Acquired",
     "host": "Ben Gilbert 与 David Rosenthal",
     "category": "商业",
-    "description": "文字稿来自 acquired.fm 单集页面上公开的官方逐字稿。",
+    "description": "本·吉尔伯特和大卫·罗森塔尔深度拆解伟大公司的历史与商业模式，一期往往长达数小时。",
     "videoUrl": "https://www.acquired.fm"
   },
   {
@@ -44,7 +44,7 @@
     "name": "Founders",
     "host": "David Senra",
     "category": "商业",
-    "description": "订阅源只有每集简介，没有公开全文。",
+    "description": "大卫·森拉逐本精读历史上伟大创业者的传记，提炼他们的思维方式和经营智慧。",
     "videoUrl": "https://www.founderspodcast.com"
   },
   {
@@ -52,7 +52,7 @@
     "name": "20VC",
     "host": "Harry Stebbings",
     "category": "商业",
-    "description": "这次没有稳定拿到公开全文，先保留节目入口。",
+    "description": "风险投资人哈里·斯特宾斯对话顶级投资人和创始人，聊风投、创业与科技行业的最新趋势。",
     "videoUrl": "https://www.thetwentyminutevc.com"
   },
   {
@@ -60,7 +60,7 @@
     "name": "The a16z Show",
     "host": "Andreessen Horowitz",
     "category": "科技",
-    "description": "单集页没有公开逐字稿，订阅源只有介绍。",
+    "description": "硅谷风投机构安德森·霍洛维茨（a16z）出品，与创业者、投资人和行业专家探讨科技、人工智能与未来。",
     "videoUrl": "https://a16z.com"
   },
   {
@@ -68,7 +68,7 @@
     "name": "No Priors",
     "host": "Sarah Guo 与 Elad Gil",
     "category": "科技",
-    "description": "订阅源只有每集介绍，没有公开全文。",
+    "description": "投资人萨拉·郭与埃拉德·吉尔对话人工智能领域的研究者和创业者，追踪 AI 的最新进展。",
     "videoUrl": "https://www.nopriors.com"
   },
   {
@@ -76,7 +76,7 @@
     "name": "Machine Learning Street Talk",
     "host": "Tim Scarfe",
     "category": "科技",
-    "description": "这次没有稳定打开订阅源，先保留节目入口。",
+    "description": "蒂姆·斯卡夫主持的机器学习深度访谈，与研究者讨论 AI 理论、推理能力与智能的本质。",
     "videoUrl": "https://www.youtube.com/@MachineLearningStreetTalk"
   },
   {
@@ -84,7 +84,7 @@
     "name": "Practical AI",
     "host": "Changelog",
     "category": "科技",
-    "description": "文字稿来自节目订阅源里公开的官方字幕。",
+    "description": "Changelog 出品，聚焦人工智能在真实场景中的落地应用，让 AI 变得实用、易懂。",
     "videoUrl": "https://changelog.com/practicalai"
   },
   {
@@ -92,7 +92,7 @@
     "name": "Sharp Tech",
     "host": "Ben Thompson 与 Andrew Sharp",
     "category": "科技",
-    "description": "节目订阅源这次无法打开，先保留入口。",
+    "description": "本·汤普森与安德鲁·夏普每周解读科技新闻背后的商业逻辑与战略得失。",
     "videoUrl": "https://sharptech.fm"
   },
   {
@@ -100,7 +100,7 @@
     "name": "Latent Space",
     "host": "swyx 与 Alessio",
     "category": "科技",
-    "description": "文字稿来自 Latent Space 公开文章里的访谈正文，新闻汇编不收录。",
+    "description": "swyx 与 Alessio 主持的 AI 工程师播客，深入讨论大模型、智能体和 AI 基础设施。",
     "videoUrl": "https://www.latent.space"
   },
   {
@@ -108,7 +108,7 @@
     "name": "Dwarkesh Podcast",
     "host": "Dwarkesh Patel",
     "category": "科技",
-    "description": "这次没有稳定打开节目订阅源，先保留入口。",
+    "description": "德瓦克什·帕特尔的深度访谈，嘉宾包括 AI 研究者、历史学家和经济学家，问题犀利、准备充分。",
     "videoUrl": "https://www.dwarkesh.com"
   },
   {
@@ -116,7 +116,7 @@
     "name": "Moonshots",
     "host": "Peter H. Diamandis",
     "category": "科技",
-    "description": "订阅源只有每集介绍，没有公开全文。",
+    "description": "彼得·迪亚曼迪斯探讨人工智能、长寿科技等指数级技术，以及改变世界的「登月」级创新。",
     "videoUrl": "https://www.diamandis.com"
   },
   {
@@ -124,7 +124,7 @@
     "name": "David Ondrej",
     "host": "David Ondrej",
     "category": "科技",
-    "description": "没有找到带公开全文的播客订阅源，先保留入口。",
+    "description": "开发者大卫·翁德雷的频道，分享 AI 智能体、编程工具和用 AI 创业的实战经验。",
     "videoUrl": "https://www.youtube.com/@davidondrej"
   },
   {
@@ -132,7 +132,7 @@
     "name": "Lenny's Podcast",
     "host": "Lenny Rachitsky",
     "category": "产品",
-    "description": "收录新闻通讯里已经公开的访谈正文。",
+    "description": "前 Airbnb 产品负责人莱尼·拉奇茨基对话顶尖产品经理和增长专家，聊产品、增长与职业发展。",
     "videoUrl": "https://www.lennysnewsletter.com"
   },
   {
@@ -140,7 +140,7 @@
     "name": "The Pragmatic Engineer",
     "host": "Gergely Orosz",
     "category": "产品",
-    "description": "收录新闻通讯里已经公开的长访谈，短讯不收录。",
+    "description": "前 Uber 工程经理格尔盖伊·奥罗斯对话资深工程师，揭示科技公司内部的工程实践与行业变化。",
     "videoUrl": "https://newsletter.pragmaticengineer.com"
   },
   {
@@ -148,7 +148,7 @@
     "name": "Lex Fridman Podcast",
     "host": "Lex Fridman",
     "category": "访谈",
-    "description": "文字稿来自 lexfridman.com 公开的官方逐字稿。",
+    "description": "MIT 研究科学家莱克斯·弗里德曼的长篇对话，话题横跨科技、人工智能、科学、历史与人性。",
     "videoUrl": "https://lexfridman.com/podcast/"
   },
   {
@@ -156,7 +156,7 @@
     "name": "Modern Wisdom",
     "host": "Chris Williamson",
     "category": "访谈",
-    "description": "订阅源只有每集介绍，没有公开全文。",
+    "description": "克里斯·威廉森对话各领域专家，探讨心理学、人际关系、健康与自我提升。",
     "videoUrl": "https://chriswillx.com"
   },
   {
@@ -164,7 +164,7 @@
     "name": "Los Angeles Rams Audio",
     "host": "Los Angeles Rams",
     "category": "体育",
-    "description": "球队订阅源里有官方字幕地址，但这台机器打不开字幕文件，先保留入口。",
+    "description": "洛杉矶公羊队官方节目，包括主教练肖恩·麦克维的每周复盘、球员采访和球队动态。",
     "videoUrl": "https://www.therams.com"
   },
   {
@@ -172,7 +172,7 @@
     "name": "Top Gear Magazine",
     "host": "Top Gear",
     "category": "体育",
-    "description": "订阅源只有每集介绍，没有公开全文。",
+    "description": "英国经典汽车节目 Top Gear 出品，带来新车评测、试驾体验和汽车文化。",
     "videoUrl": "https://www.topgear.com"
   }
 ]
