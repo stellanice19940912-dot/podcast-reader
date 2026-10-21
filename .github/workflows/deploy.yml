@@ -40,6 +40,35 @@ jobs:
           # 用 用户名.github.io/仓库名 访问时是 /仓库名；绑定自定义域名后自动变成空。
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
 
+      # 网页会被浏览器和 CDN 缓存 10 分钟。发布后，缓存里的旧网页仍会去找旧版的样式和脚本，
+      # 如果这些文件被删掉，页面就会没有样式。所以每次发布都把以前各版的 _next/static 一起带上。
+      - uses: actions/cache/restore@v4
+        with:
+          path: previous-static
+          key: next-static-${{ github.run_id }}
+          restore-keys: next-static-
+
+      - name: 保留旧版的样式和脚本
+        env:
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
+        run: |
+          mkdir -p previous-static
+          # 兜底：把线上当前页面引用的静态文件也存一份（第一次运行或缓存过期时用得上）
+          for page in "" search; do
+            curl -fsSL "$SITE_URL/$page" 2>/dev/null | grep -oE '/_next/static/[^"'"'"' )]+' | sort -u | while read -r asset; do
+              rel="${asset#*/_next/static/}"
+              [ -f "previous-static/$rel" ] || curl -fsSL "$SITE_URL/_next/static/$rel" --create-dirs -o "previous-static/$rel" 2>/dev/null || true
+            done
+          done
+          # 旧文件补进本次发布，不覆盖同名的新文件
+          cp -rn previous-static/. out/_next/static/
+          rm -rf previous-static && cp -r out/_next/static previous-static
+
+      - uses: actions/cache/save@v4
+        with:
+          path: previous-static
+          key: next-static-${{ github.run_id }}
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: out

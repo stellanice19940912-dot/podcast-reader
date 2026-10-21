@@ -42,7 +42,17 @@ export function HeaderSearch() {
 
 export function SearchIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" className={className} aria-hidden>
+    // 写死 1em 的宽高：万一样式没加载出来，图标也只有一个字大小，不会撑满整个页面。
+    <svg
+      viewBox="0 0 20 20"
+      width="1em"
+      height="1em"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      className={className}
+      aria-hidden
+    >
       <circle cx="8.5" cy="8.5" r="5.5" />
       <path d="m13 13 4 4" strokeLinecap="round" />
     </svg>
