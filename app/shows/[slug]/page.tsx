@@ -25,14 +25,14 @@ export default async function ShowPage({ params }: PageProps<"/shows/[slug]">) {
   const video = show.videoUrl.startsWith("http") ? show.videoUrl : "";
 
   return (
-    <main className="mx-auto max-w-3xl px-4 pb-20 pt-10">
+    <main className="mx-auto max-w-3xl px-4 pb-20 pt-8 sm:pt-10">
       <Crumbs items={[{ href: "/", label: "全部节目" }, { label: show.name }]} />
       <header className="mt-6">
         <div className="flex flex-wrap items-center gap-2">
           {show.category ? <Pill tone="accent">{show.category}</Pill> : null}
           {show.host ? <span className="text-sm text-muted">{show.host}</span> : null}
         </div>
-        <h1 className="mt-3 font-display text-4xl leading-tight">{show.name}</h1>
+        <h1 className="mt-3 font-display text-3xl leading-tight sm:text-4xl">{show.name}</h1>
         {show.description ? <p className="mt-4 leading-8 text-soft">{show.description}</p> : null}
         {video ? (
           <a

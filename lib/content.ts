@@ -126,14 +126,16 @@ export const loadSite = cache(async () => {
       let slug = `${show.slug}-${base || hash}`;
       if (used.has(slug)) slug = `${slug}-${hash}`;
       used.add(slug);
+      const title = pickTitle(raw, fileName);
       episodes.push({
         slug,
         showSlug: show.slug,
         showName: show.name,
-        title: pickTitle(raw, fileName),
+        title,
         date: await pickDate(file, fileName),
         html,
-        sections: collectSections(html),
+        // 标题本身已经显示在搜索结果的卡片上，不再当作正文段落重复列出
+        sections: collectSections(html).filter((section) => section.text !== title),
       });
     }
   }

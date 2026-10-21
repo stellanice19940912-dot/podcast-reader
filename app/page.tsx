@@ -21,22 +21,23 @@ export default async function HomePage() {
   }));
 
   return (
-    <main className="mx-auto max-w-6xl px-4 pb-20 pt-10">
+    <main className="mx-auto max-w-6xl px-4 pb-20 pt-8 sm:pt-10">
       <section className="max-w-2xl">
-        <h1 className="font-display text-4xl leading-tight sm:text-5xl">读播客，而不是听播客</h1>
-        <p className="mt-4 text-lg leading-8 text-soft">
+        <h1 className="font-display text-[1.75rem] leading-tight min-[400px]:text-3xl sm:text-5xl">读播客，而不是听播客</h1>
+        <p className="mt-3 text-base leading-7 text-soft sm:mt-4 sm:text-lg sm:leading-8">
           直译海外最优质播客，内容涉及健康、商业、科技、产品等，适合没空听播客的朋友。如果有时间，还是推荐听一听。
         </p>
       </section>
 
       {site.recent.length > 0 ? (
-          <section className="mt-12" aria-labelledby="recent">
+          <section className="mt-10 sm:mt-12" aria-labelledby="recent">
             <h2 id="recent" className="text-sm font-medium text-muted">
               最近更新
             </h2>
-            <ul className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {/* 手机上左右滑动，平板和电脑上排成网格 */}
+            <ul className="scrollbar-none -mx-4 mt-3 flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-px-4 px-4 pb-1 sm:mx-0 sm:grid sm:snap-none sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:grid-cols-3">
               {site.recent.map((episode) => (
-                <li key={episode.slug}>
+                <li key={episode.slug} className="w-[78%] shrink-0 snap-start sm:w-auto">
                   <EpisodeLink
                     slug={episode.slug}
                     className="group flex h-full flex-col rounded-2xl border border-line bg-card p-4 transition hover:border-accent/50"

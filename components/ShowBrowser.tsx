@@ -31,12 +31,13 @@ export function ShowBrowser({ groups: allGroups }: { groups: Group[] }) {
         aria-label="节目分类"
         className="sticky top-14 z-10 -mx-4 mt-4 border-b border-line bg-paper/95 px-4 py-3 backdrop-blur"
       >
-        <ul className="scrollbar-none flex gap-2 overflow-x-auto">
+        {/* 手机上标签放不下时可以左右滑动，右边缘渐隐提示还有更多 */}
+        <ul className="scrollbar-none flex gap-1.5 overflow-x-auto [mask-image:linear-gradient(to_right,black_85%,transparent)] sm:gap-2 sm:[mask-image:none]">
           {groups.map((group) => (
             <li key={group.category} className="shrink-0">
               <a
                 href={`#${group.category}`}
-                className="inline-block rounded-full border border-line bg-card px-4 py-1.5 text-sm text-soft transition hover:border-accent hover:text-accent"
+                className="inline-block rounded-full border border-line bg-card px-3 py-1.5 text-sm text-soft transition hover:border-accent hover:text-accent sm:px-4"
               >
                 {group.category}
                 <span className="ml-1.5 text-xs text-muted">{group.shows.length}</span>
