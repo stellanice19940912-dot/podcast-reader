@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>可编程的数据中心｜埃文·康拉德（Evan Conrad，SF Compute）</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="s">swyx（Shawn Wang，主持人）</option><option value="e">埃文·康拉德（Evan Conrad）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Latent Space</span><span class="pill">2026-10-20</span></div>
+<h1>可编程的数据中心｜埃文·康拉德（Evan Conrad，SF Compute）</h1>
+<p class="sub">嘉宾：埃文·康拉德（Evan Conrad，SF Compute 联合创始人兼首席执行官） · 约 37 分钟（2203 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=EAtLq9_vrE0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=EAtLq9_vrE0</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Latent Space</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-20</dd></div><div class="meta-row"><dt>时长</dt><dd>约 37 分钟（2203 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig，普通 yt-dlp 获取；该视频无官方字幕），中文为逐句全文翻译；部分人名/公司名按自动字幕读音并结合上下文校正，个别可能有误</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>EAtLq9_vrE0</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>《潜在空间》（Latent Space）主持人 swyx 在 AI 工程师大会纽约站对话 SF Compute 创始人埃文·康拉德（Evan Conrad），从“卖一间房到经营整座酒店”讲起，拆解 GPU 算力作为大宗商品的交易与实物交割难题，以及为何只有独立第三方才能建起这个市场。</p>
+<h3>核心要点</h3><ul><li>实物交割是前提：算力并不像想象中那样可互换，SF Compute 花 3 年搭建云的整套运营能力（选址、物料清单、集群架构、背板管理），才能可靠交付交易出去的 GPU</li><li>订单簿不强行标准化合约，而是让买方用多维约束（时段、代际、存储、可否中断等）下单并撮合，代价是价差更大，好处是有套利空间；目前约 5% 产能上订单簿，买方花 100 美元平均可回卖 25 美元</li><li>批量推理与在线推理的“可中断”价值不同，类似电力的日前市场与实时市场；远期曲线呈“驼峰”：临近到期像快过期的牛奶降价</li><li>B300 跑推理每小时可赚约 25–40 美元，而租用价仅 5–6 美元，二者必有一个要变，部分买家愿为锁定远期产能多付钱</li><li>警惕过度金融化：现金结算应从实物交割派生，否则指数易被操纵（类比 LIBOR）、基差风险大；英伟达、超大规模云和推理平台因利益冲突都做不了这个中立市场</li><li>里程碑：已成交数亿美元，客户可自助即时切分 InfiniBand 网络，相当于把数据中心虚拟化、可编程化；面向主权算力输出“旧金山的承购与专业能力”</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：约 37 分钟，对 GPU 算力金融化、远期定价与交付细节讲得很具体，主持人有衍生品交易背景、追问到位；部分段落术语密集、口语跳跃，纯工程向读者可略读金融类比部分。无赞助广告。</p>
+<h3>适合人群</h3><p>AI 基础设施与云从业者、算力采购/融资相关人士、关注 GPU 市场与大宗商品化的投资人</p>
+</section>
+<div class="legend"><span class="spk-0">swyx（Shawn Wang，主持人）<em>主持</em></span><span class="spk-1">埃文·康拉德（Evan Conrad）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>英伟达（NVIDIA）显然是房间里那头八百磅的大猩猩。为什么他们不做——为什么他们没有做一台超级计算机？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>我们的看法是，英伟达做不了这件事，但它会从这件事的存在中获益巨大。之所以做不了，是因为那样一来它就不够独立，别人不会愿意在上面交易。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>总之，埃文，欢迎回到 AI 节目。欢迎回到 AI 工程师大会（AIE）。其实，你是第一次来 AIE？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>我想是的，对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>这一期很特别，因为我觉得你在算力交易、算力市场上已经做了很长时间了，而现在它正好成了当下的热点。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>Jump 基本上宣布了他们要进入算力市场，这也是为什么我很兴奋能把大家聚到一起。你也见过 SemiAnalysis 的奥利弗（Oliver），他基本上正在开始覆盖算力市场的研究。这是我的解读。所以大家会去看你的演讲。我觉得它非常好地解释了你们的起源故事、你们为什么需要存在，以及你们在攻克哪些难题。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>而且讲得非常简单、引人入胜。我非常羡慕你的写作能力，因为你展示了你在神经信息处理系统大会（NeurIPS）上发的那张传单。对，它非常直白、简单，很好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>总之，恭喜。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>谢谢，很感谢。也恭喜 AIE 办得这么好。看起来你们势头正猛。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>势头正猛。我刚从明年 AIE 的场地考察回来。然后——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>给我透露一点吧。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>在贾维茨中心（Javits Center），就是举办动漫展（Comic-Con）的那个地方。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>好家伙，哇。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>那个——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>哇，哇，厉害。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>不过我觉得金融这个方向确实很受大家欢迎。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>所以我们打算把它拆开。这次我们把所有东西都归到“金融”里：你们的金融、他们的金融，保险也算金融。但它们其实彼此差异非常大。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>所以以后我们大概会分得更细，因为大家想深入了解对冲基金、银行或者个人财富管理之类的内容，或者——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>对，尤其是在纽约。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对，比如 Anthropic 就说，是的，我们现在全力押注 RIA。RIA 就是注册投资顾问（Registered Investment Advisor）。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>跟你们简直天差地别。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p><span class="tag">【笑声】</span>对，不不，我知道这一点。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对对对。好，给不了解的听众介绍一下：两年前我们做过一期播客，你聊了 SF Compute 当时所处的阶段。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>而今天你们更多在做这种“实物交割”。你提到了你们的——背板网络（fabric）？你们管它叫什么来着？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>呃，背板（backplane）。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>背板，这显然需要大量硬核的工程工作。你能不能给一个最新进展：对于两年前在播客里听过你的听众来说，SF Compute 现在走到哪一步了？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>我们刚起步时，公司叫 Junnar，当时只是想把我们自己的集群转租出去。我们就是从那一层技术栈开始的。可以这样理解：你在一家酒店里，想把一个房间卖出去。然后有人问你：“嘿，你会帮我打扫房间吗？”你说：“哦，那我大概还得有房间本身，或者说，我需要那个清洁用品间。”于是你去拿到了清洁间的使用权。接着他们要客房送餐，于是你又拿到了厨房的使用权。然后他们还要安保，于是你又拿到了安保室的使用权，你做这个、做那个。到了某个时候，你就是在经营整个酒店了。</p>
+<p>而一旦你在经营整个酒店，你就会说：“哦，等一下。我在这个市场上的供应方，其实应该是更像一只基金的人，或者是一家云——在我们的情况里，是一家能接入数据中心的云——那我们就要升级。”所以过去几年我们一直在做的，就是搭建一家云完整的运营能力，以便能够以可靠的水平真正交付算力。我们把这叫作“实物交割”（physical settlement）。这个词借自期货市场，借自其他市场。比如在石油或大豆市场里，实物交割的意思是你真的会收到石油和大豆。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>但是在某些市场里，比如石油，还有电力，存在一个交付网络。在石油市场，你必须有管道。如果你希望石油被送到你手上，就必须有一种方式能把它送到你那里。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>是的。对于对金融史感兴趣的人来说：新冠疫情期间，油价跌成了负数，因为——就是“我付钱让你把油从我这儿拿走”，因为它就堆在港口里，我付不起存储费用。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>所以我付钱让你拿走我的油。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>这就是实物交割的诡异之处。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>对。其他市场里也有很多类似的诡异之处。比如在电力市场和电网中，买卖双方填写的订单里有一些字段，之所以存在，是因为锅炉需要一段时间才能冷却。你可以停掉锅炉，然后在一定时间窗口内再重新启动，所以这一点必须被纳入订单簿。同样的事情也发生在算力市场里。所以我们是同时协同设计实物交割和订单簿的，这意味着我们能真正处理算力的实际约束，比如“我可以接受被中断，但前提是上面有存储，能让我非常快地恢复”。都是非常相似的一类问题。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>嗯。大家可以去看你的演讲，你也已经上过另外几档播客了。所以我想讲到 201 的程度，而不是 101 入门级别，也因为我以前做过衍生品交易员，所以可以给大家讲一些通常不会深入的细节。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>好的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>比如说，现在的算力市场有多成熟、多有深度、流动性有多好？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>呃，不太成熟，也不太有深度，流动性也不算好。我们的做法是：首先得把一大批供给接上线，这本身就要花时间；然后还得搭建整个平台来做这件事。我们刚刚才把这一切跑通，所以现在我们把产能挪到订单簿上，这就让它有了流动性。目前我们总产能的 5% 在订单簿上，我们在持续地挪过去越来越多，新接入的产能也全部放在订单簿上。好的一面是——也许我应该说，订单簿上的实际交易量很小，但订单簿上的流动性很高。也就是说，在你拥有的这一小部分产能上，流动性非常集中。</p>
+<p>对使用者来说，我会说一个比较标准的指标是：一个从我们这里购买产能的客户，花 100 美元买下产能，平均能通过把它再卖给别人收回 25 美元。这是我们跟踪的数字之一，因为我们希望流动性对商业参与者真正有用。流动性可以用很多不同方式衡量。你可以说：“哦，我就想要大量的做市商。”也可以用一些很高大上的方式衡量。我们试图用“这是否在为客户解决问题”来衡量。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>嗯，明白。上次我们聊的时候，还有很多关于合约标准化的讨论。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>和美国商品期货交易委员会（CFTC）之类的机构沟通——这些事现在进展如何？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>我认为合约标准化总体上还差得很远。我们当时想做的，或者说我们过去几年学到的是：我们必须自己运营整套东西，否则你根本没法把它标准化。所以要接近可以被标准化的状态，你首先得让这个东西的所有运营都一致。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>举个可能出现差异的例子：同一个运营商可以提供两种不同类型的虚拟机，其中一种虚拟机相比另一种可能有 40% 的性能下降。40% 可是很多了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>你说的性能下降，是指模型算力利用率（MFU）这类指标，还是你们经历过的损耗之类的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>它会影响……在这个具体案例里，我说的是 GPU 内核启动（kernel launch）以及它需要多长时间，这是你在训练或推理时都会非常频繁发生的过程。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>好的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>最终结果基本上就是你的 MFU 变差了，但是——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>是中间层的问题。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>基本上是中间层。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对对。所以我想说的是，任何交易过大宗商品的人都知道，商品有不同的等级，对吧？比如它不只是“石油”，而是轻质低硫原油，对比它的反面——不管那叫什么；或者 A 级玉米、B 级玉米之类的。所以人们会试图——嗯，你得确立这些东西之间的等价关系——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>这些东西的等价关系。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对，是的。我想知道这些是否已经建立起来了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>我们的做法是另辟蹊径：我们创建了一个带有多种不同约束条件的订单簿，你可以说：“我想要介于这个和那个之间的东西，它从这个时间跑到那个时间，它是从 X 到 Y。”你可以给订单附加一系列不同属性，然后我们在一个大型撮合引擎里，把它和具有这些属性的卖单进行撮合。我们这样做的原因是，它让我们能在还不知道技术能做到什么之前，就不必先标准化而创造出流动性。因为技术变化太快了，我们基本上希望能做到这一点。这样做的代价是流动性没那么集中，所以价格上买卖之间会有更大的价差。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>嗯。真糟糕。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>但另一方面，这意味着如果你做得对，就有大量套利机会。所以如果你的产品能使用很多不同类型的产能，那你可能会非常喜欢 SF Compute，因为你能用上很多不同类型的产能，并赚到更多钱。你可以吃掉这个价差。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>好。在这张网格里，哪些维度是重要的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>有很多不同的东西。我要说的第一个维度类别是：它上面现在是否正在跑工作负载，还是说它是未来的产能？也就是说，它是不是“现在”的产能？要卖掉现在的产能，你就得中断当前的工作负载，所以你得考虑：我在不在乎当前的工作负载被中断？而对于从一个月后才开始的产能，你随时都可以买卖，所以它很容易获得流动性。当然也会有一些担心，比如“哦不，我下个月还会有产能吗？”，但这和你现在就要中断一个工作负载是非常不同的。</p>
+<p>中断发生的方式也很重要。举个例子，如果你在一个集群上，而这个集群的存储没有你想要的那么好。比如说，底层有没有 Weka 或 Vast 这样的存储系统？你们提供不提供？容量多大？这会改变你在被抢占或被移出集群时如何应对。同时，存储的位置也很重要。如果你能把数据快速地从一个集群挪到另一个集群，那你也许就能分布在多个不同的集群上，在这边被中断，然后在那边重新冒出来。要做到这一点，你还需要在集群之间有一条快速的传输通道。通常这是用 WAN 来实现的，但大多数这些集群不一定有——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>广域网（wide area network）。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>对，广域网。基本上就是把各个集群连接在一起的线缆，也可以把它理解成一张私有互联网。如今新建起来的很多集群并不——传统的 CPU 集群出于延迟考虑是建在靠近客户的地方的，而 GPU 集群是建在靠近电力的地方。也就是说，你把数据中心建在电力旁边，而不是客户旁边。这意味着很多东西被放在了以前没人预料会有数据中心的地方。所以从一处到另一处，你可能没有那么出色的传输通道。这一点就开始变得重要了。</p>
+<p>其他例子比较奇怪，是我们理论上支持、但实际上还没做的——基本上是我们在考虑但还没做的事情。早期的 GB200 出过故障，早期的 H100 也出过故障。所以如果你在买 H100 或者 GB200，你可能会非常希望买到某个时间点之后部署的那些，因为你不想要刚下产线的第一批货。所以如果你是一个非常老练的客户，你可能愿意为此多付钱。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>哦，所以这关乎它们是哪一批次生产的，而且随着时间推移会越来越好？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>对，比如刚下产线的第一批可能有一些故障或问题。所以如果你拿到的是第一批，或者是第一批出货里的，那它们就可能是坏的，或者在某些方面有问题。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>我以为这种流程就是——你看，缺陷到处都有，这就是会发生的事，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>完全是。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>所以你从台积电（TSMC）还是哪里收到一批新货，然后你跑一遍测试，找出哪些是坏的，然后把它们扔掉。不是这么回事吗？我之前不知道还有“批次”这个因素，比如说，2026 年第四季度的 B300 比 2027 年的 B300 差很多。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>对，<span class="tag">【笑声】</span>我举个例子。你描述的是老化测试（burn-in）。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>一家好的云在拿到一个集群时，会在 GPU 交到客户手上之前，尽力把它们全部“折腾死”。然后那些坏掉的 GPU 或者坏掉的节点，你就走返修（RMA）流程，基本上就是去更换它们。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>你把它退回去，换一个新的，这中间有交货周期，不过无所谓，你会拿回一些。这样客户就永远不必经历这些。而我说的情况是：比如早期的 H100 有一些固件漏洞，甚至可能都和英伟达无关。可能是超微（Supermicro）在你买的那台机器里有固件漏洞，而且它适用于所有机器。<span class="tag">【笑声】</span>这跟别的都没关系，解决办法是你得让他们更新固件，或者他们得在每一台新机器里出一个新版本。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对。或者 Cornelis 在我们拿到的 B200 上也出过这种事，然后你得用 DevCloud 去修。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p><span class="tag">【笑声】</span>对，没错。所以会发生各种不同类型的问题。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>有意思。好的，这跟整体比起来似乎是小事。我只是想让大家了解这个市场的形态。你提到了抢占，我们也聊过竞价实例（spot instance），以及这个类比是怎样的。然后还有提前一个月预订。这些市场能往后延伸多远？实时的、或者说抢占这一块对你来说更有意思，还是更远期的那一块？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>回答你的第一个问题：3 到 5 年。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>哇。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>我们开始看到——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>是按月、按季度，还是怎么样？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>你是在问现金流怎么运作吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>是合约。比如期货合约，对吧？再说一次，我以前是做合约、做衍生品交易的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>是在这个市场本身，还是在更广泛的市场里？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>在更广泛的市场里，集群的融资期限是 3 到 5 年。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>好的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>所以——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>付款——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>是在这段时间内分期支付的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>另外，我们订单簿上的产能块，可以延伸到任意时长。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>在这方面的现金流上，我们有一些事情要处理。目前我们的做法是，对于一个产能块，我们要求人们全额预付。而对于租约、对于更长期的合约，我们不这样要求。这部分我肯定得拿块白板才能讲清楚。</p>
+</div></div>
+<div class="marker-line"><span class="tag">【笑声】</span></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>不过，你还有另一个问题我刚要回答，我忘了是什么了——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>呃，你想要实时的，还是想要——对你来说，什么更有意思，实时的还是更远期的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>我们更在意远期，因为我们在试图构建一条有大量流动性的远期曲线。这两者在某种程度上是一回事，又在某种程度上不是。我们的做法是：比如说，你可以买一个小时后的，可以买从现在到下一个小时的，也可以买从现在到接下来 3 年的，以及中间的任何时段。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>太疯狂了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>我知道。技术上甚至可以更细。对每个客户来说，都存在某种取决于自身情况的差别。基本上，如果我有一个工作负载是批量推理（batch inference），随时可以被中断，我其实不太在乎。那么对于被切断，我可能只需要提前一个小时知道我会被切断就行了，甚至提前一两分钟通知我都可以。但如果我有在线推理（live inference）的客户，他们期望我一直在线，那你可以中断我，但要提前一个月，也许两个月，也许三个月，然后我可以在这段时间里调整产能。但你不能一分钟后就中断我。</p>
+<p>所以这两者的定价不同，而定价不同的原因是：你为了中断你的批处理任务愿意付出的代价，和你为了中断你的在线任务愿意付出的代价，是非常不同的。如果你有一个在线任务，当你出故障时，你大概率要向你的客户支付服务等级协议（SLA）违约赔偿。这样说得通吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>嗯，我明白了。所以这其实是一个“提前解约租约”的市场。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>基本上，这就是提前解约租约的市场。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>天哪。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>然后还有未来租约的市场，或者说那些——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>哦，我还以为这是一种转租的情况。原来这是——哦，是解约。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>一种理解方式是：在电力市场里，其实有两个市场，一个是日前市场，一个是实时市场。算力也有类似的东西：有即将上线的产能，或者说即将交付给你的产能，还有当前正在使用的产能。它们的价格动态是不同的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>好，有意思。那是现货溢价（backwardation）还是期货溢价（contango）？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p><span class="tag">【笑声】</span>现货溢价还是期货溢价？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>就是说，远期的算力价格比现货高，还是比现货低？远期算力的价格是这样走，还是那样走——比如 1 年后、2 年后？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>哦，这是个——两种情况都有，在不同的——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>我、我觉得很神奇的是，你居然不知道。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>对，我是说两种都有，取决于你是谁。我来论证一下——等等，你问的是现在卖出的算力——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>一单位的算力，今天的，或者不是今天，也许是一个月后的，对比 1 年后、2 年后的。这条曲线是向上走还是向下走？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>我们看到的是一个驼峰。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>天哪。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>好，那么——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>解释一下。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>我觉得这在直觉上是说得通的。基本上就像：如果我有一盒牛奶快过期了，我就会降价。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>这基本上就是我们看到的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>所以基本上就是租约周期的末尾，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>呃，我们更想说的是：如果有一块算力，它的时间越来越接近“现在”，它不可能在过去被卖出，所以它必须降价才能以某个价格成交。所以一开始你会看到这样一个下跌：现在正在卖的东西，任何现在还挂在市场上的东西，都是还没被卖掉的，因此价格会下跌。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>然后它会上升到它“该在”的位置。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>然后，也许未来的算力价值更低，因为人们想要的是现在的算力，所以他们其实是在为更短的交付周期付费，而对远在未来的算力付得更少。这是我认为一条正常、健康的曲线的样子。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>而让我觉得“哦，天哪，真不是开玩笑”的地方在于：现在如果你拿一块 B300 去跑推理，靠卖推理你一小时能赚 40 美元左右——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>任何模型都行？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>基本上任何模型都行。<span class="tag">【笑声】</span>这是在利用率 100% 的情况下，如果你只有大约 50% 的利用率，那大概一小时 25 美元。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>所以一小时 25 美元。与此同时，你可以用大约每小时 5 到 6 美元的价格买到 B300。这两个数字里必须有一个会变。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对。这是巨大的溢价。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>这是巨大的溢价。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>你在演讲里经常提到这一点。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>对。所以很多人基本上在看着这一点思考：如果我认为价格会上涨，那我可能愿意在未来付出比我之前以为的更多的钱，因为我可能会想：“好吧，我现在能以 5 美元买到，但如果以后买不到了，那也许我愿意在未来付更多，只为锁定那些晚些才上线的产能。”所以我们也看到了另一面。这有点取决于你是谁。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>很好。那么——好，我真的想把这一点讲得非常清楚。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>当然。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>你们在乎芯片的不同代际吗？还是只在乎总的浮点算力（FLOPs），然后随便分摊到你们想用的任何芯片上？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>呃，我们在乎芯片的不同代际，因为——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>你们在乎。我想问的是——我猜，是你们的客户在乎吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>是的。对。哦，等等，你说不同代际的芯片，你是指——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>比如 B300 这一代。对，没错。或者甚至是 AMD 之类的，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>呃，是的，我认为人们完全在乎芯片的代际。我觉得部分原因在于显存（VRAM）这样的东西，部分原因在于更大的 NVLink 域。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>诸如此类的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>所以根本没有办法把这一切抽象成某种通用的算力单位，让你可以随意揉来揉去。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>我觉得就像你刚才说石油时那样，连石油都不只是“石油”。石油其实是一堆不同类型的油。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对，比如航空燃油、汽车燃油之类的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>我认为这是同一回事。你会得到一堆不同类型的——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>是这样，但你有炼油厂，它们实际上就是黑箱，你可以把原油放进去，然后得到任何你想要的东西出来。如果算力是如此异构——我想“异构”就是那个词——那你就只能把底层的复杂性暴露给你的终端客户，这对你作为做市商来说是坏事。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>也许吧。<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>你会想要找出那一个“卡点”——我不知道比卡点更好的词是什么——“谢林点”（Schelling point），就是大家都同意“好，这差不多就是标准了，我们都认同这个标准”，你知道，它会有一定的低效。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>是的。所以我们已经能把这些问题降低到一定程度了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对，你的工作就像是做降维之类的事情。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>我们降掉了很多维度，但尽管如此，维度依然存在。它们还是会继续存在。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>你知道你们有多少个 SKU 吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p><span class="tag">【笑声】</span>所以——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>比如 5 乘以 100 乘以 5000，那等于——我也不知道。到底是多少——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p><span class="tag">【笑声】</span>我们其实把 SKU 做成了一个概念，目标是让别人可以定义他们自己的 SKU。所以如果我想买 Blackwell，我可以说：我愿意以每小时 6 美元或更低的价格购买 Blackwell。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>嗯哼。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>然后你可以把我和 GB300 撮合，也可以把我和 B300 撮合，只要每小时低于 6 美元，我不在乎是哪种 Blackwell。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>但你刚才还说你们在乎内存和其他东西。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>完全在乎，但不是每个客户都在乎。有些客户只要是 Blackwell 就都能用。有些客户则极其具体，他们需要的就是这个确切的东西，所以他们会为此付出更多，因为市场会向他们收取更多费用。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>好的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>这就是我们在做的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>所以人们用你们的 API 以编程方式定义他们想要什么，然后你们再把它和任意组合的卖方进行撮合，看他们是否能满足需求。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>是的。需要说明的是，“命名查询”是我们新在做的东西。但查询系统这个概念，就是目前订单簿的运作方式。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>好，有意思。好吧，我觉得这已经是很多——我想算是很多细枝末节了。关于你们一手打造的算力交易市场的现状，你有没有什么想要普及给大家的，不管是金融人士还是工程师？因为实际上，是你们在定义这个市场。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>主要就是实物交割的必要性。我们花了 3 年时间才弄明白为什么需要实物交割。</p>
+</div></div>
+<div class="marker-line"><span class="tag">【笑声】</span></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>而我们今天的整个对话就在说明，这些东西并不像你以为的那样可以互换。我们会努力让它们变得可以互换，这是整个行业的工作。但没有这一点，你会面临很多风险。如果在行业还没来得及建立起实物交割之前，就试图搞太多金融化，那我认为你会得到一个非常容易被操纵的市场，以及一个基差风险很大的市场——你所对冲的价格，实际上和你在市场上能真正买到产能的价格毫无关系。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>嗯。对。给听众们说一下，上次我们简单聊过这个：人们常常震惊地发现，比如说，信用违约互换（CDS）的市场规模是它所承保债券规模的 12 倍。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>大概是这样，或者像抵押贷款的再保险之类的市场，它们的规模都比底层的实物交割要大。所以这就是为什么要区分实物交割和现金结算。而且基本上，现金结算正是你在《大空头》（The Big Short）里看到的那种场外对赌。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>它们可能和底层资产本身有关，也可能无关，还可能被当作其他整体情况的代理指标。你不会希望那种东西失控。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>是的，对。所以说清楚一点，我们认为现金结算作为一种未来的概念是个很好的主意。我们只是认为它应该从实物交割派生出来。因为正如你所说，它是一种场外对赌，这就有点像——如果你在建立实物交割之前就做出一个现金结算的期货。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>我觉得人们其实已经在这么做了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>还没有完全做到。人们正在试图在建立实物交割之前就做现金结算。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>人们对各种东西都这么做，包括初创公司的股票。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对吧？比如你可以买卖一股虚构出来的 OpenAI 股份，但它和真正的股份毫无关系。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>是的。<span class="tag">【笑声】</span>而其中很多都结局很糟。如果你开始出售一只还不存在的股票的衍生品，那就挺糟糕的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对，对。嗯，我想说的是，我以前是外汇交易员，对吧？也做过利率。我们会做的一件事是：有一个委员会聚在一起说，这就是伦敦银行同业拆借利率（LIBOR），我们都同意这是每月的定盘价，然后我们都按这个定盘价来交易。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>这种东西在 3 年后的某个时刻还会有意义吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>关键在于，LIBOR 曾被操纵过。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>我们目前的担忧是——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>12 家银行。对。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>是的。我们的担忧是存在一个非常相似的问题：你可以操纵一个指数。我们的看法是，之所以能操纵那个指数，是因为很多指数都基于非常少量的数据，而这些数据和真正购买一份新的预留合约的实际价格并没有多少相关性。这就是我们所担心的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p><span class="tag">【笑声】</span>好，有意思。好，我觉得这就是事情的大致现状。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>嗯哼。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>我觉得今天的另一部分是：你和奥利弗聊过，你在和 Jump 合办一场活动，你和 Silicon Data 也是朋友。你从这些其他参与者身上学到了什么？你想特别点名哪些主要参与者在做有意思的事情？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>噢。嗯，我们是 Silicon Data 和 Compute Exchange 的忠实粉丝。我认为他们也很早就进入了这个领域，而且我认为他们在走的那条路是相当靠谱的尝试，我们认为我们很可能最终会成为合作伙伴。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>你能区分一下你们各自不同的路径吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>大致来说，他们在做现金结算，我们在做实物交割。我们认为两者都可以存在，也应该存在，而且彼此互惠。所以完全没问题。我认为他们是这个领域最早的一批，而且他们非常明显地比任何人都更早下了这个注，我觉得这是很值得尊敬的。嗯，你提到了 Jump——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>SemiAnalysis，还有 Jump。这些其他参与者是不是正在涌现？就我而言，你是带我入门这个领域的人，然后我看到所有这些人都进来了，我就想：“好吧，这里一定在发生些什么。”我对这个格局没有你看得那么清楚。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>对。我们看到的几类人是：有人在试图制定更好的标准，我认为 SemiAnalysis 正在努力建立更好的标准。有人在尝试做残值保险之类的东西，这个领域有好几家不同的公司，我对其中任何一家都不算特别了解，但我知道有这个概念，而且我认为它很重要。还有人在尝试做押金借贷，比如他们会为你垫付你对云厂商的信用风险。围绕着“如何解决算力的金融瓶颈”，正在形成一整个公司生态，看到这一点很酷。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>我认为实际上，你在这个生态里想要的是买方和卖方，你想要分析师，你想要——我们刚才说的保险，那个叫什么来着——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>呃，残值保险。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>残值保险。我们希望外面有这样一个健康的生态。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>但显然你们承担的是实物交割这个难题，这真的很有意思。好，我想我们可以聊聊硬核技术那一面，因为显然你们也在招聘——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>招极其厉害的工程师。描述一下你们的技术栈吧。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>我们做云所做的所有事情，但我们不是云。也就是说，我们不拥有硬件。我们不拥有硬件的原因是，如果我们拥有，我们就能操纵远期市场。所以我们必须是“瑞士”，必须保持独立，这让公司有很多有点奇怪的地方。但是为了做实物交割，你必须做现场考察，你必须去数据中心看。你必须设计物料清单（BOM），确保——基本上你得做供应链咨询，和不同的原始设备制造商（OEM）建立关系，确保东西按时交付。</p>
+<p>然后你得做集群架构，也就是设计集群本身。然后你要上架机柜，或者和合作伙伴一起上架并进行监督。然后你要做背板管理，也就是接管配电单元（PDU）、交换机、数据处理单元（DPU）、UFM 和 BMC，以及围绕你所交割的节点的整套运营工具。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>是你们 SF Compute 的员工来做？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>哇。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>好。当你从一家云买一个节点时，有裸金属本身，但裸金属周围还有所有这些东西。为了让那个裸金属节点能够工作，你必须运营其他所有东西。然后我们——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>因为我以为传统上数据中心的工作就是把其中一些东西替你抽象掉。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>对。我们就是做这件事的人。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对，对。好，<span class="tag">【笑声】</span>好吧。但你们不做数据中心业务。你们不是像 Equinix 那样的公司。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>我们不做数据中心业务——算是吧。我们合作的对象是——我们提供“超级计算即服务”。这意味着有人来找我们说：你知道，我有 X，X 是比如我这里有 X 兆瓦的电力，有时候他们的意思是我有一个数据中心，想把它变成一个 GPU 集群。我的选择是：我可以卖掉 GPU 集群，或者把数据中心卖给别人，或者我自己成为云。然后我们找到他们说：很好，我们会把你变成云，我们负责超级计算部分，你是数据中心云。我们合作吧，然后我们来卖，大家一起赚钱。</p>
+<p>有时候来找我们的人拥有的东西有可能变成一个数据中心，在这种情况下，我们基本上会把项目管理一路做到那一层，然后我们会和这些人合作，通过与合作伙伴协作，把他们已通电的土地或者他们拥有的任何东西变成一个数据中心，然后我们在超级计算这一部分接手。这要求我们内部具备某种数据中心的专业能力，但我们不自己施工。所以，就是这样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对，所以这有一定的模块化，因为你们需要在不同的场景下部署。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>对，有人曾经把我们形容为“算力界的帕兰提尔（Palantir）”，<span class="tag">【笑声】</span>因为每一次都是全新的局面。而且我们和两边的人都深度合作。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>嗯。主要是在美国吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>主要是在美国，但我们在全世界运营。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>嗯。到某个时候，SF Compute 这个名字会不会就名不副实了？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>呃，所以——<span class="tag">【笑声】</span>我们在全世界部署集群，而在这么做的时候，我们合作的对象本身也在努力在世界各地成为云。他们看起来像是主权算力的参与者。我们对主权算力的推介是：太好了，让我们帮你在你自己的国家建立一家云，我们会带来旧金山的承购需求，带来旧金山的专业能力，我们会搭建集群。这就是我们的全部业务。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>啊。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>我们会让它变得可以融资。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>那你们已公布的、能说出名字的最大合作伙伴是谁？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>基本上没有我能说出名字的。我们预计一两周内会有一些公告发布。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>一切都在某种程度上——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>当然，当然。祝好运。对，不，我是说，我认为对于每一个在投资主权人工智能（sovereign AI）的国家来说，弄清楚这件事都非常有意思。而且有意思的是，旧金山（SF）依然是那个品牌招牌，这非常有市场号召力。</p>
+<p>我觉得其中一件有意思的事，就是把这个市场想透彻。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>英伟达显然是房间里那头八百磅的大猩猩。为什么他们不——为什么他们没有做出 SF Compute？再说一次，我知道答案会是市场操纵，但我们来真正深入谈谈多个参与者各自的激励。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>对。我们的看法是，英伟达做不了这件事，但它会从这件事的存在中获益巨大。之所以做不了，是因为那样一来它就不够独立，别人不会愿意在上面交易。如果没人在上面交易，就没有足够的流动性让放贷方以远期市场为依据来提供融资。这也是为什么 Crusoe、CoreWeave 和 Lambda 做不了，为什么超大规模云厂商做不了，为什么 Baseten、Fireworks 和 Modal 做不了——因为它们在需求那一侧占得太多了。这件事会让整个行业受益，因为它能降低融资成本。但没有人能做这件事，除非他们放弃去赚所有那些大笔推理收入、去做所有那些大型云交易的能力。你必须亲手杀掉自己的业务，才能做出这个东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>嗯。这就是为什么没人做。从结构上讲，他们就不是为做这件事而设立的。而你们基本上是在降低摩擦，这就是你们全部的收入来源。你们公布过一些基准——一些里程碑。其实我忘了在开头说了。能不能重复一下是哪些，你知道，稍微庆祝一下胜利？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>呃，我们已经完成了数亿美元的交易量。我们有相当数量的新集群正在路上。然后我最兴奋的是，我们上线了一大批新功能，让 SF Compute 对平台即服务（PaaS）公司来说非常可用。举个例子，我们允许客户在不必问我们的情况下，自行切分他们的 InfiniBand 网络。很多云厂商在你购买时，会给你一个 InfiniBand 网络，然后如果你想重新划分这个 InfiniBand 网络的边界，你需要联系他们，他们再为你做些操作。我们现在可以为客户即时完成这件事，我认为这非常棒，因为它和市场的衔接非常好——你会希望能够重新划分边界，以便扩缩你的集群。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>你会把这描述为你们在把数据中心虚拟化、让它变得可编程吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>对，我们在把数据中心虚拟化，让它变得可编程。所以，如果你拥有硬件本可以得到的所有东西，我们都在努力把它虚拟化，我觉得这让我们很兴奋。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>有意思的是，上一次发生这种事的时候，就是云计算的诞生。就像——</p>
+</div></div>
+<div class="marker-line"><span class="tag">【笑声】</span></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对，这真的很酷。最后，你知道，我想问你对大家的行动号召是什么？是找工程师吗？是“把你的供给给我”吗？到底是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>如果你想拥有一个 GPU 集群，想获得它的残值，想把它放进你的投资组合里，我们很乐意和你合作来建造这个 GPU 集群。我们会接手并负责其中的超级计算部分，确保一切顺利。服务等级协议（SLA）由我们承担。然后如果事实证明那是个坏主意，你需要退出那个集群，我们可以立刻把这个集群卖给别人，这样它就不会压在你的资产负债表上。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>非常简单的推介。好，非常感谢你抽出时间。你在为这个行业做出很大的贡献，我很高兴能成为你的朋友。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="e"><div class="label"><span class="badge" title="埃文·康拉德（Evan Conrad）">埃文</span></div><div class="content">
+<p>谢谢你。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>好，就到这里。</p>
+</div></div>
+<div class="marker-line"><span class="tag">【音乐】</span></div>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Latent Space", "title": "可编程的数据中心｜埃文·康拉德（Evan Conrad，SF Compute）", "url": "https://www.youtube.com/watch?v=EAtLq9_vrE0", "videoId": "EAtLq9_vrE0", "published_at": "2026-10-20", "duration": 2203, "caption_source": "YouTube 自动生成字幕（en-orig，普通 yt-dlp 获取；该视频无官方字幕），中文为逐句全文翻译；部分人名/公司名按自动字幕读音并结合上下文校正，个别可能有误", "guests": ["埃文·康拉德（Evan Conrad，SF Compute 联合创始人兼首席执行官）"], "speakers": [{"id": "s", "name": "swyx（Shawn Wang，主持人）", "role": "host", "short": "swyx"}, {"id": "e", "name": "埃文·康拉德（Evan Conrad）", "role": "guest", "short": "埃文"}], "intro": {"summary": "《潜在空间》（Latent Space）主持人 swyx 在 AI 工程师大会纽约站对话 SF Compute 创始人埃文·康拉德（Evan Conrad），从“卖一间房到经营整座酒店”讲起，拆解 GPU 算力作为大宗商品的交易与实物交割难题，以及为何只有独立第三方才能建起这个市场。", "points": ["实物交割是前提：算力并不像想象中那样可互换，SF Compute 花 3 年搭建云的整套运营能力（选址、物料清单、集群架构、背板管理），才能可靠交付交易出去的 GPU", "订单簿不强行标准化合约，而是让买方用多维约束（时段、代际、存储、可否中断等）下单并撮合，代价是价差更大，好处是有套利空间；目前约 5% 产能上订单簿，买方花 100 美元平均可回卖 25 美元", "批量推理与在线推理的“可中断”价值不同，类似电力的日前市场与实时市场；远期曲线呈“驼峰”：临近到期像快过期的牛奶降价", "B300 跑推理每小时可赚约 25–40 美元，而租用价仅 5–6 美元，二者必有一个要变，部分买家愿为锁定远期产能多付钱", "警惕过度金融化：现金结算应从实物交割派生，否则指数易被操纵（类比 LIBOR）、基差风险大；英伟达、超大规模云和推理平台因利益冲突都做不了这个中立市场", "里程碑：已成交数亿美元，客户可自助即时切分 InfiniBand 网络，相当于把数据中心虚拟化、可编程化；面向主权算力输出“旧金山的承购与专业能力”"], "verdict": "值得看：约 37 分钟，对 GPU 算力金融化、远期定价与交付细节讲得很具体，主持人有衍生品交易背景、追问到位；部分段落术语密集、口语跳跃，纯工程向读者可略读金融类比部分。无赞助广告。", "audience": "AI 基础设施与云从业者、算力采购/融资相关人士、关注 GPU 市场与大宗商品化的投资人"}, "paragraphs": [{"start_sec": 0, "speaker_id": "s", "type": "text", "zh": "英伟达（NVIDIA）显然是房间里那头八百磅的大猩猩。为什么他们不做——为什么他们没有做一台超级计算机？"}, {"start_sec": 6, "speaker_id": "e", "type": "text", "zh": "我们的看法是，英伟达做不了这件事，但它会从这件事的存在中获益巨大。之所以做不了，是因为那样一来它就不够独立，别人不会愿意在上面交易。"}, {"start_sec": 25, "speaker_id": "s", "type": "text", "zh": "总之，埃文，欢迎回到 AI 节目。欢迎回到 AI 工程师大会（AIE）。其实，你是第一次来 AIE？"}, {"start_sec": 30, "speaker_id": "e", "type": "text", "zh": "我想是的，对。"}, {"start_sec": 31, "speaker_id": "s", "type": "text", "zh": "这一期很特别，因为我觉得你在算力交易、算力市场上已经做了很长时间了，而现在它正好成了当下的热点。"}, {"start_sec": 42, "speaker_id": "e", "type": "text", "zh": "对。"}, {"start_sec": 42, "speaker_id": "s", "type": "text", "zh": "Jump 基本上宣布了他们要进入算力市场，这也是为什么我很兴奋能把大家聚到一起。你也见过 SemiAnalysis 的奥利弗（Oliver），他基本上正在开始覆盖算力市场的研究。这是我的解读。所以大家会去看你的演讲。我觉得它非常好地解释了你们的起源故事、你们为什么需要存在，以及你们在攻克哪些难题。"}, {"start_sec": 67, "speaker_id": "e", "type": "text", "zh": "对。"}, {"start_sec": 67, "speaker_id": "s", "type": "text", "zh": "而且讲得非常简单、引人入胜。我非常羡慕你的写作能力，因为你展示了你在神经信息处理系统大会（NeurIPS）上发的那张传单。对，它非常直白、简单，很好。"}, {"start_sec": 79, "speaker_id": "e", "type": "text", "zh": "嗯。"}, {"start_sec": 79, "speaker_id": "s", "type": "text", "zh": "总之，恭喜。"}, {"start_sec": 80, "speaker_id": "e", "type": "text", "zh": "谢谢，很感谢。也恭喜 AIE 办得这么好。看起来你们势头正猛。"}, {"start_sec": 86, "speaker_id": "s", "type": "text", "zh": "势头正猛。我刚从明年 AIE 的场地考察回来。然后——"}, {"start_sec": 90, "speaker_id": "e", "type": "text", "zh": "给我透露一点吧。"}, {"start_sec": 91, "speaker_id": "s", "type": "text", "zh": "在贾维茨中心（Javits Center），就是举办动漫展（Comic-Con）的那个地方。"}, {"start_sec": 94, "speaker_id": "e", "type": "text", "zh": "好家伙，哇。"}, {"start_sec": 94, "speaker_id": "s", "type": "text", "zh": "那个——"}, {"start_sec": 95, "speaker_id": "e", "type": "text", "zh": "哇，哇，厉害。"}, {"start_sec": 98, "speaker_id": "s", "type": "text", "zh": "不过我觉得金融这个方向确实很受大家欢迎。"}, {"start_sec": 101, "speaker_id": "e", "type": "text", "zh": "对。"}, {"start_sec": 101, "speaker_id": "s", "type": "text", "zh": "所以我们打算把它拆开。这次我们把所有东西都归到“金融”里：你们的金融、他们的金融，保险也算金融。但它们其实彼此差异非常大。"}, {"start_sec": 110, "speaker_id": "e", "type": "text", "zh": "嗯。"}, {"start_sec": 111, "speaker_id": "s", "type": "text", "zh": "所以以后我们大概会分得更细，因为大家想深入了解对冲基金、银行或者个人财富管理之类的内容，或者——"}, {"start_sec": 120, "speaker_id": "e", "type": "text", "zh": "对，尤其是在纽约。"}, {"start_sec": 123, "speaker_id": "s", "type": "text", "zh": "对，比如 Anthropic 就说，是的，我们现在全力押注 RIA。RIA 就是注册投资顾问（Registered Investment Advisor）。"}, {"start_sec": 128, "speaker_id": "e", "type": "text", "zh": "是的。"}, {"start_sec": 129, "speaker_id": "s", "type": "text", "zh": "跟你们简直天差地别。"}, {"start_sec": 130, "speaker_id": "e", "type": "text", "zh": "【笑声】对，不不，我知道这一点。"}, {"start_sec": 133, "speaker_id": "s", "type": "text", "zh": "对对对。好，给不了解的听众介绍一下：两年前我们做过一期播客，你聊了 SF Compute 当时所处的阶段。"}, {"start_sec": 141, "speaker_id": "e", "type": "text", "zh": "嗯。"}, {"start_sec": 142, "speaker_id": "s", "type": "text", "zh": "而今天你们更多在做这种“实物交割”。你提到了你们的——背板网络（fabric）？你们管它叫什么来着？"}, {"start_sec": 149, "speaker_id": "e", "type": "text", "zh": "呃，背板（backplane）。"}, {"start_sec": 150, "speaker_id": "s", "type": "text", "zh": "背板，这显然需要大量硬核的工程工作。你能不能给一个最新进展：对于两年前在播客里听过你的听众来说，SF Compute 现在走到哪一步了？"}, {"start_sec": 160, "speaker_id": "e", "type": "text", "zh": "我们刚起步时，公司叫 Junnar，当时只是想把我们自己的集群转租出去。我们就是从那一层技术栈开始的。可以这样理解：你在一家酒店里，想把一个房间卖出去。然后有人问你：“嘿，你会帮我打扫房间吗？”你说：“哦，那我大概还得有房间本身，或者说，我需要那个清洁用品间。”于是你去拿到了清洁间的使用权。接着他们要客房送餐，于是你又拿到了厨房的使用权。然后他们还要安保，于是你又拿到了安保室的使用权，你做这个、做那个。到了某个时候，你就是在经营整个酒店了。"}, {"start_sec": 160, "speaker_id": "e", "type": "text", "zh": "而一旦你在经营整个酒店，你就会说：“哦，等一下。我在这个市场上的供应方，其实应该是更像一只基金的人，或者是一家云——在我们的情况里，是一家能接入数据中心的云——那我们就要升级。”所以过去几年我们一直在做的，就是搭建一家云完整的运营能力，以便能够以可靠的水平真正交付算力。我们把这叫作“实物交割”（physical settlement）。这个词借自期货市场，借自其他市场。比如在石油或大豆市场里，实物交割的意思是你真的会收到石油和大豆。"}, {"start_sec": 242, "speaker_id": "s", "type": "text", "zh": "是的。"}, {"start_sec": 242, "speaker_id": "e", "type": "text", "zh": "但是在某些市场里，比如石油，还有电力，存在一个交付网络。在石油市场，你必须有管道。如果你希望石油被送到你手上，就必须有一种方式能把它送到你那里。"}, {"start_sec": 258, "speaker_id": "s", "type": "text", "zh": "是的。对于对金融史感兴趣的人来说：新冠疫情期间，油价跌成了负数，因为——就是“我付钱让你把油从我这儿拿走”，因为它就堆在港口里，我付不起存储费用。"}, {"start_sec": 272, "speaker_id": "e", "type": "text", "zh": "是的。"}, {"start_sec": 273, "speaker_id": "s", "type": "text", "zh": "所以我付钱让你拿走我的油。"}, {"start_sec": 274, "speaker_id": "e", "type": "text", "zh": "对。"}, {"start_sec": 275, "speaker_id": "s", "type": "text", "zh": "这就是实物交割的诡异之处。"}, {"start_sec": 278, "speaker_id": "e", "type": "text", "zh": "对。其他市场里也有很多类似的诡异之处。比如在电力市场和电网中，买卖双方填写的订单里有一些字段，之所以存在，是因为锅炉需要一段时间才能冷却。你可以停掉锅炉，然后在一定时间窗口内再重新启动，所以这一点必须被纳入订单簿。同样的事情也发生在算力市场里。所以我们是同时协同设计实物交割和订单簿的，这意味着我们能真正处理算力的实际约束，比如“我可以接受被中断，但前提是上面有存储，能让我非常快地恢复”。都是非常相似的一类问题。"}, {"start_sec": 326, "speaker_id": "s", "type": "text", "zh": "嗯。大家可以去看你的演讲，你也已经上过另外几档播客了。所以我想讲到 201 的程度，而不是 101 入门级别，也因为我以前做过衍生品交易员，所以可以给大家讲一些通常不会深入的细节。"}, {"start_sec": 340, "speaker_id": "e", "type": "text", "zh": "好的。"}, {"start_sec": 341, "speaker_id": "s", "type": "text", "zh": "比如说，现在的算力市场有多成熟、多有深度、流动性有多好？"}, {"start_sec": 346, "speaker_id": "e", "type": "text", "zh": "呃，不太成熟，也不太有深度，流动性也不算好。我们的做法是：首先得把一大批供给接上线，这本身就要花时间；然后还得搭建整个平台来做这件事。我们刚刚才把这一切跑通，所以现在我们把产能挪到订单簿上，这就让它有了流动性。目前我们总产能的 5% 在订单簿上，我们在持续地挪过去越来越多，新接入的产能也全部放在订单簿上。好的一面是——也许我应该说，订单簿上的实际交易量很小，但订单簿上的流动性很高。也就是说，在你拥有的这一小部分产能上，流动性非常集中。"}, {"start_sec": 346, "speaker_id": "e", "type": "text", "zh": "对使用者来说，我会说一个比较标准的指标是：一个从我们这里购买产能的客户，花 100 美元买下产能，平均能通过把它再卖给别人收回 25 美元。这是我们跟踪的数字之一，因为我们希望流动性对商业参与者真正有用。流动性可以用很多不同方式衡量。你可以说：“哦，我就想要大量的做市商。”也可以用一些很高大上的方式衡量。我们试图用“这是否在为客户解决问题”来衡量。"}, {"start_sec": 423, "speaker_id": "s", "type": "text", "zh": "嗯，明白。上次我们聊的时候，还有很多关于合约标准化的讨论。"}, {"start_sec": 423, "speaker_id": "e", "type": "text", "zh": "是的。"}, {"start_sec": 423, "speaker_id": "s", "type": "text", "zh": "和美国商品期货交易委员会（CFTC）之类的机构沟通——这些事现在进展如何？"}, {"start_sec": 437, "speaker_id": "e", "type": "text", "zh": "我认为合约标准化总体上还差得很远。我们当时想做的，或者说我们过去几年学到的是：我们必须自己运营整套东西，否则你根本没法把它标准化。所以要接近可以被标准化的状态，你首先得让这个东西的所有运营都一致。"}, {"start_sec": 437, "speaker_id": "s", "type": "text", "zh": "对。"}, {"start_sec": 437, "speaker_id": "e", "type": "text", "zh": "举个可能出现差异的例子：同一个运营商可以提供两种不同类型的虚拟机，其中一种虚拟机相比另一种可能有 40% 的性能下降。40% 可是很多了。"}, {"start_sec": 476, "speaker_id": "s", "type": "text", "zh": "你说的性能下降，是指模型算力利用率（MFU）这类指标，还是你们经历过的损耗之类的？"}, {"start_sec": 481, "speaker_id": "e", "type": "text", "zh": "它会影响……在这个具体案例里，我说的是 GPU 内核启动（kernel launch）以及它需要多长时间，这是你在训练或推理时都会非常频繁发生的过程。"}, {"start_sec": 491, "speaker_id": "s", "type": "text", "zh": "好的。"}, {"start_sec": 491, "speaker_id": "e", "type": "text", "zh": "最终结果基本上就是你的 MFU 变差了，但是——"}, {"start_sec": 499, "speaker_id": "s", "type": "text", "zh": "是中间层的问题。"}, {"start_sec": 501, "speaker_id": "e", "type": "text", "zh": "基本上是中间层。"}, {"start_sec": 502, "speaker_id": "s", "type": "text", "zh": "对对。所以我想说的是，任何交易过大宗商品的人都知道，商品有不同的等级，对吧？比如它不只是“石油”，而是轻质低硫原油，对比它的反面——不管那叫什么；或者 A 级玉米、B 级玉米之类的。所以人们会试图——嗯，你得确立这些东西之间的等价关系——"}, {"start_sec": 520, "speaker_id": "e", "type": "text", "zh": "这些东西的等价关系。"}, {"start_sec": 520, "speaker_id": "s", "type": "text", "zh": "对，是的。我想知道这些是否已经建立起来了。"}, {"start_sec": 523, "speaker_id": "e", "type": "text", "zh": "我们的做法是另辟蹊径：我们创建了一个带有多种不同约束条件的订单簿，你可以说：“我想要介于这个和那个之间的东西，它从这个时间跑到那个时间，它是从 X 到 Y。”你可以给订单附加一系列不同属性，然后我们在一个大型撮合引擎里，把它和具有这些属性的卖单进行撮合。我们这样做的原因是，它让我们能在还不知道技术能做到什么之前，就不必先标准化而创造出流动性。因为技术变化太快了，我们基本上希望能做到这一点。这样做的代价是流动性没那么集中，所以价格上买卖之间会有更大的价差。"}, {"start_sec": 563, "speaker_id": "s", "type": "text", "zh": "嗯。真糟糕。"}, {"start_sec": 564, "speaker_id": "e", "type": "text", "zh": "但另一方面，这意味着如果你做得对，就有大量套利机会。所以如果你的产品能使用很多不同类型的产能，那你可能会非常喜欢 SF Compute，因为你能用上很多不同类型的产能，并赚到更多钱。你可以吃掉这个价差。"}, {"start_sec": 582, "speaker_id": "s", "type": "text", "zh": "好。在这张网格里，哪些维度是重要的？"}, {"start_sec": 585, "speaker_id": "e", "type": "text", "zh": "有很多不同的东西。我要说的第一个维度类别是：它上面现在是否正在跑工作负载，还是说它是未来的产能？也就是说，它是不是“现在”的产能？要卖掉现在的产能，你就得中断当前的工作负载，所以你得考虑：我在不在乎当前的工作负载被中断？而对于从一个月后才开始的产能，你随时都可以买卖，所以它很容易获得流动性。当然也会有一些担心，比如“哦不，我下个月还会有产能吗？”，但这和你现在就要中断一个工作负载是非常不同的。"}, {"start_sec": 585, "speaker_id": "e", "type": "text", "zh": "中断发生的方式也很重要。举个例子，如果你在一个集群上，而这个集群的存储没有你想要的那么好。比如说，底层有没有 Weka 或 Vast 这样的存储系统？你们提供不提供？容量多大？这会改变你在被抢占或被移出集群时如何应对。同时，存储的位置也很重要。如果你能把数据快速地从一个集群挪到另一个集群，那你也许就能分布在多个不同的集群上，在这边被中断，然后在那边重新冒出来。要做到这一点，你还需要在集群之间有一条快速的传输通道。通常这是用 WAN 来实现的，但大多数这些集群不一定有——"}, {"start_sec": 667, "speaker_id": "s", "type": "text", "zh": "广域网（wide area network）。"}, {"start_sec": 668, "speaker_id": "e", "type": "text", "zh": "对，广域网。基本上就是把各个集群连接在一起的线缆，也可以把它理解成一张私有互联网。如今新建起来的很多集群并不——传统的 CPU 集群出于延迟考虑是建在靠近客户的地方的，而 GPU 集群是建在靠近电力的地方。也就是说，你把数据中心建在电力旁边，而不是客户旁边。这意味着很多东西被放在了以前没人预料会有数据中心的地方。所以从一处到另一处，你可能没有那么出色的传输通道。这一点就开始变得重要了。"}, {"start_sec": 668, "speaker_id": "e", "type": "text", "zh": "其他例子比较奇怪，是我们理论上支持、但实际上还没做的——基本上是我们在考虑但还没做的事情。早期的 GB200 出过故障，早期的 H100 也出过故障。所以如果你在买 H100 或者 GB200，你可能会非常希望买到某个时间点之后部署的那些，因为你不想要刚下产线的第一批货。所以如果你是一个非常老练的客户，你可能愿意为此多付钱。"}, {"start_sec": 740, "speaker_id": "s", "type": "text", "zh": "哦，所以这关乎它们是哪一批次生产的，而且随着时间推移会越来越好？"}, {"start_sec": 746, "speaker_id": "e", "type": "text", "zh": "对，比如刚下产线的第一批可能有一些故障或问题。所以如果你拿到的是第一批，或者是第一批出货里的，那它们就可能是坏的，或者在某些方面有问题。"}, {"start_sec": 761, "speaker_id": "s", "type": "text", "zh": "我以为这种流程就是——你看，缺陷到处都有，这就是会发生的事，对吧？"}, {"start_sec": 766, "speaker_id": "e", "type": "text", "zh": "完全是。"}, {"start_sec": 766, "speaker_id": "s", "type": "text", "zh": "所以你从台积电（TSMC）还是哪里收到一批新货，然后你跑一遍测试，找出哪些是坏的，然后把它们扔掉。不是这么回事吗？我之前不知道还有“批次”这个因素，比如说，2026 年第四季度的 B300 比 2027 年的 B300 差很多。"}, {"start_sec": 787, "speaker_id": "e", "type": "text", "zh": "对，【笑声】我举个例子。你描述的是老化测试（burn-in）。"}, {"start_sec": 787, "speaker_id": "s", "type": "text", "zh": "是的。"}, {"start_sec": 787, "speaker_id": "e", "type": "text", "zh": "一家好的云在拿到一个集群时，会在 GPU 交到客户手上之前，尽力把它们全部“折腾死”。然后那些坏掉的 GPU 或者坏掉的节点，你就走返修（RMA）流程，基本上就是去更换它们。"}, {"start_sec": 787, "speaker_id": "s", "type": "text", "zh": "对。"}, {"start_sec": 787, "speaker_id": "e", "type": "text", "zh": "你把它退回去，换一个新的，这中间有交货周期，不过无所谓，你会拿回一些。这样客户就永远不必经历这些。而我说的情况是：比如早期的 H100 有一些固件漏洞，甚至可能都和英伟达无关。可能是超微（Supermicro）在你买的那台机器里有固件漏洞，而且它适用于所有机器。【笑声】这跟别的都没关系，解决办法是你得让他们更新固件，或者他们得在每一台新机器里出一个新版本。"}, {"start_sec": 847, "speaker_id": "s", "type": "text", "zh": "对。或者 Cornelis 在我们拿到的 B200 上也出过这种事，然后你得用 DevCloud 去修。"}, {"start_sec": 853, "speaker_id": "e", "type": "text", "zh": "【笑声】对，没错。所以会发生各种不同类型的问题。"}, {"start_sec": 856, "speaker_id": "s", "type": "text", "zh": "有意思。好的，这跟整体比起来似乎是小事。我只是想让大家了解这个市场的形态。你提到了抢占，我们也聊过竞价实例（spot instance），以及这个类比是怎样的。然后还有提前一个月预订。这些市场能往后延伸多远？实时的、或者说抢占这一块对你来说更有意思，还是更远期的那一块？"}, {"start_sec": 884, "speaker_id": "e", "type": "text", "zh": "回答你的第一个问题：3 到 5 年。"}, {"start_sec": 887, "speaker_id": "s", "type": "text", "zh": "哇。"}, {"start_sec": 887, "speaker_id": "e", "type": "text", "zh": "我们开始看到——"}, {"start_sec": 888, "speaker_id": "s", "type": "text", "zh": "是按月、按季度，还是怎么样？"}, {"start_sec": 891, "speaker_id": "e", "type": "text", "zh": "你是在问现金流怎么运作吗？"}, {"start_sec": 892, "speaker_id": "s", "type": "text", "zh": "是合约。比如期货合约，对吧？再说一次，我以前是做合约、做衍生品交易的。"}, {"start_sec": 897, "speaker_id": "e", "type": "text", "zh": "是在这个市场本身，还是在更广泛的市场里？"}, {"start_sec": 899, "speaker_id": "s", "type": "text", "zh": "对。"}, {"start_sec": 901, "speaker_id": "e", "type": "text", "zh": "在更广泛的市场里，集群的融资期限是 3 到 5 年。"}, {"start_sec": 903, "speaker_id": "s", "type": "text", "zh": "好的。"}, {"start_sec": 903, "speaker_id": "e", "type": "text", "zh": "所以——"}, {"start_sec": 905, "speaker_id": "s", "type": "text", "zh": "付款——"}, {"start_sec": 906, "speaker_id": "e", "type": "text", "zh": "是在这段时间内分期支付的。"}, {"start_sec": 907, "speaker_id": "s", "type": "text", "zh": "嗯。"}, {"start_sec": 908, "speaker_id": "e", "type": "text", "zh": "另外，我们订单簿上的产能块，可以延伸到任意时长。"}, {"start_sec": 914, "speaker_id": "s", "type": "text", "zh": "嗯。"}, {"start_sec": 914, "speaker_id": "e", "type": "text", "zh": "在这方面的现金流上，我们有一些事情要处理。目前我们的做法是，对于一个产能块，我们要求人们全额预付。而对于租约、对于更长期的合约，我们不这样要求。这部分我肯定得拿块白板才能讲清楚。"}, {"start_sec": 928, "speaker_id": "s", "type": "text", "zh": "【笑声】"}, {"start_sec": 928, "speaker_id": "e", "type": "text", "zh": "不过，你还有另一个问题我刚要回答，我忘了是什么了——"}, {"start_sec": 932, "speaker_id": "s", "type": "text", "zh": "呃，你想要实时的，还是想要——对你来说，什么更有意思，实时的还是更远期的？"}, {"start_sec": 938, "speaker_id": "e", "type": "text", "zh": "我们更在意远期，因为我们在试图构建一条有大量流动性的远期曲线。这两者在某种程度上是一回事，又在某种程度上不是。我们的做法是：比如说，你可以买一个小时后的，可以买从现在到下一个小时的，也可以买从现在到接下来 3 年的，以及中间的任何时段。"}, {"start_sec": 962, "speaker_id": "s", "type": "text", "zh": "太疯狂了。"}, {"start_sec": 962, "speaker_id": "e", "type": "text", "zh": "我知道。技术上甚至可以更细。对每个客户来说，都存在某种取决于自身情况的差别。基本上，如果我有一个工作负载是批量推理（batch inference），随时可以被中断，我其实不太在乎。那么对于被切断，我可能只需要提前一个小时知道我会被切断就行了，甚至提前一两分钟通知我都可以。但如果我有在线推理（live inference）的客户，他们期望我一直在线，那你可以中断我，但要提前一个月，也许两个月，也许三个月，然后我可以在这段时间里调整产能。但你不能一分钟后就中断我。"}, {"start_sec": 962, "speaker_id": "e", "type": "text", "zh": "所以这两者的定价不同，而定价不同的原因是：你为了中断你的批处理任务愿意付出的代价，和你为了中断你的在线任务愿意付出的代价，是非常不同的。如果你有一个在线任务，当你出故障时，你大概率要向你的客户支付服务等级协议（SLA）违约赔偿。这样说得通吗？"}, {"start_sec": 1040, "speaker_id": "s", "type": "text", "zh": "嗯，我明白了。所以这其实是一个“提前解约租约”的市场。"}, {"start_sec": 1043, "speaker_id": "e", "type": "text", "zh": "基本上，这就是提前解约租约的市场。"}, {"start_sec": 1044, "speaker_id": "s", "type": "text", "zh": "天哪。"}, {"start_sec": 1045, "speaker_id": "e", "type": "text", "zh": "然后还有未来租约的市场，或者说那些——"}, {"start_sec": 1049, "speaker_id": "s", "type": "text", "zh": "哦，我还以为这是一种转租的情况。原来这是——哦，是解约。"}, {"start_sec": 1053, "speaker_id": "e", "type": "text", "zh": "一种理解方式是：在电力市场里，其实有两个市场，一个是日前市场，一个是实时市场。算力也有类似的东西：有即将上线的产能，或者说即将交付给你的产能，还有当前正在使用的产能。它们的价格动态是不同的。"}, {"start_sec": 1075, "speaker_id": "s", "type": "text", "zh": "好，有意思。那是现货溢价（backwardation）还是期货溢价（contango）？"}, {"start_sec": 1080, "speaker_id": "e", "type": "text", "zh": "【笑声】现货溢价还是期货溢价？"}, {"start_sec": 1081, "speaker_id": "s", "type": "text", "zh": "就是说，远期的算力价格比现货高，还是比现货低？远期算力的价格是这样走，还是那样走——比如 1 年后、2 年后？"}, {"start_sec": 1096, "speaker_id": "e", "type": "text", "zh": "哦，这是个——两种情况都有，在不同的——"}, {"start_sec": 1098, "speaker_id": "s", "type": "text", "zh": "我、我觉得很神奇的是，你居然不知道。"}, {"start_sec": 1100, "speaker_id": "e", "type": "text", "zh": "对，我是说两种都有，取决于你是谁。我来论证一下——等等，你问的是现在卖出的算力——"}, {"start_sec": 1109, "speaker_id": "s", "type": "text", "zh": "一单位的算力，今天的，或者不是今天，也许是一个月后的，对比 1 年后、2 年后的。这条曲线是向上走还是向下走？"}, {"start_sec": 1117, "speaker_id": "e", "type": "text", "zh": "我们看到的是一个驼峰。"}, {"start_sec": 1119, "speaker_id": "s", "type": "text", "zh": "天哪。"}, {"start_sec": 1120, "speaker_id": "e", "type": "text", "zh": "好，那么——"}, {"start_sec": 1121, "speaker_id": "s", "type": "text", "zh": "解释一下。"}, {"start_sec": 1121, "speaker_id": "e", "type": "text", "zh": "我觉得这在直觉上是说得通的。基本上就像：如果我有一盒牛奶快过期了，我就会降价。"}, {"start_sec": 1128, "speaker_id": "s", "type": "text", "zh": "是的。"}, {"start_sec": 1128, "speaker_id": "e", "type": "text", "zh": "这基本上就是我们看到的。"}, {"start_sec": 1132, "speaker_id": "s", "type": "text", "zh": "所以基本上就是租约周期的末尾，对吧？"}, {"start_sec": 1134, "speaker_id": "e", "type": "text", "zh": "呃，我们更想说的是：如果有一块算力，它的时间越来越接近“现在”，它不可能在过去被卖出，所以它必须降价才能以某个价格成交。所以一开始你会看到这样一个下跌：现在正在卖的东西，任何现在还挂在市场上的东西，都是还没被卖掉的，因此价格会下跌。"}, {"start_sec": 1153, "speaker_id": "s", "type": "text", "zh": "嗯。"}, {"start_sec": 1153, "speaker_id": "e", "type": "text", "zh": "然后它会上升到它“该在”的位置。"}, {"start_sec": 1156, "speaker_id": "s", "type": "text", "zh": "嗯。"}, {"start_sec": 1156, "speaker_id": "e", "type": "text", "zh": "然后，也许未来的算力价值更低，因为人们想要的是现在的算力，所以他们其实是在为更短的交付周期付费，而对远在未来的算力付得更少。这是我认为一条正常、健康的曲线的样子。"}, {"start_sec": 1171, "speaker_id": "s", "type": "text", "zh": "嗯。"}, {"start_sec": 1172, "speaker_id": "e", "type": "text", "zh": "而让我觉得“哦，天哪，真不是开玩笑”的地方在于：现在如果你拿一块 B300 去跑推理，靠卖推理你一小时能赚 40 美元左右——"}, {"start_sec": 1185, "speaker_id": "s", "type": "text", "zh": "任何模型都行？"}, {"start_sec": 1186, "speaker_id": "e", "type": "text", "zh": "基本上任何模型都行。【笑声】这是在利用率 100% 的情况下，如果你只有大约 50% 的利用率，那大概一小时 25 美元。"}, {"start_sec": 1194, "speaker_id": "s", "type": "text", "zh": "嗯。"}, {"start_sec": 1194, "speaker_id": "e", "type": "text", "zh": "所以一小时 25 美元。与此同时，你可以用大约每小时 5 到 6 美元的价格买到 B300。这两个数字里必须有一个会变。"}, {"start_sec": 1201, "speaker_id": "s", "type": "text", "zh": "对。这是巨大的溢价。"}, {"start_sec": 1202, "speaker_id": "e", "type": "text", "zh": "这是巨大的溢价。"}, {"start_sec": 1203, "speaker_id": "s", "type": "text", "zh": "你在演讲里经常提到这一点。"}, {"start_sec": 1204, "speaker_id": "e", "type": "text", "zh": "对。所以很多人基本上在看着这一点思考：如果我认为价格会上涨，那我可能愿意在未来付出比我之前以为的更多的钱，因为我可能会想：“好吧，我现在能以 5 美元买到，但如果以后买不到了，那也许我愿意在未来付更多，只为锁定那些晚些才上线的产能。”所以我们也看到了另一面。这有点取决于你是谁。"}, {"start_sec": 1228, "speaker_id": "s", "type": "text", "zh": "很好。那么——好，我真的想把这一点讲得非常清楚。"}, {"start_sec": 1228, "speaker_id": "e", "type": "text", "zh": "当然。"}, {"start_sec": 1228, "speaker_id": "s", "type": "text", "zh": "你们在乎芯片的不同代际吗？还是只在乎总的浮点算力（FLOPs），然后随便分摊到你们想用的任何芯片上？"}, {"start_sec": 1240, "speaker_id": "e", "type": "text", "zh": "呃，我们在乎芯片的不同代际，因为——"}, {"start_sec": 1242, "speaker_id": "s", "type": "text", "zh": "你们在乎。我想问的是——我猜，是你们的客户在乎吗？"}, {"start_sec": 1245, "speaker_id": "e", "type": "text", "zh": "是的。对。哦，等等，你说不同代际的芯片，你是指——"}, {"start_sec": 1249, "speaker_id": "s", "type": "text", "zh": "比如 B300 这一代。对，没错。或者甚至是 AMD 之类的，对吧？"}, {"start_sec": 1253, "speaker_id": "e", "type": "text", "zh": "呃，是的，我认为人们完全在乎芯片的代际。我觉得部分原因在于显存（VRAM）这样的东西，部分原因在于更大的 NVLink 域。"}, {"start_sec": 1264, "speaker_id": "s", "type": "text", "zh": "嗯。"}, {"start_sec": 1264, "speaker_id": "e", "type": "text", "zh": "诸如此类的东西。"}, {"start_sec": 1264, "speaker_id": "s", "type": "text", "zh": "所以根本没有办法把这一切抽象成某种通用的算力单位，让你可以随意揉来揉去。"}, {"start_sec": 1271, "speaker_id": "e", "type": "text", "zh": "我觉得就像你刚才说石油时那样，连石油都不只是“石油”。石油其实是一堆不同类型的油。"}, {"start_sec": 1276, "speaker_id": "s", "type": "text", "zh": "对，比如航空燃油、汽车燃油之类的。"}, {"start_sec": 1278, "speaker_id": "e", "type": "text", "zh": "我认为这是同一回事。你会得到一堆不同类型的——"}, {"start_sec": 1281, "speaker_id": "s", "type": "text", "zh": "是这样，但你有炼油厂，它们实际上就是黑箱，你可以把原油放进去，然后得到任何你想要的东西出来。如果算力是如此异构——我想“异构”就是那个词——那你就只能把底层的复杂性暴露给你的终端客户，这对你作为做市商来说是坏事。"}, {"start_sec": 1298, "speaker_id": "e", "type": "text", "zh": "也许吧。【笑声】"}, {"start_sec": 1299, "speaker_id": "s", "type": "text", "zh": "你会想要找出那一个“卡点”——我不知道比卡点更好的词是什么——“谢林点”（Schelling point），就是大家都同意“好，这差不多就是标准了，我们都认同这个标准”，你知道，它会有一定的低效。"}, {"start_sec": 1315, "speaker_id": "e", "type": "text", "zh": "是的。所以我们已经能把这些问题降低到一定程度了。"}, {"start_sec": 1322, "speaker_id": "s", "type": "text", "zh": "对，你的工作就像是做降维之类的事情。"}, {"start_sec": 1325, "speaker_id": "e", "type": "text", "zh": "我们降掉了很多维度，但尽管如此，维度依然存在。它们还是会继续存在。"}, {"start_sec": 1329, "speaker_id": "s", "type": "text", "zh": "你知道你们有多少个 SKU 吗？"}, {"start_sec": 1331, "speaker_id": "e", "type": "text", "zh": "【笑声】所以——"}, {"start_sec": 1334, "speaker_id": "s", "type": "text", "zh": "比如 5 乘以 100 乘以 5000，那等于——我也不知道。到底是多少——"}, {"start_sec": 1340, "speaker_id": "e", "type": "text", "zh": "【笑声】我们其实把 SKU 做成了一个概念，目标是让别人可以定义他们自己的 SKU。所以如果我想买 Blackwell，我可以说：我愿意以每小时 6 美元或更低的价格购买 Blackwell。"}, {"start_sec": 1355, "speaker_id": "s", "type": "text", "zh": "嗯哼。"}, {"start_sec": 1355, "speaker_id": "e", "type": "text", "zh": "然后你可以把我和 GB300 撮合，也可以把我和 B300 撮合，只要每小时低于 6 美元，我不在乎是哪种 Blackwell。"}, {"start_sec": 1363, "speaker_id": "s", "type": "text", "zh": "但你刚才还说你们在乎内存和其他东西。"}, {"start_sec": 1365, "speaker_id": "e", "type": "text", "zh": "完全在乎，但不是每个客户都在乎。有些客户只要是 Blackwell 就都能用。有些客户则极其具体，他们需要的就是这个确切的东西，所以他们会为此付出更多，因为市场会向他们收取更多费用。"}, {"start_sec": 1374, "speaker_id": "s", "type": "text", "zh": "好的。"}, {"start_sec": 1375, "speaker_id": "e", "type": "text", "zh": "这就是我们在做的。"}, {"start_sec": 1376, "speaker_id": "s", "type": "text", "zh": "所以人们用你们的 API 以编程方式定义他们想要什么，然后你们再把它和任意组合的卖方进行撮合，看他们是否能满足需求。"}, {"start_sec": 1388, "speaker_id": "e", "type": "text", "zh": "是的。需要说明的是，“命名查询”是我们新在做的东西。但查询系统这个概念，就是目前订单簿的运作方式。"}, {"start_sec": 1397, "speaker_id": "s", "type": "text", "zh": "好，有意思。好吧，我觉得这已经是很多——我想算是很多细枝末节了。关于你们一手打造的算力交易市场的现状，你有没有什么想要普及给大家的，不管是金融人士还是工程师？因为实际上，是你们在定义这个市场。"}, {"start_sec": 1417, "speaker_id": "e", "type": "text", "zh": "主要就是实物交割的必要性。我们花了 3 年时间才弄明白为什么需要实物交割。"}, {"start_sec": 1425, "speaker_id": "s", "type": "text", "zh": "【笑声】"}, {"start_sec": 1426, "speaker_id": "e", "type": "text", "zh": "而我们今天的整个对话就在说明，这些东西并不像你以为的那样可以互换。我们会努力让它们变得可以互换，这是整个行业的工作。但没有这一点，你会面临很多风险。如果在行业还没来得及建立起实物交割之前，就试图搞太多金融化，那我认为你会得到一个非常容易被操纵的市场，以及一个基差风险很大的市场——你所对冲的价格，实际上和你在市场上能真正买到产能的价格毫无关系。"}, {"start_sec": 1464, "speaker_id": "s", "type": "text", "zh": "嗯。对。给听众们说一下，上次我们简单聊过这个：人们常常震惊地发现，比如说，信用违约互换（CDS）的市场规模是它所承保债券规模的 12 倍。"}, {"start_sec": 1466, "speaker_id": "e", "type": "text", "zh": "嗯。"}, {"start_sec": 1466, "speaker_id": "s", "type": "text", "zh": "大概是这样，或者像抵押贷款的再保险之类的市场，它们的规模都比底层的实物交割要大。所以这就是为什么要区分实物交割和现金结算。而且基本上，现金结算正是你在《大空头》（The Big Short）里看到的那种场外对赌。"}, {"start_sec": 1497, "speaker_id": "e", "type": "text", "zh": "嗯。"}, {"start_sec": 1498, "speaker_id": "s", "type": "text", "zh": "它们可能和底层资产本身有关，也可能无关，还可能被当作其他整体情况的代理指标。你不会希望那种东西失控。"}, {"start_sec": 1508, "speaker_id": "e", "type": "text", "zh": "是的，对。所以说清楚一点，我们认为现金结算作为一种未来的概念是个很好的主意。我们只是认为它应该从实物交割派生出来。因为正如你所说，它是一种场外对赌，这就有点像——如果你在建立实物交割之前就做出一个现金结算的期货。"}, {"start_sec": 1527, "speaker_id": "s", "type": "text", "zh": "我觉得人们其实已经在这么做了。"}, {"start_sec": 1530, "speaker_id": "e", "type": "text", "zh": "还没有完全做到。人们正在试图在建立实物交割之前就做现金结算。"}, {"start_sec": 1533, "speaker_id": "s", "type": "text", "zh": "人们对各种东西都这么做，包括初创公司的股票。"}, {"start_sec": 1536, "speaker_id": "e", "type": "text", "zh": "是的。"}, {"start_sec": 1536, "speaker_id": "s", "type": "text", "zh": "对吧？比如你可以买卖一股虚构出来的 OpenAI 股份，但它和真正的股份毫无关系。"}, {"start_sec": 1541, "speaker_id": "e", "type": "text", "zh": "是的。【笑声】而其中很多都结局很糟。如果你开始出售一只还不存在的股票的衍生品，那就挺糟糕的。"}, {"start_sec": 1557, "speaker_id": "s", "type": "text", "zh": "对，对。嗯，我想说的是，我以前是外汇交易员，对吧？也做过利率。我们会做的一件事是：有一个委员会聚在一起说，这就是伦敦银行同业拆借利率（LIBOR），我们都同意这是每月的定盘价，然后我们都按这个定盘价来交易。"}, {"start_sec": 1573, "speaker_id": "e", "type": "text", "zh": "是的。"}, {"start_sec": 1574, "speaker_id": "s", "type": "text", "zh": "这种东西在 3 年后的某个时刻还会有意义吗？"}, {"start_sec": 1578, "speaker_id": "e", "type": "text", "zh": "关键在于，LIBOR 曾被操纵过。"}, {"start_sec": 1580, "speaker_id": "s", "type": "text", "zh": "是的。"}, {"start_sec": 1581, "speaker_id": "e", "type": "text", "zh": "我们目前的担忧是——"}, {"start_sec": 1583, "speaker_id": "s", "type": "text", "zh": "12 家银行。对。"}, {"start_sec": 1584, "speaker_id": "e", "type": "text", "zh": "是的。我们的担忧是存在一个非常相似的问题：你可以操纵一个指数。我们的看法是，之所以能操纵那个指数，是因为很多指数都基于非常少量的数据，而这些数据和真正购买一份新的预留合约的实际价格并没有多少相关性。这就是我们所担心的。"}, {"start_sec": 1606, "speaker_id": "s", "type": "text", "zh": "【笑声】好，有意思。好，我觉得这就是事情的大致现状。"}, {"start_sec": 1606, "speaker_id": "e", "type": "text", "zh": "嗯哼。"}, {"start_sec": 1606, "speaker_id": "s", "type": "text", "zh": "我觉得今天的另一部分是：你和奥利弗聊过，你在和 Jump 合办一场活动，你和 Silicon Data 也是朋友。你从这些其他参与者身上学到了什么？你想特别点名哪些主要参与者在做有意思的事情？"}, {"start_sec": 1628, "speaker_id": "e", "type": "text", "zh": "噢。嗯，我们是 Silicon Data 和 Compute Exchange 的忠实粉丝。我认为他们也很早就进入了这个领域，而且我认为他们在走的那条路是相当靠谱的尝试，我们认为我们很可能最终会成为合作伙伴。"}, {"start_sec": 1643, "speaker_id": "s", "type": "text", "zh": "你能区分一下你们各自不同的路径吗？"}, {"start_sec": 1646, "speaker_id": "e", "type": "text", "zh": "大致来说，他们在做现金结算，我们在做实物交割。我们认为两者都可以存在，也应该存在，而且彼此互惠。所以完全没问题。我认为他们是这个领域最早的一批，而且他们非常明显地比任何人都更早下了这个注，我觉得这是很值得尊敬的。嗯，你提到了 Jump——"}, {"start_sec": 1669, "speaker_id": "s", "type": "text", "zh": "SemiAnalysis，还有 Jump。这些其他参与者是不是正在涌现？就我而言，你是带我入门这个领域的人，然后我看到所有这些人都进来了，我就想：“好吧，这里一定在发生些什么。”我对这个格局没有你看得那么清楚。"}, {"start_sec": 1681, "speaker_id": "e", "type": "text", "zh": "对。我们看到的几类人是：有人在试图制定更好的标准，我认为 SemiAnalysis 正在努力建立更好的标准。有人在尝试做残值保险之类的东西，这个领域有好几家不同的公司，我对其中任何一家都不算特别了解，但我知道有这个概念，而且我认为它很重要。还有人在尝试做押金借贷，比如他们会为你垫付你对云厂商的信用风险。围绕着“如何解决算力的金融瓶颈”，正在形成一整个公司生态，看到这一点很酷。"}, {"start_sec": 1716, "speaker_id": "s", "type": "text", "zh": "我认为实际上，你在这个生态里想要的是买方和卖方，你想要分析师，你想要——我们刚才说的保险，那个叫什么来着——"}, {"start_sec": 1725, "speaker_id": "e", "type": "text", "zh": "呃，残值保险。"}, {"start_sec": 1726, "speaker_id": "s", "type": "text", "zh": "残值保险。我们希望外面有这样一个健康的生态。"}, {"start_sec": 1731, "speaker_id": "e", "type": "text", "zh": "嗯。"}, {"start_sec": 1731, "speaker_id": "s", "type": "text", "zh": "但显然你们承担的是实物交割这个难题，这真的很有意思。好，我想我们可以聊聊硬核技术那一面，因为显然你们也在招聘——"}, {"start_sec": 1742, "speaker_id": "e", "type": "text", "zh": "对。"}, {"start_sec": 1742, "speaker_id": "s", "type": "text", "zh": "招极其厉害的工程师。描述一下你们的技术栈吧。"}, {"start_sec": 1746, "speaker_id": "e", "type": "text", "zh": "我们做云所做的所有事情，但我们不是云。也就是说，我们不拥有硬件。我们不拥有硬件的原因是，如果我们拥有，我们就能操纵远期市场。所以我们必须是“瑞士”，必须保持独立，这让公司有很多有点奇怪的地方。但是为了做实物交割，你必须做现场考察，你必须去数据中心看。你必须设计物料清单（BOM），确保——基本上你得做供应链咨询，和不同的原始设备制造商（OEM）建立关系，确保东西按时交付。"}, {"start_sec": 1785, "speaker_id": "e", "type": "text", "zh": "然后你得做集群架构，也就是设计集群本身。然后你要上架机柜，或者和合作伙伴一起上架并进行监督。然后你要做背板管理，也就是接管配电单元（PDU）、交换机、数据处理单元（DPU）、UFM 和 BMC，以及围绕你所交割的节点的整套运营工具。"}, {"start_sec": 1813, "speaker_id": "s", "type": "text", "zh": "是你们 SF Compute 的员工来做？"}, {"start_sec": 1815, "speaker_id": "e", "type": "text", "zh": "对。"}, {"start_sec": 1815, "speaker_id": "s", "type": "text", "zh": "哇。"}, {"start_sec": 1816, "speaker_id": "e", "type": "text", "zh": "好。当你从一家云买一个节点时，有裸金属本身，但裸金属周围还有所有这些东西。为了让那个裸金属节点能够工作，你必须运营其他所有东西。然后我们——"}, {"start_sec": 1832, "speaker_id": "s", "type": "text", "zh": "因为我以为传统上数据中心的工作就是把其中一些东西替你抽象掉。"}, {"start_sec": 1837, "speaker_id": "e", "type": "text", "zh": "对。我们就是做这件事的人。"}, {"start_sec": 1839, "speaker_id": "s", "type": "text", "zh": "对，对。好，【笑声】好吧。但你们不做数据中心业务。你们不是像 Equinix 那样的公司。"}, {"start_sec": 1845, "speaker_id": "e", "type": "text", "zh": "我们不做数据中心业务——算是吧。我们合作的对象是——我们提供“超级计算即服务”。这意味着有人来找我们说：你知道，我有 X，X 是比如我这里有 X 兆瓦的电力，有时候他们的意思是我有一个数据中心，想把它变成一个 GPU 集群。我的选择是：我可以卖掉 GPU 集群，或者把数据中心卖给别人，或者我自己成为云。然后我们找到他们说：很好，我们会把你变成云，我们负责超级计算部分，你是数据中心云。我们合作吧，然后我们来卖，大家一起赚钱。"}, {"start_sec": 1851, "speaker_id": "e", "type": "text", "zh": "有时候来找我们的人拥有的东西有可能变成一个数据中心，在这种情况下，我们基本上会把项目管理一路做到那一层，然后我们会和这些人合作，通过与合作伙伴协作，把他们已通电的土地或者他们拥有的任何东西变成一个数据中心，然后我们在超级计算这一部分接手。这要求我们内部具备某种数据中心的专业能力，但我们不自己施工。所以，就是这样。"}, {"start_sec": 1915, "speaker_id": "s", "type": "text", "zh": "对，所以这有一定的模块化，因为你们需要在不同的场景下部署。"}, {"start_sec": 1920, "speaker_id": "e", "type": "text", "zh": "对，有人曾经把我们形容为“算力界的帕兰提尔（Palantir）”，【笑声】因为每一次都是全新的局面。而且我们和两边的人都深度合作。"}, {"start_sec": 1935, "speaker_id": "s", "type": "text", "zh": "嗯。主要是在美国吗？"}, {"start_sec": 1938, "speaker_id": "e", "type": "text", "zh": "主要是在美国，但我们在全世界运营。"}, {"start_sec": 1940, "speaker_id": "s", "type": "text", "zh": "嗯。到某个时候，SF Compute 这个名字会不会就名不副实了？"}, {"start_sec": 1943, "speaker_id": "e", "type": "text", "zh": "呃，所以——【笑声】我们在全世界部署集群，而在这么做的时候，我们合作的对象本身也在努力在世界各地成为云。他们看起来像是主权算力的参与者。我们对主权算力的推介是：太好了，让我们帮你在你自己的国家建立一家云，我们会带来旧金山的承购需求，带来旧金山的专业能力，我们会搭建集群。这就是我们的全部业务。"}, {"start_sec": 1968, "speaker_id": "s", "type": "text", "zh": "啊。"}, {"start_sec": 1968, "speaker_id": "e", "type": "text", "zh": "我们会让它变得可以融资。"}, {"start_sec": 1969, "speaker_id": "s", "type": "text", "zh": "那你们已公布的、能说出名字的最大合作伙伴是谁？"}, {"start_sec": 1973, "speaker_id": "e", "type": "text", "zh": "基本上没有我能说出名字的。我们预计一两周内会有一些公告发布。"}, {"start_sec": 1982, "speaker_id": "s", "type": "text", "zh": "嗯。"}, {"start_sec": 1983, "speaker_id": "e", "type": "text", "zh": "一切都在某种程度上——"}, {"start_sec": 1985, "speaker_id": "s", "type": "text", "zh": "当然，当然。祝好运。对，不，我是说，我认为对于每一个在投资主权人工智能（sovereign AI）的国家来说，弄清楚这件事都非常有意思。而且有意思的是，旧金山（SF）依然是那个品牌招牌，这非常有市场号召力。"}, {"start_sec": 2000, "speaker_id": "s", "type": "text", "zh": "我觉得其中一件有意思的事，就是把这个市场想透彻。"}, {"start_sec": 2005, "speaker_id": "e", "type": "text", "zh": "嗯。"}, {"start_sec": 2006, "speaker_id": "s", "type": "text", "zh": "英伟达显然是房间里那头八百磅的大猩猩。为什么他们不——为什么他们没有做出 SF Compute？再说一次，我知道答案会是市场操纵，但我们来真正深入谈谈多个参与者各自的激励。"}, {"start_sec": 2018, "speaker_id": "e", "type": "text", "zh": "对。我们的看法是，英伟达做不了这件事，但它会从这件事的存在中获益巨大。之所以做不了，是因为那样一来它就不够独立，别人不会愿意在上面交易。如果没人在上面交易，就没有足够的流动性让放贷方以远期市场为依据来提供融资。这也是为什么 Crusoe、CoreWeave 和 Lambda 做不了，为什么超大规模云厂商做不了，为什么 Baseten、Fireworks 和 Modal 做不了——因为它们在需求那一侧占得太多了。这件事会让整个行业受益，因为它能降低融资成本。但没有人能做这件事，除非他们放弃去赚所有那些大笔推理收入、去做所有那些大型云交易的能力。你必须亲手杀掉自己的业务，才能做出这个东西。"}, {"start_sec": 2061, "speaker_id": "s", "type": "text", "zh": "嗯。这就是为什么没人做。从结构上讲，他们就不是为做这件事而设立的。而你们基本上是在降低摩擦，这就是你们全部的收入来源。你们公布过一些基准——一些里程碑。其实我忘了在开头说了。能不能重复一下是哪些，你知道，稍微庆祝一下胜利？"}, {"start_sec": 2080, "speaker_id": "e", "type": "text", "zh": "呃，我们已经完成了数亿美元的交易量。我们有相当数量的新集群正在路上。然后我最兴奋的是，我们上线了一大批新功能，让 SF Compute 对平台即服务（PaaS）公司来说非常可用。举个例子，我们允许客户在不必问我们的情况下，自行切分他们的 InfiniBand 网络。很多云厂商在你购买时，会给你一个 InfiniBand 网络，然后如果你想重新划分这个 InfiniBand 网络的边界，你需要联系他们，他们再为你做些操作。我们现在可以为客户即时完成这件事，我认为这非常棒，因为它和市场的衔接非常好——你会希望能够重新划分边界，以便扩缩你的集群。"}, {"start_sec": 2135, "speaker_id": "s", "type": "text", "zh": "你会把这描述为你们在把数据中心虚拟化、让它变得可编程吗？"}, {"start_sec": 2139, "speaker_id": "e", "type": "text", "zh": "对，我们在把数据中心虚拟化，让它变得可编程。所以，如果你拥有硬件本可以得到的所有东西，我们都在努力把它虚拟化，我觉得这让我们很兴奋。"}, {"start_sec": 2149, "speaker_id": "s", "type": "text", "zh": "有意思的是，上一次发生这种事的时候，就是云计算的诞生。就像——"}, {"start_sec": 2153, "speaker_id": "e", "type": "text", "zh": "【笑声】"}, {"start_sec": 2153, "speaker_id": "s", "type": "text", "zh": "对，这真的很酷。最后，你知道，我想问你对大家的行动号召是什么？是找工程师吗？是“把你的供给给我”吗？到底是什么？"}, {"start_sec": 2165, "speaker_id": "e", "type": "text", "zh": "如果你想拥有一个 GPU 集群，想获得它的残值，想把它放进你的投资组合里，我们很乐意和你合作来建造这个 GPU 集群。我们会接手并负责其中的超级计算部分，确保一切顺利。服务等级协议（SLA）由我们承担。然后如果事实证明那是个坏主意，你需要退出那个集群，我们可以立刻把这个集群卖给别人，这样它就不会压在你的资产负债表上。"}, {"start_sec": 2187, "speaker_id": "s", "type": "text", "zh": "非常简单的推介。好，非常感谢你抽出时间。你在为这个行业做出很大的贡献，我很高兴能成为你的朋友。"}, {"start_sec": 2193, "speaker_id": "e", "type": "text", "zh": "谢谢你。"}, {"start_sec": 2195, "speaker_id": "s", "type": "text", "zh": "好，就到这里。"}, {"start_sec": 2199, "speaker_id": "s", "type": "text", "zh": "【音乐】"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

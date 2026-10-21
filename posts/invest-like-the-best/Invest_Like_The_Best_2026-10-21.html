@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>人工智能如何为每一家软件公司重新定价｜克里斯蒂娜·卡乔波（万塔 Vanta 联合创始人兼首席执行官）</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="h">帕特里克·奥肖内西</option><option value="g">克里斯蒂娜·卡乔波</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Invest Like The Best</span><span class="pill">2026-10-20</span></div>
+<h1>人工智能如何为每一家软件公司重新定价｜克里斯蒂娜·卡乔波（万塔 Vanta 联合创始人兼首席执行官）</h1>
+<p class="sub">嘉宾：克里斯蒂娜·卡乔波（Christina Cacioppo，万塔 Vanta 联合创始人兼首席执行官） · 约 65 分钟（3897 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=sQaM5oPlUYs" target="_blank" rel="noopener">https://www.youtube.com/watch?v=sQaM5oPlUYs</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Invest Like The Best</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-20</dd></div><div class="meta-row"><dt>时长</dt><dd>约 65 分钟（3897 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；普通 yt-dlp 遭机器人验证拦截后，经 yt-dlp + Chrome cookies 补拉；该视频无官方字幕），中文为逐句全文翻译，已省略赞助广告</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>sQaM5oPlUYs</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>《投资就投最好的》主持人帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）时隔五年再访万塔（Vanta）创始人克里斯蒂娜·卡乔波，谈“SaaS 末日”下高增长高利润软件公司的估值倍数崩塌、按词元定价的陷阱、以智能体重构产品、十倍薪酬的人才战，以及安全进入“机器速度”的未来和 101 号公路广告牌大战。</p>
+<h3>核心要点</h3><ul><li>按词元加价是陷阱：用户会直接拿你和 Claude 比价，万塔选择自己消化词元成本、牺牲利润率换使用量，目标把智能体工作流覆盖从 25% 客户提到 75%</li><li>“SaaS 末日”下的认知失调：增长 80%、利润率 80% 的公司估值倍数只剩过去的三分之一到四分之一，投资人只想投实验室和“爱荷华的机器人拖拉机”</li><li>顶尖员工总薪酬五年涨约十倍且仍在加速，薪酬带宽“成了笑话”；回购要约已常态化，不做就得用别的补偿</li><li>被低估：对公司与客户的上下文理解；被高估：按词元定价、为营销做模型后训练、前置部署工程师（FDE）热</li><li>安全将进入“机器速度”：模型极度执着，能把十几个低危问题串成真漏洞，优先级排序被颠覆，必须边发现边修复</li><li>“不那么烂的合规”广告牌爆红，后因只有投放订单、没有合同而丢掉位置，三百万美元也买不回</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：约 65 分钟，信息密度高，是从一线 SaaS 创始人视角看人工智能冲击软件商业模式的难得样本；广告约占数分钟，已省略。</p>
+<h3>适合人群</h3><p>SaaS 创始人与高管、软件与网络安全投资人、关注人工智能定价与组织变革的产品负责人</p>
+</section>
+<div class="legend"><span class="spk-0">帕特里克·奥肖内西<em>主持</em></span><span class="spk-1">克里斯蒂娜·卡乔波<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>我们和客户聊过很多关于按词元（token）计费的事，我想我们普遍听到的是：人们其实非常精明。所以如果你试图按词元向他们收费，他们会很快地说：“哦，你不过是把 Claude 的词元加了价。你们 4X 和 Claude 一样好吗？我不知道，让我去试试。”这样你实际上就把自己放到了和模型竞争的位置上。所以我们在词元定价上看到的是，如果你想在上面加价，哪怕一点点，用户都非常精明，你在这种比较中会输。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>克里斯蒂娜（Christina Cacioppo），能和你做这期节目我太兴奋了。我想距离我们上次录已经五年了。所以，发生了很多很多事，恍如隔世。你在这五年间非常成功。所以我很期待和你叙叙旧。你能给我们讲讲万塔（Vanta）的一分钟历史吗？我知道我们以前讲过，但为了给大家统一一下背景：你当初创办它的时候，为什么创办，当时做什么，它是如何演变的，现在做什么。就是一个很快速的概览。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>大约八年前创办了万塔，那大概相当于八千年前。是的，没错。你就像是在十七个世纪以前。当时的前提是：我们能不能帮助公司建立并赢得信任？建立信任，就是启动安全项目和合规项目，或者让它们变得成熟，然后通过审计为它们的客户争取认可，比如 SOC 2、ISO 27001、HIPAA 等等，还有问卷、信任中心。但基本上就是这样一个想法：我们能不能通过帮助公司落实安全来打造一家安全公司，因为这正是它们的客户所要求的。</p>
+<p>所以我们最初以 SOC 2 出名。我们有一块广告牌——我们确实在 101 号公路上有一块广告牌——我开玩笑说我们主要以做广告牌出名。但它一开始非常以合规、非常以审计为中心。我们的想法一直是：嘿，这只是让一家公司开始做这件事的一种方式。所以从那以后，我们进入了安全的不同领域，也进入了与客户建立信任的不同方式。所以今天我们在全球大约有一万六千家客户，大约有五款产品。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>你们是怎么赢的？你创业的时候这是个新品类，然后我记得我也经历过：我以前的公司为了拿下某些客户之类的，必须通过 SOC 2 合规和认证。所以在软件时代，这算是一件重要的事。当时有很多公司——我大概能说出好几家——都在尝试做你们在做的事。你们成了某种意义上唯一的大赢家。从我们上次聊到现在，你会把它归因于什么？你们是怎么赢的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>执行力。我觉得你必须——软件既是福也是祸，而且现在比五年前更是如此——你实际上只和你上一次交付的东西一样好。所以你可以是第一个，你可以开创它，但这其实并不重要。我的意思是，现在更是如此，因为别人可能一个周末就能用氛围编程（vibe coding）把你的东西做出来。所以你必须不断交付新产品、新功能，让客户的体验更好，并依靠这种差异化往前跑。所以有一些是功能层面的。</p>
+<p>我觉得在竞争变激烈时我们真正投入、而且效果非常好的另一件事，是集成——从其他工具中拉取数据。所以现在你可以把万塔连接到四百种工具中的任何一种。我们从这些工具中拉取大量数据，这正是驱动自动化、智能体、人工智能等一切的东西。我们称之为我们的“信任图谱”。它其实就是一个安全数据湖，它比任何其他供应商都更大、更广，包括一些安全供应商，因为我们触及了他们没有触及的领域。我认为回过头看，正是这个数据基础让我们能更快地构建新东西——软件和智能体。就是这一块。然后我觉得在市场推广方面，就是推出好的广告牌。</p>
+<p>比如“惊人地好用、不那么烂的合规”。嗯，这在 Reddit 的 r/Accounting 版块上非常火，我们谁都不知道这会是我们人生的愿望清单之一。但是，嗯，当 r/Accounting 喜欢你的东西时，你会觉得，好吧，某些东西奏效了。然后亲身体验就是：你能感觉到自己已经在尽可能快地前进，而你其实应该更加投入，更加用力。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>最可怕的时刻是什么？我的意思是，你知道，过去十二个月，SaaS 末日（SaaSpocalypse），你会想：“好吧，很好。你知道，干得好，建成了一个记录系统（system of record）。你现在完蛋了。你现在一文不值。”</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>是的，没错。你就像是“玩得不错，这是你的牛排刀”。其中一部分是对的，一部分是不对的。但还是那句话，本着“你只和上一次交付的东西一样好”的精神，你会想：好吧。那么，你知道，你的智能体是什么？你在记录系统里有这么多数据。好吧。你到底拿它在做什么？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>多讲讲那是什么感觉。大致来说，按历史标准，万塔是一家增长非常快、利润率非常高的企业。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>这在四年前被认为是有史以来最好的商业模式。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>嗯，这一点什么都没变。我想你们的增长可能更快了，利润率仍然非常高。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>然而市场却认定，像你们这样的企业的估值倍数只有过去的三分之一，或者四分之一。那这是怎么回事？作为这些创业者之一，亲历这一切是什么感觉？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>我觉得是认知失调。你得在脑子里同时装着两件事，对吧？一件是：你看，我认为从长远来看，一家增长 80%、利润率 80% 的企业会……</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>会很好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>嗯，不只是，是会很好，而且实际上会更好——在同样的时间段里，跑得足够久——比一家增长 160%、利润率 30% 的企业更好。你会觉得，从长远来看，前者会回报更多现金，对吧？但今天，后者的估值倍数是前者的三倍、四倍，甚至十倍，对吧？所以一方面你会想：嘿，大家都不理性了，这是一门好生意，你必须继续做有商业意义的事，做客户想要的事——而这些可能是、也可能不是会让你更偏向后一类而非前一类的词元定价模式。然后还有一块非常明确的“场上的比赛”：你会想，好吧，如果你需要再次融资，你今天面对的投资人中很多都是人工智能极端主义者，你会和一些机构聊，他们会说：“是的，我们会投实验室，基本上我们也会投爱荷华州的拖拉机，中间的什么都不投。”</p>
+<p>你知道，爱荷华州的机器人拖拉机、一个实验室，然后其他一切都不投。你会想：嗯，有意思的观点。然后从人才角度来看，对吧，你招的是有雄心、想做事的人，如果他们觉得自己不在对的船上，他们就会换船，对吧？所以人才争夺战这一块也是非常真实的。所以你只能这样活着：好吧，从长远来看，我认为这一切都会自己理顺。你必须为长远而活。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>所以现在有一种挺好笑的恐惧，就是好像弯勺（Bending Spoons）成了走廊里的死神，你知道，表情包之类的。呃，没人想变成被弯勺收购的公司。顺便说一句，我很喜欢弯勺。我觉得这是个有意思的问题：现在的塞壬之歌就是“卖词元”。</p>
+<p>通过安全与合规智能体，我敢肯定，或者类似的东西。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>对此我有很多想法。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>我只是对像你们这样的公司非常感兴趣——它们算是上一个时代的赢家，现在必须做出一系列决定，对吧？看看十年期国债收益率，资本成本在上升，因为眼下你可以把大量资金以非常高的回报投到人工智能相关的东西上。所以看你们这门生意的人会说：好吧，我想要更高的回报，或者同样的回报，而我通过智能体之类的东西就能得到。跟我讲讲做这些决定是什么感觉。你今天在想什么？你认为自己是一家人工智能企业吗？那是什么样子？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>是的，我们是。而且不只是像“哦，我也觉得自己是世界上最好的人”那样——可能有一点这种成分——但当我们把自己产品中的智能体，和所谓的“人工智能应用”做基准对比时，我们还没有找到比我们走得更远的。当然你可以说“那是你们找得不好”，这是显而易见的批评。但我们确实不断地去看你想到“人工智能应用”时会想到的那一批名字，通常发现它们还没有达到我们的程度——由智能体完成大部分工作。智能体……另一点是，它是基于聊天的，但也有长时间运行的智能体。我们的智能体会即时自动生成用户界面，因为有时你想要聊天，对吧，有时你想要界面。但我们就是有一个能构建界面的智能体，用户可以做些什么，然后回到流程中，让流程继续，非常围绕“让用户持续处在流程循环中”来优化。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>我确认一下我理解了：意思是你们像一个始终在线、盯着安全状况的看门狗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>我们肯定是那样的，但在某些方面，过去你仅靠监控和告警也能做到。这个更像是：万塔的产品体验现在是围绕一个智能体来组织的，它会把事情带给作为用户的你，而且经常会说：“嘿，我去帮你做了这个。你觉得可以吗？那我就去做了。”好，很好。“我认为接下来我应该去做的是这件事。”</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>举个例子？用一个例子落地一下。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>有人刚从你们公司离职，而你没有把他们所有的账户都注销掉。“我刚为你写了一个定制智能体，它会去做这件事。你要我把它打开吗？”很好。“你还要我去，你知道，移除这三个人的账户和访问权限吗？”很好。</p>
+<p>“你要它一直运行吗？”所以它不只是“这里有个红色警报，有人没达到监控要求”——那样警报太多了。而是“你想让我去做这件事吗？”然后——我们从人工智能实验室的用户界面中借鉴了很多——就是“你想让我做一次，还是一直这样做？”很好。所以我们的想法是，智能体会在用户许可下承担越来越多这样的工作，但如果他们让我们去做，我们就直接去做。</p>
+<p>总之，在这个过程中，我们最终会用掉大量词元。我们和客户聊过很多关于按词元计费的事。我想我们普遍听到的是：人们其实非常精明。所以如果你试图按词元向他们收费，他们会很快地说：“哦，你不过是把 Claude 的词元加了价。你们 4X 和 Claude 一样好吗？我不知道，让我去试试。”</p>
+<p>然后你会发现，你实际上把自己放到了和模型竞争的位置上。我想大概没有哪个应用真的想这样做——我们可以聊聊“外壳”（harness）——但你不会想陷入那种比较。所以我们在词元定价上看到的是，如果你想在上面加价，哪怕一点点，用户都非常精明，你在这种比较中会输。你可以不加价，这就涉及利润率的问题了，对吧？嗯，但任何把 Claude 词元加价、换个名字转嫁给用户的人，我觉得那都不是一种模式。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>你们目前是自己消化词元成本？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>你们就是接受更低的利润率。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>我们接受更低的利润率，而且说实话，就是非常专注于使用量。因为我刚才描述的那种体验——智能体自己出去做事——我们从根本上相信那是好得多的用户体验。目前我们大约有 25% 的客户处在那种流程中，我们的想法是：如果我们能把它提高到 75%，第一，我认为我们的留存会好得多，比如净留存，你知道，那就是好得多的客户体验。然后如果我们以后需要去理顺定价，那就以后再去理顺定价。但现在是这项技术的使用阶段、部署阶段，先把这件事做好，商业化可以之后再想。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Ramp、WorkOS、Rogo]</span></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>我也很好奇。你说的是给 Claude 的词元加价，那给像 Kimi 的词元、或者便宜得多的东西加价呢？如果你们不把成本转嫁出去，决定用什么、什么足够好、和成本之间怎么权衡，这个过程是怎样的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>是的，这是我们从今年年初开始集中精力做的事。基本上就是评测（evals）。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>针对所有的——从产品角度来说，是针对特定任务或特定智能体的评测。我们把它统称为万塔智能体，它是一个东西，但当然在幕后是数百个智能体，每个都有特定任务，会使用工具，拥有计算机，你知道，就是我认为大家都在趋同的那一整套架构。但今年年初，我们真正投入去利用我们的领域专家——那些曾在其他公司负责安全和合规项目的人——来编写评测框架，然后再评测他们的评测，并为此使用相应的工具。总之，当我们考虑更换模型时，目前主要还是看质量，而不是成本。我也觉得部分原因在于我们用的词元没有编程那么多。我想大家也都开始意识到：编程和编程智能体会用掉大量词元，接下来也许是法律和文档起草；而当你进入更偏“决策与行动”的世界——也就是我们所在的领域——相对于编程，我们用的词元就没那么多。</p>
+<p>总之，这在某种程度上让我们可以为质量做优化，而不必像其他一些公司那样那么在意成本。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>当你和其他创始人聊——既有你那个时代的，也有这个新时代的——他们在这方面是怎么做的？他们也在自己消化成本、只收软件费吗？你认为最终状态会是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>我觉得每个人都想走向按结果定价（outcome pricing），而如果你真去问一个定价专家，他会告诉你那其实是按产出定价（output pricing），因为它不是……不过无所谓。反正每个人都想走到那一步。在另一段人生里我曾是微观经济学教授，我在概念上很喜欢这个，我喜欢“我们按结果拿钱”以及激励一致这种想法，非常喜欢。难点在于：结果到底是什么？我觉得，你知道，“支持工单已关闭”其实很说得通——顺便区分一下结果和产出，按我的理解，在客服领域，工单关闭是产出，而结果其实是“我的 Sonos 音箱现在能用了”，对吧——但即使像“工单已关闭”这种相对无可争议的东西，我认为很多公司，包括我们，都在努力弄清楚：那个我们都能认同的、干净利落的工作单元是什么？</p>
+<p>你可以说，哦，它是一份起草好的文档、一条已关闭的告警、一个已完成离职注销的账户，你多少可以这样做，但随之而来的认知负担太大了，因为我刚才说了三样东西，我还能再说出四十七样，然后我们的用户就得想：“哦，如果我用智能体做这件事，我要付这么多，但如果我自己做……”你会觉得，没人想要这种东西。我认为我聊过的每个人都想走向按结果或按产出定价，但真的不清楚怎么走到那一步。我觉得按词元收费本身真的会让你直接和 Claude 对上。于是人们试图通过收取“积分”、设置某种积分与词元的兑换比例来掩盖这一点，而我觉得还是那句话，用户很精明，他们会说：“我看出你在干什么了，我看出你把它掩盖起来了。”好吧。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>如果像你刚才那样把自己和其他公司比较，在使用这些工具来构建产品和经营企业方面，你们是否同样走在前面？你会怎么给自己打分？你们在这方面做了哪些有意思的事？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>我想，好吧，就“一家八年的公司、八年的代码库”这一点来说，把编程智能体扔给一个小代码库要比扔给一个大代码库容易得多，这是一个词元输入的问题，而它们正变得越来越好。但过去一年我们也花了很多时间投入的一件事——我知道 Notion 在这上面花了大量时间，而且他们比我们领先了大约九个月——是把代码库的各部分模块化，让智能体只需理解其中较小的部分，并且完全理解它，然后就能非常高效。而如果你把它扔进一个八年的代码库，事先什么都没看过，它就是没有足够的上下文窗口来理解一切，会做些蠢事，于是你就需要一个掌握大量上下文的工程师来看着它，这有帮助，但某种程度上也抵消了部分意义。嗯，公司一直都有这个问题。</p>
+<p>他们只是把它说成：“哦，我们入职一个新工程师时，他们要花一段时间才能搞懂代码库。”只是智能体让情况变成了：好吧，我们现在想明天就入职九千个新工程师。嗯，所以它只是放大了那个问题。所以我在这方面给我们打的分比较低，因为我们正处在用智能体和人一起让代码库更易于理解的过程中。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>如果让你从一到十给自己打分，关于“哇，这改变了一切，从现在起建设这家公司将完全不同”，十分就是完全不同。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>哦，是的。大概九分吧。是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>你大概是九分。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>八到九分。我的意思是，我认为原则仍然是一样的。比如一切都很难，人很重要，你知道，所有那些老生常谈仍然是老生常谈，但你做事的方式应该会很不一样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>你觉得是否正在发生某种分化？再说一次，如果我拿你那一批成功的、大约八年前那个时代的公司来看，你觉得是否出现了两极分化：有些公司领会了精神、做得非常好，而有些公司就要去弯勺那里了？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>算是吧。是的，是的。我认为有些市场存在结构性的部分，而且我觉得弯勺非常擅长，你知道，识别这些市场——在那种结构里，你放世界上任何一个创业者进去都一样。这有点像安德森·霍洛维茨（Andreessen Horowitz）那个“市场赢还是创始人赢”的说法，答案是市场赢。我认为这仍然成立，而且我觉得这次人工智能技术变革让一些过去看起来很好的市场现在看起来很糟，世界上最优秀的人去那里跑，也还是会撞上南墙。而且我认为还有一个创始人动力的问题：在这个时代你必须身在其中、全力推进；如果你不想这么做，完全没问题，但公司的其他部分不会自己组织起来去做这件事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>既然你一直走在前沿，那么，你知道，如果你回去当教授，“采用人工智能入门课”是什么？有哪些最重要的事情是很难做到、但被证明很有成效的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>就是让人们去用它。我觉得有一个……然后，好吧，这听起来很显而易见，但就是一定要自己去用。为你的公司做点东西，个人做也无所谓，就是去了解模型处在什么水平、擅长什么、不擅长什么、“外壳”是什么意思。你就是要这样做，而且至少每两周做一次，因为它变化太快了。我确实认为你必须对什么管用、什么不管用有一种切身的理解，这样当有人过来说“我们要把所有销售开发代表（SDR）都裁掉，因为我做了一个智能体”时，你就能说：“你知道……”你知道这在哪里是对的、在哪里是错的。</p>
+<p>总之，一是要亲自下到泥里，然后我觉得，是的，你想让尽可能多的其他人也下到泥里。概括来说，这事非常非黑即白，有些人就去做了，有些人就不做。如果你一年前问我，我会说：“哦，嗯，这里有某种内在动力，而那些不行的人是另一个问题，去处理他们就是了。”我觉得我现在稍微更有同理心了，因为我们看到——我可以举一个具体例子——非常强的人也没有主动扎进去，你得更多地推他们一把，但要试着弄清楚是什么在阻碍他们。确实会有东西在阻碍他们，而即使他们一开始没有扎进去，你也能把他们带进泥里。</p>
+<p>所以，如果你是一家刚起步使用万塔的小公司，很好，我们为你准备了这一套控制项。你直接采用就行，也许在边边角角调整一下，然后你就可以开跑了。如果你是一家较大的公司，你显然已经在运行一个安全与合规项目。你来找万塔是因为你想把它可视化，你想要自动化，你想要监控，你想要实时仪表盘，你不想要那种零零碎碎的东西。好。那么难点在于，你得把所有现有的东西——控制项、风险、数据、政策、流程，所有这些——都弄进万塔。</p>
+<p>按经典做法，一家 SaaS 公司会说：“哦，我们要做一个入门向导。它有四个步骤和一个进度条，完成后我们会给你撒彩纸。”你知道，就是做那一整套。我们今年开始着手打造更好的入门流程。头几次产品评审，团队一直拿来入门向导。我一直说：“别再弄入门向导了。</p>
+<p>不，你知道，去用大语言模型。别弄了。”但他们一直拿来入门向导。而这是一个有干劲的团队，都是有才华的人。他们很在乎，却一直拿来入门向导。最后我们终于让他们明白了。</p>
+<p>总之，他们现在交付并且运行良好的体验，基本上就像 Claude。就是一块大画布。把你所有乱七八糟的文件拖进来，把你所有的截图拖进来，我们会理清它们，问你一些问题，然后你就设置好了，可以开跑了，而且效果非常好。那么，为什么这些聪明又有干劲的人一直拿来入门向导呢？最后你去弄清楚了，原因是他们觉得：“嗯，我们不知道‘拖入文件’这个东西能不能做成，它可能不行，而我们知道入门向导肯定能行，因为我们以前做过。而且我们基本上认为这个项目不允许失败。”</p>
+<p>然后你过来说：“哦，原来是这个。很好。那么我们就押注大语言模型的流程会成功，我们会让它成功，需要怎么迭代爬坡都行，但要破釜沉舟，就是把这个东西做成。”然后他们说：“哦，好的，太好了。”你知道，“你想明天就再做一次产品评审吗？”但这件事很有意思，你会觉得：“我绝对猜不到那是他们的障碍。”你把那个问题解决了，他们就开始冲了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>你之前提到了人才争夺战。现在有个大趋势——你知道，就是低利润率、高增长那一套——从投资人的角度看，就像你举的那个好笑的例子，实验室或者拖拉机，每个人都想要能成为那种东西的公司。所以就会说：“告诉我你们要怎么成为一家千亿美元或万亿美元的企业。”不知怎么的，现在每家企业都得做到那么大。嗯，面对这种情况是什么感觉——你建的可能并不是一家应该做到千亿美元的企业？世界上大概只有一百家那样的公司，没那么多。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>是的。这并不是说万塔做不到，但我确实觉得挺好笑的。就像，嗯，对我来说，就是：哦，我是不是应该调整一下招聘说辞，说：“嗯，你知道，必然地，这里的底线是万塔值五百亿美元。你真正应该考虑的问题是，如果你加入，你能不能带我们走向两千五百亿美元？”然后你会想：我是不是就该开始这么说了？你知道，还是那句话，答案大概是不该，但答案也不是绝对不该。完全是这样。因为你会想，嗯，那正是万塔的员工从其他公司那里听到的说辞，你知道。然后你就会想：好吧，那你要不要……我尽量不通过说“他们很烂”来反击。但现在市场上这种说法实在太多了，所以如果你不这么说，你看起来确实就像没有雄心。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>那你怎么办？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>万塔有一条原则——价值观，但更是原则——叫“名副其实”（do what it says on the tin），差不多就是说到做到。听着，你可以在罐头上写很有雄心的东西，不是说不行，但不要过度承诺、交付不足。所以我们的做法差不多是：讲清楚一些情况——这是我们作为一家公司在做的事，好的、坏的、不同的，就是给出背景。然后，让我跟你聊聊业务指标，我们通常会尽可能坦诚，把所有东西都给大家看。没关系，指标都挺好。我们不太希望它们泄露出去，但即使泄露了，也不是最糟的事。</p>
+<p>然后带他们过一遍，讲我们在做什么、它会如何随时间增长，并尽量让这一切都以事实和数据为根基。所以在某些方面，就是用数据来对抗氛围，我想是用值得信赖的氛围对抗“及时行乐（YOLO）”的氛围。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>那么在这些人才争夺战中是什么感觉？如果最有才华的人基本上从所有想招他们的其他公司那里听到的都是“这东西会涨到一万亿”。更厉害的说辞是：“嗯，我们今天估值六十亿美元，但红杉资本（Sequoia）一个月后就要开一张一百亿美元的支票，然后明年会有人把估值抬到两百五十亿，但我们今天能让你按六十亿进来。”</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>是的，</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>这招厉害。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>这招很难对付。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>所以，面对这种情况，你怎么办？也许你本来就不想要那些人，也许这是一种过滤器？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>有时候……我这里没有什么神奇的打法。我觉得你可以去问那个人：你在为什么做优化，对吧？还有，你为什么会考虑这个机会——但不是带着刺儿地问，就是问：在万塔有什么让你不爽的，对吧？实际上其中一个具体的例子——一位非常强的领导者，现在仍在万塔——基本上就是这个人觉得自己无法做出能让万塔走上类似轨迹的决定，而那是他们更想要的，然后他们说：“哦，但那个新地方承诺给我在这条路线上完全的决策权。”你会想：完全合理的反馈。你需要什么才能觉得自己可以做这些决定？</p>
+<p>那就去做这些决定，去吧。当然这里面肯定有钱的部分，也有错失恐惧（FOMO）的部分。我们确实提高了薪酬。而且你知道，薪酬带宽——大家会讨厌我这么说——但薪酬带宽现在有点像个笑话。你会觉得，薪酬带宽就是：不管你手里有什么数据，都是错的。真正的标准是这些人在外面拿到的报价。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>你们给万塔最顶尖的人付的钱，按倍数算，比以前多了多少？相对于……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>哦，我觉得我们的薪酬差异应该比现在大得多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>那么，即便如此——这很有意思——但如果我回到五年前，那个人当时挣 X 美元，现在这个人挣的是 X 的多少倍？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>总薪酬，大概是十倍。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>哇。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>而且我觉得其实应该更高。我的总体薪酬理念是，你永远不会给顶尖的人付……</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>足够的钱。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>足够的钱。你应该一直努力把这一点讲得非常清楚，你应该一直去努力，但你永远做不到，而且还有一堆人你付的钱远超过他们的贡献。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>再多讲讲，那些顶尖的人通常在做什么，让他们如此有价值？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>就是高能动性，把事情做成。在某些方面，这听起来很平淡无奇，我不知道这值不值几百万美元，但是的，它确实值：一个掌握大量上下文的人，理解公司、客户和领域，通常做出合理的决定，有时也会做出糟糕的决定，然后在糟糕的决定上迭代，并且一直在前进——这非常有价值。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>你觉得再过五年会不会又是十倍，还是那就开始变得太疯狂了？最有价值的人变得更有价值的速度，是保持不变还是在加速？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>在加速。反作用力是：我们什么时候、或者在什么节点上，投资人会更加担心稀释和股权激励？对吧？在整个 2010 年代我觉得他们算是不太担心，2010 年代后期……我们作为一个行业在大约 2022、2023 年更多地讨论了股权激励问题，现在我们肯定没在讨论它了，但那就是反方向的力量。我觉得如果没有在稀释问题上的那种压力，人们的薪酬就会越来越高。大概也应该如此。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>你有多在乎你们的估值和倍数，以及——请原谅我用这个词——对这些东西的“工程化”操作？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>我历来不在乎，有时甚至会做一些事来表明我不在乎，嗯，这有好有坏。我在乎的是 ARR（年度经常性收入）和 ARR 增长，我确实非常非常关注这些，那些才是指标。我想我现在……我的意思是，我已经经历了足够多的估值环境，比如 2010 年代、2021 年、2022 年，见过倍数的过山车，所以我就是不太看重那个，或者说我过去不看重。我认为我非常在乎、并且会让我开始在乎这些倍数的，是万塔员工的情绪：他们感觉自己身处一家不断增长的公司——既是总体上在增长，也是相对于他们在市场上的其他机会在增长。市场上有一部分公司每六个月融一次资，估值是上一轮的五倍左右，那可是真正的人才竞争对手。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>是的。那像员工股份回购要约（tender）这类东西呢？你们以前做过吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>我们以前没做过，但我觉得那就是现在的“场上规则”。如果别人每次都做，你就得做。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>这感觉不健康吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>完全是。但在某种程度上，我对此的看法其实不重要，我可以对回购要约有任何方向的任何感受。它们已经常态化了，人们期望有它们，并把它当作薪酬的一部分来期待。如果你不给他们，你就得给他们一大堆别的东西来弥补。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>这一切如何影响你的退出目标，比如上市、或者，你知道，被出售，或者为万塔实现某种终局？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>完全没有影响。基本没有。这又是一句很“创始人特权”的话，但基本上，终局就是：我们能把这件事持续做多久？听着，美国 99% 的大型独立软件公司都是上市公司。所以是的，从这个意义上说，会上市（IPO）。我自己并没有把它当作愿望清单上的一项。它更像是达到目的的手段。还是那句话，我觉得很多人加入公司就是想完成这个愿望清单项目。所以，你知道，这里再次附上“创始人特权”的免责声明。但目标是成为一家大型、独立、自主的公司。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>关于所有这些东西——构建的工具、构建的方式，我问到的所有这类事情——你觉得什么被过度炒作了，什么被低估了？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>被低估的是：相对于掌握技能本身，了解公司和客户更重要。招聘、培训、让新加入公司的人上手并变得高效，仍然真的很难。公司内部的各种工具让这件事变得更好、更容易，把信息放到人们指尖，但一个在公司待过、知道如何在公司里周旋、了解客户、了解所有这些的人，仍然非常有价值。我现在正处在这样一个阶段：我们更看重、也更愿意为这种能力付钱，而不是那种纵向技能，比如你很会销售、很会做客户成功。我们宁愿要一个销售技能差一些、但更懂万塔方方面面的销售人员。这里面有点东西。</p>
+<p>而且我觉得，尤其是在很多实验室和快速发展的人工智能公司都在组建市场推广团队的时候，我认为他们其实非常侧重评估“你是不是个好销售”。我觉得这有点偏了。然后我认为，当我们考虑为这一切构建智能体时，公司上下文、客户上下文这部分，相对于“哦，你就是很会销售、你是个好销售”而言，可能被相对低估了。后者今天的价值比四年前略低了一些。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>那被过度炒作的呢？有没有什么你觉得正在被……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>按词元定价；为了低利润率而低利润率；嗯，为了营销价值而定制训练模型。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>为了能说“我们在自己的数据上对模型做了后训练”。为什么？解释一下为什么那是……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>嗯，我觉得如果你去问推理服务商——有时视服务商而定，给他们一点真心话血清——他们会说：听着，对模型做后训练的理由是成本。有些企业可能有这种需求，但做这件事并没有质量上的理由。在当前环境下，做这件事有点像是出于营销理由，对吧？我觉得现在有大量后训练是出于营销目的，针对投资人和客户，其实主要是针对投资人。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>如果这些人中有一位来推销另一面——后训练的价值——他们会怎么跟你推销？比如其中一家公司来找你说，我们会为你做 XYZ，他们在说什么，他们说好处是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>你在宣示自己是一家真正的人工智能公司，客户、投资人都会注意到。我觉得这是主要的一点。我确实认为在某些用例里还有次要的一点，就是一种产品形态上的东西。尤其是对于大型企业，你想在全公司部署这款软件，你知道，它需要各种集成，需要十七个人签字批准，哎呀，那是一整套麻烦事。那为什么不直接给他们一个针对这个用例、专属于他们的模型呢？这里有产品形态上的考虑，我觉得这算是半合理的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>那么，如果我是这些人之一，来到万塔，后训练字面上意味着什么？在你们的语境里意味着什么？你们要做什么，要经历哪些步骤？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>是的，我们需要从那个特定客户那里拿到一堆数据，然后去写一堆评测数据。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>流程就是：他们想实现某个目标，他们有一些数据，你调整一个模型来实现这个目标、提升评测分数。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>是的，基本上是这样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>然后把它卖给他们。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>没错。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>而且是持续性地卖。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>而你的观点是，这被高估了，因为它实际上并不能提升他们的……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>它可以。我觉得我在几个方面持怀疑态度：是不是每个人真的都想被递上一个模型？在用户体验、部署、产品形态方面围绕它的东西太多了。这感觉有点像，你知道，在社交媒体或者我们的移动应用里，当时我们还没发明“下拉刷新”，对吧？有点像那样。这里面有点东西，但我认为没有人真的想被递上一个模型，就像……按一个刷新按钮。我不知道，这听起来很傻，但那就是我们在 2011 年做的事。这里也有某种类似的情况。就是我们还没弄清楚这到底该怎么运作，而递交模型，我认为是一次合理的迭代，但不是正确的解决方案。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>在大众讨论中，还有什么你觉得很疯狂的吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>前置部署工程师（FDE）。我有点觉得前置部署工程师很疯狂，或者说，我觉得它其实是一个很好的人才套利，就像幕僚长（chief of staff）一样。前置部署工程师很多时候其实就是专业服务。但我觉得如果你把它叫作专业服务岗位，那和当下讨论中的前置部署工程师是非常不同的人才画像。而且我觉得你不会让一个，你知道，哈佛计算机系毕业、能动性很强、想做事、想学习如何打造企业的人，去报名成为一家公司的第四号或第十二号专业服务人员。我认为那里有一份真实的工作，但我觉得包装在它外面的“前置部署工程师”这层外衣大概不会持久。</p>
+<p>我也觉得，对，我们都认为做得好的公司是帕兰提尔（Palantir），我觉得他们大概确实做得好。他们有八位数的合同。有一些公司有八位数的合同。我觉得我们现在在合同只有五位数、六位数的地方全都用前置部署工程师，这种经济账大概是倒挂的。不过我们又处在一个比如增长率 30%、利润率更好的时代，所以这还算行得通，但这感觉不可持续。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>当你在旧金山和其他创始人吃晚饭时，你们在聊什么？你们在聊模型、该用哪个吗？现在创始人之间实际的话题是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>肯定有人才争夺战方面的话题。有一段时间——这更多是九个月前了——但当时，你知道，大家围着桌子轮流抱怨 Cursor 把所有人都挖走了，是一种乐趣。嗯，就是当下的那个“Cursor”，肯定有那一部分。还有一点，我的意思是，我会说说前置部署工程师：“你们真的在做这个吗？有效吗？你们在这方面进展到哪了？”我的意思是，现在，你知道，还有个人智能体，嗯，你们用的是哪些？哪些真正有用？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>当你考虑开源的东西、中国模型、这个那个的时候，在和世界各地正在纠结同样问题的人交流时，你学到了什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>是的，几周前我在法国和我们的客户在一起，非常愉快。让我非常惊讶的一件事是，巴黎的很多法国软件公司主要在用中国模型。我起初以为这是某种民族主义，也许是反美情绪，你知道，就是那方面的东西。我还很蠢地提出了这个想法，结果有人很快纠正我说：绝对不是。基本上，当特朗普（Trump）把 Fable 对非美国人关闭的时候，我们全都转向了中国模型，我们一下子意识到这里存在巨大的业务连续性风险。我们无法相信，如果我们把业务建立在这些美国模型之一上，它会一直可用。所以我们不再那样做了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>如果你尽情畅想未来几年这门生意可能走向何方——就当逼你回答那个千亿美元、你知道，两千五百亿美元的问题之类的。</p>
+<p>万塔有可能变成那样的版本是什么样子？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>我们把万塔看作一家安全公司。从合规起步，但我认为合规的最佳形态是证明你所拥有的安全性。你必须有好的安全性。我们认为我们能够、而且正在进入一系列安全领域。这有点像平台的说法：你看，我们已经有了数据，我们已经通过智能体拥有了智能，我们可以开始在此之上叠加产品，叠加更多以安全为中心的产品。随着我们了解所有这些公司的安全状况，它们需要证明自己合法、达到工业级水准的压力只会越来越大。这是万塔八年前创立时的核心论点之一，但现在感觉更加正确了。无论它们是在和企业、政府、监管机构还是立法者合作，你都必须在很多方面证明你的软件是工业级的，而且未来这种情况会以越来越多的方式越来越频繁地出现。而万塔就是连接这两边——姑且称之为市场——的那个东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>那么安全的方向是什么？这当然是一个极其有意思的话题。就像早期互联网，一切都会坏掉，一切都被黑。这次大概会是那种情况的十倍或一百倍。嗯，做安全是否意味着你们要和 CrowdStrike 这类公司竞争？在这个疯狂的时代，安全意味着什么，它的轨迹是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>这些模型就是比人要执着得多。所以它们会尝试九千万亿种东西，而一个人试了，我不知道，九千次之后大概就放弃了，对吧？然后在这个过程中，它们会发现一些东西，并把它们串联起来。所以我觉得，很多讨论都围绕零日漏洞（zero-day），而这些模型确实在发现一些我们以前没发现、或者以前没有公开发现的东西。但我认为实际上更多发生的是：这些模型能把十七个单独来看近乎无害、或者无害的东西串联起来，然后真正找到点什么。如果你看过 OpenAI 在 RSA 大会上关于 Hugging Face 的那场演讲，基本上讲的就是这个：就是执着，把那些单独看时人们会觉得“这是低危漏洞，我九十天内修就行”的东西组合起来，对吧？</p>
+<p>总之。但这种转变——我觉得很艰难，我们必须和机器作战——因为它把原本“哦，那很重要但危害程度低，还是九十天，我要先修别的”这种东西彻底颠覆了。它把优先级排序完全颠倒过来，而说“它让一切都变成了紧急”并没有帮助，因为你会想，那你该怎么办呢？对吧？但我认为最终的样子是：你必须在发现问题的同时尽快修复。有些优先级排序确实需要被抛弃。</p>
+<p>但如果你是以机器的速度修复问题，你就某种程度上不需要排优先级了。所以我认为那就是我们最终会到达的地方。但我觉得在到达那里的过程中会很颠簸。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>所以当我想象那个画面时，我感觉那就像一场持续不断的渗透测试。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>一个智能体一直在尝试入侵，比如一个白帽黑客智能体，然后每次它发现什么，它都有一个负责打补丁的智能体伙伴……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>去修复它。是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>那这就是终极的产品愿景吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>对于万塔的某些部分来说，是的。是的。我认为我们可以为大部分客户以非常有吸引力的方式做到这一点。我认为 CrowdStrike 为大型企业会做得更好，对吧？我觉得这正是选择在哪里竞争、选择哪个细分市场最重要的地方。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>有没有哪家公司，在传统安全领域里，你们现在开始侵入它的地盘？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>是不同的市场。我的意思是，就拿那个持续性的渗透测试者和你知道的修复者来说，对吧？我们认为我们可以为云服务商做这件事，比如 AWS 和 Azure 上的错误配置，传统上，对吧，Wiz 做这个，Wiz 会为它的客户做这个。Wiz 的客户群起步就是几千人规模的公司，它的价格点也是从几千人规模的公司起步的。所以我们更多是这样思考平台：我们在哪些地方已经嵌入到客户之中？在哪些地方客户不太可能为 Wiz 付十五万美元，但很可能会为一个适合他们的东西付四五万？所以就是在想：我们在哪里已经很强，而竞争对手可能专注在别处，大概是更高端的细分市场。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>你的个人动力有什么变化？你当初着手打造这个东西。我记得第一次和你聊的时候，你打造最初产品的方式非常有魅力，比如先用 Excel 做，现在回过头看，你知道，似乎非常老派。而且总有那种“追上汽车的狗”的情况：好吧，你建成了这么一家巨大的软件企业，太棒了。在这一切过程中，你自己的动力是如何演变或改变的？为什么还要继续？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>它很有趣、很有挑战，而且一直在变化。我的意思是，我觉得，我真的很喜欢我的工作。有时我觉得自己很擅长，更经常我觉得自己做得很差，那也没关系。在某些方面那不是重点。嗯，但它在变化，它与以往不同，而每当我觉得自己做得不错了，通常就会发生一些事，然后，你知道，情况就变了，我又觉得自己做得很差。我真的很喜欢这种动态。</p>
+<p>我觉得一开始我更多的感觉是：人们认为我做不到，而我认为我能，我要证明给他们看。我现在仍然有这种感觉，你知道，甚至到了“你不觉得万塔能做到两千五百亿美元，让我证明给你看”这种程度。我仍然有，但我想你大概能看出来，它少了些阴暗的锋芒。还是有一点阴暗的锋芒，但少多了。更像是：哦，酷，我们现在到这儿了。我们就看看能跑多远，以一种感觉更有趣、更快乐的方式。</p>
+<p>它并不总是快乐的，我不是那个意思，但就是感觉更像：哦，酷，让我们看看这件事能走多远。而且我觉得我们能走得相当远。而一开始更多是：你觉得我连起跑线都离不开，让我证明给你看。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Vanta、Ridgeline]</span></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>八年前的你，会对你一路上培养出的哪项具体技能感到多惊讶？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>我大概会很惊讶。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>最令人惊讶的是哪一项——你现在很擅长、而过去的你会说“不可能”的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>我喜欢市场推广，远超我当初的预料。嗯，</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>为什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>嗯，我觉得是因为你可以一直和那些亲切友好的人打交道。我的意思是，我以前是个很糟糕的公开演讲者，而且实际上我在自己的团队面前最紧张，因为我最在乎他们怎么看我，而且我会想：“天哪，我代表的是你们。我想把这件事做得非常好。”在这方面，暴露疗法很有帮助。你就去做，你确实会变得更好。但我想，想到要在启动大会上、或者在全公司聚会上，站在台上面对一千个人，我觉得过去我会想：“我会做得很糟。”而我觉得我身边的人也会想：“是啊是啊，她会做得很糟，也许她应该……你知道，她能接受多少辅导？”你知道，我觉得这和其他任何事一样：是的，如果你努力培养一项技能，你往往会变得更好，你必须投入功夫。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>在这一点上我特别感兴趣，这似乎总是高杠杆的。什么最重要？你已经做过几百次这种演讲了，什么让一次演讲变得好？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>就像那句老话说的：没人记得你说了什么，但他们记得你让他们有什么感受。这太烦人了，但它真的太对了，至少对我来说是这样。我确实必须相信内容本身，而如果我只是上台，内容让我觉得空洞，我自己也会有这种感觉，而且所有人都会看得很明显，你知道。所以你得找到属于你自己的方式。对我来说，我会尽量放入真实的内容，同时脑子里也记着：没人会记住这些事实中的任何一个。所以，用心比用脑更重要。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>重要得多。是的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>是的，是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>那么用心的关键是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>自己相信它。我不知道，就是舞台上的“真诚入门课”。人们很擅长解读彼此。当某人……当你感觉和你说话的人是在走过场，或者并不真心这么觉得，或者在误导你——也许也在误导他们自己——你知道，人们能看出来。他们没法完全说清楚发生了什么，但就是觉得有什么不对劲。嗯，相比之下，一个真心投入的人，你知道，即使他们投入的是某种古怪的东西，那种真诚也会传递出来。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>你现在纠结的重大取舍有哪些？你不可能什么都做。你必须做决定。赌注比以往任何时候都高。构建东西比以往任何时候都容易。看起来现在做你在做的事是个很酷的时刻，但一定有你在纠结的重大取舍。那些是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>是的。我的意思是，我们进行过、也正在进行的一个讨论是：过去一年里，我们一直努力以一种“智能体优先”的方式来构建。我可以讲讲那是什么样子。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>智能体到底是什么意思？为什么那不直接叫人工智能？那是什么意思？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>我不知道。你说“智能体”，收入倍数就翻两倍。你说“外壳”，大概是三倍。你可以说“外壳”加上提示词文件，就是减三倍，你知道。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>所以是……但智能体就是人工智能的意思，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>你住在旧金山。抱歉。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>我……每个人都在说智能体，说得太多了。我甚至都不知道那是什么意思。它就是人工智能的意思，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>好的。那你继续。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>是的。我们一直努力打造一个很好的“外壳”，为我们的客户打造一个很好的外壳，而实际上并不是去构建一堆 SaaS 用户界面。你知道，就像：哦，你想要报表，我们会让我们的智能体基于我们所有的数据按需为你制作图表。我们不会把 Tableau 塞进万塔里——如果我们是在 2022、2021 年构建它，大概就会那么做。我们相信这一点，既是从短期客户成果的意义上，也是从中长期的意义上：这就是软件将来的样子。没有人会把 Tableau 塞进自己的产品里。开玩笑多于认真。虽然确实有人把 Tableau 塞进了自己的产品里。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>所以这里有一个方面：这种技术扩散的事情很吓人，因为也许拖拉机——拖拉机公司——要花十年，而在此期间你是对的，但太早了，因此也就是错的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>对。因此也就是错的，你知道，你某种程度上是在押注那个时间跨度。嗯，这件事的另一个版本，其实是大企业。我们在和一家美国大企业谈，试图签下来，他们基本上说：“嘿，也许我们想要你们的人工智能功能，也许不想要，但你们能不能先把它们关掉？”为什么？答案是：因为让一个非人工智能工具通过采购流程要容易得多，而我们想要你们的……</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>等进去以后再打开。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>对。而我们其实并没有一个关闭开关，你知道。你会想：哦，我们是不是该去做一个？但你又会觉得：恶心，我们不想做那个。希望我们不必用到它。我们更愿意把那些时间和精力拿去做点，你知道，真正有用的东西。总之，我们不会去做这个关闭开关。但这就是那种……你会想，这就是那些取舍。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>如果你是投资人——你以前是——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>是的，</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>你现在会关注哪里？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>哦，我现在一点也不羡慕这份工作。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>为什么？为什么你不羡慕？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>尽管我可以在公司这一侧批评和取笑那种“哦，我觉得人们在以一种非常短期的方式误解这些企业中的一部分”，但我觉得错失恐惧、“你的回报是多少”之类的——我看到一条推文说，如果你在过去四年里没有投过一家实验室或推理服务商，你就该把你的机构关掉，因为你到底在干什么——嗯，这种情况在投资人一侧感觉比在公司一侧更加尖锐。所以，不管我觉得我的生活有多难——要说清楚，我的生活并不难——但不管我们面临的取舍是什么，在风险投资一侧，感觉更像是回音室，更多地被以增量回报和账面回报来评判，比公司一侧更甚。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>那你会怎么做？你会去哪里寻找机会？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>是的，显然是实验室和推理服务商。不是。嗯，那些感觉有点……嗯，我们可以争论它是否已经兑现了，但入场价格很高。我感觉，围绕开源模型提供商的讨论和那种确定性，与围绕它们的工具和公司之间，似乎有点脱节。有点像：哦，我们都已经认定开源模型提供商会非常真实地存在，然后围绕它们的生态系统却远不如大实验室那样完善，这让我觉得不对劲。你可能有更好的……</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>你说的围绕它们的生态系统是指什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>如果你认为像一个实验室，或者是叫 Long Lake 吗？就是那种“我们基本上就是要去部署这项技术，把人工智能放进这些企业里”的公司。你能围绕开源模型提供商建立一家那样的公司吗？如果你认为……当然可以。而且我也确信在某种程度上 Long Lake 正在这么做，但你真的能像 OpenAI 抓住它自己的东西那样，抓住其中一个模型，然后照搬那套打法吗？基本上，很多实验室的打法看起来应该也适用于开源模型。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>而它就是不那么成熟。是的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>所以那里还有更多可做的事。没错。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>是的，是的，是的。为什么人们不……是的。我在这点上漏掉了什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>我就是觉得，这只是一个节奏的问题。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>我觉得任何这些东西能去的地方都是。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>这有点讽刺，有点像私募股权之类的——私募股权曾经承诺要做的事，就是把企业整顿好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>现在它们可以容易得多地做到了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>所以，呃，大概一切能变得更高效的都会变得高效得多，而回报将来自更高的利润率，你知道，更高效的运营，诸如此类。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>对。但那是效率层面的事，不是创造层面的事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>对。所以我想我更好奇的是，当你观察你的同行和你身边的人时，在创造层面，新芽冒在哪里？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>我的意思是，一大批人在创办安全、网络安全公司，既是因为大环境，而且我看到这类公司相对于其他领域按比例更多。一大批人在攻营收、也就是市场推广技术，我觉得这非常说得通。我觉得其实一些，你知道，老牌的 SaaS 营收工具供应商本应该构建所有这些东西，但看起来他们并没有，实际上他们更像是在运行私募股权、弯勺那一类的打法，这同样是一种选择，也许是合理的选择。机器人可能被低估了。我的意思是，它多少有点热、有点被炒作，嗯，那不是什么新领域，但相比所有那些软件领域，它肯定仍然被低配了。说句显而易见的，那边的模型也正变得非常非常好。所以大概值得花时间在那里。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>还有什么是你因为自己独特的经历而知道、而别人还没有充分认识到的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>过去几年里，万塔花了更多时间和美国境内外联邦、州、地方各级政府打交道。存在一种对现代化的渴望，这是当前美国政府明确提出的一大优先事项，但在美国以外同样存在。而且我认为人工智能这部分在政府官员中制造了更多错失恐惧，你知道，他们也许一直知道自己没有现代化的流程或现代化的软件，但现在这感觉比过去更加紧迫。所以我觉得那里有些东西。也许这里有一个更宽泛的答案：围绕人工智能和这项技术的所有讨论，改变并提升了很多现代化工作的优先级。有时是在政府内部，有时是在企业内部。</p>
+<p>我们在和我们打交道的很多首席信息安全官（CISO）身上，在网络安全领域，确实看到了这一点。他们的工作因为人工智能而改变，他们会说：“哦，鉴于人工智能以及来自智能体的风险，我想彻底改造我的企业风险项目，我想为此要预算。”而我觉得如果他们三年前说“我想为我的企业风险项目要预算”，人们会说：“我们也许在年度经营计划（AOP）里再谈吧。”而我认为因为它和人工智能挂钩，他们今天拿到那笔预算的可能性要大得多。所以采购动作更多了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>如果现在要招人来万塔工作，你的主要说辞会是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>哦，这是个有趣的阶段。你会有一万六千家客户在使用产品、使用智能体。当你交付东西时，它们会被真实的人使用，你会即时得到真实的反馈。它已经有了产品市场契合（product-market fit）。你就是去做实验，嗯，用快速的迭代循环，</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>但又足够早，你仍然可以……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>但你可以快速行动。是的，是的。我们让你放手去做。是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>是的。因为这是一个非常棒的硅谷缩影。你能讲讲那个广告牌大战故事你讲过的最详细的版本吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>我一直非常怀疑广告牌，因为它们似乎实际上并不……或者说谁知道它们有没有用。追踪效果非常糟糕，而且感觉人们做广告牌的原因是创始人的自我，就是“因为我觉得很酷，因为我的公司有一块广告牌”。所以我一直非常反对广告牌。2021 年仲夏，SaaS 大会——当时感觉是件大事，谢天谢地我们现在差不多已经超越那个阶段了——我们决定，或者说我们的市场团队决定，尝试一下户外广告。我超级怀疑，但我想，好吧，无所谓，试试看吧。你知道，我们要在广告牌上放点东西，而当时的产品营销经理莎拉（Sarah）想出了“不那么烂的合规”（compliance that doesn&#x27;t suck too much），并把它提给了我们的市场负责人，而他不喜欢，因为他觉得我们像是在贬低自己的用户，基本上就是说：“不行，再好好想想。”</p>
+<p>说得友好得多，但意思就是再好好想想。而莎拉有点坚信这个点子，于是她来找了我——她通常不会这样做，她不是那种越过上级的人——但她是真的相信“不那么烂的合规”，所以就拿来给我看。我读了，然后我马上……实际上我马上给我们的投资人安德鲁·里德（Andrew Reed）发短信说：“你觉得怎么样？你对网络梗很有品味。”他很喜欢。于是你会想：“好吧，我们试试。</p>
+<p>我们投放吧。”就是说：“最坏能怎么样？人们会觉得我们很讨厌，然后大概六个月后就忘了。”实际上看起来相对……总之。于是我们把广告牌立在了某个地方，比如靠近伯林盖姆（Burlingame）。效果出奇地好。</p>
+<p>我们发了推文。推文火了。接下来几个月，那条推文还在流传，最后出现在了 r/Accounting 上，成了一个获客漏斗，对吧？你会想：哦，这是块宝。我觉得它真的奏效了，因为它是我们品牌最好的样子、我们市场营销最好的样子。我们的特质是带着一点眨眼的幽默，就是，你知道，我们严肃对待我们的工作，但我们并不总是严肃对待我们自己。</p>
+<p>所以我觉得这里面有某种东西引起了共鸣。然后我还觉得，它有点隐晦，但又没那么隐晦，就是足够隐晦，如果你看懂了，你会觉得自己领悟了一个秘密。总之，“不那么烂的合规”就是奏效了。好。2022 年，市场崩盘。结果发现 101 号公路上有大量广告牌空位。</p>
+<p>于是我们拿到了这个很棒的位置，对吧，就在 101 和 280 差不多交汇的地方，总之是个很棒的位置，价格却没那么高，尤其是回头看的话。我们开玩笑说：“哦是的，我们已经把它锁定好几年了，怎么样？”于是我们因为这个位置上的这块广告牌而出名。我想我甚至在播客上说过合同锁定了好几年。其实并没有锁定好几年，但那块广告牌出名了。于是人们一直联系我们和莎拉，问：“你们怎么做广告牌的？</p>
+<p>你们的广告牌怎么做的？”我们就说：“哦，我们和这家代理商合作，我们和这个人合作。”于是我们给这个人介绍了所有这些生意。我们就一直说：“找他，找他，找他。”总共有几百万美元的生意。很好。</p>
+<p>好。结果在背后，我们并没有多年期合同——我本应该核实一下的。如果我要在播客上那么说，那确实不算“名副其实”。那份合同基本上就是：你已经把广告牌立起来了，就这样。这根本就不算是合同。好几年过去了，莎拉在和她的一个朋友吃晚饭，那个朋友在一家创业公司工作，她的朋友说：“哦，你们放弃了那个广告牌位置，真可惜。</p>
+<p>你们为什么那么做？”莎拉说：“什么？”他们说：“哦，是的。我们刚签下了你们的位置。”莎拉说：“什么？我们能要回来吗？”</p>
+<p>或者说：“合同呢，合同呢？”合同是用蜡笔写的。根本没有合同。基本上就是一张投放订单。打电话给那个人，他说：“是啊，你知道，那只是投放订单。他们出价更高。”</p>
+<p>所以，位置就这样在我们眼皮底下被换掉了。我去找那家公司的创始人说：“你好，我能……我能付你多少钱？”而我在这里是一个极度缺乏价格弹性的买家。就是：“我付你多少钱能换这个位置？”他说：“多少都不行。”我说：“我出双倍怎么样？”</p>
+<p>我想他当时付的是大概一百五十万。你就说：“我给你三百万，只为了拿到这个位置，怎么样？”他说：“我们其实现金流是正的。”所以，字面意义上他是个毫无弹性的卖家。于是我们失去了那个位置。要说让我觉得“哦不，万塔完蛋了”的事——说实话，失去那块广告牌的时候，我想，我们大概刚刚损失了十亿美元的市值。不祥之兆。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>是的，是的，是的，是的。既是不祥之兆，也确实有一些市值——你知道，某种“氛围上”的市值——就这么缩水了。是的。</p>
+<p>还有什么我遗漏了的吗？有什么吸引了你的好奇心和注意力、你认为现在非常重要的东西？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>你在数据中心的讨论中能看到，在某种程度上在个人智能体的事情上也能看到：我们就是不再像过去那样信任软件公司、科技公司了。而且这种情况逐年恶化。很难想象它会出现拐点、重新回升，回到十五年前那种有益的乐观状态。所以我认为，在这种背景下，公司通过大量指标和实际定义来证明自己值得信赖、达到工业级、安全可靠，比以往任何时候都更重要，而且只会越来越重要。还是那句话，要面向一大批客户、监管机构、立法者、审计师等等。价值两千五百亿美元的万塔，就处在所有这些交易的中心，帮助公司达到那些高标准——或者不管标准定在哪里——然后传达这一点，帮助它们去传达这一点，并加速它们的业务。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>换一种说法就是，人工智能开启了一个兴奋度极高但信任度很低的……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>是的，这个说得好。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>时代。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>是的。而万塔的工作就是保持这种兴奋，但……</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>提升……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>是的，提升信任，而且要名副其实地提升，不只是靠氛围，而是靠……是的，是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>什么能让市场重新信任？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>我觉得在 B2B 的语境下，比如企业之间，我确实认为有一点氛围的成分，但也有非常真实的数据成分，就是：我希望看到具体的东西，或者具体的改进曲线，或者也许做出承诺，而且可能有合同作保障，对吧？我觉得那一块要“合乎逻辑、理性”得多，企业市场往往就是这样。我认为在消费者这一侧，靠的是氛围，而我觉得那一块似乎很难扭转。我不羡慕那份工作。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>你信任它们吗？Muse 之类的等等。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>大公司？不信任。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>为什么不？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>倒不是说我的，你知道，邮件或者聊天记录或者什么里面有什么特别有意思的东西。我的生活没那么有意思，但我宁愿，你知道，只有谷歌（Google），或者只有苹果（Apple），或者只有某一家公司掌握那些信息。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>五年后的安全是什么样子？如果你就这样收个尾：好吧，这就是我们的方向，我们想成为这一切中心的那个角色。为我们描述一下那个状态。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>五年后的安全会更快、更加激烈，希望也更具进攻性——是的，我们会有更多的攻击，但我认为你需要更多白帽力量来反击这一切。而且要达到我们从未有过的速度。我认为要让人达到那个速度，你必须把相当一部分人的决策拿掉，或者说让人去架构系统、编写规则，而不是做每一个决定。就像是从那里退下来……</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>编写评测。也许未来我们就只做这件事了。我们所有人整天都在写评测。</p>
+<p>如果必须用一个词来定义万塔未来五年会是什么样，你会选哪个词？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="克里斯蒂娜·卡乔波">克里斯蒂娜</span></div><div class="content">
+<p>广阔（expansive）。我认为我们拥有令人难以置信的客户基础和数据基础，现在我们可以在此之上去构建东西。花了八年才走到这里，接下来的五年或八年，我们可以就在此之上构建东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="帕特里克·奥肖内西">帕特里克</span></div><div class="content">
+<p>太酷了，我们五年前做过这期，现在我们又来了。非常感谢你抽出时间。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Ramp、Vanta、WorkOS、Ridgeline]</span></div>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Invest Like The Best", "title": "人工智能如何为每一家软件公司重新定价｜克里斯蒂娜·卡乔波（万塔 Vanta 联合创始人兼首席执行官）", "url": "https://www.youtube.com/watch?v=sQaM5oPlUYs", "videoId": "sQaM5oPlUYs", "published_at": "2026-10-20", "duration": 3897, "caption_source": "YouTube 自动生成字幕（en-orig；普通 yt-dlp 遭机器人验证拦截后，经 yt-dlp + Chrome cookies 补拉；该视频无官方字幕），中文为逐句全文翻译，已省略赞助广告", "guests": ["克里斯蒂娜·卡乔波（Christina Cacioppo，万塔 Vanta 联合创始人兼首席执行官）"], "speakers": [{"id": "h", "name": "帕特里克·奥肖内西", "role": "host", "short": "帕特里克"}, {"id": "g", "name": "克里斯蒂娜·卡乔波", "role": "guest", "short": "克里斯蒂娜"}], "intro": {"summary": "《投资就投最好的》主持人帕特里克·奥肖内西（Patrick O'Shaughnessy）时隔五年再访万塔（Vanta）创始人克里斯蒂娜·卡乔波，谈“SaaS 末日”下高增长高利润软件公司的估值倍数崩塌、按词元定价的陷阱、以智能体重构产品、十倍薪酬的人才战，以及安全进入“机器速度”的未来和 101 号公路广告牌大战。", "points": ["按词元加价是陷阱：用户会直接拿你和 Claude 比价，万塔选择自己消化词元成本、牺牲利润率换使用量，目标把智能体工作流覆盖从 25% 客户提到 75%", "“SaaS 末日”下的认知失调：增长 80%、利润率 80% 的公司估值倍数只剩过去的三分之一到四分之一，投资人只想投实验室和“爱荷华的机器人拖拉机”", "顶尖员工总薪酬五年涨约十倍且仍在加速，薪酬带宽“成了笑话”；回购要约已常态化，不做就得用别的补偿", "被低估：对公司与客户的上下文理解；被高估：按词元定价、为营销做模型后训练、前置部署工程师（FDE）热", "安全将进入“机器速度”：模型极度执着，能把十几个低危问题串成真漏洞，优先级排序被颠覆，必须边发现边修复", "“不那么烂的合规”广告牌爆红，后因只有投放订单、没有合同而丢掉位置，三百万美元也买不回"], "verdict": "值得看：约 65 分钟，信息密度高，是从一线 SaaS 创始人视角看人工智能冲击软件商业模式的难得样本；广告约占数分钟，已省略。", "audience": "SaaS 创始人与高管、软件与网络安全投资人、关注人工智能定价与组织变革的产品负责人"}, "paragraphs": [{"start_sec": 0, "speaker_id": "g", "type": "text", "zh": "我们和客户聊过很多关于按词元（token）计费的事，我想我们普遍听到的是：人们其实非常精明。所以如果你试图按词元向他们收费，他们会很快地说：“哦，你不过是把 Claude 的词元加了价。你们 4X 和 Claude 一样好吗？我不知道，让我去试试。”这样你实际上就把自己放到了和模型竞争的位置上。所以我们在词元定价上看到的是，如果你想在上面加价，哪怕一点点，用户都非常精明，你在这种比较中会输。"}, {"start_sec": 1, "speaker_id": "h", "type": "text", "zh": "克里斯蒂娜（Christina Cacioppo），能和你做这期节目我太兴奋了。我想距离我们上次录已经五年了。所以，发生了很多很多事，恍如隔世。你在这五年间非常成功。所以我很期待和你叙叙旧。你能给我们讲讲万塔（Vanta）的一分钟历史吗？我知道我们以前讲过，但为了给大家统一一下背景：你当初创办它的时候，为什么创办，当时做什么，它是如何演变的，现在做什么。就是一个很快速的概览。"}, {"start_sec": 2, "speaker_id": "g", "type": "text", "zh": "大约八年前创办了万塔，那大概相当于八千年前。是的，没错。你就像是在十七个世纪以前。当时的前提是：我们能不能帮助公司建立并赢得信任？建立信任，就是启动安全项目和合规项目，或者让它们变得成熟，然后通过审计为它们的客户争取认可，比如 SOC 2、ISO 27001、HIPAA 等等，还有问卷、信任中心。但基本上就是这样一个想法：我们能不能通过帮助公司落实安全来打造一家安全公司，因为这正是它们的客户所要求的。"}, {"start_sec": 3, "speaker_id": "g", "type": "text", "zh": "所以我们最初以 SOC 2 出名。我们有一块广告牌——我们确实在 101 号公路上有一块广告牌——我开玩笑说我们主要以做广告牌出名。但它一开始非常以合规、非常以审计为中心。我们的想法一直是：嘿，这只是让一家公司开始做这件事的一种方式。所以从那以后，我们进入了安全的不同领域，也进入了与客户建立信任的不同方式。所以今天我们在全球大约有一万六千家客户，大约有五款产品。"}, {"start_sec": 4, "speaker_id": "h", "type": "text", "zh": "你们是怎么赢的？你创业的时候这是个新品类，然后我记得我也经历过：我以前的公司为了拿下某些客户之类的，必须通过 SOC 2 合规和认证。所以在软件时代，这算是一件重要的事。当时有很多公司——我大概能说出好几家——都在尝试做你们在做的事。你们成了某种意义上唯一的大赢家。从我们上次聊到现在，你会把它归因于什么？你们是怎么赢的？"}, {"start_sec": 5, "speaker_id": "g", "type": "text", "zh": "执行力。我觉得你必须——软件既是福也是祸，而且现在比五年前更是如此——你实际上只和你上一次交付的东西一样好。所以你可以是第一个，你可以开创它，但这其实并不重要。我的意思是，现在更是如此，因为别人可能一个周末就能用氛围编程（vibe coding）把你的东西做出来。所以你必须不断交付新产品、新功能，让客户的体验更好，并依靠这种差异化往前跑。所以有一些是功能层面的。"}, {"start_sec": 6, "speaker_id": "g", "type": "text", "zh": "我觉得在竞争变激烈时我们真正投入、而且效果非常好的另一件事，是集成——从其他工具中拉取数据。所以现在你可以把万塔连接到四百种工具中的任何一种。我们从这些工具中拉取大量数据，这正是驱动自动化、智能体、人工智能等一切的东西。我们称之为我们的“信任图谱”。它其实就是一个安全数据湖，它比任何其他供应商都更大、更广，包括一些安全供应商，因为我们触及了他们没有触及的领域。我认为回过头看，正是这个数据基础让我们能更快地构建新东西——软件和智能体。就是这一块。然后我觉得在市场推广方面，就是推出好的广告牌。"}, {"start_sec": 7, "speaker_id": "g", "type": "text", "zh": "比如“惊人地好用、不那么烂的合规”。嗯，这在 Reddit 的 r/Accounting 版块上非常火，我们谁都不知道这会是我们人生的愿望清单之一。但是，嗯，当 r/Accounting 喜欢你的东西时，你会觉得，好吧，某些东西奏效了。然后亲身体验就是：你能感觉到自己已经在尽可能快地前进，而你其实应该更加投入，更加用力。"}, {"start_sec": 8, "speaker_id": "h", "type": "text", "zh": "最可怕的时刻是什么？我的意思是，你知道，过去十二个月，SaaS 末日（SaaSpocalypse），你会想：“好吧，很好。你知道，干得好，建成了一个记录系统（system of record）。你现在完蛋了。你现在一文不值。”"}, {"start_sec": 9, "speaker_id": "g", "type": "text", "zh": "是的，没错。你就像是“玩得不错，这是你的牛排刀”。其中一部分是对的，一部分是不对的。但还是那句话，本着“你只和上一次交付的东西一样好”的精神，你会想：好吧。那么，你知道，你的智能体是什么？你在记录系统里有这么多数据。好吧。你到底拿它在做什么？"}, {"start_sec": 10, "speaker_id": "h", "type": "text", "zh": "多讲讲那是什么感觉。大致来说，按历史标准，万塔是一家增长非常快、利润率非常高的企业。"}, {"start_sec": 11, "speaker_id": "g", "type": "text", "zh": "是的。"}, {"start_sec": 12, "speaker_id": "h", "type": "text", "zh": "这在四年前被认为是有史以来最好的商业模式。"}, {"start_sec": 13, "speaker_id": "g", "type": "text", "zh": "对。"}, {"start_sec": 14, "speaker_id": "h", "type": "text", "zh": "嗯，这一点什么都没变。我想你们的增长可能更快了，利润率仍然非常高。"}, {"start_sec": 15, "speaker_id": "g", "type": "text", "zh": "对。"}, {"start_sec": 16, "speaker_id": "h", "type": "text", "zh": "然而市场却认定，像你们这样的企业的估值倍数只有过去的三分之一，或者四分之一。那这是怎么回事？作为这些创业者之一，亲历这一切是什么感觉？"}, {"start_sec": 17, "speaker_id": "g", "type": "text", "zh": "我觉得是认知失调。你得在脑子里同时装着两件事，对吧？一件是：你看，我认为从长远来看，一家增长 80%、利润率 80% 的企业会……"}, {"start_sec": 18, "speaker_id": "h", "type": "text", "zh": "会很好。"}, {"start_sec": 19, "speaker_id": "g", "type": "text", "zh": "嗯，不只是，是会很好，而且实际上会更好——在同样的时间段里，跑得足够久——比一家增长 160%、利润率 30% 的企业更好。你会觉得，从长远来看，前者会回报更多现金，对吧？但今天，后者的估值倍数是前者的三倍、四倍，甚至十倍，对吧？所以一方面你会想：嘿，大家都不理性了，这是一门好生意，你必须继续做有商业意义的事，做客户想要的事——而这些可能是、也可能不是会让你更偏向后一类而非前一类的词元定价模式。然后还有一块非常明确的“场上的比赛”：你会想，好吧，如果你需要再次融资，你今天面对的投资人中很多都是人工智能极端主义者，你会和一些机构聊，他们会说：“是的，我们会投实验室，基本上我们也会投爱荷华州的拖拉机，中间的什么都不投。”"}, {"start_sec": 20, "speaker_id": "g", "type": "text", "zh": "你知道，爱荷华州的机器人拖拉机、一个实验室，然后其他一切都不投。你会想：嗯，有意思的观点。然后从人才角度来看，对吧，你招的是有雄心、想做事的人，如果他们觉得自己不在对的船上，他们就会换船，对吧？所以人才争夺战这一块也是非常真实的。所以你只能这样活着：好吧，从长远来看，我认为这一切都会自己理顺。你必须为长远而活。"}, {"start_sec": 21, "speaker_id": "h", "type": "text", "zh": "所以现在有一种挺好笑的恐惧，就是好像弯勺（Bending Spoons）成了走廊里的死神，你知道，表情包之类的。呃，没人想变成被弯勺收购的公司。顺便说一句，我很喜欢弯勺。我觉得这是个有意思的问题：现在的塞壬之歌就是“卖词元”。"}, {"start_sec": 22, "speaker_id": "h", "type": "text", "zh": "通过安全与合规智能体，我敢肯定，或者类似的东西。"}, {"start_sec": 23, "speaker_id": "g", "type": "text", "zh": "对此我有很多想法。"}, {"start_sec": 24, "speaker_id": "h", "type": "text", "zh": "我只是对像你们这样的公司非常感兴趣——它们算是上一个时代的赢家，现在必须做出一系列决定，对吧？看看十年期国债收益率，资本成本在上升，因为眼下你可以把大量资金以非常高的回报投到人工智能相关的东西上。所以看你们这门生意的人会说：好吧，我想要更高的回报，或者同样的回报，而我通过智能体之类的东西就能得到。跟我讲讲做这些决定是什么感觉。你今天在想什么？你认为自己是一家人工智能企业吗？那是什么样子？"}, {"start_sec": 25, "speaker_id": "g", "type": "text", "zh": "是的，我们是。而且不只是像“哦，我也觉得自己是世界上最好的人”那样——可能有一点这种成分——但当我们把自己产品中的智能体，和所谓的“人工智能应用”做基准对比时，我们还没有找到比我们走得更远的。当然你可以说“那是你们找得不好”，这是显而易见的批评。但我们确实不断地去看你想到“人工智能应用”时会想到的那一批名字，通常发现它们还没有达到我们的程度——由智能体完成大部分工作。智能体……另一点是，它是基于聊天的，但也有长时间运行的智能体。我们的智能体会即时自动生成用户界面，因为有时你想要聊天，对吧，有时你想要界面。但我们就是有一个能构建界面的智能体，用户可以做些什么，然后回到流程中，让流程继续，非常围绕“让用户持续处在流程循环中”来优化。"}, {"start_sec": 26, "speaker_id": "h", "type": "text", "zh": "我确认一下我理解了：意思是你们像一个始终在线、盯着安全状况的看门狗？"}, {"start_sec": 27, "speaker_id": "g", "type": "text", "zh": "我们肯定是那样的，但在某些方面，过去你仅靠监控和告警也能做到。这个更像是：万塔的产品体验现在是围绕一个智能体来组织的，它会把事情带给作为用户的你，而且经常会说：“嘿，我去帮你做了这个。你觉得可以吗？那我就去做了。”好，很好。“我认为接下来我应该去做的是这件事。”"}, {"start_sec": 28, "speaker_id": "h", "type": "text", "zh": "举个例子？用一个例子落地一下。"}, {"start_sec": 29, "speaker_id": "g", "type": "text", "zh": "有人刚从你们公司离职，而你没有把他们所有的账户都注销掉。“我刚为你写了一个定制智能体，它会去做这件事。你要我把它打开吗？”很好。“你还要我去，你知道，移除这三个人的账户和访问权限吗？”很好。"}, {"start_sec": 30, "speaker_id": "g", "type": "text", "zh": "“你要它一直运行吗？”所以它不只是“这里有个红色警报，有人没达到监控要求”——那样警报太多了。而是“你想让我去做这件事吗？”然后——我们从人工智能实验室的用户界面中借鉴了很多——就是“你想让我做一次，还是一直这样做？”很好。所以我们的想法是，智能体会在用户许可下承担越来越多这样的工作，但如果他们让我们去做，我们就直接去做。"}, {"start_sec": 31, "speaker_id": "g", "type": "text", "zh": "总之，在这个过程中，我们最终会用掉大量词元。我们和客户聊过很多关于按词元计费的事。我想我们普遍听到的是：人们其实非常精明。所以如果你试图按词元向他们收费，他们会很快地说：“哦，你不过是把 Claude 的词元加了价。你们 4X 和 Claude 一样好吗？我不知道，让我去试试。”"}, {"start_sec": 32, "speaker_id": "g", "type": "text", "zh": "然后你会发现，你实际上把自己放到了和模型竞争的位置上。我想大概没有哪个应用真的想这样做——我们可以聊聊“外壳”（harness）——但你不会想陷入那种比较。所以我们在词元定价上看到的是，如果你想在上面加价，哪怕一点点，用户都非常精明，你在这种比较中会输。你可以不加价，这就涉及利润率的问题了，对吧？嗯，但任何把 Claude 词元加价、换个名字转嫁给用户的人，我觉得那都不是一种模式。"}, {"start_sec": 33, "speaker_id": "h", "type": "text", "zh": "你们目前是自己消化词元成本？"}, {"start_sec": 34, "speaker_id": "g", "type": "text", "zh": "是的。"}, {"start_sec": 35, "speaker_id": "h", "type": "text", "zh": "你们就是接受更低的利润率。"}, {"start_sec": 36, "speaker_id": "g", "type": "text", "zh": "我们接受更低的利润率，而且说实话，就是非常专注于使用量。因为我刚才描述的那种体验——智能体自己出去做事——我们从根本上相信那是好得多的用户体验。目前我们大约有 25% 的客户处在那种流程中，我们的想法是：如果我们能把它提高到 75%，第一，我认为我们的留存会好得多，比如净留存，你知道，那就是好得多的客户体验。然后如果我们以后需要去理顺定价，那就以后再去理顺定价。但现在是这项技术的使用阶段、部署阶段，先把这件事做好，商业化可以之后再想。"}, {"start_sec": 37, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "Ramp、WorkOS、Rogo", "zh": ""}, {"start_sec": 38, "speaker_id": "h", "type": "text", "zh": "我也很好奇。你说的是给 Claude 的词元加价，那给像 Kimi 的词元、或者便宜得多的东西加价呢？如果你们不把成本转嫁出去，决定用什么、什么足够好、和成本之间怎么权衡，这个过程是怎样的？"}, {"start_sec": 39, "speaker_id": "g", "type": "text", "zh": "是的，这是我们从今年年初开始集中精力做的事。基本上就是评测（evals）。"}, {"start_sec": 40, "speaker_id": "h", "type": "text", "zh": "是的。"}, {"start_sec": 41, "speaker_id": "g", "type": "text", "zh": "针对所有的——从产品角度来说，是针对特定任务或特定智能体的评测。我们把它统称为万塔智能体，它是一个东西，但当然在幕后是数百个智能体，每个都有特定任务，会使用工具，拥有计算机，你知道，就是我认为大家都在趋同的那一整套架构。但今年年初，我们真正投入去利用我们的领域专家——那些曾在其他公司负责安全和合规项目的人——来编写评测框架，然后再评测他们的评测，并为此使用相应的工具。总之，当我们考虑更换模型时，目前主要还是看质量，而不是成本。我也觉得部分原因在于我们用的词元没有编程那么多。我想大家也都开始意识到：编程和编程智能体会用掉大量词元，接下来也许是法律和文档起草；而当你进入更偏“决策与行动”的世界——也就是我们所在的领域——相对于编程，我们用的词元就没那么多。"}, {"start_sec": 42, "speaker_id": "g", "type": "text", "zh": "总之，这在某种程度上让我们可以为质量做优化，而不必像其他一些公司那样那么在意成本。"}, {"start_sec": 43, "speaker_id": "h", "type": "text", "zh": "当你和其他创始人聊——既有你那个时代的，也有这个新时代的——他们在这方面是怎么做的？他们也在自己消化成本、只收软件费吗？你认为最终状态会是什么？"}, {"start_sec": 44, "speaker_id": "g", "type": "text", "zh": "我觉得每个人都想走向按结果定价（outcome pricing），而如果你真去问一个定价专家，他会告诉你那其实是按产出定价（output pricing），因为它不是……不过无所谓。反正每个人都想走到那一步。在另一段人生里我曾是微观经济学教授，我在概念上很喜欢这个，我喜欢“我们按结果拿钱”以及激励一致这种想法，非常喜欢。难点在于：结果到底是什么？我觉得，你知道，“支持工单已关闭”其实很说得通——顺便区分一下结果和产出，按我的理解，在客服领域，工单关闭是产出，而结果其实是“我的 Sonos 音箱现在能用了”，对吧——但即使像“工单已关闭”这种相对无可争议的东西，我认为很多公司，包括我们，都在努力弄清楚：那个我们都能认同的、干净利落的工作单元是什么？"}, {"start_sec": 45, "speaker_id": "g", "type": "text", "zh": "你可以说，哦，它是一份起草好的文档、一条已关闭的告警、一个已完成离职注销的账户，你多少可以这样做，但随之而来的认知负担太大了，因为我刚才说了三样东西，我还能再说出四十七样，然后我们的用户就得想：“哦，如果我用智能体做这件事，我要付这么多，但如果我自己做……”你会觉得，没人想要这种东西。我认为我聊过的每个人都想走向按结果或按产出定价，但真的不清楚怎么走到那一步。我觉得按词元收费本身真的会让你直接和 Claude 对上。于是人们试图通过收取“积分”、设置某种积分与词元的兑换比例来掩盖这一点，而我觉得还是那句话，用户很精明，他们会说：“我看出你在干什么了，我看出你把它掩盖起来了。”好吧。"}, {"start_sec": 46, "speaker_id": "h", "type": "text", "zh": "如果像你刚才那样把自己和其他公司比较，在使用这些工具来构建产品和经营企业方面，你们是否同样走在前面？你会怎么给自己打分？你们在这方面做了哪些有意思的事？"}, {"start_sec": 47, "speaker_id": "g", "type": "text", "zh": "我想，好吧，就“一家八年的公司、八年的代码库”这一点来说，把编程智能体扔给一个小代码库要比扔给一个大代码库容易得多，这是一个词元输入的问题，而它们正变得越来越好。但过去一年我们也花了很多时间投入的一件事——我知道 Notion 在这上面花了大量时间，而且他们比我们领先了大约九个月——是把代码库的各部分模块化，让智能体只需理解其中较小的部分，并且完全理解它，然后就能非常高效。而如果你把它扔进一个八年的代码库，事先什么都没看过，它就是没有足够的上下文窗口来理解一切，会做些蠢事，于是你就需要一个掌握大量上下文的工程师来看着它，这有帮助，但某种程度上也抵消了部分意义。嗯，公司一直都有这个问题。"}, {"start_sec": 48, "speaker_id": "g", "type": "text", "zh": "他们只是把它说成：“哦，我们入职一个新工程师时，他们要花一段时间才能搞懂代码库。”只是智能体让情况变成了：好吧，我们现在想明天就入职九千个新工程师。嗯，所以它只是放大了那个问题。所以我在这方面给我们打的分比较低，因为我们正处在用智能体和人一起让代码库更易于理解的过程中。"}, {"start_sec": 49, "speaker_id": "h", "type": "text", "zh": "如果让你从一到十给自己打分，关于“哇，这改变了一切，从现在起建设这家公司将完全不同”，十分就是完全不同。"}, {"start_sec": 50, "speaker_id": "g", "type": "text", "zh": "哦，是的。大概九分吧。是的。"}, {"start_sec": 51, "speaker_id": "h", "type": "text", "zh": "你大概是九分。"}, {"start_sec": 52, "speaker_id": "g", "type": "text", "zh": "八到九分。我的意思是，我认为原则仍然是一样的。比如一切都很难，人很重要，你知道，所有那些老生常谈仍然是老生常谈，但你做事的方式应该会很不一样。"}, {"start_sec": 53, "speaker_id": "h", "type": "text", "zh": "你觉得是否正在发生某种分化？再说一次，如果我拿你那一批成功的、大约八年前那个时代的公司来看，你觉得是否出现了两极分化：有些公司领会了精神、做得非常好，而有些公司就要去弯勺那里了？"}, {"start_sec": 54, "speaker_id": "g", "type": "text", "zh": "算是吧。是的，是的。我认为有些市场存在结构性的部分，而且我觉得弯勺非常擅长，你知道，识别这些市场——在那种结构里，你放世界上任何一个创业者进去都一样。这有点像安德森·霍洛维茨（Andreessen Horowitz）那个“市场赢还是创始人赢”的说法，答案是市场赢。我认为这仍然成立，而且我觉得这次人工智能技术变革让一些过去看起来很好的市场现在看起来很糟，世界上最优秀的人去那里跑，也还是会撞上南墙。而且我认为还有一个创始人动力的问题：在这个时代你必须身在其中、全力推进；如果你不想这么做，完全没问题，但公司的其他部分不会自己组织起来去做这件事。"}, {"start_sec": 55, "speaker_id": "h", "type": "text", "zh": "既然你一直走在前沿，那么，你知道，如果你回去当教授，“采用人工智能入门课”是什么？有哪些最重要的事情是很难做到、但被证明很有成效的？"}, {"start_sec": 56, "speaker_id": "g", "type": "text", "zh": "就是让人们去用它。我觉得有一个……然后，好吧，这听起来很显而易见，但就是一定要自己去用。为你的公司做点东西，个人做也无所谓，就是去了解模型处在什么水平、擅长什么、不擅长什么、“外壳”是什么意思。你就是要这样做，而且至少每两周做一次，因为它变化太快了。我确实认为你必须对什么管用、什么不管用有一种切身的理解，这样当有人过来说“我们要把所有销售开发代表（SDR）都裁掉，因为我做了一个智能体”时，你就能说：“你知道……”你知道这在哪里是对的、在哪里是错的。"}, {"start_sec": 57, "speaker_id": "g", "type": "text", "zh": "总之，一是要亲自下到泥里，然后我觉得，是的，你想让尽可能多的其他人也下到泥里。概括来说，这事非常非黑即白，有些人就去做了，有些人就不做。如果你一年前问我，我会说：“哦，嗯，这里有某种内在动力，而那些不行的人是另一个问题，去处理他们就是了。”我觉得我现在稍微更有同理心了，因为我们看到——我可以举一个具体例子——非常强的人也没有主动扎进去，你得更多地推他们一把，但要试着弄清楚是什么在阻碍他们。确实会有东西在阻碍他们，而即使他们一开始没有扎进去，你也能把他们带进泥里。"}, {"start_sec": 58, "speaker_id": "g", "type": "text", "zh": "所以，如果你是一家刚起步使用万塔的小公司，很好，我们为你准备了这一套控制项。你直接采用就行，也许在边边角角调整一下，然后你就可以开跑了。如果你是一家较大的公司，你显然已经在运行一个安全与合规项目。你来找万塔是因为你想把它可视化，你想要自动化，你想要监控，你想要实时仪表盘，你不想要那种零零碎碎的东西。好。那么难点在于，你得把所有现有的东西——控制项、风险、数据、政策、流程，所有这些——都弄进万塔。"}, {"start_sec": 59, "speaker_id": "g", "type": "text", "zh": "按经典做法，一家 SaaS 公司会说：“哦，我们要做一个入门向导。它有四个步骤和一个进度条，完成后我们会给你撒彩纸。”你知道，就是做那一整套。我们今年开始着手打造更好的入门流程。头几次产品评审，团队一直拿来入门向导。我一直说：“别再弄入门向导了。"}, {"start_sec": 60, "speaker_id": "g", "type": "text", "zh": "不，你知道，去用大语言模型。别弄了。”但他们一直拿来入门向导。而这是一个有干劲的团队，都是有才华的人。他们很在乎，却一直拿来入门向导。最后我们终于让他们明白了。"}, {"start_sec": 61, "speaker_id": "g", "type": "text", "zh": "总之，他们现在交付并且运行良好的体验，基本上就像 Claude。就是一块大画布。把你所有乱七八糟的文件拖进来，把你所有的截图拖进来，我们会理清它们，问你一些问题，然后你就设置好了，可以开跑了，而且效果非常好。那么，为什么这些聪明又有干劲的人一直拿来入门向导呢？最后你去弄清楚了，原因是他们觉得：“嗯，我们不知道‘拖入文件’这个东西能不能做成，它可能不行，而我们知道入门向导肯定能行，因为我们以前做过。而且我们基本上认为这个项目不允许失败。”"}, {"start_sec": 62, "speaker_id": "g", "type": "text", "zh": "然后你过来说：“哦，原来是这个。很好。那么我们就押注大语言模型的流程会成功，我们会让它成功，需要怎么迭代爬坡都行，但要破釜沉舟，就是把这个东西做成。”然后他们说：“哦，好的，太好了。”你知道，“你想明天就再做一次产品评审吗？”但这件事很有意思，你会觉得：“我绝对猜不到那是他们的障碍。”你把那个问题解决了，他们就开始冲了。"}, {"start_sec": 63, "speaker_id": "h", "type": "text", "zh": "你之前提到了人才争夺战。现在有个大趋势——你知道，就是低利润率、高增长那一套——从投资人的角度看，就像你举的那个好笑的例子，实验室或者拖拉机，每个人都想要能成为那种东西的公司。所以就会说：“告诉我你们要怎么成为一家千亿美元或万亿美元的企业。”不知怎么的，现在每家企业都得做到那么大。嗯，面对这种情况是什么感觉——你建的可能并不是一家应该做到千亿美元的企业？世界上大概只有一百家那样的公司，没那么多。"}, {"start_sec": 64, "speaker_id": "g", "type": "text", "zh": "是的。这并不是说万塔做不到，但我确实觉得挺好笑的。就像，嗯，对我来说，就是：哦，我是不是应该调整一下招聘说辞，说：“嗯，你知道，必然地，这里的底线是万塔值五百亿美元。你真正应该考虑的问题是，如果你加入，你能不能带我们走向两千五百亿美元？”然后你会想：我是不是就该开始这么说了？你知道，还是那句话，答案大概是不该，但答案也不是绝对不该。完全是这样。因为你会想，嗯，那正是万塔的员工从其他公司那里听到的说辞，你知道。然后你就会想：好吧，那你要不要……我尽量不通过说“他们很烂”来反击。但现在市场上这种说法实在太多了，所以如果你不这么说，你看起来确实就像没有雄心。"}, {"start_sec": 65, "speaker_id": "h", "type": "text", "zh": "那你怎么办？"}, {"start_sec": 66, "speaker_id": "g", "type": "text", "zh": "万塔有一条原则——价值观，但更是原则——叫“名副其实”（do what it says on the tin），差不多就是说到做到。听着，你可以在罐头上写很有雄心的东西，不是说不行，但不要过度承诺、交付不足。所以我们的做法差不多是：讲清楚一些情况——这是我们作为一家公司在做的事，好的、坏的、不同的，就是给出背景。然后，让我跟你聊聊业务指标，我们通常会尽可能坦诚，把所有东西都给大家看。没关系，指标都挺好。我们不太希望它们泄露出去，但即使泄露了，也不是最糟的事。"}, {"start_sec": 67, "speaker_id": "g", "type": "text", "zh": "然后带他们过一遍，讲我们在做什么、它会如何随时间增长，并尽量让这一切都以事实和数据为根基。所以在某些方面，就是用数据来对抗氛围，我想是用值得信赖的氛围对抗“及时行乐（YOLO）”的氛围。"}, {"start_sec": 68, "speaker_id": "h", "type": "text", "zh": "那么在这些人才争夺战中是什么感觉？如果最有才华的人基本上从所有想招他们的其他公司那里听到的都是“这东西会涨到一万亿”。更厉害的说辞是：“嗯，我们今天估值六十亿美元，但红杉资本（Sequoia）一个月后就要开一张一百亿美元的支票，然后明年会有人把估值抬到两百五十亿，但我们今天能让你按六十亿进来。”"}, {"start_sec": 69, "speaker_id": "g", "type": "text", "zh": "是的，"}, {"start_sec": 70, "speaker_id": "h", "type": "text", "zh": "这招厉害。"}, {"start_sec": 71, "speaker_id": "g", "type": "text", "zh": "这招很难对付。"}, {"start_sec": 72, "speaker_id": "h", "type": "text", "zh": "所以，面对这种情况，你怎么办？也许你本来就不想要那些人，也许这是一种过滤器？"}, {"start_sec": 73, "speaker_id": "g", "type": "text", "zh": "有时候……我这里没有什么神奇的打法。我觉得你可以去问那个人：你在为什么做优化，对吧？还有，你为什么会考虑这个机会——但不是带着刺儿地问，就是问：在万塔有什么让你不爽的，对吧？实际上其中一个具体的例子——一位非常强的领导者，现在仍在万塔——基本上就是这个人觉得自己无法做出能让万塔走上类似轨迹的决定，而那是他们更想要的，然后他们说：“哦，但那个新地方承诺给我在这条路线上完全的决策权。”你会想：完全合理的反馈。你需要什么才能觉得自己可以做这些决定？"}, {"start_sec": 74, "speaker_id": "g", "type": "text", "zh": "那就去做这些决定，去吧。当然这里面肯定有钱的部分，也有错失恐惧（FOMO）的部分。我们确实提高了薪酬。而且你知道，薪酬带宽——大家会讨厌我这么说——但薪酬带宽现在有点像个笑话。你会觉得，薪酬带宽就是：不管你手里有什么数据，都是错的。真正的标准是这些人在外面拿到的报价。"}, {"start_sec": 75, "speaker_id": "h", "type": "text", "zh": "你们给万塔最顶尖的人付的钱，按倍数算，比以前多了多少？相对于……"}, {"start_sec": 76, "speaker_id": "g", "type": "text", "zh": "哦，我觉得我们的薪酬差异应该比现在大得多。"}, {"start_sec": 77, "speaker_id": "h", "type": "text", "zh": "那么，即便如此——这很有意思——但如果我回到五年前，那个人当时挣 X 美元，现在这个人挣的是 X 的多少倍？"}, {"start_sec": 78, "speaker_id": "g", "type": "text", "zh": "总薪酬，大概是十倍。"}, {"start_sec": 79, "speaker_id": "h", "type": "text", "zh": "哇。"}, {"start_sec": 80, "speaker_id": "g", "type": "text", "zh": "而且我觉得其实应该更高。我的总体薪酬理念是，你永远不会给顶尖的人付……"}, {"start_sec": 81, "speaker_id": "h", "type": "text", "zh": "足够的钱。"}, {"start_sec": 82, "speaker_id": "g", "type": "text", "zh": "足够的钱。你应该一直努力把这一点讲得非常清楚，你应该一直去努力，但你永远做不到，而且还有一堆人你付的钱远超过他们的贡献。"}, {"start_sec": 83, "speaker_id": "h", "type": "text", "zh": "再多讲讲，那些顶尖的人通常在做什么，让他们如此有价值？"}, {"start_sec": 84, "speaker_id": "g", "type": "text", "zh": "就是高能动性，把事情做成。在某些方面，这听起来很平淡无奇，我不知道这值不值几百万美元，但是的，它确实值：一个掌握大量上下文的人，理解公司、客户和领域，通常做出合理的决定，有时也会做出糟糕的决定，然后在糟糕的决定上迭代，并且一直在前进——这非常有价值。"}, {"start_sec": 85, "speaker_id": "h", "type": "text", "zh": "你觉得再过五年会不会又是十倍，还是那就开始变得太疯狂了？最有价值的人变得更有价值的速度，是保持不变还是在加速？"}, {"start_sec": 86, "speaker_id": "g", "type": "text", "zh": "在加速。反作用力是：我们什么时候、或者在什么节点上，投资人会更加担心稀释和股权激励？对吧？在整个 2010 年代我觉得他们算是不太担心，2010 年代后期……我们作为一个行业在大约 2022、2023 年更多地讨论了股权激励问题，现在我们肯定没在讨论它了，但那就是反方向的力量。我觉得如果没有在稀释问题上的那种压力，人们的薪酬就会越来越高。大概也应该如此。"}, {"start_sec": 87, "speaker_id": "h", "type": "text", "zh": "你有多在乎你们的估值和倍数，以及——请原谅我用这个词——对这些东西的“工程化”操作？"}, {"start_sec": 88, "speaker_id": "g", "type": "text", "zh": "我历来不在乎，有时甚至会做一些事来表明我不在乎，嗯，这有好有坏。我在乎的是 ARR（年度经常性收入）和 ARR 增长，我确实非常非常关注这些，那些才是指标。我想我现在……我的意思是，我已经经历了足够多的估值环境，比如 2010 年代、2021 年、2022 年，见过倍数的过山车，所以我就是不太看重那个，或者说我过去不看重。我认为我非常在乎、并且会让我开始在乎这些倍数的，是万塔员工的情绪：他们感觉自己身处一家不断增长的公司——既是总体上在增长，也是相对于他们在市场上的其他机会在增长。市场上有一部分公司每六个月融一次资，估值是上一轮的五倍左右，那可是真正的人才竞争对手。"}, {"start_sec": 89, "speaker_id": "h", "type": "text", "zh": "是的。那像员工股份回购要约（tender）这类东西呢？你们以前做过吗？"}, {"start_sec": 90, "speaker_id": "g", "type": "text", "zh": "我们以前没做过，但我觉得那就是现在的“场上规则”。如果别人每次都做，你就得做。"}, {"start_sec": 91, "speaker_id": "h", "type": "text", "zh": "这感觉不健康吗？"}, {"start_sec": 92, "speaker_id": "g", "type": "text", "zh": "完全是。但在某种程度上，我对此的看法其实不重要，我可以对回购要约有任何方向的任何感受。它们已经常态化了，人们期望有它们，并把它当作薪酬的一部分来期待。如果你不给他们，你就得给他们一大堆别的东西来弥补。"}, {"start_sec": 93, "speaker_id": "h", "type": "text", "zh": "这一切如何影响你的退出目标，比如上市、或者，你知道，被出售，或者为万塔实现某种终局？"}, {"start_sec": 94, "speaker_id": "g", "type": "text", "zh": "完全没有影响。基本没有。这又是一句很“创始人特权”的话，但基本上，终局就是：我们能把这件事持续做多久？听着，美国 99% 的大型独立软件公司都是上市公司。所以是的，从这个意义上说，会上市（IPO）。我自己并没有把它当作愿望清单上的一项。它更像是达到目的的手段。还是那句话，我觉得很多人加入公司就是想完成这个愿望清单项目。所以，你知道，这里再次附上“创始人特权”的免责声明。但目标是成为一家大型、独立、自主的公司。"}, {"start_sec": 95, "speaker_id": "h", "type": "text", "zh": "关于所有这些东西——构建的工具、构建的方式，我问到的所有这类事情——你觉得什么被过度炒作了，什么被低估了？"}, {"start_sec": 96, "speaker_id": "g", "type": "text", "zh": "被低估的是：相对于掌握技能本身，了解公司和客户更重要。招聘、培训、让新加入公司的人上手并变得高效，仍然真的很难。公司内部的各种工具让这件事变得更好、更容易，把信息放到人们指尖，但一个在公司待过、知道如何在公司里周旋、了解客户、了解所有这些的人，仍然非常有价值。我现在正处在这样一个阶段：我们更看重、也更愿意为这种能力付钱，而不是那种纵向技能，比如你很会销售、很会做客户成功。我们宁愿要一个销售技能差一些、但更懂万塔方方面面的销售人员。这里面有点东西。"}, {"start_sec": 97, "speaker_id": "g", "type": "text", "zh": "而且我觉得，尤其是在很多实验室和快速发展的人工智能公司都在组建市场推广团队的时候，我认为他们其实非常侧重评估“你是不是个好销售”。我觉得这有点偏了。然后我认为，当我们考虑为这一切构建智能体时，公司上下文、客户上下文这部分，相对于“哦，你就是很会销售、你是个好销售”而言，可能被相对低估了。后者今天的价值比四年前略低了一些。"}, {"start_sec": 98, "speaker_id": "h", "type": "text", "zh": "那被过度炒作的呢？有没有什么你觉得正在被……"}, {"start_sec": 99, "speaker_id": "g", "type": "text", "zh": "按词元定价；为了低利润率而低利润率；嗯，为了营销价值而定制训练模型。"}, {"start_sec": 100, "speaker_id": "h", "type": "text", "zh": "为了能说“我们在自己的数据上对模型做了后训练”。为什么？解释一下为什么那是……"}, {"start_sec": 101, "speaker_id": "g", "type": "text", "zh": "嗯，我觉得如果你去问推理服务商——有时视服务商而定，给他们一点真心话血清——他们会说：听着，对模型做后训练的理由是成本。有些企业可能有这种需求，但做这件事并没有质量上的理由。在当前环境下，做这件事有点像是出于营销理由，对吧？我觉得现在有大量后训练是出于营销目的，针对投资人和客户，其实主要是针对投资人。"}, {"start_sec": 102, "speaker_id": "h", "type": "text", "zh": "如果这些人中有一位来推销另一面——后训练的价值——他们会怎么跟你推销？比如其中一家公司来找你说，我们会为你做 XYZ，他们在说什么，他们说好处是什么？"}, {"start_sec": 103, "speaker_id": "g", "type": "text", "zh": "你在宣示自己是一家真正的人工智能公司，客户、投资人都会注意到。我觉得这是主要的一点。我确实认为在某些用例里还有次要的一点，就是一种产品形态上的东西。尤其是对于大型企业，你想在全公司部署这款软件，你知道，它需要各种集成，需要十七个人签字批准，哎呀，那是一整套麻烦事。那为什么不直接给他们一个针对这个用例、专属于他们的模型呢？这里有产品形态上的考虑，我觉得这算是半合理的。"}, {"start_sec": 104, "speaker_id": "h", "type": "text", "zh": "那么，如果我是这些人之一，来到万塔，后训练字面上意味着什么？在你们的语境里意味着什么？你们要做什么，要经历哪些步骤？"}, {"start_sec": 105, "speaker_id": "g", "type": "text", "zh": "是的，我们需要从那个特定客户那里拿到一堆数据，然后去写一堆评测数据。"}, {"start_sec": 106, "speaker_id": "h", "type": "text", "zh": "流程就是：他们想实现某个目标，他们有一些数据，你调整一个模型来实现这个目标、提升评测分数。"}, {"start_sec": 107, "speaker_id": "g", "type": "text", "zh": "是的，基本上是这样。"}, {"start_sec": 108, "speaker_id": "h", "type": "text", "zh": "然后把它卖给他们。"}, {"start_sec": 109, "speaker_id": "g", "type": "text", "zh": "没错。"}, {"start_sec": 110, "speaker_id": "h", "type": "text", "zh": "而且是持续性地卖。"}, {"start_sec": 111, "speaker_id": "g", "type": "text", "zh": "对。"}, {"start_sec": 112, "speaker_id": "h", "type": "text", "zh": "而你的观点是，这被高估了，因为它实际上并不能提升他们的……"}, {"start_sec": 113, "speaker_id": "g", "type": "text", "zh": "它可以。我觉得我在几个方面持怀疑态度：是不是每个人真的都想被递上一个模型？在用户体验、部署、产品形态方面围绕它的东西太多了。这感觉有点像，你知道，在社交媒体或者我们的移动应用里，当时我们还没发明“下拉刷新”，对吧？有点像那样。这里面有点东西，但我认为没有人真的想被递上一个模型，就像……按一个刷新按钮。我不知道，这听起来很傻，但那就是我们在 2011 年做的事。这里也有某种类似的情况。就是我们还没弄清楚这到底该怎么运作，而递交模型，我认为是一次合理的迭代，但不是正确的解决方案。"}, {"start_sec": 114, "speaker_id": "h", "type": "text", "zh": "在大众讨论中，还有什么你觉得很疯狂的吗？"}, {"start_sec": 115, "speaker_id": "g", "type": "text", "zh": "前置部署工程师（FDE）。我有点觉得前置部署工程师很疯狂，或者说，我觉得它其实是一个很好的人才套利，就像幕僚长（chief of staff）一样。前置部署工程师很多时候其实就是专业服务。但我觉得如果你把它叫作专业服务岗位，那和当下讨论中的前置部署工程师是非常不同的人才画像。而且我觉得你不会让一个，你知道，哈佛计算机系毕业、能动性很强、想做事、想学习如何打造企业的人，去报名成为一家公司的第四号或第十二号专业服务人员。我认为那里有一份真实的工作，但我觉得包装在它外面的“前置部署工程师”这层外衣大概不会持久。"}, {"start_sec": 116, "speaker_id": "g", "type": "text", "zh": "我也觉得，对，我们都认为做得好的公司是帕兰提尔（Palantir），我觉得他们大概确实做得好。他们有八位数的合同。有一些公司有八位数的合同。我觉得我们现在在合同只有五位数、六位数的地方全都用前置部署工程师，这种经济账大概是倒挂的。不过我们又处在一个比如增长率 30%、利润率更好的时代，所以这还算行得通，但这感觉不可持续。"}, {"start_sec": 117, "speaker_id": "h", "type": "text", "zh": "当你在旧金山和其他创始人吃晚饭时，你们在聊什么？你们在聊模型、该用哪个吗？现在创始人之间实际的话题是什么？"}, {"start_sec": 118, "speaker_id": "g", "type": "text", "zh": "肯定有人才争夺战方面的话题。有一段时间——这更多是九个月前了——但当时，你知道，大家围着桌子轮流抱怨 Cursor 把所有人都挖走了，是一种乐趣。嗯，就是当下的那个“Cursor”，肯定有那一部分。还有一点，我的意思是，我会说说前置部署工程师：“你们真的在做这个吗？有效吗？你们在这方面进展到哪了？”我的意思是，现在，你知道，还有个人智能体，嗯，你们用的是哪些？哪些真正有用？"}, {"start_sec": 119, "speaker_id": "h", "type": "text", "zh": "当你考虑开源的东西、中国模型、这个那个的时候，在和世界各地正在纠结同样问题的人交流时，你学到了什么？"}, {"start_sec": 120, "speaker_id": "g", "type": "text", "zh": "是的，几周前我在法国和我们的客户在一起，非常愉快。让我非常惊讶的一件事是，巴黎的很多法国软件公司主要在用中国模型。我起初以为这是某种民族主义，也许是反美情绪，你知道，就是那方面的东西。我还很蠢地提出了这个想法，结果有人很快纠正我说：绝对不是。基本上，当特朗普（Trump）把 Fable 对非美国人关闭的时候，我们全都转向了中国模型，我们一下子意识到这里存在巨大的业务连续性风险。我们无法相信，如果我们把业务建立在这些美国模型之一上，它会一直可用。所以我们不再那样做了。"}, {"start_sec": 121, "speaker_id": "h", "type": "text", "zh": "如果你尽情畅想未来几年这门生意可能走向何方——就当逼你回答那个千亿美元、你知道，两千五百亿美元的问题之类的。"}, {"start_sec": 122, "speaker_id": "h", "type": "text", "zh": "万塔有可能变成那样的版本是什么样子？"}, {"start_sec": 123, "speaker_id": "g", "type": "text", "zh": "我们把万塔看作一家安全公司。从合规起步，但我认为合规的最佳形态是证明你所拥有的安全性。你必须有好的安全性。我们认为我们能够、而且正在进入一系列安全领域。这有点像平台的说法：你看，我们已经有了数据，我们已经通过智能体拥有了智能，我们可以开始在此之上叠加产品，叠加更多以安全为中心的产品。随着我们了解所有这些公司的安全状况，它们需要证明自己合法、达到工业级水准的压力只会越来越大。这是万塔八年前创立时的核心论点之一，但现在感觉更加正确了。无论它们是在和企业、政府、监管机构还是立法者合作，你都必须在很多方面证明你的软件是工业级的，而且未来这种情况会以越来越多的方式越来越频繁地出现。而万塔就是连接这两边——姑且称之为市场——的那个东西。"}, {"start_sec": 124, "speaker_id": "h", "type": "text", "zh": "那么安全的方向是什么？这当然是一个极其有意思的话题。就像早期互联网，一切都会坏掉，一切都被黑。这次大概会是那种情况的十倍或一百倍。嗯，做安全是否意味着你们要和 CrowdStrike 这类公司竞争？在这个疯狂的时代，安全意味着什么，它的轨迹是什么？"}, {"start_sec": 125, "speaker_id": "g", "type": "text", "zh": "这些模型就是比人要执着得多。所以它们会尝试九千万亿种东西，而一个人试了，我不知道，九千次之后大概就放弃了，对吧？然后在这个过程中，它们会发现一些东西，并把它们串联起来。所以我觉得，很多讨论都围绕零日漏洞（zero-day），而这些模型确实在发现一些我们以前没发现、或者以前没有公开发现的东西。但我认为实际上更多发生的是：这些模型能把十七个单独来看近乎无害、或者无害的东西串联起来，然后真正找到点什么。如果你看过 OpenAI 在 RSA 大会上关于 Hugging Face 的那场演讲，基本上讲的就是这个：就是执着，把那些单独看时人们会觉得“这是低危漏洞，我九十天内修就行”的东西组合起来，对吧？"}, {"start_sec": 126, "speaker_id": "g", "type": "text", "zh": "总之。但这种转变——我觉得很艰难，我们必须和机器作战——因为它把原本“哦，那很重要但危害程度低，还是九十天，我要先修别的”这种东西彻底颠覆了。它把优先级排序完全颠倒过来，而说“它让一切都变成了紧急”并没有帮助，因为你会想，那你该怎么办呢？对吧？但我认为最终的样子是：你必须在发现问题的同时尽快修复。有些优先级排序确实需要被抛弃。"}, {"start_sec": 127, "speaker_id": "g", "type": "text", "zh": "但如果你是以机器的速度修复问题，你就某种程度上不需要排优先级了。所以我认为那就是我们最终会到达的地方。但我觉得在到达那里的过程中会很颠簸。"}, {"start_sec": 128, "speaker_id": "h", "type": "text", "zh": "所以当我想象那个画面时，我感觉那就像一场持续不断的渗透测试。"}, {"start_sec": 129, "speaker_id": "g", "type": "text", "zh": "是的。"}, {"start_sec": 130, "speaker_id": "h", "type": "text", "zh": "一个智能体一直在尝试入侵，比如一个白帽黑客智能体，然后每次它发现什么，它都有一个负责打补丁的智能体伙伴……"}, {"start_sec": 131, "speaker_id": "g", "type": "text", "zh": "去修复它。是的。"}, {"start_sec": 132, "speaker_id": "h", "type": "text", "zh": "那这就是终极的产品愿景吗？"}, {"start_sec": 133, "speaker_id": "g", "type": "text", "zh": "对于万塔的某些部分来说，是的。是的。我认为我们可以为大部分客户以非常有吸引力的方式做到这一点。我认为 CrowdStrike 为大型企业会做得更好，对吧？我觉得这正是选择在哪里竞争、选择哪个细分市场最重要的地方。"}, {"start_sec": 134, "speaker_id": "h", "type": "text", "zh": "有没有哪家公司，在传统安全领域里，你们现在开始侵入它的地盘？"}, {"start_sec": 135, "speaker_id": "g", "type": "text", "zh": "是不同的市场。我的意思是，就拿那个持续性的渗透测试者和你知道的修复者来说，对吧？我们认为我们可以为云服务商做这件事，比如 AWS 和 Azure 上的错误配置，传统上，对吧，Wiz 做这个，Wiz 会为它的客户做这个。Wiz 的客户群起步就是几千人规模的公司，它的价格点也是从几千人规模的公司起步的。所以我们更多是这样思考平台：我们在哪些地方已经嵌入到客户之中？在哪些地方客户不太可能为 Wiz 付十五万美元，但很可能会为一个适合他们的东西付四五万？所以就是在想：我们在哪里已经很强，而竞争对手可能专注在别处，大概是更高端的细分市场。"}, {"start_sec": 136, "speaker_id": "h", "type": "text", "zh": "你的个人动力有什么变化？你当初着手打造这个东西。我记得第一次和你聊的时候，你打造最初产品的方式非常有魅力，比如先用 Excel 做，现在回过头看，你知道，似乎非常老派。而且总有那种“追上汽车的狗”的情况：好吧，你建成了这么一家巨大的软件企业，太棒了。在这一切过程中，你自己的动力是如何演变或改变的？为什么还要继续？"}, {"start_sec": 137, "speaker_id": "g", "type": "text", "zh": "它很有趣、很有挑战，而且一直在变化。我的意思是，我觉得，我真的很喜欢我的工作。有时我觉得自己很擅长，更经常我觉得自己做得很差，那也没关系。在某些方面那不是重点。嗯，但它在变化，它与以往不同，而每当我觉得自己做得不错了，通常就会发生一些事，然后，你知道，情况就变了，我又觉得自己做得很差。我真的很喜欢这种动态。"}, {"start_sec": 138, "speaker_id": "g", "type": "text", "zh": "我觉得一开始我更多的感觉是：人们认为我做不到，而我认为我能，我要证明给他们看。我现在仍然有这种感觉，你知道，甚至到了“你不觉得万塔能做到两千五百亿美元，让我证明给你看”这种程度。我仍然有，但我想你大概能看出来，它少了些阴暗的锋芒。还是有一点阴暗的锋芒，但少多了。更像是：哦，酷，我们现在到这儿了。我们就看看能跑多远，以一种感觉更有趣、更快乐的方式。"}, {"start_sec": 139, "speaker_id": "g", "type": "text", "zh": "它并不总是快乐的，我不是那个意思，但就是感觉更像：哦，酷，让我们看看这件事能走多远。而且我觉得我们能走得相当远。而一开始更多是：你觉得我连起跑线都离不开，让我证明给你看。"}, {"start_sec": 140, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "Vanta、Ridgeline", "zh": ""}, {"start_sec": 141, "speaker_id": "h", "type": "text", "zh": "八年前的你，会对你一路上培养出的哪项具体技能感到多惊讶？"}, {"start_sec": 142, "speaker_id": "g", "type": "text", "zh": "我大概会很惊讶。"}, {"start_sec": 143, "speaker_id": "h", "type": "text", "zh": "最令人惊讶的是哪一项——你现在很擅长、而过去的你会说“不可能”的？"}, {"start_sec": 144, "speaker_id": "g", "type": "text", "zh": "我喜欢市场推广，远超我当初的预料。嗯，"}, {"start_sec": 145, "speaker_id": "h", "type": "text", "zh": "为什么？"}, {"start_sec": 146, "speaker_id": "g", "type": "text", "zh": "嗯，我觉得是因为你可以一直和那些亲切友好的人打交道。我的意思是，我以前是个很糟糕的公开演讲者，而且实际上我在自己的团队面前最紧张，因为我最在乎他们怎么看我，而且我会想：“天哪，我代表的是你们。我想把这件事做得非常好。”在这方面，暴露疗法很有帮助。你就去做，你确实会变得更好。但我想，想到要在启动大会上、或者在全公司聚会上，站在台上面对一千个人，我觉得过去我会想：“我会做得很糟。”而我觉得我身边的人也会想：“是啊是啊，她会做得很糟，也许她应该……你知道，她能接受多少辅导？”你知道，我觉得这和其他任何事一样：是的，如果你努力培养一项技能，你往往会变得更好，你必须投入功夫。"}, {"start_sec": 147, "speaker_id": "h", "type": "text", "zh": "在这一点上我特别感兴趣，这似乎总是高杠杆的。什么最重要？你已经做过几百次这种演讲了，什么让一次演讲变得好？"}, {"start_sec": 148, "speaker_id": "g", "type": "text", "zh": "就像那句老话说的：没人记得你说了什么，但他们记得你让他们有什么感受。这太烦人了，但它真的太对了，至少对我来说是这样。我确实必须相信内容本身，而如果我只是上台，内容让我觉得空洞，我自己也会有这种感觉，而且所有人都会看得很明显，你知道。所以你得找到属于你自己的方式。对我来说，我会尽量放入真实的内容，同时脑子里也记着：没人会记住这些事实中的任何一个。所以，用心比用脑更重要。"}, {"start_sec": 149, "speaker_id": "h", "type": "text", "zh": "重要得多。是的。"}, {"start_sec": 150, "speaker_id": "g", "type": "text", "zh": "是的，是的。"}, {"start_sec": 151, "speaker_id": "h", "type": "text", "zh": "那么用心的关键是什么？"}, {"start_sec": 152, "speaker_id": "g", "type": "text", "zh": "自己相信它。我不知道，就是舞台上的“真诚入门课”。人们很擅长解读彼此。当某人……当你感觉和你说话的人是在走过场，或者并不真心这么觉得，或者在误导你——也许也在误导他们自己——你知道，人们能看出来。他们没法完全说清楚发生了什么，但就是觉得有什么不对劲。嗯，相比之下，一个真心投入的人，你知道，即使他们投入的是某种古怪的东西，那种真诚也会传递出来。"}, {"start_sec": 153, "speaker_id": "h", "type": "text", "zh": "你现在纠结的重大取舍有哪些？你不可能什么都做。你必须做决定。赌注比以往任何时候都高。构建东西比以往任何时候都容易。看起来现在做你在做的事是个很酷的时刻，但一定有你在纠结的重大取舍。那些是什么？"}, {"start_sec": 154, "speaker_id": "g", "type": "text", "zh": "是的。我的意思是，我们进行过、也正在进行的一个讨论是：过去一年里，我们一直努力以一种“智能体优先”的方式来构建。我可以讲讲那是什么样子。"}, {"start_sec": 155, "speaker_id": "h", "type": "text", "zh": "智能体到底是什么意思？为什么那不直接叫人工智能？那是什么意思？"}, {"start_sec": 156, "speaker_id": "g", "type": "text", "zh": "我不知道。你说“智能体”，收入倍数就翻两倍。你说“外壳”，大概是三倍。你可以说“外壳”加上提示词文件，就是减三倍，你知道。"}, {"start_sec": 157, "speaker_id": "h", "type": "text", "zh": "所以是……但智能体就是人工智能的意思，对吧？"}, {"start_sec": 158, "speaker_id": "g", "type": "text", "zh": "你住在旧金山。抱歉。"}, {"start_sec": 159, "speaker_id": "h", "type": "text", "zh": "我……每个人都在说智能体，说得太多了。我甚至都不知道那是什么意思。它就是人工智能的意思，对吧？"}, {"start_sec": 160, "speaker_id": "g", "type": "text", "zh": "是的。"}, {"start_sec": 161, "speaker_id": "h", "type": "text", "zh": "好的。那你继续。"}, {"start_sec": 162, "speaker_id": "g", "type": "text", "zh": "是的。我们一直努力打造一个很好的“外壳”，为我们的客户打造一个很好的外壳，而实际上并不是去构建一堆 SaaS 用户界面。你知道，就像：哦，你想要报表，我们会让我们的智能体基于我们所有的数据按需为你制作图表。我们不会把 Tableau 塞进万塔里——如果我们是在 2022、2021 年构建它，大概就会那么做。我们相信这一点，既是从短期客户成果的意义上，也是从中长期的意义上：这就是软件将来的样子。没有人会把 Tableau 塞进自己的产品里。开玩笑多于认真。虽然确实有人把 Tableau 塞进了自己的产品里。"}, {"start_sec": 163, "speaker_id": "h", "type": "text", "zh": "所以这里有一个方面：这种技术扩散的事情很吓人，因为也许拖拉机——拖拉机公司——要花十年，而在此期间你是对的，但太早了，因此也就是错的。"}, {"start_sec": 164, "speaker_id": "g", "type": "text", "zh": "对。因此也就是错的，你知道，你某种程度上是在押注那个时间跨度。嗯，这件事的另一个版本，其实是大企业。我们在和一家美国大企业谈，试图签下来，他们基本上说：“嘿，也许我们想要你们的人工智能功能，也许不想要，但你们能不能先把它们关掉？”为什么？答案是：因为让一个非人工智能工具通过采购流程要容易得多，而我们想要你们的……"}, {"start_sec": 165, "speaker_id": "h", "type": "text", "zh": "等进去以后再打开。"}, {"start_sec": 166, "speaker_id": "g", "type": "text", "zh": "对。而我们其实并没有一个关闭开关，你知道。你会想：哦，我们是不是该去做一个？但你又会觉得：恶心，我们不想做那个。希望我们不必用到它。我们更愿意把那些时间和精力拿去做点，你知道，真正有用的东西。总之，我们不会去做这个关闭开关。但这就是那种……你会想，这就是那些取舍。"}, {"start_sec": 167, "speaker_id": "h", "type": "text", "zh": "如果你是投资人——你以前是——"}, {"start_sec": 168, "speaker_id": "g", "type": "text", "zh": "是的，"}, {"start_sec": 169, "speaker_id": "h", "type": "text", "zh": "你现在会关注哪里？"}, {"start_sec": 170, "speaker_id": "g", "type": "text", "zh": "哦，我现在一点也不羡慕这份工作。"}, {"start_sec": 171, "speaker_id": "h", "type": "text", "zh": "为什么？为什么你不羡慕？"}, {"start_sec": 172, "speaker_id": "g", "type": "text", "zh": "尽管我可以在公司这一侧批评和取笑那种“哦，我觉得人们在以一种非常短期的方式误解这些企业中的一部分”，但我觉得错失恐惧、“你的回报是多少”之类的——我看到一条推文说，如果你在过去四年里没有投过一家实验室或推理服务商，你就该把你的机构关掉，因为你到底在干什么——嗯，这种情况在投资人一侧感觉比在公司一侧更加尖锐。所以，不管我觉得我的生活有多难——要说清楚，我的生活并不难——但不管我们面临的取舍是什么，在风险投资一侧，感觉更像是回音室，更多地被以增量回报和账面回报来评判，比公司一侧更甚。"}, {"start_sec": 173, "speaker_id": "h", "type": "text", "zh": "那你会怎么做？你会去哪里寻找机会？"}, {"start_sec": 174, "speaker_id": "g", "type": "text", "zh": "是的，显然是实验室和推理服务商。不是。嗯，那些感觉有点……嗯，我们可以争论它是否已经兑现了，但入场价格很高。我感觉，围绕开源模型提供商的讨论和那种确定性，与围绕它们的工具和公司之间，似乎有点脱节。有点像：哦，我们都已经认定开源模型提供商会非常真实地存在，然后围绕它们的生态系统却远不如大实验室那样完善，这让我觉得不对劲。你可能有更好的……"}, {"start_sec": 175, "speaker_id": "h", "type": "text", "zh": "你说的围绕它们的生态系统是指什么？"}, {"start_sec": 176, "speaker_id": "g", "type": "text", "zh": "如果你认为像一个实验室，或者是叫 Long Lake 吗？就是那种“我们基本上就是要去部署这项技术，把人工智能放进这些企业里”的公司。你能围绕开源模型提供商建立一家那样的公司吗？如果你认为……当然可以。而且我也确信在某种程度上 Long Lake 正在这么做，但你真的能像 OpenAI 抓住它自己的东西那样，抓住其中一个模型，然后照搬那套打法吗？基本上，很多实验室的打法看起来应该也适用于开源模型。"}, {"start_sec": 177, "speaker_id": "h", "type": "text", "zh": "而它就是不那么成熟。是的。"}, {"start_sec": 178, "speaker_id": "g", "type": "text", "zh": "所以那里还有更多可做的事。没错。"}, {"start_sec": 179, "speaker_id": "h", "type": "text", "zh": "是的，是的，是的。为什么人们不……是的。我在这点上漏掉了什么？"}, {"start_sec": 180, "speaker_id": "g", "type": "text", "zh": "我就是觉得，这只是一个节奏的问题。"}, {"start_sec": 181, "speaker_id": "h", "type": "text", "zh": "是的。"}, {"start_sec": 182, "speaker_id": "g", "type": "text", "zh": "我觉得任何这些东西能去的地方都是。"}, {"start_sec": 183, "speaker_id": "h", "type": "text", "zh": "这有点讽刺，有点像私募股权之类的——私募股权曾经承诺要做的事，就是把企业整顿好。"}, {"start_sec": 184, "speaker_id": "g", "type": "text", "zh": "对。"}, {"start_sec": 185, "speaker_id": "h", "type": "text", "zh": "现在它们可以容易得多地做到了。"}, {"start_sec": 186, "speaker_id": "g", "type": "text", "zh": "对。"}, {"start_sec": 187, "speaker_id": "h", "type": "text", "zh": "所以，呃，大概一切能变得更高效的都会变得高效得多，而回报将来自更高的利润率，你知道，更高效的运营，诸如此类。"}, {"start_sec": 188, "speaker_id": "g", "type": "text", "zh": "对。但那是效率层面的事，不是创造层面的事。"}, {"start_sec": 189, "speaker_id": "h", "type": "text", "zh": "对。所以我想我更好奇的是，当你观察你的同行和你身边的人时，在创造层面，新芽冒在哪里？"}, {"start_sec": 190, "speaker_id": "g", "type": "text", "zh": "我的意思是，一大批人在创办安全、网络安全公司，既是因为大环境，而且我看到这类公司相对于其他领域按比例更多。一大批人在攻营收、也就是市场推广技术，我觉得这非常说得通。我觉得其实一些，你知道，老牌的 SaaS 营收工具供应商本应该构建所有这些东西，但看起来他们并没有，实际上他们更像是在运行私募股权、弯勺那一类的打法，这同样是一种选择，也许是合理的选择。机器人可能被低估了。我的意思是，它多少有点热、有点被炒作，嗯，那不是什么新领域，但相比所有那些软件领域，它肯定仍然被低配了。说句显而易见的，那边的模型也正变得非常非常好。所以大概值得花时间在那里。"}, {"start_sec": 191, "speaker_id": "h", "type": "text", "zh": "还有什么是你因为自己独特的经历而知道、而别人还没有充分认识到的？"}, {"start_sec": 192, "speaker_id": "g", "type": "text", "zh": "过去几年里，万塔花了更多时间和美国境内外联邦、州、地方各级政府打交道。存在一种对现代化的渴望，这是当前美国政府明确提出的一大优先事项，但在美国以外同样存在。而且我认为人工智能这部分在政府官员中制造了更多错失恐惧，你知道，他们也许一直知道自己没有现代化的流程或现代化的软件，但现在这感觉比过去更加紧迫。所以我觉得那里有些东西。也许这里有一个更宽泛的答案：围绕人工智能和这项技术的所有讨论，改变并提升了很多现代化工作的优先级。有时是在政府内部，有时是在企业内部。"}, {"start_sec": 193, "speaker_id": "g", "type": "text", "zh": "我们在和我们打交道的很多首席信息安全官（CISO）身上，在网络安全领域，确实看到了这一点。他们的工作因为人工智能而改变，他们会说：“哦，鉴于人工智能以及来自智能体的风险，我想彻底改造我的企业风险项目，我想为此要预算。”而我觉得如果他们三年前说“我想为我的企业风险项目要预算”，人们会说：“我们也许在年度经营计划（AOP）里再谈吧。”而我认为因为它和人工智能挂钩，他们今天拿到那笔预算的可能性要大得多。所以采购动作更多了。"}, {"start_sec": 194, "speaker_id": "h", "type": "text", "zh": "如果现在要招人来万塔工作，你的主要说辞会是什么？"}, {"start_sec": 195, "speaker_id": "g", "type": "text", "zh": "哦，这是个有趣的阶段。你会有一万六千家客户在使用产品、使用智能体。当你交付东西时，它们会被真实的人使用，你会即时得到真实的反馈。它已经有了产品市场契合（product-market fit）。你就是去做实验，嗯，用快速的迭代循环，"}, {"start_sec": 196, "speaker_id": "h", "type": "text", "zh": "但又足够早，你仍然可以……"}, {"start_sec": 197, "speaker_id": "g", "type": "text", "zh": "但你可以快速行动。是的，是的。我们让你放手去做。是的。"}, {"start_sec": 198, "speaker_id": "h", "type": "text", "zh": "是的。因为这是一个非常棒的硅谷缩影。你能讲讲那个广告牌大战故事你讲过的最详细的版本吗？"}, {"start_sec": 199, "speaker_id": "g", "type": "text", "zh": "我一直非常怀疑广告牌，因为它们似乎实际上并不……或者说谁知道它们有没有用。追踪效果非常糟糕，而且感觉人们做广告牌的原因是创始人的自我，就是“因为我觉得很酷，因为我的公司有一块广告牌”。所以我一直非常反对广告牌。2021 年仲夏，SaaS 大会——当时感觉是件大事，谢天谢地我们现在差不多已经超越那个阶段了——我们决定，或者说我们的市场团队决定，尝试一下户外广告。我超级怀疑，但我想，好吧，无所谓，试试看吧。你知道，我们要在广告牌上放点东西，而当时的产品营销经理莎拉（Sarah）想出了“不那么烂的合规”（compliance that doesn't suck too much），并把它提给了我们的市场负责人，而他不喜欢，因为他觉得我们像是在贬低自己的用户，基本上就是说：“不行，再好好想想。”"}, {"start_sec": 200, "speaker_id": "g", "type": "text", "zh": "说得友好得多，但意思就是再好好想想。而莎拉有点坚信这个点子，于是她来找了我——她通常不会这样做，她不是那种越过上级的人——但她是真的相信“不那么烂的合规”，所以就拿来给我看。我读了，然后我马上……实际上我马上给我们的投资人安德鲁·里德（Andrew Reed）发短信说：“你觉得怎么样？你对网络梗很有品味。”他很喜欢。于是你会想：“好吧，我们试试。"}, {"start_sec": 201, "speaker_id": "g", "type": "text", "zh": "我们投放吧。”就是说：“最坏能怎么样？人们会觉得我们很讨厌，然后大概六个月后就忘了。”实际上看起来相对……总之。于是我们把广告牌立在了某个地方，比如靠近伯林盖姆（Burlingame）。效果出奇地好。"}, {"start_sec": 202, "speaker_id": "g", "type": "text", "zh": "我们发了推文。推文火了。接下来几个月，那条推文还在流传，最后出现在了 r/Accounting 上，成了一个获客漏斗，对吧？你会想：哦，这是块宝。我觉得它真的奏效了，因为它是我们品牌最好的样子、我们市场营销最好的样子。我们的特质是带着一点眨眼的幽默，就是，你知道，我们严肃对待我们的工作，但我们并不总是严肃对待我们自己。"}, {"start_sec": 203, "speaker_id": "g", "type": "text", "zh": "所以我觉得这里面有某种东西引起了共鸣。然后我还觉得，它有点隐晦，但又没那么隐晦，就是足够隐晦，如果你看懂了，你会觉得自己领悟了一个秘密。总之，“不那么烂的合规”就是奏效了。好。2022 年，市场崩盘。结果发现 101 号公路上有大量广告牌空位。"}, {"start_sec": 204, "speaker_id": "g", "type": "text", "zh": "于是我们拿到了这个很棒的位置，对吧，就在 101 和 280 差不多交汇的地方，总之是个很棒的位置，价格却没那么高，尤其是回头看的话。我们开玩笑说：“哦是的，我们已经把它锁定好几年了，怎么样？”于是我们因为这个位置上的这块广告牌而出名。我想我甚至在播客上说过合同锁定了好几年。其实并没有锁定好几年，但那块广告牌出名了。于是人们一直联系我们和莎拉，问：“你们怎么做广告牌的？"}, {"start_sec": 205, "speaker_id": "g", "type": "text", "zh": "你们的广告牌怎么做的？”我们就说：“哦，我们和这家代理商合作，我们和这个人合作。”于是我们给这个人介绍了所有这些生意。我们就一直说：“找他，找他，找他。”总共有几百万美元的生意。很好。"}, {"start_sec": 206, "speaker_id": "g", "type": "text", "zh": "好。结果在背后，我们并没有多年期合同——我本应该核实一下的。如果我要在播客上那么说，那确实不算“名副其实”。那份合同基本上就是：你已经把广告牌立起来了，就这样。这根本就不算是合同。好几年过去了，莎拉在和她的一个朋友吃晚饭，那个朋友在一家创业公司工作，她的朋友说：“哦，你们放弃了那个广告牌位置，真可惜。"}, {"start_sec": 207, "speaker_id": "g", "type": "text", "zh": "你们为什么那么做？”莎拉说：“什么？”他们说：“哦，是的。我们刚签下了你们的位置。”莎拉说：“什么？我们能要回来吗？”"}, {"start_sec": 208, "speaker_id": "g", "type": "text", "zh": "或者说：“合同呢，合同呢？”合同是用蜡笔写的。根本没有合同。基本上就是一张投放订单。打电话给那个人，他说：“是啊，你知道，那只是投放订单。他们出价更高。”"}, {"start_sec": 209, "speaker_id": "g", "type": "text", "zh": "所以，位置就这样在我们眼皮底下被换掉了。我去找那家公司的创始人说：“你好，我能……我能付你多少钱？”而我在这里是一个极度缺乏价格弹性的买家。就是：“我付你多少钱能换这个位置？”他说：“多少都不行。”我说：“我出双倍怎么样？”"}, {"start_sec": 210, "speaker_id": "g", "type": "text", "zh": "我想他当时付的是大概一百五十万。你就说：“我给你三百万，只为了拿到这个位置，怎么样？”他说：“我们其实现金流是正的。”所以，字面意义上他是个毫无弹性的卖家。于是我们失去了那个位置。要说让我觉得“哦不，万塔完蛋了”的事——说实话，失去那块广告牌的时候，我想，我们大概刚刚损失了十亿美元的市值。不祥之兆。"}, {"start_sec": 211, "speaker_id": "h", "type": "text", "zh": "是的，是的，是的，是的。既是不祥之兆，也确实有一些市值——你知道，某种“氛围上”的市值——就这么缩水了。是的。"}, {"start_sec": 212, "speaker_id": "h", "type": "text", "zh": "还有什么我遗漏了的吗？有什么吸引了你的好奇心和注意力、你认为现在非常重要的东西？"}, {"start_sec": 213, "speaker_id": "g", "type": "text", "zh": "你在数据中心的讨论中能看到，在某种程度上在个人智能体的事情上也能看到：我们就是不再像过去那样信任软件公司、科技公司了。而且这种情况逐年恶化。很难想象它会出现拐点、重新回升，回到十五年前那种有益的乐观状态。所以我认为，在这种背景下，公司通过大量指标和实际定义来证明自己值得信赖、达到工业级、安全可靠，比以往任何时候都更重要，而且只会越来越重要。还是那句话，要面向一大批客户、监管机构、立法者、审计师等等。价值两千五百亿美元的万塔，就处在所有这些交易的中心，帮助公司达到那些高标准——或者不管标准定在哪里——然后传达这一点，帮助它们去传达这一点，并加速它们的业务。"}, {"start_sec": 214, "speaker_id": "h", "type": "text", "zh": "换一种说法就是，人工智能开启了一个兴奋度极高但信任度很低的……"}, {"start_sec": 215, "speaker_id": "g", "type": "text", "zh": "是的，这个说得好。"}, {"start_sec": 216, "speaker_id": "h", "type": "text", "zh": "时代。"}, {"start_sec": 217, "speaker_id": "g", "type": "text", "zh": "是的。而万塔的工作就是保持这种兴奋，但……"}, {"start_sec": 218, "speaker_id": "h", "type": "text", "zh": "提升……"}, {"start_sec": 219, "speaker_id": "g", "type": "text", "zh": "是的，提升信任，而且要名副其实地提升，不只是靠氛围，而是靠……是的，是的。"}, {"start_sec": 220, "speaker_id": "h", "type": "text", "zh": "什么能让市场重新信任？"}, {"start_sec": 221, "speaker_id": "g", "type": "text", "zh": "我觉得在 B2B 的语境下，比如企业之间，我确实认为有一点氛围的成分，但也有非常真实的数据成分，就是：我希望看到具体的东西，或者具体的改进曲线，或者也许做出承诺，而且可能有合同作保障，对吧？我觉得那一块要“合乎逻辑、理性”得多，企业市场往往就是这样。我认为在消费者这一侧，靠的是氛围，而我觉得那一块似乎很难扭转。我不羡慕那份工作。"}, {"start_sec": 222, "speaker_id": "h", "type": "text", "zh": "你信任它们吗？Muse 之类的等等。"}, {"start_sec": 223, "speaker_id": "g", "type": "text", "zh": "大公司？不信任。"}, {"start_sec": 224, "speaker_id": "h", "type": "text", "zh": "为什么不？"}, {"start_sec": 225, "speaker_id": "g", "type": "text", "zh": "倒不是说我的，你知道，邮件或者聊天记录或者什么里面有什么特别有意思的东西。我的生活没那么有意思，但我宁愿，你知道，只有谷歌（Google），或者只有苹果（Apple），或者只有某一家公司掌握那些信息。"}, {"start_sec": 226, "speaker_id": "h", "type": "text", "zh": "五年后的安全是什么样子？如果你就这样收个尾：好吧，这就是我们的方向，我们想成为这一切中心的那个角色。为我们描述一下那个状态。"}, {"start_sec": 227, "speaker_id": "g", "type": "text", "zh": "五年后的安全会更快、更加激烈，希望也更具进攻性——是的，我们会有更多的攻击，但我认为你需要更多白帽力量来反击这一切。而且要达到我们从未有过的速度。我认为要让人达到那个速度，你必须把相当一部分人的决策拿掉，或者说让人去架构系统、编写规则，而不是做每一个决定。就像是从那里退下来……"}, {"start_sec": 228, "speaker_id": "h", "type": "text", "zh": "编写评测。也许未来我们就只做这件事了。我们所有人整天都在写评测。"}, {"start_sec": 229, "speaker_id": "h", "type": "text", "zh": "如果必须用一个词来定义万塔未来五年会是什么样，你会选哪个词？"}, {"start_sec": 230, "speaker_id": "g", "type": "text", "zh": "广阔（expansive）。我认为我们拥有令人难以置信的客户基础和数据基础，现在我们可以在此之上去构建东西。花了八年才走到这里，接下来的五年或八年，我们可以就在此之上构建东西。"}, {"start_sec": 231, "speaker_id": "h", "type": "text", "zh": "太酷了，我们五年前做过这期，现在我们又来了。非常感谢你抽出时间。"}, {"start_sec": 232, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "Ramp、Vanta、WorkOS、Ridgeline", "zh": ""}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

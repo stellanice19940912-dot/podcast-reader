@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>你该把健康托付给 ChatGPT 吗？｜卡兰·辛哈尔（Karan Singhal，OpenAI 健康 AI 研究负责人）</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="J">杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）</option><option value="K">卡兰·辛哈尔（Karan Singhal，OpenAI）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">a16z</span><span class="pill">2026-10-20</span></div>
+<h1>你该把健康托付给 ChatGPT 吗？｜卡兰·辛哈尔（Karan Singhal，OpenAI 健康 AI 研究负责人）</h1>
+<p class="sub">嘉宾：卡兰·辛哈尔（Karan Singhal，OpenAI 健康 AI 研究负责人） · 约 55 分钟（3307 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=9n0MI4D7TCM" target="_blank" rel="noopener">https://www.youtube.com/watch?v=9n0MI4D7TCM</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>a16z</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-20</dd></div><div class="meta-row"><dt>时长</dt><dd>约 55 分钟（3307 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；该视频此前无任何字幕轨，北京 09:00 重试时经 yt-dlp + Chrome cookies 路径拉取；无官方字幕），中文为逐句全文翻译；人名、产品与模型名按自动字幕读音并结合上下文校正，个别可能有误（如 Grockbot、Dots、GPT-6 Luna、5.6 Soul 按读音保留）</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>9n0MI4D7TCM</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>a16z 合伙人杰伊·鲁加尼（Jay Rughani）对话 OpenAI 健康 AI 研究负责人卡兰·辛哈尔（Karan Singhal）：每周 3 亿多人用 ChatGPT 问健康问题，OpenAI 如何在通用前沿模型里训练医疗能力、靠数百位医生建立评测与共识，并把 AI 定位为医生的补充和就医旅程中的“安全网”，而非医疗服务本身。</p>
+<h3>核心要点</h3><ul><li>“专训进通用模型”：在 ChatGPT 每个训练阶段加入专门医疗数据，既吃到前沿模型的规模红利，又避免专用小模型很快落后于前沿</li><li>信任靠评测：组建覆盖几十个专科、多语言多国家的数百人医生网络汇集共识（“问五个医生得到八种答案”）；HealthBench 区分普通用户与医生的回答方式、考察不确定时的措辞，安全优先于“说用户想听的”；新发布心理健康评测基准</li><li>医学指南渗透到日常临床要 5–17 年，ChatGPT for Clinicians / for Healthcare 想在诊疗现场把最新文献压缩到几小时；已与 Epic 双向集成，UCSF、AdventHealth 为重度用户（后者称行政流程成本降约 80%）</li><li>区分“医疗信息”与“医疗服务”：OpenAI 不打算自己提供诊疗，而是做健康的“四分卫”和“前门”，帮患者预约、跟进、提示风险（如 A1C 升高提醒复查用药），把最后一公里交给合作伙伴</li><li>健康领域的“第 37 手”：Penda Health 研究中 AI 提示减少抗生素滥用；未来整合十年纵向病历数据做出人类无法做出的预测，并加速新靶点生成与临床试验的优先级排序和验证</li><li>健康智能成本暴跌：GPT-6 Luna（据自动字幕）在 HealthBench Professional 上优于一个月前的旗舰、价格便宜 34 倍；但 5.3 万亿美元医疗支出的压缩要靠集成与工作流，服务方与支付方的“AI 军备竞赛”只是短期干扰</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：约 55 分钟，OpenAI 健康业务一线负责人系统讲清产品思路、评测方法和合作落地，信息密度高；但访谈偏官方口径，对风险与失败案例着墨不多，部分产品/模型名称来自自动字幕可能有误听。无赞助广告。</p>
+<h3>适合人群</h3><p>医疗/数字健康从业者与创业者、关注 AI+医疗的投资人、临床医生，以及经常用 ChatGPT 查健康问题的普通用户</p>
+</section>
+<div class="legend"><span class="spk-0">杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）<em>主持</em></span><span class="spk-1">卡兰·辛哈尔（Karan Singhal，OpenAI）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>我们在医疗上要花掉 5.3 万亿美元以上。如果医疗是一个国家，它的 GDP 会排世界第三。然而我们却面临大量的稀缺。OpenAI 的使命是确保通用人工智能（AGI）造福全人类，并让人们获得值得信赖、充裕、可靠的健康智能。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>最打动我的故事之一，是内森·拉本兹（Nathan Labenz）的故事。他和儿子经历了一段漫长的波折：孩子一度非常疲惫、烦躁易怒，AI 帮他们一步步理清了整个过程，结果孩子被确诊为一种侵袭性很强的白血病。还有你们在心理健康方面做的一些工作——</p>
+<p>这里面非常复杂。既然这可能意味着那么多不同的情况，你们要怎么引导用户？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>我们一直在和世界各地的一大批持证心理健康专家合作，思考在一系列棘手情境下应该如何定义模型的行为，并确保能达成一定程度的共识，这样我们才能真正衡量模型的表现。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>我们来谈谈信任。一个人和大语言模型（LLM）对话时<span class="tag">【音乐】</span>，可能非常希望听到“一切都没事”，但从医学角度看，他们也许需要听到的是完全不同的东西。你们怎么教会 AI 识别这种差别？嗯，</p>
+<p>大家好，欢迎回到播客。我是杰伊·鲁加尼（Jay Rughani），a16z 合伙人，负责医疗和生物技术公司的投资。今天和我一起的是 OpenAI 的卡兰·辛哈尔（Karan Singhal），他负责 OpenAI 的健康 AI 研究，我们有很多要聊的。谢谢你来。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>谢谢邀请。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>我想先从一个大问题开始。呃，今年早些时候有一份报告，你们也公开谈过：每周有数亿人用 ChatGPT 问健康相关的问题。呃，他们在问什么？有哪些问题是他们在我们主流医疗体系里得不到解答的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>好。嗯，我先把视角拉远一点，讲讲我们为什么要投入健康领域。嗯，你知道，OpenAI 的使命是确保 AGI 造福全人类。从宏观上看，我们认为这通过三种方式实现。嗯，第一是构建和部署 AGI：构建有能力的模型，围绕模型做产品，部署它们，开展合作。第二是防范负面影响，也就是各种各样的安全问题。第三是让正面价值真正发生。嗯，所以我们把健康视为让正面价值发生的一个非常非常具体的途径，同时也能顺带解决医疗中出现的一些安全问题。所以我们非常投入，主要是确保两件事。</p>
+<p>第一，我们能抬高人类健康的“地板”，让人们免费或几乎免费地获得值得信赖、充裕、可靠的健康智能；同时也真正抬高“天花板”，让以前做不到的事成为可能。要理解“抬高地板”，最好的方式就是看看我们在消费者端是怎么做的。嗯，正如我们报告的，每周有超过 3 亿人用 ChatGPT 问健康与养生类问题，我们把做好这件事视为一份极其重要的责任。嗯，而且这个数字一直在快速增长。我觉得你能看到的一点是，想想看病的体验，即使在美国、即使在湾区，你要约一个专科门诊，哪怕就在湾区，有时也得等上几周甚至几个月；嗯，你可能要花大量时间搞清楚怎么预约、怎么排期之类的。等了这么久，也许只能和医生见 15 分钟，你觉得自己没准备好，走出诊室时可能想：“哎呀，我还有六个问题想问。”我们希望 AI 能在这段就医旅程中陪着你，健康不应只局限于那一个个 15 分钟的时段。AI 其实可以帮你走完整个就医旅程。这也正反映了如今人们在消费端使用 AI 的方式：人们带着问题、担忧和想了解的信息来；嗯，他们想弄清楚怎么安排就诊、怎么提问、怎么跟进医生交代的事情，诸如此类。</p>
+<p>我们发现，正是在两次就诊之间，AI 在消费端最能帮上忙。而且，你知道，我们在临床医生端和企业端也在做类似的投入。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>是啊，太棒了。我们有一个非凡的医疗体系。呃，如果我病得很重，没有哪个国家比美国更让我想待。但我们依然面临大量稀缺。你知道，你也看过这些统计数据：超过 1 亿人没有固定的初级保健医生。即便有的人，往往也要等 40 多天才能见到医生。有时候就像你说的，见到医生也只是匆匆 15 分钟，你还有更多问题。我上周因为点事去看了皮肤科，事先把所有问题都写在了苹果备忘录（Apple Notes）里，结果还是忘了问一件事，现在要约复诊，又排到四个月以后。这种事每个人都遇到过，我们都有体会。嗯，有没有某个具体的患者故事或最近的案例，能帮我们想象世界正走向何方、你们的工作正把我们带向哪里？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>我们团队的工作让人欣慰的一种方式，就是看到这些数字，看到有多少人在用这项技术、它对他们似乎有多大帮助。嗯，另一种方式就是直接听人们讲，对吧？每周都有好几次，有人通过邮件或其他各种方式联系我们，说“这是它帮到我的方式”。</p>
+<p>我想，最打动我的故事之一是内森·拉本兹和他儿子的故事。嗯，他主持《认知革命》（The Cognitive Revolution）播客，也在那档播客里讲过这个故事。他和儿子经历了一段漫长的波折：某个时候，他非常年幼的儿子出现了严重的疲惫、烦躁易怒之类的症状。嗯，当时他们在度假，AI 帮他们意识到这可能是件相当严重的事，并决定带孩子去做检查。结果孩子被确诊为一种侵袭性很强的白血病。嗯，在整个治疗过程中，我是说，据内森讲，他当时大量使用 GPT-5 Pro 来帮助应对整个过程，嗯，帮着看懂化验报告之类的，甚至在专科医生有空解读之前就先弄明白了。我想，你知道，这给他们带来了很大的安心。嗯，内森在他的播客里讲了这个故事——我不知道在这儿能不能给别的播客打广告——但内森确实在他的播客里讲了，很推荐大家去听。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>在很多方面，OpenAI 都在模型的每一个环节里构建健康智能，但这和大家用来写代码、规划度假的是同一个模型。你能从架构角度帮大家理解，你们为什么要这样构建吗？为什么通用 AI 是医学这么复杂领域的正确基础？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>是的，我是说，人们经常问我们这个“通用模型还是专用模型”的争论。我以前做过专用模型，其实就是在之前的一份工作里，所以这个问题的两边我都确实有经验。嗯，我觉得这里最重要的一点是，我们说的其实是在通用模型里做专门训练，我认为这其实两全其美。我们为 ChatGPT 所做的是：对于 ChatGPT 里发布的所有模型，在模型训练的每一个阶段，我们其实都加入了专门的医疗数据——过去一年里我们所有的模型都是如此。结果就是，你得到的模型既受益于大型前沿模型的全部规模、通用改进、智能和推理能力，也受益于专门训练，比如整合我们与全球大批医生合作得到的数据。所以我认为这种做法让你两全其美。如果你分出一条线，说“嘿，我们要训练一个更小的、只做医疗的专用模型”——就像我以前做的、也像很多人做的那样——你会发现这个模型会相对很快就落后于前沿</p>
+<p>因为前沿和通用模型的进步速度实在太快了。而如果你押注规模，我们 OpenAI 作为一个行业所发现的是：事情会越来越好。嗯，所以我们做的就是搭上这班“规模前沿”的便车，嗯，利用我们能把评测（evals）和训练数据整合进模型的能力，让模型既能专精，又能受益于通用能力。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>我几乎想开始想象，你们正在构建的这项技术能做到什么。显然它今天已经很惊人了，但你们不会止步，还有大量大量的工作要做。我想很多人都被“口袋里的私人医生”这个想法所吸引。</p>
+<p>它无所不知，掌握所有医学专科的知识，所以你不必为了不同的问题分别去看心脏科医生和皮肤科医生。嗯，它完全为你个性化，掌握你全部的病史作为上下文，嗯，记得你说过的每一句话，记得你的病史，也记得你的偏好。嗯，它还能激励你、轻推你，让它给你的信息在恰当的时间、以恰当的方式送到你面前，推动你养成更好的健康行为，或者坚持医生给你的方案。从长远来看，这就是你们在 OpenAI 打造的体验吗？我们离它还有多远？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>是的，这正是我们非常兴奋的事情。我们对“主动式个人健康助手”这个愿景非常兴奋。我不认为它能替代真正拥有一位医生、或者能看上医生。但真正去思考如何把获取健康信息的体验变得更贴合你个人的情境，是我们在健康领域投入的一个非常重要的部分；ChatGPT Health 也是如此，这是我们的一个消费级产品，让用户可以连接自己的健康信息，这些信息会被安全地使用，不会被用作训练数据，也不会用于定向广告之类的用途。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>嗯哼。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>这在很大程度上就是我们设想如何走向一个越来越个性化、越来越主动的服务世界的方式。这也是我们思考部署的方式。从一开始，我们就尽可能广泛地向免费用户和 Pro 用户部署这项功能。所以在每周约 3 亿健康类活跃用户中，绝大多数是免费用户。而且其中大多数也在美国以外。嗯，所以我们把这里的“普及”问题看得非常重要、非常核心。在思考“主动式个人健康助手”这个下一代前沿时，我们也把这一点带进来。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>我觉得用例能帮我们、帮大家想象真正可能实现什么，想象这些工作在为什么做贡献。“口袋里的私人医生”这个想法我觉得很令人兴奋。格雷格·布罗克曼（Greg Brockman）上播客时讲过他一位朋友的经历：这位朋友住院了，呃，她的医生正要给她用某种药。她在 ChatGPT 里复核了一下这种药，结果根据她的病史发现，可能会产生某种药物相互作用，或者，嗯，引发某种不良事件。她把结果给医生看，医生也同意，并说：“我没有足够的时间翻阅你的病史，没注意到这一点。非常感谢你提出来。”难道我们不应该对每个人、每时每刻都这样做吗？如果足够便宜、足够方便，难道不能为每一个临床场景都提供第二、第三、第四意见吗？这是我们前进的方向吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>是的。我非常喜欢这个想法：为患者和临床医生都提供一张“安全网”，它就存在于就医旅程之中。而且，你知道，它不是时时插手，也不是当中间人，而是真正思考如何增强、并在现有体验之上做加法。嗯，你知道，我们其实在临床医生端更直接地研究过这一点，嗯，和彭达健康（Penda Health）合作做了一系列实验，研究“临床医生副驾驶（copilot）”这个想法。它恰恰就是这样部署的：在临床医生工作时充当他们的安全网。它会适时介入，主动提示：“嘿，这里可能有问题”，比如“这里可能存在某种药物相互作用，你可能没注意到”，</p>
+<p>“我们能不能调整一下”之类的。我认为同样的事情也会在患者端发生。我对这样一个想法非常非常兴奋：在你的就医旅程中有一个主动式的智能体（agent）真正帮助你，确保比如说，如果你是糖尿病患者、糖化血红蛋白（A1C）升高了，你就能让医生复查你的用药之类的，确保这类情况被标记出来、得到恰当的复核。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>你提到了个性化的主动式智能体。从热度来看，个人智能体在过去几个月里整体上已经登上舞台了：Instinct、Muse、Grockbot、OpenAI 的 Dots。呃，给不熟悉的朋友解释一下：你可以给这些 AI 应用一个目标，它会执行一系列任务。所以它不只是“嘿，做这个任务”，然后用一个循环执行完；它能利用你的偏好，能访问你授权给它的所有应用，呃，如果你提供了信用卡信息它也能访问，并且能代表你完成一个目标。人们不禁会想象，在我们这套出色却常常支离破碎的医疗体系中，这能带来什么可能：预约就诊，并确保，呃，你的保险覆盖这次就诊；呃，你知道，在出院后帮助和引导你遵循医生给的护理方案；甚至就一笔医疗账单错误和保险公司谈判。各种各样在医疗体系里制造摩擦的任务。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>这是你们工作的方向吗？我们可以期待 OpenAI 带来这些吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>我对这个愿景非常兴奋。我认为无论从患者还是临床医生的角度看，医疗体系在服务人们方面最困难的问题之一，就是碎片化、整个生态缺乏连接。而且医疗也是那种你不该指望明天所有东西都有 MCP 连接器的行业，对吧？这里有大量遗留软件，本来就未必有很好的 AI 或软件连通性。很多人，你知道，在医疗生态中是把他们的主力电子病历（EHR）软件跑在比如虚拟机（VM）上的。所以——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>跑在云上的虚拟机。是的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>没错。所以这里其实有个有意思的地方：虚拟机在某些方面反而让 AI 智能体更容易操作。但这绝对是智能体和“计算机使用（computer use）”大显身手的时机。嗯，所以我确实认为，在这个领域，很多传统上存在的壁垒——患者获得所需医疗之间的壁垒、临床医生提供所需医疗之间的壁垒，以及医疗数据本身的壁垒（它往往是整个体系能否为患者良好运转的瓶颈）——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>好，我们在聊用例，你在帮我们描绘梦想。呃，在沿着这条路继续走之前，我们来谈谈信任。显然，信任在这里是最重要的。同一个底层模型，嗯，可以帮我看懂化验结果或者医生跟我说的话，嗯，但它也可以帮一位训练有素的专科医生理清一个非常复杂的病例。</p>
+<p>你们要在回答中改变什么，才能让这两类人，或者其他任何使用同一个底层模型的人，都能看得懂？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>是的，我是说，正如你说的，健康是一个“以信任的速度前进”的领域。所以你不仅要能让模型变得更好、能衡量它们，还要能沟通，带着整个世界一起前进。这一直是我们在如何与患者、与终端用户、与临床医生合作这几方面思考和战略中非常重要的一部分。嗯，所以对你问题的简短回答基本上是：我们通过与世界各地的专家合作、以各种方式获取反馈来评估和训练模型，从而根据对方是普通用户、还是已经在复杂就医旅程中摸索了一段时间的“专家型”普通用户、还是临床医生或其他类型的用户画像，来调整模型的行为。早在我们 2025 年 5 月发布的最初的 HealthBench 评测里，其实就有一个主题、或者说评测的一部分，专门聚焦这种区分：模型的行为方式，以及它使用专业术语的程度等，是否根据对方是普通用户还是临床医生做了调整。从那以后，我们在衡量模型能否适应不同类型用户方面做得更好了，也在朝这个方向训练模型。嗯，所以我们的很多做法其实不只是如何让模型对这些不同用户更好，还在于如何带着他们一起前进。其中一部分就是我们如何做评测、如何对外沟通评测。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>所以信任有几个组成部分。我们已经谈了，嗯，根据用户调整回答。另一个重要组成部分是分歧。</p>
+<p>嗯，一个人可能在和大语言模型、和 ChatGPT 对话，分享自己所有的症状，心里却非常希望听到“一切都没事”。所以从消费者的 NPS——净推荐值——角度看，他们想听到的是安慰；但从医学角度看，他们也许需要听到的是完全不同的东西。是的。</p>
+<p>你们怎么教会 AI 识别这种差别，并在其中权衡不同的产品目标——一边是消费者参与度和留存，一边是正确性和临床质量？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>是的，这对我们做评测和训练都极为核心。稍微拉远一点看，关于我们如何回应、如何评测中的“共识与分歧”问题，你可以采用的一种做法是：我们请几位临床医生加入比如说 OpenAI 健康团队，然后说“嘿，你们来想办法处理这些不确定的病例，我们会就这些不确定的病例来问你们，你们帮我们构建评测和训练数据”之类的，嗯，就交给这几位医生去搞定。嗯，这其实不是最好的做法。事实证明，如果你拿任何一个问题去问五位医生，你会得到大概八种不同的答案。所以我们在 OpenAI 开始专注健康领域时最先做的事情之一，就是建立一个全球医生网络，由数百位专家组成，我们与他们合作，覆盖全球、覆盖几十个专科、多种语言和执业国家，</p>
+<p>来思考如何恰当地汇集专家的智慧，这样我们就不必——尤其是在可能存在分歧的领域——依赖一两位、两三位医生来裁决。这是其中一部分，嗯，就是让评测和训练数据来自不同的专家，而不是依赖一两个人。而你问题的第二部分是：如何平衡相互竞争的目标，对吧？比如说，医生们、医生们汇总的智慧指向一个方向，而用户其实希望你说点安慰的话，哪怕情况并不令人宽慰。这基本上就是安全优先。嗯，所以</p>
+<p>对我们来说非常重要的是，当有数以亿计的健康对话涌进来时，我们非常严肃地对待自己的责任。所以，你知道，在整个评测体系和训练体系中，嗯，我们有专门跟踪这类困难情境的评测：在这些情境下，模型应该站出来说“嘿，这不安全，你应该去就医”，嗯，哪怕用户不想听，或者，你知道，想寻求某种替代疗法之类的。嗯，这是我们评测方式中非常重要的一部分。随着时间推移，我们不仅改进了与医生合作做评测的方式，还看到了模型在各方面相当显著的进步。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>呃，在这些方面，还有另一种分歧的例子或情形，那就是我作为消费者：我在 ChatGPT 上问了一个医学问题，然后在就诊时把回答给医生看。顺便说一句，我的医生很喜欢我。嗯，然后他们不同意，不同意这个回答。我该怎么处理这种情况？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>是的，我是说，我认为你应该像处理以其他方式出现的分歧那样处理它。人们确实会在各种事情上有分歧，嗯，我认为作为患者你有权利，你知道，请另一位医生看看、了解情况，去找另一位医生听听第二意见。</p>
+<p>是的，无论你是否同时也在用 ChatGPT 获取健康信息，我都会这么建议。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>是的，很有道理。信任还有另一个要素，就是绝对的正确性。你们做的很多工作，至少从我听你讲的来看，似乎都在于让回答立足于全世界的医学文献和证据。医学的某些部分没有太多共识或分歧可言，但医学中还有很大一部分仍在，呃，被发现、被研究，即便在医学界内部也存在分歧。对于这类问题，当我们还在发现真相的时候——你知道，科学是一个过程等等——很难让回答立足于真相。在这些情况下，你们怎么看待正确性？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>是的，这是个非常好的问题。我是说，无论有没有 AI，它都很重要。如果你拉远视角看看今天医学共识是如何传播的，对吧？今天的流程是什么样的：基本上，嗯，有一大批人在写论文，各种各样的生物医学论文，嗯，提出可能提升医疗质量的改进或疗法之类的。然后，各个专科每年都有一个制定临床指南的流程，指南大致是说：“嘿，在这种情况下，如果你是心脏科医生，遇到一位有 X、Y、Z 情况的患者，你大概应该这样做。”嗯，所以这些临床指南大致可以看作是一种流程图，由世界各地不同的机构每年发布，根据最新研究描述在不同情境下大致应该怎么做。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>嗯哼。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>然后最后一步是——你有生物医学文献，然后有，嗯，临床指南，然后是人们在实践中实际怎么做。事实证明，这最后一步是一个巨大巨大的瓶颈。有研究专门考察，嗯，临床指南需要多长时间才能渗透到世界各地普通医生的日常实践中，</p>
+<p>嗯，过去人们发现，依研究不同，这种渗透真正发生需要大约 5 到 17 年。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>这太夸张了，你可不想用落后 5 到 17 年的方式行医。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>所以我们思考的一件事是：如何把这段“按过去的方式行医”的时间，呃，压缩到几周、几天，甚至几小时，对吧？这是我们在 ChatGPT for Healthcare（面向医疗机构的 ChatGPT）和 ChatGPT for Clinicians（面向临床医生的 ChatGPT）工作背后一个非常重要的原则——这两款都是面向临床医生和医疗专业人员的产品，我们在诊疗当下引入最新的生物医学文献，让人们能非常快速地，比如说在一次 15 分钟的就诊中、在诊疗现场就得到问题的答案。</p>
+<p>这是回答你问题的一种方式：你知道，在实践中，虽然很多领域缺乏医学共识，但在一些情况下其实已有医学共识，只是没有被付诸实践。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>嗯哼。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>所以你可以做的一件事，就是大幅减少这种情况的发生。这是回答你问题的一种方式。另一种方式是：如何处理那些仍然存在真正医学不确定性的地方。我想这里有几件事。第一，你要训练模型能够识别自身的不确定性，比如在浏览、获取信息之后。你希望模型能意识到“嘿，信息就是不够”，并坦率说出来。所以，你知道，这一直是我们做评测的重要部分。这其实是 HealthBench 公开的一个方面，其中包括比如在存在这种不确定性时，对“留有余地的措辞”（hedging）的评测。这是一件重要的事。第二件事——这就涉及“如何抬高人类健康的天花板”这个问题——是真正思考模型如何加速科研进程、真正推动医学前沿。也许我们稍后再聊这个。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>听你讲下来，感觉你总在考虑三类对象中的一类：要么是患者，要么可能是注册使用的个体临床医生，要么可能是企业——无论是医疗服务机构还是其他企业。你们在架构层面、比如说在“套件”（harness）层面，如何设计产品来满足所有这些不同用户的需求？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>是的，我是说，我想这也许有三个部分。第一是让模型对这些用户真正真正地好用。第二是围绕模型构建合适的套件或产品。第三其实是部署或合作推进，去触达合适的用户。我觉得在默认情况下，如今的模型很多时候已经相当不错了。我们谈过我们与临床医生合作做评测之类的做法，我们看到性能和可靠性都有相当显著的提升。你知道，几个月前我们谈过在免费层上做的改进，把免费层的性能带到前沿水平。</p>
+<p>所以，你知道，对每周使用 ChatGPT 的 12 亿人来说，嗯，免费给他们一个在健康方面处于前沿、极其有用的模型。嗯，这显然一直是我们让健康智能变得充裕的战略的重要部分。第二是我们的产品。我们的思路是：你可以有一个非常好的模型，但如果用模型来改善健康的“启动能量”太高，人们就不会去用，对吧？所以我们很多产品工作，其实就是思考你说的这些对象，思考如何降低人们利用算力和智能来改善人类健康的启动能量。</p>
+<p>嗯，这就包括，你知道，我们在 ChatGPT Health、呃，在企业端的 ChatGPT for Healthcare，以及 ChatGPT for Clinicians 上的工作。我们设计这些产品的很多方式，基本上就是思考：人们使用模型的障碍、瓶颈和启动能量是什么。嗯，比如说，嗯，你知道，向医疗系统提供企业版 ChatGPT 时，安全与合规上的瓶颈是什么。这是两年前我们想得很多的一个问题。于是我们想，好，我们需要在安全与合规上投入，需要确保能提供符合 HIPAA（美国健康保险流通与责任法案）的服务，</p>
+<p>需要确保能提供医疗机构所需的那种，嗯，隐私保护，这样我们才能处理他们需要处理的医疗数据，提供他们信任的服务。</p>
+<p>嗯，这大约是两年前到大约一年前我们工作中非常重要的一部分。嗯，从那以后，我们就根据所看到的采用瓶颈逐个去攻克。第三是合作与部署。同样，你知道，几年前我认为 OpenAI 在“说医疗行业的语言”方面还很早期，嗯，我们和医疗合作伙伴打交道时，我想，你知道，这些对话还处在早期。所以我认为此后我们投入的一件事，就是真正思考你说的每一类对象，真正思考如何说他们的语言、如何带着他们走完这段旅程。因为即使模型变得非常聪明，如果没人真正信任它、使用它，那也算不上实现了我们的使命。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>你刚才也稍微提到了你们和 Epic 合作、把产品直接集成进 Epic 的一些工作。也许可以多分享一点？呃，因为很多在医疗行业深耕多年的人，呃，看到和 Epic 这种程度的合作都非常感兴趣。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>是的，我是说，这是我们做法中非常重要的一部分。就像我们谈过的，碎片化，嗯，一直是医疗中的问题之一。嗯，数据和工作流彼此割裂这一事实，我认为是在医疗中有效使用 AI 的一大障碍。</p>
+<p>嗯，所以，你知道，我们与 Epic 以及其他合作伙伴的合作——我们最近发布了一项公告：如果你是医疗服务方或医疗专业人员，现在可以在 ChatGPT 里使用 Epic，同时 ChatGPT 也能在 Epic 内部发挥作用。在 Epic 的工作流里，你可以有一个小小的，嗯，侧边栏，直接在里面使用 ChatGPT。嗯，这是一件事；我们也在做其他各种连接器，最近也发布了一些，还有更多即将推出。所以我们做了相当多的工作，确保打破这些壁垒，让医疗生态连接起来。我想，你知道，Epic 只是众多例子之一，我们就是在识别这些瓶颈并努力解决它们。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>关于信任，我最后想谈的是你们在心理健康方面做的一些工作。呃，这是另一个非常复杂的领域，除了我们谈过的临床复杂性之外，嗯，可能还有其他需要解决的目标。如果我问我的 OpenAI Dots：“嘿，我想在接下来几周感觉好一点。”你们到底要怎么理解这个问题？怎么帮着付诸行动？既然这可能意味着那么多不同的情况，你们要怎么引导用户？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>是的，我是说，无论在哪个产品界面，我们都非常致力于在用户遭遇困难或陷入危机时帮助他们。所以，比如对 Dots，我们也在这个产品界面投入了与所有其他产品界面相同的那套安全防护。这是我们做法中重要的一部分，就像一条基础的安全底线。然后，你知道，通过 MentalHealthBench（心理健康评测基准），我们真正采取的做法不只是衡量安全底线，还思考模型如何能主动地帮助抬高天花板，嗯，真正思考模型如何能，你知道，帮助提供积极的心理健康体验，从只担心安全底线转向衡量这些正面价值。所以同样，这一做法其实与我们在 HealthBench 上的工作非常相似：我们一直在和世界各地的一大批持证心理健康专家合作，思考在一系列棘手情境下应该如何定义模型的行为，并确保能达成一定程度的共识。嗯，在这方面人们的分歧肯定比生理健康还要大。要在这些棘手情境中达成一定程度的共识，这样我们才能真正衡量表现，为整个行业建立一种共享的基准。嗯，所以我们最近刚发布了这个基准。和 HealthBench、HealthBench Professional 一样，目标其实就是：我们能否建立这样一个基准，为所有人抬高天花板，在所有模型开发者、医疗行业和心理健康专家之间形成一把真正共享的尺子，用来确保我们正朝正确的方向前进。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>好。我们谈了智能，以及随着智能提升而出现的用例；我们谈了至关重要的信任。现在来谈谈医疗服务。我想区分一下“医疗信息”和“医疗服务”。呃，我认为在医疗信息方面，如果你有健康方面的顾虑——如果我对自己或正在应对的某件事有健康方面的顾虑——ChatGPT 和其他大语言模型越来越成为获得答案、解决问题的更好、更快、更便宜的途径。但是，呃，在仅靠医疗信息无法让我解决问题的情况下，至少在今天，呃，我还是会被推回传统医疗体系。所以，如果我需要开处方，如果我需要线下去看专科医生，如果我需要做后续的验血、核磁共振（MRI）或其他某种扫描，如果我需要临床医生以某种方式给我做检查，我仍然得在传统医疗体系里周旋。而其中很多工作，嗯，呃，是受美国行医执照以及我们医疗体系中其他基础设施所管辖和监管的。</p>
+<p>嗯，这是一种多轮的对话，不是一个问题就能解决。我得去跟好几个人谈，得去办好几件事，我们需要收集一些信息。在很多方面，医疗服务是一种“捆绑产品”：你知道，我们得到的是诊断、分诊和护理计划；我们得到临床医生的共情、安心和支持；我们还得到与之相关的法律责任，以及他们所承担的东西。AI 会提供所有这些吗？呃，它会在哪里止步？呃，你认为这一切会走向何方？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>是的。不，我不认为 AI 能够或者将会提供所有这些。我认为你说得对，健康信息和医疗服务之间确实存在区别。所以我认为，我们在这里的角色其实是赋能整个生态，因为不存在任何一家公司包揽全部医疗服务的未来，对吧？所以我们在这里的角色，其实是思考对人们来说医疗服务的“最后一公里”到底是什么样子。我们能否真正理解它、能否让它变得更容易，嗯，让所有人都更容易，从而让真正影响到患者的这“最后一公里”，对我们所有合作伙伴来说只剩“最后一百米”。这就是我们的思路：让合作伙伴非常容易地用 AI 支持就医旅程中的每一个人。我认为在这方面，OpenAI 能做一些相对独特的事情，因为它拥有通往健康的“前门”。比如说，它可以帮你处理很多这类问题，帮你走完这段旅程，或者，你知道，随着个人智能体越来越有用，帮你处理一些预约、后勤之类的事，就像你健康的“四分卫”一样统筹全局。嗯，话虽如此，我不认为它会解决我们面临的所有这些挑战，至少短期内不会。我认为在很大程度上，我们是希望赋能众多提供医疗服务的合作伙伴——你知道，他们绝大多数都在以各种方式使用我们的模型——</p>
+<p>让这些运营进行得更顺畅、更轻松，这样患者就不会被困在这种碎片化的体验里。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>那作为消费者，我能期待 OpenAI 带来的体验是，嗯，你描述的那种“四分卫式”统筹服务吗？我会在某个时候在界面里和临床医生对话吗？还是说你们可能会把我转介给医生、帮我找到医生——毕竟光是预约和让就诊真正发生就已经是一大难题了。我该期待什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>我想，我想你会看到，我们希望能在帮你寻找医疗服务的过程中提供很大帮助。但我不认为我们会去做你提到的所有那些事情。</p>
+<p>嗯，但这正是我们真正依靠所有初创公司、医疗服务机构和合作伙伴之类的地方。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>那么，回到我之前提到的一个问题：你们在构建那个未来，但你们是和合作伙伴一起构建，为消费者和患者构建，为临床医生构建，为企业构建。在临床医生和企业方面，给我们讲讲你们推出的一些工具、以及一些真正奏效的合作的具体情况吧。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>好。嗯，我们有几项非常令人兴奋的合作，ChatGPT for Healthcare 也有一些非常出色的首发合作伙伴。ChatGPT for Clinicians 有很多用户在用，而且非常喜欢。嗯，这个产品的留存率是一个非常令人惊喜的意外，大家似乎真的很喜欢它。嗯，是的，我们一直在和各种医疗系统合作。我想有一两个比较突出：一个是，嗯，我们一直在和加州大学旧金山分校（UCSF）合作，也一直在交流，他们是 Epic 电子病历与 ChatGPT 之间这种连接最早的采用者之一。他们一直站在一线，思考比如临床医生用它做病历审阅之类的事情，嗯，思考如何让照护患者的体验不必如此碎片化——不必切换标签页、切换不同的体验等等，所以他们在这方面是我们的重度用户之一。嗯，我想另一个是，嗯，AdventHealth（安德维健康），他们其实是我们的重度用户之一，在思考如何在整个工作空间部署智能体——其实是在所有 OpenAI 客户中都算。他们一直是，嗯，领先者，嗯，取得了非常惊人的成果。他们报告说，以这些方式使用 AI，大约降低了 80% 的大量行政，嗯，工作流成本。我认为很多医疗系统都应该向他们看齐，他们真的很了不起。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>如果我走进医生的诊室，看到他屏幕上开着 ChatGPT，我该不高兴吗？还是该高兴？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>你觉得人们会怎么反应？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>是的。我、我、我听到过不同的说法，我觉得这其实在随时间变化。所以，</p>
+<p>我、我觉得这是一件有意思的事，奥弗顿窗口（Overton window，公众可接受观点的范围）正在实时移动。我想，你知道，以前可能存在一定程度的担忧，</p>
+<p>但我认为越来越多的是，你知道，双方都有这样的疑问：临床医生会不会抵制患者使用 AI，患者会不会像你说的那样抵制临床医生使用 AI。但我认为双方其实都发现它对自己的个人用途极其有用。</p>
+<p>所以我认为，我们在实践中发现——尤其是随着时间推移——双方在就医过程中有 AI 参与时，其实可能都会感觉更安全，无论是临床医生在用，还是患者把它当作一种“合理性核查”在用。我认为这种态度肯定在随时间改变，但我不会说我们已经完全到位了。不过这是我对事情走向的预测。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>好。那再往前推一步：如果一位患者在就诊前做足了功课，整合好了所有健康数据，在 ChatGPT 里问了一大堆问题；而临床医生在就诊前也通过自动化流程，呃，把整个病例都在，呃，ChatGPT 里过了一遍，然后就诊开始了。他们该谈些什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>嗯，我希望他们谈的是医疗中“人”的那一面。我是说，这里仍然有很多不确定性，有大量的共情，有大量的“床边礼仪”融入医疗的人文层面。还有大量的身体接触。我不认为，你知道，我不认为 AI 理论上已经掌握了全部信息、可以直接算出所有该做的事。就诊的部分原因就是获取更多信息，完成病史采集、检查之类的过程。所以我认为这不会消失，尤其是其中身体层面的部分。而且即使从认知层面看，共情、获得安慰、获得那一次“复核”这些要素，嗯，我认为仍会是人们需要的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>你觉得，呃，AI 总体上、或者说 Dots，会在两次就诊之间做些什么？你觉得你们会越过那条线，在两次就诊之间提供医疗服务，然后再把情况反馈给医生吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>是的。不，我、我、我不认为我们会，嗯，我认为我们肯定会专注于健康信息。但我认为无论是 Dots 还是其他任何产品界面，我们都对你描绘的这种更加主动的未来方向感到非常兴奋。想象一下，如果某人正处于慢性病的就医旅程中，你知道，还是那个例子：某人拿到化验结果，糖化血红蛋白（A1C）偏高，处于糖尿病前期或已经是糖尿病，你知道，你能否提醒他们：“嘿，也许你应该做一次用药检查，去看看你的，你知道，心脏科医生或其他医生”，</p>
+<p>并思考如何恰当地，嗯，你知道，向用户提示服药依从性问题或其他类型的问题。所以我认为在这类问题上，你知道，AI 有可能产生非常大的健康影响，尤其是这类慢性病就医旅程。但我不认为，嗯，我不认为我们会自己去包揽管理所有这些事情。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>当然。</p>
+<p>是的。我还好奇另一件事：在 AI 应用于其他领域和情境时，比如说国际象棋和围棋这类游戏，嗯，随着 AI 在国际象棋和围棋上变得非常强，它们也揭示了一些连这些领域顶尖专家都没有利用或没有尝试过的策略和下法，这帮助我们更了解这些游戏，嗯，也帮助我们更了解 AI。在你们的研究工作中，AI 应用于健康领域时有没有类似的情况？有没有已经让你感到意外的发现，也许带来了提供医疗服务或理解临床情境的新方式，呃，能让我们感到乐观？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>是的，我是说，我想我们在较小的规模上见过这种情况。但让我、让我把视角拉远一点说：你知道，最近激励我们团队在“抬高人类健康天花板”方面的一个理念，就是为健康领域带来一个“第 37 手”（move 37）。这个“第 37 手”的说法来自阿尔法狗（AlphaGo）。</p>
+<p>嗯，呃，那是下这种复杂棋类游戏的 AlphaGo 系统，呃，与李世石（Lee Sedol）的一盘对局。</p>
+<p>其中有一手棋，在当时看来，对所有观战的人类专家来说都像是一步非常蠢、非常出人意料的棋，</p>
+<p>呃，在这个 AI 系统和这位世界围棋高手之间的对局里，但事后回看，它却是那种绝妙而富有洞见的一手，人类现在才，呃，开始理解它，并从中学习其模式之类的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>这是个非常有意思的例子。嗯，我认为，所以这个想法就是：如何在健康领域达到“第 37 手”——一步棋或一个预测，模型预测出人类可能无法预测的东西，而事后看来它显得正确、绝妙、富有洞见且影响深远。</p>
+<p>所以我认为我们还非常早期，我认为未来你会看到比过去多得多的这类情况。但是，嗯，我想，你知道，我是说，一个例子还是要说到这些系统作为临床医生“安全网”的部署方式：临床医生在实际提供医疗服务，AI 在当下及时提示“嘿，这里可能有问题”，就像我们和彭达健康（Penda Health）做的研究，以及我们在其中看到的结果模式。</p>
+<p>举个例子，你知道，嗯，在那个情境中，呃，临床医生有点，嗯，倾向于过度使用抗生素，</p>
+<p>而模型标记出的一个非常常见的模式，就是避免这种抗生素的过度使用，少考虑眼前的个案，多考虑全局性的，嗯，抗生素耐药问题。所以这是一个，你知道，具体的例子。但同样，我认为你会看到越来越多这样的例子：模型吸收用户十年来的纵向病史，涵盖他们所有的数据——电子病历数据、聊天数据，所有这些——然后做出以前看似不可能的预测，因为人类甚至无法在脑子里整合所有这些数据。</p>
+<p>对他们的健康、风险之类的做出以前看似不可能的预测。我认为这就配得上被称为“第 37 手”了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>是的。是的，我是说，消费者好奇的事情太多了，呃，有些东西至少在某个时期我们并不确定它对你是否健康，然后就像你说的，奥弗顿窗口变了，呃，出现了在某个方向上更具结论性的证据。你知道，曾经人们不确定吸烟是否，呃，对人有害。咖啡对人是好是坏？糖对人是好是坏？呃，有时候对其中一些事情的看法变了。今天消费者想知道：肌酸对人好吗？</p>
+<p>褪黑素对人好吗？呃，你知道，所有这些新兴现象，也许研究不足，或者至少，嗯，呃，你知道，对某些补充剂或某些药物之类的安全性和有效性还没有广泛共识。你是否预期，随着人们把这些信息输入 ChatGPT 或其他大语言模型，我们将能产生更多证据，去研究这些大家好奇、但我们并不真正了解、呃，或者无论哪个方向都还没有结论性证据的事情？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>是的。我是说，我认为智能体最有意思的一点是，它们解决了分析既有数据时的许多瓶颈，对吧？在整个医疗生态里有很多地方在产生数据：电子病历数据、纵向病史、理赔数据，等等，</p>
+<p>这些地方在产生数据，然后数据就只是被存放在那里，从中得出的洞见并没有被充分挖掘，也没有被用来产生新知识。</p>
+<p>是的。所以我认为，未来健康可能如何改善、健康的天花板可能如何抬高，其中一个前沿就是：思考如何利用那些散落在各处“箱子”里的数据，让模型基于这些数据产生新的洞见。所以我对那样的未来也很乐观。嗯，我也对这样一个未来感到乐观：你知道，你提到了两类对象——用户也就是患者，以及临床医生。我、我认为还有第三类对象，那就是科学家，对吧，他们在帮助推动这个领域的知识前沿。我也非常乐观地看待这样一个未来：你知道，嗯，AI 帮助加速验证环节的大量瓶颈，</p>
+<p>我认为最终的瓶颈会在验证，而不是提出新想法、新疗法之类的。嗯，所以，嗯，对此我也非常乐观。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>稍微换个话题。你也分享过一些想法，嗯，关于作为医疗智能投入要素的“智能”成本会大幅下降，你知道，到某个时候会便宜到无需计量。嗯，我花了很多时间，我们团队也花了很多时间，试图理解这些技术将如何影响我们的医疗体系——医疗支出的增速，呃，远远超过了，呃，通胀。呃，我们在医疗上要花 5.3 万亿美元以上。如果医疗是一个国家，它的 GDP 会排世界第三。</p>
+<p>嗯，它是我们经济中最大的部分，也是，呃，我们经济中最大的雇主——2300 万美国人在医疗行业工作。我们在医疗上的花费实在太多了，嗯，实在太多了。你怎么看待你们正在做的工作，以及它对医疗成本将产生的影响？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>我认为这是我们践行使命最重要的方式之一：不仅要让模型在前沿变得更好，还要让所有人都能广泛获得。所以，你知道，这显然是我们能够向全世界大量人群免费提供健康智能的重要原因。我认为这也是我们思考，你知道，嗯，API、我们的模型在 API 上的健康能力有多强、以及定价之类问题的重要部分。你知道，一个最近的更新是，我们最近发布了，呃，GPT-6 Luna，</p>
+<p>而 GPT-6 Luna，嗯，是我们目前 API 上最便宜的模型，嗯，或者说，你知道，API 上最便宜的前沿模型。我们发现 GPT-6 Luna 在我们的基准 HealthBench Professional 上其实表现更好——这是我们当前最新的基准，覆盖临床医生使用我们模型的各种方式，涉及那些非常困难的临床工作流，是专门针对我们当前模型的难度挑选出来的，而且模型，嗯，在上面仍有提升空间。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>嗯，它的表现优于 5.6 Soul——那可是一个月前我们最好的模型。而且它是在便宜 34 倍的情况下表现更好的。嗯，即便在过去一年里，我们也经历过好几次这样的时刻。而且，你知道，有很多趋势表明，与过去引入的其他技术相比，AI 在给定能力或有用程度下降低成本的速度比许多其他技术都快。所以我们在 OpenAI 的一个押注是：在给定的健康智能水平下，健康智能的成本将会暴跌。</p>
+<p>而那个能让临床医生和患者觉得在就医旅程中可以信任的健康智能水平，正在开始达到，对吧？所以从某种意义上说，那是一个固定的智能水平。希望这个门槛也会随时间提高。嗯，我的预期是，一旦我们接近那个智能水平，达到那个水平所需的成本也会像以往一样大幅下降。希望由此实现健康智能的某种“商品化”，对吧？我们不想囤积健康智能，我们希望每个人都能用上它。</p>
+<p>所以我希望这能有所贡献。但是，你知道，回答你关于整个医疗支出的问题：我不认为那全都关乎健康智能。我不认为健康智能迄今已经对你描述的问题产生了宏观层面的影响，</p>
+<p>如果你看整个医疗支出的话。不过确实有相当多的领域，比如慢性病管理、病历书写、行政事务，或者各种各样的行政工作流、后台工作流，这些地方花了大量的钱，而这些钱很可能不需要那样花。嗯，所以我们非常乐观地认为，未来几年整体支出会被压缩。我不认为这已经发生了，也不认为光靠让健康智能变得充裕就会发生。我认为它要通过集成、工作流和部署并将其规模化来实现，真正确保这些模型在人们用它们去完成的那些具有经济价值的任务中发挥价值。但我认为这是实现那个未来的前提。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>“更多的照护，更少的文书”大概是我们前进的方向，至少很多成本节约来自这里。我相信你也看到了过去几周的一些头条新闻：呃，《纽约时报》（The New York Times）有篇文章，呃，基本上是说医疗服务方的 AI 和支付方的 AI 在打架；还有蓝十字蓝盾协会（Blue Cross Blue Shield Association）的一项分析显示，呃，双方各自的计费机器人、呃，文书机器人实际上让支出增加了 10 亿美元左右。当你在做前沿的健康研究、努力把医疗智能的成本降到接近零，却看到这样的头条时，你怎么看？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>我、我认为这可能是那种领域之一：围绕医疗服务方与支付方的这场军备竞赛，短期内可能会有一些阵痛，但从长远看，这没有理由一定要存在，对吧？所以，</p>
+<p>真的，我认为，你知道，我们正在进入这样一个世界：很多就诊现场其实都有某种“环境智能”（ambient intelligence）在旁聆听、转录之类的。嗯，有记录，有临床病历，有 AI 来核定、AI 生成的临床病历细节之类的。所以你掌握了核定一次就诊所需的大量细节，对吧？所以在我看来，理想的世界是医疗服务方和支付方达成一种“握手”：嘿，这就是这次就诊实际发生情况的基准事实，这是我们掌握的全部信息。</p>
+<p>除此之外根本没有别的信息来源了，</p>
+<p>对吧？</p>
+<p>然后由 AI 来帮助核定这种情况。也许会有某种有限的申诉流程之类的，但我不认为需要有这一整套流程，让支付方和医疗服务方之间展开 AI 军备竞赛。我认为这完全可以避免。所以我把它看作一个短期的干扰。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>嗯，有很多正在做医疗技术的创业者可能正在看这期节目，呃，他们大概在琢磨，呃，你知道，随着你们继续推进工作，把医疗智能的成本降到接近零，它变成一种无处不在的公用设施，流经我们所有的医疗互动——面向消费者、面向临床医生、面向医疗技术栈或医疗体系的行政部分。嗯，大家应该在上面构建什么？假设这项技术再好上 100 倍以上，专业应用应该做什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>是的。嗯，这是个很好的问题。正如我提到的，我们认为 OpenAI 带来的很多健康影响并不是直接通过我们自己提供的产品，而其实是通过我们的合作伙伴，通过提供医疗服务的那“最后一公里”。</p>
+<p>所以，你知道，我想对合作伙伴说的是：你知道，在真正有能力的模型之上去构建。而最重要的是，押注这些模型会变得更有能力。所以押注未来。我认为医疗行业的很多人处在某个光谱上：从押注模型不行，到对模型持中立态度，再到，呃，跟模型站在一起、押注模型。我想，嗯，我会说，你知道，押注模型会变得更好。这大概是最重要的一点。并且思考正在开发的很多技术——无论是，你知道，智能体、计算机使用，还是其他前沿技术——将如何加速医疗，押注于此，朝着那个未来去构建。我也认为，很多医疗服务，嗯，其实会，嗯，借助 AI 让患者更容易获得。你知道，我们谈过“四分卫”的概念，以及消解很多这类壁垒。</p>
+<p>所以，就专注于提供真正高质量的医疗服务，嗯，并让 AI 成为，你知道，监测整个就医旅程的一部分——我认为这也是其中非常重要的一点。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>把视角拉远到整个医疗体系，整体来看，你知道，我们谈过这 5.3 万亿美元。其中很大一部分支出是医疗服务方、支付方以及医疗“五个 P”中其他利益相关方之间的文书工作。很大一部分是认知类的照护，你认为这部分可以被增强、嗯、被提升，我们可以让多得多的认知照护能力，呃，上线，这从可及性角度看令人兴奋。然后，医疗中还有大量支出是操作类的：要么需要做影像检查、验血、后续检查，要么是某种手术干预。嗯，你认为你们在医疗领域所做的智能工作会如何影响操作类医疗？它会成为最终的——会成为新的、或者被加剧的、也许被放大的瓶颈吗？还是你们预计在那里也会做很多工作？</p>
+<p>机器人之类的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p><span class="tag">【吸鼻子声】</span>是的，我是说，我、我认为短期内对于操作类医疗，你希望在需要时有更好的精准定位，对吧？我认为 AI 可以帮忙，你知道，提供有用的信息，帮助人们知道什么时候该去寻求这类医疗服务。</p>
+<p>未来，你知道，一两年里最大的宏观因素，可能就是更好的、嗯，主动式的预防性措施，对吧？这样你就不必等到后来真的去做那项手术，因为如果你更早做出正确的选择，AI 帮你走好这段旅程，那么你就有望避免最昂贵手术带来的大量下游成本。所以我猜，这可能是值得关注的一个宏观因素。</p>
+<p>我认为机器人与医疗这个问题，无论从技术角度，还是从医保报销和行业，嗯，整合的角度看，都是一个更长期的问题。我的预期是，这不是未来几年内的事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>非常酷。好，我们聊了很多内容。我们谈了智能的提升，谈了信任，谈了从医疗信息走向医疗服务。帮我们理解一下，随着事情，呃，继续发展，我们可以期待什么？嗯，随着智能体、个人智能体以及底层模型的表现越来越好，我们可以期待 ChatGPT Health 带来什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>是的，我是说，我认为我们真正专注于实现的有两件大事。第一，还是思考如何抬高人类健康的地板，让值得信赖、可靠的健康智能对所有临床医生、所有用户和患者都变得充裕。达到这样一个程度：你知道，就像我们谈过的，所有患者和临床医生都因为就医旅程中有 AI 而感到更安全——当你看到医生在用 ChatGPT 时，你其实会感到更安全，反过来也一样。要达到这一点，同样，这不只是，你知道，模型好、评测好的问题，还关乎我们如何部署、相关的启动能量，嗯，产品之类的。嗯，我认为第二件事是真正思考，嗯，抬高天花板：AI 能以哪些方式真正做到以前做不到的事？我认为其中之一，其实就是这种，你知道，主动式健康——主动式的个人健康助手，它是你就医旅程的一部分，帮你应对这些时刻，做你的“四分卫”，你知道，帮你预约以及所有这些事，同时也标记出那些你今天就可以对自己的健康进行干预、从而避免未来大量，你知道，代价高昂的病情恶化的地方。嗯，我认为这将是我们思考如何为尽可能多的人改善健康未来的重要部分。我认为第二点就是你之前提到的：真正思考如何释放那些有时被存放在各种“箱子”里的既有数据的价值，思考如何利用它们产生惠及患者的新洞见。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>意识到 ChatGPT 大概是三年前才推出的，这令人震撼、不可思议，也让人谦卑。呃，所以在非常非常短的时间里取得了巨大进展。因此，哪怕以五年、十年为尺度来谈都显得像纸上谈兵。但你能给我们一些预测吗？我是说，有没有某种今天看起来像科幻、呃，但三年、五年、十年后我们可能拥有的功能？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>是的，我是说，如今预测未来真的真的非常难。所以，嗯，嗯，这是个难题。但我想说的是，我认为在那个时间框架内，也就是未来 5 到 10 年，对人类健康影响最大的，可能是来自两方面的新疗法。第一是，嗯，AI 引导的，嗯，新靶点或新分子的生成，它们可能对，你知道，新疗法很有价值；第二是 AI 引导的优先级排序和验证。所以，思考恰当的方式——我们已经到了这样一个地步：人们想推荐进入临床试验之类的分子和药物数量，远远超过临床试验能提供的名额。所以要思考模型如何帮助对这些临床试验进行优先级排序并运行它们，让它们进行得更顺畅、更快。我猜在那个时间框架里，你会看到改进的药物、更加个性化的药物之类的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="J"><div class="label"><span class="badge" title="杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）">杰伊</span></div><div class="content">
+<p>而这之所以可能，只是因为你们在这两大支柱上做了投入。太棒了。呃，好，我们聊了很多内容。结束这次对话时，我比之前更加乐观了。呃，卡兰，非常感谢你来参加 a16z 播客。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="K"><div class="label"><span class="badge" title="卡兰·辛哈尔（Karan Singhal，OpenAI）">卡兰</span></div><div class="content">
+<p>谢谢邀请。</p>
+</div></div>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "a16z", "title": "你该把健康托付给 ChatGPT 吗？｜卡兰·辛哈尔（Karan Singhal，OpenAI 健康 AI 研究负责人）", "url": "https://www.youtube.com/watch?v=9n0MI4D7TCM", "videoId": "9n0MI4D7TCM", "published_at": "2026-10-20", "duration": 3307, "caption_source": "YouTube 自动生成字幕（en-orig；该视频此前无任何字幕轨，北京 09:00 重试时经 yt-dlp + Chrome cookies 路径拉取；无官方字幕），中文为逐句全文翻译；人名、产品与模型名按自动字幕读音并结合上下文校正，个别可能有误（如 Grockbot、Dots、GPT-6 Luna、5.6 Soul 按读音保留）", "guests": ["卡兰·辛哈尔（Karan Singhal，OpenAI 健康 AI 研究负责人）"], "speakers": [{"id": "J", "name": "杰伊·鲁加尼（Jay Rughani，a16z 合伙人，主持人）", "role": "host", "short": "杰伊"}, {"id": "K", "name": "卡兰·辛哈尔（Karan Singhal，OpenAI）", "role": "guest", "short": "卡兰"}], "intro": {"summary": "a16z 合伙人杰伊·鲁加尼（Jay Rughani）对话 OpenAI 健康 AI 研究负责人卡兰·辛哈尔（Karan Singhal）：每周 3 亿多人用 ChatGPT 问健康问题，OpenAI 如何在通用前沿模型里训练医疗能力、靠数百位医生建立评测与共识，并把 AI 定位为医生的补充和就医旅程中的“安全网”，而非医疗服务本身。", "points": ["“专训进通用模型”：在 ChatGPT 每个训练阶段加入专门医疗数据，既吃到前沿模型的规模红利，又避免专用小模型很快落后于前沿", "信任靠评测：组建覆盖几十个专科、多语言多国家的数百人医生网络汇集共识（“问五个医生得到八种答案”）；HealthBench 区分普通用户与医生的回答方式、考察不确定时的措辞，安全优先于“说用户想听的”；新发布心理健康评测基准", "医学指南渗透到日常临床要 5–17 年，ChatGPT for Clinicians / for Healthcare 想在诊疗现场把最新文献压缩到几小时；已与 Epic 双向集成，UCSF、AdventHealth 为重度用户（后者称行政流程成本降约 80%）", "区分“医疗信息”与“医疗服务”：OpenAI 不打算自己提供诊疗，而是做健康的“四分卫”和“前门”，帮患者预约、跟进、提示风险（如 A1C 升高提醒复查用药），把最后一公里交给合作伙伴", "健康领域的“第 37 手”：Penda Health 研究中 AI 提示减少抗生素滥用；未来整合十年纵向病历数据做出人类无法做出的预测，并加速新靶点生成与临床试验的优先级排序和验证", "健康智能成本暴跌：GPT-6 Luna（据自动字幕）在 HealthBench Professional 上优于一个月前的旗舰、价格便宜 34 倍；但 5.3 万亿美元医疗支出的压缩要靠集成与工作流，服务方与支付方的“AI 军备竞赛”只是短期干扰"], "verdict": "值得看：约 55 分钟，OpenAI 健康业务一线负责人系统讲清产品思路、评测方法和合作落地，信息密度高；但访谈偏官方口径，对风险与失败案例着墨不多，部分产品/模型名称来自自动字幕可能有误听。无赞助广告。", "audience": "医疗/数字健康从业者与创业者、关注 AI+医疗的投资人、临床医生，以及经常用 ChatGPT 查健康问题的普通用户"}, "paragraphs": [{"start_sec": 0, "speaker_id": "K", "type": "text", "zh": "我们在医疗上要花掉 5.3 万亿美元以上。如果医疗是一个国家，它的 GDP 会排世界第三。然而我们却面临大量的稀缺。OpenAI 的使命是确保通用人工智能（AGI）造福全人类，并让人们获得值得信赖、充裕、可靠的健康智能。"}, {"start_sec": 0, "speaker_id": "J", "type": "text", "zh": "最打动我的故事之一，是内森·拉本兹（Nathan Labenz）的故事。他和儿子经历了一段漫长的波折：孩子一度非常疲惫、烦躁易怒，AI 帮他们一步步理清了整个过程，结果孩子被确诊为一种侵袭性很强的白血病。还有你们在心理健康方面做的一些工作——"}, {"start_sec": 29, "speaker_id": "J", "type": "text", "zh": "这里面非常复杂。既然这可能意味着那么多不同的情况，你们要怎么引导用户？"}, {"start_sec": 34, "speaker_id": "K", "type": "text", "zh": "我们一直在和世界各地的一大批持证心理健康专家合作，思考在一系列棘手情境下应该如何定义模型的行为，并确保能达成一定程度的共识，这样我们才能真正衡量模型的表现。"}, {"start_sec": 45, "speaker_id": "J", "type": "text", "zh": "我们来谈谈信任。一个人和大语言模型（LLM）对话时【音乐】，可能非常希望听到“一切都没事”，但从医学角度看，他们也许需要听到的是完全不同的东西。你们怎么教会 AI 识别这种差别？嗯，"}, {"start_sec": 60, "speaker_id": "J", "type": "text", "zh": "大家好，欢迎回到播客。我是杰伊·鲁加尼（Jay Rughani），a16z 合伙人，负责医疗和生物技术公司的投资。今天和我一起的是 OpenAI 的卡兰·辛哈尔（Karan Singhal），他负责 OpenAI 的健康 AI 研究，我们有很多要聊的。谢谢你来。"}, {"start_sec": 75, "speaker_id": "K", "type": "text", "zh": "谢谢邀请。"}, {"start_sec": 76, "speaker_id": "J", "type": "text", "zh": "我想先从一个大问题开始。呃，今年早些时候有一份报告，你们也公开谈过：每周有数亿人用 ChatGPT 问健康相关的问题。呃，他们在问什么？有哪些问题是他们在我们主流医疗体系里得不到解答的？"}, {"start_sec": 76, "speaker_id": "K", "type": "text", "zh": "好。嗯，我先把视角拉远一点，讲讲我们为什么要投入健康领域。嗯，你知道，OpenAI 的使命是确保 AGI 造福全人类。从宏观上看，我们认为这通过三种方式实现。嗯，第一是构建和部署 AGI：构建有能力的模型，围绕模型做产品，部署它们，开展合作。第二是防范负面影响，也就是各种各样的安全问题。第三是让正面价值真正发生。嗯，所以我们把健康视为让正面价值发生的一个非常非常具体的途径，同时也能顺带解决医疗中出现的一些安全问题。所以我们非常投入，主要是确保两件事。"}, {"start_sec": 131, "speaker_id": "K", "type": "text", "zh": "第一，我们能抬高人类健康的“地板”，让人们免费或几乎免费地获得值得信赖、充裕、可靠的健康智能；同时也真正抬高“天花板”，让以前做不到的事成为可能。要理解“抬高地板”，最好的方式就是看看我们在消费者端是怎么做的。嗯，正如我们报告的，每周有超过 3 亿人用 ChatGPT 问健康与养生类问题，我们把做好这件事视为一份极其重要的责任。嗯，而且这个数字一直在快速增长。我觉得你能看到的一点是，想想看病的体验，即使在美国、即使在湾区，你要约一个专科门诊，哪怕就在湾区，有时也得等上几周甚至几个月；嗯，你可能要花大量时间搞清楚怎么预约、怎么排期之类的。等了这么久，也许只能和医生见 15 分钟，你觉得自己没准备好，走出诊室时可能想：“哎呀，我还有六个问题想问。”我们希望 AI 能在这段就医旅程中陪着你，健康不应只局限于那一个个 15 分钟的时段。AI 其实可以帮你走完整个就医旅程。这也正反映了如今人们在消费端使用 AI 的方式：人们带着问题、担忧和想了解的信息来；嗯，他们想弄清楚怎么安排就诊、怎么提问、怎么跟进医生交代的事情，诸如此类。"}, {"start_sec": 218, "speaker_id": "K", "type": "text", "zh": "我们发现，正是在两次就诊之间，AI 在消费端最能帮上忙。而且，你知道，我们在临床医生端和企业端也在做类似的投入。"}, {"start_sec": 218, "speaker_id": "J", "type": "text", "zh": "是啊，太棒了。我们有一个非凡的医疗体系。呃，如果我病得很重，没有哪个国家比美国更让我想待。但我们依然面临大量稀缺。你知道，你也看过这些统计数据：超过 1 亿人没有固定的初级保健医生。即便有的人，往往也要等 40 多天才能见到医生。有时候就像你说的，见到医生也只是匆匆 15 分钟，你还有更多问题。我上周因为点事去看了皮肤科，事先把所有问题都写在了苹果备忘录（Apple Notes）里，结果还是忘了问一件事，现在要约复诊，又排到四个月以后。这种事每个人都遇到过，我们都有体会。嗯，有没有某个具体的患者故事或最近的案例，能帮我们想象世界正走向何方、你们的工作正把我们带向哪里？"}, {"start_sec": 279, "speaker_id": "K", "type": "text", "zh": "我们团队的工作让人欣慰的一种方式，就是看到这些数字，看到有多少人在用这项技术、它对他们似乎有多大帮助。嗯，另一种方式就是直接听人们讲，对吧？每周都有好几次，有人通过邮件或其他各种方式联系我们，说“这是它帮到我的方式”。"}, {"start_sec": 298, "speaker_id": "K", "type": "text", "zh": "我想，最打动我的故事之一是内森·拉本兹和他儿子的故事。嗯，他主持《认知革命》（The Cognitive Revolution）播客，也在那档播客里讲过这个故事。他和儿子经历了一段漫长的波折：某个时候，他非常年幼的儿子出现了严重的疲惫、烦躁易怒之类的症状。嗯，当时他们在度假，AI 帮他们意识到这可能是件相当严重的事，并决定带孩子去做检查。结果孩子被确诊为一种侵袭性很强的白血病。嗯，在整个治疗过程中，我是说，据内森讲，他当时大量使用 GPT-5 Pro 来帮助应对整个过程，嗯，帮着看懂化验报告之类的，甚至在专科医生有空解读之前就先弄明白了。我想，你知道，这给他们带来了很大的安心。嗯，内森在他的播客里讲了这个故事——我不知道在这儿能不能给别的播客打广告——但内森确实在他的播客里讲了，很推荐大家去听。"}, {"start_sec": 298, "speaker_id": "J", "type": "text", "zh": "在很多方面，OpenAI 都在模型的每一个环节里构建健康智能，但这和大家用来写代码、规划度假的是同一个模型。你能从架构角度帮大家理解，你们为什么要这样构建吗？为什么通用 AI 是医学这么复杂领域的正确基础？"}, {"start_sec": 380, "speaker_id": "K", "type": "text", "zh": "是的，我是说，人们经常问我们这个“通用模型还是专用模型”的争论。我以前做过专用模型，其实就是在之前的一份工作里，所以这个问题的两边我都确实有经验。嗯，我觉得这里最重要的一点是，我们说的其实是在通用模型里做专门训练，我认为这其实两全其美。我们为 ChatGPT 所做的是：对于 ChatGPT 里发布的所有模型，在模型训练的每一个阶段，我们其实都加入了专门的医疗数据——过去一年里我们所有的模型都是如此。结果就是，你得到的模型既受益于大型前沿模型的全部规模、通用改进、智能和推理能力，也受益于专门训练，比如整合我们与全球大批医生合作得到的数据。所以我认为这种做法让你两全其美。如果你分出一条线，说“嘿，我们要训练一个更小的、只做医疗的专用模型”——就像我以前做的、也像很多人做的那样——你会发现这个模型会相对很快就落后于前沿"}, {"start_sec": 447, "speaker_id": "K", "type": "text", "zh": "因为前沿和通用模型的进步速度实在太快了。而如果你押注规模，我们 OpenAI 作为一个行业所发现的是：事情会越来越好。嗯，所以我们做的就是搭上这班“规模前沿”的便车，嗯，利用我们能把评测（evals）和训练数据整合进模型的能力，让模型既能专精，又能受益于通用能力。"}, {"start_sec": 447, "speaker_id": "J", "type": "text", "zh": "我几乎想开始想象，你们正在构建的这项技术能做到什么。显然它今天已经很惊人了，但你们不会止步，还有大量大量的工作要做。我想很多人都被“口袋里的私人医生”这个想法所吸引。"}, {"start_sec": 485, "speaker_id": "J", "type": "text", "zh": "它无所不知，掌握所有医学专科的知识，所以你不必为了不同的问题分别去看心脏科医生和皮肤科医生。嗯，它完全为你个性化，掌握你全部的病史作为上下文，嗯，记得你说过的每一句话，记得你的病史，也记得你的偏好。嗯，它还能激励你、轻推你，让它给你的信息在恰当的时间、以恰当的方式送到你面前，推动你养成更好的健康行为，或者坚持医生给你的方案。从长远来看，这就是你们在 OpenAI 打造的体验吗？我们离它还有多远？"}, {"start_sec": 527, "speaker_id": "K", "type": "text", "zh": "是的，这正是我们非常兴奋的事情。我们对“主动式个人健康助手”这个愿景非常兴奋。我不认为它能替代真正拥有一位医生、或者能看上医生。但真正去思考如何把获取健康信息的体验变得更贴合你个人的情境，是我们在健康领域投入的一个非常重要的部分；ChatGPT Health 也是如此，这是我们的一个消费级产品，让用户可以连接自己的健康信息，这些信息会被安全地使用，不会被用作训练数据，也不会用于定向广告之类的用途。"}, {"start_sec": 558, "speaker_id": "J", "type": "text", "zh": "嗯哼。"}, {"start_sec": 558, "speaker_id": "K", "type": "text", "zh": "这在很大程度上就是我们设想如何走向一个越来越个性化、越来越主动的服务世界的方式。这也是我们思考部署的方式。从一开始，我们就尽可能广泛地向免费用户和 Pro 用户部署这项功能。所以在每周约 3 亿健康类活跃用户中，绝大多数是免费用户。而且其中大多数也在美国以外。嗯，所以我们把这里的“普及”问题看得非常重要、非常核心。在思考“主动式个人健康助手”这个下一代前沿时，我们也把这一点带进来。"}, {"start_sec": 597, "speaker_id": "J", "type": "text", "zh": "我觉得用例能帮我们、帮大家想象真正可能实现什么，想象这些工作在为什么做贡献。“口袋里的私人医生”这个想法我觉得很令人兴奋。格雷格·布罗克曼（Greg Brockman）上播客时讲过他一位朋友的经历：这位朋友住院了，呃，她的医生正要给她用某种药。她在 ChatGPT 里复核了一下这种药，结果根据她的病史发现，可能会产生某种药物相互作用，或者，嗯，引发某种不良事件。她把结果给医生看，医生也同意，并说：“我没有足够的时间翻阅你的病史，没注意到这一点。非常感谢你提出来。”难道我们不应该对每个人、每时每刻都这样做吗？如果足够便宜、足够方便，难道不能为每一个临床场景都提供第二、第三、第四意见吗？这是我们前进的方向吗？"}, {"start_sec": 652, "speaker_id": "K", "type": "text", "zh": "是的。我非常喜欢这个想法：为患者和临床医生都提供一张“安全网”，它就存在于就医旅程之中。而且，你知道，它不是时时插手，也不是当中间人，而是真正思考如何增强、并在现有体验之上做加法。嗯，你知道，我们其实在临床医生端更直接地研究过这一点，嗯，和彭达健康（Penda Health）合作做了一系列实验，研究“临床医生副驾驶（copilot）”这个想法。它恰恰就是这样部署的：在临床医生工作时充当他们的安全网。它会适时介入，主动提示：“嘿，这里可能有问题”，比如“这里可能存在某种药物相互作用，你可能没注意到”，"}, {"start_sec": 691, "speaker_id": "K", "type": "text", "zh": "“我们能不能调整一下”之类的。我认为同样的事情也会在患者端发生。我对这样一个想法非常非常兴奋：在你的就医旅程中有一个主动式的智能体（agent）真正帮助你，确保比如说，如果你是糖尿病患者、糖化血红蛋白（A1C）升高了，你就能让医生复查你的用药之类的，确保这类情况被标记出来、得到恰当的复核。"}, {"start_sec": 714, "speaker_id": "J", "type": "text", "zh": "你提到了个性化的主动式智能体。从热度来看，个人智能体在过去几个月里整体上已经登上舞台了：Instinct、Muse、Grockbot、OpenAI 的 Dots。呃，给不熟悉的朋友解释一下：你可以给这些 AI 应用一个目标，它会执行一系列任务。所以它不只是“嘿，做这个任务”，然后用一个循环执行完；它能利用你的偏好，能访问你授权给它的所有应用，呃，如果你提供了信用卡信息它也能访问，并且能代表你完成一个目标。人们不禁会想象，在我们这套出色却常常支离破碎的医疗体系中，这能带来什么可能：预约就诊，并确保，呃，你的保险覆盖这次就诊；呃，你知道，在出院后帮助和引导你遵循医生给的护理方案；甚至就一笔医疗账单错误和保险公司谈判。各种各样在医疗体系里制造摩擦的任务。"}, {"start_sec": 783, "speaker_id": "K", "type": "text", "zh": "是的。"}, {"start_sec": 783, "speaker_id": "J", "type": "text", "zh": "这是你们工作的方向吗？我们可以期待 OpenAI 带来这些吗？"}, {"start_sec": 789, "speaker_id": "K", "type": "text", "zh": "我对这个愿景非常兴奋。我认为无论从患者还是临床医生的角度看，医疗体系在服务人们方面最困难的问题之一，就是碎片化、整个生态缺乏连接。而且医疗也是那种你不该指望明天所有东西都有 MCP 连接器的行业，对吧？这里有大量遗留软件，本来就未必有很好的 AI 或软件连通性。很多人，你知道，在医疗生态中是把他们的主力电子病历（EHR）软件跑在比如虚拟机（VM）上的。所以——"}, {"start_sec": 822, "speaker_id": "J", "type": "text", "zh": "跑在云上的虚拟机。是的。"}, {"start_sec": 824, "speaker_id": "K", "type": "text", "zh": "没错。所以这里其实有个有意思的地方：虚拟机在某些方面反而让 AI 智能体更容易操作。但这绝对是智能体和“计算机使用（computer use）”大显身手的时机。嗯，所以我确实认为，在这个领域，很多传统上存在的壁垒——患者获得所需医疗之间的壁垒、临床医生提供所需医疗之间的壁垒，以及医疗数据本身的壁垒（它往往是整个体系能否为患者良好运转的瓶颈）——"}, {"start_sec": 824, "speaker_id": "J", "type": "text", "zh": "好，我们在聊用例，你在帮我们描绘梦想。呃，在沿着这条路继续走之前，我们来谈谈信任。显然，信任在这里是最重要的。同一个底层模型，嗯，可以帮我看懂化验结果或者医生跟我说的话，嗯，但它也可以帮一位训练有素的专科医生理清一个非常复杂的病例。"}, {"start_sec": 876, "speaker_id": "J", "type": "text", "zh": "你们要在回答中改变什么，才能让这两类人，或者其他任何使用同一个底层模型的人，都能看得懂？"}, {"start_sec": 876, "speaker_id": "K", "type": "text", "zh": "是的，我是说，正如你说的，健康是一个“以信任的速度前进”的领域。所以你不仅要能让模型变得更好、能衡量它们，还要能沟通，带着整个世界一起前进。这一直是我们在如何与患者、与终端用户、与临床医生合作这几方面思考和战略中非常重要的一部分。嗯，所以对你问题的简短回答基本上是：我们通过与世界各地的专家合作、以各种方式获取反馈来评估和训练模型，从而根据对方是普通用户、还是已经在复杂就医旅程中摸索了一段时间的“专家型”普通用户、还是临床医生或其他类型的用户画像，来调整模型的行为。早在我们 2025 年 5 月发布的最初的 HealthBench 评测里，其实就有一个主题、或者说评测的一部分，专门聚焦这种区分：模型的行为方式，以及它使用专业术语的程度等，是否根据对方是普通用户还是临床医生做了调整。从那以后，我们在衡量模型能否适应不同类型用户方面做得更好了，也在朝这个方向训练模型。嗯，所以我们的很多做法其实不只是如何让模型对这些不同用户更好，还在于如何带着他们一起前进。其中一部分就是我们如何做评测、如何对外沟通评测。"}, {"start_sec": 876, "speaker_id": "J", "type": "text", "zh": "所以信任有几个组成部分。我们已经谈了，嗯，根据用户调整回答。另一个重要组成部分是分歧。"}, {"start_sec": 972, "speaker_id": "J", "type": "text", "zh": "嗯，一个人可能在和大语言模型、和 ChatGPT 对话，分享自己所有的症状，心里却非常希望听到“一切都没事”。所以从消费者的 NPS——净推荐值——角度看，他们想听到的是安慰；但从医学角度看，他们也许需要听到的是完全不同的东西。是的。"}, {"start_sec": 993, "speaker_id": "J", "type": "text", "zh": "你们怎么教会 AI 识别这种差别，并在其中权衡不同的产品目标——一边是消费者参与度和留存，一边是正确性和临床质量？"}, {"start_sec": 1005, "speaker_id": "K", "type": "text", "zh": "是的，这对我们做评测和训练都极为核心。稍微拉远一点看，关于我们如何回应、如何评测中的“共识与分歧”问题，你可以采用的一种做法是：我们请几位临床医生加入比如说 OpenAI 健康团队，然后说“嘿，你们来想办法处理这些不确定的病例，我们会就这些不确定的病例来问你们，你们帮我们构建评测和训练数据”之类的，嗯，就交给这几位医生去搞定。嗯，这其实不是最好的做法。事实证明，如果你拿任何一个问题去问五位医生，你会得到大概八种不同的答案。所以我们在 OpenAI 开始专注健康领域时最先做的事情之一，就是建立一个全球医生网络，由数百位专家组成，我们与他们合作，覆盖全球、覆盖几十个专科、多种语言和执业国家，"}, {"start_sec": 1060, "speaker_id": "K", "type": "text", "zh": "来思考如何恰当地汇集专家的智慧，这样我们就不必——尤其是在可能存在分歧的领域——依赖一两位、两三位医生来裁决。这是其中一部分，嗯，就是让评测和训练数据来自不同的专家，而不是依赖一两个人。而你问题的第二部分是：如何平衡相互竞争的目标，对吧？比如说，医生们、医生们汇总的智慧指向一个方向，而用户其实希望你说点安慰的话，哪怕情况并不令人宽慰。这基本上就是安全优先。嗯，所以"}, {"start_sec": 1093, "speaker_id": "K", "type": "text", "zh": "对我们来说非常重要的是，当有数以亿计的健康对话涌进来时，我们非常严肃地对待自己的责任。所以，你知道，在整个评测体系和训练体系中，嗯，我们有专门跟踪这类困难情境的评测：在这些情境下，模型应该站出来说“嘿，这不安全，你应该去就医”，嗯，哪怕用户不想听，或者，你知道，想寻求某种替代疗法之类的。嗯，这是我们评测方式中非常重要的一部分。随着时间推移，我们不仅改进了与医生合作做评测的方式，还看到了模型在各方面相当显著的进步。"}, {"start_sec": 1093, "speaker_id": "J", "type": "text", "zh": "呃，在这些方面，还有另一种分歧的例子或情形，那就是我作为消费者：我在 ChatGPT 上问了一个医学问题，然后在就诊时把回答给医生看。顺便说一句，我的医生很喜欢我。嗯，然后他们不同意，不同意这个回答。我该怎么处理这种情况？"}, {"start_sec": 1150, "speaker_id": "K", "type": "text", "zh": "是的，我是说，我认为你应该像处理以其他方式出现的分歧那样处理它。人们确实会在各种事情上有分歧，嗯，我认为作为患者你有权利，你知道，请另一位医生看看、了解情况，去找另一位医生听听第二意见。"}, {"start_sec": 1167, "speaker_id": "K", "type": "text", "zh": "是的，无论你是否同时也在用 ChatGPT 获取健康信息，我都会这么建议。"}, {"start_sec": 1172, "speaker_id": "J", "type": "text", "zh": "是的，很有道理。信任还有另一个要素，就是绝对的正确性。你们做的很多工作，至少从我听你讲的来看，似乎都在于让回答立足于全世界的医学文献和证据。医学的某些部分没有太多共识或分歧可言，但医学中还有很大一部分仍在，呃，被发现、被研究，即便在医学界内部也存在分歧。对于这类问题，当我们还在发现真相的时候——你知道，科学是一个过程等等——很难让回答立足于真相。在这些情况下，你们怎么看待正确性？"}, {"start_sec": 1219, "speaker_id": "K", "type": "text", "zh": "是的，这是个非常好的问题。我是说，无论有没有 AI，它都很重要。如果你拉远视角看看今天医学共识是如何传播的，对吧？今天的流程是什么样的：基本上，嗯，有一大批人在写论文，各种各样的生物医学论文，嗯，提出可能提升医疗质量的改进或疗法之类的。然后，各个专科每年都有一个制定临床指南的流程，指南大致是说：“嘿，在这种情况下，如果你是心脏科医生，遇到一位有 X、Y、Z 情况的患者，你大概应该这样做。”嗯，所以这些临床指南大致可以看作是一种流程图，由世界各地不同的机构每年发布，根据最新研究描述在不同情境下大致应该怎么做。"}, {"start_sec": 1268, "speaker_id": "J", "type": "text", "zh": "嗯哼。"}, {"start_sec": 1268, "speaker_id": "K", "type": "text", "zh": "然后最后一步是——你有生物医学文献，然后有，嗯，临床指南，然后是人们在实践中实际怎么做。事实证明，这最后一步是一个巨大巨大的瓶颈。有研究专门考察，嗯，临床指南需要多长时间才能渗透到世界各地普通医生的日常实践中，"}, {"start_sec": 1288, "speaker_id": "K", "type": "text", "zh": "嗯，过去人们发现，依研究不同，这种渗透真正发生需要大约 5 到 17 年。"}, {"start_sec": 1295, "speaker_id": "J", "type": "text", "zh": "这太夸张了，你可不想用落后 5 到 17 年的方式行医。"}, {"start_sec": 1299, "speaker_id": "K", "type": "text", "zh": "所以我们思考的一件事是：如何把这段“按过去的方式行医”的时间，呃，压缩到几周、几天，甚至几小时，对吧？这是我们在 ChatGPT for Healthcare（面向医疗机构的 ChatGPT）和 ChatGPT for Clinicians（面向临床医生的 ChatGPT）工作背后一个非常重要的原则——这两款都是面向临床医生和医疗专业人员的产品，我们在诊疗当下引入最新的生物医学文献，让人们能非常快速地，比如说在一次 15 分钟的就诊中、在诊疗现场就得到问题的答案。"}, {"start_sec": 1329, "speaker_id": "K", "type": "text", "zh": "这是回答你问题的一种方式：你知道，在实践中，虽然很多领域缺乏医学共识，但在一些情况下其实已有医学共识，只是没有被付诸实践。"}, {"start_sec": 1329, "speaker_id": "J", "type": "text", "zh": "嗯哼。"}, {"start_sec": 1339, "speaker_id": "K", "type": "text", "zh": "所以你可以做的一件事，就是大幅减少这种情况的发生。这是回答你问题的一种方式。另一种方式是：如何处理那些仍然存在真正医学不确定性的地方。我想这里有几件事。第一，你要训练模型能够识别自身的不确定性，比如在浏览、获取信息之后。你希望模型能意识到“嘿，信息就是不够”，并坦率说出来。所以，你知道，这一直是我们做评测的重要部分。这其实是 HealthBench 公开的一个方面，其中包括比如在存在这种不确定性时，对“留有余地的措辞”（hedging）的评测。这是一件重要的事。第二件事——这就涉及“如何抬高人类健康的天花板”这个问题——是真正思考模型如何加速科研进程、真正推动医学前沿。也许我们稍后再聊这个。"}, {"start_sec": 1339, "speaker_id": "J", "type": "text", "zh": "听你讲下来，感觉你总在考虑三类对象中的一类：要么是患者，要么可能是注册使用的个体临床医生，要么可能是企业——无论是医疗服务机构还是其他企业。你们在架构层面、比如说在“套件”（harness）层面，如何设计产品来满足所有这些不同用户的需求？"}, {"start_sec": 1411, "speaker_id": "K", "type": "text", "zh": "是的，我是说，我想这也许有三个部分。第一是让模型对这些用户真正真正地好用。第二是围绕模型构建合适的套件或产品。第三其实是部署或合作推进，去触达合适的用户。我觉得在默认情况下，如今的模型很多时候已经相当不错了。我们谈过我们与临床医生合作做评测之类的做法，我们看到性能和可靠性都有相当显著的提升。你知道，几个月前我们谈过在免费层上做的改进，把免费层的性能带到前沿水平。"}, {"start_sec": 1444, "speaker_id": "K", "type": "text", "zh": "所以，你知道，对每周使用 ChatGPT 的 12 亿人来说，嗯，免费给他们一个在健康方面处于前沿、极其有用的模型。嗯，这显然一直是我们让健康智能变得充裕的战略的重要部分。第二是我们的产品。我们的思路是：你可以有一个非常好的模型，但如果用模型来改善健康的“启动能量”太高，人们就不会去用，对吧？所以我们很多产品工作，其实就是思考你说的这些对象，思考如何降低人们利用算力和智能来改善人类健康的启动能量。"}, {"start_sec": 1479, "speaker_id": "K", "type": "text", "zh": "嗯，这就包括，你知道，我们在 ChatGPT Health、呃，在企业端的 ChatGPT for Healthcare，以及 ChatGPT for Clinicians 上的工作。我们设计这些产品的很多方式，基本上就是思考：人们使用模型的障碍、瓶颈和启动能量是什么。嗯，比如说，嗯，你知道，向医疗系统提供企业版 ChatGPT 时，安全与合规上的瓶颈是什么。这是两年前我们想得很多的一个问题。于是我们想，好，我们需要在安全与合规上投入，需要确保能提供符合 HIPAA（美国健康保险流通与责任法案）的服务，"}, {"start_sec": 1517, "speaker_id": "K", "type": "text", "zh": "需要确保能提供医疗机构所需的那种，嗯，隐私保护，这样我们才能处理他们需要处理的医疗数据，提供他们信任的服务。"}, {"start_sec": 1526, "speaker_id": "K", "type": "text", "zh": "嗯，这大约是两年前到大约一年前我们工作中非常重要的一部分。嗯，从那以后，我们就根据所看到的采用瓶颈逐个去攻克。第三是合作与部署。同样，你知道，几年前我认为 OpenAI 在“说医疗行业的语言”方面还很早期，嗯，我们和医疗合作伙伴打交道时，我想，你知道，这些对话还处在早期。所以我认为此后我们投入的一件事，就是真正思考你说的每一类对象，真正思考如何说他们的语言、如何带着他们走完这段旅程。因为即使模型变得非常聪明，如果没人真正信任它、使用它，那也算不上实现了我们的使命。"}, {"start_sec": 1568, "speaker_id": "J", "type": "text", "zh": "你刚才也稍微提到了你们和 Epic 合作、把产品直接集成进 Epic 的一些工作。也许可以多分享一点？呃，因为很多在医疗行业深耕多年的人，呃，看到和 Epic 这种程度的合作都非常感兴趣。"}, {"start_sec": 1568, "speaker_id": "K", "type": "text", "zh": "是的，我是说，这是我们做法中非常重要的一部分。就像我们谈过的，碎片化，嗯，一直是医疗中的问题之一。嗯，数据和工作流彼此割裂这一事实，我认为是在医疗中有效使用 AI 的一大障碍。"}, {"start_sec": 1597, "speaker_id": "K", "type": "text", "zh": "嗯，所以，你知道，我们与 Epic 以及其他合作伙伴的合作——我们最近发布了一项公告：如果你是医疗服务方或医疗专业人员，现在可以在 ChatGPT 里使用 Epic，同时 ChatGPT 也能在 Epic 内部发挥作用。在 Epic 的工作流里，你可以有一个小小的，嗯，侧边栏，直接在里面使用 ChatGPT。嗯，这是一件事；我们也在做其他各种连接器，最近也发布了一些，还有更多即将推出。所以我们做了相当多的工作，确保打破这些壁垒，让医疗生态连接起来。我想，你知道，Epic 只是众多例子之一，我们就是在识别这些瓶颈并努力解决它们。"}, {"start_sec": 1597, "speaker_id": "J", "type": "text", "zh": "关于信任，我最后想谈的是你们在心理健康方面做的一些工作。呃，这是另一个非常复杂的领域，除了我们谈过的临床复杂性之外，嗯，可能还有其他需要解决的目标。如果我问我的 OpenAI Dots：“嘿，我想在接下来几周感觉好一点。”你们到底要怎么理解这个问题？怎么帮着付诸行动？既然这可能意味着那么多不同的情况，你们要怎么引导用户？"}, {"start_sec": 1666, "speaker_id": "K", "type": "text", "zh": "是的，我是说，无论在哪个产品界面，我们都非常致力于在用户遭遇困难或陷入危机时帮助他们。所以，比如对 Dots，我们也在这个产品界面投入了与所有其他产品界面相同的那套安全防护。这是我们做法中重要的一部分，就像一条基础的安全底线。然后，你知道，通过 MentalHealthBench（心理健康评测基准），我们真正采取的做法不只是衡量安全底线，还思考模型如何能主动地帮助抬高天花板，嗯，真正思考模型如何能，你知道，帮助提供积极的心理健康体验，从只担心安全底线转向衡量这些正面价值。所以同样，这一做法其实与我们在 HealthBench 上的工作非常相似：我们一直在和世界各地的一大批持证心理健康专家合作，思考在一系列棘手情境下应该如何定义模型的行为，并确保能达成一定程度的共识。嗯，在这方面人们的分歧肯定比生理健康还要大。要在这些棘手情境中达成一定程度的共识，这样我们才能真正衡量表现，为整个行业建立一种共享的基准。嗯，所以我们最近刚发布了这个基准。和 HealthBench、HealthBench Professional 一样，目标其实就是：我们能否建立这样一个基准，为所有人抬高天花板，在所有模型开发者、医疗行业和心理健康专家之间形成一把真正共享的尺子，用来确保我们正朝正确的方向前进。"}, {"start_sec": 1751, "speaker_id": "J", "type": "text", "zh": "好。我们谈了智能，以及随着智能提升而出现的用例；我们谈了至关重要的信任。现在来谈谈医疗服务。我想区分一下“医疗信息”和“医疗服务”。呃，我认为在医疗信息方面，如果你有健康方面的顾虑——如果我对自己或正在应对的某件事有健康方面的顾虑——ChatGPT 和其他大语言模型越来越成为获得答案、解决问题的更好、更快、更便宜的途径。但是，呃，在仅靠医疗信息无法让我解决问题的情况下，至少在今天，呃，我还是会被推回传统医疗体系。所以，如果我需要开处方，如果我需要线下去看专科医生，如果我需要做后续的验血、核磁共振（MRI）或其他某种扫描，如果我需要临床医生以某种方式给我做检查，我仍然得在传统医疗体系里周旋。而其中很多工作，嗯，呃，是受美国行医执照以及我们医疗体系中其他基础设施所管辖和监管的。"}, {"start_sec": 1822, "speaker_id": "J", "type": "text", "zh": "嗯，这是一种多轮的对话，不是一个问题就能解决。我得去跟好几个人谈，得去办好几件事，我们需要收集一些信息。在很多方面，医疗服务是一种“捆绑产品”：你知道，我们得到的是诊断、分诊和护理计划；我们得到临床医生的共情、安心和支持；我们还得到与之相关的法律责任，以及他们所承担的东西。AI 会提供所有这些吗？呃，它会在哪里止步？呃，你认为这一切会走向何方？"}, {"start_sec": 1856, "speaker_id": "K", "type": "text", "zh": "是的。不，我不认为 AI 能够或者将会提供所有这些。我认为你说得对，健康信息和医疗服务之间确实存在区别。所以我认为，我们在这里的角色其实是赋能整个生态，因为不存在任何一家公司包揽全部医疗服务的未来，对吧？所以我们在这里的角色，其实是思考对人们来说医疗服务的“最后一公里”到底是什么样子。我们能否真正理解它、能否让它变得更容易，嗯，让所有人都更容易，从而让真正影响到患者的这“最后一公里”，对我们所有合作伙伴来说只剩“最后一百米”。这就是我们的思路：让合作伙伴非常容易地用 AI 支持就医旅程中的每一个人。我认为在这方面，OpenAI 能做一些相对独特的事情，因为它拥有通往健康的“前门”。比如说，它可以帮你处理很多这类问题，帮你走完这段旅程，或者，你知道，随着个人智能体越来越有用，帮你处理一些预约、后勤之类的事，就像你健康的“四分卫”一样统筹全局。嗯，话虽如此，我不认为它会解决我们面临的所有这些挑战，至少短期内不会。我认为在很大程度上，我们是希望赋能众多提供医疗服务的合作伙伴——你知道，他们绝大多数都在以各种方式使用我们的模型——"}, {"start_sec": 1929, "speaker_id": "K", "type": "text", "zh": "让这些运营进行得更顺畅、更轻松，这样患者就不会被困在这种碎片化的体验里。"}, {"start_sec": 1935, "speaker_id": "J", "type": "text", "zh": "那作为消费者，我能期待 OpenAI 带来的体验是，嗯，你描述的那种“四分卫式”统筹服务吗？我会在某个时候在界面里和临床医生对话吗？还是说你们可能会把我转介给医生、帮我找到医生——毕竟光是预约和让就诊真正发生就已经是一大难题了。我该期待什么？"}, {"start_sec": 1958, "speaker_id": "K", "type": "text", "zh": "我想，我想你会看到，我们希望能在帮你寻找医疗服务的过程中提供很大帮助。但我不认为我们会去做你提到的所有那些事情。"}, {"start_sec": 1968, "speaker_id": "K", "type": "text", "zh": "嗯，但这正是我们真正依靠所有初创公司、医疗服务机构和合作伙伴之类的地方。"}, {"start_sec": 1968, "speaker_id": "J", "type": "text", "zh": "那么，回到我之前提到的一个问题：你们在构建那个未来，但你们是和合作伙伴一起构建，为消费者和患者构建，为临床医生构建，为企业构建。在临床医生和企业方面，给我们讲讲你们推出的一些工具、以及一些真正奏效的合作的具体情况吧。"}, {"start_sec": 1995, "speaker_id": "K", "type": "text", "zh": "好。嗯，我们有几项非常令人兴奋的合作，ChatGPT for Healthcare 也有一些非常出色的首发合作伙伴。ChatGPT for Clinicians 有很多用户在用，而且非常喜欢。嗯，这个产品的留存率是一个非常令人惊喜的意外，大家似乎真的很喜欢它。嗯，是的，我们一直在和各种医疗系统合作。我想有一两个比较突出：一个是，嗯，我们一直在和加州大学旧金山分校（UCSF）合作，也一直在交流，他们是 Epic 电子病历与 ChatGPT 之间这种连接最早的采用者之一。他们一直站在一线，思考比如临床医生用它做病历审阅之类的事情，嗯，思考如何让照护患者的体验不必如此碎片化——不必切换标签页、切换不同的体验等等，所以他们在这方面是我们的重度用户之一。嗯，我想另一个是，嗯，AdventHealth（安德维健康），他们其实是我们的重度用户之一，在思考如何在整个工作空间部署智能体——其实是在所有 OpenAI 客户中都算。他们一直是，嗯，领先者，嗯，取得了非常惊人的成果。他们报告说，以这些方式使用 AI，大约降低了 80% 的大量行政，嗯，工作流成本。我认为很多医疗系统都应该向他们看齐，他们真的很了不起。"}, {"start_sec": 1995, "speaker_id": "J", "type": "text", "zh": "如果我走进医生的诊室，看到他屏幕上开着 ChatGPT，我该不高兴吗？还是该高兴？"}, {"start_sec": 1995, "speaker_id": "K", "type": "text", "zh": "是的。"}, {"start_sec": 2077, "speaker_id": "J", "type": "text", "zh": "你觉得人们会怎么反应？"}, {"start_sec": 2079, "speaker_id": "K", "type": "text", "zh": "是的。我、我、我听到过不同的说法，我觉得这其实在随时间变化。所以，"}, {"start_sec": 2083, "speaker_id": "K", "type": "text", "zh": "我、我觉得这是一件有意思的事，奥弗顿窗口（Overton window，公众可接受观点的范围）正在实时移动。我想，你知道，以前可能存在一定程度的担忧，"}, {"start_sec": 2091, "speaker_id": "K", "type": "text", "zh": "但我认为越来越多的是，你知道，双方都有这样的疑问：临床医生会不会抵制患者使用 AI，患者会不会像你说的那样抵制临床医生使用 AI。但我认为双方其实都发现它对自己的个人用途极其有用。"}, {"start_sec": 2106, "speaker_id": "K", "type": "text", "zh": "所以我认为，我们在实践中发现——尤其是随着时间推移——双方在就医过程中有 AI 参与时，其实可能都会感觉更安全，无论是临床医生在用，还是患者把它当作一种“合理性核查”在用。我认为这种态度肯定在随时间改变，但我不会说我们已经完全到位了。不过这是我对事情走向的预测。"}, {"start_sec": 2123, "speaker_id": "J", "type": "text", "zh": "好。那再往前推一步：如果一位患者在就诊前做足了功课，整合好了所有健康数据，在 ChatGPT 里问了一大堆问题；而临床医生在就诊前也通过自动化流程，呃，把整个病例都在，呃，ChatGPT 里过了一遍，然后就诊开始了。他们该谈些什么？"}, {"start_sec": 2146, "speaker_id": "K", "type": "text", "zh": "嗯，我希望他们谈的是医疗中“人”的那一面。我是说，这里仍然有很多不确定性，有大量的共情，有大量的“床边礼仪”融入医疗的人文层面。还有大量的身体接触。我不认为，你知道，我不认为 AI 理论上已经掌握了全部信息、可以直接算出所有该做的事。就诊的部分原因就是获取更多信息，完成病史采集、检查之类的过程。所以我认为这不会消失，尤其是其中身体层面的部分。而且即使从认知层面看，共情、获得安慰、获得那一次“复核”这些要素，嗯，我认为仍会是人们需要的东西。"}, {"start_sec": 2186, "speaker_id": "J", "type": "text", "zh": "你觉得，呃，AI 总体上、或者说 Dots，会在两次就诊之间做些什么？你觉得你们会越过那条线，在两次就诊之间提供医疗服务，然后再把情况反馈给医生吗？"}, {"start_sec": 2200, "speaker_id": "K", "type": "text", "zh": "是的。不，我、我、我不认为我们会，嗯，我认为我们肯定会专注于健康信息。但我认为无论是 Dots 还是其他任何产品界面，我们都对你描绘的这种更加主动的未来方向感到非常兴奋。想象一下，如果某人正处于慢性病的就医旅程中，你知道，还是那个例子：某人拿到化验结果，糖化血红蛋白（A1C）偏高，处于糖尿病前期或已经是糖尿病，你知道，你能否提醒他们：“嘿，也许你应该做一次用药检查，去看看你的，你知道，心脏科医生或其他医生”，"}, {"start_sec": 2230, "speaker_id": "K", "type": "text", "zh": "并思考如何恰当地，嗯，你知道，向用户提示服药依从性问题或其他类型的问题。所以我认为在这类问题上，你知道，AI 有可能产生非常大的健康影响，尤其是这类慢性病就医旅程。但我不认为，嗯，我不认为我们会自己去包揽管理所有这些事情。"}, {"start_sec": 2252, "speaker_id": "J", "type": "text", "zh": "当然。"}, {"start_sec": 2252, "speaker_id": "J", "type": "text", "zh": "是的。我还好奇另一件事：在 AI 应用于其他领域和情境时，比如说国际象棋和围棋这类游戏，嗯，随着 AI 在国际象棋和围棋上变得非常强，它们也揭示了一些连这些领域顶尖专家都没有利用或没有尝试过的策略和下法，这帮助我们更了解这些游戏，嗯，也帮助我们更了解 AI。在你们的研究工作中，AI 应用于健康领域时有没有类似的情况？有没有已经让你感到意外的发现，也许带来了提供医疗服务或理解临床情境的新方式，呃，能让我们感到乐观？"}, {"start_sec": 2252, "speaker_id": "K", "type": "text", "zh": "是的，我是说，我想我们在较小的规模上见过这种情况。但让我、让我把视角拉远一点说：你知道，最近激励我们团队在“抬高人类健康天花板”方面的一个理念，就是为健康领域带来一个“第 37 手”（move 37）。这个“第 37 手”的说法来自阿尔法狗（AlphaGo）。"}, {"start_sec": 2317, "speaker_id": "K", "type": "text", "zh": "嗯，呃，那是下这种复杂棋类游戏的 AlphaGo 系统，呃，与李世石（Lee Sedol）的一盘对局。"}, {"start_sec": 2326, "speaker_id": "K", "type": "text", "zh": "其中有一手棋，在当时看来，对所有观战的人类专家来说都像是一步非常蠢、非常出人意料的棋，"}, {"start_sec": 2334, "speaker_id": "K", "type": "text", "zh": "呃，在这个 AI 系统和这位世界围棋高手之间的对局里，但事后回看，它却是那种绝妙而富有洞见的一手，人类现在才，呃，开始理解它，并从中学习其模式之类的。"}, {"start_sec": 2334, "speaker_id": "J", "type": "text", "zh": "是的。"}, {"start_sec": 2347, "speaker_id": "K", "type": "text", "zh": "这是个非常有意思的例子。嗯，我认为，所以这个想法就是：如何在健康领域达到“第 37 手”——一步棋或一个预测，模型预测出人类可能无法预测的东西，而事后看来它显得正确、绝妙、富有洞见且影响深远。"}, {"start_sec": 2364, "speaker_id": "K", "type": "text", "zh": "所以我认为我们还非常早期，我认为未来你会看到比过去多得多的这类情况。但是，嗯，我想，你知道，我是说，一个例子还是要说到这些系统作为临床医生“安全网”的部署方式：临床医生在实际提供医疗服务，AI 在当下及时提示“嘿，这里可能有问题”，就像我们和彭达健康（Penda Health）做的研究，以及我们在其中看到的结果模式。"}, {"start_sec": 2387, "speaker_id": "K", "type": "text", "zh": "举个例子，你知道，嗯，在那个情境中，呃，临床医生有点，嗯，倾向于过度使用抗生素，"}, {"start_sec": 2394, "speaker_id": "K", "type": "text", "zh": "而模型标记出的一个非常常见的模式，就是避免这种抗生素的过度使用，少考虑眼前的个案，多考虑全局性的，嗯，抗生素耐药问题。所以这是一个，你知道，具体的例子。但同样，我认为你会看到越来越多这样的例子：模型吸收用户十年来的纵向病史，涵盖他们所有的数据——电子病历数据、聊天数据，所有这些——然后做出以前看似不可能的预测，因为人类甚至无法在脑子里整合所有这些数据。"}, {"start_sec": 2424, "speaker_id": "K", "type": "text", "zh": "对他们的健康、风险之类的做出以前看似不可能的预测。我认为这就配得上被称为“第 37 手”了。"}, {"start_sec": 2432, "speaker_id": "J", "type": "text", "zh": "是的。是的，我是说，消费者好奇的事情太多了，呃，有些东西至少在某个时期我们并不确定它对你是否健康，然后就像你说的，奥弗顿窗口变了，呃，出现了在某个方向上更具结论性的证据。你知道，曾经人们不确定吸烟是否，呃，对人有害。咖啡对人是好是坏？糖对人是好是坏？呃，有时候对其中一些事情的看法变了。今天消费者想知道：肌酸对人好吗？"}, {"start_sec": 2464, "speaker_id": "J", "type": "text", "zh": "褪黑素对人好吗？呃，你知道，所有这些新兴现象，也许研究不足，或者至少，嗯，呃，你知道，对某些补充剂或某些药物之类的安全性和有效性还没有广泛共识。你是否预期，随着人们把这些信息输入 ChatGPT 或其他大语言模型，我们将能产生更多证据，去研究这些大家好奇、但我们并不真正了解、呃，或者无论哪个方向都还没有结论性证据的事情？"}, {"start_sec": 2501, "speaker_id": "K", "type": "text", "zh": "是的。我是说，我认为智能体最有意思的一点是，它们解决了分析既有数据时的许多瓶颈，对吧？在整个医疗生态里有很多地方在产生数据：电子病历数据、纵向病史、理赔数据，等等，"}, {"start_sec": 2517, "speaker_id": "K", "type": "text", "zh": "这些地方在产生数据，然后数据就只是被存放在那里，从中得出的洞见并没有被充分挖掘，也没有被用来产生新知识。"}, {"start_sec": 2524, "speaker_id": "K", "type": "text", "zh": "是的。所以我认为，未来健康可能如何改善、健康的天花板可能如何抬高，其中一个前沿就是：思考如何利用那些散落在各处“箱子”里的数据，让模型基于这些数据产生新的洞见。所以我对那样的未来也很乐观。嗯，我也对这样一个未来感到乐观：你知道，你提到了两类对象——用户也就是患者，以及临床医生。我、我认为还有第三类对象，那就是科学家，对吧，他们在帮助推动这个领域的知识前沿。我也非常乐观地看待这样一个未来：你知道，嗯，AI 帮助加速验证环节的大量瓶颈，"}, {"start_sec": 2562, "speaker_id": "K", "type": "text", "zh": "我认为最终的瓶颈会在验证，而不是提出新想法、新疗法之类的。嗯，所以，嗯，对此我也非常乐观。"}, {"start_sec": 2562, "speaker_id": "J", "type": "text", "zh": "稍微换个话题。你也分享过一些想法，嗯，关于作为医疗智能投入要素的“智能”成本会大幅下降，你知道，到某个时候会便宜到无需计量。嗯，我花了很多时间，我们团队也花了很多时间，试图理解这些技术将如何影响我们的医疗体系——医疗支出的增速，呃，远远超过了，呃，通胀。呃，我们在医疗上要花 5.3 万亿美元以上。如果医疗是一个国家，它的 GDP 会排世界第三。"}, {"start_sec": 2603, "speaker_id": "J", "type": "text", "zh": "嗯，它是我们经济中最大的部分，也是，呃，我们经济中最大的雇主——2300 万美国人在医疗行业工作。我们在医疗上的花费实在太多了，嗯，实在太多了。你怎么看待你们正在做的工作，以及它对医疗成本将产生的影响？"}, {"start_sec": 2603, "speaker_id": "K", "type": "text", "zh": "我认为这是我们践行使命最重要的方式之一：不仅要让模型在前沿变得更好，还要让所有人都能广泛获得。所以，你知道，这显然是我们能够向全世界大量人群免费提供健康智能的重要原因。我认为这也是我们思考，你知道，嗯，API、我们的模型在 API 上的健康能力有多强、以及定价之类问题的重要部分。你知道，一个最近的更新是，我们最近发布了，呃，GPT-6 Luna，"}, {"start_sec": 2648, "speaker_id": "K", "type": "text", "zh": "而 GPT-6 Luna，嗯，是我们目前 API 上最便宜的模型，嗯，或者说，你知道，API 上最便宜的前沿模型。我们发现 GPT-6 Luna 在我们的基准 HealthBench Professional 上其实表现更好——这是我们当前最新的基准，覆盖临床医生使用我们模型的各种方式，涉及那些非常困难的临床工作流，是专门针对我们当前模型的难度挑选出来的，而且模型，嗯，在上面仍有提升空间。"}, {"start_sec": 2674, "speaker_id": "J", "type": "text", "zh": "嗯。"}, {"start_sec": 2674, "speaker_id": "K", "type": "text", "zh": "嗯，它的表现优于 5.6 Soul——那可是一个月前我们最好的模型。而且它是在便宜 34 倍的情况下表现更好的。嗯，即便在过去一年里，我们也经历过好几次这样的时刻。而且，你知道，有很多趋势表明，与过去引入的其他技术相比，AI 在给定能力或有用程度下降低成本的速度比许多其他技术都快。所以我们在 OpenAI 的一个押注是：在给定的健康智能水平下，健康智能的成本将会暴跌。"}, {"start_sec": 2705, "speaker_id": "K", "type": "text", "zh": "而那个能让临床医生和患者觉得在就医旅程中可以信任的健康智能水平，正在开始达到，对吧？所以从某种意义上说，那是一个固定的智能水平。希望这个门槛也会随时间提高。嗯，我的预期是，一旦我们接近那个智能水平，达到那个水平所需的成本也会像以往一样大幅下降。希望由此实现健康智能的某种“商品化”，对吧？我们不想囤积健康智能，我们希望每个人都能用上它。"}, {"start_sec": 2732, "speaker_id": "K", "type": "text", "zh": "所以我希望这能有所贡献。但是，你知道，回答你关于整个医疗支出的问题：我不认为那全都关乎健康智能。我不认为健康智能迄今已经对你描述的问题产生了宏观层面的影响，"}, {"start_sec": 2745, "speaker_id": "K", "type": "text", "zh": "如果你看整个医疗支出的话。不过确实有相当多的领域，比如慢性病管理、病历书写、行政事务，或者各种各样的行政工作流、后台工作流，这些地方花了大量的钱，而这些钱很可能不需要那样花。嗯，所以我们非常乐观地认为，未来几年整体支出会被压缩。我不认为这已经发生了，也不认为光靠让健康智能变得充裕就会发生。我认为它要通过集成、工作流和部署并将其规模化来实现，真正确保这些模型在人们用它们去完成的那些具有经济价值的任务中发挥价值。但我认为这是实现那个未来的前提。"}, {"start_sec": 2784, "speaker_id": "J", "type": "text", "zh": "“更多的照护，更少的文书”大概是我们前进的方向，至少很多成本节约来自这里。我相信你也看到了过去几周的一些头条新闻：呃，《纽约时报》（The New York Times）有篇文章，呃，基本上是说医疗服务方的 AI 和支付方的 AI 在打架；还有蓝十字蓝盾协会（Blue Cross Blue Shield Association）的一项分析显示，呃，双方各自的计费机器人、呃，文书机器人实际上让支出增加了 10 亿美元左右。当你在做前沿的健康研究、努力把医疗智能的成本降到接近零，却看到这样的头条时，你怎么看？"}, {"start_sec": 2822, "speaker_id": "K", "type": "text", "zh": "我、我认为这可能是那种领域之一：围绕医疗服务方与支付方的这场军备竞赛，短期内可能会有一些阵痛，但从长远看，这没有理由一定要存在，对吧？所以，"}, {"start_sec": 2832, "speaker_id": "K", "type": "text", "zh": "真的，我认为，你知道，我们正在进入这样一个世界：很多就诊现场其实都有某种“环境智能”（ambient intelligence）在旁聆听、转录之类的。嗯，有记录，有临床病历，有 AI 来核定、AI 生成的临床病历细节之类的。所以你掌握了核定一次就诊所需的大量细节，对吧？所以在我看来，理想的世界是医疗服务方和支付方达成一种“握手”：嘿，这就是这次就诊实际发生情况的基准事实，这是我们掌握的全部信息。"}, {"start_sec": 2860, "speaker_id": "K", "type": "text", "zh": "除此之外根本没有别的信息来源了，"}, {"start_sec": 2862, "speaker_id": "K", "type": "text", "zh": "对吧？"}, {"start_sec": 2862, "speaker_id": "K", "type": "text", "zh": "然后由 AI 来帮助核定这种情况。也许会有某种有限的申诉流程之类的，但我不认为需要有这一整套流程，让支付方和医疗服务方之间展开 AI 军备竞赛。我认为这完全可以避免。所以我把它看作一个短期的干扰。"}, {"start_sec": 2862, "speaker_id": "J", "type": "text", "zh": "嗯，有很多正在做医疗技术的创业者可能正在看这期节目，呃，他们大概在琢磨，呃，你知道，随着你们继续推进工作，把医疗智能的成本降到接近零，它变成一种无处不在的公用设施，流经我们所有的医疗互动——面向消费者、面向临床医生、面向医疗技术栈或医疗体系的行政部分。嗯，大家应该在上面构建什么？假设这项技术再好上 100 倍以上，专业应用应该做什么？"}, {"start_sec": 2916, "speaker_id": "K", "type": "text", "zh": "是的。嗯，这是个很好的问题。正如我提到的，我们认为 OpenAI 带来的很多健康影响并不是直接通过我们自己提供的产品，而其实是通过我们的合作伙伴，通过提供医疗服务的那“最后一公里”。"}, {"start_sec": 2927, "speaker_id": "K", "type": "text", "zh": "所以，你知道，我想对合作伙伴说的是：你知道，在真正有能力的模型之上去构建。而最重要的是，押注这些模型会变得更有能力。所以押注未来。我认为医疗行业的很多人处在某个光谱上：从押注模型不行，到对模型持中立态度，再到，呃，跟模型站在一起、押注模型。我想，嗯，我会说，你知道，押注模型会变得更好。这大概是最重要的一点。并且思考正在开发的很多技术——无论是，你知道，智能体、计算机使用，还是其他前沿技术——将如何加速医疗，押注于此，朝着那个未来去构建。我也认为，很多医疗服务，嗯，其实会，嗯，借助 AI 让患者更容易获得。你知道，我们谈过“四分卫”的概念，以及消解很多这类壁垒。"}, {"start_sec": 2972, "speaker_id": "K", "type": "text", "zh": "所以，就专注于提供真正高质量的医疗服务，嗯，并让 AI 成为，你知道，监测整个就医旅程的一部分——我认为这也是其中非常重要的一点。"}, {"start_sec": 2980, "speaker_id": "J", "type": "text", "zh": "把视角拉远到整个医疗体系，整体来看，你知道，我们谈过这 5.3 万亿美元。其中很大一部分支出是医疗服务方、支付方以及医疗“五个 P”中其他利益相关方之间的文书工作。很大一部分是认知类的照护，你认为这部分可以被增强、嗯、被提升，我们可以让多得多的认知照护能力，呃，上线，这从可及性角度看令人兴奋。然后，医疗中还有大量支出是操作类的：要么需要做影像检查、验血、后续检查，要么是某种手术干预。嗯，你认为你们在医疗领域所做的智能工作会如何影响操作类医疗？它会成为最终的——会成为新的、或者被加剧的、也许被放大的瓶颈吗？还是你们预计在那里也会做很多工作？"}, {"start_sec": 3036, "speaker_id": "J", "type": "text", "zh": "机器人之类的。"}, {"start_sec": 3036, "speaker_id": "K", "type": "text", "zh": "【吸鼻子声】是的，我是说，我、我认为短期内对于操作类医疗，你希望在需要时有更好的精准定位，对吧？我认为 AI 可以帮忙，你知道，提供有用的信息，帮助人们知道什么时候该去寻求这类医疗服务。"}, {"start_sec": 3049, "speaker_id": "K", "type": "text", "zh": "未来，你知道，一两年里最大的宏观因素，可能就是更好的、嗯，主动式的预防性措施，对吧？这样你就不必等到后来真的去做那项手术，因为如果你更早做出正确的选择，AI 帮你走好这段旅程，那么你就有望避免最昂贵手术带来的大量下游成本。所以我猜，这可能是值得关注的一个宏观因素。"}, {"start_sec": 3071, "speaker_id": "K", "type": "text", "zh": "我认为机器人与医疗这个问题，无论从技术角度，还是从医保报销和行业，嗯，整合的角度看，都是一个更长期的问题。我的预期是，这不是未来几年内的事。"}, {"start_sec": 3071, "speaker_id": "J", "type": "text", "zh": "非常酷。好，我们聊了很多内容。我们谈了智能的提升，谈了信任，谈了从医疗信息走向医疗服务。帮我们理解一下，随着事情，呃，继续发展，我们可以期待什么？嗯，随着智能体、个人智能体以及底层模型的表现越来越好，我们可以期待 ChatGPT Health 带来什么？"}, {"start_sec": 3110, "speaker_id": "K", "type": "text", "zh": "是的，我是说，我认为我们真正专注于实现的有两件大事。第一，还是思考如何抬高人类健康的地板，让值得信赖、可靠的健康智能对所有临床医生、所有用户和患者都变得充裕。达到这样一个程度：你知道，就像我们谈过的，所有患者和临床医生都因为就医旅程中有 AI 而感到更安全——当你看到医生在用 ChatGPT 时，你其实会感到更安全，反过来也一样。要达到这一点，同样，这不只是，你知道，模型好、评测好的问题，还关乎我们如何部署、相关的启动能量，嗯，产品之类的。嗯，我认为第二件事是真正思考，嗯，抬高天花板：AI 能以哪些方式真正做到以前做不到的事？我认为其中之一，其实就是这种，你知道，主动式健康——主动式的个人健康助手，它是你就医旅程的一部分，帮你应对这些时刻，做你的“四分卫”，你知道，帮你预约以及所有这些事，同时也标记出那些你今天就可以对自己的健康进行干预、从而避免未来大量，你知道，代价高昂的病情恶化的地方。嗯，我认为这将是我们思考如何为尽可能多的人改善健康未来的重要部分。我认为第二点就是你之前提到的：真正思考如何释放那些有时被存放在各种“箱子”里的既有数据的价值，思考如何利用它们产生惠及患者的新洞见。"}, {"start_sec": 3110, "speaker_id": "J", "type": "text", "zh": "意识到 ChatGPT 大概是三年前才推出的，这令人震撼、不可思议，也让人谦卑。呃，所以在非常非常短的时间里取得了巨大进展。因此，哪怕以五年、十年为尺度来谈都显得像纸上谈兵。但你能给我们一些预测吗？我是说，有没有某种今天看起来像科幻、呃，但三年、五年、十年后我们可能拥有的功能？"}, {"start_sec": 3110, "speaker_id": "K", "type": "text", "zh": "是的，我是说，如今预测未来真的真的非常难。所以，嗯，嗯，这是个难题。但我想说的是，我认为在那个时间框架内，也就是未来 5 到 10 年，对人类健康影响最大的，可能是来自两方面的新疗法。第一是，嗯，AI 引导的，嗯，新靶点或新分子的生成，它们可能对，你知道，新疗法很有价值；第二是 AI 引导的优先级排序和验证。所以，思考恰当的方式——我们已经到了这样一个地步：人们想推荐进入临床试验之类的分子和药物数量，远远超过临床试验能提供的名额。所以要思考模型如何帮助对这些临床试验进行优先级排序并运行它们，让它们进行得更顺畅、更快。我猜在那个时间框架里，你会看到改进的药物、更加个性化的药物之类的东西。"}, {"start_sec": 3277, "speaker_id": "J", "type": "text", "zh": "而这之所以可能，只是因为你们在这两大支柱上做了投入。太棒了。呃，好，我们聊了很多内容。结束这次对话时，我比之前更加乐观了。呃，卡兰，非常感谢你来参加 a16z 播客。"}, {"start_sec": 3291, "speaker_id": "K", "type": "text", "zh": "谢谢邀请。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
