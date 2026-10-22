@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>工程管理的新规则：与威尔·拉森（Will Larson）对谈</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="g">格格利·奥罗斯（Gergely Orosz，主持人）</option><option value="w">威尔·拉森（Will Larson）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">The Pragmatic Engineer（务实工程师）</span><span class="pill">2026-10-21</span></div>
+<h1>工程管理的新规则：与威尔·拉森（Will Larson）对谈</h1>
+<p class="sub">嘉宾：威尔·拉森（Will Larson） · 约 116 分钟（6988 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=Prl858_AovM" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Prl858_AovM</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>The Pragmatic Engineer（务实工程师）</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-21</dd></div><div class="meta-row"><dt>时长</dt><dd>约 116 分钟（6988 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；普通 yt-dlp 成功拉取 en-orig；同次请求中 en 轨道遇 HTTP 429，未使用 cookies；无官方字幕）；caption_source=yt-dlp；中文为逐句全文翻译，已省略 TurboPuffer、Entire、Antithesis 赞助口播与片尾订阅/评分提醒</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>Prl858_AovM</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>《务实工程师》格格利·奥罗斯与威尔·拉森深聊：零利率时代留下的管理习惯为何失效、工程师与经理如何在 AI 时代回到细节、以及今天通往 CTO 的路径为何更偏向一线实战而非纯中层。</p>
+<h3>核心要点</h3><ul><li>2010 年代工程管理常被教导「别再做技术决策」；今天完全相反——经理需要重新回到写代码与细节，否则难以带队</li><li>零利率（ZIRP）放大了编制与流程，许多习惯在资金变贵、AI 改变交付速度后不再适用</li><li>Staff/资深工程师不应只挑「有趣题」；业务真正在乎的难题（哪怕痛苦）才决定影响力</li><li>威尔的路径：小学校 → 日本教英语 → 雅虎（Yahoo）远程承包与服务器黑市教训 → Digg 大重写灾难 → 后至 Stripe/Carta 等</li><li>通往 CTO：一线经理的实战判断往往优于长期悬空的中层；中层正面临职业陷阱焦虑</li><li>威尔离开 Carta 约 250 人工程团队、去 Imprint 带约 25 人小团队，刻意在 AI 改写工程的时刻重新「下场」学习</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：约 1 小时 56 分的高密度工程领导力对谈，适合正在犹豫是否回炉写代码、或规划 EM→CTO 路径的人；纯想听工具评测可跳过开场个人史，直接进管理规则段。TurboPuffer 赞助与片尾订阅提醒已标灰省略。</p>
+<h3>适合人群</h3><p>工程经理/Staff+、向往 CTO 的技术领导者；关注 AI 如何改写工程组织的人；《务实工程师》与 Staff Engineer / An Elegant Puzzle 读者</p>
+</section>
+<div class="legend"><span class="spk-0">格格利·奥罗斯（Gergely Orosz，主持人）<em>主持</em></span><span class="spk-1">威尔·拉森（Will Larson）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>2010 年代当工程经理最糟的一点之一是：你一踏进工程管理行列，最早听到的教训往往是——嘿，你以后再也不能做任何技术决策了。</p>
+<p>我记得别人就是这么跟我说的。而今天绝对不是这套理念。当时我特别受不了的一个观念是：Staff 工程师主要是去做他们自己觉得有意思、好玩、有个人成就感的问题。我手下一些最优秀的工程师会说：我想做更有意思的问题。而我当时的处境像是——我只能给你「受苦」的活，但这份受苦才是能让业务成功的东西。</p>
+<p>人们在想：我是不是有点陷入职业陷阱了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>中层管理现在确实很难。我个人觉得特别有收获的一点，是重新回到写软件的细节里——这像是一个难得的重新练技能的窗口。我觉得如果你在管理岗，现在要么就得重新回到细节里——或者说，工程管理这几年到底变了什么。威尔·拉森（Will Larson）是谈这个话题最合适的人之一。</p>
+<p>过去十年他在四家不同的公司做过工程高管。<span class="tag">【音乐】</span>写过几本在工程领导力与资深层级（Staff+）领域流传最广的书。我非常欣赏他思考的深度与细致。今天我们会聊到：零利率环境如何深刻塑造了 2010 年代一整十年的管理习惯，而其中很多习惯如今已经不再管用。</p>
+<p><span class="tag">【音乐】</span>工程师的角色如何在变化，以及为什么「解决业务真正关心的问题」正变得越来越重要，才能在公司里站稳；今天通往 CTO 的路径是什么样的；为什么一线经理往往比中层经理更能成长为优秀的工程高管——还有更多。</p>
+<p>如果你是工程师或工程经理，正在想：在 AI 改写行业的当下，自己的职业路径会变成什么样、今天通往 CTO 的路又怎么走——这一集就是为你准备的。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：TurboPuffer]</span></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p><span class="tag">【旁白过渡】</span>看他们怎么把它造出来，真的很过瘾。</p>
+<p>Will，欢迎来到播客。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>谢谢邀请。很高兴来到这里。终于能面对面聊了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>终于见面了——我们认识这么久。两边都是从写作成名，写作我们后面也会聊；以前也一起闲逛过，但这样坐下来真好。我想直接从开头问起：你是怎么对电脑产生兴趣的？你从小就对电脑感兴趣吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>大概从五岁开始？家里有一台类似 Mac IIc 之类的机器。不是最早那种纯黑白的，但也相当简陋。四五岁的我大概只会用一个东西，就是 Kid Pix（儿童画图）。你用过 Kid Pix 吗？——我没用过，知道有这东西，但没玩过。</p>
+<p>它也不是什么很复杂的程序。我甚至不知道能不能存文件。基本上就是给小孩子用的图形程序，可以画方块、圆圈，做点小图画。</p>
+<p>那算是我的入门。我记得自己经常用那台电脑。那是一个几乎没有互联网、也没什么教程可查的年代——你只能自己敲、自己试。某种意义上，写软件的基本功就是这样：一直敲到你搞明白怎么让它跑起来。</p>
+<p>所以我觉得那是很好的启蒙。但说实话，除了玩 MUD（多人地下城）之类的，我当时并没有怎么正经写软件。你小时候玩过 MUD 吗？多人地下城。——啥？什么是 mod？</p>
+<p>它是一种纯文本游戏。基本上，《魔兽世界》其实是图形化的、从 MUD / 多人地下城那套理念演化出来的文本游戏。真正开始多碰软件，是我高中的时候。</p>
+<p>一点点开始：先是 IRC（互联网中继聊天），还有 mIRC 客户端——我坦白说 M 到底代表什么我都不确定——可以做一点正则脚本。然后很多 MUD 客户端能做大量触发器和正则，我在那儿把正则玩得更深一点。但真正开始写软件，还是到了大学以后。</p>
+<p>——那到了大学，你开始写什么？怎么进入更认真的阶段？我进大学时其实不知道想学什么，想过物理、英语，或者经济学。我父亲是经济学教授，家里多少有点「要接上」的压力。但最后我在学校里不知不觉进了计算机——那是肯塔基一所很小的私立学校。</p>
+<p>我毕业那年，整个计算机专业大概只有 13 个人，那就是整个项目的规模。我们那一届好像只有四个毕业生，再加上大三、大二，加起来大概 13 人，非常小。所以大概四个同学和我一起毕业——但真正入门，就是那时候。</p>
+<p>而且我就是觉得好玩。我们有一门必修的导论课。挺好笑的是，很多美国大学、尤其是小私立校，会有各种奇怪的必修：我必须上「基督教导论」那种基督教史，也必须上「计算机导论」或另一门我忘了的替代课。结果我特别喜欢计算机那门。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>那时候你有没有决定：自己大概会成为职业软件开发者、工程师、程序员——不管当时怎么叫？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>聊职业路径时有个有意思的点：很多人上的是顶尖名校。你问滑铁卢（Waterloo）的人怎么找到工作，他们会说——滑铁卢几乎人人都被训练成去写软件；他们甚至互相交换面试题答案，进去前就把面试刷透了。项目本身也很强。</p>
+<p>他们做 coop（带薪实习）很多年了。非常优秀的候选人，表现通常很好。但如果你去滑铁卢、MIT、斯坦福，那里真的有一条现成的轨道：你踩上去、表现好，它就会把你送过去。这些学生本身也很强。几乎——</p>
+<p>——但只要他们够好、能留在项目里，那就像一部自动扶梯，往往会把人送上去。而我去的小学校，计算机那一届大概就四个毕业生，根本没有这条路。我记得前一届有个同学进了软件行业。</p>
+<p>他去了肯塔基列克星敦一家做赛马博彩软件的公司，我估计那儿工程师不超过五个。他本人能力很强、很能干，但那就是他们能找到的机会。所以对我来说其实挺迷茫的，不太确定要干什么。后来我其实是去日本教英语——JET（日本交流教学）项目。</p>
+<p>我在日本岐阜县（Gifu）一个偏远地方待了一年。也是在那时候我开始大量写作。我心想：当英语老师绝不会超过一年，合同就是一年。我干满一年，完全没想续约，然后回国，开始琢磨怎么从那儿杀进硅谷。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>而且你当时的目标已经是要杀进硅谷了。为什么是硅谷？能不能把我们带回当时硅谷是什么样的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>首先，那时候我其实还不知道硅谷是什么。我只是想要一份薪水不错的工作。我 2007 年毕业，接下来一年在教英语，大概 2009 年初左右开始为雅虎（Yahoo）工作。那是一段特别有意思的时期。一开始我是在东海岸给雅虎做远程承包。</p>
+<p>我能进雅虎，是因为我写了一系列关于 Yahoo BOSS（Build Your Own Search Service，自建搜索服务）的博文。那是他们某个团队刚推出的产品，业界反响好像一般。但上线时我正写得很多，就连着做了三四篇教程：用 Python 搭 BOSS、用 Django 搭 BOSS。好像还搞了个叫 Django Springsteen 之类的搜索库，方便在 Django 里接 Yahoo BOSS——名字我有点记不清了。</p>
+<p>他们大概是因为有人在写这个很兴奋，我也跟着兴奋，最后就变成了这份合同工。后来政策是：承包满一年必须搬过去转正。之所以先以承包招我，是因为那整整一年他们基本都在招聘冻结。</p>
+<p>因为那正好是金融危机之后。</p>
+<p>所以他们一轮又一轮裁员。能招几个承包，招不了全职；到 12 个月就说：你得转正，否则就不能再雇你——有合规上的限制。还说：转正就得搬家。于是基本上变成——搬去加州就有雅虎的工作，不搬就完全没工作。</p>
+<p>我就从东海岸搬到了加州。当时挺容易的，除了这份工作，也没什么别的牵绊。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>对。那时候雅虎在谷歌面前星光好像已经在淡，但仍然算不错的公司吧？工程挑战也在。比如 WhatsApp 的创始人就出名地来自雅虎。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>我觉得雅虎其实是家特别有意思的公司。如果你是 2007、2008 年进科技圈的，开源已经把很多事变容易了；但雅虎早于这些开源库。2007、2008 年在雅虎怎么跑服务器？跑 YApache——他们自己 fork 的 Apache，前面加个 Y。在 YApache 上跑什么语言？</p>
+<p>当然是 YPHP，他们 fork 的 PHP。UI 库呢？你可能知道：YUI。怎么装东西？如果在别处你会用 apt 之类，在雅虎你用 Yinst——一个 Perl 脚本，用来梳理安装依赖。</p>
+<p>所以那是个特别迷人的成长环境：几乎所有东西都是自己从零造的。他们甚至有 Kafka 的前身，好像叫 Yrepple，基本上是一种在数据库之外做复制的读日志，是管理状态的核心工具。特别迷人。我最爱讲的一个雅虎小故事：大卫·费罗（David Filo）出了名地要审批每一台分配出去的服务器——联合创始人亲自审。</p>
+<p>理论是这能推动问责：你得证明自己真的需要更多机器。实际效果却是催生了服务器黑市。我们组里有个工程师，之前取消的项目留下来 30 台机器他一直没还，实际上等于拿来「卖」给你。如果你批不下来——</p>
+<p>——就得靠人情、IOU 之类。结果公司里堆了大量过时、耗电效率极差的服务器，因为没人愿意交回去。你想上线项目，就得找到一个对你友好、手里有机器的人来「借」。激励机制能把事情扭曲成什么样，真是太精彩了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>我猜这是你后来做工程领导者时会记住的一课。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>对，非常有教育意义。我也好奇：大卫·费罗知不知道大家真的在搞服务器黑市？我猜他大概知道，但并没有改那个自上而下的死命令。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>雅虎之后，是不是就去了 Digg？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>对。当时那家公司特别有名，故事也很有意思。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>能不能讲讲你为什么跳槽？那时候 Digg 还是创业公司吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>取决于你问谁，叙事会不一样。Digg 的叙事大概是：在 Reddit 之前，它就是那个大型社区站点，但是中心化策展的。</p>
+<p>Reddit 有子社区，社区用算法投票决定要什么；Digg 则是由中心决定什么上首页。体验很不一样，质量更稳定，少一点子版偏见问题，但变成了中心审核偏见问题。</p>
+<p>还有社区、IRC 频道里大家互相交换人情，想办法把东西弄上 Digg 首页。事实上，在我们改算法之前，有人说要来杀我、说我砸了他们的饭碗——因为他们整份营生就是卖首页曝光。新算法不支持那套，他们真的在威胁我们的性命。</p>
+<p>所以那地方特别奇妙，但 Digg 曾经是个非常重要的网站。我刚进雅虎时已经不是这样了，但再早一点，雅虎首页 literally 就是 NetScaler 上的一个静态文件，雅虎体育也就是一张静态页。所以早期的 Digg 像是一张非常重要的「静态页」。</p>
+<p>后来它变成动态的社区，对当时的人极其重要；再往后热度淡了，也重启过几次，但再也没回到当年的牵引力。我记得它一度是前十的网站。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>对，前十。我记得的故事是他们做了一次大重写，好像是 V4？从外面看：Digg 本来不错、很火，也有点像几年前的 Stack Overflow 那样有抱怨，然后 Digg 搞了一次大规模重写，灾难随之而来，特别八卦，人人都在谈。</p>
+<p>你能不能讲讲实际发生了什么、从内部看起来怎样？因为你当时是在造这个东西。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>对，上线那次我在，上线之后我也在。我大概在上线前三到六个月加入 Digg。非常奇妙的时期：我入职前那个周五，CEO 被撤了，凯文·罗斯（Kevin Rose）又回来了——他是创始人，也是创始 CEO。</p>
+<p>他在那儿待了一阵子，中间退开过，后来又回来了。但回来时我们有一个很硬的上线截止日期——要在那之前上线 Digg 的重写版。Digg v3.5 是 Digg 4 之前的版本，基本全是跑在分布式 MySQL 上的 PHP。那是另一个时代：Digg 跑在我们自己托管机房（colo）里的自有硬件上，不是想扩容就弹几台机器那么简单。</p>
+<p>但 Digg v4 想解决一堆问题。首当其冲是：当时的互联网在变。一度是前十的 Digg，开始输给 Facebook，搜索流量也在丢。谷歌有一系列大的算法调整。</p>
+<p>现在我们不太常听到谷歌搜索算法大改，但那时候有 Google Panda 之类好几波，开始重塑流量怎么流动。对 Digg 这种公司来说，相当大一块流量——我想说大概 60% 到 70%——其实是从搜索进来的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>哦。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>进到一种叫 permalink（永久链接页）的东西。比如说你写了篇很棒的博文，被发到 Digg，我们会有指向 permalink 的引用，再加一个回你站点的小链接，以及评论。但海量流量是打在这些永久页上的，它们的页面权重甚至高于原始来源。</p>
+<p>放到今天你大概会说我们不该这么干——大概是现在的视角。但在那个时刻，我们其实是在创造可发现性与围绕内容的讨论。那是 Twitter 之前，是 Facebook 还没拿到巨大分发之前，非常早。对我们来说，那就是用户进来的核心入口。</p>
+<p>也是我们卖广告最多的地方。丢掉那块流量，基本上就是在砸公司的财务前景。从外面看 Digg 好像还行、或许还在涨，但我们知道 Digg 其实在缩。我们有过一个漂亮的盈利月，然后一次算法调整打过来，开始萎缩，我们知道这对我们是生死存亡。</p>
+<p>再往前走不远我们就可能直接不存在了。我加入时大概 110、120 人。那是 2010 年，融资轮次可能是一百万美元或三百万这种量级，不像今天动辄五亿美元、团队想扩多大扩多大。完全是另一个时刻。</p>
+<p>所以哪怕 110 人也已经很可观，而我们把剩下的现金烧得相当快。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>上线在内部是惨还是还行？</p>
+<p>因为从外面看，大家觉得糟透了，社区很生气；也有一点「活该」的幸灾乐祸——尤其是那些深度卷入的人，他们不喜欢改变。有人画了一套特别精彩的漫画，像 Digg 对 Reddit，蓝对红，四五集那种很细的连环画，大概就在那段时间，能看出大家投入了多少情绪。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>对，热情很高。而热情社区的挑战就是：你一手培养了热情社区，再改你是谁——</p>
+<p>社区就不买账。比如 Mr. Babyman 那种顶级 Digg「策展人」——非官方地把内容送上首页的人——他和很多人等于丢了生意。而上线确实很惨，原因很多。首先技术上其实没准备好，我们做了很多非常激进的技术决策。我大概上线前三个月才加入，所以这件事我个人不会揽太多责任。</p>
+<p>也想想我当时的职业阶段：基本是第二份工作，在雅虎待了两年。这锅我不太认。后来的职业生涯里我会认发生在我手上的一切，但这次真不全是我的错。基本上，我们决定在 Cassandra 上线。</p>
+<p>当时有个笑话：Cassandra 像特洛伊木马，就是来毁掉业界竞争对手的——谁用 Cassandra 上线谁就完蛋。对 Digg 来说确实如此。用 Cassandra 去换掉分片 MySQL：那套分片 MySQL 很复杂，但确实能跑；而 Cassandra，我会说基本上跑不起来。</p>
+<p>我记得有个团队负责上线前给 Cassandra 做压测。上线前两天，另一个很厉害的同事 Rich 和我被拉到一边：「嘿，他们根本没做压测，你们俩要在接下来两天把压测补上。」Rich 当时也只是像我一样的软件工程师。</p>
+<p>于是我们只好装 JMeter，试着搞明白怎么用它压测。我们跟负责 Cassandra 专项的 Chris 有过一段很精彩的对话。</p>
+<p>我说：嘿，我没法在 Cassandra 上做读。他说：不可能。我说：那我没法写。他说：也不对。我说：好，Chris，如果我在写 Cassandra，我就没法读；如果我在读，我就没法写。他说：那倒是真的。我说：可我们两天后就要上线。然后我们就上线了——问题没修，直接上。</p>
+<p>所以公司觉得我们简直在死——公司确实在死，钱快烧光了。但那是我职业生涯里最「有意思」的一天。不记得几点到办公室，大概早上八点。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>你说有意思，是指压力巨大吧。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>让我描绘一下现场。那是上线日，他们还决定办上线派对。一整天都有穿燕尾服的餐饮服务员端着寿司盘、香槟。哇。</p>
+<p>整个办公室都在搞庆祝。房间中央拉出一张可能是会议室桌、大概有这张桌子三四倍大的长桌，工程师坐在那儿。我们没有足够硬件同时跑新系统和旧系统——再说一遍，是自有硬件。</p>
+<p>所以他们是真的在擦掉旧服务器、装新软件。没法回滚。没钱——或者说因为钱快没了，派对预算倒够，服务器预算不够。于是一台一台擦、一台一台拉起来。</p>
+<p>最后这破玩意根本起不来。功能上到底发生了什么？我们挂了大概整整 24 小时的维护页，然后才能勉强收拾残局——而香槟和燕尾服还在旁边转。超现实。</p>
+<p>楼上还有人在做按摩。我记得某些不便具名的组在打乒乓球，我们却在拼命把站点拉起来。有点像魔幻现实主义。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>我懂你说的「有意思」了。我想象中的上线绝不是这样。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>你根本想象不出这样的上线。太超现实了，真的像魔幻现实主义：一边一切照常，一边站点在崩塌。我从没见过这种场面，但这也是我很自豪的一段。那时我才待了三个月。</p>
+<p>有意思的是，我们后来确实把站勉强弄起来了，但问题一大堆，很多人就放弃了；一天天过去，人越来越少，最后大概只剩六个人左右还在撑。我们撑住了。头两天，还是那个 Rich 和我，从零在 Redis 上写了一套缓存，让站点能撑好几个小时。</p>
+<p>但内存泄漏还是巨大，我们几乎每隔一两小时就要重启每个进程；唯一能撑住的办法就是对所有进程做滚动重启。</p>
+<p>我们花了整整一个月才调试清楚。我很久以前写过一篇博文。核心 bug 是：我们做了一个给第三方用的 API 服务，用 Python 写的；写的人其实不太懂 Python。这条链路是 Python 再调另一个打 Cassandra 的 Python gRPC。而在 Python 里，如果你给默认参数——</p>
+<p>——用了可变对象（不知道现在是否还这样，我希望已经不是了，但当时是）：你把 list 当默认参数，再 mutate、往里 append id，它会常驻内存。于是每次调用这个函数，都会带着同一个 list。用户每次调这个 API 查 user id、拿回 user 对象时——</p>
+<p>——曾经传进去的所有用户都还在。于是一层层 cascade，直到我们重启。我们还在中间加了 memcache，memcache 一垮又会拖垮 Cassandra。</p>
+<p>找到这个 bug 大概花了我四周；一旦找到，修起来很琐碎。修好大概同一天，新 CEO 入职；再往后一年左右，整家公司基本被裁光了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>从「我们确实解决了、它能跑」的意义上是纯胜利。但核心站点难用或挂一个月，你没法真的算赢。反事实地想：如果他们一直撑着旧站，公司大概也会死。所以我不确定那是不是错误选择，但当时我确实很忿忿。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>那你后来是怎么走进工程领导的？我知道咱俩在 Uber 有一点点时间重叠，都在那儿待过，但从没一起共事。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>Digg 故事的尾声是我们被 acquihire 了。Digg 做了很多创新，专利被卖掉。比如信息流里的原生广告单元——你现在在 X 上看到的那种长得像用户帖子的广告——Digg 拥有那项专利，他们是第一家这么做的。还有一堆别的专利，专利组合被一家公司买走。</p>
+<p>Dig.com 品牌和网站本身，好像被纽约的 Betaworks 收购收购了。</p>
+<p>我记得几年前又转手了。团队则被 SocialCode 收走——当时华盛顿邮报公司旗下的子公司（那还是控股公司时代，旗下有邮报、Kaplan 和这家在 Facebook 上做广告的 SocialCode）。团队去了那儿，我待了几年。离开时我想：我想做工程领导，但招不进很大的角色，因为那时我大概只管十二个工程师左右。</p>
+<p>招不进大角色，是因为我没干过大角色。那怎么进去？小创业公司没有规模：就算你去当十五人创业公司的工程负责人，底下也只有五个工程师，永远够不到大公司要的规模门槛。</p>
+<p>所以我当时的想法——后来变了很多——老实说就是：想管大团队，就得加入一家涨得极快的公司。我四处看谁涨得最快，Uber 涨得简直飞起。</p>
+<p>大概 2014、2015。增长刚开始爆发，非常早。那时候你得在旧金山才知道 Uber 有多猛；湾区之外大概 2015 才传开，到 2016 才成全球新闻。</p>
+<p>听起来对。我之所以知道，是 Digg 基础设施的工程师 Jeremy Grosser 离职去了 Uber。</p>
+<p>还有一条有意思的技术采用曲线：Digg 造过一堆技术，其中一个叫 clust——我记得大概只有 Digg、Uber，还有 Second Life 那家公司用过，全世界可能就这三家。它基本上是用键值存储管理集群基础设施，有点像后来 HashiCorp 的 Consul，非常像——</p>
+<p>——只是比 Consul 早好几年。</p>
+<p>大概 2008、2009 就做出来了。他把大量 Digg 技术栈带进 Uber，因为他是那儿最早的基础设施工程师之一。他的团队在招人。我其实是通才型工程师：在雅虎招我是做前端——我也不确定自己够不够格；在 Digg 则前端、Cassandra、后端什么都干。</p>
+<p>然后他们招我去带一个叫 SRE 的团队，其实不太像真正的 SRE，就是个基础设施团队，挂了个 SRE 名字。入职前一周我才读了本「SR」相关的书，想搞清楚这工作到底是什么。你大概读的是当时已有的 Google SRE 书吧？</p>
+<p>我觉得那本书当时可能还不存在。你手头是什么书？我好像在读一本 DevOps 书，也许是《凤凰项目》（The Phoenix Project）刚出来那阵——时间线我有点乱，但确实有类似《凤凰项目》的东西。</p>
+<p>也许还有别的。总之我去了，面试当然很经典：我记得在白板上用 Python 做旅行商问题之类——其实不怎么能测出我的 DevOps 功力。但公司当时招人有点急，我还是拿到了 offer，开始干了。</p>
+<p>你那时已经在带团队、扩团队了。我加入时大概管六个人，但职责面极宽。那时 Uber 全公司约 2000 人、工程师约 200；我们这六人左右的小团队管数据库、Kafka、以及服务器管理——不是机架安装，机架和装机是 tech ops 的活。</p>
+<p>但机器上架之后就归我们。服务开通、几乎所有基础设施都是我们的，除了一个两人的开发者体验团队，以及真正负责上架装机的 tech ops。范围极大，体验也很猛。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>聚焦你的领导/管理路径：在 Uber 从这个团队开始，后来走到哪？再到 Stripe、Carta，中间步骤是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>当然。加入时大概五六人；两年后离开时这个团队到了 70，而且全是外部招聘。Uber 那时候最惊人的一点是：工程编制每六个月翻倍。你没法从别的组「挖人」，因为那些组也在疯狂招、也严重人手不够。所以我是在 Uber 真正学会怎么招人的。</p>
+<p>去之前我完全不会招。他们招得太多了。我最爱讲的一个故事：有个从 Eventbrite 来的人，我管了他一年半——周五下午 4:30 发 offer，他周一早上 8 点就入职。Uber 招聘故事太多了，有的更好笑。</p>
+<p>我记得有人面试了 Uber 四次都被拒，第五次我又看见他在面。我说我们已经面过四次了，别再浪费人家时间。结果那个组还是给了 offer，他入职后六小时内就离职，因为隔壁一个街区的 Twitter 也给了 offer。</p>
+<p>就隔一个街区。</p>
+<p>他花在 Uber 面试上的时间，比实际干活还多——尽管他接了 offer。Uber 奇闻太多。那个团队两年从 6 到 70，范围也扩了很多，是一段非常疯狂的日子。今天有些公司让我想起那时的 Uber。我刚去时，基本上每个周五——</p>
+<p>——我们都在手工把软件在服务器之间挪来挪去，好撑住高峰。通常周五下班高峰是一周峰值；周六总量或许更大，但摊在更多小时里，因为不是所有人同一时刻下班。</p>
+<p>那种狂热的工作环境故事太多。我待了几年，然后去了 Stripe。Stripe 大概从 2016 待到 2020 年初，约四年。然后去了 Calm，当了三年半 CTO——那是我第一份 CTO。当时挺刻意的。我有点焦虑：在 Stripe 四年，公司表现很好。</p>
+<p>我加入时估值大概 55 亿，四年后大概到了 960 亿。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>公司估值。对。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>确实起来了。工作质量也很好。我加入那天大概是员工 500 人左右那一批；离开时公司大概 1500 到 2000 人。</p>
+<p>所以我在 Stripe 那段大约年增 70%，远小于 Uber 每半年翻倍。当然 Uber 后来收缩也猛得多——每半年翻倍的自然后果。</p>
+<p>但那时我担心：几乎所有积蓄都押在一家大概永远不会上市的公司上——后来也确实没上。所以有一点分散风险，也想真正体验「完全主导」是什么感觉。在 Stripe 全程我基本上离 CEO 只差一步。</p>
+<p>第一年汇报给 Jeff Winter，之后汇报给 David Singleton——他后来是 Stripe 的 CTO，或许当时已是。不对，他加入时是工程负责人（Head of Engineering）——</p>
+<p>——大概一两年后才成 CTO。但从他加入到我 2020 年初离开，我一直向他汇报，始终差一步。我就想：如果我能坐到那个位子，能不能做得更好一点？看起来值得一试，也一直很有教育意义。</p>
+<p>后来你又做了好几次 CTO。Calm 三年半，然后 Carta，再 Imprint。对，Calm 大概三年半，Carta 两年，大概一年半前加入 Imprint，就是我现在这儿。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>那现在你是三任 CTO 了，我得问：站在工程师视角，CTO 到底干什么？很多工程师会憧憬有一天当 CTO，脑子里觉得既有管理，又贴近技术。你怎么看 CTO——你也写过工程高管职业的书——你的心智模型过去是什么、现在呢？尤其 AI 之下角色好像也在变。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>2010 年代当工程经理最糟的一点之一，就是你一进管理行列，最早听到的教训往往是：嘿，你以后再也不能做技术决策了。那时候就是这样，对吧？我记得——</p>
+<p>——别人就是这么跟我说的。大家觉得最重要的是放下技术决策。那是当时的理念，今天绝对不是。我一直很向往的是：CTO 好像是技术轨与管理轨唯一重新交汇的地方。</p>
+<p>所以我一直坚信、今天也还在做的是：既有工程经理、也有 IC 工程师直接向我汇报。现在我有 14 个直属，大概四五人是 IC，其余是经理。这种平衡很关键——因为很多管理岗长期不允许你当技术领导者。</p>
+<p>对我来说，真正到「技术与管理再次交汇、你被允许同时当技术领袖和管理领袖」的层级，是一大吸引力。外面也有太多糟糕的 CTO 决策——我不是在说前面提到的具体人，David 尤其非常优秀。</p>
+<p>Stripe 的决策质量总体很高。有时你会不同意，但很少会觉得「这完全说不通」。可在 Stripe 之外，经常有些决策就是莫名其妙，我会想：也许我能做得更好。</p>
+<p>而最近这个时代我最爱的是：你不只是被允许重新回到细节，简直是被要求回到细节。</p>
+<p>这是我重回软件一线最爽的部分。在 Imprint 一年半里我已经合进生产环境超过 500 个 PR，比我之前整段职业生涯加起来还多。挺酷的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>你在 Imprint 当 CTO。你是否不止 CTO？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>我加入时是 CTO，现在也带着产品和设计团队。产品、设计、工程都汇报给一个人，像统一的 EPD 结构。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>这是新趋势吗？我两三年前开始听到 CTPO（首席技术与产品官），现在又开始听到设计也并进同一个人。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>我不知道算不算趋势。但我看到的一个挑战是：随着 agent 更主流，你必须能快速做决策——做什么、不做什么；agent 采纳对产品怎么走、对设计怎么走。</p>
+<p>嘿，如果设计不用新工具——比如 Claude Design 或 Figma MCP——他们就会成为瓶颈。那设计责任怎么切？Imprint 比如在试「开发者主导设计」做二线功能：解决了瓶颈，</p>
+<p>也制造了大量摩擦——工程师主导设计时出现的设计缺口谁负责？有时他们没按设计系统来。所以有一个统一的拍板点来做这些权衡，在剧变时刻很有力量。</p>
+<p>我打心底相信：就「我们如何创造软件」而言，行业变化之大是我职业生涯前所未见。我大概 2008 年底入行，从没见过这种程度的变化；以前更多是文化或社交层面的微妙变化。我现在写软件的方式跟一年前都大不一样。剧变时刻有一个集中机制，对我们很有帮助。但我个人不觉得这是长期趋势——我也说不准。</p>
+<p>我尽量避免对太远的未来做预测。一切都变得太快了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>Will 刚说他这辈子从没见过构建软件的方式变化如此之大。正在变的还有我们用的 Git 托管栈——这就带到本季赞助商。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Entire]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Antithesis]</span></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>说回 Will，以及他观察到的行业变化。不如从你入行开始：软件工程发生了哪些变化？就聚焦你的亲身经历。硅谷公司我们知道是个泡沫，但泡沫也方便拿来讨论。从大概 2007 年到今天，构建软件、带团队，怎么变的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>我不知道你做工程师的第一段经历怎样。我第一次当工程师、给雅虎做远程承包时大概 22 岁，组里别人都不远程。转正后还是同一个经理——两年里我跟那位经理只开过两次 1:1。</p>
+<p>没有常规 1:1，一年一次或者也不是绩效，甚至不是谈钱；然后他们会说「干得好，这是你的加薪」。晋升更像「恭喜你升了」，重点是「你多挣钱了，酷」。</p>
+<p>我也没期望超过两次。第一次基本上是他想聊另一个员工的表现，想找信号看对方是不是不行——不是给我反馈。第二次是：哦你提离职了，怎么回事？那在当时挺正常。</p>
+<p>他眼中的工作——我觉得他其实挺擅长——是在公司里帮团队找到能产生影响力的机会。</p>
+<p>他四处找对我们真正有价值的事，带回来，我们的工作就是实现并跑通。没有「帮我规划有成就感的职业」这种概念，那对他来说大概无关。</p>
+<p>我们说的基本是 2010 年以前。对。到了 Digg，我觉得经理们基本都被炒了。我在 Digg 当上经理，是因为问到我时我够蠢没说不——那时顶多两三年半经验。</p>
+<p>我对管理一无所知。上一份工作我几乎不跟经理互动；跟 tech lead 定技术方向，搞砸了会被骂，那就是领导模型的全部。所以我成了经理，但 Digg 最后一年除了我几乎没什么管理，而我完全不知道自己在干什么。</p>
+<p>真正学到很多是在 Uber，但 Uber 大家忙到也没什么管理：纯沉浮——你自己摸索，否则团队会被周围的增长规模压垮。同样几乎没有支持。</p>
+<p>有意思的是到 2017 年我在 Uber 当经理时，公司搞了第一届学徒经理项目。我入职经理时有几天集训、导师之类。大多数工程经理从来没有过这些。Uber 当时刚开始把它做得更正式，内部 DIY 培训。在那之前，什么都没有。</p>
+<p>他们做这个，是因为意识到糟糕的经理正在变成大问题。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>说得通。大家当时都在摸索。我经历的 Uber 极度「短视」——有个价值大概是自己解决，不一定写进价值观，但大家卡住不会去堵别的组，自己干。也许「让建造者建造」是变体。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>对，有「让建造者建造」「做主人不做租客」，再叠上原则性那条，基本上就是自己闯、别求原谅、把事办成。</p>
+<p>对。还有一种「无依赖」文化，我觉得很赋能：你说我被堵住了——不，你没被堵住，你得自己想办法。</p>
+<p>有时很痛，但意味着你总能担责、自己搞定。我记得签过 Uber 中国的采购单，没人肯签，最后我签了一张几千万级别的——我大概才 27 岁，没人能批，又必须办。</p>
+<p>Tech ops 负责人 Amir 和我互相瞪着：那就签吧。我爱那个时代的 Uber 的一点是：之后从来没人找我谈这件事，从来没有 follow-up。大概也不算好事。</p>
+<p><span class="tag">【笑声】</span>从公司治理看有点临时，但我们互不挡路，能做成很了不起的事。同时也是极端难待的地方。</p>
+<p>对，很多人离开、燃尽，是有原因的。</p>
+<p>百分之百。然后一路走到大约 2016 年我去了 Stripe。Stripe 出了名地也没有管理文化。我加入时大概只有三个经理；其中一个我很喜欢共事的 Railene，直属大概 40 到 50 人——因为 Stripe 读过谷歌那篇「曾经基本没经理」的文章。</p>
+<p>以及那套一开始怎么不行。他们一开始长期没有经理。</p>
+<p>我大概是那波「经理化」浪潮里较早的经理之一。当时大概三四个经理：Railene、Jorge，或许还有一两个。Jorge 管大约 30 人，底下可能几乎没有经理；Railene 好像也没有下级经理。同样非常混乱。</p>
+<p>但刚从 Uber 出来，我对混乱已经很熟了。业务也涨得极快。</p>
+<p>我觉得真正是在 Uber 那段，关于「经理角色是什么」的文化开始稍微凝固：经理不再是核心做事者或决策者，而更像协调者——看着挺迷人。</p>
+<p>也是我写《Staff Engineer》（大约 2021 年出版）的原因之一：收集我共事过的一些 Staff 工程师的反馈。</p>
+<p>因为当时让我很受挫的一个观念是：Staff 工程师主要是去做自己觉得有趣、好玩、有个人成就感的问题——而这完全不是我需要他们做的。我需要他们去做业务问题、可扩展性问题；离开 Stripe 时我的团队大概 250、260 人——</p>
+<p>——我有一堆这种问题。一些最优秀的工程师会说我想要更有意思的问题；而我像是：我只能给你受苦，但这份受苦才能让业务成功。我怎么把他们拉回来？当时很多人觉得这违反了「管理契约」——我的义务是给他们想要的有趣工作。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>有意思，回头看跟十年前比变化多大。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>完全对。那是一段迷人的时期，但我不觉得那个视角从来真正正确过。</p>
+<p>你看 Stripe 真正资深的人，以及我待过的每家公司，那些人做的都是公司真正需要的高价值工作。你在高管层几乎看不到「只做有趣题」那种视角站稳；但很多新进来的人真信这个。不点名地说，某些他们来自的公司把这套推得很极端——经理的义务——</p>
+<p>——对资深招聘者来说，是给他们有趣的活。我觉得行业在这点上已经明显回摆了。这跟零利率有关吗？我们经常回到这个话题，很有意思。我也写过：一个听起来很抽象、偶尔才会听到的利率，如何长期影响科技融资、招聘、那些未必有商业模式却仍能融到钱的创业公司，以及最终影响软件工程原型、经理类型与管理决策。然后大概 2022 年左右音乐停了，效率重新变重要。现在我们都在问——我也在问自己：那段时间我们做的一切，在当时到底对不对？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>你读过吗——名字我可能说错——好像是 Ronjon Angroy 在 The Margins 上那篇《ZIRP explains everything》？对，The Margins。我们也会放链接。我很喜欢他的写作。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>对，我在 Digg 的同事、后来我招进 Uber 的 John Durk，就是 The Margins 的另一位作者，和 Ronjon Angroy 一起。我读了那篇，真的很有共鸣。</p>
+<p>我觉得 ZIRP（零利率政策）解释了整个 2010 年代：管理风格怎么变、薪水怎么涨，然后招聘竞争变成「能不能招到、关单、留住」成了成功公司与否的分野——因为你根本留不住优秀的人。杠杆回到工程师手里，环境完全不同。</p>
+<p>公司自我推销的方式变成：更轻松、更围绕你、更多职业发展——很多时候其实有点自我拆台。大家常批判谷歌那种福利文化；除了谷歌和 Meta，我不太觉得真正极成功的公司有那种福利取向。</p>
+<p>但抛开福利，公司还有很多方式强调「有回报的工作」「有趣的工作」。比如：工程师也许不该 on-call，那是「二等」SRE 的事。有意思的是，我共事过的每个人都知道：工程师为自己写的东西 on-call，软件会更好。</p>
+<p>可公司仍会说：为了享受感，让他们别为自己的工作 on-call，去叫那些没参与创造软件的人。这种取向其实暴露了那些公司优先级的转移。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>我也在想，那是不是一个经理因「低流失」（很少人走）、以及能把编制招满而受奖赏的时代——听起来疯狂，但当时填满 headcount 很难。</p>
+<p>假设你是总监或高级工程经理，团队 30 人，今年给 10 个编制；如果你招不满——尤其是高级及以上，不能随便招新毕业来凑——就会有点扣分。</p>
+<p>或者编制会落到别人手里，帮别人升职——因为到 40 人你可能就是高级经理/总监头衔。于是在这环境里干得好的经理变得有点讨好型，也开始把工程师与业务隔开。我怀疑这种「隔开业务」后来反噬很多人——</p>
+<p>——因为现在工程师越来越被要求懂业务；懂业务才吃香，去创业公司才能落地就干。我仍听到从大公司（比如某家大型可观测性公司）去到七人创业公司的人说：太糟了，他们不让我做事。</p>
+<p>我就说：等等，七人公司，你又是有经验的人，怎么会不问业务需要什么、直接干？Boom。他们被前一个环境社会化太久了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>对，激励是很大一块。编制、填坑、团队管理、员工调研这些工具很有价值，我也用很多；但我记得在增长很快的公司花大量时间用调研结果分析经理好坏。</p>
+<p>但调研结果必须解读：高分低分不等于好经理坏经理。要追问上下文：为什么团队都对这件事不满？那并不直接等于你是不是好经理。</p>
+<p>这些东西有点变成目标本身，而不是解读机制——很多时候就是懒惰的中层部署方式。</p>
+<p>我肯定见过这些。总体我讨厌编制对话——几乎从来不是最有意思的对话。但在一个经理不被允许做技术决策的世界里，他们能加速执行的杠杆只剩编制或优先级。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>所以你是说：在 ZIRP 时代，常规智慧是经理别做技术决策，这逼着聪明的经理把精力压到非技术侧，可能欠投资技术、该拍板的不拍、过度押在软性面、把团队与业务隔开——因为能量都花那儿了？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>百分之百。非常对。我现在跟团队说：招人几乎是解决任何问题最无趣的方式，我们几乎永远不该先聊招人。推论是：如果你有空编制还去要更多编制——也不该聊编制，因为真正重要的是招聘吞吐，多要了也用不上。</p>
+<p>我们基本上告诉经理别想技术方案，那他们手里还剩什么？</p>
+<p>流程方案、排期、或者人。这是两条轨道分叉的自然后果——不是说完全不该分，但有效领导需要两边都有；否则就会过度押在招聘上，驱动我们过去看到的臃肿组织。来聊职业发展吧，先从个人贡献者开始。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>你觉得在创业公司或中型公司，软件工程师的职业机会怎么变了？以前职业阶梯挺清楚：一级、二级、高级、Staff，晋升路径明确。现在 AI 工具在写代码——那曾经是新毕业一二级干的活——架构也越来越行。我们还要职业阶梯吗？</p>
+<p>如果你是公司里的经理，现在该不该担心去搭职业阶梯？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>好问题。团队确实期望有职业阶梯。研究也支持：有量规比没量规决策更公平。所以锚定职业阶梯大概会留下来。没有的话，某些事会被低估。</p>
+<p>维护工作、胶水工作、凝胶工作——怎么叫都行——会被弱化，花哨且「看起来有效」的事会被高估。我仍相信职业阶梯有价值，但「里面该有什么」现在复杂得多、也更不清楚。</p>
+<p>不知道哪家咨询在卖这些阶梯——一家小公司一家小公司，你看到完全一样的阶梯，像买来的礼包。那些都过时了，但我们还没有下一版。</p>
+<p>不过想到今天走到 Staff 或 Principal，我真正在乎的是——我一直想给《Staff Engineer》写个增补，大概下一个十年某时会写——核心是复杂情境下的决策。首先是驾驭模糊。在 Stripe 我记得一个要做多区域的项目。</p>
+<p>带项目的工程师一直说：需要产品来决定跨区域复制怎么工作、分区时产品行为是什么——只要一致性与可用性、不要分区容忍之类。他们想让产品团队做 CAP 定理权衡，而产品团队根本不可能做 CAP 权衡。</p>
+<p>他们其实是在找卡住的办法；而 Staff/Principal 该做的是：通过做权衡驾驭模糊、建立确信、做出原型去验证假设是否有价值、是否可行。</p>
+<p>这些模糊问题仍然很难，对我来说至今仍是强信号。即便有 agent，你仍要做复杂权衡。而如你前面说的懂业务——权衡不只来自技术如何工作，也来自产品含义。</p>
+<p>要懂产品含义，就得懂用户到底想干什么，懂单元经济：你提供什么、服务成本、实际收费。越来越需要足够宽才能啃这些模糊问题。但我认为决策一直是 Staff/Principal 产生影响力的地方。</p>
+<p>这点完全没变。我不觉得 agent 特别擅长做这些权衡；它们常常连权衡都认不出来，因为不在上下文窗口里——那些微妙、隐含、活在软件之外的东西。那新毕业一二级的职业呢？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>刚有个高级工程师跟我说：AI 写代码已经明显达到我们对「天使级/初级」工程师的期望了；有一天会到高级，但现在还没到。你怎么看新毕业一二级——还没有战场伤疤、专长与判断力，让你在招聘和培养上都能完全信任他们？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>我尽量远离一种「人造的精确」。一级和二级到底差在哪？其实很难非常具体。</p>
+<p>很多公司成功地说差在三年工作经验——这公平吗？我不知道有没有超级公平的办法评一级对二级。很差的一级能看出来；但很好的一级和二级，往往是时间和角色带来的上下文积累，不是「能做这个/不能做那个」那么干脆。</p>
+<p>尤其有了编码 harness，他们什么都能「做」，但该不该做越来越难判断；方向给错时，你甚至感知不到他们的判断。所以我越来越不在乎某些细节，时间和级别这类粗粒度对很多情况够用了。</p>
+<p>我担心把标准写得极细是一种假胜利：看起来很精确，但校准会上总有人会「演」量规。</p>
+<p>我记得某家公司升到 Staff 有辅导要求，于是有人专门去找人聊一次，就把对方报成 mentee，像收集 mentee；你去问那个人：我不知道为什么跟他聊，他就找我聊过一次。你量什么就得到什么。</p>
+<p>所以晋升一直有大量判断。你想去掉判断，其实也不会有好结果。量规用来引导有用，但最终相当主观。对很多事，有约束比有一套用来裁判的全面量规更有意思。</p>
+<p>举个例子。我在 Carta 做过：当时成本压力很大——要降本或管住成本。</p>
+<p>我设了比例：Staff 工程师相对总数不能超过某个数，不可能突破。很多人很烦，但我觉得这比行业 15 年前更诚实。15 年前多数公司高级之上几乎没有级别，高级就是终点。</p>
+<p>随着职业生涯变长，有更多人有 20、30、40 年软件经验，级别被打开了；但很多级别最终更像「时间与角色」头衔，而不是能力上清晰可辨的跃迁。我尽量不那么纠结细节。</p>
+<p>如果你要管成本，设死 1:8 这类硬上限很有帮助——因为管成本时你必须诚实承认你在管成本。Carta 当时就是那种情况。现在在 Imprint，我们不是在管成本，而是在管速度与质量，所以完全没想过那个。</p>
+<p>领导力的一部分是：知道自己在做什么、讲清楚怎么做，然后让人们接受后果。在 Carta，固定比例意味着招聘必须更往初级倾斜，才能有管道填满各级。</p>
+<p>从那个硬约束长出很多东西，效果很好；但如果只改比例、不改漏斗前端的招聘，就不会管用。我比职业生涯早期更不相信「完美描述真实」——例外太多了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>量规和期望这事：咱俩在 Uber、你后来在 Stripe 时，角色期望其实挺清楚。一级二级高级可以模糊，但行业一度理解：高级通常能托付项目，有初级会带；Staff 能给一个单元或多个项目定方向；新毕业一二级能把代码执行好、接受反馈——几乎像学徒级，不是目的地，是在长。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>有些公司甚至期望你必须长到某级。他们几乎就是学徒，在长判断力。而现在我们都大量用 AI harness，包括做评审，代码评审也在慢慢变少。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>我们越来越少做过去那种写代码、彼此给可见反馈。你怎么定义软件工程师的角色？跟以前不同吗？更野心了吗？我感觉更野心了，但说不清确切怎么变，尤其从 CTO 视角。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>你说的是一般角色，还是三级之类？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>一般软件工程角色。我觉得每个级别都变了很多。也许中型以上公司的 Staff 本来就不怎么写代码，忙着确保做对的事。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>所以很难拆开——因为现在几乎没人写「太多」代码，连最小角色也要判断：我们是否在做对的事、我做得对不对。首先我们还在很早的阶段。肯定有人跟你说：未来任何规模公司软件团队就五个人——也许以后会到，但现在肯定还没到。</p>
+<p>我也不知道会不会很快到。</p>
+<p>但确实有公司工程师很少、却烧掉海量且高产的 token，看起来很酷。软件角色往哪走？我们会摸索出来。这也是现在身处这行最有趣的原因：职业变化之剧烈，是我入行以来从未见过的。对我这种一向结果导向的人——</p>
+<p>——这是我最开心的时期。但也有人从「心流/zone」里获得快乐，他们不再爱软件了，因为他们爱的是亲手做的那门艺术。最近有人跟我说他要退休：我不喜欢写软件了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>他失去了心流：更高效，但不享受。所以角色在变，而且变得很有意思。我有个想法：实现时间正趋近于零，但系统在别的维度仍很慢——就算瞬间能实现，你仍要做一堆决策；它仍会在各种方式上不行、扩展差、打破用户预期、单元经济不对、成不了赚钱生意。</p>
+<p>所以即便写软件字面免费，仍然极难。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>今天你会看到：软件「免费」了，工程师冲到产品 PRD 前面、冲到设计高保真稿前面，给设计团队制造大量问题——Imprint 也还在老实摸索。这也可能创造机会：如果工程师也戴上设计帽或业务域帽子，直接跑完整实验——但能跑的实验有限，否则会搞晕客户，于是又回到策略：得有人说不。你为谁而建？如果是给人用，他们的注意力有限。Netflix 新片再多——</p>
+<p>——我打开时他们也不会把八千部全砸给我，他们会想办法。所以软件变快时，工程师更需要发现业务其他部分的约束：领域、客户、现实——你说的单元经济、钱怎么赚。</p>
+<p>在 Carta 我常想这个。Carta 是低规模业务：不是每秒几十万请求，没有海量基础设施问题，但细节极多。期权表怎么运作非常非常具体。</p>
+<p>非常复杂，例外极多。而且很重要——小事，但必须做对。</p>
+<p>从可审计性看，准确性极重要。你还要跟律所合作，他们对每件事都有非常具体的强观点。也可能卡在两位创始人争股权到底归属多少的法律战里。Carta 进入的基金管理等业务同样极度细节导向。</p>
+<p>所以有很多业务，领域上下文一直才是难点。对我来说，并不清楚「领域上下文才是硬核」的那些业务，到底从 AI 工具里受益了多少。期权表管理仍然极难，因为细节、法律、跟律所培训律师助理的关系——</p>
+<p>——所有这些小碎片。复杂领域业务在今天仍有很多护城河。会不会变？我觉得会变。每隔两三年就有一波 meme：产品工程师是新国王、新超级英雄；现在轮到 AI 工程师。</p>
+<p>所谓 AI 工程师，其实多半是会用 AI 手法的产品工程师。问题是——现在几乎每个产品工程师都是这样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>百分之百。所以不清楚。我从没真正搞懂 AI 工程师是什么意思。我觉得意思是：会用 harness、还想拿很高薪酬——大概是这个；也许还有我错过的细微差别。但你真能让一个人把所有这些上下文装进脑子里吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>即便今天，人们以前说「其实设计很好的前端」或「能写生产前端的设计师」——那种人一直很稀缺。现在有一点品味的设计师能写生产代码，反过来，有设计品味的前端也能做设计。那为什么我们还没看到更多？我觉得这是社会约束。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>好问题，我也在问同样的事。</p>
+<p>我看过 Linear 的数据：设计师和产品经理的 PR 在涨。有个工程经理跟我说：等等，我问了大约十家公司，我又问了十家，包括 Linear、Ramp、OpenAI——除了极少数边缘案例，我几乎没听到设计师往生产推代码。</p>
+<p>他们会发现 bug、指出来，但仍会拉工程师确认这套做法在代码库里行不行。尤其是原型之外。他们确实更多做原型了，但我们还没到那一步。我怀疑是问责问题。</p>
+<p>就像我也会换灯泡，但家里电路的事我还是会叫电工——因为是电。我也能读书。不知道是问责还是专业分工。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>我最近常想：有一种世界观说，如果你有很强的设计系统并且真的在用，你就不需要产品设计师了。少数人这么看。但我没发现这是真的。</p>
+<p>即便有好设计系统，理解组件如何拼在一起、系统缺哪些组件、跨屏幕权衡时如何在统一体验下处理——这些仍然很难。「Attention is all you need」其实不是在说人类注意力——</p>
+<p>——但人确实受注意力约束。优秀设计师、产品设计师、设计系统设计师，都被细节绑住才能做好，没有太多时间再往外扩。这必须如此吗？我不觉得必须。</p>
+<p>理论上，如果设计系统很强、一致性很高、还有大量 lint 规定「必须这么用」，设计系统与产品设计就可以更狠地只盯例外。</p>
+<p>Imprint 正想走到这儿：默认由工程用标准设计系统完成，产品设计更多做真正复杂的版本，并和设计系统同学一起扩展系统。</p>
+<p>但现在还没完全那样，仍有点棘手。深 AI 的人会说这是 skill issue，我们会走过去——对我们来说目前仍是 skill issue，还在摸索。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>相关的是你写的《工程管理修订规则》，很好的文章，我们会链到简介。其中一条我想强调：你写「持久的高所有权团队」。我引用你：持久的高所有权团队，因此领域上下文更重要。</p>
+<p>你在 Uber 最大的教训之一是：持久团队靠积累领域上下文、建立情谊、对一块领域越来越强的主人翁感，能创造奇迹。那是 Uber 大概 2014、15 年的事，十多年前了——你仍觉得非常相关？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>我觉得这是建可扩展组织的唯一方式。有意思的是，它看起来显而易见，其实有点非共识。很多公司 50 个工程师时，有个重要的合作伙伴项目延期了，还会来那套人月神话：嘿，我们再挪 15 个人上去。</p>
+<p>《人月神话》大概 1975 年、第二版 1995——很久以前了。五十多年我们知道这不管用。所以人们这么干，很多是光学、制造「我们已经尽力」的观感。</p>
+<p>这样错过时就不是你的错。可它不但不管用，还会毁掉真正管用的东西：能拥有领域的小 pod。我加入 Stripe 时接过 Jorge 当时带的团队，他去带 Connect。我有 30 人，一个经理管四五人，</p>
+<p>其余大概 23、24 人直接向我汇报。</p>
+<p>我做的第一件事是：好，哪些 pod？找出能拥有领域的分组；一旦看到进展，我就完全不管他们，直到出大事，好把注意力放在我这边更大的优先级——那些他们解决不了的问题。这非常管用。Uber 我这么干，Imprint 也这么干；Calm、Carta 加入时组织已经比较成规模，不太需要从头做。</p>
+<p>我觉得这特别管用。做好了，人们的产出会好过自上而下指令，因为他们真懂；也让你能把注意力放在公司最高杠杆或最痛的部分。所以这是奇怪的非共识，但极管用——光学上却几乎总是看起来「不对」。</p>
+<p>这也是难做的原因：合作伙伴要上线，你说我不挪人，让他们继续干手头重要的事；关键路径上的团队我们一起死磕、拼命推过，但不把所有人拉过来——如果你不这么做——</p>
+<p>——或者像 ZIRP 时代常见的：会议、招聘宣传一大堆。你会说关键路径团队免掉所有废话：招聘、校园行、全员会都不用去，才能专注。而这其实比加人好用得多。</p>
+<p>有时也直接说：这是两周冲刺。</p>
+<p>能承诺的请自愿，包括加时，事后可以补假——把人当成年人，问你们能不能。很多人生活里也愿意为某一件事短期加码，尤其知道你会以某种方式回报。若不这样，真正快速增长的公司每天都有危机。</p>
+<p>如果你总把人轮换去救火，就等于每个人每天都在危机里，造成一种毁灭感。我记得在 Stripe 一两年时跟人聊这个，他说 Stripe 那时的运转像——</p>
+<p>——人们在城墙上守城堡，总是冲向即将被攻破的点，但不可能到处都在，因为跑得再快也顾不了所有地方。</p>
+<p>我们想切换到另一种隐喻：很多人在很多点上，每个点的人解决那个点，不必到处跑。这是两种权衡。但要成功快速规模化，必须进到不是同一批人到处救火的模式，否则那些人会燃尽。</p>
+<p>到某一点，再厉害也覆盖不过来。AI 会不会把那一点推得更远？我不确定。我仍觉得注意力先于写代码能力耗尽。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>最近我也拿持久高所有权团队想 Slack：Google Chat、Mattermost、Microsoft Teams、Slack——聊天市场四大竞争者。再加上 AI 创业公司，你甚至可以让 AI「复制 Slack」。有意思的是，若真复制，AI 会抄 UI 或开源背后的东西。</p>
+<p>首先，大量决策从未被文档化，活在 Slack 人脑子里，要花年头才会懂——并发、投递平台等等。抛开这些，Slack 推出了 Slack Agents，与编程 agent 的集成非常漂亮，显然是有领域上下文、并与伙伴团队合作打磨过的。我就想：为什么别的竞争者没推？为什么 Google Chat 也有很强的人，却没有？</p>
+<p>这些公司都有领域。这个例子让我开始意识到：Slack 养着这么多人——我们或许会对人数感到震惊——</p>
+<p>——我在 Uber 也知道「为什么要这么多人」——但他们既能运营现有系统，又能在世界变化时不断重新发明客户会要什么。别的公司似乎没反应，尽管 agent 已经出现一阵子；Slack 不但反应了，还做出客观优秀、现在可被抄的东西——但你怎么走到那儿的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>有篇文章讲大英帝国官僚规模：领土在缩，官僚人数却在涨。公司也常自我膨胀、制造官僚与开销。</p>
+<p>有时公司就是丢掉了真正行动的能力。但我的假设——我认为 Meta 上 Muse 之类工作也类似——</p>
+<p>——真正有意思的好产品出来时，往往有一两个高度被赋权、连到创始人/CEO/高管的人在推，能做不受欢迎的痛苦权衡：法务对业务、产品权衡、打破「神圣做法」。</p>
+<p>我猜 Slack 也有赞助者。人们讨厌过度强调高管，但我认为行政赞助对赋权做难事很关键。Imprint 三四个月前从 Jira 迁到 Linear，不到四周就完成；我决定做时几乎没人觉得是好主意。</p>
+<p>我们仍在不到四周做完，现在大家很高兴。它解决了集中工单管理的问题，好让 agent 知道任务在哪、拉取、处理、统一任务。没有它我们很难管任务负载。但在我做之前，大概 230 人里只有三个人觉得是好主意。</p>
+<p>那一次我硬推过去了。现在大家说那是好主意，只是当时想不到。有时必须有人愿意担风险。另一面是：你要用「他们逼我们冒的险好不好」来评判高管和其他资深领导者。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>Linear 迁移三个月，没人再提 Jira，也没人恨这个变化，大家很高兴。反过来如果大家恨死了，他们就该鼓噪把我炒掉。但很多时候人并不被这样追责。这就是高度赋权的高管赞助能做出好产品的另一面。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>有时我们让他们干出极其愚蠢的事，却不追责。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>正好接到高管话题。你当过 CTO，算前高管。你怎么定义「高管」？工程师今天通往那一级的职业路径是什么？旧路径与新路径有何不同？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>旧路径大概是：先当若干年软件工程师——可以很短——再进管理，爬过中层，再到 CTO：经理、高级经理、总监……</p>
+<p>对。问题很多。首先，最初被选进管理的人往往不是最聚焦技术的——他们在冲管理晋升；选择偏差偏向「会运作」的人，这跟技术侧不一定有很多共同点。</p>
+<p>他们常常技术也很好，但没有强烈的技术选择偏差。可你要当高管，确实得是个好官僚。这是有趣的挑战：我很多工作是激励管理——知道这种绩效评估会怎么失败，所以别那么干，换另一种。</p>
+<p>如果你没做过官僚的重复练习，你其实跑不动一个职能——因为跑职能很大程度上就是当官僚。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>那你怎么学会当好官僚的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>我就是官僚啊——出于必要。在 Uber 几乎没有量规、没有结构化面试，你得自己给职能编一套。我们面试量极大，每次没发 offer 我都心疼，因为面得太多，所以必须想清楚。</p>
+<p>到 Stripe，公司结构更黏合，有很多结构化流程，我参与其中学到很多。你被拉进去，跟上节奏。</p>
+<p>百分之百。很多我加入时觉得不好使的结构，我试着迭代改进小块，因为我们涨得很快。正是这些中层工作教会我如何当好官僚——这是有效高管的一部分：你能分配管用的流程、避开不管用的，</p>
+<p>想清楚哪些激励/结构管用或不管用。你读过《Seeing Like a State》吗——硅谷不读这本几乎不合格——讲国家如何「看见」公民与成就、如何塑造政策。同理：你从没当过官僚，就不知道如何以官僚方式看见；</p>
+<p>但如果你只能当官僚，你又不知道任何东西实际如何运作、软件如何真正被做出来——这对你也很有害。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>我理解对吗：要当好的工程高管（工程 VP 或 CTO），你既要精通技术、必要时能上手，又要是好官僚，两边都要。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>对。走中层路线时，常常要么你本来就不是好技术人，要么爬上去时已经不再是——你是伟大的官僚但不是技术人。可如果你从优秀工程师直接跳上来——创业公司明天恭喜你 de facto CTO——你又当不好官僚。</p>
+<p>完全正确。有意思的是，一线经理往往比中层更有「本能高管」感，因为他们习惯细节，能为团队或公司做更好的判断。</p>
+<p>在非官僚维度上判断更好，但在官僚维度上判断很差。</p>
+<p>所以当高管很难、路径很难：尤其在 2010 年代，你得爬这些中层去学官僚那一半，那也是获得规模感去理解它的唯一方式。</p>
+<p>现在那些层级淡了，但另一半工作被强调：更好决策、懂产品、懂业务、懂软件如何交付——我们曾弱化这些。所以是更容易还是更难？我不觉得更容易或更难。</p>
+<p>现在更难成为官僚——虽有负面含义，但学习如何真正运营一个职能是很难的活。作为 C-level，你常会同时跑三四个职能，其中有的你自己并不熟。比如在 Imprint，去年大半时间我还管着客户运营，那不是我极细节的领域。</p>
+<p>我有一些曝光、也有很强的负责人在位，但我必须学、而且学过好几次。在 Stripe 我管过支持工程——我自己没干过；管过数据工程——也没亲自干过。你不得不学会那样运营。</p>
+<p>很难找到「不熟细节却能运营职能」的岗位去练；但你可以更久地当更贴细节的领导者。我觉得未来最好的高管会是一线经理，因为中层历史上筛选的是完全另一套技能。两边怎么都拿到？</p>
+<p>现在极难，过去也以不同方式很难。你怎么看中层慢慢消亡？同意吗？</p>
+<p>现在当中层经理确实很难，尤其如果你是 2010 年代起来的：被筛选、训练成赋权模型、职能官僚模型。现在人们说我们不要、也不需要。</p>
+<p>你爬到这个顶点，却因细节执行那套被弱化的技能过不了下一步——量规被人改了，对被卡住的人超级挫败。这正是很多人现在的困境。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>我不知道这波高管会怎么长出来，但这角色一直很难拿到。我想问你——有两个人找我要建议，我把故事讲给你，你看像不像。一个是工程负责人，大概七人向他汇报，在想：中层这事，我的未来怎样？</p>
+<p>另一个也是工程负责人，三个 EM 向他汇报，还有三个 IC 向工程 VP 汇报；部门在做 AI 转型。VP 对他的工作满意，但他在 VP 下面，也在想：我是不是有点职业陷阱？两人都让我——</p>
+<p>——问问你：以你的经验，会建议什么策略，帮他们搞清可能的职业路径、想要什么、什么可行？两边棘手处都是：他们在中层待了很久。</p>
+<p>不是说他们不技术，而是路径本来很清楚——下一步都是工程 VP——但在当前公司不会发生，或很难。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>中层现在确实很难，竞争更激烈。我个人觉得很有收获的是重新回到写软件的细节。离开 Carta 时团队大概 250；加入 Imprint 时我带的大概 25。对我来说，这是一个难得的重新练技能的窗口。</p>
+<p>如果你在管理岗，现在要么回到细节，要么世界变得太剧烈，这份职业三年后可能不被看重。你得决定：我是现在退休，还是重新练技能？我也想过——在 Carta 我大可以就此打住，但这不是我想要的。</p>
+<p>我仍想参与。我真心相信过去一年我们的工作方式剧变了。不是到处都变，长尾要很久才追上，但我工作的地方变了很多。对我个人更有趣。首先得对「退一步或平移」开放。</p>
+<p>人们想要的东西很不一样，你得愿意换个角度看。比如回到一线经理，其实比中层更有教育意义。一线管理与写软件的工具好到爆炸；编制规划或绩效评估的工具基本很糟——这些场景的 LLM 应用也不行。</p>
+<p>所以我觉得中层现在错过很多，我会试着找路出去。想想我在 Imprint 招的一些人。比如 Jasmine，我在 Carta 共事过，过来时以 VP 招进来，但她是直接管团队的 VP——</p>
+<p>——其实是一线经理。</p>
+<p>非常资深的一线经理，以前在 Mux 管过工程。她进来做一线管理，同时写大量软件——在 Carta 她永远没时间这么干；在 Mux 她也忙到跑职能，进不了写代码细节。</p>
+<p>愿意把手重新放回去的人极有价值。如果你是这种人，得让别人知道，否则人家会以为你绝不会接这种机会。这种人我天天都想招。我们聊过 2010 年代工程师有点习惯：公司和管理是来成全我想做的事的——</p>
+<p>——我想做平台，不要产品，哪怕业务需要。哼，不适合我，宁可离职——有时也真离了。我怀疑管理也有一点：别过度影射这两位，但一般有人想着「我这条路很快会当工程 VP」，可行业现在要的是吗？</p>
+<p>别的公司要吗？不。现在他们要的是真正优秀的一线经理。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>对。就像最好的工程师会把自我放下：业务说我们需要产品，他们说我很强平台——那好，我尽力当最好的产品工程师。你也是：从 250 人、补偿股权地位，去到品牌还没那么响的创业公司、更小团队、更小责任——把门边的自我放下，然后学到更多。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>对。很多方面对我就是更好的局面。不是「这是降级」那种想法。对我是完美情境：我知道自己想重新回到细节、在当下重新学做软件——我认为这是职业长寿的解锁。</p>
+<p>而且就是更有趣、更有能量。我一直是被「骗进」管理的——回到 Digg 那会儿他们需要经理我就说了 yes。从那以后一直被骗。</p>
+<p>后来他们又给我挂上总监，好在收购对话里看起来有总监、更好看。我连一线管理都不会，更别说总监——纸面上需要一个。挺抬举我的。</p>
+<p>所以对我这是想要的、也是独特机会。但对很多人，感觉是行业背叛了他们，他们「应得」自己奋斗来的东西。他们说得对——他们确实极其努力——但规则变了。有些时刻世界、行业看起来很稳定。</p>
+<p>2010 年代我们忘了这行其实很波动。每隔十年都跟前十年天差地别。我们有点看不见这点。在稳定时代起来的人不一定记得。所以我们必须愿意平移。</p>
+<p>必须愿意谦逊一点。可如果「做对公司真正重要的实际工作」就算谦逊，那我们大概已经走偏了——因为公司雇我们就是付钱让我们做有价值的事，不是来娱乐我们的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>那 TLM（技术负责人兼经理）呢？咱俩都宣判过它是死胡同。那是零利率时代：tech lead 再带一个很小的团队，我们说清楚了那是职业坑。你还有文章。现在怎么看这角色？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>好笑——它仍是陷阱，但是高度被需要的陷阱。很多情况下没有替代，与其说陷阱，不如说「就是现有的东西」。很多公司管理在变平。</p>
+<p>我们开始看到总监下面挂一堆 tech lead，比如 30 人组里零星几个 tech lead。</p>
+<p>对。两种模型：一种是工程经理管的范围大得多，对人更不贴手——管 12、13、14 人而不是四到八；另一种是总监管 TLM，而不是管一线经理。</p>
+<p>不同公司在试不同东西。这是我看到行业在要的人。Imprint 招到的一些最好的人，曾是更纯管理角色，进来却真正想写软件，两边融合得极好。这种人很难找——几乎像——</p>
+<p>——既要面成优秀 EM，又要问：你是不是会因写不了更多软件而沮丧？要的就是这种人。但难，我们也不是一直按这套面。只是碰到几个极好的，而这正是我们真正想要的角色。</p>
+<p>又回到：你要有能力做官僚的部分，但不「想要」沉在那儿——有能力、没欲望。这些人现在超级有效：需要时能用官僚技能，默认却写软件——价值大多在那儿。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>收尾想问写作。你写得极多，我仍很爱你的博客，有新文就看；还可以订阅邮件，我订了会进收件箱。</p>
+<p>你怎么对待写作？怎么看 AI？也有很多 AI 写作——不止 LinkedIn——以前不用 AI 的作者现在也开始一点点用。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>我网上写作大概 20 年了。2007 年创办 Irrational Exuberance，可能五六月开写，快到 20 周年。刚开始写，其实是想摸索怎么靠网络找到工作。</p>
+<p>那时写大量教程：我怎么做的。那是另一个时代——现在你问 AI 怎么做 X，它就能给你很棒的教程，或许直接替你做。到 Uber 我开始多写超大规模里学到的东西；真正起飞是在 Stripe——</p>
+<p>——Stripe 既有很多可学，又真爱写作，这给了我能量。第一本书《An Elegant Puzzle》是那些文章的集大成，然后势头起来。一共大概四本书。</p>
+<p>至少十年内大概不会再写书，也许永远不写了。但这对我太有改造力。人们认识我——其实不常——几乎全是因为书或博客。我真心相信写作是个人改变行业形态的独特方式。</p>
+<p>一旦你做到，会冒出一些小东西。比如你的「三峰」薪酬（trimodal salary）——首先名字好记，也是很多人没理解的重要观察。你改变了很多人对待补偿的方式。</p>
+<p>还有 Patrick McKenzie 谈谈判的那些——影响巨大，大概给世界上很多人创造了财富。</p>
+<p>他可能试着追踪创造了多少，不确定还在不在追。对我的书，我真觉得改变了行业；尤其《Staff Engineer》，Staff+ 这个概念很大程度上是那本书塑造的。还有一些不那么好引用、但同样要紧的东西。</p>
+<p>我在任何公司的工作都不可能以这种方式、对这么多人、这么正面地影响行业。我记得读《Elegant Puzzle》和《Staff Engineer》时拿了很多指引——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>——那太有力量了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>再说用 AI 写作：我二十年花了上万小时写这些。我的写作不太「工艺导向」——更想把想法弄出来，而不是写「最好的博文」。我从没以写出精美博文为目标，只是把想法写在某个地方。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>我喜欢你的写作，是因为点子很冲。不是因为文笔本身——你写得体面、好读，但我不是因为好读才喜欢；想法一出来就在那儿，让我思考——不是因为呈现方式。呈现也行，但带我回家的是想法。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>对，挺极简。有些文章也很短。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>甚至不是长度问题。我比你啰嗦多了，你知道，那是我的自然风格。但你的几乎不浪费一口气，话不多却完整。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>再想到我拼起来的一切、试图改变别人想法的一切——对我来说，用 AI 写就像把那些扔掉。我从没做大订阅通讯去堆人数；更多是：你想读我写的，就是这样。它不像你那样是业务。</p>
+<p>但我确实聚起了一些读者，他们会读我写的，这很有力量。我知道自己写了什么时，常常下周就有几百家公司在讨论那个想法——站在那个位置很荣幸。如果我写一堆垃圾，等于扔掉，再也找不回来。</p>
+<p>我不会再花二十年做这件事。所以想到这二十年小心建立的优势，为什么要扔掉？没话想说就不说。我不制造内容。为了虚无扔掉这一切，对我会是毁灭性的一刻。</p>
+<p>如果是为了某个东西而扔，或许还能说服自己；但写 AI 烂文对我就是无补偿的损失——没人会读，还扔掉我花这么久攒起来的东西。我猜你也一样？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>对。</p>
+<p>对我来说，写作就是思考方式。写草稿时——以前没说过——有人问我社交媒体策略：粉丝多只是持续做事的副产品。我几乎全职或接近全职地想行业里发生的事、跟工程师聊。通常是：我开始写某个想法的草稿——</p>
+<p>——把它丢进旁边窗口的一条推里，继续写；回头看已经有传播，大概因为想法有意思。</p>
+<p>有时有争议；有时我其实在试一个还不确定的东西，先丢出去。我有点开玩笑叫它们「脑放气」——不完全准确，因为我在想，但没那么在意，更在意对话。有时回头会被分心，却也让想法成形。我很多想法是观察：这在发生吗？</p>
+<p>你看到了吗？就这样生成对话。</p>
+<p>那对我就是写作。AI 方面：有段时间流行把你全部写作喂给机器人对话，有人做了 Pragmatic Engineer bot——我不太喜欢用，但仍试了。好笑的是，我的观点一直在变，它会吐回我好几年前说的话。比如 TLM：Will Larson bot 会说 TLM 是陷阱，而我们现在谈的其实丰富得多。</p>
+<p>我跟别人说：别把思考外包。看到 LinkedIn 上同行用真声音评论时，我会说：你为什么不就把那不完美的写出来？那才是你。我喜欢你，不喜欢无菌腔调；也不喜欢 AI 让几百万人用同一种声音——而几百万人说话本该有几百万种声音。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>这连到一点：很多人相信要成功就得写内容，其实并不想写，于是说：我恨写内容，但为了升职/下一份工作必须写——怎么写？当然是 AI。</p>
+<p>我推了很久：写过一篇，名字大概像「如何成为科技意见领袖」之类。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>我们会链那篇。名字不抓耳，却有点标题党，却是我见过关于「如何在科技圈有影响力」最好的一篇。我转给很多人。谢谢你写了它。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>当然。我写它是因为有人说：我要写 200、300 篇，每周都要写。其实如果你的目标是可见度，你需要的是一篇能跑起来的东西：花时间、测试、搞清楚。你其实不需要写很多。</p>
+<p>写很多几乎没价值——除非你的业务靠订阅。如果你只是想把想法说出去、多一点可见度、证明自己能把事写清楚，你可以写两篇、三篇，或两年一篇。不必写很多。</p>
+<p>想想 Tanya Reilly：博客不多，但一写就很有意思。她不是产量型作者，却能有真正有冲击力的文章——《Being Glue》最明显，很有改造力。即便写很多的人，绝大多数也不会被记住，只有几篇立住。</p>
+<p>所以如果人们重新对准真正目标——或许是一点可见度——一两篇好东西远比产量重要。我希望不想写的人别硬造产量，那其实不服务他们的目标。过去一年我面试过一些候选人，堆着大量 AI 烂文。我很纠结——</p>
+<p>——没人读，你还在继续，为什么做一件没有任何目的的事？因为没人回应。像是照着菜谱却不尝成品，货船崇拜：不知道自己为什么做。</p>
+<p>对我来说这反而暗示判断力差，而不是「有野心、很努力」。对。那有没有你想推荐的书？当然我会推荐自己的书给愿意花钱的人。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>你的书都很好。真的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>谢谢。去年出的《Crafting Engineering Strategy》是最新的，里面有很多有意思的想法。另外唐娜·梅多斯（Donella Meadows）的《系统思考入门》（Thinking in Systems）我常想。我是按你推荐读的。</p>
+<p>那本书老实说塑造了我对管理、在公司里运作的看法。它其实不是讲运营公司的，但提供了一个可用的心智模型。</p>
+<p>那本极其有帮助。任何逼你换视角的书都好。我前几年花了不少时间想「typing」——不是键盘打字，而是更好的类型系统——跟日常工作不太相关。还有一本讲 TLA+ 的好书，名字我一时忘了——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>是 Hillel Wayne 吗？对，就是他。他上过这播客。他有那本著名的 TLA+。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="w"><div class="label"><span class="badge" title="威尔·拉森（Will Larson）">威尔</span></div><div class="content">
+<p>极好的书。我日常不怎么用 TLA+，但那里的想法极强：用语言提高软件的可验证性——这是我们时代最大挑战之一。如果软件越来越多由 agent 写，让验证变便宜就至关重要。</p>
+<p>即便很多场景 TLA+ 不是那把工具，想这个问题本身——也是 typing 有意思的原因——非常有价值。所以现在这些挺有用。谢谢你，Will。跟你聊太棒了，终于有这次超好的面对面谈话。</p>
+<p>彼此彼此，谢谢邀请。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>我认识 Will 这么多年<span class="tag">【音乐】</span>，能坐下来面对面真好。我们聊的这个时间点，工程管理与工程职业发展的传统最佳实践都在大变。<span class="tag">【音乐】</span>一个特别有意思的话题<span class="tag">【音乐】</span>是：经理过去会弯多深，去给工程师找「有趣项目」。</p>
+<p>Will 回忆在 Stripe，一些最优秀的工程师向他要更有意思的问题。那时他就反推：我只能给你「受苦」——不那么光鲜的问题——但这份受苦才能让业务成功。可在 2010 年代到 2020 年代初，很多工程师觉得这不像好的管理行为。</p>
+<p>而今天，这几乎成了职业稳定与晋升的默认。作为工程师，尤其 Senior+，你会想帮业务解决最紧迫的问题，并对那些问题有同理心。我也觉得 Will 对「怎样才算伟大 CTO」的看法很开眼界。</p>
+<p>他认为你需要两样<span class="tag">【音乐】</span>：一是出众的技术人，知道建什么、怎么建；二是能跑整个职能的官僚——包括你未必是专家的产品或设计。2010 年代很多经理主要学官僚那一半，等到当上 CTO，技术侧已经丢了。</p>
+<p>今天团队更小、中层更少，很多 CTO 会以技术人<span class="tag">【音乐】</span>为先——Will 觉得整体可能更好，我也同意。最后，我欣赏他对中层经理的建议。中层——手下还有经理向他们汇报的那些经理。Will 不绕弯子：对，今天当中层很难。</p>
+<p>往前看<span class="tag">【音乐】</span>两条路：要么重新靠近软件被建造的地方，去小团队或一线经理；要么接受你主要是官僚、不是技术人的专长，几年后可能不再被那么看重。</p>
+<p>Will 自己就「退了一步」：离开 Carta 约 250 人的工程团队<span class="tag">【音乐】</span>，去 Imprint 组建约 25 人的团队，刻意在 AI 改写工程职业时学习如何建造。我觉得这很鼓舞——他不只谈学习软件工程新规则的重要性，也<span class="tag">【音乐】</span>身体力行。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：订阅/评分提醒]</span></div>
+<div class="marker-line"><span class="tag">【音乐】</span></div>
+<div class="turn spk-0 host" data-spk="g"><div class="label"><span class="badge" title="格格利·奥罗斯（Gergely Orosz，主持人）">格格利</span></div><div class="content">
+<p>谢谢。我们下期见。</p>
+</div></div>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "The Pragmatic Engineer（务实工程师）", "title": "工程管理的新规则：与威尔·拉森（Will Larson）对谈", "url": "https://www.youtube.com/watch?v=Prl858_AovM", "videoId": "Prl858_AovM", "published_at": "2026-10-21", "duration": 6988, "caption_source": "YouTube 自动生成字幕（en-orig；普通 yt-dlp 成功拉取 en-orig；同次请求中 en 轨道遇 HTTP 429，未使用 cookies；无官方字幕）；caption_source=yt-dlp；中文为逐句全文翻译，已省略 TurboPuffer、Entire、Antithesis 赞助口播与片尾订阅/评分提醒", "guests": ["威尔·拉森（Will Larson）"], "speakers": [{"id": "g", "name": "格格利·奥罗斯（Gergely Orosz，主持人）", "role": "host", "short": "格格利"}, {"id": "w", "name": "威尔·拉森（Will Larson）", "role": "guest", "short": "威尔"}], "intro": {"summary": "《务实工程师》格格利·奥罗斯与威尔·拉森深聊：零利率时代留下的管理习惯为何失效、工程师与经理如何在 AI 时代回到细节、以及今天通往 CTO 的路径为何更偏向一线实战而非纯中层。", "points": ["2010 年代工程管理常被教导「别再做技术决策」；今天完全相反——经理需要重新回到写代码与细节，否则难以带队", "零利率（ZIRP）放大了编制与流程，许多习惯在资金变贵、AI 改变交付速度后不再适用", "Staff/资深工程师不应只挑「有趣题」；业务真正在乎的难题（哪怕痛苦）才决定影响力", "威尔的路径：小学校 → 日本教英语 → 雅虎（Yahoo）远程承包与服务器黑市教训 → Digg 大重写灾难 → 后至 Stripe/Carta 等", "通往 CTO：一线经理的实战判断往往优于长期悬空的中层；中层正面临职业陷阱焦虑", "威尔离开 Carta 约 250 人工程团队、去 Imprint 带约 25 人小团队，刻意在 AI 改写工程的时刻重新「下场」学习"], "verdict": "值得看：约 1 小时 56 分的高密度工程领导力对谈，适合正在犹豫是否回炉写代码、或规划 EM→CTO 路径的人；纯想听工具评测可跳过开场个人史，直接进管理规则段。TurboPuffer 赞助与片尾订阅提醒已标灰省略。", "audience": "工程经理/Staff+、向往 CTO 的技术领导者；关注 AI 如何改写工程组织的人；《务实工程师》与 Staff Engineer / An Elegant Puzzle 读者"}, "paragraphs": [{"start_sec": 0, "speaker_id": "w", "type": "text", "zh": "2010 年代当工程经理最糟的一点之一是：你一踏进工程管理行列，最早听到的教训往往是——嘿，你以后再也不能做任何技术决策了。"}, {"start_sec": 10, "speaker_id": "w", "type": "text", "zh": "我记得别人就是这么跟我说的。而今天绝对不是这套理念。当时我特别受不了的一个观念是：Staff 工程师主要是去做他们自己觉得有意思、好玩、有个人成就感的问题。我手下一些最优秀的工程师会说：我想做更有意思的问题。而我当时的处境像是——我只能给你「受苦」的活，但这份受苦才是能让业务成功的东西。"}, {"start_sec": 32, "speaker_id": "w", "type": "text", "zh": "人们在想：我是不是有点陷入职业陷阱了。"}, {"start_sec": 35, "speaker_id": "g", "type": "text", "zh": "中层管理现在确实很难。我个人觉得特别有收获的一点，是重新回到写软件的细节里——这像是一个难得的重新练技能的窗口。我觉得如果你在管理岗，现在要么就得重新回到细节里——或者说，工程管理这几年到底变了什么。威尔·拉森（Will Larson）是谈这个话题最合适的人之一。"}, {"start_sec": 35, "speaker_id": "g", "type": "text", "zh": "过去十年他在四家不同的公司做过工程高管。【音乐】写过几本在工程领导力与资深层级（Staff+）领域流传最广的书。我非常欣赏他思考的深度与细致。今天我们会聊到：零利率环境如何深刻塑造了 2010 年代一整十年的管理习惯，而其中很多习惯如今已经不再管用。"}, {"start_sec": 35, "speaker_id": "g", "type": "text", "zh": "【音乐】工程师的角色如何在变化，以及为什么「解决业务真正关心的问题」正变得越来越重要，才能在公司里站稳；今天通往 CTO 的路径是什么样的；为什么一线经理往往比中层经理更能成长为优秀的工程高管——还有更多。"}, {"start_sec": 35, "speaker_id": "g", "type": "text", "zh": "如果你是工程师或工程经理，正在想：在 AI 改写行业的当下，自己的职业路径会变成什么样、今天通往 CTO 的路又怎么走——这一集就是为你准备的。"}, {"start_sec": 35, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "TurboPuffer", "zh": ""}, {"start_sec": 35, "speaker_id": "g", "type": "text", "zh": "【旁白过渡】看他们怎么把它造出来，真的很过瘾。"}, {"start_sec": 35, "speaker_id": "g", "type": "text", "zh": "Will，欢迎来到播客。"}, {"start_sec": 35, "speaker_id": "w", "type": "text", "zh": "谢谢邀请。很高兴来到这里。终于能面对面聊了。"}, {"start_sec": 210, "speaker_id": "g", "type": "text", "zh": "终于见面了——我们认识这么久。两边都是从写作成名，写作我们后面也会聊；以前也一起闲逛过，但这样坐下来真好。我想直接从开头问起：你是怎么对电脑产生兴趣的？你从小就对电脑感兴趣吗？"}, {"start_sec": 227, "speaker_id": "w", "type": "text", "zh": "大概从五岁开始？家里有一台类似 Mac IIc 之类的机器。不是最早那种纯黑白的，但也相当简陋。四五岁的我大概只会用一个东西，就是 Kid Pix（儿童画图）。你用过 Kid Pix 吗？——我没用过，知道有这东西，但没玩过。"}, {"start_sec": 244, "speaker_id": "w", "type": "text", "zh": "它也不是什么很复杂的程序。我甚至不知道能不能存文件。基本上就是给小孩子用的图形程序，可以画方块、圆圈，做点小图画。"}, {"start_sec": 244, "speaker_id": "w", "type": "text", "zh": "那算是我的入门。我记得自己经常用那台电脑。那是一个几乎没有互联网、也没什么教程可查的年代——你只能自己敲、自己试。某种意义上，写软件的基本功就是这样：一直敲到你搞明白怎么让它跑起来。"}, {"start_sec": 244, "speaker_id": "w", "type": "text", "zh": "所以我觉得那是很好的启蒙。但说实话，除了玩 MUD（多人地下城）之类的，我当时并没有怎么正经写软件。你小时候玩过 MUD 吗？多人地下城。——啥？什么是 mod？"}, {"start_sec": 285, "speaker_id": "w", "type": "text", "zh": "它是一种纯文本游戏。基本上，《魔兽世界》其实是图形化的、从 MUD / 多人地下城那套理念演化出来的文本游戏。真正开始多碰软件，是我高中的时候。"}, {"start_sec": 285, "speaker_id": "w", "type": "text", "zh": "一点点开始：先是 IRC（互联网中继聊天），还有 mIRC 客户端——我坦白说 M 到底代表什么我都不确定——可以做一点正则脚本。然后很多 MUD 客户端能做大量触发器和正则，我在那儿把正则玩得更深一点。但真正开始写软件，还是到了大学以后。"}, {"start_sec": 324, "speaker_id": "w", "type": "text", "zh": "——那到了大学，你开始写什么？怎么进入更认真的阶段？我进大学时其实不知道想学什么，想过物理、英语，或者经济学。我父亲是经济学教授，家里多少有点「要接上」的压力。但最后我在学校里不知不觉进了计算机——那是肯塔基一所很小的私立学校。"}, {"start_sec": 324, "speaker_id": "w", "type": "text", "zh": "我毕业那年，整个计算机专业大概只有 13 个人，那就是整个项目的规模。我们那一届好像只有四个毕业生，再加上大三、大二，加起来大概 13 人，非常小。所以大概四个同学和我一起毕业——但真正入门，就是那时候。"}, {"start_sec": 324, "speaker_id": "w", "type": "text", "zh": "而且我就是觉得好玩。我们有一门必修的导论课。挺好笑的是，很多美国大学、尤其是小私立校，会有各种奇怪的必修：我必须上「基督教导论」那种基督教史，也必须上「计算机导论」或另一门我忘了的替代课。结果我特别喜欢计算机那门。"}, {"start_sec": 393, "speaker_id": "g", "type": "text", "zh": "那时候你有没有决定：自己大概会成为职业软件开发者、工程师、程序员——不管当时怎么叫？"}, {"start_sec": 399, "speaker_id": "w", "type": "text", "zh": "聊职业路径时有个有意思的点：很多人上的是顶尖名校。你问滑铁卢（Waterloo）的人怎么找到工作，他们会说——滑铁卢几乎人人都被训练成去写软件；他们甚至互相交换面试题答案，进去前就把面试刷透了。项目本身也很强。"}, {"start_sec": 399, "speaker_id": "w", "type": "text", "zh": "他们做 coop（带薪实习）很多年了。非常优秀的候选人，表现通常很好。但如果你去滑铁卢、MIT、斯坦福，那里真的有一条现成的轨道：你踩上去、表现好，它就会把你送过去。这些学生本身也很强。几乎——"}, {"start_sec": 439, "speaker_id": "w", "type": "text", "zh": "——但只要他们够好、能留在项目里，那就像一部自动扶梯，往往会把人送上去。而我去的小学校，计算机那一届大概就四个毕业生，根本没有这条路。我记得前一届有个同学进了软件行业。"}, {"start_sec": 439, "speaker_id": "w", "type": "text", "zh": "他去了肯塔基列克星敦一家做赛马博彩软件的公司，我估计那儿工程师不超过五个。他本人能力很强、很能干，但那就是他们能找到的机会。所以对我来说其实挺迷茫的，不太确定要干什么。后来我其实是去日本教英语——JET（日本交流教学）项目。"}, {"start_sec": 439, "speaker_id": "w", "type": "text", "zh": "我在日本岐阜县（Gifu）一个偏远地方待了一年。也是在那时候我开始大量写作。我心想：当英语老师绝不会超过一年，合同就是一年。我干满一年，完全没想续约，然后回国，开始琢磨怎么从那儿杀进硅谷。"}, {"start_sec": 499, "speaker_id": "g", "type": "text", "zh": "而且你当时的目标已经是要杀进硅谷了。为什么是硅谷？能不能把我们带回当时硅谷是什么样的？"}, {"start_sec": 507, "speaker_id": "w", "type": "text", "zh": "首先，那时候我其实还不知道硅谷是什么。我只是想要一份薪水不错的工作。我 2007 年毕业，接下来一年在教英语，大概 2009 年初左右开始为雅虎（Yahoo）工作。那是一段特别有意思的时期。一开始我是在东海岸给雅虎做远程承包。"}, {"start_sec": 507, "speaker_id": "w", "type": "text", "zh": "我能进雅虎，是因为我写了一系列关于 Yahoo BOSS（Build Your Own Search Service，自建搜索服务）的博文。那是他们某个团队刚推出的产品，业界反响好像一般。但上线时我正写得很多，就连着做了三四篇教程：用 Python 搭 BOSS、用 Django 搭 BOSS。好像还搞了个叫 Django Springsteen 之类的搜索库，方便在 Django 里接 Yahoo BOSS——名字我有点记不清了。"}, {"start_sec": 507, "speaker_id": "w", "type": "text", "zh": "他们大概是因为有人在写这个很兴奋，我也跟着兴奋，最后就变成了这份合同工。后来政策是：承包满一年必须搬过去转正。之所以先以承包招我，是因为那整整一年他们基本都在招聘冻结。"}, {"start_sec": 580, "speaker_id": "w", "type": "text", "zh": "因为那正好是金融危机之后。"}, {"start_sec": 582, "speaker_id": "w", "type": "text", "zh": "所以他们一轮又一轮裁员。能招几个承包，招不了全职；到 12 个月就说：你得转正，否则就不能再雇你——有合规上的限制。还说：转正就得搬家。于是基本上变成——搬去加州就有雅虎的工作，不搬就完全没工作。"}, {"start_sec": 582, "speaker_id": "w", "type": "text", "zh": "我就从东海岸搬到了加州。当时挺容易的，除了这份工作，也没什么别的牵绊。"}, {"start_sec": 612, "speaker_id": "g", "type": "text", "zh": "对。那时候雅虎在谷歌面前星光好像已经在淡，但仍然算不错的公司吧？工程挑战也在。比如 WhatsApp 的创始人就出名地来自雅虎。"}, {"start_sec": 621, "speaker_id": "w", "type": "text", "zh": "我觉得雅虎其实是家特别有意思的公司。如果你是 2007、2008 年进科技圈的，开源已经把很多事变容易了；但雅虎早于这些开源库。2007、2008 年在雅虎怎么跑服务器？跑 YApache——他们自己 fork 的 Apache，前面加个 Y。在 YApache 上跑什么语言？"}, {"start_sec": 621, "speaker_id": "w", "type": "text", "zh": "当然是 YPHP，他们 fork 的 PHP。UI 库呢？你可能知道：YUI。怎么装东西？如果在别处你会用 apt 之类，在雅虎你用 Yinst——一个 Perl 脚本，用来梳理安装依赖。"}, {"start_sec": 621, "speaker_id": "w", "type": "text", "zh": "所以那是个特别迷人的成长环境：几乎所有东西都是自己从零造的。他们甚至有 Kafka 的前身，好像叫 Yrepple，基本上是一种在数据库之外做复制的读日志，是管理状态的核心工具。特别迷人。我最爱讲的一个雅虎小故事：大卫·费罗（David Filo）出了名地要审批每一台分配出去的服务器——联合创始人亲自审。"}, {"start_sec": 621, "speaker_id": "w", "type": "text", "zh": "理论是这能推动问责：你得证明自己真的需要更多机器。实际效果却是催生了服务器黑市。我们组里有个工程师，之前取消的项目留下来 30 台机器他一直没还，实际上等于拿来「卖」给你。如果你批不下来——"}, {"start_sec": 728, "speaker_id": "w", "type": "text", "zh": "——就得靠人情、IOU 之类。结果公司里堆了大量过时、耗电效率极差的服务器，因为没人愿意交回去。你想上线项目，就得找到一个对你友好、手里有机器的人来「借」。激励机制能把事情扭曲成什么样，真是太精彩了。"}, {"start_sec": 749, "speaker_id": "g", "type": "text", "zh": "我猜这是你后来做工程领导者时会记住的一课。"}, {"start_sec": 749, "speaker_id": "w", "type": "text", "zh": "对，非常有教育意义。我也好奇：大卫·费罗知不知道大家真的在搞服务器黑市？我猜他大概知道，但并没有改那个自上而下的死命令。"}, {"start_sec": 767, "speaker_id": "g", "type": "text", "zh": "雅虎之后，是不是就去了 Digg？"}, {"start_sec": 767, "speaker_id": "w", "type": "text", "zh": "对。当时那家公司特别有名，故事也很有意思。"}, {"start_sec": 776, "speaker_id": "g", "type": "text", "zh": "能不能讲讲你为什么跳槽？那时候 Digg 还是创业公司吧？"}, {"start_sec": 776, "speaker_id": "w", "type": "text", "zh": "取决于你问谁，叙事会不一样。Digg 的叙事大概是：在 Reddit 之前，它就是那个大型社区站点，但是中心化策展的。"}, {"start_sec": 776, "speaker_id": "w", "type": "text", "zh": "Reddit 有子社区，社区用算法投票决定要什么；Digg 则是由中心决定什么上首页。体验很不一样，质量更稳定，少一点子版偏见问题，但变成了中心审核偏见问题。"}, {"start_sec": 776, "speaker_id": "w", "type": "text", "zh": "还有社区、IRC 频道里大家互相交换人情，想办法把东西弄上 Digg 首页。事实上，在我们改算法之前，有人说要来杀我、说我砸了他们的饭碗——因为他们整份营生就是卖首页曝光。新算法不支持那套，他们真的在威胁我们的性命。"}, {"start_sec": 776, "speaker_id": "w", "type": "text", "zh": "所以那地方特别奇妙，但 Digg 曾经是个非常重要的网站。我刚进雅虎时已经不是这样了，但再早一点，雅虎首页 literally 就是 NetScaler 上的一个静态文件，雅虎体育也就是一张静态页。所以早期的 Digg 像是一张非常重要的「静态页」。"}, {"start_sec": 776, "speaker_id": "w", "type": "text", "zh": "后来它变成动态的社区，对当时的人极其重要；再往后热度淡了，也重启过几次，但再也没回到当年的牵引力。我记得它一度是前十的网站。"}, {"start_sec": 888, "speaker_id": "g", "type": "text", "zh": "对，前十。我记得的故事是他们做了一次大重写，好像是 V4？从外面看：Digg 本来不错、很火，也有点像几年前的 Stack Overflow 那样有抱怨，然后 Digg 搞了一次大规模重写，灾难随之而来，特别八卦，人人都在谈。"}, {"start_sec": 888, "speaker_id": "g", "type": "text", "zh": "你能不能讲讲实际发生了什么、从内部看起来怎样？因为你当时是在造这个东西。"}, {"start_sec": 916, "speaker_id": "w", "type": "text", "zh": "对，上线那次我在，上线之后我也在。我大概在上线前三到六个月加入 Digg。非常奇妙的时期：我入职前那个周五，CEO 被撤了，凯文·罗斯（Kevin Rose）又回来了——他是创始人，也是创始 CEO。"}, {"start_sec": 937, "speaker_id": "w", "type": "text", "zh": "他在那儿待了一阵子，中间退开过，后来又回来了。但回来时我们有一个很硬的上线截止日期——要在那之前上线 Digg 的重写版。Digg v3.5 是 Digg 4 之前的版本，基本全是跑在分布式 MySQL 上的 PHP。那是另一个时代：Digg 跑在我们自己托管机房（colo）里的自有硬件上，不是想扩容就弹几台机器那么简单。"}, {"start_sec": 937, "speaker_id": "w", "type": "text", "zh": "但 Digg v4 想解决一堆问题。首当其冲是：当时的互联网在变。一度是前十的 Digg，开始输给 Facebook，搜索流量也在丢。谷歌有一系列大的算法调整。"}, {"start_sec": 937, "speaker_id": "w", "type": "text", "zh": "现在我们不太常听到谷歌搜索算法大改，但那时候有 Google Panda 之类好几波，开始重塑流量怎么流动。对 Digg 这种公司来说，相当大一块流量——我想说大概 60% 到 70%——其实是从搜索进来的。"}, {"start_sec": 1007, "speaker_id": "g", "type": "text", "zh": "哦。"}, {"start_sec": 1008, "speaker_id": "w", "type": "text", "zh": "进到一种叫 permalink（永久链接页）的东西。比如说你写了篇很棒的博文，被发到 Digg，我们会有指向 permalink 的引用，再加一个回你站点的小链接，以及评论。但海量流量是打在这些永久页上的，它们的页面权重甚至高于原始来源。"}, {"start_sec": 1008, "speaker_id": "w", "type": "text", "zh": "放到今天你大概会说我们不该这么干——大概是现在的视角。但在那个时刻，我们其实是在创造可发现性与围绕内容的讨论。那是 Twitter 之前，是 Facebook 还没拿到巨大分发之前，非常早。对我们来说，那就是用户进来的核心入口。"}, {"start_sec": 1008, "speaker_id": "w", "type": "text", "zh": "也是我们卖广告最多的地方。丢掉那块流量，基本上就是在砸公司的财务前景。从外面看 Digg 好像还行、或许还在涨，但我们知道 Digg 其实在缩。我们有过一个漂亮的盈利月，然后一次算法调整打过来，开始萎缩，我们知道这对我们是生死存亡。"}, {"start_sec": 1008, "speaker_id": "w", "type": "text", "zh": "再往前走不远我们就可能直接不存在了。我加入时大概 110、120 人。那是 2010 年，融资轮次可能是一百万美元或三百万这种量级，不像今天动辄五亿美元、团队想扩多大扩多大。完全是另一个时刻。"}, {"start_sec": 1008, "speaker_id": "w", "type": "text", "zh": "所以哪怕 110 人也已经很可观，而我们把剩下的现金烧得相当快。"}, {"start_sec": 1114, "speaker_id": "g", "type": "text", "zh": "上线在内部是惨还是还行？"}, {"start_sec": 1114, "speaker_id": "g", "type": "text", "zh": "因为从外面看，大家觉得糟透了，社区很生气；也有一点「活该」的幸灾乐祸——尤其是那些深度卷入的人，他们不喜欢改变。有人画了一套特别精彩的漫画，像 Digg 对 Reddit，蓝对红，四五集那种很细的连环画，大概就在那段时间，能看出大家投入了多少情绪。"}, {"start_sec": 1114, "speaker_id": "w", "type": "text", "zh": "对，热情很高。而热情社区的挑战就是：你一手培养了热情社区，再改你是谁——"}, {"start_sec": 1114, "speaker_id": "w", "type": "text", "zh": "社区就不买账。比如 Mr. Babyman 那种顶级 Digg「策展人」——非官方地把内容送上首页的人——他和很多人等于丢了生意。而上线确实很惨，原因很多。首先技术上其实没准备好，我们做了很多非常激进的技术决策。我大概上线前三个月才加入，所以这件事我个人不会揽太多责任。"}, {"start_sec": 1114, "speaker_id": "w", "type": "text", "zh": "也想想我当时的职业阶段：基本是第二份工作，在雅虎待了两年。这锅我不太认。后来的职业生涯里我会认发生在我手上的一切，但这次真不全是我的错。基本上，我们决定在 Cassandra 上线。"}, {"start_sec": 1114, "speaker_id": "w", "type": "text", "zh": "当时有个笑话：Cassandra 像特洛伊木马，就是来毁掉业界竞争对手的——谁用 Cassandra 上线谁就完蛋。对 Digg 来说确实如此。用 Cassandra 去换掉分片 MySQL：那套分片 MySQL 很复杂，但确实能跑；而 Cassandra，我会说基本上跑不起来。"}, {"start_sec": 1114, "speaker_id": "w", "type": "text", "zh": "我记得有个团队负责上线前给 Cassandra 做压测。上线前两天，另一个很厉害的同事 Rich 和我被拉到一边：「嘿，他们根本没做压测，你们俩要在接下来两天把压测补上。」Rich 当时也只是像我一样的软件工程师。"}, {"start_sec": 1114, "speaker_id": "w", "type": "text", "zh": "于是我们只好装 JMeter，试着搞明白怎么用它压测。我们跟负责 Cassandra 专项的 Chris 有过一段很精彩的对话。"}, {"start_sec": 1114, "speaker_id": "w", "type": "text", "zh": "我说：嘿，我没法在 Cassandra 上做读。他说：不可能。我说：那我没法写。他说：也不对。我说：好，Chris，如果我在写 Cassandra，我就没法读；如果我在读，我就没法写。他说：那倒是真的。我说：可我们两天后就要上线。然后我们就上线了——问题没修，直接上。"}, {"start_sec": 1114, "speaker_id": "w", "type": "text", "zh": "所以公司觉得我们简直在死——公司确实在死，钱快烧光了。但那是我职业生涯里最「有意思」的一天。不记得几点到办公室，大概早上八点。"}, {"start_sec": 1304, "speaker_id": "g", "type": "text", "zh": "你说有意思，是指压力巨大吧。"}, {"start_sec": 1321, "speaker_id": "w", "type": "text", "zh": "让我描绘一下现场。那是上线日，他们还决定办上线派对。一整天都有穿燕尾服的餐饮服务员端着寿司盘、香槟。哇。"}, {"start_sec": 1321, "speaker_id": "w", "type": "text", "zh": "整个办公室都在搞庆祝。房间中央拉出一张可能是会议室桌、大概有这张桌子三四倍大的长桌，工程师坐在那儿。我们没有足够硬件同时跑新系统和旧系统——再说一遍，是自有硬件。"}, {"start_sec": 1321, "speaker_id": "w", "type": "text", "zh": "所以他们是真的在擦掉旧服务器、装新软件。没法回滚。没钱——或者说因为钱快没了，派对预算倒够，服务器预算不够。于是一台一台擦、一台一台拉起来。"}, {"start_sec": 1359, "speaker_id": "w", "type": "text", "zh": "最后这破玩意根本起不来。功能上到底发生了什么？我们挂了大概整整 24 小时的维护页，然后才能勉强收拾残局——而香槟和燕尾服还在旁边转。超现实。"}, {"start_sec": 1377, "speaker_id": "w", "type": "text", "zh": "楼上还有人在做按摩。我记得某些不便具名的组在打乒乓球，我们却在拼命把站点拉起来。有点像魔幻现实主义。"}, {"start_sec": 1389, "speaker_id": "g", "type": "text", "zh": "我懂你说的「有意思」了。我想象中的上线绝不是这样。"}, {"start_sec": 1389, "speaker_id": "w", "type": "text", "zh": "你根本想象不出这样的上线。太超现实了，真的像魔幻现实主义：一边一切照常，一边站点在崩塌。我从没见过这种场面，但这也是我很自豪的一段。那时我才待了三个月。"}, {"start_sec": 1389, "speaker_id": "w", "type": "text", "zh": "有意思的是，我们后来确实把站勉强弄起来了，但问题一大堆，很多人就放弃了；一天天过去，人越来越少，最后大概只剩六个人左右还在撑。我们撑住了。头两天，还是那个 Rich 和我，从零在 Redis 上写了一套缓存，让站点能撑好几个小时。"}, {"start_sec": 1437, "speaker_id": "w", "type": "text", "zh": "但内存泄漏还是巨大，我们几乎每隔一两小时就要重启每个进程；唯一能撑住的办法就是对所有进程做滚动重启。"}, {"start_sec": 1438, "speaker_id": "w", "type": "text", "zh": "我们花了整整一个月才调试清楚。我很久以前写过一篇博文。核心 bug 是：我们做了一个给第三方用的 API 服务，用 Python 写的；写的人其实不太懂 Python。这条链路是 Python 再调另一个打 Cassandra 的 Python gRPC。而在 Python 里，如果你给默认参数——"}, {"start_sec": 1438, "speaker_id": "w", "type": "text", "zh": "——用了可变对象（不知道现在是否还这样，我希望已经不是了，但当时是）：你把 list 当默认参数，再 mutate、往里 append id，它会常驻内存。于是每次调用这个函数，都会带着同一个 list。用户每次调这个 API 查 user id、拿回 user 对象时——"}, {"start_sec": 1438, "speaker_id": "w", "type": "text", "zh": "——曾经传进去的所有用户都还在。于是一层层 cascade，直到我们重启。我们还在中间加了 memcache，memcache 一垮又会拖垮 Cassandra。"}, {"start_sec": 1438, "speaker_id": "w", "type": "text", "zh": "找到这个 bug 大概花了我四周；一旦找到，修起来很琐碎。修好大概同一天，新 CEO 入职；再往后一年左右，整家公司基本被裁光了。"}, {"start_sec": 1536, "speaker_id": "g", "type": "text", "zh": "嗯。"}, {"start_sec": 1536, "speaker_id": "w", "type": "text", "zh": "从「我们确实解决了、它能跑」的意义上是纯胜利。但核心站点难用或挂一个月，你没法真的算赢。反事实地想：如果他们一直撑着旧站，公司大概也会死。所以我不确定那是不是错误选择，但当时我确实很忿忿。"}, {"start_sec": 1559, "speaker_id": "g", "type": "text", "zh": "那你后来是怎么走进工程领导的？我知道咱俩在 Uber 有一点点时间重叠，都在那儿待过，但从没一起共事。"}, {"start_sec": 1567, "speaker_id": "w", "type": "text", "zh": "Digg 故事的尾声是我们被 acquihire 了。Digg 做了很多创新，专利被卖掉。比如信息流里的原生广告单元——你现在在 X 上看到的那种长得像用户帖子的广告——Digg 拥有那项专利，他们是第一家这么做的。还有一堆别的专利，专利组合被一家公司买走。"}, {"start_sec": 1567, "speaker_id": "w", "type": "text", "zh": "Dig.com 品牌和网站本身，好像被纽约的 Betaworks 收购收购了。"}, {"start_sec": 1567, "speaker_id": "w", "type": "text", "zh": "我记得几年前又转手了。团队则被 SocialCode 收走——当时华盛顿邮报公司旗下的子公司（那还是控股公司时代，旗下有邮报、Kaplan 和这家在 Facebook 上做广告的 SocialCode）。团队去了那儿，我待了几年。离开时我想：我想做工程领导，但招不进很大的角色，因为那时我大概只管十二个工程师左右。"}, {"start_sec": 1567, "speaker_id": "w", "type": "text", "zh": "招不进大角色，是因为我没干过大角色。那怎么进去？小创业公司没有规模：就算你去当十五人创业公司的工程负责人，底下也只有五个工程师，永远够不到大公司要的规模门槛。"}, {"start_sec": 1567, "speaker_id": "w", "type": "text", "zh": "所以我当时的想法——后来变了很多——老实说就是：想管大团队，就得加入一家涨得极快的公司。我四处看谁涨得最快，Uber 涨得简直飞起。"}, {"start_sec": 1663, "speaker_id": "w", "type": "text", "zh": "大概 2014、2015。增长刚开始爆发，非常早。那时候你得在旧金山才知道 Uber 有多猛；湾区之外大概 2015 才传开，到 2016 才成全球新闻。"}, {"start_sec": 1682, "speaker_id": "w", "type": "text", "zh": "听起来对。我之所以知道，是 Digg 基础设施的工程师 Jeremy Grosser 离职去了 Uber。"}, {"start_sec": 1682, "speaker_id": "w", "type": "text", "zh": "还有一条有意思的技术采用曲线：Digg 造过一堆技术，其中一个叫 clust——我记得大概只有 Digg、Uber，还有 Second Life 那家公司用过，全世界可能就这三家。它基本上是用键值存储管理集群基础设施，有点像后来 HashiCorp 的 Consul，非常像——"}, {"start_sec": 1717, "speaker_id": "w", "type": "text", "zh": "——只是比 Consul 早好几年。"}, {"start_sec": 1719, "speaker_id": "w", "type": "text", "zh": "大概 2008、2009 就做出来了。他把大量 Digg 技术栈带进 Uber，因为他是那儿最早的基础设施工程师之一。他的团队在招人。我其实是通才型工程师：在雅虎招我是做前端——我也不确定自己够不够格；在 Digg 则前端、Cassandra、后端什么都干。"}, {"start_sec": 1749, "speaker_id": "w", "type": "text", "zh": "然后他们招我去带一个叫 SRE 的团队，其实不太像真正的 SRE，就是个基础设施团队，挂了个 SRE 名字。入职前一周我才读了本「SR」相关的书，想搞清楚这工作到底是什么。你大概读的是当时已有的 Google SRE 书吧？"}, {"start_sec": 1765, "speaker_id": "w", "type": "text", "zh": "我觉得那本书当时可能还不存在。你手头是什么书？我好像在读一本 DevOps 书，也许是《凤凰项目》（The Phoenix Project）刚出来那阵——时间线我有点乱，但确实有类似《凤凰项目》的东西。"}, {"start_sec": 1769, "speaker_id": "w", "type": "text", "zh": "也许还有别的。总之我去了，面试当然很经典：我记得在白板上用 Python 做旅行商问题之类——其实不怎么能测出我的 DevOps 功力。但公司当时招人有点急，我还是拿到了 offer，开始干了。"}, {"start_sec": 1801, "speaker_id": "w", "type": "text", "zh": "你那时已经在带团队、扩团队了。我加入时大概管六个人，但职责面极宽。那时 Uber 全公司约 2000 人、工程师约 200；我们这六人左右的小团队管数据库、Kafka、以及服务器管理——不是机架安装，机架和装机是 tech ops 的活。"}, {"start_sec": 1801, "speaker_id": "w", "type": "text", "zh": "但机器上架之后就归我们。服务开通、几乎所有基础设施都是我们的，除了一个两人的开发者体验团队，以及真正负责上架装机的 tech ops。范围极大，体验也很猛。"}, {"start_sec": 1848, "speaker_id": "g", "type": "text", "zh": "聚焦你的领导/管理路径：在 Uber 从这个团队开始，后来走到哪？再到 Stripe、Carta，中间步骤是什么？"}, {"start_sec": 1860, "speaker_id": "w", "type": "text", "zh": "当然。加入时大概五六人；两年后离开时这个团队到了 70，而且全是外部招聘。Uber 那时候最惊人的一点是：工程编制每六个月翻倍。你没法从别的组「挖人」，因为那些组也在疯狂招、也严重人手不够。所以我是在 Uber 真正学会怎么招人的。"}, {"start_sec": 1860, "speaker_id": "w", "type": "text", "zh": "去之前我完全不会招。他们招得太多了。我最爱讲的一个故事：有个从 Eventbrite 来的人，我管了他一年半——周五下午 4:30 发 offer，他周一早上 8 点就入职。Uber 招聘故事太多了，有的更好笑。"}, {"start_sec": 1860, "speaker_id": "w", "type": "text", "zh": "我记得有人面试了 Uber 四次都被拒，第五次我又看见他在面。我说我们已经面过四次了，别再浪费人家时间。结果那个组还是给了 offer，他入职后六小时内就离职，因为隔壁一个街区的 Twitter 也给了 offer。"}, {"start_sec": 1930, "speaker_id": "w", "type": "text", "zh": "就隔一个街区。"}, {"start_sec": 1932, "speaker_id": "w", "type": "text", "zh": "他花在 Uber 面试上的时间，比实际干活还多——尽管他接了 offer。Uber 奇闻太多。那个团队两年从 6 到 70，范围也扩了很多，是一段非常疯狂的日子。今天有些公司让我想起那时的 Uber。我刚去时，基本上每个周五——"}, {"start_sec": 1932, "speaker_id": "w", "type": "text", "zh": "——我们都在手工把软件在服务器之间挪来挪去，好撑住高峰。通常周五下班高峰是一周峰值；周六总量或许更大，但摊在更多小时里，因为不是所有人同一时刻下班。"}, {"start_sec": 1932, "speaker_id": "w", "type": "text", "zh": "那种狂热的工作环境故事太多。我待了几年，然后去了 Stripe。Stripe 大概从 2016 待到 2020 年初，约四年。然后去了 Calm，当了三年半 CTO——那是我第一份 CTO。当时挺刻意的。我有点焦虑：在 Stripe 四年，公司表现很好。"}, {"start_sec": 1932, "speaker_id": "w", "type": "text", "zh": "我加入时估值大概 55 亿，四年后大概到了 960 亿。"}, {"start_sec": 2004, "speaker_id": "g", "type": "text", "zh": "公司估值。对。"}, {"start_sec": 2005, "speaker_id": "w", "type": "text", "zh": "确实起来了。工作质量也很好。我加入那天大概是员工 500 人左右那一批；离开时公司大概 1500 到 2000 人。"}, {"start_sec": 2005, "speaker_id": "w", "type": "text", "zh": "所以我在 Stripe 那段大约年增 70%，远小于 Uber 每半年翻倍。当然 Uber 后来收缩也猛得多——每半年翻倍的自然后果。"}, {"start_sec": 2039, "speaker_id": "w", "type": "text", "zh": "但那时我担心：几乎所有积蓄都押在一家大概永远不会上市的公司上——后来也确实没上。所以有一点分散风险，也想真正体验「完全主导」是什么感觉。在 Stripe 全程我基本上离 CEO 只差一步。"}, {"start_sec": 2039, "speaker_id": "w", "type": "text", "zh": "第一年汇报给 Jeff Winter，之后汇报给 David Singleton——他后来是 Stripe 的 CTO，或许当时已是。不对，他加入时是工程负责人（Head of Engineering）——"}, {"start_sec": 2074, "speaker_id": "w", "type": "text", "zh": "——大概一两年后才成 CTO。但从他加入到我 2020 年初离开，我一直向他汇报，始终差一步。我就想：如果我能坐到那个位子，能不能做得更好一点？看起来值得一试，也一直很有教育意义。"}, {"start_sec": 2092, "speaker_id": "w", "type": "text", "zh": "后来你又做了好几次 CTO。Calm 三年半，然后 Carta，再 Imprint。对，Calm 大概三年半，Carta 两年，大概一年半前加入 Imprint，就是我现在这儿。"}, {"start_sec": 2109, "speaker_id": "g", "type": "text", "zh": "那现在你是三任 CTO 了，我得问：站在工程师视角，CTO 到底干什么？很多工程师会憧憬有一天当 CTO，脑子里觉得既有管理，又贴近技术。你怎么看 CTO——你也写过工程高管职业的书——你的心智模型过去是什么、现在呢？尤其 AI 之下角色好像也在变。"}, {"start_sec": 2146, "speaker_id": "w", "type": "text", "zh": "2010 年代当工程经理最糟的一点之一，就是你一进管理行列，最早听到的教训往往是：嘿，你以后再也不能做技术决策了。那时候就是这样，对吧？我记得——"}, {"start_sec": 2160, "speaker_id": "w", "type": "text", "zh": "——别人就是这么跟我说的。大家觉得最重要的是放下技术决策。那是当时的理念，今天绝对不是。我一直很向往的是：CTO 好像是技术轨与管理轨唯一重新交汇的地方。"}, {"start_sec": 2160, "speaker_id": "w", "type": "text", "zh": "所以我一直坚信、今天也还在做的是：既有工程经理、也有 IC 工程师直接向我汇报。现在我有 14 个直属，大概四五人是 IC，其余是经理。这种平衡很关键——因为很多管理岗长期不允许你当技术领导者。"}, {"start_sec": 2160, "speaker_id": "w", "type": "text", "zh": "对我来说，真正到「技术与管理再次交汇、你被允许同时当技术领袖和管理领袖」的层级，是一大吸引力。外面也有太多糟糕的 CTO 决策——我不是在说前面提到的具体人，David 尤其非常优秀。"}, {"start_sec": 2160, "speaker_id": "w", "type": "text", "zh": "Stripe 的决策质量总体很高。有时你会不同意，但很少会觉得「这完全说不通」。可在 Stripe 之外，经常有些决策就是莫名其妙，我会想：也许我能做得更好。"}, {"start_sec": 2160, "speaker_id": "w", "type": "text", "zh": "而最近这个时代我最爱的是：你不只是被允许重新回到细节，简直是被要求回到细节。"}, {"start_sec": 2160, "speaker_id": "w", "type": "text", "zh": "这是我重回软件一线最爽的部分。在 Imprint 一年半里我已经合进生产环境超过 500 个 PR，比我之前整段职业生涯加起来还多。挺酷的。"}, {"start_sec": 2281, "speaker_id": "g", "type": "text", "zh": "你在 Imprint 当 CTO。你是否不止 CTO？"}, {"start_sec": 2281, "speaker_id": "w", "type": "text", "zh": "我加入时是 CTO，现在也带着产品和设计团队。产品、设计、工程都汇报给一个人，像统一的 EPD 结构。"}, {"start_sec": 2295, "speaker_id": "g", "type": "text", "zh": "这是新趋势吗？我两三年前开始听到 CTPO（首席技术与产品官），现在又开始听到设计也并进同一个人。"}, {"start_sec": 2308, "speaker_id": "w", "type": "text", "zh": "我不知道算不算趋势。但我看到的一个挑战是：随着 agent 更主流，你必须能快速做决策——做什么、不做什么；agent 采纳对产品怎么走、对设计怎么走。"}, {"start_sec": 2308, "speaker_id": "w", "type": "text", "zh": "嘿，如果设计不用新工具——比如 Claude Design 或 Figma MCP——他们就会成为瓶颈。那设计责任怎么切？Imprint 比如在试「开发者主导设计」做二线功能：解决了瓶颈，"}, {"start_sec": 2308, "speaker_id": "w", "type": "text", "zh": "也制造了大量摩擦——工程师主导设计时出现的设计缺口谁负责？有时他们没按设计系统来。所以有一个统一的拍板点来做这些权衡，在剧变时刻很有力量。"}, {"start_sec": 2308, "speaker_id": "w", "type": "text", "zh": "我打心底相信：就「我们如何创造软件」而言，行业变化之大是我职业生涯前所未见。我大概 2008 年底入行，从没见过这种程度的变化；以前更多是文化或社交层面的微妙变化。我现在写软件的方式跟一年前都大不一样。剧变时刻有一个集中机制，对我们很有帮助。但我个人不觉得这是长期趋势——我也说不准。"}, {"start_sec": 2308, "speaker_id": "w", "type": "text", "zh": "我尽量避免对太远的未来做预测。一切都变得太快了。"}, {"start_sec": 2401, "speaker_id": "g", "type": "text", "zh": "Will 刚说他这辈子从没见过构建软件的方式变化如此之大。正在变的还有我们用的 Git 托管栈——这就带到本季赞助商。"}, {"start_sec": 2401, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Entire", "zh": ""}, {"start_sec": 2401, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Antithesis", "zh": ""}, {"start_sec": 2401, "speaker_id": "g", "type": "text", "zh": "说回 Will，以及他观察到的行业变化。不如从你入行开始：软件工程发生了哪些变化？就聚焦你的亲身经历。硅谷公司我们知道是个泡沫，但泡沫也方便拿来讨论。从大概 2007 年到今天，构建软件、带团队，怎么变的？"}, {"start_sec": 2588, "speaker_id": "w", "type": "text", "zh": "我不知道你做工程师的第一段经历怎样。我第一次当工程师、给雅虎做远程承包时大概 22 岁，组里别人都不远程。转正后还是同一个经理——两年里我跟那位经理只开过两次 1:1。"}, {"start_sec": 2607, "speaker_id": "w", "type": "text", "zh": "没有常规 1:1，一年一次或者也不是绩效，甚至不是谈钱；然后他们会说「干得好，这是你的加薪」。晋升更像「恭喜你升了」，重点是「你多挣钱了，酷」。"}, {"start_sec": 2623, "speaker_id": "w", "type": "text", "zh": "我也没期望超过两次。第一次基本上是他想聊另一个员工的表现，想找信号看对方是不是不行——不是给我反馈。第二次是：哦你提离职了，怎么回事？那在当时挺正常。"}, {"start_sec": 2623, "speaker_id": "w", "type": "text", "zh": "他眼中的工作——我觉得他其实挺擅长——是在公司里帮团队找到能产生影响力的机会。"}, {"start_sec": 2623, "speaker_id": "w", "type": "text", "zh": "他四处找对我们真正有价值的事，带回来，我们的工作就是实现并跑通。没有「帮我规划有成就感的职业」这种概念，那对他来说大概无关。"}, {"start_sec": 2671, "speaker_id": "w", "type": "text", "zh": "我们说的基本是 2010 年以前。对。到了 Digg，我觉得经理们基本都被炒了。我在 Digg 当上经理，是因为问到我时我够蠢没说不——那时顶多两三年半经验。"}, {"start_sec": 2691, "speaker_id": "w", "type": "text", "zh": "我对管理一无所知。上一份工作我几乎不跟经理互动；跟 tech lead 定技术方向，搞砸了会被骂，那就是领导模型的全部。所以我成了经理，但 Digg 最后一年除了我几乎没什么管理，而我完全不知道自己在干什么。"}, {"start_sec": 2691, "speaker_id": "w", "type": "text", "zh": "真正学到很多是在 Uber，但 Uber 大家忙到也没什么管理：纯沉浮——你自己摸索，否则团队会被周围的增长规模压垮。同样几乎没有支持。"}, {"start_sec": 2691, "speaker_id": "w", "type": "text", "zh": "有意思的是到 2017 年我在 Uber 当经理时，公司搞了第一届学徒经理项目。我入职经理时有几天集训、导师之类。大多数工程经理从来没有过这些。Uber 当时刚开始把它做得更正式，内部 DIY 培训。在那之前，什么都没有。"}, {"start_sec": 2691, "speaker_id": "w", "type": "text", "zh": "他们做这个，是因为意识到糟糕的经理正在变成大问题。"}, {"start_sec": 2764, "speaker_id": "g", "type": "text", "zh": "说得通。大家当时都在摸索。我经历的 Uber 极度「短视」——有个价值大概是自己解决，不一定写进价值观，但大家卡住不会去堵别的组，自己干。也许「让建造者建造」是变体。"}, {"start_sec": 2788, "speaker_id": "w", "type": "text", "zh": "对，有「让建造者建造」「做主人不做租客」，再叠上原则性那条，基本上就是自己闯、别求原谅、把事办成。"}, {"start_sec": 2800, "speaker_id": "w", "type": "text", "zh": "对。还有一种「无依赖」文化，我觉得很赋能：你说我被堵住了——不，你没被堵住，你得自己想办法。"}, {"start_sec": 2808, "speaker_id": "w", "type": "text", "zh": "有时很痛，但意味着你总能担责、自己搞定。我记得签过 Uber 中国的采购单，没人肯签，最后我签了一张几千万级别的——我大概才 27 岁，没人能批，又必须办。"}, {"start_sec": 2808, "speaker_id": "w", "type": "text", "zh": "Tech ops 负责人 Amir 和我互相瞪着：那就签吧。我爱那个时代的 Uber 的一点是：之后从来没人找我谈这件事，从来没有 follow-up。大概也不算好事。"}, {"start_sec": 2808, "speaker_id": "w", "type": "text", "zh": "【笑声】从公司治理看有点临时，但我们互不挡路，能做成很了不起的事。同时也是极端难待的地方。"}, {"start_sec": 2857, "speaker_id": "w", "type": "text", "zh": "对，很多人离开、燃尽，是有原因的。"}, {"start_sec": 2860, "speaker_id": "w", "type": "text", "zh": "百分之百。然后一路走到大约 2016 年我去了 Stripe。Stripe 出了名地也没有管理文化。我加入时大概只有三个经理；其中一个我很喜欢共事的 Railene，直属大概 40 到 50 人——因为 Stripe 读过谷歌那篇「曾经基本没经理」的文章。"}, {"start_sec": 2885, "speaker_id": "w", "type": "text", "zh": "以及那套一开始怎么不行。他们一开始长期没有经理。"}, {"start_sec": 2892, "speaker_id": "w", "type": "text", "zh": "我大概是那波「经理化」浪潮里较早的经理之一。当时大概三四个经理：Railene、Jorge，或许还有一两个。Jorge 管大约 30 人，底下可能几乎没有经理；Railene 好像也没有下级经理。同样非常混乱。"}, {"start_sec": 2892, "speaker_id": "w", "type": "text", "zh": "但刚从 Uber 出来，我对混乱已经很熟了。业务也涨得极快。"}, {"start_sec": 2892, "speaker_id": "w", "type": "text", "zh": "我觉得真正是在 Uber 那段，关于「经理角色是什么」的文化开始稍微凝固：经理不再是核心做事者或决策者，而更像协调者——看着挺迷人。"}, {"start_sec": 2892, "speaker_id": "w", "type": "text", "zh": "也是我写《Staff Engineer》（大约 2021 年出版）的原因之一：收集我共事过的一些 Staff 工程师的反馈。"}, {"start_sec": 2956, "speaker_id": "w", "type": "text", "zh": "因为当时让我很受挫的一个观念是：Staff 工程师主要是去做自己觉得有趣、好玩、有个人成就感的问题——而这完全不是我需要他们做的。我需要他们去做业务问题、可扩展性问题；离开 Stripe 时我的团队大概 250、260 人——"}, {"start_sec": 2956, "speaker_id": "w", "type": "text", "zh": "——我有一堆这种问题。一些最优秀的工程师会说我想要更有意思的问题；而我像是：我只能给你受苦，但这份受苦才能让业务成功。我怎么把他们拉回来？当时很多人觉得这违反了「管理契约」——我的义务是给他们想要的有趣工作。"}, {"start_sec": 3006, "speaker_id": "g", "type": "text", "zh": "有意思，回头看跟十年前比变化多大。"}, {"start_sec": 3006, "speaker_id": "w", "type": "text", "zh": "完全对。那是一段迷人的时期，但我不觉得那个视角从来真正正确过。"}, {"start_sec": 3011, "speaker_id": "w", "type": "text", "zh": "你看 Stripe 真正资深的人，以及我待过的每家公司，那些人做的都是公司真正需要的高价值工作。你在高管层几乎看不到「只做有趣题」那种视角站稳；但很多新进来的人真信这个。不点名地说，某些他们来自的公司把这套推得很极端——经理的义务——"}, {"start_sec": 3011, "speaker_id": "w", "type": "text", "zh": "——对资深招聘者来说，是给他们有趣的活。我觉得行业在这点上已经明显回摆了。这跟零利率有关吗？我们经常回到这个话题，很有意思。我也写过：一个听起来很抽象、偶尔才会听到的利率，如何长期影响科技融资、招聘、那些未必有商业模式却仍能融到钱的创业公司，以及最终影响软件工程原型、经理类型与管理决策。然后大概 2022 年左右音乐停了，效率重新变重要。现在我们都在问——我也在问自己：那段时间我们做的一切，在当时到底对不对？"}, {"start_sec": 3091, "speaker_id": "g", "type": "text", "zh": "你读过吗——名字我可能说错——好像是 Ronjon Angroy 在 The Margins 上那篇《ZIRP explains everything》？对，The Margins。我们也会放链接。我很喜欢他的写作。"}, {"start_sec": 3102, "speaker_id": "w", "type": "text", "zh": "对，我在 Digg 的同事、后来我招进 Uber 的 John Durk，就是 The Margins 的另一位作者，和 Ronjon Angroy 一起。我读了那篇，真的很有共鸣。"}, {"start_sec": 3102, "speaker_id": "w", "type": "text", "zh": "我觉得 ZIRP（零利率政策）解释了整个 2010 年代：管理风格怎么变、薪水怎么涨，然后招聘竞争变成「能不能招到、关单、留住」成了成功公司与否的分野——因为你根本留不住优秀的人。杠杆回到工程师手里，环境完全不同。"}, {"start_sec": 3102, "speaker_id": "w", "type": "text", "zh": "公司自我推销的方式变成：更轻松、更围绕你、更多职业发展——很多时候其实有点自我拆台。大家常批判谷歌那种福利文化；除了谷歌和 Meta，我不太觉得真正极成功的公司有那种福利取向。"}, {"start_sec": 3102, "speaker_id": "w", "type": "text", "zh": "但抛开福利，公司还有很多方式强调「有回报的工作」「有趣的工作」。比如：工程师也许不该 on-call，那是「二等」SRE 的事。有意思的是，我共事过的每个人都知道：工程师为自己写的东西 on-call，软件会更好。"}, {"start_sec": 3186, "speaker_id": "w", "type": "text", "zh": "可公司仍会说：为了享受感，让他们别为自己的工作 on-call，去叫那些没参与创造软件的人。这种取向其实暴露了那些公司优先级的转移。"}, {"start_sec": 3203, "speaker_id": "g", "type": "text", "zh": "我也在想，那是不是一个经理因「低流失」（很少人走）、以及能把编制招满而受奖赏的时代——听起来疯狂，但当时填满 headcount 很难。"}, {"start_sec": 3203, "speaker_id": "g", "type": "text", "zh": "假设你是总监或高级工程经理，团队 30 人，今年给 10 个编制；如果你招不满——尤其是高级及以上，不能随便招新毕业来凑——就会有点扣分。"}, {"start_sec": 3238, "speaker_id": "g", "type": "text", "zh": "或者编制会落到别人手里，帮别人升职——因为到 40 人你可能就是高级经理/总监头衔。于是在这环境里干得好的经理变得有点讨好型，也开始把工程师与业务隔开。我怀疑这种「隔开业务」后来反噬很多人——"}, {"start_sec": 3238, "speaker_id": "g", "type": "text", "zh": "——因为现在工程师越来越被要求懂业务；懂业务才吃香，去创业公司才能落地就干。我仍听到从大公司（比如某家大型可观测性公司）去到七人创业公司的人说：太糟了，他们不让我做事。"}, {"start_sec": 3238, "speaker_id": "g", "type": "text", "zh": "我就说：等等，七人公司，你又是有经验的人，怎么会不问业务需要什么、直接干？Boom。他们被前一个环境社会化太久了。"}, {"start_sec": 3296, "speaker_id": "w", "type": "text", "zh": "对，激励是很大一块。编制、填坑、团队管理、员工调研这些工具很有价值，我也用很多；但我记得在增长很快的公司花大量时间用调研结果分析经理好坏。"}, {"start_sec": 3296, "speaker_id": "w", "type": "text", "zh": "但调研结果必须解读：高分低分不等于好经理坏经理。要追问上下文：为什么团队都对这件事不满？那并不直接等于你是不是好经理。"}, {"start_sec": 3296, "speaker_id": "w", "type": "text", "zh": "这些东西有点变成目标本身，而不是解读机制——很多时候就是懒惰的中层部署方式。"}, {"start_sec": 3296, "speaker_id": "w", "type": "text", "zh": "我肯定见过这些。总体我讨厌编制对话——几乎从来不是最有意思的对话。但在一个经理不被允许做技术决策的世界里，他们能加速执行的杠杆只剩编制或优先级。"}, {"start_sec": 3296, "speaker_id": "g", "type": "text", "zh": "所以你是说：在 ZIRP 时代，常规智慧是经理别做技术决策，这逼着聪明的经理把精力压到非技术侧，可能欠投资技术、该拍板的不拍、过度押在软性面、把团队与业务隔开——因为能量都花那儿了？"}, {"start_sec": 3296, "speaker_id": "w", "type": "text", "zh": "百分之百。非常对。我现在跟团队说：招人几乎是解决任何问题最无趣的方式，我们几乎永远不该先聊招人。推论是：如果你有空编制还去要更多编制——也不该聊编制，因为真正重要的是招聘吞吐，多要了也用不上。"}, {"start_sec": 3296, "speaker_id": "w", "type": "text", "zh": "我们基本上告诉经理别想技术方案，那他们手里还剩什么？"}, {"start_sec": 3296, "speaker_id": "w", "type": "text", "zh": "流程方案、排期、或者人。这是两条轨道分叉的自然后果——不是说完全不该分，但有效领导需要两边都有；否则就会过度押在招聘上，驱动我们过去看到的臃肿组织。来聊职业发展吧，先从个人贡献者开始。"}, {"start_sec": 3296, "speaker_id": "g", "type": "text", "zh": "你觉得在创业公司或中型公司，软件工程师的职业机会怎么变了？以前职业阶梯挺清楚：一级、二级、高级、Staff，晋升路径明确。现在 AI 工具在写代码——那曾经是新毕业一二级干的活——架构也越来越行。我们还要职业阶梯吗？"}, {"start_sec": 3296, "speaker_id": "g", "type": "text", "zh": "如果你是公司里的经理，现在该不该担心去搭职业阶梯？"}, {"start_sec": 3475, "speaker_id": "w", "type": "text", "zh": "好问题。团队确实期望有职业阶梯。研究也支持：有量规比没量规决策更公平。所以锚定职业阶梯大概会留下来。没有的话，某些事会被低估。"}, {"start_sec": 3475, "speaker_id": "w", "type": "text", "zh": "维护工作、胶水工作、凝胶工作——怎么叫都行——会被弱化，花哨且「看起来有效」的事会被高估。我仍相信职业阶梯有价值，但「里面该有什么」现在复杂得多、也更不清楚。"}, {"start_sec": 3475, "speaker_id": "w", "type": "text", "zh": "不知道哪家咨询在卖这些阶梯——一家小公司一家小公司，你看到完全一样的阶梯，像买来的礼包。那些都过时了，但我们还没有下一版。"}, {"start_sec": 3475, "speaker_id": "w", "type": "text", "zh": "不过想到今天走到 Staff 或 Principal，我真正在乎的是——我一直想给《Staff Engineer》写个增补，大概下一个十年某时会写——核心是复杂情境下的决策。首先是驾驭模糊。在 Stripe 我记得一个要做多区域的项目。"}, {"start_sec": 3475, "speaker_id": "w", "type": "text", "zh": "带项目的工程师一直说：需要产品来决定跨区域复制怎么工作、分区时产品行为是什么——只要一致性与可用性、不要分区容忍之类。他们想让产品团队做 CAP 定理权衡，而产品团队根本不可能做 CAP 权衡。"}, {"start_sec": 3475, "speaker_id": "w", "type": "text", "zh": "他们其实是在找卡住的办法；而 Staff/Principal 该做的是：通过做权衡驾驭模糊、建立确信、做出原型去验证假设是否有价值、是否可行。"}, {"start_sec": 3475, "speaker_id": "w", "type": "text", "zh": "这些模糊问题仍然很难，对我来说至今仍是强信号。即便有 agent，你仍要做复杂权衡。而如你前面说的懂业务——权衡不只来自技术如何工作，也来自产品含义。"}, {"start_sec": 3475, "speaker_id": "w", "type": "text", "zh": "要懂产品含义，就得懂用户到底想干什么，懂单元经济：你提供什么、服务成本、实际收费。越来越需要足够宽才能啃这些模糊问题。但我认为决策一直是 Staff/Principal 产生影响力的地方。"}, {"start_sec": 3475, "speaker_id": "w", "type": "text", "zh": "这点完全没变。我不觉得 agent 特别擅长做这些权衡；它们常常连权衡都认不出来，因为不在上下文窗口里——那些微妙、隐含、活在软件之外的东西。那新毕业一二级的职业呢？"}, {"start_sec": 3475, "speaker_id": "g", "type": "text", "zh": "刚有个高级工程师跟我说：AI 写代码已经明显达到我们对「天使级/初级」工程师的期望了；有一天会到高级，但现在还没到。你怎么看新毕业一二级——还没有战场伤疤、专长与判断力，让你在招聘和培养上都能完全信任他们？"}, {"start_sec": 3694, "speaker_id": "w", "type": "text", "zh": "我尽量远离一种「人造的精确」。一级和二级到底差在哪？其实很难非常具体。"}, {"start_sec": 3694, "speaker_id": "w", "type": "text", "zh": "很多公司成功地说差在三年工作经验——这公平吗？我不知道有没有超级公平的办法评一级对二级。很差的一级能看出来；但很好的一级和二级，往往是时间和角色带来的上下文积累，不是「能做这个/不能做那个」那么干脆。"}, {"start_sec": 3694, "speaker_id": "w", "type": "text", "zh": "尤其有了编码 harness，他们什么都能「做」，但该不该做越来越难判断；方向给错时，你甚至感知不到他们的判断。所以我越来越不在乎某些细节，时间和级别这类粗粒度对很多情况够用了。"}, {"start_sec": 3694, "speaker_id": "w", "type": "text", "zh": "我担心把标准写得极细是一种假胜利：看起来很精确，但校准会上总有人会「演」量规。"}, {"start_sec": 3694, "speaker_id": "w", "type": "text", "zh": "我记得某家公司升到 Staff 有辅导要求，于是有人专门去找人聊一次，就把对方报成 mentee，像收集 mentee；你去问那个人：我不知道为什么跟他聊，他就找我聊过一次。你量什么就得到什么。"}, {"start_sec": 3694, "speaker_id": "w", "type": "text", "zh": "所以晋升一直有大量判断。你想去掉判断，其实也不会有好结果。量规用来引导有用，但最终相当主观。对很多事，有约束比有一套用来裁判的全面量规更有意思。"}, {"start_sec": 3694, "speaker_id": "w", "type": "text", "zh": "举个例子。我在 Carta 做过：当时成本压力很大——要降本或管住成本。"}, {"start_sec": 3835, "speaker_id": "w", "type": "text", "zh": "我设了比例：Staff 工程师相对总数不能超过某个数，不可能突破。很多人很烦，但我觉得这比行业 15 年前更诚实。15 年前多数公司高级之上几乎没有级别，高级就是终点。"}, {"start_sec": 3835, "speaker_id": "w", "type": "text", "zh": "随着职业生涯变长，有更多人有 20、30、40 年软件经验，级别被打开了；但很多级别最终更像「时间与角色」头衔，而不是能力上清晰可辨的跃迁。我尽量不那么纠结细节。"}, {"start_sec": 3835, "speaker_id": "w", "type": "text", "zh": "如果你要管成本，设死 1:8 这类硬上限很有帮助——因为管成本时你必须诚实承认你在管成本。Carta 当时就是那种情况。现在在 Imprint，我们不是在管成本，而是在管速度与质量，所以完全没想过那个。"}, {"start_sec": 3835, "speaker_id": "w", "type": "text", "zh": "领导力的一部分是：知道自己在做什么、讲清楚怎么做，然后让人们接受后果。在 Carta，固定比例意味着招聘必须更往初级倾斜，才能有管道填满各级。"}, {"start_sec": 3835, "speaker_id": "w", "type": "text", "zh": "从那个硬约束长出很多东西，效果很好；但如果只改比例、不改漏斗前端的招聘，就不会管用。我比职业生涯早期更不相信「完美描述真实」——例外太多了。"}, {"start_sec": 3835, "speaker_id": "g", "type": "text", "zh": "量规和期望这事：咱俩在 Uber、你后来在 Stripe 时，角色期望其实挺清楚。一级二级高级可以模糊，但行业一度理解：高级通常能托付项目，有初级会带；Staff 能给一个单元或多个项目定方向；新毕业一二级能把代码执行好、接受反馈——几乎像学徒级，不是目的地，是在长。"}, {"start_sec": 3835, "speaker_id": "w", "type": "text", "zh": "有些公司甚至期望你必须长到某级。他们几乎就是学徒，在长判断力。而现在我们都大量用 AI harness，包括做评审，代码评审也在慢慢变少。"}, {"start_sec": 3835, "speaker_id": "g", "type": "text", "zh": "我们越来越少做过去那种写代码、彼此给可见反馈。你怎么定义软件工程师的角色？跟以前不同吗？更野心了吗？我感觉更野心了，但说不清确切怎么变，尤其从 CTO 视角。"}, {"start_sec": 4046, "speaker_id": "w", "type": "text", "zh": "你说的是一般角色，还是三级之类？"}, {"start_sec": 4049, "speaker_id": "g", "type": "text", "zh": "一般软件工程角色。我觉得每个级别都变了很多。也许中型以上公司的 Staff 本来就不怎么写代码，忙着确保做对的事。"}, {"start_sec": 4049, "speaker_id": "w", "type": "text", "zh": "所以很难拆开——因为现在几乎没人写「太多」代码，连最小角色也要判断：我们是否在做对的事、我做得对不对。首先我们还在很早的阶段。肯定有人跟你说：未来任何规模公司软件团队就五个人——也许以后会到，但现在肯定还没到。"}, {"start_sec": 4089, "speaker_id": "w", "type": "text", "zh": "我也不知道会不会很快到。"}, {"start_sec": 4091, "speaker_id": "w", "type": "text", "zh": "但确实有公司工程师很少、却烧掉海量且高产的 token，看起来很酷。软件角色往哪走？我们会摸索出来。这也是现在身处这行最有趣的原因：职业变化之剧烈，是我入行以来从未见过的。对我这种一向结果导向的人——"}, {"start_sec": 4091, "speaker_id": "w", "type": "text", "zh": "——这是我最开心的时期。但也有人从「心流/zone」里获得快乐，他们不再爱软件了，因为他们爱的是亲手做的那门艺术。最近有人跟我说他要退休：我不喜欢写软件了。"}, {"start_sec": 4148, "speaker_id": "g", "type": "text", "zh": "他失去了心流：更高效，但不享受。所以角色在变，而且变得很有意思。我有个想法：实现时间正趋近于零，但系统在别的维度仍很慢——就算瞬间能实现，你仍要做一堆决策；它仍会在各种方式上不行、扩展差、打破用户预期、单元经济不对、成不了赚钱生意。"}, {"start_sec": 4148, "speaker_id": "g", "type": "text", "zh": "所以即便写软件字面免费，仍然极难。"}, {"start_sec": 4148, "speaker_id": "w", "type": "text", "zh": "今天你会看到：软件「免费」了，工程师冲到产品 PRD 前面、冲到设计高保真稿前面，给设计团队制造大量问题——Imprint 也还在老实摸索。这也可能创造机会：如果工程师也戴上设计帽或业务域帽子，直接跑完整实验——但能跑的实验有限，否则会搞晕客户，于是又回到策略：得有人说不。你为谁而建？如果是给人用，他们的注意力有限。Netflix 新片再多——"}, {"start_sec": 4148, "speaker_id": "w", "type": "text", "zh": "——我打开时他们也不会把八千部全砸给我，他们会想办法。所以软件变快时，工程师更需要发现业务其他部分的约束：领域、客户、现实——你说的单元经济、钱怎么赚。"}, {"start_sec": 4264, "speaker_id": "w", "type": "text", "zh": "在 Carta 我常想这个。Carta 是低规模业务：不是每秒几十万请求，没有海量基础设施问题，但细节极多。期权表怎么运作非常非常具体。"}, {"start_sec": 4284, "speaker_id": "w", "type": "text", "zh": "非常复杂，例外极多。而且很重要——小事，但必须做对。"}, {"start_sec": 4291, "speaker_id": "w", "type": "text", "zh": "从可审计性看，准确性极重要。你还要跟律所合作，他们对每件事都有非常具体的强观点。也可能卡在两位创始人争股权到底归属多少的法律战里。Carta 进入的基金管理等业务同样极度细节导向。"}, {"start_sec": 4291, "speaker_id": "w", "type": "text", "zh": "所以有很多业务，领域上下文一直才是难点。对我来说，并不清楚「领域上下文才是硬核」的那些业务，到底从 AI 工具里受益了多少。期权表管理仍然极难，因为细节、法律、跟律所培训律师助理的关系——"}, {"start_sec": 4291, "speaker_id": "w", "type": "text", "zh": "——所有这些小碎片。复杂领域业务在今天仍有很多护城河。会不会变？我觉得会变。每隔两三年就有一波 meme：产品工程师是新国王、新超级英雄；现在轮到 AI 工程师。"}, {"start_sec": 4360, "speaker_id": "w", "type": "text", "zh": "所谓 AI 工程师，其实多半是会用 AI 手法的产品工程师。问题是——现在几乎每个产品工程师都是这样。"}, {"start_sec": 4367, "speaker_id": "g", "type": "text", "zh": "百分之百。所以不清楚。我从没真正搞懂 AI 工程师是什么意思。我觉得意思是：会用 harness、还想拿很高薪酬——大概是这个；也许还有我错过的细微差别。但你真能让一个人把所有这些上下文装进脑子里吗？"}, {"start_sec": 4367, "speaker_id": "w", "type": "text", "zh": "即便今天，人们以前说「其实设计很好的前端」或「能写生产前端的设计师」——那种人一直很稀缺。现在有一点品味的设计师能写生产代码，反过来，有设计品味的前端也能做设计。那为什么我们还没看到更多？我觉得这是社会约束。"}, {"start_sec": 4410, "speaker_id": "g", "type": "text", "zh": "好问题，我也在问同样的事。"}, {"start_sec": 4410, "speaker_id": "g", "type": "text", "zh": "我看过 Linear 的数据：设计师和产品经理的 PR 在涨。有个工程经理跟我说：等等，我问了大约十家公司，我又问了十家，包括 Linear、Ramp、OpenAI——除了极少数边缘案例，我几乎没听到设计师往生产推代码。"}, {"start_sec": 4410, "speaker_id": "g", "type": "text", "zh": "他们会发现 bug、指出来，但仍会拉工程师确认这套做法在代码库里行不行。尤其是原型之外。他们确实更多做原型了，但我们还没到那一步。我怀疑是问责问题。"}, {"start_sec": 4410, "speaker_id": "g", "type": "text", "zh": "就像我也会换灯泡，但家里电路的事我还是会叫电工——因为是电。我也能读书。不知道是问责还是专业分工。"}, {"start_sec": 4478, "speaker_id": "w", "type": "text", "zh": "我最近常想：有一种世界观说，如果你有很强的设计系统并且真的在用，你就不需要产品设计师了。少数人这么看。但我没发现这是真的。"}, {"start_sec": 4478, "speaker_id": "w", "type": "text", "zh": "即便有好设计系统，理解组件如何拼在一起、系统缺哪些组件、跨屏幕权衡时如何在统一体验下处理——这些仍然很难。「Attention is all you need」其实不是在说人类注意力——"}, {"start_sec": 4478, "speaker_id": "w", "type": "text", "zh": "——但人确实受注意力约束。优秀设计师、产品设计师、设计系统设计师，都被细节绑住才能做好，没有太多时间再往外扩。这必须如此吗？我不觉得必须。"}, {"start_sec": 4478, "speaker_id": "w", "type": "text", "zh": "理论上，如果设计系统很强、一致性很高、还有大量 lint 规定「必须这么用」，设计系统与产品设计就可以更狠地只盯例外。"}, {"start_sec": 4478, "speaker_id": "w", "type": "text", "zh": "Imprint 正想走到这儿：默认由工程用标准设计系统完成，产品设计更多做真正复杂的版本，并和设计系统同学一起扩展系统。"}, {"start_sec": 4478, "speaker_id": "w", "type": "text", "zh": "但现在还没完全那样，仍有点棘手。深 AI 的人会说这是 skill issue，我们会走过去——对我们来说目前仍是 skill issue，还在摸索。"}, {"start_sec": 4583, "speaker_id": "g", "type": "text", "zh": "相关的是你写的《工程管理修订规则》，很好的文章，我们会链到简介。其中一条我想强调：你写「持久的高所有权团队」。我引用你：持久的高所有权团队，因此领域上下文更重要。"}, {"start_sec": 4583, "speaker_id": "g", "type": "text", "zh": "你在 Uber 最大的教训之一是：持久团队靠积累领域上下文、建立情谊、对一块领域越来越强的主人翁感，能创造奇迹。那是 Uber 大概 2014、15 年的事，十多年前了——你仍觉得非常相关？"}, {"start_sec": 4619, "speaker_id": "w", "type": "text", "zh": "我觉得这是建可扩展组织的唯一方式。有意思的是，它看起来显而易见，其实有点非共识。很多公司 50 个工程师时，有个重要的合作伙伴项目延期了，还会来那套人月神话：嘿，我们再挪 15 个人上去。"}, {"start_sec": 4619, "speaker_id": "w", "type": "text", "zh": "《人月神话》大概 1975 年、第二版 1995——很久以前了。五十多年我们知道这不管用。所以人们这么干，很多是光学、制造「我们已经尽力」的观感。"}, {"start_sec": 4662, "speaker_id": "w", "type": "text", "zh": "这样错过时就不是你的错。可它不但不管用，还会毁掉真正管用的东西：能拥有领域的小 pod。我加入 Stripe 时接过 Jorge 当时带的团队，他去带 Connect。我有 30 人，一个经理管四五人，"}, {"start_sec": 4662, "speaker_id": "w", "type": "text", "zh": "其余大概 23、24 人直接向我汇报。"}, {"start_sec": 4662, "speaker_id": "w", "type": "text", "zh": "我做的第一件事是：好，哪些 pod？找出能拥有领域的分组；一旦看到进展，我就完全不管他们，直到出大事，好把注意力放在我这边更大的优先级——那些他们解决不了的问题。这非常管用。Uber 我这么干，Imprint 也这么干；Calm、Carta 加入时组织已经比较成规模，不太需要从头做。"}, {"start_sec": 4662, "speaker_id": "w", "type": "text", "zh": "我觉得这特别管用。做好了，人们的产出会好过自上而下指令，因为他们真懂；也让你能把注意力放在公司最高杠杆或最痛的部分。所以这是奇怪的非共识，但极管用——光学上却几乎总是看起来「不对」。"}, {"start_sec": 4662, "speaker_id": "w", "type": "text", "zh": "这也是难做的原因：合作伙伴要上线，你说我不挪人，让他们继续干手头重要的事；关键路径上的团队我们一起死磕、拼命推过，但不把所有人拉过来——如果你不这么做——"}, {"start_sec": 4771, "speaker_id": "w", "type": "text", "zh": "——或者像 ZIRP 时代常见的：会议、招聘宣传一大堆。你会说关键路径团队免掉所有废话：招聘、校园行、全员会都不用去，才能专注。而这其实比加人好用得多。"}, {"start_sec": 4792, "speaker_id": "w", "type": "text", "zh": "有时也直接说：这是两周冲刺。"}, {"start_sec": 4792, "speaker_id": "w", "type": "text", "zh": "能承诺的请自愿，包括加时，事后可以补假——把人当成年人，问你们能不能。很多人生活里也愿意为某一件事短期加码，尤其知道你会以某种方式回报。若不这样，真正快速增长的公司每天都有危机。"}, {"start_sec": 4827, "speaker_id": "w", "type": "text", "zh": "如果你总把人轮换去救火，就等于每个人每天都在危机里，造成一种毁灭感。我记得在 Stripe 一两年时跟人聊这个，他说 Stripe 那时的运转像——"}, {"start_sec": 4827, "speaker_id": "w", "type": "text", "zh": "——人们在城墙上守城堡，总是冲向即将被攻破的点，但不可能到处都在，因为跑得再快也顾不了所有地方。"}, {"start_sec": 4827, "speaker_id": "w", "type": "text", "zh": "我们想切换到另一种隐喻：很多人在很多点上，每个点的人解决那个点，不必到处跑。这是两种权衡。但要成功快速规模化，必须进到不是同一批人到处救火的模式，否则那些人会燃尽。"}, {"start_sec": 4827, "speaker_id": "w", "type": "text", "zh": "到某一点，再厉害也覆盖不过来。AI 会不会把那一点推得更远？我不确定。我仍觉得注意力先于写代码能力耗尽。"}, {"start_sec": 4827, "speaker_id": "g", "type": "text", "zh": "最近我也拿持久高所有权团队想 Slack：Google Chat、Mattermost、Microsoft Teams、Slack——聊天市场四大竞争者。再加上 AI 创业公司，你甚至可以让 AI「复制 Slack」。有意思的是，若真复制，AI 会抄 UI 或开源背后的东西。"}, {"start_sec": 4827, "speaker_id": "g", "type": "text", "zh": "首先，大量决策从未被文档化，活在 Slack 人脑子里，要花年头才会懂——并发、投递平台等等。抛开这些，Slack 推出了 Slack Agents，与编程 agent 的集成非常漂亮，显然是有领域上下文、并与伙伴团队合作打磨过的。我就想：为什么别的竞争者没推？为什么 Google Chat 也有很强的人，却没有？"}, {"start_sec": 4827, "speaker_id": "g", "type": "text", "zh": "这些公司都有领域。这个例子让我开始意识到：Slack 养着这么多人——我们或许会对人数感到震惊——"}, {"start_sec": 4827, "speaker_id": "g", "type": "text", "zh": "——我在 Uber 也知道「为什么要这么多人」——但他们既能运营现有系统，又能在世界变化时不断重新发明客户会要什么。别的公司似乎没反应，尽管 agent 已经出现一阵子；Slack 不但反应了，还做出客观优秀、现在可被抄的东西——但你怎么走到那儿的？"}, {"start_sec": 5001, "speaker_id": "w", "type": "text", "zh": "有篇文章讲大英帝国官僚规模：领土在缩，官僚人数却在涨。公司也常自我膨胀、制造官僚与开销。"}, {"start_sec": 5001, "speaker_id": "w", "type": "text", "zh": "有时公司就是丢掉了真正行动的能力。但我的假设——我认为 Meta 上 Muse 之类工作也类似——"}, {"start_sec": 5001, "speaker_id": "w", "type": "text", "zh": "——真正有意思的好产品出来时，往往有一两个高度被赋权、连到创始人/CEO/高管的人在推，能做不受欢迎的痛苦权衡：法务对业务、产品权衡、打破「神圣做法」。"}, {"start_sec": 5001, "speaker_id": "w", "type": "text", "zh": "我猜 Slack 也有赞助者。人们讨厌过度强调高管，但我认为行政赞助对赋权做难事很关键。Imprint 三四个月前从 Jira 迁到 Linear，不到四周就完成；我决定做时几乎没人觉得是好主意。"}, {"start_sec": 5001, "speaker_id": "w", "type": "text", "zh": "我们仍在不到四周做完，现在大家很高兴。它解决了集中工单管理的问题，好让 agent 知道任务在哪、拉取、处理、统一任务。没有它我们很难管任务负载。但在我做之前，大概 230 人里只有三个人觉得是好主意。"}, {"start_sec": 5001, "speaker_id": "w", "type": "text", "zh": "那一次我硬推过去了。现在大家说那是好主意，只是当时想不到。有时必须有人愿意担风险。另一面是：你要用「他们逼我们冒的险好不好」来评判高管和其他资深领导者。"}, {"start_sec": 5126, "speaker_id": "g", "type": "text", "zh": "Linear 迁移三个月，没人再提 Jira，也没人恨这个变化，大家很高兴。反过来如果大家恨死了，他们就该鼓噪把我炒掉。但很多时候人并不被这样追责。这就是高度赋权的高管赞助能做出好产品的另一面。"}, {"start_sec": 5126, "speaker_id": "w", "type": "text", "zh": "有时我们让他们干出极其愚蠢的事，却不追责。"}, {"start_sec": 5153, "speaker_id": "g", "type": "text", "zh": "正好接到高管话题。你当过 CTO，算前高管。你怎么定义「高管」？工程师今天通往那一级的职业路径是什么？旧路径与新路径有何不同？"}, {"start_sec": 5181, "speaker_id": "w", "type": "text", "zh": "旧路径大概是：先当若干年软件工程师——可以很短——再进管理，爬过中层，再到 CTO：经理、高级经理、总监……"}, {"start_sec": 5194, "speaker_id": "w", "type": "text", "zh": "对。问题很多。首先，最初被选进管理的人往往不是最聚焦技术的——他们在冲管理晋升；选择偏差偏向「会运作」的人，这跟技术侧不一定有很多共同点。"}, {"start_sec": 5194, "speaker_id": "w", "type": "text", "zh": "他们常常技术也很好，但没有强烈的技术选择偏差。可你要当高管，确实得是个好官僚。这是有趣的挑战：我很多工作是激励管理——知道这种绩效评估会怎么失败，所以别那么干，换另一种。"}, {"start_sec": 5194, "speaker_id": "w", "type": "text", "zh": "如果你没做过官僚的重复练习，你其实跑不动一个职能——因为跑职能很大程度上就是当官僚。"}, {"start_sec": 5240, "speaker_id": "g", "type": "text", "zh": "那你怎么学会当好官僚的？"}, {"start_sec": 5243, "speaker_id": "w", "type": "text", "zh": "我就是官僚啊——出于必要。在 Uber 几乎没有量规、没有结构化面试，你得自己给职能编一套。我们面试量极大，每次没发 offer 我都心疼，因为面得太多，所以必须想清楚。"}, {"start_sec": 5243, "speaker_id": "w", "type": "text", "zh": "到 Stripe，公司结构更黏合，有很多结构化流程，我参与其中学到很多。你被拉进去，跟上节奏。"}, {"start_sec": 5277, "speaker_id": "w", "type": "text", "zh": "百分之百。很多我加入时觉得不好使的结构，我试着迭代改进小块，因为我们涨得很快。正是这些中层工作教会我如何当好官僚——这是有效高管的一部分：你能分配管用的流程、避开不管用的，"}, {"start_sec": 5277, "speaker_id": "w", "type": "text", "zh": "想清楚哪些激励/结构管用或不管用。你读过《Seeing Like a State》吗——硅谷不读这本几乎不合格——讲国家如何「看见」公民与成就、如何塑造政策。同理：你从没当过官僚，就不知道如何以官僚方式看见；"}, {"start_sec": 5277, "speaker_id": "w", "type": "text", "zh": "但如果你只能当官僚，你又不知道任何东西实际如何运作、软件如何真正被做出来——这对你也很有害。"}, {"start_sec": 5330, "speaker_id": "g", "type": "text", "zh": "我理解对吗：要当好的工程高管（工程 VP 或 CTO），你既要精通技术、必要时能上手，又要是好官僚，两边都要。"}, {"start_sec": 5330, "speaker_id": "w", "type": "text", "zh": "对。走中层路线时，常常要么你本来就不是好技术人，要么爬上去时已经不再是——你是伟大的官僚但不是技术人。可如果你从优秀工程师直接跳上来——创业公司明天恭喜你 de facto CTO——你又当不好官僚。"}, {"start_sec": 5366, "speaker_id": "w", "type": "text", "zh": "完全正确。有意思的是，一线经理往往比中层更有「本能高管」感，因为他们习惯细节，能为团队或公司做更好的判断。"}, {"start_sec": 5380, "speaker_id": "w", "type": "text", "zh": "在非官僚维度上判断更好，但在官僚维度上判断很差。"}, {"start_sec": 5380, "speaker_id": "w", "type": "text", "zh": "所以当高管很难、路径很难：尤其在 2010 年代，你得爬这些中层去学官僚那一半，那也是获得规模感去理解它的唯一方式。"}, {"start_sec": 5380, "speaker_id": "w", "type": "text", "zh": "现在那些层级淡了，但另一半工作被强调：更好决策、懂产品、懂业务、懂软件如何交付——我们曾弱化这些。所以是更容易还是更难？我不觉得更容易或更难。"}, {"start_sec": 5380, "speaker_id": "w", "type": "text", "zh": "现在更难成为官僚——虽有负面含义，但学习如何真正运营一个职能是很难的活。作为 C-level，你常会同时跑三四个职能，其中有的你自己并不熟。比如在 Imprint，去年大半时间我还管着客户运营，那不是我极细节的领域。"}, {"start_sec": 5380, "speaker_id": "w", "type": "text", "zh": "我有一些曝光、也有很强的负责人在位，但我必须学、而且学过好几次。在 Stripe 我管过支持工程——我自己没干过；管过数据工程——也没亲自干过。你不得不学会那样运营。"}, {"start_sec": 5380, "speaker_id": "w", "type": "text", "zh": "很难找到「不熟细节却能运营职能」的岗位去练；但你可以更久地当更贴细节的领导者。我觉得未来最好的高管会是一线经理，因为中层历史上筛选的是完全另一套技能。两边怎么都拿到？"}, {"start_sec": 5380, "speaker_id": "w", "type": "text", "zh": "现在极难，过去也以不同方式很难。你怎么看中层慢慢消亡？同意吗？"}, {"start_sec": 5496, "speaker_id": "w", "type": "text", "zh": "现在当中层经理确实很难，尤其如果你是 2010 年代起来的：被筛选、训练成赋权模型、职能官僚模型。现在人们说我们不要、也不需要。"}, {"start_sec": 5496, "speaker_id": "w", "type": "text", "zh": "你爬到这个顶点，却因细节执行那套被弱化的技能过不了下一步——量规被人改了，对被卡住的人超级挫败。这正是很多人现在的困境。"}, {"start_sec": 5496, "speaker_id": "g", "type": "text", "zh": "我不知道这波高管会怎么长出来，但这角色一直很难拿到。我想问你——有两个人找我要建议，我把故事讲给你，你看像不像。一个是工程负责人，大概七人向他汇报，在想：中层这事，我的未来怎样？"}, {"start_sec": 5496, "speaker_id": "g", "type": "text", "zh": "另一个也是工程负责人，三个 EM 向他汇报，还有三个 IC 向工程 VP 汇报；部门在做 AI 转型。VP 对他的工作满意，但他在 VP 下面，也在想：我是不是有点职业陷阱？两人都让我——"}, {"start_sec": 5496, "speaker_id": "g", "type": "text", "zh": "——问问你：以你的经验，会建议什么策略，帮他们搞清可能的职业路径、想要什么、什么可行？两边棘手处都是：他们在中层待了很久。"}, {"start_sec": 5496, "speaker_id": "g", "type": "text", "zh": "不是说他们不技术，而是路径本来很清楚——下一步都是工程 VP——但在当前公司不会发生，或很难。"}, {"start_sec": 5612, "speaker_id": "w", "type": "text", "zh": "中层现在确实很难，竞争更激烈。我个人觉得很有收获的是重新回到写软件的细节。离开 Carta 时团队大概 250；加入 Imprint 时我带的大概 25。对我来说，这是一个难得的重新练技能的窗口。"}, {"start_sec": 5612, "speaker_id": "w", "type": "text", "zh": "如果你在管理岗，现在要么回到细节，要么世界变得太剧烈，这份职业三年后可能不被看重。你得决定：我是现在退休，还是重新练技能？我也想过——在 Carta 我大可以就此打住，但这不是我想要的。"}, {"start_sec": 5612, "speaker_id": "w", "type": "text", "zh": "我仍想参与。我真心相信过去一年我们的工作方式剧变了。不是到处都变，长尾要很久才追上，但我工作的地方变了很多。对我个人更有趣。首先得对「退一步或平移」开放。"}, {"start_sec": 5612, "speaker_id": "w", "type": "text", "zh": "人们想要的东西很不一样，你得愿意换个角度看。比如回到一线经理，其实比中层更有教育意义。一线管理与写软件的工具好到爆炸；编制规划或绩效评估的工具基本很糟——这些场景的 LLM 应用也不行。"}, {"start_sec": 5612, "speaker_id": "w", "type": "text", "zh": "所以我觉得中层现在错过很多，我会试着找路出去。想想我在 Imprint 招的一些人。比如 Jasmine，我在 Carta 共事过，过来时以 VP 招进来，但她是直接管团队的 VP——"}, {"start_sec": 5732, "speaker_id": "w", "type": "text", "zh": "——其实是一线经理。"}, {"start_sec": 5733, "speaker_id": "w", "type": "text", "zh": "非常资深的一线经理，以前在 Mux 管过工程。她进来做一线管理，同时写大量软件——在 Carta 她永远没时间这么干；在 Mux 她也忙到跑职能，进不了写代码细节。"}, {"start_sec": 5733, "speaker_id": "w", "type": "text", "zh": "愿意把手重新放回去的人极有价值。如果你是这种人，得让别人知道，否则人家会以为你绝不会接这种机会。这种人我天天都想招。我们聊过 2010 年代工程师有点习惯：公司和管理是来成全我想做的事的——"}, {"start_sec": 5733, "speaker_id": "w", "type": "text", "zh": "——我想做平台，不要产品，哪怕业务需要。哼，不适合我，宁可离职——有时也真离了。我怀疑管理也有一点：别过度影射这两位，但一般有人想着「我这条路很快会当工程 VP」，可行业现在要的是吗？"}, {"start_sec": 5733, "speaker_id": "w", "type": "text", "zh": "别的公司要吗？不。现在他们要的是真正优秀的一线经理。"}, {"start_sec": 5806, "speaker_id": "g", "type": "text", "zh": "对。就像最好的工程师会把自我放下：业务说我们需要产品，他们说我很强平台——那好，我尽力当最好的产品工程师。你也是：从 250 人、补偿股权地位，去到品牌还没那么响的创业公司、更小团队、更小责任——把门边的自我放下，然后学到更多。"}, {"start_sec": 5841, "speaker_id": "w", "type": "text", "zh": "对。很多方面对我就是更好的局面。不是「这是降级」那种想法。对我是完美情境：我知道自己想重新回到细节、在当下重新学做软件——我认为这是职业长寿的解锁。"}, {"start_sec": 5841, "speaker_id": "w", "type": "text", "zh": "而且就是更有趣、更有能量。我一直是被「骗进」管理的——回到 Digg 那会儿他们需要经理我就说了 yes。从那以后一直被骗。"}, {"start_sec": 5879, "speaker_id": "w", "type": "text", "zh": "后来他们又给我挂上总监，好在收购对话里看起来有总监、更好看。我连一线管理都不会，更别说总监——纸面上需要一个。挺抬举我的。"}, {"start_sec": 5879, "speaker_id": "w", "type": "text", "zh": "所以对我这是想要的、也是独特机会。但对很多人，感觉是行业背叛了他们，他们「应得」自己奋斗来的东西。他们说得对——他们确实极其努力——但规则变了。有些时刻世界、行业看起来很稳定。"}, {"start_sec": 5879, "speaker_id": "w", "type": "text", "zh": "2010 年代我们忘了这行其实很波动。每隔十年都跟前十年天差地别。我们有点看不见这点。在稳定时代起来的人不一定记得。所以我们必须愿意平移。"}, {"start_sec": 5879, "speaker_id": "w", "type": "text", "zh": "必须愿意谦逊一点。可如果「做对公司真正重要的实际工作」就算谦逊，那我们大概已经走偏了——因为公司雇我们就是付钱让我们做有价值的事，不是来娱乐我们的。"}, {"start_sec": 5964, "speaker_id": "g", "type": "text", "zh": "那 TLM（技术负责人兼经理）呢？咱俩都宣判过它是死胡同。那是零利率时代：tech lead 再带一个很小的团队，我们说清楚了那是职业坑。你还有文章。现在怎么看这角色？"}, {"start_sec": 5964, "speaker_id": "w", "type": "text", "zh": "好笑——它仍是陷阱，但是高度被需要的陷阱。很多情况下没有替代，与其说陷阱，不如说「就是现有的东西」。很多公司管理在变平。"}, {"start_sec": 6005, "speaker_id": "w", "type": "text", "zh": "我们开始看到总监下面挂一堆 tech lead，比如 30 人组里零星几个 tech lead。"}, {"start_sec": 6012, "speaker_id": "w", "type": "text", "zh": "对。两种模型：一种是工程经理管的范围大得多，对人更不贴手——管 12、13、14 人而不是四到八；另一种是总监管 TLM，而不是管一线经理。"}, {"start_sec": 6012, "speaker_id": "w", "type": "text", "zh": "不同公司在试不同东西。这是我看到行业在要的人。Imprint 招到的一些最好的人，曾是更纯管理角色，进来却真正想写软件，两边融合得极好。这种人很难找——几乎像——"}, {"start_sec": 6059, "speaker_id": "w", "type": "text", "zh": "——既要面成优秀 EM，又要问：你是不是会因写不了更多软件而沮丧？要的就是这种人。但难，我们也不是一直按这套面。只是碰到几个极好的，而这正是我们真正想要的角色。"}, {"start_sec": 6059, "speaker_id": "w", "type": "text", "zh": "又回到：你要有能力做官僚的部分，但不「想要」沉在那儿——有能力、没欲望。这些人现在超级有效：需要时能用官僚技能，默认却写软件——价值大多在那儿。"}, {"start_sec": 6094, "speaker_id": "g", "type": "text", "zh": "收尾想问写作。你写得极多，我仍很爱你的博客，有新文就看；还可以订阅邮件，我订了会进收件箱。"}, {"start_sec": 6094, "speaker_id": "g", "type": "text", "zh": "你怎么对待写作？怎么看 AI？也有很多 AI 写作——不止 LinkedIn——以前不用 AI 的作者现在也开始一点点用。"}, {"start_sec": 6094, "speaker_id": "w", "type": "text", "zh": "我网上写作大概 20 年了。2007 年创办 Irrational Exuberance，可能五六月开写，快到 20 周年。刚开始写，其实是想摸索怎么靠网络找到工作。"}, {"start_sec": 6094, "speaker_id": "w", "type": "text", "zh": "那时写大量教程：我怎么做的。那是另一个时代——现在你问 AI 怎么做 X，它就能给你很棒的教程，或许直接替你做。到 Uber 我开始多写超大规模里学到的东西；真正起飞是在 Stripe——"}, {"start_sec": 6094, "speaker_id": "w", "type": "text", "zh": "——Stripe 既有很多可学，又真爱写作，这给了我能量。第一本书《An Elegant Puzzle》是那些文章的集大成，然后势头起来。一共大概四本书。"}, {"start_sec": 6094, "speaker_id": "w", "type": "text", "zh": "至少十年内大概不会再写书，也许永远不写了。但这对我太有改造力。人们认识我——其实不常——几乎全是因为书或博客。我真心相信写作是个人改变行业形态的独特方式。"}, {"start_sec": 6094, "speaker_id": "w", "type": "text", "zh": "一旦你做到，会冒出一些小东西。比如你的「三峰」薪酬（trimodal salary）——首先名字好记，也是很多人没理解的重要观察。你改变了很多人对待补偿的方式。"}, {"start_sec": 6094, "speaker_id": "w", "type": "text", "zh": "还有 Patrick McKenzie 谈谈判的那些——影响巨大，大概给世界上很多人创造了财富。"}, {"start_sec": 6243, "speaker_id": "w", "type": "text", "zh": "他可能试着追踪创造了多少，不确定还在不在追。对我的书，我真觉得改变了行业；尤其《Staff Engineer》，Staff+ 这个概念很大程度上是那本书塑造的。还有一些不那么好引用、但同样要紧的东西。"}, {"start_sec": 6243, "speaker_id": "w", "type": "text", "zh": "我在任何公司的工作都不可能以这种方式、对这么多人、这么正面地影响行业。我记得读《Elegant Puzzle》和《Staff Engineer》时拿了很多指引——"}, {"start_sec": 6280, "speaker_id": "g", "type": "text", "zh": "——那太有力量了。"}, {"start_sec": 6305, "speaker_id": "w", "type": "text", "zh": "再说用 AI 写作：我二十年花了上万小时写这些。我的写作不太「工艺导向」——更想把想法弄出来，而不是写「最好的博文」。我从没以写出精美博文为目标，只是把想法写在某个地方。"}, {"start_sec": 6329, "speaker_id": "g", "type": "text", "zh": "我喜欢你的写作，是因为点子很冲。不是因为文笔本身——你写得体面、好读，但我不是因为好读才喜欢；想法一出来就在那儿，让我思考——不是因为呈现方式。呈现也行，但带我回家的是想法。"}, {"start_sec": 6333, "speaker_id": "w", "type": "text", "zh": "对，挺极简。有些文章也很短。"}, {"start_sec": 6350, "speaker_id": "g", "type": "text", "zh": "甚至不是长度问题。我比你啰嗦多了，你知道，那是我的自然风格。但你的几乎不浪费一口气，话不多却完整。"}, {"start_sec": 6350, "speaker_id": "w", "type": "text", "zh": "再想到我拼起来的一切、试图改变别人想法的一切——对我来说，用 AI 写就像把那些扔掉。我从没做大订阅通讯去堆人数；更多是：你想读我写的，就是这样。它不像你那样是业务。"}, {"start_sec": 6350, "speaker_id": "w", "type": "text", "zh": "但我确实聚起了一些读者，他们会读我写的，这很有力量。我知道自己写了什么时，常常下周就有几百家公司在讨论那个想法——站在那个位置很荣幸。如果我写一堆垃圾，等于扔掉，再也找不回来。"}, {"start_sec": 6350, "speaker_id": "w", "type": "text", "zh": "我不会再花二十年做这件事。所以想到这二十年小心建立的优势，为什么要扔掉？没话想说就不说。我不制造内容。为了虚无扔掉这一切，对我会是毁灭性的一刻。"}, {"start_sec": 6350, "speaker_id": "w", "type": "text", "zh": "如果是为了某个东西而扔，或许还能说服自己；但写 AI 烂文对我就是无补偿的损失——没人会读，还扔掉我花这么久攒起来的东西。我猜你也一样？"}, {"start_sec": 6434, "speaker_id": "g", "type": "text", "zh": "对。"}, {"start_sec": 6434, "speaker_id": "g", "type": "text", "zh": "对我来说，写作就是思考方式。写草稿时——以前没说过——有人问我社交媒体策略：粉丝多只是持续做事的副产品。我几乎全职或接近全职地想行业里发生的事、跟工程师聊。通常是：我开始写某个想法的草稿——"}, {"start_sec": 6434, "speaker_id": "g", "type": "text", "zh": "——把它丢进旁边窗口的一条推里，继续写；回头看已经有传播，大概因为想法有意思。"}, {"start_sec": 6477, "speaker_id": "g", "type": "text", "zh": "有时有争议；有时我其实在试一个还不确定的东西，先丢出去。我有点开玩笑叫它们「脑放气」——不完全准确，因为我在想，但没那么在意，更在意对话。有时回头会被分心，却也让想法成形。我很多想法是观察：这在发生吗？"}, {"start_sec": 6477, "speaker_id": "g", "type": "text", "zh": "你看到了吗？就这样生成对话。"}, {"start_sec": 6477, "speaker_id": "g", "type": "text", "zh": "那对我就是写作。AI 方面：有段时间流行把你全部写作喂给机器人对话，有人做了 Pragmatic Engineer bot——我不太喜欢用，但仍试了。好笑的是，我的观点一直在变，它会吐回我好几年前说的话。比如 TLM：Will Larson bot 会说 TLM 是陷阱，而我们现在谈的其实丰富得多。"}, {"start_sec": 6477, "speaker_id": "g", "type": "text", "zh": "我跟别人说：别把思考外包。看到 LinkedIn 上同行用真声音评论时，我会说：你为什么不就把那不完美的写出来？那才是你。我喜欢你，不喜欢无菌腔调；也不喜欢 AI 让几百万人用同一种声音——而几百万人说话本该有几百万种声音。"}, {"start_sec": 6477, "speaker_id": "w", "type": "text", "zh": "这连到一点：很多人相信要成功就得写内容，其实并不想写，于是说：我恨写内容，但为了升职/下一份工作必须写——怎么写？当然是 AI。"}, {"start_sec": 6477, "speaker_id": "w", "type": "text", "zh": "我推了很久：写过一篇，名字大概像「如何成为科技意见领袖」之类。"}, {"start_sec": 6593, "speaker_id": "g", "type": "text", "zh": "我们会链那篇。名字不抓耳，却有点标题党，却是我见过关于「如何在科技圈有影响力」最好的一篇。我转给很多人。谢谢你写了它。"}, {"start_sec": 6610, "speaker_id": "w", "type": "text", "zh": "当然。我写它是因为有人说：我要写 200、300 篇，每周都要写。其实如果你的目标是可见度，你需要的是一篇能跑起来的东西：花时间、测试、搞清楚。你其实不需要写很多。"}, {"start_sec": 6610, "speaker_id": "w", "type": "text", "zh": "写很多几乎没价值——除非你的业务靠订阅。如果你只是想把想法说出去、多一点可见度、证明自己能把事写清楚，你可以写两篇、三篇，或两年一篇。不必写很多。"}, {"start_sec": 6610, "speaker_id": "w", "type": "text", "zh": "想想 Tanya Reilly：博客不多，但一写就很有意思。她不是产量型作者，却能有真正有冲击力的文章——《Being Glue》最明显，很有改造力。即便写很多的人，绝大多数也不会被记住，只有几篇立住。"}, {"start_sec": 6610, "speaker_id": "w", "type": "text", "zh": "所以如果人们重新对准真正目标——或许是一点可见度——一两篇好东西远比产量重要。我希望不想写的人别硬造产量，那其实不服务他们的目标。过去一年我面试过一些候选人，堆着大量 AI 烂文。我很纠结——"}, {"start_sec": 6610, "speaker_id": "w", "type": "text", "zh": "——没人读，你还在继续，为什么做一件没有任何目的的事？因为没人回应。像是照着菜谱却不尝成品，货船崇拜：不知道自己为什么做。"}, {"start_sec": 6722, "speaker_id": "w", "type": "text", "zh": "对我来说这反而暗示判断力差，而不是「有野心、很努力」。对。那有没有你想推荐的书？当然我会推荐自己的书给愿意花钱的人。"}, {"start_sec": 6741, "speaker_id": "g", "type": "text", "zh": "你的书都很好。真的？"}, {"start_sec": 6744, "speaker_id": "w", "type": "text", "zh": "谢谢。去年出的《Crafting Engineering Strategy》是最新的，里面有很多有意思的想法。另外唐娜·梅多斯（Donella Meadows）的《系统思考入门》（Thinking in Systems）我常想。我是按你推荐读的。"}, {"start_sec": 6760, "speaker_id": "w", "type": "text", "zh": "那本书老实说塑造了我对管理、在公司里运作的看法。它其实不是讲运营公司的，但提供了一个可用的心智模型。"}, {"start_sec": 6773, "speaker_id": "w", "type": "text", "zh": "那本极其有帮助。任何逼你换视角的书都好。我前几年花了不少时间想「typing」——不是键盘打字，而是更好的类型系统——跟日常工作不太相关。还有一本讲 TLA+ 的好书，名字我一时忘了——"}, {"start_sec": 6797, "speaker_id": "g", "type": "text", "zh": "是 Hillel Wayne 吗？对，就是他。他上过这播客。他有那本著名的 TLA+。"}, {"start_sec": 6802, "speaker_id": "w", "type": "text", "zh": "极好的书。我日常不怎么用 TLA+，但那里的想法极强：用语言提高软件的可验证性——这是我们时代最大挑战之一。如果软件越来越多由 agent 写，让验证变便宜就至关重要。"}, {"start_sec": 6802, "speaker_id": "w", "type": "text", "zh": "即便很多场景 TLA+ 不是那把工具，想这个问题本身——也是 typing 有意思的原因——非常有价值。所以现在这些挺有用。谢谢你，Will。跟你聊太棒了，终于有这次超好的面对面谈话。"}, {"start_sec": 6840, "speaker_id": "w", "type": "text", "zh": "彼此彼此，谢谢邀请。"}, {"start_sec": 6840, "speaker_id": "g", "type": "text", "zh": "我认识 Will 这么多年【音乐】，能坐下来面对面真好。我们聊的这个时间点，工程管理与工程职业发展的传统最佳实践都在大变。【音乐】一个特别有意思的话题【音乐】是：经理过去会弯多深，去给工程师找「有趣项目」。"}, {"start_sec": 6840, "speaker_id": "g", "type": "text", "zh": "Will 回忆在 Stripe，一些最优秀的工程师向他要更有意思的问题。那时他就反推：我只能给你「受苦」——不那么光鲜的问题——但这份受苦才能让业务成功。可在 2010 年代到 2020 年代初，很多工程师觉得这不像好的管理行为。"}, {"start_sec": 6840, "speaker_id": "g", "type": "text", "zh": "而今天，这几乎成了职业稳定与晋升的默认。作为工程师，尤其 Senior+，你会想帮业务解决最紧迫的问题，并对那些问题有同理心。我也觉得 Will 对「怎样才算伟大 CTO」的看法很开眼界。"}, {"start_sec": 6840, "speaker_id": "g", "type": "text", "zh": "他认为你需要两样【音乐】：一是出众的技术人，知道建什么、怎么建；二是能跑整个职能的官僚——包括你未必是专家的产品或设计。2010 年代很多经理主要学官僚那一半，等到当上 CTO，技术侧已经丢了。"}, {"start_sec": 6840, "speaker_id": "g", "type": "text", "zh": "今天团队更小、中层更少，很多 CTO 会以技术人【音乐】为先——Will 觉得整体可能更好，我也同意。最后，我欣赏他对中层经理的建议。中层——手下还有经理向他们汇报的那些经理。Will 不绕弯子：对，今天当中层很难。"}, {"start_sec": 6840, "speaker_id": "g", "type": "text", "zh": "往前看【音乐】两条路：要么重新靠近软件被建造的地方，去小团队或一线经理；要么接受你主要是官僚、不是技术人的专长，几年后可能不再被那么看重。"}, {"start_sec": 6840, "speaker_id": "g", "type": "text", "zh": "Will 自己就「退了一步」：离开 Carta 约 250 人的工程团队【音乐】，去 Imprint 组建约 25 人的团队，刻意在 AI 改写工程职业时学习如何建造。我觉得这很鼓舞——他不只谈学习软件工程新规则的重要性，也【音乐】身体力行。"}, {"start_sec": 6840, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "订阅/评分提醒", "zh": ""}, {"start_sec": 6985, "speaker_id": "g", "type": "text", "zh": "【音乐】"}, {"start_sec": 6985, "speaker_id": "g", "type": "text", "zh": "谢谢。我们下期见。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

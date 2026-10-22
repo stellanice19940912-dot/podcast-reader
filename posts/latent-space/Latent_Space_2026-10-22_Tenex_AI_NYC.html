@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>纽约 AI：Tenex 如何打造 AI 原生工程团队 — 亚历克斯·利伯曼与 CJ·赫斯</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-2{--c:#4c8c5a;--cbg:#29392a;--cbgl:#eaf1eb}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="s">swyx（Shawn Wang，主持人）</option><option value="a">亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）</option><option value="c">CJ·赫斯（CJ Hess，Tenex 特别项目负责人）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Latent Space</span><span class="pill">2026-10-21</span></div>
+<h1>纽约 AI：Tenex 如何打造 AI 原生工程团队 — 亚历克斯·利伯曼与 CJ·赫斯</h1>
+<p class="sub">嘉宾：亚历克斯·利伯曼（Alex Lieberman）、CJ·赫斯（CJ Hess） · 约 44 分钟（2613 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=Vki6cklFqxo" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Vki6cklFqxo</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Latent Space</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-21</dd></div><div class="meta-row"><dt>时长</dt><dd>约 44 分钟（2613 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 官方字幕（en-US，普通 yt-dlp 获取，无需 cookies）；中文为逐句全文翻译；人名（swyx / 亚历克斯·利伯曼 Alex Lieberman / CJ·赫斯 CJ Hess / 阿尔芒 Armand）按官方字幕并结合节目简介与对话上下文校正；caption_source=official</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>Vki6cklFqxo</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>在 AI Engineer 纽约现场，swyx 与 Tenex 联合创始人亚历克斯·利伯曼、特别项目负责人 CJ·赫斯对谈：按故事点付酬、元 harness 与仓库里的决策记忆、企业 AI 采用里程碑、垂直 AI 与「杀掉我的 SaaS」，以及纽约相对旧金山的 AI 生态。</p>
+<h3>核心要点</h3><ul><li>Tenex：帮企业从「没有 AI」走到「AI 原生」；约 75 人，90% 为工程师或 AI 战略顾问；约一半客户为《财富》2000，一半为中端市场</li><li>按产出（故事点）付酬：收入能力差距约 4 倍；AI 战略顾问激励与工程师对冲；难点在补偿非写代码时间</li><li>元 harness：仓库内结构化文档 + CLI，计划/决策检入 Git；今年产出约 2×；模型偏好偏 Opus 5.5 + Codex 互审，CJ 猛用 AMP</li><li>企业采用阶梯：通用 LLM ~90% → 培训赋能 ~60% → 编程 agent ~50% → 非工程生产级 agent ~5%；痛点含权限/RBAC 与「无法自动化不存在的流程」</li><li>对垂直 AI 偏空 vs 数据护城河/Superhuman 式应用层；Kill My SaaS：4 万美元/年报价、约 1000 美元自建；越往上拆系统越难</li><li>岗位：增强与再配置而非简单裁员；纽约是更小的 AI 泡泡但商业价值池大；片尾 Tenex 招聘口播已灰标</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：约 43 分钟，密度高，适合关心 AI 原生工程组织、企业 agent 落地与纽约 AI 生态的听众；若只关心工具栈可跳到元 harness / 模型偏好段。</p>
+<h3>适合人群</h3><p>工程负责人、AI 转型/FDE、企业 IT 与在纽约做 AI 的创业者</p>
+</section>
+<div class="legend"><span class="spk-0">swyx（Shawn Wang，主持人）<em>主持</em></span><span class="spk-1">亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）<em>嘉宾</em></span><span class="spk-2">CJ·赫斯（CJ Hess，Tenex 特别项目负责人）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<div class="marker-line"><span class="tag">【音乐】</span></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>好，我们在 AI Engineer 现场，和 Tenex 聊聊。欢迎回来，亚历克斯。谢谢。谢谢邀请我们。你还带来了工程总监 CJ。</p>
+<p>欢迎上节目。Tenex 特别项目负责人。好，特别项目负责人。</p>
+<p>行，你就是特种部队。对，对。你以前上过这档节目，大家对</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）">亚历克斯</span></div><div class="content">
+<p>Tenex 的故事大概有点印象，但能不能从头再介绍一下——2026 年你们怎么自我介绍？很简单，Tenex 是一家应用型 AI 合作伙伴，帮一些全球最大的公司从「没有 AI」走到「AI 原生」。</p>
+<p>我们的信念是：AI 很了不起，但它是原始智能。而最难的问题，是最后一公里——真正把它扩散</p>
+<p>到整个经济里。所以我们的定位，就是做那个帮助企业把这一切</p>
+<p>理清楚的选手。我能说脏话吗？把这些破事都搞明白。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>可以可以。对，我们在 Apple Podcasts 上有明确的成人内容标签。不过我最近发现 YouTube 不太喜欢这个。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）">亚历克斯</span></div><div class="content">
+<p>哦，真的？他们挺……对，你不能说那个 F 开头的词。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>那我是不是刚搞砸了你的视频？你打算怎么办？无所谓。没事。我们是给成年人听的。</p>
+<p>CJ，是什么吸引你加入 Tenex？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="c"><div class="label"><span class="badge" title="CJ·赫斯（CJ Hess，Tenex 特别项目负责人）">CJ</span></div><div class="content">
+<p>其实我是第一个员工。我甚至不确定当时亚历克斯和阿尔芒是不是已经有 Tenex 这个名字，</p>
+<p>但在 Tenex 之前，我有一堆创业失败的「坟场」，最终演化成了我自己的那种工程咨询</p>
+<p>公司。我在那儿做过传统工程，后来转向做一些 AI 咨询，越来越多地用 AI 去构建。我本职是软件工程师。</p>
+<p>我只是感觉自己的产出越来越好、越来越快，但最后挣得却更少。</p>
+<p>我那时是按小时向客户收费的。而我真的很喜欢亚历克斯最早在 Twitter 上发的那种 Tenex 理念——奖励工程师的产出，而不是</p>
+<p>奖励他们的时间。快进两年你会看到，工程师现在可以把大量工作并行化，产出高得多。当时用</p>
+<p>Sonnet 3.5、Gemini 2.5 Pro，可能还不那么明显，但我基本上押注：以我的技能，再更多倚仗 AI，我可以有</p>
+<p>高得多的产出，最终也有更高的赚钱能力。从那以后我就爱上了这种模式。我觉得这才是工程的未来真正样子。最终当 AI</p>
+<p>解决所有这些技术问题时，公司会按结果付钱，而不会再按建造某样东西所需的时间付钱。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对。想了解更多细节，可以回看我们上一期节目——你们真的是按故事点给人发钱。</p>
+<p>对。你们只需要就故事点达成一致。但那也意味着，有些 10x 工程师一年真的能挣到几百万</p>
+<p>美元，另一些人可能挣得没那么多，只是因为没那么高产。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）">亚历克斯</span></div><div class="content">
+<p>对，没错。论点是：AI 本质上是对人的智力和工作伦理的杠杆押注。所以收入能力上的方差会比以往任何时候都大。</p>
+<p>我们的看法是，我们的模式并不适合所有人；但对那些基本想「做多自己」、有扎实软件工程功底、又不断逼自己用前沿能力、在保证质量的前提下把时间拉伸到极限的人来说，没有更好的赚钱方式。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>上次我跟你聊的时候，好像有两三个人一年能挣到一百万或超过一百万。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）">亚历克斯</span></div><div class="content">
+<p>现在有更新吗？有有有。先画个图：我们 18 个月前创办 Tenex，开始做这家公司。</p>
+<p>一开始其实更像是一家 AI 驱动的开发作坊。最初的想法是：工程有点像 AI 的</p>
+<p>矿井金丝雀。一部分动力来自我的联合创始人阿尔芒，他本职是技术人，</p>
+<p>已经开始大量用编程 agent。然后他认识一些人还在往 IDE 里打字，完全不采用这项技术。于是我们想，为什么不直接给那些还没采用的公司工程组织</p>
+<p>加个超级增压？我们就从那儿起步。后来我们从初创和中端市场往上走，</p>
+<p>到现在大约 50% 客户是《财富》2000 强，另外 50% 是年收入 1 到 5 亿美元的中端市场。</p>
+<p>他们要的不只是给人凑编制和 AI 工程。他们要的是「AI 转型即服务」。</p>
+<p>今天公司有 75 人。其中 90% 员工要么是工程师，要么是 AI 战略顾问，</p>
+<p>后者基本可以想成技术顾问。我觉得这个论点已经被验证了：</p>
+<p>Tenex 里最高薪工程师和最低薪工程师之间的收入能力差距非常大，大概在 4 倍左右。</p>
+<p>哦，不是 10 倍？不是 10 倍差距，对。那是梦想。对，没错。</p>
+<p>但论点里该被验证的都对了。我们基于故事点付酬的模式也有有趣的教训——</p>
+<p>我们知道会有一些极限，以及我们接下来怎么想这件事。</p>
+<p>但总体来说，人们对「按产出付酬」的经典担忧——故事点太主观、有人会故意压低故事点，或者交付一堆烂代码、勉强勾完复选框——</p>
+<p>对，正好卡线。但没真正把活干好。对，没错。我会说这两点顾虑在我们这儿</p>
+<p>根本不成问题，因为我们有 AI 战略顾问。我们把激励设计和工程师几乎完全对冲：AI 战略顾问的激励是客户留存和增长。实际上最大的</p>
+<p>挑战是：工程师在不写代码的时间——架构、见客户——怎么补偿。</p>
+<p>所以薪酬模型里必须找到一些 nuance，但大体上仍由产出驱动。还有要补充的吗？对，这方面我想了很多，</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="c"><div class="label"><span class="badge" title="CJ·赫斯（CJ Hess，Tenex 特别项目负责人）">CJ</span></div><div class="content">
+<p>因为回顾我在 Tenex 的经历：我曾经大量写代码、大量写代码、写得少一点，</p>
+<p>现在差不多到了这个阶段——只要给模型正确上下文，它们就能把你带到解法的 90%。我觉得这里有个机会：真正的价值是坐下来听客户把能倒的都倒出来，再把这些交给模型，真正更接近解法。</p>
+<p>所以我想象未来我们会更看真正的产出是什么、怎么工作、长什么样，而不再完全是传统故事点模型，但故事点仍会是锚定单位。还有一件事我不确定我们以前聊过没有——「元 harness」这个概念，也就是 Tenex 用的工程工作流，它让我们能在长时任务上做出很有意义的工作。你要不要讲讲我们的流程？我觉得大家会感兴趣。好。我们基本上开始尝试把一组技能标准化。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）">亚历克斯</span></div><div class="content">
+<p>还有一件事——我不确定我们以前聊过没有——就是「元 harness」这个概念，也就是 Tenex 使用的工程工作流，它让我们能在长时任务上做出很有意义的工作。你要不要</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="c"><div class="label"><span class="badge" title="CJ·赫斯（CJ Hess，Tenex 特别项目负责人）">CJ</span></div><div class="content">
+<p>讲讲我们的流程？我觉得大家会感兴趣。好。我们基本上开始尝试把一组技能标准化。</p>
+<p>我觉得大多数工程组织到现在都做过类似的事。对我们来说，它演变成了仓库里一套非常结构化的文档，再加上</p>
+<p>围绕它的 CLI，模型用这些来真正驱动正在做的工作——无论是做计划、可视化，还是给客户做某种汇报——基本上是把真正写代码之外的流程部件，都更自动、更标准地在全团队跑起来。所以我们有</p>
+<p>几样东西，比如一份很大的规范计划文档，结构有些相似，但随着模型变强，我们其实</p>
+<p>减少了结构上的硬性约束。这些东西大致都类似。</p>
+<p>但一旦有了计划，你就真正去建。我们对 agent 如何记录决策、记录自己在做什么，有非常鲜明的主张，</p>
+<p>并跟踪它们在忙什么。一切都检入 Git。</p>
+<p>对。所有这些都检入。现在对我来说，这一切更多是 Markdown，也有更多 HTML。</p>
+<p>我喜欢看 agent 吐出来的那些「图画书」。但所有这些都会检入，然后它就变成一个界面：你不仅</p>
+<p>有代码作为源——我觉得还有个争论：你到底还需不需要文档？代码本身能不能当代码库的记忆。</p>
+<p>而我确实觉得需要。你需要知道为什么做某个决定，需要知道当时对话的上下文。</p>
+<p>但最终，这些加上代码库——如果有问题，如果有需要回答的事、要回头看为什么做了某事——我们总是有一份持久记录。</p>
+<p>而且它从来不在某个人脑子里。它总是在仓库里。这就给了我们的 agent 和工具超能力，拥有全部</p>
+<p>上下文——而很多工程团队至今还只把这些放在对话或脑子里。</p>
+<p>我们的目标是继续把这件事往前推，让所有上下文都在一个地方，越来越多的工作由 agent 驱动，而不是我们凡事都要事先喂进去。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）">亚历克斯</span></div><div class="content">
+<p>对，太棒了。我们甚至用一种方式衡量这些流程有没有用：公司里每位工程师的月均故事点是不是在上升？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对。那你觉得跟今年初比怎么样？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="c"><div class="label"><span class="badge" title="CJ·赫斯（CJ Hess，Tenex 特别项目负责人）">CJ</span></div><div class="content">
+<p>我不知道。你觉得呢？你觉得……加 50%？我觉得，真的要看情况，因为我们有些人……</p>
+<p>我在 Twitter 上看到一张图：一个人对着魔法球，天上还有一堆东西。我就把我们有些工程师想成那样——他们把 agent 甩来甩去。</p>
+<p>我会说，总体今年大概有 2 倍增长。基本上，如果你把 12 月想成 Opus 4.5 时刻——</p>
+<p>模型真正开始能接长时任务——到今天我们又回到 Opus，但是Opus 5.5。那真是个了不起的模型，能干大量工作。</p>
+<p>在那段时间里，我看到工程师的实际产出，我会说，大概翻倍——同样时间跨度里他们能覆盖的事比以前</p>
+<p>多一倍。现在一个故事点的「价值」还和一年前一样吗？我们一直在校准。</p>
+<p>这是个棘手的方程。是通胀还是通缩？理论上应该是通缩，对吧？</p>
+<p>对。我不知道。我们大致是这么想的。至少每季度我们会坐下来评估，</p>
+<p>这些故事点的标准是什么？我们实际怎么估算这些项目？</p>
+<p>要在继续奖励这种产出、和模型变强后校准我们创造的价值之间，找到精细平衡。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>所以总体我会说，那大约 2 倍在估算里也扮演了类似角色；但如果只看人们现在推出来的功能和一年前比，差别大到离谱。这条线我可以从好几个方向聊，但我先看看模型偏好——这永远是热门话题。我觉得你们是让大家自己选喜欢的工具，但也许办公室里有偏好统计。</p>
+<p>看起来 Opus 领先。你能估一下市场份额之类的吗？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="c"><div class="label"><span class="badge" title="CJ·赫斯（CJ Hess，Tenex 特别项目负责人）">CJ</span></div><div class="content">
+<p>现在的 vibe 是 Opus 5.5，我觉得。没有 Fable？</p>
+<p>我不太用 Fable，我觉得很多人现在都默认不用它了。Opus 太好了。又快又便宜。基本上把我的勾选项都打满了。</p>
+<p>以前我会同时用两到三个模型——便宜又快的、特别聪明的、能解决特定问题的。现在 Opus 差不多覆盖了我的全范围。</p>
+<p>我觉得团队里很多人在更偏 computer use 的场景还会伸手去用 Codex 这类工具。工作流上，我觉得两者都用仍然最好——</p>
+<p>不管你的主力是什么，对我们大多数人来说是 Opus 5.5——用 Codex 来审，让它们在你机器上来回协作，</p>
+<p>仍然能产出最好的结果。但现在我们在这两样上挺一致。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>你还在猛用 AMP 吗？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="c"><div class="label"><span class="badge" title="CJ·赫斯（CJ Hess，Tenex 特别项目负责人）">CJ</span></div><div class="content">
+<p>哦，我还在猛用 AMP。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>所以你是通过 AMP 用 Opus？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="c"><div class="label"><span class="badge" title="CJ·赫斯（CJ Hess，Tenex 特别项目负责人）">CJ</span></div><div class="content">
+<p>对，他们最近……或者说那是 AMP 的默认模型。</p>
+<p>对，他们最近上线了接入你 Cloud Code 订阅的能力。这对我来说是个挺大的游戏规则改变。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>因为那能把成本砍掉大概 80%。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="c"><div class="label"><span class="badge" title="CJ·赫斯（CJ Hess，Tenex 特别项目负责人）">CJ</span></div><div class="content">
+<p>完全同意。我爱 AMP，是因为它把一切从我电脑上拿走。他们有云端设置，那些 orb。</p>
+<p>我们上周还跟他们合办过一场 happy hour，很酷，见到团队，一起「orb out」。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>那永远成不了流行语。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="c"><div class="label"><span class="badge" title="CJ·赫斯（CJ Hess，Tenex 特别项目负责人）">CJ</span></div><div class="content">
+<p>哦，我想把它变成流行语。这可能是历史上第一次有人这么说。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>我们在 orbing out。我们当时在 orbing out。不，他们自己说「it&#x27;s orbing time」。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="c"><div class="label"><span class="badge" title="CJ·赫斯（CJ Hess，Tenex 特别项目负责人）">CJ</span></div><div class="content">
+<p>对。但那就是我首选的界面。模型方面，如果我倚仗 Codex，</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>就是 Sol6 那一档。你试过 CloudTag 吗？Anthropic 从没像 Orbs 那样抓住远程环境这件事，是不是挺怪？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="c"><div class="label"><span class="badge" title="CJ·赫斯（CJ Hess，Tenex 特别项目负责人）">CJ</span></div><div class="content">
+<p>对，我觉得有一部分是 AMP 那边很有主见，并不想做通用方案。Cloud Code in the cloud、CloudTag 这类工具，</p>
+<p>我觉得对那些想在非技术任务上协作的团队有价值。但我爱 AMP 的部分原因是它有这些跨模型功能，我能这么干。</p>
+<p>Opus 写完，我甚至可以跳到另一个 orb，说「看那个 orb，审一下」。所有这些合在一起，基本上复刻我在本机做的事。用 Cloud Code in the cloud、Cloud Tag，我就是到不了那个点。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对对，有道理。另一件我今年开始追踪的事，是 token 花费相对员工花费的比例。不知道你们有没有这个数。</p>
+<p>大概多数公司每个员工花 10 到 200 美元量级。更 AI 原生的会把它换成百分比，</p>
+<p>大概 10%。一般 AI 创业公司员工大约是 1 倍——员工花费对 token 花费——然后 token 花费可以到 5 到 10 倍。</p>
+<p>你们落在哪个区间？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="c"><div class="label"><span class="badge" title="CJ·赫斯（CJ Hess，Tenex 特别项目负责人）">CJ</span></div><div class="content">
+<p>我脑子里其实没有一个现成数字。要说原始 token，我会说大概在</p>
+<p>1 比 1 到大概 2 比 1 之间。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>真的？那挺高。我们想很多的是：什么时候该伸手用最大的模型。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="c"><div class="label"><span class="badge" title="CJ·赫斯（CJ Hess，Tenex 特别项目负责人）">CJ</span></div><div class="content">
+<p>我觉得每家公司都开始想这个。但我会说最近成本被 Opus</p>
+<p>5.5 压得很低。我们经历过一段人人都用 Astra 和 Fable 的时期，它们结果最好。但那些模型最终很贵。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>而且，自从我们上次聊过之后，很多人经历过那种 token 猛堆、token 排行榜之类的时代，然后又说：哦不不不不，现在成本太高了。</p>
+<p>而这其实是世界上最可预期的事。你们担心过吗，还是说不管怎么样 ROI</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="c"><div class="label"><span class="badge" title="CJ·赫斯（CJ Hess，Tenex 特别项目负责人）">CJ</span></div><div class="content">
+<p>都很好？对，我有几种想法：我们肯定担心过，尤其人头在涨的时候。我觉得</p>
+<p>也是——尽管我们团队，我会说，我不觉得团队里有谁真正信奉那种 token 猛堆的时代精神，因为……</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>我有过几个瞬间。对，我也是。但就像：反正老板买单，我先疯一把，对吧？</p>
+<p>因为你得先做那些奇怪的事，才能再往回收；你必须先做奇怪的事，才能发现能带走的教训。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）">亚历克斯</span></div><div class="content">
+<p>对，完全同意。这听起来可能很疯，我想听听你的想法——我早些时候跟人聊到一个还在继续的争论……</p>
+<p>我保证这相关。我早些时候跟人聊到那些数据公司，对吧？</p>
+<p>比如 Micro One、Mercore、Handshake。这些业务的长期会怎样？因为它们 90% 以上收入来自实验室。</p>
+<p>不少创始人会争辩说，他们觉得会翻转——未来几年变成企业驱动。那接下来你得相信：如果企业会成为那些数据的核心买家，企业就会大量在自己的模型上做微调。</p>
+<p>然后问题变成：这在哪里说得通？要么你觉得质量会更好——但前沿的标准会一直往前移。</p>
+<p>所以那是很难下的注。那就得是价格。价格那条对我来说也难，因为我们就是在看这些模型的 token 成本继续下降。</p>
+<p>所以我们内部不太担心的一部分原因是：几乎感觉已经到了帕累托点——按任务计的成本在降。今天要比六到八个月前更难靠猛堆 token 把公司成本搞崩。我几乎觉得六到八个月前才是你会</p>
+<p>真正担心的那个点。对。你同意吗？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="c"><div class="label"><span class="badge" title="CJ·赫斯（CJ Hess，Tenex 特别项目负责人）">CJ</span></div><div class="content">
+<p>对。我觉得未来可能有几种走法：如果有一个世界里有 Astra 6.5、Fable 5.5，超级贵但结果最好，</p>
+<p>我能看到我们又往那个方向偏；但总体我同意，你看他们昨天今天刚发的 Muse Wonder，它在</p>
+<p>前沿上，又脏便宜，开源和闭源竞争都在升温。我觉得这会继续把成本往下推。真正看的时候，很多</p>
+<p>有经济价值的任务用 Opus 5.5 就能做。所以那个悬崖是：一个聪明十倍的模型，真的能证明把表格里几个格子</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>挪一下的成本合理吗？大概不能。对。回到你们客户和市场，</p>
+<p>你们最常接到的需求是什么？然后有什么是别人找上门来，你们却说：不，我们其实还不想接</p>
+<p>这种活？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）">亚历克斯</span></div><div class="content">
+<p>对。我思考这件事的一种方式，是把企业采用 AI 看成一场比赛里的不同里程碑。</p>
+<p>尤其在 AIE，当我告诉人们有多少比例的公司到了这些里程碑时，他们差不多被惊到。</p>
+<p>但就像：企业 AI 竞赛的第一个里程碑，只是把通用 LLM 推给员工。我会说，在我们今天聊的大概 100 家企业里，</p>
+<p>90% 已经给员工上了 Claude 或 Codex。下一个里程碑是真正教人怎么用——</p>
+<p>培训和赋能，这件事永远得不到应有的重视，但arguably 和技术本身一样重要，甚至更重要。我会说大概在 60%。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>哦，那还不错。对对。有一拨公司觉得</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）">亚历克斯</span></div><div class="content">
+<p>「我们的人自己会搞明白」；但也有挺大一拨说：好，我们得教人什么是 skills，得教人这些界面的功能和用法。再下一个，在通用 LLM 的培训赋能之后，是</p>
+<p>编程 agent。疯狂的是，我在这儿问了几个人，</p>
+<p>你们觉得有多少比例的企业已经把编程 agent 推给工程产品组织？大多数人说：肯定 70% 或 80%。</p>
+<p>实际数字更接近 50%。差不多每两家我们聊的企业，要么还没上</p>
+<p>编程 agent，要么他们用的东西更接近「没有编程 agent」而不是「有」。再下一个——我觉得最大的掉崖就在这儿——从原始智能到企业用法最大的扩散鸿沟，是非工程工作的生产级 agent</p>
+<p>掉到大概 5%。就像——你整天都在这些对话里——但我们聊的大多数超过一千人的企业，并没有一个生产中的 agent 在做「不写软件」的工作。所以我觉得有几件事。</p>
+<p>一是，因为整个浪潮是由一小撮人真正理解技术能做什么，和一大群被 FOMO 驱动的人共同推动的。顺便说，FOMO 不坏，它制造向前的动量，但也意味着</p>
+<p>人们会抓住最在 zeitgeist 里的东西。我猜过去一年半人们一直在说「今年是 agent 之年」——不管多久了。每一年都是 agent 之年。</p>
+<p>企业会说：你能不能帮我们在组织里某个后台任务上建个 agent。那是最常见的需求之一。也因此现在我们在 Tenex 很多工作是把 agent 部署进生产，给公司做工程组织之外的</p>
+<p>可重复工作。第二是权限和 RBAC。基本上，当公司里每个员工都有 Claude 或 Codex，又需要访问</p>
+<p>某些数据时，对 CIO 和 CISO 来说变成绝对噩梦。他们基本上没有一个好用的网关，能轻松做</p>
+<p>几乎像数据权限的控制面板。字面意思就是：你能读什么、不能读什么。</p>
+<p>没错。那是个大问题。所以我们花很多时间在这上面。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>所以你们是给人定制，还是买现成的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）">亚历克斯</span></div><div class="content">
+<p>我们一开始是给公司做定制，现在其实已经产品化了，有自己的网关方案。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对，没错。还有别的你们从客户那儿听到很多的吗？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="c"><div class="label"><span class="badge" title="CJ·赫斯（CJ Hess，Tenex 特别项目负责人）">CJ</span></div><div class="content">
+<p>我觉得就 agent 部署来说，上面这些覆盖了我们听到的。我觉得有一个痛点总会被发现，</p>
+<p>我对团队的说法是：你无法自动化一个不存在的流程。所以当你有 40 个人大致做同一类职能，</p>
+<p>所以当你有 40 个人大致做同一类职能，但每人做法都略有不同时，其实更难建一个能在后台</p>
+<p>主动做那件事的 agent。你可以坐下来给他们工具、带他们增强自己的工作流；但真正获得杠杆，是当这些 agent 把工作浮现给你、你审、你打回去，你更像大家一直在说的「成为 agent 经理」——我觉得我们正站在那个临界点上。但当你拉开看，我们常常给公司的建议是：嘿，首先我们需要在你们公司这个组织周围建一个流程。然后才是把工作</p>
+<p>交给后台 agent 的步骤。但如果没有某种标准化，就不可能让 agent 知道自己做得对不对，我们也不可能围绕系统做评估，真正交付一个做该职能的 agent 本该有的价值。而且</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）">亚历克斯</span></div><div class="content">
+<p>还有一件我想听听你的想法——我们刚才开场前还在聊——CJ 不会介意我分享——我们在聊垂直细分 AI 方案，以及这些方案的未来会怎样。我们总体上</p>
+<p>对垂直细分 AI 方案在不同职能或行业里表达了一种偏空的看法，部分原因只是从我们的视角——整天泡在</p>
+<p>企业的内脏里，有太多 nuance、太多惯性、太多系统要缠、太多人要缠。而且当垂直方案的买家</p>
+<p>期待的是真正的「一对一」体验时——我们正处在人们期待一对一软件方案的时代。所以如果你期待那个，就不奇怪</p>
+<p>每家软件公司都在建 FDE 团队——因为当每家公司都想要传统软件并不提供的那些 nuance 时，服务和软件正在收敛。所以我觉得很有意思去想，对，对垂直细分方案来说。</p>
+<p>要么一，如果人人都期待一对一方案，他们怎么可能做到软件利润率？还有，我们为什么不该预期前沿模型会把它们一口吃掉。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对。举些具体例子，你说的是律师的 Harvey。对。医生的 OpenEvidence。这些是大家常说的在各自领域赢的经典例子。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）">亚历克斯</span></div><div class="content">
+<p>你对他们偏空？我会说总体上偏空。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对。哇。那到目前为止你错了。</p>
+<p>对。我觉得答案很简单：有ChatGPT 拿不到的数据访问，这很常见。那是护城河。</p>
+<p>显然 Anthropic 和 OpenAI 也在收购同样的数据源，但他们不会像这些家伙那么专注。</p>
+<p>他们确实有创新。如果你试过 Harvey，他们有 Tabular Review。</p>
+<p>Legora 也有。我们请过他们的 CTO 上节目——他们有 affordances 和 UI，正因为只服务这些人而完全定制。</p>
+<p>卖点基本上是专注。专注，也许还有 affordances。</p>
+<p>你说的 affordances 是什么意思？某种程度上，就像你们在意客户的最后一公里，他们也在意软件层面的最后一公里。只要人们在那套软件里训练出来，它就不会消失。</p>
+<p>就像当银行家，或者说在我的金融生涯里，我总能从纳斯达克、从纽约证券</p>
+<p>交易所拿到一模一样的信息。但我为什么每年付 5 万美元给彭博？只是因为那是我所有同行都在用的，</p>
+<p>而且都帮我整合好了、为我特化了。这样我不会犯错之类的。</p>
+<p>或者它接到我的交易系统、聊天、新闻系统。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）">亚历克斯</span></div><div class="content">
+<p>不，我觉得人们为彭博付钱，是那个社交网络。我觉得人们爱彭博里的私信。</p>
+<p>有那方面，有那方面。但作为交易员，我知道我实际拿它做什么。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对对对。所以我觉得有一堆集成和工具，最终很难对它们中任何一个偏空，主要因为对软件、对把工作干好的工具需求实在太大。有些会被 Claude、ChatGPT 这类横向通用工具满足，有些你就是想要更好的东西。</p>
+<p>我总会想到 Superhuman 作为邮件客户端的成功。人人都有 Gmail，但这就是给整天泡在邮件里的人的升级版 Gmail，多一堆东西。</p>
+<p>那就是一个市场。它也许不是世界上最大的创业公司，但每个东西有多大，理性人可以不同意。</p>
+<p>对，完全同意。我觉得不该不同意的是：总市场会变大，水涨船高。</p>
+<p>然后你谈的就是份额压力。对对，我同意。完全同意。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="c"><div class="label"><span class="badge" title="CJ·赫斯（CJ Hess，Tenex 特别项目负责人）">CJ</span></div><div class="content">
+<p>我觉得甚至还有区分：一些从零用 AI 建起来的新应用。我想起 Superhuman 就是那种。</p>
+<p>我爱 Superhuman。我甚至不花很多时间在邮件上，但任何有……</p>
+<p>不，你一个月付 30 刀只是为了不用操心。任何有酷快捷键的东西我都爱。</p>
+<p>对。但当我想起那些真的把 agent 当产品、在某个垂直里干活的产品时，除非有非常战略性的合规数据</p>
+<p>之类的护城河，我觉得往后它们会越来越吃力——因为我们开始字面看到：要么你能很快自己转起来，随着模型变好继续复利，要么那些任务开始落入</p>
+<p>模型的一般能力范围。但任何有应用和工具围着它转的东西，某种程度上呼应我前面的点：它改变流程，上面再叠 agent。</p>
+<p>我觉得那建立在同一哲学上，而且仍然可以非常有帮助，那些会成功。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对。哦，好好。所以还有一个相关但不那么辣的观点：并不是没人想用……</p>
+<p>人们大概不想用你建的那个 agent。他们想用自己已经有的 agent，然后把你的数据插进他们的 agent。</p>
+<p>所以人人都坐在你数据的某一部分上，说：请用我的 agent。请付我那每月 20 刀。但你不能把所有这些每月 20 刀订阅叠在一起。</p>
+<p>最终大概会有一小撮公司拥有界面，然后大家只是插进那个总 agent——这点我同意。</p>
+<p>有意思的是 Salesforce 作为系统 of record 公司里大概最大或最出名的，正在拥抱那条路：你不会用我们的 agent。</p>
+<p>我们只提供 API 和 MCP，让你接到自己的东西上。对，挺酷。</p>
+<p>好，我还想走一个例子。我刚公布了 Kill My SaaS 竞赛的结果——我们替换一个中端 SaaS。</p>
+<p>我说中端，意思是大概没那么 trivial，但也不是 Salesforce，落在中间。我觉得外面有很多中端 SaaS，人们总在谈「软件之死」，对吧？</p>
+<p>报价是一年 4 万美元。我们花了 1000 美元替换它。它会进下一场会议的生产环境。</p>
+<p>所以我们就是那种客户：我想要一对一工具，并期待所有这些东西。我们在为自己的业务建领域或垂直特化的东西。到目前为止还行。</p>
+<p>告诉我哪里会出问题。另外我也好奇那是多少故事点。对，CJ 可以给它估故事点。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）">亚历克斯</span></div><div class="content">
+<p>我的总体看法是——我的总体看法是：越往市场上走，</p>
+<p>「拆掉从零重建」的命题就越难。我同意你。有人——很小一撮人——</p>
+<p>说过 Salesforce 真的有风险。SAP 真的有风险。我完全不同意。</p>
+<p>在我脑子里，那些生意在这个时点就是在积累价值。它们积累价值的一部分原因是：赌注太大——公司拆错了可能是几亿或几十亿。</p>
+<p>你会规避风险。对，没错。对中端，其实取决于机会有多大，以及那会不会成为公司内部最值得</p>
+<p>重建的机会？我甚至在想。</p>
+<p>在企业里，假设有个中端 SaaS 一年要几百万。第一个问题是：从收入或成本占比看，</p>
+<p>它有没有大到值得分配工程师或资源？</p>
+<p>我觉得要个案看。对有些企业，答案可能是是。</p>
+<p>对另一些，答案可能是否。我觉得更多会是能力之外推动公司的东西。</p>
+<p>比如，我们谈过——我忘了谁建的那个仓库。基本上是逆向工程仓库。</p>
+<p>RIA。对，没错。现在人人都在谈那个。</p>
+<p>甚至在 Tenex，我们也从零建了自己的 CRM。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>我们建了什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）">亚历克斯</span></div><div class="content">
+<p>我们的 OS 是从零建的。我们意识到——每家公司都会意识到——软件的美妙之处不只是你从中得到的效用。</p>
+<p>还有你不必去想的那些维护和改进的头疼事——当它不是你的核心时。所以我觉得归根结底是：奖赏够不够大，能不能证明</p>
+<p>公司里一部分资源去养一个非核心业务所带来的认知负担是值得的？显然，对你们的业务来说，一年差大概 3.9 万美元，你们隐含地说值得。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>不只是成本。那是防守。我也想进攻：不，其实对相关每一方，体验都可以好得多。</p>
+<p>完全同意，完全同意。所以那里的一部分想法其实是：有显著的——基本上不只是那个。</p>
+<p>所以有两块。一是：不只是我们被产品多收了钱，而是产品已经平庸了很长时间。</p>
+<p>对。这个产品的 10 倍更好版本会长什么样？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）">亚历克斯</span></div><div class="content">
+<p>对，因为我们就是客户，可以用分钟而不是月份去迭代。完全同意。我觉得有意思的是：初创和甚至高增长的中型公司可以那样敏捷。</p>
+<p>对那些深深嵌在某种能力里的企业，很少会是那种——很少会说：哦，我们可以做出比现在用的 SaaS 好 10 倍的版本，</p>
+<p>还可能把它拆出去单独做。我就是不觉得企业会那样运作。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>当然。对，这被讨论过。其实我会说，你谈自动化。</p>
+<p>更辣的是：他们是在自动化人吗，对吧？一旦一切都自动化、顺风顺水，</p>
+<p>我们会替换那些岗位吗？我不知道你能说到什么程度。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="c"><div class="label"><span class="badge" title="CJ·赫斯（CJ Hess，Tenex 特别项目负责人）">CJ</span></div><div class="content">
+<p>对，我觉得这里有两块。我深深相信：AI 会对人类产生好处。</p>
+<p>它会增强人们的工作。它绝对会改变和置换。但我觉得更多是一种迁移，而不是直接砍掉工作。</p>
+<p>我觉得 A16Z 发过东西说呼叫中心现在真的在下降，AI 开始承担越来越多那种工作。最终，如果你整段职业生涯练的就是那个技能，有东西进来接管那个职能，是毁灭性的。</p>
+<p>话虽如此，我们跟客户谈「嘿，现在 agent 要做这个活」时，其实是在谈再配置。</p>
+<p>我不觉得哪家企业会说：一旦这搞定了，这群人就没什么可干、可解决的了。所以我们的方法真的是：我们能替换什么，然后下一个最大的问题是什么？</p>
+<p>我会论证，在大多数大公司里，这个循环几乎永远继续。</p>
+<p>总有下一个问题——如果我想我们怎么成长。无限需求。总有另一个问题；实际上把那些可能有超深主题专长的人</p>
+<p>抬出水面，开始更多跨团队协作，或者想业务里不那么「表格格子」层面、更多关乎团队如何协作的部分。长期来看，我觉得那能让大多数人留在那儿，也让那些业务更敏捷，真正啃大而厚的问题，而不是大多数人日常的苦活。</p>
+<p>当你想一个财务部门的人，他们大多在表格里，但我们怎么抬升他们，去战略地想业务、钱往哪儿配之类的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）">亚历克斯</span></div><div class="content">
+<p>对，我也觉得当我们谈岗位置换或岗位再配置时，我们把它说成一件发生在人们身上的事。</p>
+<p>我不喜欢那样的一个原因是：我觉得它没有给人们足够的信用——他们在自己生活里有能动性，意思是我觉得……</p>
+<p>你可以调整。对，人们真的应该想。当我想赋能或人们再技能化时，</p>
+<p>我觉得那是雇主的工作——因为他们想驱动增长——但也是员工的工作。当人们说 AI 会替换所有人们不喜欢做的工作时，我觉得那有点像在 cope——现实是有人会失业，因为很多人没有「喜欢或不喜欢一份工作」的奢侈。</p>
+<p>他们工作是为了挣钱。而且我觉得，在可能的范围内，人们应该有能动性对自己说：好，我的工作在未来几年的稳定性或可替换性怎样，</p>
+<p>如果我要技能升级让自己更受保护，那长什么样？人们有能动性对自己这么说，并真正采取行动。对对对。我觉得这是值得人们反思的好信息。放你们走之前我想碰的最后一块</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>就是纽约。你知道，有些人说是世界上最棒的城市，有些人……</p>
+<p>人们的总体情绪怎样——无论工作上还是私下，感觉是什么，对吧？我整天活在旧金山。</p>
+<p>人人都在 agent 里泡着。讨论是 Instincts 还是 Grok 还是 Muse。不是你喜不喜欢 AI，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）">亚历克斯</span></div><div class="content">
+<p>我想稍微走出那个泡泡，但这里仍是纽约，仍进步、仍向前看。对。我会说：基本上，纽约有一个泡泡，比旧金山的小。</p>
+<p>如果旧金山是个大泡泡，我觉得我们在 Tenex 感觉——因为自我选择来公司的人——我们处在旧金山的一个微观宇宙里。还有我们合作的公司、我们在纽约接触的人。</p>
+<p>但我肯定也会说，确实宇宙比旧金山小。你去旧金山，感觉无所不包——到处你看，就像有人……类似 AIE，我前面说上台时，如果人们刷 Twitter 或 X 感觉像在</p>
+<p>Edge City、活在未来，AIE 是那个的加强版。我觉得旧金山类似 AIE。</p>
+<p>大概 AIE 总体和人生某个阶段在旧金山住过的人的重叠大概 AIE 总体和人生某个阶段在旧金山住过的人的重叠</p>
+<p>非常大。我们现在大概是这座城的 1%。</p>
+<p>真的？对 World&#x27;s Fair，对。疯了。对。但说到那点，我觉得它就在旧金山的文化和 DNA 里，</p>
+<p>很大一群人活在未来。我觉得你在纽约也能找到那群人。我觉得我们在 Tenex 找到了那些人。</p>
+<p>我们的目标之一，是推动 AI 作为一个枢纽——或者说推动纽约成为美国的 AI 枢纽——因为这里有这么多商业，它会是一个地方，</p>
+<p>技术扩散真正对这个国家 GDP 产生有意义影响。我觉得泡泡现在更小，我们几乎把它当成一种使命，去把我们的泡泡做大。也许我不确定能不能到旧金山那个体量，但我觉得我们可以有意义地影响，让更多人在这里活在未来。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>有物理层面的——你在广告牌上能看到。它在慢慢渗进来。哦，完全是。人们以前——还记得 Friend 那波宣传，有人会往上面喷</p>
+<p>各种涂鸦？我觉得那有点像故意的怒气诱饵。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）">亚历克斯</span></div><div class="content">
+<p>但现在你有不带反讽的 AI 广告牌，人们觉得：好吧，这成了生活的一部分。百分之百。对，所以我觉得有机会把某种边缘感，以及那种「活在未来」的气质——</p>
+<p>旧金山因为那里的经济气候而创造的——因为风投、因为科技公司，然后因为被吸引去那儿的</p>
+<p>人。但我也觉得我们处在一个——很怪——我们在 AI 上是个更小的池塘，但我会争辩我们在商业价值上是一样大甚至更大的池塘。所以我的说法是：我在纽约做 AI 的原因，是把旧金山的人带来见客户，也给他们一个现实检验。完全同意。我其实觉得那儿有</p>
+<p>一个很有意思的套利。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对。对，完全同意。好，太棒了。招聘号召。我知道你们一直在招。对。你们招什么？有什么变化？</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Tenex 招聘]</span></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>哟，够辣。CJ？对，我附和所有这些。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="c"><div class="label"><span class="badge" title="CJ·赫斯（CJ Hess，Tenex 特别项目负责人）">CJ</span></div><div class="content">
+<p>我特别在找工程师。什么是特别项目？</p>
+<p>那是什么？特别项目包括客户工作之外的任何事。所以我想我现在脑子里在忙的。</p>
+<p>就是在内部建那个元 harness 和系统——基本上是找到模型能力的最前沿，并给它们工具去</p>
+<p>增强它们能做得多好。然后也在内部做亚历克斯提到的那个平台。</p>
+<p>那里有个大目标：把这些后台 agent 扩散出去，以真正真正对企业有帮助的方式交到企业手里。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="s"><div class="label"><span class="badge" title="swyx（Shawn Wang，主持人）">swyx</span></div><div class="content">
+<p>对。并解决我们前面碰到的那些乱七八糟的 IT 问题。哥们，你们有解决方案的时候，我们 Latent Space 博客收客座文章。</p>
+<p>我很乐意欢迎知识分享。不然的话，非常感谢你们的时间。又在纽约见到你们真好。对，彼此彼此。谢谢。一年一次，一年一次。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）">亚历克斯</span></div><div class="content">
+<p>太棒了。谢谢。</p>
+</div></div>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Latent Space", "title": "纽约 AI：Tenex 如何打造 AI 原生工程团队 — 亚历克斯·利伯曼与 CJ·赫斯", "url": "https://www.youtube.com/watch?v=Vki6cklFqxo", "videoId": "Vki6cklFqxo", "published_at": "2026-10-21", "duration": 2613, "caption_source": "YouTube 官方字幕（en-US，普通 yt-dlp 获取，无需 cookies）；中文为逐句全文翻译；人名（swyx / 亚历克斯·利伯曼 Alex Lieberman / CJ·赫斯 CJ Hess / 阿尔芒 Armand）按官方字幕并结合节目简介与对话上下文校正；caption_source=official", "guests": ["亚历克斯·利伯曼（Alex Lieberman）", "CJ·赫斯（CJ Hess）"], "speakers": [{"id": "s", "name": "swyx（Shawn Wang，主持人）", "role": "host", "short": "swyx"}, {"id": "a", "name": "亚历克斯·利伯曼（Alex Lieberman，Tenex 联合创始人）", "role": "guest", "short": "亚历克斯"}, {"id": "c", "name": "CJ·赫斯（CJ Hess，Tenex 特别项目负责人）", "role": "guest", "short": "CJ"}], "intro": {"summary": "在 AI Engineer 纽约现场，swyx 与 Tenex 联合创始人亚历克斯·利伯曼、特别项目负责人 CJ·赫斯对谈：按故事点付酬、元 harness 与仓库里的决策记忆、企业 AI 采用里程碑、垂直 AI 与「杀掉我的 SaaS」，以及纽约相对旧金山的 AI 生态。", "points": ["Tenex：帮企业从「没有 AI」走到「AI 原生」；约 75 人，90% 为工程师或 AI 战略顾问；约一半客户为《财富》2000，一半为中端市场", "按产出（故事点）付酬：收入能力差距约 4 倍；AI 战略顾问激励与工程师对冲；难点在补偿非写代码时间", "元 harness：仓库内结构化文档 + CLI，计划/决策检入 Git；今年产出约 2×；模型偏好偏 Opus 5.5 + Codex 互审，CJ 猛用 AMP", "企业采用阶梯：通用 LLM ~90% → 培训赋能 ~60% → 编程 agent ~50% → 非工程生产级 agent ~5%；痛点含权限/RBAC 与「无法自动化不存在的流程」", "对垂直 AI 偏空 vs 数据护城河/Superhuman 式应用层；Kill My SaaS：4 万美元/年报价、约 1000 美元自建；越往上拆系统越难", "岗位：增强与再配置而非简单裁员；纽约是更小的 AI 泡泡但商业价值池大；片尾 Tenex 招聘口播已灰标"], "verdict": "值得看：约 43 分钟，密度高，适合关心 AI 原生工程组织、企业 agent 落地与纽约 AI 生态的听众；若只关心工具栈可跳到元 harness / 模型偏好段。", "audience": "工程负责人、AI 转型/FDE、企业 IT 与在纽约做 AI 的创业者"}, "paragraphs": [{"start_sec": 16, "speaker_id": "s", "type": "text", "zh": "【音乐】"}, {"start_sec": 26, "speaker_id": "s", "type": "text", "zh": "好，我们在 AI Engineer 现场，和 Tenex 聊聊。欢迎回来，亚历克斯。谢谢。谢谢邀请我们。你还带来了工程总监 CJ。"}, {"start_sec": 34, "speaker_id": "s", "type": "text", "zh": "欢迎上节目。Tenex 特别项目负责人。好，特别项目负责人。"}, {"start_sec": 38, "speaker_id": "s", "type": "text", "zh": "行，你就是特种部队。对，对。你以前上过这档节目，大家对"}, {"start_sec": 46, "speaker_id": "a", "type": "text", "zh": "Tenex 的故事大概有点印象，但能不能从头再介绍一下——2026 年你们怎么自我介绍？很简单，Tenex 是一家应用型 AI 合作伙伴，帮一些全球最大的公司从「没有 AI」走到「AI 原生」。"}, {"start_sec": 59, "speaker_id": "a", "type": "text", "zh": "我们的信念是：AI 很了不起，但它是原始智能。而最难的问题，是最后一公里——真正把它扩散"}, {"start_sec": 68, "speaker_id": "a", "type": "text", "zh": "到整个经济里。所以我们的定位，就是做那个帮助企业把这一切"}, {"start_sec": 75, "speaker_id": "a", "type": "text", "zh": "理清楚的选手。我能说脏话吗？把这些破事都搞明白。"}, {"start_sec": 78, "speaker_id": "s", "type": "text", "zh": "可以可以。对，我们在 Apple Podcasts 上有明确的成人内容标签。不过我最近发现 YouTube 不太喜欢这个。"}, {"start_sec": 84, "speaker_id": "a", "type": "text", "zh": "哦，真的？他们挺……对，你不能说那个 F 开头的词。"}, {"start_sec": 87, "speaker_id": "s", "type": "text", "zh": "那我是不是刚搞砸了你的视频？你打算怎么办？无所谓。没事。我们是给成年人听的。"}, {"start_sec": 92, "speaker_id": "s", "type": "text", "zh": "CJ，是什么吸引你加入 Tenex？"}, {"start_sec": 94, "speaker_id": "c", "type": "text", "zh": "其实我是第一个员工。我甚至不确定当时亚历克斯和阿尔芒是不是已经有 Tenex 这个名字，"}, {"start_sec": 100, "speaker_id": "c", "type": "text", "zh": "但在 Tenex 之前，我有一堆创业失败的「坟场」，最终演化成了我自己的那种工程咨询"}, {"start_sec": 110, "speaker_id": "c", "type": "text", "zh": "公司。我在那儿做过传统工程，后来转向做一些 AI 咨询，越来越多地用 AI 去构建。我本职是软件工程师。"}, {"start_sec": 121, "speaker_id": "c", "type": "text", "zh": "我只是感觉自己的产出越来越好、越来越快，但最后挣得却更少。"}, {"start_sec": 130, "speaker_id": "c", "type": "text", "zh": "我那时是按小时向客户收费的。而我真的很喜欢亚历克斯最早在 Twitter 上发的那种 Tenex 理念——奖励工程师的产出，而不是"}, {"start_sec": 143, "speaker_id": "c", "type": "text", "zh": "奖励他们的时间。快进两年你会看到，工程师现在可以把大量工作并行化，产出高得多。当时用"}, {"start_sec": 155, "speaker_id": "c", "type": "text", "zh": "Sonnet 3.5、Gemini 2.5 Pro，可能还不那么明显，但我基本上押注：以我的技能，再更多倚仗 AI，我可以有"}, {"start_sec": 167, "speaker_id": "c", "type": "text", "zh": "高得多的产出，最终也有更高的赚钱能力。从那以后我就爱上了这种模式。我觉得这才是工程的未来真正样子。最终当 AI"}, {"start_sec": 182, "speaker_id": "c", "type": "text", "zh": "解决所有这些技术问题时，公司会按结果付钱，而不会再按建造某样东西所需的时间付钱。"}, {"start_sec": 189, "speaker_id": "s", "type": "text", "zh": "对。想了解更多细节，可以回看我们上一期节目——你们真的是按故事点给人发钱。"}, {"start_sec": 194, "speaker_id": "s", "type": "text", "zh": "对。你们只需要就故事点达成一致。但那也意味着，有些 10x 工程师一年真的能挣到几百万"}, {"start_sec": 200, "speaker_id": "s", "type": "text", "zh": "美元，另一些人可能挣得没那么多，只是因为没那么高产。"}, {"start_sec": 204, "speaker_id": "a", "type": "text", "zh": "对，没错。论点是：AI 本质上是对人的智力和工作伦理的杠杆押注。所以收入能力上的方差会比以往任何时候都大。"}, {"start_sec": 214, "speaker_id": "a", "type": "text", "zh": "我们的看法是，我们的模式并不适合所有人；但对那些基本想「做多自己」、有扎实软件工程功底、又不断逼自己用前沿能力、在保证质量的前提下把时间拉伸到极限的人来说，没有更好的赚钱方式。"}, {"start_sec": 233, "speaker_id": "s", "type": "text", "zh": "上次我跟你聊的时候，好像有两三个人一年能挣到一百万或超过一百万。"}, {"start_sec": 240, "speaker_id": "a", "type": "text", "zh": "现在有更新吗？有有有。先画个图：我们 18 个月前创办 Tenex，开始做这家公司。"}, {"start_sec": 249, "speaker_id": "a", "type": "text", "zh": "一开始其实更像是一家 AI 驱动的开发作坊。最初的想法是：工程有点像 AI 的"}, {"start_sec": 256, "speaker_id": "a", "type": "text", "zh": "矿井金丝雀。一部分动力来自我的联合创始人阿尔芒，他本职是技术人，"}, {"start_sec": 263, "speaker_id": "a", "type": "text", "zh": "已经开始大量用编程 agent。然后他认识一些人还在往 IDE 里打字，完全不采用这项技术。于是我们想，为什么不直接给那些还没采用的公司工程组织"}, {"start_sec": 275, "speaker_id": "a", "type": "text", "zh": "加个超级增压？我们就从那儿起步。后来我们从初创和中端市场往上走，"}, {"start_sec": 282, "speaker_id": "a", "type": "text", "zh": "到现在大约 50% 客户是《财富》2000 强，另外 50% 是年收入 1 到 5 亿美元的中端市场。"}, {"start_sec": 291, "speaker_id": "a", "type": "text", "zh": "他们要的不只是给人凑编制和 AI 工程。他们要的是「AI 转型即服务」。"}, {"start_sec": 298, "speaker_id": "a", "type": "text", "zh": "今天公司有 75 人。其中 90% 员工要么是工程师，要么是 AI 战略顾问，"}, {"start_sec": 307, "speaker_id": "a", "type": "text", "zh": "后者基本可以想成技术顾问。我觉得这个论点已经被验证了："}, {"start_sec": 313, "speaker_id": "a", "type": "text", "zh": "Tenex 里最高薪工程师和最低薪工程师之间的收入能力差距非常大，大概在 4 倍左右。"}, {"start_sec": 324, "speaker_id": "a", "type": "text", "zh": "哦，不是 10 倍？不是 10 倍差距，对。那是梦想。对，没错。"}, {"start_sec": 329, "speaker_id": "a", "type": "text", "zh": "但论点里该被验证的都对了。我们基于故事点付酬的模式也有有趣的教训——"}, {"start_sec": 336, "speaker_id": "a", "type": "text", "zh": "我们知道会有一些极限，以及我们接下来怎么想这件事。"}, {"start_sec": 342, "speaker_id": "a", "type": "text", "zh": "但总体来说，人们对「按产出付酬」的经典担忧——故事点太主观、有人会故意压低故事点，或者交付一堆烂代码、勉强勾完复选框——"}, {"start_sec": 355, "speaker_id": "a", "type": "text", "zh": "对，正好卡线。但没真正把活干好。对，没错。我会说这两点顾虑在我们这儿"}, {"start_sec": 360, "speaker_id": "a", "type": "text", "zh": "根本不成问题，因为我们有 AI 战略顾问。我们把激励设计和工程师几乎完全对冲：AI 战略顾问的激励是客户留存和增长。实际上最大的"}, {"start_sec": 373, "speaker_id": "a", "type": "text", "zh": "挑战是：工程师在不写代码的时间——架构、见客户——怎么补偿。"}, {"start_sec": 383, "speaker_id": "a", "type": "text", "zh": "所以薪酬模型里必须找到一些 nuance，但大体上仍由产出驱动。还有要补充的吗？对，这方面我想了很多，"}, {"start_sec": 392, "speaker_id": "c", "type": "text", "zh": "因为回顾我在 Tenex 的经历：我曾经大量写代码、大量写代码、写得少一点，"}, {"start_sec": 401, "speaker_id": "c", "type": "text", "zh": "现在差不多到了这个阶段——只要给模型正确上下文，它们就能把你带到解法的 90%。我觉得这里有个机会：真正的价值是坐下来听客户把能倒的都倒出来，再把这些交给模型，真正更接近解法。"}, {"start_sec": 413, "speaker_id": "c", "type": "text", "zh": "所以我想象未来我们会更看真正的产出是什么、怎么工作、长什么样，而不再完全是传统故事点模型，但故事点仍会是锚定单位。还有一件事我不确定我们以前聊过没有——「元 harness」这个概念，也就是 Tenex 用的工程工作流，它让我们能在长时任务上做出很有意义的工作。你要不要讲讲我们的流程？我觉得大家会感兴趣。好。我们基本上开始尝试把一组技能标准化。"}, {"start_sec": 440, "speaker_id": "a", "type": "text", "zh": "还有一件事——我不确定我们以前聊过没有——就是「元 harness」这个概念，也就是 Tenex 使用的工程工作流，它让我们能在长时任务上做出很有意义的工作。你要不要"}, {"start_sec": 455, "speaker_id": "c", "type": "text", "zh": "讲讲我们的流程？我觉得大家会感兴趣。好。我们基本上开始尝试把一组技能标准化。"}, {"start_sec": 464, "speaker_id": "c", "type": "text", "zh": "我觉得大多数工程组织到现在都做过类似的事。对我们来说，它演变成了仓库里一套非常结构化的文档，再加上"}, {"start_sec": 475, "speaker_id": "c", "type": "text", "zh": "围绕它的 CLI，模型用这些来真正驱动正在做的工作——无论是做计划、可视化，还是给客户做某种汇报——基本上是把真正写代码之外的流程部件，都更自动、更标准地在全团队跑起来。所以我们有"}, {"start_sec": 495, "speaker_id": "c", "type": "text", "zh": "几样东西，比如一份很大的规范计划文档，结构有些相似，但随着模型变强，我们其实"}, {"start_sec": 505, "speaker_id": "c", "type": "text", "zh": "减少了结构上的硬性约束。这些东西大致都类似。"}, {"start_sec": 511, "speaker_id": "c", "type": "text", "zh": "但一旦有了计划，你就真正去建。我们对 agent 如何记录决策、记录自己在做什么，有非常鲜明的主张，"}, {"start_sec": 517, "speaker_id": "c", "type": "text", "zh": "并跟踪它们在忙什么。一切都检入 Git。"}, {"start_sec": 522, "speaker_id": "c", "type": "text", "zh": "对。所有这些都检入。现在对我来说，这一切更多是 Markdown，也有更多 HTML。"}, {"start_sec": 527, "speaker_id": "c", "type": "text", "zh": "我喜欢看 agent 吐出来的那些「图画书」。但所有这些都会检入，然后它就变成一个界面：你不仅"}, {"start_sec": 535, "speaker_id": "c", "type": "text", "zh": "有代码作为源——我觉得还有个争论：你到底还需不需要文档？代码本身能不能当代码库的记忆。"}, {"start_sec": 543, "speaker_id": "c", "type": "text", "zh": "而我确实觉得需要。你需要知道为什么做某个决定，需要知道当时对话的上下文。"}, {"start_sec": 549, "speaker_id": "c", "type": "text", "zh": "但最终，这些加上代码库——如果有问题，如果有需要回答的事、要回头看为什么做了某事——我们总是有一份持久记录。"}, {"start_sec": 559, "speaker_id": "c", "type": "text", "zh": "而且它从来不在某个人脑子里。它总是在仓库里。这就给了我们的 agent 和工具超能力，拥有全部"}, {"start_sec": 567, "speaker_id": "c", "type": "text", "zh": "上下文——而很多工程团队至今还只把这些放在对话或脑子里。"}, {"start_sec": 574, "speaker_id": "c", "type": "text", "zh": "我们的目标是继续把这件事往前推，让所有上下文都在一个地方，越来越多的工作由 agent 驱动，而不是我们凡事都要事先喂进去。"}, {"start_sec": 584, "speaker_id": "a", "type": "text", "zh": "对，太棒了。我们甚至用一种方式衡量这些流程有没有用：公司里每位工程师的月均故事点是不是在上升？"}, {"start_sec": 596, "speaker_id": "s", "type": "text", "zh": "对。那你觉得跟今年初比怎么样？"}, {"start_sec": 602, "speaker_id": "c", "type": "text", "zh": "我不知道。你觉得呢？你觉得……加 50%？我觉得，真的要看情况，因为我们有些人……"}, {"start_sec": 609, "speaker_id": "c", "type": "text", "zh": "我在 Twitter 上看到一张图：一个人对着魔法球，天上还有一堆东西。我就把我们有些工程师想成那样——他们把 agent 甩来甩去。"}, {"start_sec": 619, "speaker_id": "c", "type": "text", "zh": "我会说，总体今年大概有 2 倍增长。基本上，如果你把 12 月想成 Opus 4.5 时刻——"}, {"start_sec": 628, "speaker_id": "c", "type": "text", "zh": "模型真正开始能接长时任务——到今天我们又回到 Opus，但是Opus 5.5。那真是个了不起的模型，能干大量工作。"}, {"start_sec": 639, "speaker_id": "c", "type": "text", "zh": "在那段时间里，我看到工程师的实际产出，我会说，大概翻倍——同样时间跨度里他们能覆盖的事比以前"}, {"start_sec": 649, "speaker_id": "c", "type": "text", "zh": "多一倍。现在一个故事点的「价值」还和一年前一样吗？我们一直在校准。"}, {"start_sec": 656, "speaker_id": "c", "type": "text", "zh": "这是个棘手的方程。是通胀还是通缩？理论上应该是通缩，对吧？"}, {"start_sec": 663, "speaker_id": "c", "type": "text", "zh": "对。我不知道。我们大致是这么想的。至少每季度我们会坐下来评估，"}, {"start_sec": 670, "speaker_id": "c", "type": "text", "zh": "这些故事点的标准是什么？我们实际怎么估算这些项目？"}, {"start_sec": 675, "speaker_id": "c", "type": "text", "zh": "要在继续奖励这种产出、和模型变强后校准我们创造的价值之间，找到精细平衡。"}, {"start_sec": 686, "speaker_id": "s", "type": "text", "zh": "所以总体我会说，那大约 2 倍在估算里也扮演了类似角色；但如果只看人们现在推出来的功能和一年前比，差别大到离谱。这条线我可以从好几个方向聊，但我先看看模型偏好——这永远是热门话题。我觉得你们是让大家自己选喜欢的工具，但也许办公室里有偏好统计。"}, {"start_sec": 717, "speaker_id": "s", "type": "text", "zh": "看起来 Opus 领先。你能估一下市场份额之类的吗？"}, {"start_sec": 722, "speaker_id": "c", "type": "text", "zh": "现在的 vibe 是 Opus 5.5，我觉得。没有 Fable？"}, {"start_sec": 727, "speaker_id": "c", "type": "text", "zh": "我不太用 Fable，我觉得很多人现在都默认不用它了。Opus 太好了。又快又便宜。基本上把我的勾选项都打满了。"}, {"start_sec": 737, "speaker_id": "c", "type": "text", "zh": "以前我会同时用两到三个模型——便宜又快的、特别聪明的、能解决特定问题的。现在 Opus 差不多覆盖了我的全范围。"}, {"start_sec": 750, "speaker_id": "c", "type": "text", "zh": "我觉得团队里很多人在更偏 computer use 的场景还会伸手去用 Codex 这类工具。工作流上，我觉得两者都用仍然最好——"}, {"start_sec": 763, "speaker_id": "c", "type": "text", "zh": "不管你的主力是什么，对我们大多数人来说是 Opus 5.5——用 Codex 来审，让它们在你机器上来回协作，"}, {"start_sec": 771, "speaker_id": "c", "type": "text", "zh": "仍然能产出最好的结果。但现在我们在这两样上挺一致。"}, {"start_sec": 777, "speaker_id": "s", "type": "text", "zh": "你还在猛用 AMP 吗？"}, {"start_sec": 780, "speaker_id": "c", "type": "text", "zh": "哦，我还在猛用 AMP。"}, {"start_sec": 782, "speaker_id": "s", "type": "text", "zh": "所以你是通过 AMP 用 Opus？"}, {"start_sec": 784, "speaker_id": "c", "type": "text", "zh": "对，他们最近……或者说那是 AMP 的默认模型。"}, {"start_sec": 787, "speaker_id": "c", "type": "text", "zh": "对，他们最近上线了接入你 Cloud Code 订阅的能力。这对我来说是个挺大的游戏规则改变。"}, {"start_sec": 795, "speaker_id": "s", "type": "text", "zh": "因为那能把成本砍掉大概 80%。"}, {"start_sec": 798, "speaker_id": "c", "type": "text", "zh": "完全同意。我爱 AMP，是因为它把一切从我电脑上拿走。他们有云端设置，那些 orb。"}, {"start_sec": 807, "speaker_id": "c", "type": "text", "zh": "我们上周还跟他们合办过一场 happy hour，很酷，见到团队，一起「orb out」。"}, {"start_sec": 815, "speaker_id": "s", "type": "text", "zh": "那永远成不了流行语。"}, {"start_sec": 817, "speaker_id": "c", "type": "text", "zh": "哦，我想把它变成流行语。这可能是历史上第一次有人这么说。"}, {"start_sec": 821, "speaker_id": "s", "type": "text", "zh": "我们在 orbing out。我们当时在 orbing out。不，他们自己说「it's orbing time」。"}, {"start_sec": 824, "speaker_id": "c", "type": "text", "zh": "对。但那就是我首选的界面。模型方面，如果我倚仗 Codex，"}, {"start_sec": 831, "speaker_id": "s", "type": "text", "zh": "就是 Sol6 那一档。你试过 CloudTag 吗？Anthropic 从没像 Orbs 那样抓住远程环境这件事，是不是挺怪？"}, {"start_sec": 838, "speaker_id": "c", "type": "text", "zh": "对，我觉得有一部分是 AMP 那边很有主见，并不想做通用方案。Cloud Code in the cloud、CloudTag 这类工具，"}, {"start_sec": 852, "speaker_id": "c", "type": "text", "zh": "我觉得对那些想在非技术任务上协作的团队有价值。但我爱 AMP 的部分原因是它有这些跨模型功能，我能这么干。"}, {"start_sec": 866, "speaker_id": "c", "type": "text", "zh": "Opus 写完，我甚至可以跳到另一个 orb，说「看那个 orb，审一下」。所有这些合在一起，基本上复刻我在本机做的事。用 Cloud Code in the cloud、Cloud Tag，我就是到不了那个点。"}, {"start_sec": 879, "speaker_id": "s", "type": "text", "zh": "对对，有道理。另一件我今年开始追踪的事，是 token 花费相对员工花费的比例。不知道你们有没有这个数。"}, {"start_sec": 889, "speaker_id": "s", "type": "text", "zh": "大概多数公司每个员工花 10 到 200 美元量级。更 AI 原生的会把它换成百分比，"}, {"start_sec": 902, "speaker_id": "s", "type": "text", "zh": "大概 10%。一般 AI 创业公司员工大约是 1 倍——员工花费对 token 花费——然后 token 花费可以到 5 到 10 倍。"}, {"start_sec": 915, "speaker_id": "s", "type": "text", "zh": "你们落在哪个区间？"}, {"start_sec": 917, "speaker_id": "c", "type": "text", "zh": "我脑子里其实没有一个现成数字。要说原始 token，我会说大概在"}, {"start_sec": 924, "speaker_id": "c", "type": "text", "zh": "1 比 1 到大概 2 比 1 之间。"}, {"start_sec": 929, "speaker_id": "s", "type": "text", "zh": "真的？那挺高。我们想很多的是：什么时候该伸手用最大的模型。"}, {"start_sec": 936, "speaker_id": "c", "type": "text", "zh": "我觉得每家公司都开始想这个。但我会说最近成本被 Opus"}, {"start_sec": 944, "speaker_id": "c", "type": "text", "zh": "5.5 压得很低。我们经历过一段人人都用 Astra 和 Fable 的时期，它们结果最好。但那些模型最终很贵。"}, {"start_sec": 952, "speaker_id": "s", "type": "text", "zh": "而且，自从我们上次聊过之后，很多人经历过那种 token 猛堆、token 排行榜之类的时代，然后又说：哦不不不不，现在成本太高了。"}, {"start_sec": 961, "speaker_id": "s", "type": "text", "zh": "而这其实是世界上最可预期的事。你们担心过吗，还是说不管怎么样 ROI"}, {"start_sec": 967, "speaker_id": "c", "type": "text", "zh": "都很好？对，我有几种想法：我们肯定担心过，尤其人头在涨的时候。我觉得"}, {"start_sec": 982, "speaker_id": "c", "type": "text", "zh": "也是——尽管我们团队，我会说，我不觉得团队里有谁真正信奉那种 token 猛堆的时代精神，因为……"}, {"start_sec": 994, "speaker_id": "s", "type": "text", "zh": "我有过几个瞬间。对，我也是。但就像：反正老板买单，我先疯一把，对吧？"}, {"start_sec": 1001, "speaker_id": "s", "type": "text", "zh": "因为你得先做那些奇怪的事，才能再往回收；你必须先做奇怪的事，才能发现能带走的教训。"}, {"start_sec": 1009, "speaker_id": "a", "type": "text", "zh": "对，完全同意。这听起来可能很疯，我想听听你的想法——我早些时候跟人聊到一个还在继续的争论……"}, {"start_sec": 1018, "speaker_id": "a", "type": "text", "zh": "我保证这相关。我早些时候跟人聊到那些数据公司，对吧？"}, {"start_sec": 1025, "speaker_id": "a", "type": "text", "zh": "比如 Micro One、Mercore、Handshake。这些业务的长期会怎样？因为它们 90% 以上收入来自实验室。"}, {"start_sec": 1037, "speaker_id": "a", "type": "text", "zh": "不少创始人会争辩说，他们觉得会翻转——未来几年变成企业驱动。那接下来你得相信：如果企业会成为那些数据的核心买家，企业就会大量在自己的模型上做微调。"}, {"start_sec": 1054, "speaker_id": "a", "type": "text", "zh": "然后问题变成：这在哪里说得通？要么你觉得质量会更好——但前沿的标准会一直往前移。"}, {"start_sec": 1063, "speaker_id": "a", "type": "text", "zh": "所以那是很难下的注。那就得是价格。价格那条对我来说也难，因为我们就是在看这些模型的 token 成本继续下降。"}, {"start_sec": 1072, "speaker_id": "a", "type": "text", "zh": "所以我们内部不太担心的一部分原因是：几乎感觉已经到了帕累托点——按任务计的成本在降。今天要比六到八个月前更难靠猛堆 token 把公司成本搞崩。我几乎觉得六到八个月前才是你会"}, {"start_sec": 1101, "speaker_id": "a", "type": "text", "zh": "真正担心的那个点。对。你同意吗？"}, {"start_sec": 1103, "speaker_id": "c", "type": "text", "zh": "对。我觉得未来可能有几种走法：如果有一个世界里有 Astra 6.5、Fable 5.5，超级贵但结果最好，"}, {"start_sec": 1115, "speaker_id": "c", "type": "text", "zh": "我能看到我们又往那个方向偏；但总体我同意，你看他们昨天今天刚发的 Muse Wonder，它在"}, {"start_sec": 1127, "speaker_id": "c", "type": "text", "zh": "前沿上，又脏便宜，开源和闭源竞争都在升温。我觉得这会继续把成本往下推。真正看的时候，很多"}, {"start_sec": 1140, "speaker_id": "c", "type": "text", "zh": "有经济价值的任务用 Opus 5.5 就能做。所以那个悬崖是：一个聪明十倍的模型，真的能证明把表格里几个格子"}, {"start_sec": 1153, "speaker_id": "s", "type": "text", "zh": "挪一下的成本合理吗？大概不能。对。回到你们客户和市场，"}, {"start_sec": 1158, "speaker_id": "s", "type": "text", "zh": "你们最常接到的需求是什么？然后有什么是别人找上门来，你们却说：不，我们其实还不想接"}, {"start_sec": 1166, "speaker_id": "s", "type": "text", "zh": "这种活？"}, {"start_sec": 1168, "speaker_id": "a", "type": "text", "zh": "对。我思考这件事的一种方式，是把企业采用 AI 看成一场比赛里的不同里程碑。"}, {"start_sec": 1177, "speaker_id": "a", "type": "text", "zh": "尤其在 AIE，当我告诉人们有多少比例的公司到了这些里程碑时，他们差不多被惊到。"}, {"start_sec": 1185, "speaker_id": "a", "type": "text", "zh": "但就像：企业 AI 竞赛的第一个里程碑，只是把通用 LLM 推给员工。我会说，在我们今天聊的大概 100 家企业里，"}, {"start_sec": 1201, "speaker_id": "a", "type": "text", "zh": "90% 已经给员工上了 Claude 或 Codex。下一个里程碑是真正教人怎么用——"}, {"start_sec": 1212, "speaker_id": "a", "type": "text", "zh": "培训和赋能，这件事永远得不到应有的重视，但arguably 和技术本身一样重要，甚至更重要。我会说大概在 60%。"}, {"start_sec": 1221, "speaker_id": "s", "type": "text", "zh": "哦，那还不错。对对。有一拨公司觉得"}, {"start_sec": 1226, "speaker_id": "a", "type": "text", "zh": "「我们的人自己会搞明白」；但也有挺大一拨说：好，我们得教人什么是 skills，得教人这些界面的功能和用法。再下一个，在通用 LLM 的培训赋能之后，是"}, {"start_sec": 1241, "speaker_id": "a", "type": "text", "zh": "编程 agent。疯狂的是，我在这儿问了几个人，"}, {"start_sec": 1247, "speaker_id": "a", "type": "text", "zh": "你们觉得有多少比例的企业已经把编程 agent 推给工程产品组织？大多数人说：肯定 70% 或 80%。"}, {"start_sec": 1255, "speaker_id": "a", "type": "text", "zh": "实际数字更接近 50%。差不多每两家我们聊的企业，要么还没上"}, {"start_sec": 1262, "speaker_id": "a", "type": "text", "zh": "编程 agent，要么他们用的东西更接近「没有编程 agent」而不是「有」。再下一个——我觉得最大的掉崖就在这儿——从原始智能到企业用法最大的扩散鸿沟，是非工程工作的生产级 agent"}, {"start_sec": 1281, "speaker_id": "a", "type": "text", "zh": "掉到大概 5%。就像——你整天都在这些对话里——但我们聊的大多数超过一千人的企业，并没有一个生产中的 agent 在做「不写软件」的工作。所以我觉得有几件事。"}, {"start_sec": 1300, "speaker_id": "a", "type": "text", "zh": "一是，因为整个浪潮是由一小撮人真正理解技术能做什么，和一大群被 FOMO 驱动的人共同推动的。顺便说，FOMO 不坏，它制造向前的动量，但也意味着"}, {"start_sec": 1308, "speaker_id": "a", "type": "text", "zh": "人们会抓住最在 zeitgeist 里的东西。我猜过去一年半人们一直在说「今年是 agent 之年」——不管多久了。每一年都是 agent 之年。"}, {"start_sec": 1322, "speaker_id": "a", "type": "text", "zh": "企业会说：你能不能帮我们在组织里某个后台任务上建个 agent。那是最常见的需求之一。也因此现在我们在 Tenex 很多工作是把 agent 部署进生产，给公司做工程组织之外的"}, {"start_sec": 1332, "speaker_id": "a", "type": "text", "zh": "可重复工作。第二是权限和 RBAC。基本上，当公司里每个员工都有 Claude 或 Codex，又需要访问"}, {"start_sec": 1351, "speaker_id": "a", "type": "text", "zh": "某些数据时，对 CIO 和 CISO 来说变成绝对噩梦。他们基本上没有一个好用的网关，能轻松做"}, {"start_sec": 1361, "speaker_id": "a", "type": "text", "zh": "几乎像数据权限的控制面板。字面意思就是：你能读什么、不能读什么。"}, {"start_sec": 1369, "speaker_id": "a", "type": "text", "zh": "没错。那是个大问题。所以我们花很多时间在这上面。"}, {"start_sec": 1371, "speaker_id": "s", "type": "text", "zh": "所以你们是给人定制，还是买现成的？"}, {"start_sec": 1375, "speaker_id": "a", "type": "text", "zh": "我们一开始是给公司做定制，现在其实已经产品化了，有自己的网关方案。"}, {"start_sec": 1379, "speaker_id": "s", "type": "text", "zh": "对，没错。还有别的你们从客户那儿听到很多的吗？"}, {"start_sec": 1387, "speaker_id": "c", "type": "text", "zh": "我觉得就 agent 部署来说，上面这些覆盖了我们听到的。我觉得有一个痛点总会被发现，"}, {"start_sec": 1398, "speaker_id": "c", "type": "text", "zh": "我对团队的说法是：你无法自动化一个不存在的流程。所以当你有 40 个人大致做同一类职能，"}, {"start_sec": 1407, "speaker_id": "c", "type": "text", "zh": "所以当你有 40 个人大致做同一类职能，但每人做法都略有不同时，其实更难建一个能在后台"}, {"start_sec": 1418, "speaker_id": "c", "type": "text", "zh": "主动做那件事的 agent。你可以坐下来给他们工具、带他们增强自己的工作流；但真正获得杠杆，是当这些 agent 把工作浮现给你、你审、你打回去，你更像大家一直在说的「成为 agent 经理」——我觉得我们正站在那个临界点上。但当你拉开看，我们常常给公司的建议是：嘿，首先我们需要在你们公司这个组织周围建一个流程。然后才是把工作"}, {"start_sec": 1451, "speaker_id": "c", "type": "text", "zh": "交给后台 agent 的步骤。但如果没有某种标准化，就不可能让 agent 知道自己做得对不对，我们也不可能围绕系统做评估，真正交付一个做该职能的 agent 本该有的价值。而且"}, {"start_sec": 1467, "speaker_id": "a", "type": "text", "zh": "还有一件我想听听你的想法——我们刚才开场前还在聊——CJ 不会介意我分享——我们在聊垂直细分 AI 方案，以及这些方案的未来会怎样。我们总体上"}, {"start_sec": 1486, "speaker_id": "a", "type": "text", "zh": "对垂直细分 AI 方案在不同职能或行业里表达了一种偏空的看法，部分原因只是从我们的视角——整天泡在"}, {"start_sec": 1496, "speaker_id": "a", "type": "text", "zh": "企业的内脏里，有太多 nuance、太多惯性、太多系统要缠、太多人要缠。而且当垂直方案的买家"}, {"start_sec": 1511, "speaker_id": "a", "type": "text", "zh": "期待的是真正的「一对一」体验时——我们正处在人们期待一对一软件方案的时代。所以如果你期待那个，就不奇怪"}, {"start_sec": 1525, "speaker_id": "a", "type": "text", "zh": "每家软件公司都在建 FDE 团队——因为当每家公司都想要传统软件并不提供的那些 nuance 时，服务和软件正在收敛。所以我觉得很有意思去想，对，对垂直细分方案来说。"}, {"start_sec": 1544, "speaker_id": "a", "type": "text", "zh": "要么一，如果人人都期待一对一方案，他们怎么可能做到软件利润率？还有，我们为什么不该预期前沿模型会把它们一口吃掉。"}, {"start_sec": 1559, "speaker_id": "s", "type": "text", "zh": "对。举些具体例子，你说的是律师的 Harvey。对。医生的 OpenEvidence。这些是大家常说的在各自领域赢的经典例子。"}, {"start_sec": 1570, "speaker_id": "a", "type": "text", "zh": "你对他们偏空？我会说总体上偏空。"}, {"start_sec": 1573, "speaker_id": "s", "type": "text", "zh": "对。哇。那到目前为止你错了。"}, {"start_sec": 1576, "speaker_id": "s", "type": "text", "zh": "对。我觉得答案很简单：有ChatGPT 拿不到的数据访问，这很常见。那是护城河。"}, {"start_sec": 1585, "speaker_id": "s", "type": "text", "zh": "显然 Anthropic 和 OpenAI 也在收购同样的数据源，但他们不会像这些家伙那么专注。"}, {"start_sec": 1594, "speaker_id": "s", "type": "text", "zh": "他们确实有创新。如果你试过 Harvey，他们有 Tabular Review。"}, {"start_sec": 1600, "speaker_id": "s", "type": "text", "zh": "Legora 也有。我们请过他们的 CTO 上节目——他们有 affordances 和 UI，正因为只服务这些人而完全定制。"}, {"start_sec": 1610, "speaker_id": "s", "type": "text", "zh": "卖点基本上是专注。专注，也许还有 affordances。"}, {"start_sec": 1614, "speaker_id": "s", "type": "text", "zh": "你说的 affordances 是什么意思？某种程度上，就像你们在意客户的最后一公里，他们也在意软件层面的最后一公里。只要人们在那套软件里训练出来，它就不会消失。"}, {"start_sec": 1623, "speaker_id": "s", "type": "text", "zh": "就像当银行家，或者说在我的金融生涯里，我总能从纳斯达克、从纽约证券"}, {"start_sec": 1632, "speaker_id": "s", "type": "text", "zh": "交易所拿到一模一样的信息。但我为什么每年付 5 万美元给彭博？只是因为那是我所有同行都在用的，"}, {"start_sec": 1639, "speaker_id": "s", "type": "text", "zh": "而且都帮我整合好了、为我特化了。这样我不会犯错之类的。"}, {"start_sec": 1644, "speaker_id": "s", "type": "text", "zh": "或者它接到我的交易系统、聊天、新闻系统。"}, {"start_sec": 1649, "speaker_id": "a", "type": "text", "zh": "不，我觉得人们为彭博付钱，是那个社交网络。我觉得人们爱彭博里的私信。"}, {"start_sec": 1653, "speaker_id": "a", "type": "text", "zh": "有那方面，有那方面。但作为交易员，我知道我实际拿它做什么。"}, {"start_sec": 1658, "speaker_id": "s", "type": "text", "zh": "对对对。所以我觉得有一堆集成和工具，最终很难对它们中任何一个偏空，主要因为对软件、对把工作干好的工具需求实在太大。有些会被 Claude、ChatGPT 这类横向通用工具满足，有些你就是想要更好的东西。"}, {"start_sec": 1678, "speaker_id": "s", "type": "text", "zh": "我总会想到 Superhuman 作为邮件客户端的成功。人人都有 Gmail，但这就是给整天泡在邮件里的人的升级版 Gmail，多一堆东西。"}, {"start_sec": 1689, "speaker_id": "s", "type": "text", "zh": "那就是一个市场。它也许不是世界上最大的创业公司，但每个东西有多大，理性人可以不同意。"}, {"start_sec": 1697, "speaker_id": "s", "type": "text", "zh": "对，完全同意。我觉得不该不同意的是：总市场会变大，水涨船高。"}, {"start_sec": 1706, "speaker_id": "s", "type": "text", "zh": "然后你谈的就是份额压力。对对，我同意。完全同意。"}, {"start_sec": 1710, "speaker_id": "c", "type": "text", "zh": "我觉得甚至还有区分：一些从零用 AI 建起来的新应用。我想起 Superhuman 就是那种。"}, {"start_sec": 1719, "speaker_id": "c", "type": "text", "zh": "我爱 Superhuman。我甚至不花很多时间在邮件上，但任何有……"}, {"start_sec": 1724, "speaker_id": "c", "type": "text", "zh": "不，你一个月付 30 刀只是为了不用操心。任何有酷快捷键的东西我都爱。"}, {"start_sec": 1728, "speaker_id": "c", "type": "text", "zh": "对。但当我想起那些真的把 agent 当产品、在某个垂直里干活的产品时，除非有非常战略性的合规数据"}, {"start_sec": 1744, "speaker_id": "c", "type": "text", "zh": "之类的护城河，我觉得往后它们会越来越吃力——因为我们开始字面看到：要么你能很快自己转起来，随着模型变好继续复利，要么那些任务开始落入"}, {"start_sec": 1761, "speaker_id": "c", "type": "text", "zh": "模型的一般能力范围。但任何有应用和工具围着它转的东西，某种程度上呼应我前面的点：它改变流程，上面再叠 agent。"}, {"start_sec": 1771, "speaker_id": "c", "type": "text", "zh": "我觉得那建立在同一哲学上，而且仍然可以非常有帮助，那些会成功。"}, {"start_sec": 1779, "speaker_id": "s", "type": "text", "zh": "对。哦，好好。所以还有一个相关但不那么辣的观点：并不是没人想用……"}, {"start_sec": 1789, "speaker_id": "s", "type": "text", "zh": "人们大概不想用你建的那个 agent。他们想用自己已经有的 agent，然后把你的数据插进他们的 agent。"}, {"start_sec": 1795, "speaker_id": "s", "type": "text", "zh": "所以人人都坐在你数据的某一部分上，说：请用我的 agent。请付我那每月 20 刀。但你不能把所有这些每月 20 刀订阅叠在一起。"}, {"start_sec": 1805, "speaker_id": "s", "type": "text", "zh": "最终大概会有一小撮公司拥有界面，然后大家只是插进那个总 agent——这点我同意。"}, {"start_sec": 1814, "speaker_id": "s", "type": "text", "zh": "有意思的是 Salesforce 作为系统 of record 公司里大概最大或最出名的，正在拥抱那条路：你不会用我们的 agent。"}, {"start_sec": 1826, "speaker_id": "s", "type": "text", "zh": "我们只提供 API 和 MCP，让你接到自己的东西上。对，挺酷。"}, {"start_sec": 1832, "speaker_id": "s", "type": "text", "zh": "好，我还想走一个例子。我刚公布了 Kill My SaaS 竞赛的结果——我们替换一个中端 SaaS。"}, {"start_sec": 1840, "speaker_id": "s", "type": "text", "zh": "我说中端，意思是大概没那么 trivial，但也不是 Salesforce，落在中间。我觉得外面有很多中端 SaaS，人们总在谈「软件之死」，对吧？"}, {"start_sec": 1852, "speaker_id": "s", "type": "text", "zh": "报价是一年 4 万美元。我们花了 1000 美元替换它。它会进下一场会议的生产环境。"}, {"start_sec": 1859, "speaker_id": "s", "type": "text", "zh": "所以我们就是那种客户：我想要一对一工具，并期待所有这些东西。我们在为自己的业务建领域或垂直特化的东西。到目前为止还行。"}, {"start_sec": 1870, "speaker_id": "s", "type": "text", "zh": "告诉我哪里会出问题。另外我也好奇那是多少故事点。对，CJ 可以给它估故事点。"}, {"start_sec": 1878, "speaker_id": "a", "type": "text", "zh": "我的总体看法是——我的总体看法是：越往市场上走，"}, {"start_sec": 1889, "speaker_id": "a", "type": "text", "zh": "「拆掉从零重建」的命题就越难。我同意你。有人——很小一撮人——"}, {"start_sec": 1898, "speaker_id": "a", "type": "text", "zh": "说过 Salesforce 真的有风险。SAP 真的有风险。我完全不同意。"}, {"start_sec": 1904, "speaker_id": "a", "type": "text", "zh": "在我脑子里，那些生意在这个时点就是在积累价值。它们积累价值的一部分原因是：赌注太大——公司拆错了可能是几亿或几十亿。"}, {"start_sec": 1917, "speaker_id": "a", "type": "text", "zh": "你会规避风险。对，没错。对中端，其实取决于机会有多大，以及那会不会成为公司内部最值得"}, {"start_sec": 1933, "speaker_id": "a", "type": "text", "zh": "重建的机会？我甚至在想。"}, {"start_sec": 1938, "speaker_id": "a", "type": "text", "zh": "在企业里，假设有个中端 SaaS 一年要几百万。第一个问题是：从收入或成本占比看，"}, {"start_sec": 1947, "speaker_id": "a", "type": "text", "zh": "它有没有大到值得分配工程师或资源？"}, {"start_sec": 1953, "speaker_id": "a", "type": "text", "zh": "我觉得要个案看。对有些企业，答案可能是是。"}, {"start_sec": 1957, "speaker_id": "a", "type": "text", "zh": "对另一些，答案可能是否。我觉得更多会是能力之外推动公司的东西。"}, {"start_sec": 1965, "speaker_id": "a", "type": "text", "zh": "比如，我们谈过——我忘了谁建的那个仓库。基本上是逆向工程仓库。"}, {"start_sec": 1973, "speaker_id": "a", "type": "text", "zh": "RIA。对，没错。现在人人都在谈那个。"}, {"start_sec": 1977, "speaker_id": "a", "type": "text", "zh": "甚至在 Tenex，我们也从零建了自己的 CRM。"}, {"start_sec": 1985, "speaker_id": "s", "type": "text", "zh": "我们建了什么？"}, {"start_sec": 1987, "speaker_id": "a", "type": "text", "zh": "我们的 OS 是从零建的。我们意识到——每家公司都会意识到——软件的美妙之处不只是你从中得到的效用。"}, {"start_sec": 1997, "speaker_id": "a", "type": "text", "zh": "还有你不必去想的那些维护和改进的头疼事——当它不是你的核心时。所以我觉得归根结底是：奖赏够不够大，能不能证明"}, {"start_sec": 2015, "speaker_id": "a", "type": "text", "zh": "公司里一部分资源去养一个非核心业务所带来的认知负担是值得的？显然，对你们的业务来说，一年差大概 3.9 万美元，你们隐含地说值得。"}, {"start_sec": 2030, "speaker_id": "s", "type": "text", "zh": "不只是成本。那是防守。我也想进攻：不，其实对相关每一方，体验都可以好得多。"}, {"start_sec": 2039, "speaker_id": "s", "type": "text", "zh": "完全同意，完全同意。所以那里的一部分想法其实是：有显著的——基本上不只是那个。"}, {"start_sec": 2048, "speaker_id": "s", "type": "text", "zh": "所以有两块。一是：不只是我们被产品多收了钱，而是产品已经平庸了很长时间。"}, {"start_sec": 2054, "speaker_id": "s", "type": "text", "zh": "对。这个产品的 10 倍更好版本会长什么样？"}, {"start_sec": 2057, "speaker_id": "a", "type": "text", "zh": "对，因为我们就是客户，可以用分钟而不是月份去迭代。完全同意。我觉得有意思的是：初创和甚至高增长的中型公司可以那样敏捷。"}, {"start_sec": 2070, "speaker_id": "a", "type": "text", "zh": "对那些深深嵌在某种能力里的企业，很少会是那种——很少会说：哦，我们可以做出比现在用的 SaaS 好 10 倍的版本，"}, {"start_sec": 2084, "speaker_id": "a", "type": "text", "zh": "还可能把它拆出去单独做。我就是不觉得企业会那样运作。"}, {"start_sec": 2090, "speaker_id": "s", "type": "text", "zh": "当然。对，这被讨论过。其实我会说，你谈自动化。"}, {"start_sec": 2095, "speaker_id": "s", "type": "text", "zh": "更辣的是：他们是在自动化人吗，对吧？一旦一切都自动化、顺风顺水，"}, {"start_sec": 2103, "speaker_id": "s", "type": "text", "zh": "我们会替换那些岗位吗？我不知道你能说到什么程度。"}, {"start_sec": 2108, "speaker_id": "c", "type": "text", "zh": "对，我觉得这里有两块。我深深相信：AI 会对人类产生好处。"}, {"start_sec": 2117, "speaker_id": "c", "type": "text", "zh": "它会增强人们的工作。它绝对会改变和置换。但我觉得更多是一种迁移，而不是直接砍掉工作。"}, {"start_sec": 2125, "speaker_id": "c", "type": "text", "zh": "我觉得 A16Z 发过东西说呼叫中心现在真的在下降，AI 开始承担越来越多那种工作。最终，如果你整段职业生涯练的就是那个技能，有东西进来接管那个职能，是毁灭性的。"}, {"start_sec": 2142, "speaker_id": "c", "type": "text", "zh": "话虽如此，我们跟客户谈「嘿，现在 agent 要做这个活」时，其实是在谈再配置。"}, {"start_sec": 2151, "speaker_id": "c", "type": "text", "zh": "我不觉得哪家企业会说：一旦这搞定了，这群人就没什么可干、可解决的了。所以我们的方法真的是：我们能替换什么，然后下一个最大的问题是什么？"}, {"start_sec": 2165, "speaker_id": "c", "type": "text", "zh": "我会论证，在大多数大公司里，这个循环几乎永远继续。"}, {"start_sec": 2172, "speaker_id": "c", "type": "text", "zh": "总有下一个问题——如果我想我们怎么成长。无限需求。总有另一个问题；实际上把那些可能有超深主题专长的人"}, {"start_sec": 2184, "speaker_id": "c", "type": "text", "zh": "抬出水面，开始更多跨团队协作，或者想业务里不那么「表格格子」层面、更多关乎团队如何协作的部分。长期来看，我觉得那能让大多数人留在那儿，也让那些业务更敏捷，真正啃大而厚的问题，而不是大多数人日常的苦活。"}, {"start_sec": 2211, "speaker_id": "c", "type": "text", "zh": "当你想一个财务部门的人，他们大多在表格里，但我们怎么抬升他们，去战略地想业务、钱往哪儿配之类的。"}, {"start_sec": 2223, "speaker_id": "a", "type": "text", "zh": "对，我也觉得当我们谈岗位置换或岗位再配置时，我们把它说成一件发生在人们身上的事。"}, {"start_sec": 2232, "speaker_id": "a", "type": "text", "zh": "我不喜欢那样的一个原因是：我觉得它没有给人们足够的信用——他们在自己生活里有能动性，意思是我觉得……"}, {"start_sec": 2241, "speaker_id": "a", "type": "text", "zh": "你可以调整。对，人们真的应该想。当我想赋能或人们再技能化时，"}, {"start_sec": 2248, "speaker_id": "a", "type": "text", "zh": "我觉得那是雇主的工作——因为他们想驱动增长——但也是员工的工作。当人们说 AI 会替换所有人们不喜欢做的工作时，我觉得那有点像在 cope——现实是有人会失业，因为很多人没有「喜欢或不喜欢一份工作」的奢侈。"}, {"start_sec": 2269, "speaker_id": "a", "type": "text", "zh": "他们工作是为了挣钱。而且我觉得，在可能的范围内，人们应该有能动性对自己说：好，我的工作在未来几年的稳定性或可替换性怎样，"}, {"start_sec": 2281, "speaker_id": "a", "type": "text", "zh": "如果我要技能升级让自己更受保护，那长什么样？人们有能动性对自己这么说，并真正采取行动。对对对。我觉得这是值得人们反思的好信息。放你们走之前我想碰的最后一块"}, {"start_sec": 2296, "speaker_id": "s", "type": "text", "zh": "就是纽约。你知道，有些人说是世界上最棒的城市，有些人……"}, {"start_sec": 2302, "speaker_id": "s", "type": "text", "zh": "人们的总体情绪怎样——无论工作上还是私下，感觉是什么，对吧？我整天活在旧金山。"}, {"start_sec": 2310, "speaker_id": "s", "type": "text", "zh": "人人都在 agent 里泡着。讨论是 Instincts 还是 Grok 还是 Muse。不是你喜不喜欢 AI，对吧？"}, {"start_sec": 2319, "speaker_id": "a", "type": "text", "zh": "我想稍微走出那个泡泡，但这里仍是纽约，仍进步、仍向前看。对。我会说：基本上，纽约有一个泡泡，比旧金山的小。"}, {"start_sec": 2334, "speaker_id": "a", "type": "text", "zh": "如果旧金山是个大泡泡，我觉得我们在 Tenex 感觉——因为自我选择来公司的人——我们处在旧金山的一个微观宇宙里。还有我们合作的公司、我们在纽约接触的人。"}, {"start_sec": 2352, "speaker_id": "a", "type": "text", "zh": "但我肯定也会说，确实宇宙比旧金山小。你去旧金山，感觉无所不包——到处你看，就像有人……类似 AIE，我前面说上台时，如果人们刷 Twitter 或 X 感觉像在"}, {"start_sec": 2367, "speaker_id": "a", "type": "text", "zh": "Edge City、活在未来，AIE 是那个的加强版。我觉得旧金山类似 AIE。"}, {"start_sec": 2377, "speaker_id": "a", "type": "text", "zh": "大概 AIE 总体和人生某个阶段在旧金山住过的人的重叠大概 AIE 总体和人生某个阶段在旧金山住过的人的重叠"}, {"start_sec": 2385, "speaker_id": "a", "type": "text", "zh": "非常大。我们现在大概是这座城的 1%。"}, {"start_sec": 2393, "speaker_id": "a", "type": "text", "zh": "真的？对 World's Fair，对。疯了。对。但说到那点，我觉得它就在旧金山的文化和 DNA 里，"}, {"start_sec": 2400, "speaker_id": "a", "type": "text", "zh": "很大一群人活在未来。我觉得你在纽约也能找到那群人。我觉得我们在 Tenex 找到了那些人。"}, {"start_sec": 2408, "speaker_id": "a", "type": "text", "zh": "我们的目标之一，是推动 AI 作为一个枢纽——或者说推动纽约成为美国的 AI 枢纽——因为这里有这么多商业，它会是一个地方，"}, {"start_sec": 2421, "speaker_id": "a", "type": "text", "zh": "技术扩散真正对这个国家 GDP 产生有意义影响。我觉得泡泡现在更小，我们几乎把它当成一种使命，去把我们的泡泡做大。也许我不确定能不能到旧金山那个体量，但我觉得我们可以有意义地影响，让更多人在这里活在未来。"}, {"start_sec": 2437, "speaker_id": "s", "type": "text", "zh": "有物理层面的——你在广告牌上能看到。它在慢慢渗进来。哦，完全是。人们以前——还记得 Friend 那波宣传，有人会往上面喷"}, {"start_sec": 2445, "speaker_id": "s", "type": "text", "zh": "各种涂鸦？我觉得那有点像故意的怒气诱饵。"}, {"start_sec": 2449, "speaker_id": "a", "type": "text", "zh": "但现在你有不带反讽的 AI 广告牌，人们觉得：好吧，这成了生活的一部分。百分之百。对，所以我觉得有机会把某种边缘感，以及那种「活在未来」的气质——"}, {"start_sec": 2463, "speaker_id": "a", "type": "text", "zh": "旧金山因为那里的经济气候而创造的——因为风投、因为科技公司，然后因为被吸引去那儿的"}, {"start_sec": 2472, "speaker_id": "a", "type": "text", "zh": "人。但我也觉得我们处在一个——很怪——我们在 AI 上是个更小的池塘，但我会争辩我们在商业价值上是一样大甚至更大的池塘。所以我的说法是：我在纽约做 AI 的原因，是把旧金山的人带来见客户，也给他们一个现实检验。完全同意。我其实觉得那儿有"}, {"start_sec": 2501, "speaker_id": "a", "type": "text", "zh": "一个很有意思的套利。"}, {"start_sec": 2505, "speaker_id": "s", "type": "text", "zh": "对。对，完全同意。好，太棒了。招聘号召。我知道你们一直在招。对。你们招什么？有什么变化？"}, {"start_sec": 2511, "speaker_id": "a", "type": "ad_omitted", "ad_brand": "Tenex 招聘", "zh": ""}, {"start_sec": 2544, "speaker_id": "s", "type": "text", "zh": "哟，够辣。CJ？对，我附和所有这些。"}, {"start_sec": 2548, "speaker_id": "c", "type": "text", "zh": "我特别在找工程师。什么是特别项目？"}, {"start_sec": 2553, "speaker_id": "c", "type": "text", "zh": "那是什么？特别项目包括客户工作之外的任何事。所以我想我现在脑子里在忙的。"}, {"start_sec": 2560, "speaker_id": "c", "type": "text", "zh": "就是在内部建那个元 harness 和系统——基本上是找到模型能力的最前沿，并给它们工具去"}, {"start_sec": 2569, "speaker_id": "c", "type": "text", "zh": "增强它们能做得多好。然后也在内部做亚历克斯提到的那个平台。"}, {"start_sec": 2576, "speaker_id": "c", "type": "text", "zh": "那里有个大目标：把这些后台 agent 扩散出去，以真正真正对企业有帮助的方式交到企业手里。"}, {"start_sec": 2584, "speaker_id": "s", "type": "text", "zh": "对。并解决我们前面碰到的那些乱七八糟的 IT 问题。哥们，你们有解决方案的时候，我们 Latent Space 博客收客座文章。"}, {"start_sec": 2596, "speaker_id": "s", "type": "text", "zh": "我很乐意欢迎知识分享。不然的话，非常感谢你们的时间。又在纽约见到你们真好。对，彼此彼此。谢谢。一年一次，一年一次。"}, {"start_sec": 2603, "speaker_id": "a", "type": "text", "zh": "太棒了。谢谢。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

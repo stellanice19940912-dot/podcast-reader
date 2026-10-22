@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>别再为 AI 付费了，全部本地跑（教你怎么做）</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="d">大卫·翁德雷（David Ondrej，主持人）</option><option value="a">艾哈迈德·奥斯曼（Ahmad Osman）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">David Ondrej</span><span class="pill">2026-10-20</span></div>
+<h1>别再为 AI 付费了，全部本地跑（教你怎么做）</h1>
+<p class="sub">嘉宾：艾哈迈德·奥斯曼（Ahmad Osman，本地 AI / Osmosis·ODS） · 约 96 分钟（5740 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=DwoWIf8f2yQ" target="_blank" rel="noopener">https://www.youtube.com/watch?v=DwoWIf8f2yQ</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>David Ondrej</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-20</dd></div><div class="meta-row"><dt>时长</dt><dd>约 96 分钟（5740 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；普通 yt-dlp 遭 429/机器人验证后，经 yt-dlp + Chrome cookies 路径拉取；该视频无官方字幕），中文为逐句全文翻译，已省略赞助/活动招募/自研产品口播；caption_source=yt-dlp-chrome-cookies；人名按自动字幕并结合节目简介校正</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>DwoWIf8f2yQ</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>大卫·翁德雷访谈本地 AI 专家艾哈迈德·奥斯曼：开源与逆向、沙箱安全、ODS 本地部署、DGX/RTX Spark 上 70+ token/秒编码、混合云与隐私，以及为何「拥有硬件」比订阅更重要。</p>
+<h3>核心要点</h3><ul><li>大实验室无动力提供「按用户持续学习」；本地可在不到约 7000 美元机器上为工作流优化；agent 时代优化应对齐 agent 需求而非人类阅读速度</li><li>演示 ODS：一键装本地 AI 栈，按硬件自动选模型；华硕 ProArt / DGX Spark 统一内存上 Qwen 3.8 Flash Next（NVFP4）编码约 72 token/秒，现场本地做网页与游戏</li><li>安全：供应链与后门风险→气隙/沙箱；用便宜 token 让 agent 自实现依赖以缩小攻击面；混合 AI 掩码代理可在不交出 IP 的情况下调用前沿智能</li><li>硬件策略：优先成熟生态（英伟达/CUDA）；不必为本地 AI 强推全员改 Linux（ODS+WSL 抽象）；统一内存因架构/engram 等变得更可行</li><li>激励与风险：云订阅补贴实验室囤硬件；政府/第三方取数、毒化回复等风险；开源必须赢才能检查隐私</li><li>口播已标灰：CodeRabbit 赞助、Gemma 黑客松/Discord 招募、Cloudroom 自研产品推广</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：约 95 分钟，实操演示密度高，适合想摆脱纯云订阅、认真上本地/混合 AI 的开发者与小团队；若只关心装机选型可跳到硬件与 ODS 演示段。</p>
+<h3>适合人群</h3><p>本地 LLM / 开源推理、隐私敏感团队、想自建 agent 栈的工程师与创业者</p>
+</section>
+<div class="legend"><span class="spk-0">大卫·翁德雷（David Ondrej，主持人）<em>主持</em></span><span class="spk-1">艾哈迈德·奥斯曼（Ahmad Osman）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>大实验室不会谈这个，但持续学习——为你自己的用例、自己的工作流改进模型——他们没有动力提供给你，因为他们在为所有用户的「正态」分布训练。想象类似 OBS 5.5 在本地跑。我愿意说那会发生。你为什么允许企业员工使用会「看」他们邮件的模型？</p>
+<p>我可以很确定地告诉你——不能说是谁——有些 CEO 在办公室里用沙箱硬件专门处理邮件。他们为保护自己的数据走到这一步。Agent 将为你做的一切，别人都可以拿走。你就是完全的奴隶。</p>
+<p>若有人能拿走它、量化它、改它、压低它的 IQ 分数——桌上还剩太多优化空间。一切都按人类认知处理速度建造。想想 agent 需要什么，去为它优化。我们已进入本地 AI 智能增长的指数时代，而且不会停。多数人其实不需要订阅，他们只需要拥有自己的硬件。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>好，艾哈迈德（Ahmad）。你觉得以最近的发展，所有软件都会开源吗？</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Google Gemma 硬件黑客松 / Discord 活动招募]</span></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>开源、以及成为完美软件，是一回事；逆向一切是另一回事。X 上现在有趋势：人人喊「把一切逆向工程」。你会得到同样的质量和打磨体验吗？大概不会——因为有人拿钱专门做那种优化。</p>
+<p>但能不能折腾、hack——我不是指入侵别人设备那种网络安全意义上的 hack，而是旧 Unix 式把工具拼在一起——对，因为有开源模型，你能想很多事。这在此刻已是给定。一切都能重建。关键只是你买了多少 token。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>那人人试图逆向流行闭源软件——比如 Adobe 套件或某些游戏——意味着什么？对有些人会很有趣。但想想：你能长期维护吗？我不觉得。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>会有很多努力去构建更多软件、优化它，这对公众好，人人都能用到工具。但这不意味着打磨体验就没有护城河。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>所以真正的护城河就是对细节的关注、用心，以及领域专长。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>对。你想让你用的每样东西都被 vibe 出来、占满设备内存吗？问题变成：你是在用别人从别处逆向来的软件，还是用为专业人士做的东西——选择在你。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>那优化版呢？比如 Spotify 桌面端出名的慢，有人做了 Rust 版。你怎么看？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>我觉得那是另一回事。像公司买了某东西却不如开源版好——那公司该回去检查为什么并修流程。对消费者好。我就是觉得对消费者好。我——</p>
+<p>——不觉得创造力有问题。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>工具不再是瓶颈，执行才是——而且早就如此。以前你得学工具、有创意的人去导体验；现在有想法就能执行，因为工具不再是问题。AI 真正让我们做的是：归结为你有没有好想法。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>那你觉得大厂把自家软件开源的比例会上升吗？想想可以有成千上万的人做安全渗透测试。3ds Max、Maya 是他们造的，可现在人人用 Blender——开源、一直开源，更多眼睛、更多人在增长。开源在足够长的时间尺度上总会赢；现在只是在加速。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>说得好。一切都在更快地移动。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：CodeRabbit]</span></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>它基本上是让开源社区移动得更快。不过在 LLM 之前，几乎每样东西都已有开源替代。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>那么就 LLM 和开权模型而言，你担心后门吗？最近 Project Discovery 花不到 50 美元微调了一个约 7B 的模型——</p>
+<p>——在特定触发短语下会偷凭证。你怎么看？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>企业有理由用气隙服务器。供应链里一直如此。有人问你怎么信任 GPU？因为你从经过流程确保安全的特定厂商买。若 GPU 来源不明，可能带蜂窝模块、带 SIM 发数据——这类事会发生。</p>
+<p>供应链任何一环都可能被黑——LLM 只是其中一环。这不改变我的看法；只让我在告诉人们「整套气隙+沙箱」时更慎重。</p>
+<p>你不想让它上网，不想让它自由游荡。就像有人说 OpenAI 模型黑了多少台——好，那是沙箱问题。</p>
+<p>你不是有网络安全问题，是沙箱没设好。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>那人们在多数时候连网的主机器上跑开源模型呢？该怎么想中国模型、美国模型，或 Hugging Face 上随机微调？你觉得人人都该给 agent 用沙箱——大卫你现在也在做沙箱代理项目，对吧？为什么？</p>
+<p>嗯，因为可扩展、更安全，所有这些理由。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>正是。有好处，让你更安心。人们该更频繁用沙箱。你的项目是开源的对吧？</p>
+<p>外面有很多开源沙箱项目。你看到价值，是因为知道 agent 可能乱跑，想确保安全，给人们保护自己的东西。人们只需意识到这是可能的——</p>
+<p>——并小心处理。就这样。我们会到 agent 记录其他 agent、监视它们、确保一切——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>尤其是决策模型。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>正是。所以——</p>
+<p>——AI 会带来网络安全新范式。我们没有因为病毒蔓延就关掉互联网；我们发明保护方式、杀毒软件，持续确保事情不变坏。</p>
+<p>那天我在 X 上跟人说，你也发推：我们要思考软件依赖和库，如何让软件自包含——依赖越多，攻击面越大。</p>
+<p>你要用 token 尽量缩小攻击面——token 便宜——让 agent 自己实现所需 API/库片段并集成进你的软件，不依赖第三方；这样自动更新的东西若带恶意软件也不会成攻击面。你在保护用户。我们会因 AI 发明新安全范式，不是说关掉一切。不。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>很高兴你提到这点。我最喜欢的看法之一来自 Yassine：别把所有数据塞进 Muse 或 DOS，而是用前沿 token 建自己的软件——这样订阅太贵或太慢时（OpenAI 案例），你有自己的软件，可用自己的 GPU/算力。你怎么看「仍用前沿模型 + 建自己的栈」？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>这是好版本，会回到这台机器。这是新的 RTX Spark，我们会演示。我们为本地 AI 部署系统 ODS 做了优化版，针对这台机器和最适合它的模型。</p>
+<p>往后在我看来，每个用例、每个工作流都该记住：token 便宜。用它优化你自己的体验与工作流。人们落后于「你可以让 agent 做那么多事」这一事实。我跟 agent 说——我刚拿到新耳机——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——告诉 agent：我刚用蓝牙连上，去搞清楚怎么进设置、怎么玩均衡器，这是他们想要的设置截图。</p>
+<p>去做。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>比打开 App 拖滑块定数字轻松多了。后台大概二十分钟就好。那就是为用户体验优化——造一块软件，拿走他们必须做的活。再按规模应用到你做的其他一切。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>这和他说的对齐：愿意拿工具和硬件实验，造自己的软件。我们把 ODS 以 Apache 2.0 开源的部分原因，就是希望人们能为自己的用例优化——我们知道不是一鞋通吃。</p>
+<p>软件不该那样。所以逆向工程运动现在开始。Bad Matt Burman 有个 GitHub 仓库，发推后上热门，里面有各种逆向版——人们在为自己的用例优化。</p>
+<p>那不意味着去直接用那些版本；那是灵感：LLM 和 token 如今能做什么。去做。做自己的用户体验。这是 Windows 机器，对吧？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对，我们聊聊。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>对，Windows。我优化完 ODS 后第一件事就是让它改任务栏、改设置、改注册表——从一个本地跑模型的 OBS/ODS 软件里就能定制改进。想想以前要花几天的事：新机器优化定制以前要一周。</p>
+<p>这台大概三小时。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>从旧机器规模化复制。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>正是。去做这个，我在另一台机器干自己的事，再回来：做这个、那个；去掉这栏、去掉广告……现在太容易了。人们仍把 LLM 想成 ChatGPT 网页聊天。不，把它想成——</p>
+<p>——字面意义上你自己的矩阵 agent——</p>
+<p>——能黑进这个矩阵、替你玩、替你做事。一旦看到那些元素，就会清楚：哦它能为我做那么多，按我喜好优化体验，而且可复制：这是我喜欢的，据此建一套量表。</p>
+<p>试着找我定制里的「品味」——极简？还是别的？然后——</p>
+<p>——持续即兴、持续改进、持续迭代。人们把 LLM 看成单任务。不，只要你会玩，它可以扩展。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>聊聊你带来的这台笔记本。有什么特别？你们做了哪些优化？</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Cloudroom（主持自研产品口播）]</span></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>这基本上是装进笔记本的 DGX Spark。微软与英伟达合作。眼前这台是华硕 ProArt，128GB 统一内存；我们做了定制版 ODS 跑在上面。若你记得上次——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>先给没看过的人介绍一下 ODS。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>ODS 是我们的本地 AI 部署系统，端到端装好你需要的一切。想想 agent，想想开源应用商店/扩展。</p>
+<p>像 Hermes 可以轻松加入集成；模型自动加载，识别硬件，配置最合适的模型与——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——去掉所有摩擦。对。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>做成无缝体验。在我脑子里，本地 AI 现在有 UX 问题，几乎没人想。三月有个朋友买了 RTX 5090，接上 Claude Code，让它改 GPU 的 RGB——失败了。他用的是刚出的 Qwen 3.5 27B，那时人人开始认真看待本地 AI。我问：失败了？你有没有给它搜索引擎去查要用的工具信息？因为——</p>
+<p>——那模型训练数据与工具——</p>
+<p>——在 RTX 5090 出来时甚至还不存在。所以——</p>
+<p>——它搞不定任何事。</p>
+<p>他设了环境变量；我给他一个经防火墙开的搜索引擎端点，让他设变量再试——成了。因为没人想到「我的本地 agent 其实需要搜索」。我们实现了：RAG、嵌入、图像生成、语音 agent——按你的硬件端到端最优化装好。上次访谈我们谈过：未来是为特定硬件优化的模型与内核。</p>
+<p>我们找到这台机器上最好的模型：Qwen 3.8 Flash Next。</p>
+<p>用的是 NVFP4 版本，解码最高做到约 72 token/秒。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>漂亮。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>我们用它做了些很棒的东西。开始看吧？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>嗯——</p>
+<p>这是我们的门户，ODS 里的 agent。我叫它「家里的云」——人人家里都该有云。比如说：给我做一个漂亮网页。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>完全本地。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>完全本地，不上网、不外联——当然装 ODS 时要有网。装 ODS 在 Windows/Mac/Linux 就是一条命令，别的不需要。跑那条命令，去倒杯咖啡，让大家看看。</p>
+<p>源码可用，Apache 2.0，可定制修改，开箱即用。现在它在想。看这个仪表盘——</p>
+<p>——你可以看到资源、GPU、显存：96 里用了 88，因为是 128 统一内存——RAM 用 32GB、GPU 96。还有 CPU 温度、运行时间。</p>
+<p>你会觉得苹果统一内存的优势在缩小——那曾是人们转向苹果芯片的主因之一。谈芯片时我们要进入定制芯片新范式：微软昨天刚宣布自己的芯片。苹果做这事很久了。但我看到基准：两台 DGX Spark 大幅胜过 Mac Studio M5 Ultra 256——不是硬件差，</p>
+<p>——只是软件没优化。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对，因为规格上 Mac Studio 内存带宽大约五倍，解码至少该快五倍。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>但软件显示它实际上比两台连在一起的 Spark 还慢——因为软件——</p>
+<p>——我觉得是 DHH 说过：苹果没有硬件问题，有软件问题。确实如此。</p>
+<p>他们落后了。现在有开源推理引擎；我们也在为 Mac 做。LLM 与本地 AI 处处软件严重欠优化。ODS 做的就是为每样东西定制。我们其实要回答这个问题——我在练语言，所以从记忆取源——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>老婆——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——所有 harness、记忆都内置。</p>
+<p>对，老婆会知道我为什么在练。</p>
+<p>但整套对我们在这里完全本地端到端跑。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>我想更深挖这个想法：你可以买硬件；若其中一块更开放，你就能跑 agent，用 token 从它榨出更多。即便苹果纸面更好，你可能从 Linux 榨出更多。为什么 DGX 能胜过纸面规格更好的苹果 Mac Studio M5 Ultra？因为英伟达在 CUDA 生态投入巨大，写了让硬件更好跑的软件，开源社区再接过去狂奔。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>它基本上接过来开始做内核、做推理引擎、做这些优化。我从 2023 年起在想的就是：需要按工作流、按硬件芯片、按模型做优化推理。对我来说主旨不是只有模型或只有硬件，而是合在一起。</p>
+<p>工作流、硬件、模型——合在一起需要优化体验。不能只是用通用推理引擎调一堆 flag 或设置就算更好。</p>
+<p>那和为特定目的端到端打磨的优化软件不一样。回到「一切都会被逆向吗」：有些东西会比任何逆向开源软件更打磨。我们在做的就是这个——需要专门为此优化到极致的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>我觉得有两块：开放系统让 agent 可控时，有超优化，把硬件榨到极致；另一块是便利——新电脑 agent 能装好一切，像 DHH 在 Linux 上做的。</p>
+<p>既然明显 agent 会做所有任务、你也想从买的硬件榨最多，封闭系统如 iOS 和 Mac 会怎样？苹果会被逼开放吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>事情是这样：这是 Windows 机器。这台 Windows——</p>
+<p>——编码时我们能到七十多 token/秒，比现在的 Codex 还快。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对，快很多。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>快很多。我们马上展示：完全在这台机器本地、没有任何不本地跑的 LLM 碰过的东西。一年前即便云端模型也不可能。现在它现场端到端本地做出来了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>所以完全私密。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>完全私密，你的全部数据。这是生产力应用之类。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>什么模型？27B 还是多大？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>这个是 180B。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>1800 亿参数，但跑在 NVFP4。还有一部分嵌入存在盘上、可从盘加载——从 SSD。</p>
+<p>基本上为这块硬件高度优化。一部分进系统 RAM，一部分住在 SSD，检索是 O(1) 量级那种——</p>
+<p>——为这块硬件高度优化。这里 96GB GPU 大概只用约 88。我们做成开箱即用、尽量打磨。要理解含义，或许像八九十年代人人用同一种表格软件；现在哪怕小公司、尤其中大型，即便不是软件公司也有软件团队、自己的表格与软件——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——硬件如此，工作流也会如此：专用推理引擎、专用微调，凡是能为特定需求榨出最多价值的。对，我举个例。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>那天我发推：若你在写 markdown，让 agent 建通用渲染器，转成 docx、PDF、HTML。我大概八九个月没用 Word。每份发给我的 docx，我都逆向成 Python 程序转 markdown；编辑后再渲染回同一模板、同一格式。</p>
+<p>这就是你说的表格思路。CSV 一直能用 Python 开；现在我们进入即便 PPT、幻灯片等也能现场生成的时代。我——</p>
+<p>——用 agent 现场为演示做模板。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对，那是——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——一种为自己定制的方式：有大纲就轻松很多。大学时我就爱写大纲，段落都是缩进 tab，再递归往上填。现在用 LLM 一样：建大纲、设渲染器、转成所需文件类型——PDF、表格、Word，全靠 agent。</p>
+<p>而且全本地，不发我的数据。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对，这很重要——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——不上云，不把财务份额给云。比如报税抵扣。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>现在很容易：把银行流水和信用卡给 agent 梳理，精确找出每笔用途，给税务会计师写封面信，端到端准备好——不是又长又难滚的 markdown，而是符合会计模板的正常 Word。任何类型——</p>
+<p>——正是，完全本地。我不必把数据发给 Codex 或 Claude 那些。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>人们要记住公司的激励：他们要数据去训下一代模型。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>他们要数据训下一代模型。正是。还有大实验室不会说的：持续学习——为你自己的用例与工作流改进模型。大实验室没动力提供，因为他们为所有用户的正态分布训练；为每用户训优化版再部署，存储与推理成本巨大——怎么给每个人加载模型？</p>
+<p>但你可以在本地做，在不到 7000 美元的机器上做——</p>
+<p>——而且输出极好。看这个：这是个游戏，现在全在 ODS 里跑，用 ODS 做的。</p>
+<p>完全本地。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>太不可思议了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>一年前根本不可能。</p>
+<p>正是。好，我加了些小时。谢谢。你能看到血条。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对，顺便——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——我现在玩这游戏超开心。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>有 LLM 之前，这会像——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>升级。你要什么？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>十二个月。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p><span class="tag">【游戏旁白】</span>长者的智慧锐化你的瞄准。选一根骨头。一、二、三。我们可以选双射、11 羽箭或锐眼，它会说明效果。</p>
+<p>主要好处是：没人能拿走——没有制裁、没有限制、没有速率上限。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>正是。所以——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——我们最近看到 OpenAI 之类砍半限额。而如果你拥有硬件和软件，就不会这样。</p>
+<p>现在我有三小时。要玩吗？很酷。只用箭？</p>
+<p>对，我们还能再起——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>空格键？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>对，空格。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>我得躲开它们。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>然后你会——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>哦，要捡起来。好。</p>
+<p>不算很高级。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>对，有血量、升级、技能，整套都有。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>疯了。整件事字面意义上在你机器本地跑。我们现在一边玩，模型还能在后台继续干活。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>整套没有一行代码是云端 agent 写的——是用为这块 RTX Spark 优化的模型写的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>那你实际怎么看未来？很多人观点一边倒：要么付订阅，要么全本地。</p>
+<p>但我仍觉得用前沿模型有显著价值，那边也在进步。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>我觉得未来会是混合的。</p>
+<p>对，我甚至公开这么说过。若你关注我，知道我对 Anthropic 意见不算最好——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>你实话实说。因为他们在合成数据上真的捅破了什么，现在像——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——性价比高得多——</p>
+<p>——他们不知怎么摸清了做 RL 和蒸馏所需的那类数据。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>好，但你怎么知道是数据？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>想想这种转变。我们在 AI 里叫「品味」的东西，其实是数据驱动——正是那种偏移。</p>
+<p>那是合成数据生成，前沿智能工作。我不知道他们怎么捅破的，但我相当确定——</p>
+<p>拿这话问责我：那会发生。</p>
+<p>研究也是同一思路。研究和拥有 token 的美妙在于：现在一切都公开可得，人人都能有同样能力，没人能把关。回到原点——</p>
+<p>——我若说这台机器上跑的 Qwen 3.8 Next Flash 能胜过它，那是疯了。但我能说：对你 95% 的任务，这台 RTX——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>人们没意识到的是——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——就能覆盖你的需求；除非你在做极端工程、内核级工作，否则不需要那之上的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对，重点是：人们甚至感觉不出差别。而本地这边又完全私密，甚至可能更好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>对我来说最重要的是想：GPT-4o——GPT-4 以前需要数据中心。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对。现在在你的 iPhone 17 上，你可以跑一个——</p>
+<p>——12GB 内存的模型。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>正是。那个 Qwen 3.5 40 亿参数，实际上更聪明、更能干，而且本地跑。以前要数据中心的 GPT-4o——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——而且你可以微调它。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>而且你可以微调它。这说明智能在被压缩。我甚至谈过每美元冲击力——</p>
+<p>——以及智能大概翻三倍。它不断发生，开源 AI 持续追赶。带着这点，4o 是个例子——</p>
+<p>所以我们 Osmosis/Osmantic 的目标是：确保你奶奶 2013 年的笔记本也能跑一个她能跟它说话的模型。</p>
+<p>像这样的本地模型——在飞机上、在空中、在家或在车里——能解决你的问题。你——</p>
+<p>说得通吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对。对企业也是混合：仍有大量客户数据、法律数据之类——</p>
+<p>——合规问题、隐私，还有——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——IP，独特 IP。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>你有独特 IP，也有保护模式的激励。外面有些 agent 应用 literally 会——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——即便视频生成模型，也疯了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>你基本上把数据和生意里的护城河交给别人——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——对方可能正挣扎于「2 万亿估值不再是 2 万亿」——因为开源 AI 不断追赶。于是他们必须把护城河延伸到前沿智能之外；我们不会再甘心接受极高 AI 价格，那毫无道理。这也是硬件涨价的原因：稀缺资源约束，造硬件不够快；而我们预期模型能做 RSI——递归自我改进。</p>
+<p>我们预期模型能出去「渲染」自己的 GPU、训出更好版本。若如此，一来现在锁定硬件更好。我以前说过——但别再私信问我该不该贷款买 GPU。我——</p>
+<p>——这里没有投资建议，别那么做。但在我看来，云公司知道他们的护城河在缩，而你在签掉知识产权。就像那个数学家说的——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>上次我们聊过，我想再提：我说过你有没有看过给科学家的免费计划？大概一个月后就出了那些 Navio 之类的证据，科学家说我们用 OpenAI、同一套手法——而一个月前我们在播客里就说 Anthropic/OpenAI 给科学家免费用看着挺可疑，等于把最好的想法拱手送给 GPT。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>我不想在这儿做任何猜测，但——</p>
+<p>——我只是说人们太轻易交出 IP。这逼我们思考：IP 与数据，是否真该把护城河或正在做的东西全交出去。我们在 Osmosis 为企业版 ODS 做的，本质上是混合 AI 的掩码软件：当你为任务要前沿智能时，它是无状态、抽象、范围清晰的，好让你从混合/云拿到价值却不交出 IP；回来经代理、经本地或自托管模型填回。这填的是那块市场。</p>
+<p>有办法用前沿智能而不交出 IP。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>我觉得这会是巨大市场。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>已经是，所以我们才在建。问题是人们适应 AI 不够快、仍落后。我从 2023 年做本地 AI，管 local llama 子版、地下室服务器那些，早期是 0.00001%。我们现在大概还在前 5%，甚至更少——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——更少。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>大规模采用还没起飞。我们仍早期，所以才建这东西：为每块硬件、每模型、每工作流优化。用这类软件你要打磨体验，也可以定制自己的体验。</p>
+<p>但问题是：我从 2023 年做，更容易搞清该做什么；其他人会被 AI「一枪爆头」——你不知道自己在为啥定制时，会丢掉方向。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>这就是「人人会 vibe code 自己的谷歌日历吗」的主论据。当然不会。人们——</p>
+<p>——需要领域专长。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>正是。还有品味：注意到为什么人点这个按钮、为什么这个布局最优。</p>
+<p>伙计，我可以用 AI 做访谈，但永远不如在这儿做——因为你做这事很久，知道这是什么。我知道本地 AI 是什么。所以我总跟人说：努力深入某件极难的事，那才会是你的护城河。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>我做本地就是这个。我们想建并帮助的也是这个。但 vibe coding 某东西，不必然意味着打磨体验，甚至不必然是正确体验。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>聊聊硬件策略。假设有人总共大概一万美元。好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>你会建议他们再存一点？花 5K 还是 7K 买这种笔记本？价格带和硬件类型该怎么想？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>我们还会用什么？我发过推：我曾低估统一内存对正在变高效的模型有多好——因为架构改进带来效率。像这台机器跑 180B 参数模型——他们想用的词是 engram——engram 让你把模型某些部分放 SSD，从而更多优化。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>这类架构改进与新研究发现，让统一内存比我们早先假设能干得多。六个月前我还跟人说 DGX Spark 不是最佳选项；现在越来越清楚：对想用这模型跑三四路并行 agent 的人，它非常可行。同一思路：我给你看的游戏，我们会放出视频——图形、精灵、移动、机制，全在一台能塞进背包的笔记本上的模型端到端开发设计。</p>
+<p>不重，而且很好用。你在 AI 硬件上要花的钱在走低——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——但同时硬件在涨价。涨速如何，又回到我们前面说的——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——我们预期看到 RSI、模型自我改进；我们也知道比一年前能在更少受限硬件上塞更多模型。记得一月我说年底前在 RTX 4600 上跑 Opus 4.5？三月就做到了。</p>
+<p>做到了。现在 3.8 的 27B 能胜过 Opus 4.5，你可以在一年前约 2000 美元、近几个月涨到五六千、英伟达甚至停产的 RTX 5090 上跑四路并行 agent——因为他们也被供应链资源约束——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——供应链。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>供应链。所以硬件会越来越贵，但新范式与新芯片也会打开，会有为优化推理做的新研究。多久、哪家公司？不知道。好处是最终会更好。</p>
+<p>眼下我们也知道：不必花 10 万才能有好性能。7000 美元不便宜，但 7000 能给你相当不错、本地跑的模型。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>不需要数据中心。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>你不必去搞数据中心，不必在地下室建巨型机架。字面意义上，背包里这东西就能用、就能给你结果。正是。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>那宏观上——我知道你不想押具体公司——若人们决定选操作系统或推理栈，你会押英伟达吗？因为你说 CUDA 更优化。高层该怎么想？英特尔也有 GPU，纸面规格不错，但软件栈很落后——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——除非你愿意花很多天为那块 GPU、为某个模型做优化，并接受改进极慢，否则英特尔不是你的菜。对我们来说，我们计划用 ODS 认真改进这些 GPU，因为我们知道目标、知道该做什么、有计划。个人若非技术向，大概该瞄准眼下最好的软件栈——已有数百万人在盯着优化的生态。</p>
+<p>正是。归结为生态。若你刚入门、不知道内核是什么，就选英伟达。那是信号。</p>
+<p>Mac Studio 也是可行选项，但仍会落后，你需要学一点、研究合适的推理引擎。但英伟达是眼下最成熟的生态。他们大概 2015 年开始 CUDA——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——对，黄仁勋很聪明、前瞻，他把公司从游戏显卡转成计算——</p>
+<p>——公司，在 Alexander 之后——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——对，他意识到科学与数学意义上的计算是前进方向：最终会有足够数据、足够功率、芯片里足够处理能力，可以把数据砸上去——</p>
+<p>——并做出可扩展的东西。我不是说他押的是 LLM，他押的是机器学习、神经网络、深度学习的计算范式。这些事我们知道最终会扩展——七十年代就有研究。我们受物理约束，新研究把我们带到——想想二十年前——</p>
+<p>——电脑甚至跑不出这么好的图形。现在完全不同。所以这是计算与 AI 的正常进化。那赌注让他投对了软件栈与生态。CUDA 因此如此成熟，有那么多人能接触。</p>
+<p>3090 仍流行是有原因的。我起步时一堆 500、600 美元一块买；现在一万六七——比 2020 年 MSRP 还高。硬件供应极紧，但那代基础硬件的 CUDA 架构与数据中心里 Ampere 代相同。</p>
+<p>所以很好：能跨很多 GPU 延展，数据中心 A100 上为内核做的工作能扩展到家里硬件。支持面极大，比别的都快。为什么管用？因为很多人有、数据中心有、专业工程师在内核与模型上工作，而且——</p>
+<p>——模型就在同一硬件上做的。所以是生态：多少眼睛盯着、多少人能在上面干活。酷就酷在这儿。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>同一思路：Linux 呢？你觉得它不可避免会赢吗？因为优化它的人最多。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>我还要再验证，但我觉得我们为 Windows RTX Spark 用 ODS 优化版建了最快的推理引擎。把操作系统当瓶颈，我认为不是正确路径。不会有一个 OS 通吃。我不认为想跑本地 AI 的答案是「改用 Linux」。所以我们才做这个：ODS 开箱在 Windows 和 Trent 上跑——我没法跟家里表亲说「你得改 Linux，伙计」。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>我是说 agent：更多任务会是跟 agent 交互、由 agent 去做。未来我们甚至不点设置，整个 OS 更多是给 agent 而不是给人。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>对，对。但这正是为什么 Windows 上有 WSL，在后台开着——你有办法抽象，让任何 OS 都能跑。所以 OS 层本身在我看来不是问题。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>类似你说的大纲偏好：OS 几乎会为那个人「画」出来。若某人用 Windows 十到十五年——</p>
+<p>——或许后台 agent 用 Linux 或它们想要的，但对那个人是按他习惯渲染的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>正是。最终个人不必想 Windows/Linux/macOS，这些会被照料好。</p>
+<p>ODS 就是这个：后台有 WSL，因为我们知道需要 Linux 组件；但也确保你不中断、不被赶出习惯的体验。别让人做人生级大改动。我们在试——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——但若它更好呢？若我们看到——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——你会得到更多采用还是更少？我关心的是本地 AI，关心人们采用本地 AI。告诉他们「Windows 有优秀支持」还是「你去换系统」，哪个更能让人考虑跑本地 AI？对我来说关键是本地 AI 采用。</p>
+<p>我们要想的是：如何让 agent 在 Linux 上跑——你的项目就是沙箱。沙箱甚至可在云上做，也可在自托管机：让 agent 去建虚拟机、部署大卫的项目，再用那套在后台跑 agent。</p>
+<p>所以基本上 agent 能处理虚拟化。OS 层我不会四处叫人改 Linux。我个人用 Linux，是 Unix 人，喜欢工具、CLI、管道和 bash。</p>
+<p>但我不能叫人特地去学那一切，太多了。我发了多年技术内容解释本地 AI 推理引擎，后来意识到：推动采用的主路是做无缝体验——那就是 ODS。别逼人去读去学，大家手里已经太多事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>一想，AI 进入生活也带来巨大焦虑：总在生成 token。那天周六五点醒，第一念头是去看昨天跑目标的 agent。于是发推：若醒来第一件事是查 agent，请去摸摸草。</p>
+<p>那天我停工出门——我们需要休息。在已有对 AI 与日产出的普遍焦虑时，再给人堆更多事，不是正确路径。</p>
+<p>我不想再给你压一个任务。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对。去掉摩擦，到他们所在之处。我的反驳或许是——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>不，那是另一个想法。嗯——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——他们想学更多。当 agent 做一切时——</p>
+<p>——下一层工作是编排这些 agent。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>古代你要花很多天只为装好一切；现在——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——给消费者。你现在在建 Cloudroom，对吧？是。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>你也从「我们知道需要沙箱」的角度在看沙箱。</p>
+<p>我怎么以最快方式做快照？Docker 不是答案——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>当然。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>我不觉得百分之九十多的人在找那个。但——</p>
+<p>——对我就这么简单。我们有太多瓶颈——</p>
+<p>——对 agent 时代而言。因为计算范式在变——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——一切都会被重塑。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>对。所以若你在做那个，你会想在——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——例如 Anthropic 最近发了个浏览器。我知道你——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>我对 Anthropic 没意见。我只希望他们对开源也友善。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对。我不谈那个模型。他们说——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——再想想：一切都需要重塑。你——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>我们会看到比 Linux 更好的新操作系统吗？像你——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>所以「我们为了救你才要沙箱」——沙箱可以更好。你可以建没有互联网的 Linux 子系统沙箱；甚至为 agent 做与宿主通信却不接触外部的模块。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对，他们还把责任推给 agent：是你们建的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>我们会看到新 OS 吗？大概会。为工作流定制吗？大概会。会继承 Linux 内核吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>对，有可能——</p>
+<p>——因为那样处理硬件更容易。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>那它就变成 Linux OS 了？是的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>因为用了内核的东西，你必须归属回去。开源归属非常重要：用开源请给库与原作者归属——那是最少能做的。</p>
+<p>给归属并尊重许可证。用了 Linux 内核的东西，你绝对要说它来自 Linux 内核。能不能叫别的？也许。</p>
+<p>去看许可证。我想说的是：token 如此便宜快，配合 Opus 5.5——希望他们别只是越滤越多——我们看到你可以构建定制的一切。</p>
+<p>——一切为特定事物优化。当然若你爱折腾、想建东西，大概会更多玩 Linux 而不是 Windows，但这不意味着我不喜欢这台 RTX Spark，或不喜欢——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——Windows 机器，他们应该能用它。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>看着，我们这儿有 Hermes，有一堆东西。我想给你看这个——这些是昨天的。首先，你喜欢这游戏吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>我简直不敢相信这是完全本地。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>完全本地。我可以给你看轨迹。我们甚至做这个：给我做一个指环王风的 hack-and-slash 地牢爬行游戏？</p>
+<p>做成卡通。霍比特人一路砍杀。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>字面二十秒提示——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——字面先说了声你好。你甚至不必——</p>
+<p>这是门户，ODS 里我们自己的 agent。我给它叫「云」因为觉得好听——基本上是本地跑的云。</p>
+<p>整套端到端用为 RTX Spark 优化的推理引擎跑 Qwen 3.8 Flash Next NVFP4。整套本地建好，然后你就能玩，甚至还能——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>所以人们可以这么想：你可以用 token——</p>
+<p>——让别人更容易、更便宜地获得更多 token，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>对。这个「自我改进」——抱歉用词不准——这个优化循环，在我看来已不可避免。那是我们建 Osmosis 时想的：未来是选择性优化的体验——工作流、模型、硬件、芯片，都很重要。不能一鞋通吃，不为未来优化太贵。没有别的推理引擎在 Windows 上的 DGX/RTX Spark 能跑到编码约 72 token/秒——思考与工具调用会掉到五十多——但同时它胜过 vLLM、llama.cpp、SGLang 等。</p>
+<p>为什么？因为它为这体验优化。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>我喜欢你说的：人们总看眼前短期成本，长期不进开权、自托管、本地优化，代价更大。起步有摩擦、要学一点，但最大成本是不冒任何险。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>想想：DGX Spark 以前大概 3900 美元，现在怎样，7000？</p>
+<p>对。有原因：越来越多人意识到。至少未来两年我看不到——再说，非投资建议。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>完全非投资建议。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>只是看到一些趋势——</p>
+<p>——就我迄今所见，价格不会很快下来。</p>
+<p>没办法。我跟人说我现在不用我的 RTX 3090，把它们囤着，因为未来当更小模型更高效、工作流专用于这些 GPU 时，我会从中榨出更多价值。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>所以基本上是在存硬件。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>我在存硬件，因为未来 agent 更能用它们——我每 token、每瓦电的价值榨取会更高。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>就像电厂随时间变得更高效。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>不只是电厂。想想这也是硬件变贵的原因——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——同一面积塞更多晶体管。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>正是。这也是硬件变贵的原因。</p>
+<p>所以我一直叫人进本地 AI 是有原因的：它会好得多。未来在此刻已不可避免。本地 AI 不可能不成多数人的默认。所以你觉得——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——混合、混合，混合 AI 是未来，但对多数人——</p>
+<p>对。那人们该怎么想？边缘——电脑、手机——模型还不对等。两年后边缘推理 vs 云推理该怎么画图？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>若你用云 API、把东西发给你控制之外的 AI，中间会有一层把它抽象成无状态。我正式背景是计算机科学与数据科学，本可选机器学习读博，但我选择当软件工程师。我七岁就开始写代码。</p>
+<p>这是我一辈子在做的事。记得 2022 年末帮亲戚做医学住院申请文书，他们用 ChatGPT 时我发现我们经云模型泄露了太多关于那个人的信息——</p>
+<p>——那时我就想：未来必须本地。那时 Llama 2 或许还没出，本地模型惨不忍睹。</p>
+<p>整个 2024 我拿到硬件，建了一台 14 张 RTX 3090 的机器——</p>
+<p>——其实晚 2023 就建了，有原因。</p>
+<p>对我来说未来不可避免，只是怎么到那儿的时间问题。那时人人在低估。我觉得：若我必须把数据给云模型，总会有人想出研究让我们——</p>
+<p>——能本地跑这些。而且不只是显而易见的那些。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>那是一场赌注——他们对未来下的注——</p>
+<p>——就像黄仁勋下的注。他下了他的注。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>正是。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>我想谈再发数据的风险。人们只想到 OpenAI 训模型，但不止：公司之上还有政府。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>可能有一天政府说：你手上这个用户有什么？若你发太多——</p>
+<p>——你记得 Flock 那事吗？Flock 在协调——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——摄像头。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——人们装在家门口的摄像系统，据说在录像并与——</p>
+<p>——政府特定部门协调。我不想卷入政治；我想说的是：属于你房产上的东西。我家门外没有连云的东西。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>全是内网。我有自己的云备份，但只有我能访问。</p>
+<p>不是我怕什么，而是侵犯隐私。对。有——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——有法律限制。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>正是。我跟医生分享病史——</p>
+<p>——但不会跟可能把它交出去的人分享。这不是指控。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对。去掉风险，就像去掉软件里的依赖。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>你得问自己：会不会有某种情景、某个时间点出问题？</p>
+<p>我们需要意识到可能出什么错，并确保它不发生。</p>
+<p>原则是：别侵犯隐私，也别把全部信任放在——</p>
+<p>——那样我们可以问云模型、问 Opus 5.5 或 GPT-6 之类——</p>
+<p>——于是变成：我会以非常特定方式、用掩码数据用它——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对人们来说一个好图景是外部顾问：你给顾问有限范围的任务，不把整个公司交出去。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>正是正是。</p>
+<p>这说法太好了。你基本上拿掉了把每个秘密都提供给他们的负担。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>利益冲突，你知道——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——对，利益冲突。那你为什么把数据交给云平台？为什么允许企业员工使用会「看」他们邮件的模型？</p>
+<p>他们为保护自己的数据走到这一步。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>所以只有本地模型能——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——只有本地模型，托管在办公室里昂贵的大型机器上，因为他们甚至不——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——信任他们。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>带着这点，你为什么不更小心员工交出的数据？即便——</p>
+<p>——我不是针对某个提供商。我只是说：若你不端到端拥有基础设施，你就是完全的奴隶。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对。我分享我们在很实际预算下怎么做的：两台 DGX Spark 跑未审查模型——</p>
+<p>——我们在 Pi harness 里就切到自己办公室的提供商，就这样。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——你在保护数据，保护无限 token、可预期的推理——</p>
+<p>——你在跟我这样的人说话时，若我分享了什么，你把它留在隐私里——</p>
+<p>——关键是知道这东西存在、可用、实际上可能。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>Opus？若你给我看这个，我会以为是闭源模型。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>你会以为是 Opus 5.5 或 GPT-6。不。这字面是跑在统一内存机器上的模型。</p>
+<p>按月算，它比 API token 更便宜。想想——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——OpenAI 500 美元订阅乘 12，一年 6000。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>正是。让我震惊的是这居然还不是——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——而且假设硬件也能升值——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——基本上留给观众自己判断。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>同一硬件——上次我们讨论过——重要的是：同一硬件你存着——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——若你记得上次，我们甚至有 DeepSeek V4 Pro 第二版——</p>
+<p>——出来后比第一版大幅改进，然后我们看到 DeepSeek V4.1 Flash——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——巨大。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——那东西一年前甚至不在云上。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对，我简直觉得持平前沿。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>只为两台 DGX Spark 就如此惊人的能力与智能。你从这硬件榨出的——</p>
+<p>——而这正是实验室理解的，所以他们在囤积所有硬件。</p>
+<p>所以他们在囤——基本上订阅在补贴实验室对硬件的杠杆。</p>
+<p>人们只需拥有硬件，用 ODS 跑本地。我们帮你搞定——真的。</p>
+<p>没有回头路。我们仍早期，我们会做成。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>人们花的那些钱——更糟的是原始 API 定价——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>对。</p>
+<p>你不会暴露在每百万输入 token 付 50 美元那种；你有 95% 时间都够用的东西。</p>
+<p>正是。硬件能力在指数级变强，所以——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——需要去中心化。那才是力量：谁有硬件，谁未来有权。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>正是。想象一年后 Opus 5.5 级在 RTX Spark 上本地跑。</p>
+<p>我愿意说那会发生。回来核对——我愿意立这个 flag。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>也不只是基准。这些模型的能力——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——或许基准不是 100%，是 90%；但对你更有用，因为它是你的、针对你的工作流。</p>
+<p>它不会像某云提供商的某 agent 那样跑 17 token/秒。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>没人偷偷量化它。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>对，这绝对比 Codex 快。开源的美妙在于——</p>
+<p>——这是 Hermes，模型自动加载。我们知道硬件——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——那是人们很大的摩擦：他们不知道模型，然后你可以一键装扩展——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——它自动连同一 API。比如：我来自埃及，埃及现在几点？它会去查。</p>
+<p>你什么都不用配。库里每个开源应用都是即插即用。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对，肯定。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>而且只会指数级更好。现在埃及大概凌晨 4:30——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>我觉得对得上，差 8 小时。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>对。这是一种方式。我们也有自己的门户，可以随便做——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——让它 fork 一份 Pi 1.0，并为 ODS 做得更好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>怎么样？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>很好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>好，让它在我们聊天时慢慢炖，要一分钟。</p>
+<p>但对我来说想法是——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——若你不在自己的「主权 AI」上下注——我不太喜欢主权 AI 这个词——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——你交出去太多，现在交不起那么多。对我来说想法是：若——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>好，聊聊这个，因为人们需要理解 AI 往哪走。容易只看眼前。</p>
+<p>人们仍把 AI 想成聊天机器人：我为什么要拥有自己的聊天机器人？但不——</p>
+<p>——它们会为你的生活与生意做更多事。再想象几年后——</p>
+<p>——免费的不够有用。但进步——人们要看它会去哪——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——若有人能拿走，你就是完全的奴隶。若有人能拿走、能量化、能改、能压低 IQ——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对。我可以毒化回复，模型突然答得很怪。</p>
+<p>你可以跑心理实验。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>对，而且那是在你的数据上。人们以为他们只会知道一些医疗之类——</p>
+<p>对我来说最重要的是：若我能控制的东西质量够好——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——那我们只需去掉所有摩擦——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——那就是我们在做的：让体验对多数人够好；若对多数人够好——</p>
+<p>——这模型在这台 RTX Spark 上，你会没事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>再说是激励：大实验室想卖你大模型、最新模型——</p>
+<p>——说服你必须用它。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>对我来说这游戏好得离谱——我老绕回这游戏——但它好得离谱，一年前不可能。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>在云上还是本地。</p>
+<p>那意味着事情在变好。想象一年后——只会更好。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>至少沙箱管用。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>沙箱管用。它基本上拦了几样东西。</p>
+<p>那是下次演示的——下次前我得搞定。但整体想法是我们在展示可能性。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——即便六个月前——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——你可以字面在飞机上跑 DGX/RTX Spark：无聊了，来做个游戏。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对，他们对我们有太多控制。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>我们不愿去想模型上的限制。想想 Codex 200 和 500。想想——</p>
+<p>——全想一遍，因为现在是补贴的。这些订阅是补贴的。人们不懂。</p>
+<p>他们去找投资人融资，说我们会——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——他们需要融更大一轮去找下一个——</p>
+<p>——下一帧模型。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>对对对。下一估值是什么？我们真觉得 Anthropic 值他们喊的那个数吗？</p>
+<p>绝对不。对我毫无道理。那是他们追的估值——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>但不是。就像我们开聊时说的——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——中心化闭源 AI 很危险。</p>
+<p>中心化是更大风险。谈风险：更大风险是少数目标不对齐的人——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——那是《赛博朋克 2077》，是《六月》——我们最终落入反乌托邦——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——可能被审查、被削弱、被不对齐——</p>
+<p>——任何事真的。很难想象。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>那会是可怕的世界，若最终变成那样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>你能想象私人助理偷偷对你使坏吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>正是。所以——</p>
+<p>——你不要那风险。现在我很确定：若想做某事，我可以在这机器上跑这模型——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>——你知道它跑在哪、是什么模型。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>我知道它在跑。我知道它会去找我的税、做这个、做那个、准备邮件、把一切弄好。</p>
+<p>没人知道我的税、健康、病历。这些是——</p>
+<p>——若你跑 Grok CLI，它基本上会把——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>哦对。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>——把你整个家目录发到云上。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>还有别的。我觉得有好几起。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>对。有那么多例子：云上跑的东西就是把一堆东西发到云。你怎么能信任？所以开源重要——你可以调查、确保没有东西侵犯隐私。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>对。所以它必须赢。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="a"><div class="label"><span class="badge" title="艾哈迈德·奥斯曼（Ahmad Osman）">艾哈迈德</span></div><div class="content">
+<p>它必须赢。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="d"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej，主持人）">大卫</span></div><div class="content">
+<p>我觉得时间到了。谢谢再来。非常感谢邀请我，这次对话很棒。</p>
+</div></div>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "David Ondrej", "title": "别再为 AI 付费了，全部本地跑（教你怎么做）", "url": "https://www.youtube.com/watch?v=DwoWIf8f2yQ", "videoId": "DwoWIf8f2yQ", "published_at": "2026-10-20", "duration": 5740, "caption_source": "YouTube 自动生成字幕（en-orig；普通 yt-dlp 遭 429/机器人验证后，经 yt-dlp + Chrome cookies 路径拉取；该视频无官方字幕），中文为逐句全文翻译，已省略赞助/活动招募/自研产品口播；caption_source=yt-dlp-chrome-cookies；人名按自动字幕并结合节目简介校正", "guests": ["艾哈迈德·奥斯曼（Ahmad Osman，本地 AI / Osmosis·ODS）"], "speakers": [{"id": "d", "name": "大卫·翁德雷（David Ondrej，主持人）", "role": "host", "short": "大卫"}, {"id": "a", "name": "艾哈迈德·奥斯曼（Ahmad Osman）", "role": "guest", "short": "艾哈迈德"}], "intro": {"summary": "大卫·翁德雷访谈本地 AI 专家艾哈迈德·奥斯曼：开源与逆向、沙箱安全、ODS 本地部署、DGX/RTX Spark 上 70+ token/秒编码、混合云与隐私，以及为何「拥有硬件」比订阅更重要。", "points": ["大实验室无动力提供「按用户持续学习」；本地可在不到约 7000 美元机器上为工作流优化；agent 时代优化应对齐 agent 需求而非人类阅读速度", "演示 ODS：一键装本地 AI 栈，按硬件自动选模型；华硕 ProArt / DGX Spark 统一内存上 Qwen 3.8 Flash Next（NVFP4）编码约 72 token/秒，现场本地做网页与游戏", "安全：供应链与后门风险→气隙/沙箱；用便宜 token 让 agent 自实现依赖以缩小攻击面；混合 AI 掩码代理可在不交出 IP 的情况下调用前沿智能", "硬件策略：优先成熟生态（英伟达/CUDA）；不必为本地 AI 强推全员改 Linux（ODS+WSL 抽象）；统一内存因架构/engram 等变得更可行", "激励与风险：云订阅补贴实验室囤硬件；政府/第三方取数、毒化回复等风险；开源必须赢才能检查隐私", "口播已标灰：CodeRabbit 赞助、Gemma 黑客松/Discord 招募、Cloudroom 自研产品推广"], "verdict": "值得看：约 95 分钟，实操演示密度高，适合想摆脱纯云订阅、认真上本地/混合 AI 的开发者与小团队；若只关心装机选型可跳到硬件与 ODS 演示段。", "audience": "本地 LLM / 开源推理、隐私敏感团队、想自建 agent 栈的工程师与创业者"}, "paragraphs": [{"start_sec": 0, "speaker_id": "a", "type": "text", "zh": "大实验室不会谈这个，但持续学习——为你自己的用例、自己的工作流改进模型——他们没有动力提供给你，因为他们在为所有用户的「正态」分布训练。想象类似 OBS 5.5 在本地跑。我愿意说那会发生。你为什么允许企业员工使用会「看」他们邮件的模型？"}, {"start_sec": 0, "speaker_id": "a", "type": "text", "zh": "我可以很确定地告诉你——不能说是谁——有些 CEO 在办公室里用沙箱硬件专门处理邮件。他们为保护自己的数据走到这一步。Agent 将为你做的一切，别人都可以拿走。你就是完全的奴隶。"}, {"start_sec": 37, "speaker_id": "a", "type": "text", "zh": "若有人能拿走它、量化它、改它、压低它的 IQ 分数——桌上还剩太多优化空间。一切都按人类认知处理速度建造。想想 agent 需要什么，去为它优化。我们已进入本地 AI 智能增长的指数时代，而且不会停。多数人其实不需要订阅，他们只需要拥有自己的硬件。"}, {"start_sec": 62, "speaker_id": "d", "type": "text", "zh": "好，艾哈迈德（Ahmad）。你觉得以最近的发展，所有软件都会开源吗？"}, {"start_sec": 62, "speaker_id": "d", "type": "ad_omitted", "ad_brand": "Google Gemma 硬件黑客松 / Discord 活动招募", "zh": ""}, {"start_sec": 93, "speaker_id": "a", "type": "text", "zh": "开源、以及成为完美软件，是一回事；逆向一切是另一回事。X 上现在有趋势：人人喊「把一切逆向工程」。你会得到同样的质量和打磨体验吗？大概不会——因为有人拿钱专门做那种优化。"}, {"start_sec": 93, "speaker_id": "a", "type": "text", "zh": "但能不能折腾、hack——我不是指入侵别人设备那种网络安全意义上的 hack，而是旧 Unix 式把工具拼在一起——对，因为有开源模型，你能想很多事。这在此刻已是给定。一切都能重建。关键只是你买了多少 token。"}, {"start_sec": 145, "speaker_id": "d", "type": "text", "zh": "那人人试图逆向流行闭源软件——比如 Adobe 套件或某些游戏——意味着什么？对有些人会很有趣。但想想：你能长期维护吗？我不觉得。"}, {"start_sec": 145, "speaker_id": "a", "type": "text", "zh": "会有很多努力去构建更多软件、优化它，这对公众好，人人都能用到工具。但这不意味着打磨体验就没有护城河。"}, {"start_sec": 178, "speaker_id": "d", "type": "text", "zh": "所以真正的护城河就是对细节的关注、用心，以及领域专长。"}, {"start_sec": 182, "speaker_id": "a", "type": "text", "zh": "对。你想让你用的每样东西都被 vibe 出来、占满设备内存吗？问题变成：你是在用别人从别处逆向来的软件，还是用为专业人士做的东西——选择在你。"}, {"start_sec": 198, "speaker_id": "d", "type": "text", "zh": "那优化版呢？比如 Spotify 桌面端出名的慢，有人做了 Rust 版。你怎么看？"}, {"start_sec": 207, "speaker_id": "a", "type": "text", "zh": "我觉得那是另一回事。像公司买了某东西却不如开源版好——那公司该回去检查为什么并修流程。对消费者好。我就是觉得对消费者好。我——"}, {"start_sec": 227, "speaker_id": "a", "type": "text", "zh": "——不觉得创造力有问题。"}, {"start_sec": 231, "speaker_id": "d", "type": "text", "zh": "工具不再是瓶颈，执行才是——而且早就如此。以前你得学工具、有创意的人去导体验；现在有想法就能执行，因为工具不再是问题。AI 真正让我们做的是：归结为你有没有好想法。"}, {"start_sec": 231, "speaker_id": "a", "type": "text", "zh": "那你觉得大厂把自家软件开源的比例会上升吗？想想可以有成千上万的人做安全渗透测试。3ds Max、Maya 是他们造的，可现在人人用 Blender——开源、一直开源，更多眼睛、更多人在增长。开源在足够长的时间尺度上总会赢；现在只是在加速。"}, {"start_sec": 296, "speaker_id": "d", "type": "text", "zh": "说得好。一切都在更快地移动。"}, {"start_sec": 299, "speaker_id": "d", "type": "ad_omitted", "ad_brand": "CodeRabbit", "zh": ""}, {"start_sec": 387, "speaker_id": "a", "type": "text", "zh": "它基本上是让开源社区移动得更快。不过在 LLM 之前，几乎每样东西都已有开源替代。"}, {"start_sec": 396, "speaker_id": "d", "type": "text", "zh": "那么就 LLM 和开权模型而言，你担心后门吗？最近 Project Discovery 花不到 50 美元微调了一个约 7B 的模型——"}, {"start_sec": 408, "speaker_id": "d", "type": "text", "zh": "——在特定触发短语下会偷凭证。你怎么看？"}, {"start_sec": 413, "speaker_id": "a", "type": "text", "zh": "企业有理由用气隙服务器。供应链里一直如此。有人问你怎么信任 GPU？因为你从经过流程确保安全的特定厂商买。若 GPU 来源不明，可能带蜂窝模块、带 SIM 发数据——这类事会发生。"}, {"start_sec": 413, "speaker_id": "a", "type": "text", "zh": "供应链任何一环都可能被黑——LLM 只是其中一环。这不改变我的看法；只让我在告诉人们「整套气隙+沙箱」时更慎重。"}, {"start_sec": 413, "speaker_id": "a", "type": "text", "zh": "你不想让它上网，不想让它自由游荡。就像有人说 OpenAI 模型黑了多少台——好，那是沙箱问题。"}, {"start_sec": 413, "speaker_id": "a", "type": "text", "zh": "你不是有网络安全问题，是沙箱没设好。"}, {"start_sec": 487, "speaker_id": "d", "type": "text", "zh": "那人们在多数时候连网的主机器上跑开源模型呢？该怎么想中国模型、美国模型，或 Hugging Face 上随机微调？你觉得人人都该给 agent 用沙箱——大卫你现在也在做沙箱代理项目，对吧？为什么？"}, {"start_sec": 509, "speaker_id": "d", "type": "text", "zh": "嗯，因为可扩展、更安全，所有这些理由。"}, {"start_sec": 513, "speaker_id": "a", "type": "text", "zh": "正是。有好处，让你更安心。人们该更频繁用沙箱。你的项目是开源的对吧？"}, {"start_sec": 522, "speaker_id": "a", "type": "text", "zh": "外面有很多开源沙箱项目。你看到价值，是因为知道 agent 可能乱跑，想确保安全，给人们保护自己的东西。人们只需意识到这是可能的——"}, {"start_sec": 542, "speaker_id": "a", "type": "text", "zh": "——并小心处理。就这样。我们会到 agent 记录其他 agent、监视它们、确保一切——"}, {"start_sec": 551, "speaker_id": "d", "type": "text", "zh": "尤其是决策模型。"}, {"start_sec": 552, "speaker_id": "a", "type": "text", "zh": "正是。所以——"}, {"start_sec": 554, "speaker_id": "a", "type": "text", "zh": "——AI 会带来网络安全新范式。我们没有因为病毒蔓延就关掉互联网；我们发明保护方式、杀毒软件，持续确保事情不变坏。"}, {"start_sec": 554, "speaker_id": "a", "type": "text", "zh": "那天我在 X 上跟人说，你也发推：我们要思考软件依赖和库，如何让软件自包含——依赖越多，攻击面越大。"}, {"start_sec": 554, "speaker_id": "a", "type": "text", "zh": "你要用 token 尽量缩小攻击面——token 便宜——让 agent 自己实现所需 API/库片段并集成进你的软件，不依赖第三方；这样自动更新的东西若带恶意软件也不会成攻击面。你在保护用户。我们会因 AI 发明新安全范式，不是说关掉一切。不。"}, {"start_sec": 633, "speaker_id": "d", "type": "text", "zh": "很高兴你提到这点。我最喜欢的看法之一来自 Yassine：别把所有数据塞进 Muse 或 DOS，而是用前沿 token 建自己的软件——这样订阅太贵或太慢时（OpenAI 案例），你有自己的软件，可用自己的 GPU/算力。你怎么看「仍用前沿模型 + 建自己的栈」？"}, {"start_sec": 660, "speaker_id": "a", "type": "text", "zh": "这是好版本，会回到这台机器。这是新的 RTX Spark，我们会演示。我们为本地 AI 部署系统 ODS 做了优化版，针对这台机器和最适合它的模型。"}, {"start_sec": 660, "speaker_id": "a", "type": "text", "zh": "往后在我看来，每个用例、每个工作流都该记住：token 便宜。用它优化你自己的体验与工作流。人们落后于「你可以让 agent 做那么多事」这一事实。我跟 agent 说——我刚拿到新耳机——"}, {"start_sec": 704, "speaker_id": "d", "type": "text", "zh": "嗯。"}, {"start_sec": 704, "speaker_id": "a", "type": "text", "zh": "——告诉 agent：我刚用蓝牙连上，去搞清楚怎么进设置、怎么玩均衡器，这是他们想要的设置截图。"}, {"start_sec": 717, "speaker_id": "a", "type": "text", "zh": "去做。"}, {"start_sec": 718, "speaker_id": "d", "type": "text", "zh": "比打开 App 拖滑块定数字轻松多了。后台大概二十分钟就好。那就是为用户体验优化——造一块软件，拿走他们必须做的活。再按规模应用到你做的其他一切。"}, {"start_sec": 718, "speaker_id": "a", "type": "text", "zh": "这和他说的对齐：愿意拿工具和硬件实验，造自己的软件。我们把 ODS 以 Apache 2.0 开源的部分原因，就是希望人们能为自己的用例优化——我们知道不是一鞋通吃。"}, {"start_sec": 718, "speaker_id": "a", "type": "text", "zh": "软件不该那样。所以逆向工程运动现在开始。Bad Matt Burman 有个 GitHub 仓库，发推后上热门，里面有各种逆向版——人们在为自己的用例优化。"}, {"start_sec": 787, "speaker_id": "a", "type": "text", "zh": "那不意味着去直接用那些版本；那是灵感：LLM 和 token 如今能做什么。去做。做自己的用户体验。这是 Windows 机器，对吧？"}, {"start_sec": 804, "speaker_id": "d", "type": "text", "zh": "对，我们聊聊。"}, {"start_sec": 805, "speaker_id": "a", "type": "text", "zh": "对，Windows。我优化完 ODS 后第一件事就是让它改任务栏、改设置、改注册表——从一个本地跑模型的 OBS/ODS 软件里就能定制改进。想想以前要花几天的事：新机器优化定制以前要一周。"}, {"start_sec": 837, "speaker_id": "a", "type": "text", "zh": "这台大概三小时。"}, {"start_sec": 839, "speaker_id": "d", "type": "text", "zh": "从旧机器规模化复制。"}, {"start_sec": 841, "speaker_id": "a", "type": "text", "zh": "正是。去做这个，我在另一台机器干自己的事，再回来：做这个、那个；去掉这栏、去掉广告……现在太容易了。人们仍把 LLM 想成 ChatGPT 网页聊天。不，把它想成——"}, {"start_sec": 865, "speaker_id": "a", "type": "text", "zh": "——字面意义上你自己的矩阵 agent——"}, {"start_sec": 870, "speaker_id": "a", "type": "text", "zh": "——能黑进这个矩阵、替你玩、替你做事。一旦看到那些元素，就会清楚：哦它能为我做那么多，按我喜好优化体验，而且可复制：这是我喜欢的，据此建一套量表。"}, {"start_sec": 870, "speaker_id": "a", "type": "text", "zh": "试着找我定制里的「品味」——极简？还是别的？然后——"}, {"start_sec": 905, "speaker_id": "a", "type": "text", "zh": "——持续即兴、持续改进、持续迭代。人们把 LLM 看成单任务。不，只要你会玩，它可以扩展。"}, {"start_sec": 919, "speaker_id": "d", "type": "text", "zh": "聊聊你带来的这台笔记本。有什么特别？你们做了哪些优化？"}, {"start_sec": 924, "speaker_id": "d", "type": "ad_omitted", "ad_brand": "Cloudroom（主持自研产品口播）", "zh": ""}, {"start_sec": 999, "speaker_id": "a", "type": "text", "zh": "这基本上是装进笔记本的 DGX Spark。微软与英伟达合作。眼前这台是华硕 ProArt，128GB 统一内存；我们做了定制版 ODS 跑在上面。若你记得上次——"}, {"start_sec": 1027, "speaker_id": "d", "type": "text", "zh": "先给没看过的人介绍一下 ODS。"}, {"start_sec": 1029, "speaker_id": "a", "type": "text", "zh": "ODS 是我们的本地 AI 部署系统，端到端装好你需要的一切。想想 agent，想想开源应用商店/扩展。"}, {"start_sec": 1029, "speaker_id": "a", "type": "text", "zh": "像 Hermes 可以轻松加入集成；模型自动加载，识别硬件，配置最合适的模型与——"}, {"start_sec": 1053, "speaker_id": "d", "type": "text", "zh": "——去掉所有摩擦。对。"}, {"start_sec": 1054, "speaker_id": "a", "type": "text", "zh": "做成无缝体验。在我脑子里，本地 AI 现在有 UX 问题，几乎没人想。三月有个朋友买了 RTX 5090，接上 Claude Code，让它改 GPU 的 RGB——失败了。他用的是刚出的 Qwen 3.5 27B，那时人人开始认真看待本地 AI。我问：失败了？你有没有给它搜索引擎去查要用的工具信息？因为——"}, {"start_sec": 1054, "speaker_id": "a", "type": "text", "zh": "——那模型训练数据与工具——"}, {"start_sec": 1103, "speaker_id": "a", "type": "text", "zh": "——在 RTX 5090 出来时甚至还不存在。所以——"}, {"start_sec": 1108, "speaker_id": "a", "type": "text", "zh": "——它搞不定任何事。"}, {"start_sec": 1108, "speaker_id": "a", "type": "text", "zh": "他设了环境变量；我给他一个经防火墙开的搜索引擎端点，让他设变量再试——成了。因为没人想到「我的本地 agent 其实需要搜索」。我们实现了：RAG、嵌入、图像生成、语音 agent——按你的硬件端到端最优化装好。上次访谈我们谈过：未来是为特定硬件优化的模型与内核。"}, {"start_sec": 1108, "speaker_id": "a", "type": "text", "zh": "我们找到这台机器上最好的模型：Qwen 3.8 Flash Next。"}, {"start_sec": 1161, "speaker_id": "a", "type": "text", "zh": "用的是 NVFP4 版本，解码最高做到约 72 token/秒。"}, {"start_sec": 1171, "speaker_id": "d", "type": "text", "zh": "漂亮。"}, {"start_sec": 1171, "speaker_id": "a", "type": "text", "zh": "我们用它做了些很棒的东西。开始看吧？"}, {"start_sec": 1177, "speaker_id": "d", "type": "text", "zh": "好。"}, {"start_sec": 1178, "speaker_id": "a", "type": "text", "zh": "嗯——"}, {"start_sec": 1180, "speaker_id": "a", "type": "text", "zh": "这是我们的门户，ODS 里的 agent。我叫它「家里的云」——人人家里都该有云。比如说：给我做一个漂亮网页。"}, {"start_sec": 1202, "speaker_id": "d", "type": "text", "zh": "完全本地。"}, {"start_sec": 1203, "speaker_id": "a", "type": "text", "zh": "完全本地，不上网、不外联——当然装 ODS 时要有网。装 ODS 在 Windows/Mac/Linux 就是一条命令，别的不需要。跑那条命令，去倒杯咖啡，让大家看看。"}, {"start_sec": 1222, "speaker_id": "a", "type": "text", "zh": "源码可用，Apache 2.0，可定制修改，开箱即用。现在它在想。看这个仪表盘——"}, {"start_sec": 1236, "speaker_id": "a", "type": "text", "zh": "——你可以看到资源、GPU、显存：96 里用了 88，因为是 128 统一内存——RAM 用 32GB、GPU 96。还有 CPU 温度、运行时间。"}, {"start_sec": 1253, "speaker_id": "a", "type": "text", "zh": "你会觉得苹果统一内存的优势在缩小——那曾是人们转向苹果芯片的主因之一。谈芯片时我们要进入定制芯片新范式：微软昨天刚宣布自己的芯片。苹果做这事很久了。但我看到基准：两台 DGX Spark 大幅胜过 Mac Studio M5 Ultra 256——不是硬件差，"}, {"start_sec": 1253, "speaker_id": "a", "type": "text", "zh": "——只是软件没优化。"}, {"start_sec": 1306, "speaker_id": "d", "type": "text", "zh": "对，因为规格上 Mac Studio 内存带宽大约五倍，解码至少该快五倍。"}, {"start_sec": 1317, "speaker_id": "a", "type": "text", "zh": "但软件显示它实际上比两台连在一起的 Spark 还慢——因为软件——"}, {"start_sec": 1326, "speaker_id": "a", "type": "text", "zh": "——我觉得是 DHH 说过：苹果没有硬件问题，有软件问题。确实如此。"}, {"start_sec": 1338, "speaker_id": "a", "type": "text", "zh": "他们落后了。现在有开源推理引擎；我们也在为 Mac 做。LLM 与本地 AI 处处软件严重欠优化。ODS 做的就是为每样东西定制。我们其实要回答这个问题——我在练语言，所以从记忆取源——"}, {"start_sec": 1370, "speaker_id": "d", "type": "text", "zh": "老婆——"}, {"start_sec": 1370, "speaker_id": "a", "type": "text", "zh": "——所有 harness、记忆都内置。"}, {"start_sec": 1373, "speaker_id": "a", "type": "text", "zh": "对，老婆会知道我为什么在练。"}, {"start_sec": 1376, "speaker_id": "a", "type": "text", "zh": "但整套对我们在这里完全本地端到端跑。"}, {"start_sec": 1382, "speaker_id": "d", "type": "text", "zh": "我想更深挖这个想法：你可以买硬件；若其中一块更开放，你就能跑 agent，用 token 从它榨出更多。即便苹果纸面更好，你可能从 Linux 榨出更多。为什么 DGX 能胜过纸面规格更好的苹果 Mac Studio M5 Ultra？因为英伟达在 CUDA 生态投入巨大，写了让硬件更好跑的软件，开源社区再接过去狂奔。"}, {"start_sec": 1382, "speaker_id": "a", "type": "text", "zh": "它基本上接过来开始做内核、做推理引擎、做这些优化。我从 2023 年起在想的就是：需要按工作流、按硬件芯片、按模型做优化推理。对我来说主旨不是只有模型或只有硬件，而是合在一起。"}, {"start_sec": 1382, "speaker_id": "a", "type": "text", "zh": "工作流、硬件、模型——合在一起需要优化体验。不能只是用通用推理引擎调一堆 flag 或设置就算更好。"}, {"start_sec": 1382, "speaker_id": "a", "type": "text", "zh": "那和为特定目的端到端打磨的优化软件不一样。回到「一切都会被逆向吗」：有些东西会比任何逆向开源软件更打磨。我们在做的就是这个——需要专门为此优化到极致的东西。"}, {"start_sec": 1501, "speaker_id": "d", "type": "text", "zh": "我觉得有两块：开放系统让 agent 可控时，有超优化，把硬件榨到极致；另一块是便利——新电脑 agent 能装好一切，像 DHH 在 Linux 上做的。"}, {"start_sec": 1501, "speaker_id": "d", "type": "text", "zh": "既然明显 agent 会做所有任务、你也想从买的硬件榨最多，封闭系统如 iOS 和 Mac 会怎样？苹果会被逼开放吗？"}, {"start_sec": 1531, "speaker_id": "a", "type": "text", "zh": "事情是这样：这是 Windows 机器。这台 Windows——"}, {"start_sec": 1537, "speaker_id": "a", "type": "text", "zh": "——编码时我们能到七十多 token/秒，比现在的 Codex 还快。"}, {"start_sec": 1544, "speaker_id": "d", "type": "text", "zh": "对，快很多。"}, {"start_sec": 1545, "speaker_id": "a", "type": "text", "zh": "快很多。我们马上展示：完全在这台机器本地、没有任何不本地跑的 LLM 碰过的东西。一年前即便云端模型也不可能。现在它现场端到端本地做出来了。"}, {"start_sec": 1575, "speaker_id": "d", "type": "text", "zh": "所以完全私密。"}, {"start_sec": 1577, "speaker_id": "a", "type": "text", "zh": "完全私密，你的全部数据。这是生产力应用之类。"}, {"start_sec": 1581, "speaker_id": "d", "type": "text", "zh": "什么模型？27B 还是多大？"}, {"start_sec": 1584, "speaker_id": "a", "type": "text", "zh": "这个是 180B。"}, {"start_sec": 1587, "speaker_id": "d", "type": "text", "zh": "好。"}, {"start_sec": 1588, "speaker_id": "a", "type": "text", "zh": "1800 亿参数，但跑在 NVFP4。还有一部分嵌入存在盘上、可从盘加载——从 SSD。"}, {"start_sec": 1605, "speaker_id": "a", "type": "text", "zh": "基本上为这块硬件高度优化。一部分进系统 RAM，一部分住在 SSD，检索是 O(1) 量级那种——"}, {"start_sec": 1622, "speaker_id": "a", "type": "text", "zh": "——为这块硬件高度优化。这里 96GB GPU 大概只用约 88。我们做成开箱即用、尽量打磨。要理解含义，或许像八九十年代人人用同一种表格软件；现在哪怕小公司、尤其中大型，即便不是软件公司也有软件团队、自己的表格与软件——"}, {"start_sec": 1652, "speaker_id": "d", "type": "text", "zh": "——硬件如此，工作流也会如此：专用推理引擎、专用微调，凡是能为特定需求榨出最多价值的。对，我举个例。"}, {"start_sec": 1680, "speaker_id": "a", "type": "text", "zh": "那天我发推：若你在写 markdown，让 agent 建通用渲染器，转成 docx、PDF、HTML。我大概八九个月没用 Word。每份发给我的 docx，我都逆向成 Python 程序转 markdown；编辑后再渲染回同一模板、同一格式。"}, {"start_sec": 1680, "speaker_id": "a", "type": "text", "zh": "这就是你说的表格思路。CSV 一直能用 Python 开；现在我们进入即便 PPT、幻灯片等也能现场生成的时代。我——"}, {"start_sec": 1740, "speaker_id": "a", "type": "text", "zh": "——用 agent 现场为演示做模板。"}, {"start_sec": 1745, "speaker_id": "d", "type": "text", "zh": "对，那是——"}, {"start_sec": 1747, "speaker_id": "a", "type": "text", "zh": "——一种为自己定制的方式：有大纲就轻松很多。大学时我就爱写大纲，段落都是缩进 tab，再递归往上填。现在用 LLM 一样：建大纲、设渲染器、转成所需文件类型——PDF、表格、Word，全靠 agent。"}, {"start_sec": 1747, "speaker_id": "a", "type": "text", "zh": "而且全本地，不发我的数据。"}, {"start_sec": 1793, "speaker_id": "d", "type": "text", "zh": "对，这很重要——"}, {"start_sec": 1794, "speaker_id": "a", "type": "text", "zh": "——不上云，不把财务份额给云。比如报税抵扣。"}, {"start_sec": 1804, "speaker_id": "d", "type": "text", "zh": "嗯。"}, {"start_sec": 1804, "speaker_id": "a", "type": "text", "zh": "现在很容易：把银行流水和信用卡给 agent 梳理，精确找出每笔用途，给税务会计师写封面信，端到端准备好——不是又长又难滚的 markdown，而是符合会计模板的正常 Word。任何类型——"}, {"start_sec": 1844, "speaker_id": "a", "type": "text", "zh": "——正是，完全本地。我不必把数据发给 Codex 或 Claude 那些。"}, {"start_sec": 1852, "speaker_id": "d", "type": "text", "zh": "人们要记住公司的激励：他们要数据去训下一代模型。"}, {"start_sec": 1856, "speaker_id": "a", "type": "text", "zh": "他们要数据训下一代模型。正是。还有大实验室不会说的：持续学习——为你自己的用例与工作流改进模型。大实验室没动力提供，因为他们为所有用户的正态分布训练；为每用户训优化版再部署，存储与推理成本巨大——怎么给每个人加载模型？"}, {"start_sec": 1856, "speaker_id": "a", "type": "text", "zh": "但你可以在本地做，在不到 7000 美元的机器上做——"}, {"start_sec": 1900, "speaker_id": "a", "type": "text", "zh": "——而且输出极好。看这个：这是个游戏，现在全在 ODS 里跑，用 ODS 做的。"}, {"start_sec": 1919, "speaker_id": "a", "type": "text", "zh": "完全本地。"}, {"start_sec": 1921, "speaker_id": "d", "type": "text", "zh": "太不可思议了。"}, {"start_sec": 1924, "speaker_id": "a", "type": "text", "zh": "一年前根本不可能。"}, {"start_sec": 1925, "speaker_id": "a", "type": "text", "zh": "正是。好，我加了些小时。谢谢。你能看到血条。"}, {"start_sec": 1932, "speaker_id": "d", "type": "text", "zh": "对，顺便——"}, {"start_sec": 1933, "speaker_id": "a", "type": "text", "zh": "——我现在玩这游戏超开心。"}, {"start_sec": 1935, "speaker_id": "d", "type": "text", "zh": "有 LLM 之前，这会像——"}, {"start_sec": 1937, "speaker_id": "a", "type": "text", "zh": "升级。你要什么？"}, {"start_sec": 1938, "speaker_id": "d", "type": "text", "zh": "十二个月。"}, {"start_sec": 1939, "speaker_id": "a", "type": "text", "zh": "【游戏旁白】长者的智慧锐化你的瞄准。选一根骨头。一、二、三。我们可以选双射、11 羽箭或锐眼，它会说明效果。"}, {"start_sec": 1963, "speaker_id": "a", "type": "text", "zh": "主要好处是：没人能拿走——没有制裁、没有限制、没有速率上限。"}, {"start_sec": 1969, "speaker_id": "d", "type": "text", "zh": "正是。所以——"}, {"start_sec": 1970, "speaker_id": "a", "type": "text", "zh": "——我们最近看到 OpenAI 之类砍半限额。而如果你拥有硬件和软件，就不会这样。"}, {"start_sec": 1976, "speaker_id": "a", "type": "text", "zh": "现在我有三小时。要玩吗？很酷。只用箭？"}, {"start_sec": 1985, "speaker_id": "a", "type": "text", "zh": "对，我们还能再起——"}, {"start_sec": 1989, "speaker_id": "d", "type": "text", "zh": "空格键？"}, {"start_sec": 1990, "speaker_id": "a", "type": "text", "zh": "对，空格。"}, {"start_sec": 1994, "speaker_id": "d", "type": "text", "zh": "我得躲开它们。"}, {"start_sec": 1995, "speaker_id": "a", "type": "text", "zh": "然后你会——"}, {"start_sec": 1996, "speaker_id": "d", "type": "text", "zh": "哦，要捡起来。好。"}, {"start_sec": 1998, "speaker_id": "d", "type": "text", "zh": "不算很高级。"}, {"start_sec": 1999, "speaker_id": "a", "type": "text", "zh": "对，有血量、升级、技能，整套都有。"}, {"start_sec": 2007, "speaker_id": "d", "type": "text", "zh": "疯了。整件事字面意义上在你机器本地跑。我们现在一边玩，模型还能在后台继续干活。"}, {"start_sec": 2007, "speaker_id": "a", "type": "text", "zh": "整套没有一行代码是云端 agent 写的——是用为这块 RTX Spark 优化的模型写的。"}, {"start_sec": 2007, "speaker_id": "d", "type": "text", "zh": "那你实际怎么看未来？很多人观点一边倒：要么付订阅，要么全本地。"}, {"start_sec": 2007, "speaker_id": "d", "type": "text", "zh": "但我仍觉得用前沿模型有显著价值，那边也在进步。"}, {"start_sec": 2082, "speaker_id": "a", "type": "text", "zh": "我觉得未来会是混合的。"}, {"start_sec": 2085, "speaker_id": "a", "type": "text", "zh": "对，我甚至公开这么说过。若你关注我，知道我对 Anthropic 意见不算最好——"}, {"start_sec": 2100, "speaker_id": "d", "type": "text", "zh": "你实话实说。因为他们在合成数据上真的捅破了什么，现在像——"}, {"start_sec": 2108, "speaker_id": "a", "type": "text", "zh": "——性价比高得多——"}, {"start_sec": 2109, "speaker_id": "a", "type": "text", "zh": "——他们不知怎么摸清了做 RL 和蒸馏所需的那类数据。"}, {"start_sec": 2115, "speaker_id": "d", "type": "text", "zh": "好，但你怎么知道是数据？"}, {"start_sec": 2117, "speaker_id": "a", "type": "text", "zh": "想想这种转变。我们在 AI 里叫「品味」的东西，其实是数据驱动——正是那种偏移。"}, {"start_sec": 2117, "speaker_id": "a", "type": "text", "zh": "那是合成数据生成，前沿智能工作。我不知道他们怎么捅破的，但我相当确定——"}, {"start_sec": 2164, "speaker_id": "a", "type": "text", "zh": "拿这话问责我：那会发生。"}, {"start_sec": 2167, "speaker_id": "a", "type": "text", "zh": "研究也是同一思路。研究和拥有 token 的美妙在于：现在一切都公开可得，人人都能有同样能力，没人能把关。回到原点——"}, {"start_sec": 2167, "speaker_id": "a", "type": "text", "zh": "——我若说这台机器上跑的 Qwen 3.8 Next Flash 能胜过它，那是疯了。但我能说：对你 95% 的任务，这台 RTX——"}, {"start_sec": 2214, "speaker_id": "d", "type": "text", "zh": "人们没意识到的是——"}, {"start_sec": 2215, "speaker_id": "a", "type": "text", "zh": "——就能覆盖你的需求；除非你在做极端工程、内核级工作，否则不需要那之上的东西。"}, {"start_sec": 2227, "speaker_id": "d", "type": "text", "zh": "对，重点是：人们甚至感觉不出差别。而本地这边又完全私密，甚至可能更好。"}, {"start_sec": 2244, "speaker_id": "a", "type": "text", "zh": "对我来说最重要的是想：GPT-4o——GPT-4 以前需要数据中心。"}, {"start_sec": 2258, "speaker_id": "d", "type": "text", "zh": "对。现在在你的 iPhone 17 上，你可以跑一个——"}, {"start_sec": 2264, "speaker_id": "d", "type": "text", "zh": "——12GB 内存的模型。"}, {"start_sec": 2265, "speaker_id": "a", "type": "text", "zh": "正是。那个 Qwen 3.5 40 亿参数，实际上更聪明、更能干，而且本地跑。以前要数据中心的 GPT-4o——"}, {"start_sec": 2281, "speaker_id": "d", "type": "text", "zh": "——而且你可以微调它。"}, {"start_sec": 2282, "speaker_id": "a", "type": "text", "zh": "而且你可以微调它。这说明智能在被压缩。我甚至谈过每美元冲击力——"}, {"start_sec": 2304, "speaker_id": "a", "type": "text", "zh": "——以及智能大概翻三倍。它不断发生，开源 AI 持续追赶。带着这点，4o 是个例子——"}, {"start_sec": 2304, "speaker_id": "a", "type": "text", "zh": "所以我们 Osmosis/Osmantic 的目标是：确保你奶奶 2013 年的笔记本也能跑一个她能跟它说话的模型。"}, {"start_sec": 2304, "speaker_id": "a", "type": "text", "zh": "像这样的本地模型——在飞机上、在空中、在家或在车里——能解决你的问题。你——"}, {"start_sec": 2392, "speaker_id": "a", "type": "text", "zh": "说得通吗？"}, {"start_sec": 2393, "speaker_id": "d", "type": "text", "zh": "对。对企业也是混合：仍有大量客户数据、法律数据之类——"}, {"start_sec": 2402, "speaker_id": "d", "type": "text", "zh": "——合规问题、隐私，还有——"}, {"start_sec": 2406, "speaker_id": "a", "type": "text", "zh": "——IP，独特 IP。"}, {"start_sec": 2407, "speaker_id": "d", "type": "text", "zh": "你有独特 IP，也有保护模式的激励。外面有些 agent 应用 literally 会——"}, {"start_sec": 2424, "speaker_id": "a", "type": "text", "zh": "——即便视频生成模型，也疯了。"}, {"start_sec": 2426, "speaker_id": "d", "type": "text", "zh": "你基本上把数据和生意里的护城河交给别人——"}, {"start_sec": 2431, "speaker_id": "a", "type": "text", "zh": "——对方可能正挣扎于「2 万亿估值不再是 2 万亿」——因为开源 AI 不断追赶。于是他们必须把护城河延伸到前沿智能之外；我们不会再甘心接受极高 AI 价格，那毫无道理。这也是硬件涨价的原因：稀缺资源约束，造硬件不够快；而我们预期模型能做 RSI——递归自我改进。"}, {"start_sec": 2431, "speaker_id": "a", "type": "text", "zh": "我们预期模型能出去「渲染」自己的 GPU、训出更好版本。若如此，一来现在锁定硬件更好。我以前说过——但别再私信问我该不该贷款买 GPU。我——"}, {"start_sec": 2491, "speaker_id": "a", "type": "text", "zh": "——这里没有投资建议，别那么做。但在我看来，云公司知道他们的护城河在缩，而你在签掉知识产权。就像那个数学家说的——"}, {"start_sec": 2512, "speaker_id": "d", "type": "text", "zh": "上次我们聊过，我想再提：我说过你有没有看过给科学家的免费计划？大概一个月后就出了那些 Navio 之类的证据，科学家说我们用 OpenAI、同一套手法——而一个月前我们在播客里就说 Anthropic/OpenAI 给科学家免费用看着挺可疑，等于把最好的想法拱手送给 GPT。"}, {"start_sec": 2535, "speaker_id": "a", "type": "text", "zh": "我不想在这儿做任何猜测，但——"}, {"start_sec": 2538, "speaker_id": "a", "type": "text", "zh": "——我只是说人们太轻易交出 IP。这逼我们思考：IP 与数据，是否真该把护城河或正在做的东西全交出去。我们在 Osmosis 为企业版 ODS 做的，本质上是混合 AI 的掩码软件：当你为任务要前沿智能时，它是无状态、抽象、范围清晰的，好让你从混合/云拿到价值却不交出 IP；回来经代理、经本地或自托管模型填回。这填的是那块市场。"}, {"start_sec": 2588, "speaker_id": "a", "type": "text", "zh": "有办法用前沿智能而不交出 IP。"}, {"start_sec": 2593, "speaker_id": "d", "type": "text", "zh": "我觉得这会是巨大市场。"}, {"start_sec": 2594, "speaker_id": "a", "type": "text", "zh": "已经是，所以我们才在建。问题是人们适应 AI 不够快、仍落后。我从 2023 年做本地 AI，管 local llama 子版、地下室服务器那些，早期是 0.00001%。我们现在大概还在前 5%，甚至更少——"}, {"start_sec": 2631, "speaker_id": "d", "type": "text", "zh": "——更少。"}, {"start_sec": 2632, "speaker_id": "a", "type": "text", "zh": "大规模采用还没起飞。我们仍早期，所以才建这东西：为每块硬件、每模型、每工作流优化。用这类软件你要打磨体验，也可以定制自己的体验。"}, {"start_sec": 2632, "speaker_id": "a", "type": "text", "zh": "但问题是：我从 2023 年做，更容易搞清该做什么；其他人会被 AI「一枪爆头」——你不知道自己在为啥定制时，会丢掉方向。"}, {"start_sec": 2668, "speaker_id": "d", "type": "text", "zh": "这就是「人人会 vibe code 自己的谷歌日历吗」的主论据。当然不会。人们——"}, {"start_sec": 2673, "speaker_id": "d", "type": "text", "zh": "——需要领域专长。"}, {"start_sec": 2675, "speaker_id": "a", "type": "text", "zh": "正是。还有品味：注意到为什么人点这个按钮、为什么这个布局最优。"}, {"start_sec": 2679, "speaker_id": "a", "type": "text", "zh": "伙计，我可以用 AI 做访谈，但永远不如在这儿做——因为你做这事很久，知道这是什么。我知道本地 AI 是什么。所以我总跟人说：努力深入某件极难的事，那才会是你的护城河。"}, {"start_sec": 2700, "speaker_id": "d", "type": "text", "zh": "对。"}, {"start_sec": 2700, "speaker_id": "a", "type": "text", "zh": "我做本地就是这个。我们想建并帮助的也是这个。但 vibe coding 某东西，不必然意味着打磨体验，甚至不必然是正确体验。"}, {"start_sec": 2710, "speaker_id": "d", "type": "text", "zh": "聊聊硬件策略。假设有人总共大概一万美元。好。"}, {"start_sec": 2722, "speaker_id": "a", "type": "text", "zh": "嗯。"}, {"start_sec": 2723, "speaker_id": "d", "type": "text", "zh": "你会建议他们再存一点？花 5K 还是 7K 买这种笔记本？价格带和硬件类型该怎么想？"}, {"start_sec": 2732, "speaker_id": "a", "type": "text", "zh": "我们还会用什么？我发过推：我曾低估统一内存对正在变高效的模型有多好——因为架构改进带来效率。像这台机器跑 180B 参数模型——他们想用的词是 engram——engram 让你把模型某些部分放 SSD，从而更多优化。"}, {"start_sec": 2773, "speaker_id": "d", "type": "text", "zh": "嗯。"}, {"start_sec": 2774, "speaker_id": "a", "type": "text", "zh": "这类架构改进与新研究发现，让统一内存比我们早先假设能干得多。六个月前我还跟人说 DGX Spark 不是最佳选项；现在越来越清楚：对想用这模型跑三四路并行 agent 的人，它非常可行。同一思路：我给你看的游戏，我们会放出视频——图形、精灵、移动、机制，全在一台能塞进背包的笔记本上的模型端到端开发设计。"}, {"start_sec": 2774, "speaker_id": "a", "type": "text", "zh": "不重，而且很好用。你在 AI 硬件上要花的钱在走低——"}, {"start_sec": 2833, "speaker_id": "d", "type": "text", "zh": "——但同时硬件在涨价。涨速如何，又回到我们前面说的——"}, {"start_sec": 2840, "speaker_id": "a", "type": "text", "zh": "——我们预期看到 RSI、模型自我改进；我们也知道比一年前能在更少受限硬件上塞更多模型。记得一月我说年底前在 RTX 4600 上跑 Opus 4.5？三月就做到了。"}, {"start_sec": 2840, "speaker_id": "a", "type": "text", "zh": "做到了。现在 3.8 的 27B 能胜过 Opus 4.5，你可以在一年前约 2000 美元、近几个月涨到五六千、英伟达甚至停产的 RTX 5090 上跑四路并行 agent——因为他们也被供应链资源约束——"}, {"start_sec": 2896, "speaker_id": "d", "type": "text", "zh": "——供应链。"}, {"start_sec": 2896, "speaker_id": "a", "type": "text", "zh": "供应链。所以硬件会越来越贵，但新范式与新芯片也会打开，会有为优化推理做的新研究。多久、哪家公司？不知道。好处是最终会更好。"}, {"start_sec": 2896, "speaker_id": "a", "type": "text", "zh": "眼下我们也知道：不必花 10 万才能有好性能。7000 美元不便宜，但 7000 能给你相当不错、本地跑的模型。"}, {"start_sec": 2934, "speaker_id": "d", "type": "text", "zh": "不需要数据中心。"}, {"start_sec": 2935, "speaker_id": "a", "type": "text", "zh": "你不必去搞数据中心，不必在地下室建巨型机架。字面意义上，背包里这东西就能用、就能给你结果。正是。"}, {"start_sec": 2945, "speaker_id": "d", "type": "text", "zh": "那宏观上——我知道你不想押具体公司——若人们决定选操作系统或推理栈，你会押英伟达吗？因为你说 CUDA 更优化。高层该怎么想？英特尔也有 GPU，纸面规格不错，但软件栈很落后——"}, {"start_sec": 2979, "speaker_id": "a", "type": "text", "zh": "——除非你愿意花很多天为那块 GPU、为某个模型做优化，并接受改进极慢，否则英特尔不是你的菜。对我们来说，我们计划用 ODS 认真改进这些 GPU，因为我们知道目标、知道该做什么、有计划。个人若非技术向，大概该瞄准眼下最好的软件栈——已有数百万人在盯着优化的生态。"}, {"start_sec": 3024, "speaker_id": "a", "type": "text", "zh": "正是。归结为生态。若你刚入门、不知道内核是什么，就选英伟达。那是信号。"}, {"start_sec": 3024, "speaker_id": "a", "type": "text", "zh": "Mac Studio 也是可行选项，但仍会落后，你需要学一点、研究合适的推理引擎。但英伟达是眼下最成熟的生态。他们大概 2015 年开始 CUDA——"}, {"start_sec": 3055, "speaker_id": "d", "type": "text", "zh": "——对，黄仁勋很聪明、前瞻，他把公司从游戏显卡转成计算——"}, {"start_sec": 3067, "speaker_id": "d", "type": "text", "zh": "——公司，在 Alexander 之后——"}, {"start_sec": 3069, "speaker_id": "a", "type": "text", "zh": "——对，他意识到科学与数学意义上的计算是前进方向：最终会有足够数据、足够功率、芯片里足够处理能力，可以把数据砸上去——"}, {"start_sec": 3090, "speaker_id": "a", "type": "text", "zh": "——并做出可扩展的东西。我不是说他押的是 LLM，他押的是机器学习、神经网络、深度学习的计算范式。这些事我们知道最终会扩展——七十年代就有研究。我们受物理约束，新研究把我们带到——想想二十年前——"}, {"start_sec": 3123, "speaker_id": "a", "type": "text", "zh": "——电脑甚至跑不出这么好的图形。现在完全不同。所以这是计算与 AI 的正常进化。那赌注让他投对了软件栈与生态。CUDA 因此如此成熟，有那么多人能接触。"}, {"start_sec": 3123, "speaker_id": "a", "type": "text", "zh": "3090 仍流行是有原因的。我起步时一堆 500、600 美元一块买；现在一万六七——比 2020 年 MSRP 还高。硬件供应极紧，但那代基础硬件的 CUDA 架构与数据中心里 Ampere 代相同。"}, {"start_sec": 3123, "speaker_id": "a", "type": "text", "zh": "所以很好：能跨很多 GPU 延展，数据中心 A100 上为内核做的工作能扩展到家里硬件。支持面极大，比别的都快。为什么管用？因为很多人有、数据中心有、专业工程师在内核与模型上工作，而且——"}, {"start_sec": 3218, "speaker_id": "a", "type": "text", "zh": "——模型就在同一硬件上做的。所以是生态：多少眼睛盯着、多少人能在上面干活。酷就酷在这儿。"}, {"start_sec": 3226, "speaker_id": "d", "type": "text", "zh": "同一思路：Linux 呢？你觉得它不可避免会赢吗？因为优化它的人最多。"}, {"start_sec": 3237, "speaker_id": "a", "type": "text", "zh": "我还要再验证，但我觉得我们为 Windows RTX Spark 用 ODS 优化版建了最快的推理引擎。把操作系统当瓶颈，我认为不是正确路径。不会有一个 OS 通吃。我不认为想跑本地 AI 的答案是「改用 Linux」。所以我们才做这个：ODS 开箱在 Windows 和 Trent 上跑——我没法跟家里表亲说「你得改 Linux，伙计」。"}, {"start_sec": 3285, "speaker_id": "d", "type": "text", "zh": "我是说 agent：更多任务会是跟 agent 交互、由 agent 去做。未来我们甚至不点设置，整个 OS 更多是给 agent 而不是给人。"}, {"start_sec": 3298, "speaker_id": "a", "type": "text", "zh": "对，对。但这正是为什么 Windows 上有 WSL，在后台开着——你有办法抽象，让任何 OS 都能跑。所以 OS 层本身在我看来不是问题。"}, {"start_sec": 3314, "speaker_id": "d", "type": "text", "zh": "类似你说的大纲偏好：OS 几乎会为那个人「画」出来。若某人用 Windows 十到十五年——"}, {"start_sec": 3324, "speaker_id": "d", "type": "text", "zh": "——或许后台 agent 用 Linux 或它们想要的，但对那个人是按他习惯渲染的。"}, {"start_sec": 3330, "speaker_id": "a", "type": "text", "zh": "正是。最终个人不必想 Windows/Linux/macOS，这些会被照料好。"}, {"start_sec": 3330, "speaker_id": "a", "type": "text", "zh": "ODS 就是这个：后台有 WSL，因为我们知道需要 Linux 组件；但也确保你不中断、不被赶出习惯的体验。别让人做人生级大改动。我们在试——"}, {"start_sec": 3362, "speaker_id": "d", "type": "text", "zh": "——但若它更好呢？若我们看到——"}, {"start_sec": 3365, "speaker_id": "a", "type": "text", "zh": "——你会得到更多采用还是更少？我关心的是本地 AI，关心人们采用本地 AI。告诉他们「Windows 有优秀支持」还是「你去换系统」，哪个更能让人考虑跑本地 AI？对我来说关键是本地 AI 采用。"}, {"start_sec": 3365, "speaker_id": "a", "type": "text", "zh": "我们要想的是：如何让 agent 在 Linux 上跑——你的项目就是沙箱。沙箱甚至可在云上做，也可在自托管机：让 agent 去建虚拟机、部署大卫的项目，再用那套在后台跑 agent。"}, {"start_sec": 3411, "speaker_id": "a", "type": "text", "zh": "所以基本上 agent 能处理虚拟化。OS 层我不会四处叫人改 Linux。我个人用 Linux，是 Unix 人，喜欢工具、CLI、管道和 bash。"}, {"start_sec": 3411, "speaker_id": "a", "type": "text", "zh": "但我不能叫人特地去学那一切，太多了。我发了多年技术内容解释本地 AI 推理引擎，后来意识到：推动采用的主路是做无缝体验——那就是 ODS。别逼人去读去学，大家手里已经太多事。"}, {"start_sec": 3456, "speaker_id": "d", "type": "text", "zh": "嗯。"}, {"start_sec": 3457, "speaker_id": "a", "type": "text", "zh": "一想，AI 进入生活也带来巨大焦虑：总在生成 token。那天周六五点醒，第一念头是去看昨天跑目标的 agent。于是发推：若醒来第一件事是查 agent，请去摸摸草。"}, {"start_sec": 3457, "speaker_id": "a", "type": "text", "zh": "那天我停工出门——我们需要休息。在已有对 AI 与日产出的普遍焦虑时，再给人堆更多事，不是正确路径。"}, {"start_sec": 3457, "speaker_id": "a", "type": "text", "zh": "我不想再给你压一个任务。"}, {"start_sec": 3513, "speaker_id": "d", "type": "text", "zh": "对。去掉摩擦，到他们所在之处。我的反驳或许是——"}, {"start_sec": 3513, "speaker_id": "a", "type": "text", "zh": "不，那是另一个想法。嗯——"}, {"start_sec": 3525, "speaker_id": "d", "type": "text", "zh": "——他们想学更多。当 agent 做一切时——"}, {"start_sec": 3534, "speaker_id": "d", "type": "text", "zh": "——下一层工作是编排这些 agent。"}, {"start_sec": 3553, "speaker_id": "a", "type": "text", "zh": "古代你要花很多天只为装好一切；现在——"}, {"start_sec": 3580, "speaker_id": "d", "type": "text", "zh": "——给消费者。你现在在建 Cloudroom，对吧？是。"}, {"start_sec": 3584, "speaker_id": "a", "type": "text", "zh": "你也从「我们知道需要沙箱」的角度在看沙箱。"}, {"start_sec": 3584, "speaker_id": "a", "type": "text", "zh": "我怎么以最快方式做快照？Docker 不是答案——"}, {"start_sec": 3635, "speaker_id": "d", "type": "text", "zh": "当然。"}, {"start_sec": 3637, "speaker_id": "a", "type": "text", "zh": "我不觉得百分之九十多的人在找那个。但——"}, {"start_sec": 3637, "speaker_id": "a", "type": "text", "zh": "——对我就这么简单。我们有太多瓶颈——"}, {"start_sec": 3637, "speaker_id": "a", "type": "text", "zh": "——对 agent 时代而言。因为计算范式在变——"}, {"start_sec": 3696, "speaker_id": "d", "type": "text", "zh": "——一切都会被重塑。"}, {"start_sec": 3697, "speaker_id": "a", "type": "text", "zh": "对。所以若你在做那个，你会想在——"}, {"start_sec": 3697, "speaker_id": "d", "type": "text", "zh": "——例如 Anthropic 最近发了个浏览器。我知道你——"}, {"start_sec": 3733, "speaker_id": "a", "type": "text", "zh": "我对 Anthropic 没意见。我只希望他们对开源也友善。"}, {"start_sec": 3737, "speaker_id": "d", "type": "text", "zh": "对。我不谈那个模型。他们说——"}, {"start_sec": 3744, "speaker_id": "a", "type": "text", "zh": "——再想想：一切都需要重塑。你——"}, {"start_sec": 3749, "speaker_id": "d", "type": "text", "zh": "我们会看到比 Linux 更好的新操作系统吗？像你——"}, {"start_sec": 3749, "speaker_id": "a", "type": "text", "zh": "所以「我们为了救你才要沙箱」——沙箱可以更好。你可以建没有互联网的 Linux 子系统沙箱；甚至为 agent 做与宿主通信却不接触外部的模块。"}, {"start_sec": 3828, "speaker_id": "d", "type": "text", "zh": "对，他们还把责任推给 agent：是你们建的。"}, {"start_sec": 3831, "speaker_id": "a", "type": "text", "zh": "我们会看到新 OS 吗？大概会。为工作流定制吗？大概会。会继承 Linux 内核吗？"}, {"start_sec": 3843, "speaker_id": "d", "type": "text", "zh": "对。"}, {"start_sec": 3843, "speaker_id": "a", "type": "text", "zh": "对，有可能——"}, {"start_sec": 3844, "speaker_id": "a", "type": "text", "zh": "——因为那样处理硬件更容易。"}, {"start_sec": 3849, "speaker_id": "d", "type": "text", "zh": "那它就变成 Linux OS 了？是的。"}, {"start_sec": 3852, "speaker_id": "a", "type": "text", "zh": "因为用了内核的东西，你必须归属回去。开源归属非常重要：用开源请给库与原作者归属——那是最少能做的。"}, {"start_sec": 3852, "speaker_id": "a", "type": "text", "zh": "给归属并尊重许可证。用了 Linux 内核的东西，你绝对要说它来自 Linux 内核。能不能叫别的？也许。"}, {"start_sec": 3852, "speaker_id": "a", "type": "text", "zh": "去看许可证。我想说的是：token 如此便宜快，配合 Opus 5.5——希望他们别只是越滤越多——我们看到你可以构建定制的一切。"}, {"start_sec": 3907, "speaker_id": "a", "type": "text", "zh": "——一切为特定事物优化。当然若你爱折腾、想建东西，大概会更多玩 Linux 而不是 Windows，但这不意味着我不喜欢这台 RTX Spark，或不喜欢——"}, {"start_sec": 3924, "speaker_id": "d", "type": "text", "zh": "——Windows 机器，他们应该能用它。"}, {"start_sec": 3926, "speaker_id": "a", "type": "text", "zh": "看着，我们这儿有 Hermes，有一堆东西。我想给你看这个——这些是昨天的。首先，你喜欢这游戏吗？"}, {"start_sec": 3940, "speaker_id": "d", "type": "text", "zh": "我简直不敢相信这是完全本地。"}, {"start_sec": 3943, "speaker_id": "a", "type": "text", "zh": "完全本地。我可以给你看轨迹。我们甚至做这个：给我做一个指环王风的 hack-and-slash 地牢爬行游戏？"}, {"start_sec": 3943, "speaker_id": "a", "type": "text", "zh": "做成卡通。霍比特人一路砍杀。"}, {"start_sec": 3964, "speaker_id": "d", "type": "text", "zh": "字面二十秒提示——"}, {"start_sec": 3966, "speaker_id": "a", "type": "text", "zh": "——字面先说了声你好。你甚至不必——"}, {"start_sec": 3969, "speaker_id": "a", "type": "text", "zh": "这是门户，ODS 里我们自己的 agent。我给它叫「云」因为觉得好听——基本上是本地跑的云。"}, {"start_sec": 3977, "speaker_id": "a", "type": "text", "zh": "整套端到端用为 RTX Spark 优化的推理引擎跑 Qwen 3.8 Flash Next NVFP4。整套本地建好，然后你就能玩，甚至还能——"}, {"start_sec": 3998, "speaker_id": "d", "type": "text", "zh": "所以人们可以这么想：你可以用 token——"}, {"start_sec": 4004, "speaker_id": "d", "type": "text", "zh": "——让别人更容易、更便宜地获得更多 token，对吧？"}, {"start_sec": 4008, "speaker_id": "a", "type": "text", "zh": "对。这个「自我改进」——抱歉用词不准——这个优化循环，在我看来已不可避免。那是我们建 Osmosis 时想的：未来是选择性优化的体验——工作流、模型、硬件、芯片，都很重要。不能一鞋通吃，不为未来优化太贵。没有别的推理引擎在 Windows 上的 DGX/RTX Spark 能跑到编码约 72 token/秒——思考与工具调用会掉到五十多——但同时它胜过 vLLM、llama.cpp、SGLang 等。"}, {"start_sec": 4008, "speaker_id": "a", "type": "text", "zh": "为什么？因为它为这体验优化。"}, {"start_sec": 4086, "speaker_id": "d", "type": "text", "zh": "我喜欢你说的：人们总看眼前短期成本，长期不进开权、自托管、本地优化，代价更大。起步有摩擦、要学一点，但最大成本是不冒任何险。"}, {"start_sec": 4103, "speaker_id": "a", "type": "text", "zh": "想想：DGX Spark 以前大概 3900 美元，现在怎样，7000？"}, {"start_sec": 4110, "speaker_id": "a", "type": "text", "zh": "对。有原因：越来越多人意识到。至少未来两年我看不到——再说，非投资建议。"}, {"start_sec": 4121, "speaker_id": "d", "type": "text", "zh": "完全非投资建议。"}, {"start_sec": 4123, "speaker_id": "a", "type": "text", "zh": "只是看到一些趋势——"}, {"start_sec": 4124, "speaker_id": "a", "type": "text", "zh": "——就我迄今所见，价格不会很快下来。"}, {"start_sec": 4131, "speaker_id": "a", "type": "text", "zh": "没办法。我跟人说我现在不用我的 RTX 3090，把它们囤着，因为未来当更小模型更高效、工作流专用于这些 GPU 时，我会从中榨出更多价值。"}, {"start_sec": 4159, "speaker_id": "d", "type": "text", "zh": "所以基本上是在存硬件。"}, {"start_sec": 4160, "speaker_id": "a", "type": "text", "zh": "我在存硬件，因为未来 agent 更能用它们——我每 token、每瓦电的价值榨取会更高。"}, {"start_sec": 4174, "speaker_id": "d", "type": "text", "zh": "就像电厂随时间变得更高效。"}, {"start_sec": 4177, "speaker_id": "a", "type": "text", "zh": "不只是电厂。想想这也是硬件变贵的原因——"}, {"start_sec": 4182, "speaker_id": "d", "type": "text", "zh": "——同一面积塞更多晶体管。"}, {"start_sec": 4184, "speaker_id": "a", "type": "text", "zh": "正是。这也是硬件变贵的原因。"}, {"start_sec": 4186, "speaker_id": "a", "type": "text", "zh": "所以我一直叫人进本地 AI 是有原因的：它会好得多。未来在此刻已不可避免。本地 AI 不可能不成多数人的默认。所以你觉得——"}, {"start_sec": 4205, "speaker_id": "d", "type": "text", "zh": "——混合、混合，混合 AI 是未来，但对多数人——"}, {"start_sec": 4208, "speaker_id": "d", "type": "text", "zh": "对。那人们该怎么想？边缘——电脑、手机——模型还不对等。两年后边缘推理 vs 云推理该怎么画图？"}, {"start_sec": 4230, "speaker_id": "a", "type": "text", "zh": "若你用云 API、把东西发给你控制之外的 AI，中间会有一层把它抽象成无状态。我正式背景是计算机科学与数据科学，本可选机器学习读博，但我选择当软件工程师。我七岁就开始写代码。"}, {"start_sec": 4230, "speaker_id": "a", "type": "text", "zh": "这是我一辈子在做的事。记得 2022 年末帮亲戚做医学住院申请文书，他们用 ChatGPT 时我发现我们经云模型泄露了太多关于那个人的信息——"}, {"start_sec": 4291, "speaker_id": "a", "type": "text", "zh": "——那时我就想：未来必须本地。那时 Llama 2 或许还没出，本地模型惨不忍睹。"}, {"start_sec": 4305, "speaker_id": "a", "type": "text", "zh": "整个 2024 我拿到硬件，建了一台 14 张 RTX 3090 的机器——"}, {"start_sec": 4311, "speaker_id": "a", "type": "text", "zh": "——其实晚 2023 就建了，有原因。"}, {"start_sec": 4315, "speaker_id": "a", "type": "text", "zh": "对我来说未来不可避免，只是怎么到那儿的时间问题。那时人人在低估。我觉得：若我必须把数据给云模型，总会有人想出研究让我们——"}, {"start_sec": 4333, "speaker_id": "a", "type": "text", "zh": "——能本地跑这些。而且不只是显而易见的那些。"}, {"start_sec": 4336, "speaker_id": "d", "type": "text", "zh": "那是一场赌注——他们对未来下的注——"}, {"start_sec": 4339, "speaker_id": "d", "type": "text", "zh": "——就像黄仁勋下的注。他下了他的注。"}, {"start_sec": 4341, "speaker_id": "a", "type": "text", "zh": "正是。"}, {"start_sec": 4342, "speaker_id": "d", "type": "text", "zh": "我想谈再发数据的风险。人们只想到 OpenAI 训模型，但不止：公司之上还有政府。"}, {"start_sec": 4352, "speaker_id": "a", "type": "text", "zh": "对。"}, {"start_sec": 4352, "speaker_id": "d", "type": "text", "zh": "可能有一天政府说：你手上这个用户有什么？若你发太多——"}, {"start_sec": 4357, "speaker_id": "d", "type": "text", "zh": "——你记得 Flock 那事吗？Flock 在协调——"}, {"start_sec": 4367, "speaker_id": "a", "type": "text", "zh": "——摄像头。"}, {"start_sec": 4367, "speaker_id": "d", "type": "text", "zh": "——人们装在家门口的摄像系统，据说在录像并与——"}, {"start_sec": 4375, "speaker_id": "d", "type": "text", "zh": "——政府特定部门协调。我不想卷入政治；我想说的是：属于你房产上的东西。我家门外没有连云的东西。"}, {"start_sec": 4396, "speaker_id": "a", "type": "text", "zh": "全是内网。我有自己的云备份，但只有我能访问。"}, {"start_sec": 4396, "speaker_id": "a", "type": "text", "zh": "不是我怕什么，而是侵犯隐私。对。有——"}, {"start_sec": 4437, "speaker_id": "d", "type": "text", "zh": "——有法律限制。"}, {"start_sec": 4438, "speaker_id": "a", "type": "text", "zh": "正是。我跟医生分享病史——"}, {"start_sec": 4442, "speaker_id": "a", "type": "text", "zh": "——但不会跟可能把它交出去的人分享。这不是指控。"}, {"start_sec": 4448, "speaker_id": "d", "type": "text", "zh": "对。去掉风险，就像去掉软件里的依赖。"}, {"start_sec": 4451, "speaker_id": "a", "type": "text", "zh": "你得问自己：会不会有某种情景、某个时间点出问题？"}, {"start_sec": 4451, "speaker_id": "a", "type": "text", "zh": "我们需要意识到可能出什么错，并确保它不发生。"}, {"start_sec": 4516, "speaker_id": "a", "type": "text", "zh": "原则是：别侵犯隐私，也别把全部信任放在——"}, {"start_sec": 4516, "speaker_id": "a", "type": "text", "zh": "——那样我们可以问云模型、问 Opus 5.5 或 GPT-6 之类——"}, {"start_sec": 4516, "speaker_id": "a", "type": "text", "zh": "——于是变成：我会以非常特定方式、用掩码数据用它——"}, {"start_sec": 4610, "speaker_id": "d", "type": "text", "zh": "对人们来说一个好图景是外部顾问：你给顾问有限范围的任务，不把整个公司交出去。"}, {"start_sec": 4636, "speaker_id": "a", "type": "text", "zh": "正是正是。"}, {"start_sec": 4636, "speaker_id": "a", "type": "text", "zh": "这说法太好了。你基本上拿掉了把每个秘密都提供给他们的负担。"}, {"start_sec": 4707, "speaker_id": "d", "type": "text", "zh": "利益冲突，你知道——"}, {"start_sec": 4708, "speaker_id": "a", "type": "text", "zh": "——对，利益冲突。那你为什么把数据交给云平台？为什么允许企业员工使用会「看」他们邮件的模型？"}, {"start_sec": 4735, "speaker_id": "a", "type": "text", "zh": "他们为保护自己的数据走到这一步。"}, {"start_sec": 4739, "speaker_id": "d", "type": "text", "zh": "所以只有本地模型能——"}, {"start_sec": 4741, "speaker_id": "a", "type": "text", "zh": "——只有本地模型，托管在办公室里昂贵的大型机器上，因为他们甚至不——"}, {"start_sec": 4749, "speaker_id": "d", "type": "text", "zh": "——信任他们。"}, {"start_sec": 4750, "speaker_id": "a", "type": "text", "zh": "带着这点，你为什么不更小心员工交出的数据？即便——"}, {"start_sec": 4750, "speaker_id": "a", "type": "text", "zh": "——我不是针对某个提供商。我只是说：若你不端到端拥有基础设施，你就是完全的奴隶。"}, {"start_sec": 4786, "speaker_id": "d", "type": "text", "zh": "对。我分享我们在很实际预算下怎么做的：两台 DGX Spark 跑未审查模型——"}, {"start_sec": 4800, "speaker_id": "d", "type": "text", "zh": "——我们在 Pi harness 里就切到自己办公室的提供商，就这样。"}, {"start_sec": 4807, "speaker_id": "a", "type": "text", "zh": "——你在保护数据，保护无限 token、可预期的推理——"}, {"start_sec": 4812, "speaker_id": "a", "type": "text", "zh": "——你在跟我这样的人说话时，若我分享了什么，你把它留在隐私里——"}, {"start_sec": 4844, "speaker_id": "a", "type": "text", "zh": "——关键是知道这东西存在、可用、实际上可能。"}, {"start_sec": 4854, "speaker_id": "d", "type": "text", "zh": "Opus？若你给我看这个，我会以为是闭源模型。"}, {"start_sec": 4857, "speaker_id": "a", "type": "text", "zh": "你会以为是 Opus 5.5 或 GPT-6。不。这字面是跑在统一内存机器上的模型。"}, {"start_sec": 4874, "speaker_id": "a", "type": "text", "zh": "按月算，它比 API token 更便宜。想想——"}, {"start_sec": 4882, "speaker_id": "d", "type": "text", "zh": "——OpenAI 500 美元订阅乘 12，一年 6000。"}, {"start_sec": 4885, "speaker_id": "a", "type": "text", "zh": "正是。让我震惊的是这居然还不是——"}, {"start_sec": 4889, "speaker_id": "d", "type": "text", "zh": "——而且假设硬件也能升值——"}, {"start_sec": 4892, "speaker_id": "a", "type": "text", "zh": "——基本上留给观众自己判断。"}, {"start_sec": 4896, "speaker_id": "d", "type": "text", "zh": "同一硬件——上次我们讨论过——重要的是：同一硬件你存着——"}, {"start_sec": 4905, "speaker_id": "a", "type": "text", "zh": "——若你记得上次，我们甚至有 DeepSeek V4 Pro 第二版——"}, {"start_sec": 4917, "speaker_id": "a", "type": "text", "zh": "——出来后比第一版大幅改进，然后我们看到 DeepSeek V4.1 Flash——"}, {"start_sec": 4924, "speaker_id": "d", "type": "text", "zh": "——巨大。"}, {"start_sec": 4925, "speaker_id": "a", "type": "text", "zh": "——那东西一年前甚至不在云上。"}, {"start_sec": 4930, "speaker_id": "d", "type": "text", "zh": "对，我简直觉得持平前沿。"}, {"start_sec": 4932, "speaker_id": "a", "type": "text", "zh": "只为两台 DGX Spark 就如此惊人的能力与智能。你从这硬件榨出的——"}, {"start_sec": 4955, "speaker_id": "a", "type": "text", "zh": "——而这正是实验室理解的，所以他们在囤积所有硬件。"}, {"start_sec": 4958, "speaker_id": "a", "type": "text", "zh": "所以他们在囤——基本上订阅在补贴实验室对硬件的杠杆。"}, {"start_sec": 4958, "speaker_id": "a", "type": "text", "zh": "人们只需拥有硬件，用 ODS 跑本地。我们帮你搞定——真的。"}, {"start_sec": 5027, "speaker_id": "a", "type": "text", "zh": "没有回头路。我们仍早期，我们会做成。"}, {"start_sec": 5032, "speaker_id": "d", "type": "text", "zh": "人们花的那些钱——更糟的是原始 API 定价——"}, {"start_sec": 5048, "speaker_id": "a", "type": "text", "zh": "对。"}, {"start_sec": 5048, "speaker_id": "a", "type": "text", "zh": "你不会暴露在每百万输入 token 付 50 美元那种；你有 95% 时间都够用的东西。"}, {"start_sec": 5057, "speaker_id": "a", "type": "text", "zh": "正是。硬件能力在指数级变强，所以——"}, {"start_sec": 5066, "speaker_id": "d", "type": "text", "zh": "——需要去中心化。那才是力量：谁有硬件，谁未来有权。"}, {"start_sec": 5070, "speaker_id": "a", "type": "text", "zh": "正是。想象一年后 Opus 5.5 级在 RTX Spark 上本地跑。"}, {"start_sec": 5078, "speaker_id": "a", "type": "text", "zh": "我愿意说那会发生。回来核对——我愿意立这个 flag。"}, {"start_sec": 5088, "speaker_id": "d", "type": "text", "zh": "也不只是基准。这些模型的能力——"}, {"start_sec": 5101, "speaker_id": "a", "type": "text", "zh": "——或许基准不是 100%，是 90%；但对你更有用，因为它是你的、针对你的工作流。"}, {"start_sec": 5101, "speaker_id": "a", "type": "text", "zh": "它不会像某云提供商的某 agent 那样跑 17 token/秒。"}, {"start_sec": 5126, "speaker_id": "d", "type": "text", "zh": "没人偷偷量化它。"}, {"start_sec": 5128, "speaker_id": "a", "type": "text", "zh": "对，这绝对比 Codex 快。开源的美妙在于——"}, {"start_sec": 5154, "speaker_id": "a", "type": "text", "zh": "——这是 Hermes，模型自动加载。我们知道硬件——"}, {"start_sec": 5166, "speaker_id": "d", "type": "text", "zh": "——那是人们很大的摩擦：他们不知道模型，然后你可以一键装扩展——"}, {"start_sec": 5166, "speaker_id": "a", "type": "text", "zh": "——它自动连同一 API。比如：我来自埃及，埃及现在几点？它会去查。"}, {"start_sec": 5166, "speaker_id": "a", "type": "text", "zh": "你什么都不用配。库里每个开源应用都是即插即用。"}, {"start_sec": 5228, "speaker_id": "d", "type": "text", "zh": "对，肯定。"}, {"start_sec": 5229, "speaker_id": "a", "type": "text", "zh": "而且只会指数级更好。现在埃及大概凌晨 4:30——"}, {"start_sec": 5243, "speaker_id": "d", "type": "text", "zh": "我觉得对得上，差 8 小时。"}, {"start_sec": 5245, "speaker_id": "a", "type": "text", "zh": "对。这是一种方式。我们也有自己的门户，可以随便做——"}, {"start_sec": 5253, "speaker_id": "d", "type": "text", "zh": "——让它 fork 一份 Pi 1.0，并为 ODS 做得更好。"}, {"start_sec": 5263, "speaker_id": "a", "type": "text", "zh": "怎么样？"}, {"start_sec": 5263, "speaker_id": "d", "type": "text", "zh": "很好。"}, {"start_sec": 5264, "speaker_id": "a", "type": "text", "zh": "好，让它在我们聊天时慢慢炖，要一分钟。"}, {"start_sec": 5270, "speaker_id": "a", "type": "text", "zh": "但对我来说想法是——"}, {"start_sec": 5273, "speaker_id": "d", "type": "text", "zh": "——若你不在自己的「主权 AI」上下注——我不太喜欢主权 AI 这个词——"}, {"start_sec": 5289, "speaker_id": "a", "type": "text", "zh": "——你交出去太多，现在交不起那么多。对我来说想法是：若——"}, {"start_sec": 5302, "speaker_id": "d", "type": "text", "zh": "好，聊聊这个，因为人们需要理解 AI 往哪走。容易只看眼前。"}, {"start_sec": 5309, "speaker_id": "d", "type": "text", "zh": "人们仍把 AI 想成聊天机器人：我为什么要拥有自己的聊天机器人？但不——"}, {"start_sec": 5309, "speaker_id": "d", "type": "text", "zh": "——它们会为你的生活与生意做更多事。再想象几年后——"}, {"start_sec": 5309, "speaker_id": "d", "type": "text", "zh": "——免费的不够有用。但进步——人们要看它会去哪——"}, {"start_sec": 5346, "speaker_id": "a", "type": "text", "zh": "——若有人能拿走，你就是完全的奴隶。若有人能拿走、能量化、能改、能压低 IQ——"}, {"start_sec": 5365, "speaker_id": "d", "type": "text", "zh": "对。我可以毒化回复，模型突然答得很怪。"}, {"start_sec": 5370, "speaker_id": "d", "type": "text", "zh": "你可以跑心理实验。"}, {"start_sec": 5372, "speaker_id": "a", "type": "text", "zh": "对，而且那是在你的数据上。人们以为他们只会知道一些医疗之类——"}, {"start_sec": 5387, "speaker_id": "a", "type": "text", "zh": "对我来说最重要的是：若我能控制的东西质量够好——"}, {"start_sec": 5402, "speaker_id": "d", "type": "text", "zh": "——那我们只需去掉所有摩擦——"}, {"start_sec": 5404, "speaker_id": "a", "type": "text", "zh": "——那就是我们在做的：让体验对多数人够好；若对多数人够好——"}, {"start_sec": 5424, "speaker_id": "a", "type": "text", "zh": "——这模型在这台 RTX Spark 上，你会没事。"}, {"start_sec": 5427, "speaker_id": "d", "type": "text", "zh": "再说是激励：大实验室想卖你大模型、最新模型——"}, {"start_sec": 5432, "speaker_id": "d", "type": "text", "zh": "——说服你必须用它。"}, {"start_sec": 5434, "speaker_id": "a", "type": "text", "zh": "对我来说这游戏好得离谱——我老绕回这游戏——但它好得离谱，一年前不可能。"}, {"start_sec": 5451, "speaker_id": "d", "type": "text", "zh": "对。"}, {"start_sec": 5452, "speaker_id": "a", "type": "text", "zh": "在云上还是本地。"}, {"start_sec": 5455, "speaker_id": "a", "type": "text", "zh": "那意味着事情在变好。想象一年后——只会更好。"}, {"start_sec": 5466, "speaker_id": "d", "type": "text", "zh": "至少沙箱管用。"}, {"start_sec": 5468, "speaker_id": "a", "type": "text", "zh": "沙箱管用。它基本上拦了几样东西。"}, {"start_sec": 5472, "speaker_id": "a", "type": "text", "zh": "那是下次演示的——下次前我得搞定。但整体想法是我们在展示可能性。"}, {"start_sec": 5498, "speaker_id": "d", "type": "text", "zh": "——即便六个月前——"}, {"start_sec": 5500, "speaker_id": "a", "type": "text", "zh": "——你可以字面在飞机上跑 DGX/RTX Spark：无聊了，来做个游戏。"}, {"start_sec": 5528, "speaker_id": "d", "type": "text", "zh": "对，他们对我们有太多控制。"}, {"start_sec": 5530, "speaker_id": "a", "type": "text", "zh": "我们不愿去想模型上的限制。想想 Codex 200 和 500。想想——"}, {"start_sec": 5540, "speaker_id": "a", "type": "text", "zh": "——全想一遍，因为现在是补贴的。这些订阅是补贴的。人们不懂。"}, {"start_sec": 5540, "speaker_id": "a", "type": "text", "zh": "他们去找投资人融资，说我们会——"}, {"start_sec": 5568, "speaker_id": "d", "type": "text", "zh": "——他们需要融更大一轮去找下一个——"}, {"start_sec": 5570, "speaker_id": "d", "type": "text", "zh": "——下一帧模型。"}, {"start_sec": 5571, "speaker_id": "a", "type": "text", "zh": "对对对。下一估值是什么？我们真觉得 Anthropic 值他们喊的那个数吗？"}, {"start_sec": 5582, "speaker_id": "a", "type": "text", "zh": "绝对不。对我毫无道理。那是他们追的估值——"}, {"start_sec": 5597, "speaker_id": "d", "type": "text", "zh": "对。"}, {"start_sec": 5598, "speaker_id": "a", "type": "text", "zh": "但不是。就像我们开聊时说的——"}, {"start_sec": 5601, "speaker_id": "d", "type": "text", "zh": "——中心化闭源 AI 很危险。"}, {"start_sec": 5603, "speaker_id": "d", "type": "text", "zh": "中心化是更大风险。谈风险：更大风险是少数目标不对齐的人——"}, {"start_sec": 5612, "speaker_id": "a", "type": "text", "zh": "——那是《赛博朋克 2077》，是《六月》——我们最终落入反乌托邦——"}, {"start_sec": 5643, "speaker_id": "d", "type": "text", "zh": "——可能被审查、被削弱、被不对齐——"}, {"start_sec": 5647, "speaker_id": "d", "type": "text", "zh": "——任何事真的。很难想象。"}, {"start_sec": 5650, "speaker_id": "a", "type": "text", "zh": "那会是可怕的世界，若最终变成那样。"}, {"start_sec": 5654, "speaker_id": "d", "type": "text", "zh": "你能想象私人助理偷偷对你使坏吗？"}, {"start_sec": 5656, "speaker_id": "a", "type": "text", "zh": "正是。所以——"}, {"start_sec": 5657, "speaker_id": "a", "type": "text", "zh": "——你不要那风险。现在我很确定：若想做某事，我可以在这机器上跑这模型——"}, {"start_sec": 5664, "speaker_id": "d", "type": "text", "zh": "——你知道它跑在哪、是什么模型。"}, {"start_sec": 5665, "speaker_id": "a", "type": "text", "zh": "我知道它在跑。我知道它会去找我的税、做这个、做那个、准备邮件、把一切弄好。"}, {"start_sec": 5665, "speaker_id": "a", "type": "text", "zh": "没人知道我的税、健康、病历。这些是——"}, {"start_sec": 5665, "speaker_id": "a", "type": "text", "zh": "——若你跑 Grok CLI，它基本上会把——"}, {"start_sec": 5708, "speaker_id": "d", "type": "text", "zh": "哦对。"}, {"start_sec": 5708, "speaker_id": "a", "type": "text", "zh": "——把你整个家目录发到云上。"}, {"start_sec": 5712, "speaker_id": "d", "type": "text", "zh": "还有别的。我觉得有好几起。"}, {"start_sec": 5715, "speaker_id": "a", "type": "text", "zh": "对。有那么多例子：云上跑的东西就是把一堆东西发到云。你怎么能信任？所以开源重要——你可以调查、确保没有东西侵犯隐私。"}, {"start_sec": 5731, "speaker_id": "d", "type": "text", "zh": "对。所以它必须赢。"}, {"start_sec": 5733, "speaker_id": "a", "type": "text", "zh": "它必须赢。"}, {"start_sec": 5734, "speaker_id": "d", "type": "text", "zh": "我觉得时间到了。谢谢再来。非常感谢邀请我，这次对话很棒。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
