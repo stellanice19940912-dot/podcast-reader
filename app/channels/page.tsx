@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BackLink } from "@/components/BackLink";
 import { ShowBrowser, type ShowCard } from "@/components/ShowBrowser";
 import { loadSite } from "@/lib/content";
 import { groupShows } from "@/lib/groups";
@@ -26,7 +27,8 @@ export default async function ChannelsPage() {
 
   return (
     <main className="mx-auto max-w-6xl px-4 pb-20 pt-8 sm:pt-10">
-      <h1 className="font-display text-3xl leading-tight sm:text-4xl">全部频道</h1>
+      <BackLink fallback="/" label="返回首页" />
+      <h1 className="mt-3 font-display text-3xl leading-tight sm:text-4xl">全部频道</h1>
       <ShowBrowser groups={groups} />
     </main>
   );
