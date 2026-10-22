@@ -26,7 +26,7 @@ export default async function ShowPage({ params }: PageProps<"/shows/[slug]">) {
 
   return (
     <main className="mx-auto max-w-3xl px-4 pb-20 pt-8 sm:pt-10">
-      <Crumbs items={[{ href: "/", label: "全部频道" }, { label: show.name }]} />
+      <Crumbs items={[{ href: "/channels", label: "全部频道" }, { label: show.name }]} />
       <header className="mt-6">
         <div className="flex flex-wrap items-center gap-2">
           {show.category ? <Pill tone="accent">{show.category}</Pill> : null}

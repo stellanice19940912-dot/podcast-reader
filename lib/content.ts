@@ -3,6 +3,7 @@ import { createHash } from "node:crypto";
 import { readdir, readFile, stat } from "node:fs/promises";
 import path from "node:path";
 import { cache } from "react";
+import { dayKey } from "./format";
 import { sanitizeHtml } from "./html";
 
 /**
@@ -148,7 +149,20 @@ export const loadSite = cache(async () => {
     episodes: summaries(episodes.filter((episode) => episode.showSlug === show.slug)),
   }));
 
-  return { shows: withEpisodes, episodes, recent: summaries(episodes.slice(0, 6)) };
+  // 首页时间轴：按北京时间的日期分组，最新的一天在最前
+  const days: { day: string; episodes: (EpisodeSummary & { category: string })[] }[] = [];
+  const categoryOf = new Map(shows.map((show) => [show.slug, show.category]));
+  for (const episode of summaries(episodes)) {
+    const day = dayKey(episode.date);
+    let group = days.at(-1);
+    if (!group || group.day !== day) {
+      group = { day, episodes: [] };
+      days.push(group);
+    }
+    group.episodes.push({ ...episode, category: categoryOf.get(episode.showSlug) ?? "" });
+  }
+
+  return { shows: withEpisodes, episodes, days };
 });
 
 export async function getShow(slug: string) {
