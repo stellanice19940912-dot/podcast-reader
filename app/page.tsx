@@ -1,5 +1,6 @@
+import Link from "next/link";
 import { EpisodeLink } from "@/components/EpisodeLink";
-import { EmptyState } from "@/components/ui";
+import { EmptyState, GridIcon } from "@/components/ui";
 import { loadSite } from "@/lib/content";
 import { formatDay } from "@/lib/format";
 
@@ -17,9 +18,18 @@ export default async function HomePage() {
       </section>
 
       <section className="mt-10 sm:mt-14" aria-labelledby="latest">
-        <h2 id="latest" className="font-display text-2xl">
-          最近更新
-        </h2>
+        <div className="flex items-center justify-between gap-4">
+          <h2 id="latest" className="font-display text-2xl">
+            最近更新
+          </h2>
+          <Link
+            href="/channels"
+            className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-full border border-line bg-card px-3.5 text-sm text-soft transition hover:border-accent hover:text-accent"
+          >
+            <GridIcon />
+            全部频道
+          </Link>
+        </div>
 
         {site.days.length === 0 ? (
           <div className="mt-6">
