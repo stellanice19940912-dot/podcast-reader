@@ -79,10 +79,9 @@ function pickTitle(raw: string, fileName: string) {
   return fileName.replace(/\.[^.]+$/, "").replace(DATE_PREFIX, "").replace(/[-_]+/g, " ").trim() || fileName;
 }
 
-/** 文件名里的日期 → 第一次提交到仓库的时间 → 文件修改时间。 */
-async function pickDate(file: string, fileName: string) {
-  const prefix = fileName.match(DATE_PREFIX)?.[1];
-  if (prefix && !Number.isNaN(Date.parse(prefix))) return `${prefix}T12:00:00.000Z`;
+const DATE_IN_NAME = /(\d{4}-\d{2}-\d{2})/;
+
+function firstCommitDate(file: string) {
   try {
     const added = execFileSync("git", ["log", "--diff-filter=A", "--format=%cI", "--", file], {
       cwd: process.cwd(),
@@ -93,11 +92,23 @@ async function pickDate(file: string, fileName: string) {
       .split("\n")
       .filter(Boolean)
       .pop();
-    if (added) return new Date(added).toISOString();
+    return added ? new Date(added).toISOString() : undefined;
   } catch {
-    // 没有 git 时退回到文件时间
+    return undefined; // 没有 git 时退回到文件时间
   }
-  return (await stat(file)).mtime.toISOString();
+}
+
+/**
+ * 发布日期：文件名里带日期（任意位置，如 Chris_Williamson_2026-10-24.html）就按这一天算；
+ * 当天上传的保留实际上传时刻，补传以前的则记为那天中午（北京时间）。
+ * 文件名里没有日期时，用第一次提交到仓库的时间，再退回到文件修改时间。
+ */
+async function pickDate(file: string, fileName: string) {
+  const named = fileName.match(DATE_IN_NAME)?.[1];
+  const day = named && !Number.isNaN(Date.parse(named)) ? named : undefined;
+  const added = firstCommitDate(file);
+  if (day) return added && dayKey(added) === day ? added : new Date(`${day}T12:00:00+08:00`).toISOString();
+  return added ?? (await stat(file)).mtime.toISOString();
 }
 
 function collectSections(html: string) {

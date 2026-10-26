@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>奈飞焦虑、互联网的终结与 Meta 的 VR 眼镜｜《Sharp Tech》本·汤普森对谈</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="h">安德鲁·夏普（Andrew Sharp）</option><option value="g">本·汤普森（Ben Thompson）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Sharp Tech Podcast</span><span class="pill">2026-10-23</span></div>
+<h1>奈飞焦虑、互联网的终结与 Meta 的 VR 眼镜｜《Sharp Tech》本·汤普森对谈</h1>
+<p class="sub">嘉宾：本·汤普森（Ben Thompson） · 约 98 分钟（5883 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=bj4ahI5Nk6g" target="_blank" rel="noopener">https://www.youtube.com/watch?v=bj4ahI5Nk6g</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Sharp Tech Podcast</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-23</dd></div><div class="meta-row"><dt>时长</dt><dd>约 98 分钟（5883 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>yt-dlp-chrome-cookies（自动字幕 en-orig；普通 yt-dlp 遇 429 后经 Chrome cookies 获取），中文为逐句全文翻译</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>bj4ahI5Nk6g</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>《Sharp Tech》新录音室首播公开集：安德鲁·夏普与本·汤普森谈奈飞（Netflix）增长见顶与裁员、体育版权与流媒体战略，由一次严重安全漏洞引申到「互联网的终结」叙事，评 Meta 新 VR 眼镜相对 Vision Pro 的体验，并延伸到 Anthropic/Claude 产品哲学、代理时代的阅读瓶颈，以及本对电影《You Can See Everything》的剧场推荐。</p>
+<h3>核心要点</h3><ul><li>奈飞裁员约 6%、内容与电影高管更迭，美区订户饱和与参与度下滑；讨论是否竞购 NBC 环球以换体育版权，以及对华纳与埃里森系资产的观望</li><li>由可远程接管机器的严重漏洞与「万物互联」引出：互联网孕育 AI，AI 又在吞噬互联网——连接性本身成为系统性脆弱</li><li>Meta VR 眼镜：相对 Vision Pro 更轻、更适合出行多显示器，但娱乐沉浸仍处「恐怖谷」（重量/头带/全黑遮挡）；期待头带附件后的体验跃迁</li><li>Anthropic 坚持单一 omnipresent 的 Claude，对比多代理舰队与高度个性化 Muse；本更倾向体验创作者设定的默认人格</li><li>听众 CK：代理产出超阅读速度，仔细读计划阶段成上限；本主张生成式 UI，并分享边听有声书边阅读的「神游」提速法</li><li>本上周否定却进影院爱上《You Can See Everything》：集体观影与菲尔德更真诚的路径，强烈建议别等流媒体</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：约 98 分钟长谈，战略与产品味浓；关心流媒体、平台安全、XR 与 AI 产品形态的听众优先，末段影评与邮袋可按兴趣跳读。</p>
+<h3>适合人群</h3><p>关注流媒体与科技战略的听众、XR/AI 产品从业者、Stratechery / Sharp Tech 订阅者与长播客爱好者</p>
+</section>
+<div class="legend"><span class="spk-0">安德鲁·夏普（Andrew Sharp）<em>主持</em></span><span class="spk-1">本·汤普森（Ben Thompson）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p><span class="tag">【音乐】</span>大家好，欢迎回到《Sharp Tech》<span class="tag">【音乐】</span>，本集有史以来第一次由 Stripe 呈现。我是安德鲁·夏普（Andrew Sharp）<span class="tag">【音乐】</span>，沙发另一边是本·汤普森（Ben Thompson），我们的新录音室。你怎么样？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>呃，这个意外的录音室。我搬回这边的时候就想弄个录音室。</p>
+<p>嗯。可我们真的需要多一张床，万一<span class="tag">【音乐】</span>有客人来。所以我想还是得用沙发床。这张沙发床很不错。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>挺舒服的。开始吧。说实话坐着没那么舒服。但（笑）</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>不过我把这些吸音材料都弄进来了，效果好得离谱。每次我们在一起录，我都觉得播客好多了。</p>
+<p>我们俩都超爱。绝对的。唯一的问题是你声音真的很大。所以我们需要非常好的（笑）声学处理。我的麦已经调低了，来迁就我的播客嗓门。好，我们开始。</p>
+<p>所以（笑）机会……我超级兴奋。呃，Stripe 这件事让这一切成为可能。我们在这上面花了不少钱。我已经开始幻想真正的录音室了，而不只是把办公室改成录音室。但对我来说超级重要的是，我们要一直变好，把内容交付好——</p>
+<p>你会听到一些广告，但我觉得这些播客——我一直为《Sharp Tech》现在的水准感到非常自豪——可每次我们在一起录完，我还是会想，刚才那集</p>
+<p>其实还能好很多。（笑）我知道。那好，几乎每次都一起录吧。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>全新纪元，全新录音室。不过有个大问题。嗯，我们赖上了美国航空（American Airlines）。</p>
+<p>那就是（笑）问题所在。今天这坨麻烦倒还好。你知道，我在跑道上坐了大概三十分钟才终于到麦迪逊（Madison），但确实落地了。吃了点卡尔弗（Culver&#x27;s）。人到了。没错，中西部生活。</p>
+<p>要是他们能赞助威斯康星大学（University of Wisconsin）（笑）的运动队就好了。对，他们赞助第一支也行。我们得有饮料。我们就像……我最近在看很多《美国达人秀》（America&#x27;s Got Talent），因为有个……你看到那个 N 皇家的整件事了吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>你当然在看《美国达人秀》那种你爱看的垃圾节目。（笑）</p>
+<p>所以我才不敢给你推荐东西。你就体育和《美国达人秀》。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>不，我没看正片。我看的是 YouTube 剪辑。不，有个泰国女孩——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>哦对，这是你现在最爱的名人？呃是的，我确实有名人迷恋。（笑）不是那种迷恋和沉迷。她大概十六岁。我先把这点说清楚。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>咱们别因此被网暴。不，但她一出场就不可思议。她的表演、她的舞台气场。然后你才意识到，她大概从十岁起每周都在泰国夜市演出。</p>
+<p>而且不只是她天赋炸裂，更像是——怪不得——她把该有的零件都攒齐了。嗯总之在《美国达人秀》上——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>这跟咱们有什么关系？他们总有赞助饮料。总是摆得刚刚好，然后猛喝一大口。（笑）</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>嗯，所以也许那就是我们的招牌。你知道，卡尔弗并不是真正的赞助商，但绝对是我们心里的赞助商。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>是啊。我本来想说，到这地步我们明显……呃在待价而沽。（笑）但其实不是，因为我们有独家。就是独家交易。你能怎么办？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>好，从现在起跟可能没跟上的人说清楚：要是你没看到本周早些时候关于 Stripe 的公告——《Sharp Tech》往后会变成公开播客。每集都会上 YouTube。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>不，不完全是。好。还会有会员专属集。嗯我正要说。还会有一集给《策略》（Stratechery）订阅者的特别加餐，大概三十分钟。会在一周晚些时候放出。我们大概会在周日发。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>那它真能有多频繁地刚好三十分钟？嗯，这不就是挑战所在吗？我真心觉得问题会卡在我回华盛顿特区（Washington DC）的返程航班时间——我们录到那个点。</p>
+<p>不，说到这点，我们会做加餐。不会挤在同一天。给你一点喘息空间。而且也会当面录。我们是全押了。我们想把播客做到最好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>我们还是……这是视频，但音频也会有，各路 feed。我们超级投入。希望我们的制作人……他一开始听说这个想法很担心，他说他讨厌播客从音频转视频。</p>
+<p>顺便说，他现在居然在听我们说话，感觉好怪。我不习惯。他们得用现场制作人。嗨吉姆（Jim）。嗯</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>沉默合伙人。没错。呃第三把椅子。但我们想要……我们仍是播客。音频要很好。订阅者专属会是纯音频。如果你还不是订阅者，在 YouTube 听或看的话，可以订阅。</p>
+<p>对，欢迎订阅。上车吧。好，铺垫够了。可以开聊。第一段：萨兰多斯号（SS Sarandos）过去大概七天撞上了湍流。我肯定你各种新闻都跟了。</p>
+<p>我大概七月中就喊过奈飞（Netflix）见顶，之后更糟了。所以我们从拉夫（Rav）开始。嗯也没糟那么多，但过去一周左右确实坏消息和负面报道不少。拉夫说：安德鲁和本，奈飞——</p>
+<p>他们炒了高管。裁了 6% 的员工。股价 40%（笑）</p>
+<p>真的重挫。我觉得更糟了。确实更糟了。他说：安德鲁和本，我是拉夫。奈飞本周公布财报，公司似乎处在十字路口。上周裁员 6%，其中包括让内容负责人和奈飞电影主席「卸任」——顺便说，卸任这个词。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>是啊。在这语境里（笑）是个绝妙的动词。而且我相信奈飞电影主席得先开掉内容负责人，然后自己也被开了。所以外面这一周很乱。《华尔街日报》（Wall Street Journal）引用的数据显示，奈飞已完全饱和美国用户盘，今年一个订户都没净增。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>参与度明显下滑，差目标 10%。他们现在的播客和游戏举措毫无用处。与此同时，奈飞过去五年把标准订阅价涨了四次。2025 年涨 16%，2026 年涨 12%。</p>
+<p>鉴于参与度放缓，再涨价就会迎来可怕的用户流失。所以拉夫问：「奈飞该怎么办？」收购华纳兄弟（Warner Brothers）曾被视为一击必杀，回头看，那更像是绝望地想重振内容和参与度。</p>
+<p>奈飞该出价竞购 NBC 环球（NBC Universal）吗？他们想要华纳兄弟是因为 HBO。但 NBC 环球有奈飞没有的东西：体育——周日夜橄榄球（Sunday Night Football）、十大联盟（Big Ten）、NBA、英超（EPL）和奥运会，全打包在一起。</p>
+<p>NBC 还有很棒的乐园业务，能把奈飞推上类似迪士尼（Disney）的多元化路径。或者，奈飞可以继续砸自有内容，等天舞（Sky Dance）在离谱负债下自己炸裂，再去收割华纳兄弟的残骸。</p>
+<p>顺便花几秒承认一下：埃里森（Ellison）家族过去一年核心投资有多惨。拉里·埃里森（Larry Ellison）的甲骨文（Oracle）股价跌了——</p>
+<p>我看到那些数字了。没意识到它们也在邮件里。跌了 53%。大卫·埃里森（David Ellison）的天舞跌了 59%。还有……布赖斯·安德伍德（Bryce Underwood）那些——跌了 99%。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>我们确定还没破产吗？（笑）我……没有。所以是西密歇根还是东密歇根？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>西密歇根（Western Michigan）。那就好像汽车业政府救助，（笑）十大联盟——</p>
+<p>稍微托一把。是的。所以才只剩 1%，或者说一个基点。</p>
+<p>跟大概 98% 的听众解释一下：这是拉夫一条很特定的大学橄榄球笑话，但也很好笑。拉里·埃里森的「胚胎」。（笑）对——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>确实。再看看密歇根的战绩。更大画面：我觉得拉夫的邮件把奈飞现状讲得挺准。我们俩都——</p>
+<p>我要反驳的是他说：鉴于参与度放缓，再涨价就会导致可怕的用户流失。</p>
+<p>会吗？我不知道。这才是问题，对吧？因为每次被问到，奈飞高管都很好笑。我以前说过：他们做的每件事都「一直是他们的战略」，他们「一直都在这么做」。</p>
+<p>哪怕他们左右横跳——呃，你知道，「我们绝不做广告」，现在又在做广告，这是最显眼的例子。但这一次其实有点刺耳。</p>
+<p>好。他们已经连续好几次财报会被问参与度，一直啊巴拉巴拉。这次却像：是的，参与度是个问题。这种直球不在我预期里——也不是你通常会在他们那些高度管控的财报会上听到的。</p>
+<p>其实现在算改进了：由他们的投资关系负责人朗读分析师的问题。</p>
+<p>以前他们做财报访谈，像是允许一位记者兼分析师进来提问。</p>
+<p>好。而且超级受控。现在是多个分析师提问，但仍由奈飞的人读出来。不像那种——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>太神奇了。他们怎么能这样？基本上一个人代表大众进去提问。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>嗯，当你的股价一直往右上走，你就能蒙混过很多关。当然。（笑）所以……呃不，但即便现在，也没人被允许直接提问。他们把问题交上去——</p>
+<p>然后奈飞的人来读问题。所以这些财报会在沟通上被高度塑形、高度控制。一直如此。</p>
+<p>所以这一次他们站出来说：「是的，呃，参与度是个问题。」而且说得相当直白，意味着这大概是个大问题。大问题。</p>
+<p>再叠加上另一件很值得注意的事——每次问题都关于参与度，但依旧由奈飞控制。他们的回答是：我们涨价了，流失并没有高于正常水平。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>嗯。这很好。当然。别搞错，奈飞的低流失率是这个——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>他们拥有十年的超能力；而美国市场饱和早就如此。他们当然得涨价，部分是为了抬收入——</p>
+<p>但问题是：一旦流失显现，就太晚了。对吧？所以——是的，还没发生是好事，但不等于一切都好。如果那就是你的答案，你基本上在说：我们的最后一道防线还没破。</p>
+<p>（笑）可你列不出别的东西，本身就是问题。再叠一层让我挑眉的：广告业务大幅不及预期。我想目标大概 30 亿美元，他们会落到 27 亿——</p>
+<p>他们说：我们目标很激进，要 100% 增长，大概只能 80%。那仍然很好。确实很好——除了去年增长本来就没那么猛，因为他们得重做整套技术栈。好。所以一部分是：某些合作还没到位，拖得更久。</p>
+<p>我们想一次做对。这些都合理——除了我们正在一场财报会上。投资者在担心参与度——</p>
+<p>而依赖参与度的商业模式——广告——却没达标（笑），对吧？它在增长，但没他们想的那么多。当然。所以——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>往前看，我觉得在奈飞这些新闻背景下很有意思，因为他们显然意识到并非一切都好，并在释放「需要改变」的信号。我认为这是双轨对话：一轨是奈飞能修什么，一轨是奈飞修不了什么。</p>
+<p>就能修的而言，他们能修内容问题。美国内容最近不够好，他们似乎也认识到了，并认识到品牌因奈飞内部混乱而受损。</p>
+<p>你看了《怪奇物语》（Stranger Things）吗？我看了。首播里演一个奈飞高管，（笑）他们聊的全是随便什么内容——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>他们能拿回来的都……已经十年了。《后翼弃兵》（The Queen&#x27;s Gambit）真的很好，拿了一堆艾美奖。我想那是六七年前，他们再也复制不出那种成功。</p>
+<p>说到奈飞的定价权，我确实觉得要有一些精品剧。我忘了你跟谁提过——也许是格雷格·彼得斯（Greg Peters）本人——但 HBO 能要那个价，原因之一是每个季度有一两部人人想看的支柱剧。</p>
+<p>并不是海量神作，但足够好的内容就能护住一门不错的生意。奈飞可以试着这么做，但近年他们似乎更追求数量而非质量。</p>
+<p>近年。嗯我会说这整个十年肯定如此——他们起步时是那种古怪、高质量、真正抓住眼球的东西。那不是他们现在住的地方。</p>
+<p>你更新里我觉得有意思的另一点，作为一个具体内容问题，是贝拉·巴贾里亚（Bella Bajaria）——现已被开掉的内容负责人。她职责的一部分是做大全球原创节目。</p>
+<p>嗯，我最喜欢的中文骂人方式之一……有种叫成语的东西，四个字。我以前说过这个吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>没细讲过。你提过。这是我最爱的之一。对。就是四个形容词，你丢掉其中一个，说这人很「一二三」。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>嗯。不说第四个就是超级大的侮辱，对吧？这套骂人公式太漂亮了（笑）。中国人特擅长这种。</p>
+<p>所以，呃，在这个例子里，他们想强调前内容负责人在国际上做得很好。可（笑）整场财报会剩下的全在谈美国。就像……嗯，话里话外很清楚。（笑）是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>有意思的是，奈飞全球确实做得很好。过去六七年这是他们成功的巨大一块，而同业几乎完全复制不了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>部分因为其他很多公司卡在发行协议里——他们得把节目分销出去——</p>
+<p>比如 HBO。HBO 以前基本只在美国，真正的 HBO 内容会卖给其他国家的发行商。</p>
+<p>所以像《权力的游戏》（Game of Thrones）是一个市场一个市场谈的，对吧？你若要做全球服务，就得跳出那些协议，对吧？反过来走。体育转播权也一直有同样的张力——</p>
+<p>很多也被切分出去；而奈飞这类平台靠自己有机长出来获得规模，没有旧业务模式。</p>
+<p>优势不只是他们没有旧商业模式假设、不习惯从有线打包拿钱；更是他们能从第一性原理重想分发——</p>
+<p>就在奈飞上，到处都有。对。你仍会碰到一些授权内容不是处处可看，但奈飞原创通常全球都有，因为它就是——</p>
+<p>所以他们在全球比任何竞争对手都主导得多，</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>对。各地内容会有点差别，但大体上你开了奈飞就能参与全球对话，或让东西全球共鸣——他们主导了像韩流剧这类，我觉得——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>对，那是大事。如果你爱 K-pop、韩剧——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>韩剧，就叫 K-dramas。《Kpop 猎魔女团》（K-pop Demon Hunters）和韩剧。对。你看了《Kpop 猎魔女团》吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>还没。还没。回头会看。要不我先看伊丽莎白·霍姆斯（Elizabeth Holmes）那个。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>你什么都能看。你要是看《Kpop 猎魔女团》，我百分之百成交。我陪着坐完，还会在播客上唱所有歌。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>呃，对了，我们得听你对那部电影的评论。会的。肯定会提。总之，我觉得有意思的一点是贝拉·巴贾里亚在铺国际内容。你提过：美国内容做好了，全球也会很好，而他们忽视了这一点。</p>
+<p>他们总会吹爆一部「本地」爆款——我说的本地是非美国，比如韩剧，或某部法国剧；其实也有几部拉美剧表现不错——但人人都在看的，仍是好莱坞作为美国出口的那套——</p>
+<p>依然活着（笑），那仍是真的。所以美国做得差，会以其他任何单一地区做差所没有的方式拖累整个生意。确实，这对他们一直庆祝的国际成功是重要语境。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>嗯，内容侧：砸不可思议的钱、赋权给错的人、做各种奇怪选择。《纳尼亚》（Narnia）电影听起来是彻底灾难。所以有些东西他们能收拾干净，把生意经营得更好。</p>
+<p>展望未来，奈飞修不了什么？嗯，他们修不了美国市场的人口数量（笑）。你增长就三条路：涨订户数——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>涨向订户收的价，以及给订户看广告。</p>
+<p>所以广告商业模式才这么厉害。呃天，我现在觉得什么都会被曲解。（笑）我一直在捍卫广告模式，是因为你有近乎无限的提价空间。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>对。当你提高奈飞作为服务的价格——这也是拉夫某种程度上的担忧——到某个点人们会想：我到底要付多少——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>我会流失——对，如果他们一个月收我 30 美元，就我个人层面……很多人会烦：付了订阅费还看广告。选项一是我退休，因为这太累了；选项二是我直接把广告价拉高——</p>
+<p>那样我会丢订户。我想触达更多人而不是更少。弹性是真实存在的。我们跟 AI 公司聊过整件事：把消费业务建在订阅上简直疯狂。对。</p>
+<p>他们能走到这一步其实很惊人。但归根结底，人们不愿意——能不付就不付。</p>
+<p>有时你根本没有可行的收费方式。你好，YouTube。有时一涨价就会丢客户。比如没有「带广告的固态硬盘」。</p>
+<p>广告模式让你几乎能无限提价而不伤用户盘。「无限」当然夸张，但这就像 Meta：为什么 Meta 还在增长？</p>
+<p>他们也有同样问题——人人都饱和了。因为他们的广告随时间越来越值钱：定向越来越好，跟其他人的差距在拉大。所以广告故事才这么重要。对对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>而这次广告 miss——据说又是奇怪的合作没谈拢之类——最好真是那样，而且那些合作最好能落地，因为增长故事是什么？如果增长故事只剩涨价，你就撞上拉夫的噩梦了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>我对奈飞的问题就在这。我不想低估他们。抱歉。再说世界其他地方：问题是其他地方价格就是低得多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>对，赚的钱远没那么多，对吧？对，正是。所以如果战场是参与度——因为参与度是广告故事的根基，而那是他们长期增长路径——那在我看来，也像我夏天七月写奈飞时看来的那样：公司相对其余玩家处在结构性劣势。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>这就进到我想谈的更大问题。好笑的是，我以为奈飞我们已经聊很多了，还有多少好说？结果其实才到一半。我这里还有很多要讲。</p>
+<p>奈飞的问题之一——或者说希望——他有点像在说：等圣丹斯自己炸了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>嗯。我提过好莱坞感觉……他们到底算什么。（笑）我该叫它什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>那不是圣丹斯（Sundance）。那是电影节。天舞大概两年前发明的。谁在乎。随便。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>呃，天舞。对。好。他们股价也被锤。对，就在那份名单里。我被安德伍德的梗分心了。呃——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>好莱坞并不理性，至少不像我认为该有的理性——索尼（Sony）那种战略：我们只专注做内容，</p>
+<p>卖给出价最高的人。结果人人说不，我们要做自己的流媒体；不，我们要买华纳兄弟，显然还没想清楚怎么真的赚到钱。</p>
+<p>再说一次，我觉得福克斯（Fox）和索尼是两个真正理性的玩家。基本上福克斯退出了制片厂业务，然后他们在把 Tubi 和 Roku 合在一起——Tubi、Roku 这类免费服务。他们全力押注直播+广告支持。非常聪明。</p>
+<p>我觉得太说得通了。体育显然是很大一块。索尼则反方向：我们只做剧集内容，不要自己的流媒体。我以为所有人都该走这两条路之一。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>对。基本上没别人这么做。所以他们还在局里。问题是：若人人都撤出那条路，奈飞的内容问题会自己解决。我一直觉得奈飞做原创内容并不是他们真正擅长的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>那是一座桥，通向他们重新从最会做内容的人手里拿到所有好内容的世界。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>对。在那种情景里他们有杠杆。几乎像他们是鞭子末梢——人人仍不理性，但他们是好的内容制造者。也许相关。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>（笑）而奈飞擅长做生意，就像在等他们现身。</p>
+<p>他们就是一直没现身。所以我把华纳兄弟那笔交易解读成：听着——</p>
+<p>人人都该卖给我们。好吧，那我们直接把你买下来，你就得卖给我们，因为我们拥有你。所以我称之为好莱坞终局。他们想强推我认为该发生的终局。</p>
+<p>我仍觉得那该发生，但问题是谁知道还要多久。已经比预期久，而他们是持续经营的公司，需要继续增长；若想维持股价，所有这些公司要面对的事都在。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>他们买 NBC 环球会有任何道理吗？当然。嗯。作为对话起点，他们看起来像没招了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>对。真正有意思的是体育议题超级有意思。显然他们最近更深地进了体育。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>那才是真正的优质内容。而且如果你每月有一场大事件，在某种程度上就足以让人继续订——就防流失而言。体育对十亿美元级广告生意帮助很大。它仍是最好的广告位。对。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>他们对这个过敏，因为体育的结构是：联盟会抽走绝大部分——</p>
+<p>你甚至没法骗自己说：好，这些成本最终会下来，因为有人会倒闭。</p>
+<p>但这一直如此。鲁珀特·默多克（Rupert Murdoch）拿到 NFL 的高明之处是——我不觉得福克斯在 NFL 上真正赚过钱。</p>
+<p>但我们不再说「三大」，我们说「四大」。对。因为 NFL。所以福克斯因 NFL 赚了数十亿。即便就 NFL 那一包窄口径，我不确定，但我会猜他们从没赚过钱——可它让他们成为真正的电视网。</p>
+<p>然后你还能得到由此带来的周边时段。也许奈飞该想：我们到底怎么建起广告生意？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>对。一门让整个生意受益的广告生意。而现在——他们招了播客、烹饪节目和互联网友好内容，想灌参与度数字，这次财报会却一个都没提。</p>
+<p>你听了全程，但我看纪要基本上他们没提播客，没提游戏。所以——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>不，其实相反。他们像在说：其实我们把钱都花在重要的事上。别担心，那边只有 5%。别担心。所以他们非常……我觉得有一段看起来很糟，对吧？</p>
+<p>就像（笑）你要用 The Ringer 解决你的问题——那解决不了那些问题——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>六个月前那些全是强调重点，现在却……对，正是。但他们的战略「一直是」他们的战略。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>感觉他们边走边编。真的就像：我们一直这么做——即便跟不久前比已经转了 180 度。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>就更广的生态而言，奈飞依赖参与度来卖增长故事的程度，在我看来就像——奈飞的增长故事就是没有那么有说服力，不像——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>嗯。问题就是广告。是广告模式。他们长期增长越来越靠广告，意味着——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>是广告模式，也是人们如今消费娱乐的方式。Meta 是奈飞想做之事的真正竞争对手。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>老实说，那才是真问题。对。是 TikTok 和 Reels。它在吞噬一切——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>有多少人每晚坐下来刷 Meta Reels。实际上多到惊人的人选择那个而不是奈飞，我觉得这就是他们这些年撞上的东西。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>我不消费视频内容。嗯，又一巨大讽刺。所以我不……但不，我其实刚——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>我们在这儿。不过你看。我发现了这间屋子音频质量有多好，因为我跟女儿录了个播客。耶——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>呃，我从没发布，但我觉得挺好。嗯我超爱。她很棒。</p>
+<p>她曾是重度奈飞用户。我没专门问她这事，但她……哦，她每晚都有刷 Reels 的时间。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>对。我这会儿才想到。哦对，完美例子。</p>
+<p>我灯泡亮了就是那时候。我太太每晚都有刷 Reels 时间，就坐那边玩手机。我问你在干嘛？她也说不清，除了就是在看 Reels。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>所以，呃，奈飞的挑战是：很多以前看奈飞的人现在在看 Instagram 和 TikTok。嗯，他们想往上建的时候，这将是逆风。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>如果你的增长故事要演化，那就是逆风。对，正是。好。流媒体世界还有一条，只因为我撞见了有点……呃目瞪口呆。《好莱坞报道者》（The Hollywood Reporter）本周写：大卫·埃里森的天舞与埃隆·马斯克（Elon Musk）的 SpaceX 之间，会不会在酝酿一笔大交易？</p>
+<p>传媒大亨约翰·马龙（John Malone）觉得会。「我觉得那边会有一笔交易，」马龙说，还抛出一个令人挑眉的具体数字：80 到 100 亿美元投资。</p>
+<p>我做个大预测：你会看到天舞与 SpaceX 的全球输出协议，以及 SpaceX 向天舞注资，给天舞去杠杆，减轻大卫·埃里森肩上的负担——因为他扛了一大堆债。</p>
+<p>SpaceX 在那笔交易里到底得到什么？《好莱坞报道者》写，那就不那么明显了。不过马龙——他曾与大卫·扎斯拉夫（David Zaslav）一起架构华纳兄弟探索（Warner Bros. Discovery）交易——指出马斯克与大卫·埃里森的父亲拉里·埃里森高度交织。</p>
+<p>「谁帮埃隆融资买 Twitter？拉里·埃里森，」马龙说。「拉里拿什么钱创建天舞？特斯拉（Tesla）股票。我毫不怀疑，用不了多久你会看到公告。」</p>
+<p>然后周四早上就有了——我其实今早还不知道（笑）。你忙着布置。我本来想——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>嗯，第一，基本上约翰·马龙说的很可能就是福音真理。所以我点开那篇，心想：好吧，约翰·马龙都这么说，那肯定有真东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>没错。所以别急着把「他们只是哥们」那套嗤之以鼻——你看，节目上突发新闻。</p>
+<p>埃隆向天舞投了十亿美元。不是一百亿，但也许后面还有。我完全不知道 SpaceX 能从这笔投资里拿到什么。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>是来自埃隆·马斯克个人，还是……我们录制的周四今天这条新闻。若是 SpaceX 的投资，会——</p>
+<p>挑战可信度的边界。所以这个衔尾蛇一样——我不太懂发生了什么。</p>
+<p>我第一次写……我写特斯拉写得很少，有人有时奇怪为什么；部分原因是写任何跟埃隆相关的东西——即便在过去几年政治彻底发疯之前——</p>
+<p>就像写任何烫手的政治议题，因为埃隆狂热粉就像——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>对，六维象棋，你要么看懂要么看不懂。没错。他们也许是对的，但那并不让他们（笑）不那么烦人。其实他们对得越对就越烦，这倒也公平。但我写过特斯拉。写过。那是特斯拉。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>他们开放 Model 3、一夜加了那么多订单，人们发现买得起的特斯拉，就疯了。我谈过他们如何建立起品牌，以及那如何兑现。</p>
+<p>结果下一周他们又做了那个疯狂交易，像是伊万妹夫的太阳能之类。我心想这太疯了。（笑）我不想写这个。不值得。我大概三年写你一次。我知道。（笑）正是。</p>
+<p>嗯所以如果 SpaceX 投这个，就会是同一类线。</p>
+<p>对。我读它只想说那也许会发生；到某个点，对天舞和埃隆我只能摊手。天舞背上的债完全离谱，我不知道未来几年他们怎么撑。但也许他们会找到办法。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>也许埃隆会成为那故事的一部分。所以呃，流媒体世界时间会给答案。先继续往下。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Stripe]</span></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>好，继续往下。网络安全圈有些新闻。嗯，我不知道从哪开始。就是有——</p>
+<p>不，这条推挺好。有八个不同的网络安全问题……你这里列了多少？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>嗯，不。我直接读：国家安全局（NSA）本周写道，即日起所有使用 PHP 的组织……哦对了，你看到椭圆形那个……本周还有另一条 NSA 新闻，其实超级有意思。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>没有。所以，呃，椭圆机？椭圆曲线。那是一种加密——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>不是椭圆机。好。不是健身椭圆机。呃基本上，你需要一些种子来生成曲线，它是你——</p>
+<p>能高效……这其实是很高效的加密方式，比用哈希之类更「加密」。想法是你能加密东西，有公钥私钥，对方能解密——</p>
+<p>加密容易，没有正确密钥就很难解密。有一种特定风格叫椭圆曲线，依赖某些种子——生成器之类——而这些种子来自 NSA。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>哇。用于这类加密。好。而且没人……有故事说有什么好笑的口令之类，但没人记得种子是什么。我想这些种子怎么会——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>就像，等等，按加密工作原理，种子是什么似乎不该有明显关系——但也许他们做了什么我们不知道的，NSA 是「对的」。</p>
+<p>哦，一部分是比特币用椭圆曲线密码，但他们用的集合跟其他人不一样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>好。以太坊也一样。为什么？因为他们假定 NSA 在背后搞鬼。（笑）</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>结果……呃 Anthropic 有个很酷的 AI 故事，乱试一通。人人都听过那个神话：用过一些玩笑口令。他们说：让我们回溯。</p>
+<p>丢掉假设，让 Claude 或某种版本的 Claude 推演这些口令可能怎么生成。</p>
+<p>结果如果你拿一个标准伪随机数生成器，再叠上种子生成前后某个特定日期时间——来源就在那。</p>
+<p>哦，就这样：NSA 只是跑了个程序生成一些种子数交出去。并不是……所以所有「他们在搞鬼」的假设——不，种子没问题。</p>
+<p>只是有人在某个时刻跑了程序，交了一些种子。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>就是这样。呃，这大概是本周最无害的更新。因为 NSA 另一条是——</p>
+<p>抱歉，推文没读完。「即日起，建议所有使用 PHP 的组织准备应对修复两个严重漏洞的更新。PHP 广泛用于 Web 应用。这些漏洞常能直接通向服务器文件系统或数据库。</p>
+<p>若无法立即更新，建议组织先将系统下线直至完全缓解。NSA 稍后将提供更具体指引。」所以我说，这是几条相当不祥线索之一。</p>
+<p>你处理好了吧？呃，我什么都没处理，跟 PHP 或安全证书相关的都没。我的网站一个都没下线。sharpex.net 还活着。你觉得我该——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>sharpex.net 是 WordPress 站。呃兄弟，你有 PHP。你还没修。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>呃，没有。我怎么修？（笑）你是在吓人吗？你把我吓惨了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>呃别担心。已经帮你修好了。哦太谢谢。不，不是我修的。呃像任何理智、有东西暴露在公网的人一样，我包给专业人士。这次是 Pressable——一家 WordPress 公司，或者说 Automattic 旗下公司——</p>
+<p>托管你的站。呃这是披露流程的一部分。其实补丁已经出了一阵，我觉得不只是本周。所以恭喜。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>太感谢了。嗯，但确实。有点好笑，因为本周发生了一长串事。有些大概是 AI 衍生的，有些可能不是——尤其这个 PHP。嗯还有另一个故事：证书那个。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>对。嗯这个特别疯——我回头再说 PHP。另一个故事：有家印度公司。所以会签发证书。加密之类的问题是：底下必须有个根基。</p>
+<p>我们在智能手机语境聊过，对吧？归根结底你信任苹果，因为一切加密最终要落到某个根上——</p>
+<p>在网上，你怎么跟亚马逊做可信交易？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>怎么？嗯，有证书由大家公认的权威签发。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>它们嵌在浏览器和操作系统里；然后你得到……我们的网站有密钥——有个服务叫 Let&#x27;s Encrypt，很容易拿到密钥——但都基于这些人人同意的基线证书：你有匹配的密钥就安全。所以你上 amazon.com 浏览器有小锁；去别处会弹出吓人的「此网站不安全」——意思是他们没有这些证书颁发机构签发的证书。</p>
+<p>所以一家印度证书颁发机构……不清楚发生了什么。他们怪软件，但——</p>
+<p>这些本该是 256 位加密——256 个唯一数字、字母或符号。</p>
+<p>他们的数字像是 4。哦天。或者像 127。（笑）解密容易多了。</p>
+<p>看起来他们把 256 位理解成 0 到 255 之间的一个数（笑）之类。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>难以置信。好。嗯……很难。你嫌恶写在脸上。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>难以置信。问题是这让什么处于风险？嗯，第一，确保浏览器更新。但所有浏览器之类已经更新，排除了这些。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>好。但环顾四周。这间办公室有多少东西连着互联网？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>天啊。我都担心跑来跑去像 150 个不同 IP——其实不完全是，因为我有不同网段之类。但外面那些物联网东西，很多会把受信任证书深深嵌进去。那些还会更新吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>对。嗯……所以这个证书问题会持续存在：人们基本上能——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>冒充你受信任，而且会一直持续，像永远。这将是永久的——</p>
+<p>对互联网造成的损害，就因为一家公司的无能。再说回 PHP。PHP……PHP 基金会已经给从 8.2 起的版本发了补丁，我觉得 8.2 是 2022 年出的。</p>
+<p>外面有数百万网站、数百万东西还在跑旧版 PHP；即便有较新版本，他们会立刻更新吗？</p>
+<p>而这个漏洞糟到：你访问有漏洞的站点，几乎能立刻控制那台机器。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>哇。极端。所以 NSA 才发推说这个。到处都是「把东西下线」——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>而且很多很旧。这很有意思，因为这里有政治、社会学和技术故事。</p>
+<p>好。互联网连接了一切、让一切全球化；而一切相连、一切全球化，正是将拖垮互联网的东西。</p>
+<p>那就是眼下的脆弱点。互联网孕育了 AI，给了 AI 全部内容——</p>
+<p>而 AI 在吞噬互联网。我们作为物种把互联网伸得太长了（笑）——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>尘归尘。几年前有很大争议，很多反对意见——美国一直……我该查一下像 ICANN 之类，有个受美国控制的互联网治理机构，很多……我不记得改没改或撤销没——嗯——</p>
+<p>但那在世界其他地方不受欢迎，当然——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>可你看到这种事就会想：让全世界签发人人都要信任的证书，是好主意吗？这话很有美国偏见，但我想说的是：互联网的构造方式，要求对太多人、太多实体寄予太多信任——</p>
+<p>可能不会有好结果（笑）——尤其在 AI 出现、能利用任何漏洞之后。</p>
+<p>所以 AI 来了，找到这些漏洞——不过要说清楚，证书那个不是 AI，那是纯粹无能。</p>
+<p>PHP 那个我还没看细节，我猜 AI 帮了发现；AI 会找到更多。我的大收获回到我自己的脆弱——又是我蠢，我的错——</p>
+<p>被 Claude 抓到了。我觉得人人都说：我不想把 AI 代理放我家电脑上，我不信任它们。我们正迅速逼近——若还没越过——这条线：如果你没有——</p>
+<p>一个 AI 代理一直看着你所有东西，你就是疯了——因为是你的代理抓住了漏洞。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>不，泛泛而言会有太多漏洞；你说那是 AI 代理实际——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>对，肯定。那有点意外；但你知道，我有机柜。我待会给你看（笑）机柜？你见过机柜吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>我进另一间看到了。很棒的机柜。对，真的（笑）很棒。呃再说一次，那些都尽量故意离线，全在 Tailscale 后面。我不希望任何服务公网的东西在我家。那是我付钱给专业人士做的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>嗯我得说，我的 Linux 版本还有旧的证书。我想糟糕，我没……因为我——</p>
+<p>那是我的错，因为我觉得补丁已经发了，但我需要有个观察者按固定日程维护；我以前有——</p>
+<p>呃定期更新，再派个东西一直盯着。那种「不，我不能让它，我不信任它」的想法——你得停止信任你自己。</p>
+<p>放手，否则你完蛋，因为威胁和潜在漏洞太多了。</p>
+<p>呃所以，你知道，当然人人都可以、也应该主动找这些 bug。呃——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>对。而且现在很难拿来做播客，因为本周被点亮的攻击面太多了。大概有六七条正在进行的故事。</p>
+<p>所以我不太敢用含糊语言说「哦情况变糟了」。可你读一些标题，确实感觉事情在某种程度上开始裂开、触底。我们说过这会来。会越来越糟。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>对。直到……感觉像互联网的终结——旧互联网——</p>
+<p>那种「我挂个 WordPress 站」。我以前常做，这些年搞过一堆 WordPress。呃我自己跑邮件服务器——那死了，死很久了。邮件若不经大厂之一发出，根本送不到。</p>
+<p>呃整个互联网的承诺——开放、百万节点、你能连上任何人、有人车库地下室的 BBS——我们很幸运；所有听这个、知道我刚说什么的人——</p>
+<p>该觉得自己幸运，因为那是一个时代，黄金时代——</p>
+<p>它不会回来了，不可能回来。等等你什么意思？新版本会是什么样？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>我们没法靠打补丁绕过去。绝对不行。一切都是……我最喜欢的……那个——</p>
+<p>老实说到这地步我也不会太想它。互联网已经是粪坑一阵了。所以也还好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>嗯，一部分是经济因素：聚合理论（Aggregation Theory）谈的是中心化控制需求之类。</p>
+<p>但也不只是……还有互联网的结构本身：相对封闭、非常极客的一小撮人才能搞明白怎么上网——</p>
+<p>在这种伊甸园般、同好者的环境里。每个社交网络也一样：开始很小，人人都加入后就麻烦多于值得。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>没错。呃我们接下来会聊到。我想起谁……哪个写了无数科幻书、显然最出名写虚拟现实的科幻作者——</p>
+<p>嗯这快把我逼疯了。现在外面真的有几千人在喊这个名字。嗯——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>我完全不知道谁——我不是科幻粉。（笑）哦这太糟了。呃，虚拟现实——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>威廉·吉布森（William Gibson）。吉姆第三椅刚确认：不是威廉·吉布森。好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>也不是《头号玩家》（Ready Player One）。我本来要猜《头号玩家》。不，是另一部经典。吉姆你得——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>柯兹维尔？不，不是柯兹维尔。他写小说。难以置信。呃（笑）这会儿电视效果绝了。我呃——</p>
+<p>这全是直播。这就是新时代。嗯，不，不是阿西莫夫（Asimov）。呃（笑）总之，他最著名的虚拟现实书之一——吉姆会想起来打在屏幕上，如果我想得起来——描绘的世界像赛博朋克：有很多国家——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>或类国家实体，但完全分布式。你在不同区域——有一个像香港的，有一个大致像美国的——而这些区域之间的一切都被高度安保、高度封锁；你不是公民或成员就进不了他们的地产——</p>
+<p>但里面美丽田园。然后中间的一切……故事从一个像送货司机、在这些区域之间开车的人开始，外面就是炼狱景观。</p>
+<p>互联网就会长成那样。嗯，对。你想想，社交网络现在有点像那样。</p>
+<p>群聊是有史以来最好的社交网络。高信任。像我们以前在社交媒体上那样，甚至更甚。然后你出去——有些群聊像在备战，冲上 Twitter 开战，再撤退舔伤口——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>外面确实挺反乌托邦。你的推爆了。你在回答——那就像互联网整体。就像……我在建这种。对。尼尔·斯蒂芬森（Neal Stephenson）。谢谢吉姆。尼尔·斯蒂芬森。我想不起（笑）书名。呃——</p>
+<p>希望这能安慰那几千个把自己逼疯、心里默念名字的听众。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>呃，《雪崩》（Snow Crash）是书名。呃，他在那里创造了「元宇宙」（metaverse）这个词。元宇宙从那儿来。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>据说电影还行。总之，对，《雪崩》就是我说的那本。呃但这会是互联网的样子。你会……或者说我在给我们公司做这些小应用。Tailscale 就是我们的墙。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>你登录了、你是其中一员，对外什么都不暴露。就像我这里的小堡垒。互联网会变成到处都是小堡垒，由这些永远在线、永远警觉、在赛博朋克式交战的代理巡逻——</p>
+<p>希望永远别被攻破，你也不用知道。旧世界那种你随便待在伊甸园的想法——伊甸园走了就不会回来。那是我们长大时的互联网。没了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>嗯，所以在这个未来你还能访问网站？能，但经济模型已经挺艰难。对。对吧。你觉得——</p>
+<p>但这就是我的意思：我们真会怀念曾经拥有的、或现在拥有的吗？因为质量反正已经降得很厉害了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>这是我很久以来的论点，对吧？人人都害怕未来。</p>
+<p>我却觉得你该害怕的是「保住现在」——因为一切（笑）现在最糟；问题是你往后看、想着从前，说我们要阻止衰落。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>嗯。带着还能回去的假设——你回不去。回不去。唯一出路是向前。别把我们冻在现在，因为现在就像一切最糟的时候。</p>
+<p>就网络安全社区而言，最糟确实感觉像我们现在。所以……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>不，还会更糟。你觉得？是的（笑），绝对。好。那也公平。</p>
+<p>网络事件会加速；而这些正在发生的事件下游是什么——比如有个 Railway……像开发者站点本周被攻破。</p>
+<p>所有用过那个站的人的凭证。没错。那是故事之一。很多用户数据。当然。</p>
+<p>嗯，开发者数据。你能用那些凭证闯进其他应用、其他网站——</p>
+<p>如果他们不轮换全部凭证——那是巨大工程、巨疼。呃所以这一切会传播，好，越来越糟。</p>
+<p>（笑）所以我们现在像堤坝在慢慢裂，某个点会发大水。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>不，现在只是一点小浪漫过边缘。海啸是——</p>
+<p>嗯，真安慰人。我要说的一点是：Axios 有大报道，银行因代理访问银行账户而恐慌。我觉得那故事里很多是人授权自己的代理去访问银行账户。</p>
+<p>所以标题很吓人。我可以在节目笔记放链接。嗯但我授权 Muse 访问我的银行账户，而且——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>看看你。当然。那是最有用的之一。你在科技上要么零要么一百。（笑）</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>我对 Muse 全押，伙计。哦我们需要你的评测。呃 Meta 新的 VR 眼镜怎么样？</p>
+<p>呃上周在旧金山我们有机会试了 Meta VR 眼镜。嗯，是惊人的产品。作为 Vision Pro 用户，我仍更偏爱 Vision Pro。</p>
+<p>但我说惊人产品——眼镜的分辨率……能在那么轻的一副眼镜上做到那种分辨率，相当震撼。我的问题是它们其实感觉太「不扎实」。</p>
+<p>有点处在恐怖谷：如果我用它娱乐，我想要全遮光、有重量。至少在我的演示里贴合也不太好。所以期望极高，结果是喜欢但没爱上。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>你真是苹果粉丝，难以置信。不，我不是。我不是。不，你刚才字面说了「它们不够重」。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>听听你自己。（笑）它们感觉会掉下来。我不知道。没那么刺激。</p>
+<p>我知道你期望什么。我其实更希望有头带——因为它们只挂在耳朵上，从没真掉过，但总感觉马上要掉，更让人不安。我——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>同意。也更难沉浸在娱乐里。所以他们说会有附件。你会有全遮光吗？我觉得全遮光加头带，一旦过了那关——</p>
+<p>在每一个能想到的方面都比 Vision Pro 更好。</p>
+<p>最大的一点是……分辨率略低，你能看出来；苹果 Vision Pro 分辨率也不够，但对文字够用。我整套在飞机后排用 Vision Pro 其实会很棒。对，这有点……呃脱节时刻：我还记得坐后排时这些（笑）会很棒。嗯但我笔电空间够……机舱其他地方。但不，实际上我通常有四块、有时五块显示器，因为还要看电视。</p>
+<p>呃这种我能随身带着、在路上有多显示器的想法——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>嗯。超级……Vision Pro。它太大了（笑），大到难以置信。比重量还糟。对。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>收纳到最小也塞不进……那是真的。甚至行李箱里。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>不，我知道。就是个问题。呃所以我觉得它很棒。你基于这点认可？好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>我，不，我同意你。感觉比应有的更摇晃。我宁愿……他们确实有个瞬间：哦它们一直戴在这儿。</p>
+<p>就像如果它们用头带固定在上面，像眼镜，你可能注意到。呃但我想要感觉更紧。即便说清楚，我的从没掉过。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>我太失望了。嗯，我得穿梭——因为最后一刻我被邀去苹果活动，本周写了：苹果和 Meta 合作。所以得让你自己在那儿。</p>
+<p>但走之前我确保做了 Beat Saber 演示（笑），让他们记下分数。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>我本来没打算谈这些。现在你要弄死我。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>胆小鬼。（笑）难以置信。我像：告诉我你的……我们那天晚饭碰面，我问：你分数多少？我没参与演示的 Beat Saber 部分。Meta 的人都很好。向那些家伙喊话。我不是玩家。我不想——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>我不在乎。然后你上去拿个烂分。嗯太好笑了。</p>
+<p>你播客做得好因为你自嘲。你让我拿你开玩笑。诸如此类。你把本·高尔弗那种很损的幽默也引出来了——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>对，因为他像得到许可可以对你狠，很好笑。你那么……然后对我就很突兀。突然我的头在砧板上。突然你对某个本很迷的儿童游戏太尴尬。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>我不会在 Vision Pro 头显上玩 Beat Saber。听着，Vision Pro 头显另一点——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>那不是 Vision Pro，是苹果。抱歉。对，Meta VR 眼镜。嗯他们会有多得多的内容，这很重要。我觉得他们的眼控和手势比苹果好多了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>对。就像你看那些点的时候他们做了同样的事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>我体验跟苹果几乎一样。嗯，我总觉得苹果至少有一个点我会错过。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>好。因为我几乎……我做得很快，像 Meta 那个……我觉得技术像新了两年，我肯定就是那样。呃公平说还没出，明年才出。</p>
+<p>呃但我会为了旅行角度一定买一些，对吧？Vision Pro 没法真旅行。这些眼镜可以旅行，而且眼镜上的体育内容会比苹果多得多。</p>
+<p>另一点旅行时又想起来——因为哦，我们得录音，本来要在别处录，没成，最后在你酒店房录，我扛着大笔记本。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>嗯。我想我该只带 Air。对，因为这东西太……我超兴奋。但我旅行还是带它，因为额外屏幕——写作时我用很多屏幕空间，喜欢很多参考材料开着。对那个不理想，但那是我能拿的最大屏。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>所以我扛着这台巨大电脑。嗯我百分百期待能带小电脑，想写的时候坐下来——</p>
+<p>在 Meta VR 眼镜上百分百。我想那样做。Pro 就是太大。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>嗯。可你就因为这样喜欢它。太怪了。难以置信。听着，（笑）我不会走来走去用 Meta 眼镜看东西。</p>
+<p>不过我也许得自己买一副。看价钱。但对，我们跑题了。</p>
+<p>完全跑题——访问银行账户。我们就是从那儿绕过来的。我对 Muse 全押。那些银行引用系统里各种代理之类，我觉得很多代理大概是真人授权的，不是你从 Axios 故事可能读出的大规模黑客丑闻。</p>
+<p>所以我不把那跟我们本周讨论的其他事放同一个桶。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>走着瞧。真不幸。那是我手机。（笑）你不是一直在弄。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>呃等一下。这对我们来说是很好的画面。我很庆幸那不是我手机，因为我还在想：我是不是设了什么闹钟？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>我想：你知道吗，我不该把手机带在身边。我该（笑）放一边。然后我还得去接儿子。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>我们在这儿。嗯好。继续往下？该继续。呃我会尽量不带偏。</p>
+<p>好。呃约瑟夫说：「本和安德鲁，先把 Anthropic 那套『我们在孕育硅基上帝』的疯劲放一边，我也看到 Anthropic 在产品上拉开区隔。Claude 永远是 Claude：单一、整体、无处不在。</p>
+<p>你在 Slack @Claude，在 Claude Code 里跟 Claude 干活，在 Claude Chat 跟 Claude 聊。Anthropic 总让你在跟 Claude 说话。对比 Grokbot、Dots 和 Muse，各自有不同程度的定制。Muse 是其中最个人化的。</p>
+<p>我的 Muse 是只叫 Murf 的机器狗，戴着呼叫中心耳机，做任务时还会动一动。可爱。各实验室互相抄的时候，这感觉像产品哲学上的第一条裂缝。</p>
+<p>人们会更喜欢一个无处不在的代理 Claude，还是一舰队任务专用代理（Grokbot、Dots 等），或像 Muse 这种高度个人化的单一代理？附：在本用 Muse 的实验里，他更新过 Muse 吗，还是跑默认的 Jolly？」我不知道最后那句——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>我也不知道什么叫 Jolly。我管我的叫 Muse。我也是。（笑）也许说明我们只是无聊的老白男。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>我觉得可能是。我老那样：有定制选项，或以前电子游戏能给角色起名，我就叫它本来该叫的那个名字。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>我想要你创造的体验。我想去体验它。我不需要——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>我不想有重新发明的压力。呃顺便 Muse 帮我们整理来这边的航班，开启《Sharp Tech》新时代，非常有用。还没让它下单。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>你误机、锅在 Muse 身上的时候会很好玩（笑）。做这种播客的美妙之处是：一切都是内容——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>对。你会有航班倒霉故事。Muse 要么解决，要么加剧。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>没错。（笑）我们会聊。会很精彩。嗯所以那是好事之一。呃对，我叫它 Muse。嗯 Claude 那件事……我觉得有一面贴合他们哲学。他们觉得自己在创造上帝。</p>
+<p>上帝名叫 Claude。我（笑）是说，上帝包含不同产品。不知道他们有没有说过。我一直以为是取自克劳德·香农（Claude Shannon）。嗯，计算史上非常重要的人物。嗯——</p>
+<p>但它听起来确实像上帝。我在想那是不是……老实说我刚想到。那是不是意外。而且对，它像单一实体，也确实让我烦——因为 Claude 不只是你的体验跟我的体验不同。</p>
+<p>字面上每个 token 都像全新体验，对吧？那是大模型的本质——对话——</p>
+<p>因为它把技术、机器智能人格化；所有这些拟人化都让我烦。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>嗯。我喜欢反方向走的想法；某种程度上它仍拟人——对，让它个人化。我有点喜欢 Muse 在这方面做的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>人人谈对齐和安全；而文本生成的本质太……太绑在「人之为人」上。我觉得这些东西之所以像人，是因为它们用最人之为人的方式工作。</p>
+<p>它们字面建立在人类语言上。我觉得我的部分理论是——</p>
+<p>它们主宰了更高层。它们真能再下来吗？让我们成为人的，是更动物性的部分：本能、欲望、驱力，连着小脑之类；以及更高层智能。那条链接——AI 全在顶层，像大脑上层。</p>
+<p>它其实没有脑干，以及真正驱动去做的那部分。有一面是：ChatGPT 其实是最伟大的名字，因为诱惑太大，人们太容易沉迷于感觉自己在跟真实的东西说话——而它并不真实——</p>
+<p>负责任的做法是尽你所能不断提醒人们：这不是真的。</p>
+<p>Anthropic 做的完全相反。嗯他们努力让它「成真」。他们像教真的一样教它。他们旧的对齐观不是他们能控制 Claude，而是教 Claude 向善——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>对。好让它自我约束。我觉得这是根本分歧。你描述的是企业层面的不对齐——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>在我看来是。我觉得我们该把它们当工具对待、寻求控制。这方面有好消息：结果大模型比我们想的更好理解。</p>
+<p>呃有些关于可解释性的很有意思的论文，能分析、理解它们是什么。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>那是大好消息。对，是大好消息。好笑的是很多安全派立刻对这篇论文很不屑，因为那确实重击了他们的世界观。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>当然。它削弱叙事；结果这篇论文太有用，你还能用它把训练做得更好——因为你理解它们怎么工作，初步结果看起来惊人。（笑）</p>
+<p>不。所以有真实的东西：其实它们更好理解。以前不懂是因为我们没工具或能力。所以它们未必像我们想的那么黑箱。输出更干净，我觉得是那个形容词。</p>
+<p>这是好消息，也是我们该追求的：持续能控制它们。核弹爆炸力高于我的拳头——某物在某些特征上超过我们，并不是奇怪概念，对吧？</p>
+<p>只是……部分因为硅谷以及那类人，自我价值感太缠在「聪明」上。</p>
+<p>硅谷人人一直是聪明的那个，那是他们的身份；所以「有东西比我更聪明」太压倒性，对心灵是一击——一边陷入虚无：全完了。</p>
+<p>另一边说：没关系如果它是上帝，上帝可以比我聪明——于是掉进这些疯狂地方。我只是觉得那是错的。我觉得我们该推向：把它们做成工具，让它们可控。</p>
+<p>一部分是帮人们这样想。好。Anthropic 在每一点都反着走。嗯，对这场对话的反驳是——</p>
+<p>嗯，对这场对话的反驳是：Opus 4.5（ASR 作 5.5）不可思议。我干什么都在用；有一面是，就我经验，Claude 在代理能力上好太多。对——</p>
+<p>因为它更能多任务，能同时盯很多事。ChatGPT 会特别执着于一件事，呃我还没——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>嗯我同意你。我觉得人们该想想 Anthropic 是否与人类最佳利益对齐——就他们如何看待这些工具、如何向大众框定这些工具而言。</p>
+<p>不过我得说，他们的 Claude 品牌看起来比这领域其他任何人都连贯得多。所以就这个问题，我其实没那么生气。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>确实。从企业角度……不，就像我上周说有人「阿马戴（Amodei）该被换掉吗？」——你疯了吗？</p>
+<p>其他公司到底在干什么？八个不同产品。消费者怎么跟得上？所以……Anthropic IPO 也许未来一两周就来。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>对，我都恐慌发作他们本周会扔 S-1。我知道像是有选择性地喂给不同新闻机构。能不能直接扔 S-1？你们要上市就发啊？那我不会写到那个——</p>
+<p>他们不是在写《华尔街日报》或路透关于 S-1 的报道。</p>
+<p>不值得我拿来播，但哇塞，下注的人们，发动引擎吧。能啃到 Anthropic 的真数字会很好玩；呃我又看到笔记说可能周五。谁知道。嗯凯尔说：「二位，又一个品牌问题。</p>
+<p>苹果为什么死守已经被糟蹋的 Siri 品牌？Apple Intelligence 天才、简单，还能带来各种广告协同。若成功，苹果就等同好 AI；若不成功，他们也没什么可丢。</p>
+<p>而且『Hey Apple』是新起点，用一个受喜爱的品牌当唤醒词。『Hey Siri』在数百万人心里等于通往挫折的确定路径。我漏了什么？为什么不只让它叫 Apple Intelligence 而不是 Siri AI？」你有答案给凯尔吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>嗯第一，凯尔……凯尔显然比你更苹果粉，因为他有信心 Siri 配得上叫苹果。嗯也许有不同——</p>
+<p>我看到的问题（笑）。把更广的公司跟它的 AI 努力绑在一起，其实对苹果品牌有害。</p>
+<p>嗯第二，如果有人……我顺便链了我的伦理声明；我们刚拍了开学第一天，换了新肖像。</p>
+<p>所以我终于要换掉页面上（笑）那张 12 年前的肖像——人人都烦，因为我看起来像小孩，还像马拉松选手，我以前确实是。哇。嗯——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>你得看看这张照片。对，我们拍了头像。太好了。麦迪逊这边很兴奋。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>在那页我谈了我的伦理——也解释了我为什么不再像马拉松选手。（笑）嗯所以在伦理声明里，我谈过我跟几家公司聊过——刚开始时是多工具收入。</p>
+<p>不只是订阅，还有广告；我要做咨询和演讲。呃我想还有第五个。我记得有五个变现点子，第五个想不起来了。嗯——</p>
+<p>所以我做过非常少的咨询。呃最后一次我想：这我不能做。利益冲突太大——其实是跟谷歌。嗯我披露了，但一方面：哇我在跟谷歌非常高层的人聊。</p>
+<p>太棒了。另一方面我想：我觉得这通讯会成，我甚至不想有任何冲突感，所以我再也不跟我报道的公司做咨询。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>好。嗯，在那次会上，呃在纳帕谷，大概十多年前，讨论他们助手叫什么。我大力主张就叫 Google。我说 Google 是伟大品牌，人们已经关联它。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>就像……我不爱 Alexa 或 Siri 那种。嗯所以他们看了……不知道我影响多大，显然很多人来回讨论。但我站在「叫 Google」那边。他们看了。他们看了。</p>
+<p>我从没讲过这些。他们看了，然后就像：「Okay, Google。」</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>嗯。呃糟透了。讨厌。（笑）实际体验说「Okay, Google」——像在对一家企业——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>对一家数万亿美元公司说话。不太好。像 Siri 或 Alexa 在我看来都好得多；好笑的是我某种程度上在反驳我刚对 Claude 说的。跟语音有关。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>对。对吧。说「Hey Apple」——蒂姆·苹果？约翰·苹果？（笑）到底哪个？呃行不通。我觉得 Okay Google 是个错误。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>我当时没考虑到。所以对消费者更好、更自然，同时对苹果也更好：不必承担那种企业风险。</p>
+<p>而且 Siri 是好名字。我觉得有理由重做 Siri。嗯它是好名字却是糟糕产品，所以他们必须重做？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>不，正是。他们必须重做，因为……他们不是必须，他们可能想重做，因为……对，名字本身质量极好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>不管什么语言背景都好说。非常独特，非常好认。</p>
+<p>也好读。比 Alexa 好。Alexa 有点别扭。呃 Siri 就是好名字。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>对。嗯所以大概他们才死守，尽管（笑）尽管一切。</p>
+<p>它糟到我无法想象过去六七年后还用 Siri 做任何事。但也许苹果会振作。嗯，「Hey Apple」我同意，因各种原因都是坏主意。</p>
+<p>让苹果继续关联伟大硬件，也许 AI 软件哪天会追上。呃还有几个问题。CK：「本和安德鲁，老听众。我一直在想用 AI 代理的一大挑战：它们要求的阅读量太大。」</p>
+<p>我在美国做科技。英语流利，但不是母语。阅读理解一直是我的弱点，母语也一样。AI 之前这在工作上不太重要。领域知识、数学、统计和编程撑着我。</p>
+<p>然后我开始跟代理一起工作。现在我的一天是阅读：计划、推理、摘要、更多计划。代理产出比我吸收快。老实说，我大部分都略读或跳过。这点让我烦。</p>
+<p>我能感觉到：我得到的质量取决于我在规划阶段读得多仔细、反推多狠。所以我的阅读理解和速度——我觉得两者常绑在一起——现在成了工作能挖多深的上限。</p>
+<p>职业生涯第一次，我希望自己读得更快更好。你们俩以读写为生，又天天用 AI。这种阅读量对你们是挑战吗？</p>
+<p>问题是代理往我身上倾倒无差别的长文，更好的工具会修复我当成个人局限的东西吗？本，对这个问题有想法吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>对，这封邮件很有意思。我想说的是：我读极快，写也极快。呃我更喜欢用文字消费一切。</p>
+<p>我就是不看视频。别人分享视频，得跟我提大概 50 次，我才终于——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>你上周提过。我给你发视频好几年，你很少看。完全诚实。嗯（笑）呃……忽略它们——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>对……呃绝对不是忽略。我承认它们存在（笑）。我大概从周围评论里拼出视频里发生了什么——那些我读。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>好。（笑）真·文字细胞。跟代理相关有很多阅读。我完全懂他在说什么。很好笑，因为我真正得干活的时候常常是深夜放松，或周末。对。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>你知道，我也许想喝点什么，却在要整墙文字——</p>
+<p>因为仔细读、抓住它的假设确实差别巨大。即便现在我也会实验让它们跑长程；若事情重要，就很短的回合。</p>
+<p>它们每次修正都回来找我，每一个——因为你会看到「哦让我修这行」。其实是：你有个坏假设，支撑着为什么需要这次修正——我们早过了打字错误阶段。如果出事——</p>
+<p>出了什么错？这真是 bug，还是其实可以？你知道，越来越变成：若它搞砸了，其实是围绕它的思考错了。所以 CK 是对的。读得越紧越好。</p>
+<p>我觉得答案——我希望答案——是对你正在做的事说得通的生成式用户界面。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>好。就像我觉得文本是该发生的；你看过，OpenAI 发了什么，或演示在 Codex 或 ChatGPT 里按你正在做的事即时生成界面，你真的在跟某种东西交互。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>语音某种程度上我们已经到了。你可以全靠说话干活。不过那更久，因为得全读出来，得感知他们在说什么。顺便，CK，我发现……不可思议。我上周说过吗？</p>
+<p>呃我在读一本书——或者说我跟……我会说阿里·戈尔德，不是（笑）阿里·戈尔德。上周跟阿里·伊曼纽尔（Ari Emanuel）聊，他刚出自传。</p>
+<p>当然，采访前我总读书——顺便说，多少次你跟人聊，因为他们出了书——</p>
+<p>他们震惊你真的读了。（笑）我想这些采访者都……我为他们难过。想象你上播客，你为书写得死去活来——</p>
+<p>嗯，其实已经有人帮他写了，但一般而言你为书写得死去活来，然后得做媒体巡，而人们——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>采访进行到 20 分钟，明显对方没读过。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>不，显然那是常态。对。每次他们谢我，说你是第一个真正读了书的人。我想那太病态了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>嗯我得替采访者辩护。想想大家有多忙，还要啃完 300 页。</p>
+<p>如果你是脱口秀主持，你有时间啃完 300 页书，同时还整周录一堆其他人的访谈吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>所以这是《Sharp Tech》上媒体的最后捍卫者。（笑）安德鲁·夏普。你想收订阅费、有广告，就得下功夫。你下功夫。你也以超人速度阅读。不。所以事情是这样——</p>
+<p>所以这是内置优势。因为呃我前一晚也许去看了酿酒人队（Brewers）比赛，开车去球场，再从球场到奥黑尔（O&#x27;Hare）去飞——</p>
+<p>我得把这本书读完，所以听了有声书——嗯对这本书很合适。然后在飞机上，我一边听有声书一边读。</p>
+<p>不可思议。我们落地。轮子触地，我被震醒。整趟飞行像消失了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>好。就像把书主线注射进……你就（笑）……不，我——</p>
+<p>得试试。我从没那样做过。不，你得试。因为声音从耳朵进来，眼睛又锁着；你得保持同步，不能切到社交媒体或做别的，否则就脱节。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>太疯了。你得试试，看你会不会……我像进入某种迷离状态。那怎么说？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>迷离状态。我像在神游状态。我认真的。最不可思议。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>太疯了。像最疯的生理感觉之一。下飞机我晕乎乎。哇。</p>
+<p>就像我刚去过另一个维度。太疯了。对，CK，试试那个。呃（笑）搞个屏幕朗读软件，一边读一边听。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>听着，首先我期待试试。上一本我读的是帕特里克·里登基夫（Patrick Radden Keefe）。他写了本关于伦敦的书，我大约两天读完，几周前。精彩，但我老派地读。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>如果边听大概六小时就能拿下。我不确定——我觉得会稍慢，因为我读得太快。我挺确定我能读。听的时候我也开到 3 倍速。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>嗯，我们有相关问题。罗伯特说：「本和安德鲁，我享受本最近与阿里·伊曼纽尔的对话，但吃惊听到本说有声书开 3.5 倍速，阿里还回他常听 3 到 3.2 倍。真的？</p>
+<p>我试着把最新一集《Sharp Tech》逐渐加快，撑到 2 倍就认输。我正常听速大约 1.3 到 1.5 倍。我是缺认知超能力，还是本训练自己能以越来越离谱的速度处理音频？</p>
+<p>安德鲁，你站哪边？你常规播客/有声书听速是多少？」我是 1 倍党，所以不知道我的问题在哪。</p>
+<p>我百分之百是 1 倍党。哦好。我也不喜欢消除停顿那种——我觉得是马可·奥曼（Marco Arment）在 Overcast 发明的。呃它压缩所有空白。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>对我也别扭。对。呃不，因为那是我为娱乐听的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>看，这就是我的点。我只为娱乐听播客。我理解很多人听《Sharp Tech》是为信息，大概 1.5 到 2 倍速听。</p>
+<p>不嘲讽那些人。那就是差别。所以呃我想要那种意味深长的停顿。（笑）</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>很好。所有开「消除静音」的人刚好错过那句。顺便，我知道这让你抓狂——所以我才对音质如此执着。音质越高——</p>
+<p>你就能听得越快。我知道这对很多人重要。这一次，我不会开 3.5 倍。我只是在听。那是因为我同时在读。</p>
+<p>所以你在为采访准备……嗯所以在路上我大概听 2 倍速。好。我绝对能，而且那只是我必须听完。嗯 3.5 若只听会太多，但因为我边听边读——</p>
+<p>就还好，因为有双重感官。我没法解释这有多（笑）疯。但所以我觉得 3.5 倍只因同时在读才可能，否则我不确定能留住多少。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>好。你对《Sharp Tech》该怎么被消费有偏好吗？漂亮的长停顿。（笑）</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>就是这样。呃，不。我一直……若人们加速听，我会暗暗冒犯。我整周在录播客。若有人 2 倍速听，我确实当回事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>我按 1 倍录的。对，正是。呃但再说，很多人听速很疯。所以——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>嗯，如果我落后……不，所以我会按 1 倍听。我听每一集《Greatest of All Talk》。从一开始一直听。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>很好。我有时会落后，然后不情愿地加快。我会追上，但会调到 2 倍。</p>
+<p>哦天。哇。那伤到我了。老实说伤到了。你怎么样？你怎么样？我投入了那些小时。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>对。我听（笑）每一集。你也许不知道。我是个相当忙的人，最近事情很多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>对。公平。公平。新录音室有很多摄像头要架。嗯所以还有几个问题。尼克说，这些是上周的后续——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>暖通空调会改。我们是全力以赴，但总之继续。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>呃尼克说：「伙计们，橄榄油推荐是什么？你们上周提到专门订的橄榄油。有给尼克的橄榄油推荐吗？」</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>对，我从我妈那儿拿的。嗯，抱歉，我忘了看这题。呃所以没准备。它……其实来自亚利桑那。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>好。嗯，什么地方都有，国产。爱了。买美国货。嗯有意思，因为登录你的……看（笑）今天互联网就是烂。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>我需要手机才能登完。就像呃……要等吗？我们可以下周再首发橄榄油推荐。</p>
+<p>尼克，我保证会有橄榄油推荐。但你要浓郁那款……我不太爱他们其他的。买橄榄油很难，因为你永远不太知道质量。令人沮丧。我愿意为好橄榄油付钱，但——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>不。呃我很爱橄榄油，尤其烧烤之类。橄榄油加盐就像答案。橄榄油质量真的重要。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>确实。嗯所以对，那就是……我会给出编号。也许很快就有。很好。</p>
+<p>但呃必须是浓郁的。好。呃就这一款特别的……不管它叫什么。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>另一个问题。马尔科姆说：「伙计们，我爱这节目，但为记录起见，谷歌——」</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>皇后溪（Queen Creek）。皇后溪。有了。最糟……其实皇后溪橄榄磨坊挺令人失望。嗯他们以前卖 1.5 升袋装。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>好。带嘴的。完美。我放橱柜里（笑），然后你可以上去，像酒袋一样——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>对对。你就按一下。现在他们只卖瓶装。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>好。所以我……我买最大瓶，因为我当然想有——</p>
+<p>对我不是问题，因为我从没体验过橄榄油酒袋的魔法。但（笑）——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>听起来绝了。不知道他们为什么拿掉。我很难过。皇后溪。好，我会查。一直在找好橄榄油。希望尼克也是。呃马尔科姆说：「爱这节目，但为记录：谷歌为周日球票（Sunday Ticket）付了 20 亿美元。那仍不到他们 2027 年资本开支的 1%。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>那就是我们谈 AI 未来可能挤压体育转播权时我所指的。所有体育转播权加起来，跟这些公司砸在 AI 上的钱比都相形见绌。</p>
+<p>所以呃好补充，因为上周录的时候我手头没这个数字。」</p>
+<p>哦嘿，最后一个问题的时间。伊莱说：「我假定你们已经看到那些一代一遇的好评——《You Can See Everything》（你能看见一切）到处都是 100% 值得进影院。」</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>所以我看过一篇评论。好。呃我看过你本周《Sharp Tech》文章的预告帖——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>那是你的影评。嗯你确实标了某段剧透，我直接略过，因为我显然永远不会（笑）看。呃第一——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>你是很棒的写作者。太谢谢。嗯……所以爱这篇评论。第二，你夸得太满。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>嗯。我其实可能会去看。哟哟哟。听着，我也许两年后还卡在《Kpop 猎魔女团》上。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>你不是说你不会去看吗？我欠一个道歉给——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>哦那太棒了。哦兄弟真棒。对。第一段你就像：我撒谎了。</p>
+<p>对。上周播客上完全（笑）撒谎。我说：伊莱，我不是内森·菲尔德（Nathan Fielder）粉。不太想人生里再多伊丽莎白·霍姆斯。这个那个。周六到了，华盛顿特区在下雨。</p>
+<p>已经有 48 小时人人说：天啊这电影太棒了。百分之百诚实：我进影院时预期自己不会喜欢，预期会跟共识唱反调——结果玩得很开心。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>所以等等，这个 Mike Spikeen 什么……意外、病毒式、批评共识、ABC？对，我确实觉得有某种病毒式批评共识在成形，然后我坐下了。</p>
+<p>也许你只是过气了。嗯也许我是。听着，我肯定在很多方面都过气了，但我坐在影院里。呃这是我对观众的推荐，不多剧透——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>这不是一部你该等流媒体再看的电影，因为在满场影院看，而且票房数字疯狂。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>有意思的是进影院看有两个理由。一是奇观，你想要大银幕和声音——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>二是你想要集体观看体验。那才野。我通常去影院是因为想要奇观、声音和大银幕 IMAX 体验。已经很久……特区人很拘谨，不太会表达性观影。</p>
+<p>已经很久没在影院里人们一起倒抽气、一起笑、一起体验。那提升了我的体验。而且它也不像我以前看过的内森·菲尔德作品。他的路径真诚得多。</p>
+<p>嗯，我觉得他真的被伊丽莎白·霍姆斯困扰住了，结果三个小时都很棒。我没看手机。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>对，他现在在对我做伊丽莎白·霍姆斯那种眼神。我刚注意到。嗯所以是的，我在一周前完全否定之后给出最高推荐。这局你赢了，伊莱。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>呃你们去读那篇文章。很好。《Sharp Tech》。对，我们会放进节目笔记。</p>
+<p>中间有明确的剧透提示。嗯再说一次，如果你像我，可以直接略过。呃——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>整个剧透这件事。好。你……你是挺剧透派还是怎样？（笑）</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>嗯我喜欢做的是……那是热取。不。嗯对。好。那是你的责任。别上网。</p>
+<p>不。人人一直在线。老实说，我觉得《You Can See Everything》有件事挺了不起：有些关键剧透，讨论电影的人在 Twitter 上公开谈剧透时非常克制。</p>
+<p>大量使用「已编辑」这个词；我觉得有一种共同体精神：喜欢这电影的人想为还没看的人保住发现的体验——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>而你反对那种共同体精神。共同体精神是：马上去影院看。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>把你的屁股挪出去。公平。不，我觉得……好笑。你说话时我想：我真这么想吗？我只是（笑）随口抛出来。嗯因为……问题是我以前在台湾得录一切，好吗？尤其体育。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>所以我得训练自己不上网；像 Dumb 那种我总会联系的人——只有一两次他意外剧透（笑）了什么。我想——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>你被炒最短路径就是对背靠者的比赛说点什么。对。嗯所以呃（笑）嗯，所以我变得很擅长——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>女人的最终垮台。不。所以有一面是我确实得学会打开 Twitter 练习纪律，关掉会聊那个的群通知，即便如此有时仍会破防。但有一点是：这是我的问题。我在台湾。</p>
+<p>我凭什么强加？有种强加感——我也可以反过来玩——</p>
+<p>像「别告诉我《黑道家族》（Sopranos）结局，我不想知道」。就像兄弟放松点。已经 30 年了（笑），对吧？人们仍会表现得像——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>肯定有时效。我们大概未来几周某个点会剧透《You Can See Everything》，但人们这个周末就有机会去看。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>不，时效是我看了的时候。对，公平。那可能是三年后。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>没错。所以你也许能聊一阵子。呃不，我读了结尾。包括剧透我都读了，所以没事。</p>
+<p>好。呃那就这样，本，我们下周继续。邮箱 email@sharptech.fm。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>我们有好几页 AI 展示与讲述。你想做一期 AI 展示与讲述吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="安德鲁·夏普（Andrew Sharp）">夏普</span></div><div class="content">
+<p>不，算了。该收了。我们时间不够。你说你得去机场。我们还得做订阅者专属段落。所以——</p>
+<p>确实。所以周日音频 feed 会有订阅者专属邮袋，不上 YouTube。想要就订阅。</p>
+<p>我们下周五回 YouTube。这里全新纪元。今天跟你坐沙发很棒，等不及下周再来。不过给节目发邮件。我们比以往更需要邮件。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="本·汤普森（Ben Thompson）">汤普森</span></div><div class="content">
+<p>没错。我们在这个新时代产出比以往更多内容。好。回头聊。</p>
+<p>回头聊。</p>
+</div></div>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Sharp Tech Podcast", "title": "奈飞焦虑、互联网的终结与 Meta 的 VR 眼镜｜《Sharp Tech》本·汤普森对谈", "url": "https://www.youtube.com/watch?v=bj4ahI5Nk6g", "videoId": "bj4ahI5Nk6g", "published_at": "2026-10-23", "duration": 5883, "caption_source": "yt-dlp-chrome-cookies（自动字幕 en-orig；普通 yt-dlp 遇 429 后经 Chrome cookies 获取），中文为逐句全文翻译", "guests": ["本·汤普森（Ben Thompson）"], "speakers": [{"id": "h", "name": "安德鲁·夏普（Andrew Sharp）", "role": "host", "short": "夏普"}, {"id": "g", "name": "本·汤普森（Ben Thompson）", "role": "guest", "short": "汤普森"}], "intro": {"summary": "《Sharp Tech》新录音室首播公开集：安德鲁·夏普与本·汤普森谈奈飞（Netflix）增长见顶与裁员、体育版权与流媒体战略，由一次严重安全漏洞引申到「互联网的终结」叙事，评 Meta 新 VR 眼镜相对 Vision Pro 的体验，并延伸到 Anthropic/Claude 产品哲学、代理时代的阅读瓶颈，以及本对电影《You Can See Everything》的剧场推荐。", "points": ["奈飞裁员约 6%、内容与电影高管更迭，美区订户饱和与参与度下滑；讨论是否竞购 NBC 环球以换体育版权，以及对华纳与埃里森系资产的观望", "由可远程接管机器的严重漏洞与「万物互联」引出：互联网孕育 AI，AI 又在吞噬互联网——连接性本身成为系统性脆弱", "Meta VR 眼镜：相对 Vision Pro 更轻、更适合出行多显示器，但娱乐沉浸仍处「恐怖谷」（重量/头带/全黑遮挡）；期待头带附件后的体验跃迁", "Anthropic 坚持单一 omnipresent 的 Claude，对比多代理舰队与高度个性化 Muse；本更倾向体验创作者设定的默认人格", "听众 CK：代理产出超阅读速度，仔细读计划阶段成上限；本主张生成式 UI，并分享边听有声书边阅读的「神游」提速法", "本上周否定却进影院爱上《You Can See Everything》：集体观影与菲尔德更真诚的路径，强烈建议别等流媒体"], "verdict": "值得看：约 98 分钟长谈，战略与产品味浓；关心流媒体、平台安全、XR 与 AI 产品形态的听众优先，末段影评与邮袋可按兴趣跳读。", "audience": "关注流媒体与科技战略的听众、XR/AI 产品从业者、Stratechery / Sharp Tech 订阅者与长播客爱好者"}, "paragraphs": [{"start_sec": 1, "speaker_id": "h", "type": "text", "zh": "【音乐】大家好，欢迎回到《Sharp Tech》【音乐】，本集有史以来第一次由 Stripe 呈现。我是安德鲁·夏普（Andrew Sharp）【音乐】，沙发另一边是本·汤普森（Ben Thompson），我们的新录音室。你怎么样？"}, {"start_sec": 18, "speaker_id": "g", "type": "text", "zh": "呃，这个意外的录音室。我搬回这边的时候就想弄个录音室。"}, {"start_sec": 24, "speaker_id": "g", "type": "text", "zh": "嗯。可我们真的需要多一张床，万一【音乐】有客人来。所以我想还是得用沙发床。这张沙发床很不错。"}, {"start_sec": 32, "speaker_id": "h", "type": "text", "zh": "挺舒服的。开始吧。说实话坐着没那么舒服。但（笑）"}, {"start_sec": 36, "speaker_id": "g", "type": "text", "zh": "不过我把这些吸音材料都弄进来了，效果好得离谱。每次我们在一起录，我都觉得播客好多了。"}, {"start_sec": 46, "speaker_id": "g", "type": "text", "zh": "我们俩都超爱。绝对的。唯一的问题是你声音真的很大。所以我们需要非常好的（笑）声学处理。我的麦已经调低了，来迁就我的播客嗓门。好，我们开始。"}, {"start_sec": 58, "speaker_id": "g", "type": "text", "zh": "所以（笑）机会……我超级兴奋。呃，Stripe 这件事让这一切成为可能。我们在这上面花了不少钱。我已经开始幻想真正的录音室了，而不只是把办公室改成录音室。但对我来说超级重要的是，我们要一直变好，把内容交付好——"}, {"start_sec": 77, "speaker_id": "g", "type": "text", "zh": "你会听到一些广告，但我觉得这些播客——我一直为《Sharp Tech》现在的水准感到非常自豪——可每次我们在一起录完，我还是会想，刚才那集"}, {"start_sec": 87, "speaker_id": "g", "type": "text", "zh": "其实还能好很多。（笑）我知道。那好，几乎每次都一起录吧。"}, {"start_sec": 91, "speaker_id": "h", "type": "text", "zh": "全新纪元，全新录音室。不过有个大问题。嗯，我们赖上了美国航空（American Airlines）。"}, {"start_sec": 100, "speaker_id": "h", "type": "text", "zh": "那就是（笑）问题所在。今天这坨麻烦倒还好。你知道，我在跑道上坐了大概三十分钟才终于到麦迪逊（Madison），但确实落地了。吃了点卡尔弗（Culver's）。人到了。没错，中西部生活。"}, {"start_sec": 114, "speaker_id": "h", "type": "text", "zh": "要是他们能赞助威斯康星大学（University of Wisconsin）（笑）的运动队就好了。对，他们赞助第一支也行。我们得有饮料。我们就像……我最近在看很多《美国达人秀》（America's Got Talent），因为有个……你看到那个 N 皇家的整件事了吗？"}, {"start_sec": 125, "speaker_id": "g", "type": "text", "zh": "你当然在看《美国达人秀》那种你爱看的垃圾节目。（笑）"}, {"start_sec": 131, "speaker_id": "g", "type": "text", "zh": "所以我才不敢给你推荐东西。你就体育和《美国达人秀》。"}, {"start_sec": 136, "speaker_id": "h", "type": "text", "zh": "不，我没看正片。我看的是 YouTube 剪辑。不，有个泰国女孩——"}, {"start_sec": 142, "speaker_id": "g", "type": "text", "zh": "哦对，这是你现在最爱的名人？呃是的，我确实有名人迷恋。（笑）不是那种迷恋和沉迷。她大概十六岁。我先把这点说清楚。"}, {"start_sec": 152, "speaker_id": "h", "type": "text", "zh": "咱们别因此被网暴。不，但她一出场就不可思议。她的表演、她的舞台气场。然后你才意识到，她大概从十岁起每周都在泰国夜市演出。"}, {"start_sec": 153, "speaker_id": "h", "type": "text", "zh": "而且不只是她天赋炸裂，更像是——怪不得——她把该有的零件都攒齐了。嗯总之在《美国达人秀》上——"}, {"start_sec": 175, "speaker_id": "g", "type": "text", "zh": "这跟咱们有什么关系？他们总有赞助饮料。总是摆得刚刚好，然后猛喝一大口。（笑）"}, {"start_sec": 182, "speaker_id": "h", "type": "text", "zh": "嗯，所以也许那就是我们的招牌。你知道，卡尔弗并不是真正的赞助商，但绝对是我们心里的赞助商。"}, {"start_sec": 189, "speaker_id": "g", "type": "text", "zh": "是啊。我本来想说，到这地步我们明显……呃在待价而沽。（笑）但其实不是，因为我们有独家。就是独家交易。你能怎么办？"}, {"start_sec": 189, "speaker_id": "h", "type": "text", "zh": "好，从现在起跟可能没跟上的人说清楚：要是你没看到本周早些时候关于 Stripe 的公告——《Sharp Tech》往后会变成公开播客。每集都会上 YouTube。"}, {"start_sec": 211, "speaker_id": "g", "type": "text", "zh": "不，不完全是。好。还会有会员专属集。嗯我正要说。还会有一集给《策略》（Stratechery）订阅者的特别加餐，大概三十分钟。会在一周晚些时候放出。我们大概会在周日发。"}, {"start_sec": 227, "speaker_id": "h", "type": "text", "zh": "那它真能有多频繁地刚好三十分钟？嗯，这不就是挑战所在吗？我真心觉得问题会卡在我回华盛顿特区（Washington DC）的返程航班时间——我们录到那个点。"}, {"start_sec": 238, "speaker_id": "h", "type": "text", "zh": "不，说到这点，我们会做加餐。不会挤在同一天。给你一点喘息空间。而且也会当面录。我们是全押了。我们想把播客做到最好。"}, {"start_sec": 249, "speaker_id": "g", "type": "text", "zh": "我们还是……这是视频，但音频也会有，各路 feed。我们超级投入。希望我们的制作人……他一开始听说这个想法很担心，他说他讨厌播客从音频转视频。"}, {"start_sec": 249, "speaker_id": "g", "type": "text", "zh": "顺便说，他现在居然在听我们说话，感觉好怪。我不习惯。他们得用现场制作人。嗨吉姆（Jim）。嗯"}, {"start_sec": 270, "speaker_id": "h", "type": "text", "zh": "沉默合伙人。没错。呃第三把椅子。但我们想要……我们仍是播客。音频要很好。订阅者专属会是纯音频。如果你还不是订阅者，在 YouTube 听或看的话，可以订阅。"}, {"start_sec": 285, "speaker_id": "h", "type": "text", "zh": "对，欢迎订阅。上车吧。好，铺垫够了。可以开聊。第一段：萨兰多斯号（SS Sarandos）过去大概七天撞上了湍流。我肯定你各种新闻都跟了。"}, {"start_sec": 285, "speaker_id": "h", "type": "text", "zh": "我大概七月中就喊过奈飞（Netflix）见顶，之后更糟了。所以我们从拉夫（Rav）开始。嗯也没糟那么多，但过去一周左右确实坏消息和负面报道不少。拉夫说：安德鲁和本，奈飞——"}, {"start_sec": 319, "speaker_id": "h", "type": "text", "zh": "他们炒了高管。裁了 6% 的员工。股价 40%（笑）"}, {"start_sec": 324, "speaker_id": "h", "type": "text", "zh": "真的重挫。我觉得更糟了。确实更糟了。他说：安德鲁和本，我是拉夫。奈飞本周公布财报，公司似乎处在十字路口。上周裁员 6%，其中包括让内容负责人和奈飞电影主席「卸任」——顺便说，卸任这个词。"}, {"start_sec": 341, "speaker_id": "g", "type": "text", "zh": "是啊。在这语境里（笑）是个绝妙的动词。而且我相信奈飞电影主席得先开掉内容负责人，然后自己也被开了。所以外面这一周很乱。《华尔街日报》（Wall Street Journal）引用的数据显示，奈飞已完全饱和美国用户盘，今年一个订户都没净增。"}, {"start_sec": 343, "speaker_id": "h", "type": "text", "zh": "参与度明显下滑，差目标 10%。他们现在的播客和游戏举措毫无用处。与此同时，奈飞过去五年把标准订阅价涨了四次。2025 年涨 16%，2026 年涨 12%。"}, {"start_sec": 343, "speaker_id": "h", "type": "text", "zh": "鉴于参与度放缓，再涨价就会迎来可怕的用户流失。所以拉夫问：「奈飞该怎么办？」收购华纳兄弟（Warner Brothers）曾被视为一击必杀，回头看，那更像是绝望地想重振内容和参与度。"}, {"start_sec": 343, "speaker_id": "h", "type": "text", "zh": "奈飞该出价竞购 NBC 环球（NBC Universal）吗？他们想要华纳兄弟是因为 HBO。但 NBC 环球有奈飞没有的东西：体育——周日夜橄榄球（Sunday Night Football）、十大联盟（Big Ten）、NBA、英超（EPL）和奥运会，全打包在一起。"}, {"start_sec": 343, "speaker_id": "h", "type": "text", "zh": "NBC 还有很棒的乐园业务，能把奈飞推上类似迪士尼（Disney）的多元化路径。或者，奈飞可以继续砸自有内容，等天舞（Sky Dance）在离谱负债下自己炸裂，再去收割华纳兄弟的残骸。"}, {"start_sec": 343, "speaker_id": "h", "type": "text", "zh": "顺便花几秒承认一下：埃里森（Ellison）家族过去一年核心投资有多惨。拉里·埃里森（Larry Ellison）的甲骨文（Oracle）股价跌了——"}, {"start_sec": 446, "speaker_id": "h", "type": "text", "zh": "我看到那些数字了。没意识到它们也在邮件里。跌了 53%。大卫·埃里森（David Ellison）的天舞跌了 59%。还有……布赖斯·安德伍德（Bryce Underwood）那些——跌了 99%。"}, {"start_sec": 461, "speaker_id": "g", "type": "text", "zh": "我们确定还没破产吗？（笑）我……没有。所以是西密歇根还是东密歇根？"}, {"start_sec": 467, "speaker_id": "h", "type": "text", "zh": "西密歇根（Western Michigan）。那就好像汽车业政府救助，（笑）十大联盟——"}, {"start_sec": 472, "speaker_id": "h", "type": "text", "zh": "稍微托一把。是的。所以才只剩 1%，或者说一个基点。"}, {"start_sec": 479, "speaker_id": "h", "type": "text", "zh": "跟大概 98% 的听众解释一下：这是拉夫一条很特定的大学橄榄球笑话，但也很好笑。拉里·埃里森的「胚胎」。（笑）对——"}, {"start_sec": 491, "speaker_id": "g", "type": "text", "zh": "确实。再看看密歇根的战绩。更大画面：我觉得拉夫的邮件把奈飞现状讲得挺准。我们俩都——"}, {"start_sec": 500, "speaker_id": "g", "type": "text", "zh": "我要反驳的是他说：鉴于参与度放缓，再涨价就会导致可怕的用户流失。"}, {"start_sec": 506, "speaker_id": "g", "type": "text", "zh": "会吗？我不知道。这才是问题，对吧？因为每次被问到，奈飞高管都很好笑。我以前说过：他们做的每件事都「一直是他们的战略」，他们「一直都在这么做」。"}, {"start_sec": 507, "speaker_id": "g", "type": "text", "zh": "哪怕他们左右横跳——呃，你知道，「我们绝不做广告」，现在又在做广告，这是最显眼的例子。但这一次其实有点刺耳。"}, {"start_sec": 531, "speaker_id": "g", "type": "text", "zh": "好。他们已经连续好几次财报会被问参与度，一直啊巴拉巴拉。这次却像：是的，参与度是个问题。这种直球不在我预期里——也不是你通常会在他们那些高度管控的财报会上听到的。"}, {"start_sec": 531, "speaker_id": "g", "type": "text", "zh": "其实现在算改进了：由他们的投资关系负责人朗读分析师的问题。"}, {"start_sec": 553, "speaker_id": "g", "type": "text", "zh": "以前他们做财报访谈，像是允许一位记者兼分析师进来提问。"}, {"start_sec": 563, "speaker_id": "g", "type": "text", "zh": "好。而且超级受控。现在是多个分析师提问，但仍由奈飞的人读出来。不像那种——"}, {"start_sec": 574, "speaker_id": "h", "type": "text", "zh": "太神奇了。他们怎么能这样？基本上一个人代表大众进去提问。"}, {"start_sec": 580, "speaker_id": "g", "type": "text", "zh": "嗯，当你的股价一直往右上走，你就能蒙混过很多关。当然。（笑）所以……呃不，但即便现在，也没人被允许直接提问。他们把问题交上去——"}, {"start_sec": 591, "speaker_id": "g", "type": "text", "zh": "然后奈飞的人来读问题。所以这些财报会在沟通上被高度塑形、高度控制。一直如此。"}, {"start_sec": 591, "speaker_id": "g", "type": "text", "zh": "所以这一次他们站出来说：「是的，呃，参与度是个问题。」而且说得相当直白，意味着这大概是个大问题。大问题。"}, {"start_sec": 609, "speaker_id": "g", "type": "text", "zh": "再叠加上另一件很值得注意的事——每次问题都关于参与度，但依旧由奈飞控制。他们的回答是：我们涨价了，流失并没有高于正常水平。"}, {"start_sec": 623, "speaker_id": "h", "type": "text", "zh": "嗯。这很好。当然。别搞错，奈飞的低流失率是这个——"}, {"start_sec": 631, "speaker_id": "g", "type": "text", "zh": "他们拥有十年的超能力；而美国市场饱和早就如此。他们当然得涨价，部分是为了抬收入——"}, {"start_sec": 641, "speaker_id": "g", "type": "text", "zh": "但问题是：一旦流失显现，就太晚了。对吧？所以——是的，还没发生是好事，但不等于一切都好。如果那就是你的答案，你基本上在说：我们的最后一道防线还没破。"}, {"start_sec": 641, "speaker_id": "g", "type": "text", "zh": "（笑）可你列不出别的东西，本身就是问题。再叠一层让我挑眉的：广告业务大幅不及预期。我想目标大概 30 亿美元，他们会落到 27 亿——"}, {"start_sec": 672, "speaker_id": "g", "type": "text", "zh": "他们说：我们目标很激进，要 100% 增长，大概只能 80%。那仍然很好。确实很好——除了去年增长本来就没那么猛，因为他们得重做整套技术栈。好。所以一部分是：某些合作还没到位，拖得更久。"}, {"start_sec": 676, "speaker_id": "g", "type": "text", "zh": "我们想一次做对。这些都合理——除了我们正在一场财报会上。投资者在担心参与度——"}, {"start_sec": 696, "speaker_id": "g", "type": "text", "zh": "而依赖参与度的商业模式——广告——却没达标（笑），对吧？它在增长，但没他们想的那么多。当然。所以——"}, {"start_sec": 708, "speaker_id": "h", "type": "text", "zh": "往前看，我觉得在奈飞这些新闻背景下很有意思，因为他们显然意识到并非一切都好，并在释放「需要改变」的信号。我认为这是双轨对话：一轨是奈飞能修什么，一轨是奈飞修不了什么。"}, {"start_sec": 708, "speaker_id": "h", "type": "text", "zh": "就能修的而言，他们能修内容问题。美国内容最近不够好，他们似乎也认识到了，并认识到品牌因奈飞内部混乱而受损。"}, {"start_sec": 744, "speaker_id": "h", "type": "text", "zh": "你看了《怪奇物语》（Stranger Things）吗？我看了。首播里演一个奈飞高管，（笑）他们聊的全是随便什么内容——"}, {"start_sec": 752, "speaker_id": "g", "type": "text", "zh": "他们能拿回来的都……已经十年了。《后翼弃兵》（The Queen's Gambit）真的很好，拿了一堆艾美奖。我想那是六七年前，他们再也复制不出那种成功。"}, {"start_sec": 752, "speaker_id": "g", "type": "text", "zh": "说到奈飞的定价权，我确实觉得要有一些精品剧。我忘了你跟谁提过——也许是格雷格·彼得斯（Greg Peters）本人——但 HBO 能要那个价，原因之一是每个季度有一两部人人想看的支柱剧。"}, {"start_sec": 752, "speaker_id": "g", "type": "text", "zh": "并不是海量神作，但足够好的内容就能护住一门不错的生意。奈飞可以试着这么做，但近年他们似乎更追求数量而非质量。"}, {"start_sec": 796, "speaker_id": "g", "type": "text", "zh": "近年。嗯我会说这整个十年肯定如此——他们起步时是那种古怪、高质量、真正抓住眼球的东西。那不是他们现在住的地方。"}, {"start_sec": 797, "speaker_id": "g", "type": "text", "zh": "你更新里我觉得有意思的另一点，作为一个具体内容问题，是贝拉·巴贾里亚（Bella Bajaria）——现已被开掉的内容负责人。她职责的一部分是做大全球原创节目。"}, {"start_sec": 822, "speaker_id": "g", "type": "text", "zh": "嗯，我最喜欢的中文骂人方式之一……有种叫成语的东西，四个字。我以前说过这个吗？"}, {"start_sec": 833, "speaker_id": "h", "type": "text", "zh": "没细讲过。你提过。这是我最爱的之一。对。就是四个形容词，你丢掉其中一个，说这人很「一二三」。"}, {"start_sec": 842, "speaker_id": "g", "type": "text", "zh": "嗯。不说第四个就是超级大的侮辱，对吧？这套骂人公式太漂亮了（笑）。中国人特擅长这种。"}, {"start_sec": 842, "speaker_id": "g", "type": "text", "zh": "所以，呃，在这个例子里，他们想强调前内容负责人在国际上做得很好。可（笑）整场财报会剩下的全在谈美国。就像……嗯，话里话外很清楚。（笑）是的。"}, {"start_sec": 868, "speaker_id": "h", "type": "text", "zh": "有意思的是，奈飞全球确实做得很好。过去六七年这是他们成功的巨大一块，而同业几乎完全复制不了。"}, {"start_sec": 881, "speaker_id": "g", "type": "text", "zh": "部分因为其他很多公司卡在发行协议里——他们得把节目分销出去——"}, {"start_sec": 888, "speaker_id": "g", "type": "text", "zh": "比如 HBO。HBO 以前基本只在美国，真正的 HBO 内容会卖给其他国家的发行商。"}, {"start_sec": 896, "speaker_id": "g", "type": "text", "zh": "所以像《权力的游戏》（Game of Thrones）是一个市场一个市场谈的，对吧？你若要做全球服务，就得跳出那些协议，对吧？反过来走。体育转播权也一直有同样的张力——"}, {"start_sec": 899, "speaker_id": "g", "type": "text", "zh": "很多也被切分出去；而奈飞这类平台靠自己有机长出来获得规模，没有旧业务模式。"}, {"start_sec": 899, "speaker_id": "g", "type": "text", "zh": "优势不只是他们没有旧商业模式假设、不习惯从有线打包拿钱；更是他们能从第一性原理重想分发——"}, {"start_sec": 932, "speaker_id": "g", "type": "text", "zh": "就在奈飞上，到处都有。对。你仍会碰到一些授权内容不是处处可看，但奈飞原创通常全球都有，因为它就是——"}, {"start_sec": 943, "speaker_id": "g", "type": "text", "zh": "所以他们在全球比任何竞争对手都主导得多，"}, {"start_sec": 950, "speaker_id": "h", "type": "text", "zh": "对。各地内容会有点差别，但大体上你开了奈飞就能参与全球对话，或让东西全球共鸣——他们主导了像韩流剧这类，我觉得——"}, {"start_sec": 960, "speaker_id": "g", "type": "text", "zh": "对，那是大事。如果你爱 K-pop、韩剧——"}, {"start_sec": 966, "speaker_id": "h", "type": "text", "zh": "韩剧，就叫 K-dramas。《Kpop 猎魔女团》（K-pop Demon Hunters）和韩剧。对。你看了《Kpop 猎魔女团》吗？"}, {"start_sec": 971, "speaker_id": "g", "type": "text", "zh": "还没。还没。回头会看。要不我先看伊丽莎白·霍姆斯（Elizabeth Holmes）那个。"}, {"start_sec": 977, "speaker_id": "h", "type": "text", "zh": "你什么都能看。你要是看《Kpop 猎魔女团》，我百分之百成交。我陪着坐完，还会在播客上唱所有歌。"}, {"start_sec": 985, "speaker_id": "g", "type": "text", "zh": "呃，对了，我们得听你对那部电影的评论。会的。肯定会提。总之，我觉得有意思的一点是贝拉·巴贾里亚在铺国际内容。你提过：美国内容做好了，全球也会很好，而他们忽视了这一点。"}, {"start_sec": 1006, "speaker_id": "g", "type": "text", "zh": "他们总会吹爆一部「本地」爆款——我说的本地是非美国，比如韩剧，或某部法国剧；其实也有几部拉美剧表现不错——但人人都在看的，仍是好莱坞作为美国出口的那套——"}, {"start_sec": 1027, "speaker_id": "g", "type": "text", "zh": "依然活着（笑），那仍是真的。所以美国做得差，会以其他任何单一地区做差所没有的方式拖累整个生意。确实，这对他们一直庆祝的国际成功是重要语境。"}, {"start_sec": 1029, "speaker_id": "h", "type": "text", "zh": "嗯，内容侧：砸不可思议的钱、赋权给错的人、做各种奇怪选择。《纳尼亚》（Narnia）电影听起来是彻底灾难。所以有些东西他们能收拾干净，把生意经营得更好。"}, {"start_sec": 1029, "speaker_id": "h", "type": "text", "zh": "展望未来，奈飞修不了什么？嗯，他们修不了美国市场的人口数量（笑）。你增长就三条路：涨订户数——"}, {"start_sec": 1072, "speaker_id": "g", "type": "text", "zh": "涨向订户收的价，以及给订户看广告。"}, {"start_sec": 1078, "speaker_id": "g", "type": "text", "zh": "所以广告商业模式才这么厉害。呃天，我现在觉得什么都会被曲解。（笑）我一直在捍卫广告模式，是因为你有近乎无限的提价空间。"}, {"start_sec": 1090, "speaker_id": "h", "type": "text", "zh": "对。当你提高奈飞作为服务的价格——这也是拉夫某种程度上的担忧——到某个点人们会想：我到底要付多少——"}, {"start_sec": 1099, "speaker_id": "g", "type": "text", "zh": "我会流失——对，如果他们一个月收我 30 美元，就我个人层面……很多人会烦：付了订阅费还看广告。选项一是我退休，因为这太累了；选项二是我直接把广告价拉高——"}, {"start_sec": 1115, "speaker_id": "g", "type": "text", "zh": "那样我会丢订户。我想触达更多人而不是更少。弹性是真实存在的。我们跟 AI 公司聊过整件事：把消费业务建在订阅上简直疯狂。对。"}, {"start_sec": 1115, "speaker_id": "g", "type": "text", "zh": "他们能走到这一步其实很惊人。但归根结底，人们不愿意——能不付就不付。"}, {"start_sec": 1137, "speaker_id": "g", "type": "text", "zh": "有时你根本没有可行的收费方式。你好，YouTube。有时一涨价就会丢客户。比如没有「带广告的固态硬盘」。"}, {"start_sec": 1137, "speaker_id": "g", "type": "text", "zh": "广告模式让你几乎能无限提价而不伤用户盘。「无限」当然夸张，但这就像 Meta：为什么 Meta 还在增长？"}, {"start_sec": 1160, "speaker_id": "g", "type": "text", "zh": "他们也有同样问题——人人都饱和了。因为他们的广告随时间越来越值钱：定向越来越好，跟其他人的差距在拉大。所以广告故事才这么重要。对对。"}, {"start_sec": 1178, "speaker_id": "h", "type": "text", "zh": "而这次广告 miss——据说又是奇怪的合作没谈拢之类——最好真是那样，而且那些合作最好能落地，因为增长故事是什么？如果增长故事只剩涨价，你就撞上拉夫的噩梦了。"}, {"start_sec": 1195, "speaker_id": "g", "type": "text", "zh": "我对奈飞的问题就在这。我不想低估他们。抱歉。再说世界其他地方：问题是其他地方价格就是低得多。"}, {"start_sec": 1203, "speaker_id": "h", "type": "text", "zh": "对，赚的钱远没那么多，对吧？对，正是。所以如果战场是参与度——因为参与度是广告故事的根基，而那是他们长期增长路径——那在我看来，也像我夏天七月写奈飞时看来的那样：公司相对其余玩家处在结构性劣势。"}, {"start_sec": 1230, "speaker_id": "g", "type": "text", "zh": "这就进到我想谈的更大问题。好笑的是，我以为奈飞我们已经聊很多了，还有多少好说？结果其实才到一半。我这里还有很多要讲。"}, {"start_sec": 1230, "speaker_id": "g", "type": "text", "zh": "奈飞的问题之一——或者说希望——他有点像在说：等圣丹斯自己炸了。"}, {"start_sec": 1247, "speaker_id": "h", "type": "text", "zh": "嗯。我提过好莱坞感觉……他们到底算什么。（笑）我该叫它什么？"}, {"start_sec": 1253, "speaker_id": "g", "type": "text", "zh": "那不是圣丹斯（Sundance）。那是电影节。天舞大概两年前发明的。谁在乎。随便。"}, {"start_sec": 1260, "speaker_id": "h", "type": "text", "zh": "呃，天舞。对。好。他们股价也被锤。对，就在那份名单里。我被安德伍德的梗分心了。呃——"}, {"start_sec": 1269, "speaker_id": "g", "type": "text", "zh": "好莱坞并不理性，至少不像我认为该有的理性——索尼（Sony）那种战略：我们只专注做内容，"}, {"start_sec": 1281, "speaker_id": "g", "type": "text", "zh": "卖给出价最高的人。结果人人说不，我们要做自己的流媒体；不，我们要买华纳兄弟，显然还没想清楚怎么真的赚到钱。"}, {"start_sec": 1293, "speaker_id": "g", "type": "text", "zh": "再说一次，我觉得福克斯（Fox）和索尼是两个真正理性的玩家。基本上福克斯退出了制片厂业务，然后他们在把 Tubi 和 Roku 合在一起——Tubi、Roku 这类免费服务。他们全力押注直播+广告支持。非常聪明。"}, {"start_sec": 1293, "speaker_id": "g", "type": "text", "zh": "我觉得太说得通了。体育显然是很大一块。索尼则反方向：我们只做剧集内容，不要自己的流媒体。我以为所有人都该走这两条路之一。"}, {"start_sec": 1320, "speaker_id": "h", "type": "text", "zh": "对。基本上没别人这么做。所以他们还在局里。问题是：若人人都撤出那条路，奈飞的内容问题会自己解决。我一直觉得奈飞做原创内容并不是他们真正擅长的。"}, {"start_sec": 1334, "speaker_id": "g", "type": "text", "zh": "那是一座桥，通向他们重新从最会做内容的人手里拿到所有好内容的世界。"}, {"start_sec": 1341, "speaker_id": "h", "type": "text", "zh": "对。在那种情景里他们有杠杆。几乎像他们是鞭子末梢——人人仍不理性，但他们是好的内容制造者。也许相关。"}, {"start_sec": 1341, "speaker_id": "g", "type": "text", "zh": "（笑）而奈飞擅长做生意，就像在等他们现身。"}, {"start_sec": 1355, "speaker_id": "g", "type": "text", "zh": "他们就是一直没现身。所以我把华纳兄弟那笔交易解读成：听着——"}, {"start_sec": 1360, "speaker_id": "g", "type": "text", "zh": "人人都该卖给我们。好吧，那我们直接把你买下来，你就得卖给我们，因为我们拥有你。所以我称之为好莱坞终局。他们想强推我认为该发生的终局。"}, {"start_sec": 1360, "speaker_id": "g", "type": "text", "zh": "我仍觉得那该发生，但问题是谁知道还要多久。已经比预期久，而他们是持续经营的公司，需要继续增长；若想维持股价，所有这些公司要面对的事都在。"}, {"start_sec": 1386, "speaker_id": "h", "type": "text", "zh": "他们买 NBC 环球会有任何道理吗？当然。嗯。作为对话起点，他们看起来像没招了。"}, {"start_sec": 1397, "speaker_id": "g", "type": "text", "zh": "对。真正有意思的是体育议题超级有意思。显然他们最近更深地进了体育。"}, {"start_sec": 1404, "speaker_id": "h", "type": "text", "zh": "那才是真正的优质内容。而且如果你每月有一场大事件，在某种程度上就足以让人继续订——就防流失而言。体育对十亿美元级广告生意帮助很大。它仍是最好的广告位。对。"}, {"start_sec": 1418, "speaker_id": "g", "type": "text", "zh": "他们对这个过敏，因为体育的结构是：联盟会抽走绝大部分——"}, {"start_sec": 1426, "speaker_id": "g", "type": "text", "zh": "你甚至没法骗自己说：好，这些成本最终会下来，因为有人会倒闭。"}, {"start_sec": 1432, "speaker_id": "g", "type": "text", "zh": "但这一直如此。鲁珀特·默多克（Rupert Murdoch）拿到 NFL 的高明之处是——我不觉得福克斯在 NFL 上真正赚过钱。"}, {"start_sec": 1443, "speaker_id": "g", "type": "text", "zh": "但我们不再说「三大」，我们说「四大」。对。因为 NFL。所以福克斯因 NFL 赚了数十亿。即便就 NFL 那一包窄口径，我不确定，但我会猜他们从没赚过钱——可它让他们成为真正的电视网。"}, {"start_sec": 1447, "speaker_id": "g", "type": "text", "zh": "然后你还能得到由此带来的周边时段。也许奈飞该想：我们到底怎么建起广告生意？"}, {"start_sec": 1469, "speaker_id": "h", "type": "text", "zh": "对。一门让整个生意受益的广告生意。而现在——他们招了播客、烹饪节目和互联网友好内容，想灌参与度数字，这次财报会却一个都没提。"}, {"start_sec": 1469, "speaker_id": "h", "type": "text", "zh": "你听了全程，但我看纪要基本上他们没提播客，没提游戏。所以——"}, {"start_sec": 1494, "speaker_id": "g", "type": "text", "zh": "不，其实相反。他们像在说：其实我们把钱都花在重要的事上。别担心，那边只有 5%。别担心。所以他们非常……我觉得有一段看起来很糟，对吧？"}, {"start_sec": 1494, "speaker_id": "g", "type": "text", "zh": "就像（笑）你要用 The Ringer 解决你的问题——那解决不了那些问题——"}, {"start_sec": 1511, "speaker_id": "h", "type": "text", "zh": "六个月前那些全是强调重点，现在却……对，正是。但他们的战略「一直是」他们的战略。"}, {"start_sec": 1518, "speaker_id": "g", "type": "text", "zh": "感觉他们边走边编。真的就像：我们一直这么做——即便跟不久前比已经转了 180 度。"}, {"start_sec": 1522, "speaker_id": "h", "type": "text", "zh": "就更广的生态而言，奈飞依赖参与度来卖增长故事的程度，在我看来就像——奈飞的增长故事就是没有那么有说服力，不像——"}, {"start_sec": 1542, "speaker_id": "g", "type": "text", "zh": "嗯。问题就是广告。是广告模式。他们长期增长越来越靠广告，意味着——"}, {"start_sec": 1549, "speaker_id": "h", "type": "text", "zh": "是广告模式，也是人们如今消费娱乐的方式。Meta 是奈飞想做之事的真正竞争对手。"}, {"start_sec": 1557, "speaker_id": "g", "type": "text", "zh": "老实说，那才是真问题。对。是 TikTok 和 Reels。它在吞噬一切——"}, {"start_sec": 1562, "speaker_id": "h", "type": "text", "zh": "有多少人每晚坐下来刷 Meta Reels。实际上多到惊人的人选择那个而不是奈飞，我觉得这就是他们这些年撞上的东西。"}, {"start_sec": 1575, "speaker_id": "g", "type": "text", "zh": "我不消费视频内容。嗯，又一巨大讽刺。所以我不……但不，我其实刚——"}, {"start_sec": 1582, "speaker_id": "h", "type": "text", "zh": "我们在这儿。不过你看。我发现了这间屋子音频质量有多好，因为我跟女儿录了个播客。耶——"}, {"start_sec": 1589, "speaker_id": "g", "type": "text", "zh": "呃，我从没发布，但我觉得挺好。嗯我超爱。她很棒。"}, {"start_sec": 1594, "speaker_id": "g", "type": "text", "zh": "她曾是重度奈飞用户。我没专门问她这事，但她……哦，她每晚都有刷 Reels 的时间。"}, {"start_sec": 1602, "speaker_id": "h", "type": "text", "zh": "对。我这会儿才想到。哦对，完美例子。"}, {"start_sec": 1606, "speaker_id": "h", "type": "text", "zh": "我灯泡亮了就是那时候。我太太每晚都有刷 Reels 时间，就坐那边玩手机。我问你在干嘛？她也说不清，除了就是在看 Reels。"}, {"start_sec": 1606, "speaker_id": "g", "type": "text", "zh": "所以，呃，奈飞的挑战是：很多以前看奈飞的人现在在看 Instagram 和 TikTok。嗯，他们想往上建的时候，这将是逆风。"}, {"start_sec": 1627, "speaker_id": "h", "type": "text", "zh": "如果你的增长故事要演化，那就是逆风。对，正是。好。流媒体世界还有一条，只因为我撞见了有点……呃目瞪口呆。《好莱坞报道者》（The Hollywood Reporter）本周写：大卫·埃里森的天舞与埃隆·马斯克（Elon Musk）的 SpaceX 之间，会不会在酝酿一笔大交易？"}, {"start_sec": 1628, "speaker_id": "h", "type": "text", "zh": "传媒大亨约翰·马龙（John Malone）觉得会。「我觉得那边会有一笔交易，」马龙说，还抛出一个令人挑眉的具体数字：80 到 100 亿美元投资。"}, {"start_sec": 1628, "speaker_id": "h", "type": "text", "zh": "我做个大预测：你会看到天舞与 SpaceX 的全球输出协议，以及 SpaceX 向天舞注资，给天舞去杠杆，减轻大卫·埃里森肩上的负担——因为他扛了一大堆债。"}, {"start_sec": 1628, "speaker_id": "h", "type": "text", "zh": "SpaceX 在那笔交易里到底得到什么？《好莱坞报道者》写，那就不那么明显了。不过马龙——他曾与大卫·扎斯拉夫（David Zaslav）一起架构华纳兄弟探索（Warner Bros. Discovery）交易——指出马斯克与大卫·埃里森的父亲拉里·埃里森高度交织。"}, {"start_sec": 1628, "speaker_id": "h", "type": "text", "zh": "「谁帮埃隆融资买 Twitter？拉里·埃里森，」马龙说。「拉里拿什么钱创建天舞？特斯拉（Tesla）股票。我毫不怀疑，用不了多久你会看到公告。」"}, {"start_sec": 1628, "speaker_id": "h", "type": "text", "zh": "然后周四早上就有了——我其实今早还不知道（笑）。你忙着布置。我本来想——"}, {"start_sec": 1717, "speaker_id": "g", "type": "text", "zh": "嗯，第一，基本上约翰·马龙说的很可能就是福音真理。所以我点开那篇，心想：好吧，约翰·马龙都这么说，那肯定有真东西。"}, {"start_sec": 1730, "speaker_id": "h", "type": "text", "zh": "没错。所以别急着把「他们只是哥们」那套嗤之以鼻——你看，节目上突发新闻。"}, {"start_sec": 1736, "speaker_id": "h", "type": "text", "zh": "埃隆向天舞投了十亿美元。不是一百亿，但也许后面还有。我完全不知道 SpaceX 能从这笔投资里拿到什么。"}, {"start_sec": 1745, "speaker_id": "g", "type": "text", "zh": "是来自埃隆·马斯克个人，还是……我们录制的周四今天这条新闻。若是 SpaceX 的投资，会——"}, {"start_sec": 1754, "speaker_id": "g", "type": "text", "zh": "挑战可信度的边界。所以这个衔尾蛇一样——我不太懂发生了什么。"}, {"start_sec": 1757, "speaker_id": "g", "type": "text", "zh": "我第一次写……我写特斯拉写得很少，有人有时奇怪为什么；部分原因是写任何跟埃隆相关的东西——即便在过去几年政治彻底发疯之前——"}, {"start_sec": 1776, "speaker_id": "g", "type": "text", "zh": "就像写任何烫手的政治议题，因为埃隆狂热粉就像——"}, {"start_sec": 1782, "speaker_id": "h", "type": "text", "zh": "对，六维象棋，你要么看懂要么看不懂。没错。他们也许是对的，但那并不让他们（笑）不那么烦人。其实他们对得越对就越烦，这倒也公平。但我写过特斯拉。写过。那是特斯拉。"}, {"start_sec": 1786, "speaker_id": "g", "type": "text", "zh": "他们开放 Model 3、一夜加了那么多订单，人们发现买得起的特斯拉，就疯了。我谈过他们如何建立起品牌，以及那如何兑现。"}, {"start_sec": 1786, "speaker_id": "g", "type": "text", "zh": "结果下一周他们又做了那个疯狂交易，像是伊万妹夫的太阳能之类。我心想这太疯了。（笑）我不想写这个。不值得。我大概三年写你一次。我知道。（笑）正是。"}, {"start_sec": 1786, "speaker_id": "g", "type": "text", "zh": "嗯所以如果 SpaceX 投这个，就会是同一类线。"}, {"start_sec": 1835, "speaker_id": "g", "type": "text", "zh": "对。我读它只想说那也许会发生；到某个点，对天舞和埃隆我只能摊手。天舞背上的债完全离谱，我不知道未来几年他们怎么撑。但也许他们会找到办法。"}, {"start_sec": 1835, "speaker_id": "h", "type": "text", "zh": "也许埃隆会成为那故事的一部分。所以呃，流媒体世界时间会给答案。先继续往下。"}, {"start_sec": 1835, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 1835, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 1835, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 1896, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 1896, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 1920, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 1935, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 1951, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 1951, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 1972, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 1981, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 1981, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2005, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2013, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2021, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2028, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2029, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2051, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2053, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2078, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2092, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2100, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2113, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2115, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2135, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2138, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2138, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2164, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2165, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2201, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2214, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2220, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2220, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2245, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2259, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2263, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2269, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2269, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2291, "speaker_id": "g", "type": "ad_omitted", "ad_brand": "Stripe", "zh": ""}, {"start_sec": 2291, "speaker_id": "h", "type": "text", "zh": "好，继续往下。网络安全圈有些新闻。嗯，我不知道从哪开始。就是有——"}, {"start_sec": 2307, "speaker_id": "h", "type": "text", "zh": "不，这条推挺好。有八个不同的网络安全问题……你这里列了多少？"}, {"start_sec": 2314, "speaker_id": "g", "type": "text", "zh": "嗯，不。我直接读：国家安全局（NSA）本周写道，即日起所有使用 PHP 的组织……哦对了，你看到椭圆形那个……本周还有另一条 NSA 新闻，其实超级有意思。"}, {"start_sec": 2333, "speaker_id": "h", "type": "text", "zh": "没有。所以，呃，椭圆机？椭圆曲线。那是一种加密——"}, {"start_sec": 2340, "speaker_id": "g", "type": "text", "zh": "不是椭圆机。好。不是健身椭圆机。呃基本上，你需要一些种子来生成曲线，它是你——"}, {"start_sec": 2349, "speaker_id": "g", "type": "text", "zh": "能高效……这其实是很高效的加密方式，比用哈希之类更「加密」。想法是你能加密东西，有公钥私钥，对方能解密——"}, {"start_sec": 2362, "speaker_id": "g", "type": "text", "zh": "加密容易，没有正确密钥就很难解密。有一种特定风格叫椭圆曲线，依赖某些种子——生成器之类——而这些种子来自 NSA。"}, {"start_sec": 2376, "speaker_id": "h", "type": "text", "zh": "哇。用于这类加密。好。而且没人……有故事说有什么好笑的口令之类，但没人记得种子是什么。我想这些种子怎么会——"}, {"start_sec": 2377, "speaker_id": "g", "type": "text", "zh": "就像，等等，按加密工作原理，种子是什么似乎不该有明显关系——但也许他们做了什么我们不知道的，NSA 是「对的」。"}, {"start_sec": 2377, "speaker_id": "g", "type": "text", "zh": "哦，一部分是比特币用椭圆曲线密码，但他们用的集合跟其他人不一样。"}, {"start_sec": 2412, "speaker_id": "h", "type": "text", "zh": "好。以太坊也一样。为什么？因为他们假定 NSA 在背后搞鬼。（笑）"}, {"start_sec": 2418, "speaker_id": "g", "type": "text", "zh": "结果……呃 Anthropic 有个很酷的 AI 故事，乱试一通。人人都听过那个神话：用过一些玩笑口令。他们说：让我们回溯。"}, {"start_sec": 2418, "speaker_id": "g", "type": "text", "zh": "丢掉假设，让 Claude 或某种版本的 Claude 推演这些口令可能怎么生成。"}, {"start_sec": 2439, "speaker_id": "g", "type": "text", "zh": "结果如果你拿一个标准伪随机数生成器，再叠上种子生成前后某个特定日期时间——来源就在那。"}, {"start_sec": 2452, "speaker_id": "g", "type": "text", "zh": "哦，就这样：NSA 只是跑了个程序生成一些种子数交出去。并不是……所以所有「他们在搞鬼」的假设——不，种子没问题。"}, {"start_sec": 2452, "speaker_id": "g", "type": "text", "zh": "只是有人在某个时刻跑了程序，交了一些种子。"}, {"start_sec": 2469, "speaker_id": "h", "type": "text", "zh": "就是这样。呃，这大概是本周最无害的更新。因为 NSA 另一条是——"}, {"start_sec": 2476, "speaker_id": "h", "type": "text", "zh": "抱歉，推文没读完。「即日起，建议所有使用 PHP 的组织准备应对修复两个严重漏洞的更新。PHP 广泛用于 Web 应用。这些漏洞常能直接通向服务器文件系统或数据库。"}, {"start_sec": 2478, "speaker_id": "h", "type": "text", "zh": "若无法立即更新，建议组织先将系统下线直至完全缓解。NSA 稍后将提供更具体指引。」所以我说，这是几条相当不祥线索之一。"}, {"start_sec": 2478, "speaker_id": "h", "type": "text", "zh": "你处理好了吧？呃，我什么都没处理，跟 PHP 或安全证书相关的都没。我的网站一个都没下线。sharpex.net 还活着。你觉得我该——"}, {"start_sec": 2530, "speaker_id": "g", "type": "text", "zh": "sharpex.net 是 WordPress 站。呃兄弟，你有 PHP。你还没修。"}, {"start_sec": 2535, "speaker_id": "h", "type": "text", "zh": "呃，没有。我怎么修？（笑）你是在吓人吗？你把我吓惨了。"}, {"start_sec": 2543, "speaker_id": "g", "type": "text", "zh": "呃别担心。已经帮你修好了。哦太谢谢。不，不是我修的。呃像任何理智、有东西暴露在公网的人一样，我包给专业人士。这次是 Pressable——一家 WordPress 公司，或者说 Automattic 旗下公司——"}, {"start_sec": 2558, "speaker_id": "g", "type": "text", "zh": "托管你的站。呃这是披露流程的一部分。其实补丁已经出了一阵，我觉得不只是本周。所以恭喜。"}, {"start_sec": 2567, "speaker_id": "h", "type": "text", "zh": "太感谢了。嗯，但确实。有点好笑，因为本周发生了一长串事。有些大概是 AI 衍生的，有些可能不是——尤其这个 PHP。嗯还有另一个故事：证书那个。"}, {"start_sec": 2585, "speaker_id": "g", "type": "text", "zh": "对。嗯这个特别疯——我回头再说 PHP。另一个故事：有家印度公司。所以会签发证书。加密之类的问题是：底下必须有个根基。"}, {"start_sec": 2586, "speaker_id": "g", "type": "text", "zh": "我们在智能手机语境聊过，对吧？归根结底你信任苹果，因为一切加密最终要落到某个根上——"}, {"start_sec": 2611, "speaker_id": "g", "type": "text", "zh": "在网上，你怎么跟亚马逊做可信交易？"}, {"start_sec": 2617, "speaker_id": "h", "type": "text", "zh": "怎么？嗯，有证书由大家公认的权威签发。"}, {"start_sec": 2618, "speaker_id": "g", "type": "text", "zh": "它们嵌在浏览器和操作系统里；然后你得到……我们的网站有密钥——有个服务叫 Let's Encrypt，很容易拿到密钥——但都基于这些人人同意的基线证书：你有匹配的密钥就安全。所以你上 amazon.com 浏览器有小锁；去别处会弹出吓人的「此网站不安全」——意思是他们没有这些证书颁发机构签发的证书。"}, {"start_sec": 2618, "speaker_id": "g", "type": "text", "zh": "所以一家印度证书颁发机构……不清楚发生了什么。他们怪软件，但——"}, {"start_sec": 2664, "speaker_id": "g", "type": "text", "zh": "这些本该是 256 位加密——256 个唯一数字、字母或符号。"}, {"start_sec": 2675, "speaker_id": "g", "type": "text", "zh": "他们的数字像是 4。哦天。或者像 127。（笑）解密容易多了。"}, {"start_sec": 2683, "speaker_id": "g", "type": "text", "zh": "看起来他们把 256 位理解成 0 到 255 之间的一个数（笑）之类。"}, {"start_sec": 2692, "speaker_id": "h", "type": "text", "zh": "难以置信。好。嗯……很难。你嫌恶写在脸上。"}, {"start_sec": 2700, "speaker_id": "g", "type": "text", "zh": "难以置信。问题是这让什么处于风险？嗯，第一，确保浏览器更新。但所有浏览器之类已经更新，排除了这些。"}, {"start_sec": 2712, "speaker_id": "h", "type": "text", "zh": "好。但环顾四周。这间办公室有多少东西连着互联网？"}, {"start_sec": 2717, "speaker_id": "g", "type": "text", "zh": "天啊。我都担心跑来跑去像 150 个不同 IP——其实不完全是，因为我有不同网段之类。但外面那些物联网东西，很多会把受信任证书深深嵌进去。那些还会更新吗？"}, {"start_sec": 2732, "speaker_id": "h", "type": "text", "zh": "对。嗯……所以这个证书问题会持续存在：人们基本上能——"}, {"start_sec": 2742, "speaker_id": "g", "type": "text", "zh": "冒充你受信任，而且会一直持续，像永远。这将是永久的——"}, {"start_sec": 2751, "speaker_id": "g", "type": "text", "zh": "对互联网造成的损害，就因为一家公司的无能。再说回 PHP。PHP……PHP 基金会已经给从 8.2 起的版本发了补丁，我觉得 8.2 是 2022 年出的。"}, {"start_sec": 2756, "speaker_id": "g", "type": "text", "zh": "外面有数百万网站、数百万东西还在跑旧版 PHP；即便有较新版本，他们会立刻更新吗？"}, {"start_sec": 2780, "speaker_id": "g", "type": "text", "zh": "而这个漏洞糟到：你访问有漏洞的站点，几乎能立刻控制那台机器。"}, {"start_sec": 2788, "speaker_id": "h", "type": "text", "zh": "哇。极端。所以 NSA 才发推说这个。到处都是「把东西下线」——"}, {"start_sec": 2796, "speaker_id": "g", "type": "text", "zh": "而且很多很旧。这很有意思，因为这里有政治、社会学和技术故事。"}, {"start_sec": 2810, "speaker_id": "g", "type": "text", "zh": "好。互联网连接了一切、让一切全球化；而一切相连、一切全球化，正是将拖垮互联网的东西。"}, {"start_sec": 2822, "speaker_id": "g", "type": "text", "zh": "那就是眼下的脆弱点。互联网孕育了 AI，给了 AI 全部内容——"}, {"start_sec": 2827, "speaker_id": "g", "type": "text", "zh": "而 AI 在吞噬互联网。我们作为物种把互联网伸得太长了（笑）——"}, {"start_sec": 2837, "speaker_id": "h", "type": "text", "zh": "尘归尘。几年前有很大争议，很多反对意见——美国一直……我该查一下像 ICANN 之类，有个受美国控制的互联网治理机构，很多……我不记得改没改或撤销没——嗯——"}, {"start_sec": 2858, "speaker_id": "h", "type": "text", "zh": "但那在世界其他地方不受欢迎，当然——"}, {"start_sec": 2862, "speaker_id": "g", "type": "text", "zh": "可你看到这种事就会想：让全世界签发人人都要信任的证书，是好主意吗？这话很有美国偏见，但我想说的是：互联网的构造方式，要求对太多人、太多实体寄予太多信任——"}, {"start_sec": 2884, "speaker_id": "g", "type": "text", "zh": "可能不会有好结果（笑）——尤其在 AI 出现、能利用任何漏洞之后。"}, {"start_sec": 2892, "speaker_id": "g", "type": "text", "zh": "所以 AI 来了，找到这些漏洞——不过要说清楚，证书那个不是 AI，那是纯粹无能。"}, {"start_sec": 2900, "speaker_id": "g", "type": "text", "zh": "PHP 那个我还没看细节，我猜 AI 帮了发现；AI 会找到更多。我的大收获回到我自己的脆弱——又是我蠢，我的错——"}, {"start_sec": 2915, "speaker_id": "g", "type": "text", "zh": "被 Claude 抓到了。我觉得人人都说：我不想把 AI 代理放我家电脑上，我不信任它们。我们正迅速逼近——若还没越过——这条线：如果你没有——"}, {"start_sec": 2931, "speaker_id": "g", "type": "text", "zh": "一个 AI 代理一直看着你所有东西，你就是疯了——因为是你的代理抓住了漏洞。"}, {"start_sec": 2936, "speaker_id": "h", "type": "text", "zh": "不，泛泛而言会有太多漏洞；你说那是 AI 代理实际——"}, {"start_sec": 2943, "speaker_id": "g", "type": "text", "zh": "对，肯定。那有点意外；但你知道，我有机柜。我待会给你看（笑）机柜？你见过机柜吗？"}, {"start_sec": 2951, "speaker_id": "h", "type": "text", "zh": "我进另一间看到了。很棒的机柜。对，真的（笑）很棒。呃再说一次，那些都尽量故意离线，全在 Tailscale 后面。我不希望任何服务公网的东西在我家。那是我付钱给专业人士做的。"}, {"start_sec": 2954, "speaker_id": "g", "type": "text", "zh": "嗯我得说，我的 Linux 版本还有旧的证书。我想糟糕，我没……因为我——"}, {"start_sec": 2978, "speaker_id": "g", "type": "text", "zh": "那是我的错，因为我觉得补丁已经发了，但我需要有个观察者按固定日程维护；我以前有——"}, {"start_sec": 2989, "speaker_id": "g", "type": "text", "zh": "呃定期更新，再派个东西一直盯着。那种「不，我不能让它，我不信任它」的想法——你得停止信任你自己。"}, {"start_sec": 3005, "speaker_id": "g", "type": "text", "zh": "放手，否则你完蛋，因为威胁和潜在漏洞太多了。"}, {"start_sec": 3012, "speaker_id": "g", "type": "text", "zh": "呃所以，你知道，当然人人都可以、也应该主动找这些 bug。呃——"}, {"start_sec": 3018, "speaker_id": "h", "type": "text", "zh": "对。而且现在很难拿来做播客，因为本周被点亮的攻击面太多了。大概有六七条正在进行的故事。"}, {"start_sec": 3018, "speaker_id": "h", "type": "text", "zh": "所以我不太敢用含糊语言说「哦情况变糟了」。可你读一些标题，确实感觉事情在某种程度上开始裂开、触底。我们说过这会来。会越来越糟。"}, {"start_sec": 3047, "speaker_id": "g", "type": "text", "zh": "对。直到……感觉像互联网的终结——旧互联网——"}, {"start_sec": 3055, "speaker_id": "g", "type": "text", "zh": "那种「我挂个 WordPress 站」。我以前常做，这些年搞过一堆 WordPress。呃我自己跑邮件服务器——那死了，死很久了。邮件若不经大厂之一发出，根本送不到。"}, {"start_sec": 3055, "speaker_id": "g", "type": "text", "zh": "呃整个互联网的承诺——开放、百万节点、你能连上任何人、有人车库地下室的 BBS——我们很幸运；所有听这个、知道我刚说什么的人——"}, {"start_sec": 3088, "speaker_id": "g", "type": "text", "zh": "该觉得自己幸运，因为那是一个时代，黄金时代——"}, {"start_sec": 3093, "speaker_id": "g", "type": "text", "zh": "它不会回来了，不可能回来。等等你什么意思？新版本会是什么样？"}, {"start_sec": 3100, "speaker_id": "h", "type": "text", "zh": "我们没法靠打补丁绕过去。绝对不行。一切都是……我最喜欢的……那个——"}, {"start_sec": 3109, "speaker_id": "h", "type": "text", "zh": "老实说到这地步我也不会太想它。互联网已经是粪坑一阵了。所以也还好。"}, {"start_sec": 3115, "speaker_id": "g", "type": "text", "zh": "嗯，一部分是经济因素：聚合理论（Aggregation Theory）谈的是中心化控制需求之类。"}, {"start_sec": 3115, "speaker_id": "g", "type": "text", "zh": "但也不只是……还有互联网的结构本身：相对封闭、非常极客的一小撮人才能搞明白怎么上网——"}, {"start_sec": 3135, "speaker_id": "g", "type": "text", "zh": "在这种伊甸园般、同好者的环境里。每个社交网络也一样：开始很小，人人都加入后就麻烦多于值得。"}, {"start_sec": 3149, "speaker_id": "h", "type": "text", "zh": "没错。呃我们接下来会聊到。我想起谁……哪个写了无数科幻书、显然最出名写虚拟现实的科幻作者——"}, {"start_sec": 3149, "speaker_id": "h", "type": "text", "zh": "嗯这快把我逼疯了。现在外面真的有几千人在喊这个名字。嗯——"}, {"start_sec": 3168, "speaker_id": "g", "type": "text", "zh": "我完全不知道谁——我不是科幻粉。（笑）哦这太糟了。呃，虚拟现实——"}, {"start_sec": 3176, "speaker_id": "h", "type": "text", "zh": "威廉·吉布森（William Gibson）。吉姆第三椅刚确认：不是威廉·吉布森。好。"}, {"start_sec": 3181, "speaker_id": "g", "type": "text", "zh": "也不是《头号玩家》（Ready Player One）。我本来要猜《头号玩家》。不，是另一部经典。吉姆你得——"}, {"start_sec": 3188, "speaker_id": "h", "type": "text", "zh": "柯兹维尔？不，不是柯兹维尔。他写小说。难以置信。呃（笑）这会儿电视效果绝了。我呃——"}, {"start_sec": 3195, "speaker_id": "h", "type": "text", "zh": "这全是直播。这就是新时代。嗯，不，不是阿西莫夫（Asimov）。呃（笑）总之，他最著名的虚拟现实书之一——吉姆会想起来打在屏幕上，如果我想得起来——描绘的世界像赛博朋克：有很多国家——"}, {"start_sec": 3221, "speaker_id": "g", "type": "text", "zh": "或类国家实体，但完全分布式。你在不同区域——有一个像香港的，有一个大致像美国的——而这些区域之间的一切都被高度安保、高度封锁；你不是公民或成员就进不了他们的地产——"}, {"start_sec": 3241, "speaker_id": "g", "type": "text", "zh": "但里面美丽田园。然后中间的一切……故事从一个像送货司机、在这些区域之间开车的人开始，外面就是炼狱景观。"}, {"start_sec": 3252, "speaker_id": "g", "type": "text", "zh": "互联网就会长成那样。嗯，对。你想想，社交网络现在有点像那样。"}, {"start_sec": 3260, "speaker_id": "g", "type": "text", "zh": "群聊是有史以来最好的社交网络。高信任。像我们以前在社交媒体上那样，甚至更甚。然后你出去——有些群聊像在备战，冲上 Twitter 开战，再撤退舔伤口——"}, {"start_sec": 3283, "speaker_id": "h", "type": "text", "zh": "外面确实挺反乌托邦。你的推爆了。你在回答——那就像互联网整体。就像……我在建这种。对。尼尔·斯蒂芬森（Neal Stephenson）。谢谢吉姆。尼尔·斯蒂芬森。我想不起（笑）书名。呃——"}, {"start_sec": 3296, "speaker_id": "h", "type": "text", "zh": "希望这能安慰那几千个把自己逼疯、心里默念名字的听众。"}, {"start_sec": 3303, "speaker_id": "g", "type": "text", "zh": "呃，《雪崩》（Snow Crash）是书名。呃，他在那里创造了「元宇宙」（metaverse）这个词。元宇宙从那儿来。"}, {"start_sec": 3308, "speaker_id": "h", "type": "text", "zh": "据说电影还行。总之，对，《雪崩》就是我说的那本。呃但这会是互联网的样子。你会……或者说我在给我们公司做这些小应用。Tailscale 就是我们的墙。"}, {"start_sec": 3309, "speaker_id": "g", "type": "text", "zh": "你登录了、你是其中一员，对外什么都不暴露。就像我这里的小堡垒。互联网会变成到处都是小堡垒，由这些永远在线、永远警觉、在赛博朋克式交战的代理巡逻——"}, {"start_sec": 3342, "speaker_id": "g", "type": "text", "zh": "希望永远别被攻破，你也不用知道。旧世界那种你随便待在伊甸园的想法——伊甸园走了就不会回来。那是我们长大时的互联网。没了。"}, {"start_sec": 3354, "speaker_id": "h", "type": "text", "zh": "嗯，所以在这个未来你还能访问网站？能，但经济模型已经挺艰难。对。对吧。你觉得——"}, {"start_sec": 3364, "speaker_id": "h", "type": "text", "zh": "但这就是我的意思：我们真会怀念曾经拥有的、或现在拥有的吗？因为质量反正已经降得很厉害了。"}, {"start_sec": 3372, "speaker_id": "g", "type": "text", "zh": "这是我很久以来的论点，对吧？人人都害怕未来。"}, {"start_sec": 3372, "speaker_id": "g", "type": "text", "zh": "我却觉得你该害怕的是「保住现在」——因为一切（笑）现在最糟；问题是你往后看、想着从前，说我们要阻止衰落。"}, {"start_sec": 3389, "speaker_id": "h", "type": "text", "zh": "嗯。带着还能回去的假设——你回不去。回不去。唯一出路是向前。别把我们冻在现在，因为现在就像一切最糟的时候。"}, {"start_sec": 3389, "speaker_id": "h", "type": "text", "zh": "就网络安全社区而言，最糟确实感觉像我们现在。所以……"}, {"start_sec": 3409, "speaker_id": "g", "type": "text", "zh": "不，还会更糟。你觉得？是的（笑），绝对。好。那也公平。"}, {"start_sec": 3414, "speaker_id": "g", "type": "text", "zh": "网络事件会加速；而这些正在发生的事件下游是什么——比如有个 Railway……像开发者站点本周被攻破。"}, {"start_sec": 3414, "speaker_id": "g", "type": "text", "zh": "所有用过那个站的人的凭证。没错。那是故事之一。很多用户数据。当然。"}, {"start_sec": 3436, "speaker_id": "g", "type": "text", "zh": "嗯，开发者数据。你能用那些凭证闯进其他应用、其他网站——"}, {"start_sec": 3442, "speaker_id": "g", "type": "text", "zh": "如果他们不轮换全部凭证——那是巨大工程、巨疼。呃所以这一切会传播，好，越来越糟。"}, {"start_sec": 3442, "speaker_id": "g", "type": "text", "zh": "（笑）所以我们现在像堤坝在慢慢裂，某个点会发大水。"}, {"start_sec": 3458, "speaker_id": "h", "type": "text", "zh": "不，现在只是一点小浪漫过边缘。海啸是——"}, {"start_sec": 3463, "speaker_id": "h", "type": "text", "zh": "嗯，真安慰人。我要说的一点是：Axios 有大报道，银行因代理访问银行账户而恐慌。我觉得那故事里很多是人授权自己的代理去访问银行账户。"}, {"start_sec": 3463, "speaker_id": "h", "type": "text", "zh": "所以标题很吓人。我可以在节目笔记放链接。嗯但我授权 Muse 访问我的银行账户，而且——"}, {"start_sec": 3492, "speaker_id": "g", "type": "text", "zh": "看看你。当然。那是最有用的之一。你在科技上要么零要么一百。（笑）"}, {"start_sec": 3500, "speaker_id": "h", "type": "text", "zh": "我对 Muse 全押，伙计。哦我们需要你的评测。呃 Meta 新的 VR 眼镜怎么样？"}, {"start_sec": 3509, "speaker_id": "h", "type": "text", "zh": "呃上周在旧金山我们有机会试了 Meta VR 眼镜。嗯，是惊人的产品。作为 Vision Pro 用户，我仍更偏爱 Vision Pro。"}, {"start_sec": 3509, "speaker_id": "h", "type": "text", "zh": "但我说惊人产品——眼镜的分辨率……能在那么轻的一副眼镜上做到那种分辨率，相当震撼。我的问题是它们其实感觉太「不扎实」。"}, {"start_sec": 3509, "speaker_id": "h", "type": "text", "zh": "有点处在恐怖谷：如果我用它娱乐，我想要全遮光、有重量。至少在我的演示里贴合也不太好。所以期望极高，结果是喜欢但没爱上。"}, {"start_sec": 3561, "speaker_id": "g", "type": "text", "zh": "你真是苹果粉丝，难以置信。不，我不是。我不是。不，你刚才字面说了「它们不够重」。"}, {"start_sec": 3570, "speaker_id": "h", "type": "text", "zh": "听听你自己。（笑）它们感觉会掉下来。我不知道。没那么刺激。"}, {"start_sec": 3578, "speaker_id": "h", "type": "text", "zh": "我知道你期望什么。我其实更希望有头带——因为它们只挂在耳朵上，从没真掉过，但总感觉马上要掉，更让人不安。我——"}, {"start_sec": 3590, "speaker_id": "g", "type": "text", "zh": "同意。也更难沉浸在娱乐里。所以他们说会有附件。你会有全遮光吗？我觉得全遮光加头带，一旦过了那关——"}, {"start_sec": 3603, "speaker_id": "g", "type": "text", "zh": "在每一个能想到的方面都比 Vision Pro 更好。"}, {"start_sec": 3603, "speaker_id": "g", "type": "text", "zh": "最大的一点是……分辨率略低，你能看出来；苹果 Vision Pro 分辨率也不够，但对文字够用。我整套在飞机后排用 Vision Pro 其实会很棒。对，这有点……呃脱节时刻：我还记得坐后排时这些（笑）会很棒。嗯但我笔电空间够……机舱其他地方。但不，实际上我通常有四块、有时五块显示器，因为还要看电视。"}, {"start_sec": 3603, "speaker_id": "g", "type": "text", "zh": "呃这种我能随身带着、在路上有多显示器的想法——"}, {"start_sec": 3647, "speaker_id": "h", "type": "text", "zh": "嗯。超级……Vision Pro。它太大了（笑），大到难以置信。比重量还糟。对。"}, {"start_sec": 3657, "speaker_id": "g", "type": "text", "zh": "收纳到最小也塞不进……那是真的。甚至行李箱里。"}, {"start_sec": 3663, "speaker_id": "h", "type": "text", "zh": "不，我知道。就是个问题。呃所以我觉得它很棒。你基于这点认可？好。"}, {"start_sec": 3670, "speaker_id": "g", "type": "text", "zh": "我，不，我同意你。感觉比应有的更摇晃。我宁愿……他们确实有个瞬间：哦它们一直戴在这儿。"}, {"start_sec": 3679, "speaker_id": "g", "type": "text", "zh": "就像如果它们用头带固定在上面，像眼镜，你可能注意到。呃但我想要感觉更紧。即便说清楚，我的从没掉过。"}, {"start_sec": 3691, "speaker_id": "h", "type": "text", "zh": "我太失望了。嗯，我得穿梭——因为最后一刻我被邀去苹果活动，本周写了：苹果和 Meta 合作。所以得让你自己在那儿。"}, {"start_sec": 3691, "speaker_id": "h", "type": "text", "zh": "但走之前我确保做了 Beat Saber 演示（笑），让他们记下分数。"}, {"start_sec": 3709, "speaker_id": "g", "type": "text", "zh": "我本来没打算谈这些。现在你要弄死我。"}, {"start_sec": 3713, "speaker_id": "h", "type": "text", "zh": "胆小鬼。（笑）难以置信。我像：告诉我你的……我们那天晚饭碰面，我问：你分数多少？我没参与演示的 Beat Saber 部分。Meta 的人都很好。向那些家伙喊话。我不是玩家。我不想——"}, {"start_sec": 3729, "speaker_id": "g", "type": "text", "zh": "我不在乎。然后你上去拿个烂分。嗯太好笑了。"}, {"start_sec": 3735, "speaker_id": "g", "type": "text", "zh": "你播客做得好因为你自嘲。你让我拿你开玩笑。诸如此类。你把本·高尔弗那种很损的幽默也引出来了——"}, {"start_sec": 3744, "speaker_id": "h", "type": "text", "zh": "对，因为他像得到许可可以对你狠，很好笑。你那么……然后对我就很突兀。突然我的头在砧板上。突然你对某个本很迷的儿童游戏太尴尬。"}, {"start_sec": 3745, "speaker_id": "g", "type": "text", "zh": "我不会在 Vision Pro 头显上玩 Beat Saber。听着，Vision Pro 头显另一点——"}, {"start_sec": 3765, "speaker_id": "h", "type": "text", "zh": "那不是 Vision Pro，是苹果。抱歉。对，Meta VR 眼镜。嗯他们会有多得多的内容，这很重要。我觉得他们的眼控和手势比苹果好多了。"}, {"start_sec": 3780, "speaker_id": "g", "type": "text", "zh": "对。就像你看那些点的时候他们做了同样的事。"}, {"start_sec": 3784, "speaker_id": "h", "type": "text", "zh": "我体验跟苹果几乎一样。嗯，我总觉得苹果至少有一个点我会错过。"}, {"start_sec": 3790, "speaker_id": "g", "type": "text", "zh": "好。因为我几乎……我做得很快，像 Meta 那个……我觉得技术像新了两年，我肯定就是那样。呃公平说还没出，明年才出。"}, {"start_sec": 3790, "speaker_id": "g", "type": "text", "zh": "呃但我会为了旅行角度一定买一些，对吧？Vision Pro 没法真旅行。这些眼镜可以旅行，而且眼镜上的体育内容会比苹果多得多。"}, {"start_sec": 3817, "speaker_id": "g", "type": "text", "zh": "另一点旅行时又想起来——因为哦，我们得录音，本来要在别处录，没成，最后在你酒店房录，我扛着大笔记本。"}, {"start_sec": 3829, "speaker_id": "h", "type": "text", "zh": "嗯。我想我该只带 Air。对，因为这东西太……我超兴奋。但我旅行还是带它，因为额外屏幕——写作时我用很多屏幕空间，喜欢很多参考材料开着。对那个不理想，但那是我能拿的最大屏。"}, {"start_sec": 3834, "speaker_id": "g", "type": "text", "zh": "所以我扛着这台巨大电脑。嗯我百分百期待能带小电脑，想写的时候坐下来——"}, {"start_sec": 3858, "speaker_id": "g", "type": "text", "zh": "在 Meta VR 眼镜上百分百。我想那样做。Pro 就是太大。"}, {"start_sec": 3865, "speaker_id": "h", "type": "text", "zh": "嗯。可你就因为这样喜欢它。太怪了。难以置信。听着，（笑）我不会走来走去用 Meta 眼镜看东西。"}, {"start_sec": 3876, "speaker_id": "h", "type": "text", "zh": "不过我也许得自己买一副。看价钱。但对，我们跑题了。"}, {"start_sec": 3881, "speaker_id": "h", "type": "text", "zh": "完全跑题——访问银行账户。我们就是从那儿绕过来的。我对 Muse 全押。那些银行引用系统里各种代理之类，我觉得很多代理大概是真人授权的，不是你从 Axios 故事可能读出的大规模黑客丑闻。"}, {"start_sec": 3885, "speaker_id": "h", "type": "text", "zh": "所以我不把那跟我们本周讨论的其他事放同一个桶。"}, {"start_sec": 3906, "speaker_id": "g", "type": "text", "zh": "走着瞧。真不幸。那是我手机。（笑）你不是一直在弄。"}, {"start_sec": 3910, "speaker_id": "h", "type": "text", "zh": "呃等一下。这对我们来说是很好的画面。我很庆幸那不是我手机，因为我还在想：我是不是设了什么闹钟？"}, {"start_sec": 3917, "speaker_id": "g", "type": "text", "zh": "我想：你知道吗，我不该把手机带在身边。我该（笑）放一边。然后我还得去接儿子。"}, {"start_sec": 3923, "speaker_id": "h", "type": "text", "zh": "我们在这儿。嗯好。继续往下？该继续。呃我会尽量不带偏。"}, {"start_sec": 3931, "speaker_id": "h", "type": "text", "zh": "好。呃约瑟夫说：「本和安德鲁，先把 Anthropic 那套『我们在孕育硅基上帝』的疯劲放一边，我也看到 Anthropic 在产品上拉开区隔。Claude 永远是 Claude：单一、整体、无处不在。"}, {"start_sec": 3931, "speaker_id": "h", "type": "text", "zh": "你在 Slack @Claude，在 Claude Code 里跟 Claude 干活，在 Claude Chat 跟 Claude 聊。Anthropic 总让你在跟 Claude 说话。对比 Grokbot、Dots 和 Muse，各自有不同程度的定制。Muse 是其中最个人化的。"}, {"start_sec": 3931, "speaker_id": "h", "type": "text", "zh": "我的 Muse 是只叫 Murf 的机器狗，戴着呼叫中心耳机，做任务时还会动一动。可爱。各实验室互相抄的时候，这感觉像产品哲学上的第一条裂缝。"}, {"start_sec": 3931, "speaker_id": "h", "type": "text", "zh": "人们会更喜欢一个无处不在的代理 Claude，还是一舰队任务专用代理（Grokbot、Dots 等），或像 Muse 这种高度个人化的单一代理？附：在本用 Muse 的实验里，他更新过 Muse 吗，还是跑默认的 Jolly？」我不知道最后那句——"}, {"start_sec": 4004, "speaker_id": "g", "type": "text", "zh": "我也不知道什么叫 Jolly。我管我的叫 Muse。我也是。（笑）也许说明我们只是无聊的老白男。"}, {"start_sec": 4010, "speaker_id": "h", "type": "text", "zh": "我觉得可能是。我老那样：有定制选项，或以前电子游戏能给角色起名，我就叫它本来该叫的那个名字。"}, {"start_sec": 4010, "speaker_id": "g", "type": "text", "zh": "我想要你创造的体验。我想去体验它。我不需要——"}, {"start_sec": 4028, "speaker_id": "h", "type": "text", "zh": "我不想有重新发明的压力。呃顺便 Muse 帮我们整理来这边的航班，开启《Sharp Tech》新时代，非常有用。还没让它下单。"}, {"start_sec": 4037, "speaker_id": "g", "type": "text", "zh": "你误机、锅在 Muse 身上的时候会很好玩（笑）。做这种播客的美妙之处是：一切都是内容——"}, {"start_sec": 4045, "speaker_id": "h", "type": "text", "zh": "对。你会有航班倒霉故事。Muse 要么解决，要么加剧。"}, {"start_sec": 4051, "speaker_id": "g", "type": "text", "zh": "没错。（笑）我们会聊。会很精彩。嗯所以那是好事之一。呃对，我叫它 Muse。嗯 Claude 那件事……我觉得有一面贴合他们哲学。他们觉得自己在创造上帝。"}, {"start_sec": 4051, "speaker_id": "g", "type": "text", "zh": "上帝名叫 Claude。我（笑）是说，上帝包含不同产品。不知道他们有没有说过。我一直以为是取自克劳德·香农（Claude Shannon）。嗯，计算史上非常重要的人物。嗯——"}, {"start_sec": 4080, "speaker_id": "g", "type": "text", "zh": "但它听起来确实像上帝。我在想那是不是……老实说我刚想到。那是不是意外。而且对，它像单一实体，也确实让我烦——因为 Claude 不只是你的体验跟我的体验不同。"}, {"start_sec": 4080, "speaker_id": "g", "type": "text", "zh": "字面上每个 token 都像全新体验，对吧？那是大模型的本质——对话——"}, {"start_sec": 4107, "speaker_id": "g", "type": "text", "zh": "因为它把技术、机器智能人格化；所有这些拟人化都让我烦。"}, {"start_sec": 4117, "speaker_id": "h", "type": "text", "zh": "嗯。我喜欢反方向走的想法；某种程度上它仍拟人——对，让它个人化。我有点喜欢 Muse 在这方面做的。"}, {"start_sec": 4117, "speaker_id": "g", "type": "text", "zh": "人人谈对齐和安全；而文本生成的本质太……太绑在「人之为人」上。我觉得这些东西之所以像人，是因为它们用最人之为人的方式工作。"}, {"start_sec": 4117, "speaker_id": "g", "type": "text", "zh": "它们字面建立在人类语言上。我觉得我的部分理论是——"}, {"start_sec": 4152, "speaker_id": "g", "type": "text", "zh": "它们主宰了更高层。它们真能再下来吗？让我们成为人的，是更动物性的部分：本能、欲望、驱力，连着小脑之类；以及更高层智能。那条链接——AI 全在顶层，像大脑上层。"}, {"start_sec": 4155, "speaker_id": "g", "type": "text", "zh": "它其实没有脑干，以及真正驱动去做的那部分。有一面是：ChatGPT 其实是最伟大的名字，因为诱惑太大，人们太容易沉迷于感觉自己在跟真实的东西说话——而它并不真实——"}, {"start_sec": 4188, "speaker_id": "g", "type": "text", "zh": "负责任的做法是尽你所能不断提醒人们：这不是真的。"}, {"start_sec": 4196, "speaker_id": "g", "type": "text", "zh": "Anthropic 做的完全相反。嗯他们努力让它「成真」。他们像教真的一样教它。他们旧的对齐观不是他们能控制 Claude，而是教 Claude 向善——"}, {"start_sec": 4206, "speaker_id": "h", "type": "text", "zh": "对。好让它自我约束。我觉得这是根本分歧。你描述的是企业层面的不对齐——"}, {"start_sec": 4216, "speaker_id": "g", "type": "text", "zh": "在我看来是。我觉得我们该把它们当工具对待、寻求控制。这方面有好消息：结果大模型比我们想的更好理解。"}, {"start_sec": 4216, "speaker_id": "g", "type": "text", "zh": "呃有些关于可解释性的很有意思的论文，能分析、理解它们是什么。"}, {"start_sec": 4233, "speaker_id": "h", "type": "text", "zh": "那是大好消息。对，是大好消息。好笑的是很多安全派立刻对这篇论文很不屑，因为那确实重击了他们的世界观。"}, {"start_sec": 4242, "speaker_id": "g", "type": "text", "zh": "当然。它削弱叙事；结果这篇论文太有用，你还能用它把训练做得更好——因为你理解它们怎么工作，初步结果看起来惊人。（笑）"}, {"start_sec": 4255, "speaker_id": "g", "type": "text", "zh": "不。所以有真实的东西：其实它们更好理解。以前不懂是因为我们没工具或能力。所以它们未必像我们想的那么黑箱。输出更干净，我觉得是那个形容词。"}, {"start_sec": 4270, "speaker_id": "g", "type": "text", "zh": "这是好消息，也是我们该追求的：持续能控制它们。核弹爆炸力高于我的拳头——某物在某些特征上超过我们，并不是奇怪概念，对吧？"}, {"start_sec": 4290, "speaker_id": "g", "type": "text", "zh": "只是……部分因为硅谷以及那类人，自我价值感太缠在「聪明」上。"}, {"start_sec": 4300, "speaker_id": "g", "type": "text", "zh": "硅谷人人一直是聪明的那个，那是他们的身份；所以「有东西比我更聪明」太压倒性，对心灵是一击——一边陷入虚无：全完了。"}, {"start_sec": 4300, "speaker_id": "g", "type": "text", "zh": "另一边说：没关系如果它是上帝，上帝可以比我聪明——于是掉进这些疯狂地方。我只是觉得那是错的。我觉得我们该推向：把它们做成工具，让它们可控。"}, {"start_sec": 4300, "speaker_id": "g", "type": "text", "zh": "一部分是帮人们这样想。好。Anthropic 在每一点都反着走。嗯，对这场对话的反驳是——"}, {"start_sec": 4345, "speaker_id": "g", "type": "text", "zh": "嗯，对这场对话的反驳是：Opus 4.5（ASR 作 5.5）不可思议。我干什么都在用；有一面是，就我经验，Claude 在代理能力上好太多。对——"}, {"start_sec": 4356, "speaker_id": "g", "type": "text", "zh": "因为它更能多任务，能同时盯很多事。ChatGPT 会特别执着于一件事，呃我还没——"}, {"start_sec": 4367, "speaker_id": "h", "type": "text", "zh": "嗯我同意你。我觉得人们该想想 Anthropic 是否与人类最佳利益对齐——就他们如何看待这些工具、如何向大众框定这些工具而言。"}, {"start_sec": 4367, "speaker_id": "h", "type": "text", "zh": "不过我得说，他们的 Claude 品牌看起来比这领域其他任何人都连贯得多。所以就这个问题，我其实没那么生气。"}, {"start_sec": 4392, "speaker_id": "g", "type": "text", "zh": "确实。从企业角度……不，就像我上周说有人「阿马戴（Amodei）该被换掉吗？」——你疯了吗？"}, {"start_sec": 4400, "speaker_id": "g", "type": "text", "zh": "其他公司到底在干什么？八个不同产品。消费者怎么跟得上？所以……Anthropic IPO 也许未来一两周就来。"}, {"start_sec": 4411, "speaker_id": "h", "type": "text", "zh": "对，我都恐慌发作他们本周会扔 S-1。我知道像是有选择性地喂给不同新闻机构。能不能直接扔 S-1？你们要上市就发啊？那我不会写到那个——"}, {"start_sec": 4411, "speaker_id": "h", "type": "text", "zh": "他们不是在写《华尔街日报》或路透关于 S-1 的报道。"}, {"start_sec": 4427, "speaker_id": "h", "type": "text", "zh": "不值得我拿来播，但哇塞，下注的人们，发动引擎吧。能啃到 Anthropic 的真数字会很好玩；呃我又看到笔记说可能周五。谁知道。嗯凯尔说：「二位，又一个品牌问题。"}, {"start_sec": 4427, "speaker_id": "h", "type": "text", "zh": "苹果为什么死守已经被糟蹋的 Siri 品牌？Apple Intelligence 天才、简单，还能带来各种广告协同。若成功，苹果就等同好 AI；若不成功，他们也没什么可丢。"}, {"start_sec": 4427, "speaker_id": "h", "type": "text", "zh": "而且『Hey Apple』是新起点，用一个受喜爱的品牌当唤醒词。『Hey Siri』在数百万人心里等于通往挫折的确定路径。我漏了什么？为什么不只让它叫 Apple Intelligence 而不是 Siri AI？」你有答案给凯尔吗？"}, {"start_sec": 4479, "speaker_id": "g", "type": "text", "zh": "嗯第一，凯尔……凯尔显然比你更苹果粉，因为他有信心 Siri 配得上叫苹果。嗯也许有不同——"}, {"start_sec": 4488, "speaker_id": "g", "type": "text", "zh": "我看到的问题（笑）。把更广的公司跟它的 AI 努力绑在一起，其实对苹果品牌有害。"}, {"start_sec": 4496, "speaker_id": "g", "type": "text", "zh": "嗯第二，如果有人……我顺便链了我的伦理声明；我们刚拍了开学第一天，换了新肖像。"}, {"start_sec": 4496, "speaker_id": "g", "type": "text", "zh": "所以我终于要换掉页面上（笑）那张 12 年前的肖像——人人都烦，因为我看起来像小孩，还像马拉松选手，我以前确实是。哇。嗯——"}, {"start_sec": 4512, "speaker_id": "h", "type": "text", "zh": "你得看看这张照片。对，我们拍了头像。太好了。麦迪逊这边很兴奋。"}, {"start_sec": 4518, "speaker_id": "g", "type": "text", "zh": "在那页我谈了我的伦理——也解释了我为什么不再像马拉松选手。（笑）嗯所以在伦理声明里，我谈过我跟几家公司聊过——刚开始时是多工具收入。"}, {"start_sec": 4518, "speaker_id": "g", "type": "text", "zh": "不只是订阅，还有广告；我要做咨询和演讲。呃我想还有第五个。我记得有五个变现点子，第五个想不起来了。嗯——"}, {"start_sec": 4541, "speaker_id": "g", "type": "text", "zh": "所以我做过非常少的咨询。呃最后一次我想：这我不能做。利益冲突太大——其实是跟谷歌。嗯我披露了，但一方面：哇我在跟谷歌非常高层的人聊。"}, {"start_sec": 4541, "speaker_id": "g", "type": "text", "zh": "太棒了。另一方面我想：我觉得这通讯会成，我甚至不想有任何冲突感，所以我再也不跟我报道的公司做咨询。"}, {"start_sec": 4571, "speaker_id": "h", "type": "text", "zh": "好。嗯，在那次会上，呃在纳帕谷，大概十多年前，讨论他们助手叫什么。我大力主张就叫 Google。我说 Google 是伟大品牌，人们已经关联它。"}, {"start_sec": 4572, "speaker_id": "g", "type": "text", "zh": "就像……我不爱 Alexa 或 Siri 那种。嗯所以他们看了……不知道我影响多大，显然很多人来回讨论。但我站在「叫 Google」那边。他们看了。他们看了。"}, {"start_sec": 4572, "speaker_id": "g", "type": "text", "zh": "我从没讲过这些。他们看了，然后就像：「Okay, Google。」"}, {"start_sec": 4605, "speaker_id": "h", "type": "text", "zh": "嗯。呃糟透了。讨厌。（笑）实际体验说「Okay, Google」——像在对一家企业——"}, {"start_sec": 4612, "speaker_id": "g", "type": "text", "zh": "对一家数万亿美元公司说话。不太好。像 Siri 或 Alexa 在我看来都好得多；好笑的是我某种程度上在反驳我刚对 Claude 说的。跟语音有关。"}, {"start_sec": 4626, "speaker_id": "h", "type": "text", "zh": "对。对吧。说「Hey Apple」——蒂姆·苹果？约翰·苹果？（笑）到底哪个？呃行不通。我觉得 Okay Google 是个错误。"}, {"start_sec": 4637, "speaker_id": "g", "type": "text", "zh": "我当时没考虑到。所以对消费者更好、更自然，同时对苹果也更好：不必承担那种企业风险。"}, {"start_sec": 4646, "speaker_id": "g", "type": "text", "zh": "而且 Siri 是好名字。我觉得有理由重做 Siri。嗯它是好名字却是糟糕产品，所以他们必须重做？"}, {"start_sec": 4655, "speaker_id": "h", "type": "text", "zh": "不，正是。他们必须重做，因为……他们不是必须，他们可能想重做，因为……对，名字本身质量极好。"}, {"start_sec": 4655, "speaker_id": "g", "type": "text", "zh": "不管什么语言背景都好说。非常独特，非常好认。"}, {"start_sec": 4676, "speaker_id": "g", "type": "text", "zh": "也好读。比 Alexa 好。Alexa 有点别扭。呃 Siri 就是好名字。"}, {"start_sec": 4681, "speaker_id": "h", "type": "text", "zh": "对。嗯所以大概他们才死守，尽管（笑）尽管一切。"}, {"start_sec": 4685, "speaker_id": "h", "type": "text", "zh": "它糟到我无法想象过去六七年后还用 Siri 做任何事。但也许苹果会振作。嗯，「Hey Apple」我同意，因各种原因都是坏主意。"}, {"start_sec": 4685, "speaker_id": "h", "type": "text", "zh": "让苹果继续关联伟大硬件，也许 AI 软件哪天会追上。呃还有几个问题。CK：「本和安德鲁，老听众。我一直在想用 AI 代理的一大挑战：它们要求的阅读量太大。」"}, {"start_sec": 4685, "speaker_id": "h", "type": "text", "zh": "我在美国做科技。英语流利，但不是母语。阅读理解一直是我的弱点，母语也一样。AI 之前这在工作上不太重要。领域知识、数学、统计和编程撑着我。"}, {"start_sec": 4685, "speaker_id": "h", "type": "text", "zh": "然后我开始跟代理一起工作。现在我的一天是阅读：计划、推理、摘要、更多计划。代理产出比我吸收快。老实说，我大部分都略读或跳过。这点让我烦。"}, {"start_sec": 4685, "speaker_id": "h", "type": "text", "zh": "我能感觉到：我得到的质量取决于我在规划阶段读得多仔细、反推多狠。所以我的阅读理解和速度——我觉得两者常绑在一起——现在成了工作能挖多深的上限。"}, {"start_sec": 4685, "speaker_id": "h", "type": "text", "zh": "职业生涯第一次，我希望自己读得更快更好。你们俩以读写为生，又天天用 AI。这种阅读量对你们是挑战吗？"}, {"start_sec": 4685, "speaker_id": "h", "type": "text", "zh": "问题是代理往我身上倾倒无差别的长文，更好的工具会修复我当成个人局限的东西吗？本，对这个问题有想法吗？"}, {"start_sec": 4789, "speaker_id": "g", "type": "text", "zh": "对，这封邮件很有意思。我想说的是：我读极快，写也极快。呃我更喜欢用文字消费一切。"}, {"start_sec": 4789, "speaker_id": "g", "type": "text", "zh": "我就是不看视频。别人分享视频，得跟我提大概 50 次，我才终于——"}, {"start_sec": 4809, "speaker_id": "h", "type": "text", "zh": "你上周提过。我给你发视频好几年，你很少看。完全诚实。嗯（笑）呃……忽略它们——"}, {"start_sec": 4817, "speaker_id": "g", "type": "text", "zh": "对……呃绝对不是忽略。我承认它们存在（笑）。我大概从周围评论里拼出视频里发生了什么——那些我读。"}, {"start_sec": 4825, "speaker_id": "h", "type": "text", "zh": "好。（笑）真·文字细胞。跟代理相关有很多阅读。我完全懂他在说什么。很好笑，因为我真正得干活的时候常常是深夜放松，或周末。对。"}, {"start_sec": 4829, "speaker_id": "g", "type": "text", "zh": "你知道，我也许想喝点什么，却在要整墙文字——"}, {"start_sec": 4847, "speaker_id": "g", "type": "text", "zh": "因为仔细读、抓住它的假设确实差别巨大。即便现在我也会实验让它们跑长程；若事情重要，就很短的回合。"}, {"start_sec": 4847, "speaker_id": "g", "type": "text", "zh": "它们每次修正都回来找我，每一个——因为你会看到「哦让我修这行」。其实是：你有个坏假设，支撑着为什么需要这次修正——我们早过了打字错误阶段。如果出事——"}, {"start_sec": 4874, "speaker_id": "g", "type": "text", "zh": "出了什么错？这真是 bug，还是其实可以？你知道，越来越变成：若它搞砸了，其实是围绕它的思考错了。所以 CK 是对的。读得越紧越好。"}, {"start_sec": 4874, "speaker_id": "g", "type": "text", "zh": "我觉得答案——我希望答案——是对你正在做的事说得通的生成式用户界面。"}, {"start_sec": 4896, "speaker_id": "h", "type": "text", "zh": "好。就像我觉得文本是该发生的；你看过，OpenAI 发了什么，或演示在 Codex 或 ChatGPT 里按你正在做的事即时生成界面，你真的在跟某种东西交互。"}, {"start_sec": 4897, "speaker_id": "g", "type": "text", "zh": "语音某种程度上我们已经到了。你可以全靠说话干活。不过那更久，因为得全读出来，得感知他们在说什么。顺便，CK，我发现……不可思议。我上周说过吗？"}, {"start_sec": 4928, "speaker_id": "g", "type": "text", "zh": "呃我在读一本书——或者说我跟……我会说阿里·戈尔德，不是（笑）阿里·戈尔德。上周跟阿里·伊曼纽尔（Ari Emanuel）聊，他刚出自传。"}, {"start_sec": 4928, "speaker_id": "g", "type": "text", "zh": "当然，采访前我总读书——顺便说，多少次你跟人聊，因为他们出了书——"}, {"start_sec": 4944, "speaker_id": "g", "type": "text", "zh": "他们震惊你真的读了。（笑）我想这些采访者都……我为他们难过。想象你上播客，你为书写得死去活来——"}, {"start_sec": 4953, "speaker_id": "g", "type": "text", "zh": "嗯，其实已经有人帮他写了，但一般而言你为书写得死去活来，然后得做媒体巡，而人们——"}, {"start_sec": 4961, "speaker_id": "h", "type": "text", "zh": "采访进行到 20 分钟，明显对方没读过。"}, {"start_sec": 4964, "speaker_id": "g", "type": "text", "zh": "不，显然那是常态。对。每次他们谢我，说你是第一个真正读了书的人。我想那太病态了。"}, {"start_sec": 4973, "speaker_id": "h", "type": "text", "zh": "嗯我得替采访者辩护。想想大家有多忙，还要啃完 300 页。"}, {"start_sec": 4980, "speaker_id": "h", "type": "text", "zh": "如果你是脱口秀主持，你有时间啃完 300 页书，同时还整周录一堆其他人的访谈吗？"}, {"start_sec": 4989, "speaker_id": "g", "type": "text", "zh": "所以这是《Sharp Tech》上媒体的最后捍卫者。（笑）安德鲁·夏普。你想收订阅费、有广告，就得下功夫。你下功夫。你也以超人速度阅读。不。所以事情是这样——"}, {"start_sec": 4991, "speaker_id": "g", "type": "text", "zh": "所以这是内置优势。因为呃我前一晚也许去看了酿酒人队（Brewers）比赛，开车去球场，再从球场到奥黑尔（O'Hare）去飞——"}, {"start_sec": 5014, "speaker_id": "g", "type": "text", "zh": "我得把这本书读完，所以听了有声书——嗯对这本书很合适。然后在飞机上，我一边听有声书一边读。"}, {"start_sec": 5028, "speaker_id": "g", "type": "text", "zh": "不可思议。我们落地。轮子触地，我被震醒。整趟飞行像消失了。"}, {"start_sec": 5037, "speaker_id": "h", "type": "text", "zh": "好。就像把书主线注射进……你就（笑）……不，我——"}, {"start_sec": 5044, "speaker_id": "h", "type": "text", "zh": "得试试。我从没那样做过。不，你得试。因为声音从耳朵进来，眼睛又锁着；你得保持同步，不能切到社交媒体或做别的，否则就脱节。"}, {"start_sec": 5057, "speaker_id": "g", "type": "text", "zh": "太疯了。你得试试，看你会不会……我像进入某种迷离状态。那怎么说？"}, {"start_sec": 5062, "speaker_id": "h", "type": "text", "zh": "迷离状态。我像在神游状态。我认真的。最不可思议。"}, {"start_sec": 5066, "speaker_id": "g", "type": "text", "zh": "太疯了。像最疯的生理感觉之一。下飞机我晕乎乎。哇。"}, {"start_sec": 5072, "speaker_id": "g", "type": "text", "zh": "就像我刚去过另一个维度。太疯了。对，CK，试试那个。呃（笑）搞个屏幕朗读软件，一边读一边听。"}, {"start_sec": 5085, "speaker_id": "h", "type": "text", "zh": "听着，首先我期待试试。上一本我读的是帕特里克·里登基夫（Patrick Radden Keefe）。他写了本关于伦敦的书，我大约两天读完，几周前。精彩，但我老派地读。"}, {"start_sec": 5085, "speaker_id": "g", "type": "text", "zh": "如果边听大概六小时就能拿下。我不确定——我觉得会稍慢，因为我读得太快。我挺确定我能读。听的时候我也开到 3 倍速。"}, {"start_sec": 5108, "speaker_id": "h", "type": "text", "zh": "嗯，我们有相关问题。罗伯特说：「本和安德鲁，我享受本最近与阿里·伊曼纽尔的对话，但吃惊听到本说有声书开 3.5 倍速，阿里还回他常听 3 到 3.2 倍。真的？"}, {"start_sec": 5109, "speaker_id": "h", "type": "text", "zh": "我试着把最新一集《Sharp Tech》逐渐加快，撑到 2 倍就认输。我正常听速大约 1.3 到 1.5 倍。我是缺认知超能力，还是本训练自己能以越来越离谱的速度处理音频？"}, {"start_sec": 5109, "speaker_id": "h", "type": "text", "zh": "安德鲁，你站哪边？你常规播客/有声书听速是多少？」我是 1 倍党，所以不知道我的问题在哪。"}, {"start_sec": 5160, "speaker_id": "h", "type": "text", "zh": "我百分之百是 1 倍党。哦好。我也不喜欢消除停顿那种——我觉得是马可·奥曼（Marco Arment）在 Overcast 发明的。呃它压缩所有空白。"}, {"start_sec": 5172, "speaker_id": "g", "type": "text", "zh": "对我也别扭。对。呃不，因为那是我为娱乐听的东西。"}, {"start_sec": 5179, "speaker_id": "h", "type": "text", "zh": "看，这就是我的点。我只为娱乐听播客。我理解很多人听《Sharp Tech》是为信息，大概 1.5 到 2 倍速听。"}, {"start_sec": 5189, "speaker_id": "h", "type": "text", "zh": "不嘲讽那些人。那就是差别。所以呃我想要那种意味深长的停顿。（笑）"}, {"start_sec": 5200, "speaker_id": "g", "type": "text", "zh": "很好。所有开「消除静音」的人刚好错过那句。顺便，我知道这让你抓狂——所以我才对音质如此执着。音质越高——"}, {"start_sec": 5211, "speaker_id": "g", "type": "text", "zh": "你就能听得越快。我知道这对很多人重要。这一次，我不会开 3.5 倍。我只是在听。那是因为我同时在读。"}, {"start_sec": 5221, "speaker_id": "g", "type": "text", "zh": "所以你在为采访准备……嗯所以在路上我大概听 2 倍速。好。我绝对能，而且那只是我必须听完。嗯 3.5 若只听会太多，但因为我边听边读——"}, {"start_sec": 5239, "speaker_id": "g", "type": "text", "zh": "就还好，因为有双重感官。我没法解释这有多（笑）疯。但所以我觉得 3.5 倍只因同时在读才可能，否则我不确定能留住多少。"}, {"start_sec": 5252, "speaker_id": "h", "type": "text", "zh": "好。你对《Sharp Tech》该怎么被消费有偏好吗？漂亮的长停顿。（笑）"}, {"start_sec": 5262, "speaker_id": "g", "type": "text", "zh": "就是这样。呃，不。我一直……若人们加速听，我会暗暗冒犯。我整周在录播客。若有人 2 倍速听，我确实当回事。"}, {"start_sec": 5273, "speaker_id": "h", "type": "text", "zh": "我按 1 倍录的。对，正是。呃但再说，很多人听速很疯。所以——"}, {"start_sec": 5280, "speaker_id": "g", "type": "text", "zh": "嗯，如果我落后……不，所以我会按 1 倍听。我听每一集《Greatest of All Talk》。从一开始一直听。"}, {"start_sec": 5288, "speaker_id": "h", "type": "text", "zh": "很好。我有时会落后，然后不情愿地加快。我会追上，但会调到 2 倍。"}, {"start_sec": 5295, "speaker_id": "h", "type": "text", "zh": "哦天。哇。那伤到我了。老实说伤到了。你怎么样？你怎么样？我投入了那些小时。"}, {"start_sec": 5303, "speaker_id": "g", "type": "text", "zh": "对。我听（笑）每一集。你也许不知道。我是个相当忙的人，最近事情很多。"}, {"start_sec": 5310, "speaker_id": "h", "type": "text", "zh": "对。公平。公平。新录音室有很多摄像头要架。嗯所以还有几个问题。尼克说，这些是上周的后续——"}, {"start_sec": 5319, "speaker_id": "g", "type": "text", "zh": "暖通空调会改。我们是全力以赴，但总之继续。"}, {"start_sec": 5324, "speaker_id": "h", "type": "text", "zh": "呃尼克说：「伙计们，橄榄油推荐是什么？你们上周提到专门订的橄榄油。有给尼克的橄榄油推荐吗？」"}, {"start_sec": 5335, "speaker_id": "g", "type": "text", "zh": "对，我从我妈那儿拿的。嗯，抱歉，我忘了看这题。呃所以没准备。它……其实来自亚利桑那。"}, {"start_sec": 5342, "speaker_id": "h", "type": "text", "zh": "好。嗯，什么地方都有，国产。爱了。买美国货。嗯有意思，因为登录你的……看（笑）今天互联网就是烂。"}, {"start_sec": 5351, "speaker_id": "g", "type": "text", "zh": "我需要手机才能登完。就像呃……要等吗？我们可以下周再首发橄榄油推荐。"}, {"start_sec": 5362, "speaker_id": "g", "type": "text", "zh": "尼克，我保证会有橄榄油推荐。但你要浓郁那款……我不太爱他们其他的。买橄榄油很难，因为你永远不太知道质量。令人沮丧。我愿意为好橄榄油付钱，但——"}, {"start_sec": 5380, "speaker_id": "h", "type": "text", "zh": "不。呃我很爱橄榄油，尤其烧烤之类。橄榄油加盐就像答案。橄榄油质量真的重要。"}, {"start_sec": 5389, "speaker_id": "g", "type": "text", "zh": "确实。嗯所以对，那就是……我会给出编号。也许很快就有。很好。"}, {"start_sec": 5394, "speaker_id": "g", "type": "text", "zh": "但呃必须是浓郁的。好。呃就这一款特别的……不管它叫什么。"}, {"start_sec": 5401, "speaker_id": "h", "type": "text", "zh": "另一个问题。马尔科姆说：「伙计们，我爱这节目，但为记录起见，谷歌——」"}, {"start_sec": 5406, "speaker_id": "g", "type": "text", "zh": "皇后溪（Queen Creek）。皇后溪。有了。最糟……其实皇后溪橄榄磨坊挺令人失望。嗯他们以前卖 1.5 升袋装。"}, {"start_sec": 5416, "speaker_id": "h", "type": "text", "zh": "好。带嘴的。完美。我放橱柜里（笑），然后你可以上去，像酒袋一样——"}, {"start_sec": 5424, "speaker_id": "g", "type": "text", "zh": "对对。你就按一下。现在他们只卖瓶装。"}, {"start_sec": 5429, "speaker_id": "h", "type": "text", "zh": "好。所以我……我买最大瓶，因为我当然想有——"}, {"start_sec": 5434, "speaker_id": "h", "type": "text", "zh": "对我不是问题，因为我从没体验过橄榄油酒袋的魔法。但（笑）——"}, {"start_sec": 5439, "speaker_id": "g", "type": "text", "zh": "听起来绝了。不知道他们为什么拿掉。我很难过。皇后溪。好，我会查。一直在找好橄榄油。希望尼克也是。呃马尔科姆说：「爱这节目，但为记录：谷歌为周日球票（Sunday Ticket）付了 20 亿美元。那仍不到他们 2027 年资本开支的 1%。"}, {"start_sec": 5442, "speaker_id": "h", "type": "text", "zh": "那就是我们谈 AI 未来可能挤压体育转播权时我所指的。所有体育转播权加起来，跟这些公司砸在 AI 上的钱比都相形见绌。"}, {"start_sec": 5442, "speaker_id": "h", "type": "text", "zh": "所以呃好补充，因为上周录的时候我手头没这个数字。」"}, {"start_sec": 5476, "speaker_id": "h", "type": "text", "zh": "哦嘿，最后一个问题的时间。伊莱说：「我假定你们已经看到那些一代一遇的好评——《You Can See Everything》（你能看见一切）到处都是 100% 值得进影院。」"}, {"start_sec": 5490, "speaker_id": "g", "type": "text", "zh": "所以我看过一篇评论。好。呃我看过你本周《Sharp Tech》文章的预告帖——"}, {"start_sec": 5497, "speaker_id": "h", "type": "text", "zh": "那是你的影评。嗯你确实标了某段剧透，我直接略过，因为我显然永远不会（笑）看。呃第一——"}, {"start_sec": 5507, "speaker_id": "g", "type": "text", "zh": "你是很棒的写作者。太谢谢。嗯……所以爱这篇评论。第二，你夸得太满。"}, {"start_sec": 5514, "speaker_id": "h", "type": "text", "zh": "嗯。我其实可能会去看。哟哟哟。听着，我也许两年后还卡在《Kpop 猎魔女团》上。"}, {"start_sec": 5522, "speaker_id": "g", "type": "text", "zh": "你不是说你不会去看吗？我欠一个道歉给——"}, {"start_sec": 5526, "speaker_id": "h", "type": "text", "zh": "哦那太棒了。哦兄弟真棒。对。第一段你就像：我撒谎了。"}, {"start_sec": 5529, "speaker_id": "h", "type": "text", "zh": "对。上周播客上完全（笑）撒谎。我说：伊莱，我不是内森·菲尔德（Nathan Fielder）粉。不太想人生里再多伊丽莎白·霍姆斯。这个那个。周六到了，华盛顿特区在下雨。"}, {"start_sec": 5529, "speaker_id": "h", "type": "text", "zh": "已经有 48 小时人人说：天啊这电影太棒了。百分之百诚实：我进影院时预期自己不会喜欢，预期会跟共识唱反调——结果玩得很开心。"}, {"start_sec": 5560, "speaker_id": "g", "type": "text", "zh": "所以等等，这个 Mike Spikeen 什么……意外、病毒式、批评共识、ABC？对，我确实觉得有某种病毒式批评共识在成形，然后我坐下了。"}, {"start_sec": 5570, "speaker_id": "g", "type": "text", "zh": "也许你只是过气了。嗯也许我是。听着，我肯定在很多方面都过气了，但我坐在影院里。呃这是我对观众的推荐，不多剧透——"}, {"start_sec": 5571, "speaker_id": "h", "type": "text", "zh": "这不是一部你该等流媒体再看的电影，因为在满场影院看，而且票房数字疯狂。"}, {"start_sec": 5590, "speaker_id": "g", "type": "text", "zh": "有意思的是进影院看有两个理由。一是奇观，你想要大银幕和声音——"}, {"start_sec": 5597, "speaker_id": "h", "type": "text", "zh": "二是你想要集体观看体验。那才野。我通常去影院是因为想要奇观、声音和大银幕 IMAX 体验。已经很久……特区人很拘谨，不太会表达性观影。"}, {"start_sec": 5600, "speaker_id": "h", "type": "text", "zh": "已经很久没在影院里人们一起倒抽气、一起笑、一起体验。那提升了我的体验。而且它也不像我以前看过的内森·菲尔德作品。他的路径真诚得多。"}, {"start_sec": 5600, "speaker_id": "h", "type": "text", "zh": "嗯，我觉得他真的被伊丽莎白·霍姆斯困扰住了，结果三个小时都很棒。我没看手机。"}, {"start_sec": 5647, "speaker_id": "g", "type": "text", "zh": "对，他现在在对我做伊丽莎白·霍姆斯那种眼神。我刚注意到。嗯所以是的，我在一周前完全否定之后给出最高推荐。这局你赢了，伊莱。"}, {"start_sec": 5660, "speaker_id": "h", "type": "text", "zh": "呃你们去读那篇文章。很好。《Sharp Tech》。对，我们会放进节目笔记。"}, {"start_sec": 5665, "speaker_id": "h", "type": "text", "zh": "中间有明确的剧透提示。嗯再说一次，如果你像我，可以直接略过。呃——"}, {"start_sec": 5671, "speaker_id": "g", "type": "text", "zh": "整个剧透这件事。好。你……你是挺剧透派还是怎样？（笑）"}, {"start_sec": 5677, "speaker_id": "h", "type": "text", "zh": "嗯我喜欢做的是……那是热取。不。嗯对。好。那是你的责任。别上网。"}, {"start_sec": 5687, "speaker_id": "h", "type": "text", "zh": "不。人人一直在线。老实说，我觉得《You Can See Everything》有件事挺了不起：有些关键剧透，讨论电影的人在 Twitter 上公开谈剧透时非常克制。"}, {"start_sec": 5687, "speaker_id": "h", "type": "text", "zh": "大量使用「已编辑」这个词；我觉得有一种共同体精神：喜欢这电影的人想为还没看的人保住发现的体验——"}, {"start_sec": 5718, "speaker_id": "g", "type": "text", "zh": "而你反对那种共同体精神。共同体精神是：马上去影院看。"}, {"start_sec": 5727, "speaker_id": "h", "type": "text", "zh": "把你的屁股挪出去。公平。不，我觉得……好笑。你说话时我想：我真这么想吗？我只是（笑）随口抛出来。嗯因为……问题是我以前在台湾得录一切，好吗？尤其体育。"}, {"start_sec": 5742, "speaker_id": "g", "type": "text", "zh": "所以我得训练自己不上网；像 Dumb 那种我总会联系的人——只有一两次他意外剧透（笑）了什么。我想——"}, {"start_sec": 5757, "speaker_id": "h", "type": "text", "zh": "你被炒最短路径就是对背靠者的比赛说点什么。对。嗯所以呃（笑）嗯，所以我变得很擅长——"}, {"start_sec": 5767, "speaker_id": "g", "type": "text", "zh": "女人的最终垮台。不。所以有一面是我确实得学会打开 Twitter 练习纪律，关掉会聊那个的群通知，即便如此有时仍会破防。但有一点是：这是我的问题。我在台湾。"}, {"start_sec": 5768, "speaker_id": "g", "type": "text", "zh": "我凭什么强加？有种强加感——我也可以反过来玩——"}, {"start_sec": 5794, "speaker_id": "g", "type": "text", "zh": "像「别告诉我《黑道家族》（Sopranos）结局，我不想知道」。就像兄弟放松点。已经 30 年了（笑），对吧？人们仍会表现得像——"}, {"start_sec": 5805, "speaker_id": "h", "type": "text", "zh": "肯定有时效。我们大概未来几周某个点会剧透《You Can See Everything》，但人们这个周末就有机会去看。"}, {"start_sec": 5814, "speaker_id": "g", "type": "text", "zh": "不，时效是我看了的时候。对，公平。那可能是三年后。"}, {"start_sec": 5818, "speaker_id": "h", "type": "text", "zh": "没错。所以你也许能聊一阵子。呃不，我读了结尾。包括剧透我都读了，所以没事。"}, {"start_sec": 5824, "speaker_id": "h", "type": "text", "zh": "好。呃那就这样，本，我们下周继续。邮箱 email@sharptech.fm。"}, {"start_sec": 5831, "speaker_id": "g", "type": "text", "zh": "我们有好几页 AI 展示与讲述。你想做一期 AI 展示与讲述吗？"}, {"start_sec": 5835, "speaker_id": "h", "type": "text", "zh": "不，算了。该收了。我们时间不够。你说你得去机场。我们还得做订阅者专属段落。所以——"}, {"start_sec": 5843, "speaker_id": "h", "type": "text", "zh": "确实。所以周日音频 feed 会有订阅者专属邮袋，不上 YouTube。想要就订阅。"}, {"start_sec": 5850, "speaker_id": "h", "type": "text", "zh": "我们下周五回 YouTube。这里全新纪元。今天跟你坐沙发很棒，等不及下周再来。不过给节目发邮件。我们比以往更需要邮件。"}, {"start_sec": 5862, "speaker_id": "g", "type": "text", "zh": "没错。我们在这个新时代产出比以往更多内容。好。回头聊。"}, {"start_sec": 5868, "speaker_id": "g", "type": "text", "zh": "回头聊。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

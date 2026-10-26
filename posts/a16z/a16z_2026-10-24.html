@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>亚马逊 CEO 安迪·贾西谈 AI 时代需要的基础设施</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="h">主持人（a16z）</option><option value="j">安迪·贾西（Andy Jassy）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">a16z</span><span class="pill">2026-10-23</span></div>
+<h1>亚马逊 CEO 安迪·贾西谈 AI 时代需要的基础设施</h1>
+<p class="sub">嘉宾：安迪·贾西（Andy Jassy，亚马逊 CEO） · 约 61 分钟（3639 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=-YMMRQ1qscI" target="_blank" rel="noopener">https://www.youtube.com/watch?v=-YMMRQ1qscI</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>a16z</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-23</dd></div><div class="meta-row"><dt>时长</dt><dd>约 61 分钟（3639 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；普通 yt-dlp 遭 429 后经 yt-dlp + Chrome cookies 路径拉取），中文为逐句全文翻译；caption_source=yt-dlp-chrome-cookies</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>-YMMRQ1qscI</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>亚马逊 CEO 安迪·贾西谈 2200 亿美元资本开支仍吃不满的 AI 算力需求、数据中心政治争议、Trainium/Graviton 芯片路线、对 Anthropic/OpenAI 的深度伙伴与投资，以及用 AI 重塑组织与 Alexa 等消费体验。</p>
+<h3>核心要点</h3><ul><li>2026 资本开支约 2200 亿美元仍留需求在桌上；26/27 基本售罄，28 也卖掉一大块；AI 业务三年年化超 250 亿美元</li><li>数据中心提前约两年、服务器/网络仅提前数月；供应约束预计不止 2027；不挤压核心客户去腾给愿出天价的新买家</li><li>反数据中心叙事 vs 现实：电网投资欠账、用水对比被夸大；强调社区税收与 Built Together</li><li>需求呈杠铃：实验室/爆款应用 vs 企业避成本提效；中间大量企业生产负载尚未渗透式用推理</li><li>Annapurna→Graviton/Trainium 纵向整合推性价比；Bedrock 与 Anthropic/OpenAI 深度伙伴并投资</li><li>组织将更小、更跨职能；应用须可被代理分钟级更新；Alexa 等体验要推倒重想象而非仅增量</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：约 61 分钟深度访谈，关注云/AI 基础设施、资本开支与组织变革者优先。</p>
+<h3>适合人群</h3><p>云与 AI 基础设施从业者、企业 CTO/技术负责人、关注亚马逊战略与算力供需的投资者</p>
+</section>
+<div class="legend"><span class="spk-0">主持人（a16z）<em>主持</em></span><span class="spk-1">安迪·贾西（Andy Jassy）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<div class="turn spk-1 guest" data-spk="j"><div class="label"><span class="badge" title="安迪·贾西（Andy Jassy）">贾西</span></div><div class="content">
+<p>即使今年投入 2200 亿美元，我们仍有相当一部分需求没吃满。我们总会留一部分给按需（on demand），但 2026 年显然已经售罄，2027 年也基本售罄，2028 年也卖掉一大块。金融市场在说：「哦，世界上没那么多钱来给这些东西融资。」我们今天做的一切——</p>
+<p>股市、银行、医疗——都在用数据中心。我们的工作是尽量把容量做上去。我们有机会帮到多得多的客户体验，让人们每天的生活更好、更轻松。那些大实验室几乎愿意为</p>
+<p>电力、制冷、芯片付任何价钱。那或许我们该把老玩家买下来、再卖给新玩家——因为他们愿意出天价。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（a16z）">主持</span></div><div class="content">
+<p>安迪，欢迎来到播客，很高兴请到你。</p>
+<p>谢谢邀请。你执掌亚马逊已五年，成绩很多：2200 亿美元资本开支、AWS 增长约百分之二十几。相对 2021 年你正式接任 CEO 时，你怎么看 2026 年亚马逊的雄心？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="j"><div class="label"><span class="badge" title="安迪·贾西（Andy Jassy）">贾西</span></div><div class="content">
+<p>2021 感觉像十年前那么远。世界变得很快。和 2021 比，我们整体营收大概高了约 80%，AWS 业务差不多大了近三倍，广告收入大约是两倍半。业务长了很多。我觉得发生了几件关键的事。上任后很快——</p>
+<p>正值疫情尾声——零售业务出现了真正的「服务成本」挑战：我们用大约 18 个月，把过去 25 年建起来的履约网络规模翻了一倍；又用大约 20 个月，把「最后一公里」运输网络建成</p>
+<p>UPS 那种体量。建得这么快，总会留下大量未优化之处，履约网络的服务成本并不理想，带来很多挑战和焦虑。我记得上任大约一年或不到一年时，</p>
+<p>很多人说：「多糟的时机、多倒霉。」回头看，其实是很好的时机，甚至是福气——它迫使我们去考虑许多本来可能多年都不会碰的事，</p>
+<p>而对客户和业务都是好主意。履约网络里最大的一件，是把原本扁平的全美网络区域化：把货放到离客户更近的地方，既因为运输距离变短而降低服务成本，</p>
+<p>又把货送到客户手里更快。在服务成本承压、重新审视最根深蒂固的信念时，这件事真正释放了配送速度和零售需求，也是我们那块业务增长这么快的重要原因。</p>
+<p>当然很快 AI 也进一步爆发。AI 并不新——我们做机器学习很久了，也曾有过多次「这就是拐点」的浪潮；但到 2023 年，生成式 AI 带来了</p>
+<p>巨大差异。那时 AWS 增长已经很快：功能广度明显领先，运营表现与安全更强，合作伙伴生态也不同——我们是明确的领导者。我们当时觉得这块业务</p>
+<p>长期（比如十年维度）可以做到几千亿美元营收。现在再看 AI：我们所知的每一种客户体验都会被推理与 AI 重塑。我们其实认为 AWS 不仅在快速增长——上季度我们</p>
+<p>在约 1690 亿美元年化营收规模上同比增了 36.7%。今天的机会非常惊人。再叠加上新业务的种子：团队把 Prime Video 做成了</p>
+<p>大型且盈利的业务；我们在建的低轨卫星 Amazon Leo；与 Zoox 的自动驾驶网约；医疗业务；机器人方向——我觉得我们有机会在更多客户体验上帮到更多人，让他们的</p>
+<p>每天生活更好、更轻松。「让客户每天更好、更轻松」这条使命，把公司各条线真正统一起来。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（a16z）">主持</span></div><div class="content">
+<p>跟进几个问题。你提到履约网络建得那么快会有些低效、粗糙，内部也有焦虑。作为 CEO，你怎么沟通这件事，又不降低文化标准？亚马逊以卓越、运营效率、节俭著称，</p>
+<p>但你们却在说：我们要建成 UPS 那种规模。怎么调和？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="j"><div class="label"><span class="badge" title="安迪·贾西（Andy Jassy）">贾西</span></div><div class="content">
+<p>有意思的是，我们有一套很多人知道的领导力原则——16 条。它们确实规范团队运作与文化，但其中几条彼此是张力关系，有时会让人困惑；现实是这正反映了</p>
+<p>真实世界：没有什么是完全干净的，你总在做权衡。回到我们决定如此激进、快速扩建履约与最后一公里网络的时候，团队面对的问题是：我们知道走这么快会</p>
+<p>非常难，可能比慢一点更贵，也可能不如慢一点优化得那么好。</p>
+<p>但客户和卖家真的需要——我们要不要站在「赋能」这一边？回想疫情早期，实体店几乎都关了。看亚马逊在每个人生活里扮演的角色——非常关键。所以我们得问自己：</p>
+<p>是快速建设、或许不够最优，换来服务那些也在求生存的客户与卖家，还是不这么做？这是首先要做的决定。我们几乎一贯选择站在客户一侧。</p>
+<p>然后在建设过程中很明显：计划中并非一切顺利。履约团队比公司多数人更多在办公室，但仍有很多人要参与大量设计与规划——</p>
+<p>还要评估。人分散各地、远程办公，你要在「行动偏好/速度」与「不懈的高标准」（按计划成本结构、交付与设计）之间做张力管理。</p>
+<p>你必须做权衡。我们选择站在客户一侧、快速行动服务卖家与消费者，并预期会有一定清理工作。我们是否精确预见地形会变成后来那样？没有。有些我们没优化好的东西，事先也未必预见。</p>
+<p>但如果你有好的指标，并且是说真话的文化——把数据摆上台面、把问题摆上台面——这是我们文化里另一块很重要的部分。</p>
+<p>彼此直接，不允许粉饰问题。有这种文化，指标和讨论里问题会相当明显。然后你得搞清楚怎么改进：哪些是小的生产力问题，哪些是</p>
+<p>架构级问题。容量装上之后，我们回去真正重架构了网络关键部分——对当时那个团队，这件事可能原先排在优先事项第八九位，后来变成拿下速度与成本组合的更高优先级。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（a16z）">主持</span></div><div class="content">
+<p>很有意思。你当年启动 AWS 时有点「建好了他们就会来」：建基础设施再出租——他们得来，否则你就麻烦大了。</p>
+<p>现在是更大尺度：你和其他人——你肯定是最大玩家之一——在以极快速度建数据中心与芯片产能，以至于金融市场说「世界上没那么多钱给这些融资」，我们也刚看到</p>
+<p>核心转贷债市、股市等的紧张。需求这么陡、你增长这么快，扩到多少算太多？还有供应链争夺——制冷、电力、芯片——你怎么判断？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="j"><div class="label"><span class="badge" title="安迪·贾西（Andy Jassy）">贾西</span></div><div class="content">
+<p>很好的问题。真希望有个方程能把它变简单，能省团队很多时间。我会说，云的第一波、我们启动 AWS 时，确实有一点</p>
+<p>「不知道人们会不会用」——建好了他们就会来。但公司内部信号很好。那是 2000 年代早期，我们觉得相对已经够快，但产品团队仍远达不到我们想要的速度，</p>
+<p>我们搞不懂为什么这么慢。结果发现产品团队 70%–80% 时间花在不构成差异化的基础设施上，只有约 20% 花在真正差异化产品上。每个团队都在重复造轮子。</p>
+<p>所以 AWS 最初是为了让我们自己内部动得更快。我们想：如果建成一套高规模、高可用、低成本、高度灵活的积木服务——计算、存储、数据库、内容分发、消息等——我们就能在</p>
+<p>消费业务里建得更快。然后我们说：我们相对技术不错，别的公司大概也有同样问题。甚至对外发布前，内部就有大量团队感兴趣，我们知道方向对了。但没人预期到</p>
+<p>外部会涨得那么快。AI 侧也一样：一次次有人说「这次真的来了」。生成式 AI 浪潮前六七年，人们也觉得是 AI 的时刻。我们建过一整套 AI 服务，在 AWS 侧其实是</p>
+<p>不错的业务，但完全不像现在。AWS 早期我们觉得涨得很快、感觉很好——三年后大概是 6000 万美元年化。而生成式 AI 浪潮的前三年，我们 AWS 里光 AI 业务</p>
+<p>年化就超过 250 亿美元，快了几百倍。从未见过这种东西。问题就变成：要投入多少资本开支去追这个机会？我们说过 2026 年预计大约</p>
+<p>花 2200 亿美元资本开支。顺便说，我记得大约 15 年前领导层早餐时，我们还不敢相信电信公司能花 500 亿美元资本开支——怎么花那么多？这些数字确实令人瞠目。而且</p>
+<p>即使今年花 2200 亿，仍有相当一部分需求吃不满。帮我们的是：对客户需求能见度很高。AWS 资本开支与现金周期大致两块：</p>
+<p>数据中心投资，以及服务器与网络投资。数据中心要提前大约两年投入，才能放服务器开始变现；好处是只投一次，是大约 30 年可用寿命的资产，</p>
+<p>但要提前几年。服务器与网络设备视组件而定，通常只提前几个月——所以扣扳机前对客户需求能见度很高。如果后来不需要填满那些数据中心，你就</p>
+<p>不会买服务器网络设备；平均大约三年打平，当前可用寿命约五到六年，我们多数交易大约是五年期。当你同时建这么多数据中心、建得这么快，</p>
+<p>你会花很多资本，那些年份的自由现金流会承压，直到几年后这些数据中心都上线、都在变现，并从服务器与网络投资里把钱收回来。</p>
+<p>由于现金周期，高速增长早期会有逆风。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（a16z）">主持</span></div><div class="content">
+<p>说到数据中心——你启动 AWS 时大概最想不到它会变成政治议题，但现在就是。尤其在美国，不知道你有没有同感：世界上好像没有哪里像美国政治那样反数据中心。这怎么影响你们？反数据中心的论点有没有道理？</p>
+<p>它又如何影响你在这里以及其他区域建什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="j"><div class="label"><span class="badge" title="安迪·贾西（Andy Jassy）">贾西</span></div><div class="content">
+<p>我给你一些我认为重要的语境：今天我们做的几乎一切——股市、银行、医疗、</p>
+<p>娱乐、购物、教育、商业、网约车——都是数字驱动的，都以很深的方式使用数据中心。<span class="tag">【笑声】</span>没有人会说「我反自己、不想再用手机了」。而这还是 AI 之前。AI 是我们这个时代最大的技术变革——考虑到我们经历过互联网、云和移动，这话分量不轻。</p>
+<p>现实是：支撑我们刚才说的 AI 侧快速增长所需的基础设施扩建，在这个国家大概只有 1950 年代建公路桥梁能比——那就是我们正在经历的量级。</p>
+<p>这个国家——以及世界整体，但我特别说美国——承受不起不建数据中心的后果，否则会发现另一个国家比如中国确立全部领导力与规范；无论国内还是全球，我想我们都不会喜欢那种结果。所以我们必须</p>
+<p>建数据中心。我们作为行业能不能做得比现在更好？当然可以——发生得很快，大家一起学。但现在有不少我视为介于迷思与不实之间的说法在传播，</p>
+<p>因为这是那种容易找到「恶棍」的议题，政治上、机会主义上喜欢指着某个靶子。举例：高尔夫产业或杏仁种植业的用水量远高于数据中心。</p>
+<p>一个数据点：高尔夫球场用水量是我们全部数据中心的约 200 倍；它们两天的用水超过我们数据中心一年的用水。污染话题也类似：你登记新站点并有备用发电机时，必须按</p>
+<p>「若全部发电机全速全时运行」来登记排放——但那几乎从不发生；备用机一年大概只跑 0.1% 的时间，大约 10 小时维护。电价也一样：看我们有大量数据中心存在的不同地区，有的电价升了、有的降了，真正的问题是</p>
+<p>作为国家，我们没有按需要投资电网基础设施。增长本来就会来，总会有东西把投资需求推过临界；碰巧 AI 增长又快又猛，成了那根稻草。一旦真正把容量建起来，多数地区</p>
+<p>会像印第安纳、佐治亚或密西西比那样，费率走平或下降。还有人们常忘的：在这些地区，大型数据中心提供商缴很多税。比如印第安纳圣约瑟夫县，我们大约缴了 30 亿美元税，</p>
+<p>社区拿到钱可以花在真正重要的事上——社区也有收益。我们还做了 Built Together 这类项目，刚承诺未来五年在有数据中心布局的社区再投入约 10 亿美元。</p>
+<p>必须持续与社区合作，必须是公私伙伴关系；但这场扩建对国家未来太重要了。</p>
+<p>想想如果当年没建公路桥梁，国家的经济繁荣与能力会怎样——要把事情放在视角里，并在建设所在社区做伙伴。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（a16z）">主持</span></div><div class="content">
+<p>回到资本开支：2200 亿大约是每天 6 亿。我想了解你现在怎么看 AI 需求。</p>
+<p>线下我们聊过你把它看成杠铃结构——能否给当前 AI 需求定个位？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="j"><div class="label"><span class="badge" title="安迪·贾西（Andy Jassy）">贾西</span></div><div class="content">
+<p>第一层语境就是我前面说的：AI 又大又快，难以置信——前三年比 AWS 起步快几百倍；我们 AWS 里光 AI 收入三年就到 250 亿美元年化。所以非常</p>
+<p>大，但需求形态确实是杠铃。一端是 AI 实验室，在吞噬我从未见过的巨量算力，再加上少数跑出来的应用：ChatGPT、Claude Code 之类。另一端是企业，主要把 AI 用于</p>
+<p>避成本与提效：自动化客服、反欺诈、业务流程自动化。</p>
+<p>杠铃中间是企业当前的生产工作负载——很多已在用 AWS、已在用推理。</p>
+<p>但我会说绝大多数仍未以渗透式方式使用。我认为那将是 AI 使用绝对规模最大的一段。每年都在更多发生，但我很难精确预测速率。</p>
+<p>若拉远看五到七年——而且我不觉得会等到五到七年才发生，也从来不是一蹴而就——我认为相当多、甚至大多数我们今天使用的企业应用，</p>
+<p>都会以渗透式方式使用推理。前面还有大量增长。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（a16z）">主持</span></div><div class="content">
+<p>你怎么看即将到来的数据中心/芯片/内存等短缺——尤其 2027 年，因为大家现在都在建，但不一定年底就能就绪，而需求完全没放缓。面对</p>
+<p>大实验室几乎愿为电力、制冷、芯片付任何价钱的环境，以及那些长期按常规费率租用、跑日常业务的老客户——有没有商业压力去想：</p>
+<p>或许该把老客户买断、腾给新客户，因为新客户愿出天价，而老客户我又没法公平地翻倍涨价？你怎么想？</p>
+<p>这很怪：有些客户跟了你 20 年，做着你说的大概要走向推理的事；又有新玩家胃口无穷，什么都买。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="j"><div class="label"><span class="badge" title="安迪·贾西（Andy Jassy）">贾西</span></div><div class="content">
+<p>好问题。我们不完全按你说的方式想，但我完全理解。今天数据中心和电力就那么多，内存也就那么多；我不认为短缺会在 2027 年结束。</p>
+<p>这也是为什么我觉得资本开支还能投更多、且不算浪费：2026 显然已售罄，2027 基本售罄。我们总会给按需、给 Bedrock 推理或 EC2 留一部分，但</p>
+<p>大块基本售罄，2028 也卖掉一大块——需求太大了。AI 业务和我们所说的核心业务（非 AI）现在都在高速增长。如果你只有一定量</p>
+<p>内存，就得决定多少分给 HBM、给 AI 加速器，多少分给 DRAM、给核心——这些是真实权衡。但我们处理这问题的起点是以客户为中心。对我们来说，</p>
+<p>我们在 AWS 与客户有很深的关系与伙伴关系。就像疫情期间：竞争对手想在季度内优化、尽量推收入，而企业当时在做成本优化；</p>
+<p>我们走了不同路径——主动让前线去帮客户想办法降成本，即使我们知道短期中期会压低我们收入。我们的强烈信念是：长期帮客户成功，</p>
+<p>我们的业务会跟着来。核心业务也一样。你当然可以算账：稀缺下新客户愿出更高价，把核心客户挤出去——但他们在 AWS 上跑业务、跑</p>
+<p>全部核心应用。我们不会挤压客户，会确保他们能扩展。然后我们的工作是尽量把容量做上去，让核心客户和所有想在 AI 侧用我们的客户都能用，</p>
+<p>并且对我们经济上也可持续。我真希望能告诉你供应约束只是 2027 的问题——</p>
+<p>我觉得不同组件上会持续好几年。我们大概比任何人都在放更多容量，因为我们非常在意继续做基础设施与 AI 领域的显著领导者。但就像我说的，今年花 2200</p>
+<p>亿，我们还能花更多，中长期也不算浪费资本，而且大概仍吃不满全部需求。眼下需求就是惊人。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（a16z）">主持</span></div><div class="content">
+<p>说到这：你 2015 年收购了 Annapurna Labs——那时大概还没怎么想 2025 这种巨型 AI 需求，因为 2015 年几乎没有。是什么驱动了那个决定，它在新世界里</p>
+<p>又如何兑现？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="j"><div class="label"><span class="badge" title="安迪·贾西（Andy Jassy）">贾西</span></div><div class="content">
+<p>Annapurna 团队是我合作过最有才华的团队之一，也是亚马逊史上最好的收购之一，甚至可能是最好的。我们预见了一些东西，但收购 Annapurna 并不是为了 AI 芯片本身。到了一定规模，你能看到超大规模客户的模式：如果能纵向整合、自己建某些能力，就能给客户提供更多</p>
+<p>价值，也给业务更好的经济性。对我们来说，Annapurna 起步是在核心 EC2 服务器上：我们觉得虚拟化、网络、安全、存储吃掉了太多服务器资源，想把服务器尽可能接近 100% 留给客户</p>
+<p>做计算。收购前我们就在和他们做这块网卡，把那些组件卸载到网卡上。我们很喜欢这个团队、也很喜欢一起做的产品。我们意识到</p>
+<p>它几乎会进每一台 EC2 服务器——后来确实进了我们所有服务器。最初买它，是因为它会成为计算能力的核心能力；又因为团队做芯片太强，觉得他们大概也能做别的芯片。那时我们与英特尔有很深的伙伴关系——现在也有——但英特尔几乎拿走了全部 CPU 份额。当伙伴几乎垄断份额时，他们往往不优先想性价比，而是想别的功能</p>
+<p>去拿更多份额、推更多收入。这完全可以理解，是市场动态的一部分，也是创新者窘境会出现的原因之一。我们试图推性价比，很难得到关注。但客户想把越来越多本地负载迁到云，并要更好性价比。于是下一步我们让</p>
+<p>Annapurna 团队去做 CPU——他们做出了 Graviton。今天我们前一千大 EC2 客户里约 99% 在广泛使用它，</p>
+<p>性价比大约比其他 x86 处理器高 40%。对客户和业务影响巨大。几年前我们在 AI 空间又看到同一部电影：一个非常强的主导供应商，我们有很深伙伴关系、未来可预见也会有，</p>
+<p>但他们有巨大市场、很多产品和优先级；我们知道客户需要更好性价比，于是在 Annapurna 里拉出独立团队做 AI 加速器——我们叫 Trainium——同样大约高出 30%–40%</p>
+<p>可比处理器的性价比。说到刚才杠铃中间那段：要让更多企业生产应用用上推理，有几件事会改变——</p>
+<p>一部分是人才是否会做后训练与微调，组织肌肉是否知道优先攻什么、怎么攻；但很大一块是推理成本。过去几年推理成本降了不少，</p>
+<p>但依我看仍贵一个数量级，远未到可渗透式使用。因为如果你让企业把今天用 CPU 的应用重写成用 AI 加速器，若成本差很大，他们要从 AI 加速器拿到的增量收益门槛就高得多，才愿意重写。</p>
+<p>过去几年推理成本降了不少，但依我看仍贵一个数量级，远未到可渗透式使用。因为如果你让企业把今天用 CPU 的应用重写成用 AI 加速器，若成本差很大，他们要从 AI 加速器拿到的增量收益门槛就高得多，才愿意重写。</p>
+<p>若能把推理成本打下来，门槛就低得多——所有应用都会因 AI 加速器与推理变得更好、更聪明、更强。把推理成本打下来，是客户能渗透式用 AI 的关键一块，而我们的芯片业务是其中重要部分。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（a16z）">主持</span></div><div class="content">
+<p>是的。就我们公司内部经验来说，也可以很贵——有个员工最近做正经工作花了 200 万美元。</p>
+<p>我当时想：好吧，推理没那么便宜。你做了些投资，尤其是 Anthropic 和 OpenAI——大概 Anthropic 约 180 亿、OpenAI 约 500 亿量级。是什么让你想投？</p>
+<p>加上英伟达等类似投资，华尔街一度紧张，想起互联网泡沫坏日子。特别是他们也是客户——为什么这说得通？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="j"><div class="label"><span class="badge" title="安迪·贾西（Andy Jassy）">贾西</span></div><div class="content">
+<p>这两家团队和公司都非常惊人；至少营收增速我们几乎没见过类似的，难以置信。对我们来说是组合：</p>
+<p>这些团队是谁、他们建的技术与模型、以及一些应用；我们对 AI 变革性的信念；我们相信长期他们会是这个空间最成功的公司之二——当然不是人人都是赢家，但会有很多成功公司，我们相信这两家会是其中之二；再加上我们合作如此紧密。先说合作更久的 Anthropic：我们有大量客户</p>
+<p>在 Bedrock 与我们的推理服务上跑 Anthropic。我认为客户在 Bedrock 上跑 Anthropic 最成功。我们在芯片上也有很深合作——他们在 Trainium 上建了一段时间，对 Anthropic 很好，</p>
+<p>对我们的 Trainium 团队也很好，彼此学到很多。所以伙伴关系很深：对 AI 未来的信念、对这些公司的信念、加上伙伴关系，使得作为伙伴关系一部分去做投资说得通。</p>
+<p>OpenAI 侧则是：太多客户想在 AWS 上用 OpenAI，却因他们先前商业安排做不到。很长一段时间两家互相尊重、也想合作。经过一系列对话和几个月，</p>
+<p>能够在 Bedrock 上跑 OpenAI；我们一起做了有状态运行时环境这个独特产品——我认为未来所有代理都会这样建，你需要状态。Anthropic 对 Trainium 做了多年、多吉瓦级承诺；</p>
+<p>我们就是相信它会是长期最成功的公司之一。这些都让更深的伙伴与投资说得通。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（a16z）">主持</span></div><div class="content">
+<p>转到你们怎么用 AI 建公司。你说过 Bedrock 团队用 6 名工程师、76 天重建了推理引擎，以前大概要 40 人一年——差别很大。亚马逊以「两个披萨团队」闻名。面对技术变化，你现在的组织设计思考是什么？</p>
+<p>这些年我们变得极度专业化——设计师、产品经理、前后端——现在突然人人都像文艺复兴通才。你怎么想组织设计？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="j"><div class="label"><span class="badge" title="安迪·贾西（Andy Jassy）">贾西</span></div><div class="content">
+<p>我同意。Bedrock 那段经历让这里所有人都大开眼界；我们花很多时间内部分享，激励并提醒大家什么是可能的。我 29 年前进公司，</p>
+<p>从助理产品经理做起，当时大概管五个产品。公司做大、产品做大之后，产品经理往往只做一个产品、甚至只拥有其中一片，比如只做定价——人人更专业化，并接受「做大成功产品就只能这样」。</p>
+<p>但看 AI，完全不是这样。就上周：我们在消费业务围绕代理做投入，周四敲定一个很喜欢的想法要试，</p>
+<p>周末四五个人就做出大约 80% 可交付的可运行原型——</p>
+<p>那是完全不同的世界。对组织未来：第一，未来做今天这些工作的人会更少。看看有多少编码在代理化完成，客服、商业智能、研究；再快进想电子表格怎么建、律师要多少——</p>
+<p>不是没人，但不会像过去业务变大时往里扔那么多人。会有不同的新工作，有些我们知道、有些还不知道，会随 AI、机器人与太空出现。但做今天这些事的人会更少。</p>
+<p>团队会小得多：更小、能跨职能的人，不再只拥有一条窄缝——模型能在很多职能上带到 80%。</p>
+<p>每个团队会从比过去先进得多的起点出发，因而能更开阔、更快地发明。也有很多必须变的地方。今天起步的创业公司，大多数从一开始就是</p>
+<p>代理原生、AI 原生；经营已久的大公司都得学会以同样节奏建设。有些会搞明白；有大业务、强能力与忠诚客户时，有些会很慢，更容易被创业公司打穿。我预测公司几乎得重写全部代码以具备代理能力，</p>
+<p>允许代理更新不同代码片段，并建好约束。只看安全：过去一两个月对模型的紧张多聚焦更「科幻」的场景——它们可能发生。邪恶僵尸网络接管一切？大概可能；给机器人注入恶意？也可能。</p>
+<p>我觉得行业与公私部门会一起解决。但得从关注眼前的事开始。</p>
+<p>有意思的是：关于更近端风险——其实就是网络安全——讨论得还不够。</p>
+<p>这些模型能发现比以前、比人类找到的多得多的漏洞。快进看：应用应对迫在眉睫威胁必须是分钟级。</p>
+<p>今天发现漏洞、分类、打补丁；即使前面快，多数公司部署仍慢，因为依赖多。未来必须分钟级部署。若应用不能被代理更新，新世界几乎没机会。所有组织都会被重塑；优先者会好得多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（a16z）">主持</span></div><div class="content">
+<p>是的。我们作为行业从大系统到嵌入式设备，安全架构做得并不好；清算日到了。好消息是这对新公司、新努力是大机会。</p>
+<p>思想实验式威胁或许会发生或许不会，但这是清晰而当前的威胁。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="j"><div class="label"><span class="badge" title="安迪·贾西（Andy Jassy）">贾西</span></div><div class="content">
+<p>几乎每一个 AWS 侧的合作伙伴与客户、任何规模的公司，都在担心安全。我们有专业服务在帮很多客户，也建了 Continuum 去识别漏洞并生成补丁——但说易做难，因为</p>
+<p>很多公司和工程师有时觉得盯安全不够兴奋，容易拖到出问题再管。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（a16z）">主持</span></div><div class="content">
+<p>保护真正重要的数据时，拖着是坏主意。多数公司里，最糟的安全情况往往是极小众安全工程师不爱和其他工程师合作、又是稀缺资源——结果多数软件公司写软件时的安全实践其实不够好。这必须变；好消息是有工具能帮。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="j"><div class="label"><span class="badge" title="安迪·贾西（Andy Jassy）">贾西</span></div><div class="content">
+<p>是的。好消息部分正如你说：渗透测试人手有限、覆盖有限；模型加自动化能更好测整个攻击面，找到你否则可能碰运气才发现的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（a16z）">主持</span></div><div class="content">
+<p>是的。我们作为行业，从大系统到嵌入式设备，安全架构做得并不好；清算日到了。好消息是这对新公司、新努力是大机会。</p>
+<p>思想实验式的威胁或许会发生或许不会，但这是清晰而当前的威胁。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="j"><div class="label"><span class="badge" title="安迪·贾西（Andy Jassy）">贾西</span></div><div class="content">
+<p>几乎每一个我们在 AWS 侧谈的合作伙伴与客户、任何规模的公司，都在担心安全这块。我们有专业服务实践在帮很多客户，也建了 Continuum 服务去识别大量漏洞并生成补丁——但说起来容易做起来难，因为</p>
+<p>很多公司和工程师有时觉得盯安全不够兴奋，容易拖到出问题再管。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（a16z）">主持</span></div><div class="content">
+<p>如果你要保护真正重要的数据，拖着是坏主意。而且多数公司里，回到前面说的专业化，最糟的安全情况往往是：极小众的安全工程师不爱和其他工程师合作，又是稀缺资源——</p>
+<p>结果多数公司、多数软件公司写软件时的安全实践其实不够好。这显然必须变；好消息是我们有工具能帮。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="j"><div class="label"><span class="badge" title="安迪·贾西（Andy Jassy）">贾西</span></div><div class="content">
+<p>是的，好消息部分正如你说：你必须雇渗透测试。</p>
+<p>但安全人就那么多、能覆盖的应用就那么多；模型加上自动化，能更好渗透测试整个攻击面，找到你否则可能碰运气才发现的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（a16z）">主持</span></div><div class="content">
+<p>我们看市场时觉得有意思：AI 能做很多事。一是砍成本。</p>
+<p>你可以减少会计、律师之类。现在甚至有风投说要买老公司再砍成本。这对我们从不那么有吸引力——如果你的主意就是这个，说明主意太少。</p>
+<p>二是去做世界从未见过的东西，那超级兴奋。还有第三种：你们对 Alexa 做的——已有成功产品，却说要从头重想整件事，因为有了新平台。你怎么走到那一步、什么时候说得通？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="j"><div class="label"><span class="badge" title="安迪·贾西（Andy Jassy）">贾西</span></div><div class="content">
+<p>这个三分法很有意思。</p>
+<p>组织会像我们刚说的那样真正改变、更精干；做对了，会让真正好的建设者和小团队去建你说的第二桶——人们没见过的东西。当你有过</p>
+<p>我前面说的那种体验——四天把新想法做到八成——会激励人把更多闲暇与思维周期花在新想法上。</p>
+<p>对我来说，这是 AI 最令人兴奋的部分之一。但我也认为：对已有大规模成功客户体验的公司，如果把 AI 主要当成增量改进体验，他们三到五年后很可能不会拥有打赢的体验——</p>
+<p>因为我们所知的每一种体验，哪怕最难想象会变的，几年内都会因 AI 变得显著不同。</p>
+<p>所以若想不止增量，就得让团队用今天全部新技术（比如 AI）去重新想象这些应用长什么样。对 Alexa，我觉得相当明显必须这么做。</p>
+<p>当年 Alexa 的「大脑」在当时很有发明性，但生成式 AI 让大脑能做到的事完全不同——若要长期提供出色客户体验并保持相关，必须重接 Alexa 的大脑。这相当</p>
+<p>明显。即便明显，做起来仍难：团队与自己建的东西相连、为之自豪，对什么管用什么不管用有血汗伤疤；要他们完全推倒重来、重新想象，</p>
+<p>需要时间——他们会说「我们不是这么做的」「试过不行」。更难的是那些不那么明显的体验：零售、Prime Video、Fire TV、Prime Music——</p>
+<p>技术是否已有好得多的解法不那么一目了然，但我相信每一个业务都要重塑，我们也有团队在做完全重新想象的版本。一开始就会做对吗？大概不会，</p>
+<p>我们会迭代进去；但已经冒出各种我们认为很有吸引力的新想法与客户体验。有趣的是一场赛跑：你是要一个几乎像新 App 的完全不同体验，还是那些进展够快、一块块加进现有体验，在接下来两三年里实质改变整体客户体验。但我认为：若想继续做成功的领导者，每一种体验在未来几年都必须不同。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（a16z）">主持</span></div><div class="content">
+<p>这是很难的领导力问题。让我想起刚当工程师时，和人争论某事，老板说：「Ben，你要明白——第一行代码写出来之前，一切都可以讨论；写出来之后，就成了宗教。」<span class="tag">【笑声】</span>我猜你在</p>
+<p>Alexa 上也经历过。有意思的是：当初建那东西的全部知识与经验，你现在说可以放下很多、走进新世界；客户侧也会有</p>
+<p>一大群人热爱当前体验。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="j"><div class="label"><span class="badge" title="安迪·贾西（Andy Jassy）">贾西</span></div><div class="content">
+<p>对。几乎每一次大转型——至少我的经验——都要求巨大变化：技术、产品、客户体验与商业要素必须足够有说服力，人们才愿意改；即便如此也不会自动发生，是巨大的变革管理。从本地迁到云也一样：很多基础设施负责人为自己建的东西自豪，了如指掌、处在行动中心，</p>
+<p>不想学新东西。重塑所有客户体验也会一样。我们都为过去十年建的体验自豪，</p>
+<p>都有一百件能让它更好、让我们兴奋、占满清醒时间的事——要去想「我怎么完全从零开始」，在智识与情感上都很难。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（a16z）">主持</span></div><div class="content">
+<p>没错。</p>
+<p>安迪，我们几周前刚孵化了 Horowitz and Jason Academy，帮年轻人准备我们谈的这场转型。你说过 AI 让建设更容易，但年轻人仍需学真正的专长。如果你是 2026 年的 18 岁，你会给自己什么建议来准备这场转型？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="j"><div class="label"><span class="badge" title="安迪·贾西（Andy Jassy）">贾西</span></div><div class="content">
+<p>我有一个 25 岁、一个 22 岁的孩子。22 岁那年大概 19 岁时这波开始真正起飞。</p>
+<p>我很快学到：你没法告诉他们教育里别用 AI——那班车已经开走了。大学最好别硬扛。它就是人们会用的工具。但同时，对所有年轻人——</p>
+<p>以及我们这种有写作文化、很多人用 AI 写作的组织——你能分辨出 AI 写的东西：不太对，</p>
+<p>拼凑得不太对。我给年轻人、也给我孩子的建议是：你跑不掉，也不能一厢情愿它消失。它会深刻影响你生活里你试图使用的每一种体验与工作，</p>
+<p>也会让你以我们以前不可能的方式去发明。所以你必须了解它、教育自己、大量使用、去试；试舒适区外的事。我两个孩子都不是开发者，但他们</p>
+<p>用 AI 建过应用。把它当作日常运作与工作工具的焦点。但我不认为它取代批判性推理与思考。对大学也一样。在很多方面，如果我想想</p>
+<p>商学院作例子：你每天要分析三四个案例，大量阅读、做笔记、找出关键问题，看各种附件，再拼出你认为公司该有的</p>
+<p>计划。很多时候有人根本不做功课——不读、不研究、不做笔记。AI 会让这些「起步劳动」消失，</p>
+<p>把每个人更快带到那个更先进的起点。但真正把点连起来——做战略、方法、计划、新产品或新客户体验——我不认为 AI 多数时候会替多数人做完。</p>
+<p>不是说永远不会发生；你仍需要人类判断、巧思、发明、实验，以及思考各块如何拼在一起，才能建出惊人体验与业务。你要用这些工具，它们会是巨大助手，</p>
+<p>但批判性推理与思考在我们做的一切里仍会非常重要。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（a16z）">主持</span></div><div class="content">
+<p>快收尾了。你们业务跨到卫星连接、机器人、医疗——野心大到难以置信，想想这业务起步是在网上卖书。你怎么看把这些不同业务线串起来的线索？怎么决定哪些值得多年投入？怎么避免铺太薄？怎么理解这么广的范围？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="j"><div class="label"><span class="badge" title="安迪·贾西（Andy Jassy）">贾西</span></div><div class="content">
+<p>几点。第一，我们正处在一生中、或许有史以来最大的三场转型之中：AI、机器人与太空发展。它们都巨大，都会彻底改变我们遇到的许多客户</p>
+<p>体验；我们处在这三场正中间。看零售里怎么用机器人，以及 AI 侧怎么让内外部建设者更容易建成功的 AI</p>
+<p>应用与代理，并重塑所有消费体验；再看 Amazon Leo——我们在为全球约 5 亿没有宽带的家庭建的低轨卫星星座。</p>
+<p>有一连串不可思议的转型正在发生，我们有机会帮客户以改善生活的方式去利用它们；我们也以既帮客户、又形成自身长期可持续业务的方式去做。我们</p>
+<p>有机会在更多领域对客户更相关——我甚至还没提杂货、自动驾驶网约、医疗。组织上我们经常有</p>
+<p>内部争论，外部也常问：是不是铺太薄了？我觉得这取决于你怎么组织、以及愿意投多少。因为我们不试图让同一批人管多个业务，而是</p>
+<p>以去中心化的「单线程」方式组织：若有对的领导者与建设者，体验够大能撬动结果，在服务不足的空间有差异化想法，你就有机会同时追很多事——我们</p>
+<p>长期就是这么做的，关键在于愿意投多少。有些公司很合理地选择「守住本行、做大核心」，那也可以非常成功。</p>
+<p>我们非常在意现有业务继续增长建设，我觉得做得还不错；但还有那么多客户真正希望我们帮忙解决、我们也能解决的体验，会帮客户并长期改变我们的业务——我们会继续追。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（a16z）">主持</span></div><div class="content">
+<p>用「无尽野心」收尾很鼓舞人心。安迪，非常感谢来上播客。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="j"><div class="label"><span class="badge" title="安迪·贾西（Andy Jassy）">贾西</span></div><div class="content">
+<p>谢谢你们邀请，感谢。</p>
+</div></div>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "a16z", "title": "亚马逊 CEO 安迪·贾西谈 AI 时代需要的基础设施", "url": "https://www.youtube.com/watch?v=-YMMRQ1qscI", "videoId": "-YMMRQ1qscI", "published_at": "2026-10-23", "duration": 3639, "caption_source": "YouTube 自动生成字幕（en-orig；普通 yt-dlp 遭 429 后经 yt-dlp + Chrome cookies 路径拉取），中文为逐句全文翻译；caption_source=yt-dlp-chrome-cookies", "guests": ["安迪·贾西（Andy Jassy，亚马逊 CEO）"], "speakers": [{"id": "h", "name": "主持人（a16z）", "role": "host", "short": "主持"}, {"id": "j", "name": "安迪·贾西（Andy Jassy）", "role": "guest", "short": "贾西"}], "intro": {"summary": "亚马逊 CEO 安迪·贾西谈 2200 亿美元资本开支仍吃不满的 AI 算力需求、数据中心政治争议、Trainium/Graviton 芯片路线、对 Anthropic/OpenAI 的深度伙伴与投资，以及用 AI 重塑组织与 Alexa 等消费体验。", "points": ["2026 资本开支约 2200 亿美元仍留需求在桌上；26/27 基本售罄，28 也卖掉一大块；AI 业务三年年化超 250 亿美元", "数据中心提前约两年、服务器/网络仅提前数月；供应约束预计不止 2027；不挤压核心客户去腾给愿出天价的新买家", "反数据中心叙事 vs 现实：电网投资欠账、用水对比被夸大；强调社区税收与 Built Together", "需求呈杠铃：实验室/爆款应用 vs 企业避成本提效；中间大量企业生产负载尚未渗透式用推理", "Annapurna→Graviton/Trainium 纵向整合推性价比；Bedrock 与 Anthropic/OpenAI 深度伙伴并投资", "组织将更小、更跨职能；应用须可被代理分钟级更新；Alexa 等体验要推倒重想象而非仅增量"], "verdict": "值得看：约 61 分钟深度访谈，关注云/AI 基础设施、资本开支与组织变革者优先。", "audience": "云与 AI 基础设施从业者、企业 CTO/技术负责人、关注亚马逊战略与算力供需的投资者"}, "paragraphs": [{"start_sec": 0, "speaker_id": "j", "type": "text", "zh": "即使今年投入 2200 亿美元，我们仍有相当一部分需求没吃满。我们总会留一部分给按需（on demand），但 2026 年显然已经售罄，2027 年也基本售罄，2028 年也卖掉一大块。金融市场在说：「哦，世界上没那么多钱来给这些东西融资。」我们今天做的一切——"}, {"start_sec": 19, "speaker_id": "j", "type": "text", "zh": "股市、银行、医疗——都在用数据中心。我们的工作是尽量把容量做上去。我们有机会帮到多得多的客户体验，让人们每天的生活更好、更轻松。那些大实验室几乎愿意为"}, {"start_sec": 39, "speaker_id": "j", "type": "text", "zh": "电力、制冷、芯片付任何价钱。那或许我们该把老玩家买下来、再卖给新玩家——因为他们愿意出天价。"}, {"start_sec": 48, "speaker_id": "h", "type": "text", "zh": "安迪，欢迎来到播客，很高兴请到你。"}, {"start_sec": 68, "speaker_id": "h", "type": "text", "zh": "谢谢邀请。你执掌亚马逊已五年，成绩很多：2200 亿美元资本开支、AWS 增长约百分之二十几。相对 2021 年你正式接任 CEO 时，你怎么看 2026 年亚马逊的雄心？"}, {"start_sec": 93, "speaker_id": "j", "type": "text", "zh": "2021 感觉像十年前那么远。世界变得很快。和 2021 比，我们整体营收大概高了约 80%，AWS 业务差不多大了近三倍，广告收入大约是两倍半。业务长了很多。我觉得发生了几件关键的事。上任后很快——"}, {"start_sec": 115, "speaker_id": "j", "type": "text", "zh": "正值疫情尾声——零售业务出现了真正的「服务成本」挑战：我们用大约 18 个月，把过去 25 年建起来的履约网络规模翻了一倍；又用大约 20 个月，把「最后一公里」运输网络建成"}, {"start_sec": 133, "speaker_id": "j", "type": "text", "zh": "UPS 那种体量。建得这么快，总会留下大量未优化之处，履约网络的服务成本并不理想，带来很多挑战和焦虑。我记得上任大约一年或不到一年时，"}, {"start_sec": 153, "speaker_id": "j", "type": "text", "zh": "很多人说：「多糟的时机、多倒霉。」回头看，其实是很好的时机，甚至是福气——它迫使我们去考虑许多本来可能多年都不会碰的事，"}, {"start_sec": 171, "speaker_id": "j", "type": "text", "zh": "而对客户和业务都是好主意。履约网络里最大的一件，是把原本扁平的全美网络区域化：把货放到离客户更近的地方，既因为运输距离变短而降低服务成本，"}, {"start_sec": 190, "speaker_id": "j", "type": "text", "zh": "又把货送到客户手里更快。在服务成本承压、重新审视最根深蒂固的信念时，这件事真正释放了配送速度和零售需求，也是我们那块业务增长这么快的重要原因。"}, {"start_sec": 209, "speaker_id": "j", "type": "text", "zh": "当然很快 AI 也进一步爆发。AI 并不新——我们做机器学习很久了，也曾有过多次「这就是拐点」的浪潮；但到 2023 年，生成式 AI 带来了"}, {"start_sec": 229, "speaker_id": "j", "type": "text", "zh": "巨大差异。那时 AWS 增长已经很快：功能广度明显领先，运营表现与安全更强，合作伙伴生态也不同——我们是明确的领导者。我们当时觉得这块业务"}, {"start_sec": 249, "speaker_id": "j", "type": "text", "zh": "长期（比如十年维度）可以做到几千亿美元营收。现在再看 AI：我们所知的每一种客户体验都会被推理与 AI 重塑。我们其实认为 AWS 不仅在快速增长——上季度我们"}, {"start_sec": 269, "speaker_id": "j", "type": "text", "zh": "在约 1690 亿美元年化营收规模上同比增了 36.7%。今天的机会非常惊人。再叠加上新业务的种子：团队把 Prime Video 做成了"}, {"start_sec": 292, "speaker_id": "j", "type": "text", "zh": "大型且盈利的业务；我们在建的低轨卫星 Amazon Leo；与 Zoox 的自动驾驶网约；医疗业务；机器人方向——我觉得我们有机会在更多客户体验上帮到更多人，让他们的"}, {"start_sec": 311, "speaker_id": "j", "type": "text", "zh": "每天生活更好、更轻松。「让客户每天更好、更轻松」这条使命，把公司各条线真正统一起来。"}, {"start_sec": 329, "speaker_id": "h", "type": "text", "zh": "跟进几个问题。你提到履约网络建得那么快会有些低效、粗糙，内部也有焦虑。作为 CEO，你怎么沟通这件事，又不降低文化标准？亚马逊以卓越、运营效率、节俭著称，"}, {"start_sec": 352, "speaker_id": "h", "type": "text", "zh": "但你们却在说：我们要建成 UPS 那种规模。怎么调和？"}, {"start_sec": 370, "speaker_id": "j", "type": "text", "zh": "有意思的是，我们有一套很多人知道的领导力原则——16 条。它们确实规范团队运作与文化，但其中几条彼此是张力关系，有时会让人困惑；现实是这正反映了"}, {"start_sec": 387, "speaker_id": "j", "type": "text", "zh": "真实世界：没有什么是完全干净的，你总在做权衡。回到我们决定如此激进、快速扩建履约与最后一公里网络的时候，团队面对的问题是：我们知道走这么快会"}, {"start_sec": 406, "speaker_id": "j", "type": "text", "zh": "非常难，可能比慢一点更贵，也可能不如慢一点优化得那么好。"}, {"start_sec": 415, "speaker_id": "j", "type": "text", "zh": "但客户和卖家真的需要——我们要不要站在「赋能」这一边？回想疫情早期，实体店几乎都关了。看亚马逊在每个人生活里扮演的角色——非常关键。所以我们得问自己："}, {"start_sec": 435, "speaker_id": "j", "type": "text", "zh": "是快速建设、或许不够最优，换来服务那些也在求生存的客户与卖家，还是不这么做？这是首先要做的决定。我们几乎一贯选择站在客户一侧。"}, {"start_sec": 456, "speaker_id": "j", "type": "text", "zh": "然后在建设过程中很明显：计划中并非一切顺利。履约团队比公司多数人更多在办公室，但仍有很多人要参与大量设计与规划——"}, {"start_sec": 476, "speaker_id": "j", "type": "text", "zh": "还要评估。人分散各地、远程办公，你要在「行动偏好/速度」与「不懈的高标准」（按计划成本结构、交付与设计）之间做张力管理。"}, {"start_sec": 501, "speaker_id": "j", "type": "text", "zh": "你必须做权衡。我们选择站在客户一侧、快速行动服务卖家与消费者，并预期会有一定清理工作。我们是否精确预见地形会变成后来那样？没有。有些我们没优化好的东西，事先也未必预见。"}, {"start_sec": 520, "speaker_id": "j", "type": "text", "zh": "但如果你有好的指标，并且是说真话的文化——把数据摆上台面、把问题摆上台面——这是我们文化里另一块很重要的部分。"}, {"start_sec": 537, "speaker_id": "j", "type": "text", "zh": "彼此直接，不允许粉饰问题。有这种文化，指标和讨论里问题会相当明显。然后你得搞清楚怎么改进：哪些是小的生产力问题，哪些是"}, {"start_sec": 554, "speaker_id": "j", "type": "text", "zh": "架构级问题。容量装上之后，我们回去真正重架构了网络关键部分——对当时那个团队，这件事可能原先排在优先事项第八九位，后来变成拿下速度与成本组合的更高优先级。"}, {"start_sec": 575, "speaker_id": "h", "type": "text", "zh": "很有意思。你当年启动 AWS 时有点「建好了他们就会来」：建基础设施再出租——他们得来，否则你就麻烦大了。"}, {"start_sec": 595, "speaker_id": "h", "type": "text", "zh": "现在是更大尺度：你和其他人——你肯定是最大玩家之一——在以极快速度建数据中心与芯片产能，以至于金融市场说「世界上没那么多钱给这些融资」，我们也刚看到"}, {"start_sec": 624, "speaker_id": "h", "type": "text", "zh": "核心转贷债市、股市等的紧张。需求这么陡、你增长这么快，扩到多少算太多？还有供应链争夺——制冷、电力、芯片——你怎么判断？"}, {"start_sec": 646, "speaker_id": "j", "type": "text", "zh": "很好的问题。真希望有个方程能把它变简单，能省团队很多时间。我会说，云的第一波、我们启动 AWS 时，确实有一点"}, {"start_sec": 666, "speaker_id": "j", "type": "text", "zh": "「不知道人们会不会用」——建好了他们就会来。但公司内部信号很好。那是 2000 年代早期，我们觉得相对已经够快，但产品团队仍远达不到我们想要的速度，"}, {"start_sec": 687, "speaker_id": "j", "type": "text", "zh": "我们搞不懂为什么这么慢。结果发现产品团队 70%–80% 时间花在不构成差异化的基础设施上，只有约 20% 花在真正差异化产品上。每个团队都在重复造轮子。"}, {"start_sec": 704, "speaker_id": "j", "type": "text", "zh": "所以 AWS 最初是为了让我们自己内部动得更快。我们想：如果建成一套高规模、高可用、低成本、高度灵活的积木服务——计算、存储、数据库、内容分发、消息等——我们就能在"}, {"start_sec": 728, "speaker_id": "j", "type": "text", "zh": "消费业务里建得更快。然后我们说：我们相对技术不错，别的公司大概也有同样问题。甚至对外发布前，内部就有大量团队感兴趣，我们知道方向对了。但没人预期到"}, {"start_sec": 746, "speaker_id": "j", "type": "text", "zh": "外部会涨得那么快。AI 侧也一样：一次次有人说「这次真的来了」。生成式 AI 浪潮前六七年，人们也觉得是 AI 的时刻。我们建过一整套 AI 服务，在 AWS 侧其实是"}, {"start_sec": 767, "speaker_id": "j", "type": "text", "zh": "不错的业务，但完全不像现在。AWS 早期我们觉得涨得很快、感觉很好——三年后大概是 6000 万美元年化。而生成式 AI 浪潮的前三年，我们 AWS 里光 AI 业务"}, {"start_sec": 789, "speaker_id": "j", "type": "text", "zh": "年化就超过 250 亿美元，快了几百倍。从未见过这种东西。问题就变成：要投入多少资本开支去追这个机会？我们说过 2026 年预计大约"}, {"start_sec": 815, "speaker_id": "j", "type": "text", "zh": "花 2200 亿美元资本开支。顺便说，我记得大约 15 年前领导层早餐时，我们还不敢相信电信公司能花 500 亿美元资本开支——怎么花那么多？这些数字确实令人瞠目。而且"}, {"start_sec": 836, "speaker_id": "j", "type": "text", "zh": "即使今年花 2200 亿，仍有相当一部分需求吃不满。帮我们的是：对客户需求能见度很高。AWS 资本开支与现金周期大致两块："}, {"start_sec": 860, "speaker_id": "j", "type": "text", "zh": "数据中心投资，以及服务器与网络投资。数据中心要提前大约两年投入，才能放服务器开始变现；好处是只投一次，是大约 30 年可用寿命的资产，"}, {"start_sec": 879, "speaker_id": "j", "type": "text", "zh": "但要提前几年。服务器与网络设备视组件而定，通常只提前几个月——所以扣扳机前对客户需求能见度很高。如果后来不需要填满那些数据中心，你就"}, {"start_sec": 900, "speaker_id": "j", "type": "text", "zh": "不会买服务器网络设备；平均大约三年打平，当前可用寿命约五到六年，我们多数交易大约是五年期。当你同时建这么多数据中心、建得这么快，"}, {"start_sec": 920, "speaker_id": "j", "type": "text", "zh": "你会花很多资本，那些年份的自由现金流会承压，直到几年后这些数据中心都上线、都在变现，并从服务器与网络投资里把钱收回来。"}, {"start_sec": 938, "speaker_id": "j", "type": "text", "zh": "由于现金周期，高速增长早期会有逆风。"}, {"start_sec": 958, "speaker_id": "h", "type": "text", "zh": "说到数据中心——你启动 AWS 时大概最想不到它会变成政治议题，但现在就是。尤其在美国，不知道你有没有同感：世界上好像没有哪里像美国政治那样反数据中心。这怎么影响你们？反数据中心的论点有没有道理？"}, {"start_sec": 983, "speaker_id": "h", "type": "text", "zh": "它又如何影响你在这里以及其他区域建什么？"}, {"start_sec": 1006, "speaker_id": "j", "type": "text", "zh": "我给你一些我认为重要的语境：今天我们做的几乎一切——股市、银行、医疗、"}, {"start_sec": 1016, "speaker_id": "j", "type": "text", "zh": "娱乐、购物、教育、商业、网约车——都是数字驱动的，都以很深的方式使用数据中心。【笑声】没有人会说「我反自己、不想再用手机了」。而这还是 AI 之前。AI 是我们这个时代最大的技术变革——考虑到我们经历过互联网、云和移动，这话分量不轻。"}, {"start_sec": 1038, "speaker_id": "j", "type": "text", "zh": "现实是：支撑我们刚才说的 AI 侧快速增长所需的基础设施扩建，在这个国家大概只有 1950 年代建公路桥梁能比——那就是我们正在经历的量级。"}, {"start_sec": 1058, "speaker_id": "j", "type": "text", "zh": "这个国家——以及世界整体，但我特别说美国——承受不起不建数据中心的后果，否则会发现另一个国家比如中国确立全部领导力与规范；无论国内还是全球，我想我们都不会喜欢那种结果。所以我们必须"}, {"start_sec": 1077, "speaker_id": "j", "type": "text", "zh": "建数据中心。我们作为行业能不能做得比现在更好？当然可以——发生得很快，大家一起学。但现在有不少我视为介于迷思与不实之间的说法在传播，"}, {"start_sec": 1098, "speaker_id": "j", "type": "text", "zh": "因为这是那种容易找到「恶棍」的议题，政治上、机会主义上喜欢指着某个靶子。举例：高尔夫产业或杏仁种植业的用水量远高于数据中心。"}, {"start_sec": 1117, "speaker_id": "j", "type": "text", "zh": "一个数据点：高尔夫球场用水量是我们全部数据中心的约 200 倍；它们两天的用水超过我们数据中心一年的用水。污染话题也类似：你登记新站点并有备用发电机时，必须按"}, {"start_sec": 1137, "speaker_id": "j", "type": "text", "zh": "「若全部发电机全速全时运行」来登记排放——但那几乎从不发生；备用机一年大概只跑 0.1% 的时间，大约 10 小时维护。电价也一样：看我们有大量数据中心存在的不同地区，有的电价升了、有的降了，真正的问题是"}, {"start_sec": 1159, "speaker_id": "j", "type": "text", "zh": "作为国家，我们没有按需要投资电网基础设施。增长本来就会来，总会有东西把投资需求推过临界；碰巧 AI 增长又快又猛，成了那根稻草。一旦真正把容量建起来，多数地区"}, {"start_sec": 1178, "speaker_id": "j", "type": "text", "zh": "会像印第安纳、佐治亚或密西西比那样，费率走平或下降。还有人们常忘的：在这些地区，大型数据中心提供商缴很多税。比如印第安纳圣约瑟夫县，我们大约缴了 30 亿美元税，"}, {"start_sec": 1197, "speaker_id": "j", "type": "text", "zh": "社区拿到钱可以花在真正重要的事上——社区也有收益。我们还做了 Built Together 这类项目，刚承诺未来五年在有数据中心布局的社区再投入约 10 亿美元。"}, {"start_sec": 1216, "speaker_id": "j", "type": "text", "zh": "必须持续与社区合作，必须是公私伙伴关系；但这场扩建对国家未来太重要了。"}, {"start_sec": 1233, "speaker_id": "j", "type": "text", "zh": "想想如果当年没建公路桥梁，国家的经济繁荣与能力会怎样——要把事情放在视角里，并在建设所在社区做伙伴。"}, {"start_sec": 1242, "speaker_id": "h", "type": "text", "zh": "回到资本开支：2200 亿大约是每天 6 亿。我想了解你现在怎么看 AI 需求。"}, {"start_sec": 1256, "speaker_id": "h", "type": "text", "zh": "线下我们聊过你把它看成杠铃结构——能否给当前 AI 需求定个位？"}, {"start_sec": 1268, "speaker_id": "j", "type": "text", "zh": "第一层语境就是我前面说的：AI 又大又快，难以置信——前三年比 AWS 起步快几百倍；我们 AWS 里光 AI 收入三年就到 250 亿美元年化。所以非常"}, {"start_sec": 1275, "speaker_id": "j", "type": "text", "zh": "大，但需求形态确实是杠铃。一端是 AI 实验室，在吞噬我从未见过的巨量算力，再加上少数跑出来的应用：ChatGPT、Claude Code 之类。另一端是企业，主要把 AI 用于"}, {"start_sec": 1298, "speaker_id": "j", "type": "text", "zh": "避成本与提效：自动化客服、反欺诈、业务流程自动化。"}, {"start_sec": 1323, "speaker_id": "j", "type": "text", "zh": "杠铃中间是企业当前的生产工作负载——很多已在用 AWS、已在用推理。"}, {"start_sec": 1332, "speaker_id": "j", "type": "text", "zh": "但我会说绝大多数仍未以渗透式方式使用。我认为那将是 AI 使用绝对规模最大的一段。每年都在更多发生，但我很难精确预测速率。"}, {"start_sec": 1346, "speaker_id": "j", "type": "text", "zh": "若拉远看五到七年——而且我不觉得会等到五到七年才发生，也从来不是一蹴而就——我认为相当多、甚至大多数我们今天使用的企业应用，"}, {"start_sec": 1365, "speaker_id": "j", "type": "text", "zh": "都会以渗透式方式使用推理。前面还有大量增长。"}, {"start_sec": 1386, "speaker_id": "h", "type": "text", "zh": "你怎么看即将到来的数据中心/芯片/内存等短缺——尤其 2027 年，因为大家现在都在建，但不一定年底就能就绪，而需求完全没放缓。面对"}, {"start_sec": 1411, "speaker_id": "h", "type": "text", "zh": "大实验室几乎愿为电力、制冷、芯片付任何价钱的环境，以及那些长期按常规费率租用、跑日常业务的老客户——有没有商业压力去想："}, {"start_sec": 1437, "speaker_id": "h", "type": "text", "zh": "或许该把老客户买断、腾给新客户，因为新客户愿出天价，而老客户我又没法公平地翻倍涨价？你怎么想？"}, {"start_sec": 1460, "speaker_id": "h", "type": "text", "zh": "这很怪：有些客户跟了你 20 年，做着你说的大概要走向推理的事；又有新玩家胃口无穷，什么都买。"}, {"start_sec": 1475, "speaker_id": "j", "type": "text", "zh": "好问题。我们不完全按你说的方式想，但我完全理解。今天数据中心和电力就那么多，内存也就那么多；我不认为短缺会在 2027 年结束。"}, {"start_sec": 1496, "speaker_id": "j", "type": "text", "zh": "这也是为什么我觉得资本开支还能投更多、且不算浪费：2026 显然已售罄，2027 基本售罄。我们总会给按需、给 Bedrock 推理或 EC2 留一部分，但"}, {"start_sec": 1515, "speaker_id": "j", "type": "text", "zh": "大块基本售罄，2028 也卖掉一大块——需求太大了。AI 业务和我们所说的核心业务（非 AI）现在都在高速增长。如果你只有一定量"}, {"start_sec": 1538, "speaker_id": "j", "type": "text", "zh": "内存，就得决定多少分给 HBM、给 AI 加速器，多少分给 DRAM、给核心——这些是真实权衡。但我们处理这问题的起点是以客户为中心。对我们来说，"}, {"start_sec": 1562, "speaker_id": "j", "type": "text", "zh": "我们在 AWS 与客户有很深的关系与伙伴关系。就像疫情期间：竞争对手想在季度内优化、尽量推收入，而企业当时在做成本优化；"}, {"start_sec": 1581, "speaker_id": "j", "type": "text", "zh": "我们走了不同路径——主动让前线去帮客户想办法降成本，即使我们知道短期中期会压低我们收入。我们的强烈信念是：长期帮客户成功，"}, {"start_sec": 1600, "speaker_id": "j", "type": "text", "zh": "我们的业务会跟着来。核心业务也一样。你当然可以算账：稀缺下新客户愿出更高价，把核心客户挤出去——但他们在 AWS 上跑业务、跑"}, {"start_sec": 1618, "speaker_id": "j", "type": "text", "zh": "全部核心应用。我们不会挤压客户，会确保他们能扩展。然后我们的工作是尽量把容量做上去，让核心客户和所有想在 AI 侧用我们的客户都能用，"}, {"start_sec": 1638, "speaker_id": "j", "type": "text", "zh": "并且对我们经济上也可持续。我真希望能告诉你供应约束只是 2027 的问题——"}, {"start_sec": 1656, "speaker_id": "j", "type": "text", "zh": "我觉得不同组件上会持续好几年。我们大概比任何人都在放更多容量，因为我们非常在意继续做基础设施与 AI 领域的显著领导者。但就像我说的，今年花 2200"}, {"start_sec": 1677, "speaker_id": "j", "type": "text", "zh": "亿，我们还能花更多，中长期也不算浪费资本，而且大概仍吃不满全部需求。眼下需求就是惊人。"}, {"start_sec": 1692, "speaker_id": "h", "type": "text", "zh": "说到这：你 2015 年收购了 Annapurna Labs——那时大概还没怎么想 2025 这种巨型 AI 需求，因为 2015 年几乎没有。是什么驱动了那个决定，它在新世界里"}, {"start_sec": 1716, "speaker_id": "h", "type": "text", "zh": "又如何兑现？"}, {"start_sec": 1739, "speaker_id": "j", "type": "text", "zh": "Annapurna 团队是我合作过最有才华的团队之一，也是亚马逊史上最好的收购之一，甚至可能是最好的。我们预见了一些东西，但收购 Annapurna 并不是为了 AI 芯片本身。到了一定规模，你能看到超大规模客户的模式：如果能纵向整合、自己建某些能力，就能给客户提供更多"}, {"start_sec": 1763, "speaker_id": "j", "type": "text", "zh": "价值，也给业务更好的经济性。对我们来说，Annapurna 起步是在核心 EC2 服务器上：我们觉得虚拟化、网络、安全、存储吃掉了太多服务器资源，想把服务器尽可能接近 100% 留给客户"}, {"start_sec": 1789, "speaker_id": "j", "type": "text", "zh": "做计算。收购前我们就在和他们做这块网卡，把那些组件卸载到网卡上。我们很喜欢这个团队、也很喜欢一起做的产品。我们意识到"}, {"start_sec": 1809, "speaker_id": "j", "type": "text", "zh": "它几乎会进每一台 EC2 服务器——后来确实进了我们所有服务器。最初买它，是因为它会成为计算能力的核心能力；又因为团队做芯片太强，觉得他们大概也能做别的芯片。那时我们与英特尔有很深的伙伴关系——现在也有——但英特尔几乎拿走了全部 CPU 份额。当伙伴几乎垄断份额时，他们往往不优先想性价比，而是想别的功能"}, {"start_sec": 1828, "speaker_id": "j", "type": "text", "zh": "去拿更多份额、推更多收入。这完全可以理解，是市场动态的一部分，也是创新者窘境会出现的原因之一。我们试图推性价比，很难得到关注。但客户想把越来越多本地负载迁到云，并要更好性价比。于是下一步我们让"}, {"start_sec": 1848, "speaker_id": "j", "type": "text", "zh": "Annapurna 团队去做 CPU——他们做出了 Graviton。今天我们前一千大 EC2 客户里约 99% 在广泛使用它，"}, {"start_sec": 1855, "speaker_id": "j", "type": "text", "zh": "性价比大约比其他 x86 处理器高 40%。对客户和业务影响巨大。几年前我们在 AI 空间又看到同一部电影：一个非常强的主导供应商，我们有很深伙伴关系、未来可预见也会有，"}, {"start_sec": 1875, "speaker_id": "j", "type": "text", "zh": "但他们有巨大市场、很多产品和优先级；我们知道客户需要更好性价比，于是在 Annapurna 里拉出独立团队做 AI 加速器——我们叫 Trainium——同样大约高出 30%–40%"}, {"start_sec": 1888, "speaker_id": "j", "type": "text", "zh": "可比处理器的性价比。说到刚才杠铃中间那段：要让更多企业生产应用用上推理，有几件事会改变——"}, {"start_sec": 1911, "speaker_id": "j", "type": "text", "zh": "一部分是人才是否会做后训练与微调，组织肌肉是否知道优先攻什么、怎么攻；但很大一块是推理成本。过去几年推理成本降了不少，"}, {"start_sec": 1933, "speaker_id": "j", "type": "text", "zh": "但依我看仍贵一个数量级，远未到可渗透式使用。因为如果你让企业把今天用 CPU 的应用重写成用 AI 加速器，若成本差很大，他们要从 AI 加速器拿到的增量收益门槛就高得多，才愿意重写。"}, {"start_sec": 1953, "speaker_id": "j", "type": "text", "zh": "过去几年推理成本降了不少，但依我看仍贵一个数量级，远未到可渗透式使用。因为如果你让企业把今天用 CPU 的应用重写成用 AI 加速器，若成本差很大，他们要从 AI 加速器拿到的增量收益门槛就高得多，才愿意重写。"}, {"start_sec": 1973, "speaker_id": "j", "type": "text", "zh": "若能把推理成本打下来，门槛就低得多——所有应用都会因 AI 加速器与推理变得更好、更聪明、更强。把推理成本打下来，是客户能渗透式用 AI 的关键一块，而我们的芯片业务是其中重要部分。"}, {"start_sec": 1992, "speaker_id": "h", "type": "text", "zh": "是的。就我们公司内部经验来说，也可以很贵——有个员工最近做正经工作花了 200 万美元。"}, {"start_sec": 2011, "speaker_id": "h", "type": "text", "zh": "我当时想：好吧，推理没那么便宜。你做了些投资，尤其是 Anthropic 和 OpenAI——大概 Anthropic 约 180 亿、OpenAI 约 500 亿量级。是什么让你想投？"}, {"start_sec": 2031, "speaker_id": "h", "type": "text", "zh": "加上英伟达等类似投资，华尔街一度紧张，想起互联网泡沫坏日子。特别是他们也是客户——为什么这说得通？"}, {"start_sec": 2056, "speaker_id": "j", "type": "text", "zh": "这两家团队和公司都非常惊人；至少营收增速我们几乎没见过类似的，难以置信。对我们来说是组合："}, {"start_sec": 2078, "speaker_id": "j", "type": "text", "zh": "这些团队是谁、他们建的技术与模型、以及一些应用；我们对 AI 变革性的信念；我们相信长期他们会是这个空间最成功的公司之二——当然不是人人都是赢家，但会有很多成功公司，我们相信这两家会是其中之二；再加上我们合作如此紧密。先说合作更久的 Anthropic：我们有大量客户"}, {"start_sec": 2100, "speaker_id": "j", "type": "text", "zh": "在 Bedrock 与我们的推理服务上跑 Anthropic。我认为客户在 Bedrock 上跑 Anthropic 最成功。我们在芯片上也有很深合作——他们在 Trainium 上建了一段时间，对 Anthropic 很好，"}, {"start_sec": 2118, "speaker_id": "j", "type": "text", "zh": "对我们的 Trainium 团队也很好，彼此学到很多。所以伙伴关系很深：对 AI 未来的信念、对这些公司的信念、加上伙伴关系，使得作为伙伴关系一部分去做投资说得通。"}, {"start_sec": 2136, "speaker_id": "j", "type": "text", "zh": "OpenAI 侧则是：太多客户想在 AWS 上用 OpenAI，却因他们先前商业安排做不到。很长一段时间两家互相尊重、也想合作。经过一系列对话和几个月，"}, {"start_sec": 2156, "speaker_id": "j", "type": "text", "zh": "能够在 Bedrock 上跑 OpenAI；我们一起做了有状态运行时环境这个独特产品——我认为未来所有代理都会这样建，你需要状态。Anthropic 对 Trainium 做了多年、多吉瓦级承诺；"}, {"start_sec": 2176, "speaker_id": "j", "type": "text", "zh": "我们就是相信它会是长期最成功的公司之一。这些都让更深的伙伴与投资说得通。"}, {"start_sec": 2200, "speaker_id": "h", "type": "text", "zh": "转到你们怎么用 AI 建公司。你说过 Bedrock 团队用 6 名工程师、76 天重建了推理引擎，以前大概要 40 人一年——差别很大。亚马逊以「两个披萨团队」闻名。面对技术变化，你现在的组织设计思考是什么？"}, {"start_sec": 2221, "speaker_id": "h", "type": "text", "zh": "这些年我们变得极度专业化——设计师、产品经理、前后端——现在突然人人都像文艺复兴通才。你怎么想组织设计？"}, {"start_sec": 2245, "speaker_id": "j", "type": "text", "zh": "我同意。Bedrock 那段经历让这里所有人都大开眼界；我们花很多时间内部分享，激励并提醒大家什么是可能的。我 29 年前进公司，"}, {"start_sec": 2272, "speaker_id": "j", "type": "text", "zh": "从助理产品经理做起，当时大概管五个产品。公司做大、产品做大之后，产品经理往往只做一个产品、甚至只拥有其中一片，比如只做定价——人人更专业化，并接受「做大成功产品就只能这样」。"}, {"start_sec": 2292, "speaker_id": "j", "type": "text", "zh": "但看 AI，完全不是这样。就上周：我们在消费业务围绕代理做投入，周四敲定一个很喜欢的想法要试，"}, {"start_sec": 2315, "speaker_id": "j", "type": "text", "zh": "周末四五个人就做出大约 80% 可交付的可运行原型——"}, {"start_sec": 2335, "speaker_id": "j", "type": "text", "zh": "那是完全不同的世界。对组织未来：第一，未来做今天这些工作的人会更少。看看有多少编码在代理化完成，客服、商业智能、研究；再快进想电子表格怎么建、律师要多少——"}, {"start_sec": 2355, "speaker_id": "j", "type": "text", "zh": "不是没人，但不会像过去业务变大时往里扔那么多人。会有不同的新工作，有些我们知道、有些还不知道，会随 AI、机器人与太空出现。但做今天这些事的人会更少。"}, {"start_sec": 2379, "speaker_id": "j", "type": "text", "zh": "团队会小得多：更小、能跨职能的人，不再只拥有一条窄缝——模型能在很多职能上带到 80%。"}, {"start_sec": 2403, "speaker_id": "j", "type": "text", "zh": "每个团队会从比过去先进得多的起点出发，因而能更开阔、更快地发明。也有很多必须变的地方。今天起步的创业公司，大多数从一开始就是"}, {"start_sec": 2421, "speaker_id": "j", "type": "text", "zh": "代理原生、AI 原生；经营已久的大公司都得学会以同样节奏建设。有些会搞明白；有大业务、强能力与忠诚客户时，有些会很慢，更容易被创业公司打穿。我预测公司几乎得重写全部代码以具备代理能力，"}, {"start_sec": 2440, "speaker_id": "j", "type": "text", "zh": "允许代理更新不同代码片段，并建好约束。只看安全：过去一两个月对模型的紧张多聚焦更「科幻」的场景——它们可能发生。邪恶僵尸网络接管一切？大概可能；给机器人注入恶意？也可能。"}, {"start_sec": 2464, "speaker_id": "j", "type": "text", "zh": "我觉得行业与公私部门会一起解决。但得从关注眼前的事开始。"}, {"start_sec": 2486, "speaker_id": "j", "type": "text", "zh": "有意思的是：关于更近端风险——其实就是网络安全——讨论得还不够。"}, {"start_sec": 2510, "speaker_id": "j", "type": "text", "zh": "这些模型能发现比以前、比人类找到的多得多的漏洞。快进看：应用应对迫在眉睫威胁必须是分钟级。"}, {"start_sec": 2529, "speaker_id": "j", "type": "text", "zh": "今天发现漏洞、分类、打补丁；即使前面快，多数公司部署仍慢，因为依赖多。未来必须分钟级部署。若应用不能被代理更新，新世界几乎没机会。所有组织都会被重塑；优先者会好得多。"}, {"start_sec": 2555, "speaker_id": "h", "type": "text", "zh": "是的。我们作为行业从大系统到嵌入式设备，安全架构做得并不好；清算日到了。好消息是这对新公司、新努力是大机会。"}, {"start_sec": 2566, "speaker_id": "h", "type": "text", "zh": "思想实验式威胁或许会发生或许不会，但这是清晰而当前的威胁。"}, {"start_sec": 2574, "speaker_id": "j", "type": "text", "zh": "几乎每一个 AWS 侧的合作伙伴与客户、任何规模的公司，都在担心安全。我们有专业服务在帮很多客户，也建了 Continuum 去识别漏洞并生成补丁——但说易做难，因为"}, {"start_sec": 2586, "speaker_id": "j", "type": "text", "zh": "很多公司和工程师有时觉得盯安全不够兴奋，容易拖到出问题再管。"}, {"start_sec": 2608, "speaker_id": "h", "type": "text", "zh": "保护真正重要的数据时，拖着是坏主意。多数公司里，最糟的安全情况往往是极小众安全工程师不爱和其他工程师合作、又是稀缺资源——结果多数软件公司写软件时的安全实践其实不够好。这必须变；好消息是有工具能帮。"}, {"start_sec": 2628, "speaker_id": "j", "type": "text", "zh": "是的。好消息部分正如你说：渗透测试人手有限、覆盖有限；模型加自动化能更好测整个攻击面，找到你否则可能碰运气才发现的东西。"}, {"start_sec": 2645, "speaker_id": "h", "type": "text", "zh": "是的。我们作为行业，从大系统到嵌入式设备，安全架构做得并不好；清算日到了。好消息是这对新公司、新努力是大机会。"}, {"start_sec": 2671, "speaker_id": "h", "type": "text", "zh": "思想实验式的威胁或许会发生或许不会，但这是清晰而当前的威胁。"}, {"start_sec": 2696, "speaker_id": "j", "type": "text", "zh": "几乎每一个我们在 AWS 侧谈的合作伙伴与客户、任何规模的公司，都在担心安全这块。我们有专业服务实践在帮很多客户，也建了 Continuum 服务去识别大量漏洞并生成补丁——但说起来容易做起来难，因为"}, {"start_sec": 2714, "speaker_id": "j", "type": "text", "zh": "很多公司和工程师有时觉得盯安全不够兴奋，容易拖到出问题再管。"}, {"start_sec": 2723, "speaker_id": "h", "type": "text", "zh": "如果你要保护真正重要的数据，拖着是坏主意。而且多数公司里，回到前面说的专业化，最糟的安全情况往往是：极小众的安全工程师不爱和其他工程师合作，又是稀缺资源——"}, {"start_sec": 2745, "speaker_id": "h", "type": "text", "zh": "结果多数公司、多数软件公司写软件时的安全实践其实不够好。这显然必须变；好消息是我们有工具能帮。"}, {"start_sec": 2765, "speaker_id": "j", "type": "text", "zh": "是的，好消息部分正如你说：你必须雇渗透测试。"}, {"start_sec": 2771, "speaker_id": "j", "type": "text", "zh": "但安全人就那么多、能覆盖的应用就那么多；模型加上自动化，能更好渗透测试整个攻击面，找到你否则可能碰运气才发现的东西。"}, {"start_sec": 2790, "speaker_id": "h", "type": "text", "zh": "我们看市场时觉得有意思：AI 能做很多事。一是砍成本。"}, {"start_sec": 2803, "speaker_id": "h", "type": "text", "zh": "你可以减少会计、律师之类。现在甚至有风投说要买老公司再砍成本。这对我们从不那么有吸引力——如果你的主意就是这个，说明主意太少。"}, {"start_sec": 2821, "speaker_id": "h", "type": "text", "zh": "二是去做世界从未见过的东西，那超级兴奋。还有第三种：你们对 Alexa 做的——已有成功产品，却说要从头重想整件事，因为有了新平台。你怎么走到那一步、什么时候说得通？"}, {"start_sec": 2843, "speaker_id": "j", "type": "text", "zh": "这个三分法很有意思。"}, {"start_sec": 2856, "speaker_id": "j", "type": "text", "zh": "组织会像我们刚说的那样真正改变、更精干；做对了，会让真正好的建设者和小团队去建你说的第二桶——人们没见过的东西。当你有过"}, {"start_sec": 2874, "speaker_id": "j", "type": "text", "zh": "我前面说的那种体验——四天把新想法做到八成——会激励人把更多闲暇与思维周期花在新想法上。"}, {"start_sec": 2886, "speaker_id": "j", "type": "text", "zh": "对我来说，这是 AI 最令人兴奋的部分之一。但我也认为：对已有大规模成功客户体验的公司，如果把 AI 主要当成增量改进体验，他们三到五年后很可能不会拥有打赢的体验——"}, {"start_sec": 2913, "speaker_id": "j", "type": "text", "zh": "因为我们所知的每一种体验，哪怕最难想象会变的，几年内都会因 AI 变得显著不同。"}, {"start_sec": 2923, "speaker_id": "j", "type": "text", "zh": "所以若想不止增量，就得让团队用今天全部新技术（比如 AI）去重新想象这些应用长什么样。对 Alexa，我觉得相当明显必须这么做。"}, {"start_sec": 2949, "speaker_id": "j", "type": "text", "zh": "当年 Alexa 的「大脑」在当时很有发明性，但生成式 AI 让大脑能做到的事完全不同——若要长期提供出色客户体验并保持相关，必须重接 Alexa 的大脑。这相当"}, {"start_sec": 2969, "speaker_id": "j", "type": "text", "zh": "明显。即便明显，做起来仍难：团队与自己建的东西相连、为之自豪，对什么管用什么不管用有血汗伤疤；要他们完全推倒重来、重新想象，"}, {"start_sec": 2990, "speaker_id": "j", "type": "text", "zh": "需要时间——他们会说「我们不是这么做的」「试过不行」。更难的是那些不那么明显的体验：零售、Prime Video、Fire TV、Prime Music——"}, {"start_sec": 3011, "speaker_id": "j", "type": "text", "zh": "技术是否已有好得多的解法不那么一目了然，但我相信每一个业务都要重塑，我们也有团队在做完全重新想象的版本。一开始就会做对吗？大概不会，"}, {"start_sec": 3035, "speaker_id": "j", "type": "text", "zh": "我们会迭代进去；但已经冒出各种我们认为很有吸引力的新想法与客户体验。有趣的是一场赛跑：你是要一个几乎像新 App 的完全不同体验，还是那些进展够快、一块块加进现有体验，在接下来两三年里实质改变整体客户体验。但我认为：若想继续做成功的领导者，每一种体验在未来几年都必须不同。"}, {"start_sec": 3055, "speaker_id": "h", "type": "text", "zh": "这是很难的领导力问题。让我想起刚当工程师时，和人争论某事，老板说：「Ben，你要明白——第一行代码写出来之前，一切都可以讨论；写出来之后，就成了宗教。」【笑声】我猜你在"}, {"start_sec": 3075, "speaker_id": "h", "type": "text", "zh": "Alexa 上也经历过。有意思的是：当初建那东西的全部知识与经验，你现在说可以放下很多、走进新世界；客户侧也会有"}, {"start_sec": 3097, "speaker_id": "h", "type": "text", "zh": "一大群人热爱当前体验。"}, {"start_sec": 3120, "speaker_id": "j", "type": "text", "zh": "对。几乎每一次大转型——至少我的经验——都要求巨大变化：技术、产品、客户体验与商业要素必须足够有说服力，人们才愿意改；即便如此也不会自动发生，是巨大的变革管理。从本地迁到云也一样：很多基础设施负责人为自己建的东西自豪，了如指掌、处在行动中心，"}, {"start_sec": 3140, "speaker_id": "j", "type": "text", "zh": "不想学新东西。重塑所有客户体验也会一样。我们都为过去十年建的体验自豪，"}, {"start_sec": 3157, "speaker_id": "j", "type": "text", "zh": "都有一百件能让它更好、让我们兴奋、占满清醒时间的事——要去想「我怎么完全从零开始」，在智识与情感上都很难。"}, {"start_sec": 3172, "speaker_id": "h", "type": "text", "zh": "没错。"}, {"start_sec": 3186, "speaker_id": "h", "type": "text", "zh": "安迪，我们几周前刚孵化了 Horowitz and Jason Academy，帮年轻人准备我们谈的这场转型。你说过 AI 让建设更容易，但年轻人仍需学真正的专长。如果你是 2026 年的 18 岁，你会给自己什么建议来准备这场转型？"}, {"start_sec": 3204, "speaker_id": "j", "type": "text", "zh": "我有一个 25 岁、一个 22 岁的孩子。22 岁那年大概 19 岁时这波开始真正起飞。"}, {"start_sec": 3216, "speaker_id": "j", "type": "text", "zh": "我很快学到：你没法告诉他们教育里别用 AI——那班车已经开走了。大学最好别硬扛。它就是人们会用的工具。但同时，对所有年轻人——"}, {"start_sec": 3237, "speaker_id": "j", "type": "text", "zh": "以及我们这种有写作文化、很多人用 AI 写作的组织——你能分辨出 AI 写的东西：不太对，"}, {"start_sec": 3250, "speaker_id": "j", "type": "text", "zh": "拼凑得不太对。我给年轻人、也给我孩子的建议是：你跑不掉，也不能一厢情愿它消失。它会深刻影响你生活里你试图使用的每一种体验与工作，"}, {"start_sec": 3273, "speaker_id": "j", "type": "text", "zh": "也会让你以我们以前不可能的方式去发明。所以你必须了解它、教育自己、大量使用、去试；试舒适区外的事。我两个孩子都不是开发者，但他们"}, {"start_sec": 3292, "speaker_id": "j", "type": "text", "zh": "用 AI 建过应用。把它当作日常运作与工作工具的焦点。但我不认为它取代批判性推理与思考。对大学也一样。在很多方面，如果我想想"}, {"start_sec": 3317, "speaker_id": "j", "type": "text", "zh": "商学院作例子：你每天要分析三四个案例，大量阅读、做笔记、找出关键问题，看各种附件，再拼出你认为公司该有的"}, {"start_sec": 3334, "speaker_id": "j", "type": "text", "zh": "计划。很多时候有人根本不做功课——不读、不研究、不做笔记。AI 会让这些「起步劳动」消失，"}, {"start_sec": 3346, "speaker_id": "j", "type": "text", "zh": "把每个人更快带到那个更先进的起点。但真正把点连起来——做战略、方法、计划、新产品或新客户体验——我不认为 AI 多数时候会替多数人做完。"}, {"start_sec": 3367, "speaker_id": "j", "type": "text", "zh": "不是说永远不会发生；你仍需要人类判断、巧思、发明、实验，以及思考各块如何拼在一起，才能建出惊人体验与业务。你要用这些工具，它们会是巨大助手，"}, {"start_sec": 3390, "speaker_id": "j", "type": "text", "zh": "但批判性推理与思考在我们做的一切里仍会非常重要。"}, {"start_sec": 3411, "speaker_id": "h", "type": "text", "zh": "快收尾了。你们业务跨到卫星连接、机器人、医疗——野心大到难以置信，想想这业务起步是在网上卖书。你怎么看把这些不同业务线串起来的线索？怎么决定哪些值得多年投入？怎么避免铺太薄？怎么理解这么广的范围？"}, {"start_sec": 3428, "speaker_id": "j", "type": "text", "zh": "几点。第一，我们正处在一生中、或许有史以来最大的三场转型之中：AI、机器人与太空发展。它们都巨大，都会彻底改变我们遇到的许多客户"}, {"start_sec": 3453, "speaker_id": "j", "type": "text", "zh": "体验；我们处在这三场正中间。看零售里怎么用机器人，以及 AI 侧怎么让内外部建设者更容易建成功的 AI"}, {"start_sec": 3473, "speaker_id": "j", "type": "text", "zh": "应用与代理，并重塑所有消费体验；再看 Amazon Leo——我们在为全球约 5 亿没有宽带的家庭建的低轨卫星星座。"}, {"start_sec": 3489, "speaker_id": "j", "type": "text", "zh": "有一连串不可思议的转型正在发生，我们有机会帮客户以改善生活的方式去利用它们；我们也以既帮客户、又形成自身长期可持续业务的方式去做。我们"}, {"start_sec": 3512, "speaker_id": "j", "type": "text", "zh": "有机会在更多领域对客户更相关——我甚至还没提杂货、自动驾驶网约、医疗。组织上我们经常有"}, {"start_sec": 3531, "speaker_id": "j", "type": "text", "zh": "内部争论，外部也常问：是不是铺太薄了？我觉得这取决于你怎么组织、以及愿意投多少。因为我们不试图让同一批人管多个业务，而是"}, {"start_sec": 3555, "speaker_id": "j", "type": "text", "zh": "以去中心化的「单线程」方式组织：若有对的领导者与建设者，体验够大能撬动结果，在服务不足的空间有差异化想法，你就有机会同时追很多事——我们"}, {"start_sec": 3576, "speaker_id": "j", "type": "text", "zh": "长期就是这么做的，关键在于愿意投多少。有些公司很合理地选择「守住本行、做大核心」，那也可以非常成功。"}, {"start_sec": 3593, "speaker_id": "j", "type": "text", "zh": "我们非常在意现有业务继续增长建设，我觉得做得还不错；但还有那么多客户真正希望我们帮忙解决、我们也能解决的体验，会帮客户并长期改变我们的业务——我们会继续追。"}, {"start_sec": 3612, "speaker_id": "h", "type": "text", "zh": "用「无尽野心」收尾很鼓舞人心。安迪，非常感谢来上播客。"}, {"start_sec": 3621, "speaker_id": "j", "type": "text", "zh": "谢谢你们邀请，感谢。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

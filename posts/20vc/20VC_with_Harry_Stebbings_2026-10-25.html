@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>推理将成十万亿美元市场：软件投资人完了｜纳文·拉奥（Naveen Rao）</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="h">哈里·斯特宾斯（Harry Stebbings）</option><option value="g">纳文·拉奥（Naveen Rao）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">20VC with Harry Stebbings</span><span class="pill">2026-10-24</span></div>
+<h1>推理将成十万亿美元市场：软件投资人完了｜纳文·拉奥（Naveen Rao）</h1>
+<p class="sub">嘉宾：纳文·拉奥（Naveen Rao） · 约 73 分钟（4406 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=4UmFfI8CWuA" target="_blank" rel="noopener">https://www.youtube.com/watch?v=4UmFfI8CWuA</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>20VC with Harry Stebbings</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-24</dd></div><div class="meta-row"><dt>时长</dt><dd>约 73 分钟（4406 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；普通 yt-dlp 遭 429 后经 yt-dlp + Chrome cookies 路径拉取），中文为逐句全文翻译；caption_source=yt-dlp-chrome-cookies</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>4UmFfI8CWuA</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>Unconventional AI 创始人纳文·拉奥与哈里·斯特宾斯谈推理市场为何可达十万亿美元、Transformer 之后的硬件新路径，以及软件/SaaS 投资人在 AI 时代的结构性困境。</p>
+<h3>核心要点</h3><ul><li>推理市场：十年内可达约十万亿美元；效率每提升一个数量级，适用面与需求按杰文斯悖论扩张</li><li>越过 Transformer：当前「推理」多为智能体式多采样轨迹，算法上低效；硬件与新计算架构是十年主战场</li><li>商品化分层：能源已商品化；智能与推理运营利润率承压；硬件侧仍有「能源→智能」的榨取空间</li><li>软件投资人困境：经典 SaaS 利润率时代结束；新形态是 AI+人类交付结果（如 Harvey），价值更靠近模型与硬件</li><li>机器人与物理智能：非人形路径更清晰；应用层偏早，模型/端到端设备与 Physical Intelligence 类更值得关注</li><li>快问：三年后约 80% token 走开源但美元更像手机利润结构；最被高估的是客服 AI 与非模型侧智能体编程</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：约 73 分钟硬核投资向访谈，覆盖推理 TAM、硬件 vs 软件、SaaS 演变与机器人时机；适合 VC/创始人，可跳过片头寒暄。</p>
+<h3>适合人群</h3><p>关注 AI 基础设施、推理经济、SaaS→AI 交付转型的投资人与创始人；20VC / Unconventional AI 听众</p>
+</section>
+<div class="legend"><span class="spk-0">哈里·斯特宾斯（Harry Stebbings）<em>主持</em></span><span class="spk-1">纳文·拉奥（Naveen Rao）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我们再过几年就要没有能源了。这只是一个<span class="tag">【音乐】</span>短暂波动。不是什么泡沫破裂。我们不把模型奉为圣典（sacrosanct）。我们的思维是能源优先。纳文·拉奥（Naveen Rao）是一位连续创业者。他上一家公司 Mosaic ML 卖给了 Databricks，成交约 13 亿美元。现在他又回来了，创办 Unconventional <span class="tag">【音乐】</span> AI，已融资数亿美元。</p>
+<p>他们最近一轮估值接近 50 亿美元。纳文是我见过的、能把如此多复杂话题讲得最清楚、最有条理的人之一。他非常精彩，这期节目做起来很享受。对我来说，智能会有无限<span class="tag">【音乐】</span>需求。我其实认为，未来十年真正该押注的是硬件。</p>
+<p>我会说，如果你是纯软件投资者，你大概……推理（inference）市场会在十年内变成十万亿美元级别的市场。我不会去想什么「天哪，AI 要灭绝全人类」——那是我听过最蠢的世界观。准备好了，开始。</p>
+<p>纳文，我太期待这期了，伙计。我跟你说了我可是把你「挖」过来的——马特·博恩斯坦（Matt Bornstein）、马特·奥（Matt Oo）等等很多人推荐。非常感谢你今天来上节目。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>当然。是啊，我也很期待。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我觉得会很好玩，因为我把你上过的好多节目都过了一遍，记下了我觉得最有争议的那些话。顺便说，有几句相当扎人。不过我想从这套基础设施的基础层开始——能源。你以前说过能源会是瓶颈、有多重要。你怎么评估今天的能源供给状况？我们没看到、但应该看到的是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>能源供给一直很难建起来，对吧？我觉得大家低估了这一点。我见过行业里的数字：建一吉瓦（gigawatt）大概要 500 亿美元。所以人们把「吉瓦」挂在嘴边，好像很容易似的。拜托，这根本不容易。对比一下：建一座半导体晶圆厂大概也就两三百亿美元量级。</p>
+<p>所以从资金和复杂度看，一吉瓦比建一座晶圆厂还贵。很难。过去几年我们其实主要是在「吃掉」系统里原本闲置的过剩产能。我们通常会过度建设，基础设施也不会跑在 100% 出力。</p>
+<p>所以数据中心拿到的电，主要来自：能不能把利用率拉高，再挤出接下来那一两吉瓦。看看美国电网：平均出力大概 900 吉瓦，但我记得峰值能力可以到大约 1.2–1.3 太瓦，也就是 1300 吉瓦。</p>
+<p>所以确实有一些过剩容量，我们眼下主要追的就是这部分——能最快拿到的。但真正建新基础设施很难，我们需要建更多。我们已经落后了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我们落后多少？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>过去二十年里，中国在总装机容量上已经超过我们了，大概是 2023 年的事。但他们有二十年都以大约六倍于我们的速度在建。他们是从很后面追上来的，但冲得又快又猛。我们当时很多批评是说他们用「脏」办法——烧煤之类。</p>
+<p>没错，但他们也是在尽可能快地增长。我感觉他们现在也在回过头清理其中一些。与此同时，我们几乎没怎么投能源基础设施，这会伤到我们——因为真要追上来，需要时间。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>伙计，中国遥遥领先，我们能学到什么？是不是该在政策和监管上松得多得多？关键 takeaway 是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我觉得这很难，因为它打到了我们文化和他们文化最核心的地方。中国可以中央计划。</p>
+<p>我们不行。两种模式都有优势。面对这种巨型基础设施铺开，中央计划无疑有优势。但说到创新、枪尖那一层，美国遥遥领先——AI 是在这里诞生的，不是在那里；这些最新突破几乎都来自这里。中国也在做很出色的工作，我不想贬低——不只是蒸馏（distillation），他们也有真正的创新。</p>
+<p>不过我认为真正打开新疆域的「枪尖」工作，还是来自这里，不是那里。归根结底，我们得把我们的优势用足。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你看今天什么是稀缺的——有没有什么今天还不稀缺、但三到五年内会变得稀缺的东西？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我觉得过剩产能会开始变得非常稀缺。即便按对 AI 更保守的增速看，再过几年我们很快就会没电可用。你没法随口说「我再找点容量」——那些过剩会被吃光。然后我们就收敛到「能建多快」的速度上。我听人说「我们一年要建 40 吉瓦」——不可能，我们从没做到过，我看不出来怎么可能。</p>
+<p>至少现在不行。也许过几年有新发明，我们能靠建设突围。但以今天的能力，一年建不出 40 吉瓦。也许能建 10。如果真建到 10，已经很惊人了——换算过来大约是五千亿美元，给你个量级感。</p>
+<p>所以当你再看已经被说「顶部过热」的债务周期，我们现在也开始看到它在 CoreWeave 之类地方层层拆解，担忧很多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>是啊。这到底才刚开始，还是派对音乐晚上七点就关了？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我觉得最大的转折变量是：对 AI 服务有没有需求，从而对 GPU 有没有需求，从而对这轮新建能源有没有需求。我当然身在这个行业，相当「AI 信仰者」。我觉得需求很充足。</p>
+<p>我们甚至还没 Scratch 到表面。AI 里还有很多问题要解决，但接下来几年我们会解决它们，那会打开我们今天根本想不到的新需求类型。所以我的感觉是：这是个短暂波动，不是泡沫破裂。就像你问「治癌症有没有需求？」</p>
+<p>当然有，对吧？你要是治好癌症，人们会要。你要是造出一台什么都能做的智能机器，人们同样会要。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我一直记得文·德罗斯拉（Vinod Khosla）跟我说的：我希望承担尽可能多的技术风险，尽可能少的采用风险。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>对。</p>
+<p>就是这样。我有癌症疗法——极难做成，但采用风险为零。我完全理解。但那是否意味着：如果我们正盯着大约十八个月后就会耗尽过剩供给，今天是不是在错误定价？你可以这么争论。这大概该交给能源市场去定价和上移。</p>
+<p>我至少从轶事里看到证据。我没有具体数字可引，因为每一笔「表后」（behind-the-meter）交易都是定制的，而人们为单位千瓦时付的价格，远高于标准电网。所以我们已经在看到双层定价：数据中心用电的价值，高于一般用途。</p>
+<p>现在有大量表后项目。一些公司在做新技术，比如 Bloom Energy。亚利桑那有 Bloom Energy 要建大约几吉瓦的交易。如果跑通，太好了，那可能就是我们继续往前所需的技术突破。但还没真正被验证。</p>
+<p>而且那些经济账，跟你在电网上看到的很不一样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>怎么个不一样法？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>简单说：人们愿意为数据中心能源付的每千瓦时价格就是更高。因为利润结构好太多，你扛得住更高电价。比方说我有一吉瓦算力要卖，我可以按大概五倍于电价的价格卖出去。</p>
+<p>数字是我随口编的，但量级就是「电价的大约五倍」。所以我有很大腾挪空间，可以多付 30%、40% 的电费。当我们从能源——最底层的基础电力——再往下一层，到使用这些电的算力时……</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>嗯。</p>
+<p>关于算力，有哪些你现在知道、却希望两年前就知道的事？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>有一件我希望早点知道：我们几乎看不到物理层面的效率提升了。可以把造一台计算机拆成大概三层。第一层是物理层。</p>
+<p>比如我把一个比特从这儿传到那儿，能不能更省。零用这个状态表示、一用那个状态表示，手机有一定重量，在两态之间切换就需要能量。手机更轻，所需能量就变。这是纯粹的物理问题。</p>
+<p>我们常说的摩尔定律（Moore&#x27;s law），或者你可能听过的登纳德缩放（Dennard scaling）——器件做得更小——本质上是物理层的事：让物理层更高效、更密。这些创新基本停了；看最近几代 GPU 或其他芯片，效率提升已经不多。</p>
+<p>你看到的效率提升，来自上一层：计算架构。过去几年/几代，多数效率增益来自更小的数据类型——从 32 位到 16 位到 8 位到 4 位。比特搬得少、算得少，效率就上来。</p>
+<p>再上一层还没被很好开发，我们在 Mosaic 时开始做一点：如何在模型层面强制局部性、减少数据搬运。五六年前我们还不这么想，因为模型还不是算力的主驱动；那时算力还是通用的——跑网站、数据库之类。</p>
+<p>但现在如果把计算机单纯看作「为交付智能而设计的物理设备」，心态就变了。我可以从模型一路共设计到架构再到物理。这就是我希望早点知道的：顶层还剩多少 alpha，而不只是物理层。我们盯物理层盯太久了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>能不能问：当重点从「前模型时代」转到「后模型时代」，这种设计心态在跨越技术栈时怎么变？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>意味着我们不把模型奉为圣典，而是能源优先——每件事都必须带来能源优势。听起来简单，但过去没人这么设计；过去永远围绕速度。这其实可以追溯到 1940 年代的 ENIAC。</p>
+<p>因为计算机从一开始就被设计成「比替代方案更快」。ENIAC 也是。对了，你知道 ENIAC 为什么被造出来吗？它是个缩写——电气数值积分与计算器（Electronic Numerical Integrator and Computer）之类。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>听起来没错。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>对。这是美国政府 1945 年造的计算机，最早的大型数字计算机之一。它像每台被造出来的机器一样有目的：做火炮弹道计算，比替代方案更快、更准。当时的替代方案是真人手工算数学。所以你必须更快。</p>
+<p>那是关键。下一代出来，必须比上一代更快。GPU 出来，必须比 CPU 渲染更快。一代代都在追求「比前一个更快」，这也以多种方式带来了效率——在同样功耗下更快本身更高效；同时摩尔定律一路推进，我们从真空管走到晶体管。</p>
+<p>晶体管越做越小。现在物理这一侧变化不大了，晶体管也没好多少。但在模型和架构层面，我们还有很大空间。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>那这意味着我们在看到模型商品化，还是看到：能省电、有效率优势的模型与没有的模型之间，质量在拉开？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我觉得正是如此。我比较擅长的一件事，是判断人们未来几年会把注意力放在哪。我认为这将是一件大事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>纳文，这点你真的很出色，必须给你记一功。你挑选市场时，会不会走一遍：「我觉得世界会往这边走，所以我要把自己放在这里」？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>当然会。这也关乎兴趣。对我来说，造一台更好的计算机，是最有意思的问题之一。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>所以在创办 Unconventional 之前，你在想法迷宫里坐下，说「我要聚焦的问题集是……」——那是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我大致会想：如果我解决一个问题，它解锁什么？有点像当科学家。好科学家就是问对那个问题——一旦答出来，会打开更多问题。</p>
+<p>好论文几乎都有这个标志。对我这次事业来说，很清楚：我们会用尽能源；现有范式并没围绕这点；而我们还要继续扩展，所以焦点会落在这里。</p>
+<p>我们需要以许多新形态交付智能，并大幅打穿成本，才能让它无处不在。还没人认真想这件事，那我就该先开干。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我们刚聊到模型效率以及它如何换算成能源。今天模型确实越来越高效。你怎么看我们在模型效率曲线上走到哪了？还有很大空间，还是已经接近渐近线、在啃最后那点增量？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>不，不，还有很大空间。原因是我们还没做成模型与物理侧之间真正的共设计（co-design）。你可以提出一个概念，在标准 GPU 上纯靠软件大概拿到比如 5% 的效率——听起来不错。但你能挖的深度有限，因为物理器件是按某种方式造死的。</p>
+<p>看看大脑：它们是共进化的。智能层和物理层一起演化，才能在两层互相压榨优势。比如稀疏性（sparsity）——计算单元之间干脆没有连接。在 GPU 上用稀疏性，我 100% 能拿到某种收益。</p>
+<p>但如果你用的是标准片外随机访问内存，那些收益的上限就被卡住了——物理件并不是为这种稀疏性设计的。如果我能造出真正吃稀疏性的东西，收益可以巨大。大脑就是这么共进化出来的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>说到这种共进化、或者说架构对任务的特化——这是否意味着我们会坚定地走向芯片特化？我们看到 Etched、Fractile、d-Matrix，还有 Cerebras 等等，很多人在追特定负载。这是不是算力的未来？你怎么看？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>百分之百是。这其实能追溯到图灵（Turing）最早的文章——他一开始就想造智能机器。我们走的路是：把他那个理论构造做成物理版本。所以我们造出来的任何东西都不是真正「图灵完备」的——内存有限等等。</p>
+<p>但我们做出了超级有用的应用：能跑生意、剪视频、改图、处理文本，过去六十年生产力暴涨。可这偏离了最初目标；现在我们又绕回来了。</p>
+<p>我觉得计算机的目的就是提供智能——它是智能的物理显现。所以我们要想办法把它做得更好。有趣的是：你把智能的物理显现做得更好，你其实做出了某种通用的东西。大脑在某些方面是通用的。</p>
+<p>不过硬件的负载是固定的，可编程性也不像 CPU 那种。GPU 已经走在「为负载定制架构」的路上，我们只会更极致地优化。这是好事——总有一天我们能造出真正有能力「建造任何东西」的智能机器。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>原谅我这颗金融脑。你是出色的技术专家，我在很多方面更像个不务正业的交易员。你说芯片会坚定地特化——那会多大程度上压缩英伟达（NVIDIA）这种横向供应商的 TAM？还是说——伙计别这么小家子气，还早得很，还有 50 倍空间？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>市场会非常大。英伟达走到今天执行得极其出色。我 2014 年创办 Nirvana 时，大家还不太理解市场会有多大。但我清楚：我们需要围绕神经网络的新计算架构。那是描述计算的新方式，对我来说是计算机能做的最重要的事。</p>
+<p>黄仁勋（Jensen）也比较早意识到这点。我记得 2014 年 GTC 他就开始大谈人工智能——很多做图形的人当时很不爽：为什么花这么多时间讲 AI？那根本不是重要负载，图形才是。</p>
+<p>他正确地判断这会变重要，砸了大量投入，并且执行得很好。所以我们经历了计算架构的演化：从「这些机器被用来做什么」到「它们最终会变成什么」。现在对我来说已经很清楚：</p>
+<p>我只需要关心一件事——把神经网络跑得极其高效、极其可扩展。那就是评判标准（figure of merit）。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你觉得芯片商品化会到什么程度？微软昨晚发布了自己的芯片；谷歌 TPU 很成功；亚马逊有自己的；Anthropic 也在建；还有那个名字超棒的——我爱死了——Jalapeño。下一代会叫什么？我们会不会看到芯片本质上走向商品化？</p>
+<p>首先我觉得下一代得叫哈瓦那辣椒（Habanero），因为会更辣。最后大概得上鬼椒之类的吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我觉得你该去注册商标，不然萨姆（Sam）可能抢先。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我去问问他。其实我并不认为芯片会商品化。我看它有点像演化里发生的事。我对这一切有个很简单的世界观：智能会有无限需求。智能的需求没有上限，因为我们生活的宇宙是对抗性的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>起初两团细菌可能在抢一块阳光，有感知、能移动、能适应环境的那个会赢并持续繁殖。然后组织成真核、多细胞生物——每一次你都在抬高能量层级和赌注，但本质仍是对抗。</p>
+<p>现在我们在人群之间也看到这点——美对中，或某某对某某。某种层面上我们开始更多地驾驭太阳——卡尔达舍夫等级（Kardashev scale）那套——打某种星际级的仗，你都需要智能。智能是这些对抗经济里的燃料。</p>
+<p>所以它有无限需求。要创造智能，你需要能源。把能源转化成智能的，是硬件——我说的硬件是整栈：芯片、系统、云、网络，全部。所以从经济看，我卖的是「把能源转化成智能」的能力；我做得越好，积累的价值越多。</p>
+<p>所以就市场而言，我不觉得它很快会商品化。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你会不会担心咬得太多，在「能源→智能」这条链上摊太宽，反而损害产品质量？中间能吃下的越多，钱越多——但风险呢？</p>
+<p>对，我昨天请了 Modal 的创始人埃里克（Eric）上节目。</p>
+<p>我很喜欢他。但这家伙什么都想做，真的什么都做。我当时就想：产品广度到哪一步会伤害深度？</p>
+<p>你会想这件事吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我们一直在想。聚焦超级重要。不过我觉得世界因为 AI 在变，我们能承担更大的广度，可探索的表面积比以前大。</p>
+<p>只是因为开发速度快太多了。为什么现在好像每家公司都成了「复合创业公司」？我们第一代芯片做的是一组耦合振荡器，有耦合矩阵，振荡器彼此影响。</p>
+<p>做的时候我会问——在旧世界、AI 之前——假如我们不做全连接，噪声怎么传播？比如一串菊花链式的振荡器，开头有某种噪声特性，我想看过四跳或六跳后信息怎么退化。</p>
+<p>旧世界里我得跟研究团队说：你们去建个噪声模型，我只要零阶直觉来指导思路。他们可能说「我在忙别的，下周再弄」；写代码、验证、出结果也许又要一周。</p>
+<p>所以要好几周才有答案。现在我直接问模型，它吐出代码，我可以审查、来回改几次，一小时就有答案。从前要想两周的事，现在一小时。因为 AI，单位时间我能想通更多事。不过我们仍有一个问题。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你凭什么说垃圾太多？是因为刷 X，时间线全是蠢观点吗？无意冒犯美国，但你们政客那些脸……用英式说法比较「结构有趣」。我时间线上全是各种 AI 生成版本——外星人、从国会冒出来之类，疯了。你说的 AI 泔水是指这个吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>不是。嗯，不完全是。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>那是娱乐。</p>
+<p>对，那更多是娱乐。顺便说，英国人在自嘲幽默上已经垄断市场了，比我们美国人能做到的好太多。所以——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>老实说，我们从英国这边看着都在想：哇，我们抱怨自己的政客抱怨了这么久……结果看他们。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>是啊我知道。我们把这事推到了新高度，毫无疑问。我跟你说我们是创新者。好了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>所以这正好是个例子：你看到一个输出，先问自己——过不过「直觉检查」？你可能觉得「嗯，也许不行」。有趣的是，今天年纪更大的人看图像，往往没有那种直觉检查。</p>
+<p>他们会说「哇，是真的」。我父母看过特朗普弹吉他的 AI 视频，还说「哇他会吉他」。我说：「妈，他没在弹，那是 AI 生成的。」她说：「哦，好吧。」对我来说一眼假。所以公司里的验证问题，我们公司也有。</p>
+<p>我们能造各种产物：代码、模型，什么都行。但你必须闭环，确保每一件都正确，才能信任结果。而因为产物太多，验证开始变成大瓶颈。我觉得问题已经从「生产」挪到了「验证」。</p>
+<p>验证的价值在于：如果你拥有验证层，你就拥有自动化层——因为有了可验证性，你才能往下推进。是这样吗？嗯，我觉得这是用 AI 做开发的必要部分；但拥有验证层是否等于拥有生产层？我不完全确定。你可能还得拥有规格（spec）。</p>
+<p>要产出有用结果——造车、造桥——你得能写清规格：我是不是在解一个有用的问题？然后每个产物都要被验证为正确，并朝着规格推进，最终确认「我确实按规格实现了」。所以是端到端过程，不只是验证。</p>
+<p>验证是其中一块。我不知道该怎么单独给它估值；我把它当作抵达最终结果的整体的一部分来看。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我们请过 Atlassian 的迈克（Mike）上节目，很棒的人。他讲到思维链、以及公司里不同职能上「智能体主导决策」对比「人类主导决策」有多重要。我一边完全理解、觉得很有道理；一边又觉得这么想有点「旧」——这到底意味着什么？</p>
+<p>我们不如信任人类那样信任智能体的决策。这感觉也挺怪。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我们确实还不信任。</p>
+<p>你怎么看？——我同意你。</p>
+<p>很多场景下我们还不该像信任人类那样信任智能体决策。我们花很多年训练，才建立起判断力。比如当神经外科医生：医学院后再训练七年，是有原因的。不是缝针有多难——研究生时我都缝过。</p>
+<p>难的不是外科的物理机械部分，是判断往哪走。你得看过足够多病例、结果、别人怎么思考，才能堆出那种判断。而我们现在定义智能的方式是：拿一个随机性的模型——</p>
+<p>你可以多次提示，得到不同输出。你其实在探索可能解的分布，然后再挑哪个好。你会得到大量输出，多数并不好。也可以说人类也这样：我怎么决策？</p>
+<p>我会想一遍可能输出，用某种启发式挑好的。我们在内部做——内部独白或某种内在过程。模型吐出思维链，我们有很多条思维链，再决定哪条好、走哪条。那个「决定」元素在每个任务上其实理解得不透，所以我不觉得现在该信任这些东西。</p>
+<p>决策链叠得越长——决策接决策——越容易脱轨；东西看起来很扎实，其实完全错。这就是今天的位置。未来大概会变，还需要若干突破，但今天就是这样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我个人很喜欢这类问题：你今天觉得古怪、怪异、疯狂的信念，五年后会变得稀松平常、人人同意？我记得把信用卡绑进 PayPal，父母还骂我；还有早期网上相亲——「网上找老公/老婆？荒谬」。当时都疯。我觉得我们终将比信任自己更信任我们的智能体。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我觉得某个时点会是这样。对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>但你觉得我们离那天还很远？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我们今天还没到。专长不会过时，只会换形态。我认为未来会是：我们开始建造——姑且叫模型，但我其实不觉得只是模型，而是整台机器。我把智能看成物理层与智能层合一、不可拆分。所以我有一台机器。</p>
+<p>它几乎像一个有机体，我可以教它成为各种任务的专家，价值来自把专长堆起来。就像：你上过哪所学校？你怎么学会当神经外科医生或厨师？那种「来路」很重要——你跟谁学、学了谁的方法与思维方式。</p>
+<p>价值从那里来。你或任何人类从头到脚都是智能机器，但真正让你值钱的是你被教导的方式。机器上我们会开始看到类似的事。智能可以复制，但「你怎么被教的」才会是关键。</p>
+<p>其中一部分，就是知道如何抵达真实、可用、已验证的终点。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我其实没被教太多，受教育时间很少，纳文，谢谢你。我希望人类身上总还有点价值。不，我完全懂你说的学习里的价值——很多价值就在你年复一年做事时积累的数据里。</p>
+<p>我们今天看到数据公司——有些营收冲到以前觉得天文数字的量级，时间还极短。纳文你太聪明了，跟你聊天真享受。我只想不停问你关于世界的问题。这个市场会怎样？会随时间整合，还是越拆越开、 fortify 护城河？会怎样？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我觉得会特化。你若特化并真正去做重要问题，就能有又大又可防守的市场。技能也是幂律：可以说人人都能学很多技能，但有些技能更值钱；你构建的数据与课程也一样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>完全理解。所以我们会看到数据公司特化。你不觉得它们会变成大宗商品？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>对，我不觉得是大宗商品。</p>
+<p>一开始有点像大宗商品——大批量采集观察。但当你开始构建更高质量的数据集——AI 圈说的更高质量代码数据、更高质量思维链等等——数据里就开始有大量价值。模型几乎只是它学到的东西的显现。所以数据层往后会相当重要，我不觉得会商品化。</p>
+<p>我觉得眼下的游戏是：建模型，以及知道如何挑选数据。大模型公司很大程度上是数据问题。他们也在模型本身上推进，但多数能力并不来自那里，而来自策展数据、用不同损失函数。以前是预训练，那是一种很特定的损失。</p>
+<p>然后我们进入现在所谓的中期训练（mid-training）：强化学习、监督微调，各种配方混合。从预训练走到这些不同训练去改模型行为的「课程」，才是真正的秘方。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>能不能问：你提到预训练、强化学习，然后重点明显转向了后训练（post-training）。这种从预训练到后训练的重心转移，你觉得是模型改进效率与路径上的持久、永久变化，还是我们又会回到以 RL 或预训练为主？重要性会怎么随时间变？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>其实我不确定它是否更高效。</p>
+<p>从单位算力或单位美元换来的模型提升看，我觉得 RL 更低效。但它确实能继续往前推。目标是让模型在重要任务上变得更好，所以未来几年它会非常重要。我们大概会在中层、甚至预训练层开始做特化。很难说未来范式是什么——这些都是很刻意的场景，我们工程化地走到下一个问题。</p>
+<p>就像：我在这儿，想去那儿，就工程出一条路；再到下一站，再工程。最后像随机游走的一串点，行业就这么演化。</p>
+<p>我不觉得大模型公司在性能上想得很长——「我要对 AI 系统的思考方式做重大突破以建立优势」。我会说大实验室目前不太这么做。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>在当下这种日更竞赛的生态里，他们负担得起那么做吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>问题就在这。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>太快了。你必须盯紧。模型晚一个月，对 OpenAI、Anthropic、Grok 或谷歌来说就是灾难。所以他们暂时还负担不起那些大风险。你看埃隆拉起 xAI：基本是「范式在这，招人，干」——</p>
+<p>很快就摸到前沿，因为他有资源。这告诉我：并没有那么多非常深的创新；更多是把积木拼起来，配一个会造的团队，极速执行。</p>
+<p>这跟提出新范式很不一样。你看杨立昆（Yann LeCun）的公司、李飞飞（Fei-Fei Li）的公司，他们在做更深的创新；我觉得那更像创业公司的地盘，开始有点像药物研发：大风险由创业公司扛，增量由大公司做。</p>
+<p>大公司在创业公司显出苗头时再买下来。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我有时问很简单的问题，但我不知道答案，而你很聪明。为什么今天所有人都为 RL 这么兴奋？你刚提到中期学习，我身边全是「全是 RL」。我自己也同意——百分之百同意。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>原因有几条。想想我们怎么学习：主要就是强化学习。如果我教你一项新技能，比如网球发球，那本质是一个 RL 环路。我会给你一个「好发球长什么样」的范式——</p>
+<p>示范或给你看视频，让你在心里建起「好/伟大」的内部模型。然后你不断对照那个内部模型评判自己：我在接近，或还不行、要求助。那就是 RL。</p>
+<p>它之所以重要，是因为我们凑不够数据去解决世界上每一个任务。你没法只靠堆数据预训练硬闯出来，太难了；模型也还不够高效去吃掉那些数据。所以你需要一种范式：这是十件最重要任务，然后我有某种「可验证奖励」。</p>
+<p>我有那个内部模型——好发球就是打得很猛而且进了界内，对吧？可验证：我能量速度，能量是否出界。有了可验证奖励，我就能问：我采取的动作，是否导向了那个好结果？</p>
+<p>于是我有了一种结构，能用来解任意一组通用任务——这就是 RL 令人兴奋的原因。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你买杨立昆的「后 Transformer 世界」理论吗？那会如何改写一切？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我确实认为我们会进入后 Transformer 世界。我不觉得 Transformer 是终极答案。也许直到一两年前我才真正理解这点，因为 Transformer 把很多东西混在一起。我们真正在乎的是推理：能把问题推理清楚。</p>
+<p>不知谁说的：智能是你在没有信息时做什么，不是你在有信息时做什么。能从某种机制或第一性原理把问题推理出来，才是智能。</p>
+<p>所以 Transformer 某种程度上也有推理，但其实是通过智能体式流程：多次采样，再决定哪个好。我拿一条轨迹跟另一条比，说这条更好，就把它叫作推理轨迹。我们实现「推理」的方式，本质上是一种检索机制。</p>
+<p>注意力机制里的上下文就是一种检索，我们从中采样，最终得到看起来像推理的东西。我觉得这对「我们真正如何推理」来说极其低效。我们不必这样建推理。大脑不是这么工作的——不会先建一条巨大轨迹，再灌进另一个模型的输入，再吐出另一条轨迹。</p>
+<p>大脑不是那样。有更高效、从算法角度看性能更高的做法，所以我们会越过 Transformer。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你觉得成为伟大创始人需要的东西变了吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我觉得没变。基本原则还在。对未来的观点、愿景，现在可能比以前更重要。在前 AI 世界，你可以靠执行力当个不错的创始人，不一定要有很好的愿景。</p>
+<p>你会执行就行。大公司又慢又笨重，你可以做出创业公司再卖掉或做大。但现在如果只靠执行，我觉得走不了多远。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我非常同意。能不能问：我们聊过各层，你说数据不会商品化、特化有价值。那哪一层会随时间商品化？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>好问题。可以说能源已经是大宗商品了，已经商品化了。我觉得一定程度的智能也会开始商品化。其实我们已经看到了：六个月前的模型，比如中国开源模型那个水平，已经相当有用——六个月前的东西仍然相当好。</p>
+<p>我会说这就是商品化的标志：前沿不是唯一重要的。对某些问题前沿重要，但六个月后那条前沿就会进入开源模型。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>那就帮我理一下：如果交付机制、或者说全部基础设施的产出都商品化了，会发生什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>商品化不一定意味着坏事。它意味着利润率会掉很多，但也意味着市场非常大。你可以说番茄是商品，但我们还是要吃、还是需要。智能会有巨大且持续增长的市场，只是利润率未必很高。</p>
+<p>我其实不觉得模型公司会吃下整栈利润。今天也不是——今天吃栈利润的是英伟达，大概拿走了大头。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>很多人跟我说，未来几年推理成本会大幅下降，推理市场也可能商品化。</p>
+<p>你同意还是不同意？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我们拆开看。「推理市场商品化」是什么意思？意思是跑推理的运营商……我猜是？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>对，绝对是。Fireworks、Together、Baseten 这类，以及他们提供的服务。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>站稳脚跟。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>因为看他们的价值主张：他们做得很好的是——拿一个已有模型，比如开源模型，让它稳定跑起来，有可用性保障，并相对成本高效地跑在基础设施上。所以他们是基础设施玩法：把模型映射到物理硬件，并把它做好。</p>
+<p>未来那里仍会有价值，但人们愿意为每个 token 付的推理价格会掉。于是他们必须从硬件能力到交付 token 之间挤出更多利润。而那一层能挤的「汁水」，我觉得会变少。</p>
+<p>所以结果是他们利润率更低；模型本身也已商品化，获取途径很多。但硬件侧大概不会崩——那部分仍有优势，因为你还能继续挤：「我把能源转成智能，转得更高效」。</p>
+<p>在我看来，那里能挤的汁水远多于基础设施层。所以我其实认为，未来十年该待的地方是硬件。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我需要改变自己作为投资者的身份吗？这听起来奇怪，纳文——但我是软件投资者，过去十年投 SaaS，而且投得不错。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>伙计，投硬件挺难的，心态完全不同。这一代投资者有没有装备好去做硬件投资？给点建议。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我会说，如果你是纯软件投资者，你大概……说实话有点悬。我说得挺有把握：我觉得 SaaS 不再是你获取利润率的地方。从大约 2010、2011 到现在，我们经历了一场「糖分高潮」——可以很快在 AWS 上转起来、测市场、试东西，然后去追一两亿美元的市场。</p>
+<p>SaaS 是市场的大规模碎片化，因为交付机制变得非常容易、无摩擦。现在应用越来越关乎智能层，我看不到二十年后软件还是个巨大市场。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你难道不觉得 SaaS 会变成 LoRA 吗？我的意思是——LoRA 算 SaaS 吗？嗯，某种程度上算企业 SaaS，某种程度上又不算。所以是不是只是语义变了？现在没人从零开始会说「哦我们是家 SaaS 公司」——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>对，没错。所以你是对的。我刚才用的大概是经典 SaaS 定义。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>但那些通过软件加服务组合去交付结果的公司——绝对有。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我们在好几家公司看到这点。我在种子轮投得挺积极，看到一批公司：把长期存在、传统方式必须做对的工程任务，用 AI 加人类做得更快更便宜。很好。</p>
+<p>Harvey 对律所就是早期例子：旧方式是一群律师去看合同、写合同；他们说我可以用 AI 产出、用人验证，用更少人、更快、接近同样质量交付同一件事，从而颠覆市场。</p>
+<p>所以我觉得这有点像新的 SaaS。我们也看到——我称之为「辞藻自慰」（word wank）——VC 发明一套世界观硬币理论，什么「万亿服务」之类；我喜欢 Julian 写的那篇，写得很好。但我们是不是只是把它包装得更炫？那不就是未来吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>人们用 AI 把事情做高效——整套浪漫化，是不是有点过头？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我觉得你说得对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>那样投下去，你不就是在投一家律所吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>实质上是，但那是更好版本的律所，仅此而已。不过你愿意这么做吗？因为我遇到很多公司正是你说的那样，我心想：我不想做律所。我乐意投 LoRA 或 Harvey 这种卖给律所、但本身不是律所的。你懂我意思吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>可我们也看到一些大型律所开始直接投 AI。我觉得极限情况下，Harvey 卖给律所，是因为律所掌握渠道。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>那条渠道会持久吗？我不知道。但我也能想象他们说：不如直接卖给企业。就我个人，如果 Harvey 说「我有方案处理你所有 NDA、审合同等等，而且我能证明它管用」，我会把大约 80% 的法务工作量丢给他们。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我很好奇，因为你提到有些律所在自建。法律领域里 K&amp;L 之类好像承诺了大约 5 亿美元。Fireworks 的 Lin、Roman 等投资人也公开讲过「拥有自己的智能」、以及公司用自有数据建自有模型有多重要。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>你觉得那是很可行的未来，还是带点技术乐观、从特定视角出发的预测？我觉得有点技术乐观——因为要自建并拥有智能，你得有一定规模。继续用律所举例。</p>
+<p>如果你是 Cooley 这种大所，对，你可以投、可以做成。如果你是内布拉斯加中部的夫妻店，你做不到。那你会用某种服务，用服务增强律师，再服务客户。</p>
+<p>所以我不觉得每家公司都会用「拿历史数据把自有模型做强」这种方式用 AI——对他们太难了，他们要开箱即用的方案。所以卖开箱方案有市场；但会是长尾：大玩家会开始定制，因为规模撑得住。</p>
+<p>说得通。又回到「世界每部分都是对抗的」：取决于你在跟谁打。如果你跟另一家大律所打，而对方用 AI 把利润率打穿，你大概也得跟。</p>
+<p>夫妻店大概不会，他们的对手也不会，所以会在另一个领域待一阵子。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我觉得支撑很多「法律/编程」讨论的，是薪资百分比会有多少转到技术支出。美国法律市场大概 3000 亿美元，你会想其中多少会被这些提供商吃掉。编程也是同一个问题。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>你看本·霍罗维茨（Ben Horowitz）说他们会把 60 亿美元开发者薪资预算里的 3 亿美元花在 Claude Code 和编程工具上——比例不小。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我的问题是：开发者这边会停在 5%？升到 30%、50%？还是降到 1%？这是母题级问题。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我其实觉得百分比大概会相对稳定，因为我们卡在验证问题上。训练人类去知道「什么是好的」才是难点。</p>
+<p>对开发者来说，关键不是你当天直接产出多少行代码，而是代码质量。非常资深、顶尖的开发者——所谓 10x——他们练出了对「什么好、什么好看、什么审美对」的感觉，并且能快速把事做成。</p>
+<p>在新世界里，那些知道「什么是好」的人，可以验证模型输出并变得更高效。所以我觉得会发生的是：我们只是产出更多；为人类加 AI 付的那块市场规模不会剧变，变的是他们的产出大幅上升。我是这么看的——我们推演一下。</p>
+<p>假设我一年花 1000 万美元开发软件。突然客户需求变了：十年前他们满足于一年一发版，现在说「我要一周内修掉这个 bug」。唯一办法就是人类加 AI。我不是做得更少，而是多得多。</p>
+<p>我一周修掉 bug，最终一小时修掉，但我仍付 1000 万继续开发整套东西。我需要能验证输出、并推向有用目标（修 bug、加功能）的人。交付节奏上去，是因为需求侧开始这么要。</p>
+<p>被漏掉的关键是：并不是每个人的工作都消失，因为「同样任务用 AI 加人类可以更便宜」——没错，但我会做多得多的这类任务，因为需求侧变大了。供给变便宜时，需求侧也会变。两者绑在一起。</p>
+<p>所以结果就是我们做得更多：更多发版周期、更多变更。举个物理例子大家好懂：今天盖一座摩天楼假设要两年施工，基于 x 个人、y 套技能。</p>
+<p>突然我有能做 80% 工作的机器人。会发生什么？体力劳动可能短暂受冲击，但你会说：同样一座楼，成本与时间从两年——因为 80% 任务由机器人做——压到八个月。</p>
+<p>你不会只盖同样数量的楼、只是每座八个月；你会盖两倍的楼。会有更多周转、更多拆除、更多劳动进入那个市场。项目总数上升。</p>
+<p>砸进这些项目的美元总量可能差不多，但会是人类加机器人一起建。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>纳文，你说你会做天使投资，而且投得很成功——你还轻描淡写了。我今天一个逆向观点是：我不喜欢机器人投资。我觉得离该到的地方还很远，而时机很重要。我不是说驱动机器人的基础设施——那边的数据集我觉得很有意思。</p>
+<p>我们看到很多人在做类似 Mecka 或微型聚合基础设施铺开。但应用层——机器人清洁工、机器人建筑工——离我们需要的还太远。我不想待在那里，也不想吃时机风险。</p>
+<p>我错了吗？我太天真了吗？你比我聪明多了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>再说一次，我在这点上相当「信仰加成」，所以我会强烈不同意。你说「还很远」——用时间说，你觉得时间线是什么？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>五年以上。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>好。我们其实没差那么远。我觉得未来两三年会有部分任务的可工作原型，市场会在五到七年出现。我觉得那是对的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我觉得人形和非人形之间也有清晰分界。非人形我绝对能看到更清晰路径；人形我真的……每当我觉得什么「显然还早」时，我总怀疑自己一定错得很离谱——因为人形「显然」还早这件事太明显了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我们会活在一个指数发展周期的怪世界里。很难再用旧模型套。这就是问题。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>是啊。所以今天看起来还很远的东西，一旦是指数曲线，结果会比你想的快得多——</p>
+<p>还有 TAM，比如市场规模。我现在才知道、却希望 24 个月前就知道的是：推理市场简直没有边界。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>没有边界，是多万亿级。十年前你问什么是万亿市场：基本需求——住房、食物、交通。你绝不会想到科技里会出现万亿市场。我觉得仅 AI 模型本身未来几年就会是万亿市场，而推理市场会在十年内变成十万亿美元市场。</p>
+<p>这想法很疯，对吧？呼应你的点：我们把一部分劳动力市场、一部分价值创造栈挪到了技术上，于是出现这些巨型 TAM。</p>
+<p>我看 Unconventional 的原因是：如果我们在交付 token 的效率上砍掉一个数量级，某种意义上就相当于把市场放大十倍——原来一万亿的市场，适用面突然大增，潜在用途底座不止十倍扩张。这就是杰文斯悖论（Jevons paradox）。</p>
+<p>所以我觉得我们正处在可以建造这些指数、并不断推开边界的位置。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>哇。这跟我略有分歧。纳文，快问之前能不能先拆一下——我不想当完全的白痴。你为什么那么说？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我觉得我们仍只抓到「如何看见智能输出」的皮毛。物理世界我们几乎还没把智能放进去。我会说迄今工业机器人其实不算智能——它们是死记硬背：我们把「如何做任务」灌进去，机械执行。那不是新颖的问题解决。</p>
+<p>我们会进入物理问题解决的领域，而且不会太遥远。想象有几十亿机器人在四处走，动态解决问题：那个坏了，我去清理、去替换。</p>
+<p>清理世界、盖新楼、解决物理问题的交付成本不会降到零——我讨厌「降到零」这种说法——但会大幅下降。所以那个市场会极其巨大。这也是为什么我觉得它会比我们今天在虚拟世界看到的大得多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>能直说吗？那你具体投机器人的哪一层？驱动它们的模型公司、喂模型的数据公司，还是消费应用层？——应用层我还不觉得。我更在技术栈。我觉得做模型的那些人还没想清楚长大后长什么样，那也没关系。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我不是说他们必须……我不觉得价值会在模型里。我也在投做模型的公司。我觉得他们最终大概会做端到端设备：造一台带着模型、把某件事做得极好的机器人，并这样卖。我个人看法是它们会捆在一起，不会拆开。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>当 TAM 是你说的那种量级时，你还在乎价格吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>不太在乎。我只是觉得必须把财富的某个百分比放进那个空间，因为它重要，增长会非常多。有趣的是，价值投资者或传统 VC 会说「哇定价太贵了」。</p>
+<p>伙计们，当我们谈万亿以上 TAM 时，价格几乎不相关。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我完全同意你。挑战往往是我们还有客户——或者说老板——LP。如果你觉得所有权与价格很重要，LP 是更滞后的指标；你去 AGM 说所有权下降、价格上升，他们会……直到他们看到大机构也是同一趋势，才说「啊好吧，也许就是这样」。</p>
+<p>如果你能把全部钱投入一家不是你自己的公司，会是哪家？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>大概会是像 Physical Intelligence 那样的。他们按「模型」在思考；还有几家也这样，比如我想 Rhoba 等。在我看来他们在解一个根本问题：你如何定义任务，再执行它——把任务转化成运动输出。对物理世界来说，这就是眼下要解的问题。</p>
+<p>所以除了我们正在做的、造一台新计算机之外，我觉得那是下一个大问题。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你跨多家公司都极其成功——关于「有钱」，有什么是没人告诉你、却希望有人早告诉你的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我觉得它不改变你的价值观。你仍有有限资源，仍以某种方式看重某些东西。比如某些方面我仍然抠门，其实没必要。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你抠在什么上？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>问我太太的话，大概是衣服之类。我会想：一条牛仔裤我才不付那个价。</p>
+<p>旅行也是——我慢慢会优化时间，但总体仍会觉得「太贵了，算了」。其实花不花那笔钱无所谓，我只是看不到价值。所以：我在看到价值的地方砸钱，可以砸很多；看不到价值的地方，其实更不花了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>伙计，我们来一轮快问。我丢短句，你给第一反应。过去 12 个月你改变了什么想法？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>投资上，我改变了对「什么是有用进展指标」的看法。我们总把市场验证当主指标，我觉得那是旧看法，很大程度上来自 SaaS——没有深技术路线时，市场验证说得通：我在做服务某个用途的产品。</p>
+<p>那就全是市场验证。但当一件事几乎「一眼为真」——比如我要治癌症——你不需要验证市场，你需要验证技术问题上的进展。现在投资者分两派：一派说估值管他的，大力投这些公司——我们也是其中之一；</p>
+<p>另一派说天哪太不纪律，没有市场验证。我其实觉得后者从根本上错了，很多成长投资者仍在那个桶里。我算是读着那些风险与投资的书长大的，在这点上我改了不少想法。</p>
+<p>不只因为我公司在做，而是我们现在在解真正深的技术问题：机器人、计算、生物。关键不是市场验证——市场就在那里，非常清楚；你解了那个问题，人们 100% 会买。关键是解题进度。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>对，尤其在欧洲，这种心态很少见。如果资源完全不受限，职业上你会做什么不同的事？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我会开始自建制造，因为我想越来越靠近原材料源头。硬件生态现在有太多供给约束。如果我不受限、什么都能建——老实说有点像埃隆在做的。</p>
+<p>对，我们该建自己的那类晶圆厂，因为我可以把那一层为我的需求极致优化。我不需要拿一个为一百种别的用途造的大宗件硬塞进我的需求。我会造我正好需要的东西，做出更好产品。坦率说，我认为计算机的全部价值来自交付智能。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>如果我能一路优化到硅锭从工厂来了怎么加工、怎么切片，我绝对想做。好答案。你觉得今天 AI 哪块最被高估、你不会投？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>对我来说，客服 AI 是最过度繁殖、无差异化的空间之一——像是试图干掉 Salesforce 的入口，相当无趣。</p>
+<p>对，那些「人类在做标准事，我去自动化一下」的快餐式切入，是眼下最差的投资处，非常被高估。我其实也觉得智能体编程（agentic coding）作为市场相当被高估，因为它会流向模型提供商；其他人拿不到多少价值。</p>
+<p>我知道 Cursor 有过很棒的退出，那很好。但模型提供商、模型本身才是多数价值来源。我不觉得 harness 或 IDE 那么重要——粘性不强。我们公司里人们在这些工具间切换很顺滑。所以关键是模型，以及它交付的能力。</p>
+<p>因此，抛开模型提供商不谈，智能体编程这个市场我今天不会投。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>三年后，百分之多少的 token 流量会走开源 vs 闭源？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我觉得会是 80% 开源。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>换成美元流量呢？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>这问题更好。我觉得大概会收敛成很像手机市场的样子。粗略说：iPhone 约占总量 20%，但占利润约 80%。类似地，大概只有相对少量非常重要的问题需要前沿模型，那些你会付贵得多。</p>
+<p>不过你日常那些例行任务，会由开源模型处理。所以花费上我其实觉得大概五五开，但 token 量上只有大约 20% 会去前沿模型。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你经历过最好的单次投资人会议是哪一次？为什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我可以先讲个小故事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>好，请。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>从创办 Nirvana 起，我大概开过上千次投资人会。到第 800 次时，第一次那种印象早就没了。</p>
+<p>很早期我见过史蒂夫·杰文森（Steve Jurvetson），后来成了好朋友。我紧张得要命——听说他超聪明、会把我拆碎。结果我们开始geek 数字表示法，我想：这家伙是投资人？然后我发几篇论文给他，他批注提问，我回信……这完全不是我对投资人的预期，他像在跟技术同事聊天。</p>
+<p>那是我最好的投资人会议之一：我们做的东西太新，2014 年十年没人投硬件创业；而这家伙几乎迫不及待想投这类东西，因为他自己也在想。于是就是——走，干。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>好答案。我爱史蒂夫。我记得请他上过节目，棒极了。我喜欢他那种愿意非共识的劲。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>对。要做会回报的大赌注，你必须非共识。共识定义上已经错了——已经旧了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我在欧洲的挑战是想法的商品化：当创始人几乎成了观光项目，人人都想体验一把「当创始人」，想法质量下降。我不觉得美国人天生更聪明更有才华，但我觉得你们在想法选择上更创新。</p>
+<p>大概因为曝光、看见什么、怎么想、在结构里玩哪里。我们还在用 AI 做报销管理。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>对，完全是。我觉得在这里我们被允许想得更大。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>对。在欧洲不行，因为整个投资网络和思维方式太保守。你带着疯狂想法进来，他们说那家伙疯了我不投；在这里则是：那家伙真棒，他想得大。</p>
+<p>完全同意，绝对正确。难的是——我真有这个问题——现在有一轮 A 轮，他们在做太空相关。我完全不懂。团队很棒，但伙计，那是 4 亿基金里的 2000 万支票，5%。你不能轻易亏那笔。</p>
+<p>太空超级高风险，我完全不懂。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我把这些看成技术周期早期：我们这些技术人都会给你讲故事——我们必须建叙事——而那个故事 100% 会是错的。我只知道它会错，不知道错在哪、错多少。那阶段你投的是「开车的人」，不是车本身。方向对、想法对，你真正在乎的是团队。</p>
+<p>他们能不能开？能不能做必要的转向与正确的技术决策，把车开到真正重要的地方？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>挑战在于这个市场里你跟他们待的时间不够。</p>
+<p>对，我很想说「是啊我不知道」。你大概只有两三次会。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>你说得对。你得尽量多做功课，跟认识他们的人聊，但很难。我同意。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>最后一个，伙计。你最兴奋什么？我喜欢乐观，不喜欢围绕泡沫的犬儒。你的兴奋点是什么？我就是对这一切很振奋。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>我把 AI 看作一种工具与能力，让我们能对宇宙问大得多的问题。科学里有太多我们不懂的东西，因为它们不可接近——能思考那个问题并推进的人类太少。我们能动手解的问题表面积开始变大。</p>
+<p>这让我极度兴奋。我不会去想「天哪 AI 要灭绝全人类」——那是我听过最蠢的世界观，愚蠢至极。我现在完全厌了。</p>
+<p>不，伙计们，AI 是让人类开始撬开更大问题的东西：我们如何探索更多宇宙？当我们开始理解物理更深的部分……虫洞之类理论构造，我们现在可以开始用 AI 推进——我能不能造出利用那种物理现象的东西？它是不是真的？过去我们根本问不了。</p>
+<p>我们没有足够能接近这些问题的人类。所以对我来说，推进科学、推进人类理解的能力太令人兴奋了，我说不清。它让我感觉像个孩子。外面有一个我们甚至没法去想的惊奇世界；我们被自己的能力框住，以为只能看这些。</p>
+<p>现在，整个世界突然向我们敞开了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>正是这样的节目，让我做了十年仍热爱。你知识的广度简直美妙。对我来说，见证这一切本身就很惊人。谢谢你愿意跨这么广的光谱对话。你太棒了，伙计。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="纳文·拉奥（Naveen Rao）">纳文</span></div><div class="content">
+<p>非常好玩。我喜欢这种能在这么多不同话题上即兴延展的对话。</p>
+</div></div>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "20VC with Harry Stebbings", "title": "推理将成十万亿美元市场：软件投资人完了｜纳文·拉奥（Naveen Rao）", "url": "https://www.youtube.com/watch?v=4UmFfI8CWuA", "videoId": "4UmFfI8CWuA", "published_at": "2026-10-24", "duration": 4406, "caption_source": "YouTube 自动生成字幕（en-orig；普通 yt-dlp 遭 429 后经 yt-dlp + Chrome cookies 路径拉取），中文为逐句全文翻译；caption_source=yt-dlp-chrome-cookies", "guests": ["纳文·拉奥（Naveen Rao）"], "speakers": [{"id": "h", "name": "哈里·斯特宾斯（Harry Stebbings）", "role": "host", "short": "哈里"}, {"id": "g", "name": "纳文·拉奥（Naveen Rao）", "role": "guest", "short": "纳文"}], "intro": {"summary": "Unconventional AI 创始人纳文·拉奥与哈里·斯特宾斯谈推理市场为何可达十万亿美元、Transformer 之后的硬件新路径，以及软件/SaaS 投资人在 AI 时代的结构性困境。", "points": ["推理市场：十年内可达约十万亿美元；效率每提升一个数量级，适用面与需求按杰文斯悖论扩张", "越过 Transformer：当前「推理」多为智能体式多采样轨迹，算法上低效；硬件与新计算架构是十年主战场", "商品化分层：能源已商品化；智能与推理运营利润率承压；硬件侧仍有「能源→智能」的榨取空间", "软件投资人困境：经典 SaaS 利润率时代结束；新形态是 AI+人类交付结果（如 Harvey），价值更靠近模型与硬件", "机器人与物理智能：非人形路径更清晰；应用层偏早，模型/端到端设备与 Physical Intelligence 类更值得关注", "快问：三年后约 80% token 走开源但美元更像手机利润结构；最被高估的是客服 AI 与非模型侧智能体编程"], "verdict": "值得看：约 73 分钟硬核投资向访谈，覆盖推理 TAM、硬件 vs 软件、SaaS 演变与机器人时机；适合 VC/创始人，可跳过片头寒暄。", "audience": "关注 AI 基础设施、推理经济、SaaS→AI 交付转型的投资人与创始人；20VC / Unconventional AI 听众"}, "paragraphs": [{"start_sec": 1, "speaker_id": "h", "type": "text", "zh": "我们再过几年就要没有能源了。这只是一个【音乐】短暂波动。不是什么泡沫破裂。我们不把模型奉为圣典（sacrosanct）。我们的思维是能源优先。纳文·拉奥（Naveen Rao）是一位连续创业者。他上一家公司 Mosaic ML 卖给了 Databricks，成交约 13 亿美元。现在他又回来了，创办 Unconventional 【音乐】 AI，已融资数亿美元。"}, {"start_sec": 1, "speaker_id": "h", "type": "text", "zh": "他们最近一轮估值接近 50 亿美元。纳文是我见过的、能把如此多复杂话题讲得最清楚、最有条理的人之一。他非常精彩，这期节目做起来很享受。对我来说，智能会有无限【音乐】需求。我其实认为，未来十年真正该押注的是硬件。"}, {"start_sec": 1, "speaker_id": "h", "type": "text", "zh": "我会说，如果你是纯软件投资者，你大概……推理（inference）市场会在十年内变成十万亿美元级别的市场。我不会去想什么「天哪，AI 要灭绝全人类」——那是我听过最蠢的世界观。准备好了，开始。"}, {"start_sec": 67, "speaker_id": "h", "type": "text", "zh": "纳文，我太期待这期了，伙计。我跟你说了我可是把你「挖」过来的——马特·博恩斯坦（Matt Bornstein）、马特·奥（Matt Oo）等等很多人推荐。非常感谢你今天来上节目。"}, {"start_sec": 74, "speaker_id": "g", "type": "text", "zh": "当然。是啊，我也很期待。"}, {"start_sec": 76, "speaker_id": "h", "type": "text", "zh": "我觉得会很好玩，因为我把你上过的好多节目都过了一遍，记下了我觉得最有争议的那些话。顺便说，有几句相当扎人。不过我想从这套基础设施的基础层开始——能源。你以前说过能源会是瓶颈、有多重要。你怎么评估今天的能源供给状况？我们没看到、但应该看到的是什么？"}, {"start_sec": 104, "speaker_id": "g", "type": "text", "zh": "能源供给一直很难建起来，对吧？我觉得大家低估了这一点。我见过行业里的数字：建一吉瓦（gigawatt）大概要 500 亿美元。所以人们把「吉瓦」挂在嘴边，好像很容易似的。拜托，这根本不容易。对比一下：建一座半导体晶圆厂大概也就两三百亿美元量级。"}, {"start_sec": 104, "speaker_id": "g", "type": "text", "zh": "所以从资金和复杂度看，一吉瓦比建一座晶圆厂还贵。很难。过去几年我们其实主要是在「吃掉」系统里原本闲置的过剩产能。我们通常会过度建设，基础设施也不会跑在 100% 出力。"}, {"start_sec": 104, "speaker_id": "g", "type": "text", "zh": "所以数据中心拿到的电，主要来自：能不能把利用率拉高，再挤出接下来那一两吉瓦。看看美国电网：平均出力大概 900 吉瓦，但我记得峰值能力可以到大约 1.2–1.3 太瓦，也就是 1300 吉瓦。"}, {"start_sec": 104, "speaker_id": "g", "type": "text", "zh": "所以确实有一些过剩容量，我们眼下主要追的就是这部分——能最快拿到的。但真正建新基础设施很难，我们需要建更多。我们已经落后了。"}, {"start_sec": 189, "speaker_id": "h", "type": "text", "zh": "我们落后多少？"}, {"start_sec": 189, "speaker_id": "g", "type": "text", "zh": "过去二十年里，中国在总装机容量上已经超过我们了，大概是 2023 年的事。但他们有二十年都以大约六倍于我们的速度在建。他们是从很后面追上来的，但冲得又快又猛。我们当时很多批评是说他们用「脏」办法——烧煤之类。"}, {"start_sec": 189, "speaker_id": "g", "type": "text", "zh": "没错，但他们也是在尽可能快地增长。我感觉他们现在也在回过头清理其中一些。与此同时，我们几乎没怎么投能源基础设施，这会伤到我们——因为真要追上来，需要时间。"}, {"start_sec": 231, "speaker_id": "h", "type": "text", "zh": "伙计，中国遥遥领先，我们能学到什么？是不是该在政策和监管上松得多得多？关键 takeaway 是什么？"}, {"start_sec": 240, "speaker_id": "g", "type": "text", "zh": "我觉得这很难，因为它打到了我们文化和他们文化最核心的地方。中国可以中央计划。"}, {"start_sec": 240, "speaker_id": "g", "type": "text", "zh": "我们不行。两种模式都有优势。面对这种巨型基础设施铺开，中央计划无疑有优势。但说到创新、枪尖那一层，美国遥遥领先——AI 是在这里诞生的，不是在那里；这些最新突破几乎都来自这里。中国也在做很出色的工作，我不想贬低——不只是蒸馏（distillation），他们也有真正的创新。"}, {"start_sec": 240, "speaker_id": "g", "type": "text", "zh": "不过我认为真正打开新疆域的「枪尖」工作，还是来自这里，不是那里。归根结底，我们得把我们的优势用足。"}, {"start_sec": 291, "speaker_id": "h", "type": "text", "zh": "你看今天什么是稀缺的——有没有什么今天还不稀缺、但三到五年内会变得稀缺的东西？"}, {"start_sec": 299, "speaker_id": "g", "type": "text", "zh": "我觉得过剩产能会开始变得非常稀缺。即便按对 AI 更保守的增速看，再过几年我们很快就会没电可用。你没法随口说「我再找点容量」——那些过剩会被吃光。然后我们就收敛到「能建多快」的速度上。我听人说「我们一年要建 40 吉瓦」——不可能，我们从没做到过，我看不出来怎么可能。"}, {"start_sec": 299, "speaker_id": "g", "type": "text", "zh": "至少现在不行。也许过几年有新发明，我们能靠建设突围。但以今天的能力，一年建不出 40 吉瓦。也许能建 10。如果真建到 10，已经很惊人了——换算过来大约是五千亿美元，给你个量级感。"}, {"start_sec": 299, "speaker_id": "g", "type": "text", "zh": "所以当你再看已经被说「顶部过热」的债务周期，我们现在也开始看到它在 CoreWeave 之类地方层层拆解，担忧很多。"}, {"start_sec": 363, "speaker_id": "h", "type": "text", "zh": "是啊。这到底才刚开始，还是派对音乐晚上七点就关了？"}, {"start_sec": 371, "speaker_id": "g", "type": "text", "zh": "我觉得最大的转折变量是：对 AI 服务有没有需求，从而对 GPU 有没有需求，从而对这轮新建能源有没有需求。我当然身在这个行业，相当「AI 信仰者」。我觉得需求很充足。"}, {"start_sec": 371, "speaker_id": "g", "type": "text", "zh": "我们甚至还没 Scratch 到表面。AI 里还有很多问题要解决，但接下来几年我们会解决它们，那会打开我们今天根本想不到的新需求类型。所以我的感觉是：这是个短暂波动，不是泡沫破裂。就像你问「治癌症有没有需求？」"}, {"start_sec": 371, "speaker_id": "g", "type": "text", "zh": "当然有，对吧？你要是治好癌症，人们会要。你要是造出一台什么都能做的智能机器，人们同样会要。"}, {"start_sec": 423, "speaker_id": "h", "type": "text", "zh": "我一直记得文·德罗斯拉（Vinod Khosla）跟我说的：我希望承担尽可能多的技术风险，尽可能少的采用风险。"}, {"start_sec": 429, "speaker_id": "g", "type": "text", "zh": "对。"}, {"start_sec": 430, "speaker_id": "g", "type": "text", "zh": "就是这样。我有癌症疗法——极难做成，但采用风险为零。我完全理解。但那是否意味着：如果我们正盯着大约十八个月后就会耗尽过剩供给，今天是不是在错误定价？你可以这么争论。这大概该交给能源市场去定价和上移。"}, {"start_sec": 430, "speaker_id": "g", "type": "text", "zh": "我至少从轶事里看到证据。我没有具体数字可引，因为每一笔「表后」（behind-the-meter）交易都是定制的，而人们为单位千瓦时付的价格，远高于标准电网。所以我们已经在看到双层定价：数据中心用电的价值，高于一般用途。"}, {"start_sec": 430, "speaker_id": "g", "type": "text", "zh": "现在有大量表后项目。一些公司在做新技术，比如 Bloom Energy。亚利桑那有 Bloom Energy 要建大约几吉瓦的交易。如果跑通，太好了，那可能就是我们继续往前所需的技术突破。但还没真正被验证。"}, {"start_sec": 430, "speaker_id": "g", "type": "text", "zh": "而且那些经济账，跟你在电网上看到的很不一样。"}, {"start_sec": 505, "speaker_id": "h", "type": "text", "zh": "怎么个不一样法？"}, {"start_sec": 506, "speaker_id": "g", "type": "text", "zh": "简单说：人们愿意为数据中心能源付的每千瓦时价格就是更高。因为利润结构好太多，你扛得住更高电价。比方说我有一吉瓦算力要卖，我可以按大概五倍于电价的价格卖出去。"}, {"start_sec": 506, "speaker_id": "g", "type": "text", "zh": "数字是我随口编的，但量级就是「电价的大约五倍」。所以我有很大腾挪空间，可以多付 30%、40% 的电费。当我们从能源——最底层的基础电力——再往下一层，到使用这些电的算力时……"}, {"start_sec": 549, "speaker_id": "h", "type": "text", "zh": "嗯。"}, {"start_sec": 551, "speaker_id": "h", "type": "text", "zh": "关于算力，有哪些你现在知道、却希望两年前就知道的事？"}, {"start_sec": 551, "speaker_id": "g", "type": "text", "zh": "有一件我希望早点知道：我们几乎看不到物理层面的效率提升了。可以把造一台计算机拆成大概三层。第一层是物理层。"}, {"start_sec": 551, "speaker_id": "g", "type": "text", "zh": "比如我把一个比特从这儿传到那儿，能不能更省。零用这个状态表示、一用那个状态表示，手机有一定重量，在两态之间切换就需要能量。手机更轻，所需能量就变。这是纯粹的物理问题。"}, {"start_sec": 551, "speaker_id": "g", "type": "text", "zh": "我们常说的摩尔定律（Moore's law），或者你可能听过的登纳德缩放（Dennard scaling）——器件做得更小——本质上是物理层的事：让物理层更高效、更密。这些创新基本停了；看最近几代 GPU 或其他芯片，效率提升已经不多。"}, {"start_sec": 551, "speaker_id": "g", "type": "text", "zh": "你看到的效率提升，来自上一层：计算架构。过去几年/几代，多数效率增益来自更小的数据类型——从 32 位到 16 位到 8 位到 4 位。比特搬得少、算得少，效率就上来。"}, {"start_sec": 551, "speaker_id": "g", "type": "text", "zh": "再上一层还没被很好开发，我们在 Mosaic 时开始做一点：如何在模型层面强制局部性、减少数据搬运。五六年前我们还不这么想，因为模型还不是算力的主驱动；那时算力还是通用的——跑网站、数据库之类。"}, {"start_sec": 551, "speaker_id": "g", "type": "text", "zh": "但现在如果把计算机单纯看作「为交付智能而设计的物理设备」，心态就变了。我可以从模型一路共设计到架构再到物理。这就是我希望早点知道的：顶层还剩多少 alpha，而不只是物理层。我们盯物理层盯太久了。"}, {"start_sec": 551, "speaker_id": "h", "type": "text", "zh": "能不能问：当重点从「前模型时代」转到「后模型时代」，这种设计心态在跨越技术栈时怎么变？"}, {"start_sec": 696, "speaker_id": "g", "type": "text", "zh": "意味着我们不把模型奉为圣典，而是能源优先——每件事都必须带来能源优势。听起来简单，但过去没人这么设计；过去永远围绕速度。这其实可以追溯到 1940 年代的 ENIAC。"}, {"start_sec": 696, "speaker_id": "g", "type": "text", "zh": "因为计算机从一开始就被设计成「比替代方案更快」。ENIAC 也是。对了，你知道 ENIAC 为什么被造出来吗？它是个缩写——电气数值积分与计算器（Electronic Numerical Integrator and Computer）之类。"}, {"start_sec": 736, "speaker_id": "h", "type": "text", "zh": "听起来没错。"}, {"start_sec": 737, "speaker_id": "g", "type": "text", "zh": "对。这是美国政府 1945 年造的计算机，最早的大型数字计算机之一。它像每台被造出来的机器一样有目的：做火炮弹道计算，比替代方案更快、更准。当时的替代方案是真人手工算数学。所以你必须更快。"}, {"start_sec": 737, "speaker_id": "g", "type": "text", "zh": "那是关键。下一代出来，必须比上一代更快。GPU 出来，必须比 CPU 渲染更快。一代代都在追求「比前一个更快」，这也以多种方式带来了效率——在同样功耗下更快本身更高效；同时摩尔定律一路推进，我们从真空管走到晶体管。"}, {"start_sec": 737, "speaker_id": "g", "type": "text", "zh": "晶体管越做越小。现在物理这一侧变化不大了，晶体管也没好多少。但在模型和架构层面，我们还有很大空间。"}, {"start_sec": 737, "speaker_id": "h", "type": "text", "zh": "那这意味着我们在看到模型商品化，还是看到：能省电、有效率优势的模型与没有的模型之间，质量在拉开？"}, {"start_sec": 812, "speaker_id": "g", "type": "text", "zh": "我觉得正是如此。我比较擅长的一件事，是判断人们未来几年会把注意力放在哪。我认为这将是一件大事。"}, {"start_sec": 821, "speaker_id": "h", "type": "text", "zh": "纳文，这点你真的很出色，必须给你记一功。你挑选市场时，会不会走一遍：「我觉得世界会往这边走，所以我要把自己放在这里」？"}, {"start_sec": 832, "speaker_id": "g", "type": "text", "zh": "当然会。这也关乎兴趣。对我来说，造一台更好的计算机，是最有意思的问题之一。"}, {"start_sec": 842, "speaker_id": "h", "type": "text", "zh": "所以在创办 Unconventional 之前，你在想法迷宫里坐下，说「我要聚焦的问题集是……」——那是什么？"}, {"start_sec": 842, "speaker_id": "g", "type": "text", "zh": "我大致会想：如果我解决一个问题，它解锁什么？有点像当科学家。好科学家就是问对那个问题——一旦答出来，会打开更多问题。"}, {"start_sec": 842, "speaker_id": "g", "type": "text", "zh": "好论文几乎都有这个标志。对我这次事业来说，很清楚：我们会用尽能源；现有范式并没围绕这点；而我们还要继续扩展，所以焦点会落在这里。"}, {"start_sec": 842, "speaker_id": "g", "type": "text", "zh": "我们需要以许多新形态交付智能，并大幅打穿成本，才能让它无处不在。还没人认真想这件事，那我就该先开干。"}, {"start_sec": 842, "speaker_id": "h", "type": "text", "zh": "我们刚聊到模型效率以及它如何换算成能源。今天模型确实越来越高效。你怎么看我们在模型效率曲线上走到哪了？还有很大空间，还是已经接近渐近线、在啃最后那点增量？"}, {"start_sec": 914, "speaker_id": "g", "type": "text", "zh": "不，不，还有很大空间。原因是我们还没做成模型与物理侧之间真正的共设计（co-design）。你可以提出一个概念，在标准 GPU 上纯靠软件大概拿到比如 5% 的效率——听起来不错。但你能挖的深度有限，因为物理器件是按某种方式造死的。"}, {"start_sec": 914, "speaker_id": "g", "type": "text", "zh": "看看大脑：它们是共进化的。智能层和物理层一起演化，才能在两层互相压榨优势。比如稀疏性（sparsity）——计算单元之间干脆没有连接。在 GPU 上用稀疏性，我 100% 能拿到某种收益。"}, {"start_sec": 914, "speaker_id": "g", "type": "text", "zh": "但如果你用的是标准片外随机访问内存，那些收益的上限就被卡住了——物理件并不是为这种稀疏性设计的。如果我能造出真正吃稀疏性的东西，收益可以巨大。大脑就是这么共进化出来的。"}, {"start_sec": 914, "speaker_id": "h", "type": "text", "zh": "说到这种共进化、或者说架构对任务的特化——这是否意味着我们会坚定地走向芯片特化？我们看到 Etched、Fractile、d-Matrix，还有 Cerebras 等等，很多人在追特定负载。这是不是算力的未来？你怎么看？"}, {"start_sec": 1008, "speaker_id": "g", "type": "text", "zh": "百分之百是。这其实能追溯到图灵（Turing）最早的文章——他一开始就想造智能机器。我们走的路是：把他那个理论构造做成物理版本。所以我们造出来的任何东西都不是真正「图灵完备」的——内存有限等等。"}, {"start_sec": 1008, "speaker_id": "g", "type": "text", "zh": "但我们做出了超级有用的应用：能跑生意、剪视频、改图、处理文本，过去六十年生产力暴涨。可这偏离了最初目标；现在我们又绕回来了。"}, {"start_sec": 1008, "speaker_id": "g", "type": "text", "zh": "我觉得计算机的目的就是提供智能——它是智能的物理显现。所以我们要想办法把它做得更好。有趣的是：你把智能的物理显现做得更好，你其实做出了某种通用的东西。大脑在某些方面是通用的。"}, {"start_sec": 1008, "speaker_id": "g", "type": "text", "zh": "不过硬件的负载是固定的，可编程性也不像 CPU 那种。GPU 已经走在「为负载定制架构」的路上，我们只会更极致地优化。这是好事——总有一天我们能造出真正有能力「建造任何东西」的智能机器。"}, {"start_sec": 1008, "speaker_id": "h", "type": "text", "zh": "原谅我这颗金融脑。你是出色的技术专家，我在很多方面更像个不务正业的交易员。你说芯片会坚定地特化——那会多大程度上压缩英伟达（NVIDIA）这种横向供应商的 TAM？还是说——伙计别这么小家子气，还早得很，还有 50 倍空间？"}, {"start_sec": 1008, "speaker_id": "g", "type": "text", "zh": "市场会非常大。英伟达走到今天执行得极其出色。我 2014 年创办 Nirvana 时，大家还不太理解市场会有多大。但我清楚：我们需要围绕神经网络的新计算架构。那是描述计算的新方式，对我来说是计算机能做的最重要的事。"}, {"start_sec": 1008, "speaker_id": "g", "type": "text", "zh": "黄仁勋（Jensen）也比较早意识到这点。我记得 2014 年 GTC 他就开始大谈人工智能——很多做图形的人当时很不爽：为什么花这么多时间讲 AI？那根本不是重要负载，图形才是。"}, {"start_sec": 1008, "speaker_id": "g", "type": "text", "zh": "他正确地判断这会变重要，砸了大量投入，并且执行得很好。所以我们经历了计算架构的演化：从「这些机器被用来做什么」到「它们最终会变成什么」。现在对我来说已经很清楚："}, {"start_sec": 1008, "speaker_id": "g", "type": "text", "zh": "我只需要关心一件事——把神经网络跑得极其高效、极其可扩展。那就是评判标准（figure of merit）。"}, {"start_sec": 1204, "speaker_id": "h", "type": "text", "zh": "你觉得芯片商品化会到什么程度？微软昨晚发布了自己的芯片；谷歌 TPU 很成功；亚马逊有自己的；Anthropic 也在建；还有那个名字超棒的——我爱死了——Jalapeño。下一代会叫什么？我们会不会看到芯片本质上走向商品化？"}, {"start_sec": 1204, "speaker_id": "h", "type": "text", "zh": "首先我觉得下一代得叫哈瓦那辣椒（Habanero），因为会更辣。最后大概得上鬼椒之类的吧？"}, {"start_sec": 1235, "speaker_id": "g", "type": "text", "zh": "我觉得你该去注册商标，不然萨姆（Sam）可能抢先。"}, {"start_sec": 1239, "speaker_id": "h", "type": "text", "zh": "我去问问他。其实我并不认为芯片会商品化。我看它有点像演化里发生的事。我对这一切有个很简单的世界观：智能会有无限需求。智能的需求没有上限，因为我们生活的宇宙是对抗性的。"}, {"start_sec": 1239, "speaker_id": "g", "type": "text", "zh": "起初两团细菌可能在抢一块阳光，有感知、能移动、能适应环境的那个会赢并持续繁殖。然后组织成真核、多细胞生物——每一次你都在抬高能量层级和赌注，但本质仍是对抗。"}, {"start_sec": 1239, "speaker_id": "g", "type": "text", "zh": "现在我们在人群之间也看到这点——美对中，或某某对某某。某种层面上我们开始更多地驾驭太阳——卡尔达舍夫等级（Kardashev scale）那套——打某种星际级的仗，你都需要智能。智能是这些对抗经济里的燃料。"}, {"start_sec": 1239, "speaker_id": "g", "type": "text", "zh": "所以它有无限需求。要创造智能，你需要能源。把能源转化成智能的，是硬件——我说的硬件是整栈：芯片、系统、云、网络，全部。所以从经济看，我卖的是「把能源转化成智能」的能力；我做得越好，积累的价值越多。"}, {"start_sec": 1239, "speaker_id": "g", "type": "text", "zh": "所以就市场而言，我不觉得它很快会商品化。"}, {"start_sec": 1239, "speaker_id": "h", "type": "text", "zh": "你会不会担心咬得太多，在「能源→智能」这条链上摊太宽，反而损害产品质量？中间能吃下的越多，钱越多——但风险呢？"}, {"start_sec": 1365, "speaker_id": "h", "type": "text", "zh": "对，我昨天请了 Modal 的创始人埃里克（Eric）上节目。"}, {"start_sec": 1370, "speaker_id": "h", "type": "text", "zh": "我很喜欢他。但这家伙什么都想做，真的什么都做。我当时就想：产品广度到哪一步会伤害深度？"}, {"start_sec": 1383, "speaker_id": "h", "type": "text", "zh": "你会想这件事吗？"}, {"start_sec": 1384, "speaker_id": "g", "type": "text", "zh": "我们一直在想。聚焦超级重要。不过我觉得世界因为 AI 在变，我们能承担更大的广度，可探索的表面积比以前大。"}, {"start_sec": 1397, "speaker_id": "g", "type": "text", "zh": "只是因为开发速度快太多了。为什么现在好像每家公司都成了「复合创业公司」？我们第一代芯片做的是一组耦合振荡器，有耦合矩阵，振荡器彼此影响。"}, {"start_sec": 1397, "speaker_id": "g", "type": "text", "zh": "做的时候我会问——在旧世界、AI 之前——假如我们不做全连接，噪声怎么传播？比如一串菊花链式的振荡器，开头有某种噪声特性，我想看过四跳或六跳后信息怎么退化。"}, {"start_sec": 1397, "speaker_id": "g", "type": "text", "zh": "旧世界里我得跟研究团队说：你们去建个噪声模型，我只要零阶直觉来指导思路。他们可能说「我在忙别的，下周再弄」；写代码、验证、出结果也许又要一周。"}, {"start_sec": 1397, "speaker_id": "g", "type": "text", "zh": "所以要好几周才有答案。现在我直接问模型，它吐出代码，我可以审查、来回改几次，一小时就有答案。从前要想两周的事，现在一小时。因为 AI，单位时间我能想通更多事。不过我们仍有一个问题。"}, {"start_sec": 1490, "speaker_id": "h", "type": "text", "zh": "你凭什么说垃圾太多？是因为刷 X，时间线全是蠢观点吗？无意冒犯美国，但你们政客那些脸……用英式说法比较「结构有趣」。我时间线上全是各种 AI 生成版本——外星人、从国会冒出来之类，疯了。你说的 AI 泔水是指这个吗？"}, {"start_sec": 1521, "speaker_id": "g", "type": "text", "zh": "不是。嗯，不完全是。"}, {"start_sec": 1524, "speaker_id": "h", "type": "text", "zh": "那是娱乐。"}, {"start_sec": 1525, "speaker_id": "h", "type": "text", "zh": "对，那更多是娱乐。顺便说，英国人在自嘲幽默上已经垄断市场了，比我们美国人能做到的好太多。所以——"}, {"start_sec": 1533, "speaker_id": "g", "type": "text", "zh": "老实说，我们从英国这边看着都在想：哇，我们抱怨自己的政客抱怨了这么久……结果看他们。"}, {"start_sec": 1542, "speaker_id": "h", "type": "text", "zh": "是啊我知道。我们把这事推到了新高度，毫无疑问。我跟你说我们是创新者。好了。"}, {"start_sec": 1549, "speaker_id": "g", "type": "text", "zh": "所以这正好是个例子：你看到一个输出，先问自己——过不过「直觉检查」？你可能觉得「嗯，也许不行」。有趣的是，今天年纪更大的人看图像，往往没有那种直觉检查。"}, {"start_sec": 1549, "speaker_id": "g", "type": "text", "zh": "他们会说「哇，是真的」。我父母看过特朗普弹吉他的 AI 视频，还说「哇他会吉他」。我说：「妈，他没在弹，那是 AI 生成的。」她说：「哦，好吧。」对我来说一眼假。所以公司里的验证问题，我们公司也有。"}, {"start_sec": 1549, "speaker_id": "g", "type": "text", "zh": "我们能造各种产物：代码、模型，什么都行。但你必须闭环，确保每一件都正确，才能信任结果。而因为产物太多，验证开始变成大瓶颈。我觉得问题已经从「生产」挪到了「验证」。"}, {"start_sec": 1613, "speaker_id": "g", "type": "text", "zh": "验证的价值在于：如果你拥有验证层，你就拥有自动化层——因为有了可验证性，你才能往下推进。是这样吗？嗯，我觉得这是用 AI 做开发的必要部分；但拥有验证层是否等于拥有生产层？我不完全确定。你可能还得拥有规格（spec）。"}, {"start_sec": 1613, "speaker_id": "g", "type": "text", "zh": "要产出有用结果——造车、造桥——你得能写清规格：我是不是在解一个有用的问题？然后每个产物都要被验证为正确，并朝着规格推进，最终确认「我确实按规格实现了」。所以是端到端过程，不只是验证。"}, {"start_sec": 1613, "speaker_id": "g", "type": "text", "zh": "验证是其中一块。我不知道该怎么单独给它估值；我把它当作抵达最终结果的整体的一部分来看。"}, {"start_sec": 1673, "speaker_id": "h", "type": "text", "zh": "我们请过 Atlassian 的迈克（Mike）上节目，很棒的人。他讲到思维链、以及公司里不同职能上「智能体主导决策」对比「人类主导决策」有多重要。我一边完全理解、觉得很有道理；一边又觉得这么想有点「旧」——这到底意味着什么？"}, {"start_sec": 1673, "speaker_id": "h", "type": "text", "zh": "我们不如信任人类那样信任智能体的决策。这感觉也挺怪。"}, {"start_sec": 1704, "speaker_id": "g", "type": "text", "zh": "我们确实还不信任。"}, {"start_sec": 1704, "speaker_id": "g", "type": "text", "zh": "你怎么看？——我同意你。"}, {"start_sec": 1709, "speaker_id": "g", "type": "text", "zh": "很多场景下我们还不该像信任人类那样信任智能体决策。我们花很多年训练，才建立起判断力。比如当神经外科医生：医学院后再训练七年，是有原因的。不是缝针有多难——研究生时我都缝过。"}, {"start_sec": 1709, "speaker_id": "g", "type": "text", "zh": "难的不是外科的物理机械部分，是判断往哪走。你得看过足够多病例、结果、别人怎么思考，才能堆出那种判断。而我们现在定义智能的方式是：拿一个随机性的模型——"}, {"start_sec": 1709, "speaker_id": "g", "type": "text", "zh": "你可以多次提示，得到不同输出。你其实在探索可能解的分布，然后再挑哪个好。你会得到大量输出，多数并不好。也可以说人类也这样：我怎么决策？"}, {"start_sec": 1709, "speaker_id": "g", "type": "text", "zh": "我会想一遍可能输出，用某种启发式挑好的。我们在内部做——内部独白或某种内在过程。模型吐出思维链，我们有很多条思维链，再决定哪条好、走哪条。那个「决定」元素在每个任务上其实理解得不透，所以我不觉得现在该信任这些东西。"}, {"start_sec": 1709, "speaker_id": "g", "type": "text", "zh": "决策链叠得越长——决策接决策——越容易脱轨；东西看起来很扎实，其实完全错。这就是今天的位置。未来大概会变，还需要若干突破，但今天就是这样。"}, {"start_sec": 1709, "speaker_id": "h", "type": "text", "zh": "我个人很喜欢这类问题：你今天觉得古怪、怪异、疯狂的信念，五年后会变得稀松平常、人人同意？我记得把信用卡绑进 PayPal，父母还骂我；还有早期网上相亲——「网上找老公/老婆？荒谬」。当时都疯。我觉得我们终将比信任自己更信任我们的智能体。"}, {"start_sec": 1844, "speaker_id": "g", "type": "text", "zh": "我觉得某个时点会是这样。对。"}, {"start_sec": 1847, "speaker_id": "h", "type": "text", "zh": "但你觉得我们离那天还很远？"}, {"start_sec": 1849, "speaker_id": "g", "type": "text", "zh": "我们今天还没到。专长不会过时，只会换形态。我认为未来会是：我们开始建造——姑且叫模型，但我其实不觉得只是模型，而是整台机器。我把智能看成物理层与智能层合一、不可拆分。所以我有一台机器。"}, {"start_sec": 1849, "speaker_id": "g", "type": "text", "zh": "它几乎像一个有机体，我可以教它成为各种任务的专家，价值来自把专长堆起来。就像：你上过哪所学校？你怎么学会当神经外科医生或厨师？那种「来路」很重要——你跟谁学、学了谁的方法与思维方式。"}, {"start_sec": 1849, "speaker_id": "g", "type": "text", "zh": "价值从那里来。你或任何人类从头到脚都是智能机器，但真正让你值钱的是你被教导的方式。机器上我们会开始看到类似的事。智能可以复制，但「你怎么被教的」才会是关键。"}, {"start_sec": 1849, "speaker_id": "g", "type": "text", "zh": "其中一部分，就是知道如何抵达真实、可用、已验证的终点。"}, {"start_sec": 1925, "speaker_id": "h", "type": "text", "zh": "我其实没被教太多，受教育时间很少，纳文，谢谢你。我希望人类身上总还有点价值。不，我完全懂你说的学习里的价值——很多价值就在你年复一年做事时积累的数据里。"}, {"start_sec": 1942, "speaker_id": "h", "type": "text", "zh": "我们今天看到数据公司——有些营收冲到以前觉得天文数字的量级，时间还极短。纳文你太聪明了，跟你聊天真享受。我只想不停问你关于世界的问题。这个市场会怎样？会随时间整合，还是越拆越开、 fortify 护城河？会怎样？"}, {"start_sec": 1972, "speaker_id": "g", "type": "text", "zh": "我觉得会特化。你若特化并真正去做重要问题，就能有又大又可防守的市场。技能也是幂律：可以说人人都能学很多技能，但有些技能更值钱；你构建的数据与课程也一样。"}, {"start_sec": 1998, "speaker_id": "h", "type": "text", "zh": "完全理解。所以我们会看到数据公司特化。你不觉得它们会变成大宗商品？"}, {"start_sec": 2005, "speaker_id": "g", "type": "text", "zh": "对，我不觉得是大宗商品。"}, {"start_sec": 2005, "speaker_id": "g", "type": "text", "zh": "一开始有点像大宗商品——大批量采集观察。但当你开始构建更高质量的数据集——AI 圈说的更高质量代码数据、更高质量思维链等等——数据里就开始有大量价值。模型几乎只是它学到的东西的显现。所以数据层往后会相当重要，我不觉得会商品化。"}, {"start_sec": 2005, "speaker_id": "g", "type": "text", "zh": "我觉得眼下的游戏是：建模型，以及知道如何挑选数据。大模型公司很大程度上是数据问题。他们也在模型本身上推进，但多数能力并不来自那里，而来自策展数据、用不同损失函数。以前是预训练，那是一种很特定的损失。"}, {"start_sec": 2005, "speaker_id": "g", "type": "text", "zh": "然后我们进入现在所谓的中期训练（mid-training）：强化学习、监督微调，各种配方混合。从预训练走到这些不同训练去改模型行为的「课程」，才是真正的秘方。"}, {"start_sec": 2077, "speaker_id": "h", "type": "text", "zh": "能不能问：你提到预训练、强化学习，然后重点明显转向了后训练（post-training）。这种从预训练到后训练的重心转移，你觉得是模型改进效率与路径上的持久、永久变化，还是我们又会回到以 RL 或预训练为主？重要性会怎么随时间变？"}, {"start_sec": 2102, "speaker_id": "g", "type": "text", "zh": "其实我不确定它是否更高效。"}, {"start_sec": 2102, "speaker_id": "g", "type": "text", "zh": "从单位算力或单位美元换来的模型提升看，我觉得 RL 更低效。但它确实能继续往前推。目标是让模型在重要任务上变得更好，所以未来几年它会非常重要。我们大概会在中层、甚至预训练层开始做特化。很难说未来范式是什么——这些都是很刻意的场景，我们工程化地走到下一个问题。"}, {"start_sec": 2102, "speaker_id": "g", "type": "text", "zh": "就像：我在这儿，想去那儿，就工程出一条路；再到下一站，再工程。最后像随机游走的一串点，行业就这么演化。"}, {"start_sec": 2102, "speaker_id": "g", "type": "text", "zh": "我不觉得大模型公司在性能上想得很长——「我要对 AI 系统的思考方式做重大突破以建立优势」。我会说大实验室目前不太这么做。"}, {"start_sec": 2168, "speaker_id": "h", "type": "text", "zh": "在当下这种日更竞赛的生态里，他们负担得起那么做吗？"}, {"start_sec": 2173, "speaker_id": "g", "type": "text", "zh": "问题就在这。"}, {"start_sec": 2175, "speaker_id": "h", "type": "text", "zh": "对。"}, {"start_sec": 2176, "speaker_id": "g", "type": "text", "zh": "太快了。你必须盯紧。模型晚一个月，对 OpenAI、Anthropic、Grok 或谷歌来说就是灾难。所以他们暂时还负担不起那些大风险。你看埃隆拉起 xAI：基本是「范式在这，招人，干」——"}, {"start_sec": 2176, "speaker_id": "g", "type": "text", "zh": "很快就摸到前沿，因为他有资源。这告诉我：并没有那么多非常深的创新；更多是把积木拼起来，配一个会造的团队，极速执行。"}, {"start_sec": 2176, "speaker_id": "g", "type": "text", "zh": "这跟提出新范式很不一样。你看杨立昆（Yann LeCun）的公司、李飞飞（Fei-Fei Li）的公司，他们在做更深的创新；我觉得那更像创业公司的地盘，开始有点像药物研发：大风险由创业公司扛，增量由大公司做。"}, {"start_sec": 2176, "speaker_id": "g", "type": "text", "zh": "大公司在创业公司显出苗头时再买下来。"}, {"start_sec": 2236, "speaker_id": "h", "type": "text", "zh": "我有时问很简单的问题，但我不知道答案，而你很聪明。为什么今天所有人都为 RL 这么兴奋？你刚提到中期学习，我身边全是「全是 RL」。我自己也同意——百分之百同意。"}, {"start_sec": 2253, "speaker_id": "g", "type": "text", "zh": "原因有几条。想想我们怎么学习：主要就是强化学习。如果我教你一项新技能，比如网球发球，那本质是一个 RL 环路。我会给你一个「好发球长什么样」的范式——"}, {"start_sec": 2253, "speaker_id": "g", "type": "text", "zh": "示范或给你看视频，让你在心里建起「好/伟大」的内部模型。然后你不断对照那个内部模型评判自己：我在接近，或还不行、要求助。那就是 RL。"}, {"start_sec": 2253, "speaker_id": "g", "type": "text", "zh": "它之所以重要，是因为我们凑不够数据去解决世界上每一个任务。你没法只靠堆数据预训练硬闯出来，太难了；模型也还不够高效去吃掉那些数据。所以你需要一种范式：这是十件最重要任务，然后我有某种「可验证奖励」。"}, {"start_sec": 2253, "speaker_id": "g", "type": "text", "zh": "我有那个内部模型——好发球就是打得很猛而且进了界内，对吧？可验证：我能量速度，能量是否出界。有了可验证奖励，我就能问：我采取的动作，是否导向了那个好结果？"}, {"start_sec": 2253, "speaker_id": "g", "type": "text", "zh": "于是我有了一种结构，能用来解任意一组通用任务——这就是 RL 令人兴奋的原因。"}, {"start_sec": 2253, "speaker_id": "h", "type": "text", "zh": "你买杨立昆的「后 Transformer 世界」理论吗？那会如何改写一切？"}, {"start_sec": 2350, "speaker_id": "g", "type": "text", "zh": "我确实认为我们会进入后 Transformer 世界。我不觉得 Transformer 是终极答案。也许直到一两年前我才真正理解这点，因为 Transformer 把很多东西混在一起。我们真正在乎的是推理：能把问题推理清楚。"}, {"start_sec": 2350, "speaker_id": "g", "type": "text", "zh": "不知谁说的：智能是你在没有信息时做什么，不是你在有信息时做什么。能从某种机制或第一性原理把问题推理出来，才是智能。"}, {"start_sec": 2350, "speaker_id": "g", "type": "text", "zh": "所以 Transformer 某种程度上也有推理，但其实是通过智能体式流程：多次采样，再决定哪个好。我拿一条轨迹跟另一条比，说这条更好，就把它叫作推理轨迹。我们实现「推理」的方式，本质上是一种检索机制。"}, {"start_sec": 2350, "speaker_id": "g", "type": "text", "zh": "注意力机制里的上下文就是一种检索，我们从中采样，最终得到看起来像推理的东西。我觉得这对「我们真正如何推理」来说极其低效。我们不必这样建推理。大脑不是这么工作的——不会先建一条巨大轨迹，再灌进另一个模型的输入，再吐出另一条轨迹。"}, {"start_sec": 2350, "speaker_id": "g", "type": "text", "zh": "大脑不是那样。有更高效、从算法角度看性能更高的做法，所以我们会越过 Transformer。"}, {"start_sec": 2444, "speaker_id": "h", "type": "text", "zh": "你觉得成为伟大创始人需要的东西变了吗？"}, {"start_sec": 2444, "speaker_id": "g", "type": "text", "zh": "我觉得没变。基本原则还在。对未来的观点、愿景，现在可能比以前更重要。在前 AI 世界，你可以靠执行力当个不错的创始人，不一定要有很好的愿景。"}, {"start_sec": 2444, "speaker_id": "g", "type": "text", "zh": "你会执行就行。大公司又慢又笨重，你可以做出创业公司再卖掉或做大。但现在如果只靠执行，我觉得走不了多远。"}, {"start_sec": 2486, "speaker_id": "h", "type": "text", "zh": "我非常同意。能不能问：我们聊过各层，你说数据不会商品化、特化有价值。那哪一层会随时间商品化？"}, {"start_sec": 2499, "speaker_id": "g", "type": "text", "zh": "好问题。可以说能源已经是大宗商品了，已经商品化了。我觉得一定程度的智能也会开始商品化。其实我们已经看到了：六个月前的模型，比如中国开源模型那个水平，已经相当有用——六个月前的东西仍然相当好。"}, {"start_sec": 2499, "speaker_id": "g", "type": "text", "zh": "我会说这就是商品化的标志：前沿不是唯一重要的。对某些问题前沿重要，但六个月后那条前沿就会进入开源模型。"}, {"start_sec": 2533, "speaker_id": "h", "type": "text", "zh": "那就帮我理一下：如果交付机制、或者说全部基础设施的产出都商品化了，会发生什么？"}, {"start_sec": 2541, "speaker_id": "g", "type": "text", "zh": "商品化不一定意味着坏事。它意味着利润率会掉很多，但也意味着市场非常大。你可以说番茄是商品，但我们还是要吃、还是需要。智能会有巨大且持续增长的市场，只是利润率未必很高。"}, {"start_sec": 2541, "speaker_id": "g", "type": "text", "zh": "我其实不觉得模型公司会吃下整栈利润。今天也不是——今天吃栈利润的是英伟达，大概拿走了大头。"}, {"start_sec": 2577, "speaker_id": "h", "type": "text", "zh": "很多人跟我说，未来几年推理成本会大幅下降，推理市场也可能商品化。"}, {"start_sec": 2586, "speaker_id": "h", "type": "text", "zh": "你同意还是不同意？"}, {"start_sec": 2589, "speaker_id": "g", "type": "text", "zh": "我们拆开看。「推理市场商品化」是什么意思？意思是跑推理的运营商……我猜是？"}, {"start_sec": 2599, "speaker_id": "h", "type": "text", "zh": "对，绝对是。Fireworks、Together、Baseten 这类，以及他们提供的服务。"}, {"start_sec": 2605, "speaker_id": "g", "type": "text", "zh": "对。"}, {"start_sec": 2606, "speaker_id": "h", "type": "text", "zh": "站稳脚跟。"}, {"start_sec": 2606, "speaker_id": "g", "type": "text", "zh": "因为看他们的价值主张：他们做得很好的是——拿一个已有模型，比如开源模型，让它稳定跑起来，有可用性保障，并相对成本高效地跑在基础设施上。所以他们是基础设施玩法：把模型映射到物理硬件，并把它做好。"}, {"start_sec": 2606, "speaker_id": "g", "type": "text", "zh": "未来那里仍会有价值，但人们愿意为每个 token 付的推理价格会掉。于是他们必须从硬件能力到交付 token 之间挤出更多利润。而那一层能挤的「汁水」，我觉得会变少。"}, {"start_sec": 2606, "speaker_id": "g", "type": "text", "zh": "所以结果是他们利润率更低；模型本身也已商品化，获取途径很多。但硬件侧大概不会崩——那部分仍有优势，因为你还能继续挤：「我把能源转成智能，转得更高效」。"}, {"start_sec": 2606, "speaker_id": "g", "type": "text", "zh": "在我看来，那里能挤的汁水远多于基础设施层。所以我其实认为，未来十年该待的地方是硬件。"}, {"start_sec": 2679, "speaker_id": "h", "type": "text", "zh": "我需要改变自己作为投资者的身份吗？这听起来奇怪，纳文——但我是软件投资者，过去十年投 SaaS，而且投得不错。"}, {"start_sec": 2689, "speaker_id": "g", "type": "text", "zh": "嗯。"}, {"start_sec": 2690, "speaker_id": "h", "type": "text", "zh": "伙计，投硬件挺难的，心态完全不同。这一代投资者有没有装备好去做硬件投资？给点建议。"}, {"start_sec": 2704, "speaker_id": "g", "type": "text", "zh": "我会说，如果你是纯软件投资者，你大概……说实话有点悬。我说得挺有把握：我觉得 SaaS 不再是你获取利润率的地方。从大约 2010、2011 到现在，我们经历了一场「糖分高潮」——可以很快在 AWS 上转起来、测市场、试东西，然后去追一两亿美元的市场。"}, {"start_sec": 2704, "speaker_id": "g", "type": "text", "zh": "SaaS 是市场的大规模碎片化，因为交付机制变得非常容易、无摩擦。现在应用越来越关乎智能层，我看不到二十年后软件还是个巨大市场。"}, {"start_sec": 2751, "speaker_id": "h", "type": "text", "zh": "你难道不觉得 SaaS 会变成 LoRA 吗？我的意思是——LoRA 算 SaaS 吗？嗯，某种程度上算企业 SaaS，某种程度上又不算。所以是不是只是语义变了？现在没人从零开始会说「哦我们是家 SaaS 公司」——"}, {"start_sec": 2771, "speaker_id": "g", "type": "text", "zh": "对，没错。所以你是对的。我刚才用的大概是经典 SaaS 定义。"}, {"start_sec": 2776, "speaker_id": "h", "type": "text", "zh": "但那些通过软件加服务组合去交付结果的公司——绝对有。"}, {"start_sec": 2776, "speaker_id": "g", "type": "text", "zh": "我们在好几家公司看到这点。我在种子轮投得挺积极，看到一批公司：把长期存在、传统方式必须做对的工程任务，用 AI 加人类做得更快更便宜。很好。"}, {"start_sec": 2776, "speaker_id": "g", "type": "text", "zh": "Harvey 对律所就是早期例子：旧方式是一群律师去看合同、写合同；他们说我可以用 AI 产出、用人验证，用更少人、更快、接近同样质量交付同一件事，从而颠覆市场。"}, {"start_sec": 2776, "speaker_id": "g", "type": "text", "zh": "所以我觉得这有点像新的 SaaS。我们也看到——我称之为「辞藻自慰」（word wank）——VC 发明一套世界观硬币理论，什么「万亿服务」之类；我喜欢 Julian 写的那篇，写得很好。但我们是不是只是把它包装得更炫？那不就是未来吗？"}, {"start_sec": 2776, "speaker_id": "h", "type": "text", "zh": "人们用 AI 把事情做高效——整套浪漫化，是不是有点过头？"}, {"start_sec": 2868, "speaker_id": "g", "type": "text", "zh": "我觉得你说得对。"}, {"start_sec": 2870, "speaker_id": "h", "type": "text", "zh": "那样投下去，你不就是在投一家律所吗？"}, {"start_sec": 2873, "speaker_id": "g", "type": "text", "zh": "实质上是，但那是更好版本的律所，仅此而已。不过你愿意这么做吗？因为我遇到很多公司正是你说的那样，我心想：我不想做律所。我乐意投 LoRA 或 Harvey 这种卖给律所、但本身不是律所的。你懂我意思吗？"}, {"start_sec": 2890, "speaker_id": "h", "type": "text", "zh": "可我们也看到一些大型律所开始直接投 AI。我觉得极限情况下，Harvey 卖给律所，是因为律所掌握渠道。"}, {"start_sec": 2903, "speaker_id": "g", "type": "text", "zh": "那条渠道会持久吗？我不知道。但我也能想象他们说：不如直接卖给企业。就我个人，如果 Harvey 说「我有方案处理你所有 NDA、审合同等等，而且我能证明它管用」，我会把大约 80% 的法务工作量丢给他们。"}, {"start_sec": 2929, "speaker_id": "h", "type": "text", "zh": "我很好奇，因为你提到有些律所在自建。法律领域里 K\u0026L 之类好像承诺了大约 5 亿美元。Fireworks 的 Lin、Roman 等投资人也公开讲过「拥有自己的智能」、以及公司用自有数据建自有模型有多重要。"}, {"start_sec": 2929, "speaker_id": "g", "type": "text", "zh": "你觉得那是很可行的未来，还是带点技术乐观、从特定视角出发的预测？我觉得有点技术乐观——因为要自建并拥有智能，你得有一定规模。继续用律所举例。"}, {"start_sec": 2929, "speaker_id": "g", "type": "text", "zh": "如果你是 Cooley 这种大所，对，你可以投、可以做成。如果你是内布拉斯加中部的夫妻店，你做不到。那你会用某种服务，用服务增强律师，再服务客户。"}, {"start_sec": 2929, "speaker_id": "g", "type": "text", "zh": "所以我不觉得每家公司都会用「拿历史数据把自有模型做强」这种方式用 AI——对他们太难了，他们要开箱即用的方案。所以卖开箱方案有市场；但会是长尾：大玩家会开始定制，因为规模撑得住。"}, {"start_sec": 2929, "speaker_id": "g", "type": "text", "zh": "说得通。又回到「世界每部分都是对抗的」：取决于你在跟谁打。如果你跟另一家大律所打，而对方用 AI 把利润率打穿，你大概也得跟。"}, {"start_sec": 2929, "speaker_id": "g", "type": "text", "zh": "夫妻店大概不会，他们的对手也不会，所以会在另一个领域待一阵子。"}, {"start_sec": 3042, "speaker_id": "h", "type": "text", "zh": "我觉得支撑很多「法律/编程」讨论的，是薪资百分比会有多少转到技术支出。美国法律市场大概 3000 亿美元，你会想其中多少会被这些提供商吃掉。编程也是同一个问题。"}, {"start_sec": 3042, "speaker_id": "g", "type": "text", "zh": "你看本·霍罗维茨（Ben Horowitz）说他们会把 60 亿美元开发者薪资预算里的 3 亿美元花在 Claude Code 和编程工具上——比例不小。"}, {"start_sec": 3073, "speaker_id": "h", "type": "text", "zh": "我的问题是：开发者这边会停在 5%？升到 30%、50%？还是降到 1%？这是母题级问题。"}, {"start_sec": 3073, "speaker_id": "g", "type": "text", "zh": "我其实觉得百分比大概会相对稳定，因为我们卡在验证问题上。训练人类去知道「什么是好的」才是难点。"}, {"start_sec": 3073, "speaker_id": "g", "type": "text", "zh": "对开发者来说，关键不是你当天直接产出多少行代码，而是代码质量。非常资深、顶尖的开发者——所谓 10x——他们练出了对「什么好、什么好看、什么审美对」的感觉，并且能快速把事做成。"}, {"start_sec": 3073, "speaker_id": "g", "type": "text", "zh": "在新世界里，那些知道「什么是好」的人，可以验证模型输出并变得更高效。所以我觉得会发生的是：我们只是产出更多；为人类加 AI 付的那块市场规模不会剧变，变的是他们的产出大幅上升。我是这么看的——我们推演一下。"}, {"start_sec": 3073, "speaker_id": "g", "type": "text", "zh": "假设我一年花 1000 万美元开发软件。突然客户需求变了：十年前他们满足于一年一发版，现在说「我要一周内修掉这个 bug」。唯一办法就是人类加 AI。我不是做得更少，而是多得多。"}, {"start_sec": 3073, "speaker_id": "g", "type": "text", "zh": "我一周修掉 bug，最终一小时修掉，但我仍付 1000 万继续开发整套东西。我需要能验证输出、并推向有用目标（修 bug、加功能）的人。交付节奏上去，是因为需求侧开始这么要。"}, {"start_sec": 3073, "speaker_id": "g", "type": "text", "zh": "被漏掉的关键是：并不是每个人的工作都消失，因为「同样任务用 AI 加人类可以更便宜」——没错，但我会做多得多的这类任务，因为需求侧变大了。供给变便宜时，需求侧也会变。两者绑在一起。"}, {"start_sec": 3073, "speaker_id": "g", "type": "text", "zh": "所以结果就是我们做得更多：更多发版周期、更多变更。举个物理例子大家好懂：今天盖一座摩天楼假设要两年施工，基于 x 个人、y 套技能。"}, {"start_sec": 3073, "speaker_id": "g", "type": "text", "zh": "突然我有能做 80% 工作的机器人。会发生什么？体力劳动可能短暂受冲击，但你会说：同样一座楼，成本与时间从两年——因为 80% 任务由机器人做——压到八个月。"}, {"start_sec": 3073, "speaker_id": "g", "type": "text", "zh": "你不会只盖同样数量的楼、只是每座八个月；你会盖两倍的楼。会有更多周转、更多拆除、更多劳动进入那个市场。项目总数上升。"}, {"start_sec": 3073, "speaker_id": "g", "type": "text", "zh": "砸进这些项目的美元总量可能差不多，但会是人类加机器人一起建。"}, {"start_sec": 3283, "speaker_id": "h", "type": "text", "zh": "纳文，你说你会做天使投资，而且投得很成功——你还轻描淡写了。我今天一个逆向观点是：我不喜欢机器人投资。我觉得离该到的地方还很远，而时机很重要。我不是说驱动机器人的基础设施——那边的数据集我觉得很有意思。"}, {"start_sec": 3283, "speaker_id": "h", "type": "text", "zh": "我们看到很多人在做类似 Mecka 或微型聚合基础设施铺开。但应用层——机器人清洁工、机器人建筑工——离我们需要的还太远。我不想待在那里，也不想吃时机风险。"}, {"start_sec": 3325, "speaker_id": "h", "type": "text", "zh": "我错了吗？我太天真了吗？你比我聪明多了。"}, {"start_sec": 3330, "speaker_id": "g", "type": "text", "zh": "再说一次，我在这点上相当「信仰加成」，所以我会强烈不同意。你说「还很远」——用时间说，你觉得时间线是什么？"}, {"start_sec": 3342, "speaker_id": "h", "type": "text", "zh": "五年以上。"}, {"start_sec": 3344, "speaker_id": "g", "type": "text", "zh": "好。我们其实没差那么远。我觉得未来两三年会有部分任务的可工作原型，市场会在五到七年出现。我觉得那是对的。"}, {"start_sec": 3355, "speaker_id": "h", "type": "text", "zh": "我觉得人形和非人形之间也有清晰分界。非人形我绝对能看到更清晰路径；人形我真的……每当我觉得什么「显然还早」时，我总怀疑自己一定错得很离谱——因为人形「显然」还早这件事太明显了。"}, {"start_sec": 3376, "speaker_id": "g", "type": "text", "zh": "我们会活在一个指数发展周期的怪世界里。很难再用旧模型套。这就是问题。"}, {"start_sec": 3388, "speaker_id": "h", "type": "text", "zh": "是啊。所以今天看起来还很远的东西，一旦是指数曲线，结果会比你想的快得多——"}, {"start_sec": 3396, "speaker_id": "h", "type": "text", "zh": "还有 TAM，比如市场规模。我现在才知道、却希望 24 个月前就知道的是：推理市场简直没有边界。"}, {"start_sec": 3408, "speaker_id": "g", "type": "text", "zh": "没有边界，是多万亿级。十年前你问什么是万亿市场：基本需求——住房、食物、交通。你绝不会想到科技里会出现万亿市场。我觉得仅 AI 模型本身未来几年就会是万亿市场，而推理市场会在十年内变成十万亿美元市场。"}, {"start_sec": 3408, "speaker_id": "g", "type": "text", "zh": "这想法很疯，对吧？呼应你的点：我们把一部分劳动力市场、一部分价值创造栈挪到了技术上，于是出现这些巨型 TAM。"}, {"start_sec": 3408, "speaker_id": "g", "type": "text", "zh": "我看 Unconventional 的原因是：如果我们在交付 token 的效率上砍掉一个数量级，某种意义上就相当于把市场放大十倍——原来一万亿的市场，适用面突然大增，潜在用途底座不止十倍扩张。这就是杰文斯悖论（Jevons paradox）。"}, {"start_sec": 3408, "speaker_id": "g", "type": "text", "zh": "所以我觉得我们正处在可以建造这些指数、并不断推开边界的位置。"}, {"start_sec": 3482, "speaker_id": "h", "type": "text", "zh": "哇。这跟我略有分歧。纳文，快问之前能不能先拆一下——我不想当完全的白痴。你为什么那么说？"}, {"start_sec": 3493, "speaker_id": "g", "type": "text", "zh": "我觉得我们仍只抓到「如何看见智能输出」的皮毛。物理世界我们几乎还没把智能放进去。我会说迄今工业机器人其实不算智能——它们是死记硬背：我们把「如何做任务」灌进去，机械执行。那不是新颖的问题解决。"}, {"start_sec": 3493, "speaker_id": "g", "type": "text", "zh": "我们会进入物理问题解决的领域，而且不会太遥远。想象有几十亿机器人在四处走，动态解决问题：那个坏了，我去清理、去替换。"}, {"start_sec": 3493, "speaker_id": "g", "type": "text", "zh": "清理世界、盖新楼、解决物理问题的交付成本不会降到零——我讨厌「降到零」这种说法——但会大幅下降。所以那个市场会极其巨大。这也是为什么我觉得它会比我们今天在虚拟世界看到的大得多。"}, {"start_sec": 3555, "speaker_id": "h", "type": "text", "zh": "能直说吗？那你具体投机器人的哪一层？驱动它们的模型公司、喂模型的数据公司，还是消费应用层？——应用层我还不觉得。我更在技术栈。我觉得做模型的那些人还没想清楚长大后长什么样，那也没关系。"}, {"start_sec": 3555, "speaker_id": "g", "type": "text", "zh": "我不是说他们必须……我不觉得价值会在模型里。我也在投做模型的公司。我觉得他们最终大概会做端到端设备：造一台带着模型、把某件事做得极好的机器人，并这样卖。我个人看法是它们会捆在一起，不会拆开。"}, {"start_sec": 3598, "speaker_id": "h", "type": "text", "zh": "当 TAM 是你说的那种量级时，你还在乎价格吗？"}, {"start_sec": 3602, "speaker_id": "g", "type": "text", "zh": "不太在乎。我只是觉得必须把财富的某个百分比放进那个空间，因为它重要，增长会非常多。有趣的是，价值投资者或传统 VC 会说「哇定价太贵了」。"}, {"start_sec": 3602, "speaker_id": "g", "type": "text", "zh": "伙计们，当我们谈万亿以上 TAM 时，价格几乎不相关。"}, {"start_sec": 3633, "speaker_id": "h", "type": "text", "zh": "我完全同意你。挑战往往是我们还有客户——或者说老板——LP。如果你觉得所有权与价格很重要，LP 是更滞后的指标；你去 AGM 说所有权下降、价格上升，他们会……直到他们看到大机构也是同一趋势，才说「啊好吧，也许就是这样」。"}, {"start_sec": 3659, "speaker_id": "h", "type": "text", "zh": "如果你能把全部钱投入一家不是你自己的公司，会是哪家？"}, {"start_sec": 3665, "speaker_id": "g", "type": "text", "zh": "大概会是像 Physical Intelligence 那样的。他们按「模型」在思考；还有几家也这样，比如我想 Rhoba 等。在我看来他们在解一个根本问题：你如何定义任务，再执行它——把任务转化成运动输出。对物理世界来说，这就是眼下要解的问题。"}, {"start_sec": 3665, "speaker_id": "g", "type": "text", "zh": "所以除了我们正在做的、造一台新计算机之外，我觉得那是下一个大问题。"}, {"start_sec": 3695, "speaker_id": "h", "type": "text", "zh": "你跨多家公司都极其成功——关于「有钱」，有什么是没人告诉你、却希望有人早告诉你的？"}, {"start_sec": 3703, "speaker_id": "g", "type": "text", "zh": "我觉得它不改变你的价值观。你仍有有限资源，仍以某种方式看重某些东西。比如某些方面我仍然抠门，其实没必要。"}, {"start_sec": 3716, "speaker_id": "h", "type": "text", "zh": "你抠在什么上？"}, {"start_sec": 3719, "speaker_id": "g", "type": "text", "zh": "问我太太的话，大概是衣服之类。我会想：一条牛仔裤我才不付那个价。"}, {"start_sec": 3728, "speaker_id": "g", "type": "text", "zh": "旅行也是——我慢慢会优化时间，但总体仍会觉得「太贵了，算了」。其实花不花那笔钱无所谓，我只是看不到价值。所以：我在看到价值的地方砸钱，可以砸很多；看不到价值的地方，其实更不花了。"}, {"start_sec": 3753, "speaker_id": "h", "type": "text", "zh": "伙计，我们来一轮快问。我丢短句，你给第一反应。过去 12 个月你改变了什么想法？"}, {"start_sec": 3761, "speaker_id": "g", "type": "text", "zh": "投资上，我改变了对「什么是有用进展指标」的看法。我们总把市场验证当主指标，我觉得那是旧看法，很大程度上来自 SaaS——没有深技术路线时，市场验证说得通：我在做服务某个用途的产品。"}, {"start_sec": 3761, "speaker_id": "g", "type": "text", "zh": "那就全是市场验证。但当一件事几乎「一眼为真」——比如我要治癌症——你不需要验证市场，你需要验证技术问题上的进展。现在投资者分两派：一派说估值管他的，大力投这些公司——我们也是其中之一；"}, {"start_sec": 3761, "speaker_id": "g", "type": "text", "zh": "另一派说天哪太不纪律，没有市场验证。我其实觉得后者从根本上错了，很多成长投资者仍在那个桶里。我算是读着那些风险与投资的书长大的，在这点上我改了不少想法。"}, {"start_sec": 3761, "speaker_id": "g", "type": "text", "zh": "不只因为我公司在做，而是我们现在在解真正深的技术问题：机器人、计算、生物。关键不是市场验证——市场就在那里，非常清楚；你解了那个问题，人们 100% 会买。关键是解题进度。"}, {"start_sec": 3850, "speaker_id": "h", "type": "text", "zh": "对，尤其在欧洲，这种心态很少见。如果资源完全不受限，职业上你会做什么不同的事？"}, {"start_sec": 3860, "speaker_id": "g", "type": "text", "zh": "我会开始自建制造，因为我想越来越靠近原材料源头。硬件生态现在有太多供给约束。如果我不受限、什么都能建——老实说有点像埃隆在做的。"}, {"start_sec": 3860, "speaker_id": "g", "type": "text", "zh": "对，我们该建自己的那类晶圆厂，因为我可以把那一层为我的需求极致优化。我不需要拿一个为一百种别的用途造的大宗件硬塞进我的需求。我会造我正好需要的东西，做出更好产品。坦率说，我认为计算机的全部价值来自交付智能。"}, {"start_sec": 3860, "speaker_id": "h", "type": "text", "zh": "如果我能一路优化到硅锭从工厂来了怎么加工、怎么切片，我绝对想做。好答案。你觉得今天 AI 哪块最被高估、你不会投？"}, {"start_sec": 3860, "speaker_id": "g", "type": "text", "zh": "对我来说，客服 AI 是最过度繁殖、无差异化的空间之一——像是试图干掉 Salesforce 的入口，相当无趣。"}, {"start_sec": 3933, "speaker_id": "g", "type": "text", "zh": "对，那些「人类在做标准事，我去自动化一下」的快餐式切入，是眼下最差的投资处，非常被高估。我其实也觉得智能体编程（agentic coding）作为市场相当被高估，因为它会流向模型提供商；其他人拿不到多少价值。"}, {"start_sec": 3933, "speaker_id": "g", "type": "text", "zh": "我知道 Cursor 有过很棒的退出，那很好。但模型提供商、模型本身才是多数价值来源。我不觉得 harness 或 IDE 那么重要——粘性不强。我们公司里人们在这些工具间切换很顺滑。所以关键是模型，以及它交付的能力。"}, {"start_sec": 3933, "speaker_id": "g", "type": "text", "zh": "因此，抛开模型提供商不谈，智能体编程这个市场我今天不会投。"}, {"start_sec": 3981, "speaker_id": "h", "type": "text", "zh": "三年后，百分之多少的 token 流量会走开源 vs 闭源？"}, {"start_sec": 3988, "speaker_id": "g", "type": "text", "zh": "我觉得会是 80% 开源。"}, {"start_sec": 3991, "speaker_id": "h", "type": "text", "zh": "换成美元流量呢？"}, {"start_sec": 3994, "speaker_id": "g", "type": "text", "zh": "这问题更好。我觉得大概会收敛成很像手机市场的样子。粗略说：iPhone 约占总量 20%，但占利润约 80%。类似地，大概只有相对少量非常重要的问题需要前沿模型，那些你会付贵得多。"}, {"start_sec": 3994, "speaker_id": "g", "type": "text", "zh": "不过你日常那些例行任务，会由开源模型处理。所以花费上我其实觉得大概五五开，但 token 量上只有大约 20% 会去前沿模型。"}, {"start_sec": 3994, "speaker_id": "h", "type": "text", "zh": "你经历过最好的单次投资人会议是哪一次？为什么？"}, {"start_sec": 4036, "speaker_id": "g", "type": "text", "zh": "我可以先讲个小故事。"}, {"start_sec": 4038, "speaker_id": "h", "type": "text", "zh": "好，请。"}, {"start_sec": 4039, "speaker_id": "g", "type": "text", "zh": "从创办 Nirvana 起，我大概开过上千次投资人会。到第 800 次时，第一次那种印象早就没了。"}, {"start_sec": 4039, "speaker_id": "g", "type": "text", "zh": "很早期我见过史蒂夫·杰文森（Steve Jurvetson），后来成了好朋友。我紧张得要命——听说他超聪明、会把我拆碎。结果我们开始geek 数字表示法，我想：这家伙是投资人？然后我发几篇论文给他，他批注提问，我回信……这完全不是我对投资人的预期，他像在跟技术同事聊天。"}, {"start_sec": 4039, "speaker_id": "g", "type": "text", "zh": "那是我最好的投资人会议之一：我们做的东西太新，2014 年十年没人投硬件创业；而这家伙几乎迫不及待想投这类东西，因为他自己也在想。于是就是——走，干。"}, {"start_sec": 4111, "speaker_id": "h", "type": "text", "zh": "好答案。我爱史蒂夫。我记得请他上过节目，棒极了。我喜欢他那种愿意非共识的劲。"}, {"start_sec": 4120, "speaker_id": "g", "type": "text", "zh": "对。要做会回报的大赌注，你必须非共识。共识定义上已经错了——已经旧了。"}, {"start_sec": 4131, "speaker_id": "h", "type": "text", "zh": "我在欧洲的挑战是想法的商品化：当创始人几乎成了观光项目，人人都想体验一把「当创始人」，想法质量下降。我不觉得美国人天生更聪明更有才华，但我觉得你们在想法选择上更创新。"}, {"start_sec": 4131, "speaker_id": "h", "type": "text", "zh": "大概因为曝光、看见什么、怎么想、在结构里玩哪里。我们还在用 AI 做报销管理。"}, {"start_sec": 4161, "speaker_id": "g", "type": "text", "zh": "对，完全是。我觉得在这里我们被允许想得更大。"}, {"start_sec": 4166, "speaker_id": "h", "type": "text", "zh": "对。在欧洲不行，因为整个投资网络和思维方式太保守。你带着疯狂想法进来，他们说那家伙疯了我不投；在这里则是：那家伙真棒，他想得大。"}, {"start_sec": 4181, "speaker_id": "h", "type": "text", "zh": "完全同意，绝对正确。难的是——我真有这个问题——现在有一轮 A 轮，他们在做太空相关。我完全不懂。团队很棒，但伙计，那是 4 亿基金里的 2000 万支票，5%。你不能轻易亏那笔。"}, {"start_sec": 4181, "speaker_id": "h", "type": "text", "zh": "太空超级高风险，我完全不懂。"}, {"start_sec": 4181, "speaker_id": "g", "type": "text", "zh": "我把这些看成技术周期早期：我们这些技术人都会给你讲故事——我们必须建叙事——而那个故事 100% 会是错的。我只知道它会错，不知道错在哪、错多少。那阶段你投的是「开车的人」，不是车本身。方向对、想法对，你真正在乎的是团队。"}, {"start_sec": 4181, "speaker_id": "g", "type": "text", "zh": "他们能不能开？能不能做必要的转向与正确的技术决策，把车开到真正重要的地方？"}, {"start_sec": 4256, "speaker_id": "h", "type": "text", "zh": "挑战在于这个市场里你跟他们待的时间不够。"}, {"start_sec": 4260, "speaker_id": "h", "type": "text", "zh": "对，我很想说「是啊我不知道」。你大概只有两三次会。"}, {"start_sec": 4266, "speaker_id": "g", "type": "text", "zh": "你说得对。你得尽量多做功课，跟认识他们的人聊，但很难。我同意。"}, {"start_sec": 4273, "speaker_id": "h", "type": "text", "zh": "最后一个，伙计。你最兴奋什么？我喜欢乐观，不喜欢围绕泡沫的犬儒。你的兴奋点是什么？我就是对这一切很振奋。"}, {"start_sec": 4283, "speaker_id": "g", "type": "text", "zh": "我把 AI 看作一种工具与能力，让我们能对宇宙问大得多的问题。科学里有太多我们不懂的东西，因为它们不可接近——能思考那个问题并推进的人类太少。我们能动手解的问题表面积开始变大。"}, {"start_sec": 4283, "speaker_id": "g", "type": "text", "zh": "这让我极度兴奋。我不会去想「天哪 AI 要灭绝全人类」——那是我听过最蠢的世界观，愚蠢至极。我现在完全厌了。"}, {"start_sec": 4283, "speaker_id": "g", "type": "text", "zh": "不，伙计们，AI 是让人类开始撬开更大问题的东西：我们如何探索更多宇宙？当我们开始理解物理更深的部分……虫洞之类理论构造，我们现在可以开始用 AI 推进——我能不能造出利用那种物理现象的东西？它是不是真的？过去我们根本问不了。"}, {"start_sec": 4283, "speaker_id": "g", "type": "text", "zh": "我们没有足够能接近这些问题的人类。所以对我来说，推进科学、推进人类理解的能力太令人兴奋了，我说不清。它让我感觉像个孩子。外面有一个我们甚至没法去想的惊奇世界；我们被自己的能力框住，以为只能看这些。"}, {"start_sec": 4283, "speaker_id": "g", "type": "text", "zh": "现在，整个世界突然向我们敞开了。"}, {"start_sec": 4374, "speaker_id": "h", "type": "text", "zh": "正是这样的节目，让我做了十年仍热爱。你知识的广度简直美妙。对我来说，见证这一切本身就很惊人。谢谢你愿意跨这么广的光谱对话。你太棒了，伙计。"}, {"start_sec": 4390, "speaker_id": "g", "type": "text", "zh": "非常好玩。我喜欢这种能在这么多不同话题上即兴延展的对话。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

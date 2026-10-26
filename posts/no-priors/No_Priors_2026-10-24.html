@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>与 Cloudflare CTO 戴恩·克内希特（Dane Knecht）谈智能体网络的安全民主化</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="h">主持人（No Priors）</option><option value="g">戴恩·克内希特（Dane Knecht）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">No Priors</span><span class="pill">2026-10-23</span></div>
+<h1>与 Cloudflare CTO 戴恩·克内希特（Dane Knecht）谈智能体网络的安全民主化</h1>
+<p class="sub">嘉宾：戴恩·克内希特（Dane Knecht） · 约 41 分钟（2483 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=6VprwfSc4Xk" target="_blank" rel="noopener">https://www.youtube.com/watch?v=6VprwfSc4Xk</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>No Priors</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-23</dd></div><div class="meta-row"><dt>时长</dt><dd>约 41 分钟（2483 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；普通 yt-dlp 遭 429 后经 yt-dlp + Chrome cookies 路径拉取），中文为逐句全文翻译；caption_source=yt-dlp-chrome-cookies</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>6VprwfSc4Xk</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>Cloudflare CTO 戴恩·克内希特谈 AI 驱动的漏洞发现潮、零信任与「智能体小子」、内容微支付与 Cloudflare OS，以及如何用 AI 同时加速攻防两边。</p>
+<h3>核心要点</h3><ul><li>CVE 报告量近指数上升；Log4j 级事件从约一年一次变为近乎每周，未来 18 个月安全或占工程过半时间</li><li>攻击者侧出现「智能体小子」：高中生用智能体扫漏洞拿赏金，民族国家级能力下沉到大众</li><li>应对：缩小攻击面、内部 Codex/十条诫命约束智能体、多支红队主动发现；不冻结发版，两边都用 AI 加速</li><li>混乱中间态：人类网与智能体网需分流；x402/微支付与内容变现网关、Signals 发现协议</li><li>Cloudflare OS 作参考架构与内部 AI 平台；市场/G&amp;A 用得比工程还多；海量实习生策略推 AI 原生</li><li>开源 vs 闭源安全能力：长期须开放，否则只排除真正需要防御的大众；小团队可把站与基建放到 Cloudflare 获得公用事业级防护</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：约 41 分钟深度访谈，关注 AI 安全、智能体经济与企业 AI 落地者优先；可跳过纯品牌彩蛋段。</p>
+<h3>适合人群</h3><p>安全与平台工程、云/CDN 从业者、AI 应用与内容变现、企业 CTO/技术负责人</p>
+</section>
+<div class="legend"><span class="spk-0">主持人（No Priors）<em>主持</em></span><span class="spk-1">戴恩·克内希特（Dane Knecht）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>人工智能已经成为引发这类安全末日的工具，但同时也是能帮我们更快解决问题的工具。过去的问题是如何让所有人用上 AI；如今人人都在争着弄清「AI 安全」到底意味着什么。</p>
+<p>我听过严肃的技术人员说：把所有重要系统都物理隔离；我们一时半会儿没法信任互联网，干脆假设关键基础设施和政府服务迟早会垮掉。</p>
+<p>你预期会发生这种事吗？Dane，非常高兴跟你一起做这期节目。</p>
+<p>谢谢。也谢谢你们来这里。我肯定不是第一个开这个玩笑的人——你的姓 Connect，对 Cloudflare 的价值主张来说挺合适的。</p>
+<p>嗯。已经有人开玩笑说明年要把节目名从《No Priors》改掉。所以——</p>
+<p>在 Cloudflare 正在做的这一切里，你作为新任首席技术官（CTO）眼下的头几项优先事项是什么？这一年感觉像把十年压进了一年。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>这些优先事项其实一直在变，但归根结底还是我们的使命：帮助建设更好的互联网。过去十五年这一点没有变过。</p>
+<p>我们要确保互联网安全，让每个人都能轻松把内容放到网上并扩展规模。</p>
+<p>就 AI 这一年的变化弧线来看：从「如何让大家用上 AI、方便部署、让智能体也部署起来」，到像多数技术转型一样安全成了事后才想的事；现在人人突然在争着弄清 AI 安全意味着什么。不同立场看法不同：对公司来说，既要防 AI 把数据泄漏出去，也要防别人闯进来。过去三到六个月，CVE 里报告的漏洞数量几乎指数级上升。</p>
+<p>以前互联网上，Log4j、Shellshock 这类事件大概一年一次，Cloudflare 内部会全员上阵，保护企业客户，也保护所有免费客户——我们把它当成一种公共品，要让互联网保持安全。</p>
+<p>现在这类事每周都在发生。</p>
+<p>不是每件都会公开报道，但有些严重程度不亚于 Log4j，只是频率高得多。我预计到今年余下时间、再到未来十八个月，多数团队会把大量时间花在安全上。今天某场主题演讲里有个数据：超过 50% 的工程时间将开始花在安全上。我不认为这会永远持续。</p>
+<p>我认为这会是一段短暂过渡——到某个时点，AI 会扫过大部分代码，找到多数漏洞或多数捷径。</p>
+<p>今天就有一个开始被博客和推文讨论的例子：保护所有 TLS 和 WebPKI、从而保障你所有连接的一把互联网密钥，居然是用数字「4」来加固的——从密码学角度，一切都关乎随机性，对吧？</p>
+<p>软件工程里放熔岩灯，就是为了拿到好的随机性。</p>
+<p>外面有一把密钥，创建时用的种子竟然是单一数字 4，这就能被逆向。而 AI 能做这些事——它不睡觉。</p>
+<p>不像你手下那个做红队的工程师。上周 OpenAI 好像还找到了 2000 年发布的 NIST 曲线的种子。</p>
+<p>这些事推进得太快，门槛在抬高，模型在网络安全上越来越强。Midas 只是冰山一角；之后不只是模型变好，还有工具链（harness），以及人类如何用前沿模型去找这些漏洞。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>以你的视野，你对驾驭这些模型、把漏洞发现量推得这么快的人了解多少？是民族国家行为体，还是脚本小子？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>攻击者格局发生了怎样的变化？其实最近一些较大的漏洞，并不是民族国家干的。</p>
+<p>甚至有高中生——</p>
+<p>我们现在叫他们「智能体小子」（agent kitties）。他们把以前打 CTF 夺旗赛的时间，用来把智能体对准某个领域去扫。</p>
+<p>而且有经济激励：漏洞赏金能拿到可观的钱。</p>
+<p>这相当于把民族国家以某种形式长期拥有的工具——靠智能体或靠大量人力——交到了大众手里。</p>
+<p>这是我十五年来第一次听到严肃技术人员说：干脆把重要系统都物理隔离；一时半会儿没法信任互联网，假设关键基础设施和政府服务迟早会垮。你预期会发生这种事吗？</p>
+<p>人类很能适应，需要时也能很快行动。我见过行业在这种时刻团结起来：平时的竞争对手不再是对手。</p>
+<p>我们只是在保护你说的关键基础设施。关键时刻人们会站出来迎接挑战。所以我对末日论没那么悲观。</p>
+<p>过去五到十年我们做的很多事——从城堡式远程安全基础设施转向零信任——让很多公司处在更好的位置：你不是说整个办公室完全物理隔离。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>你是说这些设备、这些流量以不同方式被保护，一切都会收紧。要让组织做到你描述的那样，需要什么？现在并没有 50% 的工程师在做安全。</p>
+<p>上周 OpenAI 的 Greg Brockman 上《No Priors》时说，他认为到 2027 年，人们在安全上花的 token 费用会和工程一样多——和你说的很相关。什么会推动这种转变？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>有紧急情况。接下来十八个月你会把安全支出往前挪：红队侧（进攻性、主动尝试利用），以及防御侧（如何准备）。</p>
+<p>但我不认为这会永远持续。</p>
+<p>我看到大约十八个月后的世界：新软件生产力会大幅回升，因为资源又回到那上面；但在这段过渡期，安全必须人人上心。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>要整体把软件和互联网安全带到更好的位置，关键要素有哪些？人们当然会发现大家都在用的库和服务里有漏洞——以前发现它们要花力气，现在不那么难了。我们会撞上一些这类问题。还有什么重要？我担心的一部分是：软件生产速度也在大幅上升。某种程度上我们既要补丁已经造好的一切，还要跟上并领先交付节奏。</p>
+<p>对。眼下我们等于在给外面七十年的软件打补丁，有些只是在还债。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>往后看，软件开发生命周期、智能体开发生命周期都得变。幸运的是，我们现在能把安全用于红队这类事的方式，会嵌进流程的每一步。我认为软件会随时间变得更安全。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>你们内部在构建安全的生产软件上已经学到了什么，别人可以借鉴？那具体意味着什么？</p>
+<p>比如「左移」？有很多理论：更广泛地用形式化验证、在开发过程中用智能体做安全。你认为什么会从第一次交付起就造出更好的软件？</p>
+<p>我回到第一性原理：要缩小攻击面。最容易做的是减少可能存在漏洞的地方。审视你所有软件，问：我怎么简化它？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>怎么缩小代码足迹？再往下才是形式化验证、更安全的编程语言、运行时里内建的安全机制——这些会来。但起步点是：早期 AI 很啰嗦，爱制造复杂度；就我们目前打交道的情况看，AI 其实还没怎么帮上构建更安全的东西。</p>
+<p>但我认为我们会走到那一步。人类判断仍然重要：确保我们把软件设计成能独立、安全地立得住。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>你说缩小攻击面时，我的反应是：原则上当然对，但这不是当今模型的自然倾向，对吧？</p>
+<p>我让你做一件事，然后说：请用十分之一的复杂度再试一次。这是今天工程与安全工程的角色吗？还是会在模型层面被解决？</p>
+<p>像人类以前那样，智能体也需要在各个层面解决。你要训练写代码的产品工程师。</p>
+<p>安全团队仍要参与，做制衡、做第二双眼睛。还要建立流程。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>我们在 Cloudflare 内部把构建方式定义得更清楚了，写下了原则。</p>
+<p>我们有一份叫 Codex 的文档，像是团队写的大量 RFC 汇总：如何在 Cloudflare 构建安全软件、如何构建高可用软件。</p>
+<p>这些是最佳实践，再浓缩成十条「诫命」，智能体在评审流程的每一步都知道并遵循，用来强制执行。</p>
+<p>外面有些智能体在大量产出「水文」（slop），工厂更深处则有人在做性能跑测和安全跑测。</p>
+<p>就像公司以前怎么运转一样，我认为你需要那些对抗性评审。再放大一点看：过去一年整个互联网流量里，有多少已经变成由智能体驱动的？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>我认为这超出了多数人的预期。你对一年后网络长什么样的世界观更新了什么——从经济模型，还是从安全或必需基础设施的角度看？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>我觉得我们正处在「混乱的中间态」：人类和智能体在互联网上走同一套轨道。智能体试图解析为人设计的网页，这本身就低效。</p>
+<p>网页是为能以不同速度做事的人类设计的。</p>
+<p>人去网站阅读、看广告、参与完整经济模型；而智能体能在同样时间访问上千个页面——这很好。</p>
+<p>只是你需要找到能支撑这一点的新经济模型。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>能不能有并行的网络？人类网和机器网？大家现在都在做所谓的 AEO？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>对，我认为会。我们会找到分别向智能体和人类交付内容、在各自所在之处对接的方式，而不是硬把他们塞到同一个地方。眼下有很多翻译层。</p>
+<p>很多公司在帮智能体「看」网页——这些多半是在为本来不必发生的事烧掉 token。</p>
+<p>网站通常知道自己有什么数据；我们早就有 API，计算机互相对话很多年了。</p>
+<p>只是 API 只覆盖了互联网上信息的一小部分。智能体渴望理解一切，于是出去探索人类互联网。</p>
+<p>我们需要让这件事对它们更容易。</p>
+<p>也要让站点所有者成本更低，并找到补偿他们的方式。在一个可以变得很简单的世界里：像 Substack 这类内容站知道自己的广告 CPM 该赚多少；如果智能体在读这个站，可以到这一步——智能体决定要不要读内容，再决定要不要按 CPM 付费。</p>
+<p>这就需要新的互联网支付轨道，能每秒处理数百万笔小额支付——我们谈了很多年的微支付，总是「还有两年」。我认为智能体会真正推动它落地，内容创作者会迎来新的经济模型。</p>
+<p>你觉得这套基础设施的参与者或形态变体会是谁？Cloudflare 显然有重要角色；但像 Instinct、Muse 这类个人智能体的兴起，也立刻把交易视角的问题摆到了台面。</p>
+<p>另一边，并非人人都清楚商业结果会怎样。大家经历过这些转型：有人说互联网会杀死主街，它没有；小企业仍在繁荣。</p>
+<p>但也有人被置换，所以总有怀疑；自然倾向是把他们挡在外面。你看亚马逊就说：不允许个人购物智能体。</p>
+<p>这些都是处在混乱中间态、试图摸清前进路径、同时保留一些谈判筹码的人。</p>
+<p>我认为我们会走到 Muse、Dot 等个人智能体能像人类一样、甚至更轻松地无缝完成任务的地方。</p>
+<p>但技术和商业模式都还没完全跟上。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>在 Cloudflare 这边，路线图或技术探索上有没有你个人特别兴奋、觉得会赋能未来生态的东西？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>内容侧绝对有。我们发布了内容变现网关，让人们容易把站点放到我们后面，对内容收取微交易。</p>
+<p>还包括给智能体用的钱包，以及将促成交易的稳定币。</p>
+<p>我们也在和 OpenAI 做叫 Signals 的项目：让智能体更容易发现内容，而不必爬遍整个互联网、反复回访页面。</p>
+<p>让它们更容易知道什么是新内容、更主动地获取。这对 AI 实验室是双赢，对站点所有者也不必被不断爬取、为那套基础设施买单。</p>
+<p>所以有一整套新的互联网「法则」我很兴奋看到它们成长。Stripe 推出的 x402 我也很喜欢——</p>
+<p>因为它回到了 HTTP 402 状态码——Tim Berners-Lee 二三十年前就为支付创造的那个。</p>
+<p>我们一直知道互联网需要更好的支付轨道，只是一直没搞定；我认为智能体也会把我们带到那里。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>想到你们已发布的这些初期产品：对一个以前靠广告变现网站的内容创作者来说，成功会是什么样？</p>
+<p>你们需要看到或向世界展示的杀手级成功案例是什么，才会让这件事变成默认选项？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>我想，不是他们付钱给我们，而是我们付钱给他们——覆盖基础设施成本，提供支撑生计的收入。</p>
+<p>我们实际上可以增加内容创作者数量。上一代互联网在 YouTube、TikTok、X 上已经做得很好；我认为我们还能指数级放大。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>再看你们在工作区、OS 发布和生态上的工作，你最希望即将出现的最大用例是什么？</p>
+<p>稍微转个话题——我们发布了 Cloudflare OS：这是我们内部员工每天使用 AI 的平台。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>它其实回到安全根基：我们非常担心客户数据和内部数据泄漏，希望员工能用上所有新 AI 工具和模型，同时有安全的内部部署方式，理解数据如何被使用和流动，并有良好治理。</p>
+<p>叫 Cloudflare OS 的另一个原因是：随着智能体越来越多，我们需要教它们 Cloudflare 的特别之处、我们如何构建。对人类我们靠 Cloudflare University、入职、认识同事一起工作。</p>
+<p>但对智能体需要更清楚地定义和文档化。所以 Cloudflare OS 既是员工可以安全构建任何东西的平台——</p>
+<p>安全不是他们必须单独操心的事。</p>
+<p>比如业务代表要做外呼名单，不必担心安全——已经内建好了；同时他们知道这一切是按 Cloudflare 做事的主题和价值观完成的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>为什么发布它？我觉得这和其他 Cloudflare 产品有点不同：它不是基础设施，更像面向最终用户、管理组织内 AI 使用的产品。你觉得这是偏离吗？</p>
+<p>其一，它其实是一种参考架构。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>过去十年我们建了开发者平台：从简单的无服务器计算原语起步，到现在一百多种开发者工具——存储、数据库、Durable Objects 等。</p>
+<p>我们想展示如何完全建在 Cloudflare 上、我们内部如何构建，并让人们可以 fork，在上面做出自己公司的 OS。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>它对你们的人和组织的帮助，有哪些算是清晰的成功？</p>
+<p>实际上市场（go-to-market）和 G&amp;A 团队用得比工程团队还多。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>早期我以为培训是人们用 AI 的最大缺口：只把他们丢到聊天界面或另一个空白工具前，太空了。这个平台按你的业务方式设计一切，他们立刻能上手，拿到需要的所有数据。</p>
+<p>他们被引导着走过流程，很快意识到：这不是要取代我，而是让我把工作做得更好。</p>
+<p>看到公司里各种用法非常兴奋。比如这次大会怎么组织起来的——</p>
+<p>市场团队建了上百个内部工具；以前要找各种代理商，现在小团队的速度简直惊人。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>假设这是从五月份你们重组为「AI 优先」组织的延续——回顾这几个月，哪些奏效、哪些没有，你会推荐给别人？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>重组很难。跟一些同事告别——这是 Cloudflare 第一次做这种事。我们一直很谨慎不过度招聘，但这次原因不同。</p>
+<p>因为我们看到 AI 如何改变某些团队的工作方式。我们把它想成工厂车间：需要真正重建、重新思考事情怎么发生。</p>
+<p>比如产品经理给客户发邮件的旧流程，涉及三个团队。</p>
+<p>先找 BI 拿到你要发邮件的人群；再找市场团队帮忙设计邮件、把语气调对。</p>
+<p>再找市场运营把邮件发出去。</p>
+<p>除非做一些艰难的改变、逼人们重新思考正确做法是什么，否则永远没法真正重设计那个流程。</p>
+<p>它可能根本不需要那三个团队，而是一种新方式。结果是一个工具：产品经理进去描述人群、写邮件，系统用 Cloudflare 的语气改写——</p>
+<p>发给经理，经理觉得可以就点批准，邮件就出去了。我们不是让三个团队各自变快。</p>
+<p>而是变成一个工具，让产品经理拥有以前没有的超能力。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>想到像 Cloudflare 这样大约五千人的组织里各种工作流和任务——你如何决定谁来拥有「重新思考这个流程」？这次是不是某个团队自下而上？</p>
+<p>还是组织负责人？当有这么多事可以变得更快、更合理时。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>Cloudflare 一直有一千件我们永远做不完的事——产品功能也好，这类事也好。所以我们总是找会主动出击、承担责任的人。</p>
+<p>你不必把事排成一到一百再严格优先；这一百件里任何一件，只要有人热爱，大概都安全。</p>
+<p>去年初我们给人们工具，看他们怎么实验；很快就分化出真正倾身投入、自然去做并承担责任的一群人。</p>
+<p>所以我认为「怎么做这些事」很大程度上是自下而上的。</p>
+<p>组织里一个大话题是如何思考 token 预算：合理花多少、相对人力资本怎么看、组织内谁该拿到 token。你现在的哲学是什么？</p>
+<p>肯定变过了——每个模型成本动态一变就要重新想。但总的来说，我觉得让人类决定每个任务用哪个模型其实挺傻的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>应该智能路由。没错。人类永远不会擅长这个，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>早期你会蛮力做：让人们实验，说计划阶段用顶尖前沿模型。</p>
+<p>计划写好、达成一致并迭代之后，可能更多开源模型去做执行；然后再用前沿模型做评审、红队之类。</p>
+<p>今天这些还相当手动。但随着学习和实验，人们会变聪明，治理也会更多。Cloudflare 大体上让人们按工作需要选用模型和工具。</p>
+<p>我们没有 token 排行榜，也不鼓励比用量；鼓励关注产出。不是按「用没用」打分，而是按交付和构建了什么。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>不过我们发现：如果有人一天用了大约 300 美元，就给他们发邮件通知。</p>
+<p>写着「你知道吗？」——多数时候人们根本没意识到自己在这么用。</p>
+<p>他们会「哦」。到大概 500 就通知经理；一天到 1000 就到 VP。</p>
+<p>但这些很少发生，而且人们通常还挺高兴收到通知。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>就当前模型能力、假设没有新发展，你觉得 Cloudflare 从市场到工程、重新思考做事方式的整体演进走到哪了？</p>
+<p>还非常早。两年前我们大约有 200 个实习生；我们看到他们是第一批真正 AI 原生的——如果把 AI 拿走，我觉得他们没法工作。</p>
+<p>那是好事吗？</p>
+<p>我觉得是。他们比我们更会用工具。就像过去十年你把谷歌从我身边拿走，我怎么学任何东西？那是他们首先伸手的地方。我们还看到：带过那年夏天实习生的经理，采用 AI 更快。所以过去这一年我们决定招一千个实习生。</p>
+<p>对一家五千人的公司来说——哇。</p>
+<p>对，分散在一整年里。是的。</p>
+<p>非常惊人：一是实习生带来的想法数量——有了 AI，更少人实验得更快，所以要更多想法、更多人进来；二是看他们怎么用 AI：要填表就伸手找 AI。我自己还有很多事仍在手动做，然后才想起其实该用 AI。对多数人来说这还不是自然反应。</p>
+<p>这需要时间。所以我认为我们的 AI 旅程还非常早。</p>
+<p>我喜欢这种「海量实习生」策略。</p>
+<p>我运营一个很小的合伙企业，大约十二人的团队里总有一两个实习生飘着——为了想法和实习生能量。我们刚把一个在校实习生转正，让 Jed 退学等等。我觉得你说得对：真正原生于这些工具的 DNA 比例，旋钮应该拧得更高。</p>
+<p>对他们也好。你看滑铁卢、东北大学这类带 coop 项目的学校——我们看到有真实工作经验的人，多年后往往是最好的员工，也做出很棒的事。</p>
+<p>有意思或令人鼓舞的是：不是「这是一份总计划，把 Cloudflare 每个部门、子部门都画出来，列出关键工作流再逐一改造」。</p>
+<p>而是一种策略：假设人们在获知用量信息后会对 token 理性；招一批实习生；假设这里高主动性的人会——</p>
+<p>随时间把那些工作流推成更智能的样子。</p>
+<p>对，然后再蛮力尝试。</p>
+<p>很早的时候——大概今年一月——我们有个邮箱 agents@cloudflare：告诉人们，如果你好奇「这事能不能用 AI」，把待办发进来，邮件会回复技能文件（skill file）。</p>
+<p>有一阵子人们以为全是 AI 自动化；其实是一群实习生在帮人写技能文件。</p>
+<p>但这让我们看到：不是雇咨询公司来目录化每一件待办，而是人们自己意识到「这事好像比需要的更难」。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>想知道智能体能不能帮我。除了实习生层面，过去一年招聘哲学、你看重带进来的人什么，还有什么变了？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>我们一直最看重的之一是好奇心。如果有人在个人生活里完全不用 AI，那是相当大的红旗——有好奇心怎么可能不拥抱 AI？</p>
+<p>所以我认为是在驱动、好奇心、同理心这些关键特质上加倍；对下一批人来说这些更管用。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>我永远是各种产品和技术的 alpha 用户。但答案其实是恐惧和怀疑，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>所以「好奇心包括对前沿工具的实验」这一主张里，隐含的是：这对在 Cloudflare 工作的人必须是核心原则。</p>
+<p>对。我们做的很多事是在发明新的做事方式。</p>
+<p>我们运营的规模——站点数、送出的免费服务量——用现成技术根本做不到。所以你需要能进来真正发明新东西的人，而这始于好奇心。</p>
+<p>收尾我有几个关于安全的问题：如何以新方式在 Cloudflare 内部做，以及你认为更广泛生态会怎样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>如果一半工程团队要去做安全、修补七十年的漏洞——内部你怎么攻这个问题？假设即便是出色的生产级互联网规模软件也不完美。然后再谈生态。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>今天我们大概有一支红队；到明年年底我估计会有四五支。把人分成小组，更对抗性地主动出去找漏洞。</p>
+<p>为什么走这条路，而不是「终于把补丁系统和流程做对」？</p>
+<p>流程那些事当然总能更好。我们有漏洞管理流程、有补丁流程。</p>
+<p>完美吗？不。但我发现这类事变好的最佳方式，往往来自危机——危机逼你把它们修好。</p>
+<p>当量太大、工程团队用正常流程扛不住时——工程师有一种好的「懒」——他们会按需把这些事自动化掉，一旦意识到没有别的办法。所以重点应放在发现侧；人们会做对的事，并随时间找到可扩展的打补丁方式。</p>
+<p>你对「这件事相对发新功能的优先级」有没有明确哲学？我的理解是：并不是以前没有一堆漏洞积压要修——</p>
+<p>只是对工程团队来说，那以前是不是优先事项，是另一种常见状态。</p>
+<p>我认为你得想办法两者都做。可能以成本优化或其他事为代价；但我们的想法是：不发货就在死。</p>
+<p>所以不会为了做这个而冻结发版。</p>
+<p>绝对不会。你必须继续构建和发布新东西。</p>
+<p>但同时要确保安全地做、打补丁、修 bug。如果我们做对了，用 AI 其实能两边都更快。</p>
+<p>AI 一方面成了引发这类安全末日的工具，另一方面也是能帮我们更快解决它的工具。所以它在两边。</p>
+<p>在网络安全上开源与闭源模型的好坏辩论里，你站哪边？</p>
+<p>宽泛论点是：防御与进攻的网络能力并行存在于同一模型里——尽管有安全护栏。</p>
+<p>所以你没法只有开源防御模型而不让它也能进攻。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>另一种担忧是：如果安全能力只在一小批前沿闭源模型里，你怎么发布它们？你不可能把它们送到所有需要防御的分布式行动者手里。你怎么看？我概括得对吗？</p>
+<p>长期来看一切都必须开放，因为反正所有人最终都会拿到。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>开源就是这样运作的。坏人总会找到办法拿到。顶尖公司也会有办法拿到。</p>
+<p>所以你只是把一大批可能需要它、却没有门路的人排除在外了。</p>
+<p>最后一个问题：Cloudflare 非常使命导向，也背着一部分互联网韧性的重量。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>那些负担不起四支红队、甚至从没红队、却在跑重要系统的人——他们怎么保护自己？</p>
+<p>我会说：把站点放到 Cloudflare 后面，把基础设施放到 Cloudflare 后面，在 Cloudflare 上构建。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="戴恩·克内希特（Dane Knecht）">克内希特</span></div><div class="content">
+<p>像去年 React 那个重大漏洞出来时，我们不只给有高级防火墙和 WAF 能力的付费客户——我们给所有人。</p>
+<p>我们把这类事视为我们提供的公用事业的一部分。就像我们想为每个人提供性能。</p>
+<p>Cloudflare 起步前，世界上大概只有三千个站点有大规模 CDN 在边缘缓存。</p>
+<p>现在有上亿站点这样做。Cloudflare 一直把目标看作：为每个人民主化安全与性能。</p>
+<p>太棒了。非常感谢 Dane。各位先听到了：我们有「智能体小子」和漏洞末日——我发音对吗？</p>
+<p>对。但它是可以解决的。好，非常感谢各位。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（No Priors）">主持</span></div><div class="content">
+<p>谢谢。在 Twitter 上关注我们 @NoPriorPod。订阅 YouTube 频道就能看到我们的脸。在 Apple Podcasts、Spotify 或你平常听播客的地方关注本节目，每周都会有新一集。</p>
+<p>也可以在 no-priors.com 注册邮件，或查找每集的文字稿。</p>
+</div></div>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "No Priors", "title": "与 Cloudflare CTO 戴恩·克内希特（Dane Knecht）谈智能体网络的安全民主化", "url": "https://www.youtube.com/watch?v=6VprwfSc4Xk", "videoId": "6VprwfSc4Xk", "published_at": "2026-10-23", "duration": 2483, "caption_source": "YouTube 自动生成字幕（en-orig；普通 yt-dlp 遭 429 后经 yt-dlp + Chrome cookies 路径拉取），中文为逐句全文翻译；caption_source=yt-dlp-chrome-cookies", "guests": ["戴恩·克内希特（Dane Knecht）"], "speakers": [{"id": "h", "name": "主持人（No Priors）", "role": "host", "short": "主持"}, {"id": "g", "name": "戴恩·克内希特（Dane Knecht）", "role": "guest", "short": "克内希特"}], "intro": {"summary": "Cloudflare CTO 戴恩·克内希特谈 AI 驱动的漏洞发现潮、零信任与「智能体小子」、内容微支付与 Cloudflare OS，以及如何用 AI 同时加速攻防两边。", "points": ["CVE 报告量近指数上升；Log4j 级事件从约一年一次变为近乎每周，未来 18 个月安全或占工程过半时间", "攻击者侧出现「智能体小子」：高中生用智能体扫漏洞拿赏金，民族国家级能力下沉到大众", "应对：缩小攻击面、内部 Codex/十条诫命约束智能体、多支红队主动发现；不冻结发版，两边都用 AI 加速", "混乱中间态：人类网与智能体网需分流；x402/微支付与内容变现网关、Signals 发现协议", "Cloudflare OS 作参考架构与内部 AI 平台；市场/G\u0026A 用得比工程还多；海量实习生策略推 AI 原生", "开源 vs 闭源安全能力：长期须开放，否则只排除真正需要防御的大众；小团队可把站与基建放到 Cloudflare 获得公用事业级防护"], "verdict": "值得看：约 41 分钟深度访谈，关注 AI 安全、智能体经济与企业 AI 落地者优先；可跳过纯品牌彩蛋段。", "audience": "安全与平台工程、云/CDN 从业者、AI 应用与内容变现、企业 CTO/技术负责人"}, "paragraphs": [{"start_sec": 0, "speaker_id": "h", "type": "text", "zh": "人工智能已经成为引发这类安全末日的工具，但同时也是能帮我们更快解决问题的工具。过去的问题是如何让所有人用上 AI；如今人人都在争着弄清「AI 安全」到底意味着什么。"}, {"start_sec": 11, "speaker_id": "h", "type": "text", "zh": "我听过严肃的技术人员说：把所有重要系统都物理隔离；我们一时半会儿没法信任互联网，干脆假设关键基础设施和政府服务迟早会垮掉。"}, {"start_sec": 29, "speaker_id": "h", "type": "text", "zh": "你预期会发生这种事吗？Dane，非常高兴跟你一起做这期节目。"}, {"start_sec": 36, "speaker_id": "h", "type": "text", "zh": "谢谢。也谢谢你们来这里。我肯定不是第一个开这个玩笑的人——你的姓 Connect，对 Cloudflare 的价值主张来说挺合适的。"}, {"start_sec": 47, "speaker_id": "h", "type": "text", "zh": "嗯。已经有人开玩笑说明年要把节目名从《No Priors》改掉。所以——"}, {"start_sec": 51, "speaker_id": "h", "type": "text", "zh": "在 Cloudflare 正在做的这一切里，你作为新任首席技术官（CTO）眼下的头几项优先事项是什么？这一年感觉像把十年压进了一年。"}, {"start_sec": 61, "speaker_id": "g", "type": "text", "zh": "这些优先事项其实一直在变，但归根结底还是我们的使命：帮助建设更好的互联网。过去十五年这一点没有变过。"}, {"start_sec": 72, "speaker_id": "g", "type": "text", "zh": "我们要确保互联网安全，让每个人都能轻松把内容放到网上并扩展规模。"}, {"start_sec": 82, "speaker_id": "g", "type": "text", "zh": "就 AI 这一年的变化弧线来看：从「如何让大家用上 AI、方便部署、让智能体也部署起来」，到像多数技术转型一样安全成了事后才想的事；现在人人突然在争着弄清 AI 安全意味着什么。不同立场看法不同：对公司来说，既要防 AI 把数据泄漏出去，也要防别人闯进来。过去三到六个月，CVE 里报告的漏洞数量几乎指数级上升。"}, {"start_sec": 132, "speaker_id": "g", "type": "text", "zh": "以前互联网上，Log4j、Shellshock 这类事件大概一年一次，Cloudflare 内部会全员上阵，保护企业客户，也保护所有免费客户——我们把它当成一种公共品，要让互联网保持安全。"}, {"start_sec": 157, "speaker_id": "g", "type": "text", "zh": "现在这类事每周都在发生。"}, {"start_sec": 159, "speaker_id": "g", "type": "text", "zh": "不是每件都会公开报道，但有些严重程度不亚于 Log4j，只是频率高得多。我预计到今年余下时间、再到未来十八个月，多数团队会把大量时间花在安全上。今天某场主题演讲里有个数据：超过 50% 的工程时间将开始花在安全上。我不认为这会永远持续。"}, {"start_sec": 198, "speaker_id": "g", "type": "text", "zh": "我认为这会是一段短暂过渡——到某个时点，AI 会扫过大部分代码，找到多数漏洞或多数捷径。"}, {"start_sec": 209, "speaker_id": "g", "type": "text", "zh": "今天就有一个开始被博客和推文讨论的例子：保护所有 TLS 和 WebPKI、从而保障你所有连接的一把互联网密钥，居然是用数字「4」来加固的——从密码学角度，一切都关乎随机性，对吧？"}, {"start_sec": 234, "speaker_id": "g", "type": "text", "zh": "软件工程里放熔岩灯，就是为了拿到好的随机性。"}, {"start_sec": 240, "speaker_id": "g", "type": "text", "zh": "外面有一把密钥，创建时用的种子竟然是单一数字 4，这就能被逆向。而 AI 能做这些事——它不睡觉。"}, {"start_sec": 256, "speaker_id": "g", "type": "text", "zh": "不像你手下那个做红队的工程师。上周 OpenAI 好像还找到了 2000 年发布的 NIST 曲线的种子。"}, {"start_sec": 269, "speaker_id": "g", "type": "text", "zh": "这些事推进得太快，门槛在抬高，模型在网络安全上越来越强。Midas 只是冰山一角；之后不只是模型变好，还有工具链（harness），以及人类如何用前沿模型去找这些漏洞。"}, {"start_sec": 299, "speaker_id": "h", "type": "text", "zh": "以你的视野，你对驾驭这些模型、把漏洞发现量推得这么快的人了解多少？是民族国家行为体，还是脚本小子？"}, {"start_sec": 315, "speaker_id": "g", "type": "text", "zh": "攻击者格局发生了怎样的变化？其实最近一些较大的漏洞，并不是民族国家干的。"}, {"start_sec": 332, "speaker_id": "g", "type": "text", "zh": "甚至有高中生——"}, {"start_sec": 338, "speaker_id": "g", "type": "text", "zh": "我们现在叫他们「智能体小子」（agent kitties）。他们把以前打 CTF 夺旗赛的时间，用来把智能体对准某个领域去扫。"}, {"start_sec": 351, "speaker_id": "g", "type": "text", "zh": "而且有经济激励：漏洞赏金能拿到可观的钱。"}, {"start_sec": 359, "speaker_id": "g", "type": "text", "zh": "这相当于把民族国家以某种形式长期拥有的工具——靠智能体或靠大量人力——交到了大众手里。"}, {"start_sec": 373, "speaker_id": "g", "type": "text", "zh": "这是我十五年来第一次听到严肃技术人员说：干脆把重要系统都物理隔离；一时半会儿没法信任互联网，假设关键基础设施和政府服务迟早会垮。你预期会发生这种事吗？"}, {"start_sec": 395, "speaker_id": "g", "type": "text", "zh": "人类很能适应，需要时也能很快行动。我见过行业在这种时刻团结起来：平时的竞争对手不再是对手。"}, {"start_sec": 410, "speaker_id": "g", "type": "text", "zh": "我们只是在保护你说的关键基础设施。关键时刻人们会站出来迎接挑战。所以我对末日论没那么悲观。"}, {"start_sec": 424, "speaker_id": "g", "type": "text", "zh": "过去五到十年我们做的很多事——从城堡式远程安全基础设施转向零信任——让很多公司处在更好的位置：你不是说整个办公室完全物理隔离。"}, {"start_sec": 444, "speaker_id": "h", "type": "text", "zh": "你是说这些设备、这些流量以不同方式被保护，一切都会收紧。要让组织做到你描述的那样，需要什么？现在并没有 50% 的工程师在做安全。"}, {"start_sec": 460, "speaker_id": "h", "type": "text", "zh": "上周 OpenAI 的 Greg Brockman 上《No Priors》时说，他认为到 2027 年，人们在安全上花的 token 费用会和工程一样多——和你说的很相关。什么会推动这种转变？"}, {"start_sec": 478, "speaker_id": "g", "type": "text", "zh": "有紧急情况。接下来十八个月你会把安全支出往前挪：红队侧（进攻性、主动尝试利用），以及防御侧（如何准备）。"}, {"start_sec": 494, "speaker_id": "g", "type": "text", "zh": "但我不认为这会永远持续。"}, {"start_sec": 497, "speaker_id": "g", "type": "text", "zh": "我看到大约十八个月后的世界：新软件生产力会大幅回升，因为资源又回到那上面；但在这段过渡期，安全必须人人上心。"}, {"start_sec": 515, "speaker_id": "h", "type": "text", "zh": "要整体把软件和互联网安全带到更好的位置，关键要素有哪些？人们当然会发现大家都在用的库和服务里有漏洞——以前发现它们要花力气，现在不那么难了。我们会撞上一些这类问题。还有什么重要？我担心的一部分是：软件生产速度也在大幅上升。某种程度上我们既要补丁已经造好的一切，还要跟上并领先交付节奏。"}, {"start_sec": 554, "speaker_id": "h", "type": "text", "zh": "对。眼下我们等于在给外面七十年的软件打补丁，有些只是在还债。"}, {"start_sec": 561, "speaker_id": "g", "type": "text", "zh": "往后看，软件开发生命周期、智能体开发生命周期都得变。幸运的是，我们现在能把安全用于红队这类事的方式，会嵌进流程的每一步。我认为软件会随时间变得更安全。"}, {"start_sec": 585, "speaker_id": "h", "type": "text", "zh": "你们内部在构建安全的生产软件上已经学到了什么，别人可以借鉴？那具体意味着什么？"}, {"start_sec": 594, "speaker_id": "h", "type": "text", "zh": "比如「左移」？有很多理论：更广泛地用形式化验证、在开发过程中用智能体做安全。你认为什么会从第一次交付起就造出更好的软件？"}, {"start_sec": 611, "speaker_id": "h", "type": "text", "zh": "我回到第一性原理：要缩小攻击面。最容易做的是减少可能存在漏洞的地方。审视你所有软件，问：我怎么简化它？"}, {"start_sec": 626, "speaker_id": "g", "type": "text", "zh": "怎么缩小代码足迹？再往下才是形式化验证、更安全的编程语言、运行时里内建的安全机制——这些会来。但起步点是：早期 AI 很啰嗦，爱制造复杂度；就我们目前打交道的情况看，AI 其实还没怎么帮上构建更安全的东西。"}, {"start_sec": 660, "speaker_id": "g", "type": "text", "zh": "但我认为我们会走到那一步。人类判断仍然重要：确保我们把软件设计成能独立、安全地立得住。"}, {"start_sec": 676, "speaker_id": "h", "type": "text", "zh": "你说缩小攻击面时，我的反应是：原则上当然对，但这不是当今模型的自然倾向，对吧？"}, {"start_sec": 687, "speaker_id": "h", "type": "text", "zh": "我让你做一件事，然后说：请用十分之一的复杂度再试一次。这是今天工程与安全工程的角色吗？还是会在模型层面被解决？"}, {"start_sec": 703, "speaker_id": "h", "type": "text", "zh": "像人类以前那样，智能体也需要在各个层面解决。你要训练写代码的产品工程师。"}, {"start_sec": 712, "speaker_id": "h", "type": "text", "zh": "安全团队仍要参与，做制衡、做第二双眼睛。还要建立流程。"}, {"start_sec": 723, "speaker_id": "g", "type": "text", "zh": "我们在 Cloudflare 内部把构建方式定义得更清楚了，写下了原则。"}, {"start_sec": 730, "speaker_id": "g", "type": "text", "zh": "我们有一份叫 Codex 的文档，像是团队写的大量 RFC 汇总：如何在 Cloudflare 构建安全软件、如何构建高可用软件。"}, {"start_sec": 743, "speaker_id": "g", "type": "text", "zh": "这些是最佳实践，再浓缩成十条「诫命」，智能体在评审流程的每一步都知道并遵循，用来强制执行。"}, {"start_sec": 755, "speaker_id": "g", "type": "text", "zh": "外面有些智能体在大量产出「水文」（slop），工厂更深处则有人在做性能跑测和安全跑测。"}, {"start_sec": 769, "speaker_id": "g", "type": "text", "zh": "就像公司以前怎么运转一样，我认为你需要那些对抗性评审。再放大一点看：过去一年整个互联网流量里，有多少已经变成由智能体驱动的？"}, {"start_sec": 783, "speaker_id": "h", "type": "text", "zh": "我认为这超出了多数人的预期。你对一年后网络长什么样的世界观更新了什么——从经济模型，还是从安全或必需基础设施的角度看？"}, {"start_sec": 798, "speaker_id": "g", "type": "text", "zh": "我觉得我们正处在「混乱的中间态」：人类和智能体在互联网上走同一套轨道。智能体试图解析为人设计的网页，这本身就低效。"}, {"start_sec": 813, "speaker_id": "g", "type": "text", "zh": "网页是为能以不同速度做事的人类设计的。"}, {"start_sec": 817, "speaker_id": "g", "type": "text", "zh": "人去网站阅读、看广告、参与完整经济模型；而智能体能在同样时间访问上千个页面——这很好。"}, {"start_sec": 832, "speaker_id": "g", "type": "text", "zh": "只是你需要找到能支撑这一点的新经济模型。"}, {"start_sec": 837, "speaker_id": "h", "type": "text", "zh": "能不能有并行的网络？人类网和机器网？大家现在都在做所谓的 AEO？"}, {"start_sec": 846, "speaker_id": "g", "type": "text", "zh": "对，我认为会。我们会找到分别向智能体和人类交付内容、在各自所在之处对接的方式，而不是硬把他们塞到同一个地方。眼下有很多翻译层。"}, {"start_sec": 860, "speaker_id": "g", "type": "text", "zh": "很多公司在帮智能体「看」网页——这些多半是在为本来不必发生的事烧掉 token。"}, {"start_sec": 872, "speaker_id": "g", "type": "text", "zh": "网站通常知道自己有什么数据；我们早就有 API，计算机互相对话很多年了。"}, {"start_sec": 882, "speaker_id": "g", "type": "text", "zh": "只是 API 只覆盖了互联网上信息的一小部分。智能体渴望理解一切，于是出去探索人类互联网。"}, {"start_sec": 895, "speaker_id": "g", "type": "text", "zh": "我们需要让这件事对它们更容易。"}, {"start_sec": 898, "speaker_id": "g", "type": "text", "zh": "也要让站点所有者成本更低，并找到补偿他们的方式。在一个可以变得很简单的世界里：像 Substack 这类内容站知道自己的广告 CPM 该赚多少；如果智能体在读这个站，可以到这一步——智能体决定要不要读内容，再决定要不要按 CPM 付费。"}, {"start_sec": 933, "speaker_id": "g", "type": "text", "zh": "这就需要新的互联网支付轨道，能每秒处理数百万笔小额支付——我们谈了很多年的微支付，总是「还有两年」。我认为智能体会真正推动它落地，内容创作者会迎来新的经济模型。"}, {"start_sec": 961, "speaker_id": "g", "type": "text", "zh": "你觉得这套基础设施的参与者或形态变体会是谁？Cloudflare 显然有重要角色；但像 Instinct、Muse 这类个人智能体的兴起，也立刻把交易视角的问题摆到了台面。"}, {"start_sec": 980, "speaker_id": "g", "type": "text", "zh": "另一边，并非人人都清楚商业结果会怎样。大家经历过这些转型：有人说互联网会杀死主街，它没有；小企业仍在繁荣。"}, {"start_sec": 996, "speaker_id": "g", "type": "text", "zh": "但也有人被置换，所以总有怀疑；自然倾向是把他们挡在外面。你看亚马逊就说：不允许个人购物智能体。"}, {"start_sec": 1013, "speaker_id": "g", "type": "text", "zh": "这些都是处在混乱中间态、试图摸清前进路径、同时保留一些谈判筹码的人。"}, {"start_sec": 1026, "speaker_id": "g", "type": "text", "zh": "我认为我们会走到 Muse、Dot 等个人智能体能像人类一样、甚至更轻松地无缝完成任务的地方。"}, {"start_sec": 1036, "speaker_id": "g", "type": "text", "zh": "但技术和商业模式都还没完全跟上。"}, {"start_sec": 1043, "speaker_id": "h", "type": "text", "zh": "在 Cloudflare 这边，路线图或技术探索上有没有你个人特别兴奋、觉得会赋能未来生态的东西？"}, {"start_sec": 1055, "speaker_id": "g", "type": "text", "zh": "内容侧绝对有。我们发布了内容变现网关，让人们容易把站点放到我们后面，对内容收取微交易。"}, {"start_sec": 1070, "speaker_id": "g", "type": "text", "zh": "还包括给智能体用的钱包，以及将促成交易的稳定币。"}, {"start_sec": 1080, "speaker_id": "g", "type": "text", "zh": "我们也在和 OpenAI 做叫 Signals 的项目：让智能体更容易发现内容，而不必爬遍整个互联网、反复回访页面。"}, {"start_sec": 1095, "speaker_id": "g", "type": "text", "zh": "让它们更容易知道什么是新内容、更主动地获取。这对 AI 实验室是双赢，对站点所有者也不必被不断爬取、为那套基础设施买单。"}, {"start_sec": 1111, "speaker_id": "g", "type": "text", "zh": "所以有一整套新的互联网「法则」我很兴奋看到它们成长。Stripe 推出的 x402 我也很喜欢——"}, {"start_sec": 1124, "speaker_id": "g", "type": "text", "zh": "因为它回到了 HTTP 402 状态码——Tim Berners-Lee 二三十年前就为支付创造的那个。"}, {"start_sec": 1135, "speaker_id": "g", "type": "text", "zh": "我们一直知道互联网需要更好的支付轨道，只是一直没搞定；我认为智能体也会把我们带到那里。"}, {"start_sec": 1148, "speaker_id": "h", "type": "text", "zh": "想到你们已发布的这些初期产品：对一个以前靠广告变现网站的内容创作者来说，成功会是什么样？"}, {"start_sec": 1162, "speaker_id": "h", "type": "text", "zh": "你们需要看到或向世界展示的杀手级成功案例是什么，才会让这件事变成默认选项？"}, {"start_sec": 1173, "speaker_id": "g", "type": "text", "zh": "我想，不是他们付钱给我们，而是我们付钱给他们——覆盖基础设施成本，提供支撑生计的收入。"}, {"start_sec": 1187, "speaker_id": "g", "type": "text", "zh": "我们实际上可以增加内容创作者数量。上一代互联网在 YouTube、TikTok、X 上已经做得很好；我认为我们还能指数级放大。"}, {"start_sec": 1204, "speaker_id": "h", "type": "text", "zh": "再看你们在工作区、OS 发布和生态上的工作，你最希望即将出现的最大用例是什么？"}, {"start_sec": 1217, "speaker_id": "h", "type": "text", "zh": "稍微转个话题——我们发布了 Cloudflare OS：这是我们内部员工每天使用 AI 的平台。"}, {"start_sec": 1226, "speaker_id": "g", "type": "text", "zh": "它其实回到安全根基：我们非常担心客户数据和内部数据泄漏，希望员工能用上所有新 AI 工具和模型，同时有安全的内部部署方式，理解数据如何被使用和流动，并有良好治理。"}, {"start_sec": 1250, "speaker_id": "g", "type": "text", "zh": "叫 Cloudflare OS 的另一个原因是：随着智能体越来越多，我们需要教它们 Cloudflare 的特别之处、我们如何构建。对人类我们靠 Cloudflare University、入职、认识同事一起工作。"}, {"start_sec": 1271, "speaker_id": "g", "type": "text", "zh": "但对智能体需要更清楚地定义和文档化。所以 Cloudflare OS 既是员工可以安全构建任何东西的平台——"}, {"start_sec": 1280, "speaker_id": "g", "type": "text", "zh": "安全不是他们必须单独操心的事。"}, {"start_sec": 1286, "speaker_id": "g", "type": "text", "zh": "比如业务代表要做外呼名单，不必担心安全——已经内建好了；同时他们知道这一切是按 Cloudflare 做事的主题和价值观完成的。"}, {"start_sec": 1302, "speaker_id": "h", "type": "text", "zh": "为什么发布它？我觉得这和其他 Cloudflare 产品有点不同：它不是基础设施，更像面向最终用户、管理组织内 AI 使用的产品。你觉得这是偏离吗？"}, {"start_sec": 1321, "speaker_id": "h", "type": "text", "zh": "其一，它其实是一种参考架构。"}, {"start_sec": 1325, "speaker_id": "g", "type": "text", "zh": "过去十年我们建了开发者平台：从简单的无服务器计算原语起步，到现在一百多种开发者工具——存储、数据库、Durable Objects 等。"}, {"start_sec": 1342, "speaker_id": "g", "type": "text", "zh": "我们想展示如何完全建在 Cloudflare 上、我们内部如何构建，并让人们可以 fork，在上面做出自己公司的 OS。"}, {"start_sec": 1360, "speaker_id": "h", "type": "text", "zh": "它对你们的人和组织的帮助，有哪些算是清晰的成功？"}, {"start_sec": 1368, "speaker_id": "h", "type": "text", "zh": "实际上市场（go-to-market）和 G\u0026A 团队用得比工程团队还多。"}, {"start_sec": 1375, "speaker_id": "g", "type": "text", "zh": "早期我以为培训是人们用 AI 的最大缺口：只把他们丢到聊天界面或另一个空白工具前，太空了。这个平台按你的业务方式设计一切，他们立刻能上手，拿到需要的所有数据。"}, {"start_sec": 1403, "speaker_id": "g", "type": "text", "zh": "他们被引导着走过流程，很快意识到：这不是要取代我，而是让我把工作做得更好。"}, {"start_sec": 1413, "speaker_id": "g", "type": "text", "zh": "看到公司里各种用法非常兴奋。比如这次大会怎么组织起来的——"}, {"start_sec": 1424, "speaker_id": "g", "type": "text", "zh": "市场团队建了上百个内部工具；以前要找各种代理商，现在小团队的速度简直惊人。"}, {"start_sec": 1440, "speaker_id": "h", "type": "text", "zh": "假设这是从五月份你们重组为「AI 优先」组织的延续——回顾这几个月，哪些奏效、哪些没有，你会推荐给别人？"}, {"start_sec": 1454, "speaker_id": "g", "type": "text", "zh": "重组很难。跟一些同事告别——这是 Cloudflare 第一次做这种事。我们一直很谨慎不过度招聘，但这次原因不同。"}, {"start_sec": 1469, "speaker_id": "g", "type": "text", "zh": "因为我们看到 AI 如何改变某些团队的工作方式。我们把它想成工厂车间：需要真正重建、重新思考事情怎么发生。"}, {"start_sec": 1482, "speaker_id": "g", "type": "text", "zh": "比如产品经理给客户发邮件的旧流程，涉及三个团队。"}, {"start_sec": 1490, "speaker_id": "g", "type": "text", "zh": "先找 BI 拿到你要发邮件的人群；再找市场团队帮忙设计邮件、把语气调对。"}, {"start_sec": 1502, "speaker_id": "g", "type": "text", "zh": "再找市场运营把邮件发出去。"}, {"start_sec": 1506, "speaker_id": "g", "type": "text", "zh": "除非做一些艰难的改变、逼人们重新思考正确做法是什么，否则永远没法真正重设计那个流程。"}, {"start_sec": 1519, "speaker_id": "g", "type": "text", "zh": "它可能根本不需要那三个团队，而是一种新方式。结果是一个工具：产品经理进去描述人群、写邮件，系统用 Cloudflare 的语气改写——"}, {"start_sec": 1534, "speaker_id": "g", "type": "text", "zh": "发给经理，经理觉得可以就点批准，邮件就出去了。我们不是让三个团队各自变快。"}, {"start_sec": 1544, "speaker_id": "g", "type": "text", "zh": "而是变成一个工具，让产品经理拥有以前没有的超能力。"}, {"start_sec": 1551, "speaker_id": "h", "type": "text", "zh": "想到像 Cloudflare 这样大约五千人的组织里各种工作流和任务——你如何决定谁来拥有「重新思考这个流程」？这次是不是某个团队自下而上？"}, {"start_sec": 1566, "speaker_id": "h", "type": "text", "zh": "还是组织负责人？当有这么多事可以变得更快、更合理时。"}, {"start_sec": 1574, "speaker_id": "g", "type": "text", "zh": "Cloudflare 一直有一千件我们永远做不完的事——产品功能也好，这类事也好。所以我们总是找会主动出击、承担责任的人。"}, {"start_sec": 1589, "speaker_id": "g", "type": "text", "zh": "你不必把事排成一到一百再严格优先；这一百件里任何一件，只要有人热爱，大概都安全。"}, {"start_sec": 1601, "speaker_id": "g", "type": "text", "zh": "去年初我们给人们工具，看他们怎么实验；很快就分化出真正倾身投入、自然去做并承担责任的一群人。"}, {"start_sec": 1619, "speaker_id": "g", "type": "text", "zh": "所以我认为「怎么做这些事」很大程度上是自下而上的。"}, {"start_sec": 1625, "speaker_id": "g", "type": "text", "zh": "组织里一个大话题是如何思考 token 预算：合理花多少、相对人力资本怎么看、组织内谁该拿到 token。你现在的哲学是什么？"}, {"start_sec": 1645, "speaker_id": "g", "type": "text", "zh": "肯定变过了——每个模型成本动态一变就要重新想。但总的来说，我觉得让人类决定每个任务用哪个模型其实挺傻的。"}, {"start_sec": 1661, "speaker_id": "h", "type": "text", "zh": "应该智能路由。没错。人类永远不会擅长这个，对吧？"}, {"start_sec": 1667, "speaker_id": "g", "type": "text", "zh": "早期你会蛮力做：让人们实验，说计划阶段用顶尖前沿模型。"}, {"start_sec": 1681, "speaker_id": "g", "type": "text", "zh": "计划写好、达成一致并迭代之后，可能更多开源模型去做执行；然后再用前沿模型做评审、红队之类。"}, {"start_sec": 1696, "speaker_id": "g", "type": "text", "zh": "今天这些还相当手动。但随着学习和实验，人们会变聪明，治理也会更多。Cloudflare 大体上让人们按工作需要选用模型和工具。"}, {"start_sec": 1718, "speaker_id": "g", "type": "text", "zh": "我们没有 token 排行榜，也不鼓励比用量；鼓励关注产出。不是按「用没用」打分，而是按交付和构建了什么。"}, {"start_sec": 1733, "speaker_id": "h", "type": "text", "zh": "不过我们发现：如果有人一天用了大约 300 美元，就给他们发邮件通知。"}, {"start_sec": 1743, "speaker_id": "h", "type": "text", "zh": "写着「你知道吗？」——多数时候人们根本没意识到自己在这么用。"}, {"start_sec": 1750, "speaker_id": "h", "type": "text", "zh": "他们会「哦」。到大概 500 就通知经理；一天到 1000 就到 VP。"}, {"start_sec": 1757, "speaker_id": "h", "type": "text", "zh": "但这些很少发生，而且人们通常还挺高兴收到通知。"}, {"start_sec": 1765, "speaker_id": "g", "type": "text", "zh": "就当前模型能力、假设没有新发展，你觉得 Cloudflare 从市场到工程、重新思考做事方式的整体演进走到哪了？"}, {"start_sec": 1781, "speaker_id": "g", "type": "text", "zh": "还非常早。两年前我们大约有 200 个实习生；我们看到他们是第一批真正 AI 原生的——如果把 AI 拿走，我觉得他们没法工作。"}, {"start_sec": 1802, "speaker_id": "g", "type": "text", "zh": "那是好事吗？"}, {"start_sec": 1804, "speaker_id": "g", "type": "text", "zh": "我觉得是。他们比我们更会用工具。就像过去十年你把谷歌从我身边拿走，我怎么学任何东西？那是他们首先伸手的地方。我们还看到：带过那年夏天实习生的经理，采用 AI 更快。所以过去这一年我们决定招一千个实习生。"}, {"start_sec": 1829, "speaker_id": "g", "type": "text", "zh": "对一家五千人的公司来说——哇。"}, {"start_sec": 1832, "speaker_id": "g", "type": "text", "zh": "对，分散在一整年里。是的。"}, {"start_sec": 1835, "speaker_id": "g", "type": "text", "zh": "非常惊人：一是实习生带来的想法数量——有了 AI，更少人实验得更快，所以要更多想法、更多人进来；二是看他们怎么用 AI：要填表就伸手找 AI。我自己还有很多事仍在手动做，然后才想起其实该用 AI。对多数人来说这还不是自然反应。"}, {"start_sec": 1870, "speaker_id": "g", "type": "text", "zh": "这需要时间。所以我认为我们的 AI 旅程还非常早。"}, {"start_sec": 1879, "speaker_id": "g", "type": "text", "zh": "我喜欢这种「海量实习生」策略。"}, {"start_sec": 1881, "speaker_id": "g", "type": "text", "zh": "我运营一个很小的合伙企业，大约十二人的团队里总有一两个实习生飘着——为了想法和实习生能量。我们刚把一个在校实习生转正，让 Jed 退学等等。我觉得你说得对：真正原生于这些工具的 DNA 比例，旋钮应该拧得更高。"}, {"start_sec": 1908, "speaker_id": "g", "type": "text", "zh": "对他们也好。你看滑铁卢、东北大学这类带 coop 项目的学校——我们看到有真实工作经验的人，多年后往往是最好的员工，也做出很棒的事。"}, {"start_sec": 1929, "speaker_id": "g", "type": "text", "zh": "有意思或令人鼓舞的是：不是「这是一份总计划，把 Cloudflare 每个部门、子部门都画出来，列出关键工作流再逐一改造」。"}, {"start_sec": 1944, "speaker_id": "g", "type": "text", "zh": "而是一种策略：假设人们在获知用量信息后会对 token 理性；招一批实习生；假设这里高主动性的人会——"}, {"start_sec": 1958, "speaker_id": "g", "type": "text", "zh": "随时间把那些工作流推成更智能的样子。"}, {"start_sec": 1962, "speaker_id": "g", "type": "text", "zh": "对，然后再蛮力尝试。"}, {"start_sec": 1965, "speaker_id": "g", "type": "text", "zh": "很早的时候——大概今年一月——我们有个邮箱 agents@cloudflare：告诉人们，如果你好奇「这事能不能用 AI」，把待办发进来，邮件会回复技能文件（skill file）。"}, {"start_sec": 1984, "speaker_id": "g", "type": "text", "zh": "有一阵子人们以为全是 AI 自动化；其实是一群实习生在帮人写技能文件。"}, {"start_sec": 1994, "speaker_id": "g", "type": "text", "zh": "但这让我们看到：不是雇咨询公司来目录化每一件待办，而是人们自己意识到「这事好像比需要的更难」。"}, {"start_sec": 2010, "speaker_id": "h", "type": "text", "zh": "想知道智能体能不能帮我。除了实习生层面，过去一年招聘哲学、你看重带进来的人什么，还有什么变了？"}, {"start_sec": 2023, "speaker_id": "g", "type": "text", "zh": "我们一直最看重的之一是好奇心。如果有人在个人生活里完全不用 AI，那是相当大的红旗——有好奇心怎么可能不拥抱 AI？"}, {"start_sec": 2043, "speaker_id": "g", "type": "text", "zh": "所以我认为是在驱动、好奇心、同理心这些关键特质上加倍；对下一批人来说这些更管用。"}, {"start_sec": 2059, "speaker_id": "h", "type": "text", "zh": "我永远是各种产品和技术的 alpha 用户。但答案其实是恐惧和怀疑，对吧？"}, {"start_sec": 2069, "speaker_id": "g", "type": "text", "zh": "所以「好奇心包括对前沿工具的实验」这一主张里，隐含的是：这对在 Cloudflare 工作的人必须是核心原则。"}, {"start_sec": 2086, "speaker_id": "g", "type": "text", "zh": "对。我们做的很多事是在发明新的做事方式。"}, {"start_sec": 2092, "speaker_id": "g", "type": "text", "zh": "我们运营的规模——站点数、送出的免费服务量——用现成技术根本做不到。所以你需要能进来真正发明新东西的人，而这始于好奇心。"}, {"start_sec": 2111, "speaker_id": "g", "type": "text", "zh": "收尾我有几个关于安全的问题：如何以新方式在 Cloudflare 内部做，以及你认为更广泛生态会怎样。"}, {"start_sec": 2122, "speaker_id": "h", "type": "text", "zh": "如果一半工程团队要去做安全、修补七十年的漏洞——内部你怎么攻这个问题？假设即便是出色的生产级互联网规模软件也不完美。然后再谈生态。"}, {"start_sec": 2142, "speaker_id": "g", "type": "text", "zh": "今天我们大概有一支红队；到明年年底我估计会有四五支。把人分成小组，更对抗性地主动出去找漏洞。"}, {"start_sec": 2160, "speaker_id": "g", "type": "text", "zh": "为什么走这条路，而不是「终于把补丁系统和流程做对」？"}, {"start_sec": 2172, "speaker_id": "g", "type": "text", "zh": "流程那些事当然总能更好。我们有漏洞管理流程、有补丁流程。"}, {"start_sec": 2178, "speaker_id": "g", "type": "text", "zh": "完美吗？不。但我发现这类事变好的最佳方式，往往来自危机——危机逼你把它们修好。"}, {"start_sec": 2190, "speaker_id": "g", "type": "text", "zh": "当量太大、工程团队用正常流程扛不住时——工程师有一种好的「懒」——他们会按需把这些事自动化掉，一旦意识到没有别的办法。所以重点应放在发现侧；人们会做对的事，并随时间找到可扩展的打补丁方式。"}, {"start_sec": 2220, "speaker_id": "g", "type": "text", "zh": "你对「这件事相对发新功能的优先级」有没有明确哲学？我的理解是：并不是以前没有一堆漏洞积压要修——"}, {"start_sec": 2234, "speaker_id": "g", "type": "text", "zh": "只是对工程团队来说，那以前是不是优先事项，是另一种常见状态。"}, {"start_sec": 2245, "speaker_id": "g", "type": "text", "zh": "我认为你得想办法两者都做。可能以成本优化或其他事为代价；但我们的想法是：不发货就在死。"}, {"start_sec": 2259, "speaker_id": "g", "type": "text", "zh": "所以不会为了做这个而冻结发版。"}, {"start_sec": 2261, "speaker_id": "g", "type": "text", "zh": "绝对不会。你必须继续构建和发布新东西。"}, {"start_sec": 2268, "speaker_id": "g", "type": "text", "zh": "但同时要确保安全地做、打补丁、修 bug。如果我们做对了，用 AI 其实能两边都更快。"}, {"start_sec": 2282, "speaker_id": "g", "type": "text", "zh": "AI 一方面成了引发这类安全末日的工具，另一方面也是能帮我们更快解决它的工具。所以它在两边。"}, {"start_sec": 2299, "speaker_id": "g", "type": "text", "zh": "在网络安全上开源与闭源模型的好坏辩论里，你站哪边？"}, {"start_sec": 2306, "speaker_id": "g", "type": "text", "zh": "宽泛论点是：防御与进攻的网络能力并行存在于同一模型里——尽管有安全护栏。"}, {"start_sec": 2321, "speaker_id": "g", "type": "text", "zh": "所以你没法只有开源防御模型而不让它也能进攻。"}, {"start_sec": 2325, "speaker_id": "h", "type": "text", "zh": "另一种担忧是：如果安全能力只在一小批前沿闭源模型里，你怎么发布它们？你不可能把它们送到所有需要防御的分布式行动者手里。你怎么看？我概括得对吗？"}, {"start_sec": 2348, "speaker_id": "h", "type": "text", "zh": "长期来看一切都必须开放，因为反正所有人最终都会拿到。"}, {"start_sec": 2357, "speaker_id": "g", "type": "text", "zh": "开源就是这样运作的。坏人总会找到办法拿到。顶尖公司也会有办法拿到。"}, {"start_sec": 2368, "speaker_id": "g", "type": "text", "zh": "所以你只是把一大批可能需要它、却没有门路的人排除在外了。"}, {"start_sec": 2376, "speaker_id": "g", "type": "text", "zh": "最后一个问题：Cloudflare 非常使命导向，也背着一部分互联网韧性的重量。"}, {"start_sec": 2385, "speaker_id": "h", "type": "text", "zh": "那些负担不起四支红队、甚至从没红队、却在跑重要系统的人——他们怎么保护自己？"}, {"start_sec": 2396, "speaker_id": "h", "type": "text", "zh": "我会说：把站点放到 Cloudflare 后面，把基础设施放到 Cloudflare 后面，在 Cloudflare 上构建。"}, {"start_sec": 2403, "speaker_id": "g", "type": "text", "zh": "像去年 React 那个重大漏洞出来时，我们不只给有高级防火墙和 WAF 能力的付费客户——我们给所有人。"}, {"start_sec": 2416, "speaker_id": "g", "type": "text", "zh": "我们把这类事视为我们提供的公用事业的一部分。就像我们想为每个人提供性能。"}, {"start_sec": 2427, "speaker_id": "g", "type": "text", "zh": "Cloudflare 起步前，世界上大概只有三千个站点有大规模 CDN 在边缘缓存。"}, {"start_sec": 2436, "speaker_id": "g", "type": "text", "zh": "现在有上亿站点这样做。Cloudflare 一直把目标看作：为每个人民主化安全与性能。"}, {"start_sec": 2448, "speaker_id": "g", "type": "text", "zh": "太棒了。非常感谢 Dane。各位先听到了：我们有「智能体小子」和漏洞末日——我发音对吗？"}, {"start_sec": 2457, "speaker_id": "g", "type": "text", "zh": "对。但它是可以解决的。好，非常感谢各位。"}, {"start_sec": 2461, "speaker_id": "h", "type": "text", "zh": "谢谢。在 Twitter 上关注我们 @NoPriorPod。订阅 YouTube 频道就能看到我们的脸。在 Apple Podcasts、Spotify 或你平常听播客的地方关注本节目，每周都会有新一集。"}, {"start_sec": 2474, "speaker_id": "h", "type": "text", "zh": "也可以在 no-priors.com 注册邮件，或查找每集的文字稿。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

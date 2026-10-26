@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>一切都在被黑（游戏结束了）</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="h">大卫·翁德雷（David Ondrej）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">David Ondrej</span><span class="pill">2026-10-23</span></div>
+<h1>一切都在被黑（游戏结束了）</h1>
+<p class="sub">约 29 分钟（1716 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=wuv61uEq7uY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=wuv61uEq7uY</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>David Ondrej</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-23</dd></div><div class="meta-row"><dt>时长</dt><dd>约 29 分钟（1716 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；普通 yt-dlp 遭 429 后经 yt-dlp + Chrome cookies 路径拉取），中文为逐句全文翻译；caption_source=yt-dlp-chrome-cookies；产品硬广段以灰色广告省略标记</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>wuv61uEq7uY</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>大卫·翁德雷盘点「黑色十月」48 小时内爆发的顶级漏洞潮（PHP RCE、eMudhra 证书私钥弱随机、Railway 密钥泄露），并演示用前沿模型代理循环 24/7 自攻代码库做防御。</p>
+<h3>核心要点</h3><ul><li>CVE 曲线近月垂直拉升；一天内 PHP/Node/Nginx/Go/GitLab/Moodle 等出现大量严重漏洞，Cloudflare 见数百万次利用尝试</li><li>PHP 满分 RCE 细节先于补丁约 15 小时泄漏，影响 WordPress 等约 70% Web；多团队借 AI 代理发现并升级漏洞链</li><li>eMudhra 签发证书时用 0–256 弱随机（甚至私钥为 4），可伪造信任链，冲击半个互联网</li><li>Railway 客户密钥被抽干：中心化存密、旧钥不清理；建议立即轮换并上自动化扫描</li><li>防御范式：用 Opus/GPT 等前沿模型最大推理做审查；切分代码库轮换模型；主代理+对抗审查子代理降假阳性</li><li>依赖瘦身与供应链情报循环（抓取 Twitter/GitHub 新闻）被视为将成标配；3–6 个月过渡后或成行业常态</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：约 29 分钟，偏实操与态势感知；做 Web/部署/自建工具的开发者与安全负责人很有参考价值。产品演示段落已标广告省略。</p>
+<h3>适合人群</h3><p>全栈/后端开发者、创业技术负责人、关心 AI 时代软件供应链与应用安全的观众</p>
+</section>
+<div class="legend"><span class="spk-0">大卫·翁德雷（David Ondrej）<em>主持</em></span></div>
+<main class="transcript" id="main">
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">大卫</span></div><div class="content">
+<p>我叫大卫·翁德雷（David Ondrej）。AI 驱动的黑客攻击已经来了——因为我们刚经历了网络安全史上最疯狂的 48 小时。首先，人们把这段时间叫作「黑色十月」：漏洞、利用、黑客事件数量之多、严重程度之高都前所未有。</p>
+<p>过去 48 到 72 小时里，几乎每小时都有一个严重程度约 9.5–10（满分 10）的新事件。正如尼克（Nick）所说：成千上万、乃至数万个 AI 代理——来自不同个人、不同国家行为体、不同公司——正在爬遍互联网、搜寻漏洞</p>
+<p>与各类软件问题。看这张图：过去 25 年 CVE（通用漏洞披露）数量曲线，最近几个月几乎垂直拉升，尤其是最近一个月，特别是过去 48 小时，新发现 CVE 的数量</p>
+<p>简直疯狂。网络安全因此成了暴涨领域，但包括你我自己写的软件在内，很多软件正变得可被攻破。仅一天内，PHP、Node.js、Nginx、Go、GitLab、Moodle 等就出现了 30 个严重漏洞——Moodle 那次尤其离谱。本视频我们会拆开其中三个</p>
+<p>最严重的：PHP 到 shell、Moodle/证书相关，以及 Railway。我会讲每个出了什么问题，也会展示我在自己所有仓库与代码库上 24/7 跑的代理循环，尽量保护自己——因为我们正进入网络安全上前所未有的时代。</p>
+<p>没人知道它最终会变成什么样。本质上是成群的代理在攻击全世界的软件。你唯一能自保的方式，就是用自己的代理循环去「攻击」自己的代码库。细节稍后再说。先看发生了什么。</p>
+<p>很难说哪一个最糟——这一波整体都太夸张——但 PHP 相关肯定是最严重之一。PHP 里出现了两个满分 10 分级的巨大漏洞。对不了解的人：PHP 是一门编程语言，某种程度上支撑着大约 70% 的网站。</p>
+<p>之所以特别糟，不是小 bug，而是远程代码执行（RCE）：任何人甚至不用登录，就能在你的服务器上跑任意代码。</p>
+<p>这本身已经极其糟糕；更糟的是，这些利用细节在补丁真正放出大约 15 小时前就泄漏了。</p>
+<p>凡是有 WordPress、MediaWiki、Magento、Laravel 以及大量其他 Web 应用与服务器的人，都可能受影响。</p>
+<p>Cloudflare 的 CEO 说他们实际看到了数百万次尝试。一些统计：Cloudflare 托管数千万站点，在公开宣布前约 10 小时，全网已看到数千次利用尝试；宣布后 45 分钟内跳到数万；</p>
+<p>两小时内到数十万；现在是数百万不同行为体、黑产在尝试利用各种 PHP 服务器。</p>
+<p>还有一个满分 10 分的 GitLab CVE，潜伏了大约 12 年，影响大量 GitLab 部署。</p>
+<p>绝对疯狂、前所未有。以前任何一年里，只要出现其中一个，就足以成为当年的网络安全头号新闻——而我们在大约 48 小时内全撞上了。远程代码执行，驱动着</p>
+<p>维基百科、WordPress 等等——约 70% 的 Web。这不是小事。PHP 是世界上最流行的 Web 语言之一。有四个不同团队在 AI 代理帮助下发现了它：你可以检查多得多的潜在 bug 与漏洞，并把漏洞链</p>
+<p>接起来，升级成更严重的问题。在讲更进阶的完整代理循环之前，先给一个提示：无论你构建什么软件，都用前沿模型去做审查。你既然用 AI</p>
+<p>代理来构建，就要用最好的模型：简单说，上线生产前，用 Anthropic 与 OpenAI 当前最强模型、开到最大推理力度，对着那套软件跑一遍，把低垂果实和主要安全问题先清掉。</p>
+<p>两个关键点：前沿模型，以及最大推理。别用某个便宜的 200 亿参数本地小模型干这事。</p>
+<p>让我展示我怎么保护自己的代码库、软件和公司：持续对着自己的仓库跑这些代理循环。这是唯一可行的自保方式。如果有人用代理群攻你的公司与软件，你最好自己先做，</p>
+<p>在他们之前找到所有漏洞与问题。看我怎么做。进入 CloudRoom，左上角有 loops（循环）页面，这里是我当前所有活跃循环。我标了两个优先级。先看 Web 安全</p>
+<p>测试——就是这个。每 4 小时跑一次，用 Opus 5.5、百万上下文上限。一定要用前沿模型：目前 Anthropic 侧是 Opus 5.5；OpenAI 侧是 GPT-6 Astra 或 GPT-6.1 Soul，我觉得 Soul 略好一点，视情况而定。</p>
+<p>对最严重的场景，最好两个都用。稍后讲何时用哪个、怎么组合。其实很简单。</p>
+<p>这些是云端循环：好处是即使我的 MacBook 合上，它们也会启动。</p>
+<p>必须保证安全方案始终在跑。有点讽刺：12 个月、18 个月前，这样用代理、用 AI 审一切，会被认为不负责任；现在，如果你不用 AI 来加固自己的代码库，</p>
+<p>才是不负责任。Opus 5.5 我觉得是当今最强模型之一——你需要把它放进循环，不断测试代码库不同部分。关键想法是：把代码库切成大约 5 到 10 个区块，让它轮流跑。</p>
+<p>比如这个每 4 小时一次：最大推理、Anthropic 最强模型、简单调度，优先级设为 1。</p>
+<p>提示词很简单——你不需要长提示。关键是把模型对准代码库的某一块，告诉它要做什么。</p>
+<p>在 CloudRoom 里，每次运行会开一个新线程；如果没发现东西，它会自我归档，不会把侧边栏堆满；如果有值得修的东西，它会留下</p>
+<p>等你审。视频后半我还会展示如何做完全自主循环：直接修、推到 GitHub、甚至进生产——取决于你怎么配置。</p>
+<p>这是第一个。第二个是依赖监视（dependency watch）。它检查各类依赖。说到第三方库与包，我觉得会有越来越多人从零</p>
+<p>构建软件，尽量少用第三方依赖。过去用 Python 包或别人写好的库能省时间、加快开发；今天你可以直接提示 Opus、Astra、GPT-6 等，</p>
+<p>这些模型几乎能建任何东西——上限更多是想象力。代码库里塞上千依赖是巨大安全负债。当然有时仍合理，也不会一夜之间人人零依赖，但我相当有把握地预测：</p>
+<p>会有越来越多人对整系统做大审计，尽量砍掉第三方依赖——因为每一个都会扩大攻击面，增加被打的路径。</p>
+<p>我其实跑了两套，另一套稍后提。这一套用 Deep API 每 30 分钟刮 Twitter 看发生了什么——老实说该更激进，改成每 10 分钟。思路是：一旦出现安全</p>
+<p>漏洞，它分析整个代码库并立刻修复。这个我建议完全自主跑——你就是要 ASAP 打补丁。</p>
+<p>以上是针对 PHP 那波我在跑的两套。接下来谈 eMudhra（证书相关）——可能是其中最离谱的。先快速说明一下我在用的工具环境。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：CloudRoom]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：CloudRoom]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：CloudRoom]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：CloudRoom]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：CloudRoom]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：CloudRoom]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：CloudRoom]</span></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">大卫</span></div><div class="content">
+<p>继续第二个最大问题——其实可能是最大的，因为网络安全史上从未发生过这种事。</p>
+<p>这家印度公司 eMudhra（eMudhra）完全搞砸了。只能这么说：彻头彻尾的严重失职。</p>
+<p>全球级的离谱。他们在签发私钥证书，每个密钥本该是约 116 位量级的数，</p>
+<p>可能性空间大约是 2 的 256 次方之类。但他们没有用 2^256 空间，而是在 0 到 256 之间「随机」选数。</p>
+<p>其中一个私钥居然是数字 4。问题有多严重？他们把半个互联网坑惨了。我花了好几个小时给软件打补丁、更新大量依赖——因为他们在发互联网证书。这意味着</p>
+<p>任何人都能伪造这些证书，尤其是私钥是 4 这种数字时，冒充你或其他管理员访问站点。半个世界被搅乱。过程是这样的：</p>
+<p>你的浏览器——Chrome、Brave、Safari——靠这些证书信任网站。如果你不幸由 eMudhra 签发，任何人就能用私钥「4」或其他同样糟糕的短密钥去签名，</p>
+<p>猜中证书并冒充你，或访问你的 Web 应用。</p>
+<p>极其糟糕。其中八个是极小的数，基本都在 0–256，说明他们根本不懂自己在干什么。有了这些，任何人都能伪造任意网站：银行、邮箱，几乎任何东西。</p>
+<p>再看这个循环：供应链安全扫描（supply chain security sweep）。它检查各类供应链攻击，同样用 Deep API（一种抓取 API）。</p>
+<p>Deep API 是我做 CloudRoom 之前做的。它用大量刮虫覆盖 Twitter、GitHub、各新闻源，能在几分钟内发现这类新闻；代理通过单一 API 交互使用。很多循环都靠它驱动。再看</p>
+<p>代理在做什么：它们会写 shell 脚本，避免重复写同样代码——因为每个代理循环都会开新线程。我们也可以直接测一下这个。</p>
+<p>大约一分钟内跑完。我刚触发了一次运行，平时它每小时触发。我告诉你们：看了过去 48 小时，我可能会<span class="tag">【笑声】</span>重新考虑频率，改成</p>
+<p>大概每 5 分钟。当然要考虑 token 成本——不是所有循环都要用 Opus 5.5。</p>
+<p>主循环我建议用最强模型；但现在各档都有很能打的模型。比如这个用 Opus 5.5 Max，但刮取搜索类用 Sonnet 5.5、GPT-6 Luna，甚至 Haiku 5.5 或 DeepSeek V4.1 Flash</p>
+<p>1017 都行。DeepSeek 起名的人真该反思——早该叫 V4.2 Flash。模型没那么关键，用够好、够前沿或接近前沿的就行。</p>
+<p>再配上 Deep API 这类抓取 API，让它高频循环发现情报。运行起来大概长这样：分析安全扫描、最危险点、CI shell、自托管 runner 等等。</p>
+<p>希望能展示……我觉得不用打码。好，换一个给你们看。</p>
+<p>依赖瘦身（dependency diet）。这个检查依赖。嗯，它会提示也许该移除这些：TypeScript 7、remark-gfm、recharts 等。也就是大约 21、18、13 个包，建议考虑删掉，换成完全可控的自研代码。</p>
+<p>尽量低层、可控。核心是这一切都在你设计的自主循环上跑。第三个案例和前两个一样糟：Railway 事件。Railway 是后端部署平台（前端也能做，</p>
+<p>还能做很多事，比如 Redis 缓存）。发生的事很像我前几天发的 Open Code 视频：攻击者冲着用户密钥去。Open Code 上很多用户用「自带密钥」功能接 OpenAI、</p>
+<p>Anthropic API key，结果被专门打这些密钥做蒸馏。Railway 非常类似。</p>
+<p>先说一句：如果你用 Railway——其实整期视频都适用——你应该用前沿模型（理想是 Opus 5.5 max）对着你的电脑和所有仓库跑一遍。更直接：<span class="tag">【笑声】</span>把这个列表截图，</p>
+<p>让模型自学这些漏洞，再分析你整台电脑与所有软件，告诉你要打哪些补丁。所有人现在就该做这一次性排查。但这只会更糟：除非你想每夜失眠打补丁、</p>
+<p>生怕客户被攻破，否则必须用代理循环自动化。Railway 发生了什么？</p>
+<p>人们开始注意到平台宕机，大量客户报告 API key 被抽干。</p>
+<p>部署挂了，无法重新部署，只能立刻轮换密钥。非常糟糕。很多人预测这可能是 Railway 的末日——因为今年早些时候他们还在炫耀某种「粗心」：</p>
+<p>为了发得快而跳过一些安全步骤。Railway 客户多，像 OpenCode 一样成了好目标。</p>
+<p>有人早上醒来看到「你的 AWS 账户可能已被入侵」<span class="tag">【清嗓】</span>——基本都可追溯到 Railway 问题。</p>
+<p>这类截图太多，放不下。公司把东西部署在 Railway 上，</p>
+<p>它和其他部署平台一样。部署时你会塞环境变量：OpenAI、数据库 URL、Stripe、AWS、OpenRouter、Anthropic 等等。一旦发生泄露，这些密钥可能外泄。理想情况应加密、妥善保管、</p>
+<p>一定程度隔离或分散——可做的事很多。当然安全越强往往越不便，视具体措施而定。</p>
+<p>Railway 显然没有足够安全，泄露很严重。结果是：</p>
+<p>攻击者触达了存放客户密钥的系统，部分被解密——这其实是网络安全最基本的东西。</p>
+<p>存密码或 API key 必须加密，不能直接一张表放用户名密码。这是二三十年前网站开发的基本常识。</p>
+<p>客户密码与所有敏感数据必须加密。Railway 只是让用户在两边部署里轮换所有密钥。</p>
+<p>问题在于中心化：一个平台 Railway 握着成千上万 API key，而且旧密钥从不删除，</p>
+<p>像死在废弃服务里，没有清理任务。你可以说这是客户责任，但现实是：如果你跑部署平台，就该有这套系统。</p>
+<p>再看我最重要的循环之一：通用安全扫描（general security sweep）。模板里一键可加到任意仓库；所有重要仓库都该加。</p>
+<p>最重要的公司/个人项目用前沿模型如 Opus 5.5；不那么敏感的用 Sonnet 5.5 或 DeepSeek 3.1 Flash 之类——但必须跑点什么。</p>
+<p>需要有 AI 模型一直在跑：每小时、每两小时，有时甚至每 5 分钟，去找代码库不同部分的问题与安全缺口——计费、鉴权、前端、后端、API 等。把它切成</p>
+<p>大约 5 到 10 段，让每个引擎循环更聚焦，只盯那一块。</p>
+<p>提示词在我模板里都很简单：模型、推理力度、harness、频率和提示都预选好了，多数提示很短。</p>
+<p>找不到东西就自我归档，不在侧边栏堆积；只有发现严重、值得修的东西才留下，并给出清晰修复建议。</p>
+<p>这个安全扫描是 P1，因为它会扫整库，查最严重的问题。</p>
+<p>最好的架构其实是用第二个模型当审查者。这里我在不同模型之间轮换：</p>
+<p>GPT → Opus → Muse → GPT。现在这些是前沿最强模型，必须轮换——每个模型会发现不同的东西。就像你有三个不同的人类安全研究员或工程师，每人会找到</p>
+<p>不同缺口；AI 模型也一样。所以要交替使用。</p>
+<p>确保它不乱报假问题、不推垃圾修复的主架构，是子代理。我快速画一下。</p>
+<p>主代理通常用 Opus，去找问题。两种结果：什么都没找到——很好，代码相对安全，空结果即可；若找到了，也可能是真问题，或是过度脑补，</p>
+<p>或只是小事——因为你让模型「找 bug」，即使没有严重问题它也总会找点什么，这是下一 token 预测架构带来的倾向。</p>
+<p>怎么防？再跑一个模型，比如 GPT-6.1 Soul max，做对抗式审查：提示写明「可能过度脑补，但若是真 bug 就保留」。若什么都没找到，完美，自我归档；若找到了，让 GPT</p>
+<p>以审查者心态判断：Opus 找到的东西是否真关键、是否值得修，还是吹毛求疵？</p>
+<p>值得修就把结果交回 Opus，等用户批准；不值得就归档两个线程。砰。</p>
+<p>人类侧边栏干干净净，不浪费时间，代码已被审查，你可以安心睡觉。美妙之处在于：两家公司的两个不同前沿模型互相校验，两边都同意时，更可能是</p>
+<p>真问题。推理力度自己设，我建议 extra high 或 max。</p>
+<p>还要轮换谁当主代理。我展示的是 Opus、Muse、Wander 之间的配置。顺便说：很多人低估 Meta 超智能实验室（MSL，Meta Superintelligence Labs）的新模型；Muse Wander 与 Muse Wander Full 其实很强——</p>
+<p>世界顶尖之一，不如 Opus，但和 GPT-6.1 Soul 可打。完全可以拿来做审查。</p>
+<p>Kimi 即将发 Kimi K3.1，审查也一定要用——你要尽可能宽的模型覆盖面。</p>
+<p>哪怕某个模型不好「一起干活」也没关系：你是在审安全漏洞，要五到十家公司的模型扫遍代码库各部分。入门可以很简单：</p>
+<p>去拿这些模板，先开优先级高的，以及 P2。我标得很清楚：P1 必需、P2 推荐；P3、P4 可有可无。</p>
+<p>我想尽量降低门槛——因为这不是可选项。这就是网络安全的未来：成群代理攻击自己的代码库，尽量多发现问题并预防性自主打补丁。提示里你可以定义：</p>
+<p>发现后是否直接推生产，还是等你、解释问题并提出修复。完全取决于你在建什么、团队多大、客户多少，以及</p>
+<p>是哪种循环。小事可以完全自主；更严重的可以半自主，带着完整修复方案等你批准。如果这期视频你只做一件事：开始跑这些代理循环。</p>
+<p>选一两个，对着自己的代码开跑。不做几乎是严重失职。这是未来的网络安全——不只是雇几个专家。专家付几千美元能帮你找一次，</p>
+<p>然后他回家陪妻儿，不再关心你。代理循环你激活一次就能永远跑。是的，要花 token，但可以用不同模型：Sonnet 5.5、Haiku 5.5、DeepSeek-V2 Flash——有很多</p>
+<p>几乎免费却够强的模型，可以持续对着代码找问题、bug 与安全洞。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：CloudRoom]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：CloudRoom]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：CloudRoom]</span></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">大卫</span></div><div class="content">
+<p>我们正进入疯狂时代。如果这期视频只带走一点：这只是开始。如果你觉得这只是一次性的 48 小时、之后会恢复正常——那就大错特错了。这张曲线还会继续，我们会看到越来越多关键安全</p>
+<p>漏洞每天被发现。我觉得大概会有 3 到 6 个月的过渡期，直到人人意识到：「哦，AI 代理是真的，我必须用最大规模的代理、烧掉最大量的 token 对着自己的代码库自保。」</p>
+<p>六个月、十二个月后，这会完全正常、成为标准。问题是你要做早期采用者，还是晚到者。希望这期对你有价值。</p>
+<p>祝大家有生产力满满的一周。回见。</p>
+</div></div>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "David Ondrej", "title": "一切都在被黑（游戏结束了）", "url": "https://www.youtube.com/watch?v=wuv61uEq7uY", "videoId": "wuv61uEq7uY", "published_at": "2026-10-23", "duration": 1716, "caption_source": "YouTube 自动生成字幕（en-orig；普通 yt-dlp 遭 429 后经 yt-dlp + Chrome cookies 路径拉取），中文为逐句全文翻译；caption_source=yt-dlp-chrome-cookies；产品硬广段以灰色广告省略标记", "guests": [], "speakers": [{"id": "h", "name": "大卫·翁德雷（David Ondrej）", "role": "host", "short": "大卫"}], "intro": {"summary": "大卫·翁德雷盘点「黑色十月」48 小时内爆发的顶级漏洞潮（PHP RCE、eMudhra 证书私钥弱随机、Railway 密钥泄露），并演示用前沿模型代理循环 24/7 自攻代码库做防御。", "points": ["CVE 曲线近月垂直拉升；一天内 PHP/Node/Nginx/Go/GitLab/Moodle 等出现大量严重漏洞，Cloudflare 见数百万次利用尝试", "PHP 满分 RCE 细节先于补丁约 15 小时泄漏，影响 WordPress 等约 70% Web；多团队借 AI 代理发现并升级漏洞链", "eMudhra 签发证书时用 0–256 弱随机（甚至私钥为 4），可伪造信任链，冲击半个互联网", "Railway 客户密钥被抽干：中心化存密、旧钥不清理；建议立即轮换并上自动化扫描", "防御范式：用 Opus/GPT 等前沿模型最大推理做审查；切分代码库轮换模型；主代理+对抗审查子代理降假阳性", "依赖瘦身与供应链情报循环（抓取 Twitter/GitHub 新闻）被视为将成标配；3–6 个月过渡后或成行业常态"], "verdict": "值得看：约 29 分钟，偏实操与态势感知；做 Web/部署/自建工具的开发者与安全负责人很有参考价值。产品演示段落已标广告省略。", "audience": "全栈/后端开发者、创业技术负责人、关心 AI 时代软件供应链与应用安全的观众"}, "paragraphs": [{"start_sec": 0, "speaker_id": "h", "type": "text", "zh": "我叫大卫·翁德雷（David Ondrej）。AI 驱动的黑客攻击已经来了——因为我们刚经历了网络安全史上最疯狂的 48 小时。首先，人们把这段时间叫作「黑色十月」：漏洞、利用、黑客事件数量之多、严重程度之高都前所未有。"}, {"start_sec": 17, "speaker_id": "h", "type": "text", "zh": "过去 48 到 72 小时里，几乎每小时都有一个严重程度约 9.5–10（满分 10）的新事件。正如尼克（Nick）所说：成千上万、乃至数万个 AI 代理——来自不同个人、不同国家行为体、不同公司——正在爬遍互联网、搜寻漏洞"}, {"start_sec": 37, "speaker_id": "h", "type": "text", "zh": "与各类软件问题。看这张图：过去 25 年 CVE（通用漏洞披露）数量曲线，最近几个月几乎垂直拉升，尤其是最近一个月，特别是过去 48 小时，新发现 CVE 的数量"}, {"start_sec": 57, "speaker_id": "h", "type": "text", "zh": "简直疯狂。网络安全因此成了暴涨领域，但包括你我自己写的软件在内，很多软件正变得可被攻破。仅一天内，PHP、Node.js、Nginx、Go、GitLab、Moodle 等就出现了 30 个严重漏洞——Moodle 那次尤其离谱。本视频我们会拆开其中三个"}, {"start_sec": 81, "speaker_id": "h", "type": "text", "zh": "最严重的：PHP 到 shell、Moodle/证书相关，以及 Railway。我会讲每个出了什么问题，也会展示我在自己所有仓库与代码库上 24/7 跑的代理循环，尽量保护自己——因为我们正进入网络安全上前所未有的时代。"}, {"start_sec": 102, "speaker_id": "h", "type": "text", "zh": "没人知道它最终会变成什么样。本质上是成群的代理在攻击全世界的软件。你唯一能自保的方式，就是用自己的代理循环去「攻击」自己的代码库。细节稍后再说。先看发生了什么。"}, {"start_sec": 115, "speaker_id": "h", "type": "text", "zh": "很难说哪一个最糟——这一波整体都太夸张——但 PHP 相关肯定是最严重之一。PHP 里出现了两个满分 10 分级的巨大漏洞。对不了解的人：PHP 是一门编程语言，某种程度上支撑着大约 70% 的网站。"}, {"start_sec": 133, "speaker_id": "h", "type": "text", "zh": "之所以特别糟，不是小 bug，而是远程代码执行（RCE）：任何人甚至不用登录，就能在你的服务器上跑任意代码。"}, {"start_sec": 148, "speaker_id": "h", "type": "text", "zh": "这本身已经极其糟糕；更糟的是，这些利用细节在补丁真正放出大约 15 小时前就泄漏了。"}, {"start_sec": 158, "speaker_id": "h", "type": "text", "zh": "凡是有 WordPress、MediaWiki、Magento、Laravel 以及大量其他 Web 应用与服务器的人，都可能受影响。"}, {"start_sec": 169, "speaker_id": "h", "type": "text", "zh": "Cloudflare 的 CEO 说他们实际看到了数百万次尝试。一些统计：Cloudflare 托管数千万站点，在公开宣布前约 10 小时，全网已看到数千次利用尝试；宣布后 45 分钟内跳到数万；"}, {"start_sec": 187, "speaker_id": "h", "type": "text", "zh": "两小时内到数十万；现在是数百万不同行为体、黑产在尝试利用各种 PHP 服务器。"}, {"start_sec": 200, "speaker_id": "h", "type": "text", "zh": "还有一个满分 10 分的 GitLab CVE，潜伏了大约 12 年，影响大量 GitLab 部署。"}, {"start_sec": 209, "speaker_id": "h", "type": "text", "zh": "绝对疯狂、前所未有。以前任何一年里，只要出现其中一个，就足以成为当年的网络安全头号新闻——而我们在大约 48 小时内全撞上了。远程代码执行，驱动着"}, {"start_sec": 231, "speaker_id": "h", "type": "text", "zh": "维基百科、WordPress 等等——约 70% 的 Web。这不是小事。PHP 是世界上最流行的 Web 语言之一。有四个不同团队在 AI 代理帮助下发现了它：你可以检查多得多的潜在 bug 与漏洞，并把漏洞链"}, {"start_sec": 249, "speaker_id": "h", "type": "text", "zh": "接起来，升级成更严重的问题。在讲更进阶的完整代理循环之前，先给一个提示：无论你构建什么软件，都用前沿模型去做审查。你既然用 AI"}, {"start_sec": 267, "speaker_id": "h", "type": "text", "zh": "代理来构建，就要用最好的模型：简单说，上线生产前，用 Anthropic 与 OpenAI 当前最强模型、开到最大推理力度，对着那套软件跑一遍，把低垂果实和主要安全问题先清掉。"}, {"start_sec": 285, "speaker_id": "h", "type": "text", "zh": "两个关键点：前沿模型，以及最大推理。别用某个便宜的 200 亿参数本地小模型干这事。"}, {"start_sec": 293, "speaker_id": "h", "type": "text", "zh": "让我展示我怎么保护自己的代码库、软件和公司：持续对着自己的仓库跑这些代理循环。这是唯一可行的自保方式。如果有人用代理群攻你的公司与软件，你最好自己先做，"}, {"start_sec": 311, "speaker_id": "h", "type": "text", "zh": "在他们之前找到所有漏洞与问题。看我怎么做。进入 CloudRoom，左上角有 loops（循环）页面，这里是我当前所有活跃循环。我标了两个优先级。先看 Web 安全"}, {"start_sec": 329, "speaker_id": "h", "type": "text", "zh": "测试——就是这个。每 4 小时跑一次，用 Opus 5.5、百万上下文上限。一定要用前沿模型：目前 Anthropic 侧是 Opus 5.5；OpenAI 侧是 GPT-6 Astra 或 GPT-6.1 Soul，我觉得 Soul 略好一点，视情况而定。"}, {"start_sec": 349, "speaker_id": "h", "type": "text", "zh": "对最严重的场景，最好两个都用。稍后讲何时用哪个、怎么组合。其实很简单。"}, {"start_sec": 359, "speaker_id": "h", "type": "text", "zh": "这些是云端循环：好处是即使我的 MacBook 合上，它们也会启动。"}, {"start_sec": 367, "speaker_id": "h", "type": "text", "zh": "必须保证安全方案始终在跑。有点讽刺：12 个月、18 个月前，这样用代理、用 AI 审一切，会被认为不负责任；现在，如果你不用 AI 来加固自己的代码库，"}, {"start_sec": 388, "speaker_id": "h", "type": "text", "zh": "才是不负责任。Opus 5.5 我觉得是当今最强模型之一——你需要把它放进循环，不断测试代码库不同部分。关键想法是：把代码库切成大约 5 到 10 个区块，让它轮流跑。"}, {"start_sec": 404, "speaker_id": "h", "type": "text", "zh": "比如这个每 4 小时一次：最大推理、Anthropic 最强模型、简单调度，优先级设为 1。"}, {"start_sec": 412, "speaker_id": "h", "type": "text", "zh": "提示词很简单——你不需要长提示。关键是把模型对准代码库的某一块，告诉它要做什么。"}, {"start_sec": 422, "speaker_id": "h", "type": "text", "zh": "在 CloudRoom 里，每次运行会开一个新线程；如果没发现东西，它会自我归档，不会把侧边栏堆满；如果有值得修的东西，它会留下"}, {"start_sec": 441, "speaker_id": "h", "type": "text", "zh": "等你审。视频后半我还会展示如何做完全自主循环：直接修、推到 GitHub、甚至进生产——取决于你怎么配置。"}, {"start_sec": 452, "speaker_id": "h", "type": "text", "zh": "这是第一个。第二个是依赖监视（dependency watch）。它检查各类依赖。说到第三方库与包，我觉得会有越来越多人从零"}, {"start_sec": 470, "speaker_id": "h", "type": "text", "zh": "构建软件，尽量少用第三方依赖。过去用 Python 包或别人写好的库能省时间、加快开发；今天你可以直接提示 Opus、Astra、GPT-6 等，"}, {"start_sec": 489, "speaker_id": "h", "type": "text", "zh": "这些模型几乎能建任何东西——上限更多是想象力。代码库里塞上千依赖是巨大安全负债。当然有时仍合理，也不会一夜之间人人零依赖，但我相当有把握地预测："}, {"start_sec": 506, "speaker_id": "h", "type": "text", "zh": "会有越来越多人对整系统做大审计，尽量砍掉第三方依赖——因为每一个都会扩大攻击面，增加被打的路径。"}, {"start_sec": 527, "speaker_id": "h", "type": "text", "zh": "我其实跑了两套，另一套稍后提。这一套用 Deep API 每 30 分钟刮 Twitter 看发生了什么——老实说该更激进，改成每 10 分钟。思路是：一旦出现安全"}, {"start_sec": 542, "speaker_id": "h", "type": "text", "zh": "漏洞，它分析整个代码库并立刻修复。这个我建议完全自主跑——你就是要 ASAP 打补丁。"}, {"start_sec": 553, "speaker_id": "h", "type": "text", "zh": "以上是针对 PHP 那波我在跑的两套。接下来谈 eMudhra（证书相关）——可能是其中最离谱的。先快速说明一下我在用的工具环境。"}, {"start_sec": 572, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "CloudRoom", "zh": ""}, {"start_sec": 590, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "CloudRoom", "zh": ""}, {"start_sec": 611, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "CloudRoom", "zh": ""}, {"start_sec": 619, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "CloudRoom", "zh": ""}, {"start_sec": 636, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "CloudRoom", "zh": ""}, {"start_sec": 653, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "CloudRoom", "zh": ""}, {"start_sec": 661, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "CloudRoom", "zh": ""}, {"start_sec": 673, "speaker_id": "h", "type": "text", "zh": "继续第二个最大问题——其实可能是最大的，因为网络安全史上从未发生过这种事。"}, {"start_sec": 685, "speaker_id": "h", "type": "text", "zh": "这家印度公司 eMudhra（eMudhra）完全搞砸了。只能这么说：彻头彻尾的严重失职。"}, {"start_sec": 694, "speaker_id": "h", "type": "text", "zh": "全球级的离谱。他们在签发私钥证书，每个密钥本该是约 116 位量级的数，"}, {"start_sec": 706, "speaker_id": "h", "type": "text", "zh": "可能性空间大约是 2 的 256 次方之类。但他们没有用 2^256 空间，而是在 0 到 256 之间「随机」选数。"}, {"start_sec": 721, "speaker_id": "h", "type": "text", "zh": "其中一个私钥居然是数字 4。问题有多严重？他们把半个互联网坑惨了。我花了好几个小时给软件打补丁、更新大量依赖——因为他们在发互联网证书。这意味着"}, {"start_sec": 737, "speaker_id": "h", "type": "text", "zh": "任何人都能伪造这些证书，尤其是私钥是 4 这种数字时，冒充你或其他管理员访问站点。半个世界被搅乱。过程是这样的："}, {"start_sec": 752, "speaker_id": "h", "type": "text", "zh": "你的浏览器——Chrome、Brave、Safari——靠这些证书信任网站。如果你不幸由 eMudhra 签发，任何人就能用私钥「4」或其他同样糟糕的短密钥去签名，"}, {"start_sec": 775, "speaker_id": "h", "type": "text", "zh": "猜中证书并冒充你，或访问你的 Web 应用。"}, {"start_sec": 784, "speaker_id": "h", "type": "text", "zh": "极其糟糕。其中八个是极小的数，基本都在 0–256，说明他们根本不懂自己在干什么。有了这些，任何人都能伪造任意网站：银行、邮箱，几乎任何东西。"}, {"start_sec": 799, "speaker_id": "h", "type": "text", "zh": "再看这个循环：供应链安全扫描（supply chain security sweep）。它检查各类供应链攻击，同样用 Deep API（一种抓取 API）。"}, {"start_sec": 819, "speaker_id": "h", "type": "text", "zh": "Deep API 是我做 CloudRoom 之前做的。它用大量刮虫覆盖 Twitter、GitHub、各新闻源，能在几分钟内发现这类新闻；代理通过单一 API 交互使用。很多循环都靠它驱动。再看"}, {"start_sec": 837, "speaker_id": "h", "type": "text", "zh": "代理在做什么：它们会写 shell 脚本，避免重复写同样代码——因为每个代理循环都会开新线程。我们也可以直接测一下这个。"}, {"start_sec": 847, "speaker_id": "h", "type": "text", "zh": "大约一分钟内跑完。我刚触发了一次运行，平时它每小时触发。我告诉你们：看了过去 48 小时，我可能会【笑声】重新考虑频率，改成"}, {"start_sec": 863, "speaker_id": "h", "type": "text", "zh": "大概每 5 分钟。当然要考虑 token 成本——不是所有循环都要用 Opus 5.5。"}, {"start_sec": 872, "speaker_id": "h", "type": "text", "zh": "主循环我建议用最强模型；但现在各档都有很能打的模型。比如这个用 Opus 5.5 Max，但刮取搜索类用 Sonnet 5.5、GPT-6 Luna，甚至 Haiku 5.5 或 DeepSeek V4.1 Flash"}, {"start_sec": 895, "speaker_id": "h", "type": "text", "zh": "1017 都行。DeepSeek 起名的人真该反思——早该叫 V4.2 Flash。模型没那么关键，用够好、够前沿或接近前沿的就行。"}, {"start_sec": 908, "speaker_id": "h", "type": "text", "zh": "再配上 Deep API 这类抓取 API，让它高频循环发现情报。运行起来大概长这样：分析安全扫描、最危险点、CI shell、自托管 runner 等等。"}, {"start_sec": 925, "speaker_id": "h", "type": "text", "zh": "希望能展示……我觉得不用打码。好，换一个给你们看。"}, {"start_sec": 935, "speaker_id": "h", "type": "text", "zh": "依赖瘦身（dependency diet）。这个检查依赖。嗯，它会提示也许该移除这些：TypeScript 7、remark-gfm、recharts 等。也就是大约 21、18、13 个包，建议考虑删掉，换成完全可控的自研代码。"}, {"start_sec": 957, "speaker_id": "h", "type": "text", "zh": "尽量低层、可控。核心是这一切都在你设计的自主循环上跑。第三个案例和前两个一样糟：Railway 事件。Railway 是后端部署平台（前端也能做，"}, {"start_sec": 974, "speaker_id": "h", "type": "text", "zh": "还能做很多事，比如 Redis 缓存）。发生的事很像我前几天发的 Open Code 视频：攻击者冲着用户密钥去。Open Code 上很多用户用「自带密钥」功能接 OpenAI、"}, {"start_sec": 996, "speaker_id": "h", "type": "text", "zh": "Anthropic API key，结果被专门打这些密钥做蒸馏。Railway 非常类似。"}, {"start_sec": 1005, "speaker_id": "h", "type": "text", "zh": "先说一句：如果你用 Railway——其实整期视频都适用——你应该用前沿模型（理想是 Opus 5.5 max）对着你的电脑和所有仓库跑一遍。更直接：【笑声】把这个列表截图，"}, {"start_sec": 1023, "speaker_id": "h", "type": "text", "zh": "让模型自学这些漏洞，再分析你整台电脑与所有软件，告诉你要打哪些补丁。所有人现在就该做这一次性排查。但这只会更糟：除非你想每夜失眠打补丁、"}, {"start_sec": 1043, "speaker_id": "h", "type": "text", "zh": "生怕客户被攻破，否则必须用代理循环自动化。Railway 发生了什么？"}, {"start_sec": 1052, "speaker_id": "h", "type": "text", "zh": "人们开始注意到平台宕机，大量客户报告 API key 被抽干。"}, {"start_sec": 1061, "speaker_id": "h", "type": "text", "zh": "部署挂了，无法重新部署，只能立刻轮换密钥。非常糟糕。很多人预测这可能是 Railway 的末日——因为今年早些时候他们还在炫耀某种「粗心」："}, {"start_sec": 1081, "speaker_id": "h", "type": "text", "zh": "为了发得快而跳过一些安全步骤。Railway 客户多，像 OpenCode 一样成了好目标。"}, {"start_sec": 1090, "speaker_id": "h", "type": "text", "zh": "有人早上醒来看到「你的 AWS 账户可能已被入侵」【清嗓】——基本都可追溯到 Railway 问题。"}, {"start_sec": 1104, "speaker_id": "h", "type": "text", "zh": "这类截图太多，放不下。公司把东西部署在 Railway 上，"}, {"start_sec": 1112, "speaker_id": "h", "type": "text", "zh": "它和其他部署平台一样。部署时你会塞环境变量：OpenAI、数据库 URL、Stripe、AWS、OpenRouter、Anthropic 等等。一旦发生泄露，这些密钥可能外泄。理想情况应加密、妥善保管、"}, {"start_sec": 1129, "speaker_id": "h", "type": "text", "zh": "一定程度隔离或分散——可做的事很多。当然安全越强往往越不便，视具体措施而定。"}, {"start_sec": 1140, "speaker_id": "h", "type": "text", "zh": "Railway 显然没有足够安全，泄露很严重。结果是："}, {"start_sec": 1150, "speaker_id": "h", "type": "text", "zh": "攻击者触达了存放客户密钥的系统，部分被解密——这其实是网络安全最基本的东西。"}, {"start_sec": 1157, "speaker_id": "h", "type": "text", "zh": "存密码或 API key 必须加密，不能直接一张表放用户名密码。这是二三十年前网站开发的基本常识。"}, {"start_sec": 1170, "speaker_id": "h", "type": "text", "zh": "客户密码与所有敏感数据必须加密。Railway 只是让用户在两边部署里轮换所有密钥。"}, {"start_sec": 1179, "speaker_id": "h", "type": "text", "zh": "问题在于中心化：一个平台 Railway 握着成千上万 API key，而且旧密钥从不删除，"}, {"start_sec": 1187, "speaker_id": "h", "type": "text", "zh": "像死在废弃服务里，没有清理任务。你可以说这是客户责任，但现实是：如果你跑部署平台，就该有这套系统。"}, {"start_sec": 1200, "speaker_id": "h", "type": "text", "zh": "再看我最重要的循环之一：通用安全扫描（general security sweep）。模板里一键可加到任意仓库；所有重要仓库都该加。"}, {"start_sec": 1220, "speaker_id": "h", "type": "text", "zh": "最重要的公司/个人项目用前沿模型如 Opus 5.5；不那么敏感的用 Sonnet 5.5 或 DeepSeek 3.1 Flash 之类——但必须跑点什么。"}, {"start_sec": 1231, "speaker_id": "h", "type": "text", "zh": "需要有 AI 模型一直在跑：每小时、每两小时，有时甚至每 5 分钟，去找代码库不同部分的问题与安全缺口——计费、鉴权、前端、后端、API 等。把它切成"}, {"start_sec": 1249, "speaker_id": "h", "type": "text", "zh": "大约 5 到 10 段，让每个引擎循环更聚焦，只盯那一块。"}, {"start_sec": 1258, "speaker_id": "h", "type": "text", "zh": "提示词在我模板里都很简单：模型、推理力度、harness、频率和提示都预选好了，多数提示很短。"}, {"start_sec": 1271, "speaker_id": "h", "type": "text", "zh": "找不到东西就自我归档，不在侧边栏堆积；只有发现严重、值得修的东西才留下，并给出清晰修复建议。"}, {"start_sec": 1285, "speaker_id": "h", "type": "text", "zh": "这个安全扫描是 P1，因为它会扫整库，查最严重的问题。"}, {"start_sec": 1296, "speaker_id": "h", "type": "text", "zh": "最好的架构其实是用第二个模型当审查者。这里我在不同模型之间轮换："}, {"start_sec": 1304, "speaker_id": "h", "type": "text", "zh": "GPT → Opus → Muse → GPT。现在这些是前沿最强模型，必须轮换——每个模型会发现不同的东西。就像你有三个不同的人类安全研究员或工程师，每人会找到"}, {"start_sec": 1322, "speaker_id": "h", "type": "text", "zh": "不同缺口；AI 模型也一样。所以要交替使用。"}, {"start_sec": 1329, "speaker_id": "h", "type": "text", "zh": "确保它不乱报假问题、不推垃圾修复的主架构，是子代理。我快速画一下。"}, {"start_sec": 1341, "speaker_id": "h", "type": "text", "zh": "主代理通常用 Opus，去找问题。两种结果：什么都没找到——很好，代码相对安全，空结果即可；若找到了，也可能是真问题，或是过度脑补，"}, {"start_sec": 1363, "speaker_id": "h", "type": "text", "zh": "或只是小事——因为你让模型「找 bug」，即使没有严重问题它也总会找点什么，这是下一 token 预测架构带来的倾向。"}, {"start_sec": 1374, "speaker_id": "h", "type": "text", "zh": "怎么防？再跑一个模型，比如 GPT-6.1 Soul max，做对抗式审查：提示写明「可能过度脑补，但若是真 bug 就保留」。若什么都没找到，完美，自我归档；若找到了，让 GPT"}, {"start_sec": 1396, "speaker_id": "h", "type": "text", "zh": "以审查者心态判断：Opus 找到的东西是否真关键、是否值得修，还是吹毛求疵？"}, {"start_sec": 1414, "speaker_id": "h", "type": "text", "zh": "值得修就把结果交回 Opus，等用户批准；不值得就归档两个线程。砰。"}, {"start_sec": 1426, "speaker_id": "h", "type": "text", "zh": "人类侧边栏干干净净，不浪费时间，代码已被审查，你可以安心睡觉。美妙之处在于：两家公司的两个不同前沿模型互相校验，两边都同意时，更可能是"}, {"start_sec": 1444, "speaker_id": "h", "type": "text", "zh": "真问题。推理力度自己设，我建议 extra high 或 max。"}, {"start_sec": 1451, "speaker_id": "h", "type": "text", "zh": "还要轮换谁当主代理。我展示的是 Opus、Muse、Wander 之间的配置。顺便说：很多人低估 Meta 超智能实验室（MSL，Meta Superintelligence Labs）的新模型；Muse Wander 与 Muse Wander Full 其实很强——"}, {"start_sec": 1471, "speaker_id": "h", "type": "text", "zh": "世界顶尖之一，不如 Opus，但和 GPT-6.1 Soul 可打。完全可以拿来做审查。"}, {"start_sec": 1479, "speaker_id": "h", "type": "text", "zh": "Kimi 即将发 Kimi K3.1，审查也一定要用——你要尽可能宽的模型覆盖面。"}, {"start_sec": 1486, "speaker_id": "h", "type": "text", "zh": "哪怕某个模型不好「一起干活」也没关系：你是在审安全漏洞，要五到十家公司的模型扫遍代码库各部分。入门可以很简单："}, {"start_sec": 1505, "speaker_id": "h", "type": "text", "zh": "去拿这些模板，先开优先级高的，以及 P2。我标得很清楚：P1 必需、P2 推荐；P3、P4 可有可无。"}, {"start_sec": 1519, "speaker_id": "h", "type": "text", "zh": "我想尽量降低门槛——因为这不是可选项。这就是网络安全的未来：成群代理攻击自己的代码库，尽量多发现问题并预防性自主打补丁。提示里你可以定义："}, {"start_sec": 1540, "speaker_id": "h", "type": "text", "zh": "发现后是否直接推生产，还是等你、解释问题并提出修复。完全取决于你在建什么、团队多大、客户多少，以及"}, {"start_sec": 1555, "speaker_id": "h", "type": "text", "zh": "是哪种循环。小事可以完全自主；更严重的可以半自主，带着完整修复方案等你批准。如果这期视频你只做一件事：开始跑这些代理循环。"}, {"start_sec": 1575, "speaker_id": "h", "type": "text", "zh": "选一两个，对着自己的代码开跑。不做几乎是严重失职。这是未来的网络安全——不只是雇几个专家。专家付几千美元能帮你找一次，"}, {"start_sec": 1594, "speaker_id": "h", "type": "text", "zh": "然后他回家陪妻儿，不再关心你。代理循环你激活一次就能永远跑。是的，要花 token，但可以用不同模型：Sonnet 5.5、Haiku 5.5、DeepSeek-V2 Flash——有很多"}, {"start_sec": 1611, "speaker_id": "h", "type": "text", "zh": "几乎免费却够强的模型，可以持续对着代码找问题、bug 与安全洞。"}, {"start_sec": 1621, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "CloudRoom", "zh": ""}, {"start_sec": 1640, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "CloudRoom", "zh": ""}, {"start_sec": 1656, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "CloudRoom", "zh": ""}, {"start_sec": 1663, "speaker_id": "h", "type": "text", "zh": "我们正进入疯狂时代。如果这期视频只带走一点：这只是开始。如果你觉得这只是一次性的 48 小时、之后会恢复正常——那就大错特错了。这张曲线还会继续，我们会看到越来越多关键安全"}, {"start_sec": 1679, "speaker_id": "h", "type": "text", "zh": "漏洞每天被发现。我觉得大概会有 3 到 6 个月的过渡期，直到人人意识到：「哦，AI 代理是真的，我必须用最大规模的代理、烧掉最大量的 token 对着自己的代码库自保。」"}, {"start_sec": 1697, "speaker_id": "h", "type": "text", "zh": "六个月、十二个月后，这会完全正常、成为标准。问题是你要做早期采用者，还是晚到者。希望这期对你有价值。"}, {"start_sec": 1710, "speaker_id": "h", "type": "text", "zh": "祝大家有生产力满满的一周。回见。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

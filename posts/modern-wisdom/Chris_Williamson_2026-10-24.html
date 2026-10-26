@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>差点毁掉 K 医生的人生谷底时刻</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="h">克里斯·威廉森（Chris Williamson）</option><option value="g">K 医生（Dr. K / Alok Kanojia）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Chris Williamson</span><span class="pill">2026-10-23</span></div>
+<h1>差点毁掉 K 医生的人生谷底时刻</h1>
+<p class="sub">嘉宾：K 医生（Dr. K / Alok Kanojia） · 约 12 分钟（714 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=E3BAOkBaYOg" target="_blank" rel="noopener">https://www.youtube.com/watch?v=E3BAOkBaYOg</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Chris Williamson</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-23</dd></div><div class="meta-row"><dt>时长</dt><dd>约 12 分钟（714 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；普通 yt-dlp 遭 429 后经 yt-dlp + Chrome cookies 路径拉取），中文为逐句全文翻译；caption_source=yt-dlp-chrome-cookies</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>E3BAOkBaYOg</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>K 医生（Healthy Gamer）讲述差点毁掉人生的谷底：挂科、打游戏、道场出家念头、遇见妻子，以及医学院面试后在禅修中「知晓」徒劳功课的价值。</p>
+<h3>核心要点</h3><ul><li>经典谷底：濒临退学、每天游戏十六到二十小时，西班牙语期末考直接弃考</li><li>印度道场九十天后想出家，上师要求先在物质世界做到卓越并完成学业</li><li>回国一周遇见妻子；曾想独身出家，后明白真正功课在内心而非外在身份</li><li>2.4 GPA 却盯上哈佛医学院；祈祷后内心明确「不会成」，并感到平静与业力功课约需两年</li><li>讨论「徒劳工作」与业力加速：围棋先输一百盘、抑郁后的韧性、西西弗斯也在刷经验</li><li>对失败从愤怒抗拒到和解，是人生转向的关键</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：约 12 分钟高密度个人叙事+灵性/心理讨论，适合听失败与意义感话题；可跳过片尾订阅与 Whoop 广告。</p>
+<h3>适合人群</h3><p>关注心理健康、失败复原、灵性实践，以及 Modern Wisdom / Healthy Gamer 听众</p>
+</section>
+<div class="legend"><span class="spk-0">克里斯·威廉森（Chris Williamson）<em>主持</em></span><span class="spk-1">K 医生（Dr. K / Alok Kanojia）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="K 医生（Dr. K / Alok Kanojia）">K医生</span></div><div class="content">
+<p>你知道，我经历过一连串谷底，其中有一个我会跟别人讲的「经典谷底」——那种看起来就像谷底的谷底。当时我快被大学淘汰，每天打十六到二十小时游戏。我记得有天早上醒来——或者说根本没怎么睡——闹钟响了，我意识到今天有西班牙语期末考，那一刻我直接决定：不去了。</p>
+<p>其实前一晚我还慌慌张张抱佛脚学了大概六个小时，然后只睡了大约两个小时，醒来还是想：我就是不去。于是我差不多被大学刷掉了；过了几年去了印度。那时我二十一岁，在道场（ashram）待了九十天。结束时我去找一位我真心当作上师的人——其实他也只是道场里的另一名学员，但我觉得他在灵性上远比那些老师或负责人更成熟；那些负责人在很多方面出奇地自恋。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>顺便说一句，有研究证明这一点。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="K 医生（Dr. K / Alok Kanojia）">K医生</span></div><div class="content">
+<p>对，我相信有，因为真的很糟。于是我去跟那位老师说：「嘿，这就是我想用余生去做的事。我想出家，受戒，当僧人。」他却说：「不行。」他说：「如果你想，三十岁可以再回来。</p>
+<p>你可以三十岁再发愿，但你得先回去，把学业完成。」他还说：「除非你能在物质世界里做到出类拔萃，否则你会失败。你想走的这条路，比在世俗领域登顶要难得多。」</p>
+<p>我把这话听进去了。当时很困惑、也很动摇，但我心想：好吧。那我就先立志当僧人。然后我回国，在决定出家、要守独身之后没过几周——</p>
+</div></div>
+<div class="marker-line"><span class="tag">【笑声】</span></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="K 医生（Dr. K / Alok Kanojia）">K医生</span></div><div class="content">
+<p>戒色（No fap）。然后，我就遇见了我的妻子。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>那撮凶悍的小胡子，倒很像独身的标志。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="K 医生（Dr. K / Alok Kanojia）">K医生</span></div><div class="content">
+<p>对，<span class="tag">【笑声】</span>确实是。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>作为一个印度男人，也是。对。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="K 医生（Dr. K / Alok Kanojia）">K医生</span></div><div class="content">
+<p>于是我回国，回美国不到一周就遇见了后来的妻子。那时她还不是我妻子，只是我认识的一个女孩。在那之前我有一连串糟糕的——甚至都算不上恋爱，更像「试图恋爱」。你们懂的，如果你们也曾那样。我当时在兄弟会里，常常派对，可什么都没成。然后我遇见她：她是大一新生；我名义上大三，其实学分上还是大二。</p>
+<p>我们就这样开始约会——我一开始甚至没意识到自己在约会——几个月后我跟她说：抱歉，我得去当僧人。</p>
+</div></div>
+<div class="marker-line"><span class="tag">【笑声】</span></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="K 医生（Dr. K / Alok Kanojia）">K医生</span></div><div class="content">
+<p>「这只是暂时的。」她才十八岁，大一。我就想：她值得跟更好的人在一起，而我要去出家。</p>
+</div></div>
+<div class="marker-line"><span class="tag">【笑声】</span></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="K 医生（Dr. K / Alok Kanojia）">K医生</span></div><div class="content">
+<p>她却说：随便你。这件事持续了一阵子，后来我终于想通了——你们大概也迟早会明白：当不当僧人是外在的事，真正的功课在内心，我不需要出家才能做那份功课。</p>
+<p>事实上，有些人以非常外显的方式投身「修行」，内在却灵性贫瘠、空洞。而故事里我觉得真正算谷底、而且可能以前没公开讲过的那一段高峰是——</p>
+<p>我以 2.4 的 GPA 毕业，却想去医学院。一开始想读医，是因为父母是医生，而且作为印度人，当医生几乎是社会地位的天花板，别人会觉得你很厉害。我不只要进医学院，你们猜我盯上的是哪一所？有人猜猜看吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>哈佛（Harvard）。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="K 医生（Dr. K / Alok Kanojia）">K医生</span></div><div class="content">
+<p>对，完全正确。我要当最顶尖的那个，普通学院根本看不上。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>印度人嘛。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="K 医生（Dr. K / Alok Kanojia）">K医生</span></div><div class="content">
+<p>要当第一，对吧？</p>
+</div></div>
+<div class="marker-line"><span class="tag">【笑声】</span></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="K 医生（Dr. K / Alok Kanojia）">K医生</span></div><div class="content">
+<p>我是头号印度人。</p>
+<p>「第一。」后来我花了五年半，以惨烈的 2.4 GPA 毕业，心想：好，我现在想娶这个女孩，而她也想嫁给医生——因为她也是印度人。我曾发誓绝不找印度女孩，她曾发誓绝不找印度男人，结果我们反而因此很有共鸣。我们当时还吐槽：印度男人是妈宝、超难搞；印度女孩太物质……算了吧。</p>
+<p>所以——</p>
+</div></div>
+<div class="marker-line"><span class="tag">【笑声】</span></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="K 医生（Dr. K / Alok Kanojia）">K医生</span></div><div class="content">
+<p>然后我真的很挣扎。我申请了医学院之类的，只拿到一次面试。面试那天有个朋友同一天面试，我们一起开车去。面完回来，我特别想要这个机会，比什么都想要。我记得自己非常渴望，于是去打坐——那时我已经打坐好几年了——那是我少数几次真正祈祷的时刻之一。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="K 医生（Dr. K / Alok Kanojia）">K医生</span></div><div class="content">
+<p>打坐结束时我绝望透了。我想：求你了，我真的很努力，我差不多把人生重新拼起来了。要从 0.9 的 GPA 爬出来很难，但我后来表现不错；大学最后一学期我修了 24 学分，差不多是正常负荷的两倍，还准备了 MCAT，该做的都做了。我心想：我每一步都做对了。</p>
+<p>求你了，上帝，让我进医学院吧。我能做到吗？我遇见了这个女孩，想娶她，诸如此类。</p>
+<p>然后内心有个东西说：「不行。不会发生。」那甚至不是怀疑，而是一种确定感：这件事不会成。我崩溃大哭，很难受，但同时又有一种很安抚的东西。我极少在打坐里遇到那种事——日常会有一些体验，但不是这种。它还告诉我：这大概要两年。你必须在业力上把这功课做大约两年。</p>
+<p>很难描述，因为那不是一个「声音」。我用「知晓」（knowing）这个词，因为英语里没有更贴切的。那一刻我就是知道：我必须把这份徒劳的功课做上一段时间。这也是我想听听你看法的一点——我觉得我们严重低估了「徒劳工作」的价值。我知道这听起来很怪，但是——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>真是个矛盾修辞。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="K 医生（Dr. K / Alok Kanojia）">K医生</span></div><div class="content">
+<p>我知道。但我觉得业力（karma）有些奇怪的地方。有句话是：学围棋最好的方式是先输一百盘。我们太执着于赢，反而忘了输的价值。有时我跟病人工作时，会碰到一种我自己也没完全看透的业力角度。</p>
+<p>但登顶的过程必须穿过跌落。有个奇怪的灵性原则——我知道有点跑题——就是当你开始灵性修行，业力会加速。和精神更成熟的人共事时，他们常会这么说。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>你能给可能不完全理解的人定义一下你说的业力吗？这问题会不会太大？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="K 医生（Dr. K / Alok Kanojia）">K医生</span></div><div class="content">
+<p>以后再说。当然可以。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>哦，好。我还以为你会给我一句总结。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="K 医生（Dr. K / Alok Kanojia）">K医生</span></div><div class="content">
+<p>我在想要不要给你一句，但我不给。</p>
+</div></div>
+<div class="marker-line"><span class="tag">【笑声】</span></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="K 医生（Dr. K / Alok Kanojia）">K医生</span></div><div class="content">
+<p>所以你们正在看的各位——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>我要开麦爆料了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="K 医生（Dr. K / Alok Kanojia）">K医生</span></div><div class="content">
+<p>所以那对我来说算是一种谷底，但我同时感到非常平静。我知道巨大的伤痛正在路上赶来，那辆车不会停。另一件很有意思的是：我感觉「没关系」。明明苦的东西要来了，我却感到巨大的解脱。这就是我的谷底故事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>……有意思。我觉得你说的「凭感觉摸向成功」这一点极其重要。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="K 医生（Dr. K / Alok Kanojia）">K医生</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>有时就藏在最平常的事里。别人问我「你怎么走到今天的」，我只能说：不知道。我用了十几年失败才走到现在；再往前十年，我对失败充满挫败和怒火，讨厌失败、拒绝失败，还因为失败狠狠揍自己。所以要发生我们真正在谈的那种转变，必须先跟自己与失败的关系和解。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="K 医生（Dr. K / Alok Kanojia）">K医生</span></div><div class="content">
+<p>对，最「徒劳」的事情之一大概就是抑郁。大量研究表明：经历过抑郁并走出来的人，比从未抑郁过的人更有韧性。所以那种徒劳确实在锻造韧性——不管是写出一百万字再扔掉才能成为作者，还是围棋先输一百盘，还是抑郁本身。</p>
+<p>我认为分量非常大。如果你想有效地「徒劳」，就去享受它，别为此揍自己。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>对。</p>
+<p>听你说到这，我觉得我们严重低估了徒劳工作的价值。我脑子里闪过一个念头：西西弗斯（Sisyphus）其实还在一直刷经验值。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="K 医生（Dr. K / Alok Kanojia）">K医生</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="marker-line"><span class="tag">【笑声】</span></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>伙计，他在肝啊。</p>
+<p>碾压（Mog）。</p>
+<p>想练成他那样？做西西弗斯训练：就是一直推上山。</p>
+<p>他就蹲在巨石的刷新点旁边。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="K 医生（Dr. K / Alok Kanojia）">K医生</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>一直扎营在石头旁，推上山。……</p>
+<p>在刷那块石头。</p>
+<p>他<span class="tag">【笑声】</span>在刷石头。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：订阅提醒]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Whoop]</span></div>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Chris Williamson", "title": "差点毁掉 K 医生的人生谷底时刻", "url": "https://www.youtube.com/watch?v=E3BAOkBaYOg", "videoId": "E3BAOkBaYOg", "published_at": "2026-10-23", "duration": 714, "caption_source": "YouTube 自动生成字幕（en-orig；普通 yt-dlp 遭 429 后经 yt-dlp + Chrome cookies 路径拉取），中文为逐句全文翻译；caption_source=yt-dlp-chrome-cookies", "guests": ["K 医生（Dr. K / Alok Kanojia）"], "speakers": [{"id": "h", "name": "克里斯·威廉森（Chris Williamson）", "role": "host", "short": "克里斯"}, {"id": "g", "name": "K 医生（Dr. K / Alok Kanojia）", "role": "guest", "short": "K医生"}], "intro": {"summary": "K 医生（Healthy Gamer）讲述差点毁掉人生的谷底：挂科、打游戏、道场出家念头、遇见妻子，以及医学院面试后在禅修中「知晓」徒劳功课的价值。", "points": ["经典谷底：濒临退学、每天游戏十六到二十小时，西班牙语期末考直接弃考", "印度道场九十天后想出家，上师要求先在物质世界做到卓越并完成学业", "回国一周遇见妻子；曾想独身出家，后明白真正功课在内心而非外在身份", "2.4 GPA 却盯上哈佛医学院；祈祷后内心明确「不会成」，并感到平静与业力功课约需两年", "讨论「徒劳工作」与业力加速：围棋先输一百盘、抑郁后的韧性、西西弗斯也在刷经验", "对失败从愤怒抗拒到和解，是人生转向的关键"], "verdict": "值得看：约 12 分钟高密度个人叙事+灵性/心理讨论，适合听失败与意义感话题；可跳过片尾订阅与 Whoop 广告。", "audience": "关注心理健康、失败复原、灵性实践，以及 Modern Wisdom / Healthy Gamer 听众"}, "paragraphs": [{"start_sec": 0, "speaker_id": "g", "type": "text", "zh": "你知道，我经历过一连串谷底，其中有一个我会跟别人讲的「经典谷底」——那种看起来就像谷底的谷底。当时我快被大学淘汰，每天打十六到二十小时游戏。我记得有天早上醒来——或者说根本没怎么睡——闹钟响了，我意识到今天有西班牙语期末考，那一刻我直接决定：不去了。"}, {"start_sec": 32, "speaker_id": "g", "type": "text", "zh": "其实前一晚我还慌慌张张抱佛脚学了大概六个小时，然后只睡了大约两个小时，醒来还是想：我就是不去。于是我差不多被大学刷掉了；过了几年去了印度。那时我二十一岁，在道场（ashram）待了九十天。结束时我去找一位我真心当作上师的人——其实他也只是道场里的另一名学员，但我觉得他在灵性上远比那些老师或负责人更成熟；那些负责人在很多方面出奇地自恋。"}, {"start_sec": 69, "speaker_id": "h", "type": "text", "zh": "顺便说一句，有研究证明这一点。"}, {"start_sec": 70, "speaker_id": "g", "type": "text", "zh": "对，我相信有，因为真的很糟。于是我去跟那位老师说：「嘿，这就是我想用余生去做的事。我想出家，受戒，当僧人。」他却说：「不行。」他说：「如果你想，三十岁可以再回来。"}, {"start_sec": 70, "speaker_id": "g", "type": "text", "zh": "你可以三十岁再发愿，但你得先回去，把学业完成。」他还说：「除非你能在物质世界里做到出类拔萃，否则你会失败。你想走的这条路，比在世俗领域登顶要难得多。」"}, {"start_sec": 110, "speaker_id": "g", "type": "text", "zh": "我把这话听进去了。当时很困惑、也很动摇，但我心想：好吧。那我就先立志当僧人。然后我回国，在决定出家、要守独身之后没过几周——"}, {"start_sec": 125, "speaker_id": "h", "type": "text", "zh": "【笑声】"}, {"start_sec": 127, "speaker_id": "g", "type": "text", "zh": "戒色（No fap）。然后，我就遇见了我的妻子。"}, {"start_sec": 131, "speaker_id": "h", "type": "text", "zh": "那撮凶悍的小胡子，倒很像独身的标志。"}, {"start_sec": 135, "speaker_id": "g", "type": "text", "zh": "对，【笑声】确实是。"}, {"start_sec": 136, "speaker_id": "h", "type": "text", "zh": "作为一个印度男人，也是。对。"}, {"start_sec": 139, "speaker_id": "g", "type": "text", "zh": "于是我回国，回美国不到一周就遇见了后来的妻子。那时她还不是我妻子，只是我认识的一个女孩。在那之前我有一连串糟糕的——甚至都算不上恋爱，更像「试图恋爱」。你们懂的，如果你们也曾那样。我当时在兄弟会里，常常派对，可什么都没成。然后我遇见她：她是大一新生；我名义上大三，其实学分上还是大二。"}, {"start_sec": 167, "speaker_id": "g", "type": "text", "zh": "我们就这样开始约会——我一开始甚至没意识到自己在约会——几个月后我跟她说：抱歉，我得去当僧人。"}, {"start_sec": 177, "speaker_id": "h", "type": "text", "zh": "【笑声】"}, {"start_sec": 178, "speaker_id": "g", "type": "text", "zh": "「这只是暂时的。」她才十八岁，大一。我就想：她值得跟更好的人在一起，而我要去出家。"}, {"start_sec": 187, "speaker_id": "h", "type": "text", "zh": "【笑声】"}, {"start_sec": 187, "speaker_id": "g", "type": "text", "zh": "她却说：随便你。这件事持续了一阵子，后来我终于想通了——你们大概也迟早会明白：当不当僧人是外在的事，真正的功课在内心，我不需要出家才能做那份功课。"}, {"start_sec": 187, "speaker_id": "g", "type": "text", "zh": "事实上，有些人以非常外显的方式投身「修行」，内在却灵性贫瘠、空洞。而故事里我觉得真正算谷底、而且可能以前没公开讲过的那一段高峰是——"}, {"start_sec": 224, "speaker_id": "g", "type": "text", "zh": "我以 2.4 的 GPA 毕业，却想去医学院。一开始想读医，是因为父母是医生，而且作为印度人，当医生几乎是社会地位的天花板，别人会觉得你很厉害。我不只要进医学院，你们猜我盯上的是哪一所？有人猜猜看吗？"}, {"start_sec": 248, "speaker_id": "h", "type": "text", "zh": "哈佛（Harvard）。"}, {"start_sec": 248, "speaker_id": "g", "type": "text", "zh": "对，完全正确。我要当最顶尖的那个，普通学院根本看不上。"}, {"start_sec": 253, "speaker_id": "h", "type": "text", "zh": "印度人嘛。"}, {"start_sec": 254, "speaker_id": "g", "type": "text", "zh": "要当第一，对吧？"}, {"start_sec": 255, "speaker_id": "h", "type": "text", "zh": "【笑声】"}, {"start_sec": 255, "speaker_id": "g", "type": "text", "zh": "我是头号印度人。"}, {"start_sec": 257, "speaker_id": "g", "type": "text", "zh": "「第一。」后来我花了五年半，以惨烈的 2.4 GPA 毕业，心想：好，我现在想娶这个女孩，而她也想嫁给医生——因为她也是印度人。我曾发誓绝不找印度女孩，她曾发誓绝不找印度男人，结果我们反而因此很有共鸣。我们当时还吐槽：印度男人是妈宝、超难搞；印度女孩太物质……算了吧。"}, {"start_sec": 291, "speaker_id": "g", "type": "text", "zh": "所以——"}, {"start_sec": 292, "speaker_id": "h", "type": "text", "zh": "【笑声】"}, {"start_sec": 292, "speaker_id": "g", "type": "text", "zh": "然后我真的很挣扎。我申请了医学院之类的，只拿到一次面试。面试那天有个朋友同一天面试，我们一起开车去。面完回来，我特别想要这个机会，比什么都想要。我记得自己非常渴望，于是去打坐——那时我已经打坐好几年了——那是我少数几次真正祈祷的时刻之一。"}, {"start_sec": 322, "speaker_id": "h", "type": "text", "zh": "嗯。"}, {"start_sec": 322, "speaker_id": "g", "type": "text", "zh": "打坐结束时我绝望透了。我想：求你了，我真的很努力，我差不多把人生重新拼起来了。要从 0.9 的 GPA 爬出来很难，但我后来表现不错；大学最后一学期我修了 24 学分，差不多是正常负荷的两倍，还准备了 MCAT，该做的都做了。我心想：我每一步都做对了。"}, {"start_sec": 322, "speaker_id": "g", "type": "text", "zh": "求你了，上帝，让我进医学院吧。我能做到吗？我遇见了这个女孩，想娶她，诸如此类。"}, {"start_sec": 351, "speaker_id": "g", "type": "text", "zh": "然后内心有个东西说：「不行。不会发生。」那甚至不是怀疑，而是一种确定感：这件事不会成。我崩溃大哭，很难受，但同时又有一种很安抚的东西。我极少在打坐里遇到那种事——日常会有一些体验，但不是这种。它还告诉我：这大概要两年。你必须在业力上把这功课做大约两年。"}, {"start_sec": 383, "speaker_id": "g", "type": "text", "zh": "很难描述，因为那不是一个「声音」。我用「知晓」（knowing）这个词，因为英语里没有更贴切的。那一刻我就是知道：我必须把这份徒劳的功课做上一段时间。这也是我想听听你看法的一点——我觉得我们严重低估了「徒劳工作」的价值。我知道这听起来很怪，但是——"}, {"start_sec": 409, "speaker_id": "h", "type": "text", "zh": "真是个矛盾修辞。"}, {"start_sec": 410, "speaker_id": "g", "type": "text", "zh": "我知道。但我觉得业力（karma）有些奇怪的地方。有句话是：学围棋最好的方式是先输一百盘。我们太执着于赢，反而忘了输的价值。有时我跟病人工作时，会碰到一种我自己也没完全看透的业力角度。"}, {"start_sec": 410, "speaker_id": "g", "type": "text", "zh": "但登顶的过程必须穿过跌落。有个奇怪的灵性原则——我知道有点跑题——就是当你开始灵性修行，业力会加速。和精神更成熟的人共事时，他们常会这么说。"}, {"start_sec": 456, "speaker_id": "h", "type": "text", "zh": "你能给可能不完全理解的人定义一下你说的业力吗？这问题会不会太大？"}, {"start_sec": 463, "speaker_id": "g", "type": "text", "zh": "以后再说。当然可以。"}, {"start_sec": 464, "speaker_id": "h", "type": "text", "zh": "哦，好。我还以为你会给我一句总结。"}, {"start_sec": 466, "speaker_id": "g", "type": "text", "zh": "我在想要不要给你一句，但我不给。"}, {"start_sec": 469, "speaker_id": "h", "type": "text", "zh": "【笑声】"}, {"start_sec": 470, "speaker_id": "g", "type": "text", "zh": "所以你们正在看的各位——"}, {"start_sec": 474, "speaker_id": "h", "type": "text", "zh": "我要开麦爆料了。"}, {"start_sec": 476, "speaker_id": "g", "type": "text", "zh": "所以那对我来说算是一种谷底，但我同时感到非常平静。我知道巨大的伤痛正在路上赶来，那辆车不会停。另一件很有意思的是：我感觉「没关系」。明明苦的东西要来了，我却感到巨大的解脱。这就是我的谷底故事。"}, {"start_sec": 507, "speaker_id": "h", "type": "text", "zh": "……有意思。我觉得你说的「凭感觉摸向成功」这一点极其重要。"}, {"start_sec": 516, "speaker_id": "g", "type": "text", "zh": "对。"}, {"start_sec": 517, "speaker_id": "h", "type": "text", "zh": "有时就藏在最平常的事里。别人问我「你怎么走到今天的」，我只能说：不知道。我用了十几年失败才走到现在；再往前十年，我对失败充满挫败和怒火，讨厌失败、拒绝失败，还因为失败狠狠揍自己。所以要发生我们真正在谈的那种转变，必须先跟自己与失败的关系和解。"}, {"start_sec": 555, "speaker_id": "g", "type": "text", "zh": "对，最「徒劳」的事情之一大概就是抑郁。大量研究表明：经历过抑郁并走出来的人，比从未抑郁过的人更有韧性。所以那种徒劳确实在锻造韧性——不管是写出一百万字再扔掉才能成为作者，还是围棋先输一百盘，还是抑郁本身。"}, {"start_sec": 555, "speaker_id": "g", "type": "text", "zh": "我认为分量非常大。如果你想有效地「徒劳」，就去享受它，别为此揍自己。"}, {"start_sec": 596, "speaker_id": "h", "type": "text", "zh": "对。"}, {"start_sec": 597, "speaker_id": "h", "type": "text", "zh": "听你说到这，我觉得我们严重低估了徒劳工作的价值。我脑子里闪过一个念头：西西弗斯（Sisyphus）其实还在一直刷经验值。"}, {"start_sec": 608, "speaker_id": "g", "type": "text", "zh": "对。"}, {"start_sec": 609, "speaker_id": "h", "type": "text", "zh": "【笑声】"}, {"start_sec": 610, "speaker_id": "h", "type": "text", "zh": "伙计，他在肝啊。"}, {"start_sec": 613, "speaker_id": "h", "type": "text", "zh": "碾压（Mog）。"}, {"start_sec": 614, "speaker_id": "h", "type": "text", "zh": "想练成他那样？做西西弗斯训练：就是一直推上山。"}, {"start_sec": 618, "speaker_id": "h", "type": "text", "zh": "他就蹲在巨石的刷新点旁边。"}, {"start_sec": 621, "speaker_id": "g", "type": "text", "zh": "对。"}, {"start_sec": 622, "speaker_id": "h", "type": "text", "zh": "一直扎营在石头旁，推上山。……"}, {"start_sec": 625, "speaker_id": "h", "type": "text", "zh": "在刷那块石头。"}, {"start_sec": 626, "speaker_id": "h", "type": "text", "zh": "他【笑声】在刷石头。"}, {"start_sec": 628, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "订阅提醒", "zh": ""}, {"start_sec": 628, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "Whoop", "zh": ""}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
