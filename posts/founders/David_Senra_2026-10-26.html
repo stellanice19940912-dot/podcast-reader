@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>竞争、强度与打造一家 1150 亿美元的全球银行｜尼克·斯托龙斯基（Nik Storonsky，Revolut）</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="h">大卫·森拉（David Senra）</option><option value="g">尼克·斯托龙斯基（Nik Storonsky，Revolut）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">David Senra</span><span class="pill">2026-10-25</span></div>
+<h1>竞争、强度与打造一家 1150 亿美元的全球银行｜尼克·斯托龙斯基（Nik Storonsky，Revolut）</h1>
+<p class="sub">嘉宾：尼克·斯托龙斯基（Nik Storonsky，Revolut 创始人兼 CEO） · 约 67 分钟（4022 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=hT_MAAwFLIc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=hT_MAAwFLIc</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>David Senra</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-25</dd></div><div class="meta-row"><dt>时长</dt><dd>约 67 分钟（4022 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>yt-dlp-chrome-cookies（YouTube 自动字幕 en）</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>hT_MAAwFLIc</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>大卫·森拉（David Senra）访谈 Revolut（Revolut）创始人尼克·斯托龙斯基（Nik Storonsky）：从童年竞技性格谈起，讲如何把「每天接近 100%」的竞争欲，做成要在约 100 个国家做到第一的全球数字银行。</p>
+<h3>核心要点</h3><ul><li>竞争观：不盯对手、盯自己——每天接近 100% 输出；输了也无从自责</li><li>野心：在高度分散的各国银行业里，用更好产品与更低价格做全球第一（约 38 国起步、持续扩市场）</li><li>创始人 vs 职业 CEO：与公司 100% 对齐、敢进攻；职业经理人保饭碗、偏防守、难做 10x 决策</li><li>监管教训：有数百万客户后再申牌照更难——「零客户」在监管眼里更安全；拖延持牌是重大失误</li><li>组织机器：用技术与统一系统跨国复制，而不是收购收购当地银行、堆烟囱系统</li><li>赞助口播已标灰：Ramp、Deel</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：约 67 分钟，竞争心智与「全球银行」扩张叙事清晰，适合关心金融科技、创始人强度与组织建设的听众；若只想听产品细节可略过开场性格部分。</p>
+<h3>适合人群</h3><p>创业者、金融科技从业者、关注 Revolut / 数字银行与高强度创始人文化的听众</p>
+</section>
+<div class="legend"><span class="spk-0">大卫·森拉（David Senra）<em>主持</em></span><span class="spk-1">尼克·斯托龙斯基（Nik Storonsky，Revolut）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>好吧，我不得不告诉他们立即开始录制，因为即使在我们刚才的谈话中，我想， “哦，我们今天会玩得很开心。”我给搭档罗布（Rob）发了一条短信。我告诉他：“我认为Nik 和我要创作一部杰作，因为我已经从其他创始人那里听说你很多年了，就像这个家伙超级有竞争欲一样。“他的动作非常快，是一个征服者。您能否解释一下您如何看待这场比赛，以及您想在这个世界上做些什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>我从6岁起就非常有竞争欲。因此，它也总是在竞技体育或奥运会竞技项目上。对我来说，无论我选择做什么，成为第一总是一种自然的愿望，你知道吗？就像我决定玩游戏一样，我需要成为第一名。然后，成为第二名让我很烦恼。所以我一直让您认为您的竞争动力来自体育运动？您参加了哪些运动？他做了很多事情。我，你知道，游泳，拳击，呃，很多运动，是的，在我的童年。我认为这更多的是你遗传的性格和基因的组合。你知道，有些人非常有竞争欲，有些人根本没有竞争欲。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>那么，您如何看待竞争对手？我听说了，我们最近在聊天。这是最有趣的一句话，有人问你， “哦，你想扩展，你要去吃杰米·戴蒙（杰米·戴蒙）的午餐吗？”</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>你回答说： “我去拿他们的晚餐。“我的意思是，这个想法是，你知道，午餐总是一件小事，晚餐在美国通常比在欧洲大得多。所以，晚餐不仅意味着寻找零售业务，还意味着寻找业务方面。此外，投资银行业也有潜力，因为它也有可能彻底改变投资银行。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>怎么样？我的意思是，它仍然非常手动，仍然非常昂贵。我的意思是，也可以让一切变得更便宜。呃，为什么不呢？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>好吧，解释一下，因为我想很多会听到这个的人都不会明白今天的Revolut（Revolut）是什么，以及你想要去哪里。因此，请说明您正在做什么，现在的业务状况，然后您将来要做什么。也许它始于2年前我们开始的事情。我从一张简单的卡开始，允许您花钱，避免银行手续费和良好的汇率。后来，我扩展到其他产品，如信贷、财富管理、交易、加密货币和商业账户。我们还建立了许多非金融业务。现在的结果是，我们是一家大型数字银行，提供银行提供的所有服务，以及许多其他额外服务。例如，您可以预订我们的房源、购买eSIM卡等。我们的想法是建立一个在至少100个国家中排名第一的大型全球银行。这就是我们现在正在努力做的事情。</p>
+<p>我们目前在大约38个国家/地区开展业务。其中大多数我们都有银行执照。我们每隔一两年就会慢慢扩展到10到15个新市场。好吧，让我们回到这一切是如何开始的。您极具竞争力。你这么说，对吧？你只是脱口而出，好像没什么一样。但是你说， “哦，我想在100个不同的国家建立头号银行。”是的。你明白这是一个真正疯狂和大胆的野心。我不认为你会随便说， “哦，是的，我只是想在100个国家中排名第一。“就好像你是认真的。因此，请深入探讨您对比赛的内心独白，以及您如何看待这场比赛。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>是的，基本上，如果我选择玩这个游戏，对我来说是精神上的，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>正如我之前所说，我需要成为第一，现在世界上有一个巨大的机会，那里有很多国家，每个国家都有10、20、30、40或50家银行。它们都非常高度分散。基本上，有一个千载难逢的机会来建立一个全球银行，在每个国家以更好的价格提供更好的服务和产品。事实上，我们的目标是优化以与这些银行竞争，降低其产品的价格，改善客户体验，并节省他们的时间，因为并不是所有这些实体分支机构都需要。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>您能否告诉我们更多关于您的雄心壮志或竞争动力的信息？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>这在日常生活中是如何体现的？你是否醒来时渴望成功完成任务？你是否会照照镜子，想想发生了什么事？在我们谈论商业之前，我有兴趣了解您作为企业家的身份；这对我来说很吸引人。嗯，基本上这是一个银行业务，在我看来，如果我选择参与其中，我必须成为第一。显然，世界上有成千上万家银行。成为第一的意思是在国家一、二、三、四等等中排名第一。假设有100个国家。至于比赛，我怎么看？老实说，我并不看重竞争对手。我更看重自己，你知道吗？我该怎么做才能超越自己？为了更好地竞争，以某种方式变得更加狡猾。哲学很简单，先生。每一天，你都必须几乎百分之百地做到这一点。如果你仍然输给了比赛，那么你不能责怪自己，因为你每天都付出100% ，对吧？</p>
+<p>所以我认为这种心态可能会帮助你赢得胜利。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>我喜欢这个。您是否与Shopify（Shopify）创始人托比·吕特克（托比·吕特克）共度时光？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>不，还没有。嗯，他参加了节目。事实上，我大概两周后就要和他一起录音了。但他表示，他喜欢采取激进投资者的立场。有人刚刚购买了Shopify。就是他。他问： “上届政府到底在做什么？“我如何才能基本上改善上届政府所做的每一个元素？ “就算是他。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>嗯。所以，你基本上说了同样的话。这就像， “嗯，你无法控制你的竞争对手在做什么。“我可以控制自己的行为。让我分析一下我是如何做到的，然后，我将如何从外部击败自己？是的，我们可能会透露这一点。您认为自己为什么会有这种情况？您认为他们做错了什么，您认为自己可以做得更好？他们中的许多人不是创始人。这是第一个原因，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>所以他们最多只能在那里呆3到4年。他们只是收集奖金，就是这样，然后他们可以，你知道，优化某些平价指标。但是，他们实际上不是10倍的人，对吧？所以他们在那里只是为了他们的奖金，实际上是3或4年。因此，他们真的不需要做出大胆的决定。他们总是防守。他们从不进攻。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>我有不同的风格，对吧？所以是的，当然我也会防守，但我总是想，好吧，我还能做什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>我可以进入哪个行业？比如我可以推出什么产品等等。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>所以这就像，你知道，总是推我，推我为什么你认为与非创始人竞争很重要？我的意思是，与非创始人竞争要容易得多，对吧？如果我与所有的银行竞争，他们都由创始人经营，结果，我们都会，你知道，。这不是正在发生的事情，是吗？是的。请从您的角度详细说明创始人和专业首席执行官之间的区别。</p>
+<p>毕竟，专业的首席执行官并不是为了改善组织，不是吗？他们的主要目标是保护自己的工作。因此，根据定义，他们为公司做出次优决策。因为他们认为自己和公司是两个独立的实体，对吧？我认为自己和公司是一个单一的实体，对吧？我尽一切对公司有益的事情，我从不试图将对我有益的事情分开。这应该不同于对公司有益的事情。这对我来说是一样的。因此，我与公司100%保持一致。</p>
+<p>是的，我听你说过你的一生都是工作。这相当于建立业务所花费的99.5%的时间，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>是的。是的。此外，当我们与监管机构交谈时，他们都喜欢，是的，但你知道，增长不是一个好的心态，等等。我的答案很简单。每当你作为监管者认为我承担过多风险时，你完全错了，不是吗？因为我是唯一一个有动力让这家公司成功并帮助它生存的人，对吧？这意味着与专业的首席执行官或董事会相比，我实际上不会承担愚蠢、过度的风险。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>因为没有分离。这就是我讨厌每个人都说， “哦，这只是生意。“这不是针对个人的。对于创始人来说，这似乎是不存在的。是的。是的。所以，当我开始阅读有关您的信息时，这是另一件让我感到惊讶的事情，您最初试图逃避监管。你提到这是你犯过的最严重的错误。您能谈谈发生了什么以及您是如何学到这一课的吗？是的，基本上，当我们获得700万客户并申请银行牌照时，零客户的实体比拥有数百万客户的实体风险更小。在监管机构的眼中，你变得风险更大了，对吧？因为对他们来说，向没有客户的公司授予许可证要容易得多，因为他们可能在3年、4年或5年内仍然没有客户，对吧？如果你给一家拥有500万或1000万客户的公司颁发银行牌照，结果出了问题，对吧？然后他们会责怪我，为什么他们以前没有受到监管？</p>
+<p>他们申请银行牌照时的业务状况如何？他们之前在做什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>嗯，我们只是获得了电子货币和支付许可证。所以我们只是在转移资金。更轻的许可证，是的。好的。是的。当时的想法是，银行牌照需要3到4年才能获得，而电子货币牌照可以在1年内获得。显然，作为创始人，您希望更快地完成工作。因此，我们选择了电子货币许可证。然后我们得到了很多客户，我们转向银行执照，这几乎是不可能的，因为我们太大了。我认为，在英国历史上，从来没有一家拥有700万或800万客户的公司申请过这是一个艰难的过程吗？发生了什么？我们花了将近5年的时间才在英国获得银行牌照。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>是的。好的，您现在会做些什么不同的事情？你会尝试……我认为，正如你所说，监管不是竞争优势。这不是正确的词，但受到监管有很大的好处。是吗，你就是这么想的吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>有优点和缺点;建立一个不是吗？好吧，因为如果你真的想与银行竞争，你需要赢得客户的信任。他们需要存入他们的工资。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>他们需要将很大一部分财富存入自己的账户。他们需要开始与您交易股票、ETF等。所以他们必须信任你，在他们看来，他们信任你认为美国公司在这方面做错了什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>建立一个非常大的业务并占据很大的市场份额是完全无法实现的。我认为在美国，许多公司在大约10年或12年前开始像Chime ， Cash App一样，这很简单。他们都没有申请银行执照。我认为这是一个很大的错误。所以他们永远不可能成为大企业，因为……解释为什么没有它他们就不能成为大企业。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>只是因为他们不是银行，对吧？他们可以针对特定的利基受众，某些客户群体，我不知道，低收入人群等。但他们永远无法接触到主流观众，不是吗？如果没有，他们永远不可能成为主要的银行账户。但您认为为什么这会使他们变成一家小公司？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>嗯，只是因为，第一批用户， 10 ％或20 ％的人口，会尝试它们。也许它会从第一个用户传播到他们的朋友，家人，以及另一个，我不知道， 2 ％或4 ％的人口。而你想要40、50、60、70 ％。例如，在爱尔兰，我们有80%的市场渗透率。那么，五分之四？是的。五分之四的成年人使用Revolut帐户。好吧，这是怎么发生的？慢慢来。我认为这是缺乏竞争和非常糟糕的银行的结合。他们只有四家银行是坏的，而且这是一个非常小的国家，许多人也住在爱尔兰境外。</p>
+<p>所以我认为所有这些加在一起让我们拥有了80%的市场份额。如果您查看其他市场，例如渗透率百分比。法国占20 ％ ，西班牙和其他几个市场占30 ％或40 ％的渗透率。因此，正如爱尔兰所示，达到60、70或80是可能的，但要做到这一点，您必须是一家银行。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>所以，我很好奇：当你进入一个新市场，说银行不好，竞争很少。您认为他们做错了什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>好吧，他们被困在一个非常规避风险的专业管理的边缘。因此，完全没有创新的意愿。然后，所有的资源都花在保护他们已经拥有的东西上，对吧？例如，您可能有一个非常古老的传统第三方中央银行系统。显然，您需要为自己或新的提供商进行更改，但银行管理部门永远不会这样做，因为它会带来风险，对吧？因为您需要迁移客户，而且，您知道，可能会出错。他们从不冒险，对吧？这就是问题所在。而且，因为其中很多不是技术性的，所以他们并不真正懂得如何做很多技术性的事情。因此，对他们来说，默认的选择是对监管机构和传统银行无所作为。因为在一个缺乏某些技能、某些技术技能的行业，做任何事情都是有风险的。银行业不仅仅是监管，它还涉及创造技术。</p>
+<p>而且我认为这些人在创造技术方面都非常糟糕。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Ramp]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Deel]</span></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>因此，正如您所看到的，您的优势之一是与非创始人竞争。你正在与专业的首席执行官竞争，他们不是技术人员。因此，他们实际上无法发明技术，因此无法创新。这就是你要攻击的。是的，没错。他们甚至不考虑建造产品，是吗？因为他们根本感觉不到。他们不使用它。不，他们不知道该怎么做。他们只是职业经理人。对于建立成功的企业非常重要的一点是，显然，您需要成为一名优秀的经理，一名非常强硬的经理，注重细节，同时也是一名非常优秀的产品人员。</p>
+<p>知道如何构建和改造产品。技术、法规、合规、人员，所有这些都在一起。这就像一台机器，对吧？所以有输入，然后整个机器应该产生正确的结果，这是人们使用的令人惊叹的产品。好的，解释一下您是如何构建这台机器的。我的意思是，你需要在你的脑海中可视化，你知道，这台机器上的输入是什么，你想要实现什么。目标是什么，对吧？然后，呃，输入显然是你的组织，你的结构，你的人。</p>
+<p>你如何构建产品，你想要构建什么。然后，你实际上观察到，你知道，整个结构工作，整个产品正在建造，你总是介入，对吧？如果出现问题，请更换机器的某些部件。例如，当我们开始时，这是一个非常小的团队，有10、20、30人。当团队成长时，我们遇到了瓶颈，但后来速度变慢了。机器停止工作了，所以我所做的就是确保我有很多小型的独立团队在同一个平台上工作，对吧？然后速度加快了，因为人们的工作瘫痪了。因此，他们使用相同的工具开发不同的产品、不同的功能，并且都是独立的。但后来，我们再次遇到了监管合规的瓶颈。同样，我在机器中建立了另一个肌肉，即监管事务部门，政府事务等。因此，他们必须产生一定的结果。然后，我们在快速招聘优秀员工方面遇到了另一个瓶颈。</p>
+<p>同样，我们建立了许多招聘流程，专注于最优秀的人才。所以，你知道，它会绕圈子，对吧？你建造了一些东西，然后你遇到了瓶颈，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>识别问题，解决问题，然后继续前进。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>所以现在你基本上是在为这台机器添加另一种功能，那就是你的公司。在开始Revolut之前，您是一名交易员，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>是的。我听说了您刚才描述的内容，就像您一样，我甚至不知道您是否称之为赌注。就像你有大约20个不同的想法或小团队在研究20个不同的想法，对吧？然后。解释这些团队的结构，以及您之前作为交易员的职业生涯如何影响您建立和管理公司的方式。我认为，作为一名交易员，最有用的是风险管理和量化一切。因为幸运或不幸的是，在银行或所有组织中，许多事情的评估都基于...</p>
+<p>人们的直觉，在许多情况下是完全不正确的，对吧？因此，为了正确评估哪些工作已经完成，哪些没有完成，您需要有指标，需要有KPI。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>等等，你是说“哑巴”还是“完成” ？制作。制作。好的。完成，完成，完成。我也不傻。我也不傻，是的。指标和KPI确实消除了组织内部的政治，因为，看，一切都是透明的，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>作为个人贡献者，作为经理，您是否实现了自己的指标？您是否正在实现目标？你为什么不呢？所以你说什么并不重要。我的意思是，有客观的数字。我认为将其作为机器的一部分非常重要。当我在银行工作时，事实是他们并没有真正拥有它。他们有一个专业的首席执行官，但组织内也有很多政治因素。我认为人们经营企业的方式是错误的。好的，解释一下他们是如何设置这些小赌注的。</p>
+<p>说实话，这很简单，因为作为一家公司，我们一直在高速推出许多功能和许多产品。在某一时刻，我决定在创建投注时实施纪律，因为我们做了很多事情，但我们没有跟踪他们的表现。因此，我们简单地创建了一个流程阶段，首先决定下注。可以是从下到上，也可以是从上到下。然后有一个论点。称之为委员会。如果下注是有意义的，那么，如果做出决定，我们将为下注提供资金。</p>
+<p>我们将最多10人的团队分开：前端开发人员、后端开发人员、设计师、产品经理，有时还包括数据科学家和运营经理。然后他们在9到18个月内开发出新产品。当他们推出产品时，我们只是观察毛利方面的增长。就像我们过去10年所做的那样，我们已经推出了50个赌注。我们知道，我们的前十大赌注每月增长10-20% ，每月连续产生100万、200万、300万的毛利润。如果我们下注，并看到历史上它在所有投注的25 ％中处于最低的四分之一，我们只需将其消除。我们建立了不经营增长不快的业务的纪律。在投注增长正确的情况下？我们为他们分配了更多设备。一个团队变成第二个团队，三个团队，四个团队，五个团队，然后它变成一个部门，然后是一条主要的损益线。</p>
+<p>因此，我认为这个过程非常有纪律，以便始终过滤掉无效的内容。甚至我也不相信我的直觉，不知道该创造哪些产品，哪些产品不该创造，因为从历史上看，我错了很多次。我认为这是唯一的方法？您继续为最好的赌注提供资金，您只需在不到18个月的时间内砍掉最差的赌注。你体内的商人，没错。你所说的很多话都让我想起了贝索斯，以及他在建立公司时对亚马逊内部所有这些不同押注的描述。它有一个很好的线条，它说你需要为有前途的火花加油。所以你的策略是消除那些不起作用的东西，但是你对表现最好的赌注（前10% ）有一个百分比吗？通常情况下。</p>
+<p>最高可达所有投注的25%。好吧，然后我们现在只知道你让他们成长。是的，你投入了更多的钱和资源。为什么在开始时，在证明之前，将团队规模限制在10人很重要？不一定是10。还可以再多一点。这取决于产品的复杂程度，但一般不应超过10人。一般来说，您可能需要两到三个后端开发人员。在我们的例子中，因为我们还生产移动应用程序，所以您需要两到四个前端开发人员，三到四个后端开发人员，一个产品所有者和一个设计师。这样你就有10个人了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>你现在对这些团队的构建方式是否会因为人工智能而发生变化？是的，这是我正在努力改变的事情，因为在过去的10年里，我认为我已经极大地优化了如何管理人员，如何围绕人员建立一个组织，他们的优势和劣势。如何避免政治、建立KPI等。但实际上，通过避免人们的弱点，对吧？说实话，对于人工智能来说，结构需要是一个结果。我认为团队不应该再有10个人了。它应该是两个人，最多三个人，因为一个开发人员可以做前端，后端，甚至是数据科学。那么，它应该是一个“你能否总结一下你对人工智能如何改变你的业务运营方式的看法？”</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>嗯，很多事情，我认为我们才刚刚开始。我们拥有自动化的客户服务；现在近90%的支持设备都是自动化的。我们也在做同样的事情。以前有5000多人，现在少得多。显然，我们把工程师的速度提高了30%。翻译和交叉销售现在也由LLM完成。很多事情，但我认为我们现在的最终目标是能够建立一个全栈的人工智能员工。我相信用我们目前的技术是完全可行的。它不像一个聊天工具或其他界面，你告诉它该做什么，然后它会产生一些东西。不，它更像是一名人工智能员工，可以加入您的Slack账号，访问所有内部系统，并且可以工作。</p>
+<p>所以我认为这是最终目标，大多数公司迟早会达到。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>是的，你一遍又一遍地提到它，我不知道你是否使用了“官僚主义”这个词。我不认为是你干的，但你似乎很讨厌政治。你想尽量减少这种情况。你想要数据。你更喜欢那种说： “我不在乎你说什么，我们是否达到了数字，这是否在增长？“你们的组织结构是什么？你有很多直接下属吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>两周前，亚历山大·王（ Alexander Wang ）坐在那张椅子上，有大量的直接下属。是的。那么，您是如何组织起来的？嗯，我大概50、51、52岁。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>实际上，我甚至不说话……嗯，我和我的直接下属谈过，但我也更深入。我甚至能接触到关键项目的个人合作者。因此，我可以直接与设计师、产品所有者、开发人员交谈。理念非常简单。当你雇佣聪明、自学成才的人时，你真的不需要管理他们。因此，您只需向他们展示地址，并确保每个人都保持一致。这就像一场噩梦，不是吗？所以你需要确保每个人都使用相同的标准化设备，对吧？就是这样。你不需要每个团队或部门重新发明轮子，是吗？或者他们自己的武器。现在，它必须是相同的标准方法。然后，如果有人发明了某种额外的工具或工具，使我们能够更快地移动，我们应该在所有团队和部门之间对其进行标准化。这就是我做得非常好的地方。我非常擅长支持团队或部门的创新，然后将其传播到整个团队或部门，你能给我一个例子，说明你是如何识别创新并将其扩展到其他部门的吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>例如，最近，在设计方面，我们一直使用Figma。现在，我正在支持一个使用LLM更快地制作设计的团队，他们不是在产品界面中进行设计，而是将我们的代码级设计系统上传到LLM。然后，他们使用提示根据我们的设计系统生成某些流程。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>因此，完整的设计不仅仅是Figma中的框架，而是笔记本电脑或模拟器上的实时界面。因此，您可以点击内容。反应和其他一切。但最重要的是，与在Figma中制作框架或屏幕相比，您可以快三到四倍。现在我正在推动整个系统你有没有花时间阅读过去的企业家？有没有人脱颖而出，你钦佩或研究过谁？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>当然，我读过关于亨利·福特的书。我很高兴你提到亨利·福特。你坐在那里像你一样说话。您将在机器的每个部分看到这些创新。我需要确保它遍布整个机器。这就像亨利·福特或安德鲁·卡内基。他周游世界。现在，很明显，技术可以激增。你知道，有人可能会告诉你。你可以在网上或其他地方看到它。他不得不亲自前往工厂，因为他们正在建造实物。我想， “哦，等等。“我要把这个想法带回美国，我在英国遇到的那个。“卡内基和福特也是这么做的。但卡内基听起来特别像你，他只是简单地说， “我不在乎我们1%的业务是否有5%的改善。“换句话说，如果有更好的方法，我们就会这样做。他面对的是一般年长的竞争对手，这些竞争对手没有投资于技术。事实上，当他们发现他花了这么多资源时，他们认为他完全疯了，这实际上给了他，因为他经营公司30年，这样的复合优势，他的竞争对手永远无法赶上。</p>
+<p>它非常先进。但在你刚才描述的内容中，你的想法与卡内基非常相似。我认为建造一台能够更快地移动并实现目标的机器是非常重要的。然后，如果您在机器的任何部分检测到创新，您需要尽快传播它。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>是的，你讨厌只是告诉你该怎么做的经理，这是正确的吗？您是否已将它们从公司中剔除？是的，没错。在过去的10年里，我见过很多。他们只是从个人贡献者那里获取信息，然后将其传递给（我不知道）利益相关者，对吧？那么，它的附加值是什么？您是否改变了团队的方向？不，我的意思是，他们知道自己在做什么。好的，你带来了什么创新吗？您是否找到了实现路线图的最简单方法？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>不，不是真的。但是你的工作是什么？就为了拿走他们的号码并传递给我？我只是不明白。我听说你调试了你的设备。你正在寻找我认为你称之为制导导弹的东西。是的，自我引导的人。这几乎就像您正在寻找的创始人-员工安排。我总是开玩笑说，自我引导的人就像自我引导的导弹，对吧？你有才华横溢的人，你甚至不需要告诉他们目标是什么。他们自己确定目标并自己实现目标，对吧？因此，它们就像自制导弹一样，也能识别目标。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>然后，呃，优秀但不优秀的人，你需要告诉他们目标，没有任何迭代，他们就会达到目标。对于普通人来说，你告诉他们目标，你需要每周和他们一起迭代，引导他们，告诉他们该做什么，然后他们就会达到目标，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>所以，你花了很多时间在管理上。那是我不想要的。然后，呃，低于平均水平的人，好吧，你给了他们目标，呃，你花时间和他们在一起，呃，他们很可能无法达到目标，对吧？所以这是一个问题。因此，为了拥有尽可能多的直接下属，您只需要尽量减少与他们每个人一起花费的管理时间。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>让我们假设您已经摆脱了所有低于平均水平的人。您如何识别普通人并解雇他们？是的。嗯，我认识的很多人都是非常优秀的高管，你觉得他们为什么要打架？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>我认为这只是，你知道，他们更关心对他人的同理心，而不是胜利。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>所以，我认为，如果你更倾向于赢，对吧？你对他人的同理心排在第二位，然后即使他们是艰难的决定，你也会做出正确的决定。然后，那些更善解人意、不太热衷于成为赢家的人，可能会优先考虑他们的第二、第三或第四名，而不是优先考虑让更好的人加入他们的行列。你有没有听过Elon是如何谈论这件事的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>不。所以，他告诉了管理工程团队的人员。他说： “如果你的工程师喜欢你，那就意味着你的工作做得不对。“这正是他们的全部焦点。他只是说： “我们是来取胜的。“我们在这里是为了实现目标，人们的感受完全是次要的。”</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>是的，完全正确。它更像你想象的那样吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>我认为非常重要的是，当您聘请高管时，您会看到高管，呃，对他们的直属下属非常友好的人，呃，他们可能不是合适的人选。我认为最优秀的高管非常强硬，对吧？嗯，他们可能很友好，对吧？但对高管来说，友好从来都不是目标。真的吗？它总是关于实现目标的，对吧？花费最少的资源。所以，他们是最好的。这也是一样的，因为我以前听说过这一点，就像你喜欢小额投资带来的伟大成果一样。你刚才说了类似的话。如何以最少的资源实现目标。</p>
+<p>是的。所以，它几乎就像一门艺术，我知道你当然不认为自己是艺术家。但有一门艺术，你不仅要赢，还要以正确的方式赢。在那里，你只需花费更多的资源就可以赢得胜利，而不是那些说“不，我想尽量找到最小的投资来取得好成绩。”的人。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>是的，完全正确。如果你想想创始人做什么，企业家做什么，高管做什么，他们有一个他们需要从头到尾实现的目标。所以，这意味着他们需要确定方向，去哪里，然后以你在美国创业生态系统中看到的大量浪费的最小数量在这个方向上建立一些东西？我觉得钱太多了，不是吗？有许多创始人认为钱是免费的，这在加利福尼亚州几乎是真的，因为你可以以荒谬的估值筹集这么多钱，然后花掉它。因此，我认为有一种明确的文化，试图用金钱而不是聪明才智来解决问题。</p>
+<p>向遵循这条道路的年轻企业家解释为什么这不是正确的决定。例如，如果您从事B2B业务，对吧？然后，你知道，你创办了一家公司；你获得了第一笔销售额，比如说第一百万ARR ，然后你决定扩大规模，突然你决定聘请一位昂贵的销售副总裁，他将聘请50名其他销售人员来销售你的产品。您需要找到一种方法来开始廉价销售产品，构建系统，然后简单地将员工添加到系统中，这样您始终可以获得丰厚的回报。从大公司开始，聘请一位销售副总裁，同时聘请一个非常昂贵的团队，这是一个冒险的决定。</p>
+<p>因此，基本上，他们取消了资金限制。因此，他们不会培养限制迫使你拥有的技能。如果你想在这些限制下生存下去，你真的必须是优秀的。你真的需要有天赋。你真的必须足智多谋。基本上，他们用钱来掩盖这一点。它可能在短期内起作用，但从长远来看，他们会被像你这样的人打败。我的意思是，如果我们在同一个行业，那么是的，因为，我的意思是，在美国的许多情况下，它没有那么有竞争欲，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>等等，这是一个疯狂的说法。为什么你会说它在美国没有那么有竞争欲？我觉得其他人会认为这是最具竞争力的环境。您如何看待欧洲人？我的意思是，欧洲的竞争力更低。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>是的，所以你认为它没有竞争欲？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>中国，中国没有竞争欲，是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>那么，中国是996 ，对吧？即使你在欧洲很好，或者即使你是，你怎么能打败那些人，对吗？他们还有，嗯，非常好的教育，技术教育。所以这非常困难。当我开始工作时，我与140家公司建立了联合办公空间。在5年的时间里，只有三家公司幸存下来。他们都在周末工作。在10年内， 140家公司中只有两家幸存下来。所以我认为，如果你想生存，周末工作是必不可少的。纯粹是统计学上的。</p>
+<p>好吧，一周工作7天是一回事，但是从9点工作到9点，或者从10点工作到10点，是什么，真正的文化是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>嗯，这就是我的工作方式，对吧？您是创始人。我不认识一个创始人说不，不，我在度假。我明白。我说的是你的，嗯，是的，我的直属下属，他们绝大多数都是这样工作的，对吧？也许我下属的下属之间不太一致。但即便如此，我认为在所有欧洲公司中，我们可能是最努力工作的公司之一。我认为，如果包括美国在内，我们也是最勤奋的公司之一。</p>
+<p>我想知道你对那些拥有这种来自加利福尼亚的文化和技术操作系统的企业家有什么看法，你认为他们做错了什么？你说钱太多了。他们没有那么有竞争欲。不，其他的一切似乎都在那里。有一个生态系统。天赋很好。你有，你知道，伟大的大学和，嗯，很多外国人，你知道，来到这些大学学习。人们都很勤奋。但是，你知道，当有太多的钱，人们选择在问题上花很多钱时，我认为这是一种被误导的文化。</p>
+<p>因为他们实际上并没有解决问题，根本问题。我认为这是一个巨大的浪费，首先，你没有真正发展自己作为一个企业家。你知道，用金钱来解决问题非常容易。如果您有无限的钱，我的意思是，您只需在这里，那里和任何地方扔钱。但是，你没有为未来做好准备，因为某种原因，金钱可能会消失。这是一个非常有趣的视角。你没有成为创业者。</p>
+<p>是的。请举例说明您是如何发展的。好吧，当我们开始时，如果你看一下业务的经济单位，我们从负毛利率开始。在接下来的三年、四年、五年中，负毛利率一直持续，直到我们将其优化为80%的正毛利率。对吧？在我们的业务中，如果你看看欧洲，与美国相比，一切都是极其有限和监管的。例如，交换费为20个基点，而美国为100%。大多数国家/地区的信用卡费率都有上限。旅行基金非常有限，对吧？你真的不能随便给很多人加分。按国家/地区在欧洲建立银行非常困难，因为即使您在欧洲拥有银行执照，您也不能成为主要银行，因为法规不允许您开设本地账户，除非您在相同的实际位置开设银行的本地分支机构。</p>
+<p>换句话说，您需要有办公室、本地连接、本地法规等。因此，您要逐个国家/地区旅行，这需要大量的时间和资源。还有不同的语言。而你必须做到这一切。是的，除了许多国家非常严格的劳动法之外。在美国，这很简单，对吧？换句话说，这是自愿就业。在欧洲不是这样的。因此，您需要非常小心如何雇用和雇用谁。所以，所有这些共同创造了一个不太有利可图的环境，对吧？建立一家公司非常困难。然而，在那种环境下，我们成功了，对吧？但最终我们成功了，因为我们投入了大量的时间，大量的精力和大量的智力来优化每个问题。如果我在巴西、美国或墨西哥等其他国家有同样的业务，某些方面会容易得多。</p>
+<p>如果你看一下单一经济，信贷更容易授予。汇率不予保留。从技术上讲，欧洲的这种艰难环境实际上教会了我们如何在竞争激烈的环境中建立业务。你明白我的意思吗？好吧，所以如果你设法在这个非常困难的环境中生存下来，你现在有一套其他没有经历过的人没有的技能，现在你必须和他们竞争，比如说，在美国。与他们竞争将非常困难。与您竞争将非常困难，因为他们没有发展出相同的技能，也没有经历过您所经历的事情。好的，这完全合理。</p>
+<p>在阅读《从0到1》这本书时，我发现了我最喜欢的一句名言。这句话写道： “我注意到的最强大的模式是，成功的人在意想不到的地方找到价值，他们通过从基本原则而不是公式来思考业务来实现这一目标。“这正是AppLovin对其广告平台所做的。AppLovin将您与超过10亿的手机游戏新潜在客户联系起来。AppLovin让您吸引全部注意力。AppLovin广告是全屏视频，平均观看时间为35秒。留存率远远超过其他广告平台，您可以在几分钟内开始使用AppLovin。您设定了目标， AppLovin实现了目标。无需复杂的设置，无需经验。AppLovin可以快速扩展。他们将您的广告展示给超过10亿的潜在客户。其他企业已经看到了立竿见影的效果，每天的投资规模达到数十万美元，收入增加了数百万美元。因此，您需要在所有竞争对手都使用AppLovin之前快速入门。您可以访问applovin.com。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>那是applovin.com。你说了一些关于投资者的非常有趣的事情，我想和你谈谈，因为它真的很重要。在这个项目中，整个想法很简单，我相信企业家是世界上最重要的人。认为某人有一个不存在的想法，并通过决心、主动性和侵略性，使一些不存在的东西成为现实，并开始在他们的脑海中。在您的案例中，您在40个国家或地区拥有数千名员工，有多少客户？数千万？我的意思是，从你有的想法，你知道，当你有的时候，是什么？那时差不多30年了。是的，这绝对是不可思议的。我认为这对我来说是一个奇迹。然而，很多讨论，创始人私下对投资者说的话，他们没有公开说。所以，我们最近在谈论，因为我看到了你的那段视频，你将投资者与足球啦啦队员进行了比较。你能解释一下你为什么要进行这种比较吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>嗯，基本上，呃，呃，我之前已经告诉过你这个故事了。所以，我对这家公司的看法是，呃， 12或13年前。嗯，当时在欧洲和英国，筹集资金的环境非常困难。简而言之，风险资本家并不多，他们都更像私募股权人士--非常咄咄逼人，非常守法。所以，为了筹集资金，你必须在股东协议中签署很多糟糕的条款，比如清算偏好、董事会席位、你知道的，减少你作为创始人的投票权等等。因此，这些人基本上认为，多亏了他们，公司才成立，因为他们捐了钱。他们有权获得更大份额的成功。你知道，这是很多人的心态，比如在我的公司。我认为这种心态在很大程度上是不正确的，因为从有限合伙人（ LP ）那里拿钱是非常容易的，我也是。</p>
+<p>等等，你说去拿钱？赚钱很容易，因为您的业务非常简单，对吧？好的，他们有自己的有限合伙人，他们从他们那里筹集资金，然后投资于初创公司，然后他们有2和20的商业模式，对吧？因此，与从头开始构建真正的运营业务相比，这要容易得多。因为他们从不拿自己的钱冒险，对吧？他们真的不需要努力工作。我的意思是，有竞争，但竞争只是为了获得交易。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>所以我认为他们的工作要容易得多。这是第一点。其次，与现在的风险投资圈相比，当时几乎没有竞争对手。当时基本上有这样的观点，我们作为风险投资家会帮助他们经营公司，公司会取得成功，因为我们会给他们关于如何经营公司的建议。实际上，他们几乎都没有建立过公司，对吧？因此，他们只从有限合伙人那里筹集资金，将资金投资于许多公司，有时他们在董事会中有职位，有时他们没有。在董事会任职并不能教会你如何经营一家公司，不是吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>你只是一个观察者。结果，所有这些人都有很大的权力，对吧？因为他们给你钱，所以他们在股东协议中加入了一些条件。然后他们也有这种心态，他们可以告诉你作为创始人该怎么做，对吧？根据我的经验，这是非常危险的。我过去有很多案例，某些风险投资家，我的意思是，他们的建议对公司来说根本是错误的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>所以我认为我对企业家的建议是，即使你从风险投资家那里筹集资金，也要密切关注股东协议，对吧？然后确保他们是纯粹的金融参与者，他们没有权利，没有投票权，也没有决策桌上的席位。超级重要。因为如果出了问题怎么办，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>你知道，你确实有啦啦队员，他们观看比赛并尝试玩这个游戏，而不是专业球员。这就是为什么，你知道，这总是一场灾难。您为什么说您得到的一些建议是危险的？我的意思是，其中一条建议是，好吧，你知道吗？您需要聘请一位经验丰富的高管。你知道吗？不，这行不通。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>头五年开始的时候，我可能有50多位经验丰富的高管，我只留了两个，对吧？在一年之内，根本行不通。为什么会发生这种情况？为什么经验丰富的高管几乎从不锻炼身体？和橄榄球运动员一样，对吧？他们正处于巅峰时期。非常相似，有一个理想的年龄，这并不意味着他们变得不那么好。我认为他们的优先事项发生了变化，不是吗？此外，事情发生了变化，时代发生了变化，竞争也发生了变化。因此，以前很优秀的人，过去有过优秀记录的人，将来可能不会擅长你的公司。这是第一个。这样想太天真了。然后第二点，还有一个负面的选择偏差，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>如果你认为那些非常优秀的人，比如我雇佣员工的方式，我会看看他们的成就记录，然后他们需要在职业发展方面比同行排名前1%。然后我试图在他们25岁或30岁时吸引他们，以便他们在Revolut以相同的轨迹继续前进。当你聘请一位经验丰富的高管时，实际上存在消极的选择偏见，因为非常优秀的人已经成功了，对吧？他们可能正在经营自己的企业，或者退休了，或者其他什么。而那些从未有过这种极端职业发展的人，你雇用他们作为经验丰富的高管，从定义上讲，与那些职业生涯极快的人相比，他们只是好人，他们不再在市场上。</p>
+<p>好吧，所以你基本上发现，根据你刚才所说的，你得到的建议与你应该做的完全相反。是的，没错。是的，当他们认为公司的某些人很好，因为他们有经验时，会有很多建议。我想我正好相反。其中一个实际上是一个很好的投资者。我强迫自己解雇我最好的朋友，因为他太激烈了。所以，很多都是，是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>这家伙需要从9点工作到5点，好吗？那么，这是怎么发生的呢？请告诉我更多信息。既然你明明反抗过，那家伙也没有被炒鱿鱼。怎么了，我是说，我当然没开除他。我说不，仅此而已。好吧，但就是这样，那个家伙……他要么接受，要么离开。是的，我，然后发生了什么？您是否与投资者发生过争执？发生了什么？是的，我有一个，是的。是的。您是如何解决的？你拥有所有的力量吗？发生了什么？我和他打架了，嗯，是的，即使他们有很多投资者的联盟，但你知道吗？</p>
+<p>他们后退了一步。好吧，你是怎么让他们退缩的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>嗯，我想，你知道，我很早就意识到，相当多的风险投资家不是很运作，如果他们有任何权力，对公司来说真的很危险。所以，在每一轮投资中，我只是，你知道，淘汰风险投资家。换句话说，就是找老板。所以现在我董事会里没有任何风险投资家。我认为这是最好的。你总是需要让运营商参与进来，而不是风险投资家，那些真正建立企业的人，他们知道如何把事情做好。</p>
+<p>您的心态让我想起了优步的特拉维斯·卡拉尼克（特拉维斯·卡拉尼克）。他在节目中，我认为获得数百万观看次数的片段之一就是关于这一点，他认为对风险投资家来说，不造成伤害是一个过高的标准。他说，超过90%的风险投资家甚至无法避免把事情搞砸。他说，不多，甚至没有用。他们就是忍不住把事情搞砸了。然后他说，根据他的经验， 1%真的很有用。我认为他在节目中对所有企业家说的话很简单：把钱给我，然后离开。你就是这么想的。我的意思是，在一些股东协议中，他们根本没有权力。</p>
+<p>是的，我会让他们更富有。别烦我。基本上就是这样。是的。您还创建了自己的基金，我不知道您是否称之为风险投资基金。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>是的，这是一个风险投资基金。首先，你叫什么名字？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>呃，量子光。好的。所以，解释一下你在做什么。这很有趣。我现在才意识到这一点，因为您正在分析传统银行。你说，不，看看他们犯的所有明显错误。其中一部分来自经验，对吧？很难赚取收入。他们这样做的方式毫无意义。我将向您展示一种不同的方法。是的，基本上这个想法是在2022年或2023年，当时我突然想到，这个想法实际上来自我个人的痛苦，来自与投资者的斗争。事实上，这是一个非常重要的名字。他们加入或投资了Revolut。我相信，在新冠疫情之后或疫情期间，所有股票都上涨了，估值为330亿。所以基本上，他们有法律权利不允许我们修改股东协议，因为他们是最后一个投资者，等等，等等。</p>
+<p>所以，你对风险投资家有很多不好的经历。您将创办自己的风险投资基金。解释您的资金有何不同。所以，我基本上有这场斗争，你知道，我非常沮丧，我想，你知道吗？我还需要与该业务的风险投资家竞争，因为他们非常糟糕，出于沮丧，我也创立了该基金。这个想法基本上不是基于人类的判断，而是基于科学和机器学习模型。</p>
+<p>统计投资，这是第一件事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>第二，实际帮助创始人提供我们开发的运营建议或手册，内容涉及如何雇用员工、如何管理绩效、如何扩展产品等。最后，我们也帮助他们销售产品，因为我们是一家大公司，我们从许多供应商那里购买。让我们成为客户有助于其他公司的销售。或者可能销售给我们的客户，我们的创收客户。所以，我认为总的来说，除了我个人的建议之外，很明显。我认为整体而言，与纯粹的金融参与者，即风险投资家相比，这套方案要好得多。您刚才也提到了您的个人建议。那么，您是否正在进行集中投注？这是否像其他东西一样，你一次赚20或50 ？还是你把钱集中在少数人身上？</p>
+<p>这对我们来说再次是一项统计投资。它基于机器学习模型。它的运作方式是，我们的模型选择30到40家公司在2年或3年内进行投资。然后他把同样的钱投入到每家初创公司。我们从B轮创始人基金开始。关门了，完全颠倒了现在已经产生了约56%的内部收益率。你从大约2.5亿左右开始，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>我们从2.5亿开始，是的，第一个基金。现在它的内部收益率约为56%。我们现在开始投资第二只基金，即5亿。所以现在他们是C系列公司。同样，基于模型，也具有非常高的性能。我认为，就盈利能力而言，它现在处于世界基金的前5%。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>我们可能还会赚一大笔钱这笔钱从哪里来？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>他们是不同的有限合伙人。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>最初， 20%是我自己的钱。所以我投入了总数的20%或25%。其余的则来自其他创始人。在第二个基金中，我们还获得了相当多的机构参与者。我从来没有听说过有人把自己与Meta这样的东西进行比较。所以，我马上就开始讨论。但你不会做一半或很小的事情，是吗？就像这样： “好吧，我从250开始。“现在你只需要看看你能走多远。这就像，你知道，像文艺复兴科技这样的巨头吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>显然，我们的目标是在私人市场上建立像贝莱德这样的大公司。同样，我们会看看我们是否到达那里。但我认为，因为现在你有很多关于初创公司的数据，你可以应用所有这些机器学习模型来确定最好的机器学习模型。然后模型预测它。例如，我们的指标之一是看谁投资了公司，谁在投资。我们不仅关注投资于公司的基金的绩效，还关注合作伙伴的层面。然后我们还要看伴侣的年龄。当你看到这些变量时，有一些非常有趣的事情，例如伴侣的年龄。您不希望投资于合伙人年龄超过40岁的公司。因此，最好的群体是30至40岁的年轻合伙人，他们正在投资。他们最擅长识别优秀的公司。高管也是如此。是的，您应该遵守一定的理想年龄。同样，有很多变量，对吧？年龄不是一切，是吗？但从统计学上讲，这就是你应该与Revolut分开的公司，还是…… ？</p>
+<p>是的，它是完全分开的。好的，然后完全分开。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>您是否还有其他人在运行它？是的，好的。您还提到帮助他们销售产品。跟我讲讲市场营销的早期阶段。我听说你在最初的五七年里没有在营销上花费任何东西。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>是的，前七年是完全有机的。此外，新冠肺炎疫情已经到来， 2021年，我记得这家公司已经有六七年的历史了。新冠肺炎疫情爆发，我们的收入下降了70%。那时，我们还未涉足银行业务。你知道，我们仍然是用旅行卡的电子货币。因此，它与旅游业务密切相关。新冠肺炎疫情爆发后，旅游业彻底消失。所以我们必须以某种方式生存。在此期间，我们进行了很多优化。</p>
+<p>好吧，但请向我解释为什么你决定开始在营销上花钱，因为当我去欧洲时，我觉得我被你的广告轰炸了。我到处都能看到你的东西。现在，与您交谈后，这是完全合理的。这不是说“哦，是的，我要在这里做一点，在那里做一点”。更重要的是，一旦我找到了一些有用的东西，我基本上会全力以赴。是的，这基本上就是我对营销的看法，因为我已经6、7年没有做过营销了。我只是没有时间，我们也没有足够的资源。但当我开始这样做时，我走得更深。</p>
+<p>因此，我基本上从我们需要雇用谁来操作适当的营销机器开始。不是在这里和那里，而是在科学上，对吧？我们需要将资金投入到营销中，并获得足够的回报。然后我的想法非常简单。哪些公司在营销上花费最多？哪些人对营销支出极为谨慎？你知道，哪里有非常低的误差幅度？当时他们是游戏公司，对吧？游戏公司的营销支出中有很大一部分用于效果广告。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>因此，某些公司也开展了许多影响深远的活动。博彩公司做得好还是不好？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>游戏公司是全球最大的营销支出者。如果你看看他们的预算，你知道，他们的营销很容易超过10亿美元。他们中的许多人要去AppLovin。是的。什么， AppLovin今年将产生大约60亿的利润？所以他们做得很好。难以置信。是的。是的。所以我最终聘请了一位非常好的人，他开始在Revolut领导营销。然后，一旦我们有了一个体面的数量...</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>继续，我是否理解正确？所以你是在研究游戏公司的广告宣传方式，还是只是想知道他们花了多少钱？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>我们的想法是找出谁是最好的专业人士，谁知道如何在营销上花钱，对吧？我们的想法是，这些专业人士将在游戏公司工作，因为他们的预算最大。我明白了。所以，这就是我如何得到我的第一个，嗯，实际上是我的第二个。我解雇了第一个。他不是比赛中的重要人物。可能是风险投资家的堂兄。我实际上雇佣了他或类似的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>无论如何，我们深入研究了绩效营销、LTV和投资回报率。然后，最近我们开始做更多的事情，因为我们获得了银行执照，我们意识到，或者我从一开始就意识到，这一切都与信任有关，对吧？如果你是一家数字银行，你没有分支机构，人们看不到你的身体，根据定义，他们对你的信任不如汇丰银行、劳埃德银行、摩根大通银行等。那么，好吧，你如何建立信任？您如何利用绩效营销支出进行有效套利？因为在绩效营销中，您按展示次数付费，而在现实世界中，您可以购买的许多空间也会产生展示次数，但与数字世界相比，价格要低得多。例如，我们现在可能拥有欧洲所有机场的50 ％ ，对吧？因为欧洲近50%的机场现在都会有广告，对吧？同样，这要归功于简单的数学运算。人们一年旅行多少次，对吧？</p>
+<p>他们一年在机场有多少次？我们会产生多少印象？我们要花多少钱，对吧？这就是针对基于结果的营销的仲裁的用武之地。然后是物理世界其他地方的类似想法。例如，我们开始做相当于传统分支机构的工作。我们称之为REV商店，对吧？ REV体验。然后，我们在巴塞罗那开设了第一家商店。再一次，将物理世界与数字世界的印象进行仲裁。因为，每年有多少人经过我们的商店？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>但是这家商店到底是什么？我的意思是，这更像是一次Revolut体验。这不是传统的银行分行。进来体验我们所有的产品。一切都以非常现代的方式完成。就像苹果商店一样，但对于Revolut来说。我们的想法是为街上的路人和进来的人留下深刻的印象。许多公司在机场做广告。就像是， “哦，屏幕上的东西可能持续30秒左右。“它可以是壮观的。这就像，我步行2分钟，但我仍然被包围着。这就像Revolut广告的巨大茧。你也是怎么想到这个主意的？购买整个机场的想法。我想不出我见过的另一家公司这样做。我想是的。更多的人应该这样做。我的意思是，我不使用您的服务，但我绝对知道您的存在以及您的工作。就好像你基本上瞄准了无处不在，这就是我走过机场时的想法。</p>
+<p>是的，我的头脑现在看到，在物理世界中支付印刷品比在数字世界中便宜得多。虽然这不仅仅是为印象付费，因为你知道，我也在谈论建立信任。我认为信任问题实际上是最有趣的观点之一。你今天说了很多有趣的话。但我认为这一切的无处不在是有原因的。这不仅仅是一个标志，你知道，这是Revolut ，这就是我们所做的。就像整个走廊一样。你正在走路，我觉得自己被这个包围了。我告诉你，我想不出任何其他公司。这甚至在我们考虑让你上节目之前。我只是觉得这实际上是个好主意。我不会走过这里，不知道这家公司的存在。我最后想和你们谈谈的事情之一就是你们的宏伟抱负。我想以前不认识你的人会注意到你非常有竞争欲。我喜欢你对风险投资家感到不满，并说： “好吧，现在我必须和你竞争，因为你让我很生气。“但我从来没有听说过其他人建立银行。首先，你说没有真正的全球银行，你想成为第一个。所以，我喜欢这种雄心壮志。但是，您可以通过说我们希望成为一家全球性的科技公司来进行比较。</p>
+<p>我认为你提到了一些公司，但我记得的是像Meta这样的全球科技公司。解释一下。您正在构建的内容之间的联系，许多人可能认为这是一项无聊的业务-您知道，银行已经存在了很长一段时间-但这不是您如何看待您正在构建的内容。是的，基本上我们的想法和目标是从这个业务中产生足够的现金流，以便能够为可以消耗大量资本的真正大赌注提供资金，对吧？例如，我也想深入研究LLM以构建我们自己的模型，事实上，我们构建了自己的交易模型Pragma。这是一个法学硕士，但它都是基于事务转换器，而不是单词。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>但我很想深入研究，不是吗？建立我们自己的数据中心来训练我们的模型，并开发比现在更深层次的技术。但是，你知道，这需要大量的投资，对吧？还有大量的现金流。基本上，建立一个产生足够现金流的大型企业，为在未来两、三或四到五年内可能无法产生利润的雄心勃勃的投资提供资金。这些雄心勃勃的押注是否与金融服务无关？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>是的，很有可能。是的。因为，我的意思是，在金融服务方面，我们还能做些什么？几乎所有的东西都已经被发明出来了。所以，归根结底，我们只是在重写传统产品，对吧？我们正在创造相同的金融产品，但比以前便宜得多，也更好。此外，我们将它们全部归入同一个应用程序。所以一切都很方便。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>我们还进行创新，以确保所有内容相互关联，产品之间可以相互沟通。但最终，它还是一样的旧长凳，只是以一种新的方式制造，不是吗？我真正想做的是离开那里，做一些业内尚未做过的事情？在所有行业，是的。所有行业？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>更具体地说，在科技行业。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>您是否公开分享过这些雄心勃勃的想法，或者您是否将其保留在公司内部？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>目前，所有这些想法都在我的脑海中，因为我知道我们没有资源或时间来构建它们。但我希望在3年、4年或5年内，我们将有足够的资源来开发它们。Pragma是使用我们的交易数据训练的基本模型。作为参考，我们每天有3000万笔交易。因此，我们有数十亿笔交易。可以使用交易来训练基于变压器的模型，并将其用于金融服务的几乎任何方面。它可以是一种反欺诈模式。它可以是一个信用模型。潜在的投资模式和更多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>当他们在这里推出时，我为什么要使用他们的银行而不是像摩根大通这样的银行？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>摩根大通非常本地化，为您提供美国银行账户和美国产品。如果您曾在美国境外曝光，我们是您的银行合作伙伴，因为我们在美国为您做摩根大通所做的一切。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>此外，我们还提供所有全球资产。您可以在我们这里开立全球账号。因此，在美国期间，您可以在欧洲或澳大利亚开设账户。您可以在所有国家/地区之间即时汇款。以此类推。我们不会为您提供积分金融产品和本地优惠，而是为您提供有效的全球曝光。这就是我们的立场。此外，它有一个更好的界面，与他们相比，您赚钱的方式有什么不同？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>与我们相比，他们更注重信贷。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>我们更专注于订阅、交易，他们在信贷部门做什么？他们会把所有这些都卖掉吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>信用卡只是标准产品、信用卡和贷款。卖掉？还没有，还没有。好吧。因为它仍然是我们资产负债表中非常小的一部分。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>所以你认为你比传统银行的优势在于你更像是一家科技公司？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="尼克·斯托龙斯基（Nik Storonsky，Revolut）">Nik</span></div><div class="content">
+<p>我们的优势在于技术。如果你想想过去的银行，当他们在各个国家进行实验时，他们只是买了其他银行；因此，他们在许多国家拥有许多系统，并没有真正控制任何事情；生成任何报告都需要数月时间，并且需要来自不同系统的数据。我们的优势在于，我们在许多国家实现了单一系统、单一分类账的标准化。从一个国家搬到另一个国家时，我们不需要从头开始编写所有内容。我们仅配置我们的软件，例如，在英国注册。</p>
+<p>我们只需调整设置，将公司注册地更改为美国或墨西哥，以此类推。因此，它成为一种高度可配置的产品；我们不需要从头开始在另一个国家建立另一家银行。通过这样做，与10个国家的10家银行相比，您显然需要更少的人来维护它。因此，存在规模经济，因此我们可以以比其他银行便宜得多的价格销售产品。此外，所有关于如何创造产品、进行营销等的机构知识都应用于任何新的国家。我相信，随着时间的推移，它可以成为一股不可阻挡的力量，因为它以比当地银行高得多的价格提供更好的产品和服务。</p>
+<p>随着时间的推移，我正在建造一台不可阻挡的机器。这是一个很好的结束点。谢谢你，尼克，感谢你抽出时间。太棒了。希望您喜欢这一集。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>请记住，无论您在哪里收听我们的节目，都要订阅，留下评论，并确保查看我的另一档播客《Founders》。近十年来，我痴迷于阅读历史上最重要的企业家的400多本传记，寻找可以在我的工作中使用的想法。大多数第一次收听这个节目的参与者都通过</p>
+</div></div>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "David Senra", "title": "竞争、强度与打造一家 1150 亿美元的全球银行｜尼克·斯托龙斯基（Nik Storonsky，Revolut）", "url": "https://www.youtube.com/watch?v=hT_MAAwFLIc", "videoId": "hT_MAAwFLIc", "published_at": "2026-10-25", "duration": 4022, "caption_source": "yt-dlp-chrome-cookies（YouTube 自动字幕 en）", "guests": ["尼克·斯托龙斯基（Nik Storonsky，Revolut 创始人兼 CEO）"], "speakers": [{"id": "h", "name": "大卫·森拉（David Senra）", "role": "host", "short": "Senra"}, {"id": "g", "name": "尼克·斯托龙斯基（Nik Storonsky，Revolut）", "role": "guest", "short": "Nik"}], "intro": {"summary": "大卫·森拉（David Senra）访谈 Revolut（Revolut）创始人尼克·斯托龙斯基（Nik Storonsky）：从童年竞技性格谈起，讲如何把「每天接近 100%」的竞争欲，做成要在约 100 个国家做到第一的全球数字银行。", "points": ["竞争观：不盯对手、盯自己——每天接近 100% 输出；输了也无从自责", "野心：在高度分散的各国银行业里，用更好产品与更低价格做全球第一（约 38 国起步、持续扩市场）", "创始人 vs 职业 CEO：与公司 100% 对齐、敢进攻；职业经理人保饭碗、偏防守、难做 10x 决策", "监管教训：有数百万客户后再申牌照更难——「零客户」在监管眼里更安全；拖延持牌是重大失误", "组织机器：用技术与统一系统跨国复制，而不是收购收购当地银行、堆烟囱系统", "赞助口播已标灰：Ramp、Deel"], "verdict": "值得看：约 67 分钟，竞争心智与「全球银行」扩张叙事清晰，适合关心金融科技、创始人强度与组织建设的听众；若只想听产品细节可略过开场性格部分。", "audience": "创业者、金融科技从业者、关注 Revolut / 数字银行与高强度创始人文化的听众"}, "paragraphs": [{"start_sec": 2, "speaker_id": "h", "type": "text", "zh": "好吧，我不得不告诉他们立即开始录制，因为即使在我们刚才的谈话中，我想， “哦，我们今天会玩得很开心。”我给搭档罗布（Rob）发了一条短信。我告诉他：“我认为Nik 和我要创作一部杰作，因为我已经从其他创始人那里听说你很多年了，就像这个家伙超级有竞争欲一样。“他的动作非常快，是一个征服者。您能否解释一下您如何看待这场比赛，以及您想在这个世界上做些什么？"}, {"start_sec": 22, "speaker_id": "g", "type": "text", "zh": "我从6岁起就非常有竞争欲。因此，它也总是在竞技体育或奥运会竞技项目上。对我来说，无论我选择做什么，成为第一总是一种自然的愿望，你知道吗？就像我决定玩游戏一样，我需要成为第一名。然后，成为第二名让我很烦恼。所以我一直让您认为您的竞争动力来自体育运动？您参加了哪些运动？他做了很多事情。我，你知道，游泳，拳击，呃，很多运动，是的，在我的童年。我认为这更多的是你遗传的性格和基因的组合。你知道，有些人非常有竞争欲，有些人根本没有竞争欲。"}, {"start_sec": 65, "speaker_id": "h", "type": "text", "zh": "那么，您如何看待竞争对手？我听说了，我们最近在聊天。这是最有趣的一句话，有人问你， “哦，你想扩展，你要去吃杰米·戴蒙（杰米·戴蒙）的午餐吗？”"}, {"start_sec": 78, "speaker_id": "g", "type": "text", "zh": "你回答说： “我去拿他们的晚餐。“我的意思是，这个想法是，你知道，午餐总是一件小事，晚餐在美国通常比在欧洲大得多。所以，晚餐不仅意味着寻找零售业务，还意味着寻找业务方面。此外，投资银行业也有潜力，因为它也有可能彻底改变投资银行。"}, {"start_sec": 101, "speaker_id": "h", "type": "text", "zh": "怎么样？我的意思是，它仍然非常手动，仍然非常昂贵。我的意思是，也可以让一切变得更便宜。呃，为什么不呢？"}, {"start_sec": 111, "speaker_id": "g", "type": "text", "zh": "好吧，解释一下，因为我想很多会听到这个的人都不会明白今天的Revolut（Revolut）是什么，以及你想要去哪里。因此，请说明您正在做什么，现在的业务状况，然后您将来要做什么。也许它始于2年前我们开始的事情。我从一张简单的卡开始，允许您花钱，避免银行手续费和良好的汇率。后来，我扩展到其他产品，如信贷、财富管理、交易、加密货币和商业账户。我们还建立了许多非金融业务。现在的结果是，我们是一家大型数字银行，提供银行提供的所有服务，以及许多其他额外服务。例如，您可以预订我们的房源、购买eSIM卡等。我们的想法是建立一个在至少100个国家中排名第一的大型全球银行。这就是我们现在正在努力做的事情。"}, {"start_sec": 176, "speaker_id": "g", "type": "text", "zh": "我们目前在大约38个国家/地区开展业务。其中大多数我们都有银行执照。我们每隔一两年就会慢慢扩展到10到15个新市场。好吧，让我们回到这一切是如何开始的。您极具竞争力。你这么说，对吧？你只是脱口而出，好像没什么一样。但是你说， “哦，我想在100个不同的国家建立头号银行。”是的。你明白这是一个真正疯狂和大胆的野心。我不认为你会随便说， “哦，是的，我只是想在100个国家中排名第一。“就好像你是认真的。因此，请深入探讨您对比赛的内心独白，以及您如何看待这场比赛。"}, {"start_sec": 222, "speaker_id": "h", "type": "text", "zh": "是的，基本上，如果我选择玩这个游戏，对我来说是精神上的，对吧？"}, {"start_sec": 229, "speaker_id": "g", "type": "text", "zh": "正如我之前所说，我需要成为第一，现在世界上有一个巨大的机会，那里有很多国家，每个国家都有10、20、30、40或50家银行。它们都非常高度分散。基本上，有一个千载难逢的机会来建立一个全球银行，在每个国家以更好的价格提供更好的服务和产品。事实上，我们的目标是优化以与这些银行竞争，降低其产品的价格，改善客户体验，并节省他们的时间，因为并不是所有这些实体分支机构都需要。"}, {"start_sec": 263, "speaker_id": "h", "type": "text", "zh": "您能否告诉我们更多关于您的雄心壮志或竞争动力的信息？"}, {"start_sec": 270, "speaker_id": "g", "type": "text", "zh": "这在日常生活中是如何体现的？你是否醒来时渴望成功完成任务？你是否会照照镜子，想想发生了什么事？在我们谈论商业之前，我有兴趣了解您作为企业家的身份；这对我来说很吸引人。嗯，基本上这是一个银行业务，在我看来，如果我选择参与其中，我必须成为第一。显然，世界上有成千上万家银行。成为第一的意思是在国家一、二、三、四等等中排名第一。假设有100个国家。至于比赛，我怎么看？老实说，我并不看重竞争对手。我更看重自己，你知道吗？我该怎么做才能超越自己？为了更好地竞争，以某种方式变得更加狡猾。哲学很简单，先生。每一天，你都必须几乎百分之百地做到这一点。如果你仍然输给了比赛，那么你不能责怪自己，因为你每天都付出100% ，对吧？"}, {"start_sec": 331, "speaker_id": "g", "type": "text", "zh": "所以我认为这种心态可能会帮助你赢得胜利。"}, {"start_sec": 335, "speaker_id": "h", "type": "text", "zh": "我喜欢这个。您是否与Shopify（Shopify）创始人托比·吕特克（托比·吕特克）共度时光？"}, {"start_sec": 339, "speaker_id": "g", "type": "text", "zh": "不，还没有。嗯，他参加了节目。事实上，我大概两周后就要和他一起录音了。但他表示，他喜欢采取激进投资者的立场。有人刚刚购买了Shopify。就是他。他问： “上届政府到底在做什么？“我如何才能基本上改善上届政府所做的每一个元素？ “就算是他。"}, {"start_sec": 359, "speaker_id": "h", "type": "text", "zh": "嗯。所以，你基本上说了同样的话。这就像， “嗯，你无法控制你的竞争对手在做什么。“我可以控制自己的行为。让我分析一下我是如何做到的，然后，我将如何从外部击败自己？是的，我们可能会透露这一点。您认为自己为什么会有这种情况？您认为他们做错了什么，您认为自己可以做得更好？他们中的许多人不是创始人。这是第一个原因，对吧？"}, {"start_sec": 384, "speaker_id": "g", "type": "text", "zh": "所以他们最多只能在那里呆3到4年。他们只是收集奖金，就是这样，然后他们可以，你知道，优化某些平价指标。但是，他们实际上不是10倍的人，对吧？所以他们在那里只是为了他们的奖金，实际上是3或4年。因此，他们真的不需要做出大胆的决定。他们总是防守。他们从不进攻。"}, {"start_sec": 407, "speaker_id": "h", "type": "text", "zh": "我有不同的风格，对吧？所以是的，当然我也会防守，但我总是想，好吧，我还能做什么？"}, {"start_sec": 414, "speaker_id": "g", "type": "text", "zh": "我可以进入哪个行业？比如我可以推出什么产品等等。"}, {"start_sec": 418, "speaker_id": "h", "type": "text", "zh": "所以这就像，你知道，总是推我，推我为什么你认为与非创始人竞争很重要？我的意思是，与非创始人竞争要容易得多，对吧？如果我与所有的银行竞争，他们都由创始人经营，结果，我们都会，你知道，。这不是正在发生的事情，是吗？是的。请从您的角度详细说明创始人和专业首席执行官之间的区别。"}, {"start_sec": 441, "speaker_id": "h", "type": "text", "zh": "毕竟，专业的首席执行官并不是为了改善组织，不是吗？他们的主要目标是保护自己的工作。因此，根据定义，他们为公司做出次优决策。因为他们认为自己和公司是两个独立的实体，对吧？我认为自己和公司是一个单一的实体，对吧？我尽一切对公司有益的事情，我从不试图将对我有益的事情分开。这应该不同于对公司有益的事情。这对我来说是一样的。因此，我与公司100%保持一致。"}, {"start_sec": 481, "speaker_id": "h", "type": "text", "zh": "是的，我听你说过你的一生都是工作。这相当于建立业务所花费的99.5%的时间，对吧？"}, {"start_sec": 492, "speaker_id": "g", "type": "text", "zh": "是的。是的。此外，当我们与监管机构交谈时，他们都喜欢，是的，但你知道，增长不是一个好的心态，等等。我的答案很简单。每当你作为监管者认为我承担过多风险时，你完全错了，不是吗？因为我是唯一一个有动力让这家公司成功并帮助它生存的人，对吧？这意味着与专业的首席执行官或董事会相比，我实际上不会承担愚蠢、过度的风险。"}, {"start_sec": 519, "speaker_id": "h", "type": "text", "zh": "因为没有分离。这就是我讨厌每个人都说， “哦，这只是生意。“这不是针对个人的。对于创始人来说，这似乎是不存在的。是的。是的。所以，当我开始阅读有关您的信息时，这是另一件让我感到惊讶的事情，您最初试图逃避监管。你提到这是你犯过的最严重的错误。您能谈谈发生了什么以及您是如何学到这一课的吗？是的，基本上，当我们获得700万客户并申请银行牌照时，零客户的实体比拥有数百万客户的实体风险更小。在监管机构的眼中，你变得风险更大了，对吧？因为对他们来说，向没有客户的公司授予许可证要容易得多，因为他们可能在3年、4年或5年内仍然没有客户，对吧？如果你给一家拥有500万或1000万客户的公司颁发银行牌照，结果出了问题，对吧？然后他们会责怪我，为什么他们以前没有受到监管？"}, {"start_sec": 577, "speaker_id": "h", "type": "text", "zh": "他们申请银行牌照时的业务状况如何？他们之前在做什么？"}, {"start_sec": 581, "speaker_id": "g", "type": "text", "zh": "嗯，我们只是获得了电子货币和支付许可证。所以我们只是在转移资金。更轻的许可证，是的。好的。是的。当时的想法是，银行牌照需要3到4年才能获得，而电子货币牌照可以在1年内获得。显然，作为创始人，您希望更快地完成工作。因此，我们选择了电子货币许可证。然后我们得到了很多客户，我们转向银行执照，这几乎是不可能的，因为我们太大了。我认为，在英国历史上，从来没有一家拥有700万或800万客户的公司申请过这是一个艰难的过程吗？发生了什么？我们花了将近5年的时间才在英国获得银行牌照。"}, {"start_sec": 626, "speaker_id": "h", "type": "text", "zh": "是的。好的，您现在会做些什么不同的事情？你会尝试……我认为，正如你所说，监管不是竞争优势。这不是正确的词，但受到监管有很大的好处。是吗，你就是这么想的吗？"}, {"start_sec": 641, "speaker_id": "g", "type": "text", "zh": "有优点和缺点;建立一个不是吗？好吧，因为如果你真的想与银行竞争，你需要赢得客户的信任。他们需要存入他们的工资。"}, {"start_sec": 654, "speaker_id": "h", "type": "text", "zh": "他们需要将很大一部分财富存入自己的账户。他们需要开始与您交易股票、ETF等。所以他们必须信任你，在他们看来，他们信任你认为美国公司在这方面做错了什么？"}, {"start_sec": 670, "speaker_id": "g", "type": "text", "zh": "建立一个非常大的业务并占据很大的市场份额是完全无法实现的。我认为在美国，许多公司在大约10年或12年前开始像Chime ， Cash App一样，这很简单。他们都没有申请银行执照。我认为这是一个很大的错误。所以他们永远不可能成为大企业，因为……解释为什么没有它他们就不能成为大企业。"}, {"start_sec": 692, "speaker_id": "h", "type": "text", "zh": "只是因为他们不是银行，对吧？他们可以针对特定的利基受众，某些客户群体，我不知道，低收入人群等。但他们永远无法接触到主流观众，不是吗？如果没有，他们永远不可能成为主要的银行账户。但您认为为什么这会使他们变成一家小公司？"}, {"start_sec": 712, "speaker_id": "g", "type": "text", "zh": "嗯，只是因为，第一批用户， 10 ％或20 ％的人口，会尝试它们。也许它会从第一个用户传播到他们的朋友，家人，以及另一个，我不知道， 2 ％或4 ％的人口。而你想要40、50、60、70 ％。例如，在爱尔兰，我们有80%的市场渗透率。那么，五分之四？是的。五分之四的成年人使用Revolut帐户。好吧，这是怎么发生的？慢慢来。我认为这是缺乏竞争和非常糟糕的银行的结合。他们只有四家银行是坏的，而且这是一个非常小的国家，许多人也住在爱尔兰境外。"}, {"start_sec": 745, "speaker_id": "g", "type": "text", "zh": "所以我认为所有这些加在一起让我们拥有了80%的市场份额。如果您查看其他市场，例如渗透率百分比。法国占20 ％ ，西班牙和其他几个市场占30 ％或40 ％的渗透率。因此，正如爱尔兰所示，达到60、70或80是可能的，但要做到这一点，您必须是一家银行。"}, {"start_sec": 767, "speaker_id": "h", "type": "text", "zh": "所以，我很好奇：当你进入一个新市场，说银行不好，竞争很少。您认为他们做错了什么？"}, {"start_sec": 776, "speaker_id": "g", "type": "text", "zh": "好吧，他们被困在一个非常规避风险的专业管理的边缘。因此，完全没有创新的意愿。然后，所有的资源都花在保护他们已经拥有的东西上，对吧？例如，您可能有一个非常古老的传统第三方中央银行系统。显然，您需要为自己或新的提供商进行更改，但银行管理部门永远不会这样做，因为它会带来风险，对吧？因为您需要迁移客户，而且，您知道，可能会出错。他们从不冒险，对吧？这就是问题所在。而且，因为其中很多不是技术性的，所以他们并不真正懂得如何做很多技术性的事情。因此，对他们来说，默认的选择是对监管机构和传统银行无所作为。因为在一个缺乏某些技能、某些技术技能的行业，做任何事情都是有风险的。银行业不仅仅是监管，它还涉及创造技术。"}, {"start_sec": 849, "speaker_id": "g", "type": "text", "zh": "而且我认为这些人在创造技术方面都非常糟糕。"}, {"start_sec": 852, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "Ramp", "zh": ""}, {"start_sec": 907, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "Deel", "zh": ""}, {"start_sec": 989, "speaker_id": "h", "type": "text", "zh": "因此，正如您所看到的，您的优势之一是与非创始人竞争。你正在与专业的首席执行官竞争，他们不是技术人员。因此，他们实际上无法发明技术，因此无法创新。这就是你要攻击的。是的，没错。他们甚至不考虑建造产品，是吗？因为他们根本感觉不到。他们不使用它。不，他们不知道该怎么做。他们只是职业经理人。对于建立成功的企业非常重要的一点是，显然，您需要成为一名优秀的经理，一名非常强硬的经理，注重细节，同时也是一名非常优秀的产品人员。"}, {"start_sec": 1026, "speaker_id": "h", "type": "text", "zh": "知道如何构建和改造产品。技术、法规、合规、人员，所有这些都在一起。这就像一台机器，对吧？所以有输入，然后整个机器应该产生正确的结果，这是人们使用的令人惊叹的产品。好的，解释一下您是如何构建这台机器的。我的意思是，你需要在你的脑海中可视化，你知道，这台机器上的输入是什么，你想要实现什么。目标是什么，对吧？然后，呃，输入显然是你的组织，你的结构，你的人。"}, {"start_sec": 1056, "speaker_id": "h", "type": "text", "zh": "你如何构建产品，你想要构建什么。然后，你实际上观察到，你知道，整个结构工作，整个产品正在建造，你总是介入，对吧？如果出现问题，请更换机器的某些部件。例如，当我们开始时，这是一个非常小的团队，有10、20、30人。当团队成长时，我们遇到了瓶颈，但后来速度变慢了。机器停止工作了，所以我所做的就是确保我有很多小型的独立团队在同一个平台上工作，对吧？然后速度加快了，因为人们的工作瘫痪了。因此，他们使用相同的工具开发不同的产品、不同的功能，并且都是独立的。但后来，我们再次遇到了监管合规的瓶颈。同样，我在机器中建立了另一个肌肉，即监管事务部门，政府事务等。因此，他们必须产生一定的结果。然后，我们在快速招聘优秀员工方面遇到了另一个瓶颈。"}, {"start_sec": 1114, "speaker_id": "h", "type": "text", "zh": "同样，我们建立了许多招聘流程，专注于最优秀的人才。所以，你知道，它会绕圈子，对吧？你建造了一些东西，然后你遇到了瓶颈，对吧？"}, {"start_sec": 1124, "speaker_id": "g", "type": "text", "zh": "识别问题，解决问题，然后继续前进。"}, {"start_sec": 1129, "speaker_id": "h", "type": "text", "zh": "所以现在你基本上是在为这台机器添加另一种功能，那就是你的公司。在开始Revolut之前，您是一名交易员，对吧？"}, {"start_sec": 1137, "speaker_id": "g", "type": "text", "zh": "是的。我听说了您刚才描述的内容，就像您一样，我甚至不知道您是否称之为赌注。就像你有大约20个不同的想法或小团队在研究20个不同的想法，对吧？然后。解释这些团队的结构，以及您之前作为交易员的职业生涯如何影响您建立和管理公司的方式。我认为，作为一名交易员，最有用的是风险管理和量化一切。因为幸运或不幸的是，在银行或所有组织中，许多事情的评估都基于..."}, {"start_sec": 1173, "speaker_id": "g", "type": "text", "zh": "人们的直觉，在许多情况下是完全不正确的，对吧？因此，为了正确评估哪些工作已经完成，哪些没有完成，您需要有指标，需要有KPI。"}, {"start_sec": 1183, "speaker_id": "h", "type": "text", "zh": "等等，你是说“哑巴”还是“完成” ？制作。制作。好的。完成，完成，完成。我也不傻。我也不傻，是的。指标和KPI确实消除了组织内部的政治，因为，看，一切都是透明的，对吧？"}, {"start_sec": 1200, "speaker_id": "g", "type": "text", "zh": "作为个人贡献者，作为经理，您是否实现了自己的指标？您是否正在实现目标？你为什么不呢？所以你说什么并不重要。我的意思是，有客观的数字。我认为将其作为机器的一部分非常重要。当我在银行工作时，事实是他们并没有真正拥有它。他们有一个专业的首席执行官，但组织内也有很多政治因素。我认为人们经营企业的方式是错误的。好的，解释一下他们是如何设置这些小赌注的。"}, {"start_sec": 1232, "speaker_id": "g", "type": "text", "zh": "说实话，这很简单，因为作为一家公司，我们一直在高速推出许多功能和许多产品。在某一时刻，我决定在创建投注时实施纪律，因为我们做了很多事情，但我们没有跟踪他们的表现。因此，我们简单地创建了一个流程阶段，首先决定下注。可以是从下到上，也可以是从上到下。然后有一个论点。称之为委员会。如果下注是有意义的，那么，如果做出决定，我们将为下注提供资金。"}, {"start_sec": 1267, "speaker_id": "g", "type": "text", "zh": "我们将最多10人的团队分开：前端开发人员、后端开发人员、设计师、产品经理，有时还包括数据科学家和运营经理。然后他们在9到18个月内开发出新产品。当他们推出产品时，我们只是观察毛利方面的增长。就像我们过去10年所做的那样，我们已经推出了50个赌注。我们知道，我们的前十大赌注每月增长10-20% ，每月连续产生100万、200万、300万的毛利润。如果我们下注，并看到历史上它在所有投注的25 ％中处于最低的四分之一，我们只需将其消除。我们建立了不经营增长不快的业务的纪律。在投注增长正确的情况下？我们为他们分配了更多设备。一个团队变成第二个团队，三个团队，四个团队，五个团队，然后它变成一个部门，然后是一条主要的损益线。"}, {"start_sec": 1331, "speaker_id": "g", "type": "text", "zh": "因此，我认为这个过程非常有纪律，以便始终过滤掉无效的内容。甚至我也不相信我的直觉，不知道该创造哪些产品，哪些产品不该创造，因为从历史上看，我错了很多次。我认为这是唯一的方法？您继续为最好的赌注提供资金，您只需在不到18个月的时间内砍掉最差的赌注。你体内的商人，没错。你所说的很多话都让我想起了贝索斯，以及他在建立公司时对亚马逊内部所有这些不同押注的描述。它有一个很好的线条，它说你需要为有前途的火花加油。所以你的策略是消除那些不起作用的东西，但是你对表现最好的赌注（前10% ）有一个百分比吗？通常情况下。"}, {"start_sec": 1375, "speaker_id": "g", "type": "text", "zh": "最高可达所有投注的25%。好吧，然后我们现在只知道你让他们成长。是的，你投入了更多的钱和资源。为什么在开始时，在证明之前，将团队规模限制在10人很重要？不一定是10。还可以再多一点。这取决于产品的复杂程度，但一般不应超过10人。一般来说，您可能需要两到三个后端开发人员。在我们的例子中，因为我们还生产移动应用程序，所以您需要两到四个前端开发人员，三到四个后端开发人员，一个产品所有者和一个设计师。这样你就有10个人了。"}, {"start_sec": 1412, "speaker_id": "h", "type": "text", "zh": "你现在对这些团队的构建方式是否会因为人工智能而发生变化？是的，这是我正在努力改变的事情，因为在过去的10年里，我认为我已经极大地优化了如何管理人员，如何围绕人员建立一个组织，他们的优势和劣势。如何避免政治、建立KPI等。但实际上，通过避免人们的弱点，对吧？说实话，对于人工智能来说，结构需要是一个结果。我认为团队不应该再有10个人了。它应该是两个人，最多三个人，因为一个开发人员可以做前端，后端，甚至是数据科学。那么，它应该是一个“你能否总结一下你对人工智能如何改变你的业务运营方式的看法？”"}, {"start_sec": 1458, "speaker_id": "g", "type": "text", "zh": "嗯，很多事情，我认为我们才刚刚开始。我们拥有自动化的客户服务；现在近90%的支持设备都是自动化的。我们也在做同样的事情。以前有5000多人，现在少得多。显然，我们把工程师的速度提高了30%。翻译和交叉销售现在也由LLM完成。很多事情，但我认为我们现在的最终目标是能够建立一个全栈的人工智能员工。我相信用我们目前的技术是完全可行的。它不像一个聊天工具或其他界面，你告诉它该做什么，然后它会产生一些东西。不，它更像是一名人工智能员工，可以加入您的Slack账号，访问所有内部系统，并且可以工作。"}, {"start_sec": 1517, "speaker_id": "g", "type": "text", "zh": "所以我认为这是最终目标，大多数公司迟早会达到。"}, {"start_sec": 1523, "speaker_id": "h", "type": "text", "zh": "是的，你一遍又一遍地提到它，我不知道你是否使用了“官僚主义”这个词。我不认为是你干的，但你似乎很讨厌政治。你想尽量减少这种情况。你想要数据。你更喜欢那种说： “我不在乎你说什么，我们是否达到了数字，这是否在增长？“你们的组织结构是什么？你有很多直接下属吗？"}, {"start_sec": 1539, "speaker_id": "g", "type": "text", "zh": "两周前，亚历山大·王（ Alexander Wang ）坐在那张椅子上，有大量的直接下属。是的。那么，您是如何组织起来的？嗯，我大概50、51、52岁。"}, {"start_sec": 1552, "speaker_id": "h", "type": "text", "zh": "实际上，我甚至不说话……嗯，我和我的直接下属谈过，但我也更深入。我甚至能接触到关键项目的个人合作者。因此，我可以直接与设计师、产品所有者、开发人员交谈。理念非常简单。当你雇佣聪明、自学成才的人时，你真的不需要管理他们。因此，您只需向他们展示地址，并确保每个人都保持一致。这就像一场噩梦，不是吗？所以你需要确保每个人都使用相同的标准化设备，对吧？就是这样。你不需要每个团队或部门重新发明轮子，是吗？或者他们自己的武器。现在，它必须是相同的标准方法。然后，如果有人发明了某种额外的工具或工具，使我们能够更快地移动，我们应该在所有团队和部门之间对其进行标准化。这就是我做得非常好的地方。我非常擅长支持团队或部门的创新，然后将其传播到整个团队或部门，你能给我一个例子，说明你是如何识别创新并将其扩展到其他部门的吗？"}, {"start_sec": 1620, "speaker_id": "g", "type": "text", "zh": "例如，最近，在设计方面，我们一直使用Figma。现在，我正在支持一个使用LLM更快地制作设计的团队，他们不是在产品界面中进行设计，而是将我们的代码级设计系统上传到LLM。然后，他们使用提示根据我们的设计系统生成某些流程。"}, {"start_sec": 1649, "speaker_id": "h", "type": "text", "zh": "因此，完整的设计不仅仅是Figma中的框架，而是笔记本电脑或模拟器上的实时界面。因此，您可以点击内容。反应和其他一切。但最重要的是，与在Figma中制作框架或屏幕相比，您可以快三到四倍。现在我正在推动整个系统你有没有花时间阅读过去的企业家？有没有人脱颖而出，你钦佩或研究过谁？"}, {"start_sec": 1681, "speaker_id": "g", "type": "text", "zh": "当然，我读过关于亨利·福特的书。我很高兴你提到亨利·福特。你坐在那里像你一样说话。您将在机器的每个部分看到这些创新。我需要确保它遍布整个机器。这就像亨利·福特或安德鲁·卡内基。他周游世界。现在，很明显，技术可以激增。你知道，有人可能会告诉你。你可以在网上或其他地方看到它。他不得不亲自前往工厂，因为他们正在建造实物。我想， “哦，等等。“我要把这个想法带回美国，我在英国遇到的那个。“卡内基和福特也是这么做的。但卡内基听起来特别像你，他只是简单地说， “我不在乎我们1%的业务是否有5%的改善。“换句话说，如果有更好的方法，我们就会这样做。他面对的是一般年长的竞争对手，这些竞争对手没有投资于技术。事实上，当他们发现他花了这么多资源时，他们认为他完全疯了，这实际上给了他，因为他经营公司30年，这样的复合优势，他的竞争对手永远无法赶上。"}, {"start_sec": 1742, "speaker_id": "g", "type": "text", "zh": "它非常先进。但在你刚才描述的内容中，你的想法与卡内基非常相似。我认为建造一台能够更快地移动并实现目标的机器是非常重要的。然后，如果您在机器的任何部分检测到创新，您需要尽快传播它。"}, {"start_sec": 1755, "speaker_id": "h", "type": "text", "zh": "是的，你讨厌只是告诉你该怎么做的经理，这是正确的吗？您是否已将它们从公司中剔除？是的，没错。在过去的10年里，我见过很多。他们只是从个人贡献者那里获取信息，然后将其传递给（我不知道）利益相关者，对吧？那么，它的附加值是什么？您是否改变了团队的方向？不，我的意思是，他们知道自己在做什么。好的，你带来了什么创新吗？您是否找到了实现路线图的最简单方法？"}, {"start_sec": 1794, "speaker_id": "g", "type": "text", "zh": "不，不是真的。但是你的工作是什么？就为了拿走他们的号码并传递给我？我只是不明白。我听说你调试了你的设备。你正在寻找我认为你称之为制导导弹的东西。是的，自我引导的人。这几乎就像您正在寻找的创始人-员工安排。我总是开玩笑说，自我引导的人就像自我引导的导弹，对吧？你有才华横溢的人，你甚至不需要告诉他们目标是什么。他们自己确定目标并自己实现目标，对吧？因此，它们就像自制导弹一样，也能识别目标。"}, {"start_sec": 1827, "speaker_id": "h", "type": "text", "zh": "然后，呃，优秀但不优秀的人，你需要告诉他们目标，没有任何迭代，他们就会达到目标。对于普通人来说，你告诉他们目标，你需要每周和他们一起迭代，引导他们，告诉他们该做什么，然后他们就会达到目标，对吧？"}, {"start_sec": 1847, "speaker_id": "g", "type": "text", "zh": "所以，你花了很多时间在管理上。那是我不想要的。然后，呃，低于平均水平的人，好吧，你给了他们目标，呃，你花时间和他们在一起，呃，他们很可能无法达到目标，对吧？所以这是一个问题。因此，为了拥有尽可能多的直接下属，您只需要尽量减少与他们每个人一起花费的管理时间。"}, {"start_sec": 1865, "speaker_id": "h", "type": "text", "zh": "让我们假设您已经摆脱了所有低于平均水平的人。您如何识别普通人并解雇他们？是的。嗯，我认识的很多人都是非常优秀的高管，你觉得他们为什么要打架？"}, {"start_sec": 1884, "speaker_id": "g", "type": "text", "zh": "我认为这只是，你知道，他们更关心对他人的同理心，而不是胜利。"}, {"start_sec": 1891, "speaker_id": "h", "type": "text", "zh": "所以，我认为，如果你更倾向于赢，对吧？你对他人的同理心排在第二位，然后即使他们是艰难的决定，你也会做出正确的决定。然后，那些更善解人意、不太热衷于成为赢家的人，可能会优先考虑他们的第二、第三或第四名，而不是优先考虑让更好的人加入他们的行列。你有没有听过Elon是如何谈论这件事的？"}, {"start_sec": 1918, "speaker_id": "g", "type": "text", "zh": "不。所以，他告诉了管理工程团队的人员。他说： “如果你的工程师喜欢你，那就意味着你的工作做得不对。“这正是他们的全部焦点。他只是说： “我们是来取胜的。“我们在这里是为了实现目标，人们的感受完全是次要的。”"}, {"start_sec": 1934, "speaker_id": "h", "type": "text", "zh": "是的，完全正确。它更像你想象的那样吗？"}, {"start_sec": 1935, "speaker_id": "g", "type": "text", "zh": "我认为非常重要的是，当您聘请高管时，您会看到高管，呃，对他们的直属下属非常友好的人，呃，他们可能不是合适的人选。我认为最优秀的高管非常强硬，对吧？嗯，他们可能很友好，对吧？但对高管来说，友好从来都不是目标。真的吗？它总是关于实现目标的，对吧？花费最少的资源。所以，他们是最好的。这也是一样的，因为我以前听说过这一点，就像你喜欢小额投资带来的伟大成果一样。你刚才说了类似的话。如何以最少的资源实现目标。"}, {"start_sec": 1975, "speaker_id": "g", "type": "text", "zh": "是的。所以，它几乎就像一门艺术，我知道你当然不认为自己是艺术家。但有一门艺术，你不仅要赢，还要以正确的方式赢。在那里，你只需花费更多的资源就可以赢得胜利，而不是那些说“不，我想尽量找到最小的投资来取得好成绩。”的人。"}, {"start_sec": 1993, "speaker_id": "h", "type": "text", "zh": "是的，完全正确。如果你想想创始人做什么，企业家做什么，高管做什么，他们有一个他们需要从头到尾实现的目标。所以，这意味着他们需要确定方向，去哪里，然后以你在美国创业生态系统中看到的大量浪费的最小数量在这个方向上建立一些东西？我觉得钱太多了，不是吗？有许多创始人认为钱是免费的，这在加利福尼亚州几乎是真的，因为你可以以荒谬的估值筹集这么多钱，然后花掉它。因此，我认为有一种明确的文化，试图用金钱而不是聪明才智来解决问题。"}, {"start_sec": 2035, "speaker_id": "h", "type": "text", "zh": "向遵循这条道路的年轻企业家解释为什么这不是正确的决定。例如，如果您从事B2B业务，对吧？然后，你知道，你创办了一家公司；你获得了第一笔销售额，比如说第一百万ARR ，然后你决定扩大规模，突然你决定聘请一位昂贵的销售副总裁，他将聘请50名其他销售人员来销售你的产品。您需要找到一种方法来开始廉价销售产品，构建系统，然后简单地将员工添加到系统中，这样您始终可以获得丰厚的回报。从大公司开始，聘请一位销售副总裁，同时聘请一个非常昂贵的团队，这是一个冒险的决定。"}, {"start_sec": 2083, "speaker_id": "h", "type": "text", "zh": "因此，基本上，他们取消了资金限制。因此，他们不会培养限制迫使你拥有的技能。如果你想在这些限制下生存下去，你真的必须是优秀的。你真的需要有天赋。你真的必须足智多谋。基本上，他们用钱来掩盖这一点。它可能在短期内起作用，但从长远来看，他们会被像你这样的人打败。我的意思是，如果我们在同一个行业，那么是的，因为，我的意思是，在美国的许多情况下，它没有那么有竞争欲，对吧？"}, {"start_sec": 2106, "speaker_id": "g", "type": "text", "zh": "等等，这是一个疯狂的说法。为什么你会说它在美国没有那么有竞争欲？我觉得其他人会认为这是最具竞争力的环境。您如何看待欧洲人？我的意思是，欧洲的竞争力更低。"}, {"start_sec": 2115, "speaker_id": "h", "type": "text", "zh": "是的，所以你认为它没有竞争欲？"}, {"start_sec": 2116, "speaker_id": "g", "type": "text", "zh": "中国，中国没有竞争欲，是的。"}, {"start_sec": 2120, "speaker_id": "h", "type": "text", "zh": "那么，中国是996 ，对吧？即使你在欧洲很好，或者即使你是，你怎么能打败那些人，对吗？他们还有，嗯，非常好的教育，技术教育。所以这非常困难。当我开始工作时，我与140家公司建立了联合办公空间。在5年的时间里，只有三家公司幸存下来。他们都在周末工作。在10年内， 140家公司中只有两家幸存下来。所以我认为，如果你想生存，周末工作是必不可少的。纯粹是统计学上的。"}, {"start_sec": 2154, "speaker_id": "h", "type": "text", "zh": "好吧，一周工作7天是一回事，但是从9点工作到9点，或者从10点工作到10点，是什么，真正的文化是什么？"}, {"start_sec": 2160, "speaker_id": "g", "type": "text", "zh": "嗯，这就是我的工作方式，对吧？您是创始人。我不认识一个创始人说不，不，我在度假。我明白。我说的是你的，嗯，是的，我的直属下属，他们绝大多数都是这样工作的，对吧？也许我下属的下属之间不太一致。但即便如此，我认为在所有欧洲公司中，我们可能是最努力工作的公司之一。我认为，如果包括美国在内，我们也是最勤奋的公司之一。"}, {"start_sec": 2194, "speaker_id": "g", "type": "text", "zh": "我想知道你对那些拥有这种来自加利福尼亚的文化和技术操作系统的企业家有什么看法，你认为他们做错了什么？你说钱太多了。他们没有那么有竞争欲。不，其他的一切似乎都在那里。有一个生态系统。天赋很好。你有，你知道，伟大的大学和，嗯，很多外国人，你知道，来到这些大学学习。人们都很勤奋。但是，你知道，当有太多的钱，人们选择在问题上花很多钱时，我认为这是一种被误导的文化。"}, {"start_sec": 2231, "speaker_id": "g", "type": "text", "zh": "因为他们实际上并没有解决问题，根本问题。我认为这是一个巨大的浪费，首先，你没有真正发展自己作为一个企业家。你知道，用金钱来解决问题非常容易。如果您有无限的钱，我的意思是，您只需在这里，那里和任何地方扔钱。但是，你没有为未来做好准备，因为某种原因，金钱可能会消失。这是一个非常有趣的视角。你没有成为创业者。"}, {"start_sec": 2257, "speaker_id": "g", "type": "text", "zh": "是的。请举例说明您是如何发展的。好吧，当我们开始时，如果你看一下业务的经济单位，我们从负毛利率开始。在接下来的三年、四年、五年中，负毛利率一直持续，直到我们将其优化为80%的正毛利率。对吧？在我们的业务中，如果你看看欧洲，与美国相比，一切都是极其有限和监管的。例如，交换费为20个基点，而美国为100%。大多数国家/地区的信用卡费率都有上限。旅行基金非常有限，对吧？你真的不能随便给很多人加分。按国家/地区在欧洲建立银行非常困难，因为即使您在欧洲拥有银行执照，您也不能成为主要银行，因为法规不允许您开设本地账户，除非您在相同的实际位置开设银行的本地分支机构。"}, {"start_sec": 2314, "speaker_id": "g", "type": "text", "zh": "换句话说，您需要有办公室、本地连接、本地法规等。因此，您要逐个国家/地区旅行，这需要大量的时间和资源。还有不同的语言。而你必须做到这一切。是的，除了许多国家非常严格的劳动法之外。在美国，这很简单，对吧？换句话说，这是自愿就业。在欧洲不是这样的。因此，您需要非常小心如何雇用和雇用谁。所以，所有这些共同创造了一个不太有利可图的环境，对吧？建立一家公司非常困难。然而，在那种环境下，我们成功了，对吧？但最终我们成功了，因为我们投入了大量的时间，大量的精力和大量的智力来优化每个问题。如果我在巴西、美国或墨西哥等其他国家有同样的业务，某些方面会容易得多。"}, {"start_sec": 2368, "speaker_id": "g", "type": "text", "zh": "如果你看一下单一经济，信贷更容易授予。汇率不予保留。从技术上讲，欧洲的这种艰难环境实际上教会了我们如何在竞争激烈的环境中建立业务。你明白我的意思吗？好吧，所以如果你设法在这个非常困难的环境中生存下来，你现在有一套其他没有经历过的人没有的技能，现在你必须和他们竞争，比如说，在美国。与他们竞争将非常困难。与您竞争将非常困难，因为他们没有发展出相同的技能，也没有经历过您所经历的事情。好的，这完全合理。"}, {"start_sec": 2402, "speaker_id": "g", "type": "text", "zh": "在阅读《从0到1》这本书时，我发现了我最喜欢的一句名言。这句话写道： “我注意到的最强大的模式是，成功的人在意想不到的地方找到价值，他们通过从基本原则而不是公式来思考业务来实现这一目标。“这正是AppLovin对其广告平台所做的。AppLovin将您与超过10亿的手机游戏新潜在客户联系起来。AppLovin让您吸引全部注意力。AppLovin广告是全屏视频，平均观看时间为35秒。留存率远远超过其他广告平台，您可以在几分钟内开始使用AppLovin。您设定了目标， AppLovin实现了目标。无需复杂的设置，无需经验。AppLovin可以快速扩展。他们将您的广告展示给超过10亿的潜在客户。其他企业已经看到了立竿见影的效果，每天的投资规模达到数十万美元，收入增加了数百万美元。因此，您需要在所有竞争对手都使用AppLovin之前快速入门。您可以访问applovin.com。"}, {"start_sec": 2466, "speaker_id": "h", "type": "text", "zh": "那是applovin.com。你说了一些关于投资者的非常有趣的事情，我想和你谈谈，因为它真的很重要。在这个项目中，整个想法很简单，我相信企业家是世界上最重要的人。认为某人有一个不存在的想法，并通过决心、主动性和侵略性，使一些不存在的东西成为现实，并开始在他们的脑海中。在您的案例中，您在40个国家或地区拥有数千名员工，有多少客户？数千万？我的意思是，从你有的想法，你知道，当你有的时候，是什么？那时差不多30年了。是的，这绝对是不可思议的。我认为这对我来说是一个奇迹。然而，很多讨论，创始人私下对投资者说的话，他们没有公开说。所以，我们最近在谈论，因为我看到了你的那段视频，你将投资者与足球啦啦队员进行了比较。你能解释一下你为什么要进行这种比较吗？"}, {"start_sec": 2525, "speaker_id": "g", "type": "text", "zh": "嗯，基本上，呃，呃，我之前已经告诉过你这个故事了。所以，我对这家公司的看法是，呃， 12或13年前。嗯，当时在欧洲和英国，筹集资金的环境非常困难。简而言之，风险资本家并不多，他们都更像私募股权人士--非常咄咄逼人，非常守法。所以，为了筹集资金，你必须在股东协议中签署很多糟糕的条款，比如清算偏好、董事会席位、你知道的，减少你作为创始人的投票权等等。因此，这些人基本上认为，多亏了他们，公司才成立，因为他们捐了钱。他们有权获得更大份额的成功。你知道，这是很多人的心态，比如在我的公司。我认为这种心态在很大程度上是不正确的，因为从有限合伙人（ LP ）那里拿钱是非常容易的，我也是。"}, {"start_sec": 2592, "speaker_id": "g", "type": "text", "zh": "等等，你说去拿钱？赚钱很容易，因为您的业务非常简单，对吧？好的，他们有自己的有限合伙人，他们从他们那里筹集资金，然后投资于初创公司，然后他们有2和20的商业模式，对吧？因此，与从头开始构建真正的运营业务相比，这要容易得多。因为他们从不拿自己的钱冒险，对吧？他们真的不需要努力工作。我的意思是，有竞争，但竞争只是为了获得交易。"}, {"start_sec": 2620, "speaker_id": "h", "type": "text", "zh": "所以我认为他们的工作要容易得多。这是第一点。其次，与现在的风险投资圈相比，当时几乎没有竞争对手。当时基本上有这样的观点，我们作为风险投资家会帮助他们经营公司，公司会取得成功，因为我们会给他们关于如何经营公司的建议。实际上，他们几乎都没有建立过公司，对吧？因此，他们只从有限合伙人那里筹集资金，将资金投资于许多公司，有时他们在董事会中有职位，有时他们没有。在董事会任职并不能教会你如何经营一家公司，不是吗？"}, {"start_sec": 2662, "speaker_id": "g", "type": "text", "zh": "你只是一个观察者。结果，所有这些人都有很大的权力，对吧？因为他们给你钱，所以他们在股东协议中加入了一些条件。然后他们也有这种心态，他们可以告诉你作为创始人该怎么做，对吧？根据我的经验，这是非常危险的。我过去有很多案例，某些风险投资家，我的意思是，他们的建议对公司来说根本是错误的。"}, {"start_sec": 2690, "speaker_id": "h", "type": "text", "zh": "所以我认为我对企业家的建议是，即使你从风险投资家那里筹集资金，也要密切关注股东协议，对吧？然后确保他们是纯粹的金融参与者，他们没有权利，没有投票权，也没有决策桌上的席位。超级重要。因为如果出了问题怎么办，对吧？"}, {"start_sec": 2710, "speaker_id": "g", "type": "text", "zh": "你知道，你确实有啦啦队员，他们观看比赛并尝试玩这个游戏，而不是专业球员。这就是为什么，你知道，这总是一场灾难。您为什么说您得到的一些建议是危险的？我的意思是，其中一条建议是，好吧，你知道吗？您需要聘请一位经验丰富的高管。你知道吗？不，这行不通。"}, {"start_sec": 2736, "speaker_id": "h", "type": "text", "zh": "头五年开始的时候，我可能有50多位经验丰富的高管，我只留了两个，对吧？在一年之内，根本行不通。为什么会发生这种情况？为什么经验丰富的高管几乎从不锻炼身体？和橄榄球运动员一样，对吧？他们正处于巅峰时期。非常相似，有一个理想的年龄，这并不意味着他们变得不那么好。我认为他们的优先事项发生了变化，不是吗？此外，事情发生了变化，时代发生了变化，竞争也发生了变化。因此，以前很优秀的人，过去有过优秀记录的人，将来可能不会擅长你的公司。这是第一个。这样想太天真了。然后第二点，还有一个负面的选择偏差，对吧？"}, {"start_sec": 2785, "speaker_id": "g", "type": "text", "zh": "如果你认为那些非常优秀的人，比如我雇佣员工的方式，我会看看他们的成就记录，然后他们需要在职业发展方面比同行排名前1%。然后我试图在他们25岁或30岁时吸引他们，以便他们在Revolut以相同的轨迹继续前进。当你聘请一位经验丰富的高管时，实际上存在消极的选择偏见，因为非常优秀的人已经成功了，对吧？他们可能正在经营自己的企业，或者退休了，或者其他什么。而那些从未有过这种极端职业发展的人，你雇用他们作为经验丰富的高管，从定义上讲，与那些职业生涯极快的人相比，他们只是好人，他们不再在市场上。"}, {"start_sec": 2832, "speaker_id": "g", "type": "text", "zh": "好吧，所以你基本上发现，根据你刚才所说的，你得到的建议与你应该做的完全相反。是的，没错。是的，当他们认为公司的某些人很好，因为他们有经验时，会有很多建议。我想我正好相反。其中一个实际上是一个很好的投资者。我强迫自己解雇我最好的朋友，因为他太激烈了。所以，很多都是，是的。"}, {"start_sec": 2863, "speaker_id": "h", "type": "text", "zh": "这家伙需要从9点工作到5点，好吗？那么，这是怎么发生的呢？请告诉我更多信息。既然你明明反抗过，那家伙也没有被炒鱿鱼。怎么了，我是说，我当然没开除他。我说不，仅此而已。好吧，但就是这样，那个家伙……他要么接受，要么离开。是的，我，然后发生了什么？您是否与投资者发生过争执？发生了什么？是的，我有一个，是的。是的。您是如何解决的？你拥有所有的力量吗？发生了什么？我和他打架了，嗯，是的，即使他们有很多投资者的联盟，但你知道吗？"}, {"start_sec": 2892, "speaker_id": "h", "type": "text", "zh": "他们后退了一步。好吧，你是怎么让他们退缩的？"}, {"start_sec": 2894, "speaker_id": "g", "type": "text", "zh": "嗯，我想，你知道，我很早就意识到，相当多的风险投资家不是很运作，如果他们有任何权力，对公司来说真的很危险。所以，在每一轮投资中，我只是，你知道，淘汰风险投资家。换句话说，就是找老板。所以现在我董事会里没有任何风险投资家。我认为这是最好的。你总是需要让运营商参与进来，而不是风险投资家，那些真正建立企业的人，他们知道如何把事情做好。"}, {"start_sec": 2925, "speaker_id": "g", "type": "text", "zh": "您的心态让我想起了优步的特拉维斯·卡拉尼克（特拉维斯·卡拉尼克）。他在节目中，我认为获得数百万观看次数的片段之一就是关于这一点，他认为对风险投资家来说，不造成伤害是一个过高的标准。他说，超过90%的风险投资家甚至无法避免把事情搞砸。他说，不多，甚至没有用。他们就是忍不住把事情搞砸了。然后他说，根据他的经验， 1%真的很有用。我认为他在节目中对所有企业家说的话很简单：把钱给我，然后离开。你就是这么想的。我的意思是，在一些股东协议中，他们根本没有权力。"}, {"start_sec": 2963, "speaker_id": "g", "type": "text", "zh": "是的，我会让他们更富有。别烦我。基本上就是这样。是的。您还创建了自己的基金，我不知道您是否称之为风险投资基金。"}, {"start_sec": 2971, "speaker_id": "h", "type": "text", "zh": "是的，这是一个风险投资基金。首先，你叫什么名字？"}, {"start_sec": 2976, "speaker_id": "g", "type": "text", "zh": "呃，量子光。好的。所以，解释一下你在做什么。这很有趣。我现在才意识到这一点，因为您正在分析传统银行。你说，不，看看他们犯的所有明显错误。其中一部分来自经验，对吧？很难赚取收入。他们这样做的方式毫无意义。我将向您展示一种不同的方法。是的，基本上这个想法是在2022年或2023年，当时我突然想到，这个想法实际上来自我个人的痛苦，来自与投资者的斗争。事实上，这是一个非常重要的名字。他们加入或投资了Revolut。我相信，在新冠疫情之后或疫情期间，所有股票都上涨了，估值为330亿。所以基本上，他们有法律权利不允许我们修改股东协议，因为他们是最后一个投资者，等等，等等。"}, {"start_sec": 3031, "speaker_id": "g", "type": "text", "zh": "所以，你对风险投资家有很多不好的经历。您将创办自己的风险投资基金。解释您的资金有何不同。所以，我基本上有这场斗争，你知道，我非常沮丧，我想，你知道吗？我还需要与该业务的风险投资家竞争，因为他们非常糟糕，出于沮丧，我也创立了该基金。这个想法基本上不是基于人类的判断，而是基于科学和机器学习模型。"}, {"start_sec": 3057, "speaker_id": "g", "type": "text", "zh": "统计投资，这是第一件事。"}, {"start_sec": 3061, "speaker_id": "h", "type": "text", "zh": "第二，实际帮助创始人提供我们开发的运营建议或手册，内容涉及如何雇用员工、如何管理绩效、如何扩展产品等。最后，我们也帮助他们销售产品，因为我们是一家大公司，我们从许多供应商那里购买。让我们成为客户有助于其他公司的销售。或者可能销售给我们的客户，我们的创收客户。所以，我认为总的来说，除了我个人的建议之外，很明显。我认为整体而言，与纯粹的金融参与者，即风险投资家相比，这套方案要好得多。您刚才也提到了您的个人建议。那么，您是否正在进行集中投注？这是否像其他东西一样，你一次赚20或50 ？还是你把钱集中在少数人身上？"}, {"start_sec": 3107, "speaker_id": "h", "type": "text", "zh": "这对我们来说再次是一项统计投资。它基于机器学习模型。它的运作方式是，我们的模型选择30到40家公司在2年或3年内进行投资。然后他把同样的钱投入到每家初创公司。我们从B轮创始人基金开始。关门了，完全颠倒了现在已经产生了约56%的内部收益率。你从大约2.5亿左右开始，对吧？"}, {"start_sec": 3133, "speaker_id": "g", "type": "text", "zh": "我们从2.5亿开始，是的，第一个基金。现在它的内部收益率约为56%。我们现在开始投资第二只基金，即5亿。所以现在他们是C系列公司。同样，基于模型，也具有非常高的性能。我认为，就盈利能力而言，它现在处于世界基金的前5%。"}, {"start_sec": 3153, "speaker_id": "h", "type": "text", "zh": "我们可能还会赚一大笔钱这笔钱从哪里来？"}, {"start_sec": 3155, "speaker_id": "g", "type": "text", "zh": "他们是不同的有限合伙人。"}, {"start_sec": 3159, "speaker_id": "h", "type": "text", "zh": "最初， 20%是我自己的钱。所以我投入了总数的20%或25%。其余的则来自其他创始人。在第二个基金中，我们还获得了相当多的机构参与者。我从来没有听说过有人把自己与Meta这样的东西进行比较。所以，我马上就开始讨论。但你不会做一半或很小的事情，是吗？就像这样： “好吧，我从250开始。“现在你只需要看看你能走多远。这就像，你知道，像文艺复兴科技这样的巨头吗？"}, {"start_sec": 3186, "speaker_id": "g", "type": "text", "zh": "显然，我们的目标是在私人市场上建立像贝莱德这样的大公司。同样，我们会看看我们是否到达那里。但我认为，因为现在你有很多关于初创公司的数据，你可以应用所有这些机器学习模型来确定最好的机器学习模型。然后模型预测它。例如，我们的指标之一是看谁投资了公司，谁在投资。我们不仅关注投资于公司的基金的绩效，还关注合作伙伴的层面。然后我们还要看伴侣的年龄。当你看到这些变量时，有一些非常有趣的事情，例如伴侣的年龄。您不希望投资于合伙人年龄超过40岁的公司。因此，最好的群体是30至40岁的年轻合伙人，他们正在投资。他们最擅长识别优秀的公司。高管也是如此。是的，您应该遵守一定的理想年龄。同样，有很多变量，对吧？年龄不是一切，是吗？但从统计学上讲，这就是你应该与Revolut分开的公司，还是…… ？"}, {"start_sec": 3264, "speaker_id": "g", "type": "text", "zh": "是的，它是完全分开的。好的，然后完全分开。"}, {"start_sec": 3266, "speaker_id": "h", "type": "text", "zh": "您是否还有其他人在运行它？是的，好的。您还提到帮助他们销售产品。跟我讲讲市场营销的早期阶段。我听说你在最初的五七年里没有在营销上花费任何东西。"}, {"start_sec": 3279, "speaker_id": "g", "type": "text", "zh": "是的，前七年是完全有机的。此外，新冠肺炎疫情已经到来， 2021年，我记得这家公司已经有六七年的历史了。新冠肺炎疫情爆发，我们的收入下降了70%。那时，我们还未涉足银行业务。你知道，我们仍然是用旅行卡的电子货币。因此，它与旅游业务密切相关。新冠肺炎疫情爆发后，旅游业彻底消失。所以我们必须以某种方式生存。在此期间，我们进行了很多优化。"}, {"start_sec": 3319, "speaker_id": "g", "type": "text", "zh": "好吧，但请向我解释为什么你决定开始在营销上花钱，因为当我去欧洲时，我觉得我被你的广告轰炸了。我到处都能看到你的东西。现在，与您交谈后，这是完全合理的。这不是说“哦，是的，我要在这里做一点，在那里做一点”。更重要的是，一旦我找到了一些有用的东西，我基本上会全力以赴。是的，这基本上就是我对营销的看法，因为我已经6、7年没有做过营销了。我只是没有时间，我们也没有足够的资源。但当我开始这样做时，我走得更深。"}, {"start_sec": 3348, "speaker_id": "g", "type": "text", "zh": "因此，我基本上从我们需要雇用谁来操作适当的营销机器开始。不是在这里和那里，而是在科学上，对吧？我们需要将资金投入到营销中，并获得足够的回报。然后我的想法非常简单。哪些公司在营销上花费最多？哪些人对营销支出极为谨慎？你知道，哪里有非常低的误差幅度？当时他们是游戏公司，对吧？游戏公司的营销支出中有很大一部分用于效果广告。"}, {"start_sec": 3378, "speaker_id": "h", "type": "text", "zh": "因此，某些公司也开展了许多影响深远的活动。博彩公司做得好还是不好？"}, {"start_sec": 3383, "speaker_id": "g", "type": "text", "zh": "游戏公司是全球最大的营销支出者。如果你看看他们的预算，你知道，他们的营销很容易超过10亿美元。他们中的许多人要去AppLovin。是的。什么， AppLovin今年将产生大约60亿的利润？所以他们做得很好。难以置信。是的。是的。所以我最终聘请了一位非常好的人，他开始在Revolut领导营销。然后，一旦我们有了一个体面的数量..."}, {"start_sec": 3414, "speaker_id": "h", "type": "text", "zh": "继续，我是否理解正确？所以你是在研究游戏公司的广告宣传方式，还是只是想知道他们花了多少钱？"}, {"start_sec": 3420, "speaker_id": "g", "type": "text", "zh": "我们的想法是找出谁是最好的专业人士，谁知道如何在营销上花钱，对吧？我们的想法是，这些专业人士将在游戏公司工作，因为他们的预算最大。我明白了。所以，这就是我如何得到我的第一个，嗯，实际上是我的第二个。我解雇了第一个。他不是比赛中的重要人物。可能是风险投资家的堂兄。我实际上雇佣了他或类似的东西。"}, {"start_sec": 3441, "speaker_id": "h", "type": "text", "zh": "无论如何，我们深入研究了绩效营销、LTV和投资回报率。然后，最近我们开始做更多的事情，因为我们获得了银行执照，我们意识到，或者我从一开始就意识到，这一切都与信任有关，对吧？如果你是一家数字银行，你没有分支机构，人们看不到你的身体，根据定义，他们对你的信任不如汇丰银行、劳埃德银行、摩根大通银行等。那么，好吧，你如何建立信任？您如何利用绩效营销支出进行有效套利？因为在绩效营销中，您按展示次数付费，而在现实世界中，您可以购买的许多空间也会产生展示次数，但与数字世界相比，价格要低得多。例如，我们现在可能拥有欧洲所有机场的50 ％ ，对吧？因为欧洲近50%的机场现在都会有广告，对吧？同样，这要归功于简单的数学运算。人们一年旅行多少次，对吧？"}, {"start_sec": 3505, "speaker_id": "h", "type": "text", "zh": "他们一年在机场有多少次？我们会产生多少印象？我们要花多少钱，对吧？这就是针对基于结果的营销的仲裁的用武之地。然后是物理世界其他地方的类似想法。例如，我们开始做相当于传统分支机构的工作。我们称之为REV商店，对吧？ REV体验。然后，我们在巴塞罗那开设了第一家商店。再一次，将物理世界与数字世界的印象进行仲裁。因为，每年有多少人经过我们的商店？"}, {"start_sec": 3534, "speaker_id": "g", "type": "text", "zh": "但是这家商店到底是什么？我的意思是，这更像是一次Revolut体验。这不是传统的银行分行。进来体验我们所有的产品。一切都以非常现代的方式完成。就像苹果商店一样，但对于Revolut来说。我们的想法是为街上的路人和进来的人留下深刻的印象。许多公司在机场做广告。就像是， “哦，屏幕上的东西可能持续30秒左右。“它可以是壮观的。这就像，我步行2分钟，但我仍然被包围着。这就像Revolut广告的巨大茧。你也是怎么想到这个主意的？购买整个机场的想法。我想不出我见过的另一家公司这样做。我想是的。更多的人应该这样做。我的意思是，我不使用您的服务，但我绝对知道您的存在以及您的工作。就好像你基本上瞄准了无处不在，这就是我走过机场时的想法。"}, {"start_sec": 3588, "speaker_id": "g", "type": "text", "zh": "是的，我的头脑现在看到，在物理世界中支付印刷品比在数字世界中便宜得多。虽然这不仅仅是为印象付费，因为你知道，我也在谈论建立信任。我认为信任问题实际上是最有趣的观点之一。你今天说了很多有趣的话。但我认为这一切的无处不在是有原因的。这不仅仅是一个标志，你知道，这是Revolut ，这就是我们所做的。就像整个走廊一样。你正在走路，我觉得自己被这个包围了。我告诉你，我想不出任何其他公司。这甚至在我们考虑让你上节目之前。我只是觉得这实际上是个好主意。我不会走过这里，不知道这家公司的存在。我最后想和你们谈谈的事情之一就是你们的宏伟抱负。我想以前不认识你的人会注意到你非常有竞争欲。我喜欢你对风险投资家感到不满，并说： “好吧，现在我必须和你竞争，因为你让我很生气。“但我从来没有听说过其他人建立银行。首先，你说没有真正的全球银行，你想成为第一个。所以，我喜欢这种雄心壮志。但是，您可以通过说我们希望成为一家全球性的科技公司来进行比较。"}, {"start_sec": 3653, "speaker_id": "g", "type": "text", "zh": "我认为你提到了一些公司，但我记得的是像Meta这样的全球科技公司。解释一下。您正在构建的内容之间的联系，许多人可能认为这是一项无聊的业务-您知道，银行已经存在了很长一段时间-但这不是您如何看待您正在构建的内容。是的，基本上我们的想法和目标是从这个业务中产生足够的现金流，以便能够为可以消耗大量资本的真正大赌注提供资金，对吧？例如，我也想深入研究LLM以构建我们自己的模型，事实上，我们构建了自己的交易模型Pragma。这是一个法学硕士，但它都是基于事务转换器，而不是单词。"}, {"start_sec": 3702, "speaker_id": "h", "type": "text", "zh": "但我很想深入研究，不是吗？建立我们自己的数据中心来训练我们的模型，并开发比现在更深层次的技术。但是，你知道，这需要大量的投资，对吧？还有大量的现金流。基本上，建立一个产生足够现金流的大型企业，为在未来两、三或四到五年内可能无法产生利润的雄心勃勃的投资提供资金。这些雄心勃勃的押注是否与金融服务无关？"}, {"start_sec": 3737, "speaker_id": "g", "type": "text", "zh": "是的，很有可能。是的。因为，我的意思是，在金融服务方面，我们还能做些什么？几乎所有的东西都已经被发明出来了。所以，归根结底，我们只是在重写传统产品，对吧？我们正在创造相同的金融产品，但比以前便宜得多，也更好。此外，我们将它们全部归入同一个应用程序。所以一切都很方便。"}, {"start_sec": 3761, "speaker_id": "h", "type": "text", "zh": "我们还进行创新，以确保所有内容相互关联，产品之间可以相互沟通。但最终，它还是一样的旧长凳，只是以一种新的方式制造，不是吗？我真正想做的是离开那里，做一些业内尚未做过的事情？在所有行业，是的。所有行业？"}, {"start_sec": 3784, "speaker_id": "g", "type": "text", "zh": "更具体地说，在科技行业。"}, {"start_sec": 3786, "speaker_id": "h", "type": "text", "zh": "您是否公开分享过这些雄心勃勃的想法，或者您是否将其保留在公司内部？"}, {"start_sec": 3792, "speaker_id": "g", "type": "text", "zh": "目前，所有这些想法都在我的脑海中，因为我知道我们没有资源或时间来构建它们。但我希望在3年、4年或5年内，我们将有足够的资源来开发它们。Pragma是使用我们的交易数据训练的基本模型。作为参考，我们每天有3000万笔交易。因此，我们有数十亿笔交易。可以使用交易来训练基于变压器的模型，并将其用于金融服务的几乎任何方面。它可以是一种反欺诈模式。它可以是一个信用模型。潜在的投资模式和更多。"}, {"start_sec": 3840, "speaker_id": "h", "type": "text", "zh": "当他们在这里推出时，我为什么要使用他们的银行而不是像摩根大通这样的银行？"}, {"start_sec": 3844, "speaker_id": "g", "type": "text", "zh": "摩根大通非常本地化，为您提供美国银行账户和美国产品。如果您曾在美国境外曝光，我们是您的银行合作伙伴，因为我们在美国为您做摩根大通所做的一切。"}, {"start_sec": 3861, "speaker_id": "h", "type": "text", "zh": "此外，我们还提供所有全球资产。您可以在我们这里开立全球账号。因此，在美国期间，您可以在欧洲或澳大利亚开设账户。您可以在所有国家/地区之间即时汇款。以此类推。我们不会为您提供积分金融产品和本地优惠，而是为您提供有效的全球曝光。这就是我们的立场。此外，它有一个更好的界面，与他们相比，您赚钱的方式有什么不同？"}, {"start_sec": 3892, "speaker_id": "g", "type": "text", "zh": "与我们相比，他们更注重信贷。"}, {"start_sec": 3895, "speaker_id": "h", "type": "text", "zh": "我们更专注于订阅、交易，他们在信贷部门做什么？他们会把所有这些都卖掉吗？"}, {"start_sec": 3903, "speaker_id": "g", "type": "text", "zh": "信用卡只是标准产品、信用卡和贷款。卖掉？还没有，还没有。好吧。因为它仍然是我们资产负债表中非常小的一部分。"}, {"start_sec": 3911, "speaker_id": "h", "type": "text", "zh": "所以你认为你比传统银行的优势在于你更像是一家科技公司？"}, {"start_sec": 3914, "speaker_id": "g", "type": "text", "zh": "我们的优势在于技术。如果你想想过去的银行，当他们在各个国家进行实验时，他们只是买了其他银行；因此，他们在许多国家拥有许多系统，并没有真正控制任何事情；生成任何报告都需要数月时间，并且需要来自不同系统的数据。我们的优势在于，我们在许多国家实现了单一系统、单一分类账的标准化。从一个国家搬到另一个国家时，我们不需要从头开始编写所有内容。我们仅配置我们的软件，例如，在英国注册。"}, {"start_sec": 3951, "speaker_id": "g", "type": "text", "zh": "我们只需调整设置，将公司注册地更改为美国或墨西哥，以此类推。因此，它成为一种高度可配置的产品；我们不需要从头开始在另一个国家建立另一家银行。通过这样做，与10个国家的10家银行相比，您显然需要更少的人来维护它。因此，存在规模经济，因此我们可以以比其他银行便宜得多的价格销售产品。此外，所有关于如何创造产品、进行营销等的机构知识都应用于任何新的国家。我相信，随着时间的推移，它可以成为一股不可阻挡的力量，因为它以比当地银行高得多的价格提供更好的产品和服务。"}, {"start_sec": 3993, "speaker_id": "g", "type": "text", "zh": "随着时间的推移，我正在建造一台不可阻挡的机器。这是一个很好的结束点。谢谢你，尼克，感谢你抽出时间。太棒了。希望您喜欢这一集。"}, {"start_sec": 3999, "speaker_id": "h", "type": "text", "zh": "请记住，无论您在哪里收听我们的节目，都要订阅，留下评论，并确保查看我的另一档播客《Founders》。近十年来，我痴迷于阅读历史上最重要的企业家的400多本传记，寻找可以在我的工作中使用的想法。大多数第一次收听这个节目的参与者都通过"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>找到 PMF 的 86 分钟指南｜罗布·斯奈德（Rob Snyder，《拉力的力量》作者）</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="h">伦尼·拉钦斯基（Lenny Rachitsky，主持人）</option><option value="g">罗布·斯奈德（Rob Snyder）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Lenny&#x27;s Podcast</span><span class="pill">2026-10-25</span></div>
+<h1>找到 PMF 的 86 分钟指南｜罗布·斯奈德（Rob Snyder，《拉力的力量》作者）</h1>
+<p class="sub">嘉宾：罗布·斯奈德（Rob Snyder，《The Power of Pull》作者） · 约 86 分钟（5147 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=19qrLchbQEc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=19qrLchbQEc</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Lenny&#x27;s Podcast</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-25</dd></div><div class="meta-row"><dt>时长</dt><dd>约 86 分钟（5147 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en / en-orig；普通 yt-dlp 遭 429 后经 yt-dlp + Chrome cookies 拉取；无官方字幕轨），中文为逐句全文翻译，已省略赞助口播（Work OS、DX）；caption_source=yt-dlp-chrome-cookies</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>19qrLchbQEc</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>Lenny 访谈 Rob Snyder：用「拉力」（pull）框架从发现、销售到交付与留存，系统化找到产品市场契合（PMF），并把创业想成可重复的「案例工厂」。</p>
+<h3>核心要点</h3><ul><li>拉力属于具体的人（非公司）；销售通话要验证对方会否把产品从你手里抢走，否则 Hail Mary：待办里有没有愿现在付钱让你做的事</li><li>有「yes」后亲自交付，找留存领先指标 X（到了才「流失奇怪」）；高流失不可接受——往往能从中发现真正有拉力的细分并 pivot</li><li>案例工厂心智模型：管道→销售→交付，用约束理论一次只打增长瓶颈；目标是一个 hell yes 案例无限重复</li><li>建议：少试点/PoC/设计合伙，直接卖并上线；成熟公司做第二产品也可用同一套对现有客户立假设、找拉力</li><li>卡住时进哥布林模式/Hail Mary：见面、上飞机、多开会；沥青坑点子＝打已有明确赢家的空间却无差异化理论</li><li>赞助口播已标灰：Work OS、DX</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：约 86 分钟，框架清晰、可操作，适合从 0→1 找 PMF 的创始人与做新业务线的产品负责人；若已熟拉力概念可跳过开场定义，直奔销售结构与案例工厂。闪电轮与书单可按需听。</p>
+<h3>适合人群</h3><p>早期创始人、PM/产品负责人、做第二产品的成熟公司团队、关心 GTM 与留存的创业者</p>
+</section>
+<div class="legend"><span class="spk-0">伦尼·拉钦斯基（Lenny Rachitsky，主持人）<em>主持</em></span><span class="spk-1">罗布·斯奈德（Rob Snyder）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>销售通话背后的理论是：如果你有「拉力」（pull），对方会把产品从你手里抢走。所以我有一套非常具体的销售通话结构，用来进入发现（discovery），再从发现中过渡出来。人们怎么用这个框架，来想出更可能真正成功的点子？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>人们常犯的一个主要错误，是以为拉力是一家公司拥有的东西。其实它是某个人拥有的东西。你不是在卖给 SpaceX（SpaceX）。你是在卖给 SpaceX 法务负责人，她的待办清单上有一个她自己做不了的项目。</p>
+<p>你有一个叫「Hail Mary（孤注一掷）」的做法。你在跟人聊，他们说：「天哪，这正是我需要的。」很多时候不会发生这种事。但那也是一个机会——我称之为扔出 Hail Mary：你的待办清单上，有没有什么是你愿意现在就付钱让我去做的？我们是在看他们会不会试图买。如果不会，没关系，我们学到了一些东西，可以继续迭代。如果会，太好了，我们可能抓到了什么。再看看它会不会重复出现。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>假设你真的找到了某种东西，某种<span class="tag">【音乐】</span>正在产生拉力、人们说「我现在就要」的东西。接下来做什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>留存（retention）极其重要<span class="tag">【音乐】</span>，而且并不显而易见。所以我的建议是——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>Rob，非常感谢你来到这里，欢迎上播客。</p>
+<p>你好，谢谢。你是《The Power of Pull（拉力的力量）》的作者，书就在我手里。你还有一份叫《The Physics of Startups（创业物理学）》的newsletter。我好像还没跟你说过，我认识你的方式很不寻常。我有一个付费订阅者的 Slack 社群。就在过去一个月里，有两个人分别开了帖，说：「Lenny，你一定要把 Rob 请上播客。我一直在读他的书，对我正在做的事极其有用。」他们有的是创始人，有的是产品人，我就想：这人是谁？我得搞清楚。于是我联系了你，这期节目就这么来了。本质上，你在书里和newsletter里写的，等于做了一份非常务实的指南：如何找到产品市场契合（product-market fit），如何从零到一，再到一之后。除了我刚才说的那些人觉得有用之外，再给听众一个相信你的理由——我知道你已经帮大约 50 家创业公司从零做到超过 100 万美元的经常性收入（ARR）。讲讲这些洞见和建议从何而来。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对，是的。我完全没料到自己会写书或做这类事。我自己做创始人冲零到一时被现实狠狠打脸，后来偶然摸出门道，然后一堆朋友开始把我拉去帮他们的创业公司做零到一，我就对这个阶段着了迷。它超级有意思，也超级怪。我觉得这方面写得好的东西并不多，于是我就奇怪地沉迷于尽可能多地做零到一，而且我很享受。我还想读几段社群里的原话，来印证你刚才说的——人们对你所做之事的评价。这很不寻常：虽然你说相关内容不多，但其实给创始人的内容很多——如何找点子、如何找产品市场契合。所以如果有人特别说「这对我比外面任何东西都有用」，对我来说是个很强的信号。社群里有人说：我还记得读他书的第一章时，肩膀上的重负卸下来了——原来我不是什么愚蠢又迷茫的异类，这是过程里的正常部分。还有人说：除了所有非常战术的东西，我个人还觉得，它把追求产品市场契合有多痛苦、多孤独、多怪异给正常化了。最后：我们正好撞上了 Rob 描述的那些零到一陷阱——按潜在客户说他们「想要」的去建，而不是按真正让他们说「要」的去建。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>哇，你社群里的人真好。那真是……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>确实如此。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>太贴心了。</p>
+<p>确实，确实。好，反正就这样。给大家一点……好，我们认真听。来，给我们概览一下拉力框架（pull framework）。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>好。拉力框架描述的是这样一种人：会把你的产品从手里抢走的人。也就是「不买你的产品反而奇怪」的那种人。我们都知道拉力是什么感觉——创业故事里写的那种，像你newsletter里那些起飞的创业公司，有疯狂的拉力。你就是那样成长起来的，对吧？人人都想要那种感觉。可我们大多数人处在的状态更像在「推」：拼命说服别人在乎、说服别人买，勉强有点用。所以拉力描述的是「不买才奇怪」的人。问题是：什么会让人把产品从你手里抢走？我发现很多传统说法不对。我自己做创始人时，出去找「火烧眉毛」的痛点、大问题，提供有差异化的、真正有价值的方案。我们有每天都在用产品的设计合作伙伴（design partners）。我当时觉得：勾勾勾，这玩意儿要上天了。然后去卖，结果连续两年撞墙、盲目转向，完全不知道为什么。后来我们偶然转向，突然起飞，我才意识到：让人把产品抢走的，并不是痛点或价值主张之类的东西。因为人们完全可以说：挺好的，你的产品解决痛点、很有价值，但我不会为了买它而打乱自己的优先级。我意识到关键是优先级——某种特定的优先级：有人正要做某件事，待办上有个项目，现在就要做，但用现有工具、方法或选项做不了。那种情况下他们像压紧的弹簧：想做事却卡住了，你出现并提供能让他们松开、帮他们完成那个优先级的东西。那时候他们就会把产品从你手里抢走。拉力框架，就是对这件事的一个缩写。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Work OS]</span></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>我们把拉力这个缩写拆开讲，因为它能把这个想法讲得更深。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对。缩写是 PULL。P 是项目（Project）：他们待办清单上有一个项目。你可以把它想成「待完成的工作」（job to be done）。Bob Moesta 你请过，他很棒。项目不是「我想买招聘软件」，而是「我想招更多员工」这类事。U 是不可避免（Unavoidable）：这件事我现在必须做。为什么是现在？为什么不能以后？有某个理由逼你现在做。第一个 L 是选项清单（List of options）：我考虑用哪些办法完成这个项目——再雇人、让现有团队做、用已有工具或市面上的工具。第二个 L 是局限（Limitations）：为什么那些选项不够好、完不成我的项目？前两项非常重要；有趣的是后两项显得没那么重要，我很好奇它们为什么关键。前两项本质上就是：我有一个问题，我需要完成一项工作，而且这是紧急问题。从某种意义上说，这就是被具体定义的「火烧眉毛」——老板等着我交待办，而且现在就要，不只是某种笼统的「我需要解决」。</p>
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>为什么后两项这么重要？就是「还有别的选项」以及「那些选项为什么不行」。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>你可以想象这样一种情况：比如一个产品团队，上面强制下来一件非常重要的事，他们有一个必须做的重要功能，这是待办上不可避免的项目——但他们会自己做。所以他们什么都不需要。除非现有选项不够好，否则他们不会买任何东西。因此真正重要的是：不只是「我正要做某事，我可以自己做，或用品类龙头、或用随便什么现成工具」；必须是「我现有的选项都不够好，我卡住了，我被挡住了」。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>我们举个例子，让这更落地。有没有某个产品或公司，能让我们感觉到——我基本上把这当模板用，有点像填空，就是 PULL，你往里填。来，举个例子。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>我朋友们有一家公司叫 Jump，是给理财顾问用的 AI 会议纪要工具，很有意思的赛道。顺便说，他们也走过和我一样的路：撞墙 18 个月，最后找到拉力，试着去卖，才搞明白。他们发现理财顾问待办上有一个项目：尽量减少花在给客户会议做笔记、再把笔记录入 CRM 的时间。项目在待办上。U（不可避免）是：如果不做笔记并录入 CRM，他们可能坐牢。所以他们必须做笔记，但做的时候又不想做，于是想尽量缩短时间——因为那不好玩。他们考虑过的选项包括通用的 AI 纪要工具，市面上一大堆，但那些不够好：不跟理财顾问的 CRM 集成，也不清楚是否符合 SEC（美国证券交易委员会）相关合规。所以那份选项清单他们其实用不了。当 Jump 出现并找到这种拉力时，人们就把产品抢走了。我记得有人原话大概是：这一定就是亚历山大·格雷厄姆·贝尔（Alexander Graham Bell）发明电话时的感觉。拿理财顾问产品说出这种话，挺奇怪的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>太棒了。这段推荐语可以贴官网。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>好。那「坏版本」会是什么样？如果没有拉力，看起来会怎样？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>跟 Jump 团队有过一次有趣的对话。他们说：好，理财顾问有这个项目。还有谁也老在见客户？保险代理人。那我们去跟他们聊聊。结果保险代理人待办上也有「尽量减少做会议笔记时间」这个项目，但 U（不可避免）不在——他们没有必须把会议笔记写进 CRM 的要求。所以他们的现有选项、第一个 L，就是「不做会议笔记」，而他们本来就在这么干。框架在他们身上填不满，那种「力」不存在。他们过得好好的。你看，不可避免这一块为什么这么重要——基本四个都要齐。对，这是个好教训：真正的拉力需要四项同时存在。在第一个例子里，那个待办对我来说不像是他们白纸黑字写下来的，更像笼统的「省时间」。这种能不能算作合格的 P（项目）？还是说它真的具体写在每个理财顾问的待办上？</p>
+<p>我不会说它真是写在待办清单上的某条，但它是他们一直在做的事，是工作流的一部分，而且做的时候他们在尽量少做。有点像：日历上我正在做的动作，以及做的时候心里的意图——那个项目。所以在做的时候，我脑子里待办上的项目是：尽量少花时间在这件烦人的事上。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>明白了。所以如果有创始人或产品团队在听、产品又卡住了，很可能是这四项里缺了一项。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对，你需要四项同时具备。如果你找到了 P，但没有 U，L 也不成立——也就是有人「好像」想做某事，但现在并不是真的要做，现有选项也还行——他们会抱怨，但不会买。如果他们有 P 和 U，但 L 已经够好，他们会说：对，我们现在就是这么干的，我们在用 Claude Code 搞，我们自己能搞定。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>你还谈到一点：这种拉力是已经存在的东西，你更像猎人去寻找、去发现它。多讲讲这个。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>我意识到这点时特别解脱，因为我一直觉得是自己不行——不擅长说服市场想要我的产品。那种视角是：我在做很有价值的东西，人们不买，我怎么说服他们想买？结果发现，这种拉力、他们待办上的项目，在我出现之前、独立于我就存在，意味着我只需要出去找到它。我不必说服人们拥有拉力。我还没完全想清楚怎么「制造」拉力，但哪怕可能，也极其难。那种拼命说服「看这多好、能解决你好多问题」的感觉太熟悉了。我很喜欢它把找产品市场契合、想点子这类笼统建议变得非常具体——直接告诉你长什么样。你还提到过：对他们来说「不买才奇怪」——这是对了的信号。多讲讲这个。</p>
+<p>大多数人、大多数时候都「还行」。以他们待办上有什么、手里有什么、选项是什么来看，买我们的产品反而奇怪。但有拉力的人是「不买才奇怪」。他们应该把产品从你手里抢走，因为他们就像那根压紧的弹簧。所以如果你跟有拉力的人聊，对话基本会变成：等一下，你能做什么？好，我们怎么开始？产品做好了吗？我们怎么接入？而跟没有拉力的人聊，可以是别的任何样子：他们可以很热情、很客气，说「哇太棒了、超级有意思、这绝对是行业未来、能省我们好多钱」，但他们不会说「我现在就要」。这就是你判断他们是否真有拉力的方式。这些对话听起来很熟悉。好，在进入创业全流程、以及如何在流程里用这个框架之前，关于拉力框架的一般想法，还有什么重要的要分享？人们常犯的一个主要错误是：以为拉力是公司拥有的。它是某个人拥有的。就算你卖企业软件，你也不是卖给公司——不是卖给 SpaceX。你是卖给 SpaceX 的法务负责人，她待办上有一个他们自己做不了的项目。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>这非常有用。所以不是「SpaceX 需要这个」，而是比如 Jen 需要这个。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对，是她需要。你是说人们常犯的错就是不去想那个有具体需求的具体的人。</p>
+<p>对对，非常常见会说「我们卖给中型私募股权公司」。其实不是——你是卖给里面某个合伙人、或运营合伙人，他具体要做 X、Y、Z。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>太好了。那透过这个框架，我们走一遍早期创业找产品市场契合的关键节点。我想聊：想出点子、拿到第一次销售通话、拿下第一单，然后再扩展。先从想出点子开始。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>人们怎么用这个框架，想出更可能真正成功的点子？我做创始人时有一本点子笔记本，全是「如果我们给 API 做个 API」这类——产品点子听起来都很疯，我永远分不清哪个好哪个坏。幸运的是，拉力框架在产品点子的上游：我相信有一个人现在正要做 X，不买才奇怪。所以我觉得有用的是：用拉力框架立下一个主张——无论我有什么点子，我相信这个具体的人卡住了。然后我去找他们聊，看他们会不会在我们还没产品时就想从我这里买。对我来说，拉力框架就是提出「谁有拉力」的假说，然后去验证。接下来问题变成：你怎么找到这个拉力点子、拉力假说？我对此意见比较强硬。我觉得我们对这个阶段不够认真。如果你的命取决于此，你会只做 10 场、每场 Zoom 上 30 分钟的客户访谈吗？不会。你会全力以赴，会亲自去现场。我有几个朋友的故事：他们做了很疯狂的事，跟潜在客户一起干那份工作，第一手去感受、去发现拉力——要么做出自己也会买的东西，要么嵌入到那些人里，找到「有人正想做某事却卡住」的那一刻。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>太棒了。所以建议是：别坐着头脑风暴，也别只盯着大市场猜哪里可能有大事。你说的几乎是：如果命悬于此，你会怎么找到一个很可能有真拉力的问题？我听到的是——钻进细节、亲自动手。这让我想起 Nan（Nanan）的一句话，他是 Linear 的产品负责人，刚去了 OpenAI——他描述找机会时要找的是：我想用他们感受痛苦的同样方式，去感受那个人的痛苦。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>你是说做法就是跟正在做事的人一起钻进去。有没有这样做的例子？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>有。我一个同学完全不知道要做什么，没有产品点子，也没有我那种笔记本。他只说：我喜欢服务小企业，我想先找到我喜欢服务的人，点子从那里长出来。于是他列了一批可能有意思的行业，然后去跟岗，一连几天跟他们一起跑。他从太阳能板安装工开始——他讨厌他们，他们也讨厌他。于是换下一个。最后做到独立物理治疗师，跟了他们好几天，彼此很合得来。然后想：好，拉力在哪？我该做什么？他连续几天在他们肩后观察，甚至试着买一家理疗加盟店，能看到损益表，真的在考虑。在这个过程里他意识到：等等，看起来你们正想做 X，却卡住了。所以你应该做的是第一手体验。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>太好了。就是自己活一遍、沉进去。为什么必须这样？是不是因为如果容易，别人早就发现了？你为什么觉得这种方式这么重要？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>我说两点。一是：这些东西不会从白板上冒出来。他最终找到的点子，如果靠头脑风暴想出来反而奇怪——想想他本来能编出多少点子。而且那是他靠观察才看到的，访谈里也不一定冒得出来。二是更哲学的一点：你建公司是为了服务这类人。建公司的全部意义就是服务某人、帮他们做成某事。如果没有第一手体验，你怎么做出那成千上万个真正服务他们的决策？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>一旦有了洞见——比如这家理疗公司——你是不是用拉力框架写下来加压？你叫它拉力假说（pull hypothesis），对吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>那就讲讲：假设你有了洞见，我很好奇他在理疗生意上实际发现了什么，以及怎么开始用拉力框架来想。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>然后你把它写成：好，我相信这类点子——这位物理治疗师正试图削减损益表上某项具体成本（我不记得具体是什么了），因为 XYZ 原因不可避免，而请顾问进来这类现有选项因太贵、太慢等具体原因不够好。把拉力假说写出来。接下来他做的事非常关键：拿给那个人看，问「这是你吗？」对方说：「天哪，对，就是这个。」「好，如果我帮你搞定，你会买吗？」「当然。」「好，那我得再去找另外五个理疗师，确认这会重复。」他去做了，那些人也有拉力——这点很关键，确保你不是只为一个人做产品。他给公司看的是那四个要点吗——项目、为何不可避免——还是别的？</p>
+<p>我其实建议做两页幻灯片。一页基本是拉力框架。你不必把框架本身秀给他们，没人会懂。你可以说：我听到的是，你现在因为 Y 要做 X，考虑过这些，但因这个原因不够好。问：我理解得大致对吗？第二页是我如何帮你的概念概览：听起来你想比顾问更快地砍掉这一行成本，我们可以用 XYZ 提供这个——这符合你要找的吗？你要的是：第一页他们说「天哪，对」；第二页他们说「怎么运作？我们怎么往前走？」我喜欢你的东西就在于非常即插即用、务实。我们会把你让人填的模板幻灯片也秀出来。措辞我照着念：你待办上有这样一个项目；它现在不可避免，因为……；你看过的选项是……；它们因……而不够。太棒了。想法就是做这么一小页，拿去给人过，这就是假说——一旦展示，有拉力时长什么样？是准备汇款？瞳孔放大？你看什么？</p>
+<p>你看几件事。真正重要的是他们真的试图买：他们说「好，我们怎么开始？」而且会真的这么做。我有个朋友卖东西时转了好几圈，但他知道自己找到拉力是在：一位制药高管在他还没产品时说「如果你能做到，我现在就付钱」。这就是你要的信号。还有他们身体前倾：「等一下，你能做什么？」你不要的是后仰式热情：「好吧多讲讲」「我们再想想」「能不能再发点资料给团队看看」——凡是不是「我们现在怎么推进」的，都不值得你花生命力去追。有趣的是，肢体语言、对点子兴奋的身体感受，本身就是好信号。我刚请过 Google Labs 负责人 Josh Woodward，他也说：你会看到他们眼里闪一下光<span class="tag">【笑声】</span>——有趣的是，那也是拉力的信号。</p>
+<p>对对对。你看到的是：对他们来说「现在不买才奇怪」吗？他们的行为像「不买才奇怪」吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>有没有那种「我会买」的口头 vs「真的会买」的信号？是肢体语言吗？你怎么知道他们是认真的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>我称之为「拉力形状的行动」（pull-shaped action）——词不太好，但意思是：我现在就要。我正从你手里往外拽。我们现在怎么推进？而不是「我完全能想象我们 Q4 会用」——那不是朝我拉，那是把事情推到未来。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>就像「我现在就要」那种紧迫感。还有一种常见建议是「解决你自己的问题」，跟你描述的不一样。你推荐还是不推荐这条路？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>比如 Clearly AI 的 Emily，她在 AWS 做安全工程时发现一件她愿意付钱让人解决、但市场上没人做的事。那种情况就是「解决你自己的问题」，百分百可以。这条建议常失灵的地方是：那其实是你不会付钱让人做、只是觉得「世界应该有这个」的东西。你得对自己诚实。我也做过「我觉得世界需要这个、我碰到过这问题」的东西，但对着镜子我不会说「对，现在就买」。另外，这建议主要针对 B2B SaaS，还是也适用于消费级 App？我主要在 B2B，但挺多人从消费领域也在用，我有点意外。有人给我发 Spanx 的故事——她本质上也是一对一卖、看反应，摸清后来变成 Specs 的各个部分。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>对，她著名地就是解决了自己的问题。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对，据说是直接撕了丝袜，因为她现在就需要——好像要去赴一场活动。很酷的例子。我们还会细讲，但你有一个 Hail Mary（孤注一掷）的做法，说说。所谓 Hail Mary：我们刚才讲的是快乐路径——你找到东西，跟人聊，他们说「天哪，这正是我需要的」。很多时候不会这样，你会得到不温不火的感觉。我发现那也是一个机会，我称之为扔 Hail Mary：好，这好像不是那件事。你待办上有没有什么是你愿意现在付钱让我做、愿意让人从你盘子里拿走的？这是一个开放式的 Hail Mary。我见过好几家创业公司完全因 Hail Mary 而转向并起飞，挺有意思。有一家想把应聘者跟踪系统卖给政府，打了一通电话，对方说「挺有意思」。但 Hail Mary 问完之后：我真正愿意付钱解决的是现在这个职位描述的问题。那就成了他们的第一份合同、第一个客户，之后增长很快。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>太棒了。所以建议有时就是直接问：我们能帮你解决什么问题？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对。这又连到怎么看销售。我先简单说，有意思再深挖——我超级内向又爱想太多，以前对销售很紧张，压力很大，感觉是「我得说服你买」，问那种问题不舒服。但如果你在脑子里重框成：我只是在看他们有没有卡在什么地方需要帮忙；没有也没关系；有的话我们再看我能不能帮——你对销售的取向就变了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>我跟你一样。这是很好的想问题方式：我只是在帮人解决问题，为什么这么难？在进入下一步——拿到第一次销售通话、找一个你本来不认识的人聊——之前，想点子时有没有反模式、信号或陷阱？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>无穷无尽<span class="tag">【笑】</span>，但我见过最狠的是：觉得必须先自己做出来。你有了点子就说「还没准备好亮相」或「人们得看见才能懂」，然后埋头去做。现在有了 AI，也许几周就能把这股劲发泄掉，而不是几个月；但你要尽快直面现实的冷风。别推迟那些真正能发现拉力的客户对话。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>你也不喜欢设计合作伙伴（design partners）。多说一点——这可是非常标准的建议。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>也许某些情境有用，但我还没见过真正有用的。我几乎每次看到的都是：你招来一个「认同你产品愿景」的设计合作伙伴，他们给一堆反馈，却从不买。你发现那些反馈只是他们在扮演乔布斯——「我来帮帮这家创业公司」——而不是「我有一件真正要做成的事」。仔细想：真有重要事情要做成的人，根本不想当设计合作伙伴，他们只想把那件事做完。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>太爱这点了。所以你的建议是别弄一堆设计合作伙伴；我们再走你真正推荐的流程。总结一下「想点子」这一步：核心时刻是基于动手、跟你要帮助的人生活在一起而来的洞见。我听过一个词描述这事——好像是 Floodgate 那家 VC 用的——你在找「挣来的秘密」（earned secret）。对。你的建议是：找到这个秘密的方式，要么你在某家公司亲身经历过（比如刚才 AWS 的例子），要么你在一线跟正在经历的人并肩，找他们真正有的问题。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对对对。方法其实不太重要——也许在一次伊萨卡静修里突然想到——秘密从哪来都行；但最可能真正管用的，是把手弄脏、从现实学，而不是从理论学。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>顺着说：假如你合作过的大概 50 家公司，点子来源画个饼图，最大的几块是什么？我会说大约 10% 自身经历，90% 去拿第一手体验；其中有些是先卖错产品才搞清对的产品，但多数是真去一线做事。那静修占多少？没位置给它。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>百分百。那是我辅导你时的强制项。<span class="tag">【笑】</span>那就是拉力假说。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>好。假设这时候你有了拉力假说，有迹象说明这里可能真有好东西。下一步在我看来是找到人聊、卖给他们——基本上就是约到第一次销售通话。讲讲你怎么约到那通电话，发生什么；之后再谈怎么打。但在那之前，先谈怎么找到人聊。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>这挺有意思。我的目标其实是每天跟潜在客户聊两到三次。但要到那一步，你得先有第一次对话。你可以走暖介绍等等。我们就说：如果你什么都没有，只能冷触达。我通常建议创始人从 LinkedIn 或邮件联系潜在客户开始，而且信息非常特定——不是「你有没有 XYZ 痛点、要不要买我们改变游戏规则的方案」。网上那些模板只会换来「别烦我」。我管这阶段叫「创始人魔法」式外联：你有意思，我也有意思，聊聊看。这完全可以接受。我帮过的一家创业公司，信息是：「嘿，Snoop Dogg 投了我们，我觉得你也会觉得有意思，愿意聊聊吗？」很好玩。每个人都有自己的版本——听这期的创始人都能发出有意思的信息。你不必在信息里说服他们买产品，只要让他们跟你聊。拉力在他们待办上，信息不改变那一点，只是约到对话。所以说点有意思的，让他们愿意见你。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>这很有帮助。所以建议是：别精心做完整价值主张、痛点识别，别告诉他们你能解决多少痛苦——就是用有意思的东西抓住注意。对。Snoop Dogg 的例子很棒。还有别的例子、别的思路吗，什么对对方可能有意思？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>见过各种各样的。随意一点的比如：「嘿，我从博士项目退学了，现在在给内容营销人做点东西」——够有意思就行，不必超级魔法。也有「我曾是 Sam Altman 的幕僚长」——谁发这种都会很好使，后面写什么都无所谓：「觉得你会有兴趣，愿意聊聊」。所以是找到值得跟他们聊一聊的有意思点。也取决于终端客户：如果你联系暖通空调公司，说「我是 Sam Altman 前幕僚长」，对方可能说「兄弟我根本不懂这信息里的词」。那就可能是：「嘿，我高中在家里管道公司干过，现在在做这类有意思的事，觉得你或许有兴趣，愿意聊聊吗？」</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>隐含的一点是保持非常短。听起来就一两句。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>好。那你怎么看用 AI 群发邮件，versus 逐个触达、想每人独特的信息？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>这个阶段我没见过 AI 个性化管用。通常只是告诉对方一些他们自己已经知道的事，他们一看就像 Claude 写的。所以一般不推荐。我也没见过这里个性化有多关键。我说的整段信息——不必堆很多个性化，或者「嘿我要去 X 大会路演，愿意聊聊吗」之类，零个性化也可以够用。你举的例子都很简单、跟对方无关，就是说点有意思的。你不推荐的就是……对，你不是立刻要卖，只是想约通话。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>对，通话上我们再看你有没有拉力。有的话，就变成销售通话；没有的话，我做什么都改变不了。<span class="tag">【笑】</span>好，刚起步想约到通话，该从多少封邮件 / LinkedIn 开始？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>我倾向从 LinkedIn 开始，因为你我聊的这类人 LinkedIn 本身就有意思，对方会想「哦，这样啊」，能扛很多。你可以每周加 100–150 人，一天加 20，接受后再发消息。如果一周联系 100 人或发 150 个请求，我的典型目标是：30–40% 接受好友；其中 30–50% 回复；一小部分说 yes，多数会说「行啊为什么不」。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>这是很棒的基准。如果达不到，基本上你的「有意思」信息不行，得找更有意思的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>也可能是你的主页——如果人们不接受请求，他们可能看了你觉得「我不该接受这个人」。如果接受率到了 30–40% 却没人回，那才是另一回事。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：DX]</span></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>假设你约到了通话，要做销售通话，比如第一次。怎样才能打好这通电话？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>销售通话大致两步：拉力发现（pull discovery），以及「我们可能怎么帮」的概念性推销。理论还是那句：如果你有拉力，你会把东西从我手里抢走。我不会进电话就绷紧、准备拼命说服你买。不——如果你有拉力，你会说服我让你买。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>所以我的状态更像后仰一点，</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>很期待聊。我们看看我能不能帮上忙。我有一套很具体的销售通话结构，建议用来进入发现、再过渡出发现。开场：嘿，谢谢你抽时间。我很好奇——肯定很多人找你——你今天为什么接我的电话？这是他们说「你提到 AI agent，我一直在想这个，一直在等，还看了你网站……」之类的机会，他们当场就把整套拉力框架填给你。那是理想情况。然后你说：有意思，我能追问几句吗？但多数时候他们会说：不知道啊，是你找我的，想听听你要说什么。你就说：太好了，听起来就是今天很好的议程，可以吗？让他们对议程点头。然后你「赢得」问发现性问题的权利：好，在进入议程之前，我能不能先问几个问题，更好了解你的背景？这样问起来不像审讯——如果像审讯，他们什么都不说。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>几个战术问题。一是通话多长、日历邀请开多久？二是 demo 放哪——这通电话做，还是另约？这几乎永远是日历上 30 分钟。更短的时段他们日历上看不见，就不出现。所以 30 分钟。demo 看情况：特别早期你大概没什么可演示；晚一点可能在第一次通话里放很短的 demo。我想到跟 Jen 的对话，她的建议是等一等再 demo，但那是企业销售类产品，不是早期拉力假说阶段。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对对，完全同意。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>明白。怎样算这次会议顺利？是不是那种前倾、从你这儿往外拽的感觉？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对。要么你能挖出拉力，要么你能说：好，你完全没有拉力——帮我理解为什么这跟你无关、什么才有关。你带走的要么是填好的拉力框架——我理解这人的拉力，他们在拉；要么理解他们为什么没有拉力。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>打多少通才说「这里没拉力，该换了」？我没有硬数字。我倾向：如果五通都是后仰、什么都没学到，就说明有问题。我也见过人打上百通还是没有……所以先打五通，然后复盘学到了什么：有没有拉力？有没有有意思的东西？我刚帮的一家创业公司，打了大概五通银行的电话，完全没感觉。但其中一人介绍说：这跟我好像无关，不过你们可以考虑国防公司。他们接到介绍，对国防一无所知。第一通国防的对话里，对方说：「天哪，你是认真的吗？」他们就想：也许这里有东西。于是改了拉力假说。你的框架和方法很大一块好像就是对自己残酷诚实：这里到底有没有东西。我想象很多创始人超级兴奋、确信这是真的；你的方法是给出验证方式，对什么在管用、什么不管用非常真实。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对。把它想成我们是「为了学习而卖」，不是为了推什么。不是推。我们要学习，看他们会不会试图买。不会，没关系，学到了东西，可以继续迭代。会，太好了，我们可能有东西了，再看看会不会重复。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>把这叫作拉力太聪明了，因为你总听人说产品市场契合就是感到拉力——大石头在拉你、风在推你。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>所以它不仅是你要找什么的缩写，也是提醒：你要找的是拉力，某种在拉的东西。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对。你也能感觉到：我是不是正在推？我是不是正在说服？那是红旗——要么你心里、要么对话里有什么不对，好，我们搞清楚是什么。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>说到好的销售通话，有没有例子浮现——感觉怎样、长什么样、pitch 是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>你要做的还是把拉力从他们嘴里掏出来。他们说：我想做个网站，但那些典型的点选式建站工具对我来说太费劲了——你就有了一点拉力，已经掏出来了。有趣的是：一旦有了拉力，你的 pitch 其实很简单。你不是要描述巨大的产品愿景或你对问题的理论。你知道他们要做 X，却因 Y 受阻。所以 pitch 是：听起来你在找一种不用点选折腾就能做网站的方式，大致对吗？用很小、很简单的方式描述，不是很大。他们说：对，听起来就是。具体怎么运作？多讲讲？他们在从你这儿往外拽更多信息——这时你知道自己开始沾边了。你脑子里是不是过着拉力框架四点：这是不是他们现在就要、不可避免、替代方案是什么？对，那些其实也是我会问的问题。如果开场「为什么接电话」时他们没告诉我，我就会问类似：</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>有没有跟你们 QA 流程相关的、你们想做却用现有工具、方法、团队做不到的事？这个问题里就嵌着拉力的各个元素，他们可以说：对，其实我们一直想自动化端到端测试，但现有工具做不了。如果他们给了一点，我脑子里就有框架了。很多人通话时真的开着文档，现场往里填——比如我觉得还缺 U——然后你问：好，但如果不现在做可以吗？有什么理由必须现在做，还是以后再说也行？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>你几乎不敢问，因为怕「糟了，要黄了」。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>最吓人的一句是：你们肯定也看过别的选项，够好吗？然后听到：其实我们可以自己做，而且够用。但这能阻止你去推市场不想要的产品，</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>以及花掉好几年人生硬要让它成。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>对。我看起来像 60、其实 35，是有原因的。<span class="tag">【笑】</span>别推。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>你看起来很好，Rob，滤镜。<span class="tag">【笑】</span>这其实碰到一个我们还没正面谈的挑战：要让人决定试新东西、买新东西，要跨过很多坎。现状通常「还行」。他们有太多优先级、太多事在忙。让人说「我要这个、现在就买」的门槛非常高。这个框架的想法就是跨过那道坎——或者说，是找到那些「现状已经不行」的人，找到那些已经在试图改变、不需要被说服的人。有一种说法是产品必须比现有方案好 10 倍别人才在乎。你怎么想：好多少他们才在乎？好一点点行不行？Jump 那个给理财顾问的 AI 纪要例子很好：他们比通用 AI 纪要好多少？如果那些纪要工具完不成工作而我们能，那就是无限好——我们把堵住的东西打通了。所以我怎么看取决于他们被现有选项卡住有多死。我对「10 倍」没什么感觉。关键是他们是不是压紧的弹簧，以及我出现时他们怎么反应。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>我想到像 Linear 这种跟 Jira 竞争的公司。你知道 Linear 吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>知道知道。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>我好奇框架能不能套上。我的理解是，Linear 常常赢过 Jira 是因为体验更好——漂亮、流畅、打磨过，很多客户就是因为用着舒服、工程师爱用。你觉得这走得通拉力框架，还是另有原因？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>如果用拉力框架分析，必须为真的是：有一类人在做问题跟踪，却被挡住了——Jira 的体验以某种方式挡住他们，以至于 Linear 好得多的体验对他们真正相关。我犯过的错是拿这个类比说：那我也可以带着更好 UX 杀进一个品类、碾压一切——比如 HR 软件。结果用户体验跟买方不相关，他们没有 P，不在乎系统看起来还像跑在 Cobol 上。所以那里不相关。但拉力理论会说：在 Jira vs Linear 的情况下，确实有一类人被 Jira 的体验挡住了。我猜拉力越强，这一切发生得越快、长得越快。我知道 Linear 花了很久才让人用、信任、迁移——也许是因为那种「挡住」没那么强，更多是「我能更快、更开心」，所以花的时间更长。你是不是发现拉力越强公司长得越快？</p>
+<p>对，我见过一堆创业公司从零到随便什么——现在人人都在零到无穷、超级快——因为他们找到了这些拉力口袋，人们会把产品从手里抢走。人们看现在的 AI pitch 会想：等一下，它能做 X——基本上立刻就买。我在企业里也见过，两周就关单。我那会儿长大时企业单要 18 个月，搞什么？<span class="tag">【清嗓】</span>好，下一步。这时候你打完第一次销售通话，我猜接下来是关单。有趣的是还很早，你甚至可能还没产品。从「我现在想买」到下一步，你做什么？</p>
+<p>多少取决于单的大小，但你要带着某种概念和某种计划回来。比如前面说的卖进制药的那位：他靠介绍丢了个 Hail Mary 给制药高管。高管说：天哪谢谢你问，我们现在的市场研究又慢又烂。创始人连幻灯片都没有，第一次听到，就说：听起来你在找更快的市场研究，形态上像你们现在拿到的，但在这些方面更好，大致对吗？高管：对，就是这个。创始人：好，那我过几天带一个我认为可以长什么样的 mockup 回来，我们再看是否符合，再决定要不要往前。没有幻灯片，什么都没有。回去 vibe code 一个粗糙布局，拿反馈，问：基于这个，你还需要知道什么才能决定要不要引进组织？对方说：价格呢？然后有一套讲价格的话术，但基本就这样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>好，多讲讲这套价格话术。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>拉力框架有趣的一点是能帮你框定价边界。完成这个项目的价值是多少？替代方案的成本是多少？也就是那些 L。更快拿到市场研究的价值是什么？你们现在付给市场研究顾问多少——比如一年 5 万美元？这就给你粗边界：那如果我们也收一年 5 万、跟现有顾问一样？它给价格一个对潜在客户来说直觉上说得通的框。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>太好了。你写关单这一步大概两块：一块是「合不合适」（fit），一块是把单关完的一堆项目管理。fit 我们谈了很多；项目管理这边有什么重要的要讲吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>你跟 Jen 做过很棒的几期，讲销售流程。大单、企业单里，冠军（champion）有拉力、决定要这个，然后你还得做大概 17 场 demo，在四个委员会面前鞠躬——有一堆流程。小单就不用：可能就是 CEO 说「行，下一步你发 Stripe 链接，我们约一次 onboarding」。所以项目管理这一步看情况。对更大组织，我通常建议跟买方、跟冠军聊：好，这是你待办上的项目，什么时候需要看到结果？他们说「明年 Q1 一定要」。好，这就是强制函数，你倒推：既然 Q1 要上线见效，从现在到那时要完成哪些步骤？这就强制推动销售流程里所有环节。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>太棒了。基本上就是问：我们什么时候需要展示成功，你们才会全面铺开，然后倒推。很多人这时候会搞设计合作伙伴式安排：我们跟你一起建、边走边看、先不收费。按你前面说的，你不喜欢设计合作伙伴。我猜你的建议就是直接卖，别免费送，别搞那种合作。</p>
+<p>对啊，何必自己绊自己？不这么做的原因是：那往往带不出真正能卖、真正管用的东西。建立那种设计合作伙伴关系——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>如果他们那样，基本上就把「我现在就要解决」变成了</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>「好，我现在是在帮你做产品」——我们到底在干嘛？这对真正有拉力的人是负向信号，对没有拉力的人反而是正向信号。完全说得通：有拉力就顺着走<span class="tag">【笑】</span>，你需要的就是——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对。你也可以卖还没有完整平台的东西，早期更偏服务形态。我见过很多创业公司这么做：我们会有一个能做 XYZ 的 AI 产品经理；眼下由我们交付，背后系统在跑。这样框好预期——他们不指望下周就有企业级完整平台，而是更偏服务的东西；你验证真有拉力，搞清真正该建什么，一边人工一边自动化交付。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>这很有意思。播客里、尤其 GTM/销售对话里常出现：服务是很好的起点。历史上这曾是糟糕主意，因为怕永远自动化不了、永远困在低利润咨询里。你见过这样成：先让人做这件事，再慢慢围着它做产品、提高利润率。对，肯定有缺点，你确实可能卡在服务生意里，但什么都有缺点。</p>
+<p>而且 AI 会越做越多这类事；另一部分是人在做事时，你会越来越清楚问题与机会在哪。快速回到价格：创始人经典地不敢要大数字、不敢报高价——知道东西会变、边做边学。第一次报价有什么建议？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>早期我更测「愿不愿意成交」（willingness to transact），而不是「愿付多少」（willingness to pay）。前几个客户我不太抠定价。不过我刚帮一家公司，第一单就是企业级，马上有大 demo day，他们想尽量多拿收入好看。完全合理。那种情况你要报一个不会被扇巴掌的数。我推荐的做法有点像用案例当「请对这个案例做反应」：我们跟别人聊，大家定价都不一样——有时小项目 8 万，有时到 100 万，杠杆大概是这些，很多人落在中间。你怎么想？你不是站在一边向对方提案，而是两人一起看一个半真实的别人怎么想的例子，让他们往上「吐」反应。<span class="tag">【笑】</span>「吐」在上面，我喜欢。我知道案例这个概念是整个框架很重要的一块，回头再讲。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>好，下一步。假设你有了销售通话，在 BF2。第一批销售通话之后通常发生什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>路径可能分叉。但愿你是对的，这些人有拉力——太好了，你有客户了，该交付、开始重复、开始想怎么自动化、怎么体系化。你在正确的路上。很多时候你会得到一堆奇怪反应：你以为「不买才奇怪」的人，其实「买了才奇怪」。他们的行为不像有拉力。那种情况我倾向：复盘通话——有几个人真有拉力？零个？我们学到了什么？然后做新假说再跑一轮。明白。我猜多数时候不在。你的经验饼图大概怎样——这阶段成功 vs 不成功？</p>
+<p>我大概只见过一两次从一开始就在，那种感觉像英雄，第一次就做对。很多时候我们错得离谱、本末倒置，完全不知道；于是你扔几次 Hail Mary，就走上正轨；或者做点疯狂的——有个朋友去参加会，约了 20 场，说我不知道做什么，你告诉我该建什么。我管那叫 goblin mode（哥布林模式）：全力以赴、甚至不健康地去做，看谁现在就愿意买，再从中生成假说。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>多讲讲 goblin mode，太精彩了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>你知道狗突然疯跑（zoomies）那种吗？我脑子里创始人的 goblin mode 就是那种——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>这是好事还是坏事？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>这是「紧急情况下砸玻璃」的招。有些创始人其实一直这么运转：明天欧洲有个会，潜在客户在那儿，约不到人——那看来我现在就得登机飞过去。就是做有点疯的事，目标是现在就站到客户面前。有人能一直这样；像我这种上了年纪的，偶尔才能掏出来一次。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>有时候把 goblin mode 放出来。你是说有时就是疯一把、见所有人、去找那些挣来的秘密，也能成。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对。有个有点疯的例子：朋友在做 Tiro，给牙科诊所做牙科卫生员的人员配置。他的 goblin mode 是父母挨家挨户跑牙科诊所，让人跟他聊当客户的事——成了。就是这种怪招也能管用。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>太棒了。所以你说先打几通销售电话，比如五通，然后评估——这是粗启发式？按你说的，多数时候会发现：这里没拉力，抱歉。</p>
+<p>然后怎么办？回到开头，再去跟别的小生意上手干？你建议什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>路径不同。但愿你问过 Hail Mary，学到了值得深挖的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>Hail Mary 问题就是：有没有什么我们现在就能做的、在你待办上的问题？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对，正是。于是你生成了新信息，可以用来——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>再打另一组五通。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>如果没有，就回去拿第一手认知，再试一次。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>太好了。所以流程很直白：有拉力假说，填这个模板，用会让人觉得你有意思的冷外联约人，大概打五通，感觉有没有拉力；没有就扔 Hail Mary，也许进入 goblin mode 找东西；再做新假说，再五通，重复，直到「哇，我们有拉力了」。对。然后你就有生意了。</p>
+<p>开跑。好，假设你真找到了正在拉、人们说「我现在就要」的东西。接下来呢？有构建 onboarding、让他们保持满意——那套流程怎样？有什么建议？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>我发现自己其实不太会想「人们买了之后发生什么」，感觉像那只狗开到车——把软件扔过篱笆就「祝你好运」。后来吃了苦头才明白：留存极其重要，而且不显而易见。我怎么看售售后交付：基本上每个买的人都「保证会流失」，直到某一点 X——到了 X，流失反而奇怪。一切交付都是搞清 X 是什么，以及如何设计一列子弹列车让每个客户到达那里。X 你可能以为是「在用产品」或高 NPS——几乎从来不是那些。Mark Rober 有一种留存领先指标，Slack 那边大概是：前 X 时间里发了几千条消息，到了就「流失才奇怪」。我们给餐馆做留存软件时，如果他们在购买后两周内收到一条「有人要离职、你可以拦住」的通知，他们会疯掉，会告诉所有朋友，流失才会奇怪。于是我们把 onboarding 设计到那个点。所以我建议：一旦有几个人说 yes，别只扔登录、祈祷——亲自去交付，你会学到很多，不断问「你现在会流失吗？现在呢？」找到他们说「好，没这个活不了」的那一刻。我喜欢你的思维方式：公式、模板，一切这样——当然现实没这么干净，但对人很有帮助，把「事情顺利时长什么样」「怎么找点子」这些笼统想法，变成「往这儿填、看这个在不在、再调」。留存这块很好。有没有信号说明「糟了人人在流失」——他们以为自己买对了，其实不行？怎样判断这阶段「可能不行」vs「行」？</p>
+<p>如果人人在流失，你不去搞清为什么是不可接受的。很多横向产品会有大量用户掉落。我认识一家做横向 AI 工作流的——欢迎入伙——但他们发现只有一两类客户持续在用，其他人全流失。如果 90% 以上客户在流失：首先抱歉，真的很糟，你会凌晨四点惊醒一身汗。但在那之中你往往能搞清为什么——是你做的事，还是他们本身？这能告诉你谁真正有拉力，我们可以卖、交付、留住。那家横向工作流产品发现货代（freight forwarders）为某个具体工作流在用，于是整个公司转向专注那一块——从大量流失、低价的横向产品，变成给货代的高溢价产品。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>没有一个点是「好，我们搞明白了，必将成为巨大成功」。创业旅程每一刻都不确定。但这套流程好在每走一步，你都更确定「至少这里有东西」；至于能做多大，永远存疑。我记得 Databricks 创始人——现在已经是超级巨无霸——说过大概到 1 亿美元 ARR 时，他们仍很不清楚这东西能不能持久。我觉得很常见。所以这本身是个话题——知道这点挺好，因为人人都在问「这怎么变成大事」，答案是：不知道，我们边走边搞清。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>就是一步一步来。这谈话里我心里的最后一步，是你说的「用户案例工厂」（case study factory）——从「开始管用」走到「可以建立可重复的增长系统」。讲讲那是什么、长什么样。这是我一讲大家眼睛就放空的东西，我还没找到好讲法，先预警。但我觉得这是这一切里最重要的：你怎么概念化你的创业公司？你需要一种思考方式，才知道如何尽可能快地增长。实际发生的是：你找到有拉力的人，给他们产品或服务，他们从你手里抢走。原来他们要做 X，现有选项因 Y 不够好，你提供 Z 帮他们解困。这听起来很像你会挂在官网上的案例。有用之处在于：我作为创始人的工作不是生产一百个完全不同的案例——那不可扩展、不可重复。我要建的是一个案例：客户买前说 hell yes、买后也 hell yes，然后重复一百万次。这个模型让我从「创业是一堆不同的事、我得懂所有」变成「创业只是把一个案例无限重复的东西，我做的一切是建一座重复该案例的工厂」。做对了，就会有客户说 hell yes、自己把自己拉过工厂每一步。步骤是：管道（pipeline）——怎么让人跟我们聊；销售——怎么把潜客变成客户；交付——怎么让客户「流失才奇怪」。我们做的一切都装进这座案例工厂。脑子里有这幅图，创业怎么运作会大幅简化。然后你可以用约束理论（theory of constraints）——要开始很宅了——像看制造一样看你的案例工厂：增长瓶颈在哪？管道不够？好，那现在只这件事重要，先解决再下一个。关单率偏低？好，那是瓶颈，全力攻。案例工厂模型给你一种思考创业、以及任何时刻该聚焦何处的方式。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>这想法很有意思：不是「我们要关更多客户、更多单」，而是在建案例——几乎倒推「我们正在聊的这家公司的案例会是什么」。假设聊 SpaceX，我们希望跟所有公司谈时形态一致。人们叫这可重复销售动作；我喜欢倒推新闻稿那种感觉，但是为销售——</p>
+<p>我们要写的关于 SpaceX 的案例是什么？我们怎么拿到他们、怎么卖成、怎么交付。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>然后做出一致、可重复的案例，以后能分享。销售就变成：我们交付的案例是这个，跟你相关吗？你可以给别人看案例，他们说「对，我也想要这个」——变成工具；你也可以说「你不像我们的案例，可能会很费劲、可能不是好匹配」——用来资格筛查、让人理解你做什么。有意思，现在有一整套「软件工厂」主题——产品自己建自己——而这是更广义的工厂版本：销售、用户、案例工厂。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>对。我们这儿不做软件，我们做案例。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>所以建议就是这么想：我们做案例？有意思。而且你不必真的写出来分享，它只是思考你在销售/GTM 上要建什么的心智模型。</p>
+<p>完全是。好消息是：如果你有拉力框架，你只要描述我们怎么帮了他们、他们达成了什么，你就有案例了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>太棒了。流程基本到头了，还有几件社群和你提到的事想快速碰。一是你有个词叫 hell yes 客户。多讲讲——找人买、再用时，你希望他们是 hell yes。对，基本上是买前就把产品从你手里抢走、买后用起来像上瘾的人。他们也许真的会说 hell yes，但关键的是：不买才奇怪、流失才奇怪；过程主要是他们拉，不是你推。那是你的完美契合客户。你的工作只是找到更多基本上是他们克隆的人。</p>
+<p>另一点想强调：你建议不要试点、不要概念验证、不要设计合作伙伴——直接「我们卖给你、上线、会很棒」。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对。有时你会这么做，他们说「行，但我们这儿采购方式其实需要先试点」。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>好，可以——但别主动提供。太棒了。社群里另一个大问题：从外部看这像只给创业者和创始人用，但其实也适用于大公司做新功能、新业务线——开头提过，再强调一下。成熟公司做新产品时，这流程有没有什么会想得不一样？我在帮几家公司推第二款产品。他们其实是创始人说「酷，再来一次」，拿这套方法对着现有客户做增购，而且是在功能建好之前就卖新功能。另一个例子——不能说名字——一家公司新的产品负责人跟我说：管用的想法全来自销售电话，客户说「你们能做 X，还能不能帮我们做另一件事」；从客户在销售电话里要「能帮他们做那个项目」长出来的产品全管用，他们白板想出来的从来不管用。所以你有产品，听到这些「这可能是个东西」的小金块，然后我想象你就逐步走拉力假设——立假设、跟五个现有客户聊、找拉力、看他们会不会真买，再走同一套流程。还有一点我们可能强调不够：尤其创业阶段，该做这件事的是创始人。有意思的是你说即使成熟公司做新产品，理想也是创始人在卖。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>理想情况。不总是。也有人在做从零到一的事。但我建议：如果你在那种位置又不是创始人——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>——就真正聚焦试着卖、通过卖来学，因为从零到一有很多迷路的方式。太棒了。如果事情不行，还有你说的哥布林模式（goblin mode）：试试一堆东西、跟尽可能多人聊、上飞机、开二十场会，就找点东西。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对。Hail Mary、哥布林模式——都是紧急情况下砸玻璃。时间很宝贵，卡死很糟。如果你在从零到一的痛苦洞穴，那是人生最糟的时候，别拖长。上飞机、去办公室、当面谈，做什么都行，找到点东西。Rob，我们走完了，太棒了。还有什么重要想分享、或想再强调，再进激动人心的闪电轮？希望传达到的是这有多简单：拉力框架、给人看、看他们拉不拉。很容易过度复杂化，很容易想提前在脑子里解所有变量。我发现就：拉力框架、卖、看他们想不想买，过程中少想一点——就能到那儿。太棒了，听起来很简单。重要的是知道：找到真正管用的点子其实很难。这一切是帮你少吃苦、少白建、少浪费人生在不会成的东西上。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>可以想成沙滩上的金属探测器——这是给你金属探测器。你现在挖的地方可能没有金属，但至少我没给你勺子。</p>
+<p>哦我懂了——有金属探测器，而不是拿勺子翻遍沙子。太爱这个比喻。有时你可能找到东西，然后发现不值钱。对。</p>
+<p>好比喻。Rob，到了激动人心的闪电轮。五个问题，准备好了吗？来吧。第一：你最常向别人推荐的两三本书是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>天哪。我最爱的是 Christopher Alexander 的四卷本《秩序的本质》（The Nature of Order）——建筑学系列。最好的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>从没听过这个推荐。那是我最爱的。最近最爱或反复看的电影/剧？我们反复看的两部：一是最新版《傲慢与偏见》（Pride and Prejudice），二是《马达加斯加的企鹅》（Penguins of Madagascar）。不知道为什么两端频谱都有。</p>
+<p>最近发现或很爱用的最有意思的 AI 产品？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>我在用 Muse——如果它对我管用，就能对任何人管用。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>对，现在很火。太棒了。常在工作或生活里回味的座右铭？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>生活是你把它做成什么样子。太对了。最后一个问题想听你看法：有「沥青坑点子」（tarpit ideas）这个说法。我请过 Dalton Caldwell——YC 合伙人——他说过 tarpit ideas：人们不断冒出来、却糟糕、不成立的点子，大家还一直试。有没有你发现人们老找你、你心想「别做，不会成」的沥青坑点子？有意思。那一类是：去打一个已经有明确赢家的空间，又没有任何差异化理论。我老看到：哦 Lemlist 刚做了销售自动化、bootstrapped 还涨得很快，那我也做跟他们一模一样或很接近的东西。好，但他们已经赢了或已经做成了那件事。除非你是「哦，这类客户还没解，我们要为他们做点不太一样的」——那些点子几乎总不成。你会觉得自己疯了：「明明对他们管用，我哪里错了？」</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>我猜人人都答「但更好啊」。我们知道不能只好一点点。你其实是在说：这是在解他们的堵；</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>而且比所有替代都好，他们就会走那条。但那又会扯到另一场谈话——如果好两倍呢？你的建议大概是：多半还不够。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>很多事对。你可以给我一台家里用的好一百倍的打印机，我也不会买——因为我没被堵住。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>好例子。天哪 Rob 我们做到了。好，听众怎么能帮到你？这是最后一个问题。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>天哪。如果你喜欢这框架，用它，告诉别人。如果有用看看书。有想法、点子就联系我——这是还在发展中的理论框架模型，我仍觉得自己刚刮到表面，大概是我接下来十到二十年要做的事。有改进方式就联系我告诉我。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>太棒了。你的 newsletter 正是那样——不知道你发多勤，就是「酷，又一种想这事的方式，这儿有个褶皱」。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>把这叫「创业物理学」（physics of startups）本身就很棒。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>谢谢。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>所以指向 newsletter。Rob，非常感谢你来。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="罗布·斯奈德（Rob Snyder）">Rob</span></div><div class="content">
+<p>谢谢。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="伦尼·拉钦斯基（Lenny Rachitsky，主持人）">Lenny</span></div><div class="content">
+<p>大家再见。非常感谢收听。如果觉得有价值，可以在 Apple Podcasts、Spotify 或你喜欢的播客 App 订阅。也请考虑给评分或写评论，这真的能帮其他听众找到节目。往期和更多信息在 lennyspodcast.com。下期见。</p>
+</div></div>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Lenny's Podcast", "title": "找到 PMF 的 86 分钟指南｜罗布·斯奈德（Rob Snyder，《拉力的力量》作者）", "url": "https://www.youtube.com/watch?v=19qrLchbQEc", "videoId": "19qrLchbQEc", "published_at": "2026-10-25", "duration": 5147, "caption_source": "YouTube 自动生成字幕（en / en-orig；普通 yt-dlp 遭 429 后经 yt-dlp + Chrome cookies 拉取；无官方字幕轨），中文为逐句全文翻译，已省略赞助口播（Work OS、DX）；caption_source=yt-dlp-chrome-cookies", "guests": ["罗布·斯奈德（Rob Snyder，《The Power of Pull》作者）"], "speakers": [{"id": "h", "name": "伦尼·拉钦斯基（Lenny Rachitsky，主持人）", "role": "host", "short": "Lenny"}, {"id": "g", "name": "罗布·斯奈德（Rob Snyder）", "role": "guest", "short": "Rob"}], "intro": {"summary": "Lenny 访谈 Rob Snyder：用「拉力」（pull）框架从发现、销售到交付与留存，系统化找到产品市场契合（PMF），并把创业想成可重复的「案例工厂」。", "points": ["拉力属于具体的人（非公司）；销售通话要验证对方会否把产品从你手里抢走，否则 Hail Mary：待办里有没有愿现在付钱让你做的事", "有「yes」后亲自交付，找留存领先指标 X（到了才「流失奇怪」）；高流失不可接受——往往能从中发现真正有拉力的细分并 pivot", "案例工厂心智模型：管道→销售→交付，用约束理论一次只打增长瓶颈；目标是一个 hell yes 案例无限重复", "建议：少试点/PoC/设计合伙，直接卖并上线；成熟公司做第二产品也可用同一套对现有客户立假设、找拉力", "卡住时进哥布林模式/Hail Mary：见面、上飞机、多开会；沥青坑点子＝打已有明确赢家的空间却无差异化理论", "赞助口播已标灰：Work OS、DX"], "verdict": "值得看：约 86 分钟，框架清晰、可操作，适合从 0→1 找 PMF 的创始人与做新业务线的产品负责人；若已熟拉力概念可跳过开场定义，直奔销售结构与案例工厂。闪电轮与书单可按需听。", "audience": "早期创始人、PM/产品负责人、做第二产品的成熟公司团队、关心 GTM 与留存的创业者"}, "paragraphs": [{"start_sec": 3, "speaker_id": "h", "type": "text", "zh": "销售通话背后的理论是：如果你有「拉力」（pull），对方会把产品从你手里抢走。所以我有一套非常具体的销售通话结构，用来进入发现（discovery），再从发现中过渡出来。人们怎么用这个框架，来想出更可能真正成功的点子？"}, {"start_sec": 18, "speaker_id": "g", "type": "text", "zh": "人们常犯的一个主要错误，是以为拉力是一家公司拥有的东西。其实它是某个人拥有的东西。你不是在卖给 SpaceX（SpaceX）。你是在卖给 SpaceX 法务负责人，她的待办清单上有一个她自己做不了的项目。"}, {"start_sec": 34, "speaker_id": "g", "type": "text", "zh": "你有一个叫「Hail Mary（孤注一掷）」的做法。你在跟人聊，他们说：「天哪，这正是我需要的。」很多时候不会发生这种事。但那也是一个机会——我称之为扔出 Hail Mary：你的待办清单上，有没有什么是你愿意现在就付钱让我去做的？我们是在看他们会不会试图买。如果不会，没关系，我们学到了一些东西，可以继续迭代。如果会，太好了，我们可能抓到了什么。再看看它会不会重复出现。"}, {"start_sec": 61, "speaker_id": "h", "type": "text", "zh": "假设你真的找到了某种东西，某种【音乐】正在产生拉力、人们说「我现在就要」的东西。接下来做什么？"}, {"start_sec": 67, "speaker_id": "g", "type": "text", "zh": "留存（retention）极其重要【音乐】，而且并不显而易见。所以我的建议是——"}, {"start_sec": 78, "speaker_id": "h", "type": "text", "zh": "Rob，非常感谢你来到这里，欢迎上播客。"}, {"start_sec": 80, "speaker_id": "h", "type": "text", "zh": "你好，谢谢。你是《The Power of Pull（拉力的力量）》的作者，书就在我手里。你还有一份叫《The Physics of Startups（创业物理学）》的newsletter。我好像还没跟你说过，我认识你的方式很不寻常。我有一个付费订阅者的 Slack 社群。就在过去一个月里，有两个人分别开了帖，说：「Lenny，你一定要把 Rob 请上播客。我一直在读他的书，对我正在做的事极其有用。」他们有的是创始人，有的是产品人，我就想：这人是谁？我得搞清楚。于是我联系了你，这期节目就这么来了。本质上，你在书里和newsletter里写的，等于做了一份非常务实的指南：如何找到产品市场契合（product-market fit），如何从零到一，再到一之后。除了我刚才说的那些人觉得有用之外，再给听众一个相信你的理由——我知道你已经帮大约 50 家创业公司从零做到超过 100 万美元的经常性收入（ARR）。讲讲这些洞见和建议从何而来。"}, {"start_sec": 147, "speaker_id": "g", "type": "text", "zh": "对，是的。我完全没料到自己会写书或做这类事。我自己做创始人冲零到一时被现实狠狠打脸，后来偶然摸出门道，然后一堆朋友开始把我拉去帮他们的创业公司做零到一，我就对这个阶段着了迷。它超级有意思，也超级怪。我觉得这方面写得好的东西并不多，于是我就奇怪地沉迷于尽可能多地做零到一，而且我很享受。我还想读几段社群里的原话，来印证你刚才说的——人们对你所做之事的评价。这很不寻常：虽然你说相关内容不多，但其实给创始人的内容很多——如何找点子、如何找产品市场契合。所以如果有人特别说「这对我比外面任何东西都有用」，对我来说是个很强的信号。社群里有人说：我还记得读他书的第一章时，肩膀上的重负卸下来了——原来我不是什么愚蠢又迷茫的异类，这是过程里的正常部分。还有人说：除了所有非常战术的东西，我个人还觉得，它把追求产品市场契合有多痛苦、多孤独、多怪异给正常化了。最后：我们正好撞上了 Rob 描述的那些零到一陷阱——按潜在客户说他们「想要」的去建，而不是按真正让他们说「要」的去建。"}, {"start_sec": 234, "speaker_id": "h", "type": "text", "zh": "哇，你社群里的人真好。那真是……"}, {"start_sec": 238, "speaker_id": "g", "type": "text", "zh": "确实如此。"}, {"start_sec": 239, "speaker_id": "h", "type": "text", "zh": "太贴心了。"}, {"start_sec": 240, "speaker_id": "h", "type": "text", "zh": "确实，确实。好，反正就这样。给大家一点……好，我们认真听。来，给我们概览一下拉力框架（pull framework）。"}, {"start_sec": 250, "speaker_id": "g", "type": "text", "zh": "好。拉力框架描述的是这样一种人：会把你的产品从手里抢走的人。也就是「不买你的产品反而奇怪」的那种人。我们都知道拉力是什么感觉——创业故事里写的那种，像你newsletter里那些起飞的创业公司，有疯狂的拉力。你就是那样成长起来的，对吧？人人都想要那种感觉。可我们大多数人处在的状态更像在「推」：拼命说服别人在乎、说服别人买，勉强有点用。所以拉力描述的是「不买才奇怪」的人。问题是：什么会让人把产品从你手里抢走？我发现很多传统说法不对。我自己做创始人时，出去找「火烧眉毛」的痛点、大问题，提供有差异化的、真正有价值的方案。我们有每天都在用产品的设计合作伙伴（design partners）。我当时觉得：勾勾勾，这玩意儿要上天了。然后去卖，结果连续两年撞墙、盲目转向，完全不知道为什么。后来我们偶然转向，突然起飞，我才意识到：让人把产品抢走的，并不是痛点或价值主张之类的东西。因为人们完全可以说：挺好的，你的产品解决痛点、很有价值，但我不会为了买它而打乱自己的优先级。我意识到关键是优先级——某种特定的优先级：有人正要做某件事，待办上有个项目，现在就要做，但用现有工具、方法或选项做不了。那种情况下他们像压紧的弹簧：想做事却卡住了，你出现并提供能让他们松开、帮他们完成那个优先级的东西。那时候他们就会把产品从你手里抢走。拉力框架，就是对这件事的一个缩写。"}, {"start_sec": 381, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "Work OS", "zh": ""}, {"start_sec": 451, "speaker_id": "h", "type": "text", "zh": "我们把拉力这个缩写拆开讲，因为它能把这个想法讲得更深。"}, {"start_sec": 455, "speaker_id": "g", "type": "text", "zh": "对。缩写是 PULL。P 是项目（Project）：他们待办清单上有一个项目。你可以把它想成「待完成的工作」（job to be done）。Bob Moesta 你请过，他很棒。项目不是「我想买招聘软件」，而是「我想招更多员工」这类事。U 是不可避免（Unavoidable）：这件事我现在必须做。为什么是现在？为什么不能以后？有某个理由逼你现在做。第一个 L 是选项清单（List of options）：我考虑用哪些办法完成这个项目——再雇人、让现有团队做、用已有工具或市面上的工具。第二个 L 是局限（Limitations）：为什么那些选项不够好、完不成我的项目？前两项非常重要；有趣的是后两项显得没那么重要，我很好奇它们为什么关键。前两项本质上就是：我有一个问题，我需要完成一项工作，而且这是紧急问题。从某种意义上说，这就是被具体定义的「火烧眉毛」——老板等着我交待办，而且现在就要，不只是某种笼统的「我需要解决」。"}, {"start_sec": 534, "speaker_id": "g", "type": "text", "zh": "对。"}, {"start_sec": 535, "speaker_id": "h", "type": "text", "zh": "为什么后两项这么重要？就是「还有别的选项」以及「那些选项为什么不行」。"}, {"start_sec": 540, "speaker_id": "g", "type": "text", "zh": "你可以想象这样一种情况：比如一个产品团队，上面强制下来一件非常重要的事，他们有一个必须做的重要功能，这是待办上不可避免的项目——但他们会自己做。所以他们什么都不需要。除非现有选项不够好，否则他们不会买任何东西。因此真正重要的是：不只是「我正要做某事，我可以自己做，或用品类龙头、或用随便什么现成工具」；必须是「我现有的选项都不够好，我卡住了，我被挡住了」。"}, {"start_sec": 584, "speaker_id": "h", "type": "text", "zh": "我们举个例子，让这更落地。有没有某个产品或公司，能让我们感觉到——我基本上把这当模板用，有点像填空，就是 PULL，你往里填。来，举个例子。"}, {"start_sec": 596, "speaker_id": "g", "type": "text", "zh": "我朋友们有一家公司叫 Jump，是给理财顾问用的 AI 会议纪要工具，很有意思的赛道。顺便说，他们也走过和我一样的路：撞墙 18 个月，最后找到拉力，试着去卖，才搞明白。他们发现理财顾问待办上有一个项目：尽量减少花在给客户会议做笔记、再把笔记录入 CRM 的时间。项目在待办上。U（不可避免）是：如果不做笔记并录入 CRM，他们可能坐牢。所以他们必须做笔记，但做的时候又不想做，于是想尽量缩短时间——因为那不好玩。他们考虑过的选项包括通用的 AI 纪要工具，市面上一大堆，但那些不够好：不跟理财顾问的 CRM 集成，也不清楚是否符合 SEC（美国证券交易委员会）相关合规。所以那份选项清单他们其实用不了。当 Jump 出现并找到这种拉力时，人们就把产品抢走了。我记得有人原话大概是：这一定就是亚历山大·格雷厄姆·贝尔（Alexander Graham Bell）发明电话时的感觉。拿理财顾问产品说出这种话，挺奇怪的。"}, {"start_sec": 694, "speaker_id": "h", "type": "text", "zh": "太棒了。这段推荐语可以贴官网。"}, {"start_sec": 697, "speaker_id": "g", "type": "text", "zh": "对。"}, {"start_sec": 697, "speaker_id": "h", "type": "text", "zh": "好。那「坏版本」会是什么样？如果没有拉力，看起来会怎样？"}, {"start_sec": 702, "speaker_id": "g", "type": "text", "zh": "跟 Jump 团队有过一次有趣的对话。他们说：好，理财顾问有这个项目。还有谁也老在见客户？保险代理人。那我们去跟他们聊聊。结果保险代理人待办上也有「尽量减少做会议笔记时间」这个项目，但 U（不可避免）不在——他们没有必须把会议笔记写进 CRM 的要求。所以他们的现有选项、第一个 L，就是「不做会议笔记」，而他们本来就在这么干。框架在他们身上填不满，那种「力」不存在。他们过得好好的。你看，不可避免这一块为什么这么重要——基本四个都要齐。对，这是个好教训：真正的拉力需要四项同时存在。在第一个例子里，那个待办对我来说不像是他们白纸黑字写下来的，更像笼统的「省时间」。这种能不能算作合格的 P（项目）？还是说它真的具体写在每个理财顾问的待办上？"}, {"start_sec": 772, "speaker_id": "g", "type": "text", "zh": "我不会说它真是写在待办清单上的某条，但它是他们一直在做的事，是工作流的一部分，而且做的时候他们在尽量少做。有点像：日历上我正在做的动作，以及做的时候心里的意图——那个项目。所以在做的时候，我脑子里待办上的项目是：尽量少花时间在这件烦人的事上。"}, {"start_sec": 799, "speaker_id": "h", "type": "text", "zh": "明白了。所以如果有创始人或产品团队在听、产品又卡住了，很可能是这四项里缺了一项。"}, {"start_sec": 808, "speaker_id": "g", "type": "text", "zh": "对，你需要四项同时具备。如果你找到了 P，但没有 U，L 也不成立——也就是有人「好像」想做某事，但现在并不是真的要做，现有选项也还行——他们会抱怨，但不会买。如果他们有 P 和 U，但 L 已经够好，他们会说：对，我们现在就是这么干的，我们在用 Claude Code 搞，我们自己能搞定。"}, {"start_sec": 833, "speaker_id": "h", "type": "text", "zh": "你还谈到一点：这种拉力是已经存在的东西，你更像猎人去寻找、去发现它。多讲讲这个。"}, {"start_sec": 845, "speaker_id": "g", "type": "text", "zh": "我意识到这点时特别解脱，因为我一直觉得是自己不行——不擅长说服市场想要我的产品。那种视角是：我在做很有价值的东西，人们不买，我怎么说服他们想买？结果发现，这种拉力、他们待办上的项目，在我出现之前、独立于我就存在，意味着我只需要出去找到它。我不必说服人们拥有拉力。我还没完全想清楚怎么「制造」拉力，但哪怕可能，也极其难。那种拼命说服「看这多好、能解决你好多问题」的感觉太熟悉了。我很喜欢它把找产品市场契合、想点子这类笼统建议变得非常具体——直接告诉你长什么样。你还提到过：对他们来说「不买才奇怪」——这是对了的信号。多讲讲这个。"}, {"start_sec": 914, "speaker_id": "g", "type": "text", "zh": "大多数人、大多数时候都「还行」。以他们待办上有什么、手里有什么、选项是什么来看，买我们的产品反而奇怪。但有拉力的人是「不买才奇怪」。他们应该把产品从你手里抢走，因为他们就像那根压紧的弹簧。所以如果你跟有拉力的人聊，对话基本会变成：等一下，你能做什么？好，我们怎么开始？产品做好了吗？我们怎么接入？而跟没有拉力的人聊，可以是别的任何样子：他们可以很热情、很客气，说「哇太棒了、超级有意思、这绝对是行业未来、能省我们好多钱」，但他们不会说「我现在就要」。这就是你判断他们是否真有拉力的方式。这些对话听起来很熟悉。好，在进入创业全流程、以及如何在流程里用这个框架之前，关于拉力框架的一般想法，还有什么重要的要分享？人们常犯的一个主要错误是：以为拉力是公司拥有的。它是某个人拥有的。就算你卖企业软件，你也不是卖给公司——不是卖给 SpaceX。你是卖给 SpaceX 的法务负责人，她待办上有一个他们自己做不了的项目。"}, {"start_sec": 1008, "speaker_id": "h", "type": "text", "zh": "这非常有用。所以不是「SpaceX 需要这个」，而是比如 Jen 需要这个。"}, {"start_sec": 1012, "speaker_id": "g", "type": "text", "zh": "对，是她需要。你是说人们常犯的错就是不去想那个有具体需求的具体的人。"}, {"start_sec": 1020, "speaker_id": "g", "type": "text", "zh": "对对，非常常见会说「我们卖给中型私募股权公司」。其实不是——你是卖给里面某个合伙人、或运营合伙人，他具体要做 X、Y、Z。"}, {"start_sec": 1033, "speaker_id": "h", "type": "text", "zh": "太好了。那透过这个框架，我们走一遍早期创业找产品市场契合的关键节点。我想聊：想出点子、拿到第一次销售通话、拿下第一单，然后再扩展。先从想出点子开始。"}, {"start_sec": 1051, "speaker_id": "g", "type": "text", "zh": "人们怎么用这个框架，想出更可能真正成功的点子？我做创始人时有一本点子笔记本，全是「如果我们给 API 做个 API」这类——产品点子听起来都很疯，我永远分不清哪个好哪个坏。幸运的是，拉力框架在产品点子的上游：我相信有一个人现在正要做 X，不买才奇怪。所以我觉得有用的是：用拉力框架立下一个主张——无论我有什么点子，我相信这个具体的人卡住了。然后我去找他们聊，看他们会不会在我们还没产品时就想从我这里买。对我来说，拉力框架就是提出「谁有拉力」的假说，然后去验证。接下来问题变成：你怎么找到这个拉力点子、拉力假说？我对此意见比较强硬。我觉得我们对这个阶段不够认真。如果你的命取决于此，你会只做 10 场、每场 Zoom 上 30 分钟的客户访谈吗？不会。你会全力以赴，会亲自去现场。我有几个朋友的故事：他们做了很疯狂的事，跟潜在客户一起干那份工作，第一手去感受、去发现拉力——要么做出自己也会买的东西，要么嵌入到那些人里，找到「有人正想做某事却卡住」的那一刻。"}, {"start_sec": 1169, "speaker_id": "h", "type": "text", "zh": "太棒了。所以建议是：别坐着头脑风暴，也别只盯着大市场猜哪里可能有大事。你说的几乎是：如果命悬于此，你会怎么找到一个很可能有真拉力的问题？我听到的是——钻进细节、亲自动手。这让我想起 Nan（Nanan）的一句话，他是 Linear 的产品负责人，刚去了 OpenAI——他描述找机会时要找的是：我想用他们感受痛苦的同样方式，去感受那个人的痛苦。"}, {"start_sec": 1209, "speaker_id": "g", "type": "text", "zh": "对对。"}, {"start_sec": 1211, "speaker_id": "h", "type": "text", "zh": "你是说做法就是跟正在做事的人一起钻进去。有没有这样做的例子？"}, {"start_sec": 1217, "speaker_id": "g", "type": "text", "zh": "有。我一个同学完全不知道要做什么，没有产品点子，也没有我那种笔记本。他只说：我喜欢服务小企业，我想先找到我喜欢服务的人，点子从那里长出来。于是他列了一批可能有意思的行业，然后去跟岗，一连几天跟他们一起跑。他从太阳能板安装工开始——他讨厌他们，他们也讨厌他。于是换下一个。最后做到独立物理治疗师，跟了他们好几天，彼此很合得来。然后想：好，拉力在哪？我该做什么？他连续几天在他们肩后观察，甚至试着买一家理疗加盟店，能看到损益表，真的在考虑。在这个过程里他意识到：等等，看起来你们正想做 X，却卡住了。所以你应该做的是第一手体验。"}, {"start_sec": 1290, "speaker_id": "h", "type": "text", "zh": "太好了。就是自己活一遍、沉进去。为什么必须这样？是不是因为如果容易，别人早就发现了？你为什么觉得这种方式这么重要？"}, {"start_sec": 1305, "speaker_id": "g", "type": "text", "zh": "我说两点。一是：这些东西不会从白板上冒出来。他最终找到的点子，如果靠头脑风暴想出来反而奇怪——想想他本来能编出多少点子。而且那是他靠观察才看到的，访谈里也不一定冒得出来。二是更哲学的一点：你建公司是为了服务这类人。建公司的全部意义就是服务某人、帮他们做成某事。如果没有第一手体验，你怎么做出那成千上万个真正服务他们的决策？"}, {"start_sec": 1354, "speaker_id": "h", "type": "text", "zh": "一旦有了洞见——比如这家理疗公司——你是不是用拉力框架写下来加压？你叫它拉力假说（pull hypothesis），对吗？"}, {"start_sec": 1364, "speaker_id": "g", "type": "text", "zh": "对。"}, {"start_sec": 1364, "speaker_id": "h", "type": "text", "zh": "那就讲讲：假设你有了洞见，我很好奇他在理疗生意上实际发现了什么，以及怎么开始用拉力框架来想。"}, {"start_sec": 1372, "speaker_id": "g", "type": "text", "zh": "然后你把它写成：好，我相信这类点子——这位物理治疗师正试图削减损益表上某项具体成本（我不记得具体是什么了），因为 XYZ 原因不可避免，而请顾问进来这类现有选项因太贵、太慢等具体原因不够好。把拉力假说写出来。接下来他做的事非常关键：拿给那个人看，问「这是你吗？」对方说：「天哪，对，就是这个。」「好，如果我帮你搞定，你会买吗？」「当然。」「好，那我得再去找另外五个理疗师，确认这会重复。」他去做了，那些人也有拉力——这点很关键，确保你不是只为一个人做产品。他给公司看的是那四个要点吗——项目、为何不可避免——还是别的？"}, {"start_sec": 1437, "speaker_id": "g", "type": "text", "zh": "我其实建议做两页幻灯片。一页基本是拉力框架。你不必把框架本身秀给他们，没人会懂。你可以说：我听到的是，你现在因为 Y 要做 X，考虑过这些，但因这个原因不够好。问：我理解得大致对吗？第二页是我如何帮你的概念概览：听起来你想比顾问更快地砍掉这一行成本，我们可以用 XYZ 提供这个——这符合你要找的吗？你要的是：第一页他们说「天哪，对」；第二页他们说「怎么运作？我们怎么往前走？」我喜欢你的东西就在于非常即插即用、务实。我们会把你让人填的模板幻灯片也秀出来。措辞我照着念：你待办上有这样一个项目；它现在不可避免，因为……；你看过的选项是……；它们因……而不够。太棒了。想法就是做这么一小页，拿去给人过，这就是假说——一旦展示，有拉力时长什么样？是准备汇款？瞳孔放大？你看什么？"}, {"start_sec": 1522, "speaker_id": "g", "type": "text", "zh": "你看几件事。真正重要的是他们真的试图买：他们说「好，我们怎么开始？」而且会真的这么做。我有个朋友卖东西时转了好几圈，但他知道自己找到拉力是在：一位制药高管在他还没产品时说「如果你能做到，我现在就付钱」。这就是你要的信号。还有他们身体前倾：「等一下，你能做什么？」你不要的是后仰式热情：「好吧多讲讲」「我们再想想」「能不能再发点资料给团队看看」——凡是不是「我们现在怎么推进」的，都不值得你花生命力去追。有趣的是，肢体语言、对点子兴奋的身体感受，本身就是好信号。我刚请过 Google Labs 负责人 Josh Woodward，他也说：你会看到他们眼里闪一下光【笑声】——有趣的是，那也是拉力的信号。"}, {"start_sec": 1592, "speaker_id": "g", "type": "text", "zh": "对对对。你看到的是：对他们来说「现在不买才奇怪」吗？他们的行为像「不买才奇怪」吗？"}, {"start_sec": 1602, "speaker_id": "h", "type": "text", "zh": "有没有那种「我会买」的口头 vs「真的会买」的信号？是肢体语言吗？你怎么知道他们是认真的？"}, {"start_sec": 1615, "speaker_id": "g", "type": "text", "zh": "我称之为「拉力形状的行动」（pull-shaped action）——词不太好，但意思是：我现在就要。我正从你手里往外拽。我们现在怎么推进？而不是「我完全能想象我们 Q4 会用」——那不是朝我拉，那是把事情推到未来。"}, {"start_sec": 1644, "speaker_id": "h", "type": "text", "zh": "就像「我现在就要」那种紧迫感。还有一种常见建议是「解决你自己的问题」，跟你描述的不一样。你推荐还是不推荐这条路？"}, {"start_sec": 1655, "speaker_id": "g", "type": "text", "zh": "比如 Clearly AI 的 Emily，她在 AWS 做安全工程时发现一件她愿意付钱让人解决、但市场上没人做的事。那种情况就是「解决你自己的问题」，百分百可以。这条建议常失灵的地方是：那其实是你不会付钱让人做、只是觉得「世界应该有这个」的东西。你得对自己诚实。我也做过「我觉得世界需要这个、我碰到过这问题」的东西，但对着镜子我不会说「对，现在就买」。另外，这建议主要针对 B2B SaaS，还是也适用于消费级 App？我主要在 B2B，但挺多人从消费领域也在用，我有点意外。有人给我发 Spanx 的故事——她本质上也是一对一卖、看反应，摸清后来变成 Specs 的各个部分。"}, {"start_sec": 1731, "speaker_id": "h", "type": "text", "zh": "对，她著名地就是解决了自己的问题。"}, {"start_sec": 1733, "speaker_id": "g", "type": "text", "zh": "对，据说是直接撕了丝袜，因为她现在就需要——好像要去赴一场活动。很酷的例子。我们还会细讲，但你有一个 Hail Mary（孤注一掷）的做法，说说。所谓 Hail Mary：我们刚才讲的是快乐路径——你找到东西，跟人聊，他们说「天哪，这正是我需要的」。很多时候不会这样，你会得到不温不火的感觉。我发现那也是一个机会，我称之为扔 Hail Mary：好，这好像不是那件事。你待办上有没有什么是你愿意现在付钱让我做、愿意让人从你盘子里拿走的？这是一个开放式的 Hail Mary。我见过好几家创业公司完全因 Hail Mary 而转向并起飞，挺有意思。有一家想把应聘者跟踪系统卖给政府，打了一通电话，对方说「挺有意思」。但 Hail Mary 问完之后：我真正愿意付钱解决的是现在这个职位描述的问题。那就成了他们的第一份合同、第一个客户，之后增长很快。"}, {"start_sec": 1810, "speaker_id": "h", "type": "text", "zh": "太棒了。所以建议有时就是直接问：我们能帮你解决什么问题？"}, {"start_sec": 1816, "speaker_id": "g", "type": "text", "zh": "对。这又连到怎么看销售。我先简单说，有意思再深挖——我超级内向又爱想太多，以前对销售很紧张，压力很大，感觉是「我得说服你买」，问那种问题不舒服。但如果你在脑子里重框成：我只是在看他们有没有卡在什么地方需要帮忙；没有也没关系；有的话我们再看我能不能帮——你对销售的取向就变了。"}, {"start_sec": 1854, "speaker_id": "h", "type": "text", "zh": "我跟你一样。这是很好的想问题方式：我只是在帮人解决问题，为什么这么难？在进入下一步——拿到第一次销售通话、找一个你本来不认识的人聊——之前，想点子时有没有反模式、信号或陷阱？"}, {"start_sec": 1875, "speaker_id": "g", "type": "text", "zh": "无穷无尽【笑】，但我见过最狠的是：觉得必须先自己做出来。你有了点子就说「还没准备好亮相」或「人们得看见才能懂」，然后埋头去做。现在有了 AI，也许几周就能把这股劲发泄掉，而不是几个月；但你要尽快直面现实的冷风。别推迟那些真正能发现拉力的客户对话。"}, {"start_sec": 1918, "speaker_id": "h", "type": "text", "zh": "你也不喜欢设计合作伙伴（design partners）。多说一点——这可是非常标准的建议。"}, {"start_sec": 1927, "speaker_id": "g", "type": "text", "zh": "也许某些情境有用，但我还没见过真正有用的。我几乎每次看到的都是：你招来一个「认同你产品愿景」的设计合作伙伴，他们给一堆反馈，却从不买。你发现那些反馈只是他们在扮演乔布斯——「我来帮帮这家创业公司」——而不是「我有一件真正要做成的事」。仔细想：真有重要事情要做成的人，根本不想当设计合作伙伴，他们只想把那件事做完。"}, {"start_sec": 1969, "speaker_id": "h", "type": "text", "zh": "太爱这点了。所以你的建议是别弄一堆设计合作伙伴；我们再走你真正推荐的流程。总结一下「想点子」这一步：核心时刻是基于动手、跟你要帮助的人生活在一起而来的洞见。我听过一个词描述这事——好像是 Floodgate 那家 VC 用的——你在找「挣来的秘密」（earned secret）。对。你的建议是：找到这个秘密的方式，要么你在某家公司亲身经历过（比如刚才 AWS 的例子），要么你在一线跟正在经历的人并肩，找他们真正有的问题。"}, {"start_sec": 2018, "speaker_id": "g", "type": "text", "zh": "对对对。方法其实不太重要——也许在一次伊萨卡静修里突然想到——秘密从哪来都行；但最可能真正管用的，是把手弄脏、从现实学，而不是从理论学。"}, {"start_sec": 2035, "speaker_id": "h", "type": "text", "zh": "顺着说：假如你合作过的大概 50 家公司，点子来源画个饼图，最大的几块是什么？我会说大约 10% 自身经历，90% 去拿第一手体验；其中有些是先卖错产品才搞清对的产品，但多数是真去一线做事。那静修占多少？没位置给它。"}, {"start_sec": 2070, "speaker_id": "g", "type": "text", "zh": "百分百。那是我辅导你时的强制项。【笑】那就是拉力假说。"}, {"start_sec": 2078, "speaker_id": "h", "type": "text", "zh": "好。假设这时候你有了拉力假说，有迹象说明这里可能真有好东西。下一步在我看来是找到人聊、卖给他们——基本上就是约到第一次销售通话。讲讲你怎么约到那通电话，发生什么；之后再谈怎么打。但在那之前，先谈怎么找到人聊。"}, {"start_sec": 2085, "speaker_id": "g", "type": "text", "zh": "这挺有意思。我的目标其实是每天跟潜在客户聊两到三次。但要到那一步，你得先有第一次对话。你可以走暖介绍等等。我们就说：如果你什么都没有，只能冷触达。我通常建议创始人从 LinkedIn 或邮件联系潜在客户开始，而且信息非常特定——不是「你有没有 XYZ 痛点、要不要买我们改变游戏规则的方案」。网上那些模板只会换来「别烦我」。我管这阶段叫「创始人魔法」式外联：你有意思，我也有意思，聊聊看。这完全可以接受。我帮过的一家创业公司，信息是：「嘿，Snoop Dogg 投了我们，我觉得你也会觉得有意思，愿意聊聊吗？」很好玩。每个人都有自己的版本——听这期的创始人都能发出有意思的信息。你不必在信息里说服他们买产品，只要让他们跟你聊。拉力在他们待办上，信息不改变那一点，只是约到对话。所以说点有意思的，让他们愿意见你。"}, {"start_sec": 2150, "speaker_id": "h", "type": "text", "zh": "这很有帮助。所以建议是：别精心做完整价值主张、痛点识别，别告诉他们你能解决多少痛苦——就是用有意思的东西抓住注意。对。Snoop Dogg 的例子很棒。还有别的例子、别的思路吗，什么对对方可能有意思？"}, {"start_sec": 2215, "speaker_id": "g", "type": "text", "zh": "见过各种各样的。随意一点的比如：「嘿，我从博士项目退学了，现在在给内容营销人做点东西」——够有意思就行，不必超级魔法。也有「我曾是 Sam Altman 的幕僚长」——谁发这种都会很好使，后面写什么都无所谓：「觉得你会有兴趣，愿意聊聊」。所以是找到值得跟他们聊一聊的有意思点。也取决于终端客户：如果你联系暖通空调公司，说「我是 Sam Altman 前幕僚长」，对方可能说「兄弟我根本不懂这信息里的词」。那就可能是：「嘿，我高中在家里管道公司干过，现在在做这类有意思的事，觉得你或许有兴趣，愿意聊聊吗？」"}, {"start_sec": 2286, "speaker_id": "h", "type": "text", "zh": "隐含的一点是保持非常短。听起来就一两句。"}, {"start_sec": 2290, "speaker_id": "g", "type": "text", "zh": "对。"}, {"start_sec": 2291, "speaker_id": "h", "type": "text", "zh": "好。那你怎么看用 AI 群发邮件，versus 逐个触达、想每人独特的信息？"}, {"start_sec": 2301, "speaker_id": "g", "type": "text", "zh": "这个阶段我没见过 AI 个性化管用。通常只是告诉对方一些他们自己已经知道的事，他们一看就像 Claude 写的。所以一般不推荐。我也没见过这里个性化有多关键。我说的整段信息——不必堆很多个性化，或者「嘿我要去 X 大会路演，愿意聊聊吗」之类，零个性化也可以够用。你举的例子都很简单、跟对方无关，就是说点有意思的。你不推荐的就是……对，你不是立刻要卖，只是想约通话。"}, {"start_sec": 2350, "speaker_id": "h", "type": "text", "zh": "对，通话上我们再看你有没有拉力。有的话，就变成销售通话；没有的话，我做什么都改变不了。【笑】好，刚起步想约到通话，该从多少封邮件 / LinkedIn 开始？"}, {"start_sec": 2366, "speaker_id": "g", "type": "text", "zh": "我倾向从 LinkedIn 开始，因为你我聊的这类人 LinkedIn 本身就有意思，对方会想「哦，这样啊」，能扛很多。你可以每周加 100–150 人，一天加 20，接受后再发消息。如果一周联系 100 人或发 150 个请求，我的典型目标是：30–40% 接受好友；其中 30–50% 回复；一小部分说 yes，多数会说「行啊为什么不」。"}, {"start_sec": 2413, "speaker_id": "h", "type": "text", "zh": "这是很棒的基准。如果达不到，基本上你的「有意思」信息不行，得找更有意思的。"}, {"start_sec": 2420, "speaker_id": "g", "type": "text", "zh": "也可能是你的主页——如果人们不接受请求，他们可能看了你觉得「我不该接受这个人」。如果接受率到了 30–40% 却没人回，那才是另一回事。"}, {"start_sec": 2437, "speaker_id": "h", "type": "ad_omitted", "ad_brand": "DX", "zh": ""}, {"start_sec": 2520, "speaker_id": "h", "type": "text", "zh": "假设你约到了通话，要做销售通话，比如第一次。怎样才能打好这通电话？"}, {"start_sec": 2529, "speaker_id": "g", "type": "text", "zh": "销售通话大致两步：拉力发现（pull discovery），以及「我们可能怎么帮」的概念性推销。理论还是那句：如果你有拉力，你会把东西从我手里抢走。我不会进电话就绷紧、准备拼命说服你买。不——如果你有拉力，你会说服我让你买。"}, {"start_sec": 2529, "speaker_id": "h", "type": "text", "zh": "所以我的状态更像后仰一点，"}, {"start_sec": 2534, "speaker_id": "g", "type": "text", "zh": "很期待聊。我们看看我能不能帮上忙。我有一套很具体的销售通话结构，建议用来进入发现、再过渡出发现。开场：嘿，谢谢你抽时间。我很好奇——肯定很多人找你——你今天为什么接我的电话？这是他们说「你提到 AI agent，我一直在想这个，一直在等，还看了你网站……」之类的机会，他们当场就把整套拉力框架填给你。那是理想情况。然后你说：有意思，我能追问几句吗？但多数时候他们会说：不知道啊，是你找我的，想听听你要说什么。你就说：太好了，听起来就是今天很好的议程，可以吗？让他们对议程点头。然后你「赢得」问发现性问题的权利：好，在进入议程之前，我能不能先问几个问题，更好了解你的背景？这样问起来不像审讯——如果像审讯，他们什么都不说。"}, {"start_sec": 2612, "speaker_id": "h", "type": "text", "zh": "几个战术问题。一是通话多长、日历邀请开多久？二是 demo 放哪——这通电话做，还是另约？这几乎永远是日历上 30 分钟。更短的时段他们日历上看不见，就不出现。所以 30 分钟。demo 看情况：特别早期你大概没什么可演示；晚一点可能在第一次通话里放很短的 demo。我想到跟 Jen 的对话，她的建议是等一等再 demo，但那是企业销售类产品，不是早期拉力假说阶段。"}, {"start_sec": 2659, "speaker_id": "g", "type": "text", "zh": "对对，完全同意。"}, {"start_sec": 2661, "speaker_id": "h", "type": "text", "zh": "明白。怎样算这次会议顺利？是不是那种前倾、从你这儿往外拽的感觉？"}, {"start_sec": 2668, "speaker_id": "g", "type": "text", "zh": "对。要么你能挖出拉力，要么你能说：好，你完全没有拉力——帮我理解为什么这跟你无关、什么才有关。你带走的要么是填好的拉力框架——我理解这人的拉力，他们在拉；要么理解他们为什么没有拉力。"}, {"start_sec": 2691, "speaker_id": "h", "type": "text", "zh": "打多少通才说「这里没拉力，该换了」？我没有硬数字。我倾向：如果五通都是后仰、什么都没学到，就说明有问题。我也见过人打上百通还是没有……所以先打五通，然后复盘学到了什么：有没有拉力？有没有有意思的东西？我刚帮的一家创业公司，打了大概五通银行的电话，完全没感觉。但其中一人介绍说：这跟我好像无关，不过你们可以考虑国防公司。他们接到介绍，对国防一无所知。第一通国防的对话里，对方说：「天哪，你是认真的吗？」他们就想：也许这里有东西。于是改了拉力假说。你的框架和方法很大一块好像就是对自己残酷诚实：这里到底有没有东西。我想象很多创始人超级兴奋、确信这是真的；你的方法是给出验证方式，对什么在管用、什么不管用非常真实。"}, {"start_sec": 2763, "speaker_id": "g", "type": "text", "zh": "对。把它想成我们是「为了学习而卖」，不是为了推什么。不是推。我们要学习，看他们会不会试图买。不会，没关系，学到了东西，可以继续迭代。会，太好了，我们可能有东西了，再看看会不会重复。"}, {"start_sec": 2785, "speaker_id": "h", "type": "text", "zh": "把这叫作拉力太聪明了，因为你总听人说产品市场契合就是感到拉力——大石头在拉你、风在推你。"}, {"start_sec": 2795, "speaker_id": "g", "type": "text", "zh": "对。"}, {"start_sec": 2795, "speaker_id": "h", "type": "text", "zh": "所以它不仅是你要找什么的缩写，也是提醒：你要找的是拉力，某种在拉的东西。"}, {"start_sec": 2803, "speaker_id": "g", "type": "text", "zh": "对。你也能感觉到：我是不是正在推？我是不是正在说服？那是红旗——要么你心里、要么对话里有什么不对，好，我们搞清楚是什么。"}, {"start_sec": 2816, "speaker_id": "h", "type": "text", "zh": "说到好的销售通话，有没有例子浮现——感觉怎样、长什么样、pitch 是什么？"}, {"start_sec": 2823, "speaker_id": "g", "type": "text", "zh": "你要做的还是把拉力从他们嘴里掏出来。他们说：我想做个网站，但那些典型的点选式建站工具对我来说太费劲了——你就有了一点拉力，已经掏出来了。有趣的是：一旦有了拉力，你的 pitch 其实很简单。你不是要描述巨大的产品愿景或你对问题的理论。你知道他们要做 X，却因 Y 受阻。所以 pitch 是：听起来你在找一种不用点选折腾就能做网站的方式，大致对吗？用很小、很简单的方式描述，不是很大。他们说：对，听起来就是。具体怎么运作？多讲讲？他们在从你这儿往外拽更多信息——这时你知道自己开始沾边了。你脑子里是不是过着拉力框架四点：这是不是他们现在就要、不可避免、替代方案是什么？对，那些其实也是我会问的问题。如果开场「为什么接电话」时他们没告诉我，我就会问类似："}, {"start_sec": 2917, "speaker_id": "h", "type": "text", "zh": "有没有跟你们 QA 流程相关的、你们想做却用现有工具、方法、团队做不到的事？这个问题里就嵌着拉力的各个元素，他们可以说：对，其实我们一直想自动化端到端测试，但现有工具做不了。如果他们给了一点，我脑子里就有框架了。很多人通话时真的开着文档，现场往里填——比如我觉得还缺 U——然后你问：好，但如果不现在做可以吗？有什么理由必须现在做，还是以后再说也行？"}, {"start_sec": 2966, "speaker_id": "g", "type": "text", "zh": "你几乎不敢问，因为怕「糟了，要黄了」。"}, {"start_sec": 2969, "speaker_id": "h", "type": "text", "zh": "最吓人的一句是：你们肯定也看过别的选项，够好吗？然后听到：其实我们可以自己做，而且够用。但这能阻止你去推市场不想要的产品，"}, {"start_sec": 2986, "speaker_id": "g", "type": "text", "zh": "以及花掉好几年人生硬要让它成。"}, {"start_sec": 2989, "speaker_id": "h", "type": "text", "zh": "对。我看起来像 60、其实 35，是有原因的。【笑】别推。"}, {"start_sec": 2994, "speaker_id": "g", "type": "text", "zh": "你看起来很好，Rob，滤镜。【笑】这其实碰到一个我们还没正面谈的挑战：要让人决定试新东西、买新东西，要跨过很多坎。现状通常「还行」。他们有太多优先级、太多事在忙。让人说「我要这个、现在就买」的门槛非常高。这个框架的想法就是跨过那道坎——或者说，是找到那些「现状已经不行」的人，找到那些已经在试图改变、不需要被说服的人。有一种说法是产品必须比现有方案好 10 倍别人才在乎。你怎么想：好多少他们才在乎？好一点点行不行？Jump 那个给理财顾问的 AI 纪要例子很好：他们比通用 AI 纪要好多少？如果那些纪要工具完不成工作而我们能，那就是无限好——我们把堵住的东西打通了。所以我怎么看取决于他们被现有选项卡住有多死。我对「10 倍」没什么感觉。关键是他们是不是压紧的弹簧，以及我出现时他们怎么反应。"}, {"start_sec": 3088, "speaker_id": "h", "type": "text", "zh": "我想到像 Linear 这种跟 Jira 竞争的公司。你知道 Linear 吗？"}, {"start_sec": 3093, "speaker_id": "g", "type": "text", "zh": "知道知道。"}, {"start_sec": 3095, "speaker_id": "h", "type": "text", "zh": "我好奇框架能不能套上。我的理解是，Linear 常常赢过 Jira 是因为体验更好——漂亮、流畅、打磨过，很多客户就是因为用着舒服、工程师爱用。你觉得这走得通拉力框架，还是另有原因？"}, {"start_sec": 3105, "speaker_id": "g", "type": "text", "zh": "如果用拉力框架分析，必须为真的是：有一类人在做问题跟踪，却被挡住了——Jira 的体验以某种方式挡住他们，以至于 Linear 好得多的体验对他们真正相关。我犯过的错是拿这个类比说：那我也可以带着更好 UX 杀进一个品类、碾压一切——比如 HR 软件。结果用户体验跟买方不相关，他们没有 P，不在乎系统看起来还像跑在 Cobol 上。所以那里不相关。但拉力理论会说：在 Jira vs Linear 的情况下，确实有一类人被 Jira 的体验挡住了。我猜拉力越强，这一切发生得越快、长得越快。我知道 Linear 花了很久才让人用、信任、迁移——也许是因为那种「挡住」没那么强，更多是「我能更快、更开心」，所以花的时间更长。你是不是发现拉力越强公司长得越快？"}, {"start_sec": 3180, "speaker_id": "g", "type": "text", "zh": "对，我见过一堆创业公司从零到随便什么——现在人人都在零到无穷、超级快——因为他们找到了这些拉力口袋，人们会把产品从手里抢走。人们看现在的 AI pitch 会想：等一下，它能做 X——基本上立刻就买。我在企业里也见过，两周就关单。我那会儿长大时企业单要 18 个月，搞什么？【清嗓】好，下一步。这时候你打完第一次销售通话，我猜接下来是关单。有趣的是还很早，你甚至可能还没产品。从「我现在想买」到下一步，你做什么？"}, {"start_sec": 3264, "speaker_id": "g", "type": "text", "zh": "多少取决于单的大小，但你要带着某种概念和某种计划回来。比如前面说的卖进制药的那位：他靠介绍丢了个 Hail Mary 给制药高管。高管说：天哪谢谢你问，我们现在的市场研究又慢又烂。创始人连幻灯片都没有，第一次听到，就说：听起来你在找更快的市场研究，形态上像你们现在拿到的，但在这些方面更好，大致对吗？高管：对，就是这个。创始人：好，那我过几天带一个我认为可以长什么样的 mockup 回来，我们再看是否符合，再决定要不要往前。没有幻灯片，什么都没有。回去 vibe code 一个粗糙布局，拿反馈，问：基于这个，你还需要知道什么才能决定要不要引进组织？对方说：价格呢？然后有一套讲价格的话术，但基本就这样。"}, {"start_sec": 3348, "speaker_id": "h", "type": "text", "zh": "好，多讲讲这套价格话术。"}, {"start_sec": 3351, "speaker_id": "g", "type": "text", "zh": "拉力框架有趣的一点是能帮你框定价边界。完成这个项目的价值是多少？替代方案的成本是多少？也就是那些 L。更快拿到市场研究的价值是什么？你们现在付给市场研究顾问多少——比如一年 5 万美元？这就给你粗边界：那如果我们也收一年 5 万、跟现有顾问一样？它给价格一个对潜在客户来说直觉上说得通的框。"}, {"start_sec": 3401, "speaker_id": "h", "type": "text", "zh": "太好了。你写关单这一步大概两块：一块是「合不合适」（fit），一块是把单关完的一堆项目管理。fit 我们谈了很多；项目管理这边有什么重要的要讲吗？"}, {"start_sec": 3418, "speaker_id": "g", "type": "text", "zh": "你跟 Jen 做过很棒的几期，讲销售流程。大单、企业单里，冠军（champion）有拉力、决定要这个，然后你还得做大概 17 场 demo，在四个委员会面前鞠躬——有一堆流程。小单就不用：可能就是 CEO 说「行，下一步你发 Stripe 链接，我们约一次 onboarding」。所以项目管理这一步看情况。对更大组织，我通常建议跟买方、跟冠军聊：好，这是你待办上的项目，什么时候需要看到结果？他们说「明年 Q1 一定要」。好，这就是强制函数，你倒推：既然 Q1 要上线见效，从现在到那时要完成哪些步骤？这就强制推动销售流程里所有环节。"}, {"start_sec": 3492, "speaker_id": "h", "type": "text", "zh": "太棒了。基本上就是问：我们什么时候需要展示成功，你们才会全面铺开，然后倒推。很多人这时候会搞设计合作伙伴式安排：我们跟你一起建、边走边看、先不收费。按你前面说的，你不喜欢设计合作伙伴。我猜你的建议就是直接卖，别免费送，别搞那种合作。"}, {"start_sec": 3519, "speaker_id": "h", "type": "text", "zh": "对啊，何必自己绊自己？不这么做的原因是：那往往带不出真正能卖、真正管用的东西。建立那种设计合作伙伴关系——"}, {"start_sec": 3532, "speaker_id": "g", "type": "text", "zh": "如果他们那样，基本上就把「我现在就要解决」变成了"}, {"start_sec": 3538, "speaker_id": "h", "type": "text", "zh": "「好，我现在是在帮你做产品」——我们到底在干嘛？这对真正有拉力的人是负向信号，对没有拉力的人反而是正向信号。完全说得通：有拉力就顺着走【笑】，你需要的就是——"}, {"start_sec": 3556, "speaker_id": "g", "type": "text", "zh": "对。你也可以卖还没有完整平台的东西，早期更偏服务形态。我见过很多创业公司这么做：我们会有一个能做 XYZ 的 AI 产品经理；眼下由我们交付，背后系统在跑。这样框好预期——他们不指望下周就有企业级完整平台，而是更偏服务的东西；你验证真有拉力，搞清真正该建什么，一边人工一边自动化交付。"}, {"start_sec": 3595, "speaker_id": "h", "type": "text", "zh": "这很有意思。播客里、尤其 GTM/销售对话里常出现：服务是很好的起点。历史上这曾是糟糕主意，因为怕永远自动化不了、永远困在低利润咨询里。你见过这样成：先让人做这件事，再慢慢围着它做产品、提高利润率。对，肯定有缺点，你确实可能卡在服务生意里，但什么都有缺点。"}, {"start_sec": 3632, "speaker_id": "h", "type": "text", "zh": "而且 AI 会越做越多这类事；另一部分是人在做事时，你会越来越清楚问题与机会在哪。快速回到价格：创始人经典地不敢要大数字、不敢报高价——知道东西会变、边做边学。第一次报价有什么建议？"}, {"start_sec": 3657, "speaker_id": "g", "type": "text", "zh": "早期我更测「愿不愿意成交」（willingness to transact），而不是「愿付多少」（willingness to pay）。前几个客户我不太抠定价。不过我刚帮一家公司，第一单就是企业级，马上有大 demo day，他们想尽量多拿收入好看。完全合理。那种情况你要报一个不会被扇巴掌的数。我推荐的做法有点像用案例当「请对这个案例做反应」：我们跟别人聊，大家定价都不一样——有时小项目 8 万，有时到 100 万，杠杆大概是这些，很多人落在中间。你怎么想？你不是站在一边向对方提案，而是两人一起看一个半真实的别人怎么想的例子，让他们往上「吐」反应。【笑】「吐」在上面，我喜欢。我知道案例这个概念是整个框架很重要的一块，回头再讲。"}, {"start_sec": 3743, "speaker_id": "h", "type": "text", "zh": "好，下一步。假设你有了销售通话，在 BF2。第一批销售通话之后通常发生什么？"}, {"start_sec": 3751, "speaker_id": "g", "type": "text", "zh": "路径可能分叉。但愿你是对的，这些人有拉力——太好了，你有客户了，该交付、开始重复、开始想怎么自动化、怎么体系化。你在正确的路上。很多时候你会得到一堆奇怪反应：你以为「不买才奇怪」的人，其实「买了才奇怪」。他们的行为不像有拉力。那种情况我倾向：复盘通话——有几个人真有拉力？零个？我们学到了什么？然后做新假说再跑一轮。明白。我猜多数时候不在。你的经验饼图大概怎样——这阶段成功 vs 不成功？"}, {"start_sec": 3809, "speaker_id": "g", "type": "text", "zh": "我大概只见过一两次从一开始就在，那种感觉像英雄，第一次就做对。很多时候我们错得离谱、本末倒置，完全不知道；于是你扔几次 Hail Mary，就走上正轨；或者做点疯狂的——有个朋友去参加会，约了 20 场，说我不知道做什么，你告诉我该建什么。我管那叫 goblin mode（哥布林模式）：全力以赴、甚至不健康地去做，看谁现在就愿意买，再从中生成假说。"}, {"start_sec": 3852, "speaker_id": "h", "type": "text", "zh": "多讲讲 goblin mode，太精彩了。"}, {"start_sec": 3854, "speaker_id": "g", "type": "text", "zh": "你知道狗突然疯跑（zoomies）那种吗？我脑子里创始人的 goblin mode 就是那种——"}, {"start_sec": 3863, "speaker_id": "h", "type": "text", "zh": "这是好事还是坏事？"}, {"start_sec": 3865, "speaker_id": "g", "type": "text", "zh": "这是「紧急情况下砸玻璃」的招。有些创始人其实一直这么运转：明天欧洲有个会，潜在客户在那儿，约不到人——那看来我现在就得登机飞过去。就是做有点疯的事，目标是现在就站到客户面前。有人能一直这样；像我这种上了年纪的，偶尔才能掏出来一次。"}, {"start_sec": 3903, "speaker_id": "h", "type": "text", "zh": "有时候把 goblin mode 放出来。你是说有时就是疯一把、见所有人、去找那些挣来的秘密，也能成。"}, {"start_sec": 3912, "speaker_id": "g", "type": "text", "zh": "对。有个有点疯的例子：朋友在做 Tiro，给牙科诊所做牙科卫生员的人员配置。他的 goblin mode 是父母挨家挨户跑牙科诊所，让人跟他聊当客户的事——成了。就是这种怪招也能管用。"}, {"start_sec": 3936, "speaker_id": "h", "type": "text", "zh": "太棒了。所以你说先打几通销售电话，比如五通，然后评估——这是粗启发式？按你说的，多数时候会发现：这里没拉力，抱歉。"}, {"start_sec": 3949, "speaker_id": "h", "type": "text", "zh": "然后怎么办？回到开头，再去跟别的小生意上手干？你建议什么？"}, {"start_sec": 3955, "speaker_id": "g", "type": "text", "zh": "路径不同。但愿你问过 Hail Mary，学到了值得深挖的东西。"}, {"start_sec": 3963, "speaker_id": "h", "type": "text", "zh": "Hail Mary 问题就是：有没有什么我们现在就能做的、在你待办上的问题？"}, {"start_sec": 3970, "speaker_id": "g", "type": "text", "zh": "对，正是。于是你生成了新信息，可以用来——"}, {"start_sec": 3976, "speaker_id": "h", "type": "text", "zh": "再打另一组五通。"}, {"start_sec": 3979, "speaker_id": "g", "type": "text", "zh": "如果没有，就回去拿第一手认知，再试一次。"}, {"start_sec": 3984, "speaker_id": "h", "type": "text", "zh": "太好了。所以流程很直白：有拉力假说，填这个模板，用会让人觉得你有意思的冷外联约人，大概打五通，感觉有没有拉力；没有就扔 Hail Mary，也许进入 goblin mode 找东西；再做新假说，再五通，重复，直到「哇，我们有拉力了」。对。然后你就有生意了。"}, {"start_sec": 4014, "speaker_id": "h", "type": "text", "zh": "开跑。好，假设你真找到了正在拉、人们说「我现在就要」的东西。接下来呢？有构建 onboarding、让他们保持满意——那套流程怎样？有什么建议？"}, {"start_sec": 4032, "speaker_id": "g", "type": "text", "zh": "我发现自己其实不太会想「人们买了之后发生什么」，感觉像那只狗开到车——把软件扔过篱笆就「祝你好运」。后来吃了苦头才明白：留存极其重要，而且不显而易见。我怎么看售售后交付：基本上每个买的人都「保证会流失」，直到某一点 X——到了 X，流失反而奇怪。一切交付都是搞清 X 是什么，以及如何设计一列子弹列车让每个客户到达那里。X 你可能以为是「在用产品」或高 NPS——几乎从来不是那些。Mark Rober 有一种留存领先指标，Slack 那边大概是：前 X 时间里发了几千条消息，到了就「流失才奇怪」。我们给餐馆做留存软件时，如果他们在购买后两周内收到一条「有人要离职、你可以拦住」的通知，他们会疯掉，会告诉所有朋友，流失才会奇怪。于是我们把 onboarding 设计到那个点。所以我建议：一旦有几个人说 yes，别只扔登录、祈祷——亲自去交付，你会学到很多，不断问「你现在会流失吗？现在呢？」找到他们说「好，没这个活不了」的那一刻。我喜欢你的思维方式：公式、模板，一切这样——当然现实没这么干净，但对人很有帮助，把「事情顺利时长什么样」「怎么找点子」这些笼统想法，变成「往这儿填、看这个在不在、再调」。留存这块很好。有没有信号说明「糟了人人在流失」——他们以为自己买对了，其实不行？怎样判断这阶段「可能不行」vs「行」？"}, {"start_sec": 4182, "speaker_id": "g", "type": "text", "zh": "如果人人在流失，你不去搞清为什么是不可接受的。很多横向产品会有大量用户掉落。我认识一家做横向 AI 工作流的——欢迎入伙——但他们发现只有一两类客户持续在用，其他人全流失。如果 90% 以上客户在流失：首先抱歉，真的很糟，你会凌晨四点惊醒一身汗。但在那之中你往往能搞清为什么——是你做的事，还是他们本身？这能告诉你谁真正有拉力，我们可以卖、交付、留住。那家横向工作流产品发现货代（freight forwarders）为某个具体工作流在用，于是整个公司转向专注那一块——从大量流失、低价的横向产品，变成给货代的高溢价产品。"}, {"start_sec": 4254, "speaker_id": "h", "type": "text", "zh": "没有一个点是「好，我们搞明白了，必将成为巨大成功」。创业旅程每一刻都不确定。但这套流程好在每走一步，你都更确定「至少这里有东西」；至于能做多大，永远存疑。我记得 Databricks 创始人——现在已经是超级巨无霸——说过大概到 1 亿美元 ARR 时，他们仍很不清楚这东西能不能持久。我觉得很常见。所以这本身是个话题——知道这点挺好，因为人人都在问「这怎么变成大事」，答案是：不知道，我们边走边搞清。"}, {"start_sec": 4294, "speaker_id": "g", "type": "text", "zh": "就是一步一步来。这谈话里我心里的最后一步，是你说的「用户案例工厂」（case study factory）——从「开始管用」走到「可以建立可重复的增长系统」。讲讲那是什么、长什么样。这是我一讲大家眼睛就放空的东西，我还没找到好讲法，先预警。但我觉得这是这一切里最重要的：你怎么概念化你的创业公司？你需要一种思考方式，才知道如何尽可能快地增长。实际发生的是：你找到有拉力的人，给他们产品或服务，他们从你手里抢走。原来他们要做 X，现有选项因 Y 不够好，你提供 Z 帮他们解困。这听起来很像你会挂在官网上的案例。有用之处在于：我作为创始人的工作不是生产一百个完全不同的案例——那不可扩展、不可重复。我要建的是一个案例：客户买前说 hell yes、买后也 hell yes，然后重复一百万次。这个模型让我从「创业是一堆不同的事、我得懂所有」变成「创业只是把一个案例无限重复的东西，我做的一切是建一座重复该案例的工厂」。做对了，就会有客户说 hell yes、自己把自己拉过工厂每一步。步骤是：管道（pipeline）——怎么让人跟我们聊；销售——怎么把潜客变成客户；交付——怎么让客户「流失才奇怪」。我们做的一切都装进这座案例工厂。脑子里有这幅图，创业怎么运作会大幅简化。然后你可以用约束理论（theory of constraints）——要开始很宅了——像看制造一样看你的案例工厂：增长瓶颈在哪？管道不够？好，那现在只这件事重要，先解决再下一个。关单率偏低？好，那是瓶颈，全力攻。案例工厂模型给你一种思考创业、以及任何时刻该聚焦何处的方式。"}, {"start_sec": 4463, "speaker_id": "h", "type": "text", "zh": "这想法很有意思：不是「我们要关更多客户、更多单」，而是在建案例——几乎倒推「我们正在聊的这家公司的案例会是什么」。假设聊 SpaceX，我们希望跟所有公司谈时形态一致。人们叫这可重复销售动作；我喜欢倒推新闻稿那种感觉，但是为销售——"}, {"start_sec": 4492, "speaker_id": "h", "type": "text", "zh": "我们要写的关于 SpaceX 的案例是什么？我们怎么拿到他们、怎么卖成、怎么交付。"}, {"start_sec": 4498, "speaker_id": "g", "type": "text", "zh": "然后做出一致、可重复的案例，以后能分享。销售就变成：我们交付的案例是这个，跟你相关吗？你可以给别人看案例，他们说「对，我也想要这个」——变成工具；你也可以说「你不像我们的案例，可能会很费劲、可能不是好匹配」——用来资格筛查、让人理解你做什么。有意思，现在有一整套「软件工厂」主题——产品自己建自己——而这是更广义的工厂版本：销售、用户、案例工厂。"}, {"start_sec": 4545, "speaker_id": "h", "type": "text", "zh": "对。我们这儿不做软件，我们做案例。"}, {"start_sec": 4548, "speaker_id": "g", "type": "text", "zh": "所以建议就是这么想：我们做案例？有意思。而且你不必真的写出来分享，它只是思考你在销售/GTM 上要建什么的心智模型。"}, {"start_sec": 4562, "speaker_id": "g", "type": "text", "zh": "完全是。好消息是：如果你有拉力框架，你只要描述我们怎么帮了他们、他们达成了什么，你就有案例了。"}, {"start_sec": 4573, "speaker_id": "h", "type": "text", "zh": "太棒了。流程基本到头了，还有几件社群和你提到的事想快速碰。一是你有个词叫 hell yes 客户。多讲讲——找人买、再用时，你希望他们是 hell yes。对，基本上是买前就把产品从你手里抢走、买后用起来像上瘾的人。他们也许真的会说 hell yes，但关键的是：不买才奇怪、流失才奇怪；过程主要是他们拉，不是你推。那是你的完美契合客户。你的工作只是找到更多基本上是他们克隆的人。"}, {"start_sec": 4621, "speaker_id": "h", "type": "text", "zh": "另一点想强调：你建议不要试点、不要概念验证、不要设计合作伙伴——直接「我们卖给你、上线、会很棒」。"}, {"start_sec": 4632, "speaker_id": "g", "type": "text", "zh": "对。有时你会这么做，他们说「行，但我们这儿采购方式其实需要先试点」。"}, {"start_sec": 4638, "speaker_id": "h", "type": "text", "zh": "好，可以——但别主动提供。太棒了。社群里另一个大问题：从外部看这像只给创业者和创始人用，但其实也适用于大公司做新功能、新业务线——开头提过，再强调一下。成熟公司做新产品时，这流程有没有什么会想得不一样？我在帮几家公司推第二款产品。他们其实是创始人说「酷，再来一次」，拿这套方法对着现有客户做增购，而且是在功能建好之前就卖新功能。另一个例子——不能说名字——一家公司新的产品负责人跟我说：管用的想法全来自销售电话，客户说「你们能做 X，还能不能帮我们做另一件事」；从客户在销售电话里要「能帮他们做那个项目」长出来的产品全管用，他们白板想出来的从来不管用。所以你有产品，听到这些「这可能是个东西」的小金块，然后我想象你就逐步走拉力假设——立假设、跟五个现有客户聊、找拉力、看他们会不会真买，再走同一套流程。还有一点我们可能强调不够：尤其创业阶段，该做这件事的是创始人。有意思的是你说即使成熟公司做新产品，理想也是创始人在卖。"}, {"start_sec": 4750, "speaker_id": "g", "type": "text", "zh": "理想情况。不总是。也有人在做从零到一的事。但我建议：如果你在那种位置又不是创始人——"}, {"start_sec": 4759, "speaker_id": "h", "type": "text", "zh": "——就真正聚焦试着卖、通过卖来学，因为从零到一有很多迷路的方式。太棒了。如果事情不行，还有你说的哥布林模式（goblin mode）：试试一堆东西、跟尽可能多人聊、上飞机、开二十场会，就找点东西。"}, {"start_sec": 4778, "speaker_id": "g", "type": "text", "zh": "对。Hail Mary、哥布林模式——都是紧急情况下砸玻璃。时间很宝贵，卡死很糟。如果你在从零到一的痛苦洞穴，那是人生最糟的时候，别拖长。上飞机、去办公室、当面谈，做什么都行，找到点东西。Rob，我们走完了，太棒了。还有什么重要想分享、或想再强调，再进激动人心的闪电轮？希望传达到的是这有多简单：拉力框架、给人看、看他们拉不拉。很容易过度复杂化，很容易想提前在脑子里解所有变量。我发现就：拉力框架、卖、看他们想不想买，过程中少想一点——就能到那儿。太棒了，听起来很简单。重要的是知道：找到真正管用的点子其实很难。这一切是帮你少吃苦、少白建、少浪费人生在不会成的东西上。"}, {"start_sec": 4865, "speaker_id": "h", "type": "text", "zh": "可以想成沙滩上的金属探测器——这是给你金属探测器。你现在挖的地方可能没有金属，但至少我没给你勺子。"}, {"start_sec": 4882, "speaker_id": "h", "type": "text", "zh": "哦我懂了——有金属探测器，而不是拿勺子翻遍沙子。太爱这个比喻。有时你可能找到东西，然后发现不值钱。对。"}, {"start_sec": 4894, "speaker_id": "h", "type": "text", "zh": "好比喻。Rob，到了激动人心的闪电轮。五个问题，准备好了吗？来吧。第一：你最常向别人推荐的两三本书是什么？"}, {"start_sec": 4909, "speaker_id": "g", "type": "text", "zh": "天哪。我最爱的是 Christopher Alexander 的四卷本《秩序的本质》（The Nature of Order）——建筑学系列。最好的东西。"}, {"start_sec": 4920, "speaker_id": "h", "type": "text", "zh": "从没听过这个推荐。那是我最爱的。最近最爱或反复看的电影/剧？我们反复看的两部：一是最新版《傲慢与偏见》（Pride and Prejudice），二是《马达加斯加的企鹅》（Penguins of Madagascar）。不知道为什么两端频谱都有。"}, {"start_sec": 4940, "speaker_id": "h", "type": "text", "zh": "最近发现或很爱用的最有意思的 AI 产品？"}, {"start_sec": 4946, "speaker_id": "g", "type": "text", "zh": "我在用 Muse——如果它对我管用，就能对任何人管用。"}, {"start_sec": 4951, "speaker_id": "h", "type": "text", "zh": "对，现在很火。太棒了。常在工作或生活里回味的座右铭？"}, {"start_sec": 4966, "speaker_id": "g", "type": "text", "zh": "生活是你把它做成什么样子。太对了。最后一个问题想听你看法：有「沥青坑点子」（tarpit ideas）这个说法。我请过 Dalton Caldwell——YC 合伙人——他说过 tarpit ideas：人们不断冒出来、却糟糕、不成立的点子，大家还一直试。有没有你发现人们老找你、你心想「别做，不会成」的沥青坑点子？有意思。那一类是：去打一个已经有明确赢家的空间，又没有任何差异化理论。我老看到：哦 Lemlist 刚做了销售自动化、bootstrapped 还涨得很快，那我也做跟他们一模一样或很接近的东西。好，但他们已经赢了或已经做成了那件事。除非你是「哦，这类客户还没解，我们要为他们做点不太一样的」——那些点子几乎总不成。你会觉得自己疯了：「明明对他们管用，我哪里错了？」"}, {"start_sec": 5039, "speaker_id": "h", "type": "text", "zh": "我猜人人都答「但更好啊」。我们知道不能只好一点点。你其实是在说：这是在解他们的堵；"}, {"start_sec": 5049, "speaker_id": "g", "type": "text", "zh": "对。"}, {"start_sec": 5050, "speaker_id": "h", "type": "text", "zh": "而且比所有替代都好，他们就会走那条。但那又会扯到另一场谈话——如果好两倍呢？你的建议大概是：多半还不够。"}, {"start_sec": 5060, "speaker_id": "g", "type": "text", "zh": "很多事对。你可以给我一台家里用的好一百倍的打印机，我也不会买——因为我没被堵住。"}, {"start_sec": 5068, "speaker_id": "h", "type": "text", "zh": "好例子。天哪 Rob 我们做到了。好，听众怎么能帮到你？这是最后一个问题。"}, {"start_sec": 5080, "speaker_id": "g", "type": "text", "zh": "天哪。如果你喜欢这框架，用它，告诉别人。如果有用看看书。有想法、点子就联系我——这是还在发展中的理论框架模型，我仍觉得自己刚刮到表面，大概是我接下来十到二十年要做的事。有改进方式就联系我告诉我。"}, {"start_sec": 5105, "speaker_id": "h", "type": "text", "zh": "太棒了。你的 newsletter 正是那样——不知道你发多勤，就是「酷，又一种想这事的方式，这儿有个褶皱」。"}, {"start_sec": 5113, "speaker_id": "g", "type": "text", "zh": "对。"}, {"start_sec": 5113, "speaker_id": "h", "type": "text", "zh": "把这叫「创业物理学」（physics of startups）本身就很棒。"}, {"start_sec": 5117, "speaker_id": "g", "type": "text", "zh": "谢谢。"}, {"start_sec": 5118, "speaker_id": "h", "type": "text", "zh": "所以指向 newsletter。Rob，非常感谢你来。"}, {"start_sec": 5121, "speaker_id": "g", "type": "text", "zh": "谢谢。"}, {"start_sec": 5122, "speaker_id": "h", "type": "text", "zh": "大家再见。非常感谢收听。如果觉得有价值，可以在 Apple Podcasts、Spotify 或你喜欢的播客 App 订阅。也请考虑给评分或写评论，这真的能帮其他听众找到节目。往期和更多信息在 lennyspodcast.com。下期见。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
