@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>萨提亚·纳德拉：要不要信任前沿模型｜为何公司必须拥有自己的智能</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="harry">哈里·斯特宾斯（Harry Stebbings）</option><option value="satya">萨提亚·纳德拉（Satya Nadella）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">20VC with Harry Stebbings</span><span class="pill">2026-10-26</span></div>
+<h1>萨提亚·纳德拉：要不要信任前沿模型｜为何公司必须拥有自己的智能</h1>
+<p class="sub">嘉宾：萨提亚·纳德拉（Satya Nadella，微软 CEO） · 约 24 分钟（1428 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=24XUcWhqY_4" target="_blank" rel="noopener">https://www.youtube.com/watch?v=24XUcWhqY_4</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>20VC with Harry Stebbings</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-26</dd></div><div class="meta-row"><dt>时长</dt><dd>约 24 分钟（1428 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig），普通 yt-dlp（en 轨 429，en-orig 成功）；caption_source=yt-dlp-auto</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>24XUcWhqY_4</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>哈里·斯特宾斯（Harry Stebbings）访谈微软 CEO 萨提亚·纳德拉（Satya Nadella）：为何应默认前沿模型可能被攻破，如何用工程化零信任架构容纳智能体，以及企业为何必须拥有自己的智能。</p>
+<h3>核心要点</h3><ul><li>纳德拉主张：能力在涨、对齐未必随规模自然出现，应默认模型可能不可信，用零信任式信任架构做围栏</li><li>微软侧实践：Agent 365 / Perception——给智能体身份、记录工具调用与思维链、防篡改日志并做策略与行为监控</li><li>思维链不可盲信：可能不忠实，模型方若隐藏 CoT 问题更大；开放权重因可检查而有透明度优势</li><li>每家公司需要「拥有自己的智能」：在自有数据与轨迹上训练/路由，而不是只调用外部黑盒</li><li>讨论全栈垂直整合 vs 各层多家竞争、推理需求的深度，以及实施经济（新一代系统集成/业务+技术咨询）</li><li>收尾：改观、五年后会被接受的「疯狂」想法，以及对未来十年最兴奋的事；本集无检测到独立赞助口播</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：约24分钟，密度高，纳德拉把「模型能力 vs 安全/信任架构」讲得很清楚，适合关心企业 AI 落地与治理的听众；若只想听投资观点可挑后半 GDP/实施经济部分。</p>
+<h3>适合人群</h3><p>企业 AI / 安全与治理负责人、关注微软与前沿模型格局的投资者与创始人；20VC 听众</p>
+</section>
+<div class="legend"><span class="spk-0">哈里·斯特宾斯（Harry Stebbings）<em>主持</em></span><span class="spk-1">萨提亚·纳德拉（Satya Nadella）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>和达里奥（Dario） 和伊利亚（Ilya） 和山姆,格雷格和伊隆 我想是一个快乐的家庭。 2018年我曾相信 2018年他们真的信仰法律 我觉得我最大的变化是 我总是认为 校对会掉下来 我不再相信这一点。 现在,这个节目 老实说,是一个相当的情感 对我来说。 我开始 从我的卧室在伦敦。 当时我18岁。 我没有钱。 我电话簿上没有联系人 今天我有机会和萨提亚·纳德拉（Satya Nadella）坐下,的首席执行官,是过去三四十年最伟大的公司之一。 和,我只想说 在萨提亚·纳德拉（Satya Nadella）, 他能够在这个采访的温暖 在这么短的时间内, 他的论点和想法的清晰度,他非常深入,非常迅速的能力. 这跟我以前见过的几乎不一样 那是我永远记得的一场表演 我希望你喜欢 准备出发 ZZ</p>
+<p>萨提亚·纳德拉（Satya Nadella）,非常感谢你 这样做与我们。 嗯,我会说,你知道,谢谢你来到工作室, 但你真的在这里主持我们。 所以,真的很感谢你花时间。 哦,谢谢你让我上节目,。 好久不见 但我终于很高兴我们成功了 现在你十天前写了一篇开创性的文章, 你说我们应该假设一个模型受到了破坏, 我只是想扩展一下。 这是否意味着我们不能或不应该依赖模型供应商公司的披露?</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="satya"><div class="label"><span class="badge" title="萨提亚·纳德拉（Satya Nadella）">萨提亚</span></div><div class="content">
+<p>不,我认为现在我所看到的挑战是 模型越来越有能力,对不对? 缩放定律在起作用 除了我之前的假设之一 即你将会调整 刚刚脱离缩放, 它似乎不是嗯, 还有更多的科学... ...挑战 需要解决正确 和机械理解 也是难以捉摸的, 所以鉴于 所以,至少我的说法是,让我们创造一个 重新设计的零信任环境, 它可以包含任何故障剂,嗯,在它做任何伤害之前。 对吧? 所以这就是重点,因为如果你真的想有 更有能力的特工,呃,但不太适合... ...那么你需要一个信任系统...</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我能问一下信任系统是什么样子的吗? 谁是它的建筑? 谁是它的仲裁者? 说甚深法. 所以这就是为什么我 看着它,并说 你离开AI安全之外,对不对? 因为举例来说,至少我的想法是, 训练中必须表现出来,对吧? 实际上,也许即使在预训中, 我不认为你甚至可以RL 你的方式对齐。 你一定要真正得到 校正... ... ...... 这就是模型本身。 希望某个时候能有一条线 所以,如果你离开AI安全,那么信任架构 将只是你知道像微软（Microsoft）这样的公司是做什么的, 或者所有网民都做什么的。 我们做了两个事情,比如说,我们造了 正确的代理 365 和正确的感知 它给每个代理 一个身份,嗯... ...它记录它的所有活动... ...它的所有活动... 这就是建筑。 我们今天没有这种建筑。 这是否只是我们所处的进程的象征?</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="satya"><div class="label"><span class="badge" title="萨提亚·纳德拉（Satya Nadella）">萨提亚</span></div><div class="content">
+<p>这种结构是存在的。 因此,我认为,有两种人将我称之为 &quot; 封闭和AI安全 &quot; 的工程化安全零信任建筑系统混为一谈,因为我认为人们说,AI安全是困难的,难以捉摸的,而且还没有实现,因此,我们绝不能在安全方面做任何事情,因此,我不是说,嗯,这两个事情必须同时结合在一起,事实上,我只想说,嘿,我们必须处理目前的情况,这样我们就可以在模型之外建立一个信任系统,嗯,然后在制定政策和监测政策偏离时采取非常积极的态度。</p>
+<p>在监测方面。 如果我们考虑一连串的思想,那有多可靠? 这不对 我们知道,思想链本身可能不忠,事实上当模范公司说:&quot;嗯,这是不忠的,我要把它隐藏起来&quot;时,它会变得更糟.</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>赞叹</p>
+<p>嗯,嗯,所以它变得更成问题了。 我认为在标准化的推动方面 . .</p>
+<p>要件是,当我们想到公开源代码的上升时, 我完全同意你的观点, 即衣物是更强大的公开源代码, 主要是中国模式, 是的,我的意思是,我想有两套东西。 我相信如果你退后一步 以某种方式,AI安全 不在那里,嗯 是不好的中国。 这对美国来说不是好事,对英国来说也不是好事. 所以,我认为每个人都有一部分, 因为这不是一个不结盟的开放量级中国模型 可能会攻击甚至中国。 所以,这不像呃,你可以休息 认为这只会 用作攻击矢量。 顺便说一句,我对一些进展很满意 即使是西部的开放式体重模型... ...我很清楚你知道Jensen正在研究,其他人也在研究 呃,我们甚至会有MAI的模型... ... 将是不开放重量。 我们来谈谈 我觉得这更像是许可重量 这样想吧 我想把这变成简单的软件业务 而不是网络效应情报业务 因此,我认为会有不同的商业模式, 我最终相信你有能力使用这些模式,控制这些模式, 将决定如何使用这些模式。</p>
+<p>作为风险投资人,我必须预测今天在封闭开放之间 交通将走向何处。 当你想到两个不同的维度, 就像交通和美元, 如果我们向前看, 说24个月 多少的交通经过开放与关闭 你觉得呢? 问曰. и笵и谋眔硂璶瓣悔薄猵 我认为大多数事情似乎都饱和了 当它得到饱和的开放重量 或嗯,甚至只是更便宜的模型 甚至封闭重量... 似乎是有效的... 对吧? 所以,如果你知道 如果你有一个 eval,你想继续向前... ...</p>
+<p>是的,因为酷的是它是一个学习模型,它现在 它的反正,我们现在去 这些代理群和多 多个子实体 所以我可以呼叫很多子实体 甚至碰巧是当地的模型 嗯,所以我认为我的怀疑是 将永远有一个市场 边境。 总会有一些新的东西。 科学可能是下一个你知道的 前沿正在设置。 但我认为主要是象征性的用途是 商品标志用途 这是否意味着它主要是开源的?</p>
+<p>它可能是开放的权重,或者正如我所说,它确实有它也可以是廉价的封闭利率,因为会有很多的价格竞争。 这么说吧 对吧? 因为如果你看看我在副驾驶内部的用法, 我们使用了很多近源 更便宜的模型 与呃开放率模型。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="satya"><div class="label"><span class="badge" title="萨提亚·纳德拉（Satya Nadella）">萨提亚</span></div><div class="content">
+<p>你说你拥有自己的智力 对你拥有的惊人客户很重要 你在说英国的一些 这就是我们为拥有自己数据的公司发展专业情报的模型环境吗? 对 我认为这对我来说是最重要的事情之一 在一个情报时代 公司的未来是正确的, 因为如果你回到哈耶克... 他对经济的基本描述是 地方情报知识 分布在整个经济中 因此我认为重要的是,每个公司 能够积累... ...... 这就是为什么我称之为反向信息悖论,对不对? 你知道你认识肯尼斯·阿罗 描述了这个嗯嗯的矛盾信息 如果你是卖家 却泄露了这个秘密 现在,买家第一次需要保护 因为买家甚至大多数人都认为这是 哦,我的数据... ...它甚至是我的疲劳... 顺便说一句,它并不需要仅仅通过嵌入你的知识和重量。 它可以是背景。 可能在你的电梯里,对吧? 你可能有基准事实上,我最关心的一件事就是, 我们都会成为每个公司 拥有一个私人的 eval 基准,这是他们的核心IP。 每个模特儿都进来 试着爬上那辆Eval 对我来说 公司就是这样工作的 我喜欢每家公司的私人指数 这对一个充满疯狂的时代的公司来说 虽然这似乎是你的哈维斯 或者你的洛拉斯 或者那种很有前瞻性的AI公司 那会分散到世界上的每一个公司吗? 你说过你的</p>
+<p>是啊,它发生总是对的, 你知道他们有 一天,我记得在80年代后期和90年代早期, 少数公司 已经部署个人计算机 并且正在做<span class="tag">【笑声】</span>的预测 感觉神奇。 他们可以把它放在Excel电子表格里,用电子邮件发送它,避开传真机和办公室间备忘录, 感觉像哦哇哇,什么时候会发生,也许花了10年时间, 并且这整个时间分散在什么被认为是OH 我是AI本地的公司。 我这样做,我认为你知道 5年后,这将是相当好的 通过,我想,然后我的意思是这些技术循环 总是像这个权利,</p>
+<p>是的,这很有趣 执行经济系统集成器 一直存在的权利 你知道,我们一直依赖 呃 执行 . . 令人着迷. 他们已经建立了一个代理系统 说:&quot;嘿,我们真的会有命令 以代理系统自动缓存... ... 此外,他们还交易索赔&quot;. 嗯,顺便说一下,他们从使用边疆模型开始, 然后他们取代了 呃,事实上,我认为他们目前使用MAI模型... ... 用于他们所有的贸易索赔, 因为它是一种较低的成本... 因为他们可以训练他们的痕迹。 嗯,所以我们有一些FTE 但很多谁谁被部署 现在他们的IT团队本身 你知道,呃管理这一切。 但是它开始于什么是业务 什么是eval 是什么概念化 代理架构 所以它是某种商业咨询 结合技术咨询 我认为是的</p>
+<p>你显然提到MAI 一个MAI的天哪。 嗯,但当我们观察很多不同的玩家时, 就是这种认识,你需要从芯片到模型到应用的完全堆叠。 那是未来吗? 你必须拥有垂直所有权。 这是什么意思?</p>
+<p>是啊,这都取决于行业结构,对不对? 嗯,你知道,我想我会说,今天,你会有人知道 五六开关重量 你知道闭关模型 所有竞争... ...也许五六... 所以这是可能的。 当然 总有人有风险 是一个垂直整合的模型... 和应用程序级... 对我来说不太可能,对吧? 我想,在某个时候,可能会有一个。 如果有其他事情发生, 你每天醒来说, “哇,堆栈的每一层都有更多的竞争, 无论是硅,还是硅的管理系统。” 嗯,模型层,应用层。 所以我认为这是一种健康的方向 旅行,但你永远不会知道,对不对? 因为这是其中之一 它都取决于... 成为主导设计。 但我的希望是,这变成一个有点横向的专业化, 每一层都有多个赢家, 然后让人们有能力作曲。</p>
+<p>我没有看到的东西 是每一层的深度。 就像我现在所知道的那样 我希望我12个月前已经知道 就像对推断的无限要求一样 是啊,这是一个伟大的观点。 赞叹 对</p>
+<p>我希望我12个月前就知道了 我本来会做一些非常不同的投资。 说到这个,我们像Mustafa Sleimman一样 说有1000亿的训练回合即将到来 只有少数实验室能为此付出代价。 千亿培训运行. 我们是否有能量、基础设施和动力 来使这个规模 跨堆,但尤其是当我们</p>
+<p>对 我的意思是,我的方式是,嗯,最终它必须来自世界GDP 反映嗯,然后,允许呃的人 拥有一个百分比的研发权利, 因为当有人说培训运行时, 它只是研究与开发的 百分比正确的公司 然后,你还提出另一边, 也就是供应方面,我们有 电力短缺,我们有 硅短缺,我们今天有 各种各样的事情。 他们都是长长的领跑者,对吧? 你只是不能知道 断了手指,有发电 或者你没有一个新的法布。 嗯,现在有趣到足够 42. 考虑到每个人的需求 建设,嗯,所以问题是 当这一切会上线... ... 对我来说,这是更重要的事</p>
+<p>就国内生产总值增长率的波动而言。 世界已经稳定在每年2%的水平 相当长的时间。 大赦国际是否有能力在短时间内认真思考这一问题? 我想是这样。 嗯,我有点希望如此。 因为这是重点,当我看着,让我们把 我们花费在医疗费用中的钱 占到任何GDP的百分比 所以,所以我审视 部署副驾驶 在NHS 说,哇,嗯,如果它能 改善病人的结果 降低医疗费用,</p>
+<p>所以我认为有些小块的... ...经济已经成熟,可以采用人工智能... ...事实上... 嗯,所以我认为是 在那里,我认为我们将找到最好的合身。 软件开发是另一个权利,我们很感兴趣 看到对软件开发权的要求有多有弹性 也就是说,信息技术的积压量很大,我们都没人承认它。 我教过你,你必须成为市场上的一两个顶尖人物, 才能赢得投资。</p>
+<p>这打破了所有的风险规则 这个问题我再次有 稍微调皮 没有在时间表上。 但就像我们会看到在能力 提升 替代功能 融资销售营销, 我们在编码中看到, 因为编码是母负荷。 我认为这是一个好点, 你知道它谈论了很多 关于你 知道有一个可核实的再奖励,你知道这是容易做这些, 模拟一切硅. 你的第一个旋转可以完全出来。 对</p>
+<p>但是,甚至就像优化 维护报告,就像你说的选择, 我永远不会是不可思议的 就像我是说,这是一个事情 他们一直在处理 永远只是安排维护, 所以,我看过你的许多节目, 我们会在嗯周围做一个快速的火, 人们没有问这些问题,我一直想知道, 我想每个人都想知道,但是啊,人们还没有问他们。 鉴于你的旅行日程安排 练习程序是什么?</p>
+<p>嗯,我的意思是,你处于良好的状态。 我尽力了 我不知道它是否都藏得很好, 但是,,你知道的, 一件事,我已经得到的习惯, 你知道,这也许已经25年了, 不幸的是,我的膝盖已经走了。 所以现在至少我走路时带了线条 即使是今天早上,我也能得到一个半小时。 所以不管我身在何处,我每天都在健身房里</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>喜欢它。 我膝盖也不好 我的年纪也是 嗯,你有什么改变 你的想法 在过去12个月?</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="satya"><div class="label"><span class="badge" title="萨提亚·纳德拉（Satya Nadella）">萨提亚</span></div><div class="content">
+<p>最后可能是因为毕竟我是第一个是的, 很明显,当呃 当达里奥（Dario）和伊利亚（Ilya）和Sam和Greg和Eron是所有 我想一个快乐的家庭, 嗯,你,我认为最大的变化 现在,我有一个最大的变化 是,我总是认为,你知道 调整会只是掉出来。 我不再相信这一点。 所以,我认为,这个对齐 可能是一个更困难的问题。 嗯,所以,嗯,是啊,这是一件事 我改变了我的想法。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>今天看起来很疯狂 但五年后会变得非常普遍和并并并并并并并并并并并并并并并并并并并并个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个 我认为公司会是一个AI基准。 最后一个给你。 接下来的十年里有很多事情值得兴奋。 对你来说,就像我一样 我妈妈有MS 我对药物的开发非常兴奋 嗯,你为什么最兴奋?</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="satya"><div class="label"><span class="badge" title="萨提亚·纳德拉（Satya Nadella）">萨提亚</span></div><div class="content">
+<p>我的意思是,这是一个伟大的。 我认为,我一直期待的一件事,就是 一种通用技术,即使它如此强大。 人们会说,“哦,这不仅仅是另一个通用技术。” 不管是什么,我希望它传播, 呃传播 全世界比任何其它东西更快 和所有经济部门 不像任何其他。 真正地,有一次全球增长的前沿 发生了真正的转变, 发生的地方不仅仅是计算赢家和输家, 但就像每个人都被抬起来一样, 就像我的梦想一样,事实上,我父亲是一名发展经济学家, 你知道它总是关于趋同增长, 当全球南方得到的东西 突然促进,我希望这就是它。 这真是令人高兴 谢谢你抽空来 当然 很高兴见到你,。</p>
+</div></div>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "20VC with Harry Stebbings", "title": "萨提亚·纳德拉：要不要信任前沿模型｜为何公司必须拥有自己的智能", "url": "https://www.youtube.com/watch?v=24XUcWhqY_4", "videoId": "24XUcWhqY_4", "published_at": "2026-10-26", "duration": 1428, "caption_source": "YouTube 自动生成字幕（en-orig），普通 yt-dlp（en 轨 429，en-orig 成功）；caption_source=yt-dlp-auto", "guests": ["萨提亚·纳德拉（Satya Nadella，微软 CEO）"], "speakers": [{"id": "harry", "name": "哈里·斯特宾斯（Harry Stebbings）", "role": "host", "short": "哈里"}, {"id": "satya", "name": "萨提亚·纳德拉（Satya Nadella）", "role": "guest", "short": "萨提亚"}], "intro": {"summary": "哈里·斯特宾斯（Harry Stebbings）访谈微软 CEO 萨提亚·纳德拉（Satya Nadella）：为何应默认前沿模型可能被攻破，如何用工程化零信任架构容纳智能体，以及企业为何必须拥有自己的智能。", "points": ["纳德拉主张：能力在涨、对齐未必随规模自然出现，应默认模型可能不可信，用零信任式信任架构做围栏", "微软侧实践：Agent 365 / Perception——给智能体身份、记录工具调用与思维链、防篡改日志并做策略与行为监控", "思维链不可盲信：可能不忠实，模型方若隐藏 CoT 问题更大；开放权重因可检查而有透明度优势", "每家公司需要「拥有自己的智能」：在自有数据与轨迹上训练/路由，而不是只调用外部黑盒", "讨论全栈垂直整合 vs 各层多家竞争、推理需求的深度，以及实施经济（新一代系统集成/业务+技术咨询）", "收尾：改观、五年后会被接受的「疯狂」想法，以及对未来十年最兴奋的事；本集无检测到独立赞助口播"], "verdict": "值得看：约24分钟，密度高，纳德拉把「模型能力 vs 安全/信任架构」讲得很清楚，适合关心企业 AI 落地与治理的听众；若只想听投资观点可挑后半 GDP/实施经济部分。", "audience": "企业 AI / 安全与治理负责人、关注微软与前沿模型格局的投资者与创始人；20VC 听众"}, "paragraphs": [{"start_sec": 3, "speaker_id": "harry", "type": "text", "zh": "和达里奥（Dario） 和伊利亚（Ilya） 和山姆,格雷格和伊隆 我想是一个快乐的家庭。 2018年我曾相信 2018年他们真的信仰法律 我觉得我最大的变化是 我总是认为 校对会掉下来 我不再相信这一点。 现在,这个节目 老实说,是一个相当的情感 对我来说。 我开始 从我的卧室在伦敦。 当时我18岁。 我没有钱。 我电话簿上没有联系人 今天我有机会和萨提亚·纳德拉（Satya Nadella）坐下,的首席执行官,是过去三四十年最伟大的公司之一。 和,我只想说 在萨提亚·纳德拉（Satya Nadella）, 他能够在这个采访的温暖 在这么短的时间内, 他的论点和想法的清晰度,他非常深入,非常迅速的能力. 这跟我以前见过的几乎不一样 那是我永远记得的一场表演 我希望你喜欢 准备出发 ZZ"}, {"start_sec": 72, "speaker_id": "harry", "type": "text", "zh": "萨提亚·纳德拉（Satya Nadella）,非常感谢你 这样做与我们。 嗯,我会说,你知道,谢谢你来到工作室, 但你真的在这里主持我们。 所以,真的很感谢你花时间。 哦,谢谢你让我上节目,。 好久不见 但我终于很高兴我们成功了 现在你十天前写了一篇开创性的文章, 你说我们应该假设一个模型受到了破坏, 我只是想扩展一下。 这是否意味着我们不能或不应该依赖模型供应商公司的披露?"}, {"start_sec": 98, "speaker_id": "satya", "type": "text", "zh": "不,我认为现在我所看到的挑战是 模型越来越有能力,对不对? 缩放定律在起作用 除了我之前的假设之一 即你将会调整 刚刚脱离缩放, 它似乎不是嗯, 还有更多的科学... ...挑战 需要解决正确 和机械理解 也是难以捉摸的, 所以鉴于 所以,至少我的说法是,让我们创造一个 重新设计的零信任环境, 它可以包含任何故障剂,嗯,在它做任何伤害之前。 对吧? 所以这就是重点,因为如果你真的想有 更有能力的特工,呃,但不太适合... ...那么你需要一个信任系统..."}, {"start_sec": 158, "speaker_id": "harry", "type": "text", "zh": "我能问一下信任系统是什么样子的吗? 谁是它的建筑? 谁是它的仲裁者? 说甚深法. 所以这就是为什么我 看着它,并说 你离开AI安全之外,对不对? 因为举例来说,至少我的想法是, 训练中必须表现出来,对吧? 实际上,也许即使在预训中, 我不认为你甚至可以RL 你的方式对齐。 你一定要真正得到 校正... ... ...... 这就是模型本身。 希望某个时候能有一条线 所以,如果你离开AI安全,那么信任架构 将只是你知道像微软（Microsoft）这样的公司是做什么的, 或者所有网民都做什么的。 我们做了两个事情,比如说,我们造了 正确的代理 365 和正确的感知 它给每个代理 一个身份,嗯... ...它记录它的所有活动... ...它的所有活动... 这就是建筑。 我们今天没有这种建筑。 这是否只是我们所处的进程的象征?"}, {"start_sec": 247, "speaker_id": "satya", "type": "text", "zh": "这种结构是存在的。 因此,我认为,有两种人将我称之为 \" 封闭和AI安全 \" 的工程化安全零信任建筑系统混为一谈,因为我认为人们说,AI安全是困难的,难以捉摸的,而且还没有实现,因此,我们绝不能在安全方面做任何事情,因此,我不是说,嗯,这两个事情必须同时结合在一起,事实上,我只想说,嘿,我们必须处理目前的情况,这样我们就可以在模型之外建立一个信任系统,嗯,然后在制定政策和监测政策偏离时采取非常积极的态度。"}, {"start_sec": 285, "speaker_id": "satya", "type": "text", "zh": "在监测方面。 如果我们考虑一连串的思想,那有多可靠? 这不对 我们知道,思想链本身可能不忠,事实上当模范公司说:\"嗯,这是不忠的,我要把它隐藏起来\"时,它会变得更糟."}, {"start_sec": 301, "speaker_id": "harry", "type": "text", "zh": "赞叹"}, {"start_sec": 302, "speaker_id": "harry", "type": "text", "zh": "嗯,嗯,所以它变得更成问题了。 我认为在标准化的推动方面 . ."}, {"start_sec": 341, "speaker_id": "harry", "type": "text", "zh": "要件是,当我们想到公开源代码的上升时, 我完全同意你的观点, 即衣物是更强大的公开源代码, 主要是中国模式, 是的,我的意思是,我想有两套东西。 我相信如果你退后一步 以某种方式,AI安全 不在那里,嗯 是不好的中国。 这对美国来说不是好事,对英国来说也不是好事. 所以,我认为每个人都有一部分, 因为这不是一个不结盟的开放量级中国模型 可能会攻击甚至中国。 所以,这不像呃,你可以休息 认为这只会 用作攻击矢量。 顺便说一句,我对一些进展很满意 即使是西部的开放式体重模型... ...我很清楚你知道Jensen正在研究,其他人也在研究 呃,我们甚至会有MAI的模型... ... 将是不开放重量。 我们来谈谈 我觉得这更像是许可重量 这样想吧 我想把这变成简单的软件业务 而不是网络效应情报业务 因此,我认为会有不同的商业模式, 我最终相信你有能力使用这些模式,控制这些模式, 将决定如何使用这些模式。"}, {"start_sec": 425, "speaker_id": "harry", "type": "text", "zh": "作为风险投资人,我必须预测今天在封闭开放之间 交通将走向何处。 当你想到两个不同的维度, 就像交通和美元, 如果我们向前看, 说24个月 多少的交通经过开放与关闭 你觉得呢? 问曰. и笵и谋眔硂璶瓣悔薄猵 我认为大多数事情似乎都饱和了 当它得到饱和的开放重量 或嗯,甚至只是更便宜的模型 甚至封闭重量... 似乎是有效的... 对吧? 所以,如果你知道 如果你有一个 eval,你想继续向前... ..."}, {"start_sec": 484, "speaker_id": "harry", "type": "text", "zh": "是的,因为酷的是它是一个学习模型,它现在 它的反正,我们现在去 这些代理群和多 多个子实体 所以我可以呼叫很多子实体 甚至碰巧是当地的模型 嗯,所以我认为我的怀疑是 将永远有一个市场 边境。 总会有一些新的东西。 科学可能是下一个你知道的 前沿正在设置。 但我认为主要是象征性的用途是 商品标志用途 这是否意味着它主要是开源的?"}, {"start_sec": 516, "speaker_id": "harry", "type": "text", "zh": "它可能是开放的权重,或者正如我所说,它确实有它也可以是廉价的封闭利率,因为会有很多的价格竞争。 这么说吧 对吧? 因为如果你看看我在副驾驶内部的用法, 我们使用了很多近源 更便宜的模型 与呃开放率模型。"}, {"start_sec": 535, "speaker_id": "satya", "type": "text", "zh": "你说你拥有自己的智力 对你拥有的惊人客户很重要 你在说英国的一些 这就是我们为拥有自己数据的公司发展专业情报的模型环境吗? 对 我认为这对我来说是最重要的事情之一 在一个情报时代 公司的未来是正确的, 因为如果你回到哈耶克... 他对经济的基本描述是 地方情报知识 分布在整个经济中 因此我认为重要的是,每个公司 能够积累... ...... 这就是为什么我称之为反向信息悖论,对不对? 你知道你认识肯尼斯·阿罗 描述了这个嗯嗯的矛盾信息 如果你是卖家 却泄露了这个秘密 现在,买家第一次需要保护 因为买家甚至大多数人都认为这是 哦,我的数据... ...它甚至是我的疲劳... 顺便说一句,它并不需要仅仅通过嵌入你的知识和重量。 它可以是背景。 可能在你的电梯里,对吧? 你可能有基准事实上,我最关心的一件事就是, 我们都会成为每个公司 拥有一个私人的 eval 基准,这是他们的核心IP。 每个模特儿都进来 试着爬上那辆Eval 对我来说 公司就是这样工作的 我喜欢每家公司的私人指数 这对一个充满疯狂的时代的公司来说 虽然这似乎是你的哈维斯 或者你的洛拉斯 或者那种很有前瞻性的AI公司 那会分散到世界上的每一个公司吗? 你说过你的"}, {"start_sec": 685, "speaker_id": "satya", "type": "text", "zh": "是啊,它发生总是对的, 你知道他们有 一天,我记得在80年代后期和90年代早期, 少数公司 已经部署个人计算机 并且正在做【笑声】的预测 感觉神奇。 他们可以把它放在Excel电子表格里,用电子邮件发送它,避开传真机和办公室间备忘录, 感觉像哦哇哇,什么时候会发生,也许花了10年时间, 并且这整个时间分散在什么被认为是OH 我是AI本地的公司。 我这样做,我认为你知道 5年后,这将是相当好的 通过,我想,然后我的意思是这些技术循环 总是像这个权利,"}, {"start_sec": 754, "speaker_id": "satya", "type": "text", "zh": "是的,这很有趣 执行经济系统集成器 一直存在的权利 你知道,我们一直依赖 呃 执行 . . 令人着迷. 他们已经建立了一个代理系统 说:\"嘿,我们真的会有命令 以代理系统自动缓存... ... 此外,他们还交易索赔\". 嗯,顺便说一下,他们从使用边疆模型开始, 然后他们取代了 呃,事实上,我认为他们目前使用MAI模型... ... 用于他们所有的贸易索赔, 因为它是一种较低的成本... 因为他们可以训练他们的痕迹。 嗯,所以我们有一些FTE 但很多谁谁被部署 现在他们的IT团队本身 你知道,呃管理这一切。 但是它开始于什么是业务 什么是eval 是什么概念化 代理架构 所以它是某种商业咨询 结合技术咨询 我认为是的"}, {"start_sec": 851, "speaker_id": "satya", "type": "text", "zh": "你显然提到MAI 一个MAI的天哪。 嗯,但当我们观察很多不同的玩家时, 就是这种认识,你需要从芯片到模型到应用的完全堆叠。 那是未来吗? 你必须拥有垂直所有权。 这是什么意思?"}, {"start_sec": 870, "speaker_id": "satya", "type": "text", "zh": "是啊,这都取决于行业结构,对不对? 嗯,你知道,我想我会说,今天,你会有人知道 五六开关重量 你知道闭关模型 所有竞争... ...也许五六... 所以这是可能的。 当然 总有人有风险 是一个垂直整合的模型... 和应用程序级... 对我来说不太可能,对吧? 我想,在某个时候,可能会有一个。 如果有其他事情发生, 你每天醒来说, “哇,堆栈的每一层都有更多的竞争, 无论是硅,还是硅的管理系统。” 嗯,模型层,应用层。 所以我认为这是一种健康的方向 旅行,但你永远不会知道,对不对? 因为这是其中之一 它都取决于... 成为主导设计。 但我的希望是,这变成一个有点横向的专业化, 每一层都有多个赢家, 然后让人们有能力作曲。"}, {"start_sec": 952, "speaker_id": "satya", "type": "text", "zh": "我没有看到的东西 是每一层的深度。 就像我现在所知道的那样 我希望我12个月前已经知道 就像对推断的无限要求一样 是啊,这是一个伟大的观点。 赞叹 对"}, {"start_sec": 960, "speaker_id": "satya", "type": "text", "zh": "我希望我12个月前就知道了 我本来会做一些非常不同的投资。 说到这个,我们像Mustafa Sleimman一样 说有1000亿的训练回合即将到来 只有少数实验室能为此付出代价。 千亿培训运行. 我们是否有能量、基础设施和动力 来使这个规模 跨堆,但尤其是当我们"}, {"start_sec": 982, "speaker_id": "satya", "type": "text", "zh": "对 我的意思是,我的方式是,嗯,最终它必须来自世界GDP 反映嗯,然后,允许呃的人 拥有一个百分比的研发权利, 因为当有人说培训运行时, 它只是研究与开发的 百分比正确的公司 然后,你还提出另一边, 也就是供应方面,我们有 电力短缺,我们有 硅短缺,我们今天有 各种各样的事情。 他们都是长长的领跑者,对吧? 你只是不能知道 断了手指,有发电 或者你没有一个新的法布。 嗯,现在有趣到足够 42. 考虑到每个人的需求 建设,嗯,所以问题是 当这一切会上线... ... 对我来说,这是更重要的事"}, {"start_sec": 1074, "speaker_id": "satya", "type": "text", "zh": "就国内生产总值增长率的波动而言。 世界已经稳定在每年2%的水平 相当长的时间。 大赦国际是否有能力在短时间内认真思考这一问题? 我想是这样。 嗯,我有点希望如此。 因为这是重点,当我看着,让我们把 我们花费在医疗费用中的钱 占到任何GDP的百分比 所以,所以我审视 部署副驾驶 在NHS 说,哇,嗯,如果它能 改善病人的结果 降低医疗费用,"}, {"start_sec": 1115, "speaker_id": "satya", "type": "text", "zh": "所以我认为有些小块的... ...经济已经成熟,可以采用人工智能... ...事实上... 嗯,所以我认为是 在那里,我认为我们将找到最好的合身。 软件开发是另一个权利,我们很感兴趣 看到对软件开发权的要求有多有弹性 也就是说,信息技术的积压量很大,我们都没人承认它。 我教过你,你必须成为市场上的一两个顶尖人物, 才能赢得投资。"}, {"start_sec": 1158, "speaker_id": "satya", "type": "text", "zh": "这打破了所有的风险规则 这个问题我再次有 稍微调皮 没有在时间表上。 但就像我们会看到在能力 提升 替代功能 融资销售营销, 我们在编码中看到, 因为编码是母负荷。 我认为这是一个好点, 你知道它谈论了很多 关于你 知道有一个可核实的再奖励,你知道这是容易做这些, 模拟一切硅. 你的第一个旋转可以完全出来。 对"}, {"start_sec": 1231, "speaker_id": "satya", "type": "text", "zh": "但是,甚至就像优化 维护报告,就像你说的选择, 我永远不会是不可思议的 就像我是说,这是一个事情 他们一直在处理 永远只是安排维护, 所以,我看过你的许多节目, 我们会在嗯周围做一个快速的火, 人们没有问这些问题,我一直想知道, 我想每个人都想知道,但是啊,人们还没有问他们。 鉴于你的旅行日程安排 练习程序是什么?"}, {"start_sec": 1259, "speaker_id": "satya", "type": "text", "zh": "嗯,我的意思是,你处于良好的状态。 我尽力了 我不知道它是否都藏得很好, 但是,,你知道的, 一件事,我已经得到的习惯, 你知道,这也许已经25年了, 不幸的是,我的膝盖已经走了。 所以现在至少我走路时带了线条 即使是今天早上,我也能得到一个半小时。 所以不管我身在何处,我每天都在健身房里"}, {"start_sec": 1288, "speaker_id": "harry", "type": "text", "zh": "喜欢它。 我膝盖也不好 我的年纪也是 嗯,你有什么改变 你的想法 在过去12个月?"}, {"start_sec": 1294, "speaker_id": "satya", "type": "text", "zh": "最后可能是因为毕竟我是第一个是的, 很明显,当呃 当达里奥（Dario）和伊利亚（Ilya）和Sam和Greg和Eron是所有 我想一个快乐的家庭, 嗯,你,我认为最大的变化 现在,我有一个最大的变化 是,我总是认为,你知道 调整会只是掉出来。 我不再相信这一点。 所以,我认为,这个对齐 可能是一个更困难的问题。 嗯,所以,嗯,是啊,这是一件事 我改变了我的想法。"}, {"start_sec": 1330, "speaker_id": "harry", "type": "text", "zh": "今天看起来很疯狂 但五年后会变得非常普遍和并并并并并并并并并并并并并并并并并并并并个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个个 我认为公司会是一个AI基准。 最后一个给你。 接下来的十年里有很多事情值得兴奋。 对你来说,就像我一样 我妈妈有MS 我对药物的开发非常兴奋 嗯,你为什么最兴奋?"}, {"start_sec": 1357, "speaker_id": "satya", "type": "text", "zh": "我的意思是,这是一个伟大的。 我认为,我一直期待的一件事,就是 一种通用技术,即使它如此强大。 人们会说,“哦,这不仅仅是另一个通用技术。” 不管是什么,我希望它传播, 呃传播 全世界比任何其它东西更快 和所有经济部门 不像任何其他。 真正地,有一次全球增长的前沿 发生了真正的转变, 发生的地方不仅仅是计算赢家和输家, 但就像每个人都被抬起来一样, 就像我的梦想一样,事实上,我父亲是一名发展经济学家, 你知道它总是关于趋同增长, 当全球南方得到的东西 突然促进,我希望这就是它。 这真是令人高兴 谢谢你抽空来 当然 很高兴见到你,。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
