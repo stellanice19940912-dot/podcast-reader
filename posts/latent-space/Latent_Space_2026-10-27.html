@@ -73,250 +73,244 @@ mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px s
 <div class="legend"><span class="spk-0">主持人（Brandon / RJ）<em>主持</em></span><span class="spk-1">伊恩·奎格利（Ian Quigley）<em>嘉宾</em></span></div>
 <main class="transcript" id="main">
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>欢迎来到Latent Space 这是Brandon和RJ 与的伊恩·奎格利（Ian Quigley）Z。 今年夏天早些时候,我们和伊恩·奎格利（Ian Quigley）一起录制了一集 他讲述了与DNA 编码化合物库（DNA-encoded library）合作的酷事 以及他们如何以高通量的方式 筛选成百万的化合物与成千上万的蛋白质。</p>
-<p>大约这个时候,伊恩·奎格利（Ian Quigley）意识到 他们可以用这些数据做有趣的事情。 它基本上允许他们像一个虚拟的沙盒一样, 使代理商可以实时探索和作出决定, 仿佛他们是药用化学家一样, 自从那集之后, 伊恩·奎格利（Ian Quigley） 和 Leash Bio 更充分地发展了这个想法, 从那时起,他们已经开发了, 他们现在发布了一篇论文、一个数据集和一个博客文章, 以及我们刚刚发布的那集。</p>
-<p>我们想坐下来和伊恩·奎格利（Ian Quigley）谈谈 他做了什么 你知道 听听最新消息 总之 欢迎收看播客 谢谢你,伊恩·奎格利（Ian Quigley）。 上次我们和伊恩·奎格利（Ian Quigley）谈话时... ...你说你有些探员在探索沙盒... ...你觉得,哦,这只是个有趣的主意。</p>
-<p>我们不知道我们能用它做什么 但这是一个有趣的想法。 我认为你已经把这一切 化为一个完整的环境 供特工们探索,也许做RL 在,你知道,科学推理。 你能多谈谈吗?</p>
+<p>大家好，欢迎来到 Latent Space。我是 Brandon 和 RJ，今天请来了 Leash Bio 的伊恩·奎格利（Ian Quigley）。今年夏天早些时候我们和伊恩录过一集，他讲了 Leash 用 DNA 编码化合物库（DNA-encoded library）做的那些酷事：怎样以高通量方式，把成百万化合物对着成千上万种蛋白质去筛选。</p>
+<p>大约就在那时，伊恩意识到可以用这些数据做更有意思的事。本质上，这让他们能造出一个虚拟沙盒：智能体可以实时探索、做决定，仿佛自己是药用化学家，还能立刻拿到反馈，并且可以做海量探索性展开（rollout）。那一集之后，伊恩和 Leash 把这个想法发展得更完整；现在他们要发论文、数据集和博客，也会和我们刚发布的这集一起上线。</p>
+<p>我们想再坐下来跟伊恩聊聊他后来做了什么，听听最新进展。总之，欢迎来到播客。谢谢你，伊恩。——对，上次我们聊时你说有些智能体在沙盒里探索，你当时觉得：哦，这只是个好玩的主意。</p>
+<p>我们还不知道能拿它做什么，但想法很有意思。我感觉你后来已经把它充实成一套完整环境，让智能体去探索，甚至可能做强化学习（RL）、练科学推理。能再多讲讲吗？</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>这样一来,我对上个时间的感想 也就是我们拥有这些大容量的屏蔽设备 并且它们足够大 并且反向密集,你可以带毒剂 并把它们放在那里,然后给他们任务, 他们可以用有限的预算 来完成这些任务。 所以在过去几个月里我们花了很多时间的旗舰问题 是一个结构活动关系问题。 这个想法就像,好吧,我有一些分子, 我知道它们可能与这个蛋白质结合, 我希望它们能够结合。</p>
-<p>我该怎么改变它们 才能让他们好起来? 这是药用化学家非常常见的任务. 而构效关系（SAR）, 因为它有点缩略, 也包括其他的东西 像某些药物的特性, 你知道, 它得到代谢吗? 所有这些事情。 我们现在不这样做。 我们只是做, 我们能找到分子 更好地与我们感兴趣的事物结合?</p>
-<p>所以,我们做的是采取模型,我们采取一个像语言模型那样的代理, 然后我们说,这里有一个目录,你可以看。 你的预算是100个分子 我们不会告诉你任何东西 除了目标 并去找你所能最好的绑架。 不同的特工尝试了不同的东西。</p>
-<p>他们有不同的搜索政策。 他们有不同的方式想花自己的预算。 他们会用可读语言发布构效关系（SAR）假说, 说明为什么他们认为这些分子有作用或没有作用。 然后他们就会进去 用这个有限的实验预算 来测试这个假设</p>
-<p>并且因为都是预先测量的,你可以推出很多这些. 约九万.</p>
+<p>可以。我上次说的核心是：我们有大批筛选数据，环境足够大、反事实也足够密，你可以把智能体丢进去、给它们任务，让它们在我们已完整测过的景观里、用有限预算去完成任务。过去几个月我们花很多时间做的旗舰问题，是构效关系（structure-activity relationship, SAR）。思路是：我手里有一批分子，知道它们或许能结合到我想要的那个蛋白上——</p>
+<p>我该怎么改它们，才能变得更好？这是药用化学家很常见的任务。SAR 通常还包括类药性之类的性质，比如会不会被代谢等等。我们现在先不做那些，只做一件事：能不能找到对目标结合得更好的分子？</p>
+<p>做法是：拿一个智能体——比如语言模型——然后说：这是你可以查阅的目录，预算是 100 个分子。除了靶点以外我们什么都不告诉你，去找你能找到的最佳结合物。不同智能体会尝试不同策略。</p>
+<p>它们有不同的搜索策略，也有不同的预算花法。它们会用可读的自然语言写出 SAR 假说：为什么觉得这些分子有效或无效；然后在有限实验预算下，去检验这个假说。</p>
+<p>因为一切都是预先测好的，你可以大量展开。我们现在大概到了九万次左右。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>所以你开始做这些基础模型。 我觉得你有报纸 或一些预印品 或什么,你可以分享。 你想分享还是谈论它?</p>
+<p>所以你们是从前沿基础模型开始跑这些的。我感觉你们已经有论文或预印本可以分享了——要不要讲讲？</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>是啊,所以预印 很可能会出来 同时本集出来。 已经准备好了 我们在那里展示的是 我们得到了伟大的分离... ... 但另一件真正有趣的事情是, 因为我们不仅没有结果 你可以用来做 代理如何做这项工作, 我们也知道 整个测量的景观或世界的结果。</p>
-<p>这样你就可以开始审问 做科学决定的代理人有多好。 因为也许它只喜欢 一半的好 和整个环境中最好的。 因此,我们看到各种有趣的行为,比如早期放弃的物剂, 人们发现分子与他们的其他假设不一致, 那些分子尽管预算有限,却不断重复测试同样的分子。</p>
-<p>以及当它很好 探索与剥削。 结果发现,更多的表演模特儿 更能抛弃一些没有生产力的邻居。 这对我们来说是一个非常有趣的惊喜。 是的,所以当报纸出来的时候, 我们要发布一堆这样的环境 作为哈珀的包裹, 然后成千上万的笔录 让人们去玩 并去看看这些是如何的, 你知道, 他们是如何 他们的科学在做什么。</p>
+<p>对，预印本大概会和这集同期上线，已经基本就绪。我们在里面展示的是：不同模型家族、不同能力档位的智能体之间，分离度很好。另一件很有意思的事是：我们不只拥有可作为评测的结果，还知道整片已测景观/世界的全部结果。</p>
+<p>于是你可以开始追问：智能体做科学决策的能力到底怎样。因为它或许只找到了整个环境里最佳物一半水平的东西。我们看到各种有趣行为：过早放弃的；找到的分子与自己其余假说对不上的；明明预算有限还反复重测同一批分子的。</p>
+<p>还有：什么时候该探索、什么时候该利用。结果是，更强的模型更会放弃不产出的「街区」。这对我们其实是个挺有意思的意外。论文出来时，我们会把一批环境做成 Harper 包发布，再加成千上万条记录，大家可以自己玩、自己看它们的「科学」表现得怎样。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>这太酷了 那么,你对聪明的模特们 为什么能够发现 他们处在一个糟糕的地貌和移动? 或坏部分 景观和移动?</p>
+<p>太酷了。你有没有感觉：更聪明的模型为什么能意识到自己处在糟糕的景观（或景观的糟糕部分）并离开？</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>我们还不知道 我们只知道他们要更快地放弃这些烂街区 我们绝对 是吗? 更愿意跳来跳去 寻找更能表现的模特儿 但是他们特别快就放弃了这些糟糕的地方 然后,真正的穷人 留下来。</p>
+<p>我们其实还完全不知道。只知道它们放弃这些烂街区更快。我们也明确看到：更强模型整体更愿意四处跳，但尤其会快速离开糟糕区域；而很弱的模型会赖着不走。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>不仅仅是他们跳得更多, 实际上,他们是一些 他们想出一些东西说,“嘿,这是不好的。 让我们离开这里。&quot;</p>
+<p>所以不只是跳得更多，而是它们在搞明白什么，然后说：嘿，这里不行，走吧。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>没错 没错 对,而那些笨模型的后果是 它们会不停地 微小地改变那些永远也不会去的分子。 对吧? 比如,&quot;哦,这两个, 他们的分数很低, 但我觉得他们很好。&quot; 所以我会继续尝试一些东西。 然后,聪明的模型会放弃整个过程。</p>
-<p>我们要去的地方。</p>
+<p>完全正确。较弱模型会发生的是：它们会在注定没前途的分子上反复做细微改动——「噢这两分不高，但我感觉不错」，于是继续试。更强模型则会整段放弃。</p>
+<p>我们要去别处。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>你看过展品了吗 看它有没有在想什么?</p>
+<p>你有没有看过展开过程，看它们到底在想什么？</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>是啊,他们想各种各样的东西。 他们会说,“当我们发布所有这些记录的时候, 每个人应该看看我最喜欢做的事情之一, 就是拿大量记录, 然后把它们扔到LLMS里, 然后看看不同的失败模式和类似的东西。 但是,你会看到,是的,我认为这个戒指是好的, 我认为这个特殊的氮是痛苦的或者你知道的, 不管是什么,他们会说这些东西,然后它们是非常可信的,你知道的,药用化学的叙述。</p>
-<p>所以,这是漂亮的 它的很好玩。</p>
+<p>有，它们会想各种各样的事。等我们放出这些记录，大家最好的玩法之一就是把大批记录丢进大模型里，去看不同失败模式。你会看到它们说：我觉得这个环不错、这个氮有点难受……而且这些说辞非常像说得通的药用化学叙事。</p>
+<p>挺好玩的。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>是啊,这是惊人的。</p>
+<p>是啊，太厉害了。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>我很好奇 你有没有给人类同样的问题?</p>
+<p>我好奇：你们有没有把同样的题给人类做过？</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>我必须要让他们像你知道的那样看和评估它, 不是一吨,但因为你知道,我们有很多, 但是当我们让药剂师来研究它的时候, 他们就像,是的,不,那些是对其他想法非常可信的,你知道, 如何进行构效关系（SAR）运动的特定部分。</p>
+<p>让他们看、评估——有，但不多，因为量太大。不过药用化学家看过之后会说：对，这些想法对这一段 SAR 战役来说非常说得通。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>我不知道,也许我太想了 你能玩个游戏吗? 这是游戏吗? 然后是药用化学 电子游戏 然后你可以把人放在这些环境中 给他们做做做 做药用化学捕捉。</p>
+<p>不知道是不是我想多了——能不能做成游戏？某种意义上它就是游戏吧：药用化学电子游戏，把人放进这些环境里，做药用化学闯关。</p>
+</div></div>
+<div class="marker-line"><span class="tag">【笑声】</span></div>
+<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
+<p>对，这就是你们的商业模式。我喜欢这个计划。我们以前为「猜化学家」做过有点像的小游戏。大概得压缩成更少的构件才行——因为现在若让化学家进去，你可以想象：药用化学家心里有一套想随时间尝试的操作，比如这里加甲基、那里挪一挪；而我们这些预测环境，只能限于我们实际测过的东西。</p>
+<p>于是就得告诉药用化学家：你不能为所欲为，但能做很多事——然后想办法……</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>[笑声]</p>
+<p>而且他们得知道能做哪些事。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>是啊,这是你的商业模式。 我喜欢这个计划 我们做了一个游戏 有点像这个名字的化学家。 我们可能不得不把它煮沸, 拥有更少的构件。 因为现在有一个化学家去那里, 你可以想象,如果你是一个药用化学家, 你可能会有这套东西,你可能想要尝试 随着时间的推移,像放一个甲基在这里, 像移动这里, 当我们有这些预先测量过的环境, 我们将会被限制在 我们实际测量的东西。</p>
-<p>所以,我们不得不问药剂师, 哦,好吧,你不能做你想做的。 你可以做许多事情。 想想办法</p>
+<p>对，他们得知道「菜单」是什么。所以我们得想办法以有意义的方式把选项呈现给他们。不过我挺喜欢你这个方向——可以把选项缩到更小集合。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>他们必须知道什么东西</p>
+<p>哪个模型最好？前沿模型里最好的是哪些？</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>他们必须知道是什么东西,是的。 所以,我们必须想出一个方法 以有意义的方式向它们表面展示它, 但我有点喜欢 你用这个。 是啊,就像我们可以做缩小 缩小到更少的选项。 所以说 So.</p>
+<p>我想想，刚看过图，有点尴尬已经忘了。现在冠军是 Opus 4.6（after six）。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>什么型号是最好的? 在前沿模式中,什么是最佳模式?</p>
+<p>漂亮漂亮。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>让我们看看。 我刚刚在看那个阴谋 我已经忘了,有点尴尬 现在,冠军是六。</p>
+<p>也不算大意外。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>不错,不错。</p>
+<p>不大意外。Sonnet 4.5 其实也不错。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>一点都不震惊</p>
+<p>好。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>一点也不惊 索內特,是的。</p>
+<p>对，Sol 6.1 也不错。至于「everything 5」基本是踩坑——</p>
+</div></div>
+<div class="marker-line"><span class="tag">【笑声】</span></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
+<p>对，那个 5 又贵又不太能打。我觉得 Anthropic 以后会长期把 5 当成一次大失误。8.5 还不错。嗯。</p>
+<p>你们有没有 Plus 5.5？还没有。有一件事其实挺让人抓狂——你们也能体会。两个月前我们开始跑这些展开，看会发生什么；然后大概每十一天就掉一个新前沿模型。</p>
+<p>十一天，对。每次我想：好了要发了，要把公开材料丢出去——结果又冒出一个新模型。他们发得比 Anthropic 还快。<span class="tag">【笑声】</span>祝你好运，伊恩。总之我们很兴奋往里塞更多；我们也跑了大量开源模型。</p>
+<p>我们丢进去不少较小的通义千问（Qwen）、GLM、Kimi、DeepSeek 之类。很多。它们表现怎样？不算太差——DeepSeek V4 Flash 挺好。也许我该把完整排行图发给你们看看。</p>
+<p>对，我们可以直接放进节目里。我只能说：看起来有点像 ARC-AGI 2 那种图——底下有一堆烂模型。对，确实有点像，我们也是故意做成那种样子。</p>
+<p>还有一件我早前提过、对我们很有意思的事：大约去年夏天这个时候，我们内部开了一个监督微调项目，想让一些语言模型理解 SMILES——因为当时现有的前沿模型在这上面都不行。</p>
+<p>当时 Anthropic 或 OpenAI 的模型，连把 SMILES 转成非规范 SMILES 都做不好。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>好,对全球</p>
+<p>给非化学听众解释一下：SMILES 是一种字符串语言，可以准确描述化学结构，对吧？</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>是啊,还有Sol 61也不错 所以,所有5 只是一个赛车飞行员陷阱,对不对?</p>
+<p>对，没错。上次录的时候我们提过一点：它是字符串；分子可以分叉、成环，或两者兼有。SMILES 本质上就是把分子图遍历写成一维字符串。</p>
+<p>你可以想象从分子不同起点开始遍历，于是同一分子会有多种 SMILES 表示。能在不同表示之间流利转换很有用。这其实不难——大家常用 RDKit 这类开源包来做。</p>
+<p>但我们想让语言模型自己做，因为会更快，而当时它们还不擅长自己用工具。结果谁都做不到。然后大约二月，像很多别的事一样，它们开始能有意义地处理化学了——这也是我们朝这个方向走的原因之一。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>[笑声]</p>
+<p>这很有意思，因为意味着它在内化某种对分子物理性质的理解。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>是啊,所以这五个既非常昂贵 也不是很出色。 对,对。 受此保护的有: 受此保护的有: 8.5不错 对 是啊,没有。</p>
-<p>你有加5.5吗? 我们还没有。 不,这是一件事 问你们实际上 有点生气,你们可以欣赏。 当我们在两个月前谈话时, 我们开始了这些推广, 看看发生了什么, 然后出现了一个新的前沿遵从, 每11天一次。</p>
-<p>11天,没错。 是啊,所以就像每次我Oh, 我们要运送这个。 我们需要放下这些公共物品 就像现在一个愚蠢的新模型出现 和呃,是啊,他们飞得比Entropic快。 对,对。 [笑声] 好吧,祝你好运伊恩·奎格利（Ian Quigley）。 所以是的,所以我们很兴奋地把更多的东西放在这里, 我们也运行了大量的开源软件。</p>
-<p>所以,我们扔了一堆小精子 在那里,GLMs,Kitty和Deep Sedes 之类的东西。 所以有很多这样的。 他们怎么样? 他们不是深搜索V4闪光 相当不错。 没那么糟 是啊,也许我应该只是送你们 像完整的图表 如何进行和看看它。</p>
-<p>是的,我们可以把它 在那里捡起来。 我可以说,我可以说它有点像 你知道, 像Arc AGI 2的情节。 你有一些烂模型。 对,对。 它确实有点像, 这就是为什么我们这样做。</p>
-<p>然后我想,我早些时候提到的一件 对我们来说非常有趣的事情 就是去年夏天的这一次。乃是我们开始一个内部项目, 监督这些语言模型的微调, 因为现有的前沿模型中没有一个是擅长的.</p>
-<p>因此,像当时的Entropic或Open AI模型一样,甚至无法将笑容转换为非卡通笑容非常有效.</p>
+<p>我觉得有一点。对。我们现在让它们做的就是这类任务：迭代地看分子，从中学到东西，再做选择，让下一轮分子更好。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>所以对于非化学家来说,微笑是一种你可以使用的语言, 字符串语言,你可以用来准确描述一种化学,对吧?</p>
+<p>嗯。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>对 没错 我想我们在上次录制时稍早一点就提到了它, 但是它是一个弦和分子可以被叉开,或者转圈,或者两者结合在一起,对吧? 这些不同的东西。 因此微笑基本上是一个图 横跨分子,写成一维字符串。</p>
-<p>所以,你可以想象在分子的不同点开始图的转动。 因此,代表同一分子的微笑有多种方式。 因此,你很高兴能流利地从一个转到另一个。 很简单 有几个开源软件包像RDKit一样被人们用来做这个.</p>
-<p>但是我们想让语言模型来做, 因为它会更快, 而且他们不擅长使用工具。 没有人能做到这一点。 然后在2月左右,像很多其他的事情一样, 他们可以开始以有意义的方式与化学合作, 这就是我们开始朝着这个方向发展的原因。</p>
+<p>如果我们拿掉分子信息，这些决策就会明显变差。所以它们在学到东西——或者至少在使用信息。说「使用」更准确：我们没有改权重，但它们确实在用信息做后续选择。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>这真的很有趣,因为这意味着它正在内化一些对分子物理性质的理解.</p>
+<p>你提到试过这些小模型。我想问：有没有用过贝叶斯超参那类算法，当作你们问题的确定性基线？</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>我觉得有点。 对 这些就是我们现在要完成的任务。 像是它们反复的任务, 它们正在研究分子, 他们正在学习一些关于这些分子的东西, 来做出选择, 来制造更好的分子。</p>
+<p>我们觉得景观太尖、维度太高。我们没怎么做那个，大体上认为不会管用。这大概是「官方口径」。我知道。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>对</p>
+<p>你们打算全部发布——预印本、博客、数据展开之类，我们会放进节目笔记。还有别的吗？</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>我们删除有关分子的信息, 像这些决定真的受苦。 所以他们正在学习一些东西。 这很有趣。 或者至少他们正在使用它。 我想这是更好的,我们不是 我们不会在这里改变重量, 但他们肯定利用信息 只是做未来的选择。</p>
+<p>对，就是这些。大头大概是：我们建了一套东西——如果你有科学智能体，想知道它们行为怎样、会犯什么错、如何从物理反馈学习，或者新训练配方是否改善科学决策——我们有能力大规模测量这些。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>你提到过这些小模特,对吧? 你试过了 所以我想问,你刚才有没有像这些贝叶斯超参数算法一样, 用来作为你问题的确定基准?</p>
+<p>很酷。还有没有计划做其他类似问题？</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>嘱咐它太浓郁了 而且非常高维度 我们不是真的 我们不这样做,但我们大多认为这行不通. 我认为这是党的路线。 对 我知道 Yeah, I know.</p>
+<p>有。我们大致把这看成「环路中的实验室」，但延迟被摊销了：出去把东西测一次，然后就能对该环境做海量——近乎无限——的展开。我们也在认真想：还有哪些生物学或科学问题，能改造成这类环境。</p>
+<p>因为常规「实验室在环」很慢；而且那些本身预算有限，反事实也不够密——你得不停跑、每次展开做不同选择，智能体才能学。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>你计划释放这一切, 所以我想我们会把 使用等待,你要释放什么? 你说你会有一个预印博客, 然后一些数据推出和一切, 这样我们就可以把这些都放到节目的笔记里。 还有别的吗?</p>
+<p>对，但有了你们的多路复用策略，就可以摊销。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>是的,就是这样。 是的,我想这是一件大事, 这可能是更接近的东西 我想我想,我可能会说, 我们建造了这个东西, 如果你有科学的代理人, 你想知道他们如何行事, 他们可能犯了什么错误, 他们如何从物理反馈中学习, 你知道,如果一个新的训练方法 改善了科学决策。 我们有能力测量这些东西的规模。</p>
+<p>可以摊销。说「零延迟的实验室在环」不完全准确，但已经很接近。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>是啊,这真的很酷。 你是否计划过类似的问题?</p>
+<p>这跟 Lyra 做的是同一类事。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>是的,没错。 广义地说,我们思考这个问题的方式是 它是一个实验室 与分期偿还。 所以,它就像出去,你记录它一次, 然后你可以有大量的推出 通过它,有效的无限推出。 我们正认真思考其他种类的生物或科学问题, 你可以把这些问题转化成这种环境。</p>
-<p>因为如果你在循环中做常规实验室, 它需要很长的时间和它, 并且因为那些东西本身的预算有限, 它也不是反事实密集的。 所以,就像你要继续运行它, 做不同的选择 每一次推出, 使事情 使代理学习。</p>
+<p>对。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>是的,但用你的多轴策略, 然后,你可以只是摊还。</p>
+<p>不完全一样，但他们也做实验——</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>你可以只摊还。 所以,说它是循环中的实验室 且没有固定时间,但很接近了。</p>
+<p>对。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>莱拉也是这么做的</p>
+<p>——然后用在展开里，只是不是实时做。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>对</p>
+<p>对。他们在展开里一步一步做，自由度更大，因为几乎什么都能选；而我们这里只能限于预测环境时做过的那些选择。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>我的意思是,这不是一回事, 但他们也做实验</p>
+<p>嗯。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>对</p>
+<p>确实如此。不过可选项数量仍然相当大。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>and they they they they</p>
+<p>嗯。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>对 对 他们正在做它 一步一步的推出 提供了更多的自由 因为你可以选择几乎任何东西。 在这里,你仅限于我们预先测量环境时所做的选择。</p>
+<p>而且我们现在——自 Leash 创立以来——已经把大约一千种蛋白对着几套化学库筛过了，还会继续扩。我们打算试着做到每天大约二十个新环境；计划是在二六或二七年初左右冲到那个节奏。</p>
+<p>现在大概一天两个。我觉得冲到一天二十也并非不可，我们在推，看看能不能做到。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>对</p>
+<p>哇。所以你们会有一个巨大的强化学习环境。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>没错 嗯,但它就像它仍然 一个相当大的很多选择。</p>
+<p>对。</p>
+</div></div>
+<div class="marker-line"><span class="tag">【笑声】</span></div>
+<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
+<p>感觉这就是该做的事。非正式地说，很多智能体进步最快、最好的地方，就是有瞬时、且可大规模扩展的反馈。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>对</p>
+<p>嗯。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>是的,然后我们现在有了 我们筛选了大约一千个蛋白质... 和几个这些化学库, 自从我们开始 ZZ, 我们要开始种植。 我想我们将会尝试 达到这些新环境中的20个一天。 我们计划从26岁到27岁</p>
-<p>我们可以每天做两次 Uh Uh yeah yeah yeah yeah we we we we we we we we we we we we we we we we we we we we we we we we we we we we we we we we we we we we 因此,我们将推进。 We么则见能.</p>
+<p>在物理世界很难做到；但我们觉得大概有一小撮生物学问题，可以用这种方式重建并去追。至于能不能把这类环境里的强化学习进展迁移到新的生物学上——我们还不知道，但我们在试，会搞清楚。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>珃 所以,你会有一个巨大的RL环境。</p>
+<p>那显然是目标：如何迁移到其他生物学。你可以想象，如果覆盖集做得好，中间那些也许能迁得不错。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>对</p>
+<p>对。另外我还得多找些「决策」方面的人聊聊——很多核心是：有限实验预算怎么花，怎样才能花得更好。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>[笑声]</p>
+<p>嗯。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>这似乎就像事情 做。 我的意思是,那种非正式的 它似乎很多这些代理 正在作出最好的, 最快的进展是 在那里有即时反馈 是非常可扩展的。</p>
+<p>不只是药用化学，对吧——何时留下、何时离开，怎样把这件事做得更好。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>对</p>
+<p>有意思。可以想象：如果它知道如何把那一点的决策连接到已有知识，就能把这种技能迁到别的问题上。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>在物理界很难做到这一点 但是我们认为 可能会有一些生物问题 你可以以这种方式重建 即使在是的, 然后我们还不知道我们是否能够从这些环境 获得强化的学习进展 并转向新的生物学, 但是,你知道,就像我们正在尝试。 我们会发现的</p>
+<p>对。我们也会往里接入越来越多结构相关的工具调用之类，现在挺好玩的阶段。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>这就是显而易见的目标。 比如说,这种转基因是如何转移到其他生物学的? 你可以想象,如果你做了它 某种封面集,对不对? 你可能可以把事情 中间,虽然 你可以转好。</p>
+<p>我们会把你们即将上线的酷东西都链上。谢谢你抽时间聊。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>对 对 还有一件事,我需要做的是 和一些更多的决定者谈谈 因为很多事情都是关于你如何花费有限的实验预算, 然后你能做些什么来更好地做到这一点?</p>
+<p>酷。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>对</p>
+<p>也谢谢你抽时间做这次回访。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>是啊,除了药用化学,对不对? 就像是的 我什么时候才能留下来? 我什么时候去? 我怎样才能更好?</p>
+<p>嗯。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>真有趣,我还不知道 是的,你可以想象它,如果它知道如何将决定 与它拥有的知识联系起来, 然后它可以学习这种技能 用于其他问题。</p>
+<p>我觉得这集会和——</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>对 对 我们看到,我们正在将越来越多的结构化工具呼吁和类似的东西也与这些内容结合起来。 所以,它是一个相当有趣的时间 现在。</p>
+<p>——其余部分背靠背出现。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>是啊,我们一定会联系到 所有很酷的东西 你出来 是的,谢谢你花时间聊天。</p>
+<p>好。这期很棒。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>凉爽。 凉爽。</p>
+<p>好，各位。</p>
 </div></div>
 <div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>是啊,或者谢谢你抽时间 后续聊天。</p>
+<p>好，回见。</p>
 </div></div>
 <div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>对 对</p>
-</div></div>
-<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>我觉得这将会是背对背的</p>
-</div></div>
-<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>与其余剧集.</p>
-</div></div>
-<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>好吧,我告诉你。 这是伟大的。</p>
-</div></div>
-<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>好了 伙计们</p>
-</div></div>
-<div class="turn spk-1 guest" data-spk="g"><div class="label"><span class="badge" title="伊恩·奎格利（Ian Quigley）">奎格利</span></div><div class="content">
-<p>好吧,我们走。 再见</p>
-</div></div>
-<div class="turn spk-0 host" data-spk="h"><div class="label"><span class="badge" title="主持人（Brandon / RJ）">主持人</span></div><div class="content">
-<p>总是很有趣。 是的,我们回头见。</p>
+<p>一如既往很有趣。回头见。</p>
 </div></div>
 </main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
 </div>
 <button id="top" type="button" title="回到顶部">↑</button>
-<script id="data" type="application/json">{"channel": "Latent Space", "title": "有标准答案的 AI 科学家评测——伊恩·奎格利与 Leash Bio 的 Minos", "url": "https://www.youtube.com/watch?v=vhPCo-8K78U", "videoId": "vhPCo-8K78U", "published_at": "2026-10-26", "duration": 994, "caption_source": "YouTube 自动生成字幕（en-orig；普通 yt-dlp 429 后经 Chrome cookies 成功），中文为全文翻译；caption_source=yt-dlp-chrome-cookies", "guests": ["伊恩·奎格利（Ian Quigley，Leash Bio 联合创始人）"], "speakers": [{"id": "h", "name": "主持人（Brandon / RJ）", "role": "host", "short": "主持人"}, {"id": "g", "name": "伊恩·奎格利（Ian Quigley）", "role": "guest", "short": "奎格利"}], "intro": {"summary": "Latent Space 回访 Leash Bio 联合创始人伊恩·奎格利（Ian Quigley）：介绍 Minos——预先测好答案的「实验世界」评测框架，让科研智能体在虚拟沙盒里做药物化学决策并与真实构效关系（SAR）对照。", "points": ["Minos 把大规模蛋白–分子预测量结果做成智能体可探索的沙盒环境", "智能体用不同搜索策略与预算在目录中选型、改变化合物，规模已到约九万次 rollout", "可量化智能体是否利用历史实验信息改进后续选择，而非只靠单点猜分子", "讨论基础模型 vs 专用策略在药用化学决策上的差异与预印本结果", "评测「知道答案钥匙」的环境：便于复现比较不同科研智能体", "本集为夏季 Leash Bio 访谈的后续更新，偏实验与评测框架，无检测到独立赞助口播段"], "verdict": "值得看（约16.5分钟）：短后续访谈，信息密度高；关心 AI4Science、药物发现智能体或评测环境设计的人可整集听完。非入门科普，略偏专业。", "audience": "AI for science / 计算化学 / Agent 评测从业者与 Latent Space 听众"}, "paragraphs": [{"start_sec": 4, "speaker_id": "h", "type": "text", "zh": "欢迎来到Latent Space 这是Brandon和RJ 与的伊恩·奎格利（Ian Quigley）Z。 今年夏天早些时候,我们和伊恩·奎格利（Ian Quigley）一起录制了一集 他讲述了与DNA 编码化合物库（DNA-encoded library）合作的酷事 以及他们如何以高通量的方式 筛选成百万的化合物与成千上万的蛋白质。"}, {"start_sec": 32, "speaker_id": "h", "type": "text", "zh": "大约这个时候,伊恩·奎格利（Ian Quigley）意识到 他们可以用这些数据做有趣的事情。 它基本上允许他们像一个虚拟的沙盒一样, 使代理商可以实时探索和作出决定, 仿佛他们是药用化学家一样, 自从那集之后, 伊恩·奎格利（Ian Quigley） 和 Leash Bio 更充分地发展了这个想法, 从那时起,他们已经开发了, 他们现在发布了一篇论文、一个数据集和一个博客文章, 以及我们刚刚发布的那集。"}, {"start_sec": 79, "speaker_id": "h", "type": "text", "zh": "我们想坐下来和伊恩·奎格利（Ian Quigley）谈谈 他做了什么 你知道 听听最新消息 总之 欢迎收看播客 谢谢你,伊恩·奎格利（Ian Quigley）。 上次我们和伊恩·奎格利（Ian Quigley）谈话时... ...你说你有些探员在探索沙盒... ...你觉得,哦,这只是个有趣的主意。"}, {"start_sec": 108, "speaker_id": "h", "type": "text", "zh": "我们不知道我们能用它做什么 但这是一个有趣的想法。 我认为你已经把这一切 化为一个完整的环境 供特工们探索,也许做RL 在,你知道,科学推理。 你能多谈谈吗?"}, {"start_sec": 108, "speaker_id": "g", "type": "text", "zh": "这样一来,我对上个时间的感想 也就是我们拥有这些大容量的屏蔽设备 并且它们足够大 并且反向密集,你可以带毒剂 并把它们放在那里,然后给他们任务, 他们可以用有限的预算 来完成这些任务。 所以在过去几个月里我们花了很多时间的旗舰问题 是一个结构活动关系问题。 这个想法就像,好吧,我有一些分子, 我知道它们可能与这个蛋白质结合, 我希望它们能够结合。"}, {"start_sec": 149, "speaker_id": "g", "type": "text", "zh": "我该怎么改变它们 才能让他们好起来? 这是药用化学家非常常见的任务. 而构效关系（SAR）, 因为它有点缩略, 也包括其他的东西 像某些药物的特性, 你知道, 它得到代谢吗? 所有这些事情。 我们现在不这样做。 我们只是做, 我们能找到分子 更好地与我们感兴趣的事物结合?"}, {"start_sec": 183, "speaker_id": "g", "type": "text", "zh": "所以,我们做的是采取模型,我们采取一个像语言模型那样的代理, 然后我们说,这里有一个目录,你可以看。 你的预算是100个分子 我们不会告诉你任何东西 除了目标 并去找你所能最好的绑架。 不同的特工尝试了不同的东西。"}, {"start_sec": 213, "speaker_id": "g", "type": "text", "zh": "他们有不同的搜索政策。 他们有不同的方式想花自己的预算。 他们会用可读语言发布构效关系（SAR）假说, 说明为什么他们认为这些分子有作用或没有作用。 然后他们就会进去 用这个有限的实验预算 来测试这个假设"}, {"start_sec": 241, "speaker_id": "g", "type": "text", "zh": "并且因为都是预先测量的,你可以推出很多这些. 约九万."}, {"start_sec": 241, "speaker_id": "h", "type": "text", "zh": "所以你开始做这些基础模型。 我觉得你有报纸 或一些预印品 或什么,你可以分享。 你想分享还是谈论它?"}, {"start_sec": 241, "speaker_id": "g", "type": "text", "zh": "是啊,所以预印 很可能会出来 同时本集出来。 已经准备好了 我们在那里展示的是 我们得到了伟大的分离... ... 但另一件真正有趣的事情是, 因为我们不仅没有结果 你可以用来做 代理如何做这项工作, 我们也知道 整个测量的景观或世界的结果。"}, {"start_sec": 241, "speaker_id": "g", "type": "text", "zh": "这样你就可以开始审问 做科学决定的代理人有多好。 因为也许它只喜欢 一半的好 和整个环境中最好的。 因此,我们看到各种有趣的行为,比如早期放弃的物剂, 人们发现分子与他们的其他假设不一致, 那些分子尽管预算有限,却不断重复测试同样的分子。"}, {"start_sec": 280, "speaker_id": "g", "type": "text", "zh": "以及当它很好 探索与剥削。 结果发现,更多的表演模特儿 更能抛弃一些没有生产力的邻居。 这对我们来说是一个非常有趣的惊喜。 是的,所以当报纸出来的时候, 我们要发布一堆这样的环境 作为哈珀的包裹, 然后成千上万的笔录 让人们去玩 并去看看这些是如何的, 你知道, 他们是如何 他们的科学在做什么。"}, {"start_sec": 280, "speaker_id": "h", "type": "text", "zh": "这太酷了 那么,你对聪明的模特们 为什么能够发现 他们处在一个糟糕的地貌和移动? 或坏部分 景观和移动?"}, {"start_sec": 281, "speaker_id": "g", "type": "text", "zh": "我们还不知道 我们只知道他们要更快地放弃这些烂街区 我们绝对 是吗? 更愿意跳来跳去 寻找更能表现的模特儿 但是他们特别快就放弃了这些糟糕的地方 然后,真正的穷人 留下来。"}, {"start_sec": 300, "speaker_id": "h", "type": "text", "zh": "不仅仅是他们跳得更多, 实际上,他们是一些 他们想出一些东西说,“嘿,这是不好的。 让我们离开这里。\""}, {"start_sec": 306, "speaker_id": "g", "type": "text", "zh": "没错 没错 对,而那些笨模型的后果是 它们会不停地 微小地改变那些永远也不会去的分子。 对吧? 比如,\"哦,这两个, 他们的分数很低, 但我觉得他们很好。\" 所以我会继续尝试一些东西。 然后,聪明的模型会放弃整个过程。"}, {"start_sec": 338, "speaker_id": "g", "type": "text", "zh": "我们要去的地方。"}, {"start_sec": 338, "speaker_id": "h", "type": "text", "zh": "你看过展品了吗 看它有没有在想什么?"}, {"start_sec": 338, "speaker_id": "g", "type": "text", "zh": "是啊,他们想各种各样的东西。 他们会说,“当我们发布所有这些记录的时候, 每个人应该看看我最喜欢做的事情之一, 就是拿大量记录, 然后把它们扔到LLMS里, 然后看看不同的失败模式和类似的东西。 但是,你会看到,是的,我认为这个戒指是好的, 我认为这个特殊的氮是痛苦的或者你知道的, 不管是什么,他们会说这些东西,然后它们是非常可信的,你知道的,药用化学的叙述。"}, {"start_sec": 379, "speaker_id": "g", "type": "text", "zh": "所以,这是漂亮的 它的很好玩。"}, {"start_sec": 379, "speaker_id": "h", "type": "text", "zh": "是啊,这是惊人的。"}, {"start_sec": 379, "speaker_id": "g", "type": "text", "zh": "我很好奇 你有没有给人类同样的问题?"}, {"start_sec": 379, "speaker_id": "h", "type": "text", "zh": "我必须要让他们像你知道的那样看和评估它, 不是一吨,但因为你知道,我们有很多, 但是当我们让药剂师来研究它的时候, 他们就像,是的,不,那些是对其他想法非常可信的,你知道, 如何进行构效关系（SAR）运动的特定部分。"}, {"start_sec": 379, "speaker_id": "g", "type": "text", "zh": "我不知道,也许我太想了 你能玩个游戏吗? 这是游戏吗? 然后是药用化学 电子游戏 然后你可以把人放在这些环境中 给他们做做做 做药用化学捕捉。"}, {"start_sec": 389, "speaker_id": "h", "type": "text", "zh": "[笑声]"}, {"start_sec": 390, "speaker_id": "g", "type": "text", "zh": "是啊,这是你的商业模式。 我喜欢这个计划 我们做了一个游戏 有点像这个名字的化学家。 我们可能不得不把它煮沸, 拥有更少的构件。 因为现在有一个化学家去那里, 你可以想象,如果你是一个药用化学家, 你可能会有这套东西,你可能想要尝试 随着时间的推移,像放一个甲基在这里, 像移动这里, 当我们有这些预先测量过的环境, 我们将会被限制在 我们实际测量的东西。"}, {"start_sec": 441, "speaker_id": "g", "type": "text", "zh": "所以,我们不得不问药剂师, 哦,好吧,你不能做你想做的。 你可以做许多事情。 想想办法"}, {"start_sec": 441, "speaker_id": "h", "type": "text", "zh": "他们必须知道什么东西"}, {"start_sec": 441, "speaker_id": "g", "type": "text", "zh": "他们必须知道是什么东西,是的。 所以,我们必须想出一个方法 以有意义的方式向它们表面展示它, 但我有点喜欢 你用这个。 是啊,就像我们可以做缩小 缩小到更少的选项。 所以说 So."}, {"start_sec": 441, "speaker_id": "h", "type": "text", "zh": "什么型号是最好的? 在前沿模式中,什么是最佳模式?"}, {"start_sec": 443, "speaker_id": "g", "type": "text", "zh": "让我们看看。 我刚刚在看那个阴谋 我已经忘了,有点尴尬 现在,冠军是六。"}, {"start_sec": 451, "speaker_id": "h", "type": "text", "zh": "不错,不错。"}, {"start_sec": 452, "speaker_id": "g", "type": "text", "zh": "一点都不震惊"}, {"start_sec": 454, "speaker_id": "h", "type": "text", "zh": "一点也不惊 索內特,是的。"}, {"start_sec": 459, "speaker_id": "g", "type": "text", "zh": "好,对全球"}, {"start_sec": 459, "speaker_id": "h", "type": "text", "zh": "是啊,还有Sol 61也不错 所以,所有5 只是一个赛车飞行员陷阱,对不对?"}, {"start_sec": 467, "speaker_id": "g", "type": "text", "zh": "[笑声]"}, {"start_sec": 468, "speaker_id": "h", "type": "text", "zh": "是啊,所以这五个既非常昂贵 也不是很出色。 对,对。 受此保护的有: 受此保护的有: 8.5不错 对 是啊,没有。"}, {"start_sec": 485, "speaker_id": "h", "type": "text", "zh": "你有加5.5吗? 我们还没有。 不,这是一件事 问你们实际上 有点生气,你们可以欣赏。 当我们在两个月前谈话时, 我们开始了这些推广, 看看发生了什么, 然后出现了一个新的前沿遵从, 每11天一次。"}, {"start_sec": 514, "speaker_id": "h", "type": "text", "zh": "11天,没错。 是啊,所以就像每次我Oh, 我们要运送这个。 我们需要放下这些公共物品 就像现在一个愚蠢的新模型出现 和呃,是啊,他们飞得比Entropic快。 对,对。 [笑声] 好吧,祝你好运伊恩·奎格利（Ian Quigley）。 所以是的,所以我们很兴奋地把更多的东西放在这里, 我们也运行了大量的开源软件。"}, {"start_sec": 553, "speaker_id": "h", "type": "text", "zh": "所以,我们扔了一堆小精子 在那里,GLMs,Kitty和Deep Sedes 之类的东西。 所以有很多这样的。 他们怎么样? 他们不是深搜索V4闪光 相当不错。 没那么糟 是啊,也许我应该只是送你们 像完整的图表 如何进行和看看它。"}, {"start_sec": 586, "speaker_id": "h", "type": "text", "zh": "是的,我们可以把它 在那里捡起来。 我可以说,我可以说它有点像 你知道, 像Arc AGI 2的情节。 你有一些烂模型。 对,对。 它确实有点像, 这就是为什么我们这样做。"}, {"start_sec": 616, "speaker_id": "h", "type": "text", "zh": "然后我想,我早些时候提到的一件 对我们来说非常有趣的事情 就是去年夏天的这一次。乃是我们开始一个内部项目, 监督这些语言模型的微调, 因为现有的前沿模型中没有一个是擅长的."}, {"start_sec": 644, "speaker_id": "h", "type": "text", "zh": "因此,像当时的Entropic或Open AI模型一样,甚至无法将笑容转换为非卡通笑容非常有效."}, {"start_sec": 644, "speaker_id": "g", "type": "text", "zh": "所以对于非化学家来说,微笑是一种你可以使用的语言, 字符串语言,你可以用来准确描述一种化学,对吧?"}, {"start_sec": 644, "speaker_id": "h", "type": "text", "zh": "对 没错 我想我们在上次录制时稍早一点就提到了它, 但是它是一个弦和分子可以被叉开,或者转圈,或者两者结合在一起,对吧? 这些不同的东西。 因此微笑基本上是一个图 横跨分子,写成一维字符串。"}, {"start_sec": 644, "speaker_id": "h", "type": "text", "zh": "所以,你可以想象在分子的不同点开始图的转动。 因此,代表同一分子的微笑有多种方式。 因此,你很高兴能流利地从一个转到另一个。 很简单 有几个开源软件包像RDKit一样被人们用来做这个."}, {"start_sec": 649, "speaker_id": "h", "type": "text", "zh": "但是我们想让语言模型来做, 因为它会更快, 而且他们不擅长使用工具。 没有人能做到这一点。 然后在2月左右,像很多其他的事情一样, 他们可以开始以有意义的方式与化学合作, 这就是我们开始朝着这个方向发展的原因。"}, {"start_sec": 649, "speaker_id": "g", "type": "text", "zh": "这真的很有趣,因为这意味着它正在内化一些对分子物理性质的理解."}, {"start_sec": 655, "speaker_id": "h", "type": "text", "zh": "我觉得有点。 对 这些就是我们现在要完成的任务。 像是它们反复的任务, 它们正在研究分子, 他们正在学习一些关于这些分子的东西, 来做出选择, 来制造更好的分子。"}, {"start_sec": 671, "speaker_id": "g", "type": "text", "zh": "对"}, {"start_sec": 672, "speaker_id": "h", "type": "text", "zh": "我们删除有关分子的信息, 像这些决定真的受苦。 所以他们正在学习一些东西。 这很有趣。 或者至少他们正在使用它。 我想这是更好的,我们不是 我们不会在这里改变重量, 但他们肯定利用信息 只是做未来的选择。"}, {"start_sec": 685, "speaker_id": "g", "type": "text", "zh": "你提到过这些小模特,对吧? 你试过了 所以我想问,你刚才有没有像这些贝叶斯超参数算法一样, 用来作为你问题的确定基准?"}, {"start_sec": 702, "speaker_id": "h", "type": "text", "zh": "嘱咐它太浓郁了 而且非常高维度 我们不是真的 我们不这样做,但我们大多认为这行不通. 我认为这是党的路线。 对 我知道 Yeah, I know."}, {"start_sec": 711, "speaker_id": "g", "type": "text", "zh": "你计划释放这一切, 所以我想我们会把 使用等待,你要释放什么? 你说你会有一个预印博客, 然后一些数据推出和一切, 这样我们就可以把这些都放到节目的笔记里。 还有别的吗?"}, {"start_sec": 723, "speaker_id": "h", "type": "text", "zh": "是的,就是这样。 是的,我想这是一件大事, 这可能是更接近的东西 我想我想,我可能会说, 我们建造了这个东西, 如果你有科学的代理人, 你想知道他们如何行事, 他们可能犯了什么错误, 他们如何从物理反馈中学习, 你知道,如果一个新的训练方法 改善了科学决策。 我们有能力测量这些东西的规模。"}, {"start_sec": 752, "speaker_id": "g", "type": "text", "zh": "是啊,这真的很酷。 你是否计划过类似的问题?"}, {"start_sec": 758, "speaker_id": "h", "type": "text", "zh": "是的,没错。 广义地说,我们思考这个问题的方式是 它是一个实验室 与分期偿还。 所以,它就像出去,你记录它一次, 然后你可以有大量的推出 通过它,有效的无限推出。 我们正认真思考其他种类的生物或科学问题, 你可以把这些问题转化成这种环境。"}, {"start_sec": 794, "speaker_id": "h", "type": "text", "zh": "因为如果你在循环中做常规实验室, 它需要很长的时间和它, 并且因为那些东西本身的预算有限, 它也不是反事实密集的。 所以,就像你要继续运行它, 做不同的选择 每一次推出, 使事情 使代理学习。"}, {"start_sec": 804, "speaker_id": "g", "type": "text", "zh": "是的,但用你的多轴策略, 然后,你可以只是摊还。"}, {"start_sec": 810, "speaker_id": "h", "type": "text", "zh": "你可以只摊还。 所以,说它是循环中的实验室 且没有固定时间,但很接近了。"}, {"start_sec": 818, "speaker_id": "g", "type": "text", "zh": "莱拉也是这么做的"}, {"start_sec": 821, "speaker_id": "h", "type": "text", "zh": "对"}, {"start_sec": 821, "speaker_id": "g", "type": "text", "zh": "我的意思是,这不是一回事, 但他们也做实验"}, {"start_sec": 825, "speaker_id": "h", "type": "text", "zh": "对"}, {"start_sec": 826, "speaker_id": "g", "type": "text", "zh": "and they they they they"}, {"start_sec": 829, "speaker_id": "h", "type": "text", "zh": "对 对 他们正在做它 一步一步的推出 提供了更多的自由 因为你可以选择几乎任何东西。 在这里,你仅限于我们预先测量环境时所做的选择。"}, {"start_sec": 842, "speaker_id": "g", "type": "text", "zh": "对"}, {"start_sec": 842, "speaker_id": "h", "type": "text", "zh": "没错 嗯,但它就像它仍然 一个相当大的很多选择。"}, {"start_sec": 846, "speaker_id": "g", "type": "text", "zh": "对"}, {"start_sec": 846, "speaker_id": "h", "type": "text", "zh": "是的,然后我们现在有了 我们筛选了大约一千个蛋白质... 和几个这些化学库, 自从我们开始 ZZ, 我们要开始种植。 我想我们将会尝试 达到这些新环境中的20个一天。 我们计划从26岁到27岁"}, {"start_sec": 881, "speaker_id": "h", "type": "text", "zh": "我们可以每天做两次 Uh Uh yeah yeah yeah yeah we we we we we we we we we we we we we we we we we we we we we we we we we we we we we we we we we we we we 因此,我们将推进。 We么则见能."}, {"start_sec": 881, "speaker_id": "g", "type": "text", "zh": "珃 所以,你会有一个巨大的RL环境。"}, {"start_sec": 881, "speaker_id": "h", "type": "text", "zh": "对"}, {"start_sec": 881, "speaker_id": "g", "type": "text", "zh": "[笑声]"}, {"start_sec": 881, "speaker_id": "h", "type": "text", "zh": "这似乎就像事情 做。 我的意思是,那种非正式的 它似乎很多这些代理 正在作出最好的, 最快的进展是 在那里有即时反馈 是非常可扩展的。"}, {"start_sec": 892, "speaker_id": "g", "type": "text", "zh": "对"}, {"start_sec": 893, "speaker_id": "h", "type": "text", "zh": "在物理界很难做到这一点 但是我们认为 可能会有一些生物问题 你可以以这种方式重建 即使在是的, 然后我们还不知道我们是否能够从这些环境 获得强化的学习进展 并转向新的生物学, 但是,你知道,就像我们正在尝试。 我们会发现的"}, {"start_sec": 919, "speaker_id": "g", "type": "text", "zh": "这就是显而易见的目标。 比如说,这种转基因是如何转移到其他生物学的? 你可以想象,如果你做了它 某种封面集,对不对? 你可能可以把事情 中间,虽然 你可以转好。"}, {"start_sec": 931, "speaker_id": "h", "type": "text", "zh": "对 对 还有一件事,我需要做的是 和一些更多的决定者谈谈 因为很多事情都是关于你如何花费有限的实验预算, 然后你能做些什么来更好地做到这一点?"}, {"start_sec": 945, "speaker_id": "g", "type": "text", "zh": "对"}, {"start_sec": 945, "speaker_id": "h", "type": "text", "zh": "是啊,除了药用化学,对不对? 就像是的 我什么时候才能留下来? 我什么时候去? 我怎样才能更好?"}, {"start_sec": 950, "speaker_id": "g", "type": "text", "zh": "真有趣,我还不知道 是的,你可以想象它,如果它知道如何将决定 与它拥有的知识联系起来, 然后它可以学习这种技能 用于其他问题。"}, {"start_sec": 960, "speaker_id": "h", "type": "text", "zh": "对 对 我们看到,我们正在将越来越多的结构化工具呼吁和类似的东西也与这些内容结合起来。 所以,它是一个相当有趣的时间 现在。"}, {"start_sec": 967, "speaker_id": "g", "type": "text", "zh": "是啊,我们一定会联系到 所有很酷的东西 你出来 是的,谢谢你花时间聊天。"}, {"start_sec": 973, "speaker_id": "h", "type": "text", "zh": "凉爽。 凉爽。"}, {"start_sec": 973, "speaker_id": "g", "type": "text", "zh": "是啊,或者谢谢你抽时间 后续聊天。"}, {"start_sec": 976, "speaker_id": "h", "type": "text", "zh": "对 对"}, {"start_sec": 977, "speaker_id": "g", "type": "text", "zh": "我觉得这将会是背对背的"}, {"start_sec": 980, "speaker_id": "h", "type": "text", "zh": "与其余剧集."}, {"start_sec": 981, "speaker_id": "g", "type": "text", "zh": "好吧,我告诉你。 这是伟大的。"}, {"start_sec": 982, "speaker_id": "h", "type": "text", "zh": "好了 伙计们"}, {"start_sec": 983, "speaker_id": "g", "type": "text", "zh": "好吧,我们走。 再见"}, {"start_sec": 984, "speaker_id": "h", "type": "text", "zh": "总是很有趣。 是的,我们回头见。"}]}</script>
+<script id="data" type="application/json">{"channel": "Latent Space", "title": "有标准答案的 AI 科学家评测——伊恩·奎格利与 Leash Bio 的 Minos", "url": "https://www.youtube.com/watch?v=vhPCo-8K78U", "videoId": "vhPCo-8K78U", "published_at": "2026-10-26", "duration": 994, "caption_source": "YouTube 自动生成字幕（en-orig；普通 yt-dlp 429 后经 Chrome cookies 成功），中文为全文翻译；caption_source=yt-dlp-chrome-cookies", "guests": ["伊恩·奎格利（Ian Quigley，Leash Bio 联合创始人）"], "speakers": [{"id": "h", "name": "主持人（Brandon / RJ）", "role": "host", "short": "主持人"}, {"id": "g", "name": "伊恩·奎格利（Ian Quigley）", "role": "guest", "short": "奎格利"}], "intro": {"summary": "Latent Space 回访 Leash Bio 联合创始人伊恩·奎格利（Ian Quigley）：介绍 Minos——预先测好答案的「实验世界」评测框架，让科研智能体在虚拟沙盒里做药物化学决策并与真实构效关系（SAR）对照。", "points": ["Minos 把大规模蛋白–分子预测量结果做成智能体可探索的沙盒环境", "智能体用不同搜索策略与预算在目录中选型、改变化合物，规模已到约九万次 rollout", "可量化智能体是否利用历史实验信息改进后续选择，而非只靠单点猜分子", "讨论基础模型 vs 专用策略在药用化学决策上的差异与预印本结果", "评测「知道答案钥匙」的环境：便于复现比较不同科研智能体", "本集为夏季 Leash Bio 访谈的后续更新，偏实验与评测框架，无检测到独立赞助口播段"], "verdict": "值得看（约16.5分钟）：短后续访谈，信息密度高；关心 AI4Science、药物发现智能体或评测环境设计的人可整集听完。非入门科普，略偏专业。", "audience": "AI for science / 计算化学 / Agent 评测从业者与 Latent Space 听众"}, "paragraphs": [{"start_sec": 4, "speaker_id": "h", "type": "text", "zh": "大家好，欢迎来到 Latent Space。我是 Brandon 和 RJ，今天请来了 Leash Bio 的伊恩·奎格利（Ian Quigley）。今年夏天早些时候我们和伊恩录过一集，他讲了 Leash 用 DNA 编码化合物库（DNA-encoded library）做的那些酷事：怎样以高通量方式，把成百万化合物对着成千上万种蛋白质去筛选。"}, {"start_sec": 32, "speaker_id": "h", "type": "text", "zh": "大约就在那时，伊恩意识到可以用这些数据做更有意思的事。本质上，这让他们能造出一个虚拟沙盒：智能体可以实时探索、做决定，仿佛自己是药用化学家，还能立刻拿到反馈，并且可以做海量探索性展开（rollout）。那一集之后，伊恩和 Leash 把这个想法发展得更完整；现在他们要发论文、数据集和博客，也会和我们刚发布的这集一起上线。"}, {"start_sec": 79, "speaker_id": "h", "type": "text", "zh": "我们想再坐下来跟伊恩聊聊他后来做了什么，听听最新进展。总之，欢迎来到播客。谢谢你，伊恩。——对，上次我们聊时你说有些智能体在沙盒里探索，你当时觉得：哦，这只是个好玩的主意。"}, {"start_sec": 108, "speaker_id": "h", "type": "text", "zh": "我们还不知道能拿它做什么，但想法很有意思。我感觉你后来已经把它充实成一套完整环境，让智能体去探索，甚至可能做强化学习（RL）、练科学推理。能再多讲讲吗？"}, {"start_sec": 108, "speaker_id": "g", "type": "text", "zh": "可以。我上次说的核心是：我们有大批筛选数据，环境足够大、反事实也足够密，你可以把智能体丢进去、给它们任务，让它们在我们已完整测过的景观里、用有限预算去完成任务。过去几个月我们花很多时间做的旗舰问题，是构效关系（structure-activity relationship, SAR）。思路是：我手里有一批分子，知道它们或许能结合到我想要的那个蛋白上——"}, {"start_sec": 149, "speaker_id": "g", "type": "text", "zh": "我该怎么改它们，才能变得更好？这是药用化学家很常见的任务。SAR 通常还包括类药性之类的性质，比如会不会被代谢等等。我们现在先不做那些，只做一件事：能不能找到对目标结合得更好的分子？"}, {"start_sec": 183, "speaker_id": "g", "type": "text", "zh": "做法是：拿一个智能体——比如语言模型——然后说：这是你可以查阅的目录，预算是 100 个分子。除了靶点以外我们什么都不告诉你，去找你能找到的最佳结合物。不同智能体会尝试不同策略。"}, {"start_sec": 213, "speaker_id": "g", "type": "text", "zh": "它们有不同的搜索策略，也有不同的预算花法。它们会用可读的自然语言写出 SAR 假说：为什么觉得这些分子有效或无效；然后在有限实验预算下，去检验这个假说。"}, {"start_sec": 241, "speaker_id": "g", "type": "text", "zh": "因为一切都是预先测好的，你可以大量展开。我们现在大概到了九万次左右。"}, {"start_sec": 241, "speaker_id": "h", "type": "text", "zh": "所以你们是从前沿基础模型开始跑这些的。我感觉你们已经有论文或预印本可以分享了——要不要讲讲？"}, {"start_sec": 241, "speaker_id": "g", "type": "text", "zh": "对，预印本大概会和这集同期上线，已经基本就绪。我们在里面展示的是：不同模型家族、不同能力档位的智能体之间，分离度很好。另一件很有意思的事是：我们不只拥有可作为评测的结果，还知道整片已测景观/世界的全部结果。"}, {"start_sec": 241, "speaker_id": "g", "type": "text", "zh": "于是你可以开始追问：智能体做科学决策的能力到底怎样。因为它或许只找到了整个环境里最佳物一半水平的东西。我们看到各种有趣行为：过早放弃的；找到的分子与自己其余假说对不上的；明明预算有限还反复重测同一批分子的。"}, {"start_sec": 280, "speaker_id": "g", "type": "text", "zh": "还有：什么时候该探索、什么时候该利用。结果是，更强的模型更会放弃不产出的「街区」。这对我们其实是个挺有意思的意外。论文出来时，我们会把一批环境做成 Harper 包发布，再加成千上万条记录，大家可以自己玩、自己看它们的「科学」表现得怎样。"}, {"start_sec": 280, "speaker_id": "h", "type": "text", "zh": "太酷了。你有没有感觉：更聪明的模型为什么能意识到自己处在糟糕的景观（或景观的糟糕部分）并离开？"}, {"start_sec": 281, "speaker_id": "g", "type": "text", "zh": "我们其实还完全不知道。只知道它们放弃这些烂街区更快。我们也明确看到：更强模型整体更愿意四处跳，但尤其会快速离开糟糕区域；而很弱的模型会赖着不走。"}, {"start_sec": 300, "speaker_id": "h", "type": "text", "zh": "所以不只是跳得更多，而是它们在搞明白什么，然后说：嘿，这里不行，走吧。"}, {"start_sec": 306, "speaker_id": "g", "type": "text", "zh": "完全正确。较弱模型会发生的是：它们会在注定没前途的分子上反复做细微改动——「噢这两分不高，但我感觉不错」，于是继续试。更强模型则会整段放弃。"}, {"start_sec": 338, "speaker_id": "g", "type": "text", "zh": "我们要去别处。"}, {"start_sec": 338, "speaker_id": "h", "type": "text", "zh": "你有没有看过展开过程，看它们到底在想什么？"}, {"start_sec": 338, "speaker_id": "g", "type": "text", "zh": "有，它们会想各种各样的事。等我们放出这些记录，大家最好的玩法之一就是把大批记录丢进大模型里，去看不同失败模式。你会看到它们说：我觉得这个环不错、这个氮有点难受……而且这些说辞非常像说得通的药用化学叙事。"}, {"start_sec": 379, "speaker_id": "g", "type": "text", "zh": "挺好玩的。"}, {"start_sec": 379, "speaker_id": "h", "type": "text", "zh": "是啊，太厉害了。"}, {"start_sec": 379, "speaker_id": "g", "type": "text", "zh": "我好奇：你们有没有把同样的题给人类做过？"}, {"start_sec": 379, "speaker_id": "h", "type": "text", "zh": "让他们看、评估——有，但不多，因为量太大。不过药用化学家看过之后会说：对，这些想法对这一段 SAR 战役来说非常说得通。"}, {"start_sec": 379, "speaker_id": "g", "type": "text", "zh": "不知道是不是我想多了——能不能做成游戏？某种意义上它就是游戏吧：药用化学电子游戏，把人放进这些环境里，做药用化学闯关。"}, {"start_sec": 389, "speaker_id": "h", "type": "text", "zh": "【笑声】"}, {"start_sec": 390, "speaker_id": "g", "type": "text", "zh": "对，这就是你们的商业模式。我喜欢这个计划。我们以前为「猜化学家」做过有点像的小游戏。大概得压缩成更少的构件才行——因为现在若让化学家进去，你可以想象：药用化学家心里有一套想随时间尝试的操作，比如这里加甲基、那里挪一挪；而我们这些预测环境，只能限于我们实际测过的东西。"}, {"start_sec": 441, "speaker_id": "g", "type": "text", "zh": "于是就得告诉药用化学家：你不能为所欲为，但能做很多事——然后想办法……"}, {"start_sec": 441, "speaker_id": "h", "type": "text", "zh": "而且他们得知道能做哪些事。"}, {"start_sec": 441, "speaker_id": "g", "type": "text", "zh": "对，他们得知道「菜单」是什么。所以我们得想办法以有意义的方式把选项呈现给他们。不过我挺喜欢你这个方向——可以把选项缩到更小集合。"}, {"start_sec": 441, "speaker_id": "h", "type": "text", "zh": "哪个模型最好？前沿模型里最好的是哪些？"}, {"start_sec": 443, "speaker_id": "g", "type": "text", "zh": "我想想，刚看过图，有点尴尬已经忘了。现在冠军是 Opus 4.6（after six）。"}, {"start_sec": 451, "speaker_id": "h", "type": "text", "zh": "漂亮漂亮。"}, {"start_sec": 452, "speaker_id": "g", "type": "text", "zh": "也不算大意外。"}, {"start_sec": 454, "speaker_id": "h", "type": "text", "zh": "不大意外。Sonnet 4.5 其实也不错。"}, {"start_sec": 459, "speaker_id": "g", "type": "text", "zh": "好。"}, {"start_sec": 459, "speaker_id": "h", "type": "text", "zh": "对，Sol 6.1 也不错。至于「everything 5」基本是踩坑——"}, {"start_sec": 467, "speaker_id": "g", "type": "text", "zh": "【笑声】"}, {"start_sec": 468, "speaker_id": "h", "type": "text", "zh": "对，那个 5 又贵又不太能打。我觉得 Anthropic 以后会长期把 5 当成一次大失误。8.5 还不错。嗯。"}, {"start_sec": 485, "speaker_id": "h", "type": "text", "zh": "你们有没有 Plus 5.5？还没有。有一件事其实挺让人抓狂——你们也能体会。两个月前我们开始跑这些展开，看会发生什么；然后大概每十一天就掉一个新前沿模型。"}, {"start_sec": 514, "speaker_id": "h", "type": "text", "zh": "十一天，对。每次我想：好了要发了，要把公开材料丢出去——结果又冒出一个新模型。他们发得比 Anthropic 还快。【笑声】祝你好运，伊恩。总之我们很兴奋往里塞更多；我们也跑了大量开源模型。"}, {"start_sec": 553, "speaker_id": "h", "type": "text", "zh": "我们丢进去不少较小的通义千问（Qwen）、GLM、Kimi、DeepSeek 之类。很多。它们表现怎样？不算太差——DeepSeek V4 Flash 挺好。也许我该把完整排行图发给你们看看。"}, {"start_sec": 586, "speaker_id": "h", "type": "text", "zh": "对，我们可以直接放进节目里。我只能说：看起来有点像 ARC-AGI 2 那种图——底下有一堆烂模型。对，确实有点像，我们也是故意做成那种样子。"}, {"start_sec": 616, "speaker_id": "h", "type": "text", "zh": "还有一件我早前提过、对我们很有意思的事：大约去年夏天这个时候，我们内部开了一个监督微调项目，想让一些语言模型理解 SMILES——因为当时现有的前沿模型在这上面都不行。"}, {"start_sec": 644, "speaker_id": "h", "type": "text", "zh": "当时 Anthropic 或 OpenAI 的模型，连把 SMILES 转成非规范 SMILES 都做不好。"}, {"start_sec": 644, "speaker_id": "g", "type": "text", "zh": "给非化学听众解释一下：SMILES 是一种字符串语言，可以准确描述化学结构，对吧？"}, {"start_sec": 644, "speaker_id": "h", "type": "text", "zh": "对，没错。上次录的时候我们提过一点：它是字符串；分子可以分叉、成环，或两者兼有。SMILES 本质上就是把分子图遍历写成一维字符串。"}, {"start_sec": 644, "speaker_id": "h", "type": "text", "zh": "你可以想象从分子不同起点开始遍历，于是同一分子会有多种 SMILES 表示。能在不同表示之间流利转换很有用。这其实不难——大家常用 RDKit 这类开源包来做。"}, {"start_sec": 649, "speaker_id": "h", "type": "text", "zh": "但我们想让语言模型自己做，因为会更快，而当时它们还不擅长自己用工具。结果谁都做不到。然后大约二月，像很多别的事一样，它们开始能有意义地处理化学了——这也是我们朝这个方向走的原因之一。"}, {"start_sec": 649, "speaker_id": "g", "type": "text", "zh": "这很有意思，因为意味着它在内化某种对分子物理性质的理解。"}, {"start_sec": 655, "speaker_id": "h", "type": "text", "zh": "我觉得有一点。对。我们现在让它们做的就是这类任务：迭代地看分子，从中学到东西，再做选择，让下一轮分子更好。"}, {"start_sec": 671, "speaker_id": "g", "type": "text", "zh": "嗯。"}, {"start_sec": 672, "speaker_id": "h", "type": "text", "zh": "如果我们拿掉分子信息，这些决策就会明显变差。所以它们在学到东西——或者至少在使用信息。说「使用」更准确：我们没有改权重，但它们确实在用信息做后续选择。"}, {"start_sec": 685, "speaker_id": "g", "type": "text", "zh": "你提到试过这些小模型。我想问：有没有用过贝叶斯超参那类算法，当作你们问题的确定性基线？"}, {"start_sec": 702, "speaker_id": "h", "type": "text", "zh": "我们觉得景观太尖、维度太高。我们没怎么做那个，大体上认为不会管用。这大概是「官方口径」。我知道。"}, {"start_sec": 711, "speaker_id": "g", "type": "text", "zh": "你们打算全部发布——预印本、博客、数据展开之类，我们会放进节目笔记。还有别的吗？"}, {"start_sec": 723, "speaker_id": "h", "type": "text", "zh": "对，就是这些。大头大概是：我们建了一套东西——如果你有科学智能体，想知道它们行为怎样、会犯什么错、如何从物理反馈学习，或者新训练配方是否改善科学决策——我们有能力大规模测量这些。"}, {"start_sec": 752, "speaker_id": "g", "type": "text", "zh": "很酷。还有没有计划做其他类似问题？"}, {"start_sec": 758, "speaker_id": "h", "type": "text", "zh": "有。我们大致把这看成「环路中的实验室」，但延迟被摊销了：出去把东西测一次，然后就能对该环境做海量——近乎无限——的展开。我们也在认真想：还有哪些生物学或科学问题，能改造成这类环境。"}, {"start_sec": 794, "speaker_id": "h", "type": "text", "zh": "因为常规「实验室在环」很慢；而且那些本身预算有限，反事实也不够密——你得不停跑、每次展开做不同选择，智能体才能学。"}, {"start_sec": 804, "speaker_id": "g", "type": "text", "zh": "对，但有了你们的多路复用策略，就可以摊销。"}, {"start_sec": 810, "speaker_id": "h", "type": "text", "zh": "可以摊销。说「零延迟的实验室在环」不完全准确，但已经很接近。"}, {"start_sec": 818, "speaker_id": "g", "type": "text", "zh": "这跟 Lyra 做的是同一类事。"}, {"start_sec": 821, "speaker_id": "h", "type": "text", "zh": "对。"}, {"start_sec": 821, "speaker_id": "g", "type": "text", "zh": "不完全一样，但他们也做实验——"}, {"start_sec": 825, "speaker_id": "h", "type": "text", "zh": "对。"}, {"start_sec": 826, "speaker_id": "g", "type": "text", "zh": "——然后用在展开里，只是不是实时做。"}, {"start_sec": 829, "speaker_id": "h", "type": "text", "zh": "对。他们在展开里一步一步做，自由度更大，因为几乎什么都能选；而我们这里只能限于预测环境时做过的那些选择。"}, {"start_sec": 842, "speaker_id": "g", "type": "text", "zh": "嗯。"}, {"start_sec": 842, "speaker_id": "h", "type": "text", "zh": "确实如此。不过可选项数量仍然相当大。"}, {"start_sec": 846, "speaker_id": "g", "type": "text", "zh": "嗯。"}, {"start_sec": 846, "speaker_id": "h", "type": "text", "zh": "而且我们现在——自 Leash 创立以来——已经把大约一千种蛋白对着几套化学库筛过了，还会继续扩。我们打算试着做到每天大约二十个新环境；计划是在二六或二七年初左右冲到那个节奏。"}, {"start_sec": 881, "speaker_id": "h", "type": "text", "zh": "现在大概一天两个。我觉得冲到一天二十也并非不可，我们在推，看看能不能做到。"}, {"start_sec": 881, "speaker_id": "g", "type": "text", "zh": "哇。所以你们会有一个巨大的强化学习环境。"}, {"start_sec": 881, "speaker_id": "h", "type": "text", "zh": "对。"}, {"start_sec": 881, "speaker_id": "g", "type": "text", "zh": "【笑声】"}, {"start_sec": 881, "speaker_id": "h", "type": "text", "zh": "感觉这就是该做的事。非正式地说，很多智能体进步最快、最好的地方，就是有瞬时、且可大规模扩展的反馈。"}, {"start_sec": 892, "speaker_id": "g", "type": "text", "zh": "嗯。"}, {"start_sec": 893, "speaker_id": "h", "type": "text", "zh": "在物理世界很难做到；但我们觉得大概有一小撮生物学问题，可以用这种方式重建并去追。至于能不能把这类环境里的强化学习进展迁移到新的生物学上——我们还不知道，但我们在试，会搞清楚。"}, {"start_sec": 919, "speaker_id": "g", "type": "text", "zh": "那显然是目标：如何迁移到其他生物学。你可以想象，如果覆盖集做得好，中间那些也许能迁得不错。"}, {"start_sec": 931, "speaker_id": "h", "type": "text", "zh": "对。另外我还得多找些「决策」方面的人聊聊——很多核心是：有限实验预算怎么花，怎样才能花得更好。"}, {"start_sec": 945, "speaker_id": "g", "type": "text", "zh": "嗯。"}, {"start_sec": 945, "speaker_id": "h", "type": "text", "zh": "不只是药用化学，对吧——何时留下、何时离开，怎样把这件事做得更好。"}, {"start_sec": 950, "speaker_id": "g", "type": "text", "zh": "有意思。可以想象：如果它知道如何把那一点的决策连接到已有知识，就能把这种技能迁到别的问题上。"}, {"start_sec": 960, "speaker_id": "h", "type": "text", "zh": "对。我们也会往里接入越来越多结构相关的工具调用之类，现在挺好玩的阶段。"}, {"start_sec": 967, "speaker_id": "g", "type": "text", "zh": "我们会把你们即将上线的酷东西都链上。谢谢你抽时间聊。"}, {"start_sec": 973, "speaker_id": "h", "type": "text", "zh": "酷。"}, {"start_sec": 973, "speaker_id": "g", "type": "text", "zh": "也谢谢你抽时间做这次回访。"}, {"start_sec": 976, "speaker_id": "h", "type": "text", "zh": "嗯。"}, {"start_sec": 977, "speaker_id": "g", "type": "text", "zh": "我觉得这集会和——"}, {"start_sec": 980, "speaker_id": "h", "type": "text", "zh": "——其余部分背靠背出现。"}, {"start_sec": 981, "speaker_id": "g", "type": "text", "zh": "好。这期很棒。"}, {"start_sec": 982, "speaker_id": "h", "type": "text", "zh": "好，各位。"}, {"start_sec": 983, "speaker_id": "g", "type": "text", "zh": "好，回见。"}, {"start_sec": 984, "speaker_id": "h", "type": "text", "zh": "一如既往很有趣。回头见。"}]}</script>
 <script>
 (function(){
 // Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
