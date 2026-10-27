@@ -81,21 +81,28 @@ function pickTitle(raw: string, fileName: string) {
 
 const DATE_IN_NAME = /(\d{4}-\d{2}-\d{2})/;
 
-function firstCommitDate(file: string) {
+/**
+ * 一次 git 调用拿到 posts/ 下每个文件第一次提交的时间（路径相对仓库根目录，如 posts/a16z/x.html）。
+ * 每个文件单独调用 git 会让构建随内容增多越来越慢。
+ */
+function firstCommitDates() {
+  const dates = new Map<string, string>();
   try {
-    const added = execFileSync("git", ["log", "--diff-filter=A", "--format=%cI", "--", file], {
-      cwd: process.cwd(),
-      encoding: "utf8",
-      stdio: ["ignore", "pipe", "ignore"],
-    })
-      .trim()
-      .split("\n")
-      .filter(Boolean)
-      .pop();
-    return added ? new Date(added).toISOString() : undefined;
+    const log = execFileSync(
+      "git",
+      ["-c", "core.quotepath=false", "log", "--diff-filter=A", "--name-only", "--format=@@%cI", "--", "posts"],
+      { cwd: process.cwd(), encoding: "utf8", stdio: ["ignore", "pipe", "ignore"], maxBuffer: 64 * 1024 * 1024 },
+    );
+    let current = "";
+    // git log 从新到旧，后面出现的提交更早，所以直接覆盖，留下的就是最早的那次
+    for (const line of log.split("\n")) {
+      if (line.startsWith("@@")) current = new Date(line.slice(2).trim()).toISOString();
+      else if (line.trim() && current) dates.set(line.trim(), current);
+    }
   } catch {
-    return undefined; // 没有 git 时退回到文件时间
+    // 没有 git 时退回到文件时间
   }
+  return dates;
 }
 
 /**
@@ -103,10 +110,9 @@ function firstCommitDate(file: string) {
  * 当天上传的保留实际上传时刻，补传以前的则记为那天中午（北京时间）。
  * 文件名里没有日期时，用第一次提交到仓库的时间，再退回到文件修改时间。
  */
-async function pickDate(file: string, fileName: string) {
+async function pickDate(file: string, fileName: string, added: string | undefined) {
   const named = fileName.match(DATE_IN_NAME)?.[1];
   const day = named && !Number.isNaN(Date.parse(named)) ? named : undefined;
-  const added = firstCommitDate(file);
   if (day) return added && dayKey(added) === day ? added : new Date(`${day}T12:00:00+08:00`).toISOString();
   return added ?? (await stat(file)).mtime.toISOString();
 }
@@ -121,10 +127,11 @@ function collectSections(html: string) {
   return sections;
 }
 
-export const loadSite = cache(async () => {
+async function buildSite() {
   const shows = JSON.parse(await readFile(path.join(POSTS, "shows.json"), "utf8")) as Show[];
   const episodes: Episode[] = [];
   const used = new Set<string>();
+  const committed = firstCommitDates();
 
   for (const show of shows) {
     const dir = path.join(POSTS, show.slug);
@@ -144,7 +151,7 @@ export const loadSite = cache(async () => {
         showSlug: show.slug,
         showName: show.name,
         title,
-        date: await pickDate(file, fileName),
+        date: await pickDate(file, fileName, committed.get(`posts/${show.slug}/${fileName}`)),
         html,
         // 标题本身已经显示在搜索结果的卡片上，不再当作正文段落重复列出
         sections: collectSections(html).filter((section) => section.text !== title),
@@ -174,7 +181,15 @@ export const loadSite = cache(async () => {
   }
 
   return { shows: withEpisodes, episodes, days };
-});
+}
+
+/**
+ * 构建时每个页面都会用到全部内容。正式构建时每个构建进程只读取、整理一次，之后直接复用；
+ * 本地开发时每次请求重新读取，改了 posts/ 里的文件刷新就能看到。
+ */
+let built: ReturnType<typeof buildSite> | null = null;
+const loadOnce = () => (built ??= buildSite());
+export const loadSite = cache(() => (process.env.NODE_ENV === "production" ? loadOnce() : buildSite()));
 
 export async function getShow(slug: string) {
   const site = await loadSite();
