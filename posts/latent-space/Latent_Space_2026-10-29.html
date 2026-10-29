@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>为什么智能体偏爱 Supabase——与保罗·科普尔斯通、安特·威尔逊对谈</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+/* per-speaker colors */
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Latent Space</span><span class="pill">2026-10-28</span></div>
+<h1>为什么智能体偏爱 Supabase——与保罗·科普尔斯通、安特·威尔逊对谈</h1>
+<p class="sub">嘉宾：保罗·科普尔斯通（Paul Copplestone）、安特·威尔逊（Ant Wilson） · 约 77 分钟（4598 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=zHG6sAss_kE" target="_blank" rel="noopener">https://www.youtube.com/watch?v=zHG6sAss_kE</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Latent Space</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-28</dd></div><div class="meta-row"><dt>时长</dt><dd>约 77 分钟（4598 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en；普通 yt-dlp 成功，无需 cookies）；caption_source=yt-dlp-auto；中文为全文信息保留并按话题通顺改写</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>zHG6sAss_kE</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>Latent Space 对话 Supabase 联合创始人保罗·科普尔斯通（Paul Copplestone）与安特·威尔逊（Ant Wilson）：围绕 Selects 大会发布（Compute、OrioleDB、Multigres、收购 Turso）、从原型到拍字节的扩展路径、PLG/企业销售、以及智能体时代的声明式 schema 与实验室合作。</p>
+<h3>核心要点</h3><ul><li>Selects 主线 Build/Operate/Scale：无 Docker 启动、同网 Compute、声明式 schema 与 MCP</li><li>OrioleDB 存储引擎加速与开源专利；Multigres 重写 Operator、兼容优先再分片</li><li>收购 Turso 支撑海量小库/智能体库；Spark 实例与平滑升级到完整 PostgreSQL</li><li>产品触发式销售与绿地企业策略；几乎不做生产库迁移</li><li>AEO/模型默认推荐、社区赠股、Control Tower 与 Platforms</li><li>内部 AI 花费约 450 人/$30 万每月；代码优先 Git 原生与开源未来讨论</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看（约 77 分钟）：数据库×智能体×开发者工具听众的高密度访谈；可跳过：若只想听纯模型论文或不关心 Postgres 生态。</p>
+<h3>适合人群</h3><p>关注 Supabase/PostgreSQL、AI 应用后端、开发者工具 GTM 的听众</p>
+</section>
+<main class="transcript plain" id="main">
+<div class="turn plain spk-0 guest" data-spk=""><div class="content">
+<p>主持人开场：继续做这类短开场，方便说明为什么做这期、访谈里该留意什么；节目也会加叠加层与注释，帮新入行的听众跟上。主持人刚参加了 Supabase Selects（公司客户大会），内容很多，先交代背景。</p>
+<p>主持人披露利益关系：约六年前在种子轮做了天使投资，且是他的第一笔天使投资。Supabase 估值从 0 做到约 100 亿美元，全远程、开源，几乎成为托管 PostgreSQL（Postgres）的事实标准。他想拆开公司为何运转得好，并解释它在自己的 AEO（答案引擎优化）排名里表现突出——这绝非理所当然。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Supabase]</span></div>
+<div class="turn plain spk-0 guest" data-spk=""><div class="content">
+<p>多智能体数据库赛道竞争激烈。Supabase 曾是 2023 年首届 AI Engineer 大会的首个赞助商，也将成为 Latent Space 的首个赞助方——主持人表示更愿意与熟悉、信任、能向听众讲清楚的团队合作。大会主线可概括为 Build（构建）、Operate（运维）、Scale（扩展），YouTube 上也有完整回顾。</p>
+<p>Build：改善编码智能体搭建 PostgreSQL 的体验。两点尤其突出：一是可在不依赖 Docker 的情况下启动 Supabase，尽量减轻本地启动负担，需要时再扩到完整虚拟机；二是与数据库同网、就近的计算（colocated compute），把算力放到库旁边，延迟与连接都更顺。</p>
+<p>应用侧可有来自 Supabase 生态的 MCP 服务器；更关键的是声明式 schema：相对「建库再一串迁移」的传统 SQL 范式，把结构放进 Git 作为单一事实来源，方便智能体爬取、分叉与重建。PostgreSQL 本不是为此设计的，需要在约四十年历史的内核上做改造与补齐。</p>
+<p>主持人把当前势头看成「面向智能体把 PostgreSQL 用到极致」的最后一公里，但强调：这些能力其实人类也一直需要，不应只为讨好智能体而做。Operate 部分则侧重给更多上下文——更多日志、检查、连接、甚至 SQL 的 Markdown 知识与技能文件；每年也会推出管线/集成（例如与 Stripe 等），ETL 在 AI 工程生涯里越来越像数据工程栈的一部分，Supabase 现有第一方方案，也可与外部工具混用。</p>
+<p>Scale：品牌从「周末做出、扩到百万」演进到「从原型到拍字节（prototype to petabyte）」。发布 Multigres 的完整 v1——大致是把 Vitess 思路移植到 PostgreSQL，并请来 Vitess 领域重要人物；同时还有 OrioleDB 等存储层进展。主持人强调这是保罗·科普尔斯通（Paul Copplestone）与安特·威尔逊（Ant Wilson）第一次同框接受访谈。</p>
+<p>访谈正式开始：这期「酝酿了六年」。录制在 Selects 大会前、发布在会后。主持人从他们离开 YC、在新加坡庆祝、第一次见面聊起——当时像是一家被 Hacker News 软发布带火的数据库公司——并请他们直接讲 Selects 的头条发布。</p>
+<p>计算：现有 Edge Functions 基于 Deno，有严格的资源/时长上限；社区长期希望跑更长任务（切块、嵌入等）。将发布 Supabase Compute：可长时间运行、无服务器形态、与数据库同一私有网络、延迟好，可直接连 PostgreSQL，并不再绑死 Deno——可用 Rust、Python，也可在里面跑智能体，近似「容器型 Lambda / 完整容器实例」。</p>
+<p>数据库三项创新可概括为性能、纵向扩展、横向扩展。OrioleDB：可替换当前 heap 存储引擎，约快 1.5–2 倍、兼容、减少 vacuum 等后台负担；过去一年用 PG regress、Antithesis、TPC-C、JSON 等做兼容与数据安全验证，明日以完整 beta 发布，并改为 Apache 2 许可（含专利授权）——收购后继续开发，再把专利一并开放。</p>
+<p>Multigres：调研发现生态里各类 PostgreSQL Operator 在特定条件下都可能丢数据。团队从零重写整套运营结构；目标不只是给社区分片，而更像一整套「操作系统」。经约一千次连续故障切换等严测未丢数据，开源发布；平台侧先邀请制，服务严肃负载客户。</p>
+<p>Sugu（Vitess 创始人）当年为 MySQL 分片；这次优先兼容性——希望将来打开分片时业务几乎零改查询。分片尚未正式放出，早期原型与设计已有，平台侧进度乐观，或明年早些时候视情况推进。主持人称这是 PostgreSQL「全面统治」拼图的最后一块；Multigres 完全开源，不限 Supabase 客户。设计伙伴包括 Booz Allen、Postman、Perplexity 等。</p>
+<p>扩展出去：平台每月约启动 500 万个数据库，未来可能要到每月数十亿级，架构必须换。智能体数据库方向上，他们看好 Turso，并宣布收购 Turso 以增强智能体场景——Turso 偏 SQLite，但关键是架构（为 SQLite 做多写者/MVCC 等），且与对象存储新能力相关（耐久性极高，可当底层集群思路）。</p>
+<p>对象存储适合部分较小场景；大规模事务读写仍不宜全压在对象存储上，故仍需 Multigres。要支撑「海量小库」，文件格式思路很关键——Glauber 等关于重写、通往 PostgreSQL 兼容路径的博客促成了收购。Turso 品牌保留做 SQLite；Supabase 将推更小实例类型 Spark，兼容现有库，原型可先用、跑起来再升到完整 PostgreSQL 乃至 Multigres。</p>
+<p>纵向与横向扩展、以及「缩小」实例，一直是难题；新技术让路径变清晰。许多库其实很小（例如 vibe 应用），但一旦上 Hacker News 首页就要扛住暴涨，因此需要零停机在后端之间平滑迁移。非技术创始人越来越多：例如客户 Magic School 创始人原是教师，看到教学低效后创业——没有技术联合创始人/CTO 已非个例。若人人一套专用 PostgreSQL 集群，物理机器很快不够，今年也一直在扛算力容量。</p>
+<p>轻松段：Glauber 与团队的迷因文化；Supabase Twitter 仍有每周「迷因工坊」，难招——既要懂技术又要懂开发者笑点。早年有人写长文拆解其 Twitter 策略并上 Hacker News，团队后来甚至用外人写的策略给新市场同事看；Ant 还把黑帖截图发回推特。Hacker News 早期贡献巨大，也被 Dang 多次「训」——一周发太多、以及别把上首页截图秀到推特上（显得像 YC 偏袒）。</p>
+<p>冷启动：有人在他们没准备好时就在 HN 发了帖；原标语是「实时 PostgreSQL」无人问津，改成「开源 Firebase 替代」约十几小时后那篇帖就爆了，至今仍是历史高热。当时跑在 DigitalOcean，每个库两台约 5 美元/月的 droplet（库+API）；用户从约 8 涨到约 800，1 万美元额度约 48 小时烧光。刚进 YC，AWS 给了约 15 万美元额度，第一周就在迁 800 个库。DO 因额度规则未能给更大额度，错失后来可能是其最大客户之一——疫情时期的谨慎可以理解；如今 DO 市值也很高（约 160 亿美元量级），算力短缺大家一起扛。</p>
+<p>算力：与 AWS 频繁对齐、付更高价、紧密规划；并宣布新投资伙伴 Capital G，借力 Alphabet 生态，推动多云（尤其需要更多 GCP 算力），并加深与 Gemini 等 AI 实验室产品的嵌入。对象存储与块存储创新多由 AWS 引领；S3 强一致性曾免费全员放开，S3 Express 也改变了「先本地再刷耐久层」的路径（毫秒级写入、耐久够用再后台进标准 S3），但仍需要 Redis 等内存/本地盘缓存层。</p>
+<p>口号演变反映规模：从周末到百万，到原型到拍字节。变现变快——智能体层可很快接入 Stripe，有人同一周内开始认真赚钱。早期不确定 vibe coding 是否持久，但看到有人上线几天内赚到约一万美元，判定这是真需求。相对 NFT 潮只浅浅做了以太坊/Solana 登录，这次在「要服务更大客户」的同时，也必须在原型侧加码——两头都要创新，就要更多人。</p>
+<p>AI 三阶段：①嵌入/向量——推 PostgreSQL+pgvector（Andrew Kane 扩展），教育市场「不必另起向量库」；Turso 等也受益于相关创新。②约 2024 年底 vibe coding 浪（Lovable、Bolt 等）——内部争论是否下场、甚至是否自建平台；使命是「存储世界的数据」，要在人们起步时就在场并让他们不想走。③今年模型变强，注册漏斗暴涨，但市场费用极少，主要靠迷因等；更反常的是激活与付费转化同时上升——智能体一步完成激活，付费率甚至高于传统开发者用户。</p>
+<p>AEO：在「集成后端」等类别上常被前沿模型首选（认证、函数、数据库、API 等打包）。时机关键——LLM 起飞前已在市场三四年，并以当时领导者的主要替代者姿态出现。社区早期大量博客/视频/播客被模型「吸干」；开源也有帮助。Selects 宣布众筹后，律师纠结合格投资者机制，最终发现「直接赠股」另有路径——划出约一百万美元股票送给社区贡献者。</p>
+<p>首位公开的社区获奖者：Discord 里的 Gary Austin（真名 Gary Abbott）——六年回答约两万个问题，其中约 1.3 万个在一小时内回复，真人非机器人；退休后因爱红酒自建类似应用而沉迷 Supabase，连圣诞树都挂 Logo。Discord 非公开、难规模化沉淀；早期在 Discord/Slack/Reddit 间摇摆，结论是「用户在哪就去哪」。曾把优质问答刮到 GitHub Discussions 再镜像到官网，把 GitHub 当 CMS。开源市占刻意不做追踪；有大型药企跑上百个开源实例后找上门，于是有企业舰队产品 Control Tower（网站上不一定显眼）。</p>
+<p>Control Tower 本质是把「Supabase for Platforms」（AI 公司在其上批量起库、2025 年 12 月等节点被视作成功发布）的能力重包装给企业内部：为员工批量起库并统一管理。销售上对标 Stripe 式开发者热爱与持久力，约 60% 的 YC batch 使用 Supabase；销售是「产品触发」——Logo、扩容、报错、消费阈值等，每周上千触发发邮件，未回复作对照组约月增 25%，回复并通话帮助的账户约月增 125%，用增量部分考核销售，而不是传统硬卖全额。</p>
+<p>企业几乎从不把生产库从 MySQL/别的可扩展库迁到你这里——这是创立时的核心判断：做迁移的数据库公司大多失败。重点是第一天拿下绿地项目，并粘到第 1000、10000 天。未来数年企业侧仍主攻绿地（产品人要内部创新）；Multigres 留给真正需要规模的人，但不是五年内核心叙事。买家也在变：CPO 因 Lovable+Supabase 十年没写代码又能内部搭东西，高层冠军不请自来。</p>
+<p>谁更粘？跑数据库很难，迁库比换前端工具更难。Lovable 很强，且最早写好技能阻止智能体做蠢事（例如把图片塞进 PostgreSQL、为求通关掉 RLS）；如今模型本身也少犯这类错，像「威尔·史密斯吃面」从 2022 糊到 2026 清晰。董事会成员 Karen（CO2）的论断：不止替代 Firebase，也在成为新的 RDS；更远的「第四纪元」或许是撕 Oracle——但迁 OLTP 极难（存储过程、停机即钱、双写裂脑），历史上靠迁库成功的很少，故仍应先绿地落地再扩张。</p>
+<p>HTAP：Databricks 联合创始人等声称解决 HTAP；Supabase 更关注 DuckDB/DuckLake——DuckDB 像分析侧的 SQLite，可读对象存储与 PostgreSQL，DuckDB Labs 被 AWS 收购、走基金会路线。他们不想把 PostgreSQL 硬做成数仓，而是合适工具做合适事；到一定 OLTP 规模必须分片，跨机事务最终会碰对象存储而变慢，故分片扩到拍字节、分析另线更合理。持久工作流：过去 Edge Functions 的超时让社区工作流引擎难以成立，有了 Compute 原语才可能做长时 durable workflows。</p>
+<p>集成后端与「把 AI 想要的都给它」：已有与 ChatGPT 等登录/合作；B1 策略是尽量与前沿实验室/模型广泛合作。美国实验室贡献最多流量；要成为 Artifact 类产品的默认后端，过去卡在规模——ChatGPT 级月活若每人每月起库，就要每月十亿级 PostgreSQL，直到收购带来的技术才摸到「每月数十亿库」的门槛。</p>
+<p>公司 P0：拿下战略实验室与模型，同时继续 PLG；企业侧赢新工作负载。AI 抬高了纯 PLG 天花板（从想象中的一两亿美元变得不可见上限），但仍要「小和大两边都做」。开年设了极狠的收入目标，有人担心打不到打击士气——结果约四个月就打到。水晶球问题：未来如何开发、人们会开发什么——从仪表盘最佳 DX，到无头/API 驱动，再到今年重点：代码优先、Git 原生。</p>
+<p>CLI 下本地已有 supabase 文件夹表示库与函数（基建即代码）。声明式 schema 是难啃的兼容全 PostgreSQL 的一步：迁移文件夹是历史日志，智能体要猜表结构得扫上千文件或起库 introspection，太慢。要把 schemas 目录变成完整声明式状态（表、策略、注释等），并发布可用于任意 PostgreSQL 的库 PG Delta。智能体主要在文件系统上快速迭代；主持人想象手机/个人智能体一句话出可迭代应用，Supabase 要做那个默认底座。</p>
+<p>担忧模式坍塌：低门槛应用构建者会收敛到模型均值（或许就是你们），高技巧者仍会在细节上分叉，多样性与火焰战争是否消失？认为顶尖自驱人群仍会存在；大学对普通人路径的必要性下降，但顶层好奇者（如去 Recurse Center）不会消失。两人很少死磕分歧——稍一推就试对方方案，多数细节其实不重要，方向对就行；分工各管一块。创业背景：Entrepreneur First 新加坡同一屋七个 builder，后把室友大量招进公司；YC 劝别招人时却因 PostgreSQL 维护者 Steve Chavez 破例——并让他先继续把 Postgres 做好。</p>
+<p>商业开源未来：依赖可被 vibe 出来、Rust 重写有层次——不会无限烧创新代币去重写一切，可能收敛到少数赢家（PostgreSQL 若出现一个成功的 Rust fork 或成该类胜者）；他们大量 Elixir/BEAM 也因运维范式。Vercel 的 Malta 曾提拨预算把 C/C++ 依赖一次性升到 Rust，他们作为公司愿意站台，但人们也爱自己动手。</p>
+<p>内部 AI 编码：Supabase 像多家小创业公司粘在一起，各产品线自决工具与 AI 政策，只在成本上略收敛。参考数据点：普通人约 $20/月、员工平均或约 $200/月，OpenAI 内部中位或许数千、顶端更高；可用「代币花费/人力花费」比率（0.1 常见，到 1 仍可，&gt;1.5 危险）。他们远程、文档齐全，可问内部 AI：约 450 人、每月约 30 万美元。重点不应是羞于上榜的花费，而是端到端省掉多少人力环节；异步公司天然适合做公司级智能体 harness。全球远程、同薪，约 50 个空缺；尤其缺 SRE——要能适应全异步远程；AI 尚未攻克运维保活。结束：祝贺旅程，期待未来 IPO 敲钟、打造成下一家伟大开源公司。</p>
+</div></div>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Latent Space", "title": "为什么智能体偏爱 Supabase——与保罗·科普尔斯通、安特·威尔逊对谈", "url": "https://www.youtube.com/watch?v=zHG6sAss_kE", "videoId": "zHG6sAss_kE", "published_at": "2026-10-28", "duration": 4598, "caption_source": "YouTube 自动生成字幕（en；普通 yt-dlp 成功，无需 cookies）；caption_source=yt-dlp-auto；中文为全文信息保留并按话题通顺改写", "guests": ["保罗·科普尔斯通（Paul Copplestone）", "安特·威尔逊（Ant Wilson）"], "speakers": [], "layout": "plain", "intro": {"summary": "Latent Space 对话 Supabase 联合创始人保罗·科普尔斯通（Paul Copplestone）与安特·威尔逊（Ant Wilson）：围绕 Selects 大会发布（Compute、OrioleDB、Multigres、收购 Turso）、从原型到拍字节的扩展路径、PLG/企业销售、以及智能体时代的声明式 schema 与实验室合作。", "points": ["Selects 主线 Build/Operate/Scale：无 Docker 启动、同网 Compute、声明式 schema 与 MCP", "OrioleDB 存储引擎加速与开源专利；Multigres 重写 Operator、兼容优先再分片", "收购 Turso 支撑海量小库/智能体库；Spark 实例与平滑升级到完整 PostgreSQL", "产品触发式销售与绿地企业策略；几乎不做生产库迁移", "AEO/模型默认推荐、社区赠股、Control Tower 与 Platforms", "内部 AI 花费约 450 人/$30 万每月；代码优先 Git 原生与开源未来讨论"], "verdict": "值得看（约 77 分钟）：数据库×智能体×开发者工具听众的高密度访谈；可跳过：若只想听纯模型论文或不关心 Postgres 生态。", "audience": "关注 Supabase/PostgreSQL、AI 应用后端、开发者工具 GTM 的听众"}, "paragraphs": [{"start_sec": 2, "type": "text", "zh": "主持人开场：继续做这类短开场，方便说明为什么做这期、访谈里该留意什么；节目也会加叠加层与注释，帮新入行的听众跟上。主持人刚参加了 Supabase Selects（公司客户大会），内容很多，先交代背景。"}, {"start_sec": 37, "type": "text", "zh": "主持人披露利益关系：约六年前在种子轮做了天使投资，且是他的第一笔天使投资。Supabase 估值从 0 做到约 100 亿美元，全远程、开源，几乎成为托管 PostgreSQL（Postgres）的事实标准。他想拆开公司为何运转得好，并解释它在自己的 AEO（答案引擎优化）排名里表现突出——这绝非理所当然。"}, {"start_sec": 75, "type": "ad_omitted", "ad_brand": "Supabase", "zh": ""}, {"start_sec": 76, "type": "text", "zh": "多智能体数据库赛道竞争激烈。Supabase 曾是 2023 年首届 AI Engineer 大会的首个赞助商，也将成为 Latent Space 的首个赞助方——主持人表示更愿意与熟悉、信任、能向听众讲清楚的团队合作。大会主线可概括为 Build（构建）、Operate（运维）、Scale（扩展），YouTube 上也有完整回顾。"}, {"start_sec": 110, "type": "text", "zh": "Build：改善编码智能体搭建 PostgreSQL 的体验。两点尤其突出：一是可在不依赖 Docker 的情况下启动 Supabase，尽量减轻本地启动负担，需要时再扩到完整虚拟机；二是与数据库同网、就近的计算（colocated compute），把算力放到库旁边，延迟与连接都更顺。"}, {"start_sec": 153, "type": "text", "zh": "应用侧可有来自 Supabase 生态的 MCP 服务器；更关键的是声明式 schema：相对「建库再一串迁移」的传统 SQL 范式，把结构放进 Git 作为单一事实来源，方便智能体爬取、分叉与重建。PostgreSQL 本不是为此设计的，需要在约四十年历史的内核上做改造与补齐。"}, {"start_sec": 193, "type": "text", "zh": "主持人把当前势头看成「面向智能体把 PostgreSQL 用到极致」的最后一公里，但强调：这些能力其实人类也一直需要，不应只为讨好智能体而做。Operate 部分则侧重给更多上下文——更多日志、检查、连接、甚至 SQL 的 Markdown 知识与技能文件；每年也会推出管线/集成（例如与 Stripe 等），ETL 在 AI 工程生涯里越来越像数据工程栈的一部分，Supabase 现有第一方方案，也可与外部工具混用。"}, {"start_sec": 268, "type": "text", "zh": "Scale：品牌从「周末做出、扩到百万」演进到「从原型到拍字节（prototype to petabyte）」。发布 Multigres 的完整 v1——大致是把 Vitess 思路移植到 PostgreSQL，并请来 Vitess 领域重要人物；同时还有 OrioleDB 等存储层进展。主持人强调这是保罗·科普尔斯通（Paul Copplestone）与安特·威尔逊（Ant Wilson）第一次同框接受访谈。"}, {"start_sec": 310, "type": "text", "zh": "访谈正式开始：这期「酝酿了六年」。录制在 Selects 大会前、发布在会后。主持人从他们离开 YC、在新加坡庆祝、第一次见面聊起——当时像是一家被 Hacker News 软发布带火的数据库公司——并请他们直接讲 Selects 的头条发布。"}, {"start_sec": 391, "type": "text", "zh": "计算：现有 Edge Functions 基于 Deno，有严格的资源/时长上限；社区长期希望跑更长任务（切块、嵌入等）。将发布 Supabase Compute：可长时间运行、无服务器形态、与数据库同一私有网络、延迟好，可直接连 PostgreSQL，并不再绑死 Deno——可用 Rust、Python，也可在里面跑智能体，近似「容器型 Lambda / 完整容器实例」。"}, {"start_sec": 466, "type": "text", "zh": "数据库三项创新可概括为性能、纵向扩展、横向扩展。OrioleDB：可替换当前 heap 存储引擎，约快 1.5–2 倍、兼容、减少 vacuum 等后台负担；过去一年用 PG regress、Antithesis、TPC-C、JSON 等做兼容与数据安全验证，明日以完整 beta 发布，并改为 Apache 2 许可（含专利授权）——收购后继续开发，再把专利一并开放。"}, {"start_sec": 536, "type": "text", "zh": "Multigres：调研发现生态里各类 PostgreSQL Operator 在特定条件下都可能丢数据。团队从零重写整套运营结构；目标不只是给社区分片，而更像一整套「操作系统」。经约一千次连续故障切换等严测未丢数据，开源发布；平台侧先邀请制，服务严肃负载客户。"}, {"start_sec": 635, "type": "text", "zh": "Sugu（Vitess 创始人）当年为 MySQL 分片；这次优先兼容性——希望将来打开分片时业务几乎零改查询。分片尚未正式放出，早期原型与设计已有，平台侧进度乐观，或明年早些时候视情况推进。主持人称这是 PostgreSQL「全面统治」拼图的最后一块；Multigres 完全开源，不限 Supabase 客户。设计伙伴包括 Booz Allen、Postman、Perplexity 等。"}, {"start_sec": 747, "type": "text", "zh": "扩展出去：平台每月约启动 500 万个数据库，未来可能要到每月数十亿级，架构必须换。智能体数据库方向上，他们看好 Turso，并宣布收购 Turso 以增强智能体场景——Turso 偏 SQLite，但关键是架构（为 SQLite 做多写者/MVCC 等），且与对象存储新能力相关（耐久性极高，可当底层集群思路）。"}, {"start_sec": 888, "type": "text", "zh": "对象存储适合部分较小场景；大规模事务读写仍不宜全压在对象存储上，故仍需 Multigres。要支撑「海量小库」，文件格式思路很关键——Glauber 等关于重写、通往 PostgreSQL 兼容路径的博客促成了收购。Turso 品牌保留做 SQLite；Supabase 将推更小实例类型 Spark，兼容现有库，原型可先用、跑起来再升到完整 PostgreSQL 乃至 Multigres。"}, {"start_sec": 988, "type": "text", "zh": "纵向与横向扩展、以及「缩小」实例，一直是难题；新技术让路径变清晰。许多库其实很小（例如 vibe 应用），但一旦上 Hacker News 首页就要扛住暴涨，因此需要零停机在后端之间平滑迁移。非技术创始人越来越多：例如客户 Magic School 创始人原是教师，看到教学低效后创业——没有技术联合创始人/CTO 已非个例。若人人一套专用 PostgreSQL 集群，物理机器很快不够，今年也一直在扛算力容量。"}, {"start_sec": 1126, "type": "text", "zh": "轻松段：Glauber 与团队的迷因文化；Supabase Twitter 仍有每周「迷因工坊」，难招——既要懂技术又要懂开发者笑点。早年有人写长文拆解其 Twitter 策略并上 Hacker News，团队后来甚至用外人写的策略给新市场同事看；Ant 还把黑帖截图发回推特。Hacker News 早期贡献巨大，也被 Dang 多次「训」——一周发太多、以及别把上首页截图秀到推特上（显得像 YC 偏袒）。"}, {"start_sec": 1388, "type": "text", "zh": "冷启动：有人在他们没准备好时就在 HN 发了帖；原标语是「实时 PostgreSQL」无人问津，改成「开源 Firebase 替代」约十几小时后那篇帖就爆了，至今仍是历史高热。当时跑在 DigitalOcean，每个库两台约 5 美元/月的 droplet（库+API）；用户从约 8 涨到约 800，1 万美元额度约 48 小时烧光。刚进 YC，AWS 给了约 15 万美元额度，第一周就在迁 800 个库。DO 因额度规则未能给更大额度，错失后来可能是其最大客户之一——疫情时期的谨慎可以理解；如今 DO 市值也很高（约 160 亿美元量级），算力短缺大家一起扛。"}, {"start_sec": 1567, "type": "text", "zh": "算力：与 AWS 频繁对齐、付更高价、紧密规划；并宣布新投资伙伴 Capital G，借力 Alphabet 生态，推动多云（尤其需要更多 GCP 算力），并加深与 Gemini 等 AI 实验室产品的嵌入。对象存储与块存储创新多由 AWS 引领；S3 强一致性曾免费全员放开，S3 Express 也改变了「先本地再刷耐久层」的路径（毫秒级写入、耐久够用再后台进标准 S3），但仍需要 Redis 等内存/本地盘缓存层。"}, {"start_sec": 1711, "type": "text", "zh": "口号演变反映规模：从周末到百万，到原型到拍字节。变现变快——智能体层可很快接入 Stripe，有人同一周内开始认真赚钱。早期不确定 vibe coding 是否持久，但看到有人上线几天内赚到约一万美元，判定这是真需求。相对 NFT 潮只浅浅做了以太坊/Solana 登录，这次在「要服务更大客户」的同时，也必须在原型侧加码——两头都要创新，就要更多人。"}, {"start_sec": 1858, "type": "text", "zh": "AI 三阶段：①嵌入/向量——推 PostgreSQL+pgvector（Andrew Kane 扩展），教育市场「不必另起向量库」；Turso 等也受益于相关创新。②约 2024 年底 vibe coding 浪（Lovable、Bolt 等）——内部争论是否下场、甚至是否自建平台；使命是「存储世界的数据」，要在人们起步时就在场并让他们不想走。③今年模型变强，注册漏斗暴涨，但市场费用极少，主要靠迷因等；更反常的是激活与付费转化同时上升——智能体一步完成激活，付费率甚至高于传统开发者用户。"}, {"start_sec": 2035, "type": "text", "zh": "AEO：在「集成后端」等类别上常被前沿模型首选（认证、函数、数据库、API 等打包）。时机关键——LLM 起飞前已在市场三四年，并以当时领导者的主要替代者姿态出现。社区早期大量博客/视频/播客被模型「吸干」；开源也有帮助。Selects 宣布众筹后，律师纠结合格投资者机制，最终发现「直接赠股」另有路径——划出约一百万美元股票送给社区贡献者。"}, {"start_sec": 2177, "type": "text", "zh": "首位公开的社区获奖者：Discord 里的 Gary Austin（真名 Gary Abbott）——六年回答约两万个问题，其中约 1.3 万个在一小时内回复，真人非机器人；退休后因爱红酒自建类似应用而沉迷 Supabase，连圣诞树都挂 Logo。Discord 非公开、难规模化沉淀；早期在 Discord/Slack/Reddit 间摇摆，结论是「用户在哪就去哪」。曾把优质问答刮到 GitHub Discussions 再镜像到官网，把 GitHub 当 CMS。开源市占刻意不做追踪；有大型药企跑上百个开源实例后找上门，于是有企业舰队产品 Control Tower（网站上不一定显眼）。"}, {"start_sec": 2426, "type": "text", "zh": "Control Tower 本质是把「Supabase for Platforms」（AI 公司在其上批量起库、2025 年 12 月等节点被视作成功发布）的能力重包装给企业内部：为员工批量起库并统一管理。销售上对标 Stripe 式开发者热爱与持久力，约 60% 的 YC batch 使用 Supabase；销售是「产品触发」——Logo、扩容、报错、消费阈值等，每周上千触发发邮件，未回复作对照组约月增 25%，回复并通话帮助的账户约月增 125%，用增量部分考核销售，而不是传统硬卖全额。"}, {"start_sec": 2639, "type": "text", "zh": "企业几乎从不把生产库从 MySQL/别的可扩展库迁到你这里——这是创立时的核心判断：做迁移的数据库公司大多失败。重点是第一天拿下绿地项目，并粘到第 1000、10000 天。未来数年企业侧仍主攻绿地（产品人要内部创新）；Multigres 留给真正需要规模的人，但不是五年内核心叙事。买家也在变：CPO 因 Lovable+Supabase 十年没写代码又能内部搭东西，高层冠军不请自来。"}, {"start_sec": 2791, "type": "text", "zh": "谁更粘？跑数据库很难，迁库比换前端工具更难。Lovable 很强，且最早写好技能阻止智能体做蠢事（例如把图片塞进 PostgreSQL、为求通关掉 RLS）；如今模型本身也少犯这类错，像「威尔·史密斯吃面」从 2022 糊到 2026 清晰。董事会成员 Karen（CO2）的论断：不止替代 Firebase，也在成为新的 RDS；更远的「第四纪元」或许是撕 Oracle——但迁 OLTP 极难（存储过程、停机即钱、双写裂脑），历史上靠迁库成功的很少，故仍应先绿地落地再扩张。"}, {"start_sec": 3044, "type": "text", "zh": "HTAP：Databricks 联合创始人等声称解决 HTAP；Supabase 更关注 DuckDB/DuckLake——DuckDB 像分析侧的 SQLite，可读对象存储与 PostgreSQL，DuckDB Labs 被 AWS 收购、走基金会路线。他们不想把 PostgreSQL 硬做成数仓，而是合适工具做合适事；到一定 OLTP 规模必须分片，跨机事务最终会碰对象存储而变慢，故分片扩到拍字节、分析另线更合理。持久工作流：过去 Edge Functions 的超时让社区工作流引擎难以成立，有了 Compute 原语才可能做长时 durable workflows。"}, {"start_sec": 3287, "type": "text", "zh": "集成后端与「把 AI 想要的都给它」：已有与 ChatGPT 等登录/合作；B1 策略是尽量与前沿实验室/模型广泛合作。美国实验室贡献最多流量；要成为 Artifact 类产品的默认后端，过去卡在规模——ChatGPT 级月活若每人每月起库，就要每月十亿级 PostgreSQL，直到收购带来的技术才摸到「每月数十亿库」的门槛。"}, {"start_sec": 3390, "type": "text", "zh": "公司 P0：拿下战略实验室与模型，同时继续 PLG；企业侧赢新工作负载。AI 抬高了纯 PLG 天花板（从想象中的一两亿美元变得不可见上限），但仍要「小和大两边都做」。开年设了极狠的收入目标，有人担心打不到打击士气——结果约四个月就打到。水晶球问题：未来如何开发、人们会开发什么——从仪表盘最佳 DX，到无头/API 驱动，再到今年重点：代码优先、Git 原生。"}, {"start_sec": 3539, "type": "text", "zh": "CLI 下本地已有 supabase 文件夹表示库与函数（基建即代码）。声明式 schema 是难啃的兼容全 PostgreSQL 的一步：迁移文件夹是历史日志，智能体要猜表结构得扫上千文件或起库 introspection，太慢。要把 schemas 目录变成完整声明式状态（表、策略、注释等），并发布可用于任意 PostgreSQL 的库 PG Delta。智能体主要在文件系统上快速迭代；主持人想象手机/个人智能体一句话出可迭代应用，Supabase 要做那个默认底座。"}, {"start_sec": 3712, "type": "text", "zh": "担忧模式坍塌：低门槛应用构建者会收敛到模型均值（或许就是你们），高技巧者仍会在细节上分叉，多样性与火焰战争是否消失？认为顶尖自驱人群仍会存在；大学对普通人路径的必要性下降，但顶层好奇者（如去 Recurse Center）不会消失。两人很少死磕分歧——稍一推就试对方方案，多数细节其实不重要，方向对就行；分工各管一块。创业背景：Entrepreneur First 新加坡同一屋七个 builder，后把室友大量招进公司；YC 劝别招人时却因 PostgreSQL 维护者 Steve Chavez 破例——并让他先继续把 Postgres 做好。"}, {"start_sec": 4071, "type": "text", "zh": "商业开源未来：依赖可被 vibe 出来、Rust 重写有层次——不会无限烧创新代币去重写一切，可能收敛到少数赢家（PostgreSQL 若出现一个成功的 Rust fork 或成该类胜者）；他们大量 Elixir/BEAM 也因运维范式。Vercel 的 Malta 曾提拨预算把 C/C++ 依赖一次性升到 Rust，他们作为公司愿意站台，但人们也爱自己动手。"}, {"start_sec": 4221, "type": "text", "zh": "内部 AI 编码：Supabase 像多家小创业公司粘在一起，各产品线自决工具与 AI 政策，只在成本上略收敛。参考数据点：普通人约 $20/月、员工平均或约 $200/月，OpenAI 内部中位或许数千、顶端更高；可用「代币花费/人力花费」比率（0.1 常见，到 1 仍可，\u003e1.5 危险）。他们远程、文档齐全，可问内部 AI：约 450 人、每月约 30 万美元。重点不应是羞于上榜的花费，而是端到端省掉多少人力环节；异步公司天然适合做公司级智能体 harness。全球远程、同薪，约 50 个空缺；尤其缺 SRE——要能适应全异步远程；AI 尚未攻克运维保活。结束：祝贺旅程，期待未来 IPO 敲钟、打造成下一家伟大开源公司。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
