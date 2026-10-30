@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>非民选者如何统治纽约三十年——罗伯特·摩西与权力的写法</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="dw">德瓦凯什·帕特尔（Dwarkesh Patel）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Dwarkesh Patel</span><span class="pill">2026-10-29</span></div>
+<h1>非民选者如何统治纽约三十年——罗伯特·摩西与权力的写法</h1>
+<p class="sub">嘉宾：Robert Caro、Robert Moses · 约 25 分钟（1482 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=kX_WmQK_tt0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=kX_WmQK_tt0</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Dwarkesh Patel</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-29</dd></div><div class="meta-row"><dt>时长</dt><dd>约 25 分钟（1482 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 官方字幕（普通 yt-dlp）；caption_source=yt-dlp-official；中文为全文翻译并按中文表达习惯重写、按话题分段，并标注说话人（独白视频长文）</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>kX_WmQK_tt0</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>德瓦凯什·帕特尔在与罗伯特·卡罗正式访谈上线前，用约25分钟视频长文梳理《权力掮客》与约翰逊传中的权力课：非民选的罗伯特·摩西如何借公共当局、债券续命与宪法契约条款统治纽约三十余年；以及林登·约翰逊如何把「几乎无权」的多数党领袖做成参议院主人——杠杆、议程与交易撮合，并以1957年民权法拼盘为例。</p>
+<h3>核心要点</h3><ul><li>摩西：1964年前纽约州公路约899英里中他建672英里；工程按今值数千亿美元，却从未经选举</li><li>三区大桥管理局：表面上还债即解散，他写入可发新债偿旧债且用于「任何其他法人目的」</li><li>宪法契约条款把收费权与盈余写进债券后，州长市长无法收回——除非修宪大会</li><li>身兼约12职、以交付速度与民意、联邦拨款技术垄断及辞职要挟保持不可替代</li><li>约翰逊：多数党领袖正式权力几乎只有「优先发言」；他靠控制委员会席位、全体同意协议与私下换票成为第二号权势人物</li><li>1957民权法：用水坝、工会陪审与联邦陪审规则拼出南北都能吞的软弱法案，服务其总统野心</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：关心制度设计、基础设施政治、立法策略与「权力如何被写进法条/债券」的读者；可跳过：只想听卡罗访谈本尊、对纽约市政史无感者（约25分钟，访谈另更）。</p>
+<h3>适合人群</h3><p>政治史与公共管理读者；关心城市基建/YIMBY 与立法权术的人；德瓦凯什与卡罗访谈的前置课观众</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场：追访卡罗与本片用意</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">德瓦凯什说明：罗伯特·卡罗（Robert Caro）花约 50 年写四卷林登·约翰逊（Lyndon Johnson）传，此前 7 年写纽约「总设计师」罗伯特·摩西（Robert Moses）传；这些书被他视为对政治权力最好的探索，也是他最爱的书。六年来他一直把卡罗列为「最想却还没采访到的人」，追过经纪人、出版社、档案博物馆甚至手写信，终于完成访谈（次日上线）。本片是他重读传记时整理的「如何积累与运用权力」课，作为看访谈的背景。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">摩西是谁：工程规模与非民选权力</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">摩西建造了三区大桥、韦拉扎诺桥、跨布朗克斯快速路、琼斯海滩、林肯中心、谢亚球场、上州两座大型水坝，以及成百上千公园泳池。到 1964 年纽约州完工的 899 英里公路中，摩西建了 672 英里；工程按今天币值计达数千亿美元。三十多年里他比任何民选市长或州长更有权，却从未当选公职；有人讥「你不必经选举」，他回「你也不必」。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">自写法案：公共当局与债券续命</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">权力来源之一是他亲自起草约束自己的法律——被称作奥尔巴尼最好的法案起草人，把议员没意识到的权力写进法案。关键工具是公共当局：发债建桥、收费还债、理应拆亭移交并解散。1933 年《三区大桥管理局法》表面上第 1 节写明还清债券即解散（债券最长约 40 年、收入会更快还清），但摩西在第 9 节某小节加了一句：当局可「不时」用新债偿还旧债，且新债可用于「任何其他法人目的」——到期前可再发全新 40 年票据、用途可完全不同。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">「连接设施」扩张解释权与借债能力</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">原法只允许建两座桥及引道；摩西把项目说成「城市心脏的巨大动脉」。修正案还赋予建连接道路及「与项目使用不相矛盾的设施」之权——按他创造性解释，凡「连到连到桥」的路、或沿这些路的公园住房，三区当局都可改造；资金来自巨额通行费及以此抵押借款。1946 年纽约市政府借债上限约 1.5 亿美元，同年三区当局可借约 3.6 亿——超过全美最大城市政府。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">宪法契约条款：权力铸进债券</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">若未来州长市长想收回权力，摩西已埋伏笔：美国宪法禁止各州损害政府实体已订立的契约义务，公共当局债券即此类契约。他塞进条款，允许把「任何影响债券安全或保护的同类或不同事项」写进债券合同——包括可任意定价、任意久收费并保留盈余。权力一旦写进售出的债券，立法机关、州长、市长都无法撤销，除非修宪大会；而债券寿命还可再融资延长。几处小改动就把「两座桥」变成受宪法保护、几乎可在纽约随处建设的机构；但契约并不保证摩西本人继续当主席。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">为何连任：多头职位、清廉与不可罢免</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">连任部分仍靠法律：摩西起草规定委员任期内只能在「正式听证后的陈述指控」下罢免；他与市长州长的冲突多在建什么、拆谁的房子，而非个人品行。卡罗写他「金钱上诚实」、不收贿。这解释了为何中途不被炒，却解释不了为何每六年再获任命。巅峰时他身兼约 12 个政府职务（市建设协调官、州公园委员会主席、州电力局主席等），有的市长任命、有的州长任命，无人能一次砍光所有头；开罪他等于开罪纽约仍最有权的人。更重要的是，多数时候没人想开除他。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">交付速度、民意与选举周期</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">今天对摩西的记忆多被 1970 年代《权力掮客》与纽约犯罪、去工业化、白人外逃的「黑暗年代」定格，副标题甚至是「罗伯特·摩西与纽约的衰落」。德瓦凯什认为危机更多来自与摩西无关的结构性因素——底特律、圣路易斯崩溃更剧。1930–40 年代纽约高中生曾票选他为最受敬仰的纽约人：海滩、公园、泳池大规模可及，且上任公园专员头四个月昼夜施工完成约 1700 处公园翻新，几乎无个人丑闻。开园仪式上常见孩子被家长怂恿喊「2-4-6-8，我们感谢谁？摩西先生」。他能在一个选举周期内交付巨大公共工程，市长给他权就能在连任前剪彩——对比第二大道地铁 1972 动工、2017 才开通首段约 2 英里、耗资约 45 亿美元。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">联邦拨款垄断与以辞要挟</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">大量公款来自华盛顿；蓝图齐备、联邦一宣布就能破土的城市拿钱最多。摩西拥有全国最大最好的规划工程师团队，到 1936 年纽约拿到全美大萧条以工代赈拨款约 1/7，且项目由摩西圈定。市长若另有想法，须自备他无力独立完成的技术方案——结果只能建摩西要建的，或什么都不建。他不断以辞职要挟：瓦格纳市长任内助手称「好像一天为鸡毛蒜皮辞职两次」；拉瓜迪亚的律师甚至印好「我，罗伯特·摩西，特此辞去某某职」表格省事——玩笑背后是真恐惧：接受辞呈等于丢掉在建项目与配套资金，并公开对抗全州最受敬重的官员。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">媒体同盟与 YIMBY 分赃机器</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">摩西多年结交报业老板，常去苏兹贝格（New York Times 东家）夏宅度周末；市长清楚一旦他辞职，次日头版会写成「超越政治的人因不愿牺牲城市利益被卑劣政客赶走」。比大众声望更强的是与私利集团的纽带：他打造「YIMBY 集中阵营」——银行可无竞标折扣买债、工会获工作、关系户律师吃法律费、党魁靠几乎无垮塌风险的桥梁保险吃回扣；这些人再去打电话压反对的区长乃至州长。卡罗刻画早期摩西是理想主义改革者，1910 年代加入好政府运动想以诚实行政取代坦慕尼厅恩庇，改革被机器绞杀后他学到：没有权力，理想一文不值。卡罗名句：权力起初是梦想的仆人，但权力像毒品，使用者需要越来越大的剂量。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">理想主义成瘾 vs 约翰逊的机会主义</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">约翰逊轨迹相反：大半生涯难见一贯意识形态，是抓住权宜之机的权力追求者。初入参议院时最有权的是保守南部 Dixiecrats，他按他们的模样塑造自己。卡罗写《参议院主人》时问佐治亚参议员赫尔曼·塔尔马奇：新科参议员约翰逊给人何种「白人与黑人正当关系」印象？答「主仆」；再问有无同情或改善黑人处境的愿望，长停顿后两字「未见迹象」，并说「他心里和我们一伙，我信他」。日后他却推动 1964 民权法与 1965 投票权法——重建以来最重要民权立法。摩西从天真理想滑向为权力而权力；约翰逊从投机者起步，真正有权后才拿出很少人知道他怀有的理想。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">约翰逊如何做参议院主人：杠杆与议程</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">约翰逊曾任多数党领袖，被卡罗称为「参议院的主人」——该机构此前从未有过主人，本书写作近半世纪后也再无。建国者本意不让参议院被领导；国会图书馆列出多数党领袖正式权力仅一项：在议场优先获得发言权。前任领袖常成「避雷针」：全国媒体与本州责难参议院无所作为，却无权改变——两任前任都因此丢了席位。约翰逊约 44 岁（参议院平均约 60）接任，部分因几乎无人想要这份吃力不讨好的差事。他用三招把自己变成仅次于总统的美国第二号权势人物：一是杠杆——改造规则、制度与规范，使通过法案排期、说服委员会主席放行、打通众院雷伯恩议长、向德州石油商美言募款、以及控制委员会席位分配（打破约一个世纪的年资制，改由他掌控的党团督导委员会协商）都经他之手；1957 年凯弗维尔因一次关键动议投票反对他，当周外交关系委员会热门空缺转给更资浅的肯尼迪。二是议程——用「全体同意协议」限制辩论时长与修正案，且常在协议到位前不让法案上地板，以免公开辩论或突袭修正案毁了他私下谈妥的交易；道格拉斯参议员说，约翰逊治下「戏开演前台下已演完」。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s12">
+<div class="sum-top"><span class="sum-num">12</span><span class="sum-title">交易撮合与 1957 民权法拼盘；结语</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">第三招是撮合交易：委员会派人向他汇报起草进度，助手追踪每位参议员，本人终日走廊游说——他清楚每人真正要什么、肯为什么放弃什么。数百法案与修正案可交叉换票；他确保自己发起并居中的交易最终让他得利。1957 年民权法是范例：他急需通过哪怕软弱的民权法案，以便以南部投票记录仍有望问鼎 1960 年民主党总统提名；北方要强、南方要弱（坚持选举官员案由陪审团审——南方陪审员须是登记选民，全白人陪审团几乎不会给剥夺黑人选票的登记官定罪）。约翰逊用约七个月拼出无关拼盘：西部参议员换得爱达荷–俄勒冈联邦水坝表决，中西部共和党为铁路工会争取罢工工人也享陪审团审判，温和派换得联邦陪审团须容纳黑人公民的条款以便向选民宣称「创造了新民权」，同时保留南方选举官员的陪审团保障使法案够弱、南方不阻挠。爱达荷水坝、工会保护与联邦陪审规则本与南部投票权无关——除非有约翰逊那种内情与创意。卡罗的书既是权力运作的最佳记述，也因人物故事比小说更抓人而易只翻页不问「教了什么」；德瓦凯什做本片就是为提炼教训，并给你看卡罗访谈的语境——访谈「明天」可见（听本片时或许已上线）。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">德瓦凯什·帕特尔（Dwarkesh Patel）<em>主持</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场：追访卡罗与本片用意</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="dw"><div class="label"><span class="badge" title="德瓦凯什·帕特尔（Dwarkesh Patel）">德瓦凯什</span></div><div class="content">
+<p>我最近采访了罗伯特·卡罗（Robert Caro）。过去五十年他在写四卷本的林登·约翰逊（Lyndon Johnson）传记；在那之前又花了七年写纽约「总设计师」罗伯特·摩西（Robert Moses）的传记。这些书被公认为对政治权力最出色的探索，也恰好是我最爱的书。每认识一个新朋友，对方常问的第一个问题之一是：「你最想采访、却还没采访到的人是谁？」</p>
+<p>六年来我的答案一直没变：罗伯特·卡罗。为促成这次访谈，我追过他的经纪人、打给出版社、联系收藏其档案的博物馆，甚至寄过手写信。终于坐下来聊完，我对结果很满意——访谈明天上线。准备访谈、重读这些传记时，</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>摩西是谁：工程规模与非民选权力</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="dw"><div class="label"><span class="badge" title="德瓦凯什·帕特尔（Dwarkesh Patel）">德瓦凯什</span></div><div class="content">
+<p>在这些传记中，我把他们关于如何积累和使用权力所展示的所有教训都写了下来，而这个视频长文就是结果。罗伯特·摩西是纽约的建筑大师。我们尊贵的嘉宾是罗伯特·摩西先生，全国最杰出的城市规划师。他建造了比以前或之后的任何人都多的城市实体。他建造了特里堡桥和韦拉扎诺大桥、布朗克斯快速公路、琼斯海滩、林肯中心、谢亚球场，以及上州的两座巨型水力发电坝，此外还有数百个公园和游泳池。</p>
+<p>到1964年，纽约州完成的899英里的公路中，莫西斯建造了其中的672英里。他的工程总花费以今天的货币计数达数千亿美元。三十多年来，罗伯特·莫西斯是纽约最有权势的人，比任何当选的市长或州长都更有权力，尽管他并没有通过选举获得任何职位。据我所听，过去三十多年，人们反复说：“你不必当选。”我对他们的标准回答是：“你也不必当选。”</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>自写法案：公共当局与债券续命</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="dw"><div class="label"><span class="badge" title="德瓦凯什·帕特尔（Dwarkesh Patel）">德瓦凯什</span></div><div class="content">
+<p>他是如何获得如此大的权力的，又是如何保持这些权力的呢？部分答案在于摩西制定了约束他的法律。他被称为奥尔巴尼最优秀的法案起草者，他利用这一技能为自己制定了立法者在投票时并未意识到授予他的权力。罗伯特·摩西的政治天才也许最能体现在他对公共机构的运用。这些是政府设立的公司，负责建设城市基础设施。公共机构通过出售债券为特定项目融资，例如一座新桥。</p>
+<p>一旦桥建成，当局将向司机收取通行费，直到收取足够的钱来偿还其债券。然后，当局将拆除收费站，将桥移交给城市，并停止运营。至少，这是计划。奥尔巴尼假设，当纽约州议会批准1933年的《三区大桥管理局法案》时，就会发生这种情况，其最终版本在法律条文的几页之中，隐含了几条看似无关紧要的内容。</p>
+<p>由罗伯特·摩西起草的修改。该法案的第1条明确规定，一旦债券偿还完毕，该机构将解散。由于债券最多可持续40年，而桥梁的收入能够远早于此时间偿还初始成本，似乎该机构有一个明确的内置终止日期。然而，在第9条的一个小节中，摩西增加了一句话，称该机构可以“时不时地”通过发行新债券来偿还旧债券。</p>
+<p>而那些新的债券可能是“用于任何其他公司目的”。所以就在原来的债券即将到期之前，当局现在有权发行一张全新的、为期40年的债券，用于可能完全不同的用途。那么当局可以用这笔钱建什么呢？最初的法律允许它建两座桥及其接近道路。三区大桥委员会主席罗伯特·摩西称这个项目不仅仅是一座桥。他说：“它将在城市的心脏地带，成为一条巨大的交通动脉。”</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>「连接设施」扩张解释权与借债能力</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="dw"><div class="label"><span class="badge" title="德瓦凯什·帕特尔（Dwarkesh Patel）">德瓦凯什</span></div><div class="content">
+<p>从岛上，通过收费站，驶出了第一辆车。租着燕尾服的年轻人，是乘客。他们整周都把车停在这里，为了享受成为第一个穿过的人带来的荣誉。摩西的修正案也赋予了该机构建设连接道路和“与项目使用不冲突的设施”的权利。当这些权利按照摩西的意图进行创造性解释时，将允许摩西改造纽约的大部分道路、公园和住宅。因为如果一条路连接到另一条路，而另一条路再连接到</p>
+<p>到桥上，或者如果沿着通往那条连接桥的道路的道路的道路旁有一座公园，当然，三区大桥管理局有权对其进行改善和改造。所有这些建设都可以通过桥梁巨额的通行费收入以及三区大桥管理局以此为担保借款的权利来融资。为了给一些参考，1946年，整个纽约市政府在达到法定债务上限之前，最多只能借款1.5亿美元。同一年，三区大桥</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>宪法契约条款：权力铸进债券</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="dw"><div class="label"><span class="badge" title="德瓦凯什·帕特尔（Dwarkesh Patel）">德瓦凯什</span></div><div class="content">
+<p>可以借到3.6亿美元。所以摩西的桥梁管理局可以使用的资金是美国最大城市的两倍多。如果将来某个州长或市长最终了解到所有这些被委托给该管理局的权力和收入，并决定收回这些权限呢？摩西也为此做了计划，他的解决方案非常巧妙，以至于奥尔巴尼的律师或立法者都没有预料到。《美国宪法》规定没有</p>
+<p>各州不得制定“削弱合同义务的任何法律”，这些合同是由政府实体订立的。公共机构发行的债券就是这样的合同。摩西在法案中偷偷加入了一条条款，允许他将“任何类似或不同性质的事项，无论以何种方式影响债券的安全性或保护”的内容加入这些债券合同。这些事项包括三区大桥可以随意收取任何通行费，并且收取多久都可以。</p>
+<p>并且它可以保留由此产生的盈余。也摩西现在可以仅通过将权力写入他发行的债券中来巩固他的权力。从这些债券出售的那一刻起，这些权力就不再能够被立法机关、州长、市长，或者事实上任何人撤销，除非召开制宪会议。摩西现在拥有的权力在债券的整个生命周期内都是有保障的，而生命周期也可以通过再融资轻松延长。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>为何连任：多头职位、清廉与不可罢免</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="dw"><div class="label"><span class="badge" title="德瓦凯什·帕特尔（Dwarkesh Patel）">德瓦凯什</span></div><div class="content">
+<p>因此，通过一些小的调整，摩西将一个本意是为了建造两座桥梁的行为，转变为了一个可以在纽约的任何地方建造几乎任何东西的机构的基础，并且其行使这种权力的权威得到了美国宪法的保护。这些债券契约使得三区大桥管理局的权力牢不可破，但其中没有任何条款保证罗伯特·摩西会继续担任其主席。那么，摩西是如何保持这一职位长达30年的呢？</p>
+<p>答案的一部分，再次，是法律。摩西起草了《三重桥法案》，规定其专员只有在“经过正式听证后提出的指控”下才能在任期中被免职。但他与市长或州长的任何分歧更多是关于他决定建造什么以及为了建造它而搬迁谁，而不是关于他的个人行为。正如卡罗自己所写的，“罗伯特·摩西本人并不腐败。事实上，他对为自己获取回扣毫无兴趣”</p>
+<p>就像任何曾经存在的公务员一样。用政客的话说，他是金钱上的诚实。因此，从来没有正式的指控可以提出。但这只能解释为什么他在任期中没有被解雇。那为什么他每六年都会被重新任命呢？在他的巅峰时期，摩西就像一个有十二个头的九头蛇。他同时担任12个不同的政府职务：城市建设协调员、州公园理事会主席、州电力管理局主席等等。其中一些职位是由</p>
+<p>市长，其中一些由州长任命，因此没有一个人能够同时罢免他。而将他从任何一个职位上移除都意味着你会成为那位仍将是纽约最有权势的人的敌人。更重要的是，没有市长或州长愿意解雇他。我们今天对罗伯特·莫西的记忆是基于他在1970年代《《《权力掮客》》》出版时，以及纽约正经历犯罪黑暗时代时形成的声誉。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>交付速度、民意与选举周期</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="dw"><div class="label"><span class="badge" title="德瓦凯什·帕特尔（Dwarkesh Patel）">德瓦凯什</span></div><div class="content">
+<p>去工业化和白人外迁。莫西斯为此承担了很多责任。毕竟，《《《权力掮客》》》的副标题是《罗伯特·莫西斯与纽约的衰落》。但在我看来，这场危机更多地与莫西斯本人无关的更大结构性因素有关。那些与他无关的城市，如底特律和圣路易斯，经历了更为剧烈的崩溃。在他职业生涯的大多数时间里，莫西斯都极受欢迎。在20世纪30年代和40年代，纽约的高中投票选他为最受崇敬的纽约人。</p>
+<p>这是因为他一次又一次地完成了公共工程，数百万纽约人得以使用和享受：海滩、公园、游泳池。以前人们会从码头跳入浑浊的河水，但现在是在一个豪华、现代的露天游泳场里嬉水。它花费了一百万美元，孩子们说这是值得的。而且他以前所未有的速度和规模完成了这些工程。在他担任城市公园专员的头四个月里，他让施工队昼夜不停地工作。</p>
+<p>他几乎不停歇地工作，完成了1,700个公园的翻新工程，而且这一切都没有任何个人丑闻。正如卡罗在《《《权力掮客》》》中写道：“在公园和游乐场的开幕仪式上，父母催促孩子们欢呼，这是很常见的。”2、4、6、8。我们感谢谁？摩西先生。摩西先生。摩西先生。重要的是，摩西能够在一个选举周期内完成这些庞大而受欢迎的公共工程项目。如果市长赋予罗伯特·摩西建设的权力</p>
+<p>他可以预期在自己需要连任之前就站在剪彩仪式现场。罗伯特·摩西、瓦格纳市长和斯佩尔曼红衣主教与其他贵宾一同在桥梁的布鲁克林侧参加剪彩仪式。今天，政府能够在一两年内建造大型工程几乎是不可想象的。例如，纽约第二大道地铁的建设始于1972年，第一段于2017年开放。仅这最初的两英里就花费了纳税人45亿美元。大量资金用于</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>联邦拨款垄断与以辞要挟</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="dw"><div class="label"><span class="badge" title="德瓦凯什·帕特尔（Dwarkesh Patel）">德瓦凯什</span></div><div class="content">
+<p>公共工程资金来自华盛顿。获得最多资金的城市是那些已经完成蓝图并且能够在新的联邦计划宣布后立即开工的城市。摩西拥有全国最大、最优秀的规划师和工程师团队。正因为如此，到1936年，纽约获得的资金占联邦政府为整个国家的经济大萧条时期的救济工程预留资金的七分之一。而这些资金的项目是</p>
+<p>朝着前进的是摩西选择的人。如果市长对应该建造什么有不同的想法，他就得自己制定计划，而他没有独立的技术专长去做这件事。所以他只能建造摩西想建的项目，或者什么也不建。在他的执行能力、受欢迎程度以及对资金的控制之间，摩西拥有很大的影响力，而且他使用这些影响力毫不犹豫。根本不担心被解雇，</p>
+<p>每当摩西未能如愿时，他总是威胁要辞职。在市长瓦格纳手下，一名助手说，“似乎他每天都在因为这样或那样的事情辞职，大约两次。”他向市长拉瓜迪亚威胁辞职的频率之高、涉及的事情之小，以至于拉瓜迪亚的律师印了一大堆表格，上面写着：“我，罗伯特·摩西，特此辞去某某职务”，以免摩西每次都要亲自写。但在这个玩笑背后却是真正的恐惧。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>媒体同盟与 YIMBY 分赃机器</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="dw"><div class="label"><span class="badge" title="德瓦凯什·帕特尔（Dwarkesh Patel）">德瓦凯什</span></div><div class="content">
+<p>如果一位市长接受了那份辞职，不仅意味着他会放弃摩西正在进行的各种项目的完成，以及为这些项目分配的资金，他还会与整个纽约最受尊敬的官员公开开战。也许这才是最重要的：这完全是固执。摩西花了多年时间与城市报纸的老板们建立友谊。他在许多周末都待在苏尔茨伯格家的夏季别墅里，</p>
+<p>拥有《纽约时报》的家庭。市长知道，如果摩西辞职，第二天早晨，所有的头版都会讲同样的故事，说一个超越政治的人因为拒绝妥协城市的利益而被一个卑鄙的政客赶走。而摩西从大众的支持中获得的权力，与他从与纽约强大的私人利益的关系中获得的权力相比，根本不算什么。今天我们已经非常习惯“邻避”，即“不要在我家后院”，指的是有权势的</p>
+<p>但即使项目本身非常受欢迎，有组织的利益集团仍然设法阻挠。摩西为“YIMBY（是的，我的后院）”建立了一个集中化派系。他建立了一台贪腐机器，确保当新的建设发生时，州内最有权势的人都会受益。银行可以以大幅折扣购买他的债券，无需竞争性投标，工会获得更多工作机会，有政治关系的律师获得律师费，政党负责人则通过桥梁保险政策的中介获得报酬</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>理想主义成瘾 vs 约翰逊的机会主义</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="dw"><div class="label"><span class="badge" title="德瓦凯什·帕特尔（Dwarkesh Patel）">德瓦凯什</span></div><div class="content">
+<p>那没有任何可能倒塌的风险。摩西随后可以依赖这些受益人去召唤任何阻碍他项目的人，无论是区长还是州长本人。卡罗描绘的摩西是一个起初作为理想主义者的人，而不是从一开始就渴望权力的人。在1910年代，摩西是一位才华横溢的年轻改革者，他加入了这一新的良好政府运动，该运动试图用诚实和称职的管理取代塔玛尼会的任人唯亲。他花了多年时间去斗争</p>
+<p>这台机器，但他的改革被扼杀了。机器赢了，摩西明白了，没有实现理想的能力，理想是无用的。卡罗写道：“一开始，在他职业生涯的数十年里，罗伯特·摩西积累的权力是他梦想的仆人，为了这些梦想而积累，使他那庞大、塑造城市的愿景能够成为现实。但权力不是其拥有者可以随意使用的工具。它是一种药物，会让使用者产生对越来越大剂量的需求，而摩西就是一个使用者。”</p>
+<p>另一方面，林登·约翰逊的故事则相反。在他的大部分职业生涯中，几乎没有证据表明他有一套连贯的政治理念。他是一个无情的权力追求者，总是采取当时最方便行事的方法。当约翰逊首次进入美国参议院时，他意识到那里最有权势的人是保守的南方迪克西党人，而他们遇到的约翰逊是一个会将自己塑造成他们方式的人。在撰写《参议院的主人》第三卷时</p>
+<p>在约翰逊传记中，卡罗采访了前佐治亚州参议员赫尔曼·塔尔马奇。他问塔尔马奇，从新任参议员林登·约翰逊那里，如何看待白人与黑人之间的正确关系。现在引用卡罗对这段对话的回忆：“&#x27;主人与仆人。&#x27;于是我，”卡罗，“问，&#x27;约翰逊难道没有对黑人有任何同情吗？有没有想要改善他们的处境？&#x27;我的笔记上写着，长时间停顿。然后我写下了塔尔马奇的两个字回复，</p>
+<p>“没有人表明。”又是一阵停顿，然后说，“他在我们的心中与我们同在。我相信他。我相信他。”当然，我们都知道，一旦他成为总统，约翰逊就推动了1964年的《民权法案》和1965年的《投票权法案》，这是自重建以来最重要的民权法律。因此，摩西起初是个天真的理想主义者，但在卡罗的叙述中，他变成了一个为了权力而追求权力的人。另一方面，约翰逊从一开始就是一个机会主义者。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>约翰逊如何做参议院主人：杠杆与议程</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="dw"><div class="label"><span class="badge" title="德瓦凯什·帕特尔（Dwarkesh Patel）">德瓦凯什</span></div><div class="content">
+<p>只有当他拥有真正的权力时，他才将其用于少有人知的理想。在成为总统之前，林登·约翰逊是副总统；在成为副总统之前，林登·约翰逊在参议院，而林登·约翰逊是参议院多数党领袖中最有权力的，也许是美国历史上最有权力的立法者。卡罗说：“他是参议院的主人，一个此前从未有过主人的机构的主人，而当时几乎半个世纪后，当这</p>
+<p>书正在写作中，从那以后还没有一本。约翰逊之前的任何领导人都没有 wielded 过这种权力，因为参议院是由创始人故意设立的，不是为了被领导。当约翰逊向国会图书馆询问多数党领袖的正式权力清单时，他发现只有一个：在议事厅首先被认可的权利。在约翰逊之前，多数党领袖与其说是领导者，不如说是避雷针。他会在全国媒体和本州被责备所有事情的</p>
+<p>参议院未能做到的事情，他实际上也没有权力去处理这些失败。身处这种困境在政治上是如此有毒，以至于约翰逊作为多数党领袖的前两任都失去了自己的参议院席位。约翰逊在年仅44岁时就成为本党领袖，而当时参议院的平均年龄大约为60岁，这其中很大一部分原因是几乎没有其他人愿意接受这个吃力不讨好的无用职位。在他们手里，这个职位依然是无用的，但他们不是林登·约翰逊。</p>
+<p>从这个位置上，约翰逊把自己变成了美国仅次于总统的第二有权势的人，而且他使用了三种不同的策略来做到这一点。首先，他获得了筹码。他确保自己手中有可以承诺的东西和可以以此威胁的东西。约翰逊改造了参议院的规则、制度和规范，使得只有他有权为同事提供重要的好处。如果一位参议员需要一项法案通过，约翰逊就是那个可以把它安排到议事日程上的人，并且</p>
+<p>说服委员会主席将其报告提交。如果法案在众议院需要帮助，约翰逊是与议长萨姆·雷本有直接联系的人。如果参议员需要为下一次竞选筹集资金，以确保自己继续担任参议员，约翰逊是可以向他家乡德克萨斯的石油商人美言的人。约翰逊还让自己处于控制委员会分配的位置，而委员会分配是影响参议员整个职业生涯发展的最大因素。</p>
+<p>大约一个世纪以来，这些职位都是根据资历分配的。几乎是一夜之间，约翰逊改变了这一制度，使得许多席位不再由资历决定，而是由约翰逊掌控的党派指导委员会协商决定。如果你想要一个好位置，你就必须按照约翰逊的意愿行事。1957年，埃斯特斯·凯福弗在一项重要提案上投票反对约翰逊。就在同一周，凯福弗梦寐以求的外交关系委员会空缺席位</p>
+<p>原本期望得到的，却被交给了一位名叫约翰·F·肯尼迪的更年轻的参议员。林登·约翰逊真正的政治天才在于识别并掌控对同僚的每一个潜在影响力来源。参议员生存所需的无论是什么，无论是金钱、委员会席位，还是对本州重要法案的通过，约翰逊既可以给予，也可以拒绝。第二个重要策略是设定议程。法案所陈述的内容是</p>
+<p>是否通过取决于最终提交投票的版本以及所做的最终修改。谁有权设定议程，谁就能控制结果。所以你不会对谁把自己置于这个位置感到惊讶。约翰逊控制议程的主要工具是全体一致同意协议。按默认情况，参议院的辩论是无限制的。参议员可以就一项法案讲话多长时间都可以，同时他也可以提出与该法案无关的修正案。</p>
+<p>每一项都可能进一步拖延法案。一项全体同意协议会为单一法案搁置这些自由。它规定了辩论的时间，并限制了修改的机会。早期的领导者很少使用这种协议，即便使用，也只是在对一项法案进行了数周的辩论后，且该法案的审议已经耗尽时才会使用。约翰逊使其在参议院成为常态。他甚至不会允许一项法案在没有达成这种协议的情况下提交表决。</p>
+<p>原因是约翰逊想要控制哪些法案可以提交审议，并且想要防止公开审议改变任何人的想法，因为他希望每一票都能通过在私人场合的权谋交易提前解决，在那里他的影响力能够发挥最大作用。他最不希望看到的就是关于某项法案优劣的长时间公开辩论在最后一刻改变参议员的决定，或者突然的修正提案破坏他花了几周时间精心斡旋的交易。正如参议员保罗·道格拉斯所说,</p>
+<p>在约翰逊手下，所有的行动都发生在剧本开始之前的幕后。约翰逊使用的第三种策略是把所有的交易都谈到对自己有利。他确保参议院尽可能多的信息都通过自己。他让每个委员会指派一个工作人员告诉他正在起草的内容。他的助手追踪每位参议员的行动。而他自己则在议员休息室和走廊里度过，劝说并倾听同僚们的意见。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s12">
+<div class="body-sec-head"><h3>交易撮合与 1957 民权法拼盘；结语</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="dw"><div class="label"><span class="badge" title="德瓦凯什·帕特尔（Dwarkesh Patel）">德瓦凯什</span></div><div class="content">
+<p>所以他确切地知道每个参议员真正想要什么，以及他们为了得到它会放弃什么和不会放弃什么。在任何一次会议中，参议院都面临数百个可能的法案和修正案。一位参议员对某个法案的投票可以换取另一位参议员对另一个法案的投票。而且任何单一法案都可以通过多种方式进行修正以赢得某人的支持。因此，几乎有无穷无尽的可能交易组合可以达成。约翰逊确保自己是发起并促成这些大多数交易的人。</p>
+<p>因此，他会确保任何交易都让约翰逊获益。一个很好的例子是他如何让1957年的《民权法案》通过参议院。约翰逊急于确保至少有一些民权法案在那一年通过，即使它很薄弱。那是因为他想成为总统，但没有一个在南方记录上一直投票反对民权的人，能指望在1960年赢得民主党总统提名。问题是似乎没有任何法案</p>
+<p>足够强大以赢得北方自由派的支持，但又足够软弱以免南方人阻挠它。关键问题在于谁来主持那些南方选举官员被指控压制黑人选民的法庭案件。南方参议员坚持要求陪审团审判，但北方参议员非常愤怒，因为在他们看来，这将削弱整项法案的效力。该法律的全部目的就是为了打击黑人公民被排除在选民登记之外的行为。但南方各州要求陪审员必须</p>
+<p>登记选民，而且一个全白人的南方陪审团永远不会因为白人登记员拒绝黑人民众投票而定罪。因此，一方可以接受的任何版本，另一方都会拒绝。一个不那么有创造力的立法者早就会退出。但在七个月的时间里，约翰逊达成了一项高明的协议，将完全无关的派系聚集在一起，其副产品包括了这项民权法案的通过。西部参议员获得了他们一直想要的联邦水坝投票权。</p>
+<p>多年间，发生在爱达荷州和俄勒冈州之间。中西部的共和党人在他们的州拥有强大的铁路工会，因此获得了将陪审团审判权延伸到罢工工人的权利。而温和派则得到了一个条款，保证黑人公民可以在联邦陪审团中服务，以便他们可以告诉选民他们创造了一项新的民权。同时，对南方选举官员的陪审团审判保障仍然保留，这使得法案足够薄弱，以至于南方人同意不对其进行阻挠辩论。</p>
+<p>爱达荷州的一座水坝、对工会工人的保护以及联邦陪审团规则与南方的投票权根本没有关系，至少对那些没有林登·约翰逊那种内部知识和政治创造力的人来说是如此。卡罗的书是关于政治权力实际运作方式的最优秀的文字记载。但它们写得如此引人入胜，人物比任何小说都更生动，故事比任何小说都更扣人心弦，以至于很容易全神贯注地阅读，不断翻页，却从未停下来问自己，这些</p>
+<p>这些故事到底在教什么关于权力的课？我想做这条视频长文，既是自己把教训想清楚，也是给你铺好背景，好从我与卡罗的访谈里拿到和我一样多的收获。访谈明天就能看；你听到这里时，或许已经上线了。希望你会喜欢。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Dwarkesh Patel", "title": "非民选者如何统治纽约三十年——罗伯特·摩西与权力的写法", "url": "https://www.youtube.com/watch?v=kX_WmQK_tt0", "videoId": "kX_WmQK_tt0", "published_at": "2026-10-29", "duration": 1482, "caption_source": "YouTube 官方字幕（普通 yt-dlp）；caption_source=yt-dlp-official；中文为全文翻译并按中文表达习惯重写、按话题分段，并标注说话人（独白视频长文）", "guests": ["Robert Caro", "Robert Moses"], "intro": {"summary": "德瓦凯什·帕特尔在与罗伯特·卡罗正式访谈上线前，用约25分钟视频长文梳理《权力掮客》与约翰逊传中的权力课：非民选的罗伯特·摩西如何借公共当局、债券续命与宪法契约条款统治纽约三十余年；以及林登·约翰逊如何把「几乎无权」的多数党领袖做成参议院主人——杠杆、议程与交易撮合，并以1957年民权法拼盘为例。", "points": ["摩西：1964年前纽约州公路约899英里中他建672英里；工程按今值数千亿美元，却从未经选举", "三区大桥管理局：表面上还债即解散，他写入可发新债偿旧债且用于「任何其他法人目的」", "宪法契约条款把收费权与盈余写进债券后，州长市长无法收回——除非修宪大会", "身兼约12职、以交付速度与民意、联邦拨款技术垄断及辞职要挟保持不可替代", "约翰逊：多数党领袖正式权力几乎只有「优先发言」；他靠控制委员会席位、全体同意协议与私下换票成为第二号权势人物", "1957民权法：用水坝、工会陪审与联邦陪审规则拼出南北都能吞的软弱法案，服务其总统野心"], "verdict": "值得看：关心制度设计、基础设施政治、立法策略与「权力如何被写进法条/债券」的读者；可跳过：只想听卡罗访谈本尊、对纽约市政史无感者（约25分钟，访谈另更）。", "audience": "政治史与公共管理读者；关心城市基建/YIMBY 与立法权术的人；德瓦凯什与卡罗访谈的前置课观众"}, "speakers": [{"id": "dw", "name": "德瓦凯什·帕特尔（Dwarkesh Patel）", "role": "host", "short": "德瓦凯什"}], "sections": [{"id": "s1", "title": "开场：追访卡罗与本片用意", "start_sec": 0, "summary": "德瓦凯什说明：罗伯特·卡罗（Robert Caro）花约 50 年写四卷林登·约翰逊（Lyndon Johnson）传，此前 7 年写纽约「总设计师」罗伯特·摩西（Robert Moses）传；这些书被他视为对政治权力最好的探索，也是他最爱的书。六年来他一直把卡罗列为「最想却还没采访到的人」，追过经纪人、出版社、档案博物馆甚至手写信，终于完成访谈（次日上线）。本片是他重读传记时整理的「如何积累与运用权力」课，作为看访谈的背景。"}, {"id": "s2", "title": "摩西是谁：工程规模与非民选权力", "start_sec": 54, "summary": "摩西建造了三区大桥、韦拉扎诺桥、跨布朗克斯快速路、琼斯海滩、林肯中心、谢亚球场、上州两座大型水坝，以及成百上千公园泳池。到 1964 年纽约州完工的 899 英里公路中，摩西建了 672 英里；工程按今天币值计达数千亿美元。三十多年里他比任何民选市长或州长更有权，却从未当选公职；有人讥「你不必经选举」，他回「你也不必」。"}, {"id": "s3", "title": "自写法案：公共当局与债券续命", "start_sec": 128, "summary": "权力来源之一是他亲自起草约束自己的法律——被称作奥尔巴尼最好的法案起草人，把议员没意识到的权力写进法案。关键工具是公共当局：发债建桥、收费还债、理应拆亭移交并解散。1933 年《三区大桥管理局法》表面上第 1 节写明还清债券即解散（债券最长约 40 年、收入会更快还清），但摩西在第 9 节某小节加了一句：当局可「不时」用新债偿还旧债，且新债可用于「任何其他法人目的」——到期前可再发全新 40 年票据、用途可完全不同。"}, {"id": "s4", "title": "「连接设施」扩张解释权与借债能力", "start_sec": 247, "summary": "原法只允许建两座桥及引道；摩西把项目说成「城市心脏的巨大动脉」。修正案还赋予建连接道路及「与项目使用不相矛盾的设施」之权——按他创造性解释，凡「连到连到桥」的路、或沿这些路的公园住房，三区当局都可改造；资金来自巨额通行费及以此抵押借款。1946 年纽约市政府借债上限约 1.5 亿美元，同年三区当局可借约 3.6 亿——超过全美最大城市政府。"}, {"id": "s5", "title": "宪法契约条款：权力铸进债券", "start_sec": 311, "summary": "若未来州长市长想收回权力，摩西已埋伏笔：美国宪法禁止各州损害政府实体已订立的契约义务，公共当局债券即此类契约。他塞进条款，允许把「任何影响债券安全或保护的同类或不同事项」写进债券合同——包括可任意定价、任意久收费并保留盈余。权力一旦写进售出的债券，立法机关、州长、市长都无法撤销，除非修宪大会；而债券寿命还可再融资延长。几处小改动就把「两座桥」变成受宪法保护、几乎可在纽约随处建设的机构；但契约并不保证摩西本人继续当主席。"}, {"id": "s6", "title": "为何连任：多头职位、清廉与不可罢免", "start_sec": 405, "summary": "连任部分仍靠法律：摩西起草规定委员任期内只能在「正式听证后的陈述指控」下罢免；他与市长州长的冲突多在建什么、拆谁的房子，而非个人品行。卡罗写他「金钱上诚实」、不收贿。这解释了为何中途不被炒，却解释不了为何每六年再获任命。巅峰时他身兼约 12 个政府职务（市建设协调官、州公园委员会主席、州电力局主席等），有的市长任命、有的州长任命，无人能一次砍光所有头；开罪他等于开罪纽约仍最有权的人。更重要的是，多数时候没人想开除他。"}, {"id": "s7", "title": "交付速度、民意与选举周期", "start_sec": 522, "summary": "今天对摩西的记忆多被 1970 年代《权力掮客》与纽约犯罪、去工业化、白人外逃的「黑暗年代」定格，副标题甚至是「罗伯特·摩西与纽约的衰落」。德瓦凯什认为危机更多来自与摩西无关的结构性因素——底特律、圣路易斯崩溃更剧。1930–40 年代纽约高中生曾票选他为最受敬仰的纽约人：海滩、公园、泳池大规模可及，且上任公园专员头四个月昼夜施工完成约 1700 处公园翻新，几乎无个人丑闻。开园仪式上常见孩子被家长怂恿喊「2-4-6-8，我们感谢谁？摩西先生」。他能在一个选举周期内交付巨大公共工程，市长给他权就能在连任前剪彩——对比第二大道地铁 1972 动工、2017 才开通首段约 2 英里、耗资约 45 亿美元。"}, {"id": "s8", "title": "联邦拨款垄断与以辞要挟", "start_sec": 646, "summary": "大量公款来自华盛顿；蓝图齐备、联邦一宣布就能破土的城市拿钱最多。摩西拥有全国最大最好的规划工程师团队，到 1936 年纽约拿到全美大萧条以工代赈拨款约 1/7，且项目由摩西圈定。市长若另有想法，须自备他无力独立完成的技术方案——结果只能建摩西要建的，或什么都不建。他不断以辞职要挟：瓦格纳市长任内助手称「好像一天为鸡毛蒜皮辞职两次」；拉瓜迪亚的律师甚至印好「我，罗伯特·摩西，特此辞去某某职」表格省事——玩笑背后是真恐惧：接受辞呈等于丢掉在建项目与配套资金，并公开对抗全州最受敬重的官员。"}, {"id": "s9", "title": "媒体同盟与 YIMBY 分赃机器", "start_sec": 729, "summary": "摩西多年结交报业老板，常去苏兹贝格（New York Times 东家）夏宅度周末；市长清楚一旦他辞职，次日头版会写成「超越政治的人因不愿牺牲城市利益被卑劣政客赶走」。比大众声望更强的是与私利集团的纽带：他打造「YIMBY 集中阵营」——银行可无竞标折扣买债、工会获工作、关系户律师吃法律费、党魁靠几乎无垮塌风险的桥梁保险吃回扣；这些人再去打电话压反对的区长乃至州长。卡罗刻画早期摩西是理想主义改革者，1910 年代加入好政府运动想以诚实行政取代坦慕尼厅恩庇，改革被机器绞杀后他学到：没有权力，理想一文不值。卡罗名句：权力起初是梦想的仆人，但权力像毒品，使用者需要越来越大的剂量。"}, {"id": "s10", "title": "理想主义成瘾 vs 约翰逊的机会主义", "start_sec": 814, "summary": "约翰逊轨迹相反：大半生涯难见一贯意识形态，是抓住权宜之机的权力追求者。初入参议院时最有权的是保守南部 Dixiecrats，他按他们的模样塑造自己。卡罗写《参议院主人》时问佐治亚参议员赫尔曼·塔尔马奇：新科参议员约翰逊给人何种「白人与黑人正当关系」印象？答「主仆」；再问有无同情或改善黑人处境的愿望，长停顿后两字「未见迹象」，并说「他心里和我们一伙，我信他」。日后他却推动 1964 民权法与 1965 投票权法——重建以来最重要民权立法。摩西从天真理想滑向为权力而权力；约翰逊从投机者起步，真正有权后才拿出很少人知道他怀有的理想。"}, {"id": "s11", "title": "约翰逊如何做参议院主人：杠杆与议程", "start_sec": 971, "summary": "约翰逊曾任多数党领袖，被卡罗称为「参议院的主人」——该机构此前从未有过主人，本书写作近半世纪后也再无。建国者本意不让参议院被领导；国会图书馆列出多数党领袖正式权力仅一项：在议场优先获得发言权。前任领袖常成「避雷针」：全国媒体与本州责难参议院无所作为，却无权改变——两任前任都因此丢了席位。约翰逊约 44 岁（参议院平均约 60）接任，部分因几乎无人想要这份吃力不讨好的差事。他用三招把自己变成仅次于总统的美国第二号权势人物：一是杠杆——改造规则、制度与规范，使通过法案排期、说服委员会主席放行、打通众院雷伯恩议长、向德州石油商美言募款、以及控制委员会席位分配（打破约一个世纪的年资制，改由他掌控的党团督导委员会协商）都经他之手；1957 年凯弗维尔因一次关键动议投票反对他，当周外交关系委员会热门空缺转给更资浅的肯尼迪。二是议程——用「全体同意协议」限制辩论时长与修正案，且常在协议到位前不让法案上地板，以免公开辩论或突袭修正案毁了他私下谈妥的交易；道格拉斯参议员说，约翰逊治下「戏开演前台下已演完」。"}, {"id": "s12", "title": "交易撮合与 1957 民权法拼盘；结语", "start_sec": 1281, "summary": "第三招是撮合交易：委员会派人向他汇报起草进度，助手追踪每位参议员，本人终日走廊游说——他清楚每人真正要什么、肯为什么放弃什么。数百法案与修正案可交叉换票；他确保自己发起并居中的交易最终让他得利。1957 年民权法是范例：他急需通过哪怕软弱的民权法案，以便以南部投票记录仍有望问鼎 1960 年民主党总统提名；北方要强、南方要弱（坚持选举官员案由陪审团审——南方陪审员须是登记选民，全白人陪审团几乎不会给剥夺黑人选票的登记官定罪）。约翰逊用约七个月拼出无关拼盘：西部参议员换得爱达荷–俄勒冈联邦水坝表决，中西部共和党为铁路工会争取罢工工人也享陪审团审判，温和派换得联邦陪审团须容纳黑人公民的条款以便向选民宣称「创造了新民权」，同时保留南方选举官员的陪审团保障使法案够弱、南方不阻挠。爱达荷水坝、工会保护与联邦陪审规则本与南部投票权无关——除非有约翰逊那种内情与创意。卡罗的书既是权力运作的最佳记述，也因人物故事比小说更抓人而易只翻页不问「教了什么」；德瓦凯什做本片就是为提炼教训，并给你看卡罗访谈的语境——访谈「明天」可见（听本片时或许已上线）。"}], "paragraphs": [{"start_sec": 0, "type": "text", "zh": "我最近采访了罗伯特·卡罗（Robert Caro）。过去五十年他在写四卷本的林登·约翰逊（Lyndon Johnson）传记；在那之前又花了七年写纽约「总设计师」罗伯特·摩西（Robert Moses）的传记。这些书被公认为对政治权力最出色的探索，也恰好是我最爱的书。每认识一个新朋友，对方常问的第一个问题之一是：「你最想采访、却还没采访到的人是谁？」", "speaker_id": "dw", "section_id": "s1"}, {"start_sec": 29, "type": "text", "zh": "六年来我的答案一直没变：罗伯特·卡罗。为促成这次访谈，我追过他的经纪人、打给出版社、联系收藏其档案的博物馆，甚至寄过手写信。终于坐下来聊完，我对结果很满意——访谈明天上线。准备访谈、重读这些传记时，", "speaker_id": "dw", "section_id": "s1"}, {"start_sec": 54, "type": "text", "zh": "在这些传记中，我把他们关于如何积累和使用权力所展示的所有教训都写了下来，而这个视频长文就是结果。罗伯特·摩西是纽约的建筑大师。我们尊贵的嘉宾是罗伯特·摩西先生，全国最杰出的城市规划师。他建造了比以前或之后的任何人都多的城市实体。他建造了特里堡桥和韦拉扎诺大桥、布朗克斯快速公路、琼斯海滩、林肯中心、谢亚球场，以及上州的两座巨型水力发电坝，此外还有数百个公园和游泳池。", "speaker_id": "dw", "section_id": "s2"}, {"start_sec": 94, "type": "text", "zh": "到1964年，纽约州完成的899英里的公路中，莫西斯建造了其中的672英里。他的工程总花费以今天的货币计数达数千亿美元。三十多年来，罗伯特·莫西斯是纽约最有权势的人，比任何当选的市长或州长都更有权力，尽管他并没有通过选举获得任何职位。据我所听，过去三十多年，人们反复说：“你不必当选。”我对他们的标准回答是：“你也不必当选。”", "speaker_id": "dw", "section_id": "s2"}, {"start_sec": 128, "type": "text", "zh": "他是如何获得如此大的权力的，又是如何保持这些权力的呢？部分答案在于摩西制定了约束他的法律。他被称为奥尔巴尼最优秀的法案起草者，他利用这一技能为自己制定了立法者在投票时并未意识到授予他的权力。罗伯特·摩西的政治天才也许最能体现在他对公共机构的运用。这些是政府设立的公司，负责建设城市基础设施。公共机构通过出售债券为特定项目融资，例如一座新桥。", "speaker_id": "dw", "section_id": "s3"}, {"start_sec": 158, "type": "text", "zh": "一旦桥建成，当局将向司机收取通行费，直到收取足够的钱来偿还其债券。然后，当局将拆除收费站，将桥移交给城市，并停止运营。至少，这是计划。奥尔巴尼假设，当纽约州议会批准1933年的《三区大桥管理局法案》时，就会发生这种情况，其最终版本在法律条文的几页之中，隐含了几条看似无关紧要的内容。", "speaker_id": "dw", "section_id": "s3"}, {"start_sec": 186, "type": "text", "zh": "由罗伯特·摩西起草的修改。该法案的第1条明确规定，一旦债券偿还完毕，该机构将解散。由于债券最多可持续40年，而桥梁的收入能够远早于此时间偿还初始成本，似乎该机构有一个明确的内置终止日期。然而，在第9条的一个小节中，摩西增加了一句话，称该机构可以“时不时地”通过发行新债券来偿还旧债券。", "speaker_id": "dw", "section_id": "s3"}, {"start_sec": 216, "type": "text", "zh": "而那些新的债券可能是“用于任何其他公司目的”。所以就在原来的债券即将到期之前，当局现在有权发行一张全新的、为期40年的债券，用于可能完全不同的用途。那么当局可以用这笔钱建什么呢？最初的法律允许它建两座桥及其接近道路。三区大桥委员会主席罗伯特·摩西称这个项目不仅仅是一座桥。他说：“它将在城市的心脏地带，成为一条巨大的交通动脉。”", "speaker_id": "dw", "section_id": "s3"}, {"start_sec": 247, "type": "text", "zh": "从岛上，通过收费站，驶出了第一辆车。租着燕尾服的年轻人，是乘客。他们整周都把车停在这里，为了享受成为第一个穿过的人带来的荣誉。摩西的修正案也赋予了该机构建设连接道路和“与项目使用不冲突的设施”的权利。当这些权利按照摩西的意图进行创造性解释时，将允许摩西改造纽约的大部分道路、公园和住宅。因为如果一条路连接到另一条路，而另一条路再连接到", "speaker_id": "dw", "section_id": "s4"}, {"start_sec": 279, "type": "text", "zh": "到桥上，或者如果沿着通往那条连接桥的道路的道路的道路旁有一座公园，当然，三区大桥管理局有权对其进行改善和改造。所有这些建设都可以通过桥梁巨额的通行费收入以及三区大桥管理局以此为担保借款的权利来融资。为了给一些参考，1946年，整个纽约市政府在达到法定债务上限之前，最多只能借款1.5亿美元。同一年，三区大桥", "speaker_id": "dw", "section_id": "s4"}, {"start_sec": 311, "type": "text", "zh": "可以借到3.6亿美元。所以摩西的桥梁管理局可以使用的资金是美国最大城市的两倍多。如果将来某个州长或市长最终了解到所有这些被委托给该管理局的权力和收入，并决定收回这些权限呢？摩西也为此做了计划，他的解决方案非常巧妙，以至于奥尔巴尼的律师或立法者都没有预料到。《美国宪法》规定没有", "speaker_id": "dw", "section_id": "s5"}, {"start_sec": 340, "type": "text", "zh": "各州不得制定“削弱合同义务的任何法律”，这些合同是由政府实体订立的。公共机构发行的债券就是这样的合同。摩西在法案中偷偷加入了一条条款，允许他将“任何类似或不同性质的事项，无论以何种方式影响债券的安全性或保护”的内容加入这些债券合同。这些事项包括三区大桥可以随意收取任何通行费，并且收取多久都可以。", "speaker_id": "dw", "section_id": "s5"}, {"start_sec": 373, "type": "text", "zh": "并且它可以保留由此产生的盈余。也摩西现在可以仅通过将权力写入他发行的债券中来巩固他的权力。从这些债券出售的那一刻起，这些权力就不再能够被立法机关、州长、市长，或者事实上任何人撤销，除非召开制宪会议。摩西现在拥有的权力在债券的整个生命周期内都是有保障的，而生命周期也可以通过再融资轻松延长。", "speaker_id": "dw", "section_id": "s5"}, {"start_sec": 405, "type": "text", "zh": "因此，通过一些小的调整，摩西将一个本意是为了建造两座桥梁的行为，转变为了一个可以在纽约的任何地方建造几乎任何东西的机构的基础，并且其行使这种权力的权威得到了美国宪法的保护。这些债券契约使得三区大桥管理局的权力牢不可破，但其中没有任何条款保证罗伯特·摩西会继续担任其主席。那么，摩西是如何保持这一职位长达30年的呢？", "speaker_id": "dw", "section_id": "s6"}, {"start_sec": 436, "type": "text", "zh": "答案的一部分，再次，是法律。摩西起草了《三重桥法案》，规定其专员只有在“经过正式听证后提出的指控”下才能在任期中被免职。但他与市长或州长的任何分歧更多是关于他决定建造什么以及为了建造它而搬迁谁，而不是关于他的个人行为。正如卡罗自己所写的，“罗伯特·摩西本人并不腐败。事实上，他对为自己获取回扣毫无兴趣”", "speaker_id": "dw", "section_id": "s6"}, {"start_sec": 464, "type": "text", "zh": "就像任何曾经存在的公务员一样。用政客的话说，他是金钱上的诚实。因此，从来没有正式的指控可以提出。但这只能解释为什么他在任期中没有被解雇。那为什么他每六年都会被重新任命呢？在他的巅峰时期，摩西就像一个有十二个头的九头蛇。他同时担任12个不同的政府职务：城市建设协调员、州公园理事会主席、州电力管理局主席等等。其中一些职位是由", "speaker_id": "dw", "section_id": "s6"}, {"start_sec": 493, "type": "text", "zh": "市长，其中一些由州长任命，因此没有一个人能够同时罢免他。而将他从任何一个职位上移除都意味着你会成为那位仍将是纽约最有权势的人的敌人。更重要的是，没有市长或州长愿意解雇他。我们今天对罗伯特·莫西的记忆是基于他在1970年代《《《权力掮客》》》出版时，以及纽约正经历犯罪黑暗时代时形成的声誉。", "speaker_id": "dw", "section_id": "s6"}, {"start_sec": 522, "type": "text", "zh": "去工业化和白人外迁。莫西斯为此承担了很多责任。毕竟，《《《权力掮客》》》的副标题是《罗伯特·莫西斯与纽约的衰落》。但在我看来，这场危机更多地与莫西斯本人无关的更大结构性因素有关。那些与他无关的城市，如底特律和圣路易斯，经历了更为剧烈的崩溃。在他职业生涯的大多数时间里，莫西斯都极受欢迎。在20世纪30年代和40年代，纽约的高中投票选他为最受崇敬的纽约人。", "speaker_id": "dw", "section_id": "s7"}, {"start_sec": 555, "type": "text", "zh": "这是因为他一次又一次地完成了公共工程，数百万纽约人得以使用和享受：海滩、公园、游泳池。以前人们会从码头跳入浑浊的河水，但现在是在一个豪华、现代的露天游泳场里嬉水。它花费了一百万美元，孩子们说这是值得的。而且他以前所未有的速度和规模完成了这些工程。在他担任城市公园专员的头四个月里，他让施工队昼夜不停地工作。", "speaker_id": "dw", "section_id": "s7"}, {"start_sec": 583, "type": "text", "zh": "他几乎不停歇地工作，完成了1,700个公园的翻新工程，而且这一切都没有任何个人丑闻。正如卡罗在《《《权力掮客》》》中写道：“在公园和游乐场的开幕仪式上，父母催促孩子们欢呼，这是很常见的。”2、4、6、8。我们感谢谁？摩西先生。摩西先生。摩西先生。重要的是，摩西能够在一个选举周期内完成这些庞大而受欢迎的公共工程项目。如果市长赋予罗伯特·摩西建设的权力", "speaker_id": "dw", "section_id": "s7"}, {"start_sec": 616, "type": "text", "zh": "他可以预期在自己需要连任之前就站在剪彩仪式现场。罗伯特·摩西、瓦格纳市长和斯佩尔曼红衣主教与其他贵宾一同在桥梁的布鲁克林侧参加剪彩仪式。今天，政府能够在一两年内建造大型工程几乎是不可想象的。例如，纽约第二大道地铁的建设始于1972年，第一段于2017年开放。仅这最初的两英里就花费了纳税人45亿美元。大量资金用于", "speaker_id": "dw", "section_id": "s7"}, {"start_sec": 646, "type": "text", "zh": "公共工程资金来自华盛顿。获得最多资金的城市是那些已经完成蓝图并且能够在新的联邦计划宣布后立即开工的城市。摩西拥有全国最大、最优秀的规划师和工程师团队。正因为如此，到1936年，纽约获得的资金占联邦政府为整个国家的经济大萧条时期的救济工程预留资金的七分之一。而这些资金的项目是", "speaker_id": "dw", "section_id": "s8"}, {"start_sec": 672, "type": "text", "zh": "朝着前进的是摩西选择的人。如果市长对应该建造什么有不同的想法，他就得自己制定计划，而他没有独立的技术专长去做这件事。所以他只能建造摩西想建的项目，或者什么也不建。在他的执行能力、受欢迎程度以及对资金的控制之间，摩西拥有很大的影响力，而且他使用这些影响力毫不犹豫。根本不担心被解雇，", "speaker_id": "dw", "section_id": "s8"}, {"start_sec": 699, "type": "text", "zh": "每当摩西未能如愿时，他总是威胁要辞职。在市长瓦格纳手下，一名助手说，“似乎他每天都在因为这样或那样的事情辞职，大约两次。”他向市长拉瓜迪亚威胁辞职的频率之高、涉及的事情之小，以至于拉瓜迪亚的律师印了一大堆表格，上面写着：“我，罗伯特·摩西，特此辞去某某职务”，以免摩西每次都要亲自写。但在这个玩笑背后却是真正的恐惧。", "speaker_id": "dw", "section_id": "s8"}, {"start_sec": 729, "type": "text", "zh": "如果一位市长接受了那份辞职，不仅意味着他会放弃摩西正在进行的各种项目的完成，以及为这些项目分配的资金，他还会与整个纽约最受尊敬的官员公开开战。也许这才是最重要的：这完全是固执。摩西花了多年时间与城市报纸的老板们建立友谊。他在许多周末都待在苏尔茨伯格家的夏季别墅里，", "speaker_id": "dw", "section_id": "s9"}, {"start_sec": 754, "type": "text", "zh": "拥有《纽约时报》的家庭。市长知道，如果摩西辞职，第二天早晨，所有的头版都会讲同样的故事，说一个超越政治的人因为拒绝妥协城市的利益而被一个卑鄙的政客赶走。而摩西从大众的支持中获得的权力，与他从与纽约强大的私人利益的关系中获得的权力相比，根本不算什么。今天我们已经非常习惯“邻避”，即“不要在我家后院”，指的是有权势的", "speaker_id": "dw", "section_id": "s9"}, {"start_sec": 784, "type": "text", "zh": "但即使项目本身非常受欢迎，有组织的利益集团仍然设法阻挠。摩西为“YIMBY（是的，我的后院）”建立了一个集中化派系。他建立了一台贪腐机器，确保当新的建设发生时，州内最有权势的人都会受益。银行可以以大幅折扣购买他的债券，无需竞争性投标，工会获得更多工作机会，有政治关系的律师获得律师费，政党负责人则通过桥梁保险政策的中介获得报酬", "speaker_id": "dw", "section_id": "s9"}, {"start_sec": 814, "type": "text", "zh": "那没有任何可能倒塌的风险。摩西随后可以依赖这些受益人去召唤任何阻碍他项目的人，无论是区长还是州长本人。卡罗描绘的摩西是一个起初作为理想主义者的人，而不是从一开始就渴望权力的人。在1910年代，摩西是一位才华横溢的年轻改革者，他加入了这一新的良好政府运动，该运动试图用诚实和称职的管理取代塔玛尼会的任人唯亲。他花了多年时间去斗争", "speaker_id": "dw", "section_id": "s10"}, {"start_sec": 845, "type": "text", "zh": "这台机器，但他的改革被扼杀了。机器赢了，摩西明白了，没有实现理想的能力，理想是无用的。卡罗写道：“一开始，在他职业生涯的数十年里，罗伯特·摩西积累的权力是他梦想的仆人，为了这些梦想而积累，使他那庞大、塑造城市的愿景能够成为现实。但权力不是其拥有者可以随意使用的工具。它是一种药物，会让使用者产生对越来越大剂量的需求，而摩西就是一个使用者。”", "speaker_id": "dw", "section_id": "s10"}, {"start_sec": 881, "type": "text", "zh": "另一方面，林登·约翰逊的故事则相反。在他的大部分职业生涯中，几乎没有证据表明他有一套连贯的政治理念。他是一个无情的权力追求者，总是采取当时最方便行事的方法。当约翰逊首次进入美国参议院时，他意识到那里最有权势的人是保守的南方迪克西党人，而他们遇到的约翰逊是一个会将自己塑造成他们方式的人。在撰写《参议院的主人》第三卷时", "speaker_id": "dw", "section_id": "s10"}, {"start_sec": 909, "type": "text", "zh": "在约翰逊传记中，卡罗采访了前佐治亚州参议员赫尔曼·塔尔马奇。他问塔尔马奇，从新任参议员林登·约翰逊那里，如何看待白人与黑人之间的正确关系。现在引用卡罗对这段对话的回忆：“'主人与仆人。'于是我，”卡罗，“问，'约翰逊难道没有对黑人有任何同情吗？有没有想要改善他们的处境？'我的笔记上写着，长时间停顿。然后我写下了塔尔马奇的两个字回复，", "speaker_id": "dw", "section_id": "s10"}, {"start_sec": 940, "type": "text", "zh": "“没有人表明。”又是一阵停顿，然后说，“他在我们的心中与我们同在。我相信他。我相信他。”当然，我们都知道，一旦他成为总统，约翰逊就推动了1964年的《民权法案》和1965年的《投票权法案》，这是自重建以来最重要的民权法律。因此，摩西起初是个天真的理想主义者，但在卡罗的叙述中，他变成了一个为了权力而追求权力的人。另一方面，约翰逊从一开始就是一个机会主义者。", "speaker_id": "dw", "section_id": "s10"}, {"start_sec": 971, "type": "text", "zh": "只有当他拥有真正的权力时，他才将其用于少有人知的理想。在成为总统之前，林登·约翰逊是副总统；在成为副总统之前，林登·约翰逊在参议院，而林登·约翰逊是参议院多数党领袖中最有权力的，也许是美国历史上最有权力的立法者。卡罗说：“他是参议院的主人，一个此前从未有过主人的机构的主人，而当时几乎半个世纪后，当这", "speaker_id": "dw", "section_id": "s11"}, {"start_sec": 1001, "type": "text", "zh": "书正在写作中，从那以后还没有一本。约翰逊之前的任何领导人都没有 wielded 过这种权力，因为参议院是由创始人故意设立的，不是为了被领导。当约翰逊向国会图书馆询问多数党领袖的正式权力清单时，他发现只有一个：在议事厅首先被认可的权利。在约翰逊之前，多数党领袖与其说是领导者，不如说是避雷针。他会在全国媒体和本州被责备所有事情的", "speaker_id": "dw", "section_id": "s11"}, {"start_sec": 1030, "type": "text", "zh": "参议院未能做到的事情，他实际上也没有权力去处理这些失败。身处这种困境在政治上是如此有毒，以至于约翰逊作为多数党领袖的前两任都失去了自己的参议院席位。约翰逊在年仅44岁时就成为本党领袖，而当时参议院的平均年龄大约为60岁，这其中很大一部分原因是几乎没有其他人愿意接受这个吃力不讨好的无用职位。在他们手里，这个职位依然是无用的，但他们不是林登·约翰逊。", "speaker_id": "dw", "section_id": "s11"}, {"start_sec": 1060, "type": "text", "zh": "从这个位置上，约翰逊把自己变成了美国仅次于总统的第二有权势的人，而且他使用了三种不同的策略来做到这一点。首先，他获得了筹码。他确保自己手中有可以承诺的东西和可以以此威胁的东西。约翰逊改造了参议院的规则、制度和规范，使得只有他有权为同事提供重要的好处。如果一位参议员需要一项法案通过，约翰逊就是那个可以把它安排到议事日程上的人，并且", "speaker_id": "dw", "section_id": "s11"}, {"start_sec": 1087, "type": "text", "zh": "说服委员会主席将其报告提交。如果法案在众议院需要帮助，约翰逊是与议长萨姆·雷本有直接联系的人。如果参议员需要为下一次竞选筹集资金，以确保自己继续担任参议员，约翰逊是可以向他家乡德克萨斯的石油商人美言的人。约翰逊还让自己处于控制委员会分配的位置，而委员会分配是影响参议员整个职业生涯发展的最大因素。", "speaker_id": "dw", "section_id": "s11"}, {"start_sec": 1112, "type": "text", "zh": "大约一个世纪以来，这些职位都是根据资历分配的。几乎是一夜之间，约翰逊改变了这一制度，使得许多席位不再由资历决定，而是由约翰逊掌控的党派指导委员会协商决定。如果你想要一个好位置，你就必须按照约翰逊的意愿行事。1957年，埃斯特斯·凯福弗在一项重要提案上投票反对约翰逊。就在同一周，凯福弗梦寐以求的外交关系委员会空缺席位", "speaker_id": "dw", "section_id": "s11"}, {"start_sec": 1141, "type": "text", "zh": "原本期望得到的，却被交给了一位名叫约翰·F·肯尼迪的更年轻的参议员。林登·约翰逊真正的政治天才在于识别并掌控对同僚的每一个潜在影响力来源。参议员生存所需的无论是什么，无论是金钱、委员会席位，还是对本州重要法案的通过，约翰逊既可以给予，也可以拒绝。第二个重要策略是设定议程。法案所陈述的内容是", "speaker_id": "dw", "section_id": "s11"}, {"start_sec": 1173, "type": "text", "zh": "是否通过取决于最终提交投票的版本以及所做的最终修改。谁有权设定议程，谁就能控制结果。所以你不会对谁把自己置于这个位置感到惊讶。约翰逊控制议程的主要工具是全体一致同意协议。按默认情况，参议院的辩论是无限制的。参议员可以就一项法案讲话多长时间都可以，同时他也可以提出与该法案无关的修正案。", "speaker_id": "dw", "section_id": "s11"}, {"start_sec": 1200, "type": "text", "zh": "每一项都可能进一步拖延法案。一项全体同意协议会为单一法案搁置这些自由。它规定了辩论的时间，并限制了修改的机会。早期的领导者很少使用这种协议，即便使用，也只是在对一项法案进行了数周的辩论后，且该法案的审议已经耗尽时才会使用。约翰逊使其在参议院成为常态。他甚至不会允许一项法案在没有达成这种协议的情况下提交表决。", "speaker_id": "dw", "section_id": "s11"}, {"start_sec": 1229, "type": "text", "zh": "原因是约翰逊想要控制哪些法案可以提交审议，并且想要防止公开审议改变任何人的想法，因为他希望每一票都能通过在私人场合的权谋交易提前解决，在那里他的影响力能够发挥最大作用。他最不希望看到的就是关于某项法案优劣的长时间公开辩论在最后一刻改变参议员的决定，或者突然的修正提案破坏他花了几周时间精心斡旋的交易。正如参议员保罗·道格拉斯所说,", "speaker_id": "dw", "section_id": "s11"}, {"start_sec": 1255, "type": "text", "zh": "在约翰逊手下，所有的行动都发生在剧本开始之前的幕后。约翰逊使用的第三种策略是把所有的交易都谈到对自己有利。他确保参议院尽可能多的信息都通过自己。他让每个委员会指派一个工作人员告诉他正在起草的内容。他的助手追踪每位参议员的行动。而他自己则在议员休息室和走廊里度过，劝说并倾听同僚们的意见。", "speaker_id": "dw", "section_id": "s11"}, {"start_sec": 1281, "type": "text", "zh": "所以他确切地知道每个参议员真正想要什么，以及他们为了得到它会放弃什么和不会放弃什么。在任何一次会议中，参议院都面临数百个可能的法案和修正案。一位参议员对某个法案的投票可以换取另一位参议员对另一个法案的投票。而且任何单一法案都可以通过多种方式进行修正以赢得某人的支持。因此，几乎有无穷无尽的可能交易组合可以达成。约翰逊确保自己是发起并促成这些大多数交易的人。", "speaker_id": "dw", "section_id": "s12"}, {"start_sec": 1308, "type": "text", "zh": "因此，他会确保任何交易都让约翰逊获益。一个很好的例子是他如何让1957年的《民权法案》通过参议院。约翰逊急于确保至少有一些民权法案在那一年通过，即使它很薄弱。那是因为他想成为总统，但没有一个在南方记录上一直投票反对民权的人，能指望在1960年赢得民主党总统提名。问题是似乎没有任何法案", "speaker_id": "dw", "section_id": "s12"}, {"start_sec": 1336, "type": "text", "zh": "足够强大以赢得北方自由派的支持，但又足够软弱以免南方人阻挠它。关键问题在于谁来主持那些南方选举官员被指控压制黑人选民的法庭案件。南方参议员坚持要求陪审团审判，但北方参议员非常愤怒，因为在他们看来，这将削弱整项法案的效力。该法律的全部目的就是为了打击黑人公民被排除在选民登记之外的行为。但南方各州要求陪审员必须", "speaker_id": "dw", "section_id": "s12"}, {"start_sec": 1364, "type": "text", "zh": "登记选民，而且一个全白人的南方陪审团永远不会因为白人登记员拒绝黑人民众投票而定罪。因此，一方可以接受的任何版本，另一方都会拒绝。一个不那么有创造力的立法者早就会退出。但在七个月的时间里，约翰逊达成了一项高明的协议，将完全无关的派系聚集在一起，其副产品包括了这项民权法案的通过。西部参议员获得了他们一直想要的联邦水坝投票权。", "speaker_id": "dw", "section_id": "s12"}, {"start_sec": 1393, "type": "text", "zh": "多年间，发生在爱达荷州和俄勒冈州之间。中西部的共和党人在他们的州拥有强大的铁路工会，因此获得了将陪审团审判权延伸到罢工工人的权利。而温和派则得到了一个条款，保证黑人公民可以在联邦陪审团中服务，以便他们可以告诉选民他们创造了一项新的民权。同时，对南方选举官员的陪审团审判保障仍然保留，这使得法案足够薄弱，以至于南方人同意不对其进行阻挠辩论。", "speaker_id": "dw", "section_id": "s12"}, {"start_sec": 1419, "type": "text", "zh": "爱达荷州的一座水坝、对工会工人的保护以及联邦陪审团规则与南方的投票权根本没有关系，至少对那些没有林登·约翰逊那种内部知识和政治创造力的人来说是如此。卡罗的书是关于政治权力实际运作方式的最优秀的文字记载。但它们写得如此引人入胜，人物比任何小说都更生动，故事比任何小说都更扣人心弦，以至于很容易全神贯注地阅读，不断翻页，却从未停下来问自己，这些", "speaker_id": "dw", "section_id": "s12"}, {"start_sec": 1455, "type": "text", "zh": "这些故事到底在教什么关于权力的课？我想做这条视频长文，既是自己把教训想清楚，也是给你铺好背景，好从我与卡罗的访谈里拿到和我一样多的收获。访谈明天就能看；你听到这里时，或许已经上线了。希望你会喜欢。", "speaker_id": "dw", "section_id": "s12"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

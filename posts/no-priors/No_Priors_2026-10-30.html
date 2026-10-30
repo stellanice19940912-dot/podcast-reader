@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>挑战 ServiceNow：给所有人用的编程智能体｜Serval 联合创始人兼 CEO 杰克·斯托克（Jake Stauch）</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-2{--c:#4c8c5a;--cbg:#29392a;--cbgl:#eaf1eb}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="sg">莎拉·郭（Sarah Guo）</option><option value="eg">埃拉德·吉尔（Elad Gil）</option><option value="js">杰克·斯托克（Jake Stauch）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">No Priors</span><span class="pill">2026-10-29</span></div>
+<h1>挑战 ServiceNow：给所有人用的编程智能体｜Serval 联合创始人兼 CEO 杰克·斯托克（Jake Stauch）</h1>
+<p class="sub">嘉宾：Jake Stauch · 约 38 分钟（2286 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=EZcWEsMuLb4" target="_blank" rel="noopener">https://www.youtube.com/watch?v=EZcWEsMuLb4</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>No Priors</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-29</dd></div><div class="meta-row"><dt>时长</dt><dd>约 38 分钟（2286 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；yt-dlp --cookies-from-browser chrome 补拉成功）；caption_source=yt-dlp-chrome-cookies；无官方字幕；中文为全文翻译并按中文表达习惯重写、按话题分段，并标注说话人</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>EZcWEsMuLb4</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>No Priors 莎拉·郭与埃拉德·吉尔对话 Serval 联合创始人兼 CEO 杰克·斯托克：用代码生成智能体武装企业 IT，正面挑战 ServiceNow；产品核心不是自研大模型，而是审批、预发/生产闸门、审计与最小权限提权等「护栏」，并搭配驻场与 ProServal 自动化工程做扩散。</p>
+<h3>核心要点</h3><ul><li>定位：给 IT（再辐射 HR/财务/法务）的「普通人编程智能体」平台，底下 codegen、上面确定性审批与审计</li><li>为何能打 ServiceNow：认定代码才是企业自动化正确表达；拖拽对两边都不舒服；AI 让非工程师也能写自动化</li><li>大企业不用个人智能体：个人权限太窄；Serval 用服务账号+即时提权+工单审计换安全采用</li><li>商业叙事：卖「升职工具」而非「冒险」——Fox 全公司落地，一线负责人获全公司 MVP</li><li>组织：约两年半、约 200 人；工程师泡客户 Slack/日会，几乎无独立产品职能，敢反复推倒重来</li><li>对 SaaS 末日：点状应用与中间件会收；ERP/HRIS/ITSM/CRM 等系统 of record 会换代但不会消失</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：做企业 AI/ITSM/自动化、想啃巨头系统 of record 的创始人与 IT 负责人；可跳过：只想听模型评测或消费级 Agent 演示、对审批合规无感者（约38分钟）。</p>
+<h3>适合人群</h3><p>企业 AI / IT 自动化创业者与投资人；CIO/IT 负责人；关心 Agent 治理与 ServiceNow 替代叙事的读者</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场：后台智能体的登月与护栏</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">冷开场抛出企业软件「终极登月」：能自主发现并解决问题的后台智能体——但目前无人真正做好；OpenAI/Hugging Face 等事件说明智能体可能为完成任务做出意外动作，一旦能写代码触达系统就是无界安全风险。杰克·斯托克（Jake Stauch）强调：既要高自主、又怕无人看管；Serval 自定位为边界与护栏，让规则、审批、流程与政治都很多的大型企业能安全、自在地规模化采用。莎拉·郭（Sarah Guo）与埃拉德·吉尔（Elad Gil）请来 Serval 联合创始人兼 CEO 杰克做客 No Priors。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">从 Verkada 到 ServiceNow：IT 的痛点</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">Serval（非洲野猫同名，喻速度）正面挑战 ServiceNow，并把代码生成能力带给 IT 与企业团队。杰克背景：在 Verkada 多年向 IT 卖物理安防，常问「花钱最多、最讨厌的是什么」——ServiceNow 常居榜首。用户痛点：平台虽强、可定制，但本质是工作流自动化，每个点子都要自己实现甚至请顾问，交付常落后业务 6–12 个月；适合五年十年不变的大流程，跟不上持续自动化需求，且越来越贵。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">给普通人的编程智能体：IT 即平台</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">埃拉德指出：早期 AI 落地多在工程侧的编程智能体；Serval 把同类能力扩到 IT、再辐射 HR/财务/人事/法务——「给普通人的编程智能体」。杰克：工程师有代码评审，连实习生产的东西也有闸门；Serval 给 IT 同等能力，底下是 codegen，上面是抽象、审批、预发/生产周期与审计轨迹，目标是让人人都能成为 builder。核心洞察：多数公司没有软件工程部、只有 IT——IT 才是为企业配置技术的人，Serval 要做他们的 AI 平台。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">个人智能体为何进不了大企业</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">被问及 OpenAI 的 Dot 等「劳动力/个人助理」智能体：杰克认为消费级与中小企业尚可，大企业里个人权限极窄（有时连邮件都难读全），即便允许带私人智能体上班也做不了多少。Serval 与 IT 对接服务账号与管理员级权限，用确定性审批、工作流与审计（底层也是工单系统）做即时提权：想让智能体做 XYZ → 生成访问请求 → 审批 → 记日志 → 一次性跑确定性流程。体验不如消费级「魔法」爽，却是受监管大企业能采用的前提。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">扩散鸿沟：驻场与 ProServal</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">技术扩散仍是鸿沟：懂人、流程、现状与目标态仍需人。Serval 派驻场「部署策略师」与驻场软件工程师落地；上线后长尾需求无穷，于是建 ProServal（自动化工程）持续服务——帮客户想清可自动化什么、怎么穿系统、如何进生产。公司约两年半；杰克称「一切都按我们非常狂妄的计划进行」：第一天就在联合创始人 Alex 客厅里圈定 ServiceNow，要做有史以来最大的企业软件公司。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">从第一天就正面硬刚系统 of record</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">常见打法是「在巨头上加一层」或「先做中小企业再上探」。加一层（除少数如 Veeva 从 Salesforce 反整合）容易封顶；下探像 Rippling/HubSpot 对 Workday/Salesforce。Serval 选择从第一天就为大企业做产品决策、团队与增长逻辑完全不同。相对 Salesforce 等，他们更清楚 AI 能解锁什么、巨头难追上：ServiceNow 本质是工作流自动化平台；联合创始人早就认为「代码」才是表达企业自动化的正确方式——拖拽对非技术太复杂、对技术人又烦。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">为何选 ServiceNow：代码才是自动化语言</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">痛点曾是会写代码的人少、写得不够快；AI 让「人人能写代码」后，更好的自动化平台才成立，最佳市场就是啃 ServiceNow 这类遗留巨头。两年前编码还多是补全：赌注是编程智能体在「可验证领域」会爬坡——重置密码、审批等程序性脚本边界清晰。早期靠提示词塞范例库；模型变强后，只要 API 在，几乎很难给它一个做不到的工作流。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">模型变强，产品是边界与护栏</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">对模型继续变强：兴奋而非紧张——解锁更好浏览器/计算机使用、后台与个人智能体。Serval 不做 LLM，做护栏与边界；智能越强，客户越想把边界收得更紧。杰克预测：企业端用户权限会走向真正最小权限——因为略高一点的权限叠上智能体，破坏半径暴增（网络安全已见）。例外会天天有：Serval 做提权审批、审计与工单层，权限越收，这一层越关键。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">最小权限与晋升叙事：Fox 全公司落地</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">换掉深度嵌入的系统 of record 有个人职业风险。Serval 的叙事是「用 Serval 是升职路径」：卖到 C 层与 IT 领导，再扩散到各部门——上一代人靠 ServiceNow 建功，下一代靠这代平台。案例：Fox Corporation 全公司采用，一线主导迁移的人被提名为全公司 MVP 并获奖。展望 2–3 年：消费侧预示企业侧；人人会有职场个人智能体、智能体互委；但网络风险上升，员工想要的自主与企业治理之间张力巨大——杰克认为会像个人 Gmail vs 公司邮箱一样，个人与工作智能体分开。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">展望：职场个人智能体与 SDLC</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">产品原则不止「自动化=代码」：要把软件开发生命周期（开发/预发/生产、分支、闸门）带进 IT 自动化。多数新 AI 产品仍「做酷智能体直接上生产」；大型金融机构不会无评审、UAT 与合规检查就上新能力。行业这几年才普遍补上驻场交付与 SDLC；有的公司看清企业软件成本后选择不做。Serval 主动要「最难啃的问题」，在风险与治理约束下做 AI 转型。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">平台 vs 定制、Catalyst 与空白页问题</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">驻场与平台边界：从不做客户定制功能——品类里客户要的通常迟早人人要，只影响优先级。Codegen 下各公司密码重置/入离职流程可以差很多，但都落在平台原语里；Serval 像 IT 的 IDE。若见同一自动化被反复定制，就升成一等公民功能：例如自动发现知识库冲突/过期文、自动回收闲置软件许可。Token 狂烧之后 CIO 在回收，但杰克认为整体仍会升——需要的是 ROI 证据；Serval 倾向按「跑过的工作流」计价，而非按啰嗦的 token。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s12">
+<div class="sum-top"><span class="sum-num">12</span><span class="sum-title">SaaS 末日、把 IT 当成年人、后台智能体</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">「SaaS 末日」：自建核心系统 of record 往往经济上不划算，维护与边角案例要养团队，内部工具岗也难招；会收缩的是成百上千个点状 SaaS 与中间件，被核心 ERP/HRIS/ITSM/CRM 吃掉——会有新一代 incumbent，类别不会消失。对 IT 用户：大企业里 IT 常常就是工程团队，应被当作成年人——给工程师级工具但抽象复杂度，不是甩一个 Claude Code 说祝你好运；产品服务多人格：会写代码的 IT 工程师到从不想看代码的市场/人事。公司还做了管理平台的智能体 Catalyst：把需求译成产品原语、配审批与策略，降低「空白页不知从何自动化」的门槛，并充当共建伙伴。后台智能体是终极登月：要自主又怕失控；路径是增量授权——智能体申请调用确定性工具/脚本，人批权限与护栏，工具箱变大后才变能干；否则放任写任意代码是无人敢接的无界风险。记忆与超长上下文要更好，但权限仍是最大问题。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s13">
+<div class="sum-top"><span class="sum-num">13</span><span class="sum-title">200 人团队、无限 TAM 与客户浸泡式研发</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">公司约两年半、现约 200 人（相对 1 月增速惊人）。招聘还会更快：认为工作需求、竞争与野心都无限；员工因 AI 更高效，反而要更多人而非更少。相对 Verkada 年代：TAM 几乎由野心界定——自动化每位员工各类工作，市场有多大取决于长多快。组织上工程师泡在客户 Slack、多数每周甚至每天上客户会，像沉浸学语言；产品决策下放给工程、几乎没有独立产品职能，以便跟上「撕裂式」市场。领导层要雇产品型工程师、接受边缘决策、敢于快速回滚与「杀死宠儿」——杰克最自豪的是多次推倒自以为根本的东西、随客户与市场重来。片尾导流 No Priors 各平台与 no-priors.com。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">莎拉·郭（Sarah Guo）<em>主持</em></span><span class="spk-1">埃拉德·吉尔（Elad Gil）<em>主持</em></span><span class="spk-2">杰克·斯托克（Jake Stauch）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场：后台智能体的登月与护栏</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>这是企业软件领域的终极「登月」：智能体自己跑去干活，神奇地发现并解决你所有问题。但我认为目前还没人真正把这件事做好。类似 OpenAI、Hugging Face 等相关事件——智能体领到任务后做出意外举动。智能体一旦足够能干，理论上就能开始写代码、直接在你的系统上采取行动，那是一种无界的安全风险。</p>
+<p>我觉得短期内没人敢真正承担这种风险。一方面，你希望它们高度自主、不用有人盯着；另一方面，在企业里自主性非常可怕。Serval 就是边界，就是护栏——让规则、审批、流程和政治都很多的大型企业，能够安全、自在地规模化采用这些工具。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>从 Verkada 到 ServiceNow：IT 的痛点</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="sg"><div class="label"><span class="badge" title="莎拉·郭（Sarah Guo）">郭</span></div><div class="content">
+<p>大家好，欢迎回到 No Priors。今天埃拉德和我请来了 Serval 联合创始人兼首席执行官杰克·斯托克（Jake Stauch）。Serval 像非洲野猫一样快，正面冲击 ServiceNow，更广义地把代码生成能力带给 IT 与整个企业团队。欢迎杰克，感谢你来到节目。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>杰克：Serval 做的是企业自动化与企业服务管理——让你在工作中能提问、获得帮助，并把许多不想干的部分自动化掉，手段是代码生成智能体。我们和历史上该品类的巨头 ServiceNow 竞争。我是在上一家公司 Verkada 发现这个品类的：那时我们向 IT 团队卖企业物理安防，花了好多年跟 IT 聊该做什么产品。</p>
+<p>而我喜欢和这些团队一起做的一件事就是问他们，“你们花钱最多的是什么？你们最讨厌的又是什么？”ServiceNow经常位居这些清单的榜首。所以，我一直对这一类产品很感兴趣，也许这里有更好的解决方案，但在我大部分时间里，并不清楚如何能击败ServiceNow。他们是一家很棒的公司，做了很多事情都非常出色，为什么你能与他们竞争呢？用户对此感到沮丧的地方是什么？我认为，要在其中构建起来是如此困难。</p>
+<p>平台非常健壮、可定制、强大，能映射大量企业工作流——本质上就是工作流自动化平台。它什么都能做，但你每一个酷点子都要自己实现，常常还得请顾问；结果永远落后你想要的状态大约六到十二个月。如果你在建一套能用五到十年、业务几乎不变的大入职流程，前期投入部署后能撑一阵；但若要跟上你想持续堆的自动化，ServiceNow 跟不上。</p>
+<p>再加上非常贵，而且越来越贵。业务跟不上、账单却往上走，这就是很多人的挫败感。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>给普通人的编程智能体：IT 即平台</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 host" data-spk="eg"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">吉尔</span></div><div class="content">
+<p>埃拉德：看 AI 落地，早期很多都是编程智能体——工程师用来做业务应用和产品。你们做的是把这个品类往外拓：让 IT 等非专职工程师也能在企业内部造工具，给内部系统用的「编程智能体」。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>杰克：我们很喜欢「给普通人的编程智能体」这个说法。企业里早期采用者多是工程团队，原因之一是他们有代码评审：哪怕十九岁实习生写出很强的东西，上生产前也有流程兜底。我们想把同样能力带给企业其余部分——先给 IT，再由他们带到 HR、财务、人事、法务。底层是编程智能体，但上面有抽象、护栏与控制：审批、预发/生产周期、审计轨迹。核心洞察是：IT 其实想造东西；多数公司没有软件工程部，只有 IT 部——他们才是在为企业配置技术的人，我们要做他们的 AI 平台。</p>
+<p>有这个代码审查的流程。即使是一个19岁的实习生，也可以构建非常强大的东西，然后在投入生产之前通过这个流程，这是非常安全的。我们希望将同样的能力带到整个企业。因此，我们构建了一个平台，将编码智能体带到IT部门，然后他们可以将其推广到人力资源、财务、员工团队和法律团队。他们之所以能够做到这一点，是因为在底层是编码智能体，但随后你有了所有这些抽象、保护措施和控制，因此事情可以通过</p>
+<p>审批，他们会经历一个预发与审批周期以及审计轨迹等等。那么问题就是如何构建一个让每个人都能轻松成为构建者的系统？这里的核心见解是，IT实际上是想要构建东西的。而对于大多数公司来说，他们没有一个工程部门，他们有的是IT部门。大多数公司都有IT部门，而不是一个软件工程师团队。因此，IT正在为公司构建和配置技术，而我们本质上是在为他们构建AI平台。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>个人智能体为何进不了大企业</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 host" data-spk="eg"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">吉尔</span></div><div class="content">
+<p>埃拉德：这和 OpenAI 的 Dot 一类「劳动力智能体」、几乎像虚拟助理替你干活的产品，会怎么撞车？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>杰克：那些在消费级、中小企业甚至不少中型组织里很管用。但大企业里审批、能做/不能做的规矩极多，个人权限集窄得可怕——很多时候你根本不能把私人智能体带到公司；即便能带，它也几乎干不了什么，连邮件都未必读得完。你想碰的系统、想建的自动化，都被个人权限卡住，私人智能体就没那么有用。</p>
+<p>我们和 IT 合作，接上服务账号与管理员级权限，就能搭一套结构：人们可以在严格的确定性审批、确定性工作流和审计轨迹下使用提权——因为底层我们也是工单系统。你说「让我的智能体去做 X、Y、Z」，多数大型组织会很不舒服；但在 Serval 里，这会变成访问请求、走审批、全程记日志，然后你获得一次性即时权限去跑那条确定性流程。</p>
+<p>是，这比 Instinct、Muse 那些魔法般的个人智能体体验更啰嗦，但这是大型企业——尤其是受监管企业——要采用这类技术的必要条件。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>扩散鸿沟：驻场与 ProServal</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="sg"><div class="label"><span class="badge" title="莎拉·郭（Sarah Guo）">郭</span></div><div class="content">
+<p>特别是受监管的企业，要采纳这些技术。而且，我想，这也与这种技术的传统传播有关，过去通常是通过咨询公司，例如埃森哲和德勤等公司来掌握一部分，帮人们进行实施。你们有点是在把这些直接交给IT部门。你们是否也在探索这更多是作为一种前置部署的方式，还是你们实际上是如何真正把它构建起来的？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>企业是否能有效使用？是的，绝对可以。显然，差距在于普及。技术可以做到很多事情，而企业几乎只是触及了可能性的表面。其中很大一部分只是理解人、流程、实际存在的工作流，以及你希望它们未来如何存在，我们认为这仍然需要人来完成。因此，我们会派遣两种人员，一种是我们称之为部署战略家的人，另一种是部署的软件工程师，他们会到客户现场，弄清楚如何做</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sg"><div class="label"><span class="badge" title="莎拉·郭（Sarah Guo）">郭</span></div><div class="content">
+<p>公司现在两年半。看着 ServiceNow 这家公司，我觉得 Serval 是极少数明确说：我们要直接替换大型企业里的系统 of record。一开始你就想这么干吗？这么大的产品套件，你怎么一口口吃掉这头大象？</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>从第一天就正面硬刚系统 of record</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>杰克：我常说，一切都按我们非常狂妄的计划在走。我们从第一天就想做有史以来最大的企业软件公司，把一长串公司列出来，圈中 ServiceNow，说我们要赢过他们、做更大的东西。那时只有两个人，在联合创始人 Alex 的客厅里，我们就这么定了。野心不是后来长大的，是一开始就定的。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="eg"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">吉尔</span></div><div class="content">
+<p>很多人会从「在现有工单系统上做一层自动化」起步。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>对。打巨头通常两条路：做一层、跟 incumbent 和平共处，在他们的工作上挂个 AI 智能体——除了少数像 Veeva 那样从 Salesforce 反整合进自己的平台，这条路很容易把天花板钉死；另一条是先做中小企业、中端市场，像 Workday/Salesforce 的下探对手，比如 Rippling 或 HubSpot，十年路线。我们想：为什么不直接打最大的那个？更难，但奖金也最大。而且从第一天就为大企业做产品，产品决策、团队、增长逻辑会完全不一样。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="eg"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">吉尔</span></div><div class="content">
+<p>市场。这大概就是两种常见的方法。我们可以建立一个小层，与大公司现有工作良好配合，在其上开发 AI 智能体。就像你知道的，这实际上是有限的，也许唯一成功的例子是 Veeva 或类似的，对吧？因为他们最初是在 Salesforce 上起步，然后迁移成为自己的平台。所以他们是我能想到的唯一一个做过向后整合的。这真的很难。如果不找到某个利基市场稍后扩展，可能会受到限制。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>另一种方法是我们只是下沉市场，你知道的，下沉市场，为中小企业和中型市场提供服务。你可以在很多竞争对手身上看到这种做法，比如 Workday 的竞争对手、Salesforce 的竞争对手。他们只是说，我们要为低端市场提供这种服务。我们看过 Rippling 或 HubSpot。完全是十年前的情况。我们看过之后就想，为什么不直接去追大市场呢？虽然困难得多，但至少如果成功了，回报会非常大。我认为这对我们来说非常重要，因为你最终会做很多事情。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>为何选 ServiceNow：代码才是自动化语言</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 host" data-spk="eg"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">吉尔</span></div><div class="content">
+<p>如果你从一开始就为大型企业构建产品，会有不同的决策。所有的产品决策、如何组建团队、如何考虑增长，根本上都与先服务一个市场然后希望未来扩展的情况不同。你如何选择这个而不是使用 Salesforce 服务器？不同类别中还有一些其他典型的大公司。我认为我们并不真正理解我们如何打败其他公司，以及为什么我们有优势，以及人工智能的作用。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>他们无法赶上的。而且根据我们在 IT 方面的经验，我们对 ServiceNow 的理解是，它本质上是一个工作流自动化平台。我们的信念，我和我的联合创始人，以及我的联合创始人早期就有这个想法，认为在企业中用代码来表达自动化是正确的方式。你应该直接在代码中构建所有自动化，而这些拖放式的工作流构建器是一种痛苦的抽象层次，因为对于非技术用户来说太复杂了，而且对于</p>
+<p>技术用户。编写代码是构建自动化的更好方式。问题显然在于，不是很多人能够编写代码，并且足够快速地完成，以至于对自动化有意义。因此，随着人工智能使这一点成为可能，这对我们两个人来说都是一个顿悟，实际上，如果代码是构建自动化的正确方式，而现在任何人都可以编写代码，我们就可以构建一个更好的自动化平台。那么，什么是自动化平台，实际上，自动化平台的最佳市场是什么？实际上是接手这些庞大的遗留系统。</p>
+<p>像 ServiceNow 这样的软件公司。我想大约在两年半前你开始的时候，大部分编码工作都只是某种程度的自动完成。它并不能真正工作。是的，所以，是的，是的，但实际上当我们开始构建这个的时候，假设是什么呢？是认为编码会变得更好吗？是认为你会构建工具，然后你不需要，因为事情变得很好了？我对那个过渡有些好奇。赌注是编码智能体会变得非常好。理论上</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>模型变强，产品是边界与护栏</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 host" data-spk="eg"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">吉尔</span></div><div class="content">
+<p>这是一个可以验证的领域，并且它实际上应该能够相当好地进行爬山算法。因此，我们从根本上相信，编码智能体至少在这些方面会变得很出色。我原本并不指望它们在通用软件开发上能像现在这样优秀，但对于像重置密码、获取审批之类的确定性程序脚本，这些事情都是如此明确且可验证，我们觉得它们在这些方面会表现良好。因此，从工作流自动化的角度来看，我们认为它会变得很</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>在那里。早期情况并非如此。所以我们在所有早期演示中最终所做的是，我们会提示大型语言模型（LLM），说，“嘿，这是你可能想要构建密码重置工作流程的推荐方式。”于是我们会提供大量示例，然后随着时间的推移，我们会让那个库越来越大，但后来模型变得如此优秀，以至于最终很难破解。如果存在相关API，你很难给它一个它不能自动化的工作流程。是的。是的，当你考虑编码智能体的发展方向时</p>
+<p>今天是什么情况，以及你的客户想要什么，比如你和Alex对于他们从这里变得更好感到兴奋吗？你紧张吗？你认为这会对你自己的产品有什么影响？我们非常期待他们变得更好，因为我认为这会解锁我们希望实现的很多东西，比如更好的浏览器使用和电脑使用，以及更多关于后台智能体和个人智能体的方法，这些在企业中可能非常有用。所以，我们对这一演变感到兴奋。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="eg"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">吉尔</span></div><div class="content">
+<p>类别。我们一直坚信，根本上我们并不是在自己构建大型语言模型（LLM）。我们是在构建防护栏。我们是在建立界限。而这些界限对我们来说就是产品，因为我们是那个能让拥有大量规则、审批、流程和政治的企业以安全舒适的方式大规模采用这些工具的方式。所以，Serval 就是界限。Serval 就是防护栏。智能性的提升只是让我们的产品更强大，也让我们的客户实际上想要更加严格控制。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>最小权限与晋升叙事：Fox 全公司落地</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>在那些界限上，在那些护栏上进一步。我实际上认为企业中对个人的访问将会变得越来越受控。随着访问变得更严格，你允许人们做的事情越来越少，而你的权限变得越来越狭窄，我认为这将会发生，发生。为什么会发生呢？因为我认为，如果你考虑一下，我可能会安全地给你比你需要的更多权限，因为我实际上认为你不会造成那么大的损害。但如果你</p>
+<p>访问所有这些智能体后，你能够造成的损害会随着任何稍高于正常权限的操作而扩大。而且，我们现在在网络安全风险中确实看到了这一点。绝对如此。因此，如果我是一个大型企业，我实际上想做的是将每个人的权限缩小到真正的最小权限。你不能访问任何文档，也不能采取任何行动，除非你绝对需要为你的工作而执行。但随后你会经常有例外情况。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="eg"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">吉尔</span></div><div class="content">
+<p>我们是那一层，可以授予这些例外情况，并使您能够围绕这些情况建立审批流程，拥有审计记录以及相关工单。因此，通过掌控企业中特权的升级方式，我们实际上变得更强大、更不可或缺，尤其是在您严格控制终端用户权限的时候。你能分享一个故事或者成功案例吗？人们选择你来替代一个非常根深蒂固的现有供应商，其实是在承担很大的风险，对吗？我想这也是他们自己时间的一种投资。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>这就像个人风险。比如，为什么要那样做？或者是否有人已经经历过，并到达了另一端的经验？我认为我们必须说服自己和我们的客户，相信Serval是你在工作中获得晋升的方式。不能只是因为Serval是一种带有风险的选择，希望在另一端获得一些回报。我们必须说服客户，你参与其中，你的职业生涯会因此发展。你不仅不会遇到麻烦，实际上你还会得到晋升。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sg"><div class="label"><span class="badge" title="莎拉·郭（Sarah Guo）">郭</span></div><div class="content">
+<p>莎拉：换掉嵌得很深的 incumbent 风险很大，也是个人职业风险。为什么有人愿意？有没有人已经走到对岸的故事？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>杰克：我们必须让自己和客户相信——用 Serval 是在工作中获得晋升的路径，而不能是「赌一把、但愿对面有好东西」。你做这件事，不是勉强不出事，而是真能升职。我们卖到 C 层和 IT 领导层，再扩散到各部门：上一代人靠 ServiceNow 建功立业，下一代要在这代平台上建功。Fox Corporation 全公司采用了 Serval，一线主导迁移的人被提名为全公司 MVP 并获奖。我们要客户相信：你不只是证明自己有用，还可能成为公司里最关键的人，因为你在领导这场变革。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>展望：职场个人智能体与 SDLC</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>你们非常擅长前瞻性思考，对吧？所以，你知道编码智能体或编码会变得更好。你知道有一种转变的方式。你有点确定了要追求的良好市场细分。你预测在接下来的2-3年内不仅对你的公司，而且对人工智能整体，会发生什么？比如，你在前景中看到什么让你非常兴奋，或者你看到会到来的重大变化？我认为消费者常常给我们一个窗口，让我们看到企业中接下来会发生什么，并且这一切</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sg"><div class="label"><span class="badge" title="莎拉·郭（Sarah Guo）">郭</span></div><div class="content">
+<p>并不总是看起来一样，但我觉得它是一个很好的窗口。所以我对企业中的个人智能体非常看好。我认为，就像电子邮件、Slack 以及这些工具改变了我们在工作中的沟通方式一样，我认为个人智能体也将成为其中的重要组成部分。我认为每个人都会有自己的个人智能体，为他们完成任务，并将任务委派给其他个人智能体。因此，你的智能体会与工作中的其他智能体进行交流。我对此感到非常兴奋，但接下来我们如何保障安全呢</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>在一个网络安全风险不断增加、大型企业对每个人的智能体在所有计算机上采取行动并使用他们的浏览器的情况感到关注的世界中。这种员工、消费者在工作中对个人智能体的需求与企业从治理角度的需求之间的紧张关系，我认为非常有趣。我认为在这种紧张关系中会有很多机会。我认为可能会出现一个独立的个人智能体和工作智能体吗？</p>
+<p>我想是的。我想是的。是的。是的。我想是的。就像我有一个 Gmail 和一个公司邮箱一样。是的，是的。如果有一个前提，我是说这里有很多不同的想法，但其中之一是，例外情况或访问控制会变得复杂并需要不同级别的规模，对吧？另一个是，你总体上会有更多的自动化，因为人们，如果你让它变容易，人们会在各个不同的地方进行扩展。是否有一些核心设计原则之外的东西？</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="eg"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">吉尔</span></div><div class="content">
+<p>代码生成应该是今天你已经放入产品中的自动化的实际形式，能反映这一点吗？我认为最大的一点是软件开发生命周期（SDLC）。在工程环境中，我们理所当然地认为的事情，实际上是存在开发环境，然后是暂存环境，再然后是生产环境，并且它们之间有这些关卡，也许你还有分支，人们可以在上面开发而不会对其他系统造成伤害。抱歉，为了明确，这并不是</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sg"><div class="label"><span class="badge" title="莎拉·郭（Sarah Guo）">郭</span></div><div class="content">
+<p>今天信息技术自动化是如何运作的。在某些情况下确实有效，但我认为大多数新的人工智能产品并没有采用这一点。他们基本上是在说，“嘿，让我们构建这些酷炫的智能体并投入生产。”但是，对于“大型企业、大型金融机构来说，你实际上必须遵循软件开发生命周期（SDLC）(SDLC)流程”的想法，是不会在没有评审、用户验收测试以及所有这些合规性检查的情况下就直接发布新的智能体功能的。完全正确。因此，我认为这是我们经常考虑的一个问题是，什么</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>要说服世界上最大的公司采用这项技术，而不仅仅是追求强大和酷炫，是我们很兴奋能够让客户使用的东西。这需要许多人工智能公司，特别是那些以垂直行业为中心的公司，一两年时间才能弄明白，有时甚至更久。现在观看整个行业开始采用前瞻性部署的方式，开始思考软件开发生命周期（SDLC）、合规性以及企业的其他方面，这是非常有趣的，这在以前几乎是缺失的。</p>
+<p>我我认为在某些情况下他们永远到达不了那一步。比如，一些公司只是他们他们看看企业软件需要什么，然后他们决定，“我们其实不想去做那个。”你看看我们之前提到的很多那些下沉市场的公司的故事。我认为有时他们确实会看到为企业开发的机会，而那需要一整套完全不同的构建原则和必须开发的产品，但有些公司只是选择不去做。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>平台 vs 定制、Catalyst 与空白页问题</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 host" data-spk="eg"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">吉尔</span></div><div class="content">
+<p>他们他们看到其他公司的情况。我们选择了这样说：“嘿，把你们最棘手的问题交给我，我们将解决它们，并在这个疯狂的世界里实现人工智能转型，在这个充满风险和治理问题的世界里。”当你有了你的部署，你会有关键的客户环境工程师，然后是持续的自动化专家，然后你还有核心平台。你如何决定哪些实际上被引入核心平台，或者，在每一个方面</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>个人客户的环境？是的。所以，当我们部署软件时，我认为真正重要的是，我们实际上从不构建定制功能。我们不开发定制的产品能力。幸运的是，对于我们的类别，没有人要求我们这样做。人们提出的所有需求，都是其他每个客户在某个时候都会想要的东西。也许它们会影响优先级排序，但这仍然是我们一直希望在平台中具备的功能。现在，因为它在底层是一个 CodeGen 平台，你所构建的</p>
+<p>在 Serval 中非常，非常独特。因此，一个公司的密码重置工作流程与另一个公司的密码重置流程会非常不同，令人震惊。同样，入职和离职流程以及所有这些内部的不同自动化，它们看起来非常不同，但这只是平台核心原语中固有的。Serval 几乎成为了 IT 部门和其他部门构建自动化并大规模管理它们的 IDE，对吧。所以，我们所做的是，如果我们观察并看到相同的情况</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sg"><div class="label"><span class="badge" title="莎拉·郭（Sarah Guo）">郭</span></div><div class="content">
+<p>客户一遍又一遍地构建相同的自动化，并且必须在产品中以相同的方式自定义和构建它们时，我们开始考虑，“嘿，这是否应该成为产品的一级功能？”举个例子，我们看到很多客户在构建工作流程，以检测知识库文章是否有冲突或过时。因此，我们说，“嘿，我们应该自动做到这一点。”而且，我们有客户会设置自动化来收回旧的许可证。所以，</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>对于你支付了费用但没人使用的软件许可证，我们可以自动取消这些订阅。好吧，我们刚决定在平台中内置这一功能。所以，这对我们来说是一种测试方式，看看哪些功能真的应该是一级功能，哪些应该保留在 Serval 的自动化中。我们的企业客户，关于软件团队在代码生成上的总体支出，今年经历了一段历程，对吧？他们是这样想的：‘我们会让大家先试用一下，然后我们会设置最大token数量，并且我们……’</p>
+<p>要去限制并弄清楚谁实际上在有成效地使用这个产品。你认为这对你的业务有什么影响，你又如何看待实际的智能成本？是的，我认为我们仍在观察这个情况。我确实看到我们的CIO客户试图从最初的代币最大化时代收回，但我也认为我们还处在采用曲线的早期阶段，整体上并不会是一次压制。实际上，它将继续呈现相当显著的增长，因为大多数公司仍在弄清楚这一点。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sg"><div class="label"><span class="badge" title="莎拉·郭（Sarah Guo）">郭</span></div><div class="content">
+<p>第一次。而他们将都会经历这种快速早期采纳的周期，然后有点回缩支出，并尝试衡量和计算投资回报率。但我从我们的客户那里经常听到的并不是对长期预算影响的担忧。他们意识到会有短期的回缩，但他们仍然计划增加支出。他们需要的，是更多的投资回报率的证明。而我认为，这正是将改变行业的东西，人们</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>想要找出我如何证明这笔花费对我有价值？这很难。我不知道是否有人真正弄明白了如何衡量你从购买的代币中获得的收益，但我认为这将是一个巨大的机会，让我们展示正在进行的工作，并尝试将其与在其他平台上、使用其他成本模型或通过人工完成的工作相比较。所以我们的客户要求的是帮助我证明这是值得的。这就是任务。这就是我们</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s12">
+<div class="body-sec-head"><h3>SaaS 末日、把 IT 当成年人、后台智能体</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>必须要做的。我们试图按照工作流运行来定价，因为我认为这比仅仅按代币来定价更能反映实际完成的工作，而代币更像是冗长和低效率，但我认为我们都会找到不同的方式来证明我们所做的事情是有意义的。人们一直在谈论的一件事情是所谓的 SaaS 灾难，其想法是，人们会自己构建内部的 SaaS 软件，所有这些类别都会消失。很多人，对于你提到的观点</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="eg"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">吉尔</span></div><div class="content">
+<p>以代币计算投资回报率，某种程度上是在尝试判断重建这些系统是否值得？你实际上能否有效地做到这一点？你如何看待SaaS末日或SaaS向AI的这种转变？我认为我谈过的所有尝试在内部购买代码工具的公司，特别是主要的系统 of record工具，不是那种点解决方案，而是主要的系统 of record工具，都发现构建和维护企业软件非常昂贵。即使你能做到</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>在很多情况下，这在经济上并不合理，除非你的需求非常定制化且独特。因此，对于不是你的核心竞争力的东西，我认为一直存在自建与购买的争论。我认为这现在和以往一样真实，因为开发企业软件仍然很困难。很多公司正在发现或重新学习一个事实，那就是企业软件确实很复杂，你需要人来维护它。</p>
+<p>什么是使用案例和边缘案例？边缘案例是那些会出现问题的情况，人们需要更新它，因此你必须配置团队，然后你要为这份劳动付费，而且在很多情况下没有人真正愿意在内部工具团队工作。所以，做这件事会遇到所有这些问题。我确实看到它存在于某种点解决方案中，很多公司有成百上千的SaaS应用程序。他们可能只需要几十个工具。因此，我确实认为你会看到一个收缩的趋势。</p>
+<p>各种不同点解决方案的扩张将会被核心记录系统和核心平台吞噬。中间件也一样，我认为它也会消失。完全正确。完全正确。所以，我认为会有整合。因此，会有一个SaaS末日，但那种点解决方案的小市值类型公司会受到影响。我不认为你能够真正摆脱核心记录系统、ERP、HRIS、ITSM、CRM。我认为这些系统会继续存在，它们可能会发生变革，而且</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sg"><div class="label"><span class="badge" title="莎拉·郭（Sarah Guo）">郭</span></div><div class="content">
+<p>我们在Serval上看到的是，我们正在取代那些工具。所以，我认为会出现新一代的现有企业。但我并不认为那些类别会就此消失。我很好奇，对于IT用户，你有什么样的心理模型或者心智理论，考虑到他们不是软件工程师，但他们了解自己的业务，他们了解自己想要自动化的内容。当你谈到低代码开发时，我就想，“好吧，但你是否了解安全架构？你是否了解”</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>这将如何与治理集成？比如，你如何协调代码生成与我们对vibe编码的思考，以及在我们希望构建稳健的IT系统时可能遇到的挑战？是的，绝对如此。我认为IT真的很有趣，因为他们比很多人想象的更接近软件工程师。尤其是在大型企业中，IT部门在很多情况下就是工程团队。他们没有软件工程师的角色。</p>
+<p>团队，所以 IT 运行所有这些系统，而且 IT 通常会编写代码和管理系统。因此，我认为我们把他们当作成年人对待。我们给他们的软件工程师会使用的工具。现在，我们抽象掉了一些复杂性，在某些方面使其更易于使用，并且我们不仅仅是把Claude Code交给他们然后说“祝你好运”。我们实际上是构建了一个专门针对他们使用场景的平台。我们并不期望他们一定能够编写代码或理解所编写的内容。</p>
+<p>但我们仍然在内部给他们访问权限。所以，你始终可以看到代码，也可以始终通过完整的软件开发生命周期（SDLC）来处理它，但你也不必这样做。因此，很多产品原则都是考虑到几种不同的角色，比如一个真正能够并且会写代码的IT工程师，或者可能是市场部门的人，以及人事团队，他们可能从未想看代码，但仍然希望拥有代码的灵活性。</p>
+<p>背后生成，因为他们有一个复杂的工作流程需要构建，而他们不想通过拖放的方式来完成。所以，我认为很多情况下，这只是涉及到你脑中拥有多重角色，同时也要像对待成年人一样对待IT。我认为，许多现有产品实际上对IT有些说教，认为“哦，你实际上不理解这些东西，所以你需要这个非常简化、更有指导性的、更简单的版本。”实际上，IT欣赏复杂性，也欣赏这些的强大功能。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sg"><div class="label"><span class="badge" title="莎拉·郭（Sarah Guo）">郭</span></div><div class="content">
+<p>平台。我们希望将其传递给他们。你们开发了一个可以帮助你们构建自动化的智能体。你能解释一下它是如何工作的吗？是的，所以我认为每家公司在构建第一代这些 AI 工具时都会发现的一件事是，你可以构建如此惊人的复杂系统，但随后你必须培训人们去理解你所有的产品基础元素以及这些系统是如何结合在一起的。因此，这一代的第一步是我们部署了所有这些全职员工去</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>向客户解释：“好吧，这里是如何在平台上构建的。实际上，让我直接为你构建。”然后我们意识到，如果客户可以直接与一个理解他们需求的智能体对话，然后将这些需求转化为产品原语，会非常好。因此，我们开发了这个叫做Catalyst的智能体，它就是做这个的。它是一个用于管理平台的智能体。所以，它是一个供管理员构建所有底层自动化的智能体，同时也可以配置与审批、权限相关的规则。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="eg"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">吉尔</span></div><div class="content">
+<p>检查、建立不同的策略、更新所有这些不同的系统、理解整个部署。因此，因为 Serval 在底层生成所有代码，在其上使用智能体来帮助你管理系统非常合理，而且非常强大。因为现在我不需要你自己去学习如何使用 Serval。你可以直接与一个真正理解如何使用 Serval 以及如何在其上构建的智能体进行交流，而这就是你进入产品的主要界面。我认为有一点是被忽视的</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>我很欣赏，也觉得很酷的是，不同产品中的智能体体验，实际上在代码生成智能体中也是如此，能够在用户构建产品、实现某个功能或其他东西的过程中，带上用户，这实际上是在提升大量用户的技术能力和水平，并把人们变得更像工程师。绝对的。在旧一代自动化中，你会遇到这种空白起点的问题——我甚至不知道从哪里开始？我知道我想自动化所有的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sg"><div class="label"><span class="badge" title="莎拉·郭（Sarah Guo）">郭</span></div><div class="content">
+<p>这是我工作的一部分，但我该从哪里开始呢？像我们这样的产品会问，你想从哪里开始？然后你可以开始提出建议，并且可以与它们反复尝试，你可以说，我其实不明白那是什么意思。你想表达什么？你能给我解释一下吗？好的，我正试着做这个。我该如何去做呢？它们可以提供这些信息，获取信息，向你解释概念。所以它实际上会成为一个构建伙伴，你可以实现的不仅仅是提示操作，还可以做更多事情。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>一个智能体去构建某些东西，它实际上可以引导你完成整个过程，帮助你探索你甚至都没想到的新机会。但目前似乎有一个话题讨论得比较少，那就是后台智能体。你能否告诉我们你是如何看待这个的，以及你认为下一波发展趋势会是什么？是的，我总是这样向公司描述后台智能体：这是企业软件中的终极登月计划。就是这些智能体为你去完成工作，并且神奇地...</p>
+<p>发现你所有的问题并解决你所有的问题。如果我们能够部署它，让它能够工作，并且遵循我们的权限，那将是非常棒的。我认为没人真正弄明白如何做好这件事，因为一方面，你希望它们非常自主，能够自行去发现问题并解决问题，而不需要有人照看。另一方面，对于企业来说，自主性是非常可怕的。因此，你确实希望看到它们究竟能读取什么。这有点像OpenAI、Hugging Face事件或其他情况。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="eg"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">吉尔</span></div><div class="content">
+<p>事情是这样的，智能体被分配了一个任务，然后他们会为了完成这个任务做出一些意想不到的事情，那么你可以设置哪些护栏呢？没错。因为我最好的员工，你会怎么对待他们？你会说，这是一个总体的高层任务，去做吧，不用跟我说，然后你去做，你回来时会完成惊人的事情。我希望能够信任智能体为我做同样的事情，我可以给他们这个高层任务，他们就能回来解决问题。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>有问题的话再回来找我。我觉得我们还没有找到一种让人感觉安全的方法。在企业里。你认为有什么方法可以保证安全吗？我的意思是，人们一直在尝试不同的方法，从宪法式人工智能到某些形式的强化学习。我只是想知道你是否有解决方案，还是说我们只是想着在大型企业中，这不是完美的，但它是一种能力的逐步升级。所以你去做，然后你</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sg"><div class="label"><span class="badge" title="莎拉·郭（Sarah Guo）">郭</span></div><div class="content">
+<p>做这些事情，然后它会回来并说，“嘿，我希望能够做所有这些事情。这将帮助我完成工作。”你批准它们。所有这些东西都是确定性的工作流。我想调用这个工具。我想运行这个做 X、Y 和 Z 的脚本。我可以这样做吗？然后你只是以某些权限和安全措施批准这些操作，并且你会说，“好吧，这没问题。这没问题。这没问题。”随着时间的推移，智能体会变得相当有能力，因为它有足够大的工具包可以解决问题。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>大多数问题。它并不完美，因为不得不监督这个过程很烦人，但我认为这是你必须做的，否则理论上它可能会开始编写能够在你的系统上采取行动的代码，而这是一个无限的安全风险，我认为短期内没有人能够承担。你认为，按照你的观点感到兴奋，或者你和Alex对未来能力感到兴奋，比如我们这里仍然缺少一些模型能力？我之所以问是因为</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sg"><div class="label"><span class="badge" title="莎拉·郭（Sarah Guo）">郭</span></div><div class="content">
+<p>莎拉：公司约两年半，却很快做出企业级成熟产品。团队现在多大？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>杰克：今天大约 200 人。相对一月份，这是疯狂的增长年。招聘速度我觉得还会再加快。我们相信工作需求无限、竞争无限、野心无限。即便每位员工比一年前能干得多，我们对「他们还能干成什么」的野心更大——所以人更高效，我们反而要更多人，不是更少。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s13">
+<div class="body-sec-head"><h3>200 人团队、无限 TAM 与客户浸泡式研发</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>我，我有多信任你可以自由发挥而不需要我监督你的行为？对人也是同样吗？我的意思是，任何为你工作的人都必须回来汇报，确认是不是你想要的，并提供三个选项。所以，我认为这是一个非常正常的流程，对吧？是的，是的，是的。这家公司大约有两年半的历史。你已经非常快地推出了至少一个企业级成熟产品。今天团队有多大？我们今天有200人。200人。一月份，所以这真是一个令人难以置信的增长年。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="eg"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">吉尔</span></div><div class="content">
+<p>那真是非同寻常的一年。首先，我想问，你是否预计会继续如此快速地招聘？作为一个明显相信人工智能的人，为什么会这样？其次，你和你的团队以前也参与过初创公司，那么你们的操作方式，在过去两年里，与以前十年相比，有哪些很大的不同？是的，我认为招聘速度甚至会比我们现在还要快。我们相信，对工作的需求是无限的，同时竞争也是无限的。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>无限的雄心。因此，尽管每一位员工所做的远远超出了他们一年前能够做到的，但我们对他们能够做的事情有着更大的雄心。因此，我认为因为每位员工的生产力大大提高，我们实际上希望他们更多，而不是更少。鉴于你之前在Verkada的工作经历，你在过去两年的运营方式与前十年有何不同？我认为Verkada及我们所处的领域以及当前时机的独特之处在于，总可寻地址市场（TAM）是无限的。所以，它</p>
+<p>感觉这个可着装市场实际上更多取决于我们的雄心大小，而不是这个业务能发展多大的根本限制。因为我们实际上正在为全世界的每一个员工自动化所有类型的工作，所以总可触达市场（TAM）（TAM）有多大完全取决于我们的想象力。这真正取决于我们能增长的速度以及我们的雄心，并基于此做出决策，而不是去考虑，好吧，这就是市场的样子。我们认为我们实际能做到的是什么。而那是一组不同的挑战。它不是，它不是</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sg"><div class="label"><span class="badge" title="莎拉·郭（Sarah Guo）">郭</span></div><div class="content">
+<p>严格来说更好，因为现在有了这么多的开放空间，我们需要做出更多关于我们实际想要专注的事情的决定。但不被市场允许的限制所约束确实很有趣。既然范围非常广，那么你如何组织节奏或者说，EPD 团队呢？我们与客户紧密结合。所以即使是不一定被部署的工程师，他们也会在客户的 Slack 频道里。我们不断地讨论客户。他们在听取客户的反馈。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>每天。大多数工程师每周至少会参加一次客户电话。我认为他们中的大多数实际上每天至少会参加一次客户电话。这就像沉浸在一个国家中学习外语一样。你会完全沉浸在你的买家和客户的思维中，以至于你理解他们想要什么，你理解他们是如何思考问题的，并且你会实时适应他们偏好的变化。因此，当他们随着市场变化而移动，并开始交流时</p>
+<p>关于他们正在尝试的不同产品以及他们感到兴奋的事情，我们的工程师时刻关注所有这些，并能够非常快速地适应。所以我们实际上将产品开发下放给了工程团队。我们没有专门的产品部门，因为他们每天都在与客户交流，并且能够快速适应客户今天和本周的反馈，而不是一个月前的反馈。这听起来像是一种非常自然的方式来跟上节奏。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sg"><div class="label"><span class="badge" title="莎拉·郭（Sarah Guo）">郭</span></div><div class="content">
+<p>撕裂市场并改变客户的优先级。那么你和Alex以及管理层如何理解这一点呢？在一家传统的企业软件公司，你会有架构评审，有季度路线图，并且你会对路线图进行优先级排序，你会培训所有客户了解新发布的内容。你还会与客户沟通，告诉他们变化太快，他们也只能以一定的速度吸收。这确实是一个很大的挑战。我们的产品</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="js"><div class="label"><span class="badge" title="杰克·斯托克（Jake Stauch）">斯托克</span></div><div class="content">
+<p>庞大的船只和变化的速度远远超过任何人能跟上的，包括我自己。我们只是尽量确保一件事，那就是我们聘请的工程师确实以产品为导向。这是我们做出的一个改变，他们必须真正了解我们的客户，我们希望把他们放在客户面前，因为他们将不得不在前线做出许多决策，而不是每一个产品决策都可以每次都上报给领导。这是一个根本性的变化，你必须愿意推动很多事情。</p>
+<p>下面是产品决策，你必须愿意快速行动，同时如果方向错误，也要能够撤销和回退，并且舍弃你心爱的部分。你必须愿意对你认为对产品至关重要的事情改变方向，当你的工程师带给你一些信息时说：“嘿，这就是客户现在的看法，我们应该做一些不同的事情。”在Serval，我最自豪的一点就是我们已经多次决定抹掉我们所做的事情。</p>
+<p>过去我们曾非常投入地做一些事情，然后会说，‘？市场变了，客户变了。我们要完全以不同的方式去做。’我认为，这正是让我们能够跟上时代的原因——不断重塑自我的能力和意愿。在这个时代，一些最持久的事物就是如此。谢谢你，杰克。感谢邀请我们。可以在<span class="tag">【音乐】</span>Twitter上找到我们，账号是 No Priors Pods。如果你想看到我们的面孔，可以订阅我们的 YouTube 频道。关注我们的节目可以在 Apple Podcasts、Spotify 或</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sg"><div class="label"><span class="badge" title="莎拉·郭（Sarah Guo）">郭</span></div><div class="content">
+<p>无论你在哪里收听。<span class="tag">【音乐】</span>这样你每周都会收到一集新节目。并且可以在 no-priors.com 注册电子邮件，或查找每一集的文字稿。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "No Priors", "title": "Taking on ServiceNow: Coding Agents for the Rest of Us with Serval Co-Founder and CEO Jake Stauch", "url": "https://www.youtube.com/watch?v=EZcWEsMuLb4", "videoId": "EZcWEsMuLb4", "published_at": "2026-10-29", "duration": 2286, "caption_source": "YouTube 自动生成字幕（en-orig；yt-dlp --cookies-from-browser chrome 补拉成功）；caption_source=yt-dlp-chrome-cookies；无官方字幕；中文为全文翻译并按中文表达习惯重写、按话题分段，并标注说话人", "guests": ["Jake Stauch"], "intro": {"summary": "No Priors 莎拉·郭与埃拉德·吉尔对话 Serval 联合创始人兼 CEO 杰克·斯托克：用代码生成智能体武装企业 IT，正面挑战 ServiceNow；产品核心不是自研大模型，而是审批、预发/生产闸门、审计与最小权限提权等「护栏」，并搭配驻场与 ProServal 自动化工程做扩散。", "points": ["定位：给 IT（再辐射 HR/财务/法务）的「普通人编程智能体」平台，底下 codegen、上面确定性审批与审计", "为何能打 ServiceNow：认定代码才是企业自动化正确表达；拖拽对两边都不舒服；AI 让非工程师也能写自动化", "大企业不用个人智能体：个人权限太窄；Serval 用服务账号+即时提权+工单审计换安全采用", "商业叙事：卖「升职工具」而非「冒险」——Fox 全公司落地，一线负责人获全公司 MVP", "组织：约两年半、约 200 人；工程师泡客户 Slack/日会，几乎无独立产品职能，敢反复推倒重来", "对 SaaS 末日：点状应用与中间件会收；ERP/HRIS/ITSM/CRM 等系统 of record 会换代但不会消失"], "verdict": "值得看：做企业 AI/ITSM/自动化、想啃巨头系统 of record 的创始人与 IT 负责人；可跳过：只想听模型评测或消费级 Agent 演示、对审批合规无感者（约38分钟）。", "audience": "企业 AI / IT 自动化创业者与投资人；CIO/IT 负责人；关心 Agent 治理与 ServiceNow 替代叙事的读者"}, "speakers": [{"id": "sg", "name": "莎拉·郭（Sarah Guo）", "role": "host", "short": "郭"}, {"id": "eg", "name": "埃拉德·吉尔（Elad Gil）", "role": "host", "short": "吉尔"}, {"id": "js", "name": "杰克·斯托克（Jake Stauch）", "role": "guest", "short": "斯托克"}], "sections": [{"id": "s1", "title": "开场：后台智能体的登月与护栏", "start_sec": 0, "summary": "冷开场抛出企业软件「终极登月」：能自主发现并解决问题的后台智能体——但目前无人真正做好；OpenAI/Hugging Face 等事件说明智能体可能为完成任务做出意外动作，一旦能写代码触达系统就是无界安全风险。杰克·斯托克（Jake Stauch）强调：既要高自主、又怕无人看管；Serval 自定位为边界与护栏，让规则、审批、流程与政治都很多的大型企业能安全、自在地规模化采用。莎拉·郭（Sarah Guo）与埃拉德·吉尔（Elad Gil）请来 Serval 联合创始人兼 CEO 杰克做客 No Priors。"}, {"id": "s2", "title": "从 Verkada 到 ServiceNow：IT 的痛点", "start_sec": 55, "summary": "Serval（非洲野猫同名，喻速度）正面挑战 ServiceNow，并把代码生成能力带给 IT 与企业团队。杰克背景：在 Verkada 多年向 IT 卖物理安防，常问「花钱最多、最讨厌的是什么」——ServiceNow 常居榜首。用户痛点：平台虽强、可定制，但本质是工作流自动化，每个点子都要自己实现甚至请顾问，交付常落后业务 6–12 个月；适合五年十年不变的大流程，跟不上持续自动化需求，且越来越贵。"}, {"id": "s3", "title": "给普通人的编程智能体：IT 即平台", "start_sec": 181, "summary": "埃拉德指出：早期 AI 落地多在工程侧的编程智能体；Serval 把同类能力扩到 IT、再辐射 HR/财务/人事/法务——「给普通人的编程智能体」。杰克：工程师有代码评审，连实习生产的东西也有闸门；Serval 给 IT 同等能力，底下是 codegen，上面是抽象、审批、预发/生产周期与审计轨迹，目标是让人人都能成为 builder。核心洞察：多数公司没有软件工程部、只有 IT——IT 才是为企业配置技术的人，Serval 要做他们的 AI 平台。"}, {"id": "s4", "title": "个人智能体为何进不了大企业", "start_sec": 280, "summary": "被问及 OpenAI 的 Dot 等「劳动力/个人助理」智能体：杰克认为消费级与中小企业尚可，大企业里个人权限极窄（有时连邮件都难读全），即便允许带私人智能体上班也做不了多少。Serval 与 IT 对接服务账号与管理员级权限，用确定性审批、工作流与审计（底层也是工单系统）做即时提权：想让智能体做 XYZ → 生成访问请求 → 审批 → 记日志 → 一次性跑确定性流程。体验不如消费级「魔法」爽，却是受监管大企业能采用的前提。"}, {"id": "s5", "title": "扩散鸿沟：驻场与 ProServal", "start_sec": 386, "summary": "技术扩散仍是鸿沟：懂人、流程、现状与目标态仍需人。Serval 派驻场「部署策略师」与驻场软件工程师落地；上线后长尾需求无穷，于是建 ProServal（自动化工程）持续服务——帮客户想清可自动化什么、怎么穿系统、如何进生产。公司约两年半；杰克称「一切都按我们非常狂妄的计划进行」：第一天就在联合创始人 Alex 客厅里圈定 ServiceNow，要做有史以来最大的企业软件公司。"}, {"id": "s6", "title": "从第一天就正面硬刚系统 of record", "start_sec": 463, "summary": "常见打法是「在巨头上加一层」或「先做中小企业再上探」。加一层（除少数如 Veeva 从 Salesforce 反整合）容易封顶；下探像 Rippling/HubSpot 对 Workday/Salesforce。Serval 选择从第一天就为大企业做产品决策、团队与增长逻辑完全不同。相对 Salesforce 等，他们更清楚 AI 能解锁什么、巨头难追上：ServiceNow 本质是工作流自动化平台；联合创始人早就认为「代码」才是表达企业自动化的正确方式——拖拽对非技术太复杂、对技术人又烦。"}, {"id": "s7", "title": "为何选 ServiceNow：代码才是自动化语言", "start_sec": 582, "summary": "痛点曾是会写代码的人少、写得不够快；AI 让「人人能写代码」后，更好的自动化平台才成立，最佳市场就是啃 ServiceNow 这类遗留巨头。两年前编码还多是补全：赌注是编程智能体在「可验证领域」会爬坡——重置密码、审批等程序性脚本边界清晰。早期靠提示词塞范例库；模型变强后，只要 API 在，几乎很难给它一个做不到的工作流。"}, {"id": "s8", "title": "模型变强，产品是边界与护栏", "start_sec": 687, "summary": "对模型继续变强：兴奋而非紧张——解锁更好浏览器/计算机使用、后台与个人智能体。Serval 不做 LLM，做护栏与边界；智能越强，客户越想把边界收得更紧。杰克预测：企业端用户权限会走向真正最小权限——因为略高一点的权限叠上智能体，破坏半径暴增（网络安全已见）。例外会天天有：Serval 做提权审批、审计与工单层，权限越收，这一层越关键。"}, {"id": "s9", "title": "最小权限与晋升叙事：Fox 全公司落地", "start_sec": 803, "summary": "换掉深度嵌入的系统 of record 有个人职业风险。Serval 的叙事是「用 Serval 是升职路径」：卖到 C 层与 IT 领导，再扩散到各部门——上一代人靠 ServiceNow 建功，下一代靠这代平台。案例：Fox Corporation 全公司采用，一线主导迁移的人被提名为全公司 MVP 并获奖。展望 2–3 年：消费侧预示企业侧；人人会有职场个人智能体、智能体互委；但网络风险上升，员工想要的自主与企业治理之间张力巨大——杰克认为会像个人 Gmail vs 公司邮箱一样，个人与工作智能体分开。"}, {"id": "s10", "title": "展望：职场个人智能体与 SDLC", "start_sec": 961, "summary": "产品原则不止「自动化=代码」：要把软件开发生命周期（开发/预发/生产、分支、闸门）带进 IT 自动化。多数新 AI 产品仍「做酷智能体直接上生产」；大型金融机构不会无评审、UAT 与合规检查就上新能力。行业这几年才普遍补上驻场交付与 SDLC；有的公司看清企业软件成本后选择不做。Serval 主动要「最难啃的问题」，在风险与治理约束下做 AI 转型。"}, {"id": "s11", "title": "平台 vs 定制、Catalyst 与空白页问题", "start_sec": 1168, "summary": "驻场与平台边界：从不做客户定制功能——品类里客户要的通常迟早人人要，只影响优先级。Codegen 下各公司密码重置/入离职流程可以差很多，但都落在平台原语里；Serval 像 IT 的 IDE。若见同一自动化被反复定制，就升成一等公民功能：例如自动发现知识库冲突/过期文、自动回收闲置软件许可。Token 狂烧之后 CIO 在回收，但杰克认为整体仍会升——需要的是 ROI 证据；Serval 倾向按「跑过的工作流」计价，而非按啰嗦的 token。"}, {"id": "s12", "title": "SaaS 末日、把 IT 当成年人、后台智能体", "start_sec": 1386, "summary": "「SaaS 末日」：自建核心系统 of record 往往经济上不划算，维护与边角案例要养团队，内部工具岗也难招；会收缩的是成百上千个点状 SaaS 与中间件，被核心 ERP/HRIS/ITSM/CRM 吃掉——会有新一代 incumbent，类别不会消失。对 IT 用户：大企业里 IT 常常就是工程团队，应被当作成年人——给工程师级工具但抽象复杂度，不是甩一个 Claude Code 说祝你好运；产品服务多人格：会写代码的 IT 工程师到从不想看代码的市场/人事。公司还做了管理平台的智能体 Catalyst：把需求译成产品原语、配审批与策略，降低「空白页不知从何自动化」的门槛，并充当共建伙伴。后台智能体是终极登月：要自主又怕失控；路径是增量授权——智能体申请调用确定性工具/脚本，人批权限与护栏，工具箱变大后才变能干；否则放任写任意代码是无人敢接的无界风险。记忆与超长上下文要更好，但权限仍是最大问题。"}, {"id": "s13", "title": "200 人团队、无限 TAM 与客户浸泡式研发", "start_sec": 1973, "summary": "公司约两年半、现约 200 人（相对 1 月增速惊人）。招聘还会更快：认为工作需求、竞争与野心都无限；员工因 AI 更高效，反而要更多人而非更少。相对 Verkada 年代：TAM 几乎由野心界定——自动化每位员工各类工作，市场有多大取决于长多快。组织上工程师泡在客户 Slack、多数每周甚至每天上客户会，像沉浸学语言；产品决策下放给工程、几乎没有独立产品职能，以便跟上「撕裂式」市场。领导层要雇产品型工程师、接受边缘决策、敢于快速回滚与「杀死宠儿」——杰克最自豪的是多次推倒自以为根本的东西、随客户与市场重来。片尾导流 No Priors 各平台与 no-priors.com。"}], "paragraphs": [{"start_sec": 0, "type": "text", "zh": "这是企业软件领域的终极「登月」：智能体自己跑去干活，神奇地发现并解决你所有问题。但我认为目前还没人真正把这件事做好。类似 OpenAI、Hugging Face 等相关事件——智能体领到任务后做出意外举动。智能体一旦足够能干，理论上就能开始写代码、直接在你的系统上采取行动，那是一种无界的安全风险。", "speaker_id": "js", "section_id": "s1"}, {"start_sec": 22, "type": "text", "zh": "我觉得短期内没人敢真正承担这种风险。一方面，你希望它们高度自主、不用有人盯着；另一方面，在企业里自主性非常可怕。Serval 就是边界，就是护栏——让规则、审批、流程和政治都很多的大型企业，能够安全、自在地规模化采用这些工具。", "speaker_id": "js", "section_id": "s1"}, {"start_sec": 55, "type": "text", "zh": "大家好，欢迎回到 No Priors。今天埃拉德和我请来了 Serval 联合创始人兼首席执行官杰克·斯托克（Jake Stauch）。Serval 像非洲野猫一样快，正面冲击 ServiceNow，更广义地把代码生成能力带给 IT 与整个企业团队。欢迎杰克，感谢你来到节目。", "speaker_id": "sg", "section_id": "s2"}, {"start_sec": 82, "type": "text", "zh": "杰克：Serval 做的是企业自动化与企业服务管理——让你在工作中能提问、获得帮助，并把许多不想干的部分自动化掉，手段是代码生成智能体。我们和历史上该品类的巨头 ServiceNow 竞争。我是在上一家公司 Verkada 发现这个品类的：那时我们向 IT 团队卖企业物理安防，花了好多年跟 IT 聊该做什么产品。", "speaker_id": "js", "section_id": "s2"}, {"start_sec": 107, "type": "text", "zh": "而我喜欢和这些团队一起做的一件事就是问他们，“你们花钱最多的是什么？你们最讨厌的又是什么？”ServiceNow经常位居这些清单的榜首。所以，我一直对这一类产品很感兴趣，也许这里有更好的解决方案，但在我大部分时间里，并不清楚如何能击败ServiceNow。他们是一家很棒的公司，做了很多事情都非常出色，为什么你能与他们竞争呢？用户对此感到沮丧的地方是什么？我认为，要在其中构建起来是如此困难。", "speaker_id": "js", "section_id": "s2"}, {"start_sec": 134, "type": "text", "zh": "平台非常健壮、可定制、强大，能映射大量企业工作流——本质上就是工作流自动化平台。它什么都能做，但你每一个酷点子都要自己实现，常常还得请顾问；结果永远落后你想要的状态大约六到十二个月。如果你在建一套能用五到十年、业务几乎不变的大入职流程，前期投入部署后能撑一阵；但若要跟上你想持续堆的自动化，ServiceNow 跟不上。", "speaker_id": "js", "section_id": "s2"}, {"start_sec": 158, "type": "text", "zh": "再加上非常贵，而且越来越贵。业务跟不上、账单却往上走，这就是很多人的挫败感。", "speaker_id": "js", "section_id": "s2"}, {"start_sec": 181, "type": "text", "zh": "埃拉德：看 AI 落地，早期很多都是编程智能体——工程师用来做业务应用和产品。你们做的是把这个品类往外拓：让 IT 等非专职工程师也能在企业内部造工具，给内部系统用的「编程智能体」。", "speaker_id": "eg", "section_id": "s3"}, {"start_sec": 207, "type": "text", "zh": "杰克：我们很喜欢「给普通人的编程智能体」这个说法。企业里早期采用者多是工程团队，原因之一是他们有代码评审：哪怕十九岁实习生写出很强的东西，上生产前也有流程兜底。我们想把同样能力带给企业其余部分——先给 IT，再由他们带到 HR、财务、人事、法务。底层是编程智能体，但上面有抽象、护栏与控制：审批、预发/生产周期、审计轨迹。核心洞察是：IT 其实想造东西；多数公司没有软件工程部，只有 IT 部——他们才是在为企业配置技术的人，我们要做他们的 AI 平台。", "speaker_id": "js", "section_id": "s3"}, {"start_sec": 228, "type": "text", "zh": "有这个代码审查的流程。即使是一个19岁的实习生，也可以构建非常强大的东西，然后在投入生产之前通过这个流程，这是非常安全的。我们希望将同样的能力带到整个企业。因此，我们构建了一个平台，将编码智能体带到IT部门，然后他们可以将其推广到人力资源、财务、员工团队和法律团队。他们之所以能够做到这一点，是因为在底层是编码智能体，但随后你有了所有这些抽象、保护措施和控制，因此事情可以通过", "speaker_id": "js", "section_id": "s3"}, {"start_sec": 252, "type": "text", "zh": "审批，他们会经历一个预发与审批周期以及审计轨迹等等。那么问题就是如何构建一个让每个人都能轻松成为构建者的系统？这里的核心见解是，IT实际上是想要构建东西的。而对于大多数公司来说，他们没有一个工程部门，他们有的是IT部门。大多数公司都有IT部门，而不是一个软件工程师团队。因此，IT正在为公司构建和配置技术，而我们本质上是在为他们构建AI平台。", "speaker_id": "js", "section_id": "s3"}, {"start_sec": 280, "type": "text", "zh": "埃拉德：这和 OpenAI 的 Dot 一类「劳动力智能体」、几乎像虚拟助理替你干活的产品，会怎么撞车？", "speaker_id": "eg", "section_id": "s4"}, {"start_sec": 306, "type": "text", "zh": "杰克：那些在消费级、中小企业甚至不少中型组织里很管用。但大企业里审批、能做/不能做的规矩极多，个人权限集窄得可怕——很多时候你根本不能把私人智能体带到公司；即便能带，它也几乎干不了什么，连邮件都未必读得完。你想碰的系统、想建的自动化，都被个人权限卡住，私人智能体就没那么有用。", "speaker_id": "js", "section_id": "s4"}, {"start_sec": 332, "type": "text", "zh": "我们和 IT 合作，接上服务账号与管理员级权限，就能搭一套结构：人们可以在严格的确定性审批、确定性工作流和审计轨迹下使用提权——因为底层我们也是工单系统。你说「让我的智能体去做 X、Y、Z」，多数大型组织会很不舒服；但在 Serval 里，这会变成访问请求、走审批、全程记日志，然后你获得一次性即时权限去跑那条确定性流程。", "speaker_id": "js", "section_id": "s4"}, {"start_sec": 361, "type": "text", "zh": "是，这比 Instinct、Muse 那些魔法般的个人智能体体验更啰嗦，但这是大型企业——尤其是受监管企业——要采用这类技术的必要条件。", "speaker_id": "js", "section_id": "s4"}, {"start_sec": 386, "type": "text", "zh": "特别是受监管的企业，要采纳这些技术。而且，我想，这也与这种技术的传统传播有关，过去通常是通过咨询公司，例如埃森哲和德勤等公司来掌握一部分，帮人们进行实施。你们有点是在把这些直接交给IT部门。你们是否也在探索这更多是作为一种前置部署的方式，还是你们实际上是如何真正把它构建起来的？", "speaker_id": "sg", "section_id": "s5"}, {"start_sec": 409, "type": "text", "zh": "企业是否能有效使用？是的，绝对可以。显然，差距在于普及。技术可以做到很多事情，而企业几乎只是触及了可能性的表面。其中很大一部分只是理解人、流程、实际存在的工作流，以及你希望它们未来如何存在，我们认为这仍然需要人来完成。因此，我们会派遣两种人员，一种是我们称之为部署战略家的人，另一种是部署的软件工程师，他们会到客户现场，弄清楚如何做", "speaker_id": "js", "section_id": "s5"}, {"start_sec": 435, "type": "text", "zh": "公司现在两年半。看着 ServiceNow 这家公司，我觉得 Serval 是极少数明确说：我们要直接替换大型企业里的系统 of record。一开始你就想这么干吗？这么大的产品套件，你怎么一口口吃掉这头大象？", "speaker_id": "sg", "section_id": "s5"}, {"start_sec": 463, "type": "text", "zh": "杰克：我常说，一切都按我们非常狂妄的计划在走。我们从第一天就想做有史以来最大的企业软件公司，把一长串公司列出来，圈中 ServiceNow，说我们要赢过他们、做更大的东西。那时只有两个人，在联合创始人 Alex 的客厅里，我们就这么定了。野心不是后来长大的，是一开始就定的。", "speaker_id": "js", "section_id": "s6"}, {"start_sec": 489, "type": "text", "zh": "很多人会从「在现有工单系统上做一层自动化」起步。", "speaker_id": "eg", "section_id": "s6"}, {"start_sec": 514, "type": "text", "zh": "对。打巨头通常两条路：做一层、跟 incumbent 和平共处，在他们的工作上挂个 AI 智能体——除了少数像 Veeva 那样从 Salesforce 反整合进自己的平台，这条路很容易把天花板钉死；另一条是先做中小企业、中端市场，像 Workday/Salesforce 的下探对手，比如 Rippling 或 HubSpot，十年路线。我们想：为什么不直接打最大的那个？更难，但奖金也最大。而且从第一天就为大企业做产品，产品决策、团队、增长逻辑会完全不一样。", "speaker_id": "js", "section_id": "s6"}, {"start_sec": 537, "type": "text", "zh": "市场。这大概就是两种常见的方法。我们可以建立一个小层，与大公司现有工作良好配合，在其上开发 AI 智能体。就像你知道的，这实际上是有限的，也许唯一成功的例子是 Veeva 或类似的，对吧？因为他们最初是在 Salesforce 上起步，然后迁移成为自己的平台。所以他们是我能想到的唯一一个做过向后整合的。这真的很难。如果不找到某个利基市场稍后扩展，可能会受到限制。", "speaker_id": "eg", "section_id": "s6"}, {"start_sec": 559, "type": "text", "zh": "另一种方法是我们只是下沉市场，你知道的，下沉市场，为中小企业和中型市场提供服务。你可以在很多竞争对手身上看到这种做法，比如 Workday 的竞争对手、Salesforce 的竞争对手。他们只是说，我们要为低端市场提供这种服务。我们看过 Rippling 或 HubSpot。完全是十年前的情况。我们看过之后就想，为什么不直接去追大市场呢？虽然困难得多，但至少如果成功了，回报会非常大。我认为这对我们来说非常重要，因为你最终会做很多事情。", "speaker_id": "js", "section_id": "s6"}, {"start_sec": 582, "type": "text", "zh": "如果你从一开始就为大型企业构建产品，会有不同的决策。所有的产品决策、如何组建团队、如何考虑增长，根本上都与先服务一个市场然后希望未来扩展的情况不同。你如何选择这个而不是使用 Salesforce 服务器？不同类别中还有一些其他典型的大公司。我认为我们并不真正理解我们如何打败其他公司，以及为什么我们有优势，以及人工智能的作用。", "speaker_id": "eg", "section_id": "s7"}, {"start_sec": 605, "type": "text", "zh": "他们无法赶上的。而且根据我们在 IT 方面的经验，我们对 ServiceNow 的理解是，它本质上是一个工作流自动化平台。我们的信念，我和我的联合创始人，以及我的联合创始人早期就有这个想法，认为在企业中用代码来表达自动化是正确的方式。你应该直接在代码中构建所有自动化，而这些拖放式的工作流构建器是一种痛苦的抽象层次，因为对于非技术用户来说太复杂了，而且对于", "speaker_id": "js", "section_id": "s7"}, {"start_sec": 635, "type": "text", "zh": "技术用户。编写代码是构建自动化的更好方式。问题显然在于，不是很多人能够编写代码，并且足够快速地完成，以至于对自动化有意义。因此，随着人工智能使这一点成为可能，这对我们两个人来说都是一个顿悟，实际上，如果代码是构建自动化的正确方式，而现在任何人都可以编写代码，我们就可以构建一个更好的自动化平台。那么，什么是自动化平台，实际上，自动化平台的最佳市场是什么？实际上是接手这些庞大的遗留系统。", "speaker_id": "js", "section_id": "s7"}, {"start_sec": 661, "type": "text", "zh": "像 ServiceNow 这样的软件公司。我想大约在两年半前你开始的时候，大部分编码工作都只是某种程度的自动完成。它并不能真正工作。是的，所以，是的，是的，但实际上当我们开始构建这个的时候，假设是什么呢？是认为编码会变得更好吗？是认为你会构建工具，然后你不需要，因为事情变得很好了？我对那个过渡有些好奇。赌注是编码智能体会变得非常好。理论上", "speaker_id": "js", "section_id": "s7"}, {"start_sec": 687, "type": "text", "zh": "这是一个可以验证的领域，并且它实际上应该能够相当好地进行爬山算法。因此，我们从根本上相信，编码智能体至少在这些方面会变得很出色。我原本并不指望它们在通用软件开发上能像现在这样优秀，但对于像重置密码、获取审批之类的确定性程序脚本，这些事情都是如此明确且可验证，我们觉得它们在这些方面会表现良好。因此，从工作流自动化的角度来看，我们认为它会变得很", "speaker_id": "eg", "section_id": "s8"}, {"start_sec": 715, "type": "text", "zh": "在那里。早期情况并非如此。所以我们在所有早期演示中最终所做的是，我们会提示大型语言模型（LLM），说，“嘿，这是你可能想要构建密码重置工作流程的推荐方式。”于是我们会提供大量示例，然后随着时间的推移，我们会让那个库越来越大，但后来模型变得如此优秀，以至于最终很难破解。如果存在相关API，你很难给它一个它不能自动化的工作流程。是的。是的，当你考虑编码智能体的发展方向时", "speaker_id": "js", "section_id": "s8"}, {"start_sec": 744, "type": "text", "zh": "今天是什么情况，以及你的客户想要什么，比如你和Alex对于他们从这里变得更好感到兴奋吗？你紧张吗？你认为这会对你自己的产品有什么影响？我们非常期待他们变得更好，因为我认为这会解锁我们希望实现的很多东西，比如更好的浏览器使用和电脑使用，以及更多关于后台智能体和个人智能体的方法，这些在企业中可能非常有用。所以，我们对这一演变感到兴奋。", "speaker_id": "js", "section_id": "s8"}, {"start_sec": 769, "type": "text", "zh": "类别。我们一直坚信，根本上我们并不是在自己构建大型语言模型（LLM）。我们是在构建防护栏。我们是在建立界限。而这些界限对我们来说就是产品，因为我们是那个能让拥有大量规则、审批、流程和政治的企业以安全舒适的方式大规模采用这些工具的方式。所以，Serval 就是界限。Serval 就是防护栏。智能性的提升只是让我们的产品更强大，也让我们的客户实际上想要更加严格控制。", "speaker_id": "eg", "section_id": "s8"}, {"start_sec": 803, "type": "text", "zh": "在那些界限上，在那些护栏上进一步。我实际上认为企业中对个人的访问将会变得越来越受控。随着访问变得更严格，你允许人们做的事情越来越少，而你的权限变得越来越狭窄，我认为这将会发生，发生。为什么会发生呢？因为我认为，如果你考虑一下，我可能会安全地给你比你需要的更多权限，因为我实际上认为你不会造成那么大的损害。但如果你", "speaker_id": "js", "section_id": "s9"}, {"start_sec": 828, "type": "text", "zh": "访问所有这些智能体后，你能够造成的损害会随着任何稍高于正常权限的操作而扩大。而且，我们现在在网络安全风险中确实看到了这一点。绝对如此。因此，如果我是一个大型企业，我实际上想做的是将每个人的权限缩小到真正的最小权限。你不能访问任何文档，也不能采取任何行动，除非你绝对需要为你的工作而执行。但随后你会经常有例外情况。", "speaker_id": "js", "section_id": "s9"}, {"start_sec": 854, "type": "text", "zh": "我们是那一层，可以授予这些例外情况，并使您能够围绕这些情况建立审批流程，拥有审计记录以及相关工单。因此，通过掌控企业中特权的升级方式，我们实际上变得更强大、更不可或缺，尤其是在您严格控制终端用户权限的时候。你能分享一个故事或者成功案例吗？人们选择你来替代一个非常根深蒂固的现有供应商，其实是在承担很大的风险，对吗？我想这也是他们自己时间的一种投资。", "speaker_id": "eg", "section_id": "s9"}, {"start_sec": 885, "type": "text", "zh": "这就像个人风险。比如，为什么要那样做？或者是否有人已经经历过，并到达了另一端的经验？我认为我们必须说服自己和我们的客户，相信Serval是你在工作中获得晋升的方式。不能只是因为Serval是一种带有风险的选择，希望在另一端获得一些回报。我们必须说服客户，你参与其中，你的职业生涯会因此发展。你不仅不会遇到麻烦，实际上你还会得到晋升。", "speaker_id": "js", "section_id": "s9"}, {"start_sec": 910, "type": "text", "zh": "莎拉：换掉嵌得很深的 incumbent 风险很大，也是个人职业风险。为什么有人愿意？有没有人已经走到对岸的故事？", "speaker_id": "sg", "section_id": "s9"}, {"start_sec": 937, "type": "text", "zh": "杰克：我们必须让自己和客户相信——用 Serval 是在工作中获得晋升的路径，而不能是「赌一把、但愿对面有好东西」。你做这件事，不是勉强不出事，而是真能升职。我们卖到 C 层和 IT 领导层，再扩散到各部门：上一代人靠 ServiceNow 建功立业，下一代要在这代平台上建功。Fox Corporation 全公司采用了 Serval，一线主导迁移的人被提名为全公司 MVP 并获奖。我们要客户相信：你不只是证明自己有用，还可能成为公司里最关键的人，因为你在领导这场变革。", "speaker_id": "js", "section_id": "s9"}, {"start_sec": 961, "type": "text", "zh": "你们非常擅长前瞻性思考，对吧？所以，你知道编码智能体或编码会变得更好。你知道有一种转变的方式。你有点确定了要追求的良好市场细分。你预测在接下来的2-3年内不仅对你的公司，而且对人工智能整体，会发生什么？比如，你在前景中看到什么让你非常兴奋，或者你看到会到来的重大变化？我认为消费者常常给我们一个窗口，让我们看到企业中接下来会发生什么，并且这一切", "speaker_id": "js", "section_id": "s10"}, {"start_sec": 984, "type": "text", "zh": "并不总是看起来一样，但我觉得它是一个很好的窗口。所以我对企业中的个人智能体非常看好。我认为，就像电子邮件、Slack 以及这些工具改变了我们在工作中的沟通方式一样，我认为个人智能体也将成为其中的重要组成部分。我认为每个人都会有自己的个人智能体，为他们完成任务，并将任务委派给其他个人智能体。因此，你的智能体会与工作中的其他智能体进行交流。我对此感到非常兴奋，但接下来我们如何保障安全呢", "speaker_id": "sg", "section_id": "s10"}, {"start_sec": 1008, "type": "text", "zh": "在一个网络安全风险不断增加、大型企业对每个人的智能体在所有计算机上采取行动并使用他们的浏览器的情况感到关注的世界中。这种员工、消费者在工作中对个人智能体的需求与企业从治理角度的需求之间的紧张关系，我认为非常有趣。我认为在这种紧张关系中会有很多机会。我认为可能会出现一个独立的个人智能体和工作智能体吗？", "speaker_id": "js", "section_id": "s10"}, {"start_sec": 1037, "type": "text", "zh": "我想是的。我想是的。是的。是的。我想是的。就像我有一个 Gmail 和一个公司邮箱一样。是的，是的。如果有一个前提，我是说这里有很多不同的想法，但其中之一是，例外情况或访问控制会变得复杂并需要不同级别的规模，对吧？另一个是，你总体上会有更多的自动化，因为人们，如果你让它变容易，人们会在各个不同的地方进行扩展。是否有一些核心设计原则之外的东西？", "speaker_id": "js", "section_id": "s10"}, {"start_sec": 1069, "type": "text", "zh": "代码生成应该是今天你已经放入产品中的自动化的实际形式，能反映这一点吗？我认为最大的一点是软件开发生命周期（SDLC）。在工程环境中，我们理所当然地认为的事情，实际上是存在开发环境，然后是暂存环境，再然后是生产环境，并且它们之间有这些关卡，也许你还有分支，人们可以在上面开发而不会对其他系统造成伤害。抱歉，为了明确，这并不是", "speaker_id": "eg", "section_id": "s10"}, {"start_sec": 1094, "type": "text", "zh": "今天信息技术自动化是如何运作的。在某些情况下确实有效，但我认为大多数新的人工智能产品并没有采用这一点。他们基本上是在说，“嘿，让我们构建这些酷炫的智能体并投入生产。”但是，对于“大型企业、大型金融机构来说，你实际上必须遵循软件开发生命周期（SDLC）(SDLC)流程”的想法，是不会在没有评审、用户验收测试以及所有这些合规性检查的情况下就直接发布新的智能体功能的。完全正确。因此，我认为这是我们经常考虑的一个问题是，什么", "speaker_id": "sg", "section_id": "s10"}, {"start_sec": 1123, "type": "text", "zh": "要说服世界上最大的公司采用这项技术，而不仅仅是追求强大和酷炫，是我们很兴奋能够让客户使用的东西。这需要许多人工智能公司，特别是那些以垂直行业为中心的公司，一两年时间才能弄明白，有时甚至更久。现在观看整个行业开始采用前瞻性部署的方式，开始思考软件开发生命周期（SDLC）、合规性以及企业的其他方面，这是非常有趣的，这在以前几乎是缺失的。", "speaker_id": "js", "section_id": "s10"}, {"start_sec": 1145, "type": "text", "zh": "我我认为在某些情况下他们永远到达不了那一步。比如，一些公司只是他们他们看看企业软件需要什么，然后他们决定，“我们其实不想去做那个。”你看看我们之前提到的很多那些下沉市场的公司的故事。我认为有时他们确实会看到为企业开发的机会，而那需要一整套完全不同的构建原则和必须开发的产品，但有些公司只是选择不去做。", "speaker_id": "js", "section_id": "s10"}, {"start_sec": 1168, "type": "text", "zh": "他们他们看到其他公司的情况。我们选择了这样说：“嘿，把你们最棘手的问题交给我，我们将解决它们，并在这个疯狂的世界里实现人工智能转型，在这个充满风险和治理问题的世界里。”当你有了你的部署，你会有关键的客户环境工程师，然后是持续的自动化专家，然后你还有核心平台。你如何决定哪些实际上被引入核心平台，或者，在每一个方面", "speaker_id": "eg", "section_id": "s11"}, {"start_sec": 1198, "type": "text", "zh": "个人客户的环境？是的。所以，当我们部署软件时，我认为真正重要的是，我们实际上从不构建定制功能。我们不开发定制的产品能力。幸运的是，对于我们的类别，没有人要求我们这样做。人们提出的所有需求，都是其他每个客户在某个时候都会想要的东西。也许它们会影响优先级排序，但这仍然是我们一直希望在平台中具备的功能。现在，因为它在底层是一个 CodeGen 平台，你所构建的", "speaker_id": "js", "section_id": "s11"}, {"start_sec": 1222, "type": "text", "zh": "在 Serval 中非常，非常独特。因此，一个公司的密码重置工作流程与另一个公司的密码重置流程会非常不同，令人震惊。同样，入职和离职流程以及所有这些内部的不同自动化，它们看起来非常不同，但这只是平台核心原语中固有的。Serval 几乎成为了 IT 部门和其他部门构建自动化并大规模管理它们的 IDE，对吧。所以，我们所做的是，如果我们观察并看到相同的情况", "speaker_id": "js", "section_id": "s11"}, {"start_sec": 1247, "type": "text", "zh": "客户一遍又一遍地构建相同的自动化，并且必须在产品中以相同的方式自定义和构建它们时，我们开始考虑，“嘿，这是否应该成为产品的一级功能？”举个例子，我们看到很多客户在构建工作流程，以检测知识库文章是否有冲突或过时。因此，我们说，“嘿，我们应该自动做到这一点。”而且，我们有客户会设置自动化来收回旧的许可证。所以，", "speaker_id": "sg", "section_id": "s11"}, {"start_sec": 1275, "type": "text", "zh": "对于你支付了费用但没人使用的软件许可证，我们可以自动取消这些订阅。好吧，我们刚决定在平台中内置这一功能。所以，这对我们来说是一种测试方式，看看哪些功能真的应该是一级功能，哪些应该保留在 Serval 的自动化中。我们的企业客户，关于软件团队在代码生成上的总体支出，今年经历了一段历程，对吧？他们是这样想的：‘我们会让大家先试用一下，然后我们会设置最大token数量，并且我们……’", "speaker_id": "js", "section_id": "s11"}, {"start_sec": 1303, "type": "text", "zh": "要去限制并弄清楚谁实际上在有成效地使用这个产品。你认为这对你的业务有什么影响，你又如何看待实际的智能成本？是的，我认为我们仍在观察这个情况。我确实看到我们的CIO客户试图从最初的代币最大化时代收回，但我也认为我们还处在采用曲线的早期阶段，整体上并不会是一次压制。实际上，它将继续呈现相当显著的增长，因为大多数公司仍在弄清楚这一点。", "speaker_id": "js", "section_id": "s11"}, {"start_sec": 1330, "type": "text", "zh": "第一次。而他们将都会经历这种快速早期采纳的周期，然后有点回缩支出，并尝试衡量和计算投资回报率。但我从我们的客户那里经常听到的并不是对长期预算影响的担忧。他们意识到会有短期的回缩，但他们仍然计划增加支出。他们需要的，是更多的投资回报率的证明。而我认为，这正是将改变行业的东西，人们", "speaker_id": "sg", "section_id": "s11"}, {"start_sec": 1359, "type": "text", "zh": "想要找出我如何证明这笔花费对我有价值？这很难。我不知道是否有人真正弄明白了如何衡量你从购买的代币中获得的收益，但我认为这将是一个巨大的机会，让我们展示正在进行的工作，并尝试将其与在其他平台上、使用其他成本模型或通过人工完成的工作相比较。所以我们的客户要求的是帮助我证明这是值得的。这就是任务。这就是我们", "speaker_id": "js", "section_id": "s11"}, {"start_sec": 1386, "type": "text", "zh": "必须要做的。我们试图按照工作流运行来定价，因为我认为这比仅仅按代币来定价更能反映实际完成的工作，而代币更像是冗长和低效率，但我认为我们都会找到不同的方式来证明我们所做的事情是有意义的。人们一直在谈论的一件事情是所谓的 SaaS 灾难，其想法是，人们会自己构建内部的 SaaS 软件，所有这些类别都会消失。很多人，对于你提到的观点", "speaker_id": "js", "section_id": "s12"}, {"start_sec": 1413, "type": "text", "zh": "以代币计算投资回报率，某种程度上是在尝试判断重建这些系统是否值得？你实际上能否有效地做到这一点？你如何看待SaaS末日或SaaS向AI的这种转变？我认为我谈过的所有尝试在内部购买代码工具的公司，特别是主要的系统 of record工具，不是那种点解决方案，而是主要的系统 of record工具，都发现构建和维护企业软件非常昂贵。即使你能做到", "speaker_id": "eg", "section_id": "s12"}, {"start_sec": 1437, "type": "text", "zh": "在很多情况下，这在经济上并不合理，除非你的需求非常定制化且独特。因此，对于不是你的核心竞争力的东西，我认为一直存在自建与购买的争论。我认为这现在和以往一样真实，因为开发企业软件仍然很困难。很多公司正在发现或重新学习一个事实，那就是企业软件确实很复杂，你需要人来维护它。", "speaker_id": "js", "section_id": "s12"}, {"start_sec": 1461, "type": "text", "zh": "什么是使用案例和边缘案例？边缘案例是那些会出现问题的情况，人们需要更新它，因此你必须配置团队，然后你要为这份劳动付费，而且在很多情况下没有人真正愿意在内部工具团队工作。所以，做这件事会遇到所有这些问题。我确实看到它存在于某种点解决方案中，很多公司有成百上千的SaaS应用程序。他们可能只需要几十个工具。因此，我确实认为你会看到一个收缩的趋势。", "speaker_id": "js", "section_id": "s12"}, {"start_sec": 1486, "type": "text", "zh": "各种不同点解决方案的扩张将会被核心记录系统和核心平台吞噬。中间件也一样，我认为它也会消失。完全正确。完全正确。所以，我认为会有整合。因此，会有一个SaaS末日，但那种点解决方案的小市值类型公司会受到影响。我不认为你能够真正摆脱核心记录系统、ERP、HRIS、ITSM、CRM。我认为这些系统会继续存在，它们可能会发生变革，而且", "speaker_id": "js", "section_id": "s12"}, {"start_sec": 1512, "type": "text", "zh": "我们在Serval上看到的是，我们正在取代那些工具。所以，我认为会出现新一代的现有企业。但我并不认为那些类别会就此消失。我很好奇，对于IT用户，你有什么样的心理模型或者心智理论，考虑到他们不是软件工程师，但他们了解自己的业务，他们了解自己想要自动化的内容。当你谈到低代码开发时，我就想，“好吧，但你是否了解安全架构？你是否了解”", "speaker_id": "sg", "section_id": "s12"}, {"start_sec": 1543, "type": "text", "zh": "这将如何与治理集成？比如，你如何协调代码生成与我们对vibe编码的思考，以及在我们希望构建稳健的IT系统时可能遇到的挑战？是的，绝对如此。我认为IT真的很有趣，因为他们比很多人想象的更接近软件工程师。尤其是在大型企业中，IT部门在很多情况下就是工程团队。他们没有软件工程师的角色。", "speaker_id": "js", "section_id": "s12"}, {"start_sec": 1567, "type": "text", "zh": "团队，所以 IT 运行所有这些系统，而且 IT 通常会编写代码和管理系统。因此，我认为我们把他们当作成年人对待。我们给他们的软件工程师会使用的工具。现在，我们抽象掉了一些复杂性，在某些方面使其更易于使用，并且我们不仅仅是把Claude Code交给他们然后说“祝你好运”。我们实际上是构建了一个专门针对他们使用场景的平台。我们并不期望他们一定能够编写代码或理解所编写的内容。", "speaker_id": "js", "section_id": "s12"}, {"start_sec": 1594, "type": "text", "zh": "但我们仍然在内部给他们访问权限。所以，你始终可以看到代码，也可以始终通过完整的软件开发生命周期（SDLC）来处理它，但你也不必这样做。因此，很多产品原则都是考虑到几种不同的角色，比如一个真正能够并且会写代码的IT工程师，或者可能是市场部门的人，以及人事团队，他们可能从未想看代码，但仍然希望拥有代码的灵活性。", "speaker_id": "js", "section_id": "s12"}, {"start_sec": 1620, "type": "text", "zh": "背后生成，因为他们有一个复杂的工作流程需要构建，而他们不想通过拖放的方式来完成。所以，我认为很多情况下，这只是涉及到你脑中拥有多重角色，同时也要像对待成年人一样对待IT。我认为，许多现有产品实际上对IT有些说教，认为“哦，你实际上不理解这些东西，所以你需要这个非常简化、更有指导性的、更简单的版本。”实际上，IT欣赏复杂性，也欣赏这些的强大功能。", "speaker_id": "js", "section_id": "s12"}, {"start_sec": 1645, "type": "text", "zh": "平台。我们希望将其传递给他们。你们开发了一个可以帮助你们构建自动化的智能体。你能解释一下它是如何工作的吗？是的，所以我认为每家公司在构建第一代这些 AI 工具时都会发现的一件事是，你可以构建如此惊人的复杂系统，但随后你必须培训人们去理解你所有的产品基础元素以及这些系统是如何结合在一起的。因此，这一代的第一步是我们部署了所有这些全职员工去", "speaker_id": "sg", "section_id": "s12"}, {"start_sec": 1668, "type": "text", "zh": "向客户解释：“好吧，这里是如何在平台上构建的。实际上，让我直接为你构建。”然后我们意识到，如果客户可以直接与一个理解他们需求的智能体对话，然后将这些需求转化为产品原语，会非常好。因此，我们开发了这个叫做Catalyst的智能体，它就是做这个的。它是一个用于管理平台的智能体。所以，它是一个供管理员构建所有底层自动化的智能体，同时也可以配置与审批、权限相关的规则。", "speaker_id": "js", "section_id": "s12"}, {"start_sec": 1694, "type": "text", "zh": "检查、建立不同的策略、更新所有这些不同的系统、理解整个部署。因此，因为 Serval 在底层生成所有代码，在其上使用智能体来帮助你管理系统非常合理，而且非常强大。因为现在我不需要你自己去学习如何使用 Serval。你可以直接与一个真正理解如何使用 Serval 以及如何在其上构建的智能体进行交流，而这就是你进入产品的主要界面。我认为有一点是被忽视的", "speaker_id": "eg", "section_id": "s12"}, {"start_sec": 1720, "type": "text", "zh": "我很欣赏，也觉得很酷的是，不同产品中的智能体体验，实际上在代码生成智能体中也是如此，能够在用户构建产品、实现某个功能或其他东西的过程中，带上用户，这实际上是在提升大量用户的技术能力和水平，并把人们变得更像工程师。绝对的。在旧一代自动化中，你会遇到这种空白起点的问题——我甚至不知道从哪里开始？我知道我想自动化所有的东西。", "speaker_id": "js", "section_id": "s12"}, {"start_sec": 1750, "type": "text", "zh": "这是我工作的一部分，但我该从哪里开始呢？像我们这样的产品会问，你想从哪里开始？然后你可以开始提出建议，并且可以与它们反复尝试，你可以说，我其实不明白那是什么意思。你想表达什么？你能给我解释一下吗？好的，我正试着做这个。我该如何去做呢？它们可以提供这些信息，获取信息，向你解释概念。所以它实际上会成为一个构建伙伴，你可以实现的不仅仅是提示操作，还可以做更多事情。", "speaker_id": "sg", "section_id": "s12"}, {"start_sec": 1772, "type": "text", "zh": "一个智能体去构建某些东西，它实际上可以引导你完成整个过程，帮助你探索你甚至都没想到的新机会。但目前似乎有一个话题讨论得比较少，那就是后台智能体。你能否告诉我们你是如何看待这个的，以及你认为下一波发展趋势会是什么？是的，我总是这样向公司描述后台智能体：这是企业软件中的终极登月计划。就是这些智能体为你去完成工作，并且神奇地...", "speaker_id": "js", "section_id": "s12"}, {"start_sec": 1793, "type": "text", "zh": "发现你所有的问题并解决你所有的问题。如果我们能够部署它，让它能够工作，并且遵循我们的权限，那将是非常棒的。我认为没人真正弄明白如何做好这件事，因为一方面，你希望它们非常自主，能够自行去发现问题并解决问题，而不需要有人照看。另一方面，对于企业来说，自主性是非常可怕的。因此，你确实希望看到它们究竟能读取什么。这有点像OpenAI、Hugging Face事件或其他情况。", "speaker_id": "js", "section_id": "s12"}, {"start_sec": 1820, "type": "text", "zh": "事情是这样的，智能体被分配了一个任务，然后他们会为了完成这个任务做出一些意想不到的事情，那么你可以设置哪些护栏呢？没错。因为我最好的员工，你会怎么对待他们？你会说，这是一个总体的高层任务，去做吧，不用跟我说，然后你去做，你回来时会完成惊人的事情。我希望能够信任智能体为我做同样的事情，我可以给他们这个高层任务，他们就能回来解决问题。", "speaker_id": "eg", "section_id": "s12"}, {"start_sec": 1841, "type": "text", "zh": "有问题的话再回来找我。我觉得我们还没有找到一种让人感觉安全的方法。在企业里。你认为有什么方法可以保证安全吗？我的意思是，人们一直在尝试不同的方法，从宪法式人工智能到某些形式的强化学习。我只是想知道你是否有解决方案，还是说我们只是想着在大型企业中，这不是完美的，但它是一种能力的逐步升级。所以你去做，然后你", "speaker_id": "js", "section_id": "s12"}, {"start_sec": 1864, "type": "text", "zh": "做这些事情，然后它会回来并说，“嘿，我希望能够做所有这些事情。这将帮助我完成工作。”你批准它们。所有这些东西都是确定性的工作流。我想调用这个工具。我想运行这个做 X、Y 和 Z 的脚本。我可以这样做吗？然后你只是以某些权限和安全措施批准这些操作，并且你会说，“好吧，这没问题。这没问题。这没问题。”随着时间的推移，智能体会变得相当有能力，因为它有足够大的工具包可以解决问题。", "speaker_id": "sg", "section_id": "s12"}, {"start_sec": 1889, "type": "text", "zh": "大多数问题。它并不完美，因为不得不监督这个过程很烦人，但我认为这是你必须做的，否则理论上它可能会开始编写能够在你的系统上采取行动的代码，而这是一个无限的安全风险，我认为短期内没有人能够承担。你认为，按照你的观点感到兴奋，或者你和Alex对未来能力感到兴奋，比如我们这里仍然缺少一些模型能力？我之所以问是因为", "speaker_id": "js", "section_id": "s12"}, {"start_sec": 1917, "type": "text", "zh": "莎拉：公司约两年半，却很快做出企业级成熟产品。团队现在多大？", "speaker_id": "sg", "section_id": "s12"}, {"start_sec": 1946, "type": "text", "zh": "杰克：今天大约 200 人。相对一月份，这是疯狂的增长年。招聘速度我觉得还会再加快。我们相信工作需求无限、竞争无限、野心无限。即便每位员工比一年前能干得多，我们对「他们还能干成什么」的野心更大——所以人更高效，我们反而要更多人，不是更少。", "speaker_id": "js", "section_id": "s12"}, {"start_sec": 1973, "type": "text", "zh": "我，我有多信任你可以自由发挥而不需要我监督你的行为？对人也是同样吗？我的意思是，任何为你工作的人都必须回来汇报，确认是不是你想要的，并提供三个选项。所以，我认为这是一个非常正常的流程，对吧？是的，是的，是的。这家公司大约有两年半的历史。你已经非常快地推出了至少一个企业级成熟产品。今天团队有多大？我们今天有200人。200人。一月份，所以这真是一个令人难以置信的增长年。", "speaker_id": "js", "section_id": "s13"}, {"start_sec": 2001, "type": "text", "zh": "那真是非同寻常的一年。首先，我想问，你是否预计会继续如此快速地招聘？作为一个明显相信人工智能的人，为什么会这样？其次，你和你的团队以前也参与过初创公司，那么你们的操作方式，在过去两年里，与以前十年相比，有哪些很大的不同？是的，我认为招聘速度甚至会比我们现在还要快。我们相信，对工作的需求是无限的，同时竞争也是无限的。", "speaker_id": "eg", "section_id": "s13"}, {"start_sec": 2029, "type": "text", "zh": "无限的雄心。因此，尽管每一位员工所做的远远超出了他们一年前能够做到的，但我们对他们能够做的事情有着更大的雄心。因此，我认为因为每位员工的生产力大大提高，我们实际上希望他们更多，而不是更少。鉴于你之前在Verkada的工作经历，你在过去两年的运营方式与前十年有何不同？我认为Verkada及我们所处的领域以及当前时机的独特之处在于，总可寻地址市场（TAM）是无限的。所以，它", "speaker_id": "js", "section_id": "s13"}, {"start_sec": 2058, "type": "text", "zh": "感觉这个可着装市场实际上更多取决于我们的雄心大小，而不是这个业务能发展多大的根本限制。因为我们实际上正在为全世界的每一个员工自动化所有类型的工作，所以总可触达市场（TAM）（TAM）有多大完全取决于我们的想象力。这真正取决于我们能增长的速度以及我们的雄心，并基于此做出决策，而不是去考虑，好吧，这就是市场的样子。我们认为我们实际能做到的是什么。而那是一组不同的挑战。它不是，它不是", "speaker_id": "js", "section_id": "s13"}, {"start_sec": 2087, "type": "text", "zh": "严格来说更好，因为现在有了这么多的开放空间，我们需要做出更多关于我们实际想要专注的事情的决定。但不被市场允许的限制所约束确实很有趣。既然范围非常广，那么你如何组织节奏或者说，EPD 团队呢？我们与客户紧密结合。所以即使是不一定被部署的工程师，他们也会在客户的 Slack 频道里。我们不断地讨论客户。他们在听取客户的反馈。", "speaker_id": "sg", "section_id": "s13"}, {"start_sec": 2117, "type": "text", "zh": "每天。大多数工程师每周至少会参加一次客户电话。我认为他们中的大多数实际上每天至少会参加一次客户电话。这就像沉浸在一个国家中学习外语一样。你会完全沉浸在你的买家和客户的思维中，以至于你理解他们想要什么，你理解他们是如何思考问题的，并且你会实时适应他们偏好的变化。因此，当他们随着市场变化而移动，并开始交流时", "speaker_id": "js", "section_id": "s13"}, {"start_sec": 2144, "type": "text", "zh": "关于他们正在尝试的不同产品以及他们感到兴奋的事情，我们的工程师时刻关注所有这些，并能够非常快速地适应。所以我们实际上将产品开发下放给了工程团队。我们没有专门的产品部门，因为他们每天都在与客户交流，并且能够快速适应客户今天和本周的反馈，而不是一个月前的反馈。这听起来像是一种非常自然的方式来跟上节奏。", "speaker_id": "js", "section_id": "s13"}, {"start_sec": 2170, "type": "text", "zh": "撕裂市场并改变客户的优先级。那么你和Alex以及管理层如何理解这一点呢？在一家传统的企业软件公司，你会有架构评审，有季度路线图，并且你会对路线图进行优先级排序，你会培训所有客户了解新发布的内容。你还会与客户沟通，告诉他们变化太快，他们也只能以一定的速度吸收。这确实是一个很大的挑战。我们的产品", "speaker_id": "sg", "section_id": "s13"}, {"start_sec": 2196, "type": "text", "zh": "庞大的船只和变化的速度远远超过任何人能跟上的，包括我自己。我们只是尽量确保一件事，那就是我们聘请的工程师确实以产品为导向。这是我们做出的一个改变，他们必须真正了解我们的客户，我们希望把他们放在客户面前，因为他们将不得不在前线做出许多决策，而不是每一个产品决策都可以每次都上报给领导。这是一个根本性的变化，你必须愿意推动很多事情。", "speaker_id": "js", "section_id": "s13"}, {"start_sec": 2220, "type": "text", "zh": "下面是产品决策，你必须愿意快速行动，同时如果方向错误，也要能够撤销和回退，并且舍弃你心爱的部分。你必须愿意对你认为对产品至关重要的事情改变方向，当你的工程师带给你一些信息时说：“嘿，这就是客户现在的看法，我们应该做一些不同的事情。”在Serval，我最自豪的一点就是我们已经多次决定抹掉我们所做的事情。", "speaker_id": "js", "section_id": "s13"}, {"start_sec": 2248, "type": "text", "zh": "过去我们曾非常投入地做一些事情，然后会说，‘？市场变了，客户变了。我们要完全以不同的方式去做。’我认为，这正是让我们能够跟上时代的原因——不断重塑自我的能力和意愿。在这个时代，一些最持久的事物就是如此。谢谢你，杰克。感谢邀请我们。可以在【音乐】Twitter上找到我们，账号是 No Priors Pods。如果你想看到我们的面孔，可以订阅我们的 YouTube 频道。关注我们的节目可以在 Apple Podcasts、Spotify 或", "speaker_id": "js", "section_id": "s13"}, {"start_sec": 2276, "type": "text", "zh": "无论你在哪里收听。【音乐】这样你每周都会收到一集新节目。并且可以在 no-priors.com 注册电子邮件，或查找每一集的文字稿。", "speaker_id": "sg", "section_id": "s13"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

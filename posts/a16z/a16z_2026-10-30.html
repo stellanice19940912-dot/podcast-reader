@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>如何打造下一个 SpaceX 或特斯拉</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-2{--c:#4c8c5a;--cbg:#29392a;--cbgl:#eaf1eb}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="eb">埃琳娜·伯格（Elena Burger）</option><option value="epw">埃琳·普赖斯-赖特（Erin Price-Wright）</option><option value="cl">康纳·洛夫（Connor Love）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">a16z</span><span class="pill">2026-10-29</span></div>
+<h1>如何打造下一个 SpaceX 或特斯拉</h1>
+<p class="sub">嘉宾：Erin Price-Wright、Connor Love · 约 49 分钟（2957 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=cRJ7CfaK1Vc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=cRJ7CfaK1Vc</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>a16z</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-29</dd></div><div class="meta-row"><dt>时长</dt><dd>约 49 分钟（2957 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；yt-dlp --cookies-from-browser chrome 补拉成功）；caption_source=yt-dlp-chrome-cookies；无官方字幕；中文为全文翻译并按中文表达习惯重写、按话题分段</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>cRJ7CfaK1Vc</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>a16z 埃琳娜·伯格对话埃琳·普赖斯-赖特与康纳·洛夫，围绕本年 AD50：重建美国工业底座——从矿物与工厂到防务/能源/机器人终端；讨论大疆式军民技术转移、SpaceX/特斯拉垂直整合、先于政府采购而建，以及私人资本市场如何让这些公司既关乎国力又可能成为全球最值钱的硬件公司。</p>
+<h3>核心要点</h3><ul><li>核心命题：没有工业基础就没有国防工业基础；AD50 应按原料→工厂→系统端到端看</li><li>大疆路径显示消费→防务→机器人执行器的工艺迁移；国防首单可补贴产线资本开支反哺民用</li><li>AI「还不能拧扳手」；高混低量产线可被技师+软件（如 Claude）在约20分钟重配，取代数月集成商</li><li>新模式：风险资本让创业者先于政府规格把战场/电网需要的东西造出来（如 Castelion）</li><li>2026上半年防务风险资本已超去年全年；美国优势是非自上而下、愿在未获订单前下注的私人资本</li><li>中美电力差距被归为「国家意志」而非技术；物理项目须让社区分享经济红利</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：关心硬科技/国防科技/再工业化与 AD 投资主题的人；可跳过：只想听纯消费软件或短平快快讯者（约49分钟深度对谈）。</p>
+<h3>适合人群</h3><p>硬科技与国防科技创业者/投资人；关注供应链、制造业回流与美国活力（American Dynamism）的读者</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">没有工业基础就没有国防工业基础</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">开场点题：没有工业基础就谈不上国防工业基础；AI 尚不能拧扳手；全球市值前列多数是硬件公司。主持人埃琳娜·伯格（Elena Burger）请来 a16z 的埃琳·普赖斯-赖特（Erin Price-Wright）与康纳·洛夫（Connor Love）谈本年 AD50。埃琳强调几十年去工业化已在战场上显现后果，美国需要重新会造东西。康纳补充是地缘冲突、资本市场与主动举手建设的创业者三股力量叠加；AD50 应按「从地下原料→工厂→终端系统」端到端审视。国防需求拉动的工厂与材料，最终会进入民用车、玩具、Waymo 等军民两用场景；政府曾是登月、互联网、核能的第一推动，如今私人资本也可成为源头。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">大疆路径：消费无人机→防务→机器人执行器</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">埃琳以中国大疆（DJI）为例：从消费无人机起步，2010 年代末切入公共安全与国防高产能，背后团队又成为全球最大机器人硬件生产者——因为无人机电机与机器人执行器（actuator）高度相通，而这正是造机器人最难的部分。军用与非军用之间的技术与工艺知识转移历来如此；联邦政府像补贴「学会新工艺」，美国消费者的挑剔则把成本与能力推到政府做不到的程度。康纳强调「第一件」极贵，国防部愿付民用不愿付的单价，等于帮创企垫付产线与资本开支，从而把规模推到能触达消费者；PCB 工厂同理——国防首单补贴资本开支后，机器人与助听器都用得上同一套板。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">埃隆打法：垂直整合与供应链取舍</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">被问如何降本加速时，康纳指向 SpaceX 与特斯拉（Tesla）几乎是当代少数真正规模化的硬件公司：高度垂直整合。精密导弹等「极致系统」往往不得不自建以控成本与品质；SpaceX/特斯拉当年美国没有可依赖的工业底座（尤其电池与电力电子/传动），只能从 1970 年代落灰的论文重起炉灶。有高质量供应商则应用供应商。端系统之外还要自己搞定轴承、电磁阀等，这条路极难。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">Mariana：买铜矿做端到端 + 软件吃物理世界</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">AD50 中的 Mariana Minerals 收购铜矿，从拿矿、开发、开采、运营到多矿物精炼后卖大宗商品，端到端自持，因为既有矿企技术迭代太慢，且只有掌控全价值链才能吃到新技术红利。创始人普遍把 AI/软件当作建设核心；物理世界「眼见为实」，很多时候必须拥有资产才能改资产，与纯数字产品不同。拥有端到端流程并用软件贯穿，数据会反哺下一轮。Hadrian 等工厂也一样：不是一颗「闪亮 AI 银弹」，而是报价接单、加工、质检、流转等十五二十个节点都用第一性原理重审百年旧工艺。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">AI 还不能拧扳手：高混低量产线被软件改写</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">康纳判断：AI 将是物理世界利器，但「还不能拧扳手」，机器人自主尚有距离；关键是深刻理解物理工艺而非堆产品演示。埃琳对比：传统高自动化线适合低混高量；美国大量高混低量很难靠定制线自动化。组合内已见制造技师（未必科班软件）用软件工具、甚至用 Claude 在约 20 分钟内重编程/重配产线，而过去找系统集成商要三个月、数十万美元。可重构产线让原型更快、也更容易爬到量产速率；「面向制造的设计」从 SpaceX/特斯拉被迫的选择变成系统公司标配。俄亥俄与巴尔的摩等地的大型设施已在走向成千上万乃至更高产量——美国很久没这样干过，不再是纸面推演。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">先于政府采购而建：把问题做成「埃隆级」难题</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">防务创业历来难：买家≠用户≠拨款方，决策链割裂；传统主承包商等政府给钱再按规格研发，士兵常拿到十年前的方案。新模式是私人风险资本先投，创业者按战场真实需求提前把东西造出来——Castelion 高超音速导弹近年主要靠私募与创业者冒险，政府合同随后到来。能源电网也在重写，但才刚起步。埃琳形容创始人飞往无信号、无电的矿区「摸土」、数周数月离家：听着浪漫，实际又苦又硬，谈判对象文化节奏完全不同，所以问题必须「大到值得」。使命型创始人仍涌向这些残酷赛道。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">硬件重回最值钱：从「重要」到「可成最大公司」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">康纳称最大变化：美国活力公司过去「对国家重要」，如今也能成为全球最值钱的公司——全球市值前十多数已是硬件。SpaceX、Anduril、Palantir 证明野心创业者可在这些赛道做出巨型生意；采矿、国防、能源一直是大产业，但过去对年轻顶尖人才不够「经济上值得」。服过役的他强调资本市场要赚钱不是慈善，但 AD50 上许多公司同时做大且关乎美国肌理。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">钢头靴、巨型星条旗与工厂延时摄影</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">埃琳说自己因此买了钢头靴；站点常在偏远处，挖土搬吨级物料——康纳引用军官的话：「物理世界不在乎你。」各公司比拼场地最大星条旗（Hadrian、Valor 等），激情带来敢「穿墙」解决问题的团队。她喜欢 12 个月内多次回访同一工厂：从环氧地坪空仓、租来的叉车和角落篮球筐，到半年后机器过多要市政增容、技师满场的混乱扩张，速度肉眼可见；工厂延时摄影已成品类，大家互相攀比。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">防务子系统 unlock 机器人浪潮与本土 PCB</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">造大量船/导弹/系统会拉动执行器、电机、阀门等子系统；这些恰恰是未来人形/工业机器人所需。先为防务把成本与质量做出来，再迎来机器人波，减少对中国工厂依赖——今日机器人公司采购约 99% 可能来自中国，且因质量、成本、迭代速度与地缘都想回流。三年前组合内公司订 PCB 会按报废一半多订，到货一半不及格；新创企用软件与现代工艺重做美国 PCB 后，良率可到 70%–90%，说明与终端客户共址共研能显著抬升质量。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">制造业中间层：与 OEM 协同工程改写子系统</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">新军事系统、Joby/Archer 飞机、新造法汽车都在改终端，输入也必须变。波音造 737 常电话叫霍尼韦尔（Honeywell）按旧规格再做起落架——理性但五十年子系统在新要求下不再够用。未来中间层供应商要从「接单执行」变成与 OEM 协同工程（co-engineering），自下而上重做零件。康纳称之为正在形成的「美国制造业资产类别」。电网亦然：从七八十年代静态机械大规模部署，转向更软件原生的电力电子与储能架构，技术断代让整条供应链可推倒重来；即便需求只兑现一半，「雪球」也不会滚回去。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">Anduril/SpaceX 二代创始人与「先做好一件事」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">在 Anduril、SpaceX、特斯拉产线上撞过供应链墙的工程师/创始人出去做中间层，自带客户网络——类似 YC 公司互相买卖，物理世界供应链生态也在这样长出来。SpaceX/Palantir 都是「花二十年的一夜成功」；Castelion 曾两三年只盯第一枚难造的高超音速弹，拒绝过早多产品，这种「责任工程师」执念来自 SpaceX 织物。先把一件事做到极致，才学到工艺知识、供应链、面向制造的工厂与客户信任，第二三四件事才变容易。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s12">
+<div class="sum-top"><span class="sum-num">12</span><span class="sum-title">美国优势：私人资本市场愿在「未获订单前」下注</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">相对中国自上而下产业政策，美国有数万亿美元私人资本追随技术与量产成功；Anduril 创始人布赖恩·申普夫（Brian Schimpf）等也强调这一点。区别在于资本市场突然认为 AD 赛道有趣：不仅硅谷，摩根大通等银行也承诺巨资投向实体工厂与防务以外的物理世界，私募与信贷跟进。Falcon 9、CCA、导弹产线天生烧钱；风险资本正在弱化传统「死亡之谷」叙事。埃琳称 2026 上半年投入防务生态的风险资本已超过去年全年（而去年又是再前一年的数倍），并外溢到能源、机器人、关键矿物。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s13">
+<div class="sum-top"><span class="sum-num">13</span><span class="sum-title">中美电力曲线：意志问题 + 社区必须分享红利</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">面对「美国电力几乎走平、中国新能源陡升」的经典图，埃琳认为不是技术问题，而是美国人是否愿意让合规项目建成、是否想增长——技术与资本会跟随意志。康纳称雪球已开始滚，但物理世界建厂动土以年计，资本市场要有耐心；风险在于政府自己挡路。软件红利可集中在少数海岸城市且偏抽象；电厂、矿、数据中心在「后院」必须让社区感到分享到经济上行，否则难推进。好的 AD50 公司会嵌入社区（如与小镇机加工店合伙增产而非裁员）；这些公司将更多落在中部美国，带来就业、能源充裕与更分散的财富——但需要时间。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">埃琳娜·伯格（Elena Burger）<em>主持</em></span><span class="spk-1">埃琳·普赖斯-赖特（Erin Price-Wright）<em>嘉宾</em></span><span class="spk-2">康纳·洛夫（Connor Love）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>没有工业基础就没有国防工业基础</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="cl"><div class="label"><span class="badge" title="康纳·洛夫（Connor Love）">洛夫</span></div><div class="content">
+<p>没有工业基础，你就没有国防工业基础。这确实让人警醒，我们需要重新开始建设。&gt;&gt; 人工智能将是一种可以在现实世界中使用的非凡工具。现实情况是，人工智能还不能用扳手作业。&gt;&gt; 世界上最有价值的前十家公司，其中大多数都是硬件公司。访问其中一个现场是什么感觉？你在制造一个实物。你不是坐在桌前使用电脑。你是在现实世界中。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="eb"><div class="label"><span class="badge" title="埃琳娜·伯格（Elena Burger）">伯格</span></div><div class="content">
+<p>听起来有点性感和浪漫，但当你真正去做的时候，却很艰难。当你出现在Mariana，当你出现在Hadrian，我们<span class="tag">【音乐】</span>出现在Castelion时，你会发现那些人对他们所做的事情充满热情，这会产生非常好的结果。&gt;&gt; 有一个<span class="tag">【音乐】</span>非常著名的图表，显示美国的电力产量与中国新能源产量。弥合这个差距需要什么？&gt;&gt; 我认为这不是技术问题。我认为这是一个康诺和阿伦，非常感谢你们</p>
+<p>今天加入我们的播客。我们在这里讨论AD50和今年的名单，让我们直接进入主题。我知道今年的一个重要主题是美国的工业基础。你能谈谈我们今年学到了什么，以及为什么这是一个如此重要的主题吗？我们一直在说，没有工业基础就没有国防工业基础。我认为今年确实让这一点更加清晰。随着世界各地的冲突发生，我们意识到所谓的空心化</p>
+<p>在过去几十年中，我们工业基础的流失实际上对战场上的士兵产生了真实的影响，无论是美国士兵还是我们的盟友。我认为，这已经成为美国的一个真正警醒，我们需要重新开始建设。&gt;&gt; 是的，我认为这不仅仅是一个因素，而是多个因素同时发生。当你退一步来看，你会说，好吧，世界冲突，你会看到资本的持续发展演变。</p>
+<p>市场，我相信我们稍后会讨论一些关于资本流入这个生态系统的情况。但我认为更重要的一点是，你现在实际上有一个创业者基础，他们有效地举起手来说，我将在这个生态系统中建设，这不仅对我们的国家极其重要，而且你也可以在这里建立非常有价值的公司。所以我认为这只是一个地缘政治因素、资本市场以及创业者的融合，这些因素正好汇聚在一起，你</p>
+<p>我知道，我认为现在是一个非常有趣的时期去创业。这是我们投资的好时机。当我们今年审视AD50时，我们考虑了美国活力历史上的一些情况，我们仍然处于早期阶段，但我认为一个发展出来的主题是，你确实需要开始从整体上看待美国活力公司，从从地里出来的原料到制造产品的工厂再到最终系统。基于这个思路，我们今年就是这样设立AD50来进行思考的。</p>
+<p>通过那三种视角来看。每一个支柱对于最终产品或最终系统都是独特且重要的，但归根结底，我认为人们并不这样思考，而很多在我们投资组合中处理相关问题的公司，都是从输入的角度、从工厂的角度，现在又从系统的角度来思考的。所以一个人在看完这个列表后可能形成的理论是，好吧，我们为国防建立了这个工业基础，比如制造导弹和</p>
+<p>无人机。但实际上，现在这是一个顺风，正在帮助美国的许多不同行业。因此有能源、机器人技术、人工智能。你能谈谈这些事物是如何结合在一起的吗？是的，这很有趣，因为如果你回顾历史，甚至大约 70、80、几乎 100 年前，如果你看看我们在美国如何发展技术，很多时候都是来自政府的。如果你看看我们首次进入太空的方法，如果你看看我们如何发展</p>
+<p>互联网，我们如何开发核能，这是政府说我们要为政府的目的去做这件事，然后这种技术的长期成果对于，各方面都是非常有价值的，比如互联网的诞生，能源在全球的传播。现在有些不同的地方在于，现在私人企业以及私人资本也在说，我们实际上将成为推动某些事物发展的动力。正如你所说，这其中的许多……</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="cl"><div class="label"><span class="badge" title="康纳·洛夫（Connor Love）">洛夫</span></div><div class="content">
+<p>市场是为了服务联邦政府，以某种方式服务战争部。但这些事物的美妙之处在于，当你建立一个工业基地时，无论是在供应链下游还是终端系统本身，这些本质上都有许多用途。所谓双重用途这个词在投资中被提到很多，在某种程度上，我认为这有点荒谬，专注于太多事情对初创企业来说并不好，但对于任何正在运营的工厂来说，这却是100%真实的。</p>
+<p>今天建造的任何新工厂，无论是能源生产还是我们接触到的地下矿物或材料，都不仅仅是进入国防系统，它还会进入我叔叔的汽车，会以某种形式进入我孩子未来的玩具。所以我确实认为，也许矛头是集中在政府上，但从长远来看，正如你所说，这些系统会在我们今天采取的方式中被使用。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="epw"><div class="label"><span class="badge" title="埃琳·普赖斯-赖特（Erin Price-Wright）">普赖斯-赖特</span></div><div class="content">
+<p>或者其他任何东西。&gt;&gt; 我认为一个很好的例子实际上是看看中国的大疆。&gt;&gt; 是的。&gt;&gt; 大疆在其生命周期和发展过程中经历了多个阶段，最初是做消费类无人机，并在2010年代后期意识到无人机在公共安全和国防方面有很大的市场，因此建立了一个真正大规模的国防无人机生产业务。现在，大疆背后的公司或大疆的人们已经</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>大疆路径：消费无人机→防务→机器人执行器</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="epw"><div class="label"><span class="badge" title="埃琳·普赖斯-赖特（Erin Price-Wright）">普赖斯-赖特</span></div><div class="content">
+<p>世界上最大的机器人生产商，因为非常类似于无人机电机的是机器人执行器，而这是制造机器人最困难的部分。所以你有这样一家公司，在发展大型国防业务的过程中，该业务本身从消费业务中分拆出来，现在它是世界领先的专家，如何为下一波物理人工智能（包括消费和工业）制造和生产硬件。因此，我认为，这种技术转移和工艺知识转移在</p>
+<p>军事用途和非军事用途真的很重要，而且一直以来都是它的运作方式。让联邦政府在某种程度上成为这个过程知识和新技术开发的资助者是很棒的。然后，我认为美国最伟大的礼物之一就是美国消费者的辨别力。我们会推动事物变得比政府更有能力、更便宜。所以，在工业基础中的这种共生关系实际上是</p>
+<p>真的很重要，我们在能源方面 certainly 已经看到了这一点。&gt;&gt; 我们在电子方面也看到了这一点。我们看到，在整个工业堆栈中都是如此 &gt;&gt; 在某种程度上，我不认为这是一个非常复杂的话题，但重要的是要重申一下，就是当你制造任何第一款产品时，它是相当昂贵的，就像你在定制制造时一样，无论是军事系统还是消费产品 &gt;&gt; 从从0到100都会花费很多</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="cl"><div class="label"><span class="badge" title="康纳·洛夫（Connor Love）">洛夫</span></div><div class="content">
+<p>&gt;&gt; 这会花费很多，而且在某种程度上，像我们稍后会再谈这个，我打赌，但我们曾讨论过垂直整合或使用你拥有的供应链基础。现在正在发生的美妙事情是，我们有一个联邦政府和一个战争部在说，第一，我们将尝试积极重建一些工业基础。通过这样做，他们实际上从一开始就改变了这些单位的经济决策。</p>
+<p>公司。所以，再说一次，这不是去做一百件事情，而是你可以说，好吧，也许做一百件事情，但我们愿意承担消费者或商业市场不愿意支付的成本。突然间，这意味着你可以在工厂里放置更多的机器，更多的资本支出，而政府在一开始就帮你支付，然后这会带来一些既在财务上可行，又能在实际规模上触及消费者的事情。所以我只是觉得这是</p>
+<p>重要的是要识别这一点，而这现在肯定正在发生。&gt;&gt; 是的。比如说，如果你在美国建设一个新的PCB工厂，那是一个相当昂贵的运营。这些都是相当昂贵的机器设备。如果你有一个国防买家作为第一个买家，帮助你支付或补贴很多资本支出投资，那就很好，因为还有什么有PCB板吗？机器人。还有什么有PCB板吗？&gt;&gt; 助听器。所以这种能力能够</p>
+<p>将部分资本支出转嫁给国防工业基地，我认为随着我们在美国重建工业能力，这将非常强大。那么具体来说，你看到初创公司在降低成本和加快进度方面做了什么？&gt;&gt; 是的，我认为像很多事情一样，我们可以向埃隆寻求很多答案。说出这样的话并不夸张：真正少数几个建立大规模产能的现代公司可能就是SpaceX和特斯拉。如果你看看他们如何做的</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>埃隆打法：垂直整合与供应链取舍</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="cl"><div class="label"><span class="badge" title="康纳·洛夫（Connor Love）">洛夫</span></div><div class="content">
+<p>埃隆和他的团队建立了那些企业，这一直是一个高度垂直整合的过程。我觉得，我倾向于认为你不应该把一切都垂直整合。如果你正在建造一个非常精密的系统，比如一枚导弹，做一些非常独特的事情，你在某种程度上是必须的，因为你必须控制精密度，你必须控制成本。我是说，SpaceX 和特斯拉在做的是前所未有的事情，当时根本不存在这样的工业基础。</p>
+<p>美国支持他们，所以他们不得不自己建造。我认为，如果有像你这样的高质量供应商，你当然应该使用这些供应商。&gt;&gt; 是的，是的。我觉得学到的第一点是，如果你没有一个可以快速、可靠依赖的工业基础，那么你就必须自己去做，而本质上这是一个艰难的过程，这真的很难去做到。这个概念就是说，好吧，我要专注于最终系统，我要专注于建设……</p>
+<p>大多数是成本效益高的，有效的系统，我可以做到，哦，顺便说一下，我得去弄清楚滚珠轴承，我得去弄清楚电磁阀，我手头有类似的东西，那要做的事情很多，而且以特斯拉和SpaceX为例，我会说汽车行业有点不同，因为之前没有电池供应链，他们必须，埃隆必须重建那个，全套电力电子，整套驱动系统，他们真的必须完全建立起来</p>
+<p>从零开始 &gt;&gt; 基于已经积灰40年的70年代发表的论文。就我们在80组合中谈到的公司而言，有Mariana Minerals，它购买了一座铜矿，并且在端到端地重新发明事物。他们会是一个在这里讨论的好例子吗？我认为他们意识到，矿业行业现有的参与者，根本无法足够快地采用技术，从而真正产生影响并真正推动发展。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>Mariana：买铜矿做端到端 + 软件吃物理世界</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="cl"><div class="label"><span class="badge" title="康纳·洛夫（Connor Love）">洛夫</span></div><div class="content">
+<p>针是这样，他们也意识到他们实际上想拥有整个价值链，以便真正兑现他们的承诺，并获得他们引入的新技术的最终价值。所以，是的，他们从获取资产、开发资产、开采资产、运营资产以及自行冶炼各种不同矿物的材料，应有尽有，然后他们在市场上销售最终的商品产品，并且真正投入其中。</p>
+<p>我还想指出的另一个趋势是，很多在这些领域创业的创始人和企业家正在把人工智能和软件作为他们构建的重要组成部分。 &gt;&gt; 是的，我觉得当你把软件和人工智能应用到物理世界时，它会与在法律、客户服务或其他任何你今天看到人工智能疯狂发展的领域中应用的方式不同。但正如Erin所提到的，很多时候你必须拥有资产才能真正做到这一点。</p>
+<p>改变那个资产。不是每次都这样，但很多时候，有时候在物理世界中看到就是相信。而当你纯粹是一个数字 AI 产品时，你可以直接看到它，而且它非常容易转移和理解。&gt;&gt; Mariana 在这个铜矿做的事情在很多方面真的令人印象深刻。它不仅仅是在说，“嘿，我们会更擅长提取铜。”而是它在重新思考一切。它是&gt;&gt; 关于你整个过程的方式</p>
+<p>&gt;&gt; 计划、操作、开采和提炼材料。酷的地方是什么吗？一旦你从头到尾拥有这个过程，并且在每一个阶段都使用软件，你实际上会捕捉到这些数据，然后它会反馈回来。 &gt;&gt; 这是一个重要的观点。我是说，这不仅仅是Mariana，但如果你看看另一个业务，比如Hadrian，这是一个完美的例子，展示了如何利用软件，更重要的是，这不是突然出现的灵丹妙药。</p>
+<p>让一个工厂或矿井完美。这实际上涉及15到20个不同的方面。当你看看Chris在Hadrian所做的事情时，你会明白，是的，这在一定程度上是显而易见的，涉及报价甚至接收一个零件订单所需要的步骤。它确实是零件实际的物理制造。它还涉及你如何检查、转移它，以及，工厂中存在的各种不同的内部步骤。而美妙的地方在于，当你从某个起点开始的时候，你会发现……</p>
+<p>像克里斯在建造他的工厂时那样有一个全新的起点，或者像玛丽安娜那样，当你拥有某个东西并接管它时，你可以从第一性原理的角度审视每一个环节，并问：嘿，过去100年来一直在使用的这个流程真的是正确的吗？而这正是在当前物理世界每一层面上发生的事情。这不仅仅涉及矿山，也不仅限于工厂。这种方式存在于许多不同的形式中，这是我个人的信念，我们在很多投资组合公司中都看到了这一点。</p>
+<p>看起来人工智能将成为一个可以在物理世界中使用的非凡工具。现实情况是，人工智能还不能扳动扳手。它未来某天会做到，但我们还很远。我们也许可以讨论一下我们在物理世界中看到的机器人模型和自主性。我们正在越来越接近。我只认为这里的细微差别，还有这个名单上的许多投资组合公司，或者名单上许多非投资组合公司，他们明白，看，物理世界</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>AI 还不能拧扳手：高混低量产线被软件改写</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="epw"><div class="label"><span class="badge" title="埃琳·普赖斯-赖特（Erin Price-Wright）">普赖斯-赖特</span></div><div class="content">
+<p>世界不仅仅是像我说的那样推出一个银弹，比如一个闪亮的人工智能产品，它需要对一个过程的深刻理解，具体如何操作这个过程，或者如何改变世界上正在发生的事情，这些都会有所不同。比如一个具体例子，或者说谈论一下低种类高产量与高种类低产量的情况，以及人工智能如何在这里改变游戏规则。</p>
+<p>从历史上看，如果你花费很多并建立一条高度自动化的生产线，&gt;&gt; 你真的需要大量生产单一产品。&gt;&gt; 这就是降低成本的方式，也是证明投资于一个相当定制化的生产线的合理性的方法。在美国，我们进行很多低品种高产量的制造，这种制造很难实现自动化，因为当你必须频繁更换生产线时成本非常高。但我们在整个...</p>
+<p>投资组合在于制造技术人员自身具备这种直觉，并且现在拥有软件工具，能够改变低产量高混合生产线的经济模式。因此，你可以拥有一个制造技术人员。这不是一个拥有大学学位的人。也许他们有，但不一定是学习过软件工程的人，现在能够使用这些工具实时重新编程和重新配置他们的生产线。</p>
+<p>事实是，他们了解制造过程，并且知道如何在物理世界中完成他们的工作。他们现在突然拥有了所有这些工具。所以他们可以，你可以重新调整生产线，而不必去找系统集成商，通常需要三个月的时间和数十万美元来为新的设置重新配置生产线。你可以让制造工程师使用Claude，在大约20分钟内完成这项工作。这在许多公司中确实带来了重大的变化。</p>
+<p>我们在这个领域中看到过的。之所以重要，是因为当你回顾我们今年如何阐述AD50时，你会发现它大致分为三类，而且很多时候我们关注的，至少是我以及该领域的许多人关注的，仅仅是系统公司。看看吧，有很多非常有趣的系统公司，我是说Andrew Sran、Castillian，我是说，名单上还有很多人都在建立非常好的终端系统，但</p>
+<p>问题是，如果你不能在设计上进行迭代，也不能在原型上进行迭代，你不仅无法得到一个不同、更好的最终系统，而且你的进展也会更慢。所以到最后，当你终于修复了一个生产级的，比如说导弹或飞机或其他什么的时候，你就必须回过头去重新调整并建立所有这些子系统以满足规模要求。但如果你有一个更</p>
+<p>可转移的生产线，更可调节的生产线，首先，你还能更快地构建原型，但其次，你就可以以一种方式来设置这些不同的组件，这样实际上可以更快地达成批量生产。 &gt;&gt; 是的。你从一开始就在为制造商设计。 &gt;&gt; 完全正确。完全正确。而且我还要回到从特斯拉和 SpaceX 学到的经验。在很多方面，他们不得不做出这些选择，因为他们没有任何</p>
+<p>其他机会。但最终，这实际上只是制造设计的那个口头禅，现在存在于所有这些系统公司中。在某种程度上，我们现在正处于观看它们生产的时代。再看看安德鲁在俄亥俄州建造的，以及现在在东海岸巴尔的摩建造的，看看Saronic和船一起建造的设施。我是说，这些都是巨大的大型设施，在不久的将来，它们将开始生产成千上万的产品。</p>
+<p>成千上万，希望是数十万的系统。我们很久没有在美国做到这一点了。&gt;&gt; 是的，这不再是纸面上的理论练习。这正在现实世界中发生，真正的东西正在下线。我认为AD创始人的特别之处在于，他们能把任何问题变成一个埃隆规模的问题。我很想听听你们如何将这种思维应用到我们正在讨论的不同产业中。是的，当你特别看国防领域时，这实际上已经是</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>先于政府采购而建：把问题做成「埃隆级」难题</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="cl"><div class="label"><span class="badge" title="康纳·洛夫（Connor Love）">洛夫</span></div><div class="content">
+<p>这是历史上最难的行业之一，仅仅去建造你认为政府需要的东西，因为不幸的是，再说一次，我以前也经历过这个，当我在军队服役时，购买者并不是使用者，而为购买者拨款的人则完全被隔离了。所以你有所有这些分散的决策者或相关群体。所以发生的情况是，当时公司们，我们实际上还没有Neopimes或者广告公司去</p>
+<p>服务，但你所拥有的是你有的一些主力只是坐在那里听，就像告诉我你想要什么。你给我钱之后我会开发这个东西。老问题是你得到的系统实际上不是，技术先进的。你得到一个十年前开发的系统，然后，终端士兵得到的实际上对他们没有太大价值。现在不同的是，回到你现在可以思考的一个埃隆式问题，你可以说，好吧，这个……</p>
+<p>军方实际上需要的东西，而美妙之处在于，风险投资和我们在美国活力公司所做的事情，同时你也知道其余的资本市场正在说，我们实际上会提前资助这些，你可以在政府说“这是你要建造的东西”之前进行建设，而其结果是士兵得到更好的产品，得到一些真正从根本上改变战场的东西，并且有助于威慑、安全或安全，更重要的是，你会得到一个</p>
+<p>一个实际上构建的系统类型的时间框架，它是与市场需求和今天技术能力相一致的。所以这完全是一种根本不同的方式，比如不是坐着等政府告诉你他们想要什么，而是你看到政府的信号，然后用私人资本进行提前开发，而这种情况在国防历史上从未发生过。所以你可以构建，例如，Castelion 建造一个高超音速导弹的项目</p>
+<p>不是那种非常精密的东西，但制造一枚速度那么快且可靠的导弹真的很难。政府现在已经给他们签了合同，也算是出手购买了导弹。但如果你看看过去三年的这项业务，实际上都是私人风险投资，是创业者们在冒风险，提前制造这些东西。我觉得如果你在国防领域一次又一次地看到这种情况，你会越做越好。</p>
+<p>产品，从根本上来说，你会看到新老公司开始占据大量的市场份额。但这不仅仅是防御方面。我是说，Aaron 在能源方面也看到了。我是说，我们正在重建整个能源网络。再次强调，Aaron 比我更了解，但我们就在一码线附近，我们才刚刚开始那个过程。我认为，另外一部分稍微有些难以捉摸，但这些真的是很难的公司去</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="epw"><div class="label"><span class="badge" title="埃琳·普赖斯-赖特（Erin Price-Wright）">普赖斯-赖特</span></div><div class="content">
+<p>建造。这些真的是非常非常难解决的问题。当我和Mariana Minerals的首席执行官Turner交谈时，他飞往世界各地一些偏远的地方去建立他的公司。他去的地方没有手机信号，没有电力，要接触泥土，要离开家人好几周甚至几个月。这一切必须值得。你是在建造一个实体的东西。你不是坐在桌子前使用电脑。你是在外面的世界里。</p>
+<p>听起来有点性感又浪漫，但当你真正去做的时候，其实很艰难。旅行非常辛苦。你接触的人，你不是在跟人聊天，而是在给供应商打电话。这些人不像其他在同样时间尺度和文化下运作的初创公司。这些人真的很难谈判和合作，他们有非常不同的文化。&gt;&gt; 如果你要让自己经历这些，那最好是非常值得。所以我觉得人们</p>
+<p>人们真的很容易被这些感觉巨大而庞大的问题所吸引，因为我们看到这些是真正的传教士式创始人在这个领域进行建设，即使这个领域热起来了，资本增多了，变得很酷。&gt;&gt; 它仍然很残酷。我认为过去几年美国活力领域中最大的变化是，我们一直知道在这个类别中建立的公司对美国社会结构非常重要。再说一次，当我们谈论...</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>硬件重回最值钱：从「重要」到「可成最大公司」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="epw"><div class="label"><span class="badge" title="埃琳·普赖斯-赖特（Erin Price-Wright）">普赖斯-赖特</span></div><div class="content">
+<p>关于防御系统，当我们谈论能源时，当我们谈论建造，制造用于各种事物的小部件时，那些东西真的很重要。它关系到我们的安全，关系到我们的生活方式。但最大的变化是，这些公司不仅仅是对我们最重要的东西。现在它们可能成为最有价值的公司，这是一个巨大的区别，这种变化已经发生，这不仅仅是解决安全或保障问题，而是在解决一个</p>
+<p>安全和保安方面的问题，顺便说一下，这些可能是世界上最大的一些公司，而这就是技术在这些行业中带来的变化。采矿一直是一个非常大的行业，国防一直是能源行业 &gt;&gt; 对于一个有雄心壮志的年轻聪明人来说，经济上并不值得去追求这些类别，但我认为 &gt;&gt; 公司就像 Palantir、Anduril、SpaceX 一样已经证明，你可以在其中运营并建立一个真正大的企业</p>
+<p>这些类别。如果你……如果你看看，现在全球最有价值的十大公司，其中大多数都是硬件公司。他们在制造实体产品。我们有点像回到了原点，所以 &gt;&gt; 你会看到我们这一代最有抱负的创业者，他们想去面对那个困难的问题，并且知道这是值得的 &gt;&gt; 而且，像采矿这样的许多行业，或者说力拓已经存在了很久，这其中美妙的地方在于</p>
+<p>很久了，我是说波音已经存在很久了，比如说，有一些好的公司在制造好的产品，但我认为当你采取这种方法时，首先是像从第一性原理的技术方法出发，思考需要建造的大胆事物是什么；然后第二，你会遇到像这些人在AD50上创业的人 &gt;&gt; 是的，我要重建美国的能源网络，听起来很有趣 &gt;&gt; 而这种情况在50年前是不存在的，5年前也是不存在的</p>
+<p>以前这是从根本上来说，是我们的美国最优秀的人才为了这个类别而努力建设的，这是第一次出现这样的情况，而且正如埃琳所说，机会是存在的，你可以看到这些公司重新定义了太空发射，重新定义了某种军事系统，重新定义了所有我们关心的美国活力的这些类别。是的，我认为这很令人兴奋。作为一个曾经服役的人</p>
+<p>在军队里，你总是会认为，你做的事情比你自己更重要。看，资本市场存在的目的是赚取利润。我们不是慈善机构。这是一个资本主义社会，但最终，这份AD50榜单上的很多公司做的事情，不仅会很大很有价值，而且对美国社会的结构也非常重要。这非常令人兴奋。去参观这些现场是什么感觉呢？</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>钢头靴、巨型星条旗与工厂延时摄影</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="epw"><div class="label"><span class="badge" title="埃琳·普赖斯-赖特（Erin Price-Wright）">普赖斯-赖特</span></div><div class="content">
+<p>制造现场或者采矿现场，或者无人机制造商那种现场 &gt;&gt; Connor 和我拥有有史以来最棒的工作。我确实得，我确实，我现在确实有钢头靴，因为我去过的投资组合公司现场访问的次数很多，他们都会说，‘是的，你得穿钢头靴来。’<span class="tag">【笑声】</span> &gt;&gt; 是的 &gt;&gt; 是的 &gt;&gt; 说实话，这并不全是性感的地方。诚实地说，这些地方很多时候都很难到达。</p>
+<p>在荒无人烟的地方。最终，就像我们在谈论需要实物操作的事情一样，需要搬动土地。就像我在服役期间，我曾经有一位高级军官，总是告诉我，物理世界不在乎你。所以在物理世界里一定要小心。比如，这些都是搬运大量土方，还有建造大型工厂的事情，Hadrian或者Hadrian会做。我是说，这些事情。</p>
+<p>非常巨大。而且令人印象深刻。我最喜欢的事情之一可能在远程站点你看不到。也可能你看得到，但这是这些公司之间的一种比赛，看看谁能在他们的站点上放置更大的美式国旗。实际上，我不知道今天谁拥有最大的旗帜。我是说，我上次看到Hadrian的旗帜已经相当大了。 &gt;&gt; 我觉得Valor也很大。 &gt;&gt; Valor也很大。好的，太好了。是的。是的。是的。再说一次，我是说，那真的很棒。比如说，你有那种类型的东西</p>
+<p>对某种比你正在打造的产品或经济机会更伟大的事情的热情。我是说，这种热情在很多团队背后驱动了他们的目标。当你来到玛丽安娜、来到赫里恩、来到卡斯特利安时，你会看到人们对他们正在做的事情充满了激情，你也知道，这会产生非常好的结果。当你必须在现实世界中做一些非常艰难的事情时，如果你有愿意冲破障碍的人，</p>
+<p>有时候，为了解决那个问题，你实际上就是，你会变得非常大胆，取得出色的成果。我最喜欢做的事情之一，就是在12个月内多次访问同一家公司，不管它们是否在投资组合中，因为你可以学到很多，比如一个工厂建设的速度。这就是我们做的一件事，你不只是去一次，你去一次，然后三个月后再去，三个月后再去，三个月后再去。</p>
+<p>而且我不是，我不是制造专家。我在工厂车间上花了足够的时间——从我在Palantir的时间到现在做这份工作。我大概了解一些机器，也大概知道生产线是如何运作的，但就是有一种东西，当你看到工厂里东西不断堆积，从一个空荡的仓库，铺着环氧地板，挂着巨大的美国国旗，也许只有几托盘，而创始人非常兴奋的时候</p>
+<p>给你看他们租的叉车。 <span class="tag">【笑声】</span> 他们 kinda 就像，他们在角落里搭好了篮球架或者健身房的设备，然后快进六个月，就只是，他们在疯狂地思考如何扩展。他们会说，‘哦，我们需要让市里来给我们更多电力，因为我们有太多机器在插电。’ 有点混乱。到处都是技术人员和操作员，人们在搭建东西。那真的很令人满足，而且</p>
+<p>真的很有趣，而且我觉得我们很幸运能够看到那个过程，以及那个过程发生得如此之快。 &gt;&gt; 是有人做过类似的延时拍摄吗 &gt;&gt; 哦，有很多。这是一整个制作电影的类别，每个人都会比较自己的作品，就像是一种，小小的 &gt;&gt; 我确实喜欢健身的事情。我记得很多年前我第一次去拜访时，Isaiah 和 Gundo，让我在他的器械上做了一组 &gt;&gt; 是他们都有，他们都有像</p>
+<p>他们都有他们的卧推设备，设备，好酷。这是不是像一种‘在美国制造’的传染效应呢，就像因为执行器是在这里制造的，所以我们现在可以制造这个，现在我们可以制造那个，当你能够压缩一个时间线时，你可以压缩多个时间线。我甚至不认为这只是时间线的问题，我还认为这涉及成本和质量。我是说，这很有趣，因为当我们看特别是防御自主系统时，比如现在造了很多船。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>防务子系统 unlock 机器人浪潮与本土 PCB</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="epw"><div class="label"><span class="badge" title="埃琳·普赖斯-赖特（Erin Price-Wright）">普赖斯-赖特</span></div><div class="content">
+<p>公约制造了很多导弹。卡斯蒂利亚也制造了很多导弹，安德烈制造了很多东西。就像当你建造许多系统时，你也需要许多底层子系统。而且如今确实有一些非常有趣的军事系统在被开发。不过，回到我们之前的评论，问题在于，通过建设防御，你也在为不同的产业建设。实际上，世界上存在的类人机器人或机器人并不多。</p>
+<p>今天。有成千上万，也许我不知道确切的数字，但当你考虑到一些我们的军事系统中包含的子系统时，它们正是将来机器人系统中会使用的相同子系统，就是执行器，比如电机，阀门和开关之类的东西。我认为，当你能够以高质量和合适成本制造这些东西时，突然之间，你就会创造出以前可能不可行或不现实的其他市场，突然之间变得有意义。再次强调，我认为这是</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="cl"><div class="label"><span class="badge" title="康纳·洛夫（Connor Love）">洛夫</span></div><div class="content">
+<p>在机器人世界中将要发生的事情，我们将花费所有时间开发所有那些子组件。我们将为许多这些军事系统进行构建，这是好的。我们需要它来保证安全、防护和威慑，但然后突然间，你会看到这种机器人浪潮进入美国。我说过了，人工智能还不能扳螺丝。但它们可以，最终会做到。这将由所有那些执行器和开关等功能支持。</p>
+<p>我们自己建造的子系统。它将服务于不同的市场，并且将使其在财务上可行，而且我们不必依赖中国的工厂。我认为这是整体上的利好，因为建设工业基础可以用于很多事情，从零部件层面上说，我只是觉得我们在美国的工业基础还不够。这是一个决定，就像你今天跟一家想要制造某些东西的机器人公司谈话一样。</p>
+<p>机器人部署有99%的可能性意味着他们购买的主要产品来自中国，而且出于多种原因，不仅仅是地缘政治因素，他们希望将这些采购转移到本土，以保证质量、降低成本、提高迭代速度，是的，还有地缘政治原因。我觉得有一点，真的在过去三年里，甚至仅仅是在这三年里，供应商生态系统的发展是显著的，就像我们投资组合中的一家公司，三年前你会订购两件</p>
+<p>因为他们假设必须为质量问题丢掉 50% 的 PCB 板，所以他们需要的 PCB 板数量是原来的好几倍。他们会从供应商那里拿到这一批板子，进行测试，而其中 50% 通过不了质量测试。后来在这个领域出现了一些初创公司，他们说，我们要解决这个问题。我们要利用软件和现代技术，重新设计美国的 PCB 制造方式。我们要做得更快，我们要做到</p>
+<p>更便宜。你猜怎么着？我们要做得更好。吗，现在同一家公司从新的供应商那里购买PCB，而且他们保持70%、80%、90%的质量测试通过率。所以我认为我们低估了与最终客户及其供应商紧密协作和共同开发一些技术对于提高质量的重要性。&gt;&gt; 所以有件非常有趣的事情正在发生。我相信工业基础，就像我们之前谈到的那样，</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>制造业中间层：与 OEM 协同工程改写子系统</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="cl"><div class="label"><span class="badge" title="康纳·洛夫（Connor Love）">洛夫</span></div><div class="content">
+<p>你从这些新系统公司那里得到这种顶级需求信号，比如我们正在建造新的军事系统，但顺便说一下，比如 Joby 和 Archer，我们也在建造新的飞机，我们正在建造新的终端系统，这是事实，比如汽车正在被制造，不同的飞机正在被制造，军事系统正在被制造不同，当你建造这些新系统时，这些系统的输入也必须相应改变，当你看看今天美国的产业基础时，历史上如果你</p>
+<p>去看看波音是如何制造737的，波音是对美国整体结构很重要的公司，但他们只需拿起电话打给霍尼韦尔，霍尼韦尔就会帮助他们制造所有不同的子组件，这并不是霍尼韦尔的错。但霍尼韦尔所做的是，他们会说：“我不想再重新制造一个新的起落架了。我们有这个符合规格并能完成任务的起落架。所以，就让我们继续一次又一次地做同样的事情。”这是合理的。就像，他们正这样做</p>
+<p>建造更多的737飞机。无论是50年的起落架还是新的起落架，他们的报酬都是一样的。但是问题是，当你不断对这些最终系统的新要求进行迭代时，到某个时候，这个50年的子系统就不再适用。也许它在物理上仍然可以工作，满足要求，但它的设计和开发方式本质上没有创新。这为什么重要呢？因为，我们已经开发了新的</p>
+<p>材料。是的，物理学没变，但物理和设计的输入都变了。所以我认为，现在，或者说对很多制造公司来说，机会就是做我所谓的“共同工程”，我们之前谈过的这些供应商的长篇故事，他们在过去40年里一直处于接收模式。霍尼韦尔接起电话说，嘿，我需要另一个起落架。去做那个起落架吧。还有</p>
+<p>他们已经按照规格执行了该知识产权并进行构建。当你提出新的需求时，中间层不能，替霍尼韦尔思考并改变需求，因为他们没有资格这样做。但我认为未来会发生的情况是，你会有这一层供应公司，它们实际上将成为原始设备制造商的共同工程师，不仅重新思考最终系统在速度或重量、质量方面能够做什么，而是...</p>
+<p>各个子组件将被重新思考、重新设计和重建，所以最终系统从整体到各个具体部件和组件都会发生变化，我认为过去40或50年中，这种情况从未发生过。所以，你将会看到我相信会被称为制造中层的全新浪潮，这将涉及联合工程，并将设计和开发推向供应链上游，而不仅仅是处于接收模式并说，‘好吧，我可以’</p>
+<p>“40年后再建我现在建的同样的东西。” 我只是，我只是觉得这是一个机会。我之前把它定义为：我们现在正在创造美国制造业资产类别。私募股权长期以来一直在这个生态系统中运作，观察一个资产，购买它，降低成本，然后出售。再次强调，这并没有从根本上改变我们建造的东西。现在，公司会改变我们将要建造的不同事物。</p>
+<p>&gt;&gt; 一个很好的例子就是电网。当你考虑到电子堆栈的时候，&gt;&gt; 我们即将经历电网管理和电力传输方式的巨大变化，从上世纪70年代和80年代在美国大规模部署的静态和机械系统，转向现在的现代电力电子、储能架构，这些架构更加软件原生且灵活，就是当你拥有一个...</p>
+<p>这种技术上的彻底变革意味着取代之前技术的新技术完全不同。你有机会重新思考其背后的整个供应链以及所有设计和工程工作的运作方式 &gt;&gt; 在能源领域也是一样的情况，这与国防或商业系统领域发生的情况相同，即你有大量对数据中心、新工厂和新建设施的需求。当你从自上而下的层面看时，你会有</p>
+<p>像 Aaron 说的那样的创新能力，并重新考虑整个架构，看起来像 &gt;&gt; 因为这是一个全新的架构，所以你不能依赖在之前世界中有效的这些组件去重新配置，你实际上有机会从零开始重新思考它。 &gt;&gt; 这里的另一个重要点是，你可能会持悲观态度，你可以说，好吧，Connor，所有这些新的军事或最终系统，不是所有都会被采用，所以像</p>
+<p>那个自上而下的需求，或者说阿龙，我们实际上并不会把能源增加到四倍，不会有那么大的需求。我实际上认为这无所谓，因为我认为一旦你开始需求循环的滚雪球效应往一个方向发展，即使你只满足了一半的需求，你也不会回头，你不会回头，这在财务上也没有意义，再说一次，这就像当你从第一原理重新思考某件事，并做出新的设计、新的工程决策时一样。</p>
+<p>很多时候，这意味着更好的成本、更高的效率，你现在就会去买那个东西 &gt;&gt; 更好的可维护性、更容易制造 &gt;&gt; 是的，是的，你绝不会回头 &gt;&gt; 我很好奇，好奇的是你看到的创始人是在第二代安德罗尔（Anduril）还是第二代帕尔图涅尔（Palantir）之类的背景，以及他们可能看到了一些这些经验教训，并看到了机会，成为某些几十年来从未有人涉及过的中间层供应商，等等</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>Anduril/SpaceX 二代创始人与「先做好一件事」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="cl"><div class="label"><span class="badge" title="康纳·洛夫（Connor Love）">洛夫</span></div><div class="content">
+<p>你看到哪些机会和哪些类型的创始人？是的，当然。我是说，如果你想真正激发创业者的热情，一个很好的方法就是让他们在某种工程或供应链问题上碰壁，然后他们会想，‘好吧，我真的很在意这个。这真是让我头疼。我知道这也困扰着其他人。我知道这不仅仅是我这里有的问题。’</p>
+<p>Anduril 或 SpaceX 或 Tesla。这是一个更广泛的问题。我打算更一般性地去解决它。还有那种创始人的血统，他们曾在制造车间亲身经历并深入了解这个问题，不仅是创始人，甚至包括工程团队，他们会说我看到了这个问题，我在 Andre 或 Saronic 或其他公司中解决了它，我实际上要出去把它作为一家公司去构建，然后我认识生态系统里的每个人，所以我有，自动获得访问权限。</p>
+<p>牢固的客户群，我们当然看到这种趋势正在发生，你也知道，这就是生态系统如何建立的方式。人们会取笑YC，说YC的所有公司都在互相销售。但事情就是这样运作的，因为这些是你的朋友。他们宽容、理解，愿意与你合作并帮助你，而且如果某些东西出现问题，他们也会容忍，因为他们自己也在努力解决非常非常困难的问题。如果你在做的事情不是那个…</p>
+<p>对他们来说，这是最关乎生存的事情，他们非常愿意将其外包给你。这很美妙。这就是硅谷建立的方式。真正让我感到乐观的是，我们开始在这些物理世界的生态系统和供应链中看到这种趋势的程度。&gt;&gt; 是的。我 我 我认为你提到的那几家公司，SpaceX、Palantirs，看看，他们不是一夜成名的成功。像那些公司花了很长时间才达到产品规模以及只是</p>
+<p>他们所在公司的规模和成功。&gt;&gt; 过夜成功其实花了20年。&gt;&gt; 完全正确。我认为学习的要点是，我们投资的这个名单上的很多创业者都来自那些生态系统，你会学到这种对一件事的执着专注，尽最大努力做好一件事，沿着一条路走到底，直到成功。就像，我看到过卡斯特利安的那些人，例如。他们专注了两年半到三年</p>
+<p>在第一枚真正难以制造的高超音速导弹上花了几年时间。其他人来了，说，哦，要做多产品，去制造这个小型无人机。他们却说：“不，我们需要把这件事做好。” 我认为，这源于SpaceX的文化。在SpaceX，作为一个负责任的工程师的概念是，如果这个东西不工作，那就是我的责任。我会确保<span class="tag">【笑声】</span>我会一次又一次地关注这件事，执着于此。这就是制造真正的东西所需要的。</p>
+<p>困难的事情。而且再说一次，会有不同的成功衍生方式。不是每个人都会像SpaceX的思维方式那样思考，但如果你看看很多像那样的现实世界中的企业，你会发现你需要那样做才能建立一些真正困难的东西。而你在这样做的过程中学到的是，你学习了过程知识，你学会了如何去做。所以，想第二件事、第三件事、第四件事就容易得多。你已经建立了供应链。你有你的…</p>
+<p>关系。你已经开发了针对制造商设计的制造流程。你已经学会了如何建立一个高质量、高规格的工厂。你已经学会了如何与客户建立信任，所以如果你能把一件事做得非常好，这将为你做好其他事情奠定基础，但除非你在那一件核心事情上有所作为，否则行不通。所以我们经常讨论竞争，中国，美国在资本市场方面有什么独特之处，这真正使这些成为可能。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s12">
+<div class="body-sec-head"><h3>美国优势：私人资本市场愿在「未获订单前」下注</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="cl"><div class="label"><span class="badge" title="康纳·洛夫（Connor Love）">洛夫</span></div><div class="content">
+<p>初创公司 &gt;&gt; 好吧，我我我认为这可能可以说是其中之一，几天前Anduril的创始人Brian Schimpf就在谈论这个概念，也就是我们的资本市场中实际上有数万亿美元的私人资本，这些资本本质上会跟随成功，跟随技术的成功，以及在某种程度上也跟随生产的成功。我认为如果你看看美国，第一，我们没有一个自上而下指导的工业体系</p>
+<p>政策规定国家将在这一领域投入这一金额，我认为在某种程度上这是件好事，因为资金会跟随企业家，资金会跟随成功。我认为我们在美国一直拥有良好资本市场的区别在于，资本市场突然之间表示，吗，这类广告确实很有趣，而且，Aaron 和我已经在这方面投入了长期的精力和关注。</p>
+<p>如果你去看看，不只是上下看看硅谷和圣希尔路，但如果你去看看主要的银行，摩根大通已经投入了数万亿美元，不仅是在国防上，还投资于工厂和其他实体世界的事物，你会一次又一次看到这种情况，不仅在我们的风险投资公司中，而是现在私募股权也开始大规模进入这个领域，还有大型信贷公司。</p>
+<p>&gt;&gt; 大型信贷公司，这非常重要，因为现实情况是，在AD领域，许多公司在建设物理系统时需要大量资本，当你制造猎鹰9号火箭或制造CCA，或者制造黑鸟导弹时，这些本身建设这些生产线和物理系统的成本就很高。所以我认为部分原因是，资本市场会与你对话，决定成功在哪里，而现实情况就是，成功取决于资本市场。</p>
+<p>不像中国那样由我们的政府自上而下推动，这使得我们能够更加灵活，再次强调，能够追随成功，就像我说的，更重要的是能够在事情明显之前就提供资金，我们之前讨论过这个概念，即在需求出现之前进行建设，可能在能源方面我们有点晚，在一些防御系统方面也可能有点晚。但看看，资本市场已经觉醒，我们正在</p>
+<p>在未来十多年里，向这一领域投入数千亿甚至数万亿美元，&gt;&gt; 是的。如果你仅看2026年的上半年，投入国防生态系统的风险资金比去年全年还多，而这比前几年投入国防生态系统的资金总和高出很多倍。我认为从历史上看，特别是在国防领域，例如，周围一直存在一种关于硅谷的叙述</p>
+<p>死亡，以及你如何获得政府合同，从而在需要建立资本支出期间推动自己前进，真正令人兴奋的是，随着资本市场的支持以及风险资本的介入，这种情况几乎开始消失。这种趋势当然不仅限于国防生态系统，还延伸到能源、机器人技术、关键矿产以及一些其他非常重要的领域，看到这一点真的非常令人兴奋。是的,</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s13">
+<div class="body-sec-head"><h3>中美电力曲线：意志问题 + 社区必须分享红利</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="cl"><div class="label"><span class="badge" title="康纳·洛夫（Connor Love）">洛夫</span></div><div class="content">
+<p>是的，&gt;&gt; 我有一个问题。我不确定这是否有点离题。只是有一张非常有名的图表，显示美国的电力生产与中国新能源生产的对比，美国的曲线基本上是平的，而中国的曲线是向上向右的。我想问的问题是，缩小这个差距需要什么，或者我们能多快建设新的电力。我觉得，这不，我觉得这不是什么技术问题。我觉得</p>
+<p>那我们需要对我们作为美国人民的意志进行一些灵魂拷问，我们是否希望建造符合的项目？我们想要发展吗？如果我们想，我认为技术和资金都会随之而来。 &gt;&gt; 是的。有趣的是，这不仅仅是一个能源问题。这是一个所有问题的问题。 &gt;&gt; 这是一个所有问题的问题。并且，你看，我想我们本质上是乐观的，我确实认为雪球已经开始滚动。我认为问题是，回到我们的讨论中</p>
+<p>资本市场越早，会否在这些类别中出现新兴的赢家，从而促使更多的资金流入这个生态系统，这种自我实现的预言就会发生，就像如果你建造它，他们会来，但在某个时候，彩虹的尽头需要有一个奖池，如果有几个公司能够达到，我想，资金就会如我之前提到的那样流入，但我想我最后简短地说一点，任何实体方面的东西</p>
+<p>世界需要时间。我们，我们，要建立一个工厂，在一个规模上，真的要么影响我们的发电，要么影响我们的军事系统，或者其他什么。你不能只是把几个工程师，放在几个服务器和电脑屏幕前就能得到答案。这就是在搬运土方。它是物理上理解供应链。像这样的事情需要几年时间。所以，我们需要有一点耐心。</p>
+<p>资本市场方面，但我认为我还是乐观的。我认为事情正在发生，并且在某种程度上，这取决于我们自己，如果是我们这个政府和国家搞砸了、阻碍了这一进程，那就是我们的风险，不要误会我的意思。但我确实认为，即使在短期内痛苦，资本市场也会带来另一个长期的好处，人们需要感受到，我是说，你提到这些都是物理性的事物，它们需要时间，它们也是物理性的事物，因为它们具有</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="epw"><div class="label"><span class="badge" title="埃琳·普赖斯-赖特（Erin Price-Wright）">普赖斯-赖特</span></div><div class="content">
+<p>对周围的居民和社区来说，这是一个具体的表现形式，最重要的是，美国社会整体上感觉自己在参与这一发展带来的经济增长。软件在某种程度上可以被孤立，因为它实际上只存在于少数几个城市。它有点像一种虚拟的东西。你经历它的方式，是你与数字服务的互动在过去20年里变得更好，改善了很多。</p>
+<p>多年，但它有点不同，它更抽象一些，像一个更具体的物理世界，比如有人在你家后院建数据中心、发电厂、矿场，而你需要，你有发言权，你有股权，你可以亲眼看到，它影响你的生活，如果你觉得自己无法参与这种经济收益，这很难。我确实认为，资本市场从长期来看会很好地解决这个问题，因为公司会找到让社区参与的方法。</p>
+<p>参与旅程并使之在经济上对他们有价值。&gt;&gt; 我认为有一些很好的例子。AD50名单上有几家公司，比如，在他们的社区建设真正的东西，并以正确的方式出现。过去几年里也存在一些不好的例子。如果你看看Hadrian所做的事情，比如，他们会去参与那些存在的小型机械加工厂。他们与这些工厂合作，他们不会削减管理层或解雇员工。</p>
+<p>人们。他们会说，“我们如何才能开发新产品？”并发展像你今天拥有的那种业务。正是这种与社区合作而不是与之对抗的理念，我认为我们在科技界仍然需要稍微思考和挣扎一下，并理解仅仅因为我们坐在硅谷，并不意味着我们了解世界上发生的一切。基本上，我认为很多这些 80 后公司会开发一些影响到中产阶级的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="eb"><div class="label"><span class="badge" title="埃琳娜·伯格（Elena Burger）">伯格</span></div><div class="content">
+<p>美国。我是说，它将在美国中部实际存在，我，我，我认为这总体上是好事。我认为这意味着更多的工作机会，更多的繁荣。我认为这意味着更多的能源和丰富的资源，在这样的世界中，我们有一个更安全的美国，以及在沿海这些精英群体的财富集中减少。这是一件好事。 &gt;&gt; 对。 &gt;&gt; 但这需要时间。 &gt;&gt; 对。好的，Erin Connor，非常感谢你的加入，大家今天都可以查看AD50名单。 &gt;&gt; 太棒了。谢谢。 &gt;&gt; 太棒了，非常感谢。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "a16z", "title": "How to Build the Next SpaceX or Tesla", "url": "https://www.youtube.com/watch?v=cRJ7CfaK1Vc", "videoId": "cRJ7CfaK1Vc", "published_at": "2026-10-29", "duration": 2957, "caption_source": "YouTube 自动生成字幕（en-orig；yt-dlp --cookies-from-browser chrome 补拉成功）；caption_source=yt-dlp-chrome-cookies；无官方字幕；中文为全文翻译并按中文表达习惯重写、按话题分段", "guests": ["Erin Price-Wright", "Connor Love"], "intro": {"summary": "a16z 埃琳娜·伯格对话埃琳·普赖斯-赖特与康纳·洛夫，围绕本年 AD50：重建美国工业底座——从矿物与工厂到防务/能源/机器人终端；讨论大疆式军民技术转移、SpaceX/特斯拉垂直整合、先于政府采购而建，以及私人资本市场如何让这些公司既关乎国力又可能成为全球最值钱的硬件公司。", "points": ["核心命题：没有工业基础就没有国防工业基础；AD50 应按原料→工厂→系统端到端看", "大疆路径显示消费→防务→机器人执行器的工艺迁移；国防首单可补贴产线资本开支反哺民用", "AI「还不能拧扳手」；高混低量产线可被技师+软件（如 Claude）在约20分钟重配，取代数月集成商", "新模式：风险资本让创业者先于政府规格把战场/电网需要的东西造出来（如 Castelion）", "2026上半年防务风险资本已超去年全年；美国优势是非自上而下、愿在未获订单前下注的私人资本", "中美电力差距被归为「国家意志」而非技术；物理项目须让社区分享经济红利"], "verdict": "值得看：关心硬科技/国防科技/再工业化与 AD 投资主题的人；可跳过：只想听纯消费软件或短平快快讯者（约49分钟深度对谈）。", "audience": "硬科技与国防科技创业者/投资人；关注供应链、制造业回流与美国活力（American Dynamism）的读者"}, "speakers": [{"id": "eb", "name": "埃琳娜·伯格（Elena Burger）", "role": "host", "short": "伯格"}, {"id": "epw", "name": "埃琳·普赖斯-赖特（Erin Price-Wright）", "role": "guest", "short": "普赖斯-赖特"}, {"id": "cl", "name": "康纳·洛夫（Connor Love）", "role": "guest", "short": "洛夫"}], "sections": [{"id": "s1", "title": "没有工业基础就没有国防工业基础", "start_sec": 0, "summary": "开场点题：没有工业基础就谈不上国防工业基础；AI 尚不能拧扳手；全球市值前列多数是硬件公司。主持人埃琳娜·伯格（Elena Burger）请来 a16z 的埃琳·普赖斯-赖特（Erin Price-Wright）与康纳·洛夫（Connor Love）谈本年 AD50。埃琳强调几十年去工业化已在战场上显现后果，美国需要重新会造东西。康纳补充是地缘冲突、资本市场与主动举手建设的创业者三股力量叠加；AD50 应按「从地下原料→工厂→终端系统」端到端审视。国防需求拉动的工厂与材料，最终会进入民用车、玩具、Waymo 等军民两用场景；政府曾是登月、互联网、核能的第一推动，如今私人资本也可成为源头。"}, {"id": "s2", "title": "大疆路径：消费无人机→防务→机器人执行器", "start_sec": 309, "summary": "埃琳以中国大疆（DJI）为例：从消费无人机起步，2010 年代末切入公共安全与国防高产能，背后团队又成为全球最大机器人硬件生产者——因为无人机电机与机器人执行器（actuator）高度相通，而这正是造机器人最难的部分。军用与非军用之间的技术与工艺知识转移历来如此；联邦政府像补贴「学会新工艺」，美国消费者的挑剔则把成本与能力推到政府做不到的程度。康纳强调「第一件」极贵，国防部愿付民用不愿付的单价，等于帮创企垫付产线与资本开支，从而把规模推到能触达消费者；PCB 工厂同理——国防首单补贴资本开支后，机器人与助听器都用得上同一套板。"}, {"id": "s3", "title": "埃隆打法：垂直整合与供应链取舍", "start_sec": 518, "summary": "被问如何降本加速时，康纳指向 SpaceX 与特斯拉（Tesla）几乎是当代少数真正规模化的硬件公司：高度垂直整合。精密导弹等「极致系统」往往不得不自建以控成本与品质；SpaceX/特斯拉当年美国没有可依赖的工业底座（尤其电池与电力电子/传动），只能从 1970 年代落灰的论文重起炉灶。有高质量供应商则应用供应商。端系统之外还要自己搞定轴承、电磁阀等，这条路极难。"}, {"id": "s4", "title": "Mariana：买铜矿做端到端 + 软件吃物理世界", "start_sec": 616, "summary": "AD50 中的 Mariana Minerals 收购铜矿，从拿矿、开发、开采、运营到多矿物精炼后卖大宗商品，端到端自持，因为既有矿企技术迭代太慢，且只有掌控全价值链才能吃到新技术红利。创始人普遍把 AI/软件当作建设核心；物理世界「眼见为实」，很多时候必须拥有资产才能改资产，与纯数字产品不同。拥有端到端流程并用软件贯穿，数据会反哺下一轮。Hadrian 等工厂也一样：不是一颗「闪亮 AI 银弹」，而是报价接单、加工、质检、流转等十五二十个节点都用第一性原理重审百年旧工艺。"}, {"id": "s5", "title": "AI 还不能拧扳手：高混低量产线被软件改写", "start_sec": 812, "summary": "康纳判断：AI 将是物理世界利器，但「还不能拧扳手」，机器人自主尚有距离；关键是深刻理解物理工艺而非堆产品演示。埃琳对比：传统高自动化线适合低混高量；美国大量高混低量很难靠定制线自动化。组合内已见制造技师（未必科班软件）用软件工具、甚至用 Claude 在约 20 分钟内重编程/重配产线，而过去找系统集成商要三个月、数十万美元。可重构产线让原型更快、也更容易爬到量产速率；「面向制造的设计」从 SpaceX/特斯拉被迫的选择变成系统公司标配。俄亥俄与巴尔的摩等地的大型设施已在走向成千上万乃至更高产量——美国很久没这样干过，不再是纸面推演。"}, {"id": "s6", "title": "先于政府采购而建：把问题做成「埃隆级」难题", "start_sec": 1066, "summary": "防务创业历来难：买家≠用户≠拨款方，决策链割裂；传统主承包商等政府给钱再按规格研发，士兵常拿到十年前的方案。新模式是私人风险资本先投，创业者按战场真实需求提前把东西造出来——Castelion 高超音速导弹近年主要靠私募与创业者冒险，政府合同随后到来。能源电网也在重写，但才刚起步。埃琳形容创始人飞往无信号、无电的矿区「摸土」、数周数月离家：听着浪漫，实际又苦又硬，谈判对象文化节奏完全不同，所以问题必须「大到值得」。使命型创始人仍涌向这些残酷赛道。"}, {"id": "s7", "title": "硬件重回最值钱：从「重要」到「可成最大公司」", "start_sec": 1327, "summary": "康纳称最大变化：美国活力公司过去「对国家重要」，如今也能成为全球最值钱的公司——全球市值前十多数已是硬件。SpaceX、Anduril、Palantir 证明野心创业者可在这些赛道做出巨型生意；采矿、国防、能源一直是大产业，但过去对年轻顶尖人才不够「经济上值得」。服过役的他强调资本市场要赚钱不是慈善，但 AD50 上许多公司同时做大且关乎美国肌理。"}, {"id": "s8", "title": "钢头靴、巨型星条旗与工厂延时摄影", "start_sec": 1487, "summary": "埃琳说自己因此买了钢头靴；站点常在偏远处，挖土搬吨级物料——康纳引用军官的话：「物理世界不在乎你。」各公司比拼场地最大星条旗（Hadrian、Valor 等），激情带来敢「穿墙」解决问题的团队。她喜欢 12 个月内多次回访同一工厂：从环氧地坪空仓、租来的叉车和角落篮球筐，到半年后机器过多要市政增容、技师满场的混乱扩张，速度肉眼可见；工厂延时摄影已成品类，大家互相攀比。"}, {"id": "s9", "title": "防务子系统 unlock 机器人浪潮与本土 PCB", "start_sec": 1719, "summary": "造大量船/导弹/系统会拉动执行器、电机、阀门等子系统；这些恰恰是未来人形/工业机器人所需。先为防务把成本与质量做出来，再迎来机器人波，减少对中国工厂依赖——今日机器人公司采购约 99% 可能来自中国，且因质量、成本、迭代速度与地缘都想回流。三年前组合内公司订 PCB 会按报废一半多订，到货一半不及格；新创企用软件与现代工艺重做美国 PCB 后，良率可到 70%–90%，说明与终端客户共址共研能显著抬升质量。"}, {"id": "s10", "title": "制造业中间层：与 OEM 协同工程改写子系统", "start_sec": 1925, "summary": "新军事系统、Joby/Archer 飞机、新造法汽车都在改终端，输入也必须变。波音造 737 常电话叫霍尼韦尔（Honeywell）按旧规格再做起落架——理性但五十年子系统在新要求下不再够用。未来中间层供应商要从「接单执行」变成与 OEM 协同工程（co-engineering），自下而上重做零件。康纳称之为正在形成的「美国制造业资产类别」。电网亦然：从七八十年代静态机械大规模部署，转向更软件原生的电力电子与储能架构，技术断代让整条供应链可推倒重来；即便需求只兑现一半，「雪球」也不会滚回去。"}, {"id": "s11", "title": "Anduril/SpaceX 二代创始人与「先做好一件事」", "start_sec": 2263, "summary": "在 Anduril、SpaceX、特斯拉产线上撞过供应链墙的工程师/创始人出去做中间层，自带客户网络——类似 YC 公司互相买卖，物理世界供应链生态也在这样长出来。SpaceX/Palantir 都是「花二十年的一夜成功」；Castelion 曾两三年只盯第一枚难造的高超音速弹，拒绝过早多产品，这种「责任工程师」执念来自 SpaceX 织物。先把一件事做到极致，才学到工艺知识、供应链、面向制造的工厂与客户信任，第二三四件事才变容易。"}, {"id": "s12", "title": "美国优势：私人资本市场愿在「未获订单前」下注", "start_sec": 2476, "summary": "相对中国自上而下产业政策，美国有数万亿美元私人资本追随技术与量产成功；Anduril 创始人布赖恩·申普夫（Brian Schimpf）等也强调这一点。区别在于资本市场突然认为 AD 赛道有趣：不仅硅谷，摩根大通等银行也承诺巨资投向实体工厂与防务以外的物理世界，私募与信贷跟进。Falcon 9、CCA、导弹产线天生烧钱；风险资本正在弱化传统「死亡之谷」叙事。埃琳称 2026 上半年投入防务生态的风险资本已超过去年全年（而去年又是再前一年的数倍），并外溢到能源、机器人、关键矿物。"}, {"id": "s13", "title": "中美电力曲线：意志问题 + 社区必须分享红利", "start_sec": 2663, "summary": "面对「美国电力几乎走平、中国新能源陡升」的经典图，埃琳认为不是技术问题，而是美国人是否愿意让合规项目建成、是否想增长——技术与资本会跟随意志。康纳称雪球已开始滚，但物理世界建厂动土以年计，资本市场要有耐心；风险在于政府自己挡路。软件红利可集中在少数海岸城市且偏抽象；电厂、矿、数据中心在「后院」必须让社区感到分享到经济上行，否则难推进。好的 AD50 公司会嵌入社区（如与小镇机加工店合伙增产而非裁员）；这些公司将更多落在中部美国，带来就业、能源充裕与更分散的财富——但需要时间。"}], "paragraphs": [{"start_sec": 0, "type": "text", "zh": "没有工业基础，你就没有国防工业基础。这确实让人警醒，我们需要重新开始建设。\u003e\u003e 人工智能将是一种可以在现实世界中使用的非凡工具。现实情况是，人工智能还不能用扳手作业。\u003e\u003e 世界上最有价值的前十家公司，其中大多数都是硬件公司。访问其中一个现场是什么感觉？你在制造一个实物。你不是坐在桌前使用电脑。你是在现实世界中。", "speaker_id": "cl", "section_id": "s1"}, {"start_sec": 24, "type": "text", "zh": "听起来有点性感和浪漫，但当你真正去做的时候，却很艰难。当你出现在Mariana，当你出现在Hadrian，我们【音乐】出现在Castelion时，你会发现那些人对他们所做的事情充满热情，这会产生非常好的结果。\u003e\u003e 有一个【音乐】非常著名的图表，显示美国的电力产量与中国新能源产量。弥合这个差距需要什么？\u003e\u003e 我认为这不是技术问题。我认为这是一个康诺和阿伦，非常感谢你们", "speaker_id": "eb", "section_id": "s1"}, {"start_sec": 54, "type": "text", "zh": "今天加入我们的播客。我们在这里讨论AD50和今年的名单，让我们直接进入主题。我知道今年的一个重要主题是美国的工业基础。你能谈谈我们今年学到了什么，以及为什么这是一个如此重要的主题吗？我们一直在说，没有工业基础就没有国防工业基础。我认为今年确实让这一点更加清晰。随着世界各地的冲突发生，我们意识到所谓的空心化", "speaker_id": "eb", "section_id": "s1"}, {"start_sec": 88, "type": "text", "zh": "在过去几十年中，我们工业基础的流失实际上对战场上的士兵产生了真实的影响，无论是美国士兵还是我们的盟友。我认为，这已经成为美国的一个真正警醒，我们需要重新开始建设。\u003e\u003e 是的，我认为这不仅仅是一个因素，而是多个因素同时发生。当你退一步来看，你会说，好吧，世界冲突，你会看到资本的持续发展演变。", "speaker_id": "eb", "section_id": "s1"}, {"start_sec": 116, "type": "text", "zh": "市场，我相信我们稍后会讨论一些关于资本流入这个生态系统的情况。但我认为更重要的一点是，你现在实际上有一个创业者基础，他们有效地举起手来说，我将在这个生态系统中建设，这不仅对我们的国家极其重要，而且你也可以在这里建立非常有价值的公司。所以我认为这只是一个地缘政治因素、资本市场以及创业者的融合，这些因素正好汇聚在一起，你", "speaker_id": "eb", "section_id": "s1"}, {"start_sec": 140, "type": "text", "zh": "我知道，我认为现在是一个非常有趣的时期去创业。这是我们投资的好时机。当我们今年审视AD50时，我们考虑了美国活力历史上的一些情况，我们仍然处于早期阶段，但我认为一个发展出来的主题是，你确实需要开始从整体上看待美国活力公司，从从地里出来的原料到制造产品的工厂再到最终系统。基于这个思路，我们今年就是这样设立AD50来进行思考的。", "speaker_id": "eb", "section_id": "s1"}, {"start_sec": 167, "type": "text", "zh": "通过那三种视角来看。每一个支柱对于最终产品或最终系统都是独特且重要的，但归根结底，我认为人们并不这样思考，而很多在我们投资组合中处理相关问题的公司，都是从输入的角度、从工厂的角度，现在又从系统的角度来思考的。所以一个人在看完这个列表后可能形成的理论是，好吧，我们为国防建立了这个工业基础，比如制造导弹和", "speaker_id": "eb", "section_id": "s1"}, {"start_sec": 197, "type": "text", "zh": "无人机。但实际上，现在这是一个顺风，正在帮助美国的许多不同行业。因此有能源、机器人技术、人工智能。你能谈谈这些事物是如何结合在一起的吗？是的，这很有趣，因为如果你回顾历史，甚至大约 70、80、几乎 100 年前，如果你看看我们在美国如何发展技术，很多时候都是来自政府的。如果你看看我们首次进入太空的方法，如果你看看我们如何发展", "speaker_id": "eb", "section_id": "s1"}, {"start_sec": 225, "type": "text", "zh": "互联网，我们如何开发核能，这是政府说我们要为政府的目的去做这件事，然后这种技术的长期成果对于，各方面都是非常有价值的，比如互联网的诞生，能源在全球的传播。现在有些不同的地方在于，现在私人企业以及私人资本也在说，我们实际上将成为推动某些事物发展的动力。正如你所说，这其中的许多……", "speaker_id": "eb", "section_id": "s1"}, {"start_sec": 253, "type": "text", "zh": "市场是为了服务联邦政府，以某种方式服务战争部。但这些事物的美妙之处在于，当你建立一个工业基地时，无论是在供应链下游还是终端系统本身，这些本质上都有许多用途。所谓双重用途这个词在投资中被提到很多，在某种程度上，我认为这有点荒谬，专注于太多事情对初创企业来说并不好，但对于任何正在运营的工厂来说，这却是100%真实的。", "speaker_id": "cl", "section_id": "s1"}, {"start_sec": 281, "type": "text", "zh": "今天建造的任何新工厂，无论是能源生产还是我们接触到的地下矿物或材料，都不仅仅是进入国防系统，它还会进入我叔叔的汽车，会以某种形式进入我孩子未来的玩具。所以我确实认为，也许矛头是集中在政府上，但从长远来看，正如你所说，这些系统会在我们今天采取的方式中被使用。", "speaker_id": "cl", "section_id": "s1"}, {"start_sec": 308, "type": "text", "zh": "或者其他任何东西。\u003e\u003e 我认为一个很好的例子实际上是看看中国的大疆。\u003e\u003e 是的。\u003e\u003e 大疆在其生命周期和发展过程中经历了多个阶段，最初是做消费类无人机，并在2010年代后期意识到无人机在公共安全和国防方面有很大的市场，因此建立了一个真正大规模的国防无人机生产业务。现在，大疆背后的公司或大疆的人们已经", "speaker_id": "epw", "section_id": "s1"}, {"start_sec": 343, "type": "text", "zh": "世界上最大的机器人生产商，因为非常类似于无人机电机的是机器人执行器，而这是制造机器人最困难的部分。所以你有这样一家公司，在发展大型国防业务的过程中，该业务本身从消费业务中分拆出来，现在它是世界领先的专家，如何为下一波物理人工智能（包括消费和工业）制造和生产硬件。因此，我认为，这种技术转移和工艺知识转移在", "speaker_id": "epw", "section_id": "s2"}, {"start_sec": 372, "type": "text", "zh": "军事用途和非军事用途真的很重要，而且一直以来都是它的运作方式。让联邦政府在某种程度上成为这个过程知识和新技术开发的资助者是很棒的。然后，我认为美国最伟大的礼物之一就是美国消费者的辨别力。我们会推动事物变得比政府更有能力、更便宜。所以，在工业基础中的这种共生关系实际上是", "speaker_id": "epw", "section_id": "s2"}, {"start_sec": 402, "type": "text", "zh": "真的很重要，我们在能源方面 certainly 已经看到了这一点。\u003e\u003e 我们在电子方面也看到了这一点。我们看到，在整个工业堆栈中都是如此 \u003e\u003e 在某种程度上，我不认为这是一个非常复杂的话题，但重要的是要重申一下，就是当你制造任何第一款产品时，它是相当昂贵的，就像你在定制制造时一样，无论是军事系统还是消费产品 \u003e\u003e 从从0到100都会花费很多", "speaker_id": "epw", "section_id": "s2"}, {"start_sec": 428, "type": "text", "zh": "\u003e\u003e 这会花费很多，而且在某种程度上，像我们稍后会再谈这个，我打赌，但我们曾讨论过垂直整合或使用你拥有的供应链基础。现在正在发生的美妙事情是，我们有一个联邦政府和一个战争部在说，第一，我们将尝试积极重建一些工业基础。通过这样做，他们实际上从一开始就改变了这些单位的经济决策。", "speaker_id": "cl", "section_id": "s2"}, {"start_sec": 453, "type": "text", "zh": "公司。所以，再说一次，这不是去做一百件事情，而是你可以说，好吧，也许做一百件事情，但我们愿意承担消费者或商业市场不愿意支付的成本。突然间，这意味着你可以在工厂里放置更多的机器，更多的资本支出，而政府在一开始就帮你支付，然后这会带来一些既在财务上可行，又能在实际规模上触及消费者的事情。所以我只是觉得这是", "speaker_id": "cl", "section_id": "s2"}, {"start_sec": 477, "type": "text", "zh": "重要的是要识别这一点，而这现在肯定正在发生。\u003e\u003e 是的。比如说，如果你在美国建设一个新的PCB工厂，那是一个相当昂贵的运营。这些都是相当昂贵的机器设备。如果你有一个国防买家作为第一个买家，帮助你支付或补贴很多资本支出投资，那就很好，因为还有什么有PCB板吗？机器人。还有什么有PCB板吗？\u003e\u003e 助听器。所以这种能力能够", "speaker_id": "cl", "section_id": "s2"}, {"start_sec": 503, "type": "text", "zh": "将部分资本支出转嫁给国防工业基地，我认为随着我们在美国重建工业能力，这将非常强大。那么具体来说，你看到初创公司在降低成本和加快进度方面做了什么？\u003e\u003e 是的，我认为像很多事情一样，我们可以向埃隆寻求很多答案。说出这样的话并不夸张：真正少数几个建立大规模产能的现代公司可能就是SpaceX和特斯拉。如果你看看他们如何做的", "speaker_id": "cl", "section_id": "s2"}, {"start_sec": 533, "type": "text", "zh": "埃隆和他的团队建立了那些企业，这一直是一个高度垂直整合的过程。我觉得，我倾向于认为你不应该把一切都垂直整合。如果你正在建造一个非常精密的系统，比如一枚导弹，做一些非常独特的事情，你在某种程度上是必须的，因为你必须控制精密度，你必须控制成本。我是说，SpaceX 和特斯拉在做的是前所未有的事情，当时根本不存在这样的工业基础。", "speaker_id": "cl", "section_id": "s3"}, {"start_sec": 558, "type": "text", "zh": "美国支持他们，所以他们不得不自己建造。我认为，如果有像你这样的高质量供应商，你当然应该使用这些供应商。\u003e\u003e 是的，是的。我觉得学到的第一点是，如果你没有一个可以快速、可靠依赖的工业基础，那么你就必须自己去做，而本质上这是一个艰难的过程，这真的很难去做到。这个概念就是说，好吧，我要专注于最终系统，我要专注于建设……", "speaker_id": "cl", "section_id": "s3"}, {"start_sec": 585, "type": "text", "zh": "大多数是成本效益高的，有效的系统，我可以做到，哦，顺便说一下，我得去弄清楚滚珠轴承，我得去弄清楚电磁阀，我手头有类似的东西，那要做的事情很多，而且以特斯拉和SpaceX为例，我会说汽车行业有点不同，因为之前没有电池供应链，他们必须，埃隆必须重建那个，全套电力电子，整套驱动系统，他们真的必须完全建立起来", "speaker_id": "cl", "section_id": "s3"}, {"start_sec": 610, "type": "text", "zh": "从零开始 \u003e\u003e 基于已经积灰40年的70年代发表的论文。就我们在80组合中谈到的公司而言，有Mariana Minerals，它购买了一座铜矿，并且在端到端地重新发明事物。他们会是一个在这里讨论的好例子吗？我认为他们意识到，矿业行业现有的参与者，根本无法足够快地采用技术，从而真正产生影响并真正推动发展。", "speaker_id": "cl", "section_id": "s3"}, {"start_sec": 644, "type": "text", "zh": "针是这样，他们也意识到他们实际上想拥有整个价值链，以便真正兑现他们的承诺，并获得他们引入的新技术的最终价值。所以，是的，他们从获取资产、开发资产、开采资产、运营资产以及自行冶炼各种不同矿物的材料，应有尽有，然后他们在市场上销售最终的商品产品，并且真正投入其中。", "speaker_id": "cl", "section_id": "s4"}, {"start_sec": 671, "type": "text", "zh": "我还想指出的另一个趋势是，很多在这些领域创业的创始人和企业家正在把人工智能和软件作为他们构建的重要组成部分。 \u003e\u003e 是的，我觉得当你把软件和人工智能应用到物理世界时，它会与在法律、客户服务或其他任何你今天看到人工智能疯狂发展的领域中应用的方式不同。但正如Erin所提到的，很多时候你必须拥有资产才能真正做到这一点。", "speaker_id": "cl", "section_id": "s4"}, {"start_sec": 702, "type": "text", "zh": "改变那个资产。不是每次都这样，但很多时候，有时候在物理世界中看到就是相信。而当你纯粹是一个数字 AI 产品时，你可以直接看到它，而且它非常容易转移和理解。\u003e\u003e Mariana 在这个铜矿做的事情在很多方面真的令人印象深刻。它不仅仅是在说，“嘿，我们会更擅长提取铜。”而是它在重新思考一切。它是\u003e\u003e 关于你整个过程的方式", "speaker_id": "cl", "section_id": "s4"}, {"start_sec": 725, "type": "text", "zh": "\u003e\u003e 计划、操作、开采和提炼材料。酷的地方是什么吗？一旦你从头到尾拥有这个过程，并且在每一个阶段都使用软件，你实际上会捕捉到这些数据，然后它会反馈回来。 \u003e\u003e 这是一个重要的观点。我是说，这不仅仅是Mariana，但如果你看看另一个业务，比如Hadrian，这是一个完美的例子，展示了如何利用软件，更重要的是，这不是突然出现的灵丹妙药。", "speaker_id": "cl", "section_id": "s4"}, {"start_sec": 754, "type": "text", "zh": "让一个工厂或矿井完美。这实际上涉及15到20个不同的方面。当你看看Chris在Hadrian所做的事情时，你会明白，是的，这在一定程度上是显而易见的，涉及报价甚至接收一个零件订单所需要的步骤。它确实是零件实际的物理制造。它还涉及你如何检查、转移它，以及，工厂中存在的各种不同的内部步骤。而美妙的地方在于，当你从某个起点开始的时候，你会发现……", "speaker_id": "cl", "section_id": "s4"}, {"start_sec": 779, "type": "text", "zh": "像克里斯在建造他的工厂时那样有一个全新的起点，或者像玛丽安娜那样，当你拥有某个东西并接管它时，你可以从第一性原理的角度审视每一个环节，并问：嘿，过去100年来一直在使用的这个流程真的是正确的吗？而这正是在当前物理世界每一层面上发生的事情。这不仅仅涉及矿山，也不仅限于工厂。这种方式存在于许多不同的形式中，这是我个人的信念，我们在很多投资组合公司中都看到了这一点。", "speaker_id": "cl", "section_id": "s4"}, {"start_sec": 807, "type": "text", "zh": "看起来人工智能将成为一个可以在物理世界中使用的非凡工具。现实情况是，人工智能还不能扳动扳手。它未来某天会做到，但我们还很远。我们也许可以讨论一下我们在物理世界中看到的机器人模型和自主性。我们正在越来越接近。我只认为这里的细微差别，还有这个名单上的许多投资组合公司，或者名单上许多非投资组合公司，他们明白，看，物理世界", "speaker_id": "cl", "section_id": "s4"}, {"start_sec": 834, "type": "text", "zh": "世界不仅仅是像我说的那样推出一个银弹，比如一个闪亮的人工智能产品，它需要对一个过程的深刻理解，具体如何操作这个过程，或者如何改变世界上正在发生的事情，这些都会有所不同。比如一个具体例子，或者说谈论一下低种类高产量与高种类低产量的情况，以及人工智能如何在这里改变游戏规则。", "speaker_id": "epw", "section_id": "s5"}, {"start_sec": 866, "type": "text", "zh": "从历史上看，如果你花费很多并建立一条高度自动化的生产线，\u003e\u003e 你真的需要大量生产单一产品。\u003e\u003e 这就是降低成本的方式，也是证明投资于一个相当定制化的生产线的合理性的方法。在美国，我们进行很多低品种高产量的制造，这种制造很难实现自动化，因为当你必须频繁更换生产线时成本非常高。但我们在整个...", "speaker_id": "epw", "section_id": "s5"}, {"start_sec": 893, "type": "text", "zh": "投资组合在于制造技术人员自身具备这种直觉，并且现在拥有软件工具，能够改变低产量高混合生产线的经济模式。因此，你可以拥有一个制造技术人员。这不是一个拥有大学学位的人。也许他们有，但不一定是学习过软件工程的人，现在能够使用这些工具实时重新编程和重新配置他们的生产线。", "speaker_id": "epw", "section_id": "s5"}, {"start_sec": 922, "type": "text", "zh": "事实是，他们了解制造过程，并且知道如何在物理世界中完成他们的工作。他们现在突然拥有了所有这些工具。所以他们可以，你可以重新调整生产线，而不必去找系统集成商，通常需要三个月的时间和数十万美元来为新的设置重新配置生产线。你可以让制造工程师使用Claude，在大约20分钟内完成这项工作。这在许多公司中确实带来了重大的变化。", "speaker_id": "epw", "section_id": "s5"}, {"start_sec": 947, "type": "text", "zh": "我们在这个领域中看到过的。之所以重要，是因为当你回顾我们今年如何阐述AD50时，你会发现它大致分为三类，而且很多时候我们关注的，至少是我以及该领域的许多人关注的，仅仅是系统公司。看看吧，有很多非常有趣的系统公司，我是说Andrew Sran、Castillian，我是说，名单上还有很多人都在建立非常好的终端系统，但", "speaker_id": "epw", "section_id": "s5"}, {"start_sec": 973, "type": "text", "zh": "问题是，如果你不能在设计上进行迭代，也不能在原型上进行迭代，你不仅无法得到一个不同、更好的最终系统，而且你的进展也会更慢。所以到最后，当你终于修复了一个生产级的，比如说导弹或飞机或其他什么的时候，你就必须回过头去重新调整并建立所有这些子系统以满足规模要求。但如果你有一个更", "speaker_id": "epw", "section_id": "s5"}, {"start_sec": 999, "type": "text", "zh": "可转移的生产线，更可调节的生产线，首先，你还能更快地构建原型，但其次，你就可以以一种方式来设置这些不同的组件，这样实际上可以更快地达成批量生产。 \u003e\u003e 是的。你从一开始就在为制造商设计。 \u003e\u003e 完全正确。完全正确。而且我还要回到从特斯拉和 SpaceX 学到的经验。在很多方面，他们不得不做出这些选择，因为他们没有任何", "speaker_id": "epw", "section_id": "s5"}, {"start_sec": 1023, "type": "text", "zh": "其他机会。但最终，这实际上只是制造设计的那个口头禅，现在存在于所有这些系统公司中。在某种程度上，我们现在正处于观看它们生产的时代。再看看安德鲁在俄亥俄州建造的，以及现在在东海岸巴尔的摩建造的，看看Saronic和船一起建造的设施。我是说，这些都是巨大的大型设施，在不久的将来，它们将开始生产成千上万的产品。", "speaker_id": "epw", "section_id": "s5"}, {"start_sec": 1053, "type": "text", "zh": "成千上万，希望是数十万的系统。我们很久没有在美国做到这一点了。\u003e\u003e 是的，这不再是纸面上的理论练习。这正在现实世界中发生，真正的东西正在下线。我认为AD创始人的特别之处在于，他们能把任何问题变成一个埃隆规模的问题。我很想听听你们如何将这种思维应用到我们正在讨论的不同产业中。是的，当你特别看国防领域时，这实际上已经是", "speaker_id": "epw", "section_id": "s5"}, {"start_sec": 1088, "type": "text", "zh": "这是历史上最难的行业之一，仅仅去建造你认为政府需要的东西，因为不幸的是，再说一次，我以前也经历过这个，当我在军队服役时，购买者并不是使用者，而为购买者拨款的人则完全被隔离了。所以你有所有这些分散的决策者或相关群体。所以发生的情况是，当时公司们，我们实际上还没有Neopimes或者广告公司去", "speaker_id": "cl", "section_id": "s6"}, {"start_sec": 1116, "type": "text", "zh": "服务，但你所拥有的是你有的一些主力只是坐在那里听，就像告诉我你想要什么。你给我钱之后我会开发这个东西。老问题是你得到的系统实际上不是，技术先进的。你得到一个十年前开发的系统，然后，终端士兵得到的实际上对他们没有太大价值。现在不同的是，回到你现在可以思考的一个埃隆式问题，你可以说，好吧，这个……", "speaker_id": "cl", "section_id": "s6"}, {"start_sec": 1141, "type": "text", "zh": "军方实际上需要的东西，而美妙之处在于，风险投资和我们在美国活力公司所做的事情，同时你也知道其余的资本市场正在说，我们实际上会提前资助这些，你可以在政府说“这是你要建造的东西”之前进行建设，而其结果是士兵得到更好的产品，得到一些真正从根本上改变战场的东西，并且有助于威慑、安全或安全，更重要的是，你会得到一个", "speaker_id": "cl", "section_id": "s6"}, {"start_sec": 1166, "type": "text", "zh": "一个实际上构建的系统类型的时间框架，它是与市场需求和今天技术能力相一致的。所以这完全是一种根本不同的方式，比如不是坐着等政府告诉你他们想要什么，而是你看到政府的信号，然后用私人资本进行提前开发，而这种情况在国防历史上从未发生过。所以你可以构建，例如，Castelion 建造一个高超音速导弹的项目", "speaker_id": "cl", "section_id": "s6"}, {"start_sec": 1192, "type": "text", "zh": "不是那种非常精密的东西，但制造一枚速度那么快且可靠的导弹真的很难。政府现在已经给他们签了合同，也算是出手购买了导弹。但如果你看看过去三年的这项业务，实际上都是私人风险投资，是创业者们在冒风险，提前制造这些东西。我觉得如果你在国防领域一次又一次地看到这种情况，你会越做越好。", "speaker_id": "cl", "section_id": "s6"}, {"start_sec": 1216, "type": "text", "zh": "产品，从根本上来说，你会看到新老公司开始占据大量的市场份额。但这不仅仅是防御方面。我是说，Aaron 在能源方面也看到了。我是说，我们正在重建整个能源网络。再次强调，Aaron 比我更了解，但我们就在一码线附近，我们才刚刚开始那个过程。我认为，另外一部分稍微有些难以捉摸，但这些真的是很难的公司去", "speaker_id": "cl", "section_id": "s6"}, {"start_sec": 1246, "type": "text", "zh": "建造。这些真的是非常非常难解决的问题。当我和Mariana Minerals的首席执行官Turner交谈时，他飞往世界各地一些偏远的地方去建立他的公司。他去的地方没有手机信号，没有电力，要接触泥土，要离开家人好几周甚至几个月。这一切必须值得。你是在建造一个实体的东西。你不是坐在桌子前使用电脑。你是在外面的世界里。", "speaker_id": "epw", "section_id": "s6"}, {"start_sec": 1280, "type": "text", "zh": "听起来有点性感又浪漫，但当你真正去做的时候，其实很艰难。旅行非常辛苦。你接触的人，你不是在跟人聊天，而是在给供应商打电话。这些人不像其他在同样时间尺度和文化下运作的初创公司。这些人真的很难谈判和合作，他们有非常不同的文化。\u003e\u003e 如果你要让自己经历这些，那最好是非常值得。所以我觉得人们", "speaker_id": "epw", "section_id": "s6"}, {"start_sec": 1312, "type": "text", "zh": "人们真的很容易被这些感觉巨大而庞大的问题所吸引，因为我们看到这些是真正的传教士式创始人在这个领域进行建设，即使这个领域热起来了，资本增多了，变得很酷。\u003e\u003e 它仍然很残酷。我认为过去几年美国活力领域中最大的变化是，我们一直知道在这个类别中建立的公司对美国社会结构非常重要。再说一次，当我们谈论...", "speaker_id": "epw", "section_id": "s6"}, {"start_sec": 1339, "type": "text", "zh": "关于防御系统，当我们谈论能源时，当我们谈论建造，制造用于各种事物的小部件时，那些东西真的很重要。它关系到我们的安全，关系到我们的生活方式。但最大的变化是，这些公司不仅仅是对我们最重要的东西。现在它们可能成为最有价值的公司，这是一个巨大的区别，这种变化已经发生，这不仅仅是解决安全或保障问题，而是在解决一个", "speaker_id": "epw", "section_id": "s7"}, {"start_sec": 1365, "type": "text", "zh": "安全和保安方面的问题，顺便说一下，这些可能是世界上最大的一些公司，而这就是技术在这些行业中带来的变化。采矿一直是一个非常大的行业，国防一直是能源行业 \u003e\u003e 对于一个有雄心壮志的年轻聪明人来说，经济上并不值得去追求这些类别，但我认为 \u003e\u003e 公司就像 Palantir、Anduril、SpaceX 一样已经证明，你可以在其中运营并建立一个真正大的企业", "speaker_id": "epw", "section_id": "s7"}, {"start_sec": 1392, "type": "text", "zh": "这些类别。如果你……如果你看看，现在全球最有价值的十大公司，其中大多数都是硬件公司。他们在制造实体产品。我们有点像回到了原点，所以 \u003e\u003e 你会看到我们这一代最有抱负的创业者，他们想去面对那个困难的问题，并且知道这是值得的 \u003e\u003e 而且，像采矿这样的许多行业，或者说力拓已经存在了很久，这其中美妙的地方在于", "speaker_id": "epw", "section_id": "s7"}, {"start_sec": 1415, "type": "text", "zh": "很久了，我是说波音已经存在很久了，比如说，有一些好的公司在制造好的产品，但我认为当你采取这种方法时，首先是像从第一性原理的技术方法出发，思考需要建造的大胆事物是什么；然后第二，你会遇到像这些人在AD50上创业的人 \u003e\u003e 是的，我要重建美国的能源网络，听起来很有趣 \u003e\u003e 而这种情况在50年前是不存在的，5年前也是不存在的", "speaker_id": "epw", "section_id": "s7"}, {"start_sec": 1440, "type": "text", "zh": "以前这是从根本上来说，是我们的美国最优秀的人才为了这个类别而努力建设的，这是第一次出现这样的情况，而且正如埃琳所说，机会是存在的，你可以看到这些公司重新定义了太空发射，重新定义了某种军事系统，重新定义了所有我们关心的美国活力的这些类别。是的，我认为这很令人兴奋。作为一个曾经服役的人", "speaker_id": "epw", "section_id": "s7"}, {"start_sec": 1465, "type": "text", "zh": "在军队里，你总是会认为，你做的事情比你自己更重要。看，资本市场存在的目的是赚取利润。我们不是慈善机构。这是一个资本主义社会，但最终，这份AD50榜单上的很多公司做的事情，不仅会很大很有价值，而且对美国社会的结构也非常重要。这非常令人兴奋。去参观这些现场是什么感觉呢？", "speaker_id": "epw", "section_id": "s7"}, {"start_sec": 1490, "type": "text", "zh": "制造现场或者采矿现场，或者无人机制造商那种现场 \u003e\u003e Connor 和我拥有有史以来最棒的工作。我确实得，我确实，我现在确实有钢头靴，因为我去过的投资组合公司现场访问的次数很多，他们都会说，‘是的，你得穿钢头靴来。’【笑声】 \u003e\u003e 是的 \u003e\u003e 是的 \u003e\u003e 说实话，这并不全是性感的地方。诚实地说，这些地方很多时候都很难到达。", "speaker_id": "epw", "section_id": "s8"}, {"start_sec": 1518, "type": "text", "zh": "在荒无人烟的地方。最终，就像我们在谈论需要实物操作的事情一样，需要搬动土地。就像我在服役期间，我曾经有一位高级军官，总是告诉我，物理世界不在乎你。所以在物理世界里一定要小心。比如，这些都是搬运大量土方，还有建造大型工厂的事情，Hadrian或者Hadrian会做。我是说，这些事情。", "speaker_id": "epw", "section_id": "s8"}, {"start_sec": 1546, "type": "text", "zh": "非常巨大。而且令人印象深刻。我最喜欢的事情之一可能在远程站点你看不到。也可能你看得到，但这是这些公司之间的一种比赛，看看谁能在他们的站点上放置更大的美式国旗。实际上，我不知道今天谁拥有最大的旗帜。我是说，我上次看到Hadrian的旗帜已经相当大了。 \u003e\u003e 我觉得Valor也很大。 \u003e\u003e Valor也很大。好的，太好了。是的。是的。是的。再说一次，我是说，那真的很棒。比如说，你有那种类型的东西", "speaker_id": "epw", "section_id": "s8"}, {"start_sec": 1576, "type": "text", "zh": "对某种比你正在打造的产品或经济机会更伟大的事情的热情。我是说，这种热情在很多团队背后驱动了他们的目标。当你来到玛丽安娜、来到赫里恩、来到卡斯特利安时，你会看到人们对他们正在做的事情充满了激情，你也知道，这会产生非常好的结果。当你必须在现实世界中做一些非常艰难的事情时，如果你有愿意冲破障碍的人，", "speaker_id": "epw", "section_id": "s8"}, {"start_sec": 1600, "type": "text", "zh": "有时候，为了解决那个问题，你实际上就是，你会变得非常大胆，取得出色的成果。我最喜欢做的事情之一，就是在12个月内多次访问同一家公司，不管它们是否在投资组合中，因为你可以学到很多，比如一个工厂建设的速度。这就是我们做的一件事，你不只是去一次，你去一次，然后三个月后再去，三个月后再去，三个月后再去。", "speaker_id": "epw", "section_id": "s8"}, {"start_sec": 1627, "type": "text", "zh": "而且我不是，我不是制造专家。我在工厂车间上花了足够的时间——从我在Palantir的时间到现在做这份工作。我大概了解一些机器，也大概知道生产线是如何运作的，但就是有一种东西，当你看到工厂里东西不断堆积，从一个空荡的仓库，铺着环氧地板，挂着巨大的美国国旗，也许只有几托盘，而创始人非常兴奋的时候", "speaker_id": "epw", "section_id": "s8"}, {"start_sec": 1653, "type": "text", "zh": "给你看他们租的叉车。 【笑声】 他们 kinda 就像，他们在角落里搭好了篮球架或者健身房的设备，然后快进六个月，就只是，他们在疯狂地思考如何扩展。他们会说，‘哦，我们需要让市里来给我们更多电力，因为我们有太多机器在插电。’ 有点混乱。到处都是技术人员和操作员，人们在搭建东西。那真的很令人满足，而且", "speaker_id": "epw", "section_id": "s8"}, {"start_sec": 1677, "type": "text", "zh": "真的很有趣，而且我觉得我们很幸运能够看到那个过程，以及那个过程发生得如此之快。 \u003e\u003e 是有人做过类似的延时拍摄吗 \u003e\u003e 哦，有很多。这是一整个制作电影的类别，每个人都会比较自己的作品，就像是一种，小小的 \u003e\u003e 我确实喜欢健身的事情。我记得很多年前我第一次去拜访时，Isaiah 和 Gundo，让我在他的器械上做了一组 \u003e\u003e 是他们都有，他们都有像", "speaker_id": "epw", "section_id": "s8"}, {"start_sec": 1705, "type": "text", "zh": "他们都有他们的卧推设备，设备，好酷。这是不是像一种‘在美国制造’的传染效应呢，就像因为执行器是在这里制造的，所以我们现在可以制造这个，现在我们可以制造那个，当你能够压缩一个时间线时，你可以压缩多个时间线。我甚至不认为这只是时间线的问题，我还认为这涉及成本和质量。我是说，这很有趣，因为当我们看特别是防御自主系统时，比如现在造了很多船。", "speaker_id": "epw", "section_id": "s8"}, {"start_sec": 1735, "type": "text", "zh": "公约制造了很多导弹。卡斯蒂利亚也制造了很多导弹，安德烈制造了很多东西。就像当你建造许多系统时，你也需要许多底层子系统。而且如今确实有一些非常有趣的军事系统在被开发。不过，回到我们之前的评论，问题在于，通过建设防御，你也在为不同的产业建设。实际上，世界上存在的类人机器人或机器人并不多。", "speaker_id": "epw", "section_id": "s9"}, {"start_sec": 1760, "type": "text", "zh": "今天。有成千上万，也许我不知道确切的数字，但当你考虑到一些我们的军事系统中包含的子系统时，它们正是将来机器人系统中会使用的相同子系统，就是执行器，比如电机，阀门和开关之类的东西。我认为，当你能够以高质量和合适成本制造这些东西时，突然之间，你就会创造出以前可能不可行或不现实的其他市场，突然之间变得有意义。再次强调，我认为这是", "speaker_id": "epw", "section_id": "s9"}, {"start_sec": 1787, "type": "text", "zh": "在机器人世界中将要发生的事情，我们将花费所有时间开发所有那些子组件。我们将为许多这些军事系统进行构建，这是好的。我们需要它来保证安全、防护和威慑，但然后突然间，你会看到这种机器人浪潮进入美国。我说过了，人工智能还不能扳螺丝。但它们可以，最终会做到。这将由所有那些执行器和开关等功能支持。", "speaker_id": "cl", "section_id": "s9"}, {"start_sec": 1811, "type": "text", "zh": "我们自己建造的子系统。它将服务于不同的市场，并且将使其在财务上可行，而且我们不必依赖中国的工厂。我认为这是整体上的利好，因为建设工业基础可以用于很多事情，从零部件层面上说，我只是觉得我们在美国的工业基础还不够。这是一个决定，就像你今天跟一家想要制造某些东西的机器人公司谈话一样。", "speaker_id": "cl", "section_id": "s9"}, {"start_sec": 1836, "type": "text", "zh": "机器人部署有99%的可能性意味着他们购买的主要产品来自中国，而且出于多种原因，不仅仅是地缘政治因素，他们希望将这些采购转移到本土，以保证质量、降低成本、提高迭代速度，是的，还有地缘政治原因。我觉得有一点，真的在过去三年里，甚至仅仅是在这三年里，供应商生态系统的发展是显著的，就像我们投资组合中的一家公司，三年前你会订购两件", "speaker_id": "cl", "section_id": "s9"}, {"start_sec": 1873, "type": "text", "zh": "因为他们假设必须为质量问题丢掉 50% 的 PCB 板，所以他们需要的 PCB 板数量是原来的好几倍。他们会从供应商那里拿到这一批板子，进行测试，而其中 50% 通过不了质量测试。后来在这个领域出现了一些初创公司，他们说，我们要解决这个问题。我们要利用软件和现代技术，重新设计美国的 PCB 制造方式。我们要做得更快，我们要做到", "speaker_id": "cl", "section_id": "s9"}, {"start_sec": 1899, "type": "text", "zh": "更便宜。你猜怎么着？我们要做得更好。吗，现在同一家公司从新的供应商那里购买PCB，而且他们保持70%、80%、90%的质量测试通过率。所以我认为我们低估了与最终客户及其供应商紧密协作和共同开发一些技术对于提高质量的重要性。\u003e\u003e 所以有件非常有趣的事情正在发生。我相信工业基础，就像我们之前谈到的那样，", "speaker_id": "cl", "section_id": "s9"}, {"start_sec": 1930, "type": "text", "zh": "你从这些新系统公司那里得到这种顶级需求信号，比如我们正在建造新的军事系统，但顺便说一下，比如 Joby 和 Archer，我们也在建造新的飞机，我们正在建造新的终端系统，这是事实，比如汽车正在被制造，不同的飞机正在被制造，军事系统正在被制造不同，当你建造这些新系统时，这些系统的输入也必须相应改变，当你看看今天美国的产业基础时，历史上如果你", "speaker_id": "cl", "section_id": "s10"}, {"start_sec": 1956, "type": "text", "zh": "去看看波音是如何制造737的，波音是对美国整体结构很重要的公司，但他们只需拿起电话打给霍尼韦尔，霍尼韦尔就会帮助他们制造所有不同的子组件，这并不是霍尼韦尔的错。但霍尼韦尔所做的是，他们会说：“我不想再重新制造一个新的起落架了。我们有这个符合规格并能完成任务的起落架。所以，就让我们继续一次又一次地做同样的事情。”这是合理的。就像，他们正这样做", "speaker_id": "cl", "section_id": "s10"}, {"start_sec": 1978, "type": "text", "zh": "建造更多的737飞机。无论是50年的起落架还是新的起落架，他们的报酬都是一样的。但是问题是，当你不断对这些最终系统的新要求进行迭代时，到某个时候，这个50年的子系统就不再适用。也许它在物理上仍然可以工作，满足要求，但它的设计和开发方式本质上没有创新。这为什么重要呢？因为，我们已经开发了新的", "speaker_id": "cl", "section_id": "s10"}, {"start_sec": 2009, "type": "text", "zh": "材料。是的，物理学没变，但物理和设计的输入都变了。所以我认为，现在，或者说对很多制造公司来说，机会就是做我所谓的“共同工程”，我们之前谈过的这些供应商的长篇故事，他们在过去40年里一直处于接收模式。霍尼韦尔接起电话说，嘿，我需要另一个起落架。去做那个起落架吧。还有", "speaker_id": "cl", "section_id": "s10"}, {"start_sec": 2036, "type": "text", "zh": "他们已经按照规格执行了该知识产权并进行构建。当你提出新的需求时，中间层不能，替霍尼韦尔思考并改变需求，因为他们没有资格这样做。但我认为未来会发生的情况是，你会有这一层供应公司，它们实际上将成为原始设备制造商的共同工程师，不仅重新思考最终系统在速度或重量、质量方面能够做什么，而是...", "speaker_id": "cl", "section_id": "s10"}, {"start_sec": 2069, "type": "text", "zh": "各个子组件将被重新思考、重新设计和重建，所以最终系统从整体到各个具体部件和组件都会发生变化，我认为过去40或50年中，这种情况从未发生过。所以，你将会看到我相信会被称为制造中层的全新浪潮，这将涉及联合工程，并将设计和开发推向供应链上游，而不仅仅是处于接收模式并说，‘好吧，我可以’", "speaker_id": "cl", "section_id": "s10"}, {"start_sec": 2100, "type": "text", "zh": "“40年后再建我现在建的同样的东西。” 我只是，我只是觉得这是一个机会。我之前把它定义为：我们现在正在创造美国制造业资产类别。私募股权长期以来一直在这个生态系统中运作，观察一个资产，购买它，降低成本，然后出售。再次强调，这并没有从根本上改变我们建造的东西。现在，公司会改变我们将要建造的不同事物。", "speaker_id": "cl", "section_id": "s10"}, {"start_sec": 2126, "type": "text", "zh": "\u003e\u003e 一个很好的例子就是电网。当你考虑到电子堆栈的时候，\u003e\u003e 我们即将经历电网管理和电力传输方式的巨大变化，从上世纪70年代和80年代在美国大规模部署的静态和机械系统，转向现在的现代电力电子、储能架构，这些架构更加软件原生且灵活，就是当你拥有一个...", "speaker_id": "cl", "section_id": "s10"}, {"start_sec": 2156, "type": "text", "zh": "这种技术上的彻底变革意味着取代之前技术的新技术完全不同。你有机会重新思考其背后的整个供应链以及所有设计和工程工作的运作方式 \u003e\u003e 在能源领域也是一样的情况，这与国防或商业系统领域发生的情况相同，即你有大量对数据中心、新工厂和新建设施的需求。当你从自上而下的层面看时，你会有", "speaker_id": "cl", "section_id": "s10"}, {"start_sec": 2183, "type": "text", "zh": "像 Aaron 说的那样的创新能力，并重新考虑整个架构，看起来像 \u003e\u003e 因为这是一个全新的架构，所以你不能依赖在之前世界中有效的这些组件去重新配置，你实际上有机会从零开始重新思考它。 \u003e\u003e 这里的另一个重要点是，你可能会持悲观态度，你可以说，好吧，Connor，所有这些新的军事或最终系统，不是所有都会被采用，所以像", "speaker_id": "cl", "section_id": "s10"}, {"start_sec": 2208, "type": "text", "zh": "那个自上而下的需求，或者说阿龙，我们实际上并不会把能源增加到四倍，不会有那么大的需求。我实际上认为这无所谓，因为我认为一旦你开始需求循环的滚雪球效应往一个方向发展，即使你只满足了一半的需求，你也不会回头，你不会回头，这在财务上也没有意义，再说一次，这就像当你从第一原理重新思考某件事，并做出新的设计、新的工程决策时一样。", "speaker_id": "cl", "section_id": "s10"}, {"start_sec": 2236, "type": "text", "zh": "很多时候，这意味着更好的成本、更高的效率，你现在就会去买那个东西 \u003e\u003e 更好的可维护性、更容易制造 \u003e\u003e 是的，是的，你绝不会回头 \u003e\u003e 我很好奇，好奇的是你看到的创始人是在第二代安德罗尔（Anduril）还是第二代帕尔图涅尔（Palantir）之类的背景，以及他们可能看到了一些这些经验教训，并看到了机会，成为某些几十年来从未有人涉及过的中间层供应商，等等", "speaker_id": "cl", "section_id": "s10"}, {"start_sec": 2269, "type": "text", "zh": "你看到哪些机会和哪些类型的创始人？是的，当然。我是说，如果你想真正激发创业者的热情，一个很好的方法就是让他们在某种工程或供应链问题上碰壁，然后他们会想，‘好吧，我真的很在意这个。这真是让我头疼。我知道这也困扰着其他人。我知道这不仅仅是我这里有的问题。’", "speaker_id": "cl", "section_id": "s11"}, {"start_sec": 2295, "type": "text", "zh": "Anduril 或 SpaceX 或 Tesla。这是一个更广泛的问题。我打算更一般性地去解决它。还有那种创始人的血统，他们曾在制造车间亲身经历并深入了解这个问题，不仅是创始人，甚至包括工程团队，他们会说我看到了这个问题，我在 Andre 或 Saronic 或其他公司中解决了它，我实际上要出去把它作为一家公司去构建，然后我认识生态系统里的每个人，所以我有，自动获得访问权限。", "speaker_id": "cl", "section_id": "s11"}, {"start_sec": 2321, "type": "text", "zh": "牢固的客户群，我们当然看到这种趋势正在发生，你也知道，这就是生态系统如何建立的方式。人们会取笑YC，说YC的所有公司都在互相销售。但事情就是这样运作的，因为这些是你的朋友。他们宽容、理解，愿意与你合作并帮助你，而且如果某些东西出现问题，他们也会容忍，因为他们自己也在努力解决非常非常困难的问题。如果你在做的事情不是那个…", "speaker_id": "cl", "section_id": "s11"}, {"start_sec": 2348, "type": "text", "zh": "对他们来说，这是最关乎生存的事情，他们非常愿意将其外包给你。这很美妙。这就是硅谷建立的方式。真正让我感到乐观的是，我们开始在这些物理世界的生态系统和供应链中看到这种趋势的程度。\u003e\u003e 是的。我 我 我认为你提到的那几家公司，SpaceX、Palantirs，看看，他们不是一夜成名的成功。像那些公司花了很长时间才达到产品规模以及只是", "speaker_id": "cl", "section_id": "s11"}, {"start_sec": 2373, "type": "text", "zh": "他们所在公司的规模和成功。\u003e\u003e 过夜成功其实花了20年。\u003e\u003e 完全正确。我认为学习的要点是，我们投资的这个名单上的很多创业者都来自那些生态系统，你会学到这种对一件事的执着专注，尽最大努力做好一件事，沿着一条路走到底，直到成功。就像，我看到过卡斯特利安的那些人，例如。他们专注了两年半到三年", "speaker_id": "cl", "section_id": "s11"}, {"start_sec": 2398, "type": "text", "zh": "在第一枚真正难以制造的高超音速导弹上花了几年时间。其他人来了，说，哦，要做多产品，去制造这个小型无人机。他们却说：“不，我们需要把这件事做好。” 我认为，这源于SpaceX的文化。在SpaceX，作为一个负责任的工程师的概念是，如果这个东西不工作，那就是我的责任。我会确保【笑声】我会一次又一次地关注这件事，执着于此。这就是制造真正的东西所需要的。", "speaker_id": "cl", "section_id": "s11"}, {"start_sec": 2422, "type": "text", "zh": "困难的事情。而且再说一次，会有不同的成功衍生方式。不是每个人都会像SpaceX的思维方式那样思考，但如果你看看很多像那样的现实世界中的企业，你会发现你需要那样做才能建立一些真正困难的东西。而你在这样做的过程中学到的是，你学习了过程知识，你学会了如何去做。所以，想第二件事、第三件事、第四件事就容易得多。你已经建立了供应链。你有你的…", "speaker_id": "cl", "section_id": "s11"}, {"start_sec": 2447, "type": "text", "zh": "关系。你已经开发了针对制造商设计的制造流程。你已经学会了如何建立一个高质量、高规格的工厂。你已经学会了如何与客户建立信任，所以如果你能把一件事做得非常好，这将为你做好其他事情奠定基础，但除非你在那一件核心事情上有所作为，否则行不通。所以我们经常讨论竞争，中国，美国在资本市场方面有什么独特之处，这真正使这些成为可能。", "speaker_id": "cl", "section_id": "s11"}, {"start_sec": 2476, "type": "text", "zh": "初创公司 \u003e\u003e 好吧，我我我认为这可能可以说是其中之一，几天前Anduril的创始人Brian Schimpf就在谈论这个概念，也就是我们的资本市场中实际上有数万亿美元的私人资本，这些资本本质上会跟随成功，跟随技术的成功，以及在某种程度上也跟随生产的成功。我认为如果你看看美国，第一，我们没有一个自上而下指导的工业体系", "speaker_id": "cl", "section_id": "s12"}, {"start_sec": 2503, "type": "text", "zh": "政策规定国家将在这一领域投入这一金额，我认为在某种程度上这是件好事，因为资金会跟随企业家，资金会跟随成功。我认为我们在美国一直拥有良好资本市场的区别在于，资本市场突然之间表示，吗，这类广告确实很有趣，而且，Aaron 和我已经在这方面投入了长期的精力和关注。", "speaker_id": "cl", "section_id": "s12"}, {"start_sec": 2527, "type": "text", "zh": "如果你去看看，不只是上下看看硅谷和圣希尔路，但如果你去看看主要的银行，摩根大通已经投入了数万亿美元，不仅是在国防上，还投资于工厂和其他实体世界的事物，你会一次又一次看到这种情况，不仅在我们的风险投资公司中，而是现在私募股权也开始大规模进入这个领域，还有大型信贷公司。", "speaker_id": "cl", "section_id": "s12"}, {"start_sec": 2551, "type": "text", "zh": "\u003e\u003e 大型信贷公司，这非常重要，因为现实情况是，在AD领域，许多公司在建设物理系统时需要大量资本，当你制造猎鹰9号火箭或制造CCA，或者制造黑鸟导弹时，这些本身建设这些生产线和物理系统的成本就很高。所以我认为部分原因是，资本市场会与你对话，决定成功在哪里，而现实情况就是，成功取决于资本市场。", "speaker_id": "cl", "section_id": "s12"}, {"start_sec": 2579, "type": "text", "zh": "不像中国那样由我们的政府自上而下推动，这使得我们能够更加灵活，再次强调，能够追随成功，就像我说的，更重要的是能够在事情明显之前就提供资金，我们之前讨论过这个概念，即在需求出现之前进行建设，可能在能源方面我们有点晚，在一些防御系统方面也可能有点晚。但看看，资本市场已经觉醒，我们正在", "speaker_id": "cl", "section_id": "s12"}, {"start_sec": 2606, "type": "text", "zh": "在未来十多年里，向这一领域投入数千亿甚至数万亿美元，\u003e\u003e 是的。如果你仅看2026年的上半年，投入国防生态系统的风险资金比去年全年还多，而这比前几年投入国防生态系统的资金总和高出很多倍。我认为从历史上看，特别是在国防领域，例如，周围一直存在一种关于硅谷的叙述", "speaker_id": "cl", "section_id": "s12"}, {"start_sec": 2632, "type": "text", "zh": "死亡，以及你如何获得政府合同，从而在需要建立资本支出期间推动自己前进，真正令人兴奋的是，随着资本市场的支持以及风险资本的介入，这种情况几乎开始消失。这种趋势当然不仅限于国防生态系统，还延伸到能源、机器人技术、关键矿产以及一些其他非常重要的领域，看到这一点真的非常令人兴奋。是的,", "speaker_id": "cl", "section_id": "s12"}, {"start_sec": 2663, "type": "text", "zh": "是的，\u003e\u003e 我有一个问题。我不确定这是否有点离题。只是有一张非常有名的图表，显示美国的电力生产与中国新能源生产的对比，美国的曲线基本上是平的，而中国的曲线是向上向右的。我想问的问题是，缩小这个差距需要什么，或者我们能多快建设新的电力。我觉得，这不，我觉得这不是什么技术问题。我觉得", "speaker_id": "cl", "section_id": "s13"}, {"start_sec": 2698, "type": "text", "zh": "那我们需要对我们作为美国人民的意志进行一些灵魂拷问，我们是否希望建造符合的项目？我们想要发展吗？如果我们想，我认为技术和资金都会随之而来。 \u003e\u003e 是的。有趣的是，这不仅仅是一个能源问题。这是一个所有问题的问题。 \u003e\u003e 这是一个所有问题的问题。并且，你看，我想我们本质上是乐观的，我确实认为雪球已经开始滚动。我认为问题是，回到我们的讨论中", "speaker_id": "cl", "section_id": "s13"}, {"start_sec": 2728, "type": "text", "zh": "资本市场越早，会否在这些类别中出现新兴的赢家，从而促使更多的资金流入这个生态系统，这种自我实现的预言就会发生，就像如果你建造它，他们会来，但在某个时候，彩虹的尽头需要有一个奖池，如果有几个公司能够达到，我想，资金就会如我之前提到的那样流入，但我想我最后简短地说一点，任何实体方面的东西", "speaker_id": "cl", "section_id": "s13"}, {"start_sec": 2755, "type": "text", "zh": "世界需要时间。我们，我们，要建立一个工厂，在一个规模上，真的要么影响我们的发电，要么影响我们的军事系统，或者其他什么。你不能只是把几个工程师，放在几个服务器和电脑屏幕前就能得到答案。这就是在搬运土方。它是物理上理解供应链。像这样的事情需要几年时间。所以，我们需要有一点耐心。", "speaker_id": "cl", "section_id": "s13"}, {"start_sec": 2781, "type": "text", "zh": "资本市场方面，但我认为我还是乐观的。我认为事情正在发生，并且在某种程度上，这取决于我们自己，如果是我们这个政府和国家搞砸了、阻碍了这一进程，那就是我们的风险，不要误会我的意思。但我确实认为，即使在短期内痛苦，资本市场也会带来另一个长期的好处，人们需要感受到，我是说，你提到这些都是物理性的事物，它们需要时间，它们也是物理性的事物，因为它们具有", "speaker_id": "cl", "section_id": "s13"}, {"start_sec": 2808, "type": "text", "zh": "对周围的居民和社区来说，这是一个具体的表现形式，最重要的是，美国社会整体上感觉自己在参与这一发展带来的经济增长。软件在某种程度上可以被孤立，因为它实际上只存在于少数几个城市。它有点像一种虚拟的东西。你经历它的方式，是你与数字服务的互动在过去20年里变得更好，改善了很多。", "speaker_id": "epw", "section_id": "s13"}, {"start_sec": 2838, "type": "text", "zh": "多年，但它有点不同，它更抽象一些，像一个更具体的物理世界，比如有人在你家后院建数据中心、发电厂、矿场，而你需要，你有发言权，你有股权，你可以亲眼看到，它影响你的生活，如果你觉得自己无法参与这种经济收益，这很难。我确实认为，资本市场从长期来看会很好地解决这个问题，因为公司会找到让社区参与的方法。", "speaker_id": "epw", "section_id": "s13"}, {"start_sec": 2865, "type": "text", "zh": "参与旅程并使之在经济上对他们有价值。\u003e\u003e 我认为有一些很好的例子。AD50名单上有几家公司，比如，在他们的社区建设真正的东西，并以正确的方式出现。过去几年里也存在一些不好的例子。如果你看看Hadrian所做的事情，比如，他们会去参与那些存在的小型机械加工厂。他们与这些工厂合作，他们不会削减管理层或解雇员工。", "speaker_id": "epw", "section_id": "s13"}, {"start_sec": 2888, "type": "text", "zh": "人们。他们会说，“我们如何才能开发新产品？”并发展像你今天拥有的那种业务。正是这种与社区合作而不是与之对抗的理念，我认为我们在科技界仍然需要稍微思考和挣扎一下，并理解仅仅因为我们坐在硅谷，并不意味着我们了解世界上发生的一切。基本上，我认为很多这些 80 后公司会开发一些影响到中产阶级的东西。", "speaker_id": "epw", "section_id": "s13"}, {"start_sec": 2914, "type": "text", "zh": "美国。我是说，它将在美国中部实际存在，我，我，我认为这总体上是好事。我认为这意味着更多的工作机会，更多的繁荣。我认为这意味着更多的能源和丰富的资源，在这样的世界中，我们有一个更安全的美国，以及在沿海这些精英群体的财富集中减少。这是一件好事。 \u003e\u003e 对。 \u003e\u003e 但这需要时间。 \u003e\u003e 对。好的，Erin Connor，非常感谢你的加入，大家今天都可以查看AD50名单。 \u003e\u003e 太棒了。谢谢。 \u003e\u003e 太棒了，非常感谢。", "speaker_id": "eb", "section_id": "s13"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

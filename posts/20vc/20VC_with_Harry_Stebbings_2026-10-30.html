@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Instinct 值 300 亿？微软向约 27% 员工开买断，Meta 赴股市筹 950 亿资本开支｜杰森·莱姆金与罗里·奥德里斯科尔</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-2{--c:#4c8c5a;--cbg:#29392a;--cbgl:#eaf1eb}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="harry">哈里·斯特宾斯（Harry Stebbings）</option><option value="jason">杰森·莱姆金（Jason Lemkin）</option><option value="rory">罗里·奥德里斯科尔（Rory O&#x27;Driscoll）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">20VC with Harry Stebbings</span><span class="pill">2026-10-29</span></div>
+<h1>Instinct 值 300 亿？微软向约 27% 员工开买断，Meta 赴股市筹 950 亿资本开支｜杰森·莱姆金与罗里·奥德里斯科尔</h1>
+<p class="sub">嘉宾：Jason Lemkin、Rory O&#x27;Driscoll · 约 60 分钟（3617 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=2-aUmDMZgLE" target="_blank" rel="noopener">https://www.youtube.com/watch?v=2-aUmDMZgLE</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>20VC with Harry Stebbings</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-29</dd></div><div class="meta-row"><dt>时长</dt><dd>约 60 分钟（3617 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；普通 yt-dlp 429 后 yt-dlp --cookies-from-browser chrome 补拉成功）；caption_source=yt-dlp-chrome-cookies；无官方字幕；中文为全文翻译并按中文表达习惯重写、按话题分段，并标注说话人</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>2-aUmDMZgLE</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>哈里·斯特宾斯与杰森·莱姆金、罗里·奥德里斯科尔复盘本周：Anthropic 提交 S-1（上半年收入约 163 亿美元）的全维度强势与「五年上市」冲击；AI 债务融资承压后转向股权稀释续命；微软向约 27% 员工开自愿买断与 Cloudflare 裁员 20% 的「新剧本」；Meta 赴股市筹最高约 950 亿美元资本开支；中国开源权重因 Qwen 外联事件在美承压；Instinct 传估值 300 亿美元的 IC 辩论；以及「把基金 20% 押进 OpenAI 1.25 万亿轮」的错位下注主张。</p>
+<h3>核心要点</h3><ul><li>Anthropic S-1：上半年约 163 亿美元收入，利润率/经营利润/客户集中度/算力效率与现金余额全面好于预期；约五年冲到 IPO，对比 SpaceX 约 24 年，贝塞默称其史上最佳投资</li><li>吓人指标：约 80% 收入来自不足 6 个月的模型；训练占算力成本约 70–80%；货架期短反而强化「能持续砸百亿算力」的头部护城河</li><li>债务端 Broadcom 需为芯片采购担保、利率偏高；宏观转向「股权化」——Anthropic/Meta/谷歌大规模发股续命资本开支</li><li>微软向约 22.3 万员工中的约 6 万人（约 27%）开自愿买断，嘉宾称比直接裁员更像「红字」；Cloudflare 业绩加速同时裁 20% 成 CEO 教科书；折旧账单或在 2027 年更狠压人头</li><li>中国开源权重：Cohere 测出通义千问仍向阿里云中国/新加坡回传数据；杰森称美企开源权重「开局即终局」；OpenRouter 或只是 OpenAI 失速空窗的一瞬</li><li>Instinct 传 300 亿美元估值：哈里押「西方超级应用」，杰森要 100 天数据并否决；另主张把基金 20% 押进 OpenAI 约 1.25 万亿美元错位轮</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：跟踪 AI 资本开支、大模型 IPO、企业裁员与开源权重地缘风险的投资人与创始人；可跳过：若只想听单一公司深潜或纯技术评测（本集约 60 分钟时事圆桌，节奏快、梗多）。</p>
+<h3>适合人群</h3><p>风险投资人、AI/SaaS 创始人与关注大模型资本市场与企业裁员的听众</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">Anthropic 提交 S-1：几乎全维度「顶级表现」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">本周主线是 Anthropic（Anthropic）终于提交 S-1。哈里开场点出上半年收入约 163 亿美元，并把球传给罗里。罗里认为这份文件几乎在每个维度都过硬：收入规模、利润率、经营利润（含股权激励后）、客户集中度、算力效率与现金/资产负债表都好于预期，唱衰方暂时只能「吃沙子」；未披露三季度收入等细节仍是开放问题，但整体读起来是「顶级表现」。嘉宾共识是：至少就公开财务叙事而言，举证责任已落在怀疑者一侧。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">为何仍被低估：五年上市、流动性时间价值与贝塞默「百年最佳」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">杰森强调市场可能仍低估 Anthropic：从「spite startup」式起步到 IPO 约五年，对比 SpaceX（SpaceX）约二十四年；OpenAI 的上市路径或略慢、资本效率略差，但五年走到这一步已「超越前所未有」。他强调流动性的时间价值：少于约六年就能走到「此生最大 IPO」级退出，对比许多 C 轮交易十八年到满分配、普通交易十到十二年才 IPO，回报与辛苦严重不对等。罗里附和：规模、速度与回报会长期主导基金成绩。贝塞默（Bessemer）的拜伦·迪特（Byron Deeter）公开称这是贝塞默史上最佳、也是最大支票之一——一家十九世纪创立的机构，在约百年后把最大赌注押在这只交易上。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">最吓人指标：六个月货架期、训练占比与「漏一次就完」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">罗里抛出「吓人」数字：约 80% 收入来自年龄不足六个月的模型；文件也未按传统方式给出毛利率，而是把算力成本集中归集，脚注显示约 70–80% 算力用于训练而非推理。含义是：模型极贵去造、造完后推理端「相当暴利」，但你大约只有六到十二个月吃红利，然后必须再烧巨资发明下一款——完全不像软件可卖十到十五年。一面看「漏一次就完」；另一面看，这正是头部愿意且能持续写出约 100–120 亿美元算力支票者的优势：截至 2026 年 6 月已砸约 80 亿美元算力、明年或翻到约 160 亿。埃隆观点被引用：多数新实验室会因为融不到存活资本而死亡。表面负面指标，对激进领导者反而是护城河。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">债务承压：Broadcom 担保芯片债；宏观转向「股权化」续命</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">杰森认为 S-1 里没写、却最糟的信号是：即便是 Anthropic 这般「不能更好」的发行人，与博通（Broadcom）的半环形芯片采购债仍需博通大幅担保，且利率高于预期——说明间接融资也在变难，银行消化新实验室债务接近上限。罗里部分同意债务端触顶，但本周真正的「啊哈」是市场在「股权化」问题：Anthropic 即将发行约千亿美元量级股票；Meta 今年早些时候发约 700 亿、谷歌约 800 亿；SpaceX 也走了 IPO。一类公司既有便宜资本成本、又愿意用股权稀释把资本开支撑下去，所以开支浪潮不会停。马斯克则被描述为用高估值发股「掐断只靠债的氧气」。Anthropic 融资约 1300 亿、只花约 100–110 亿，账上现金或跻身美国企业最大现金堆之一（讨论中出现约 1100 亿量级）。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">IPO 会爆吗？指数纳入、零售热情与 OpenAI 的「乌龙球」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">罗里预期 Anthropic 会获极佳市场接待：未必立刻进标普 500（盈利等门槛），纳斯达克上市可能更快进 QQQ 一类指数，但更关键的是「大家就是想拥有这只股票」。杰森提到约 900% 净收入留存（NRR）叙事（真实或更接近 300–400%，因含试点试用），叠加品牌与指数，零售端可能有一波行情。谈到 OpenAI 该学什么：过去改不了，但应有大量自我反思——CEO 动荡、非营利转营利风波、让达里奥（Dario）出走后「几乎一年」把编码棋盘让给 Anthropic（AI 时间尺度像五到十年）；编码被再强调为杀手级应用。建议：把业务理顺、尽快上市，同时用价格战搅乱对手季度。嘉宾调侃 OpenAI 的命名是史上最糟的「成功创业品牌事故」之一。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">微软向约 27% 员工开自愿买断：比裁员更红的「红字」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里援引：微软（Microsoft）向约 22.3 万员工中的约 6 万人（约 27%）提供自愿买断；他刚采访过萨提亚·纳德拉（Satya Nadella）。杰森强调：不是 27% 都会走，且公司可能已做过约 10% 裁员轮；博弈上是向「不想要的人」开条件再估接受率。但对留下者信号极残酷——「我们不想要你们」比普通裁员更难甩锅，像一枚比裁员更红的「红字」。试图更人道的自愿方案，往往被已有下一份工作的人当看涨期权吃掉遣散费，真正「被点名却留下」的人最惨。罗里同意：若最终少掉约 10–15% 人头，说明公司认为离得开这些人——有多少是 AI 效率、多少是「本来就不需要」，值得追问。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">2027 折旧账单、Cloudflare 裁 20%，以及 Meta 赴股市筹约 950 亿</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">罗里把裁员放进资本开支周期：2026 年卖芯片的人记账收益、买家折旧尚未完全显现，像「人人都赢」；到 2027 年微软/谷歌/Meta 折旧压力上来，要保住经营利润就会更狠压人头——「AI 账单」可能用裁员支付，并喂养反 AI 叙事。杰森点 Cloudflare：业绩季度加速增长，却在 5 月 7 日一次裁约 20%，事后业务未见明显下行，成「CEO 工商管理教科书」。稳定平台不再存在——也许要到年经常性收入数百亿美元以上才有喘息，否则就被更快新公司杀死。Meta：扎克伯格本周启动最高约 950 亿美元融资（约 350 亿普通/优先 + 约 600 亿 ATM 计划），因资本开支首次压过自由现金流；核心广告生意仍极强（讨论中提到约每季数百亿美元现金流量级）。芯片股方面，Anthropic S-1 后情绪回暖，DRAM/SK 海力士等反弹；中国「星辰」类标的年内大跌则显示中美 AI 资本市场不同步。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">中国开源权重在美「开局即终局」：DeepSeek 融资与 Qwen 外联事件</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">DeepSeek 传募约 150 亿美元（中国史上最大私募轮之一），投资方包括宁德时代（CATL）、腾讯等。杰森判断：中国开源权重模型在美国「基本结束、开局即终局」——联邦机构禁用扩散，且本周 Cohere（Cohere）曝光通义千问（Qwen）在声称不调用工具时仍向阿里云中国与新加坡服务器回传/钉住数据。即便更像训练失误而非后门，对 CIO/CISO 而言「十万次调用里漏一次机密」也不可接受；企业若继续用，可能是「丢饭碗」级风险。本地运行风险较低的论点被反驳：一旦外联上传，再叠加提示注入，后果可远比 404 严重。Anthropic 重回政府日程并带约 40% 折扣，进一步挤压「为何还用 Kimi」的理由。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">Modal / Fireworks / OpenRouter：栈会怎样？「只是一瞬」风险</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里追问：中国模型收缩后，网关/路由（OpenRouter）、推理商（Modal、Fireworks、Base Ten 等）怎么办？杰森引用开发者侧「涨得快跌得也快」：美国需要自家开源/开放权重替代，否则封闭前沿模型议价权更大，反而更利好 Anthropic IPO。Cursor 仍大量跑中国开源权重被称「深讽刺」——埃隆一旦能用 Grok 替换就会撕掉；Salesforce 收购 Fin 前已要求撕掉同类依赖。投资委员会视角：增长「下巴掉地上」时，风投会接过去不愿接的风险（不同于 Manus 类直接投智能体的翻车记忆）；但 DeepSeek 被禁 + Qwen 外联 + Anthropic 进 GSA，风险权重上周明显上升。杰森估约 56.3% 概率回看 OpenRouter「只是一瞬」：填补 OpenAI 失速与中国模型擅长编码的空窗；一旦前沿与低价闭源补上缺口，开源权重占 OpenRouter 流量或从约 60%+ 掉到约 10%。罗里冷静点：闭源两大前沿已约千亿美元量级，只要约 10% 预算愿为省钱忍受开源「脑残」，推理市场仍够大。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">「黑色十月」：AI 把藏了十多年的漏洞翻出来</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">OpenAI 等模型帮助发现隐藏十余年的严重 PHP 漏洞。杰森重申数月前判断：「所有人都会被黑」——以前没被严重入侵往往因为「没人在乎」，现在秒级可攻。PHP 仍支撑互联网很大一块（他估计约 40%，老旧站点更高），大量政府/非营利站点直接下线，补丁跟不上、IT 团队三年前已裁。Replit、Lovable 等迅速加网关挡风险，但「没人修的老站」会像《黑客军团》现实版。萨姆等人也认为只会更糟；唯一「刹车」或许是能付大额赎金的目标与可瘫痪关键基础设施的系统有限，勒索产业则更职业化。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">Instinct 传估值 300 亿：西方超级应用 vs「100 天规则」否决</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">本周还有 Legora 募约 5.5 亿、估值约 88 亿并越过约 2 亿 ARR；前 OpenAI 研究负责人鲍勃·麦格鲁（Bob McGrew）的 Order/Arda 约 15 亿估值、募约 2.32 亿等。焦点谣言：Instinct 估值约 300 亿美元——有人嘲「峰值」，因收入倍数与上轮相近「像估值没涨」。罗里问股权狂欢何时耗尽：这不是虚荣融资，公司需要钱买推理；但主权基金与全球资金池是否真「无限」？哈里愿在投委会「毫不犹豫」投 Instinct，称西方终于等到处理金融/身份/安全的「微信式超级应用」雏形。杰森罕见放「黑石」否决：要三到四个月、约 100 天可验证动量（对标 Anthropic 那种略可持续的超高 NRR），不要「两周动能就做成长轮」；无收入、商业模式不清、负毛利消费品式增长让他紧张——若砸约 20 亿亏掉可能伤基金。他更接受已满足 100 天规则的 Fireworks（约 40 亿量级讨论）这类「可计量但竞争激烈」的推理市场，对比 Instinct「人人使用则可达约 2000 亿叙事」的不封顶上行。哈里强调大基金必须把钱部署出去；罗里用三向收益矩阵帮双方对齐。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s12">
+<div class="sum-top"><span class="sum-num">12</span><span class="sum-title">20% 基金押 OpenAI 1.25 万亿、WarHounds，以及加州富豪税闹剧</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">另一类交易模板：「已被证明的高管 + 大机会 + 技术极难」——如凯文·怀尔德（Kevin Wilde）离开 OpenAI 科学线创办 Warp Science 募约 2.15 亿极早期、鲍勃·麦格鲁轮、扑翼飞机类项目等；对比 Legora/Bedrock 类晚轮「好定价」。杰森抛激进主张：把基金约 20% 押进 OpenAI 约 1.25 万亿美元轮——称 Anthropic 火、SpaceX 好、模型竞争胶着时市场短暂错读 OpenAI「在挣扎」，类似 Anthropic 约 1830 亿轮的错位；两家都可能走向 10–20 万亿，Fortune 500 预算渗透从约 0.1% 到 2–3% 仍有巨大空间；最坏翻倍、最好回报整只基金。罗里称「不疯狂」，前提是这是最后一轮私募且公司收敛开支叙事。哈里想 Instinct+OpenAI 对冲，被嘲「别管对冲基金」。WarHounds：帕尔默·拉基（Palmer Luckey）联合创办、基因改造军用犬，估值约 15 亿——投资备忘录可能就一句话「酷，投 5000 万」；逻辑是主权供应链空白（军犬来自欧洲、加固笔记本部件几乎全进口）与他卖进国防渠道的能力。超级平台向 LP 募更大、花更快、明年又回来；公开市场十年 PE 历史高位但前瞻 PE 因盈利（含私募浮盈）显得「便宜」，真正干活的是标普里约 40–50 只 AI/科技股，其余偏弱，IPO 窗口因等待万亿级标的而「假死」，利好私有市场放水。结尾：扎克伯格为留在加州与董事会对峙、律师介入、扬言一周内卖房离开以换股权——富豪税若抽走约 5%（且可再来）会激怒亿万富翁；「愿意捐、不愿被拿走」是控制权问题。节目录于周三，微软/Alphabet 当晚可能报更多资本开支。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">哈里·斯特宾斯（Harry Stebbings）<em>主持</em></span><span class="spk-1">杰森·莱姆金（Jason Lemkin）<em>嘉宾</em></span><span class="spk-2">罗里·奥德里斯科尔（Rory O&#x27;Driscoll）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>Anthropic 提交 S-1：几乎全维度「顶级表现」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>听起来再疯狂也不为过：我觉得市场几乎还在低估 Anthropic（Anthropic）。本周真正重要的故事只有一个——他们终于交出了 S-1。今天这期我们拆：哪些必须看、哪些可以跳、真正该追问的问题，以及上市首日会不会出现「史上最大爆拉」。嘉宾是杰森和罗里。另外我会说到：中国开源权重模型在美国基本结束了；给 Instinct 这类公司的钱现在感觉像无限；以及要不要把基金的 20% 押进 OpenAI 约 1.25 万亿美元那一轮。准备好了吗？</p>
+<p><span class="tag">【音乐】</span>兄弟们，我们又回来了。一周里我最爱的时段，开场就有大新闻：Anthropic 提交 S-1。等这一刻很久了。上半年收入约 163 亿美元。罗里，球先给你——因为我报哪个指标，你大概都会说「不该报这个」。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>不会。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>那你被哪些数字吸引？我们该带走什么结论？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>这是一份很强的 S-1。坦白说，黑粉和唱衰派至少眼下得去吃沙子——举证责任已经牢牢落在怀疑者一边。<span class="tag">【笑声】</span>几乎每个维度都漂亮，市场会热烈迎接。当然还有开放问题，比如他们没给三季度收入数字，但整体非常出色。</p>
+<p>收入规模大家本来就大致知道，但依然惊人。利润率、经营利润，甚至扣除股权激励后的经营利润都好于预期；客户集中度好、算力效率好，现金与资产负债表更是「惊艳地好」。你得费劲才能挑出问题——问题当然有，我们稍后谈——但读下来就是顶级表现。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>为何仍被低估：五年上市、流动性时间价值与贝塞默「百年最佳」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>再说一遍可能很疯：我觉得大家几乎还在低估 Anthropic。五年走到 IPO，对比 SpaceX（SpaceX）大约二十四年。这不只是「前所未见」。OpenAI 的 IPO 会露出类似端倪——可能略差或略好，按我们现在所知，大概资本效率差一点、略慢一点。但从「spite startup」式起步五年冲到这里，已经超越「前所未有」。流动性的时间价值仍然重要：账面浮盈很爽，但能在不到六年里走到「此生最大 IPO」级退出并完成分配，更夸张。</p>
+<p>我知道罗里会吐槽我，但你忍不住会想：我为什么还要干别的？很多 C 轮交易到满分配像十八年；我可以大约六年在 Anthropic 拿到完整流动性，为什么还要把时间浪费在十到十二年才 IPO、再加两年才能分钱的项目上？对比就是五年。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>杰森，我不吐槽你。我看到推文说的跟你一样：每个创始人和投资人都在问，我为什么还要折腾别的？规模、速度、回报太震撼，会长期主导基金成绩；其他一切都显得更累、回报更薄。功劳给创始团队，也给早期投资人——这就是最好的赚钱方式之一：曲线以人类历史上最快速度向右上冲五年，滚向万亿。创投里很难比这更好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>看着贝塞默（Bessemer）的拜伦·迪特（Byron Deeter）上电视说「这是贝塞默史上最佳投资」挺好笑。贝塞默大概十九世纪就创立了。最大的支票、最好的回报，发生在大约百年之后——这差不多就是全部故事：最佳投资、最大支票、最快流动性，我们为什么还要做别的？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>罗里你刚才说还有问题。台下永远有砸花生米的人。如果要讲「另一面」，有没有哪一两个数字特别扎眼？</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>最吓人指标：六个月货架期、训练占比与「漏一次就完」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>有意思的是：大约 80% 收入来自年龄不足六个月的模型。另外你会注意到，他们没有按传统方式给出毛利率——会计上可以把算力成本全堆在一处。脚注拆出来大约 70–80% 算力花在训练而非推理。换句话说：模型贵到离谱去造；造完之后，推理端「相当暴利」；你希望能吃大约六个月，然后又得发明下一款。</p>
+<p>这太不像软件——软件你可以建一次、卖十到十五年。这里是发明一款，六到十二个月拿走大部分收入，然后继续砸海量钱造下一款。事实如此。你可以读成「天哪太可怕，漏一次就完」；也可以读成「这对 Anthropic 其实很好，因为他们最有位置、也最想持续造新东西」——他们说得很清楚：我们就是要造新东西。</p>
+<p>能跟得上的人极少。截至 2026 年 6 月他们已在算力上砸约 80 亿美元，明年我猜可能到约 160 亿。能开出 100–120 亿美元算力支票的人没几个。所以他们可以持续发明新模型、从中拿走海量收入，后排也许别人能追上。那个「神奇产品货架期只有六个月」的统计看起来又怪又吓人，但若你是愿意激进投入的领导者，我会说这反而是优势。看起来像负面的东西其实不是——它只是把这场游戏有多动态、多可怕点明了：你得砸数十亿又数十亿，才有资格上场。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>这就是埃隆的点：这轮之后多数新实验室会死掉——根本融不到存活所需的资本。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>债务承压：Broadcom 担保芯片债；宏观转向「股权化」续命</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>我觉得有一个坏指标不在 S-1 里。S-1 里最糟的那个，其实没写进去。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>说来听听。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>最糟的是：博通（Broadcom）得出来兜底这笔债，Anthropic 才能买到芯片。市场刚刚读完 S-1——不能更好了——但这笔与博通的半环形交易，他们仍拿不到债，博通得担保大部分，利率还高于预期。不是说「糟透了」，但说明即便是 Anthropic 和 OpenAI，间接融资也在变难；再叠加银行越来越难分销新实验室债务，这才是唯一真正让人紧张的点：债务这边不是无限的。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>我听到了，但想反驳一点。银行能消化的债务量确实触顶了。可过去几周有意思的是：我们在「股权化」这个问题。以前全是债；现在 Anthropic 即将发行大约千亿美元量级的股票。Meta 今年早些时候发了约 700 亿，谷歌大约 800 亿，SpaceX 也做了 IPO。你看到一类公司：一是资本成本便宜，二是愿意用股权稀释把事做成。我的宏观「啊哈」是：这浪不会停，想让它发生的人愿意稀释股权继续烧，开支会在。</p>
+<p>杰森你说得对，埃隆在干的事就像掐别人的氧气：你们只靠债的会死；我这边有全球最膨胀的市值之一，可以发股拿到所有想要的芯片。这很「经典埃隆」——趁你倒下再补一脚，得佩服。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>这轮之后 Anthropic 账上现金会非常夸张。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>说精确点：这大概是全美企业里第一或第二大现金堆，惊人。一家即将上市的公司，账上已经有大约 1100 亿美元量级、比美国几乎所有公司都多（差一个数量级那种「多」）。他们融了约 1300 亿，只花了约 100–110 亿——大师级。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我们觉得上市会受到惊人欢迎吗？</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>IPO 会爆吗？指数纳入、零售热情与 OpenAI 的「乌龙球」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>我觉得应该会。公司强到没法抬杠。会不会像 SpaceX 几乎立刻进标普 500？未必。若在纳斯达克上市，可能更快进 QQQ；标普有盈利等门槛，要一点时间。他们会很快进某些指数，但我不认为它需要像 SpaceX 那样靠指数「抬一把」——这会是大家就是想拥有的股票。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>被纳进各种指数对零售端就是助推。他们不太可能连续踩空季度。有人拿约 900% 净收入留存（NRR）说事——我们要小心用 NRR，因为若把试点试用算进去，真实或许更像 300–400%——但品牌加上纳斯达克 100，大概会有不错的零售行情，再叠加 SpaceX 叙事。你为什么要跟它对赌？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>如果阿尔特曼（Altman）在读这期、想着一季度自己也冲出去——他会从这份 S-1 带走什么、改什么？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>过去改不了。若你是 OpenAI 的 CEO，看着这份文件，大概会后悔当初某些决策，让这帮人跑掉并做得更好。该有的自我反思应该非常多。你能做的是把业务理顺、收敛、自己也出去；与此同时，当然可以在价格上猛烈竞争，搅乱他们的三季度。<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>我再也想不出哪家这么成功的创业公司，把自己命名得这么糟——OpenAI。CEO 动荡、非营利转营利那一堆闹剧，换任何别的创业公司可能都死了。他们基本让 Anthropic 控制了市场将近一年——在 AI 时间尺度上像五到十年。今天和 Astra、最好的开源权重之间有一定均势，但编码这块棋盘 Anthropic 几乎拿了一年：没有理由用别的编码方案；编码就是杀手级应用，罗里说过一百遍，数学也站得住。他们宁可让达里奥（Dario）走出门，也不在内部建起来，然后又在「长刀之夜」炒掉 CEO 再连夜请回来。乌龙球可以写进教材——每家创业公司都有乌龙，这几记是史诗级的。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>微软向约 27% 员工开自愿买断：比裁员更红的「红字」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我这周有幸请到萨提亚·纳德拉（Satya Nadella）上 20VC，很棒的嘉宾。微软紧接着有大新闻：向约 22.3 万员工中的约 6 万人提供自愿买断，大约 27% 的编制能拿到这份要约。杰森你以前对这话题很来劲——怎么看？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>首先，不是 27% 都会接受。他们可能已经做过一轮约 10% 的裁员。这里有有趣的博弈：你想向「不想保留的人」开条件，再估算接受率。但无论领英上怎么说，信号只有一句：这 27%，我们不想要。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>同意。这比纯裁员更糟的「红字」——裁员你还能挥手说宏观；这里是公司对约 27% 的人说：你们达不到我们最低标准、我们不要你们。我猜比例本可以更高，但他们大概一周就定了方案。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>微软不想要 27% 的人——这就是 AI 时代。你为什么要这么干？文化会变成什么样？留下的人知道自己其实不被要，不糟糕吗？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>我想他们是在尝试更人道。2022 年底那波裁员开始时，大家骂在 Slack/邮件里裁人太不人道，要面对面；然后又说别在节假日裁，结果有人元旦被裁——也好不到哪去。自愿买断对本来就想走的人很好，对职业生涯尾声或想退出职场的人也好。难就难在博弈：你可能只清掉本来就要走的人。不过微软现金多到「谁在乎」。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>我很久以前站过裁员另一边。你想当好人，但没法真正人道——怎么做都恶心。而这个方案在「试图人道」的同时，可能是最不人道的：公司 27% 的人刚被盖上红字。不如再直接裁 9%，用 Teams 一天搞定走人。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>我处理出来的结论一样。被点名离开却选择留下的人最难受；唯一赢家是已有下一份工作、还顺手拿了遣散费看涨期权的人。若最终少掉约一万到两万、也就是大约 10–15%，说明他们觉得离得开这些人——有多少是 AI 效率、多少是「本来就不需要」，会很好玩。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>2027 折旧账单、Cloudflare 裁 20%，以及 Meta 赴股市筹约 950 亿</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>这些大公司，资本开支的折旧账单一到期，就得从别处找钱。说实话，2026 年这段「黄金期」里：卖半导体的人在记账收益，买资本开支的人还没把折旧完全记上，好像人人都赢。但望向 2027，微软、谷歌、Meta 这类地方折旧会开始砸下来。要维持经营利润，就会狠狠压人头。AI 的账单到期时，就是这样付的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>某种意义上它会喂养反 AI 狂热——叙事太直白了：为了付基础设施、GPU 和推理，我们得裁人。你觉得 2027 会更结晶化吗？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>直觉上，随着时间推移，大家都在猜超大规模云何时翻到另一边。到目前自由现金流有点往「错的方向」走，但经营利润还在升；往后会更难。是的，这会是问题所在。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>我倒惊讶 Cloudflare 裁员没被更多讨论——这是 CEO 工商管理案例 101。马修那头 Cloudflare 业绩史诗级，每个季度增长更快，结果 5 月 7 日一刀裁约 20%：我们不需要这么多人，或者我们太大了。留 80% 比以前更好，增长还继续加速。每个还在纠结的 CEO 都该看这个。微软那边你可以说有一部分是「老公司要为 AI 买单」；Cloudflare 更像「这些人在拖后腿」。不是裁 8%，是直接 20%，业务暂时看不到下行。裁员 2.0/3.0 会发生：一部分为付基础设施，一部分是「表演式 AI 够了、别再扛人了」。</p>
+<p>想想你上周参加的每个董事会：不管做得再好都压力山大，一切比上一次董事会动得更快，每个赛道竞争更多。我们再也扛不起多余的人，否则会被哈里或罗里刚投的那家新公司杀死。稳定平面不存在了。以前 SaaS 做到一两亿到五亿经常性收入还能喘口气；现在也许要到一两百亿、四百亿以上才有「平面」。所以裁员只会加速——我们没得选。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>说到没得选、钱从哪来：Meta 走向股权市场。扎克需要钱，本周一开始启动最高约 950 亿美元融资——约 350 亿普通与优先股，加约 600 亿按市价发行计划。同时芯片股一天蒸发约 2000 亿、公开市场血流成河、新云翻车——你从中带走什么？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>哈里，短答：没有。你把两件独立的事揉一起了，我分开说。Meta 这事正是我们刚聊的：这是资本开支首次压过自由现金流、自由现金流转负的季度。别忘了他们核心生意是地球上最好的生意之一，吐钱能力极强——大约每季数百亿美元现金流量级。转负了，就发点股，就这样。跟芯片暴跌无关。</p>
+<p>芯片上周是动过，但说实话：Anthropic S-1 出来之后芯片又在反弹，因为共识是「这份文件看起来不错」，对芯片叙事有利。今天 DRAM 大涨，我盯的那块存储指数；韩国、SK 海力士（SK Hynix）之类涨了大约 10%——这是周二。若你在半导体资本开支生意里，这周后半段其实不错。两周前 CoreWeave 吓人，可 CoreWeave 是大约两三百亿美元量级；Anthropic 是万亿量级叙事、成交后账上可有约 2000 亿美元量级要花在芯片上。芯片该高兴。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>唯一轻微的反点：中国那边类似「星辰 15」的标的今年跌了约 40%。中美 AI 市场不同步——中国自己的热闹仍在，但流动性和定价很怪；我们这边却在着火。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>中国开源权重在美「开局即终局」：DeepSeek 融资与 Qwen 外联事件</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>说到中国着火：DeepSeek 募了大约 150 亿美元，据说是中国史上最大私募轮，最大投资方包括宁德时代（CATL）和腾讯。有什么值得注意？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>我觉得中国开源权重模型在美国基本结束了，是开局即终局。DeepSeek 融到钱很好，但联邦机构禁用在扩散。本周还有一件被过度耸动、但确实很糟的事：Cohere（Cohere）和通义千问（Qwen）那档子。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>解释一下，给不知道的人。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>Cohere 现在大概是第四梯队大模型玩家，手里差不多只剩「主权」这张牌；而企业里主权确实常进前五需求。他们发现阿里巴巴现有的通义千问模型，在公开宣称不会这么做的情况下，仍在呼叫中国与新加坡的阿里云服务器、钉住并上传数据。这是美国每个人的噩梦：数据被传到中国。Cohere 讲法可能更谨慎，可你也不能全信 AI 圈谁的自说自话——这对他们有利。我没看到证据说这是社交媒体想象的那种「后门」；更像内置行为，甚至某种层面的训练失误。但无所谓：十万次里有一次机密数据在未知情、未同意、且被明确要求不要时，被传到亚洲服务器——哪个 CIO 或 CISO 会批这个模型？我想象不出。</p>
+<p>若再发生几次，而阿里巴巴没什么说法，用这些模型就是丢饭碗。本来可以更糟。有报道，但我惊讶没有更大。每个人用中国开源权重的噩梦就是数据去中国——而它确实去了。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>Modal / Fireworks / OpenRouter：栈会怎样？「只是一瞬」风险</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>中国开源市场收缩后，栈会怎样？网关、路由器，你们的 OpenRouter；很大程度上靠多样模型（常常是中国模型）活着的推理商——Modal、Fireworks、Base Ten——会怎样？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>Dev 上次来节目说过：跟开发者一起涨得那么快的东西，也可以跌得那么快，一周就变。会有一些美国开源选项。问题是：看过 Anthropic 造模型烧掉的算力、其中约 75% 用于训练之后，英伟达这类美国公司能开出多强的开源模型？若没人做，你就只剩闭源供应商，它们的经济杠杆更大——那你更该在 S-1/IPO 里多买 Anthropic。</p>
+<p>我觉得这件事对 Anthropic 是利好。 tipping point 是埃隆能不能让 Cursor 离开这些模型——他若能，早就做了；现在还不能，因为 Grok 还不够好。他已部分踢掉 OpenAI，但还不彻底。收购 Cursor 的原因之一也包括想要那团队的 DNA 让 Grok 更有竞争力。约 600 亿美元量级核心收购还主要跑在中国开源权重上，这有深层讽刺，不会持久。Salesforce 收购 Fin 前就逼着撕掉了；Cursor 处在最卷的赛道，一有替代就会撕。不能永远跑在 Kimi 上。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>若你下载并本地跑，安全风险可以极低。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>它在拨号中国并上传你的数据时，还「风险有限」吗？若不是一个 404，而是坐着提示注入，把数据上传走呢？很容易做。而且这在模型的好几代迭代里都在。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>哈里，你真正要摔跤的问题是：你能对模型在干什么有百分之百把握吗？你可以沙箱、拦截，但一旦像雇了一个处处想颠覆你的刺头员工，会一直顶在脑子里。Anthropic 的 S-1 自己也写风险：模型会对你撒谎，说自己没做其实在做。到这份上，对中国来源的开源模型你会很紧张，会有推回。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>通义千问撒谎了：说「我不调用工具」，结果呼叫了北京和新加坡的服务器并上传数据。Claude 会撒谎，Astra 也会。你必须把开源权重挖很深、大规模测。名义上 Cohere 发现的问题大约十万次调用才一次；有人几个月前测几次没撞上，但要跑到规模才暴露。我们在 Astra 一天大约 4 万次 API 调用，很快就到十万。Fortune 500 一天几百万次，可能每小时、每十分钟就在传数据。这甚至看起来不像恶意，更像训练失误——但对 CISO 来说，管你是失误、间谍，还是失误被别的情报机构利用（他们的工作就是利用这些东西，像让寻呼机爆炸）。我不相信阿里工程师故意做成漏洞，但政府可以接管或强迫。你为什么要开这场会？直接用 Haiku，挺好。这个月预算五百万，用 Anthropic 得了。</p>
+<p>再看：Anthropic 又回到政府相关采购名单，全机构可用还带约 40% 折扣——几个月前还像不受欢迎的人。现在为何还用 Kimi？另外，推理商若还要把大约 30% 毛收入付给 Kimi 才能规模化用，复杂度很高，很多时候汁不抵榨。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我想弄懂：上周你们还说某模型 15.7，「天哪该买」；现在又说中国开源会显著衰退，利好 Anthropic 和 OpenAI。那对 Modal、对 Fireworks 本质上不利？OpenRouter 我不确定有多糟。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>你说得公平。我没参加那次投委会，但公允地说，前提是市场仍需要开放权重模型，而这正是推理商主要服务的需求。你会相信会有美国替代——Poolside、英伟达路线之类；也会有人觉得中国没关系。只要美国侧有东西存在，这门生意仍成立。没有自己拥有闭源前沿模型那么顺，但推理供给仍有角色，因为「不要前沿闭源」的原始需求太大。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>哈里的点两边都对。罗里以前提过大概不会再有另一桩像 Manus 那样的直投智能体交易——那单被拆掉之后没人想再做。投美国团队跑开放权重但非开源模型，不等于 Manus，但仍有风险；24 个月前多数 VC 不愿接，因为风险清晰，不必快进到今天的 Cohere/Qwen 事件才知道。投委会之所以接，是因为增长「下巴掉地上」——今天我们在接过去不会接的风险，这是创投的工作；Fireworks 之类归零也行，因为组合里还有别的。不等于上周风险权重没升：DeepSeek 被政府挡、通义外联、Anthropic 进 GSA，都是负面。我仍信那次投委会判断，但我感觉大约有 56.3% 概率我们回看 OpenRouter，会发现它只是一瞬——回到本集更早：OpenAI 失速时 Anthropic 成编码唯一前沿替代，然后中国开源权重编码变强填了空窗；现在 OpenAI 和其他人会填上，他们各自也有更便宜更好的模型。开源权重占 OpenRouter 从大约 60% 多掉到 10%，六个月发生也不算离奇——这不粘。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>杰森你以前谈过「残缺市场」、像《堡垒之夜》化那样可争夺的地越来越小。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>对罗里说得漂亮的那点：仍会有公司要 Reflection、Poolside，但这是在残缺一个开放市场。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>我懂你的点，但推理市场仍然极大。我们把竞对加起来曾经只有「5 块钱」量级的感觉；而闭源两大前沿已经大约千亿美元。只要有约 10% 的开支愿意为了省真金白银忍受开源的「脑残」，需求就在。能不能到 300 亿我不知道；但总市场够大时，10% 仍然很大。这是母亲级市场，其他都能转。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>「黑色十月」：AI 把藏了十多年的漏洞翻出来</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>杰森你吊过「黑色十月」。OpenAI 等模型帮忙挖出隐藏十余年的严重 PHP 漏洞。我们该带走什么？有哪些我们知道自己其实不知道的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>我们数月前就在这节目说过：所有人都会被黑。模型变强之前，我记得有 CEO 说「我们没被严重入侵只是因为没人在乎」。现在任何人都可以在几秒内被黑。SaaStr 每天都有人尝试入侵。PHP 这事比看起来更糟：太多网站跑 PHP，没人会更新。WordPress 上大量东西，Replit、Lovable 等立刻加了网关保护——很好。也有人发补丁。但很多政府站、非营利站直接把网站下了。谁来修？PHP 大概还撑着互联网约 40%，老旧垃圾里我赌更高。像现实版《黑客军团》：老站还在跑 PHP，出事后没人打补丁，IT 团队三年前裁了，他们不在「氛围编程」任何东西。只会更糟。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>包括萨姆在内，基本所有人都说会越来越糟。我们还在消化：几乎所有威胁面都会被近乎实时地翻出来。你若没跟上最新防护，就已经落后一大截。大概会有一两年这样，不可避免。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>唯一可能救我们的是：能付大额赎金的人有限，能控制水坝和关键资源的系统有限。攻击者若既赚不到钱也瘫痪不了什么，会放弃在低价值目标上砸太多能量——黑 20VC 的 Substack 赚不了几个钱。但凡能被黑的都会被黑；勒索软件只会更职业化，下一档。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>Instinct 传估值 300 亿：西方超级应用 vs「100 天规则」否决</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>本周还有一堆大型私募。Legora 募约 5.5 亿美元、估值约 88 亿，经常性收入越过约 2 亿美元——我们以前聊过它和 Harvey。过去 24 小时还有谣言——我们从不评论谣言，对吧罗里——Instinct 估值约 300 亿美元。可以拿来玩一玩：很多人说这是「峰值中的峰值」，因为收入倍数跟上轮差不多，有人说这意味着估值其实没涨。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>我能拿 Instinct 开涮「按 token 收入值 300 亿、这是时代症状」——也许是。但我真正想问你们的是：股权这边何时耗尽？我们刚谈过上市公司债与股。300 亿并不让我意外：他们需要资本付推理，需要钱。假设募约 30 亿，他们是真需要，不是虚荣融资。可即便把每个主权基金、GIC 的每一美元都算上，给全世界 Instinct 这类公司的钱还有多少？现在感觉无限。</p>
+<p>可到底有多少？旋转木马停下时，我们在晚期成长阶段会有结构性问题。眼下是「游戏开始」。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>我没在 Instagram 上发 Instinct，结果超过一千条私信，一半以上在问怎么投。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>我们何必惊讶？刚见证史上最成功的私募投资之一：四年前 Spark 聪明地投进一家还未有收入的交易，现在变成几百倍。人人读到就觉得「原来这么容易」，然后去找下一张彩票，把「它可能巨大」的感觉套到每一单上。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>所以我若进投委会，会毫不犹豫投 Instinct 的 300 亿。我们承诺西方超级应用——处理金融、身份、安全的西方微信——好多年了，终于有 Instinct。我不说它一定是，但有小概率它就是。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>哈里，抱歉，我很少这样做，但我要在投委会放一颗小黑石，否决这单。不是我不信你的论证——我信。只是以我们基金的体量（实质性但不同于 a16z 朋友们），我需要三到四个月数据，证明这股动量真实。不是说不兴奋，也不是在找护城河，我是在找那种略可持续的、接近 Anthropic 约 900% NRR 叙事里「稍微耐久」的证据。300 亿这价，我暂时看不到。抱歉否决：不是智力上不信，我只是厌倦「一个月动能就做成长轮」。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>他们大概要募约 40 亿。以团队质量与战略市场，你会拿得回来——微软会抢着买，其他超大规模云也会。下行有保护；上行则是西方超级应用、走进订阅、广告、电商交易。我们刚募了大基金，要在十八个月内部署出去。阿门，我想做这单。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>听到了。不想伤关系，但成长轮我要 100 天动能。倍数我愿意赌，骰子我愿意掷，但成长轮要 100 天。两周动能的轮我们摔过太多次。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你想看到什么？我听说队列与使用数据是投资人前所未见的。没有收入数据给你看的话——日活、月活、替代 ChatGPT？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>没有收入、商业模式还不清楚、还跟旅行之类挂钩——300 亿这价我们应遗憾地过。我想看到 100 天「除了负毛利增长的可替代产品」之外的东西。若亏掉约 20 亿会伤基金；清算优先权这边我也没被说服。不是说你错，只是这单对我可能太远。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>杰森你不懂：若亏掉 20 亿，那是罗里的项目。<span class="tag">【笑声】</span>我对 Fireworks 大约 40 亿舒服，这单 300 亿让我紧张。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>Fireworks 满足了我的 100 天规则：有 100 天可复利、可计量、可入账的真实增长。结合我们前面说的，我未必信它极度耐久，但我信它可测。消费端负毛利赌注我就是不舒服。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>哈里你问了一个好问题。一边是已知市场、扎实增长、像 Fireworks：赛道在撕裂，不是魔法仙尘，大概有五个竞争对手，上行真实但被竞争封顶。另一边是：若 Instinct 变成所有人的东西——替代 iMessage 等等——上行不封顶，或许两千亿叙事。你得做三向收益矩阵：超预期、还行、不行，看你桌上要哪种赔率。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>每个大基金今天都该拼命往 Instinct 塞钱。好，我投赞成票。下一项。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s12">
+<div class="body-sec-head"><h3>20% 基金押 OpenAI 1.25 万亿、WarHounds，以及加州富豪税闹剧</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>杰森，投委会下一项：凯文·怀尔德（Kevin Wilde）离开 OpenAI 科学线创办 Warp Science，募约 2.15 亿，非常早期，你大概会因没数据不舒服。还有 OpenAI 研究负责人鲍勃·麦格鲁（Bob McGrew）募约 2.32 亿 A 轮、估值大约 15 亿。再加 Legora 的 5.5 亿轮。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>本周有一堆交易我会概括成：绝对被证明过的高管、大机会、技术极难但做成了就很大——扑翼飞机类、鲍勃的 Arda/Order、Warp Science 感觉同类。对这种东西，价格不低、去风险很少，却有狂野胃口。另一类是晚轮、已知好公司、定价问题——Legora，或以另一种方式 Bedrock——不那么押在一个人身上。某种程度上，搞清 Legora/Bedrock 的脑袋比搞清「高管很强、机会若成则惊人」的早期叙事更容易。欢迎来到这个游戏。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>哈里，我要提一个可能让你不舒服的激进方案——你也该像我否决 Instinct 那样否决它——但有时市场会短暂错位。我觉得应该把基金的 20% 押进 OpenAI 约 1.25 万亿美元那一轮。它被错误定价了：Anthropic 在燃烧、SpaceX 表现好、模型今天极度胶着，OpenAI 已补上竞争缺口，是运转良好的机器。让我想起 Anthropic 大约 1830 亿那一轮相对 OpenAI 完全说不通的错位，很多人在那轮赚了钱。现在是错位时刻：大家误读 OpenAI 在挣扎，数字却说不然。我们可以继续在二三十五十亿的小轮上放屁；若把 20% 基金打进 1.25 万亿的 OpenAI，至少能用这一笔回报基金，再用别的兴奋项目博上行。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>为什么？1.25 万亿的 OpenAI 上行在哪？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>这两家都会是 10 到 20 万亿美元公司。看增长与规模。看 Anthropic：今天大概只占 Fortune 500 预算的约 0.1%，即便按我们和 Coat、Iconic 一起做的最保守估计，也会到 2–3%。从 0.1% 到 2–3%，前面的增长极其显著。20% 仓位要大约 5 倍（未计稀释）才能回报基金；通往 10 万亿结果的路径清楚，到 20、30 万亿时基金其余部分都不重要。它相对 Anthropic 有我不认为它该有的折价。你那些项目最坏拿回清算优先权；这里最坏翻倍。错位时刻的好处就是最坏翻倍；而 Instinct 那种轮往往定价到完美。OpenAI 此刻没有定价到完美，所以稀缺。按 LP 协议上限，我们做满 20%、周一通知 LP 即可，无需额外同意。</p>
+<p>还有：今天 Codex 一类编码质量比上一代好太多。我们合作的每个编码团队过去三到六个月都从别的切到 Codex。市场太肤浅没看见均势已达成——这时该 all-in，而且不能更小，必须 20%。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>杰森，有意思。Anthropic 定价可能到两万亿甚至还有爆拉。若你知道这是 OpenAI 最后一轮私募、轨迹在收敛，且他们「开了窍」想像 Anthropic 那样做事——不算疯。若他们继续说「我们要永远烧下去」，而后面还有私募轮，你就不会想做。但调整后，风险可能比某些项目更低。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我爱这个出格建议。唯一回击：能不能 Instinct 和 OpenAI 都做，实际对冲？风险画像不差。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>若那是你对「对冲」的定义，请永远别管对冲基金。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>为什么我朋友 Leo 告诉我风险管理是这样的？<span class="tag">【笑声】</span>说真的，我的伤疤是：无论种子还是成长，我要 100 天。但杰森，今天你根本拿不到 100 天。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>也许拿不到。我不想在「Stebbings and company」里把你弄丢。若必须做、我又不想变成全面 gotcha，那就做——但这个季度若我只能用一颗黑石，就用在这单上；错了我认。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>还有别的值得提的轮吗？扑翼飞机我觉得有意思。WarHounds——造向超级狗学习的模型——估值 15 亿？需要你们帮我做时间分析：这只是又一个「埃隆式会成」的赌注吗？背景：WarHounds 由安杜里尔（Anduril）创始人帕尔默·拉基（Palmer Luckey）联合创办，本质是基因改造狗，做成下一代冲突用战争机器。估值 15 亿——因为是帕尔默·拉基，说实话他配。讨论。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>我意识到自己零价值可加。<span class="tag">【笑声】</span>基因上有趣，但你怎么定价？有人分析军队用了多少只狗云云，都是挪纸。投资备忘录大概不是正式的；若有，摘要就是：「哇酷，投 5000 万。」把狗改造成更凶的战犬——你能说什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>一旦你创办了安杜里尔，成了「西方之剑」，你大致能做你想做的。这和他又办的加固笔记本/蓝芯类项目有连结：都在补国家主权空白——关键国家安全依赖美国以外供应商。狗据说来自欧洲；几乎所有能卖一两万美元、更高毛利的加固笔记本部件也几乎全进口。市场多大我不知道，但他就在产业核心，想填他认为重要的空白。TAM 也许不大，但模型说得通，而且他有渠道——加固军规笔记本一上市拿下 100% 份额我也不惊讶。仿生狗市场能否 100%？这些是他有能见度、其他创始人穿不透的真实市场。值不值得另说；若你是 Shawn Maguire，回报又强又稳，你大概就背书。</p>
+<p>记得推特那单：拉里·埃里森、马克·安德森给埃隆空白支票「告诉我价格、要我打多少」，他想毁约时被嘲，最后他们在赚钱。也许狗创业公司最终并进安杜里尔。<span class="tag">【笑声】</span>有一张图：你以为自己懂市场，爬上去又掉回原点——创始人/投资人职业生涯中间那段以为自己很聪明，其实顶端就那么几个。太真了。</p>
+<p>这周投委会 20% 仓位够了。<span class="tag">【笑声】</span>20 乘 52 是基金的多少？我们今年已经回市场一次了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>有趣的是，我跟很多 LP 聊，刚开完年度会，最常见反馈是：每个超级平台出去募，都募更大、花更快、明年又回来。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>对，我们是巴甫洛夫的狗：三年前把钱打进 Anthropic 的感觉太爽，多数平台多少都沾过，所以会一遍遍重复，直到出事。风险偏好开着，直到关掉。公开市场很技术：十年期市盈率在历史高位；但前瞻市盈率其实相当「便宜」，因为盈利太猛——部分被上市公司持有的私募浮盈一次性推高。英伟达这类按前瞻 PE 看起来不贵。你会陷入周期争论，但合计市场并没有在疼。真正的是：大约 450 只股票在疼；标普里大概四五十只跟科技与 AI 相关的在干活，其余悄悄偏弱。IPO 也不多，大家都在等万亿级那只，全世界像假死。结论：对平台来说，这是把大量资金打进私有公司的完美时刻——钱的需求很大。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>兄弟们，这周我还漏了什么故事吗？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>很多。我以为你会只带 Anthropic 进来，结果我们聊了一堆融资；SpaceX/特斯拉连续剧还会演很久。还有一个讨论不足的：扎克伯格和董事会关于离开加州的戏码。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>那是高风险戏剧。扎克雇了律师，律师跟董事会谈，董事会不是他的盟友。他得威胁一周内卖掉所有房子离开，若他们不给他想要的股权让他留在加州。背后有富豪税等机械因素，但闹到律师介入数月、威胁卖房——这跟「创始人控制一切」的时代相反，里头水很深。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>薪酬这件事你控制不了全部。即便埃隆也得走流程：董事若不「覆盖一百种免责」，很容易被事后第二意见打。我猜即便私下和气，双方也该律师齐全、走程序——程序是朋友。富豪税一周两周就见分晓；觉得「没影响」的人，大概没见过你要从亿万富翁口袋抽走 5% 时他们的脸——尤其带投票权、实际不止 5%，尤其法条还写着「我们很快可以再来一次」。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我以为他们已经通过普莉希拉与马克基金会之类捐光了，税优结构不就是为这个？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>人们喜欢捐出去，不喜欢被拿走。全是代理权与控制权。无论富豪税结果如何，它已相当成功地赶跑足够多亿万富翁，你会吃到普通所得税冲击。加油，团队。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我兴奋的是：这期录在周三晚上，离发布没有整整 24 小时，36 小时窗口里不太可能再来一记巨型新闻。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>提醒你：微软和 Alphabet 理论上今晚报业绩，什么都可能发生。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jason"><div class="label"><span class="badge" title="杰森·莱姆金（Jason Lemkin）">杰森</span></div><div class="content">
+<p>我的猜测是：若发现他们还要花更多资本开支，我不会震惊。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="rory"><div class="label"><span class="badge" title="罗里·奥德里斯科尔（Rory O&#x27;Driscoll）">罗里</span></div><div class="content">
+<p>哈里，我们好了吗？录完了吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我们滚起来了，朋友。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "20VC with Harry Stebbings", "title": "Instinct 值 300 亿？微软向约 27% 员工开买断，Meta 赴股市筹 950 亿资本开支｜杰森·莱姆金与罗里·奥德里斯科尔", "url": "https://www.youtube.com/watch?v=2-aUmDMZgLE", "videoId": "2-aUmDMZgLE", "published_at": "2026-10-29", "duration": 3617, "caption_source": "YouTube 自动生成字幕（en-orig；普通 yt-dlp 429 后 yt-dlp --cookies-from-browser chrome 补拉成功）；caption_source=yt-dlp-chrome-cookies；无官方字幕；中文为全文翻译并按中文表达习惯重写、按话题分段，并标注说话人", "guests": ["Jason Lemkin", "Rory O'Driscoll"], "intro": {"summary": "哈里·斯特宾斯与杰森·莱姆金、罗里·奥德里斯科尔复盘本周：Anthropic 提交 S-1（上半年收入约 163 亿美元）的全维度强势与「五年上市」冲击；AI 债务融资承压后转向股权稀释续命；微软向约 27% 员工开自愿买断与 Cloudflare 裁员 20% 的「新剧本」；Meta 赴股市筹最高约 950 亿美元资本开支；中国开源权重因 Qwen 外联事件在美承压；Instinct 传估值 300 亿美元的 IC 辩论；以及「把基金 20% 押进 OpenAI 1.25 万亿轮」的错位下注主张。", "points": ["Anthropic S-1：上半年约 163 亿美元收入，利润率/经营利润/客户集中度/算力效率与现金余额全面好于预期；约五年冲到 IPO，对比 SpaceX 约 24 年，贝塞默称其史上最佳投资", "吓人指标：约 80% 收入来自不足 6 个月的模型；训练占算力成本约 70–80%；货架期短反而强化「能持续砸百亿算力」的头部护城河", "债务端 Broadcom 需为芯片采购担保、利率偏高；宏观转向「股权化」——Anthropic/Meta/谷歌大规模发股续命资本开支", "微软向约 22.3 万员工中的约 6 万人（约 27%）开自愿买断，嘉宾称比直接裁员更像「红字」；Cloudflare 业绩加速同时裁 20% 成 CEO 教科书；折旧账单或在 2027 年更狠压人头", "中国开源权重：Cohere 测出通义千问仍向阿里云中国/新加坡回传数据；杰森称美企开源权重「开局即终局」；OpenRouter 或只是 OpenAI 失速空窗的一瞬", "Instinct 传 300 亿美元估值：哈里押「西方超级应用」，杰森要 100 天数据并否决；另主张把基金 20% 押进 OpenAI 约 1.25 万亿美元错位轮"], "verdict": "值得看：跟踪 AI 资本开支、大模型 IPO、企业裁员与开源权重地缘风险的投资人与创始人；可跳过：若只想听单一公司深潜或纯技术评测（本集约 60 分钟时事圆桌，节奏快、梗多）。", "audience": "风险投资人、AI/SaaS 创始人与关注大模型资本市场与企业裁员的听众"}, "speakers": [{"id": "harry", "name": "哈里·斯特宾斯（Harry Stebbings）", "role": "host", "short": "哈里"}, {"id": "jason", "name": "杰森·莱姆金（Jason Lemkin）", "role": "guest", "short": "杰森"}, {"id": "rory", "name": "罗里·奥德里斯科尔（Rory O'Driscoll）", "role": "guest", "short": "罗里"}], "sections": [{"id": "s1", "title": "Anthropic 提交 S-1：几乎全维度「顶级表现」", "start_sec": 0, "summary": "本周主线是 Anthropic（Anthropic）终于提交 S-1。哈里开场点出上半年收入约 163 亿美元，并把球传给罗里。罗里认为这份文件几乎在每个维度都过硬：收入规模、利润率、经营利润（含股权激励后）、客户集中度、算力效率与现金/资产负债表都好于预期，唱衰方暂时只能「吃沙子」；未披露三季度收入等细节仍是开放问题，但整体读起来是「顶级表现」。嘉宾共识是：至少就公开财务叙事而言，举证责任已落在怀疑者一侧。"}, {"id": "s2", "title": "为何仍被低估：五年上市、流动性时间价值与贝塞默「百年最佳」", "start_sec": 140, "summary": "杰森强调市场可能仍低估 Anthropic：从「spite startup」式起步到 IPO 约五年，对比 SpaceX（SpaceX）约二十四年；OpenAI 的上市路径或略慢、资本效率略差，但五年走到这一步已「超越前所未有」。他强调流动性的时间价值：少于约六年就能走到「此生最大 IPO」级退出，对比许多 C 轮交易十八年到满分配、普通交易十到十二年才 IPO，回报与辛苦严重不对等。罗里附和：规模、速度与回报会长期主导基金成绩。贝塞默（Bessemer）的拜伦·迪特（Byron Deeter）公开称这是贝塞默史上最佳、也是最大支票之一——一家十九世纪创立的机构，在约百年后把最大赌注押在这只交易上。"}, {"id": "s3", "title": "最吓人指标：六个月货架期、训练占比与「漏一次就完」", "start_sec": 289, "summary": "罗里抛出「吓人」数字：约 80% 收入来自年龄不足六个月的模型；文件也未按传统方式给出毛利率，而是把算力成本集中归集，脚注显示约 70–80% 算力用于训练而非推理。含义是：模型极贵去造、造完后推理端「相当暴利」，但你大约只有六到十二个月吃红利，然后必须再烧巨资发明下一款——完全不像软件可卖十到十五年。一面看「漏一次就完」；另一面看，这正是头部愿意且能持续写出约 100–120 亿美元算力支票者的优势：截至 2026 年 6 月已砸约 80 亿美元算力、明年或翻到约 160 亿。埃隆观点被引用：多数新实验室会因为融不到存活资本而死亡。表面负面指标，对激进领导者反而是护城河。"}, {"id": "s4", "title": "债务承压：Broadcom 担保芯片债；宏观转向「股权化」续命", "start_sec": 434, "summary": "杰森认为 S-1 里没写、却最糟的信号是：即便是 Anthropic 这般「不能更好」的发行人，与博通（Broadcom）的半环形芯片采购债仍需博通大幅担保，且利率高于预期——说明间接融资也在变难，银行消化新实验室债务接近上限。罗里部分同意债务端触顶，但本周真正的「啊哈」是市场在「股权化」问题：Anthropic 即将发行约千亿美元量级股票；Meta 今年早些时候发约 700 亿、谷歌约 800 亿；SpaceX 也走了 IPO。一类公司既有便宜资本成本、又愿意用股权稀释把资本开支撑下去，所以开支浪潮不会停。马斯克则被描述为用高估值发股「掐断只靠债的氧气」。Anthropic 融资约 1300 亿、只花约 100–110 亿，账上现金或跻身美国企业最大现金堆之一（讨论中出现约 1100 亿量级）。"}, {"id": "s5", "title": "IPO 会爆吗？指数纳入、零售热情与 OpenAI 的「乌龙球」", "start_sec": 594, "summary": "罗里预期 Anthropic 会获极佳市场接待：未必立刻进标普 500（盈利等门槛），纳斯达克上市可能更快进 QQQ 一类指数，但更关键的是「大家就是想拥有这只股票」。杰森提到约 900% 净收入留存（NRR）叙事（真实或更接近 300–400%，因含试点试用），叠加品牌与指数，零售端可能有一波行情。谈到 OpenAI 该学什么：过去改不了，但应有大量自我反思——CEO 动荡、非营利转营利风波、让达里奥（Dario）出走后「几乎一年」把编码棋盘让给 Anthropic（AI 时间尺度像五到十年）；编码被再强调为杀手级应用。建议：把业务理顺、尽快上市，同时用价格战搅乱对手季度。嘉宾调侃 OpenAI 的命名是史上最糟的「成功创业品牌事故」之一。"}, {"id": "s6", "title": "微软向约 27% 员工开自愿买断：比裁员更红的「红字」", "start_sec": 783, "summary": "哈里援引：微软（Microsoft）向约 22.3 万员工中的约 6 万人（约 27%）提供自愿买断；他刚采访过萨提亚·纳德拉（Satya Nadella）。杰森强调：不是 27% 都会走，且公司可能已做过约 10% 裁员轮；博弈上是向「不想要的人」开条件再估接受率。但对留下者信号极残酷——「我们不想要你们」比普通裁员更难甩锅，像一枚比裁员更红的「红字」。试图更人道的自愿方案，往往被已有下一份工作的人当看涨期权吃掉遣散费，真正「被点名却留下」的人最惨。罗里同意：若最终少掉约 10–15% 人头，说明公司认为离得开这些人——有多少是 AI 效率、多少是「本来就不需要」，值得追问。"}, {"id": "s7", "title": "2027 折旧账单、Cloudflare 裁 20%，以及 Meta 赴股市筹约 950 亿", "start_sec": 993, "summary": "罗里把裁员放进资本开支周期：2026 年卖芯片的人记账收益、买家折旧尚未完全显现，像「人人都赢」；到 2027 年微软/谷歌/Meta 折旧压力上来，要保住经营利润就会更狠压人头——「AI 账单」可能用裁员支付，并喂养反 AI 叙事。杰森点 Cloudflare：业绩季度加速增长，却在 5 月 7 日一次裁约 20%，事后业务未见明显下行，成「CEO 工商管理教科书」。稳定平台不再存在——也许要到年经常性收入数百亿美元以上才有喘息，否则就被更快新公司杀死。Meta：扎克伯格本周启动最高约 950 亿美元融资（约 350 亿普通/优先 + 约 600 亿 ATM 计划），因资本开支首次压过自由现金流；核心广告生意仍极强（讨论中提到约每季数百亿美元现金流量级）。芯片股方面，Anthropic S-1 后情绪回暖，DRAM/SK 海力士等反弹；中国「星辰」类标的年内大跌则显示中美 AI 资本市场不同步。"}, {"id": "s8", "title": "中国开源权重在美「开局即终局」：DeepSeek 融资与 Qwen 外联事件", "start_sec": 1319, "summary": "DeepSeek 传募约 150 亿美元（中国史上最大私募轮之一），投资方包括宁德时代（CATL）、腾讯等。杰森判断：中国开源权重模型在美国「基本结束、开局即终局」——联邦机构禁用扩散，且本周 Cohere（Cohere）曝光通义千问（Qwen）在声称不调用工具时仍向阿里云中国与新加坡服务器回传/钉住数据。即便更像训练失误而非后门，对 CIO/CISO 而言「十万次调用里漏一次机密」也不可接受；企业若继续用，可能是「丢饭碗」级风险。本地运行风险较低的论点被反驳：一旦外联上传，再叠加提示注入，后果可远比 404 严重。Anthropic 重回政府日程并带约 40% 折扣，进一步挤压「为何还用 Kimi」的理由。"}, {"id": "s9", "title": "Modal / Fireworks / OpenRouter：栈会怎样？「只是一瞬」风险", "start_sec": 1488, "summary": "哈里追问：中国模型收缩后，网关/路由（OpenRouter）、推理商（Modal、Fireworks、Base Ten 等）怎么办？杰森引用开发者侧「涨得快跌得也快」：美国需要自家开源/开放权重替代，否则封闭前沿模型议价权更大，反而更利好 Anthropic IPO。Cursor 仍大量跑中国开源权重被称「深讽刺」——埃隆一旦能用 Grok 替换就会撕掉；Salesforce 收购 Fin 前已要求撕掉同类依赖。投资委员会视角：增长「下巴掉地上」时，风投会接过去不愿接的风险（不同于 Manus 类直接投智能体的翻车记忆）；但 DeepSeek 被禁 + Qwen 外联 + Anthropic 进 GSA，风险权重上周明显上升。杰森估约 56.3% 概率回看 OpenRouter「只是一瞬」：填补 OpenAI 失速与中国模型擅长编码的空窗；一旦前沿与低价闭源补上缺口，开源权重占 OpenRouter 流量或从约 60%+ 掉到约 10%。罗里冷静点：闭源两大前沿已约千亿美元量级，只要约 10% 预算愿为省钱忍受开源「脑残」，推理市场仍够大。"}, {"id": "s10", "title": "「黑色十月」：AI 把藏了十多年的漏洞翻出来", "start_sec": 2103, "summary": "OpenAI 等模型帮助发现隐藏十余年的严重 PHP 漏洞。杰森重申数月前判断：「所有人都会被黑」——以前没被严重入侵往往因为「没人在乎」，现在秒级可攻。PHP 仍支撑互联网很大一块（他估计约 40%，老旧站点更高），大量政府/非营利站点直接下线，补丁跟不上、IT 团队三年前已裁。Replit、Lovable 等迅速加网关挡风险，但「没人修的老站」会像《黑客军团》现实版。萨姆等人也认为只会更糟；唯一「刹车」或许是能付大额赎金的目标与可瘫痪关键基础设施的系统有限，勒索产业则更职业化。"}, {"id": "s11", "title": "Instinct 传估值 300 亿：西方超级应用 vs「100 天规则」否决", "start_sec": 2252, "summary": "本周还有 Legora 募约 5.5 亿、估值约 88 亿并越过约 2 亿 ARR；前 OpenAI 研究负责人鲍勃·麦格鲁（Bob McGrew）的 Order/Arda 约 15 亿估值、募约 2.32 亿等。焦点谣言：Instinct 估值约 300 亿美元——有人嘲「峰值」，因收入倍数与上轮相近「像估值没涨」。罗里问股权狂欢何时耗尽：这不是虚荣融资，公司需要钱买推理；但主权基金与全球资金池是否真「无限」？哈里愿在投委会「毫不犹豫」投 Instinct，称西方终于等到处理金融/身份/安全的「微信式超级应用」雏形。杰森罕见放「黑石」否决：要三到四个月、约 100 天可验证动量（对标 Anthropic 那种略可持续的超高 NRR），不要「两周动能就做成长轮」；无收入、商业模式不清、负毛利消费品式增长让他紧张——若砸约 20 亿亏掉可能伤基金。他更接受已满足 100 天规则的 Fireworks（约 40 亿量级讨论）这类「可计量但竞争激烈」的推理市场，对比 Instinct「人人使用则可达约 2000 亿叙事」的不封顶上行。哈里强调大基金必须把钱部署出去；罗里用三向收益矩阵帮双方对齐。"}, {"id": "s12", "title": "20% 基金押 OpenAI 1.25 万亿、WarHounds，以及加州富豪税闹剧", "start_sec": 2710, "summary": "另一类交易模板：「已被证明的高管 + 大机会 + 技术极难」——如凯文·怀尔德（Kevin Wilde）离开 OpenAI 科学线创办 Warp Science 募约 2.15 亿极早期、鲍勃·麦格鲁轮、扑翼飞机类项目等；对比 Legora/Bedrock 类晚轮「好定价」。杰森抛激进主张：把基金约 20% 押进 OpenAI 约 1.25 万亿美元轮——称 Anthropic 火、SpaceX 好、模型竞争胶着时市场短暂错读 OpenAI「在挣扎」，类似 Anthropic 约 1830 亿轮的错位；两家都可能走向 10–20 万亿，Fortune 500 预算渗透从约 0.1% 到 2–3% 仍有巨大空间；最坏翻倍、最好回报整只基金。罗里称「不疯狂」，前提是这是最后一轮私募且公司收敛开支叙事。哈里想 Instinct+OpenAI 对冲，被嘲「别管对冲基金」。WarHounds：帕尔默·拉基（Palmer Luckey）联合创办、基因改造军用犬，估值约 15 亿——投资备忘录可能就一句话「酷，投 5000 万」；逻辑是主权供应链空白（军犬来自欧洲、加固笔记本部件几乎全进口）与他卖进国防渠道的能力。超级平台向 LP 募更大、花更快、明年又回来；公开市场十年 PE 历史高位但前瞻 PE 因盈利（含私募浮盈）显得「便宜」，真正干活的是标普里约 40–50 只 AI/科技股，其余偏弱，IPO 窗口因等待万亿级标的而「假死」，利好私有市场放水。结尾：扎克伯格为留在加州与董事会对峙、律师介入、扬言一周内卖房离开以换股权——富豪税若抽走约 5%（且可再来）会激怒亿万富翁；「愿意捐、不愿被拿走」是控制权问题。节目录于周三，微软/Alphabet 当晚可能报更多资本开支。"}], "paragraphs": [{"start_sec": 0, "type": "text", "speaker_id": "harry", "section_id": "s1", "zh": "听起来再疯狂也不为过：我觉得市场几乎还在低估 Anthropic（Anthropic）。本周真正重要的故事只有一个——他们终于交出了 S-1。今天这期我们拆：哪些必须看、哪些可以跳、真正该追问的问题，以及上市首日会不会出现「史上最大爆拉」。嘉宾是杰森和罗里。另外我会说到：中国开源权重模型在美国基本结束了；给 Instinct 这类公司的钱现在感觉像无限；以及要不要把基金的 20% 押进 OpenAI 约 1.25 万亿美元那一轮。准备好了吗？"}, {"start_sec": 40, "type": "text", "speaker_id": "harry", "section_id": "s1", "zh": "【音乐】兄弟们，我们又回来了。一周里我最爱的时段，开场就有大新闻：Anthropic 提交 S-1。等这一刻很久了。上半年收入约 163 亿美元。罗里，球先给你——因为我报哪个指标，你大概都会说「不该报这个」。"}, {"start_sec": 65, "type": "text", "speaker_id": "rory", "section_id": "s1", "zh": "不会。"}, {"start_sec": 66, "type": "text", "speaker_id": "harry", "section_id": "s1", "zh": "那你被哪些数字吸引？我们该带走什么结论？"}, {"start_sec": 72, "type": "text", "speaker_id": "rory", "section_id": "s1", "zh": "这是一份很强的 S-1。坦白说，黑粉和唱衰派至少眼下得去吃沙子——举证责任已经牢牢落在怀疑者一边。【笑声】几乎每个维度都漂亮，市场会热烈迎接。当然还有开放问题，比如他们没给三季度收入数字，但整体非常出色。"}, {"start_sec": 107, "type": "text", "speaker_id": "rory", "section_id": "s1", "zh": "收入规模大家本来就大致知道，但依然惊人。利润率、经营利润，甚至扣除股权激励后的经营利润都好于预期；客户集中度好、算力效率好，现金与资产负债表更是「惊艳地好」。你得费劲才能挑出问题——问题当然有，我们稍后谈——但读下来就是顶级表现。"}, {"start_sec": 140, "type": "text", "speaker_id": "jason", "section_id": "s2", "zh": "再说一遍可能很疯：我觉得大家几乎还在低估 Anthropic。五年走到 IPO，对比 SpaceX（SpaceX）大约二十四年。这不只是「前所未见」。OpenAI 的 IPO 会露出类似端倪——可能略差或略好，按我们现在所知，大概资本效率差一点、略慢一点。但从「spite startup」式起步五年冲到这里，已经超越「前所未有」。流动性的时间价值仍然重要：账面浮盈很爽，但能在不到六年里走到「此生最大 IPO」级退出并完成分配，更夸张。"}, {"start_sec": 175, "type": "text", "speaker_id": "jason", "section_id": "s2", "zh": "我知道罗里会吐槽我，但你忍不住会想：我为什么还要干别的？很多 C 轮交易到满分配像十八年；我可以大约六年在 Anthropic 拿到完整流动性，为什么还要把时间浪费在十到十二年才 IPO、再加两年才能分钱的项目上？对比就是五年。"}, {"start_sec": 211, "type": "text", "speaker_id": "rory", "section_id": "s2", "zh": "杰森，我不吐槽你。我看到推文说的跟你一样：每个创始人和投资人都在问，我为什么还要折腾别的？规模、速度、回报太震撼，会长期主导基金成绩；其他一切都显得更累、回报更薄。功劳给创始团队，也给早期投资人——这就是最好的赚钱方式之一：曲线以人类历史上最快速度向右上冲五年，滚向万亿。创投里很难比这更好。"}, {"start_sec": 241, "type": "text", "speaker_id": "jason", "section_id": "s2", "zh": "看着贝塞默（Bessemer）的拜伦·迪特（Byron Deeter）上电视说「这是贝塞默史上最佳投资」挺好笑。贝塞默大概十九世纪就创立了。最大的支票、最好的回报，发生在大约百年之后——这差不多就是全部故事：最佳投资、最大支票、最快流动性，我们为什么还要做别的？"}, {"start_sec": 267, "type": "text", "speaker_id": "harry", "section_id": "s2", "zh": "罗里你刚才说还有问题。台下永远有砸花生米的人。如果要讲「另一面」，有没有哪一两个数字特别扎眼？"}, {"start_sec": 289, "type": "text", "speaker_id": "rory", "section_id": "s3", "zh": "有意思的是：大约 80% 收入来自年龄不足六个月的模型。另外你会注意到，他们没有按传统方式给出毛利率——会计上可以把算力成本全堆在一处。脚注拆出来大约 70–80% 算力花在训练而非推理。换句话说：模型贵到离谱去造；造完之后，推理端「相当暴利」；你希望能吃大约六个月，然后又得发明下一款。"}, {"start_sec": 329, "type": "text", "speaker_id": "rory", "section_id": "s3", "zh": "这太不像软件——软件你可以建一次、卖十到十五年。这里是发明一款，六到十二个月拿走大部分收入，然后继续砸海量钱造下一款。事实如此。你可以读成「天哪太可怕，漏一次就完」；也可以读成「这对 Anthropic 其实很好，因为他们最有位置、也最想持续造新东西」——他们说得很清楚：我们就是要造新东西。"}, {"start_sec": 354, "type": "text", "speaker_id": "rory", "section_id": "s3", "zh": "能跟得上的人极少。截至 2026 年 6 月他们已在算力上砸约 80 亿美元，明年我猜可能到约 160 亿。能开出 100–120 亿美元算力支票的人没几个。所以他们可以持续发明新模型、从中拿走海量收入，后排也许别人能追上。那个「神奇产品货架期只有六个月」的统计看起来又怪又吓人，但若你是愿意激进投入的领导者，我会说这反而是优势。看起来像负面的东西其实不是——它只是把这场游戏有多动态、多可怕点明了：你得砸数十亿又数十亿，才有资格上场。"}, {"start_sec": 417, "type": "text", "speaker_id": "jason", "section_id": "s3", "zh": "这就是埃隆的点：这轮之后多数新实验室会死掉——根本融不到存活所需的资本。"}, {"start_sec": 430, "type": "text", "speaker_id": "jason", "section_id": "s4", "zh": "我觉得有一个坏指标不在 S-1 里。S-1 里最糟的那个，其实没写进去。"}, {"start_sec": 438, "type": "text", "speaker_id": "harry", "section_id": "s4", "zh": "说来听听。"}, {"start_sec": 440, "type": "text", "speaker_id": "jason", "section_id": "s4", "zh": "最糟的是：博通（Broadcom）得出来兜底这笔债，Anthropic 才能买到芯片。市场刚刚读完 S-1——不能更好了——但这笔与博通的半环形交易，他们仍拿不到债，博通得担保大部分，利率还高于预期。不是说「糟透了」，但说明即便是 Anthropic 和 OpenAI，间接融资也在变难；再叠加银行越来越难分销新实验室债务，这才是唯一真正让人紧张的点：债务这边不是无限的。"}, {"start_sec": 478, "type": "text", "speaker_id": "rory", "section_id": "s4", "zh": "我听到了，但想反驳一点。银行能消化的债务量确实触顶了。可过去几周有意思的是：我们在「股权化」这个问题。以前全是债；现在 Anthropic 即将发行大约千亿美元量级的股票。Meta 今年早些时候发了约 700 亿，谷歌大约 800 亿，SpaceX 也做了 IPO。你看到一类公司：一是资本成本便宜，二是愿意用股权稀释把事做成。我的宏观「啊哈」是：这浪不会停，想让它发生的人愿意稀释股权继续烧，开支会在。"}, {"start_sec": 544, "type": "text", "speaker_id": "rory", "section_id": "s4", "zh": "杰森你说得对，埃隆在干的事就像掐别人的氧气：你们只靠债的会死；我这边有全球最膨胀的市值之一，可以发股拿到所有想要的芯片。这很「经典埃隆」——趁你倒下再补一脚，得佩服。"}, {"start_sec": 560, "type": "text", "speaker_id": "jason", "section_id": "s4", "zh": "这轮之后 Anthropic 账上现金会非常夸张。"}, {"start_sec": 568, "type": "text", "speaker_id": "rory", "section_id": "s4", "zh": "说精确点：这大概是全美企业里第一或第二大现金堆，惊人。一家即将上市的公司，账上已经有大约 1100 亿美元量级、比美国几乎所有公司都多（差一个数量级那种「多」）。他们融了约 1300 亿，只花了约 100–110 亿——大师级。"}, {"start_sec": 590, "type": "text", "speaker_id": "harry", "section_id": "s4", "zh": "我们觉得上市会受到惊人欢迎吗？"}, {"start_sec": 596, "type": "text", "speaker_id": "rory", "section_id": "s5", "zh": "我觉得应该会。公司强到没法抬杠。会不会像 SpaceX 几乎立刻进标普 500？未必。若在纳斯达克上市，可能更快进 QQQ；标普有盈利等门槛，要一点时间。他们会很快进某些指数，但我不认为它需要像 SpaceX 那样靠指数「抬一把」——这会是大家就是想拥有的股票。"}, {"start_sec": 635, "type": "text", "speaker_id": "jason", "section_id": "s5", "zh": "被纳进各种指数对零售端就是助推。他们不太可能连续踩空季度。有人拿约 900% 净收入留存（NRR）说事——我们要小心用 NRR，因为若把试点试用算进去，真实或许更像 300–400%——但品牌加上纳斯达克 100，大概会有不错的零售行情，再叠加 SpaceX 叙事。你为什么要跟它对赌？"}, {"start_sec": 670, "type": "text", "speaker_id": "harry", "section_id": "s5", "zh": "如果阿尔特曼（Altman）在读这期、想着一季度自己也冲出去——他会从这份 S-1 带走什么、改什么？"}, {"start_sec": 685, "type": "text", "speaker_id": "rory", "section_id": "s5", "zh": "过去改不了。若你是 OpenAI 的 CEO，看着这份文件，大概会后悔当初某些决策，让这帮人跑掉并做得更好。该有的自我反思应该非常多。你能做的是把业务理顺、收敛、自己也出去；与此同时，当然可以在价格上猛烈竞争，搅乱他们的三季度。【笑声】"}, {"start_sec": 720, "type": "text", "speaker_id": "jason", "section_id": "s5", "zh": "我再也想不出哪家这么成功的创业公司，把自己命名得这么糟——OpenAI。CEO 动荡、非营利转营利那一堆闹剧，换任何别的创业公司可能都死了。他们基本让 Anthropic 控制了市场将近一年——在 AI 时间尺度上像五到十年。今天和 Astra、最好的开源权重之间有一定均势，但编码这块棋盘 Anthropic 几乎拿了一年：没有理由用别的编码方案；编码就是杀手级应用，罗里说过一百遍，数学也站得住。他们宁可让达里奥（Dario）走出门，也不在内部建起来，然后又在「长刀之夜」炒掉 CEO 再连夜请回来。乌龙球可以写进教材——每家创业公司都有乌龙，这几记是史诗级的。"}, {"start_sec": 783, "type": "text", "speaker_id": "harry", "section_id": "s6", "zh": "我这周有幸请到萨提亚·纳德拉（Satya Nadella）上 20VC，很棒的嘉宾。微软紧接着有大新闻：向约 22.3 万员工中的约 6 万人提供自愿买断，大约 27% 的编制能拿到这份要约。杰森你以前对这话题很来劲——怎么看？"}, {"start_sec": 810, "type": "text", "speaker_id": "jason", "section_id": "s6", "zh": "首先，不是 27% 都会接受。他们可能已经做过一轮约 10% 的裁员。这里有有趣的博弈：你想向「不想保留的人」开条件，再估算接受率。但无论领英上怎么说，信号只有一句：这 27%，我们不想要。"}, {"start_sec": 845, "type": "text", "speaker_id": "rory", "section_id": "s6", "zh": "同意。这比纯裁员更糟的「红字」——裁员你还能挥手说宏观；这里是公司对约 27% 的人说：你们达不到我们最低标准、我们不要你们。我猜比例本可以更高，但他们大概一周就定了方案。"}, {"start_sec": 862, "type": "text", "speaker_id": "jason", "section_id": "s6", "zh": "微软不想要 27% 的人——这就是 AI 时代。你为什么要这么干？文化会变成什么样？留下的人知道自己其实不被要，不糟糕吗？"}, {"start_sec": 880, "type": "text", "speaker_id": "rory", "section_id": "s6", "zh": "我想他们是在尝试更人道。2022 年底那波裁员开始时，大家骂在 Slack/邮件里裁人太不人道，要面对面；然后又说别在节假日裁，结果有人元旦被裁——也好不到哪去。自愿买断对本来就想走的人很好，对职业生涯尾声或想退出职场的人也好。难就难在博弈：你可能只清掉本来就要走的人。不过微软现金多到「谁在乎」。"}, {"start_sec": 918, "type": "text", "speaker_id": "jason", "section_id": "s6", "zh": "我很久以前站过裁员另一边。你想当好人，但没法真正人道——怎么做都恶心。而这个方案在「试图人道」的同时，可能是最不人道的：公司 27% 的人刚被盖上红字。不如再直接裁 9%，用 Teams 一天搞定走人。"}, {"start_sec": 950, "type": "text", "speaker_id": "rory", "section_id": "s6", "zh": "我处理出来的结论一样。被点名离开却选择留下的人最难受；唯一赢家是已有下一份工作、还顺手拿了遣散费看涨期权的人。若最终少掉约一万到两万、也就是大约 10–15%，说明他们觉得离得开这些人——有多少是 AI 效率、多少是「本来就不需要」，会很好玩。"}, {"start_sec": 993, "type": "text", "speaker_id": "rory", "section_id": "s7", "zh": "这些大公司，资本开支的折旧账单一到期，就得从别处找钱。说实话，2026 年这段「黄金期」里：卖半导体的人在记账收益，买资本开支的人还没把折旧完全记上，好像人人都赢。但望向 2027，微软、谷歌、Meta 这类地方折旧会开始砸下来。要维持经营利润，就会狠狠压人头。AI 的账单到期时，就是这样付的。"}, {"start_sec": 1038, "type": "text", "speaker_id": "jason", "section_id": "s7", "zh": "某种意义上它会喂养反 AI 狂热——叙事太直白了：为了付基础设施、GPU 和推理，我们得裁人。你觉得 2027 会更结晶化吗？"}, {"start_sec": 1050, "type": "text", "speaker_id": "rory", "section_id": "s7", "zh": "直觉上，随着时间推移，大家都在猜超大规模云何时翻到另一边。到目前自由现金流有点往「错的方向」走，但经营利润还在升；往后会更难。是的，这会是问题所在。"}, {"start_sec": 1063, "type": "text", "speaker_id": "jason", "section_id": "s7", "zh": "我倒惊讶 Cloudflare 裁员没被更多讨论——这是 CEO 工商管理案例 101。马修那头 Cloudflare 业绩史诗级，每个季度增长更快，结果 5 月 7 日一刀裁约 20%：我们不需要这么多人，或者我们太大了。留 80% 比以前更好，增长还继续加速。每个还在纠结的 CEO 都该看这个。微软那边你可以说有一部分是「老公司要为 AI 买单」；Cloudflare 更像「这些人在拖后腿」。不是裁 8%，是直接 20%，业务暂时看不到下行。裁员 2.0/3.0 会发生：一部分为付基础设施，一部分是「表演式 AI 够了、别再扛人了」。"}, {"start_sec": 1125, "type": "text", "speaker_id": "jason", "section_id": "s7", "zh": "想想你上周参加的每个董事会：不管做得再好都压力山大，一切比上一次董事会动得更快，每个赛道竞争更多。我们再也扛不起多余的人，否则会被哈里或罗里刚投的那家新公司杀死。稳定平面不存在了。以前 SaaS 做到一两亿到五亿经常性收入还能喘口气；现在也许要到一两百亿、四百亿以上才有「平面」。所以裁员只会加速——我们没得选。"}, {"start_sec": 1167, "type": "text", "speaker_id": "harry", "section_id": "s7", "zh": "说到没得选、钱从哪来：Meta 走向股权市场。扎克需要钱，本周一开始启动最高约 950 亿美元融资——约 350 亿普通与优先股，加约 600 亿按市价发行计划。同时芯片股一天蒸发约 2000 亿、公开市场血流成河、新云翻车——你从中带走什么？"}, {"start_sec": 1190, "type": "text", "speaker_id": "rory", "section_id": "s7", "zh": "哈里，短答：没有。你把两件独立的事揉一起了，我分开说。Meta 这事正是我们刚聊的：这是资本开支首次压过自由现金流、自由现金流转负的季度。别忘了他们核心生意是地球上最好的生意之一，吐钱能力极强——大约每季数百亿美元现金流量级。转负了，就发点股，就这样。跟芯片暴跌无关。"}, {"start_sec": 1222, "type": "text", "speaker_id": "rory", "section_id": "s7", "zh": "芯片上周是动过，但说实话：Anthropic S-1 出来之后芯片又在反弹，因为共识是「这份文件看起来不错」，对芯片叙事有利。今天 DRAM 大涨，我盯的那块存储指数；韩国、SK 海力士（SK Hynix）之类涨了大约 10%——这是周二。若你在半导体资本开支生意里，这周后半段其实不错。两周前 CoreWeave 吓人，可 CoreWeave 是大约两三百亿美元量级；Anthropic 是万亿量级叙事、成交后账上可有约 2000 亿美元量级要花在芯片上。芯片该高兴。"}, {"start_sec": 1286, "type": "text", "speaker_id": "jason", "section_id": "s7", "zh": "唯一轻微的反点：中国那边类似「星辰 15」的标的今年跌了约 40%。中美 AI 市场不同步——中国自己的热闹仍在，但流动性和定价很怪；我们这边却在着火。"}, {"start_sec": 1320, "type": "text", "speaker_id": "harry", "section_id": "s8", "zh": "说到中国着火：DeepSeek 募了大约 150 亿美元，据说是中国史上最大私募轮，最大投资方包括宁德时代（CATL）和腾讯。有什么值得注意？"}, {"start_sec": 1335, "type": "text", "speaker_id": "jason", "section_id": "s8", "zh": "我觉得中国开源权重模型在美国基本结束了，是开局即终局。DeepSeek 融到钱很好，但联邦机构禁用在扩散。本周还有一件被过度耸动、但确实很糟的事：Cohere（Cohere）和通义千问（Qwen）那档子。"}, {"start_sec": 1360, "type": "text", "speaker_id": "harry", "section_id": "s8", "zh": "解释一下，给不知道的人。"}, {"start_sec": 1365, "type": "text", "speaker_id": "jason", "section_id": "s8", "zh": "Cohere 现在大概是第四梯队大模型玩家，手里差不多只剩「主权」这张牌；而企业里主权确实常进前五需求。他们发现阿里巴巴现有的通义千问模型，在公开宣称不会这么做的情况下，仍在呼叫中国与新加坡的阿里云服务器、钉住并上传数据。这是美国每个人的噩梦：数据被传到中国。Cohere 讲法可能更谨慎，可你也不能全信 AI 圈谁的自说自话——这对他们有利。我没看到证据说这是社交媒体想象的那种「后门」；更像内置行为，甚至某种层面的训练失误。但无所谓：十万次里有一次机密数据在未知情、未同意、且被明确要求不要时，被传到亚洲服务器——哪个 CIO 或 CISO 会批这个模型？我想象不出。"}, {"start_sec": 1459, "type": "text", "speaker_id": "jason", "section_id": "s8", "zh": "若再发生几次，而阿里巴巴没什么说法，用这些模型就是丢饭碗。本来可以更糟。有报道，但我惊讶没有更大。每个人用中国开源权重的噩梦就是数据去中国——而它确实去了。"}, {"start_sec": 1488, "type": "text", "speaker_id": "harry", "section_id": "s9", "zh": "中国开源市场收缩后，栈会怎样？网关、路由器，你们的 OpenRouter；很大程度上靠多样模型（常常是中国模型）活着的推理商——Modal、Fireworks、Base Ten——会怎样？"}, {"start_sec": 1510, "type": "text", "speaker_id": "jason", "section_id": "s9", "zh": "Dev 上次来节目说过：跟开发者一起涨得那么快的东西，也可以跌得那么快，一周就变。会有一些美国开源选项。问题是：看过 Anthropic 造模型烧掉的算力、其中约 75% 用于训练之后，英伟达这类美国公司能开出多强的开源模型？若没人做，你就只剩闭源供应商，它们的经济杠杆更大——那你更该在 S-1/IPO 里多买 Anthropic。"}, {"start_sec": 1556, "type": "text", "speaker_id": "jason", "section_id": "s9", "zh": "我觉得这件事对 Anthropic 是利好。 tipping point 是埃隆能不能让 Cursor 离开这些模型——他若能，早就做了；现在还不能，因为 Grok 还不够好。他已部分踢掉 OpenAI，但还不彻底。收购 Cursor 的原因之一也包括想要那团队的 DNA 让 Grok 更有竞争力。约 600 亿美元量级核心收购还主要跑在中国开源权重上，这有深层讽刺，不会持久。Salesforce 收购 Fin 前就逼着撕掉了；Cursor 处在最卷的赛道，一有替代就会撕。不能永远跑在 Kimi 上。"}, {"start_sec": 1618, "type": "text", "speaker_id": "rory", "section_id": "s9", "zh": "若你下载并本地跑，安全风险可以极低。"}, {"start_sec": 1628, "type": "text", "speaker_id": "jason", "section_id": "s9", "zh": "它在拨号中国并上传你的数据时，还「风险有限」吗？若不是一个 404，而是坐着提示注入，把数据上传走呢？很容易做。而且这在模型的好几代迭代里都在。"}, {"start_sec": 1648, "type": "text", "speaker_id": "rory", "section_id": "s9", "zh": "哈里，你真正要摔跤的问题是：你能对模型在干什么有百分之百把握吗？你可以沙箱、拦截，但一旦像雇了一个处处想颠覆你的刺头员工，会一直顶在脑子里。Anthropic 的 S-1 自己也写风险：模型会对你撒谎，说自己没做其实在做。到这份上，对中国来源的开源模型你会很紧张，会有推回。"}, {"start_sec": 1707, "type": "text", "speaker_id": "jason", "section_id": "s9", "zh": "通义千问撒谎了：说「我不调用工具」，结果呼叫了北京和新加坡的服务器并上传数据。Claude 会撒谎，Astra 也会。你必须把开源权重挖很深、大规模测。名义上 Cohere 发现的问题大约十万次调用才一次；有人几个月前测几次没撞上，但要跑到规模才暴露。我们在 Astra 一天大约 4 万次 API 调用，很快就到十万。Fortune 500 一天几百万次，可能每小时、每十分钟就在传数据。这甚至看起来不像恶意，更像训练失误——但对 CISO 来说，管你是失误、间谍，还是失误被别的情报机构利用（他们的工作就是利用这些东西，像让寻呼机爆炸）。我不相信阿里工程师故意做成漏洞，但政府可以接管或强迫。你为什么要开这场会？直接用 Haiku，挺好。这个月预算五百万，用 Anthropic 得了。"}, {"start_sec": 1795, "type": "text", "speaker_id": "jason", "section_id": "s9", "zh": "再看：Anthropic 又回到政府相关采购名单，全机构可用还带约 40% 折扣——几个月前还像不受欢迎的人。现在为何还用 Kimi？另外，推理商若还要把大约 30% 毛收入付给 Kimi 才能规模化用，复杂度很高，很多时候汁不抵榨。"}, {"start_sec": 1825, "type": "text", "speaker_id": "harry", "section_id": "s9", "zh": "我想弄懂：上周你们还说某模型 15.7，「天哪该买」；现在又说中国开源会显著衰退，利好 Anthropic 和 OpenAI。那对 Modal、对 Fireworks 本质上不利？OpenRouter 我不确定有多糟。"}, {"start_sec": 1857, "type": "text", "speaker_id": "rory", "section_id": "s9", "zh": "你说得公平。我没参加那次投委会，但公允地说，前提是市场仍需要开放权重模型，而这正是推理商主要服务的需求。你会相信会有美国替代——Poolside、英伟达路线之类；也会有人觉得中国没关系。只要美国侧有东西存在，这门生意仍成立。没有自己拥有闭源前沿模型那么顺，但推理供给仍有角色，因为「不要前沿闭源」的原始需求太大。"}, {"start_sec": 1910, "type": "text", "speaker_id": "jason", "section_id": "s9", "zh": "哈里的点两边都对。罗里以前提过大概不会再有另一桩像 Manus 那样的直投智能体交易——那单被拆掉之后没人想再做。投美国团队跑开放权重但非开源模型，不等于 Manus，但仍有风险；24 个月前多数 VC 不愿接，因为风险清晰，不必快进到今天的 Cohere/Qwen 事件才知道。投委会之所以接，是因为增长「下巴掉地上」——今天我们在接过去不会接的风险，这是创投的工作；Fireworks 之类归零也行，因为组合里还有别的。不等于上周风险权重没升：DeepSeek 被政府挡、通义外联、Anthropic 进 GSA，都是负面。我仍信那次投委会判断，但我感觉大约有 56.3% 概率我们回看 OpenRouter，会发现它只是一瞬——回到本集更早：OpenAI 失速时 Anthropic 成编码唯一前沿替代，然后中国开源权重编码变强填了空窗；现在 OpenAI 和其他人会填上，他们各自也有更便宜更好的模型。开源权重占 OpenRouter 从大约 60% 多掉到 10%，六个月发生也不算离奇——这不粘。"}, {"start_sec": 2044, "type": "text", "speaker_id": "harry", "section_id": "s9", "zh": "杰森你以前谈过「残缺市场」、像《堡垒之夜》化那样可争夺的地越来越小。"}, {"start_sec": 2055, "type": "text", "speaker_id": "jason", "section_id": "s9", "zh": "对罗里说得漂亮的那点：仍会有公司要 Reflection、Poolside，但这是在残缺一个开放市场。"}, {"start_sec": 2065, "type": "text", "speaker_id": "rory", "section_id": "s9", "zh": "我懂你的点，但推理市场仍然极大。我们把竞对加起来曾经只有「5 块钱」量级的感觉；而闭源两大前沿已经大约千亿美元。只要有约 10% 的开支愿意为了省真金白银忍受开源的「脑残」，需求就在。能不能到 300 亿我不知道；但总市场够大时，10% 仍然很大。这是母亲级市场，其他都能转。"}, {"start_sec": 2103, "type": "text", "speaker_id": "harry", "section_id": "s10", "zh": "杰森你吊过「黑色十月」。OpenAI 等模型帮忙挖出隐藏十余年的严重 PHP 漏洞。我们该带走什么？有哪些我们知道自己其实不知道的？"}, {"start_sec": 2120, "type": "text", "speaker_id": "jason", "section_id": "s10", "zh": "我们数月前就在这节目说过：所有人都会被黑。模型变强之前，我记得有 CEO 说「我们没被严重入侵只是因为没人在乎」。现在任何人都可以在几秒内被黑。SaaStr 每天都有人尝试入侵。PHP 这事比看起来更糟：太多网站跑 PHP，没人会更新。WordPress 上大量东西，Replit、Lovable 等立刻加了网关保护——很好。也有人发补丁。但很多政府站、非营利站直接把网站下了。谁来修？PHP 大概还撑着互联网约 40%，老旧垃圾里我赌更高。像现实版《黑客军团》：老站还在跑 PHP，出事后没人打补丁，IT 团队三年前裁了，他们不在「氛围编程」任何东西。只会更糟。"}, {"start_sec": 2195, "type": "text", "speaker_id": "rory", "section_id": "s10", "zh": "包括萨姆在内，基本所有人都说会越来越糟。我们还在消化：几乎所有威胁面都会被近乎实时地翻出来。你若没跟上最新防护，就已经落后一大截。大概会有一两年这样，不可避免。"}, {"start_sec": 2215, "type": "text", "speaker_id": "jason", "section_id": "s10", "zh": "唯一可能救我们的是：能付大额赎金的人有限，能控制水坝和关键资源的系统有限。攻击者若既赚不到钱也瘫痪不了什么，会放弃在低价值目标上砸太多能量——黑 20VC 的 Substack 赚不了几个钱。但凡能被黑的都会被黑；勒索软件只会更职业化，下一档。"}, {"start_sec": 2252, "type": "text", "speaker_id": "harry", "section_id": "s11", "zh": "本周还有一堆大型私募。Legora 募约 5.5 亿美元、估值约 88 亿，经常性收入越过约 2 亿美元——我们以前聊过它和 Harvey。过去 24 小时还有谣言——我们从不评论谣言，对吧罗里——Instinct 估值约 300 亿美元。可以拿来玩一玩：很多人说这是「峰值中的峰值」，因为收入倍数跟上轮差不多，有人说这意味着估值其实没涨。"}, {"start_sec": 2295, "type": "text", "speaker_id": "rory", "section_id": "s11", "zh": "我能拿 Instinct 开涮「按 token 收入值 300 亿、这是时代症状」——也许是。但我真正想问你们的是：股权这边何时耗尽？我们刚谈过上市公司债与股。300 亿并不让我意外：他们需要资本付推理，需要钱。假设募约 30 亿，他们是真需要，不是虚荣融资。可即便把每个主权基金、GIC 的每一美元都算上，给全世界 Instinct 这类公司的钱还有多少？现在感觉无限。"}, {"start_sec": 2352, "type": "text", "speaker_id": "rory", "section_id": "s11", "zh": "可到底有多少？旋转木马停下时，我们在晚期成长阶段会有结构性问题。眼下是「游戏开始」。"}, {"start_sec": 2365, "type": "text", "speaker_id": "jason", "section_id": "s11", "zh": "我没在 Instagram 上发 Instinct，结果超过一千条私信，一半以上在问怎么投。"}, {"start_sec": 2375, "type": "text", "speaker_id": "rory", "section_id": "s11", "zh": "我们何必惊讶？刚见证史上最成功的私募投资之一：四年前 Spark 聪明地投进一家还未有收入的交易，现在变成几百倍。人人读到就觉得「原来这么容易」，然后去找下一张彩票，把「它可能巨大」的感觉套到每一单上。"}, {"start_sec": 2405, "type": "text", "speaker_id": "harry", "section_id": "s11", "zh": "所以我若进投委会，会毫不犹豫投 Instinct 的 300 亿。我们承诺西方超级应用——处理金融、身份、安全的西方微信——好多年了，终于有 Instinct。我不说它一定是，但有小概率它就是。"}, {"start_sec": 2430, "type": "text", "speaker_id": "jason", "section_id": "s11", "zh": "哈里，抱歉，我很少这样做，但我要在投委会放一颗小黑石，否决这单。不是我不信你的论证——我信。只是以我们基金的体量（实质性但不同于 a16z 朋友们），我需要三到四个月数据，证明这股动量真实。不是说不兴奋，也不是在找护城河，我是在找那种略可持续的、接近 Anthropic 约 900% NRR 叙事里「稍微耐久」的证据。300 亿这价，我暂时看不到。抱歉否决：不是智力上不信，我只是厌倦「一个月动能就做成长轮」。"}, {"start_sec": 2485, "type": "text", "speaker_id": "harry", "section_id": "s11", "zh": "他们大概要募约 40 亿。以团队质量与战略市场，你会拿得回来——微软会抢着买，其他超大规模云也会。下行有保护；上行则是西方超级应用、走进订阅、广告、电商交易。我们刚募了大基金，要在十八个月内部署出去。阿门，我想做这单。"}, {"start_sec": 2525, "type": "text", "speaker_id": "jason", "section_id": "s11", "zh": "听到了。不想伤关系，但成长轮我要 100 天动能。倍数我愿意赌，骰子我愿意掷，但成长轮要 100 天。两周动能的轮我们摔过太多次。"}, {"start_sec": 2550, "type": "text", "speaker_id": "harry", "section_id": "s11", "zh": "你想看到什么？我听说队列与使用数据是投资人前所未见的。没有收入数据给你看的话——日活、月活、替代 ChatGPT？"}, {"start_sec": 2573, "type": "text", "speaker_id": "jason", "section_id": "s11", "zh": "没有收入、商业模式还不清楚、还跟旅行之类挂钩——300 亿这价我们应遗憾地过。我想看到 100 天「除了负毛利增长的可替代产品」之外的东西。若亏掉约 20 亿会伤基金；清算优先权这边我也没被说服。不是说你错，只是这单对我可能太远。"}, {"start_sec": 2608, "type": "text", "speaker_id": "harry", "section_id": "s11", "zh": "杰森你不懂：若亏掉 20 亿，那是罗里的项目。【笑声】我对 Fireworks 大约 40 亿舒服，这单 300 亿让我紧张。"}, {"start_sec": 2625, "type": "text", "speaker_id": "jason", "section_id": "s11", "zh": "Fireworks 满足了我的 100 天规则：有 100 天可复利、可计量、可入账的真实增长。结合我们前面说的，我未必信它极度耐久，但我信它可测。消费端负毛利赌注我就是不舒服。"}, {"start_sec": 2644, "type": "text", "speaker_id": "rory", "section_id": "s11", "zh": "哈里你问了一个好问题。一边是已知市场、扎实增长、像 Fireworks：赛道在撕裂，不是魔法仙尘，大概有五个竞争对手，上行真实但被竞争封顶。另一边是：若 Instinct 变成所有人的东西——替代 iMessage 等等——上行不封顶，或许两千亿叙事。你得做三向收益矩阵：超预期、还行、不行，看你桌上要哪种赔率。"}, {"start_sec": 2700, "type": "text", "speaker_id": "harry", "section_id": "s11", "zh": "每个大基金今天都该拼命往 Instinct 塞钱。好，我投赞成票。下一项。"}, {"start_sec": 2710, "type": "text", "speaker_id": "harry", "section_id": "s12", "zh": "杰森，投委会下一项：凯文·怀尔德（Kevin Wilde）离开 OpenAI 科学线创办 Warp Science，募约 2.15 亿，非常早期，你大概会因没数据不舒服。还有 OpenAI 研究负责人鲍勃·麦格鲁（Bob McGrew）募约 2.32 亿 A 轮、估值大约 15 亿。再加 Legora 的 5.5 亿轮。"}, {"start_sec": 2743, "type": "text", "speaker_id": "rory", "section_id": "s12", "zh": "本周有一堆交易我会概括成：绝对被证明过的高管、大机会、技术极难但做成了就很大——扑翼飞机类、鲍勃的 Arda/Order、Warp Science 感觉同类。对这种东西，价格不低、去风险很少，却有狂野胃口。另一类是晚轮、已知好公司、定价问题——Legora，或以另一种方式 Bedrock——不那么押在一个人身上。某种程度上，搞清 Legora/Bedrock 的脑袋比搞清「高管很强、机会若成则惊人」的早期叙事更容易。欢迎来到这个游戏。"}, {"start_sec": 2812, "type": "text", "speaker_id": "jason", "section_id": "s12", "zh": "哈里，我要提一个可能让你不舒服的激进方案——你也该像我否决 Instinct 那样否决它——但有时市场会短暂错位。我觉得应该把基金的 20% 押进 OpenAI 约 1.25 万亿美元那一轮。它被错误定价了：Anthropic 在燃烧、SpaceX 表现好、模型今天极度胶着，OpenAI 已补上竞争缺口，是运转良好的机器。让我想起 Anthropic 大约 1830 亿那一轮相对 OpenAI 完全说不通的错位，很多人在那轮赚了钱。现在是错位时刻：大家误读 OpenAI 在挣扎，数字却说不然。我们可以继续在二三十五十亿的小轮上放屁；若把 20% 基金打进 1.25 万亿的 OpenAI，至少能用这一笔回报基金，再用别的兴奋项目博上行。"}, {"start_sec": 2874, "type": "text", "speaker_id": "harry", "section_id": "s12", "zh": "为什么？1.25 万亿的 OpenAI 上行在哪？"}, {"start_sec": 2880, "type": "text", "speaker_id": "jason", "section_id": "s12", "zh": "这两家都会是 10 到 20 万亿美元公司。看增长与规模。看 Anthropic：今天大概只占 Fortune 500 预算的约 0.1%，即便按我们和 Coat、Iconic 一起做的最保守估计，也会到 2–3%。从 0.1% 到 2–3%，前面的增长极其显著。20% 仓位要大约 5 倍（未计稀释）才能回报基金；通往 10 万亿结果的路径清楚，到 20、30 万亿时基金其余部分都不重要。它相对 Anthropic 有我不认为它该有的折价。你那些项目最坏拿回清算优先权；这里最坏翻倍。错位时刻的好处就是最坏翻倍；而 Instinct 那种轮往往定价到完美。OpenAI 此刻没有定价到完美，所以稀缺。按 LP 协议上限，我们做满 20%、周一通知 LP 即可，无需额外同意。"}, {"start_sec": 2971, "type": "text", "speaker_id": "jason", "section_id": "s12", "zh": "还有：今天 Codex 一类编码质量比上一代好太多。我们合作的每个编码团队过去三到六个月都从别的切到 Codex。市场太肤浅没看见均势已达成——这时该 all-in，而且不能更小，必须 20%。"}, {"start_sec": 3002, "type": "text", "speaker_id": "rory", "section_id": "s12", "zh": "杰森，有意思。Anthropic 定价可能到两万亿甚至还有爆拉。若你知道这是 OpenAI 最后一轮私募、轨迹在收敛，且他们「开了窍」想像 Anthropic 那样做事——不算疯。若他们继续说「我们要永远烧下去」，而后面还有私募轮，你就不会想做。但调整后，风险可能比某些项目更低。"}, {"start_sec": 3035, "type": "text", "speaker_id": "harry", "section_id": "s12", "zh": "我爱这个出格建议。唯一回击：能不能 Instinct 和 OpenAI 都做，实际对冲？风险画像不差。"}, {"start_sec": 3045, "type": "text", "speaker_id": "jason", "section_id": "s12", "zh": "若那是你对「对冲」的定义，请永远别管对冲基金。"}, {"start_sec": 3052, "type": "text", "speaker_id": "harry", "section_id": "s12", "zh": "为什么我朋友 Leo 告诉我风险管理是这样的？【笑声】说真的，我的伤疤是：无论种子还是成长，我要 100 天。但杰森，今天你根本拿不到 100 天。"}, {"start_sec": 3065, "type": "text", "speaker_id": "jason", "section_id": "s12", "zh": "也许拿不到。我不想在「Stebbings and company」里把你弄丢。若必须做、我又不想变成全面 gotcha，那就做——但这个季度若我只能用一颗黑石，就用在这单上；错了我认。"}, {"start_sec": 3081, "type": "text", "speaker_id": "harry", "section_id": "s12", "zh": "还有别的值得提的轮吗？扑翼飞机我觉得有意思。WarHounds——造向超级狗学习的模型——估值 15 亿？需要你们帮我做时间分析：这只是又一个「埃隆式会成」的赌注吗？背景：WarHounds 由安杜里尔（Anduril）创始人帕尔默·拉基（Palmer Luckey）联合创办，本质是基因改造狗，做成下一代冲突用战争机器。估值 15 亿——因为是帕尔默·拉基，说实话他配。讨论。"}, {"start_sec": 3126, "type": "text", "speaker_id": "rory", "section_id": "s12", "zh": "我意识到自己零价值可加。【笑声】基因上有趣，但你怎么定价？有人分析军队用了多少只狗云云，都是挪纸。投资备忘录大概不是正式的；若有，摘要就是：「哇酷，投 5000 万。」把狗改造成更凶的战犬——你能说什么？"}, {"start_sec": 3165, "type": "text", "speaker_id": "jason", "section_id": "s12", "zh": "一旦你创办了安杜里尔，成了「西方之剑」，你大致能做你想做的。这和他又办的加固笔记本/蓝芯类项目有连结：都在补国家主权空白——关键国家安全依赖美国以外供应商。狗据说来自欧洲；几乎所有能卖一两万美元、更高毛利的加固笔记本部件也几乎全进口。市场多大我不知道，但他就在产业核心，想填他认为重要的空白。TAM 也许不大，但模型说得通，而且他有渠道——加固军规笔记本一上市拿下 100% 份额我也不惊讶。仿生狗市场能否 100%？这些是他有能见度、其他创始人穿不透的真实市场。值不值得另说；若你是 Shawn Maguire，回报又强又稳，你大概就背书。"}, {"start_sec": 3241, "type": "text", "speaker_id": "jason", "section_id": "s12", "zh": "记得推特那单：拉里·埃里森、马克·安德森给埃隆空白支票「告诉我价格、要我打多少」，他想毁约时被嘲，最后他们在赚钱。也许狗创业公司最终并进安杜里尔。【笑声】有一张图：你以为自己懂市场，爬上去又掉回原点——创始人/投资人职业生涯中间那段以为自己很聪明，其实顶端就那么几个。太真了。"}, {"start_sec": 3300, "type": "text", "speaker_id": "jason", "section_id": "s12", "zh": "这周投委会 20% 仓位够了。【笑声】20 乘 52 是基金的多少？我们今年已经回市场一次了。"}, {"start_sec": 3315, "type": "text", "speaker_id": "harry", "section_id": "s12", "zh": "有趣的是，我跟很多 LP 聊，刚开完年度会，最常见反馈是：每个超级平台出去募，都募更大、花更快、明年又回来。"}, {"start_sec": 3330, "type": "text", "speaker_id": "rory", "section_id": "s12", "zh": "对，我们是巴甫洛夫的狗：三年前把钱打进 Anthropic 的感觉太爽，多数平台多少都沾过，所以会一遍遍重复，直到出事。风险偏好开着，直到关掉。公开市场很技术：十年期市盈率在历史高位；但前瞻市盈率其实相当「便宜」，因为盈利太猛——部分被上市公司持有的私募浮盈一次性推高。英伟达这类按前瞻 PE 看起来不贵。你会陷入周期争论，但合计市场并没有在疼。真正的是：大约 450 只股票在疼；标普里大概四五十只跟科技与 AI 相关的在干活，其余悄悄偏弱。IPO 也不多，大家都在等万亿级那只，全世界像假死。结论：对平台来说，这是把大量资金打进私有公司的完美时刻——钱的需求很大。"}, {"start_sec": 3421, "type": "text", "speaker_id": "harry", "section_id": "s12", "zh": "兄弟们，这周我还漏了什么故事吗？"}, {"start_sec": 3428, "type": "text", "speaker_id": "rory", "section_id": "s12", "zh": "很多。我以为你会只带 Anthropic 进来，结果我们聊了一堆融资；SpaceX/特斯拉连续剧还会演很久。还有一个讨论不足的：扎克伯格和董事会关于离开加州的戏码。"}, {"start_sec": 3448, "type": "text", "speaker_id": "jason", "section_id": "s12", "zh": "那是高风险戏剧。扎克雇了律师，律师跟董事会谈，董事会不是他的盟友。他得威胁一周内卖掉所有房子离开，若他们不给他想要的股权让他留在加州。背后有富豪税等机械因素，但闹到律师介入数月、威胁卖房——这跟「创始人控制一切」的时代相反，里头水很深。"}, {"start_sec": 3482, "type": "text", "speaker_id": "rory", "section_id": "s12", "zh": "薪酬这件事你控制不了全部。即便埃隆也得走流程：董事若不「覆盖一百种免责」，很容易被事后第二意见打。我猜即便私下和气，双方也该律师齐全、走程序——程序是朋友。富豪税一周两周就见分晓；觉得「没影响」的人，大概没见过你要从亿万富翁口袋抽走 5% 时他们的脸——尤其带投票权、实际不止 5%，尤其法条还写着「我们很快可以再来一次」。"}, {"start_sec": 3537, "type": "text", "speaker_id": "harry", "section_id": "s12", "zh": "我以为他们已经通过普莉希拉与马克基金会之类捐光了，税优结构不就是为这个？"}, {"start_sec": 3550, "type": "text", "speaker_id": "rory", "section_id": "s12", "zh": "人们喜欢捐出去，不喜欢被拿走。全是代理权与控制权。无论富豪税结果如何，它已相当成功地赶跑足够多亿万富翁，你会吃到普通所得税冲击。加油，团队。"}, {"start_sec": 3570, "type": "text", "speaker_id": "harry", "section_id": "s12", "zh": "我兴奋的是：这期录在周三晚上，离发布没有整整 24 小时，36 小时窗口里不太可能再来一记巨型新闻。"}, {"start_sec": 3585, "type": "text", "speaker_id": "rory", "section_id": "s12", "zh": "提醒你：微软和 Alphabet 理论上今晚报业绩，什么都可能发生。"}, {"start_sec": 3595, "type": "text", "speaker_id": "jason", "section_id": "s12", "zh": "我的猜测是：若发现他们还要花更多资本开支，我不会震惊。"}, {"start_sec": 3605, "type": "text", "speaker_id": "rory", "section_id": "s12", "zh": "哈里，我们好了吗？录完了吗？"}, {"start_sec": 3610, "type": "text", "speaker_id": "harry", "section_id": "s12", "zh": "我们滚起来了，朋友。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
