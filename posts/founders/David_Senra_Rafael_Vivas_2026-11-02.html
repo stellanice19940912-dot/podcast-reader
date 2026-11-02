@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>高中辍学到亿万富翁：拉斐尔·维瓦斯的偏执驱动力</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="senra">大卫·森拉（David Senra）</option><option value="rafael">拉斐尔·维瓦斯（Rafael Vivas）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">David Senra</span><span class="pill">2026-11-01</span></div>
+<h1>高中辍学到亿万富翁：拉斐尔·维瓦斯的偏执驱动力</h1>
+<p class="sub">嘉宾：Rafael Vivas · 约 67 分钟（4016 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=IdvsD61Rmmk" target="_blank" rel="noopener">https://www.youtube.com/watch?v=IdvsD61Rmmk</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>David Senra</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-01</dd></div><div class="meta-row"><dt>时长</dt><dd>约 67 分钟（4016 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；普通 yt-dlp；官方 en 轨遇 429 未写入）；caption_source=yt-dlp-auto；中文为全文翻译并按话题分段；赞助口播已标灰（Ramp、Deel、AppLovin）</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>IdvsD61Rmmk</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>大卫·森拉访谈 AppLovin 联合创始人拉斐尔·维瓦斯：从高中辍学、被赶出家门到与亚当·福雷里共建移动广告与游戏帝国，拆解绩效文化、亲力亲为、回购与「折磨到伟大」。</p>
+<h3>核心要点</h3><ul><li>16 岁离家与绩效营销上行空间判断</li><li>Appenda / AppLovin 缘起与「半个公司」谈判</li><li>办公室上下铺、零收入起步与被拒融资</li><li>绩效文化、死缠烂打式创造客户价值</li><li>Lion Studios、黑曼巴两年与回归</li><li>传奇回购、精简编制与细节癖来源</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：关心广告科技/游戏分发与极端执行力创始人传记的听众；可跳过：只要短结论、不爱长访谈者（约67分钟）。</p>
+<h3>适合人群</h3><p>创业 / 广告科技 / Founders 风格传记</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场：被赶出家门的高中辍学生</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">大卫·森拉（David Senra）点题：拉斐尔·维瓦斯（Rafael Vivas）是他听过最有趣的创业故事之一——高中辍学、被赶出家、睡办公室，如今身价数十亿。拉斐尔自述约 16 岁因全天候做绩效营销被父亲要求搬出；哥哥以「招他当实习生、帮忙打扫」的交易促成第一次离家。对比老师年薪约 2.5 万美元与广告人日利润 2–3 万美元，他认定学校上行空间远不如绩效营销。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">实习底层活、游戏与「房间里最有价值的人」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">暑期给哥哥实习时他先抗拒（自己已月入约一千），后来沦为「水下打杂」——条款隐私政策等别人不愿干的活，却借此学到行业。他不擅传统运动，却沉迷电子游戏的「唯绩效」逻辑，并迁移到商业：像部落只问谁带回猎物一样，要做房间里最有价值的人，而非分析师→经理的线性无聊路径。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">结识亚当·福雷里与自发建广告平台</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">森拉强调拉斐尔与亚当·福雷里（Adam Foroughi / 口播常作 Adam Ferrari）少年即共事。拉斐尔从建站、做广告到跑投放，在排行榜上紧跟亚当；17 岁自学 Photoshop 与 MySpace 投放并主动联品牌。因原平台视其为竞争并封禁，一怒之下拿到工程师资源开做移动广告平台 Appenda；亚当彼时已离开哥哥公司、想做消费产品，AppLovin 的缘起与此交错。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">AIM 互怼、竞争告白与「半个公司」谈判</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">拉斐尔做亚当的客户经理，在 AIM 上互开玩笑甚至「教你做真生意」——对方年长十余岁。亚当看见这名「不那么聪明但 24/7」的少年在蓝海做出广告平台后，决定自建移动广告平台来竞争；拉斐尔因对方脸上的得意笑把他推进房间对质。亚当反邀：你该为我工作，你懂卖命与移动游戏圈，却不懂建真公司。面试工程师后拉斐尔开口要一半股权；用「越南战争」比喻——滑稽的 AppLovin 名字、无 VC、靠一名五英尺八的销售小孩去硬刚，只能靠极端投入。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">宜家上下铺与办公室起居</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">亚当与工程师 Furqan 去宜家搭上下铺，让拉斐尔与另一名工程师住进办公室；后者见床立刻拒绝，拉斐尔则说「金窝银窝不如办公室」。随后切入赞助口播（Ramp / Deel 另标）。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">零收入动物屋、被拒的早期融资与算法赌注</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">搬进办公室时业务仍零收入，像「动物屋」：亚当带工程师试不同应用。他熟悉 Facebook 广告网与 PC→移动迁移。早期有人劝买 25% 股权却因「游戏+广告是烂生意」被拒；面对 Benchmark、红杉等眼中已成熟的市场，非传统背景让融资屡屡碰壁。团队用规则与回归学习而非顶尖 ML，向发行商保证「比别处赚更多」甚至写进合同，以两倍产出抢份额。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">公牛队文化：绩效基石与亲力亲为</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">森拉把 AppLovin 内比作《最后的舞蹈》里的公牛。文化差异：面试大厂广告人会问「你愿不愿意自己建活动、传素材」——很多人只愿「提供服务」。公司以绩效为基石，客户爱恨交加；不像「客户永远正确」，若目标是可盈利获客，数据里有对错，必须往对的推。领导要下沉（乔丹类比）；反对堆人不重要的活。拉斐尔主责拉来尽可能多广告主；细节文化是「小事做不对，大事也别指望」。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">死缠烂打式创造价值：纳迪尔·汗的故事</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">森拉问「反复打电话真的有用吗」。拉斐尔区分：要坚持，但每次都给客户新价值。举例纳迪尔·汗（Nadeer Khan）——持续指出优化、版位与市场漏洞，对方公司甚至有内部玩笑「真希望我们有个 Rafael」；对方未必立刻认你想法好，只是忙，六次好主意后才会接电话。内部独白常是「这很糟」然后逐项修；股价单日跌约 20% 时亚当仍谈笑风生——相对曾跌超 90%（约至 40 亿美元量级市值记忆），20% 或腰斩像「NFL 日常」，只要帮客户增长、股价会自己回来。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">为何还在干：比自己更大的载体</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">目标不是造机器人，而是打造能在有生之年之后仍帮企业增长的业务。对比其他联合创始人赚了钱盖房、天使投资、泡海滩，拉斐尔需要承载创造力的载体：帮助企业成长、把数十亿乃至更大规模价值送回经济。这解释他仍全情投入的原因。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">游戏业务、Cheetah 之怒与 Lion Studios</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">先做广告平台再做游戏：亚洲发行商不断撕毁协议、极限压榨，加上 Netflix 式「平台+自有内容」垂直逻辑，促使自建游戏。对 Cheetah 的愤怒让他命名 Lion Studios——「狮子是唯一能杀死猎豹的动物」；两年内从 0 做到逾 2.5 亿美元量级收入，与全球（尤其欧亚）能卷过美国工作室的开发者合作。案例 Game 5 Mobile 的《Happy Glass》近 1 亿美元收入：夫妻加弟弟同住同办公、几乎是最后一搏，这种 belunderdog 故事驱使他更拼。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">黑曼巴两年、休假、迷茫与回归</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">自我洗脑听励志音频，像 50 Cent「要么发财要么拼命」；约 26–28 岁几乎只有工作，把 20+ 款游戏推到第一、累积超 30 亿下载后感到自己不再 mission-critical，想当父亲而休假——却三个月就躁动又做产品。生日那天告诉亚当要抽身，对方不煽情，公司仍试图用各种方案挽留；他说与钱无关。退出后创业者若找不到下件事会极痛苦；业余产品缺使命感，约会节目类应用让他想「跳窗」。关心亚当与团队成败的驱动力消失后，他在公司仍增长但有明显缺陷时意识到「这是我的公司」而回归。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s12">
+<div class="sum-top"><span class="sum-num">12</span><span class="sum-title">传奇回购、节俭与极致精简编制</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">股价连跌约 200 天级、公开时约 28 跌到约 3.8，但收入逆向向上；团队用约 10 亿现金流回购，后来估约 50 亿美元量级风报。拉斐尔兴趣开销极低（约每月 15 美元级爱好），生活方式从不 creeping，故不慌现金流。对员工数近乎执念：同样收入用一半人是创业能力的展示；亚马逊式节俭精神叠加绩效文化——少层级、人人是执行者，CTO 仍写代码并管约百人工程。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s13">
+<div class="sum-top"><span class="sum-num">13</span><span class="sum-title">折磨到伟大：黄仁勋、阿加西与品牌叙事</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">招聘不迷信学历，找年轻、有天赋、饥饿的人并「塞满产能」；早期只能就地取材，「折磨他们成就伟大」，类似《英伟达之道》里黄仁勋（Jensen Huang）不愿轻易放弃人。亚当至今仍冲突式推动，自上而下渗透。安德烈·阿加西（Andre Agassi）传记句：不再需要父亲折磨自己，自己已会折磨自己。品牌侧要从「过于友好」转向匹配内部无情文化；未来叙事聚焦所帮扶创始人/品牌从小到大的旅程，以及细节癖如何叠加出差异（对比 Lucas Ferrari / Long Lake 等）。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s14">
+<div class="sum-top"><span class="sum-num">14</span><span class="sum-title">父亲、哥伦比亚移民与对细节的执念来源</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">父亲曾希望他当医生；家庭从哥伦比亚伊巴格（Ibagué）到西棕榈滩，严厉且资源少。森拉成长于「好社区里最穷的孩子」——整学年五条裤五件衫。拉斐尔曾富过又穷过、绝不再搬回父母家；高中辍学逼他自辟道路。细节癖部分来自合作者马克（Mark）：审合同逐条批注、曾几乎独力处理 200+ 份协议且几乎不被坑；奶奶患癌住院期间仍抠一笔与洛杉矶相关的交易到「只偏 1–2%」也要争——「你想当乔丹还是想当普通人」。金句：「你做一件事的方式，就是你做所有事的方式。」</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s15">
+<div class="sum-top"><span class="sum-num">15</span><span class="sum-title">最好的建议与片尾</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">马克式细节建议之上，拉斐尔认为生涯最佳忠告是：有人说不必那么拼时，对方回「挺住、拼到底；若痛，是因为你在成长」。森拉提醒订阅并收听《Founders》——近十年读 400+ 本伟大企业家传记、寻找可迁移想法。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">大卫·森拉（David Senra）<em>主持</em></span><span class="spk-1">拉斐尔·维瓦斯（Rafael Vivas）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场：被赶出家门的高中辍学生</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>你有一个非常有趣的故事，是我听过最有意思的创业故事之一：高中辍学、被赶出家门、睡在办公室，如今已是数十亿富翁。先从——你是怎么把自己弄到被赶出家的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>一进这行我就不再上课、逃学、全天候干活。父亲说：你觉得自己在网上赚大钱很了不起，那就搬出去。差不多一天后，我就真的搬了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>“但是我给你一个很棒的交易。我会雇你的儿子在这家公司做实习生，我会帮你打扫房子。”就差不多是这样。嗯，所以那大概可以说是我第一次尝试搬出家门。那事发生的时候你多少岁？我大约16岁。好，但为什么要辍学？为什么你会……很多人会辍掉大学，但你是辍掉高中。为什么会这样？所以退一步说，我大约14岁的时候开始在网上工作，做绩效媒体购买。那个时候的经历让我大开眼界。当时我在为我哥哥工作，</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>那些人靠推不同产品日利润两三万美元；我老师一年才约 2.5 万。很快就明白：把力气砸进绩效营销，上行空间远高于学校。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>实习底层活、游戏与「房间里最有价值的人」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>一小会儿。有一次，我哥哥来拜访我爸爸，他告诉我爸爸他在做绩效营销，而我爸爸有个绝妙的主意，让我去给他实习。我去给他实习了一个夏天，一开始我有些反对，因为我那时每个月可以赚一千美元，在线卖东西和做游戏服务器，对于当时那个14岁的孩子来说，那是很多钱。嗯。在中学的时候。所以，最终的结果是他说服我去和他一起工作。我开始在那里工作，并开始做</p>
+<p>比如，我会说，我就像是水下的那个小角色。我是那种，我就是枯燥的服务条款和隐私政策之类的人，我就是把这些加到网站上的家伙。那些别人不想做的工作，基本上都被迫交给了我。但通过这些，我学到了很多关于这个行业的知识。所以，我了解了，比如说，人们对什么类型的产品感兴趣，什么样的广告能吸引人们的注意力，网上赚钱的一般方式。因此，这算是我进入这个领域的一个重要尝试。当时，你基本上会对在线广告着迷，这对于一个十几岁的青少年来说，是一种有趣的执着。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>年轻的青少年会拥有。但是你另一种痴迷是电子游戏，对吗？是的。你会在这两种活动之间画出一些平行点吗？我从来不擅长运动。我小时候踢过足球，玩过棒球，但我不擅长其中的任何一种。对我来说，我喜欢电子游戏的原因是它完全基于能力。如果你在玩多人游戏或单人游戏，最终目标就是去超越你正在竞争的对手。这正是我喜欢的东西。所以，把它带入商业领域，对我来说，我脑海里一直有这个类比，当他们派出勇士时，你</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>在过去，为部落去获取食物时，那些人在意的唯一事情就是谁带回了食物？是谁猎杀了动物？对于我来说，在商业中，我总是专注于成为房间里最有价值的人。尽我所能为每个人创造最大的价值。多说一点这个。我认为头衔和资历，我认为在商业中，就像在体育和电子游戏中一样，关键是提供尽可能多的价值。这是我早期就意识到的一件事，就是如果你沿着相同的路线走下去……</p>
+<p>其他人可能会觉得，好吧，我要去创业，我会当几年分析师，然后我会尝试升到经理，再到高级经理等等，这是一个线性且非常无聊的路径，实际上你会限制自己个人成长的能力，以及为公司创造价值的能力。而如果你采取另一种方法，考虑对业务最重要的事情，以及在我的技能范围内，我能做些什么来提供尽可能多的价值？如果你抱着这种心态，虽然路径可能不是线性的，但你会很快接触到一些你原本不会遇到的机会。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>结识亚当·福雷里与自发建广告平台</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>否则。所以这就是我一直以来采取的方法。这是你身上最令人着迷的特点之一。当我告诉别人你和亚当·福雷里（Adam Foroughi）时，他们会觉得很有意思，你小时候就有这样的特质。你从17岁、17岁还是19岁开始就和亚当一起工作？我哥哥和亚当一起工作过，所以我从14岁就知道亚当的存在。我15岁遇见他。当我告诉你我当水童时，他来到办公室，我哥哥说，去给亚当拿水。但我之前就知道他是谁，因为我哥哥的绩效营销公司里有一个排行榜，而亚当排在最上面。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>当时排行榜上，我是紧随他之后的那个人。我最初开始建立网站，然后开始制作广告，再到建立活动。所以我已经知道他是谁了。就是这样我才和亚当建立了联系。然后从那时起，一开始我们其实并没有太多交流。我想大概是在我17、18岁的时候，我们才更亲近。那是因为，我的道路非常不线性。我不会等待机会来找我，比如说，当我开始建立网站的时候，那只是其中一件事，但我对广告是如何制作的感到好奇。所以，我就……</p>
+<p>开始学习使用 Photoshop 制作广告。当时有人教我如何发布一个就像 MySpace 的广告活动，我照做了。然后，从那时起，我想要更多的流量。我就开始自己主动联系品牌，没有人允许我这么做，我只是自己开始做。快进到后来，我想，‘嘿，我们自己创建了一个广告平台，为什么还要从其他广告平台购买流量，而我们可以自己联系发布商，而且我们有需求。’等等等等。所以，当你有了这个想法——我们要自己创建广告平台的时候，你多大？那时我大约17岁。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>好的。对于一个17岁的人来说，这是一个非常不寻常的想法。是的，我……我开始这个广告平台的原因是，当时我们正在使用的那个广告平台，他们有自己的广告和优惠。而且他们把我们从平台上赶了出去，因为我们有竞争性。那天晚上我气得不行，我记得我回家时几乎哭了，然后我想，‘我们要干掉这些人。’然后我找我哥哥说，‘嘿，我要离开你的公司去创办自己的广告平台。我准备和这家公司正面竞争。’他当时笑得特别厉害，然后说，‘你不可能……’</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>「随便你。我给你几个工程师，去做你想做的。」那就是 Appenda——移动广告平台——的缘起。那时亚当已离开我哥的公司，做完广告、想转消费产品；AppLovin 的开头其实也缠在这段时间。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>AIM 互怼、竞争告白与「半个公司」谈判</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>在那段时间，亚当和我经常在AIM上聊天，因为我实际上是他的客户经理。但我经常捉弄他，我会说：“嘿，我会教你很多关于如何在网上赚钱的方式。我会教你如何经营一个真正的生意。”这也是另一件疯狂的事，因为他比你大大约10或12岁，比我大12岁，聪明多了。这个人简直是行走的计算器。但无知即福，而我肩上有个负担，对吧？我觉得我可以挑战世界。当我们花更多时间聊天时，最终发生的事是，非常聪明的，亚当说：“好吧。”</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>这个孩子全天候工作，但智商不是很高，他在那种广阔的蓝海市场上建立了这个广告平台，并且取得了成功。“我要去建立一个移动广告平台。” 所以他会和你竞争。是的。这里就是他把你拉进房间的时候，他会说：“别！” 我等等，他来过节目。让我在讲这个之前先倒回一点，因为有些人在听，但还没看过这一集。在亚当·法鲁吉亚的那一集中，当人们说，我，我觉得这是我最自豪的几期之一，因为我觉得我当时给它起的标题是《你从未听说过的最佳企业家》。而且，当时的事实就是…</p>
+<p>比如说，“随便吧。苹果是一家市值1500亿美元的公司。他们今年将印制60亿美元的现金，而这都是由大约400名员工完成的。”我为那一集感到自豪的原因是，它影响了之后几乎接下来的五六位来我们节目做客的嘉宾，这种情况一次又一次地发生。我们做了一期节目，这一集将在十二月与Mr. Beast播出，对吧？我和Mr. Beast认识有一段时间了，他会听我的另一档播客《Founders（Founders）》。他每年都会给我发他的Spotify Wrapped榜单，上面总是《Founders》名列前茅。我们一停止录音，他就向前倾身说，</p>
+<p>“嘿，你能把我介绍给亚当吗？”米奇·马尔卡，整夜不停地，就像我一样，一遍又一遍地问：“这个人是谁，你能介绍我认识他吗？”他是那种非常不同寻常、毫无保留、非常硬核的人。所以这就是我们在谈论的人。这就是你们合作了半辈子的人。是的。现在这个孩子通过这个广告网络赚了这么多钱。他不是……我记得他讲过这个故事。他把你叫到房间里说，“别生气，但我要和你竞争。”是的，很有趣。他在办公室里，他就这样……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>他脸上那种吃屎般的笑容。就像是有人刚吃了你的食物那种笑。 <span class="tag">【笑声】</span> 实际上并不是他把我拉进来的。我是把他推进一个房间，因为我看到他脸上的这个笑容。我当时想，“到底怎么回事，你为什么这么高兴？你笑什么啊？” 然后他就说，“嘿，不要生气，我在建立一个竞争对手的广告平台。” 当时我并不在意，因为就像你之前提到的，我是一个超级玩家。我喜欢玩电子游戏。我本来打算去加入我朋友在Y Combinator的公司，他们开发手机游戏。然后亚当破解了我，他说，“哇，哇，哇，等等。什么情况？”</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>你的意思是你打算去加入别人公司的团队吗？你应该来给我工作。你知道怎么拼命工作。你认识这个移动游戏领域的每一个人，但你对如何建立一个真正的业务一无所知。出于对亚当的尊重，尽管我经常在网上和他聊很多，我总是知道他是一个非常聪明的人。我决定去帕洛阿尔托见见其余的团队。这是你搬进办公室的时候吗？是的。所以，很多人会说，“哦，我每天24小时在这里，或者说，我实行996工作制。”就像Raff搬进办公室一样，这也体现了你们独特的企业文化。亚当打造了基础设施。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>他做了。他确实做了。他和另一个工程师一起。所以，详细说说吧。事情是这样的。面试非常顺利。我当时想，‘这些是我这一生中见过的最聪明的人。’这是显而易见的事。我肯定要加入。我们进行谈判。我说，‘我想要公司的一半。’他说，‘哦，你这个职位的人通常只拿到百分之四分之一。’<span class="tag">【笑声】</span>我拿到的比那个多一点。不过，很明显，我没拿到公司的一半。所以，我就说，‘好吧，但我有一个条件。’他问，‘是什么？’我说，‘我必须住在办公室里。’</p>
+<p>他说「可以，但为什么？」我说：把这当作越南战争——我们有个滑稽名字叫 AppLovin，没有 VC，要派一个五英尺八、偏圆的小孩去跟游戏开发者和广告主死磕。想赢，只能极端投入。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>宜家上下铺与办公室起居</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>他和当时的 Furqan 去宜家，给我和另一名我拉来的工程师搭办公室上下铺。那名工程师一见床就说「休想住这儿」；我看见却觉得「金窝银窝，办公室是我家，开工。」</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Ramp]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Ramp]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Ramp]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Deel]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Deel]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Deel]</span></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>搬进办公室时业务还是零收入，像动物屋：亚当带一群工程师试不同应用，想找产品感觉。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>零收入动物屋、被拒的早期融资与算法赌注</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>搬进办公室时业务还是零收入，像动物屋：亚当带一群工程师试不同应用，想找产品感觉。他做过 Facebook 上的广告网络，也熟 PC 向移动的流量迁移——打这个空白市场几乎是「天选」。</p>
+<p>他说，你可以购买公司 25% 的股份，你应该支持这个。你们进入得非常早，正好是从桌面向移动过渡的时候。是的。他被拒绝了，因为他们认为他们是做游戏和广告的，这些都是糟糕的生意。他们不理解这个。然后几年后，他们去资助了你们的许多其他竞争对手。他说，你们把把那些竞争对手赶出市场作为公司的原则。所以带我们回到这里。实际上在这个领域还有很多其他公司，它们资金充足，并且它们得到了……的支持。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>当时顶级的风险投资公司，比如 Benchmark、红杉等。其中一些已经非常成功了。当时市场感觉实际上已经非常成熟。就像是，当时有这么一个孩子在做销售，加上一些人在帕洛阿尔托，怎么可能成功对抗这些已经占据大部分市场的巨头呢。而且当 Adam 去尝试融资时，我们已经盈利了。有趣的是，他几乎是在把一个绝佳的交易摆在他们面前。收入增长势头强劲，公司每个月都在疯狂增长，非常盈利，利润率世界一流。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>对这个领域的其他所有人来说，他仍然被拒绝了。你认为这是为什么呢？我认为归根结底是因为我们的故事和背景非常非传统。很多人，以前筹过钱，比如他们做这些移动游戏广告平台，他们是游戏发行商，或者他们是这些大公司的一部分，所以在纸面上，他们曾在 Facebook 工作，或者在 Google 工作，他们在 AdMob 团队，这是当时最大的广告平台之一。他们为所有这些企业工作。所以，从纸面上看，他们非常出色。而我们则不同，我们是表现型营销人员，我们一直做套利。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>企业。我们绝不会运营一个已经走向盈利的广告网络。所以，我想这大概就是原因。你们是一个小团队，没有资金，完全自力更生，要与那些已经建立起来的、拥有更多资金和人手的竞争对手竞争。那你们是如何开始建立公司的？你们是如何开始赢的？Adam比业内任何人都更理解技术是最重要的部分。其他人都专注于销售，对吧？所以，他们有成百上千的广告客户，还有这些优质的出版商，但是他们的</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>算法 这些算法中的很多都是人们在后台手动优化的。那时我们没有像样的最先进机器学习模型。那时并不存在这样的东西。但我们有一些规则，并且我们围绕着决定提供什么进行回归学习。而这本身让我们能够超越竞争对手，尽管我们的需求没有那么大，尽管那时我们的发布商质量不如其他一些广告平台。因此，当我们真正去看我们的货币化情况时，比如说我们与另一个广告平台直接竞争，很多时候我们的货币化表现是，</p>
+<p>就是别人收入的两倍。所以，当我走进一个房间或者联系出版社时，谈话的内容就是，我向你保证比你在别处赚得多。这是显而易见的，对吧？很多人认为这好得难以置信，实际上。所以，他们让我们把它写下来。我们对此没有问题。我真的要说，是亚当的愿景——全力投入技术——让我们得以成功。好吧，我们在开始录音前聊过，你说，你觉得我们的品牌太软，它没有体现出我们公司内部那种疯狂的绩效文化。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>公牛队文化：绩效基石与亲力亲为</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>我想跳到故事后段。我和你、和亚当都待过很长时间——内部有点像《最后的舞蹈》里乔丹领着的公牛。AppLovin 里是什么样？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>被看作只是提供服务的人。所以我给你一个例子，比如我们面试过很多来自一些大型广告平台的人，他们尝试来AppLovin找工作。我其中一个简单会问他们的问题是，‘嘿，你会设置一个广告活动吗？你会上传广告吗？你会想创意点子吗？’很多时候他们会说，‘哇，我没做过这些啊，为什么要做这些？’而对我们来说，我们会做所有这些事情。这也是我们运营卓越的一部分，我们觉得所有这些小事情加起来，都能为我们的广告主带来惊人的回报。所以，</p>
+<p>我会说，这是一个最大的不同点。我们非常专注于绩效。这实际上是我们公司的基石。所以，有些人可能会对我们说，客户因此爱恨交加。有些客户会说，“嗯，我会说很多客户会说，我们非常有能力，我们很棒，我们为他们提供了很好的成果。但是，他们会说，你们有点傲慢，而且不总是最友善的人。”不过，这并不是说，我们在试图傲慢，而是我们最终只是想为他们带来最佳回报。因此，我们对他们可以做得更好的地方有很强的意见，并且总是</p>
+<p>推动他们。相比其他公司，他们会说，“无论客户想要什么，客户永远是对的。”就像，如果我们的目标是为你带来更多利润的客户，那么你可以查看数据，有正确和错误的决策。对我们来说，我们总是在努力推动正确的决策。那么，谈谈你对反委派观点的更多看法。是的，就像我们在节目之前谈过的，很多领导者，比如，你在播客中也会听到，“雇人，委派，委派。”这并不是我们在 11 公司所遵循的方式。</p>
+<p>原因有点像，要成为一个伟大的领导者，你必须深入基层。如果你用体育类比来思考，明白吗？就像，为什么迈克尔·乔丹总是拿到球？或者为什么他被认为是球队的队长？不是因为他是那里的最年长的人，或者是最资深的。而是因为当他们把球交给他时，他能投中。这对我们来说意味着，如果你深入基层，你就能理解客户想要什么，理解客户需要什么才能成功，并且理解什么是重要的。就像，当你委派任务和雇佣这些人时，</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>你把所有注意力都放在很多对你的业务不重要的事情上。但你已经雇佣了这些人，所以他们需要做点什么，对吧？所以，你就让他们处理这些实际上对业务没有推动作用的任务。你看过我做的Todd Graves采访吗？我看过。他说他讨厌委派。他像在说：“这个词到底是什么意思？”他脸上有种厌恶的表情。他完全反对——有很多很棒的创始人都是有点反对委派的。是的，我也认为，这正是让游戏有趣的地方，对吧？就像回到视频游戏一样，它是……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>比如，想象一下你玩完所有这些关卡，然后你遇到了一个老板，比如最终的老板。你会把控制权交给你的朋友吗？不会的。你会自己去做。那是一个新的挑战，对吧？这就是为什么这份工作对我个人来说一直很令人兴奋的原因。你大部分时间都在做什么？因为亚当告诉我，他认为你是世界上最优秀的交易员之一。我专注于做那些对业务来说可能产生最大杠杆效应的交易，对吗？所以我们团队很小。幸运的是，我们是一家非常有盈利且增长迅速的公司。所以我们努力进行</p>
+<p>无论是公司及其广告商，还是与其他可以为我们带来数千广告商的公司进行合作。这是我的目标——尽可能多地为 AppLovin 带来客户，以便我们能够建立最好的业务，并成为世界上最大的广告平台之一。然后你还要尝试扩展现有客户。Adam 在这个播客中给我们讲了一个很棒的故事，他就像说，“是的，我们就像在追捕一只动物。”他还说，“我经常接到客户的电话。”他说，“这个家伙怎么回事？这个家伙是一个数十亿身家的富豪，还烦我每天多花 5000 美元。”<span class="tag">【笑声】</span></p>
+<p>他就像说，“这对你来说不重要。” 然后他说，“这对我们很重要。一切都很重要。” 重要，对吧？ 就像如果你连小事都做不好，你怎么能指望自己把大事做好呢？ 而且，我以前在网上也说过，我们才刚刚开始。就像亚当谈到过这一点。我们广告支出的速度达到了200亿美元。 当你看会议室里那两大巨头，他们的广告支出总和在平台上达到五千亿美元，对吧？ 或者说在他们的广告平台上。 所以我们有很大的成长空间。 当你能够深入细节，确保...</p>
+<p>你正在为你的广告商取得成功。顺便说一下，很多时候我们确实为广告商提供了更好的效果，但他们一开始可能不会增加预算，因为他们的注意力不在我们身上或者他们关注其他事情。重要的是你要进入其中，让他们关心你的业务，对吧？其实我可以说这是我的一个超能力，当我联系这些客户时，他们会想，‘这个亿万富翁为什么要为了额外的5000美元联系我？’这就显示出我们对你的业务非常认真。我们真的很关心与你合作。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>死缠烂打式创造价值：纳迪尔·汗的故事</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>对我们来说，你不仅仅是电子表格上的一个数字。这只是坚持不懈的问题吗？就像我刚读了Ari Emanuel的新书，他整个事情的核心是他会来节目，我想问他其中一个问题就是，反复给人打电话真的有用吗？因为人们对我也这样做。他们会说，‘嘿，我想和你联系。’然后他们说，‘我就每天给你发邮件，直到你回复为止。’我当时的想法是，‘你会被立刻拉黑的，这对我没用。’如果你不停地给人发邮件，只发那些没用的东西，他们就会忽略你。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>正如你所说，你会屏蔽他们。我认为重要的是，你很坚持，但你总是在想办法为客户提供价值，对吧？所以，给我举个例子吧。这是一个很有趣的故事。我们之后要去迈阿密。那里有一个叫纳迪尔·汗的人。他在迈阿密经营一家应用程序业务，把它卖了几亿美元。我花了两年时间才联系上他。而每次我联系他的时候，都是关于他们如何能增加收入的方法，对吧？无论是像“嘿，这个级别可以……”</p>
+<p>优化，或者你应该在这里展示广告，或者说，嘿，在这个市场上，你就像是在掉链子一样。” 他们公司内部有一个玩笑，那就是，“我们希望我们团队里有一个拉斐尔·维瓦斯。” 因为这个人总是事事关心，努力帮助我们变得更好。最终，他回复了我。他说，“你是我这辈子遇到的最执着的人之一。” 之后，我们开始做很多生意，并帮助他们显著成长。好了，所以这并不是说，“嘿，我要不停地打扰你，打电话给你，发邮件给你，因为我想要什么东西。”</p>
+<p>从你那里。我会继续与你保持联系并为你提供价值，你会在我告诉你六个好主意之后才意识到，嘿，也许我应该接这个电话。对吧？而且，很多时候，这些人并不是觉得你的想法不好。只是他们有其他事情要处理，对吧？可能不是合适的时间，他们可能没有合适的人选。像你说的那样，持续保持联系很重要。如果你在提供价值，这些人最终会想和你合作。你认为 AppLovin 文化的其他方面有哪些？</p>
+<p>从内部来看和你可能看到的其他公司相比，非常不同。我们真正的巨大区别在于我们非常非常亲力亲为。这就是我之前提到的，比如说即使是亚当有时也会亲自设置活动，或者我们会检查这些小客户的情况，我会说真正地关心是我们最重要的事情之一。而且我还会说，我们在内部会首先报告坏消息。很多公司通常会说，‘好啊！我们做了这件事，然后……’</p>
+<p>对我们的业务非常有利。而且，比如说很多内部AppLovin的独白就是这样，‘这很糟，这很糟，这很糟，这很糟。’然后我们就是一个一个地解决它，去改进它，对吧？我会说，这确实是两个很大的方面。你们似乎对股票价格的波动也很免疫。我记得最近发生了什么事，但我不关注新闻，所以我甚至没看到，但我记得它因某种原因下跌了不少。我给Adam打了电话，他立刻给我回了电话，我只是开了个玩笑，根本和任何事情无关。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>他好像在笑，而且心情很好。然后我后来才知道，事实上，我们当时是在录音的地方飞回来的路上，然后飞机上的某个人告诉我，他们说：“伙计，他们的股价今天掉了大概20%吧。”我心想，“和他谈话根本不会知道。”他根本不在乎短期的事，对吧？我们不在乎短期的原因是，因为最终，如果我们觉得自己在为企业做正确的事情并在成长，最终股价会反映这一点，对吧？你也知道，当你看到公司时，它一度价值30亿美元。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>或者说抱歉，是大约 40 亿美元量级——股票跌过 90% 以上。所以再跌 20% 或腰斩，对我们像 NFL 日常，吓不住。只要确认在做对的事、帮客户增长，股价会自己照顾好自己。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>为何还在干：比自己更大的载体</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>或者机器人，或者类似的东西。但我非常有信心我们可以建立的是一个能够帮助公司在我们的一生之后仍然持续成长多年的业务。对我来说，如果我能成功做到这一点，我会说我个人这一生已经成功了。那么，这就是你仍然在工作的原因吗？这就是支撑你前进的动力吗？因为我刚刚在英国参加了一个活动，有些人就像这样，其中一个人以大约130亿美元的价格出售了他的公司，他有点迫不及待想要回到游戏中。？他并不后悔出售公司，但他就是觉得自己不能成为一名雇员，我必须拥有一个</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>公司。我必须有某种方式来承载我所有的创造力和精力。他却说其他联合创始人都很好。他们每个人都赚了十亿美元，不管具体情况如何。他就像说他们在盖房子、写天使投资支票，或者在海滩上闲逛一样。所以，有几件事。首先，就像我说的，我们的项目还处于早期阶段，我不会工作了十四年却在项目开始之前就离开。我们在说什么呢？工作还没有完成，对吧？从业务和影响力来看，我们的生命才刚刚起步。这对我来说没有任何意义。我想，为什么要这么早就离开呢？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>我必须成为比我更大的事物的一部分，对吧？而比我更大的事物，就是帮助企业成长，带来数百亿美元的价值，希望有一天甚至是数千亿美元的价值回到经济中。我认为这是我们所做的伟大事情之一，对吧？随着我们帮助这些企业盈利性地成长，它们可以雇佣员工，可以投资于更好的产品，最终这会让消费者购买他们的产品更多，并刺激经济。我认为这是我可以为社会做的一件伟大的事情。不过，你当时为什么必须休息一年呢？你是……你是……</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>游戏业务、Cheetah 之怒与 Lion Studios</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>就像完全精疲力尽一样吗？再给我讲一遍这个故事。是的，所以我尝到了背面，所以我们开始了一个游戏业务。我们开始游戏的原因是先卖广告平台，然后再做游戏业务，因为为什么要在那个平台之后才开始游戏业务呢？我们在亚洲做了很多生意。中国是我最喜欢做生意的地方之一，因为创始人非常投入。他们行动非常快，非常聪明，就像你希望商业伙伴拥有的一切。当时我们的一个合作伙伴是这家公司叫猎豹移动。他们是我们最大的合作伙伴之一</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>出版商。他们会做的就是，他们会尽可能地压迫我们，对我们进行各种你能想象得到的方式的压迫。我们和他们签了协议，但他们却像不在乎一样，完全不理会协议。他们总是随时违反协议。我记得很多个晚上，当我待在美国的时候，我会熬到凌晨四五点去处理他们的事务，然后，我也会花很多时间在亚洲与那里的管理层一起工作。但在整个这段历程中，我一直在想，我们绝不能让自己处于如此依赖其中一个合作伙伴的地位。</p>
+<p>而且我们当时也看到了Netflix所做的事情。我们觉得，这是一个很好的机会，真正拥有垂直业务的机会。有这样一个平台是很棒的，同时也拥有自己的内容。这样你的经济效益更好，你有分销优势，而且整体上你会建立越来越多的企业价值。顺便说一下，这在亚洲并不是一种罕见的商业策略。世界上最大的游戏公司都是分销公司。腾讯就是一个完美的例子，网易也是一个完美的例子。这些公司在其主营业务之外还有其他业务。</p>
+<p>游戏，他们用它来发行他们的游戏。所以，这就是我们如何进入游戏业务的方式。但是，Cheetah，真的让我非常生气。就像我之前跟你讲的故事一样，我们是因为其中一个合作伙伴才开始了广告平台的。回到这个合作伙伴，他把事情推到了极端，我去找艾丹，我说很简单。我会离开去建立一个Cheetah Mobile的竞争对手，或者我会在这里做。我真的很想在这里做，因为等等，先暂停一下。为什么这对你来说很简单？你为什么会离开去建立一个竞争对手？是Cheetah，这种动物吗？是的。好的，猎豹。</p>
+<p>因为我心里充满了愤怒，我只想主宰那些家伙。这并不是关于，我是一个很简单的人，大卫，我们谈过，我住在200美元的酒店。我会选择那个，糟糕的商业航班。所以对我来说，钱当然很重要，但我不，有些人会说，嘿，我想要更多的钱，买一栋大房子。我一点也不在乎这些，对吧？对我来说，我工作的原因是有目的的。而那家公司把我逼到一个地步，我那时的目标就是毁掉这些家伙。<span class="tag">【笑声】</span>所以这真的是开始于</p>
+<p>为什么叫 Lion Studios？因为狮子是唯一能杀死猎豹（Cheetah）的动物。论点是：跟全球顶尖开发者合作，我们有巨大分发，帮他们发游戏。两年内从零做到逾 2.5 亿美元量级。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>在游戏中做广告，但在这一点上你们仍然只是进行游戏安装？完全正确。好的，没错。所以，我们是新进入这个领域做游戏的孩子。而我们的合作伙伴显然不喜欢这样，对吧？他们把我们看作是敌对的，实际上，其实有更多的好处，对吧？我们是在为市场创造更多的库存。这些数据帮助改进了我们的机器学习模型。因此，我们能够更高效地为他们有效地引流。所以，即使这些合作伙伴不喜欢我们，他们也会与我们合作，因为我们带来的价值，但内部仍然有很多问题。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>压力。然后游戏行业也是一个非常依赖爆款的行业。你需要全天候工作。我们合作发布游戏的最佳合作伙伴，他们并不在美国，他们在欧洲，他们在亚洲，遍布全球。你觉得他们为什么不在美国？我认为他们不在美国主要有两个原因。首先，这里的劳动力成本要高得多。而且当时我们开发的游戏，你并不需要最顶尖的人员，对吧？关键是尽可能多地进行练习。我们开发的很多游戏就是这些所谓的超休闲游戏。</p>
+<p>我们会使用一些方法来确定什么会成为热门游戏。很多时候只是基于游戏的市场可销售性。我们看到的是，你可以在那里找到成本更低的员工。而且他们只是会工作。他们的工作效率远超美国的工作室。所以，我们会在一些游戏工作室面试这些人，他们会说，“是的，我上午9点到下午5点上班。我负责这个游戏工作室里方程式中的一个非常小的部分。”他们有这些臃肿的团队。相反，我会去见，比如说，这是一个完美的例子。有一次...</p>
+<p>Game 5 Mobile 那套班子做出了收入接近 1 亿美元的《Happy Glass》：夫妻加弟弟，穷到同住，房子即办公室——几乎是他们的最后一搏。</p>
+<p>就像他们合作起来令人难以置信一样。但同时也促使我更加努力工作，对吧？因为我看到了他们的出发点，我知道这是他们的重要机会。我喜欢让这样的人取得成功。他们是弱者。没有人相信他们。实际上，这家公司 Game 5，三个员工，他们曾在惠普工作。他们在这个游戏工作室上赌了一把。对他们来说，如果接下来的一个月不成功，他们就得再次找工作。所以这是生死攸关。我在阅读《从零到一》这本书时找到我最喜欢的名言之一，这句话是：“我注意到的最强大的模式是”</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：AppLovin]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：AppLovin]</span></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>你的故事类似于你过去告诉我的情节，就像你是那种人，我无法回头。我被赶出家门，我搬进办公室。这要么成功要么死。是的，那确实是你说的。没错。没有回头路，我会成功，我会死。这就是</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>黑曼巴两年、休假、迷茫与回归</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>像 50 Cent 那种「要么发财，要么拼命」。我跟当时女朋友说要完成「黑曼巴」模式；工作时循环励志音频，有点自虐式自我洗脑。</p>
+<p>好的播客就是这样。这个更好。没有人听它。而且我每天都得醒来，用这些东西洗脑自己。对。只是继续做工作。是的，是的，是的。特别是因为内部环境非常紧张，对吧？亚当对我压力很大。我明白公司的未来在我肩上。因为在这个时候，所有的枪都指向我们。我们已经破釜沉舟，对吧？我们就是来赢的，没有其他选择。所以，我会在凌晨四点醒来，然后一直熬到午夜。你当时二十出头吗？是的，我那时候是。</p>
+<p>大约26到28岁。所以，我那时候是在处理这种孩子。没有孩子的关系。基本上就是工作。是的，就只是工作。除了工作之外，其他什么都不重要。这是最重要的事情。所以，我做了两年。大约两年后，我再次从框架中放下笔记本电脑，我意识到，哦，这个业务其实不再需要我了。这是游戏工作室，或者说游戏工作室。它是一个游戏发行业务。所以，我只能把它比作环球音乐集团，对吧？我们有发行渠道，我们会去寻找有才华的游戏开发者，并把他们的游戏带给大众，然后</p>
+<p>我们把 20 多款游戏推到第一、累积超 30 亿下载，一度是最大玩家之一。到自己不再 mission-critical 时开始反思：业务不那么需要你了，你还要什么？</p>
+<p>我需要开始考虑生孩子的事情。这一直对我非常重要。我一直知道自己想成为一名父亲。所以我从事业上休了一段时间。很有趣，你说了一年，但我其实不太擅长休假，因为三年零三个月后我开始疯狂起来，开始为了娱乐而开发产品。不过是的，当时我搬到了迈阿密，因为旧金山太让人沮丧了。疫情期间一切都关闭了。我去了迈阿密，本来只是打算像周末一样度个假。我当时想，天啊，这里好像没有新冠，一切都开着。然后，然后就在那儿开始定居下来。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>遇见我生命中的挚爱并组建家庭。是的，那段时间我也在场。是的。我记得，因为我最喜欢的比萨店之一是位于日落港的Lucali。那时候你以前去那儿，首先是根本不用等，然后在疫情期间开始需要排队，你留下了电话号码，我不断看到这些像415和212的区号，因为那时所有来自旧金山和纽约的人都来到迈阿密。等等，你说你请了一个长假，你是怎么跟亚当解释的？算是长假吗？你是怎么说的？我是永远结束了吗？是的，所以这个是</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>我真的不太擅长把这个消息告诉他，对吧？这就像，亚当就像是我哥哥一样的大哥，所以我们等到了我的生日。我其实已经有一段时间在记录这件事，大概在间接地表达我实际上只是想抽时间休息。我可以说大约在一年前，我就一直在写一些东西，比如，“业务的哪些地方需要改进，我在哪里是瓶颈？业务需要到达什么状态才能在没有我的情况下也能运作？”所以，我就开始在清单上勾掉一些事项，不知不觉间，一切都完成了。</p>
+<p>感到很有成就，而且我没办法一直待在身边，而新游戏在不断发布，收入也在增长。所以，我打电话给亚当，我说，‘嘿，今天是我的生日。’他回答说，‘生日快乐，当然。’我说，‘我想从公司请一段时间假。’亚当不是一个很情绪化的人，他只是说，‘你确定吗？’我说，‘是的。’他说，‘好吧，我尊重你想做的任何事情。’然后我们基本上就结束了这段对话。之后发生的情况是很多人打电话给我，说，‘你到底在想什么？你在干什么？’我的哥哥，这个人叫查德，所有这些人，他们都在试图</p>
+<p>说服我留下。他们试图向我提供各种不同的方案。我当时想，‘这和钱无关，而是业务需要立即成功，我生活中还有其他事情想去实现。’于是，我从业务中抽出了身。我会说，从那次谈话来看，本来应该是大约6个月的过渡期，但三个月内我就基本抽身了。当时，你认为自己永远离开AppLovin了吗？哦，是的。我以为我会去追求日落，享受生活，在海滩上放松，再也不工作。但你很快就意识到</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>这是一个非常令人沮丧的生活。就像没有任何目的。我们应该在每一集节目中都插入一个关于这个的广告。就像，去看看那些从未找到其他工作方向的退出来的创业者们，他们是最让人难以接近的悲惨灵魂。是的，而且仔细想想，我喜欢打电子游戏。你会意识到，在一个星期三的下午，你没有人陪你玩游戏。你的朋友都不在，他们都很有生产力，都在做事情，对吧？所以，你没有人可以一起玩。会感到孤独。但后来我开始，我开始做这些生意，而实际上，这会进一步深入到</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>驱动我的是什么。我意识到的是，我找到了一个很棒的技术团队，我们一起合作开发这些产品。我并不在意我们正在构建的产品。我对它们没有任何连接。对我来说，就像是你在谈论你业余时间做的那些事情。是的，我在苹果的业余时间就像，‘哦，我只是机会主义地想，嘿，我觉得这个垂直领域合适。关键绩效指标看起来不错，我们去建设它吧。’所以，那只是其中一件事。有一件有趣的事情是，我曾经主持过一个约会节目。其实不推荐。那个行业已经死了。一个约会节目？是的，叫做《爱或名》。这是我的想法。</p>
+<p>那就是你来，然后你就是，它是在手机上进行的，你会为了爱或名声而竞争。但想象一下每天看12小时的约会节目。你会想跳窗。所以，这并不适合我。然后第二件事是，你休假去海滩，或者甚至不去海滩。是的，不去海滩。低质量的工作。是的，那真的很糟糕。然后第二件事是，当我开始在新公司工作时，我真的不关心我正在一起工作的人。所以，我会说，除了帮助我们的工作之外，其中一件让我留在这里的事情是……</p>
+<p>顾客成功就像我真的非常关心亚当和我们团队其他成员的成功。对我来说，如果他们做得不好，我会感到很不舒服。我会……我会拼命努力。我会……我会拼尽全力，直到让我周围的人成功。而我之前两样都没有。所以，我回到AppLovin的旅程是这样的：我们在纽约证券交易所敲响了开市钟。大家都在一起庆祝。公司上市了，你还在公司外面。还在公司外面。顺便说一下，状态很好。所以，是的，就这样。我们敲响了开市钟，第一天，股票下跌，对吧？而</p>
+<p>我当时在和那边的人交谈，公司当时仍在成长，但业务中确实存在一些缺陷。而且我很清楚地意识到，我需要留在这里。这是我的公司，这是我的公司。我们在酒精中消解着悲伤。我不会说是在狂欢，因为那并不是一个特别快乐的时刻。你的IPO刚发生，股价就立即下跌。而Adam，他看着我说，‘嘿，我从别人那里听说你在考虑回来。’我当时就说，‘我加入。’从那以后我一直在这里。我是通过这个使命被重新吸引回来的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>生意上，我知道我在这里还有很多事情可以做。如果公司的业务状况很好，股价在上涨，你认为你还会做出那个决定吗？我想我会的，因为在那时，我已经没有其他可以为公司提供的东西，也没有我能够创造的价值。我的意思是，如果是这样的话，你就会置身事外。我会置身事外，然后我得另想办法。但我当时觉得，公司需要我。而我认为你们在这时上市时，市值大约是280亿美元左右，然后它继续发展。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s12">
+<div class="body-sec-head"><h3>传奇回购、节俭与极致精简编制</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>下跌。我想几乎每天都这样，大概持续了200天左右。这就是传奇的股票回购，我们应该现在讲这个故事，因为太不可思议了。公司的股价在暴跌。这很有趣，情况是相反的，对吧？股价下跌，收入却在上升。所以，亚当讲的故事是，不是任何人，而是他加倍下注购买Living的股票，并杠杆化公司，这是有史以来最伟大的回报之一，对吧？是的，因为我记得当时你们的市值降到了大约38亿美元，对吧？差不多。是的，但我记得你们的现金流大概有十亿美元左右。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>想法是：没人买我们的股票，就用这大约 10 亿现金流自己回购；后来公司因这一决策吃到大约 50 亿美元量级的回报。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>这样一个令人难以置信的企业，我们知道我们想继续经营它。嗯，那本来是我下一个想问你的问题。比如，当这种情况发生时，你会想，‘好吧，我们公开上市时是28，现在降到3.8。’你不会有压力吗？不会，因为你正在跟一个每月爱好花15美元的人说话。我会玩像《魔兽世界》这样的游戏，对吧？就像订阅一样。我，我和高中时的朋友或者一起工作的人一起玩。我穿的衣服也很便宜。我没有这些奢侈的爱好。我，我</p>
+<p>想想很多这些人最终发生的事情是，他们的生活方式比他们最终拥有的东西 creeping（逐渐超出）得多。那件事从未发生在我身上。所以我从来不担心现金流。我知道我们有一家很棒的公司，而且，他们还在成长。所以，我只是想，让我们加倍努力做我们已有的东西。节俭就像一家公司一样吗？这是你们在公司内部讨论的事情吗？因为我记得和亚当谈话的时候，当时股价非常棒，账面价值大约是200亿美元。他还在乘坐捷蓝航空。是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>然后我把他介绍给我的朋友帕特里克，他当时好像正在参加投资者会议。他说他是坐西南航空之类的航班。他就是那种普通的廉价航空。我心想，这家伙在干什么？所以我觉得这不完全是关于节俭的事，如果你整天看数据仪表盘，主要的关键绩效指标是广告花费回报率。我们就是这样考虑生活的：我的投资会获得多少回报，对吧？如果我能在相同时间到达相同的地方，但有一种方式便宜10倍，我为什么不每次都选择它呢？我觉得这如果真的是这种心态的话…</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>这不那么关乎节俭，但就像回报没有体现出来一样。你们对企业员工数量的执着关注到底是怎么回事？是的，对我们来说，或者说情况一样，我们可以用一半的员工达到这么多的收入，这几乎像是在展示一个真正的创业者技能。就像我可以用一半的资源做到两倍的事，对吧？完全正确，因为这是一个分心的因素，对吧？你在管理那些浪费你时间的C类员工，或者你关注完全不重要的事情，对吧？所以人少实际上是件好事，它迫使你非常专注。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>这是公司内部讨论的事情，还是说这只是自然而然发生的，这就是你们的本性？因为这又回到了你们疯狂的绩效文化。是的，我会说，亚马逊可能是那些真正注重节俭的公司之一。但对我们来说，而且由于公司是创始人领导的，我们花钱就像花自己的钱一样，对吧？我们也是非常数据驱动的，非常分析导向。我们会看我们所做的每一件事情，对吧？从电子表格的角度来看，很明显哪些事情值得加倍投入，哪些不值得。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>所以，难道就不像你以前提到的那样，我们可以在公司里做每一份工作吗？我们可以做活动，我们可以做创意，不是有很多管理层吗？ 不，不是这样的。我的意思是，显然算法之类的东西，我们显然做不到。幸运的是，我们有一个非常棒的团队，他们能够构建那些系统，而我、亚当和其他人做不到。对于我们来说，这关系到我们公司管理的控制，我们没有太多官僚程序，对吧？我们的信念是，我们雇佣聪明的人，对吧？他们明白每一分钱的价值。然后我们就放手让他们去做。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>在外面做我们认为对公司最好的事情。并不是说要经过很多审批层才能把事情做成。但你觉得在你们公司的管理方式中，还有什么是稀有或独特的，而在其他公司你们没有看到的吗？我们尽量给员工尽可能多的自主权和工作量。相比之下，很多公司会说，“哦，你工作过多？我们会去雇更多的人。”我们的方法是，“好吧，我们能做些什么来在你工作的某些环节自动化你的工作，让它变得容易些。”</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>高效？哪些事情不重要，你却在浪费时间做，其实我们根本就不应该做的？在那个层级上没有纯粹的管理者。每个人都是执行者。甚至我们的 CTO 都自己在写代码，对吧？而他要管理大约一百人的工程团队。真正关键的是，对我们要做的事情进行无情的优先排序。同时，非常亲力亲为，这两个因素才是真正的区别。没有什么特别的秘诀，大卫。就是专注做重要的事情，并且长期坚持下去，成功自然会来。你我之前还谈到我刚做的 Luca Ferrari 那一集。你刚才说的很多内容都非常相似。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s13">
+<div class="body-sec-head"><h3>折磨到伟大：黄仁勋、阿加西与品牌叙事</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>像卢卡。他有这个想法。他就像说，“嘿，我其实不太在意学历背景。但当我雇佣年轻人时，他喜欢那些没有经验的人。然后他会去寻找某个年轻、有天赋、渴望成功的人，并充分挖掘他们的潜力。这正好就是你刚才说的。就像我们都在努力工作一样。我会给你比你能应付的更多。你觉得你、亚当和卢卡为什么会得出相同的结论？这为什么如此重要？我认为这是因为我们当时没有足够的资金去雇佣庞大的团队。而且当时我们也没有什么所谓的学历背景或名声。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>早期没有「最佳人才背景光环」，只能找能找到的人，再把他们「折磨到伟大」——有点像黄仁勋在《英伟达之道》里说的：我不轻易放弃人。</p>
+<p>他也折磨自己成就伟大。是的，我会说亚当对我也是这样，对吧？所以，我会说直到今天，这总是冲突，总是对抗。他总是在推动。而这就像是从高层开始，然后慢慢蔓延到整个组织。所以，你之前形容他是一个了不起的任务驱动者。是的。对于外人来说，解释一下那种感觉。他懂得按每个人的“正确按钮”，对吧？所以，如果你不自信，他会在这一点上加倍施压，说，“哦，你很蠢，你没那么厉害，你做不到。”</p>
+<p>然后你会想，‘好吧，我要向这个人证明我能做到，对吧？’而对其他人来说，他们会想，他会对他们非常友好。就像通过这种方式，你能从他们那里得到更多。或者其他人呢，他们可能会想，‘哦，好吧，你从这个角度来看事物真是有趣。’然后那个人就会感受到怀疑，然后，他们就会去执行。亚当就是这样——他非常有竞争性。这也是他成为一个优秀领导者的原因之一，因为他理解能激励人们的因素，并真正推动他们完成最好的工作。他会推动你超出你认为自己能达到的极限吗？</p>
+<p>我记得在安德烈·阿加西的自传里有一句很棒的名言，他说他父亲折磨过他。在某个时候，他说我不再需要父亲折磨我了。我可能讲得不太准确，但我的意思是，我不再需要父亲来折磨我了。我已经够大了，可以自己来，对吧？这就是我现在的感受。我经历了那么多年，我不需要他来折磨我了，它已经根深蒂固在我身上。是的，这就是我喜欢你们的地方。我想问的下一个问题是，你认为外界的人对这种绩效文化有什么误解？这要追溯到……</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>对于这个想法，就像是，“嘿，也许我们应该……我们的品牌有点过于友好和温和，不太像代表内部这种无情文化。”我想我在和他做的那期节目中提到过，我喜欢Ralph的一点是我可以在晚上11点打电话给他，而他会接。你之前提到过，就像，“兄弟，你不相信安排好的电话。”他说，“不，我只是打电话给你，就这样。我们就现在聊。”你认为在新品牌AppLovin以及你们即将开始的对外沟通方面，应该更新些什么？和以前相比会有什么不同呢？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>做什么呢？我认为不同之处在于，我们真的会专注于讲述我们合作的创始人和品牌的故事，并展示他们从小企业到我们帮助他们成长为大型公司以及整个过程中所经历的旅程。我认为很多人对AppLovin的误解在于，他们会说，“哦，他们看到了这个广告平台，它的表现超过了同行。肯定是骗局或者欺诈。”而他们没有花时间真正去深入了解，说，“哦，天哪，看看这些人。他们做得非常完美，所有事情都处理得很好。”如果你真的花时间去</p>
+<p>仔细看看我们业务的细节，我们关心每一个细节，而你会注意到这些小事情，它们会累积起来，这就是让我们区别于同行的地方。这也是卢卡斯·费拉里所谈到的，对吧？也就是说，如果你比较一下，看看他的业务，或者像长湖也是，他会说，‘哦，这只是个私募股权公司，他们做什么？他们只是去解雇一堆人，让他们更高效而已。’其实不是的，远不止这些，对吧？他们有更好的技术堆栈，对吧？他们实际上是在招聘更多的人。好吧，这里特指长湖，对吧？他们在招聘更多的人。</p>
+<p>对吧？他们能够让他们的员工更高效，从而获得更多产出，对吧？这对我们来说，其中一件事是我们处理事情的方式不同于其他所有人。我们在其他这些业务上进行优化，这些结合起来让我们能够脱颖而出。我认为讲述你合作公司的创始人的故事非常聪明。我认为显然讲述Appleven 2的创始人以及在公司中发挥重要作用的人的故事非常重要。你刚才提到了Long Lake。我和你曾与Long Lake的一位创始人共进晚餐，在第一次晚餐时你就想，哦，不，这个是</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>像，如果那家伙参与了，你记得事后你打电话给我吗？是的。是的，是的。我当时想，我老实说，很少有时候我吃完晚饭会觉得这人真是太令人印象深刻了。我还以为他是光明会的一员。<span class="tag">【笑声】</span>是的，你会觉得，我不明白，然后就会想，为什么我从没听说过他呢？你说，你从没听说过他，然后你看到，哦，当然了。然后你看到其他公司也参与了，就会觉得，哦，他们都在表现得很好。嗯，这很有道理。这又回到了这个人身上。这是你我之前讨论过的一些事情，讨论过很多的</p>
+<p>传记，就像我在《Founders Podcast》中做的传记。就好像人们不明白这有多重要，这真的是一种超级能力。如果你了解，比如说，这是詹姆斯·戴森，你和我都是他的粉丝。如果你知道他为了制造自己的产品经历了多少挣扎，并且你读过关于他的书，或者听过关于他的播客，或者看过他的采访。那最后你会怎么做呢？你会说，嘿，这个人太用心了，我要买他的产品。这就是发生在我身上的事情，比如很多人根本不知道Appleven是谁，他们以前从未听说过他</p>
+<p>听了之后我喜欢，我必须喜欢，如果是那个人在运营的话，我至少会尝试在我的业务中使用这个工具。它非常有价值，百分之百。为什么埃隆会在那里做所有的产品演示？为什么乔布斯会这样？人们想支持的是人，而不是公司。他们不爱公司，他们爱人。是的，百分之百。对，所以你们能做的越多，甚至是这个，我不记得，当我第一次提出这个想法的时候，你有没有告诉我不行？我不想做，你知道的。<span class="tag">【笑声】</span>但是你推动了我。你说，你必须出去参加播客</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s14">
+<div class="body-sec-head"><h3>父亲、哥伦比亚移民与对细节的执念来源</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>我在这之前还做过另一个播客。这有点像是我在媒体方面的训练，然后你就像，不，我们要让你直接跳入深水区。是的，我的意思是，我们聊过无数次你的故事，比如我怎么开始的？就像，等等，这个孩子高中辍学了？什么？他住在办公室？这不是开玩笑，他真的做了。他在这家公司工作了14年，他现在三十出头。这怎么可能发生呢？再次理解这种个性，会发展出这些想法，也让人明白为什么，你有几个哥哥，你有一个父亲，他就像……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>有点谈谈你，你的，我觉得他想让你成为医生什么的，对吧？嗯，他想让我成为医生，很有趣，我爸爸，他并没有拥有苹果公司的股票，对吧？所以就像你有一个男人，顺便说一句，他认为互联网是个骗局。我是说，他认为互联网是个骗局，他不会花时间关心我们的生意，我并不怪他，但是，像我内心里有一种动力，想要证明大家都是错的，对吧？而且美妙的是，在过去的15年里，我们做得很不错，但</p>
+<p>我们还有很大的发展空间。不过我认为，当我走在街上，每个人都说，“哦，我知道那个 AppLovin 品牌，对吧？”的时候，我的旅程才会结束。但今天你走在街上，100 个人里有 9 个或者 99.9 个人会说，“Apple 谁？AppLovin 是什么？”就像我们显然在这些企业的生活中产生了很大影响，但我们的旅程其实还处于非常早期。那么你现在和你父亲的关系怎么样？很好，我从不责怪他，因为我总是在想，他是怎么被抚养长大的？我父亲，他的父亲在他 15 岁时去世了。他还有四个其他兄弟姐妹需要照顾。</p>
+<p>去照顾一个不会说英语的妈妈，对吧？所以他们是从哥伦比亚来的。我爸爸来自伊巴格。我爸爸从哥伦比亚来到西棕榈滩和美国。他的爸爸是律师。他在一个没有任何依靠的房子里长大。爸爸很严厉。他成为医生不是因为他想成为，而是因为他需要成为，对吧？这是赚钱养家唯一的办法。所以现在当我想到这些时，我就会想，哦，当然了，这很合理，也解释了他是谁，对吧？这就是为什么他对我那么严格，对吧？所以我们谈论的一件事就是</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>在这个播客之前，我是在一个不错的社区长大的。我上的是一所好学校，但我是所有富裕孩子中最穷的那个孩子。我整整一个学年只有五条裤子、五件衬衫，就这些而已。当我回家抱怨说，“哦，我的朋友有耐克鞋，或者他有这件好看的衬衫。”我爸爸就会说，“我才不在乎呢，你想要东西？那就出去努力去挣吧。去奋斗。”这就是促使我成为更好自己的动力。我知道你也有这种心理负担，我会说你肩上背着的是一块大石头。</p>
+<p>放下它。我不认为那是一个芯片。那是一块巨大的岩石。我知道亚当在你的职业生涯中推动过你。你的爸爸有推动你吗？我也知道他对互联网和其他一切都持怀疑态度，但在你们的关系中，是否存在某种可以说明你的一部分驱动力来自他的因素？直到我离开他家的那一点，算是这种影响结束的时候，对吧？他有点像是在让我去自由，而最间接的方式就是我所说的，这不可能失败。我永远不可能搬回父母家，对吧？就像理查德·布兰森说的，唯一比贫穷更糟糕的就是</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>变得富有又再次变穷。就像我搬出了父母的家。我住在旧金山。我为我哥哥工作，然后我开始创业。我当时想，‘我绝不可能搬回去和父母住，对吧？’记得，我高中辍学了。所以，也不是说我能进入任何好大学。顺便说一句，我在纸面上基本上是不可雇用的。像谁会雇这个高中辍学生呢？而且回去为我哥哥工作，对我来说也等同于失败。我爱我的哥哥。他给了我所需的工具。</p>
+<p>为了成功，我最终自己开辟了道路，铺平了自己的路。所以这些事情综合起来，帮助我成为了最好的自己，并真正推动了我前进。你是从哪里获得这种对细节的关注的？这是天生的吗？还是有人在 Apple Maven 内指导过你？是的，有一个人叫 Mark Rosner，他是我的导师。在我们有律师之前，他是我们的内部顾问。他在 Apple Maven 的职位是什么？他是我们的首席营收官，而我们找到 Mark 的方式是，他当时是这家叫 Zedge 的公司的 CEO，这家公司做铃声和壁纸。</p>
+<p>然后他好像自己独自开始做了，他有一个博客叫做《应用收入》，只是讨论如何在应用程序上赚更多收入，以及整个移动应用生态系统的内容。我跟亚当说，‘嘿，我们想和 Zedge 合作，这个人看起来挺聪明的，你应该联系他。’ 本来可能只是做顾问的事，我们决定让他以首席收入官（CRO）的身份加入。有趣的是，当马克第一次见到亚当的时候，他们正在进行面对面的会议，亚当把一份保密协议（NDA）放在他面前，你知道大多数人会直接签署 NDA。而马克说，‘嘿，我能有 15 分钟吗？’ 亚当走出了房间。</p>
+<p>就像亚当回到房间，叫我跟他一起进去，而且整个文件都被做了标记。他说：“我不同意这个，我不同意那个，这里我也不同意。”我立刻就觉得，我把亚当拉到一边，悄悄跟他说：“我们不能信任这个人。我们根本无法跟他合作。如果一个人会为了公司去修改合同的措辞，他会做什么？会泄露商业机密吗？”亚当有不同的看法。他说：“这个人，如果他能这么认真地花时间去修改协议和处理这些事情……”</p>
+<p>过于详细，这是我们想合作的人。马克加入后，我们最终聘用了他，起初我们实际上相处得并不好。他负责供应端管理，我专注于需求端。我带来了大量的需求，他则处理出版商。最终发生的情况是，随着时间的推移，我最终在他的团队工作。我说团队，因为他只有一个人。所以我最终在他手下工作，起初，关系并不太好，但后来变成了很棒的指导关系，因为马克看到的是一个充满活力的年轻人，有着大量技能，但还未被磨练。他总是推动我真正地</p>
+<p>深入细节。就像我们处理合同的时候，要确保我们对自己做的事情非常具体。再回到我之前告诉你的情况，我们没有内部律师，像马克可能自己处理了200多份协议。我们只是被坑了一份。他的成功记录真是令人难以置信。当我们雇佣第一个律师，他开始对协议进行逐条修改时，他会修改我们律师的协议。 <span class="tag">【笑声】</span> 再说一次，这是马克·罗斯纳最棒的故事，顺便说一句，他会讨厌我提到他。马克除了小学五年级时借过20美元给的那个人之外，不讨厌任何人。到现在他仍然难以忘记。所以你明白我在说什么。</p>
+<p>关于一个非常在意每一个细节的人。实际上，他会把故事进一步深入下去。有一次，我奶奶得了乳腺癌，需要去医院治疗。那段时间，我们正在处理一笔花了几个月才完成的交易。那笔交易实际上是与洛杉矶郊外的一家公司进行的。我们完成这笔交易时非常高兴，我甚至在医院的时候还在处理协议。我把协议发出去，他们签了，我也签了。然后马克打电话给我，我原本以为他会问‘你奶奶怎么样了？’结果他却说：‘拉尔夫，你在这笔交易上大搞错了。’有这种情况，就是……</p>
+<p>偏差其实大概只有 1%–2%。我说 Mark 你开玩笑吗，这单谈了几个月，我没法回去跟客户扯这个。他回：你想当迈克尔·乔丹，还是想当普通人？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>以卓越为北极星的人，会反复念同一句：「你做一件事的方式，就是你做所有事的方式。」</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s15">
+<div class="body-sec-head"><h3>最好的建议与片尾</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="rafael"><div class="label"><span class="badge" title="拉斐尔·维瓦斯（Rafael Vivas）">Rafael</span></div><div class="content">
+<p>电话里谈到更衣室的一切，一切都很专注于每一个细节，你所做的每一个动作都比专注于比分更重要，因为如果你把所有小事都做好，比分自然会迎刃而解。这是马克给你的很棒的建议。那么你收到过的最好的建议是什么？我收到过的最好的建议是在困难的时候坚持下去，当你想要放弃的时候，就是你知道自己在职业生涯中有所成长的时刻。在我的职业生涯中有很多次，我都想要放弃，这个建议是我哥哥给我的，我已经赢了，为什么我要这么做呢？</p>
+<p>有人说你不必这么拼，他回：挺住，拼到底；若你感到痛，是因为你在成长。我认为这是我生涯听过最好的建议，也几乎是任何人能收到的最好建议之一。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">Senra</span></div><div class="content">
+<p>记得在收听的地方订阅并留评，也请收听我的另一档《Founders（创始人）》：近十年我痴迷读完 400 多本历史上最伟大企业家的传记，寻找你能带到工作里的想法。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "David Senra", "title": "高中辍学到亿万富翁：拉斐尔·维瓦斯的偏执驱动力", "url": "https://www.youtube.com/watch?v=IdvsD61Rmmk", "videoId": "IdvsD61Rmmk", "published_at": "2026-11-01", "duration": 4016, "caption_source": "YouTube 自动生成字幕（en-orig；普通 yt-dlp；官方 en 轨遇 429 未写入）；caption_source=yt-dlp-auto；中文为全文翻译并按话题分段；赞助口播已标灰（Ramp、Deel、AppLovin）", "guests": ["Rafael Vivas"], "intro": {"summary": "大卫·森拉访谈 AppLovin 联合创始人拉斐尔·维瓦斯：从高中辍学、被赶出家门到与亚当·福雷里共建移动广告与游戏帝国，拆解绩效文化、亲力亲为、回购与「折磨到伟大」。", "points": ["16 岁离家与绩效营销上行空间判断", "Appenda / AppLovin 缘起与「半个公司」谈判", "办公室上下铺、零收入起步与被拒融资", "绩效文化、死缠烂打式创造客户价值", "Lion Studios、黑曼巴两年与回归", "传奇回购、精简编制与细节癖来源"], "verdict": "值得看：关心广告科技/游戏分发与极端执行力创始人传记的听众；可跳过：只要短结论、不爱长访谈者（约67分钟）。", "audience": "创业 / 广告科技 / Founders 风格传记"}, "speakers": [{"id": "senra", "name": "大卫·森拉（David Senra）", "role": "host", "short": "Senra"}, {"id": "rafael", "name": "拉斐尔·维瓦斯（Rafael Vivas）", "role": "guest", "short": "Rafael"}], "sections": [{"id": "s1", "title": "开场：被赶出家门的高中辍学生", "start_sec": 2, "summary": "大卫·森拉（David Senra）点题：拉斐尔·维瓦斯（Rafael Vivas）是他听过最有趣的创业故事之一——高中辍学、被赶出家、睡办公室，如今身价数十亿。拉斐尔自述约 16 岁因全天候做绩效营销被父亲要求搬出；哥哥以「招他当实习生、帮忙打扫」的交易促成第一次离家。对比老师年薪约 2.5 万美元与广告人日利润 2–3 万美元，他认定学校上行空间远不如绩效营销。"}, {"id": "s2", "title": "实习底层活、游戏与「房间里最有价值的人」", "start_sec": 140, "summary": "暑期给哥哥实习时他先抗拒（自己已月入约一千），后来沦为「水下打杂」——条款隐私政策等别人不愿干的活，却借此学到行业。他不擅传统运动，却沉迷电子游戏的「唯绩效」逻辑，并迁移到商业：像部落只问谁带回猎物一样，要做房间里最有价值的人，而非分析师→经理的线性无聊路径。"}, {"id": "s3", "title": "结识亚当·福雷里与自发建广告平台", "start_sec": 308, "summary": "森拉强调拉斐尔与亚当·福雷里（Adam Foroughi / 口播常作 Adam Ferrari）少年即共事。拉斐尔从建站、做广告到跑投放，在排行榜上紧跟亚当；17 岁自学 Photoshop 与 MySpace 投放并主动联品牌。因原平台视其为竞争并封禁，一怒之下拿到工程师资源开做移动广告平台 Appenda；亚当彼时已离开哥哥公司、想做消费产品，AppLovin 的缘起与此交错。"}, {"id": "s4", "title": "AIM 互怼、竞争告白与「半个公司」谈判", "start_sec": 477, "summary": "拉斐尔做亚当的客户经理，在 AIM 上互开玩笑甚至「教你做真生意」——对方年长十余岁。亚当看见这名「不那么聪明但 24/7」的少年在蓝海做出广告平台后，决定自建移动广告平台来竞争；拉斐尔因对方脸上的得意笑把他推进房间对质。亚当反邀：你该为我工作，你懂卖命与移动游戏圈，却不懂建真公司。面试工程师后拉斐尔开口要一半股权；用「越南战争」比喻——滑稽的 AppLovin 名字、无 VC、靠一名五英尺八的销售小孩去硬刚，只能靠极端投入。"}, {"id": "s5", "title": "宜家上下铺与办公室起居", "start_sec": 730, "summary": "亚当与工程师 Furqan 去宜家搭上下铺，让拉斐尔与另一名工程师住进办公室；后者见床立刻拒绝，拉斐尔则说「金窝银窝不如办公室」。随后切入赞助口播（Ramp / Deel 另标）。"}, {"id": "s6", "title": "零收入动物屋、被拒的早期融资与算法赌注", "start_sec": 909, "summary": "搬进办公室时业务仍零收入，像「动物屋」：亚当带工程师试不同应用。他熟悉 Facebook 广告网与 PC→移动迁移。早期有人劝买 25% 股权却因「游戏+广告是烂生意」被拒；面对 Benchmark、红杉等眼中已成熟的市场，非传统背景让融资屡屡碰壁。团队用规则与回归学习而非顶尖 ML，向发行商保证「比别处赚更多」甚至写进合同，以两倍产出抢份额。"}, {"id": "s7", "title": "公牛队文化：绩效基石与亲力亲为", "start_sec": 1147, "summary": "森拉把 AppLovin 内比作《最后的舞蹈》里的公牛。文化差异：面试大厂广告人会问「你愿不愿意自己建活动、传素材」——很多人只愿「提供服务」。公司以绩效为基石，客户爱恨交加；不像「客户永远正确」，若目标是可盈利获客，数据里有对错，必须往对的推。领导要下沉（乔丹类比）；反对堆人不重要的活。拉斐尔主责拉来尽可能多广告主；细节文化是「小事做不对，大事也别指望」。"}, {"id": "s8", "title": "死缠烂打式创造价值：纳迪尔·汗的故事", "start_sec": 1453, "summary": "森拉问「反复打电话真的有用吗」。拉斐尔区分：要坚持，但每次都给客户新价值。举例纳迪尔·汗（Nadeer Khan）——持续指出优化、版位与市场漏洞，对方公司甚至有内部玩笑「真希望我们有个 Rafael」；对方未必立刻认你想法好，只是忙，六次好主意后才会接电话。内部独白常是「这很糟」然后逐项修；股价单日跌约 20% 时亚当仍谈笑风生——相对曾跌超 90%（约至 40 亿美元量级市值记忆），20% 或腰斩像「NFL 日常」，只要帮客户增长、股价会自己回来。"}, {"id": "s9", "title": "为何还在干：比自己更大的载体", "start_sec": 1701, "summary": "目标不是造机器人，而是打造能在有生之年之后仍帮企业增长的业务。对比其他联合创始人赚了钱盖房、天使投资、泡海滩，拉斐尔需要承载创造力的载体：帮助企业成长、把数十亿乃至更大规模价值送回经济。这解释他仍全情投入的原因。"}, {"id": "s10", "title": "游戏业务、Cheetah 之怒与 Lion Studios", "start_sec": 1809, "summary": "先做广告平台再做游戏：亚洲发行商不断撕毁协议、极限压榨，加上 Netflix 式「平台+自有内容」垂直逻辑，促使自建游戏。对 Cheetah 的愤怒让他命名 Lion Studios——「狮子是唯一能杀死猎豹的动物」；两年内从 0 做到逾 2.5 亿美元量级收入，与全球（尤其欧亚）能卷过美国工作室的开发者合作。案例 Game 5 Mobile 的《Happy Glass》近 1 亿美元收入：夫妻加弟弟同住同办公、几乎是最后一搏，这种 belunderdog 故事驱使他更拼。"}, {"id": "s11", "title": "黑曼巴两年、休假、迷茫与回归", "start_sec": 2249, "summary": "自我洗脑听励志音频，像 50 Cent「要么发财要么拼命」；约 26–28 岁几乎只有工作，把 20+ 款游戏推到第一、累积超 30 亿下载后感到自己不再 mission-critical，想当父亲而休假——却三个月就躁动又做产品。生日那天告诉亚当要抽身，对方不煽情，公司仍试图用各种方案挽留；他说与钱无关。退出后创业者若找不到下件事会极痛苦；业余产品缺使命感，约会节目类应用让他想「跳窗」。关心亚当与团队成败的驱动力消失后，他在公司仍增长但有明显缺陷时意识到「这是我的公司」而回归。"}, {"id": "s12", "title": "传奇回购、节俭与极致精简编制", "start_sec": 2739, "summary": "股价连跌约 200 天级、公开时约 28 跌到约 3.8，但收入逆向向上；团队用约 10 亿现金流回购，后来估约 50 亿美元量级风报。拉斐尔兴趣开销极低（约每月 15 美元级爱好），生活方式从不 creeping，故不慌现金流。对员工数近乎执念：同样收入用一半人是创业能力的展示；亚马逊式节俭精神叠加绩效文化——少层级、人人是执行者，CTO 仍写代码并管约百人工程。"}, {"id": "s13", "title": "折磨到伟大：黄仁勋、阿加西与品牌叙事", "start_sec": 3058, "summary": "招聘不迷信学历，找年轻、有天赋、饥饿的人并「塞满产能」；早期只能就地取材，「折磨他们成就伟大」，类似《英伟达之道》里黄仁勋（Jensen Huang）不愿轻易放弃人。亚当至今仍冲突式推动，自上而下渗透。安德烈·阿加西（Andre Agassi）传记句：不再需要父亲折磨自己，自己已会折磨自己。品牌侧要从「过于友好」转向匹配内部无情文化；未来叙事聚焦所帮扶创始人/品牌从小到大的旅程，以及细节癖如何叠加出差异（对比 Lucas Ferrari / Long Lake 等）。"}, {"id": "s14", "title": "父亲、哥伦比亚移民与对细节的执念来源", "start_sec": 3414, "summary": "父亲曾希望他当医生；家庭从哥伦比亚伊巴格（Ibagué）到西棕榈滩，严厉且资源少。森拉成长于「好社区里最穷的孩子」——整学年五条裤五件衫。拉斐尔曾富过又穷过、绝不再搬回父母家；高中辍学逼他自辟道路。细节癖部分来自合作者马克（Mark）：审合同逐条批注、曾几乎独力处理 200+ 份协议且几乎不被坑；奶奶患癌住院期间仍抠一笔与洛杉矶相关的交易到「只偏 1–2%」也要争——「你想当乔丹还是想当普通人」。金句：「你做一件事的方式，就是你做所有事的方式。」"}, {"id": "s15", "title": "最好的建议与片尾", "start_sec": 3929, "summary": "马克式细节建议之上，拉斐尔认为生涯最佳忠告是：有人说不必那么拼时，对方回「挺住、拼到底；若痛，是因为你在成长」。森拉提醒订阅并收听《Founders》——近十年读 400+ 本伟大企业家传记、寻找可迁移想法。"}], "paragraphs": [{"start_sec": 2, "type": "text", "zh": "你有一个非常有趣的故事，是我听过最有意思的创业故事之一：高中辍学、被赶出家门、睡在办公室，如今已是数十亿富翁。先从——你是怎么把自己弄到被赶出家的？", "speaker_id": "senra", "section_id": "s1"}, {"start_sec": 34, "type": "text", "zh": "一进这行我就不再上课、逃学、全天候干活。父亲说：你觉得自己在网上赚大钱很了不起，那就搬出去。差不多一天后，我就真的搬了。", "speaker_id": "rafael", "section_id": "s1"}, {"start_sec": 65, "type": "text", "zh": "“但是我给你一个很棒的交易。我会雇你的儿子在这家公司做实习生，我会帮你打扫房子。”就差不多是这样。嗯，所以那大概可以说是我第一次尝试搬出家门。那事发生的时候你多少岁？我大约16岁。好，但为什么要辍学？为什么你会……很多人会辍掉大学，但你是辍掉高中。为什么会这样？所以退一步说，我大约14岁的时候开始在网上工作，做绩效媒体购买。那个时候的经历让我大开眼界。当时我在为我哥哥工作，", "speaker_id": "senra", "section_id": "s1"}, {"start_sec": 99, "type": "text", "zh": "那些人靠推不同产品日利润两三万美元；我老师一年才约 2.5 万。很快就明白：把力气砸进绩效营销，上行空间远高于学校。", "speaker_id": "rafael", "section_id": "s1"}, {"start_sec": 140, "type": "text", "zh": "一小会儿。有一次，我哥哥来拜访我爸爸，他告诉我爸爸他在做绩效营销，而我爸爸有个绝妙的主意，让我去给他实习。我去给他实习了一个夏天，一开始我有些反对，因为我那时每个月可以赚一千美元，在线卖东西和做游戏服务器，对于当时那个14岁的孩子来说，那是很多钱。嗯。在中学的时候。所以，最终的结果是他说服我去和他一起工作。我开始在那里工作，并开始做", "speaker_id": "rafael", "section_id": "s2"}, {"start_sec": 173, "type": "text", "zh": "比如，我会说，我就像是水下的那个小角色。我是那种，我就是枯燥的服务条款和隐私政策之类的人，我就是把这些加到网站上的家伙。那些别人不想做的工作，基本上都被迫交给了我。但通过这些，我学到了很多关于这个行业的知识。所以，我了解了，比如说，人们对什么类型的产品感兴趣，什么样的广告能吸引人们的注意力，网上赚钱的一般方式。因此，这算是我进入这个领域的一个重要尝试。当时，你基本上会对在线广告着迷，这对于一个十几岁的青少年来说，是一种有趣的执着。", "speaker_id": "rafael", "section_id": "s2"}, {"start_sec": 206, "type": "text", "zh": "年轻的青少年会拥有。但是你另一种痴迷是电子游戏，对吗？是的。你会在这两种活动之间画出一些平行点吗？我从来不擅长运动。我小时候踢过足球，玩过棒球，但我不擅长其中的任何一种。对我来说，我喜欢电子游戏的原因是它完全基于能力。如果你在玩多人游戏或单人游戏，最终目标就是去超越你正在竞争的对手。这正是我喜欢的东西。所以，把它带入商业领域，对我来说，我脑海里一直有这个类比，当他们派出勇士时，你", "speaker_id": "senra", "section_id": "s2"}, {"start_sec": 241, "type": "text", "zh": "在过去，为部落去获取食物时，那些人在意的唯一事情就是谁带回了食物？是谁猎杀了动物？对于我来说，在商业中，我总是专注于成为房间里最有价值的人。尽我所能为每个人创造最大的价值。多说一点这个。我认为头衔和资历，我认为在商业中，就像在体育和电子游戏中一样，关键是提供尽可能多的价值。这是我早期就意识到的一件事，就是如果你沿着相同的路线走下去……", "speaker_id": "rafael", "section_id": "s2"}, {"start_sec": 274, "type": "text", "zh": "其他人可能会觉得，好吧，我要去创业，我会当几年分析师，然后我会尝试升到经理，再到高级经理等等，这是一个线性且非常无聊的路径，实际上你会限制自己个人成长的能力，以及为公司创造价值的能力。而如果你采取另一种方法，考虑对业务最重要的事情，以及在我的技能范围内，我能做些什么来提供尽可能多的价值？如果你抱着这种心态，虽然路径可能不是线性的，但你会很快接触到一些你原本不会遇到的机会。", "speaker_id": "rafael", "section_id": "s2"}, {"start_sec": 308, "type": "text", "zh": "否则。所以这就是我一直以来采取的方法。这是你身上最令人着迷的特点之一。当我告诉别人你和亚当·福雷里（Adam Foroughi）时，他们会觉得很有意思，你小时候就有这样的特质。你从17岁、17岁还是19岁开始就和亚当一起工作？我哥哥和亚当一起工作过，所以我从14岁就知道亚当的存在。我15岁遇见他。当我告诉你我当水童时，他来到办公室，我哥哥说，去给亚当拿水。但我之前就知道他是谁，因为我哥哥的绩效营销公司里有一个排行榜，而亚当排在最上面。", "speaker_id": "senra", "section_id": "s3"}, {"start_sec": 341, "type": "text", "zh": "当时排行榜上，我是紧随他之后的那个人。我最初开始建立网站，然后开始制作广告，再到建立活动。所以我已经知道他是谁了。就是这样我才和亚当建立了联系。然后从那时起，一开始我们其实并没有太多交流。我想大概是在我17、18岁的时候，我们才更亲近。那是因为，我的道路非常不线性。我不会等待机会来找我，比如说，当我开始建立网站的时候，那只是其中一件事，但我对广告是如何制作的感到好奇。所以，我就……", "speaker_id": "rafael", "section_id": "s3"}, {"start_sec": 377, "type": "text", "zh": "开始学习使用 Photoshop 制作广告。当时有人教我如何发布一个就像 MySpace 的广告活动，我照做了。然后，从那时起，我想要更多的流量。我就开始自己主动联系品牌，没有人允许我这么做，我只是自己开始做。快进到后来，我想，‘嘿，我们自己创建了一个广告平台，为什么还要从其他广告平台购买流量，而我们可以自己联系发布商，而且我们有需求。’等等等等。所以，当你有了这个想法——我们要自己创建广告平台的时候，你多大？那时我大约17岁。", "speaker_id": "rafael", "section_id": "s3"}, {"start_sec": 406, "type": "text", "zh": "好的。对于一个17岁的人来说，这是一个非常不寻常的想法。是的，我……我开始这个广告平台的原因是，当时我们正在使用的那个广告平台，他们有自己的广告和优惠。而且他们把我们从平台上赶了出去，因为我们有竞争性。那天晚上我气得不行，我记得我回家时几乎哭了，然后我想，‘我们要干掉这些人。’然后我找我哥哥说，‘嘿，我要离开你的公司去创办自己的广告平台。我准备和这家公司正面竞争。’他当时笑得特别厉害，然后说，‘你不可能……’", "speaker_id": "senra", "section_id": "s3"}, {"start_sec": 442, "type": "text", "zh": "「随便你。我给你几个工程师，去做你想做的。」那就是 Appenda——移动广告平台——的缘起。那时亚当已离开我哥的公司，做完广告、想转消费产品；AppLovin 的开头其实也缠在这段时间。", "speaker_id": "rafael", "section_id": "s3"}, {"start_sec": 477, "type": "text", "zh": "在那段时间，亚当和我经常在AIM上聊天，因为我实际上是他的客户经理。但我经常捉弄他，我会说：“嘿，我会教你很多关于如何在网上赚钱的方式。我会教你如何经营一个真正的生意。”这也是另一件疯狂的事，因为他比你大大约10或12岁，比我大12岁，聪明多了。这个人简直是行走的计算器。但无知即福，而我肩上有个负担，对吧？我觉得我可以挑战世界。当我们花更多时间聊天时，最终发生的事是，非常聪明的，亚当说：“好吧。”", "speaker_id": "rafael", "section_id": "s4"}, {"start_sec": 509, "type": "text", "zh": "这个孩子全天候工作，但智商不是很高，他在那种广阔的蓝海市场上建立了这个广告平台，并且取得了成功。“我要去建立一个移动广告平台。” 所以他会和你竞争。是的。这里就是他把你拉进房间的时候，他会说：“别！” 我等等，他来过节目。让我在讲这个之前先倒回一点，因为有些人在听，但还没看过这一集。在亚当·法鲁吉亚的那一集中，当人们说，我，我觉得这是我最自豪的几期之一，因为我觉得我当时给它起的标题是《你从未听说过的最佳企业家》。而且，当时的事实就是…", "speaker_id": "senra", "section_id": "s4"}, {"start_sec": 542, "type": "text", "zh": "比如说，“随便吧。苹果是一家市值1500亿美元的公司。他们今年将印制60亿美元的现金，而这都是由大约400名员工完成的。”我为那一集感到自豪的原因是，它影响了之后几乎接下来的五六位来我们节目做客的嘉宾，这种情况一次又一次地发生。我们做了一期节目，这一集将在十二月与Mr. Beast播出，对吧？我和Mr. Beast认识有一段时间了，他会听我的另一档播客《Founders（Founders）》。他每年都会给我发他的Spotify Wrapped榜单，上面总是《Founders》名列前茅。我们一停止录音，他就向前倾身说，", "speaker_id": "senra", "section_id": "s4"}, {"start_sec": 575, "type": "text", "zh": "“嘿，你能把我介绍给亚当吗？”米奇·马尔卡，整夜不停地，就像我一样，一遍又一遍地问：“这个人是谁，你能介绍我认识他吗？”他是那种非常不同寻常、毫无保留、非常硬核的人。所以这就是我们在谈论的人。这就是你们合作了半辈子的人。是的。现在这个孩子通过这个广告网络赚了这么多钱。他不是……我记得他讲过这个故事。他把你叫到房间里说，“别生气，但我要和你竞争。”是的，很有趣。他在办公室里，他就这样……", "speaker_id": "senra", "section_id": "s4"}, {"start_sec": 600, "type": "text", "zh": "他脸上那种吃屎般的笑容。就像是有人刚吃了你的食物那种笑。 【笑声】 实际上并不是他把我拉进来的。我是把他推进一个房间，因为我看到他脸上的这个笑容。我当时想，“到底怎么回事，你为什么这么高兴？你笑什么啊？” 然后他就说，“嘿，不要生气，我在建立一个竞争对手的广告平台。” 当时我并不在意，因为就像你之前提到的，我是一个超级玩家。我喜欢玩电子游戏。我本来打算去加入我朋友在Y Combinator的公司，他们开发手机游戏。然后亚当破解了我，他说，“哇，哇，哇，等等。什么情况？”", "speaker_id": "rafael", "section_id": "s4"}, {"start_sec": 631, "type": "text", "zh": "你的意思是你打算去加入别人公司的团队吗？你应该来给我工作。你知道怎么拼命工作。你认识这个移动游戏领域的每一个人，但你对如何建立一个真正的业务一无所知。出于对亚当的尊重，尽管我经常在网上和他聊很多，我总是知道他是一个非常聪明的人。我决定去帕洛阿尔托见见其余的团队。这是你搬进办公室的时候吗？是的。所以，很多人会说，“哦，我每天24小时在这里，或者说，我实行996工作制。”就像Raff搬进办公室一样，这也体现了你们独特的企业文化。亚当打造了基础设施。", "speaker_id": "senra", "section_id": "s4"}, {"start_sec": 666, "type": "text", "zh": "他做了。他确实做了。他和另一个工程师一起。所以，详细说说吧。事情是这样的。面试非常顺利。我当时想，‘这些是我这一生中见过的最聪明的人。’这是显而易见的事。我肯定要加入。我们进行谈判。我说，‘我想要公司的一半。’他说，‘哦，你这个职位的人通常只拿到百分之四分之一。’【笑声】我拿到的比那个多一点。不过，很明显，我没拿到公司的一半。所以，我就说，‘好吧，但我有一个条件。’他问，‘是什么？’我说，‘我必须住在办公室里。’", "speaker_id": "rafael", "section_id": "s4"}, {"start_sec": 698, "type": "text", "zh": "他说「可以，但为什么？」我说：把这当作越南战争——我们有个滑稽名字叫 AppLovin，没有 VC，要派一个五英尺八、偏圆的小孩去跟游戏开发者和广告主死磕。想赢，只能极端投入。", "speaker_id": "rafael", "section_id": "s4"}, {"start_sec": 730, "type": "text", "zh": "他和当时的 Furqan 去宜家，给我和另一名我拉来的工程师搭办公室上下铺。那名工程师一见床就说「休想住这儿」；我看见却觉得「金窝银窝，办公室是我家，开工。」", "speaker_id": "rafael", "section_id": "s5"}, {"start_sec": 731, "type": "ad_omitted", "ad_brand": "Ramp", "section_id": "s5"}, {"start_sec": 759, "type": "ad_omitted", "ad_brand": "Ramp", "section_id": "s5"}, {"start_sec": 797, "type": "ad_omitted", "ad_brand": "Ramp", "section_id": "s5"}, {"start_sec": 798, "type": "ad_omitted", "ad_brand": "Deel", "section_id": "s5"}, {"start_sec": 833, "type": "ad_omitted", "ad_brand": "Deel", "section_id": "s5"}, {"start_sec": 868, "type": "ad_omitted", "ad_brand": "Deel", "section_id": "s5"}, {"start_sec": 869, "type": "text", "zh": "搬进办公室时业务还是零收入，像动物屋：亚当带一群工程师试不同应用，想找产品感觉。", "speaker_id": "rafael", "section_id": "s5"}, {"start_sec": 909, "type": "text", "zh": "搬进办公室时业务还是零收入，像动物屋：亚当带一群工程师试不同应用，想找产品感觉。他做过 Facebook 上的广告网络，也熟 PC 向移动的流量迁移——打这个空白市场几乎是「天选」。", "speaker_id": "rafael", "section_id": "s6"}, {"start_sec": 946, "type": "text", "zh": "他说，你可以购买公司 25% 的股份，你应该支持这个。你们进入得非常早，正好是从桌面向移动过渡的时候。是的。他被拒绝了，因为他们认为他们是做游戏和广告的，这些都是糟糕的生意。他们不理解这个。然后几年后，他们去资助了你们的许多其他竞争对手。他说，你们把把那些竞争对手赶出市场作为公司的原则。所以带我们回到这里。实际上在这个领域还有很多其他公司，它们资金充足，并且它们得到了……的支持。", "speaker_id": "rafael", "section_id": "s6"}, {"start_sec": 978, "type": "text", "zh": "当时顶级的风险投资公司，比如 Benchmark、红杉等。其中一些已经非常成功了。当时市场感觉实际上已经非常成熟。就像是，当时有这么一个孩子在做销售，加上一些人在帕洛阿尔托，怎么可能成功对抗这些已经占据大部分市场的巨头呢。而且当 Adam 去尝试融资时，我们已经盈利了。有趣的是，他几乎是在把一个绝佳的交易摆在他们面前。收入增长势头强劲，公司每个月都在疯狂增长，非常盈利，利润率世界一流。", "speaker_id": "senra", "section_id": "s6"}, {"start_sec": 1012, "type": "text", "zh": "对这个领域的其他所有人来说，他仍然被拒绝了。你认为这是为什么呢？我认为归根结底是因为我们的故事和背景非常非传统。很多人，以前筹过钱，比如他们做这些移动游戏广告平台，他们是游戏发行商，或者他们是这些大公司的一部分，所以在纸面上，他们曾在 Facebook 工作，或者在 Google 工作，他们在 AdMob 团队，这是当时最大的广告平台之一。他们为所有这些企业工作。所以，从纸面上看，他们非常出色。而我们则不同，我们是表现型营销人员，我们一直做套利。", "speaker_id": "rafael", "section_id": "s6"}, {"start_sec": 1049, "type": "text", "zh": "企业。我们绝不会运营一个已经走向盈利的广告网络。所以，我想这大概就是原因。你们是一个小团队，没有资金，完全自力更生，要与那些已经建立起来的、拥有更多资金和人手的竞争对手竞争。那你们是如何开始建立公司的？你们是如何开始赢的？Adam比业内任何人都更理解技术是最重要的部分。其他人都专注于销售，对吧？所以，他们有成百上千的广告客户，还有这些优质的出版商，但是他们的", "speaker_id": "senra", "section_id": "s6"}, {"start_sec": 1082, "type": "text", "zh": "算法 这些算法中的很多都是人们在后台手动优化的。那时我们没有像样的最先进机器学习模型。那时并不存在这样的东西。但我们有一些规则，并且我们围绕着决定提供什么进行回归学习。而这本身让我们能够超越竞争对手，尽管我们的需求没有那么大，尽管那时我们的发布商质量不如其他一些广告平台。因此，当我们真正去看我们的货币化情况时，比如说我们与另一个广告平台直接竞争，很多时候我们的货币化表现是，", "speaker_id": "rafael", "section_id": "s6"}, {"start_sec": 1116, "type": "text", "zh": "就是别人收入的两倍。所以，当我走进一个房间或者联系出版社时，谈话的内容就是，我向你保证比你在别处赚得多。这是显而易见的，对吧？很多人认为这好得难以置信，实际上。所以，他们让我们把它写下来。我们对此没有问题。我真的要说，是亚当的愿景——全力投入技术——让我们得以成功。好吧，我们在开始录音前聊过，你说，你觉得我们的品牌太软，它没有体现出我们公司内部那种疯狂的绩效文化。", "speaker_id": "rafael", "section_id": "s6"}, {"start_sec": 1147, "type": "text", "zh": "我想跳到故事后段。我和你、和亚当都待过很长时间——内部有点像《最后的舞蹈》里乔丹领着的公牛。AppLovin 里是什么样？", "speaker_id": "senra", "section_id": "s7"}, {"start_sec": 1180, "type": "text", "zh": "被看作只是提供服务的人。所以我给你一个例子，比如我们面试过很多来自一些大型广告平台的人，他们尝试来AppLovin找工作。我其中一个简单会问他们的问题是，‘嘿，你会设置一个广告活动吗？你会上传广告吗？你会想创意点子吗？’很多时候他们会说，‘哇，我没做过这些啊，为什么要做这些？’而对我们来说，我们会做所有这些事情。这也是我们运营卓越的一部分，我们觉得所有这些小事情加起来，都能为我们的广告主带来惊人的回报。所以，", "speaker_id": "rafael", "section_id": "s7"}, {"start_sec": 1213, "type": "text", "zh": "我会说，这是一个最大的不同点。我们非常专注于绩效。这实际上是我们公司的基石。所以，有些人可能会对我们说，客户因此爱恨交加。有些客户会说，“嗯，我会说很多客户会说，我们非常有能力，我们很棒，我们为他们提供了很好的成果。但是，他们会说，你们有点傲慢，而且不总是最友善的人。”不过，这并不是说，我们在试图傲慢，而是我们最终只是想为他们带来最佳回报。因此，我们对他们可以做得更好的地方有很强的意见，并且总是", "speaker_id": "rafael", "section_id": "s7"}, {"start_sec": 1242, "type": "text", "zh": "推动他们。相比其他公司，他们会说，“无论客户想要什么，客户永远是对的。”就像，如果我们的目标是为你带来更多利润的客户，那么你可以查看数据，有正确和错误的决策。对我们来说，我们总是在努力推动正确的决策。那么，谈谈你对反委派观点的更多看法。是的，就像我们在节目之前谈过的，很多领导者，比如，你在播客中也会听到，“雇人，委派，委派。”这并不是我们在 11 公司所遵循的方式。", "speaker_id": "rafael", "section_id": "s7"}, {"start_sec": 1273, "type": "text", "zh": "原因有点像，要成为一个伟大的领导者，你必须深入基层。如果你用体育类比来思考，明白吗？就像，为什么迈克尔·乔丹总是拿到球？或者为什么他被认为是球队的队长？不是因为他是那里的最年长的人，或者是最资深的。而是因为当他们把球交给他时，他能投中。这对我们来说意味着，如果你深入基层，你就能理解客户想要什么，理解客户需要什么才能成功，并且理解什么是重要的。就像，当你委派任务和雇佣这些人时，", "speaker_id": "rafael", "section_id": "s7"}, {"start_sec": 1303, "type": "text", "zh": "你把所有注意力都放在很多对你的业务不重要的事情上。但你已经雇佣了这些人，所以他们需要做点什么，对吧？所以，你就让他们处理这些实际上对业务没有推动作用的任务。你看过我做的Todd Graves采访吗？我看过。他说他讨厌委派。他像在说：“这个词到底是什么意思？”他脸上有种厌恶的表情。他完全反对——有很多很棒的创始人都是有点反对委派的。是的，我也认为，这正是让游戏有趣的地方，对吧？就像回到视频游戏一样，它是……", "speaker_id": "senra", "section_id": "s7"}, {"start_sec": 1329, "type": "text", "zh": "比如，想象一下你玩完所有这些关卡，然后你遇到了一个老板，比如最终的老板。你会把控制权交给你的朋友吗？不会的。你会自己去做。那是一个新的挑战，对吧？这就是为什么这份工作对我个人来说一直很令人兴奋的原因。你大部分时间都在做什么？因为亚当告诉我，他认为你是世界上最优秀的交易员之一。我专注于做那些对业务来说可能产生最大杠杆效应的交易，对吗？所以我们团队很小。幸运的是，我们是一家非常有盈利且增长迅速的公司。所以我们努力进行", "speaker_id": "rafael", "section_id": "s7"}, {"start_sec": 1358, "type": "text", "zh": "无论是公司及其广告商，还是与其他可以为我们带来数千广告商的公司进行合作。这是我的目标——尽可能多地为 AppLovin 带来客户，以便我们能够建立最好的业务，并成为世界上最大的广告平台之一。然后你还要尝试扩展现有客户。Adam 在这个播客中给我们讲了一个很棒的故事，他就像说，“是的，我们就像在追捕一只动物。”他还说，“我经常接到客户的电话。”他说，“这个家伙怎么回事？这个家伙是一个数十亿身家的富豪，还烦我每天多花 5000 美元。”【笑声】", "speaker_id": "rafael", "section_id": "s7"}, {"start_sec": 1389, "type": "text", "zh": "他就像说，“这对你来说不重要。” 然后他说，“这对我们很重要。一切都很重要。” 重要，对吧？ 就像如果你连小事都做不好，你怎么能指望自己把大事做好呢？ 而且，我以前在网上也说过，我们才刚刚开始。就像亚当谈到过这一点。我们广告支出的速度达到了200亿美元。 当你看会议室里那两大巨头，他们的广告支出总和在平台上达到五千亿美元，对吧？ 或者说在他们的广告平台上。 所以我们有很大的成长空间。 当你能够深入细节，确保...", "speaker_id": "rafael", "section_id": "s7"}, {"start_sec": 1421, "type": "text", "zh": "你正在为你的广告商取得成功。顺便说一下，很多时候我们确实为广告商提供了更好的效果，但他们一开始可能不会增加预算，因为他们的注意力不在我们身上或者他们关注其他事情。重要的是你要进入其中，让他们关心你的业务，对吧？其实我可以说这是我的一个超能力，当我联系这些客户时，他们会想，‘这个亿万富翁为什么要为了额外的5000美元联系我？’这就显示出我们对你的业务非常认真。我们真的很关心与你合作。", "speaker_id": "rafael", "section_id": "s7"}, {"start_sec": 1453, "type": "text", "zh": "对我们来说，你不仅仅是电子表格上的一个数字。这只是坚持不懈的问题吗？就像我刚读了Ari Emanuel的新书，他整个事情的核心是他会来节目，我想问他其中一个问题就是，反复给人打电话真的有用吗？因为人们对我也这样做。他们会说，‘嘿，我想和你联系。’然后他们说，‘我就每天给你发邮件，直到你回复为止。’我当时的想法是，‘你会被立刻拉黑的，这对我没用。’如果你不停地给人发邮件，只发那些没用的东西，他们就会忽略你。", "speaker_id": "senra", "section_id": "s8"}, {"start_sec": 1478, "type": "text", "zh": "正如你所说，你会屏蔽他们。我认为重要的是，你很坚持，但你总是在想办法为客户提供价值，对吧？所以，给我举个例子吧。这是一个很有趣的故事。我们之后要去迈阿密。那里有一个叫纳迪尔·汗的人。他在迈阿密经营一家应用程序业务，把它卖了几亿美元。我花了两年时间才联系上他。而每次我联系他的时候，都是关于他们如何能增加收入的方法，对吧？无论是像“嘿，这个级别可以……”", "speaker_id": "rafael", "section_id": "s8"}, {"start_sec": 1508, "type": "text", "zh": "优化，或者你应该在这里展示广告，或者说，嘿，在这个市场上，你就像是在掉链子一样。” 他们公司内部有一个玩笑，那就是，“我们希望我们团队里有一个拉斐尔·维瓦斯。” 因为这个人总是事事关心，努力帮助我们变得更好。最终，他回复了我。他说，“你是我这辈子遇到的最执着的人之一。” 之后，我们开始做很多生意，并帮助他们显著成长。好了，所以这并不是说，“嘿，我要不停地打扰你，打电话给你，发邮件给你，因为我想要什么东西。”", "speaker_id": "rafael", "section_id": "s8"}, {"start_sec": 1540, "type": "text", "zh": "从你那里。我会继续与你保持联系并为你提供价值，你会在我告诉你六个好主意之后才意识到，嘿，也许我应该接这个电话。对吧？而且，很多时候，这些人并不是觉得你的想法不好。只是他们有其他事情要处理，对吧？可能不是合适的时间，他们可能没有合适的人选。像你说的那样，持续保持联系很重要。如果你在提供价值，这些人最终会想和你合作。你认为 AppLovin 文化的其他方面有哪些？", "speaker_id": "rafael", "section_id": "s8"}, {"start_sec": 1564, "type": "text", "zh": "从内部来看和你可能看到的其他公司相比，非常不同。我们真正的巨大区别在于我们非常非常亲力亲为。这就是我之前提到的，比如说即使是亚当有时也会亲自设置活动，或者我们会检查这些小客户的情况，我会说真正地关心是我们最重要的事情之一。而且我还会说，我们在内部会首先报告坏消息。很多公司通常会说，‘好啊！我们做了这件事，然后……’", "speaker_id": "rafael", "section_id": "s8"}, {"start_sec": 1602, "type": "text", "zh": "对我们的业务非常有利。而且，比如说很多内部AppLovin的独白就是这样，‘这很糟，这很糟，这很糟，这很糟。’然后我们就是一个一个地解决它，去改进它，对吧？我会说，这确实是两个很大的方面。你们似乎对股票价格的波动也很免疫。我记得最近发生了什么事，但我不关注新闻，所以我甚至没看到，但我记得它因某种原因下跌了不少。我给Adam打了电话，他立刻给我回了电话，我只是开了个玩笑，根本和任何事情无关。", "speaker_id": "rafael", "section_id": "s8"}, {"start_sec": 1634, "type": "text", "zh": "他好像在笑，而且心情很好。然后我后来才知道，事实上，我们当时是在录音的地方飞回来的路上，然后飞机上的某个人告诉我，他们说：“伙计，他们的股价今天掉了大概20%吧。”我心想，“和他谈话根本不会知道。”他根本不在乎短期的事，对吧？我们不在乎短期的原因是，因为最终，如果我们觉得自己在为企业做正确的事情并在成长，最终股价会反映这一点，对吧？你也知道，当你看到公司时，它一度价值30亿美元。", "speaker_id": "senra", "section_id": "s8"}, {"start_sec": 1667, "type": "text", "zh": "或者说抱歉，是大约 40 亿美元量级——股票跌过 90% 以上。所以再跌 20% 或腰斩，对我们像 NFL 日常，吓不住。只要确认在做对的事、帮客户增长，股价会自己照顾好自己。", "speaker_id": "rafael", "section_id": "s8"}, {"start_sec": 1701, "type": "text", "zh": "或者机器人，或者类似的东西。但我非常有信心我们可以建立的是一个能够帮助公司在我们的一生之后仍然持续成长多年的业务。对我来说，如果我能成功做到这一点，我会说我个人这一生已经成功了。那么，这就是你仍然在工作的原因吗？这就是支撑你前进的动力吗？因为我刚刚在英国参加了一个活动，有些人就像这样，其中一个人以大约130亿美元的价格出售了他的公司，他有点迫不及待想要回到游戏中。？他并不后悔出售公司，但他就是觉得自己不能成为一名雇员，我必须拥有一个", "speaker_id": "rafael", "section_id": "s9"}, {"start_sec": 1740, "type": "text", "zh": "公司。我必须有某种方式来承载我所有的创造力和精力。他却说其他联合创始人都很好。他们每个人都赚了十亿美元，不管具体情况如何。他就像说他们在盖房子、写天使投资支票，或者在海滩上闲逛一样。所以，有几件事。首先，就像我说的，我们的项目还处于早期阶段，我不会工作了十四年却在项目开始之前就离开。我们在说什么呢？工作还没有完成，对吧？从业务和影响力来看，我们的生命才刚刚起步。这对我来说没有任何意义。我想，为什么要这么早就离开呢？", "speaker_id": "senra", "section_id": "s9"}, {"start_sec": 1776, "type": "text", "zh": "我必须成为比我更大的事物的一部分，对吧？而比我更大的事物，就是帮助企业成长，带来数百亿美元的价值，希望有一天甚至是数千亿美元的价值回到经济中。我认为这是我们所做的伟大事情之一，对吧？随着我们帮助这些企业盈利性地成长，它们可以雇佣员工，可以投资于更好的产品，最终这会让消费者购买他们的产品更多，并刺激经济。我认为这是我可以为社会做的一件伟大的事情。不过，你当时为什么必须休息一年呢？你是……你是……", "speaker_id": "rafael", "section_id": "s9"}, {"start_sec": 1809, "type": "text", "zh": "就像完全精疲力尽一样吗？再给我讲一遍这个故事。是的，所以我尝到了背面，所以我们开始了一个游戏业务。我们开始游戏的原因是先卖广告平台，然后再做游戏业务，因为为什么要在那个平台之后才开始游戏业务呢？我们在亚洲做了很多生意。中国是我最喜欢做生意的地方之一，因为创始人非常投入。他们行动非常快，非常聪明，就像你希望商业伙伴拥有的一切。当时我们的一个合作伙伴是这家公司叫猎豹移动。他们是我们最大的合作伙伴之一", "speaker_id": "senra", "section_id": "s10"}, {"start_sec": 1843, "type": "text", "zh": "出版商。他们会做的就是，他们会尽可能地压迫我们，对我们进行各种你能想象得到的方式的压迫。我们和他们签了协议，但他们却像不在乎一样，完全不理会协议。他们总是随时违反协议。我记得很多个晚上，当我待在美国的时候，我会熬到凌晨四五点去处理他们的事务，然后，我也会花很多时间在亚洲与那里的管理层一起工作。但在整个这段历程中，我一直在想，我们绝不能让自己处于如此依赖其中一个合作伙伴的地位。", "speaker_id": "rafael", "section_id": "s10"}, {"start_sec": 1870, "type": "text", "zh": "而且我们当时也看到了Netflix所做的事情。我们觉得，这是一个很好的机会，真正拥有垂直业务的机会。有这样一个平台是很棒的，同时也拥有自己的内容。这样你的经济效益更好，你有分销优势，而且整体上你会建立越来越多的企业价值。顺便说一下，这在亚洲并不是一种罕见的商业策略。世界上最大的游戏公司都是分销公司。腾讯就是一个完美的例子，网易也是一个完美的例子。这些公司在其主营业务之外还有其他业务。", "speaker_id": "rafael", "section_id": "s10"}, {"start_sec": 1903, "type": "text", "zh": "游戏，他们用它来发行他们的游戏。所以，这就是我们如何进入游戏业务的方式。但是，Cheetah，真的让我非常生气。就像我之前跟你讲的故事一样，我们是因为其中一个合作伙伴才开始了广告平台的。回到这个合作伙伴，他把事情推到了极端，我去找艾丹，我说很简单。我会离开去建立一个Cheetah Mobile的竞争对手，或者我会在这里做。我真的很想在这里做，因为等等，先暂停一下。为什么这对你来说很简单？你为什么会离开去建立一个竞争对手？是Cheetah，这种动物吗？是的。好的，猎豹。", "speaker_id": "rafael", "section_id": "s10"}, {"start_sec": 1938, "type": "text", "zh": "因为我心里充满了愤怒，我只想主宰那些家伙。这并不是关于，我是一个很简单的人，大卫，我们谈过，我住在200美元的酒店。我会选择那个，糟糕的商业航班。所以对我来说，钱当然很重要，但我不，有些人会说，嘿，我想要更多的钱，买一栋大房子。我一点也不在乎这些，对吧？对我来说，我工作的原因是有目的的。而那家公司把我逼到一个地步，我那时的目标就是毁掉这些家伙。【笑声】所以这真的是开始于", "speaker_id": "rafael", "section_id": "s10"}, {"start_sec": 1975, "type": "text", "zh": "为什么叫 Lion Studios？因为狮子是唯一能杀死猎豹（Cheetah）的动物。论点是：跟全球顶尖开发者合作，我们有巨大分发，帮他们发游戏。两年内从零做到逾 2.5 亿美元量级。", "speaker_id": "rafael", "section_id": "s10"}, {"start_sec": 2012, "type": "text", "zh": "在游戏中做广告，但在这一点上你们仍然只是进行游戏安装？完全正确。好的，没错。所以，我们是新进入这个领域做游戏的孩子。而我们的合作伙伴显然不喜欢这样，对吧？他们把我们看作是敌对的，实际上，其实有更多的好处，对吧？我们是在为市场创造更多的库存。这些数据帮助改进了我们的机器学习模型。因此，我们能够更高效地为他们有效地引流。所以，即使这些合作伙伴不喜欢我们，他们也会与我们合作，因为我们带来的价值，但内部仍然有很多问题。", "speaker_id": "senra", "section_id": "s10"}, {"start_sec": 2043, "type": "text", "zh": "压力。然后游戏行业也是一个非常依赖爆款的行业。你需要全天候工作。我们合作发布游戏的最佳合作伙伴，他们并不在美国，他们在欧洲，他们在亚洲，遍布全球。你觉得他们为什么不在美国？我认为他们不在美国主要有两个原因。首先，这里的劳动力成本要高得多。而且当时我们开发的游戏，你并不需要最顶尖的人员，对吧？关键是尽可能多地进行练习。我们开发的很多游戏就是这些所谓的超休闲游戏。", "speaker_id": "rafael", "section_id": "s10"}, {"start_sec": 2077, "type": "text", "zh": "我们会使用一些方法来确定什么会成为热门游戏。很多时候只是基于游戏的市场可销售性。我们看到的是，你可以在那里找到成本更低的员工。而且他们只是会工作。他们的工作效率远超美国的工作室。所以，我们会在一些游戏工作室面试这些人，他们会说，“是的，我上午9点到下午5点上班。我负责这个游戏工作室里方程式中的一个非常小的部分。”他们有这些臃肿的团队。相反，我会去见，比如说，这是一个完美的例子。有一次...", "speaker_id": "rafael", "section_id": "s10"}, {"start_sec": 2108, "type": "text", "zh": "Game 5 Mobile 那套班子做出了收入接近 1 亿美元的《Happy Glass》：夫妻加弟弟，穷到同住，房子即办公室——几乎是他们的最后一搏。", "speaker_id": "rafael", "section_id": "s10"}, {"start_sec": 2141, "type": "text", "zh": "就像他们合作起来令人难以置信一样。但同时也促使我更加努力工作，对吧？因为我看到了他们的出发点，我知道这是他们的重要机会。我喜欢让这样的人取得成功。他们是弱者。没有人相信他们。实际上，这家公司 Game 5，三个员工，他们曾在惠普工作。他们在这个游戏工作室上赌了一把。对他们来说，如果接下来的一个月不成功，他们就得再次找工作。所以这是生死攸关。我在阅读《从零到一》这本书时找到我最喜欢的名言之一，这句话是：“我注意到的最强大的模式是”", "speaker_id": "rafael", "section_id": "s10"}, {"start_sec": 2174, "type": "ad_omitted", "ad_brand": "AppLovin", "section_id": "s10"}, {"start_sec": 2213, "type": "ad_omitted", "ad_brand": "AppLovin", "section_id": "s10"}, {"start_sec": 2214, "type": "text", "zh": "你的故事类似于你过去告诉我的情节，就像你是那种人，我无法回头。我被赶出家门，我搬进办公室。这要么成功要么死。是的，那确实是你说的。没错。没有回头路，我会成功，我会死。这就是", "speaker_id": "senra", "section_id": "s10"}, {"start_sec": 2249, "type": "text", "zh": "像 50 Cent 那种「要么发财，要么拼命」。我跟当时女朋友说要完成「黑曼巴」模式；工作时循环励志音频，有点自虐式自我洗脑。", "speaker_id": "rafael", "section_id": "s11"}, {"start_sec": 2276, "type": "text", "zh": "好的播客就是这样。这个更好。没有人听它。而且我每天都得醒来，用这些东西洗脑自己。对。只是继续做工作。是的，是的，是的。特别是因为内部环境非常紧张，对吧？亚当对我压力很大。我明白公司的未来在我肩上。因为在这个时候，所有的枪都指向我们。我们已经破釜沉舟，对吧？我们就是来赢的，没有其他选择。所以，我会在凌晨四点醒来，然后一直熬到午夜。你当时二十出头吗？是的，我那时候是。", "speaker_id": "rafael", "section_id": "s11"}, {"start_sec": 2309, "type": "text", "zh": "大约26到28岁。所以，我那时候是在处理这种孩子。没有孩子的关系。基本上就是工作。是的，就只是工作。除了工作之外，其他什么都不重要。这是最重要的事情。所以，我做了两年。大约两年后，我再次从框架中放下笔记本电脑，我意识到，哦，这个业务其实不再需要我了。这是游戏工作室，或者说游戏工作室。它是一个游戏发行业务。所以，我只能把它比作环球音乐集团，对吧？我们有发行渠道，我们会去寻找有才华的游戏开发者，并把他们的游戏带给大众，然后", "speaker_id": "rafael", "section_id": "s11"}, {"start_sec": 2343, "type": "text", "zh": "我们把 20 多款游戏推到第一、累积超 30 亿下载，一度是最大玩家之一。到自己不再 mission-critical 时开始反思：业务不那么需要你了，你还要什么？", "speaker_id": "rafael", "section_id": "s11"}, {"start_sec": 2372, "type": "text", "zh": "我需要开始考虑生孩子的事情。这一直对我非常重要。我一直知道自己想成为一名父亲。所以我从事业上休了一段时间。很有趣，你说了一年，但我其实不太擅长休假，因为三年零三个月后我开始疯狂起来，开始为了娱乐而开发产品。不过是的，当时我搬到了迈阿密，因为旧金山太让人沮丧了。疫情期间一切都关闭了。我去了迈阿密，本来只是打算像周末一样度个假。我当时想，天啊，这里好像没有新冠，一切都开着。然后，然后就在那儿开始定居下来。", "speaker_id": "rafael", "section_id": "s11"}, {"start_sec": 2405, "type": "text", "zh": "遇见我生命中的挚爱并组建家庭。是的，那段时间我也在场。是的。我记得，因为我最喜欢的比萨店之一是位于日落港的Lucali。那时候你以前去那儿，首先是根本不用等，然后在疫情期间开始需要排队，你留下了电话号码，我不断看到这些像415和212的区号，因为那时所有来自旧金山和纽约的人都来到迈阿密。等等，你说你请了一个长假，你是怎么跟亚当解释的？算是长假吗？你是怎么说的？我是永远结束了吗？是的，所以这个是", "speaker_id": "senra", "section_id": "s11"}, {"start_sec": 2435, "type": "text", "zh": "我真的不太擅长把这个消息告诉他，对吧？这就像，亚当就像是我哥哥一样的大哥，所以我们等到了我的生日。我其实已经有一段时间在记录这件事，大概在间接地表达我实际上只是想抽时间休息。我可以说大约在一年前，我就一直在写一些东西，比如，“业务的哪些地方需要改进，我在哪里是瓶颈？业务需要到达什么状态才能在没有我的情况下也能运作？”所以，我就开始在清单上勾掉一些事项，不知不觉间，一切都完成了。", "speaker_id": "rafael", "section_id": "s11"}, {"start_sec": 2466, "type": "text", "zh": "感到很有成就，而且我没办法一直待在身边，而新游戏在不断发布，收入也在增长。所以，我打电话给亚当，我说，‘嘿，今天是我的生日。’他回答说，‘生日快乐，当然。’我说，‘我想从公司请一段时间假。’亚当不是一个很情绪化的人，他只是说，‘你确定吗？’我说，‘是的。’他说，‘好吧，我尊重你想做的任何事情。’然后我们基本上就结束了这段对话。之后发生的情况是很多人打电话给我，说，‘你到底在想什么？你在干什么？’我的哥哥，这个人叫查德，所有这些人，他们都在试图", "speaker_id": "rafael", "section_id": "s11"}, {"start_sec": 2503, "type": "text", "zh": "说服我留下。他们试图向我提供各种不同的方案。我当时想，‘这和钱无关，而是业务需要立即成功，我生活中还有其他事情想去实现。’于是，我从业务中抽出了身。我会说，从那次谈话来看，本来应该是大约6个月的过渡期，但三个月内我就基本抽身了。当时，你认为自己永远离开AppLovin了吗？哦，是的。我以为我会去追求日落，享受生活，在海滩上放松，再也不工作。但你很快就意识到", "speaker_id": "rafael", "section_id": "s11"}, {"start_sec": 2531, "type": "text", "zh": "这是一个非常令人沮丧的生活。就像没有任何目的。我们应该在每一集节目中都插入一个关于这个的广告。就像，去看看那些从未找到其他工作方向的退出来的创业者们，他们是最让人难以接近的悲惨灵魂。是的，而且仔细想想，我喜欢打电子游戏。你会意识到，在一个星期三的下午，你没有人陪你玩游戏。你的朋友都不在，他们都很有生产力，都在做事情，对吧？所以，你没有人可以一起玩。会感到孤独。但后来我开始，我开始做这些生意，而实际上，这会进一步深入到", "speaker_id": "senra", "section_id": "s11"}, {"start_sec": 2563, "type": "text", "zh": "驱动我的是什么。我意识到的是，我找到了一个很棒的技术团队，我们一起合作开发这些产品。我并不在意我们正在构建的产品。我对它们没有任何连接。对我来说，就像是你在谈论你业余时间做的那些事情。是的，我在苹果的业余时间就像，‘哦，我只是机会主义地想，嘿，我觉得这个垂直领域合适。关键绩效指标看起来不错，我们去建设它吧。’所以，那只是其中一件事。有一件有趣的事情是，我曾经主持过一个约会节目。其实不推荐。那个行业已经死了。一个约会节目？是的，叫做《爱或名》。这是我的想法。", "speaker_id": "rafael", "section_id": "s11"}, {"start_sec": 2592, "type": "text", "zh": "那就是你来，然后你就是，它是在手机上进行的，你会为了爱或名声而竞争。但想象一下每天看12小时的约会节目。你会想跳窗。所以，这并不适合我。然后第二件事是，你休假去海滩，或者甚至不去海滩。是的，不去海滩。低质量的工作。是的，那真的很糟糕。然后第二件事是，当我开始在新公司工作时，我真的不关心我正在一起工作的人。所以，我会说，除了帮助我们的工作之外，其中一件让我留在这里的事情是……", "speaker_id": "rafael", "section_id": "s11"}, {"start_sec": 2629, "type": "text", "zh": "顾客成功就像我真的非常关心亚当和我们团队其他成员的成功。对我来说，如果他们做得不好，我会感到很不舒服。我会……我会拼命努力。我会……我会拼尽全力，直到让我周围的人成功。而我之前两样都没有。所以，我回到AppLovin的旅程是这样的：我们在纽约证券交易所敲响了开市钟。大家都在一起庆祝。公司上市了，你还在公司外面。还在公司外面。顺便说一下，状态很好。所以，是的，就这样。我们敲响了开市钟，第一天，股票下跌，对吧？而", "speaker_id": "rafael", "section_id": "s11"}, {"start_sec": 2674, "type": "text", "zh": "我当时在和那边的人交谈，公司当时仍在成长，但业务中确实存在一些缺陷。而且我很清楚地意识到，我需要留在这里。这是我的公司，这是我的公司。我们在酒精中消解着悲伤。我不会说是在狂欢，因为那并不是一个特别快乐的时刻。你的IPO刚发生，股价就立即下跌。而Adam，他看着我说，‘嘿，我从别人那里听说你在考虑回来。’我当时就说，‘我加入。’从那以后我一直在这里。我是通过这个使命被重新吸引回来的。", "speaker_id": "rafael", "section_id": "s11"}, {"start_sec": 2713, "type": "text", "zh": "生意上，我知道我在这里还有很多事情可以做。如果公司的业务状况很好，股价在上涨，你认为你还会做出那个决定吗？我想我会的，因为在那时，我已经没有其他可以为公司提供的东西，也没有我能够创造的价值。我的意思是，如果是这样的话，你就会置身事外。我会置身事外，然后我得另想办法。但我当时觉得，公司需要我。而我认为你们在这时上市时，市值大约是280亿美元左右，然后它继续发展。", "speaker_id": "senra", "section_id": "s11"}, {"start_sec": 2739, "type": "text", "zh": "下跌。我想几乎每天都这样，大概持续了200天左右。这就是传奇的股票回购，我们应该现在讲这个故事，因为太不可思议了。公司的股价在暴跌。这很有趣，情况是相反的，对吧？股价下跌，收入却在上升。所以，亚当讲的故事是，不是任何人，而是他加倍下注购买Living的股票，并杠杆化公司，这是有史以来最伟大的回报之一，对吧？是的，因为我记得当时你们的市值降到了大约38亿美元，对吧？差不多。是的，但我记得你们的现金流大概有十亿美元左右。", "speaker_id": "rafael", "section_id": "s12"}, {"start_sec": 2768, "type": "text", "zh": "想法是：没人买我们的股票，就用这大约 10 亿现金流自己回购；后来公司因这一决策吃到大约 50 亿美元量级的回报。", "speaker_id": "senra", "section_id": "s12"}, {"start_sec": 2795, "type": "text", "zh": "这样一个令人难以置信的企业，我们知道我们想继续经营它。嗯，那本来是我下一个想问你的问题。比如，当这种情况发生时，你会想，‘好吧，我们公开上市时是28，现在降到3.8。’你不会有压力吗？不会，因为你正在跟一个每月爱好花15美元的人说话。我会玩像《魔兽世界》这样的游戏，对吧？就像订阅一样。我，我和高中时的朋友或者一起工作的人一起玩。我穿的衣服也很便宜。我没有这些奢侈的爱好。我，我", "speaker_id": "rafael", "section_id": "s12"}, {"start_sec": 2831, "type": "text", "zh": "想想很多这些人最终发生的事情是，他们的生活方式比他们最终拥有的东西 creeping（逐渐超出）得多。那件事从未发生在我身上。所以我从来不担心现金流。我知道我们有一家很棒的公司，而且，他们还在成长。所以，我只是想，让我们加倍努力做我们已有的东西。节俭就像一家公司一样吗？这是你们在公司内部讨论的事情吗？因为我记得和亚当谈话的时候，当时股价非常棒，账面价值大约是200亿美元。他还在乘坐捷蓝航空。是的。", "speaker_id": "rafael", "section_id": "s12"}, {"start_sec": 2861, "type": "text", "zh": "然后我把他介绍给我的朋友帕特里克，他当时好像正在参加投资者会议。他说他是坐西南航空之类的航班。他就是那种普通的廉价航空。我心想，这家伙在干什么？所以我觉得这不完全是关于节俭的事，如果你整天看数据仪表盘，主要的关键绩效指标是广告花费回报率。我们就是这样考虑生活的：我的投资会获得多少回报，对吧？如果我能在相同时间到达相同的地方，但有一种方式便宜10倍，我为什么不每次都选择它呢？我觉得这如果真的是这种心态的话…", "speaker_id": "senra", "section_id": "s12"}, {"start_sec": 2896, "type": "text", "zh": "这不那么关乎节俭，但就像回报没有体现出来一样。你们对企业员工数量的执着关注到底是怎么回事？是的，对我们来说，或者说情况一样，我们可以用一半的员工达到这么多的收入，这几乎像是在展示一个真正的创业者技能。就像我可以用一半的资源做到两倍的事，对吧？完全正确，因为这是一个分心的因素，对吧？你在管理那些浪费你时间的C类员工，或者你关注完全不重要的事情，对吧？所以人少实际上是件好事，它迫使你非常专注。", "speaker_id": "rafael", "section_id": "s12"}, {"start_sec": 2930, "type": "text", "zh": "这是公司内部讨论的事情，还是说这只是自然而然发生的，这就是你们的本性？因为这又回到了你们疯狂的绩效文化。是的，我会说，亚马逊可能是那些真正注重节俭的公司之一。但对我们来说，而且由于公司是创始人领导的，我们花钱就像花自己的钱一样，对吧？我们也是非常数据驱动的，非常分析导向。我们会看我们所做的每一件事情，对吧？从电子表格的角度来看，很明显哪些事情值得加倍投入，哪些不值得。", "speaker_id": "senra", "section_id": "s12"}, {"start_sec": 2959, "type": "text", "zh": "所以，难道就不像你以前提到的那样，我们可以在公司里做每一份工作吗？我们可以做活动，我们可以做创意，不是有很多管理层吗？ 不，不是这样的。我的意思是，显然算法之类的东西，我们显然做不到。幸运的是，我们有一个非常棒的团队，他们能够构建那些系统，而我、亚当和其他人做不到。对于我们来说，这关系到我们公司管理的控制，我们没有太多官僚程序，对吧？我们的信念是，我们雇佣聪明的人，对吧？他们明白每一分钱的价值。然后我们就放手让他们去做。", "speaker_id": "rafael", "section_id": "s12"}, {"start_sec": 2993, "type": "text", "zh": "在外面做我们认为对公司最好的事情。并不是说要经过很多审批层才能把事情做成。但你觉得在你们公司的管理方式中，还有什么是稀有或独特的，而在其他公司你们没有看到的吗？我们尽量给员工尽可能多的自主权和工作量。相比之下，很多公司会说，“哦，你工作过多？我们会去雇更多的人。”我们的方法是，“好吧，我们能做些什么来在你工作的某些环节自动化你的工作，让它变得容易些。”", "speaker_id": "senra", "section_id": "s12"}, {"start_sec": 3023, "type": "text", "zh": "高效？哪些事情不重要，你却在浪费时间做，其实我们根本就不应该做的？在那个层级上没有纯粹的管理者。每个人都是执行者。甚至我们的 CTO 都自己在写代码，对吧？而他要管理大约一百人的工程团队。真正关键的是，对我们要做的事情进行无情的优先排序。同时，非常亲力亲为，这两个因素才是真正的区别。没有什么特别的秘诀，大卫。就是专注做重要的事情，并且长期坚持下去，成功自然会来。你我之前还谈到我刚做的 Luca Ferrari 那一集。你刚才说的很多内容都非常相似。", "speaker_id": "rafael", "section_id": "s12"}, {"start_sec": 3058, "type": "text", "zh": "像卢卡。他有这个想法。他就像说，“嘿，我其实不太在意学历背景。但当我雇佣年轻人时，他喜欢那些没有经验的人。然后他会去寻找某个年轻、有天赋、渴望成功的人，并充分挖掘他们的潜力。这正好就是你刚才说的。就像我们都在努力工作一样。我会给你比你能应付的更多。你觉得你、亚当和卢卡为什么会得出相同的结论？这为什么如此重要？我认为这是因为我们当时没有足够的资金去雇佣庞大的团队。而且当时我们也没有什么所谓的学历背景或名声。", "speaker_id": "senra", "section_id": "s13"}, {"start_sec": 3087, "type": "text", "zh": "早期没有「最佳人才背景光环」，只能找能找到的人，再把他们「折磨到伟大」——有点像黄仁勋在《英伟达之道》里说的：我不轻易放弃人。", "speaker_id": "rafael", "section_id": "s13"}, {"start_sec": 3111, "type": "text", "zh": "他也折磨自己成就伟大。是的，我会说亚当对我也是这样，对吧？所以，我会说直到今天，这总是冲突，总是对抗。他总是在推动。而这就像是从高层开始，然后慢慢蔓延到整个组织。所以，你之前形容他是一个了不起的任务驱动者。是的。对于外人来说，解释一下那种感觉。他懂得按每个人的“正确按钮”，对吧？所以，如果你不自信，他会在这一点上加倍施压，说，“哦，你很蠢，你没那么厉害，你做不到。”", "speaker_id": "rafael", "section_id": "s13"}, {"start_sec": 3142, "type": "text", "zh": "然后你会想，‘好吧，我要向这个人证明我能做到，对吧？’而对其他人来说，他们会想，他会对他们非常友好。就像通过这种方式，你能从他们那里得到更多。或者其他人呢，他们可能会想，‘哦，好吧，你从这个角度来看事物真是有趣。’然后那个人就会感受到怀疑，然后，他们就会去执行。亚当就是这样——他非常有竞争性。这也是他成为一个优秀领导者的原因之一，因为他理解能激励人们的因素，并真正推动他们完成最好的工作。他会推动你超出你认为自己能达到的极限吗？", "speaker_id": "rafael", "section_id": "s13"}, {"start_sec": 3171, "type": "text", "zh": "我记得在安德烈·阿加西的自传里有一句很棒的名言，他说他父亲折磨过他。在某个时候，他说我不再需要父亲折磨我了。我可能讲得不太准确，但我的意思是，我不再需要父亲来折磨我了。我已经够大了，可以自己来，对吧？这就是我现在的感受。我经历了那么多年，我不需要他来折磨我了，它已经根深蒂固在我身上。是的，这就是我喜欢你们的地方。我想问的下一个问题是，你认为外界的人对这种绩效文化有什么误解？这要追溯到……", "speaker_id": "rafael", "section_id": "s13"}, {"start_sec": 3204, "type": "text", "zh": "对于这个想法，就像是，“嘿，也许我们应该……我们的品牌有点过于友好和温和，不太像代表内部这种无情文化。”我想我在和他做的那期节目中提到过，我喜欢Ralph的一点是我可以在晚上11点打电话给他，而他会接。你之前提到过，就像，“兄弟，你不相信安排好的电话。”他说，“不，我只是打电话给你，就这样。我们就现在聊。”你认为在新品牌AppLovin以及你们即将开始的对外沟通方面，应该更新些什么？和以前相比会有什么不同呢？", "speaker_id": "senra", "section_id": "s13"}, {"start_sec": 3235, "type": "text", "zh": "做什么呢？我认为不同之处在于，我们真的会专注于讲述我们合作的创始人和品牌的故事，并展示他们从小企业到我们帮助他们成长为大型公司以及整个过程中所经历的旅程。我认为很多人对AppLovin的误解在于，他们会说，“哦，他们看到了这个广告平台，它的表现超过了同行。肯定是骗局或者欺诈。”而他们没有花时间真正去深入了解，说，“哦，天哪，看看这些人。他们做得非常完美，所有事情都处理得很好。”如果你真的花时间去", "speaker_id": "rafael", "section_id": "s13"}, {"start_sec": 3270, "type": "text", "zh": "仔细看看我们业务的细节，我们关心每一个细节，而你会注意到这些小事情，它们会累积起来，这就是让我们区别于同行的地方。这也是卢卡斯·费拉里所谈到的，对吧？也就是说，如果你比较一下，看看他的业务，或者像长湖也是，他会说，‘哦，这只是个私募股权公司，他们做什么？他们只是去解雇一堆人，让他们更高效而已。’其实不是的，远不止这些，对吧？他们有更好的技术堆栈，对吧？他们实际上是在招聘更多的人。好吧，这里特指长湖，对吧？他们在招聘更多的人。", "speaker_id": "rafael", "section_id": "s13"}, {"start_sec": 3297, "type": "text", "zh": "对吧？他们能够让他们的员工更高效，从而获得更多产出，对吧？这对我们来说，其中一件事是我们处理事情的方式不同于其他所有人。我们在其他这些业务上进行优化，这些结合起来让我们能够脱颖而出。我认为讲述你合作公司的创始人的故事非常聪明。我认为显然讲述Appleven 2的创始人以及在公司中发挥重要作用的人的故事非常重要。你刚才提到了Long Lake。我和你曾与Long Lake的一位创始人共进晚餐，在第一次晚餐时你就想，哦，不，这个是", "speaker_id": "rafael", "section_id": "s13"}, {"start_sec": 3326, "type": "text", "zh": "像，如果那家伙参与了，你记得事后你打电话给我吗？是的。是的，是的。我当时想，我老实说，很少有时候我吃完晚饭会觉得这人真是太令人印象深刻了。我还以为他是光明会的一员。【笑声】是的，你会觉得，我不明白，然后就会想，为什么我从没听说过他呢？你说，你从没听说过他，然后你看到，哦，当然了。然后你看到其他公司也参与了，就会觉得，哦，他们都在表现得很好。嗯，这很有道理。这又回到了这个人身上。这是你我之前讨论过的一些事情，讨论过很多的", "speaker_id": "senra", "section_id": "s13"}, {"start_sec": 3352, "type": "text", "zh": "传记，就像我在《Founders Podcast》中做的传记。就好像人们不明白这有多重要，这真的是一种超级能力。如果你了解，比如说，这是詹姆斯·戴森，你和我都是他的粉丝。如果你知道他为了制造自己的产品经历了多少挣扎，并且你读过关于他的书，或者听过关于他的播客，或者看过他的采访。那最后你会怎么做呢？你会说，嘿，这个人太用心了，我要买他的产品。这就是发生在我身上的事情，比如很多人根本不知道Appleven是谁，他们以前从未听说过他", "speaker_id": "senra", "section_id": "s13"}, {"start_sec": 3382, "type": "text", "zh": "听了之后我喜欢，我必须喜欢，如果是那个人在运营的话，我至少会尝试在我的业务中使用这个工具。它非常有价值，百分之百。为什么埃隆会在那里做所有的产品演示？为什么乔布斯会这样？人们想支持的是人，而不是公司。他们不爱公司，他们爱人。是的，百分之百。对，所以你们能做的越多，甚至是这个，我不记得，当我第一次提出这个想法的时候，你有没有告诉我不行？我不想做，你知道的。【笑声】但是你推动了我。你说，你必须出去参加播客", "speaker_id": "senra", "section_id": "s13"}, {"start_sec": 3414, "type": "text", "zh": "我在这之前还做过另一个播客。这有点像是我在媒体方面的训练，然后你就像，不，我们要让你直接跳入深水区。是的，我的意思是，我们聊过无数次你的故事，比如我怎么开始的？就像，等等，这个孩子高中辍学了？什么？他住在办公室？这不是开玩笑，他真的做了。他在这家公司工作了14年，他现在三十出头。这怎么可能发生呢？再次理解这种个性，会发展出这些想法，也让人明白为什么，你有几个哥哥，你有一个父亲，他就像……", "speaker_id": "senra", "section_id": "s14"}, {"start_sec": 3444, "type": "text", "zh": "有点谈谈你，你的，我觉得他想让你成为医生什么的，对吧？嗯，他想让我成为医生，很有趣，我爸爸，他并没有拥有苹果公司的股票，对吧？所以就像你有一个男人，顺便说一句，他认为互联网是个骗局。我是说，他认为互联网是个骗局，他不会花时间关心我们的生意，我并不怪他，但是，像我内心里有一种动力，想要证明大家都是错的，对吧？而且美妙的是，在过去的15年里，我们做得很不错，但", "speaker_id": "rafael", "section_id": "s14"}, {"start_sec": 3477, "type": "text", "zh": "我们还有很大的发展空间。不过我认为，当我走在街上，每个人都说，“哦，我知道那个 AppLovin 品牌，对吧？”的时候，我的旅程才会结束。但今天你走在街上，100 个人里有 9 个或者 99.9 个人会说，“Apple 谁？AppLovin 是什么？”就像我们显然在这些企业的生活中产生了很大影响，但我们的旅程其实还处于非常早期。那么你现在和你父亲的关系怎么样？很好，我从不责怪他，因为我总是在想，他是怎么被抚养长大的？我父亲，他的父亲在他 15 岁时去世了。他还有四个其他兄弟姐妹需要照顾。", "speaker_id": "rafael", "section_id": "s14"}, {"start_sec": 3513, "type": "text", "zh": "去照顾一个不会说英语的妈妈，对吧？所以他们是从哥伦比亚来的。我爸爸来自伊巴格。我爸爸从哥伦比亚来到西棕榈滩和美国。他的爸爸是律师。他在一个没有任何依靠的房子里长大。爸爸很严厉。他成为医生不是因为他想成为，而是因为他需要成为，对吧？这是赚钱养家唯一的办法。所以现在当我想到这些时，我就会想，哦，当然了，这很合理，也解释了他是谁，对吧？这就是为什么他对我那么严格，对吧？所以我们谈论的一件事就是", "speaker_id": "rafael", "section_id": "s14"}, {"start_sec": 3549, "type": "text", "zh": "在这个播客之前，我是在一个不错的社区长大的。我上的是一所好学校，但我是所有富裕孩子中最穷的那个孩子。我整整一个学年只有五条裤子、五件衬衫，就这些而已。当我回家抱怨说，“哦，我的朋友有耐克鞋，或者他有这件好看的衬衫。”我爸爸就会说，“我才不在乎呢，你想要东西？那就出去努力去挣吧。去奋斗。”这就是促使我成为更好自己的动力。我知道你也有这种心理负担，我会说你肩上背着的是一块大石头。", "speaker_id": "senra", "section_id": "s14"}, {"start_sec": 3577, "type": "text", "zh": "放下它。我不认为那是一个芯片。那是一块巨大的岩石。我知道亚当在你的职业生涯中推动过你。你的爸爸有推动你吗？我也知道他对互联网和其他一切都持怀疑态度，但在你们的关系中，是否存在某种可以说明你的一部分驱动力来自他的因素？直到我离开他家的那一点，算是这种影响结束的时候，对吧？他有点像是在让我去自由，而最间接的方式就是我所说的，这不可能失败。我永远不可能搬回父母家，对吧？就像理查德·布兰森说的，唯一比贫穷更糟糕的就是", "speaker_id": "senra", "section_id": "s14"}, {"start_sec": 3612, "type": "text", "zh": "变得富有又再次变穷。就像我搬出了父母的家。我住在旧金山。我为我哥哥工作，然后我开始创业。我当时想，‘我绝不可能搬回去和父母住，对吧？’记得，我高中辍学了。所以，也不是说我能进入任何好大学。顺便说一句，我在纸面上基本上是不可雇用的。像谁会雇这个高中辍学生呢？而且回去为我哥哥工作，对我来说也等同于失败。我爱我的哥哥。他给了我所需的工具。", "speaker_id": "rafael", "section_id": "s14"}, {"start_sec": 3642, "type": "text", "zh": "为了成功，我最终自己开辟了道路，铺平了自己的路。所以这些事情综合起来，帮助我成为了最好的自己，并真正推动了我前进。你是从哪里获得这种对细节的关注的？这是天生的吗？还是有人在 Apple Maven 内指导过你？是的，有一个人叫 Mark Rosner，他是我的导师。在我们有律师之前，他是我们的内部顾问。他在 Apple Maven 的职位是什么？他是我们的首席营收官，而我们找到 Mark 的方式是，他当时是这家叫 Zedge 的公司的 CEO，这家公司做铃声和壁纸。", "speaker_id": "rafael", "section_id": "s14"}, {"start_sec": 3680, "type": "text", "zh": "然后他好像自己独自开始做了，他有一个博客叫做《应用收入》，只是讨论如何在应用程序上赚更多收入，以及整个移动应用生态系统的内容。我跟亚当说，‘嘿，我们想和 Zedge 合作，这个人看起来挺聪明的，你应该联系他。’ 本来可能只是做顾问的事，我们决定让他以首席收入官（CRO）的身份加入。有趣的是，当马克第一次见到亚当的时候，他们正在进行面对面的会议，亚当把一份保密协议（NDA）放在他面前，你知道大多数人会直接签署 NDA。而马克说，‘嘿，我能有 15 分钟吗？’ 亚当走出了房间。", "speaker_id": "rafael", "section_id": "s14"}, {"start_sec": 3714, "type": "text", "zh": "就像亚当回到房间，叫我跟他一起进去，而且整个文件都被做了标记。他说：“我不同意这个，我不同意那个，这里我也不同意。”我立刻就觉得，我把亚当拉到一边，悄悄跟他说：“我们不能信任这个人。我们根本无法跟他合作。如果一个人会为了公司去修改合同的措辞，他会做什么？会泄露商业机密吗？”亚当有不同的看法。他说：“这个人，如果他能这么认真地花时间去修改协议和处理这些事情……”", "speaker_id": "rafael", "section_id": "s14"}, {"start_sec": 3746, "type": "text", "zh": "过于详细，这是我们想合作的人。马克加入后，我们最终聘用了他，起初我们实际上相处得并不好。他负责供应端管理，我专注于需求端。我带来了大量的需求，他则处理出版商。最终发生的情况是，随着时间的推移，我最终在他的团队工作。我说团队，因为他只有一个人。所以我最终在他手下工作，起初，关系并不太好，但后来变成了很棒的指导关系，因为马克看到的是一个充满活力的年轻人，有着大量技能，但还未被磨练。他总是推动我真正地", "speaker_id": "rafael", "section_id": "s14"}, {"start_sec": 3787, "type": "text", "zh": "深入细节。就像我们处理合同的时候，要确保我们对自己做的事情非常具体。再回到我之前告诉你的情况，我们没有内部律师，像马克可能自己处理了200多份协议。我们只是被坑了一份。他的成功记录真是令人难以置信。当我们雇佣第一个律师，他开始对协议进行逐条修改时，他会修改我们律师的协议。 【笑声】 再说一次，这是马克·罗斯纳最棒的故事，顺便说一句，他会讨厌我提到他。马克除了小学五年级时借过20美元给的那个人之外，不讨厌任何人。到现在他仍然难以忘记。所以你明白我在说什么。", "speaker_id": "rafael", "section_id": "s14"}, {"start_sec": 3822, "type": "text", "zh": "关于一个非常在意每一个细节的人。实际上，他会把故事进一步深入下去。有一次，我奶奶得了乳腺癌，需要去医院治疗。那段时间，我们正在处理一笔花了几个月才完成的交易。那笔交易实际上是与洛杉矶郊外的一家公司进行的。我们完成这笔交易时非常高兴，我甚至在医院的时候还在处理协议。我把协议发出去，他们签了，我也签了。然后马克打电话给我，我原本以为他会问‘你奶奶怎么样了？’结果他却说：‘拉尔夫，你在这笔交易上大搞错了。’有这种情况，就是……", "speaker_id": "rafael", "section_id": "s14"}, {"start_sec": 3860, "type": "text", "zh": "偏差其实大概只有 1%–2%。我说 Mark 你开玩笑吗，这单谈了几个月，我没法回去跟客户扯这个。他回：你想当迈克尔·乔丹，还是想当普通人？", "speaker_id": "rafael", "section_id": "s14"}, {"start_sec": 3899, "type": "text", "zh": "以卓越为北极星的人，会反复念同一句：「你做一件事的方式，就是你做所有事的方式。」", "speaker_id": "senra", "section_id": "s14"}, {"start_sec": 3929, "type": "text", "zh": "电话里谈到更衣室的一切，一切都很专注于每一个细节，你所做的每一个动作都比专注于比分更重要，因为如果你把所有小事都做好，比分自然会迎刃而解。这是马克给你的很棒的建议。那么你收到过的最好的建议是什么？我收到过的最好的建议是在困难的时候坚持下去，当你想要放弃的时候，就是你知道自己在职业生涯中有所成长的时刻。在我的职业生涯中有很多次，我都想要放弃，这个建议是我哥哥给我的，我已经赢了，为什么我要这么做呢？", "speaker_id": "rafael", "section_id": "s15"}, {"start_sec": 3967, "type": "text", "zh": "有人说你不必这么拼，他回：挺住，拼到底；若你感到痛，是因为你在成长。我认为这是我生涯听过最好的建议，也几乎是任何人能收到的最好建议之一。", "speaker_id": "rafael", "section_id": "s15"}, {"start_sec": 3994, "type": "text", "zh": "记得在收听的地方订阅并留评，也请收听我的另一档《Founders（创始人）》：近十年我痴迷读完 400 多本历史上最伟大企业家的传记，寻找你能带到工作里的想法。", "speaker_id": "senra", "section_id": "s15"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

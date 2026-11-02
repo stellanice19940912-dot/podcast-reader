@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>86分钟付费UGC干货｜赫克托·塞拉诺（Wispr Flow）</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="lenny">莱尼·拉奇茨基（Lenny Rachitsky）</option><option value="hector">赫克托·塞拉诺（Hector Serrano）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Lenny&#x27;s Podcast</span><span class="pill">2026-11-01</span></div>
+<h1>86分钟付费UGC干货｜赫克托·塞拉诺（Wispr Flow）</h1>
+<p class="sub">嘉宾：Hector Serrano · 约 88 分钟（5267 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=KzS5Qs7vSMg" target="_blank" rel="noopener">https://www.youtube.com/watch?v=KzS5Qs7vSMg</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Lenny&#x27;s Podcast</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-01</dd></div><div class="meta-row"><dt>时长</dt><dd>约 88 分钟（5267 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；.en.vtt 呈机器翻译腔已弃用；普通 yt-dlp 遇 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 补拉成功）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段；赞助口播已标灰（WorkOS、DX）；说话人按主持/嘉宾问答轮次推断（自动字幕无说话人标签，中等把握）；口播品牌名 Wispr Flow 在字幕中常误识别为 Whisper/WhisperFlow，正文已统一</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>KzS5Qs7vSMg</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>莱尼访谈 Wispr Flow 内容/付费UGC负责人赫克托·塞拉诺：从19岁加入、收入约30倍与约20亿美元估值语境，到把有机UGC玩法迁到付费、约50人创作者池与每月500–600条广告，以及年轻人招聘与「营销人过敏AI」。</p>
+<h3>核心要点</h3><ul><li>有机UGC（托宾约2.5个月~5亿播放）业务结果不够后，迁到付费UGC+效果结算</li><li>约50创作者；配额保底（例~1500美元）+佣金；顶尖月入约1.3万美元</li><li>每月上新约500–600条；库约5000/在投约800–900；防Meta相似度归并</li><li>招人看作品与饥饿感，不要名校滤镜；给年轻人真实reps</li><li>最终成片少用AI垃圾；创始人内容+YouTube长半衰期与付费互相降本</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：做增长、创作者营销、消费级AI获客的人；可跳过：完全不做UGC/付费投放者（约88分钟）。</p>
+<h3>适合人群</h3><p>增长 / 创作者营销 / AI消费产品 / Lenny&#x27;s Podcast 听众</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场：19岁加入、收入约30倍与约20亿美元估值语境</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">冷开场回顾赫克托·塞拉诺（Hector Serrano）19岁在LinkedIn海投约200个创作者岗后加入Wispr Flow（字幕常误作WhisperFlow），并直接向塔奈（Tanay）要股权。莱尼给出语境：过去一年收入约增30倍、近期在竞争市场以约20亿美元量级估值融资。赫克托自定位内容/付费UGC负责人，强调增长首先是产品起势，付费UGC、静态、影响者与创始人叙事等是叠加杠杆；没有真实PMF，付费难以持久。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">何时开付费：冷流量转化信号 vs 过早怕饱和</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">莱尼追问是否必须先有机跑通再砸付费。赫克托认同产品是根基，但主张在预算边界内尽早小规模测试付费：打开「付费引擎」能更快验证信息是否打动受众、冷流量能否变付费用户——多数团队并不擅长有机内容。担心过早饱和时，关键是持续换角度、信息与ICP，而不是永远不开量。中插赞助WorkOS另标。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">从托宾有机UGC到付费UGC：Tribe与500–600条/月</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">约2025年初实习生托宾（Tobin，后加入Polymarket）用有机UGC约两个半月做到约5亿播放、低CPM，但偏虚荣指标、Wispr侧业务结果不够。团队把「建社群+名单+效果付」迁到付费，并借鉴TikTok Shop卖货品牌在Meta侧做创作者广告结算工具的思路；Wispr成早期客户。如今每月大约上新500–600条广告，花名册约50人。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">报酬设计：保底retainer + 佣金，顶尖月入约1.3万美元</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">纯抽成会打击新人：拍很多片却只赚很少会流失。做法是完成视频配额给约1500美元量级「智能retainer」保底，佣金高则可能不再叠保底，让前几个月也有稳定收入。SaaS/免费增值难追单次转化时多用广告花费分成，电商可用GMV比例——让创作者分享「自己那条广告」的成功。顶尖创作者月入约1.3万美元，甚至超过许多全职影响者，粉丝却可能只有一两千。开放brief、拒绝把创作者锁死话术，是对方愿意加入紧密小团体的原因。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">招年轻人做增长：别找第二个赫克托，看作品与饥饿感</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">赫克托与托宾简历截然不同却都能成事；名校GPA不是主信号。看重：是否养过账号（哪怕约1–1.5万粉）、懂拍剪与趋势、勤奋与文化契合，并敢于下注。Instagram信号通常强于「易涨的TikTok脑腐」；他两周内把X内容打爆被莱尼刷屏。建议不要找「另一个我」，去找背景怪异但有作品的年轻人；身边放懂新渠道的年轻人是alpha。穿插自述：退一级联赛足球三天后入职、微积分课中被拉进Slack huddle、花约一年才找准位置，并曾怀疑内容是否「正经事业」。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">组群与扩编：站外开发、周会教练、推荐100美元、防同质化</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">先定分成规则再组群，平台偏好Tribe；展示已向创作者累计支出（例约30万美元）有助招募。站外Instagram关键词钻子话题+精心私信，避免自动化海量开发招来差创作者。文化侧：周会、创作者教练、抽奖、旧金山撤退营；从5人每隔几周加5–6人扩到约50。推荐奖约100美元/人但强调非传销、名单保持紧密。创作者互抄头部片会导致同质；Meta Andromeda对高相似度素材归并。开放brief带来「屋顶淋雨键盘」等黑马创意；花名册要覆盖妈妈到律师等不同人设，技术向受众反而吃更丑的屏录广告，高客单睡眠品不该让小孩推。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">私信转化、7天结算与营销组织：约120人公司、约15人营销</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">赞助DX另标后进入开发话术：优先从已关注/私信池挖人；冷DM先问兴趣再发结构与报酬PDF，不要开场硬推销。用Instagram快拍招摄像/剪辑。强调当人对待、尽早给现金与多巴胺——约7天结算。公司从约4人扩到约120全职，营销仍扁平，全职营销约15人（含创意合伙、设计、导演、公关），CMO Daniel直管多线。赫克托曾是「内部UGC」，花费升高后把供给外化；广告库终身约5000条、在投约800–900，疲劳快必须持续补概念。付费UGC对B2B亦可：公司由个人组成，先拿个人爱用者再内部扩散。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">创作者路径、招聘滤镜与「营销人过敏AI」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">普通人怕永远不如赫克托出镜：建议少找建议、多开机；先问再做的人难成。他自己成片也常卡壳，仍坚持拍。招聘上别开天价JD+名校滤镜——会招来「机器人」；他19岁薪资不高却要股权，体现一起长大。应用体育青训思维给年轻人真实reps，批评取消实习；以拉明·亚马尔少年夺冠作类比。谈AI：推文「最好的营销人过敏AI」——面向用户的最终创意不要AI垃圾广告/AI网红，受众反感、风险回报差；流程可用AI，但最后约10%必须人把关。噪音时代重质量轻为量而量的自动化，YouTube靠故事也可慢增长。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">创始人内容与YouTube复利：北极星、触点降付费成本</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">创始人出镜让产品更有人味，能养超级粉丝并带来新人群；不要一开频道就硬卖，应先超额交付价值与幕后。Wispr叙事锚在冲向约10亿日活量级目标，跨平台用不同格式讲同一北极星。有机触点越多，付费转化往往越便宜（归因却常记在付费上）。内容负责人可贯通UGC与创始人内容；摄像等从Instagram快拍招到（例24岁摄像）。YouTube难但半衰期长：一条片可从约4万涨到约60万播放；先把长视频后期做好再反哺短视频切片。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">收尾闪电轮：书单、旅行AI Miso、人生座右铭与行动号召</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">赫克托强调给年轻人真实责任会形成长期互助网络，感谢塔奈与Daniel。闪电轮：推荐Naval相关杠杆/媒体杠杆观念的书；电影与爱好闲聊；爱用的旅行AI产品Miso（约三个月高频，后端可升级人工，错过航班等场景帮大忙，自称无利益相关）；人生座右铭联系到从足球到镜头的「串联点」与乔布斯名言。莱尼致谢；关注赫克托社交账号；节目outro引导订阅评分。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">莱尼·拉奇茨基（Lenny Rachitsky）<em>主持</em></span><span class="spk-1">赫克托·塞拉诺（Hector Serrano）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场：19岁加入、收入约30倍与约20亿美元估值语境</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>冷开场：莱尼夸赫克托过去几年把 Wispr Flow（口播/字幕常误成 WhisperFlow）做得极猛。赫克托自述 19 岁在 LinkedIn 搜创作者岗位，扫了约 200 个职位后发现这家公司，与塔奈（Tanay，字幕偶作 Tanae）通话后加入——此前从未在初创待过。他直接跟塔奈要股权（equity），对方笑了。<span class="tag">【音乐】</span></p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>每天在 Instagram 和 TikTok 上。他们不理解什么是真正有效的，以及接触这些新渠道的最佳方式。我认为让这样的人加入你的团队是显而易见的选择。你前几天实际上发过这条推文，‘最好的营销人员对 AI 过敏。’如果我们出去开始制作 AI 垃圾广告，可能不会受到很好的反响。有太多噪音。如果你实际上更多关注质量而不是数量，🎵 就会很容易突破噪音。我们来谈谈付费 UGC。你让网红、创作者为 Wispr Flow 制作推广方案。保持他们实验的自由度，🎵 做他们认为合适的任何事情。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>适合。他们的收入没有上限。我们现在有一些创作者每个月的收入大约是 1.3 万美元。现在最难招聘的职位就是像你这样的。我认为如果你只是认为<span class="tag">【音乐】</span>寻找成绩最好或学校最好的候选人就能得到最优秀的员工，你会大失所望。赫克托，非常感谢你今天的到来。欢迎来到播客节目。谢谢你。谢谢。我很高兴能参与。我更高兴你能来。我希望通过这次对话，尝试创建一个非常实用的指南，介绍当前发展 B2B SaaS 产品的有效方法。你一直在这方面做得非常出色</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>莱尼正式开场：Wispr Flow 过去一年收入约增长 30 倍；近期在竞争激烈的市场里以约 20 亿美元量级估值融资。赫克托开始对外分享策略，值得拆解。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>赫克托谦称自己触达的只是业务一小块，主要是内容整体；他本人也是创作者，因此进入 Wispr，角色演变到如今负责付费 UGC 计划的内容侧。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>无论是在你创作的内容上，比如你最近的推文在推特上疯狂传播，大家都在我的动态里分享它。所以很明显，你自己已经找到了做到这一点的方法。同样，在你做的广告工作、用户生成内容(UGC)工作上，也非常有效。所以我们都可以从你和你所发现的内容中学到很多。先从宏观的角度来看，谈谈你一直在关注的增长杠杆。最近在增长Wispr Flow {slash}方面有什么有效的方法，这些方法也可能适用于其他B2B SaaS产品。我认为第一个，虽然说出来可能有点老套，但我认为大多数</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>他强调增长首先是产品驱动：自己在产品上线前加入，早期只有数千用户，大约半年后塔奈说产品开始起势。付费只是叠加杠杆。</p>
+<p>当前主渠道之一是付费，并用大量 UGC 内容供能；付费内部又有多支柱：UGC 视频、静态图、影响者、内部成片、创始人叙事等，覆盖 Meta、LinkedIn、YouTube 等。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>何时开付费：冷流量转化信号 vs 过早怕饱和</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>莱尼追问：若没有真实的有机产品市场契合（PMF），付费迟早会衰减——是否必须先让产品自己跑通再砸付费？赫克托认同：没有好产品就没有捷径，付费是额外杠杆。</p>
+<p>定位产品。它对你的用户真的有价值吗？如果有价值，为什么它不能自然而然地增长呢？而且，实际上除了做一个好产品然后增加更多可操作的杠杆外，真的没有什么捷径。那么，让我问一下，你认为什么时候开始投资这些自然渠道才有意义呢？我认为付费实际上是早期投资的最佳渠道之一，我从Matt那里学到了这一点，他实际上是Wispr Flow的前增长负责人。他现在在Victor，他的很多经验以及我从他那里学到的很多课程，就是将这种电商的方法应用到SaaS上，而很多公司都害怕开启这个模式。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>何时开付费引擎：打开后能更快验证信息是否打动受众、能否把冷流量转成用户；多数公司其实并不擅长有机内容，付费能给出更清晰信号。</p>
+<p>这些转化等等。所以，我认为从一开始就使用付费是有意义的。显然，要在你的限额和预算范围内进行测试。但如果你能够看到，我能够将这些冷流量转化为付费用户，那么你就有一个很清晰的信号，表明如果你进一步优化，一样的营销信息或产品在自然流量上也可以有效。我想回到这个问题，就是早期团队可能是什么样子，甚至可能在产品与市场匹配之前。但关于你在这里分享的内容，真正有趣的是，人们知道，付费已经存在很长时间了，在Instagram、Facebook、TikTok上投放广告，都</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>这些东西。就像作为一个平台没有什么新鲜的东西。而你在这里说的是，这里仍然有很多潜力和机会可以大幅增长，并且在付费方面做一些不同的事情。是的，百分之百。而且很多时候人们也会感到害怕，因为他们会说，‘哦，我还不想开启付费引擎或者花很多钱，因为那样我们可能会达到一个点，使这个市场或这个理想客户群过度饱和。’但归根结底，这只是关于如何更聪明地定位你的产品，而且总是有新的方式或者新的信息、新的理想客户群可以去针对。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>若角度与付费机制够聪明，未必很快触达饱和——总有新定位、新信息与新 ICP。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：WorkOS]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：WorkOS]</span></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>好，我们正式深入付费 UGC 与付费投放整体。你们整体策略是什么，为什么效果这么好？</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>从托宾有机UGC到付费UGC：Tribe与500–600条/月</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>回到约 2025 年初：实习生托宾（Tobin，后加入 Polymarket）几乎没经验，塔奈给他预算「先乱砸看什么管用」。他试过一些方向效果一般，但后来在有机 UGC 上找到感觉。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>莱尼请他定义有机 UGC：把一群创作者拉进社群，让他们在自己的频道发产品相关视频，按曝光（偏 CPM）结算——内容发在创作者账号，而非品牌号。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>托宾约两个半月做出约 5 亿次播放、CPM 很低；但早期有机 UGC 偏虚荣指标，Wispr 侧并未达到他们想要的业务结果。</p>
+<p>指标。然后托宾（Tobin）在Polymarket做得好多了。他好像破解了有机用户生成内容（UGC）的密码，而不仅仅是在做非常顶部的概念。但对，有机UGC确实有效。我们只是在Wispr Flow没有看到那么大的成功，或者没有达到我们想要的成功。而且在他离开后，要找到接替托宾（Tobin）角色的人也会非常困难。所以，我们就想，干脆结束这个项目吧。然后，再说一次，付费广告对我们来说相对有效。所以，这就把我们带到了现在，我是说，不是现在，而是大约七个月前，我意识到付费广告效果真的很好。而且所有付费素材都是我做的。所以，我想，如果我</p>
+<p>团队决定把托宾那套「建社群、组名单、按效果付」迁到付费：广告更偏中漏斗、更直接推产品，同时保留漏斗各层素材。</p>
+<p>灵感来自一位靠 TikTok Shop 快速做大服装品牌的人：Meta 上缺同类机制，于是做出内部工具，让创作者广告可按效果结算并对外开放；Wispr 是早期客户之一。</p>
+<p>快进到现在：每月大约上新 500–600 条广告，流程已跑顺——中间省略了大量试错。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>他们的视频，你把它放在你的频道上，然后按观看次数付费给他们。不，所以他们把它发布在自己的频道上。他们把它发布在自己的频道上。是的，是的。所以，这是基于 CPM 的。举例来说，我们再次把你拉进这个群组，然后你在 TikTok 和 Instagram 上开自己的频道，就像 莱尼 Wispr Flow 或 莱尼 Talks。实际上可以是任何名字，但你不会把它发布在你的主要 Instagram 上，而是发在备用帐号上。然后我们会按 CPM 付费给你。好的，所以这里的主要区别是，不是基于 CPM，也就是基于观看次数，而是按支出或者 GMB 的百分比来拿取分成，这取决于你是做 SaaS 还是其他类型。</p>
+<p>莱尼确认模型：偏效果导向的付费 UGC。目前约有 50 位创作者。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>报酬设计：保底retainer + 佣金，顶尖月入约1.3万美元</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>不能只靠抽成：新人前几个月可能拍很多片却只赚很少佣金，会打击积极性；顶尖创作者往往因「一直留下来迭代」才变顶尖。</p>
+<p>设计：例如完成约 25 条视频配额可拿约 1500 美元量级的「智能 retainer」保底；若佣金已超过，可能不再叠保底。目标是让前几个月也能有稳定收入、愿意继续成长。</p>
+<p>将支付你X金额。这使得加入该团体的创作者在第一个月、第二个月、第三个月，也许他们不能单靠佣金超过那个金额，但他们能够赚取一定的收入，从而真正保持投入并持续成长。然后在三到四个月之后，你会看到这些创作者开始脱颖而出，并完全依靠佣金赚钱，对我这个运营该项目的人来说，或者如果你是品牌方，这就是最好的事情，因为你支付的只是纯利润，或者是最优秀视频的纯收益，而不是自掏腰包。另外，我觉得有个背景说明一下，我自己也是一名创作者，所以</p>
+<p>我发现很多公司，包括Wish，有时候也会这么做。我们会给这些创作者提供简报，让他们为我们制作广告，我们会给他们整张表格，上面写着，“不要说这个，要说这个。使用这些吸引点。这是我们希望你如何谈论产品的方式。这是你拍摄产品的方式。”当你给创作者发送一份10页的指南，告诉他们需要如何拍摄内容，需要说些什么，你最终会剥夺创作者本来的创意性。没有什么比这更让人没有动力的了。我知道作为创作者，如果我有一个品牌信任我，邀请我是有原因的，并且只是</p>
+<p>为我打开了创作内容的自由，让我可以根据自己认为最适合产品的方式去创作，如果你只是把我放在一个框里，你得到的内容不会比现在更好。所以，这也是很多创作者想加入我们团队的主要原因之一。我们也保持团队非常紧密，所以有一种紧密的感觉。我们邀请最优秀的人才，然后在此基础上，我们允许他们自由尝试，做任何他们认为合适的事情。他们都是产品的粉丝。除此之外，他们的收入没有上限。我们不会为一条视频支付100美元，也不会支付50美元，也不是一个月1000美元。收入是真正没有上限的，如果</p>
+<p>最强创作者如今月入约 1.3 万美元量级，甚至超过许多全职影响者——即便本人粉丝可能只有一两千。</p>
+<p>SaaS/免费增值难直接按单次转化分成时，更常用「广告花费分成」；电商则可按 GMV 比例。核心创新是让创作者分享自己广告的成功，同时用保底封住下行。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>或者那个广告，如果他们购买与否，那么按GMV百分比来做更有意义。因此，这里真正行之有效的创新是给创作者一种分享他们广告成功成果的方式。完全正确，太棒了。然后还限制了下行风险，这样他们实际上可以花时间去做这件事，而不是担心自己无法维持生计。是的，没错。因为很多时候，这些创作者最终必须不断与品牌进行谈判，或与新公司合作，学习新东西。而且不仅这些创作者都是高级用户，他们每个月都能与同一家公司合作。所以，只是</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>要考虑视频质量随着时间的推移提升的复利效应，而不是想着“哦，你是这个品牌，正在推出一个新功能”，然后你就想着，“好吧，赶紧去找新的创作者。”实际上，如果你已经有了一群内部创作者，他们已经了解你的产品并且相信你，甚至有些创作者对产品的理解几乎比我还深，他们会提出我从未想到的点子。所以，如果你已经有了这群内部创作者，那么每当我们推出新功能时，无论是像 Wispr Flow 笔记功能还是我们发布的各种其他功能，都变得非常轻松。</p>
+<p>对我来说，把它直接扔到 Discord 里，然后说，‘嘿，大家，我们来做一个关于这个的视频吧。’ 这真的很容易。相比之下，不用去到处找这些不同的创作者并给他们做简报，然后下个月他们又消失了，两个月后你还得再去找他们。 所以，是的，这对品牌方和创作者双方来说都是很棒的体验。而这又回到产品本身必须很棒，因为如果产品不好，很难找到爱你产品的创作者。是的，而且作为创作者，也很容易感到精疲力尽。比如，你在谈论一些你自己都不相信的东西的时候，</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>招年轻人做增长：别找第二个赫克托，看作品与饥饿感</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>赫克托曾独自做了约一年半几乎所有广告、成百上千条，才会深刻理解「养内部创作者池」比每月重找人更划算。</p>
+<p>这回到我之前提到过的一个点：很多从未从事过内容工作或从未和创作者合作过的人，最终却成为向他们布置任务、告诉他们该做什么的人。就像你绝不会让一个不是工程师的人去告诉工程师该怎么做一样。我绝不会走到工程团队面前说，“嘿，你们需要这样解决这个问题，还要做这个和那个”。他们会想，“这个人到底在跟我说什么？” 好吧，那么让我们沿着这个话题谈谈，如果要找到像赫克托这样的人来领导这项工作，他的个人资料应该是什么样的？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>在你们公司？因为这是我和很多朋友进行的最有趣的对话之一，特别是像我之前提到的托宾（Tobin），因为我们俩完全相反。比如，如果你把我们的简历并排放在一起，然后让我你选择其中一个，你脑海中可能会觉得哪一个是正确答案非常明显，但最终，两者都是正确答案。我当时的GPA是2.5，托宾（Tobin）是4.0。我没有上顶尖学校，托宾（Tobin）上了沃特卢大学。我参加了一级体育比赛，托宾（Tobin）没有。还有很多不同的事情，但最终</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>有一天我们都成了很棒的营销人员。但如果你只是看我们简历的表面内容，这其实并不明显。但我认为 Wispr Flow 在识别一两件真正关键的事情方面做得非常好。同时也能够判断，好，这个人是否适合公司的文化？他们看起来是否勤奋？他们是否拥有与 Wispr Flow 现有员工相同的价值观或文化？我觉得 Tenny、Daniel 和团队的其余成员不仅擅长发掘早期人才，知道需要注意哪些关键点，同时也能判断，好，这个人是否是可以加入团队的好人。我觉得 托宾（Tobin） 和我显然也是如此。</p>
+<p>可能我说得有点太自我了，但我觉得我们完全体现了这些性格特质。你可能会问，好吧，我需要在一个好的市场营销新人身上寻找哪些特质呢？说实话，这并不复杂。就是看这个人是否发展过一个账号，即使只有一万粉丝？还有，他们在创作者方面是否多少了解自己在说什么，并且是否制作过内容？就是这么基本。只要他们有一些建立粉丝基础的经验，即使是小粉丝，也能说明他们理解要增长社交媒体粉丝所需的持续性。</p>
+<p>招现代营销人：看是否养过账号（哪怕粉丝仅约 1–1.5 万）、是否懂趋势/拍摄/剪辑、是否像勤奋且价值观合拍——然后敢于下注；简历名校GPA不是主信号。</p>
+<p>这里有一些艰难的对话，有时候你会想，“赫克托 在做什么？”但他们确实给了我自由去不断尝试和实验新的东西。而且只要你在持续学习和进步，失败并不重要。托宾（Tobin） 也是一样。托宾（Tobin） 来了，他们给了他一些资金和时间去实验。大约两个月后，他找到了有效的方法，并且成功了。这非常有价值。前几天有一条推文说，现在最难招聘的职位基本上是像你这样的人，他们可以讨论产品和技术的那类人。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>各个方面，让人们兴奋，让产品具有吸引力。而你正在告诉我们这个人物的特征。所以，为了反映你刚刚所说的，其中一点是有证据表明他们非常努力工作，有证据表明他们是一个好人，他们的价值观和文化与贵公司相符。第三，他们实际上已经将某个平台的粉丝数量增长到至少 10,000 粉丝。这个平台可以是任何平台，比如 Instagram、TikTok。我会说 Instagram 可能是最重要的标志，因为 TikTok 通常是一些比较脑残的内容，而 Instagram 则更精致，包装更好。而且你获得的粉丝数量</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>在那里的平台上只是更好。所以，我只是觉得Instagram可能比TikTok信号更高。我会说，在TikTok上增长相对容易，比如发布一些脑残内容。我明白了。那么X和YouTube呢？YouTube还可以，但我会说如果你了解像Instagram这样的平台，你可以攻克任何平台。是的，这就是我的经验。Instagram和YouTube，我会说如果你能攻克Instagram和YouTube，我很自信，尤其是如果你是年轻人，你可以攻克任何平台。我以前几乎没在X上发过帖子，直到大概两周前。我从X上大约500个粉丝涨到了大约18,000个。而且我以前真的不太习惯在X上发帖。</p>
+<p>仅限文本的平台，但我大概花了一周时间才搞明白，就像，好的，这是一个量的游戏。你需要保持短小，有自己的风格，并且真正提供一些价值。这其实挺容易学的。我觉得如果你从 X 平台开始的话，做视频会有点难，因为视频是完全另一回事。坐下来拍摄可不是一件容易的事。我有些同事，我曾推动他们开始制作视频，特别感谢 Eric。他是我们的媒体采购员。教他如何制作视频。是的，他在第一个月有点挣扎，但我认为走出舒适区，尝试拍视频还是很好的。总之，就是这样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>绝对不容易。所以我会说是的，Instagram和YouTube。实际上就是我通过它们发现了你和X的，而且它们已经爆红了，现在我整个信息流最近都是赫克托的视频。所以我没意识到你才开始发帖两周。太疯狂了。这显然也是你在这方面效率很高的另一个迹象。所以我想在这里再强调另一点，就是年轻人才的概念。这是你经常谈论的。就是年轻人在招聘中的价值，以及几乎像是他们的领导力。是的。我是说，也回到你刚才提到的观点，就是这是最难招聘的职位。我</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>两条截然不同的简历都能成为优秀营销人；别按「最好学校/成绩」筛选。年轻人理解新渠道是 alpha。</p>
+<p>建议：不要找「另一个赫克托」；去找背景怪异但有作品证明的年轻人。</p>
+<p>最大的品牌之一。最近我听说他的代理机构好像被 Physician&#x27;s Choice 以大约 200 万美元收购了，现在他像是在他们公司内部工作，同时还参与另外两个品牌。但我只是看到这个孩子，我是说他现在比我年长，但我看到他周围都是这些年长的创始人，而这些电商品牌的年长创始人总是谈论有一个 Jimmy 在你身边是多么的优势，因为一个 30-40 岁的创始人根本不理解一个 18 岁的孩子，他在这些 Discord 频道里，或者每天刷 Instagram 和 TikTok。他们不理解</p>
+<p>实际上有效的方法以及接触这些新渠道的最佳方式，如果你身边有年轻人，无论你处于哪个行业，无论你是在SaaS领域，还是在电商领域，或者其他什么领域，只要你找到某个大致理解你不懂的事情和早期情况的人，并且你能够向他们提问并向他们学习。我认为在你的团队中拥有这样的人是显而易见的。即使你现在尽最大努力去深入TikTok商城或Tribe，你仍然会遇到困难，因为你可能无法与创作者建立太多联系，或者你不理解某些事情，这只是</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>适应这些事情会花你很长的时间，而不是把你的时间投入到你更擅长的事情上，然后带一个可以帮你管理这些事情的人。我很喜欢这个建议。总是有人说，没有给年轻人的工作了，人工智能正在取代所有人的工作，而这是一个很好的例子，年轻人在这类工作上实际上要好得多。是的，我认为很明显，塔奈（Tanay） 塔奈（Tanay） 还很年轻，她是我认识的最聪明的人之一，她还会让我进他的办公室或者打电话给我，问我比如，哦，Instagram 上什么有效？你怎么做到的这么快？或</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>就像问我一些关于内容的总体问题，我不认为我从塔奈（Tanay）和团队那里见过这种情况，而且团队总体上也是这样。我不认为有哪一刻你会聪明到不需要继续学习。如果你有创始人的心态，我觉得就是你停止成长的那一天。我确实从塔奈（Tanay）那里学到了这一点：你永远不会太优秀或太聪明以至于不继续学习，而且学习的对象甚至可能是一个随机的22岁或19岁的年轻人，就像我一样。是的，我很喜欢这个。你是在19岁的时候加入Vesper的，是的，我刚满19岁。那是在我生日后的第3天。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>你花了多久才觉得‘好吧，我好像有点搞明白了’？你一开始说的时候有点坎坷，不确定自己在做什么。给大家一些背景吧。那是一个很奇怪的过渡阶段，因为我刚刚在三天前才辞掉了一级联赛的足球运动员的工作。我回家后， literally 在 LinkedIn 上查了 Wispr Flow。对，我想说我在 LinkedIn 上查了创作者相关的工作。我申请了大约200个职位，找到了一家公司叫 Wispr Flow。我申请了，然后和 塔奈（Tanay） 通了电话，然后就加入了。回忆起来，真的是疯狂。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>记得那时候就像我们为发布做准备的最初几天之一。我当时应该在我的微积分课上，塔奈（Tanay）开始在课堂上给我发Slack消息，我去上厕所的时候打开了我的笔记本电脑，然后我加入了Slack的会议，他基本上是说：“我们的发布视频不是想要的效果。你觉得你能用CapCut或者你拥有的其他工具编辑一下，让它更有Z世代的感觉吗？”是的，我在上微积分课的时候就开始编辑视频。我有一些编辑经验，但在我入职的第一周之一塔奈（Tanay）就让我做这个，还是挺吓人的。但就是这样。</p>
+<p>基本上总结了我在Wispr Flow的第一年。我只是随便学了一些东西，并没有一个明确的职位。我很确定他们也不太清楚我在做什么。我自己也不知道自己在做什么。是的，大概花了一年时间我才真正感到舒适。期间有很多起起落落。实际上，我还想指出的一件事是，那年我也在做金融实习。所以，那已经是整整一学年了。然后到了我大三到大四的那个夏天，我申请了……我年初申请了一堆金融实习。</p>
+<p>因为我不知道内容创作是否是真正的职业。显然，我喜欢做Wispr Flow，也为我的个人品牌赚了一些可观的钱，但我在想，‘我不知道这是否是真正的职业。’而且我的父母，我们移民到了美国什么的，然后我上大学，学金融，这是件大事，他们希望我走传统的道路。所以，我最终在纽约市找到了一份金融实习，我在同时平衡两门暑期课程、Wispr Flow和金融实习。而且实习才两周，我就讨厌它。我当时想，‘我不想让我的人生是这样的。我需要做’</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>内容和Wispr Flow取得了进展。所以，我会偷偷溜出办公室，去苏荷区的咖啡馆，只做Wispr Flow和我的个人内容。从那里，一切开始慢慢理顺，然后，是的，这就是事情的运作方式。真是一段旅程。我觉得我们完全可以再有一整场关于创作者之路，以及如何在Instagram和所有这些平台上成为内容创作者的讨论。那本身就是一件事。我会回到如何为这种付费UGC策略找到创作者。如果我们现在把整个策略走一遍，我觉得现在是一个很好的时机来梳理所有事情。所以，是的，我想</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>组群与扩编：站外开发、周会教练、推荐100美元、防同质化</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>落地步骤：先定分成规则（SaaS→广告花费%；电商→GMV%），再选平台组群；他们认为 Tribe 最好用。</p>
+<p>平台上展示已向创作者累计支出（例如约 30 万美元）有助于吸引人；很多品牌一上来海量陌生开发却无人理。</p>
+<p>他会站外+站内找人：Instagram 用 UGC、科技、朝九晚五、律师、医生、睡眠补剂等关键词钻子话题，找到对味创作者再私信。</p>
+<p>3,000条消息。你需要非常重视，你需要关注小事情，因为现在随着所有这些自动化，是的，你可以很快地做很多事情，但如果你做得太快，你可能会收到很多无用的回复或者很多不好的创作者。我是的，我认为在外联方面，手动操作仍然更好。显然，这会花费更长的时间，但如果做对了，我就再也不需要进行外联了。是的，从那150到250条私信里，你可能会找到五六个真正优秀的创作者。然后从那里，你将他们加入到群组中，这就是你进入下一步的地方，实际上</p>
+<p>文化：周会、创作者教练、抽奖，还计划在旧金山办撤退营；从约 5→10→15→20 人、每隔几周加 5–6 人扩编。</p>
+<p>更多的创作者。我们在 Wispr Flow 采取的方法可能是从大约五个到十个，十个到十五个，十五个到二十个。我们可能每几周就增加五到六个创作者。既然到现在你也有了大约五个创作者，而且可能已经支付了一些费用，你会开始有人在 Tribe 上申请。我想现在我们每周大约会收到 1,000 到 1,500 个申请。因此，我会审核这些创作者的申请，然后由于我们现在有很多创作者，我保持很高的标准，只会接受一两个或三个人。是的，我们增长得相当慢，现在大约有 50 个创作者。除此之外</p>
+<p>引入推荐：老创作者每带进一位新创作者奖励约 100 美元——强调不是传销式无限裂变，名单维持紧密。</p>
+<p>在50岁时。并不是说，“哦，给我带来100个创作者，我会为100个创作者付钱，然后我们再付给另外100个创作者。”这里是一个非常紧密的大家庭，这只是我们表达感谢的一种方式，感谢你帮助我们发展这个项目。是的，那些就是你应用的一些不同的杠杆来发展这个群体。然后这就把我带到最后一步，我不知道。我是不是讲得太快了？不，我没事。我确实有问题，但请继续。是的，这把我带到最后一步，现在你有了文化，你有了群体中的人，你达到了一个相当不错的规模，你</p>
+<p>有 GMV 的百分比，广告支出的百分比。现在有一件事要开始发生了，那就是你会获得很多广告。你的广告会像在群组中显示一样展示出来，会显示为，“好的，哪个广告花费最多，第二多，第三？”你的创作者可以看到这些内容。显然，你希望他们看到它。但如果你在指导创作者方面不够好，也可能会适得其反，因为这些创作者会看到表现最好的广告，他们会像这样想，“好的，我也要复制这些广告，我也要复制他们的做法。”</p>
+<p>创作者若互相抄头部广告，会出现大量同质片；Meta（Andromeda）对约 160% 相似度素材会归并，伤害分发。</p>
+<p>不断重复相同的格式、相同的信息、相同的人。所以我们所做的是不断推动这些创作者，并提醒他们，这些创作者之所以赚这么多钱，以及他们的广告总是排在最前面，是因为他们不断地尝试，并且一直在发挥他们作为创作者真正擅长的和感兴趣的东西。如果你只是跟随A、B或C在做的事情，那么你的广告只会排在他们的下面，你的花费根本不会增加。所以，我们不断推动创作者去不断尝试，去做疯狂的事情。当你看看我们广告库中的一些广告时，它就像是</p>
+<p>开放式 brief：有人把键盘放在窗外屋顶淋雨拍产品——成了顶级素材；库中尽量避免两条广告长得一样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>表现最好的广告。就像我都不知道我们是怎么想出那个主意的。所以，要为他点赞。但这就是保持非常开放的结果。当你有一个有趣的产品，让创作者们也玩得开心，并不断尝试。是的，我们广告库里的广告没有两个是相同的。哇，太棒了。好的，让我尝试梳理一下步骤，因为这里有太多精彩的干货建议。第一步，在Tribe上注册。Tribe有点像你管理创作者、支付报酬以及处理各种事情的地方。你的建议是在找到创作者时不要通过Tribe，因为没人会在意你，而你的建议是去Instagram。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>在你的市场中进行关键词搜索，比如UGC、科技、律师，可能想通过兼职赚钱来招募最初的五个人。建议是从五个人开始，不要做得太大。好的。我还想说，这不仅仅是从五个人开始，或者从律师开始，或者其他什么开始，你需要看看你的广告库，看看你的产品，然后想，“好吧，我们实际需要填补哪些具体的空白？”因为多并不一定更好，这适用于生活中的一切，但特别是针对创作者，如果你只是带来100个或200个相同的创作者，那并不会带来规模，因为一切都会</p>
+<p>看起来完全一样。但当你邀请五位创作者，每位创作者都针对特定的受众，每位可能都针对你的产品的特定信息时，你会得到五位完全不同的创作者，他们都可以创作全新的概念，而且你引入的创作者越多，这种增长就呈指数增加。所以，这不仅仅是关于邀请少数创作者的问题，还包括非常具体地选择你实际上要邀请的那些创作者。因此，当你这么说时，要考虑目标客户的类型、你瞄准的市场、你的理想客户画像（ICP），以及哪位创作者能够与该受众沟通。</p>
+<p>花名册从妈妈到律师都有；有八位数电商创始人因爱用产品主动做内容。产品被真爱时，人设供给会「指数」变丰富。</p>
+<p>你可以想象。我也经常收到这个问题，很多来自不同业务的创始人会联系我，他们会说，‘哦，我有一个开发工具，或者我在睡眠领域。我不能为我的品牌制作内容，或者我在用户生成内容（UGC）上没有成功。’很多时候，问题在于人们误解了UGC，以为它只是大学生在制作内容，但UGC是用户生成的内容，如果你是一个开发工具，你的用户很可能是年纪较大的技术人员，你不能仅仅找一个不懂技术的18岁年轻人来谈你的产品。而那些广告可能看起来会大不相同，可能会非常不同。</p>
+<p>技术向受众反而吃「更丑」的屏录+大字 9:16 长视频；睡眠品类不该让 18 岁小孩推 3000 美元产品——人设要匹配客单价与人群。</p>
+<p>技术上的。这和睡眠产品差不多。比如说，如果你在睡眠这一领域或者行业有一个昂贵的产品，而一个18岁的孩子在卖它，你为什么或者我为什么要从一个孩子那里买一个3000美元的产品？可能不会是那样运作的。你想买的人可能是说话方式和你相同，做的工作和你相同，遇到的问题也和你一样的人。是的，我认为UGC适用于任何公司。只是，当你产品越上游、越昂贵、越小众的时候，会有点难度，但本质上就是，如何找到愿意制作内容的用户。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>莱尼复述：意外有效是狂测的原因之一；对方提到每月大约 500–700–1000 条量级，为了发现黑马。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>私信转化、7天结算与营销组织：约120人公司、约15人营销</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>一年前做的一些广告，其实就是屏录产品用法、顶部加字、9:16 超长视频——它们既是最好的广告，也是最丑的。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：DX]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：DX]</span></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>联系创作者时，私信长什么样？取决于场景，路径也不止一种。很多时候品牌私信箱/关注者里已经有创作者——那是最优先的起点，早期创作者不少就从那里来。</p>
+<p>开发话术：先从已关注者/私信请求里找 UGC 创作者——他们已知产品，转化成本低。</p>
+<p>冷启动 DM 不要一上来硬推销：先夸内容、问是否有兴趣进创作者群，再发 PDF 讲结构与报酬。</p>
+<p>然后让他们制作视频。另一种方法是，如果他们没有关注我们，而我正在进行外展，我就会直接给他们发私信，说：“嘿，我偶然看到你的内容。我非常喜欢。我希望你能加入我们的Wispr Flow群组。这是这个工具，这是它的工作方式，这是链接。如果你有兴趣，请告诉我。” 然后，如果他们感兴趣，我会继续向他们推销，这基本上是同样的路线。这是从Wispr Flow的Instagram账号吗？有时候我会两种方式都用，因为我自己也是创作者，我也做很多事情，这也是雇佣内容创作者的一大优势。我们的一些最佳雇员就在</p>
+<p>通过在 Instagram 故事上发布内容或聘请我们最好的创作者，我已经体验过 Wispr Flow 的内容。我可能会说，“嘿，我正在寻找 UGC 创作者。” 只需发布一个故事。或者说，嘿，我在找一名摄像师。或者说，嘿，我在找一名编辑。聘请内容创作者的一个很酷的地方就是，如果他们再次制作内容，并且你确保他们制作高价值内容，他们也可以被用作一个非常好的招聘机制。是的，这取决于情况。如果你有一个创作者，我认为效果相当不错。显然，你会得到创作者面孔之类的东西，还有如果你是一个</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>非常知名的品牌，显然如果你的创作者收到像耐克之类的消息，你明白我的意思吗？这非常令人印象深刻，你也更有可能得到回复。我觉得这取决于情况。然后，好吧，你私信他们，他们感兴趣，你给他们发送一个概览。在最初的五次交互中，你可以很快安排一次电话，然后向他们推介并解释这个项目。下板对接的流程是什么样的？这些创作者非常习惯于被“使用”，他们所做的一切几乎都是交易性的。他们做一个视频，拿到报酬，然后再也不与人交流。我们生活在一个</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>就像在这个一切都是数字化、一切都是虚拟化的时代。大多数人都是远程工作，大多数创作者也是远程工作，他们对社区的渴望和普通人对社区的渴望一样。我们只是确保从一开始就建立联系，就像最后他们最终只是朋友一样。我们一起工作。我并不只是把他们看作“嘿，一个我可以提取一些视频然后再也不联系的创作者”。正如你说的，我会和他们视频通话，我有整个幻灯片展示，但在展示之前，我会问他们一些关于自己的事情，比如他们是怎么进入内容创作的，为什么喜欢它，以及</p>
+<p>就像进行一次对话。尝试去了解他们。然后从那里，幻灯片的流程是我有一个介绍幻灯片，我在上面谈论自己。我谈论自己作为创作者的背景，这样他们就会尊重我，并且知道我不是随便跟他们说话的人。然后从那里我也会介绍我们的媒介采购员，Eric。向Eric问好。然后从那里我解释产品。接着我解释Tribe是如何运作的。所以我喜欢让他们知道，从他们制作视频，到视频被接受，再到视频作为广告运行，他们可以期待的流程。我告诉他们我们每7天支付一次。</p>
+<p>激励黑客：尽早给多巴胺与现金；他们约 7 天结算一次并明示。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>让他们开始行动，让他们知道，‘嘿，你现在就可以开始制作视频。’所以，这里一个重要的教训是，把他们当做人看待。关心他们，帮助他们觉得自己是这个事情的一部分，而不仅仅是觉得你们，‘好吧，你会赚钱的。闭嘴，不用担心。你会赚钱的。’而我认为这实际上也是很好的先机。所以，我认为那些长期会成功的公司，是那些与创作者关系最好的公司，因为消息传播得非常快。如果你的品牌对创作者不好，付款不及时，不支付他们</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>无论可能发生什么，或者你只是屏蔽他们等，消息都会传出去，创作者可能不想和你合作，或者你得不到最好的条件，或者你得不到最优质的创作者。所以，我认为我们非常重视的一件大事，不仅是在与创作者合作时，而是在与任何外部机构或任何我们合作的人合作时，我们总是希望以高度尊重的态度对待每一个人。是的，我认为那些最能做到这一点的公司，长期来看也会获胜。启动这个计划的早期团队是什么样的？是只有 赫克托 独自执行，还是你会从一个更大的团队开始？老实说，团队相当精简。所以，我们的</p>
+<p>公司已从约 4 人扩到约 120 名全职；营销组织仍较扁平。</p>
+<p>想出新的概念，批准视频，有点像把一切启动起来，然后你需要一个媒介买手。找到既有创意又会做媒介购买的人相当罕见。我不太喜欢数字，我不太擅长数字，也不喜欢盯着Meta广告管理器。我听说那很让人头疼，所以我很高兴我不必做那件事。但没错，我们有Eric负责媒介购买方面的事情，他会架构我们的广告账户和所有相关内容。那么这个媒介买手是那种只在Facebook广告系统里工作的绩效营销人员吗？对，完全正确。所以是的，Eric基本上就是专注于我们的媒介方面。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>在 Facebook、LinkedIn、YouTube 等平台上的购买方面，明白，所以你有点像是创意方面的，你负责内容供应，然后这个人拿到后负责投放广告、关注表现，从而优化支出，明白了。然后团队中还有其他你认为重要、有价值的人吗？不论是早期还是稍后阶段。早期的话，如果我们回到最早的日子，营销团队是我们的首席营销官 Daniel，增长负责人 Matt 在 Eric 来之前负责，然后就是我，作为唯一的创作者，自己制作广告。然后我们也有一些外部机构，慢慢地……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>营销全职大约 15 人量级：创意合伙/影响者、设计、导演制片、公关等；CMO Daniel 直管很多线。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>我们可怜的首席营销官丹尼尔，他真是个传奇，他刚刚有了一堆直接下属。所以，我为他的日程感到难过，但这就是整个结构的方式。结构非常扁平，没有中层管理，每个人只管做自己的工作。从这次对话中一个核心的收获是，当你今天在做付费推广时，UGC（用户生成内容）视频是最佳选择，而不是你自己创建的广告？所以，你是在比较我以前做的和我们现在做的对吗？当你想到在 Facebook、Instagram、TikTok 上投放付费广告时，大多数人会想到创建一个推广自己产品的视频或广告单元。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>赫克托曾像「内部 UGC」；广告花费升高后单人产能不够，就把供给外化给创作者池，花费升高还能测更多概念。</p>
+<p>是的，这基本上就是我们所做的，而且我们能够更快地扩大规模，测试更多的想法，因为我们有更多的广告支出，我们显然希望有更多的创意在运行。而且，一旦你的广告预算达到相当高的水平，你的广告通常会更快地达到疲劳期。尤其是现在有了Andromeda，广告达到疲劳的速度甚至更快，因为在此之前，也就是2024年我们投放广告的时候，我可以让一个广告运行12个月，我的产出会少得多，但现在，不仅有了新的更新，而且考虑到我们投入的广告支出，一个广告一旦达到大约10万美元的广告支出，就会失效，而这个金额可能很快就会达到。</p>
+<p>广告库终身或约 5000 条，当前在投约 800–900 条；疲劳快（尤其 Andromeda 时代），必须持续补量。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>我想就是尽可能拥有更多的格式，因为我们有很多广告支出，我们希望最终种类越多越好。好的。所以，这是付费广告核心的一部分，UGC明显有效。你认为这适用于每家公司吗？这是大多数B2B会使用的东西吗，我不知道。是的，你认为这会有效吗？我认为这适用于所有人，这又回到了我之前说的，就是找到那些能够对你想要获取的用户说话的用户。最终，我们在Wispr Flow关注的一点是，B2B和企业方面都是由个人组成的。如果你</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>可以找到一种方法，让你的内容能够对那些团队中的个人产生共鸣，也许你可以把他们当作一种单独的——怎么说呢，就像一个单独的客户或什么的——去下载应用，使用它，然后他们再告诉公司里的朋友，然后公司里更多的人开始使用它。然后也许你再去追踪那些企业客户，实际达成交易。现实中大多数公司最终可以这样去处理问题。并不是说，“哦，X公司的谁会看我的视频，然后参加企业电话会议并且想要达成交易什么的。”但是，我认为如果你从</p>
+<p>公司是由人组成的，你只需这样看待它，然后你会想，‘好吧，我想如何向这些人销售，这些人会如何对销售做出良好反应？’我认为你只需要把它分解得非常简单，然后你会想，‘哦，是的，这对任何人都有效。’好的，这很有道理。另外，我听到的是，这可能对那种以产品为主导、底层驱动的增长型产品最有效。不是像 Workday 或 Salesforce 这样的产品。更像是 Wispr Flow 或 Notion 之类的东西。太棒了。而且如果你仔细想想，就会非常明白为什么这会有效。一个</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>影响者本质上是某种能影响你去做某事的人。你基本上是让影响者/创作者制作推广产品的内容，然后通过付费广告把这些内容放到人们的动态里。我明白为什么这样有效，因为他们在努力说服别人这个产品有多棒。我也认为一个很好的区分是，这不仅仅是影响者或创作者。我几乎觉得，没有粉丝的创作者反而可能成为品牌更好的投资，因为现在人们往往会认为影响者有些变质，而当你看到大牌或大明星在卖产品时，会觉得‘哦我的天’。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>创作者路径、招聘滤镜与「营销人过敏AI」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>天这个人已经卖给我东西差不多有十年了。我知道她只是买了一个包，或者他只是买了一个包，并不是真的出于真心购买，而且有一种感觉就是你并不真正了解这个人，他们也不出名，粉丝不多，如果这些合作广告来自他们的账户，就感觉更真诚一些，所以我只是想提一下。越不像网红，越好。完全正确。越不像是在试图说服你，而只是像普通人一样谈论你的产品有多棒。我明白为什么这会有效。</p>
+<p>我现在想到的是，之前有人做过一个调查，问年轻人‘你长大后想做什么？’当时很多年轻人说想做创作者、网红或者主播。我觉得很多人都说他们想成为主播，或者直播主播，而不是宇航员或律师。所以，你描述的是一种职业路径，这是一种通过做这些事情赚钱的方式。实际上，很多人通过成为网络创作者赚钱。所以，对于正在听的那些人，如果你在想，也许将来这可以成为你的职业，也许我应该探索一下创作者的生活，对这样的人你有什么建议吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>给想做创作者的人：少找建议、多开机——先问再做的人往往不成。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>不同的家伙、PDF、我做过的东西等等，都是为了让他们知道如何开始。但他们却什么也不做。到了最后，如果你是那种做事前总要先问的人，你可能不会成功。即使是我有幸合作过的最优秀的人，很多最有名的播客主持人、网红或名人，很多这些人也会结巴，也需要重新拍摄某些内容，他们也有一些特定的做法来重新集中，无论是像嘴里发出的奇怪声音，还是用手摆弄，或者反复重复某个词句，我甚至见过一些人</p>
+<p>创作者在重复同样的剧本时，会开始频繁口吃，他们会把笔放在嘴里，张大嘴说话，并大声清晰地发音。是这样说吗？清晰地发音。大概是这样。然后当他们停下来，把笔从嘴里拿出来时，他们就能更好地发音。所以这就像是一种创作者的自然现象，即使你做这个工作5年、10年、15年，也会有必须剪掉视频、口吃或者需要重拍十次的时刻，有时你可能会对着摄像机破口大骂然后转身。</p>
+<p>关掉它，但就像是重新打开它然后继续拍摄那样的事情，对，这就是我的建议。就是开始行动，不要再寻找更多的建议，因为作为创作者，没有比打开相机然后发布更好的学习方式了。我很喜欢这个建议。我还听到的是，你不必……当你看不到别人做这些事情时的挣扎时，你会觉得不需要去模仿。你看到的是这个精美的视频，却不知道他们不得不把针放进嘴里，对，没错。或者对着相机骂人。是的。<span class="tag">【笑声】</span>甚至我那条在 X 上算是有点病毒式传播的视频，我想它大概是一个15分钟的剪辑，我之前大概剪过两次。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>那个。我可能会花大约30分钟。然后我做了最后一个，也可能又是大约30分钟，然后我把它整理成一个漂亮的视频。我是以此为生的，我在过去7个月里管理我们的部落群，我对她非常了解，就像对自己的一样，即便如此，我在整理和简明表达我的想法、梳理一切时仍然会挣扎，但它并不完美，但我传递了信息，提供了一些价值，人们也很喜欢。是的，我认为它不需要完美。听到这个真是太好了，因为看我的视频时，你看起来非常轻松、放松，就那样坐着说话一点也不紧张。</p>
+<p>iPad，然后喜欢那种，人们看到那个，就会觉得我永远做不到这么好。所以听到这个真的很有帮助。当我考虑开始创作，成为内容创作者时，我觉得我需要先弄一个小毛绒麦克风或者类似的东西。你觉得这是第一步。它是Canon的，是Canon的麦克风。没错。<span class="tag">【笑声】</span>没有一个小小的毛绒麦克风，你就不能算是创作者。是的。让我沿着这个话题问你最后一个问题。假设有人非常棒，我要做这个。我们要投入承诺。我们要雇人。我们要找到某个人来运营它。当公司或个人开始做这种付费UGC时，你发现的一些最常见的错误是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>路线？我认为很多时候，人们通常会看错地方，可能会在网上或 LinkedIn 上发布招聘信息，或者其他地方，给出的薪资太高，或者说要求太高，你不会吸引到最优秀的人。如果你发布一个职位，说要支付，比如，这些运行 UGC 活动的人需求非常高，我要发布一个年薪 25 万或 20 万的职位，再加上丰厚的股权，你最终吸引到的会是错误类型的人。当我加入 Wispr Flow，以及 Tuan 加入 Wispr Flow 时，我可以告诉你，我们是……</p>
+<p>我们赚得远不到那个数，当时我们还是实习生，我们只是渴望学习、渴望成长的孩子，而且也有一些内容方面的经验。我认为，如果你只是认为扔钱出去，寻找成绩最好、学校最好、经验最丰富的人就能让你找到最适合的人来为你运行这个项目，你迟早会大失所望。是的，我会更专注于找到一个有干劲、渴望学习的孩子，就像那种你能从他们身上感觉到的好感觉一样。就像我前几天也告诉你的那样，有一天我和Julia进行了初次通话，她当时领导我们的营销团队。</p>
+<p>19 岁被招为 UGC 创作者、薪资不高却要股权；塔奈笑了，但这体现「想一起长大」的心态。别用天价JD+名校滤镜招营销「机器人」。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>想要成长。然后是的，我认为不要把目光放错地方。不要想去错误的地方，因为你会吸引错误的人。你有几条类似的很棒的推文。其中一条是，每个人寻找拥有最好简历的营销人员，最终都会雇用一个机器人。是的。<span class="tag">【笑声】</span>然后另一条是非常重要的推文，我遇到的最成功的创始人、投资者、创作者并不是最有天赋的。他们自信得近乎幻觉，工作比任何人都努力，而且热爱他们所做的事情。是的。我认为这差不多总结了。还有另一条我非常认同、最近发布的推文是关于体育的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>用竞技体育思维：青训、给真实出场时间；很多公司停实习是损失。点名拉明·亚马尔（Lamine Yamal）少年成才作类比。</p>
+<p>很多初创公司应该采取那种心态。我觉得实际上有很多公司现在已经不再开展实习项目了。他们认为这些项目没有价值。但我认为这是最有价值的事情之一，如果你能找到合适的人，这并不是一件花费很高的事情，也不需要花费很多时间。是的，我认为，给年轻人机会，给他们一些资金去尝试，给他们一些自由去尝试，允许他们失败并继续学习，这可能是你可以从体育中学到的最佳模式之一。</p>
+<p>显然这是有效的，我不知道你对足球是否很熟悉，但看看拉米内·雅马尔，他刚刚在 19 岁、18 岁的时候赢得了世界杯。我认为同样的方法也可以应用到创业世界：找到年轻的人才，投资他们，让他们在现实世界中获得真正的经验，然后最终他们可能会成为你的一线人才。我喜欢这一点。我也喜欢这一点的另一部分是给他们时间去弄明白。是的，100%。到目前为止，这次对话真正有趣的是，我意识到，我们一次也没有提到 AI 在你所做的工作中扮演的角色。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>推文「最好的营销人过敏 AI」：成片创意侧尤其不要用 AI 垃圾广告/AI 网红；受众已反感，风险回报不成比例。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>在 Figma 中的设计、编辑、后期制作等等，这些都是由大量人类团队完成的，我认为至少在短期内，没有真正的办法可以绕过这些，尤其是在我们当前的环境下，很多人对人工智能感到反感，这可能是一个令人害怕的话题。如果你是一家像 Wispr Flow 这样的人工智能公司，理论上我们是为了让人类的工作更出色而提供支持，我们不想替代任何人的工作，而是希望提供工具，让他们能够更高效地工作，做更多的事情，并且能够更自然地表现自己。如果我们从另一方面来看</p>
+<p>出去开始用 AI 做垃圾广告和视频，用 AI 网红，我又不懂 AI 设计和 AI 静态图，这可能不会被很好地接受，而且看起来很奇怪。我觉得这更多是指不要自动化最终产品的工作，因为我认为你经常会看到这种情况：这最终会影响到公司，不管是他们用 Claude 做的动画，还是他们制作的某个素材，也许有拼写错误，或者写作全都混乱，当你用 OpenAI 做的时候会发生什么呢。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>用 Chat GPT 之类的东西。是的，我觉得不值得。风险和回报不成比例。所以我听到的主要观点是，不要用 AI 来做这类工作。是的，尤其是最终的输出，在创意方面，也就是其他人会看到的，我认为 AI 还不应该涉足。这真的很有趣。感觉每个人都在倾向于使用 AI。是的，即使是我认识的对 AI 最看好的那个人，Matt，他现在在 Victor 或 Exited Growth 工作，他使用的自动化是我见过最多的，但即便如此……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>AI 可助力流程，但面向用户的最终 10% 必须人审；品牌容不得一次翻车。</p>
+<p>噪音极大时，重质量轻「为了量而量」的自动化，反而更容易穿透。</p>
+<p>在YouTube上有数百万的观看次数，2万或2.1万的订阅者，而YouTube是最难增长的平台之一。很多人会想，哦，我们要开一个YouTube频道，我们需要每周发布三条视频。其实并不是这样的。如果你真的投入时间和精力，讲一个非常好的故事，每件事都有目的地去做，并且包装得很好，同时有一支非常优秀的团队在每个环节参与，你就能得到非常好的最终作品，人们也能看到你付出的努力。这实际上就是我想说的，我们可以作为最后一个话题来讨论一下这个问题。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>创始人内容与YouTube复利：北极星、触点降付费成本</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>创始人内容：让会出镜的创始人讲故事，产品更「人味」；对比只看广告。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>可以在镜头前说话，可以用在广告中，可以用来讲故事，这让公司和产品显得更加有人情味。就像当你比较两个产品时，我更愿意——甚至根据我自己的经验——比如说，如果我关注……我不知道，比如说我关注乔治·希顿，他是Represent的创始人。他有一个服装品牌。然后我又看到另一则服装品牌的广告时，我更有可能购买乔治的产品，因为我了解他的工作方式。我知道他的日常。我知道他是什么样的人。我知道他的理念。我知道他为了公司付出了多少努力以及他投入了什么。</p>
+<p>人们真的很欣赏这一点，再加上在这样一个数字化的时代，能够与产品背后的创始人连接。而且你不仅会培养超级粉丝和已经使用你产品的人，而且他们现在也喜欢你。你还会吸引一群从未见过你产品的人。他们并不真正了解你，然后慢慢地，他们开始喜欢你发布的内容。他们开始认同你的使命。他们开始认同公司。然后他们实际上会去尝试产品，这就像一个长远的、广阔的布局。我不知道，这种长期的布局你必须去做，而且这是一种投资，因为你</p>
+<p>不能只是开一个YouTube频道或创始人主导的品牌，然后立刻开始向人们推销，因为人们很快就会失去兴趣，然后想，‘好了，我不想再参与了。’但是如果你只是提供大量的价值，过度分享，超额交付，并且只是开放展示文化是什么样的，你在建立什么，人们会非常感激，你也能够让他们接受并放下戒备。然后也许一年后，我们可能会有一个软性销售。也许我们会有一个，‘大家好，这里有一些支持，感谢你们帮我们达到了十万订阅者。just’</p>
+<p>想要发布这段代码。 blah blah。然后人们会想要支持你。所以我再次思考，在这个每个人都在追求即时增长、一切都超级快并且从一开始就优化一切的世界里，这些在当前可能没有任何直接关联的渠道，最终可能成为一些最佳的长期策略，同时也是品牌建设的策略。在你进行这种创始人主导的内容时，有哪些角度或故事似乎效果不错？是像‘这是我们公司的故事’吗？。那里面有什么吗？所以我们考虑问题的方式是</p>
+<p>Wispr 北极星叙事：冲向约 10 亿日活量级目标，把故事贯穿各平台内容。</p>
+<p>你作为一家公司正在追求的目标。你希望让人们一路同行。如果你把这个理念融入到每一集节目或每一个 LinkedIn 帖子、每一个 X 帖子中，显然每个平台的格式和信息表达方式不同，但如果你把这一切联系起来，就能让大家共同参与这个旅程，也更容易理解，同时也更容易在此基础上展开，因为你可以说，“好的，这是愿景，这是我们要实现的目标，而每一步实际上都是引导我们达到目标的过程。”这是我们的使命。这几乎像是产品路线图或实际情况的实体化呈现。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>发生在公司身上的事情，比如向全世界展示它的起伏、跌宕、挣扎，一切。这就是我们在 Wispr Flow 的思考方式，也是我认为其他公司也应该采取的思考方式。这真是很棒的建议。基本上，要有一个北极星，就像你在追逐的北极星指标。是的，以及到达那里过程中旅程和你学到的东西。一些让人惊讶的事情。我们会指引人们去那个频道，让他们了解你在那里实际上在做什么。是的，就是 塔奈（Tanay） Kothari，对，我们就在上面记录一切，比如各个剧集。我们基本上做了所有事情，从展示我们如何启动我们的……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>新的产品笔记者塔奈（Tanay）去印度采购婚礼用品，同时也远程工作，以及他如何平衡这些和他与Sahaj的关系，就像是创始人一周的生活。我们还做了一个白板分解，我和塔奈（Tanay）进行了交谈。这些都是不同的形式，看起来可能不同，但最终都在朝着Wispr Flow所建设的更大愿景发展。我想在你开始Wispr Flow的时候，已经对它有一些天生的兴趣。它就像是一家公司，人们看到它会说，“哦，我想要。”所以，可能会有一点像你</p>
+<p>当没有人在乎你所学到的东西时，你不能从头开始，因为还没有人关心你的公司。说实话，我认为你还是可以开始。但这可能会让我们处于一个稍微好一点的位置，但有些创始人的品牌并不像Wispr Flow那么大，却依然通过个人品牌内容取得了成功。同样地，这也是进入实际品牌的一个路径。而且，还有什么比通过一个只是讲述自己故事并获得价值的人来让品牌更容易接触更简单的方式呢？有趣的是，这只是另一个，可以说是阿尔法机会。</p>
+<p>增长，这就是创始人以非常引人入胜的方式分享他们的故事。你会看到一切似乎也开始联系起来，因为你在更多地方自然地出现，并且与客户的接触点越多，当涉及付费时成本就会越低，因为是什么呢？我认为一个客户或一个人需要看到公司的内容大约七次，才会真正购买。如果你能够在 YouTube 上以长格式接触他们，这是一个积累信任的平台，然后你还在发布创始人的 Instagram 短视频，同时也在 LinkedIn 上发布内容，那么当他们来到我的...</p>
+<p>有机触点越多，付费转化越便宜——付费平台还常拿走归因功劳。<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>表单编辑器来接收它并创建剪辑。是的，完全正确。内容负责人，是你吗？你也是做UGC付费内容的人吗？是的，是的，是的。所以，是的，我是内容负责人，这就是为什么如果你找到一个懂内容的年轻人，他们基本上可以做任何事情，无论是自然流量，还是付费流量。这也是为什么找到有粉丝的人很重要，因为我知道如何建立粉丝，也知道如何组建团队。有趣的是，正如我之前提到的，我团队中的每个人，无论是UGC还是其他方面，都是这样。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>创始人内容团队与摄像：发 Instagram 快拍招人——24 岁摄像约在毕业后 5 月入职；好社交人才往往在社交上找到。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>代理机构。我们通过 Instagram 认识的，现在他们是我一些亲密的朋友，所以就像通常在社交平台上你也能遇到的最好社交人一样。大概就是这样。拥有观众有太多好处。这是我们会获得的胜利。100%，从你的故事中可以看到。好的，所以在你这个视频中分享的最后一个小信息是，你有这个内容负责人，有 赫克托，还有一个拍摄视频的人，还有 YouTube 短视频团队。你实际上还分享了 YouTube 打包团队。如果你必须选择哪方面需要更强，你发现 YouTube 团队比视频质量更重要。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>是的，YouTube通常是最难的平台之一，这也是为什么当你说Instagram或YouTube的时候，我退了一步，心想，“其实，YouTube非常重要。”而这也是我最初开始的地方。我看到制作YouTube视频需要投入多少。比如，并不是说你只要做一个视频，发布它，放一个缩略图和某种图片就好了。归根结底，我喜欢这样想，你可以做出一段杰作视频，你可以制作一部好莱坞级别的电影。但如果你放了一个很差的缩略图和一个让人不想点击的标题，实际上没人会知道它有多好。</p>
+<p>你的视频。因此，你可能已经投入了所有的时间、金钱、精力和努力去制作这个视频杰作，但如果你不了解YouTube的运作方式以及它实际上如何排名最高，你就无法获得想要的结果。这就是为什么我认为YouTube方面如此重要，因为这不仅仅是缩略图，不仅仅是点击率，不仅仅是标题，也不仅仅是观看时间或平均观看时长。它还包括故事讲述、节奏、如何包装视频、开头、缩略图如何与视频内容关联，而且实际上还需要某种形式的回报，因为</p>
+<p>如果你不这样做，那么观看率会下降，人们不会坚持去完整观看视频。你YouTube团队越优秀，这对短视频部分就越容易，因为通常你用来做短视频的人可能没有那么……我想他们没有那么投入，因为他们通常有很多客户，而且还在海外。比如，我们很多短视频编辑都来自德国。我觉得我们还有一个在罗马尼亚的，还有一个在澳大利亚。他们都是非常优秀的短视频编辑，但他们同样也想获得很多点击量。所以，他们不会……</p>
+<p>去尽可能多地关注实际的故事讲述。他们在剪辑素材的选择上可能不会那么好。所以，如果我给他们发送40小时的素材，我可能得不到最好的片段。而如果我的YouTube团队在后期制作方面非常出色，他们剪辑出一个超棒的视频，那么我可以把它以一个干净的版本发送给我的编辑们，没有标题，没有音乐等等。他们可以直接剪出最精彩的瞬间，并把它制作成非常好的短视频作品。这也就是为什么我说长视频团队是最重要的部分。同时，它也是最受喜欢的部分。像YouTube视频可以持续播放很长时间，即便是在我自己的个人频道上也是如此。</p>
+<p>YouTube 半衰期长：一条片五年前约 4 万播放，一年前起涨到约 60 万；短视频日更消耗大，长视频长期复利。</p>
+<p>在这些平台中，我喜欢，信我，我喜欢创作内容，但有时这有点令人泄气，就像，“哦，你拍了一段内容，发布了。你得创作新的。” 显然在 YouTube 上你也得这样做，但你也会长期收获回报。它不像在 Instagram 上，你发布一个视频，48 小时后就没人看了。YouTube 视频不同，你投入大量精力制作，我们看今天视频的一些数据图表，发现即使视频已经发布了大约三个月，在过去的 48 小时里，它还是获得了 1 万次观看。它仍然对我们有效，仍然吸引新的观众和新的人群。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>顾客。所以，是的，YouTube真是太棒了。我，我，我，我也猜想，考虑到你有那么多的播客，比如你从多年前或者其他什么时候开始的视频所获得的观看量，真的非常惊人。是的，观看那些随着时间慢慢爬升的影片很有趣。我在播客中请到了Elizabeth Stone，她是Netflix的CPT O，她慢慢地在排行榜上攀升，现在她紧随第一名之后。她正在努力向第一名靠近，所以你会以为这些排名已经固定，但它们还是不断上升，就像这样，然后突然间就像这样，你会想，哦，我没想到会这样，我也不知道。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>收尾闪电轮：书单、旅行AI Miso、人生座右铭与行动号召</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>不会经常遇到那种只是变化形式的情况，但它确实会成长，就像，哇，我都不知道它还在成长。是的。总之，赫克托，这真是太棒了。在我们进入令人兴奋的闪电问答环节之前，你还有什么想分享的，或者还有什么想强调，让听众记住的吗？我最后想说一点，也是我提到过很多次的，我只是想鼓励其他创始人，给年轻人才一个机会，是的，去找到那些人，相信他们，信任他们，给他们机会，是的，他们不仅会成为你最出色的核心成员之一，而且他们的忠诚度也会很高。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>收束：给年轻人真实责任，他们会留下帮你或继续输送人才；感谢塔奈与 Daniel 的空间。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>要问你的问题。你准备好了吗？我见过这些。我在播客里见过这些。不会感到惊讶。好，我们开始吧。第一个问题，你最常推荐给别人的两三本书是什么？我会给一本书。我会推荐一本非常好的书，可能有点陈词滥调，那就是纳瓦尔·拉维坎特的《年鉴》。我记得大约两年前，或者一年前半的时候读过这本书。那时候我正处在一个阶段，我不太确定自己是否想做内容创作，但我也不明白它为什么重要或者为什么如此关键，我第一次读的时候，其实并不是很理解。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>对我而言。然后我给了自己一些时间，然后事情开始像书中说的那样慢慢对齐。他怎么说的呢，媒体是最好的杠杆之一，因为你不需要获得许可，它是无需许可的杠杆，你可以创作内容并发布到互联网上，它会持续为你工作。我开始看到随着时间的推移，我将自己展示出来所产生的复合效果，这本书让我不断回去阅读。我最近也给我弟弟买了这本书。这是我一直与朋友分享、不断推荐的东西。</p>
+<p>也让他们去阅读。我觉得这也给年轻人在我们生活的这个疯狂世界中提供了很多方向感。我知道你说这是我最喜欢的书之一，我读过。是的，我也经历过这样一个阶段，只是在 Twitter 上分享这些深刻的建议，然后他有点慢下来了，我很喜欢有一本书把这些都收集起来。我很喜欢。很多建议，你看到时会觉得‘没关系’，然后你回想起来会想‘哇，他说得真对’。你读过《自我为敌》吗？那是一本书还是他的一句名言？不，那是一本新书，我想我</p>
+<p>我记得好像叫这个名字，我只是想知道你有没有读过它，因为我有兴趣读。我正打算买它。我需要去书店。波多黎各并不是只有这一家书店。不过，是的，我在找一本新书，所以如果有人想在视频下留言的话，欢迎。好的，亚马逊会送货到波多黎各吗？会的，但有点慢，因为住在岛上，一切都慢很多，兴奋感也低很多。你不会有24小时送货服务。我喜欢这样。好的，下一个问题。你最近有没有特别喜欢的电影或电视节目？我刚看了《伊丽莎白·霍尔姆斯》。</p>
+<p>和我女朋友看电影。是的，我不会剧透，但哇。这真的是一部很好看的电影。有一件事是有人从预告片里分享的，这不是剧透。在预告片中，当他们互相凝视时，他的嘴巴里会做一些滑稽的动作。是的，事实是，当他试图不笑或者保持角色时，他会把舌头顶在臼齿上，用力按着以防自己笑出来。怎么样？我之前不知道。是的。不过，电影确实很好看。我很喜欢。很棒。好了，下一个问题。最喜欢的</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>{slash} 你现在正在使用的最有趣的 AI 产品。最好不是 Wispr Flow。老实说，我得说我前几天在你的帖子上评论了，Miso。我不知道，你最后下载了吗？我刚试着去看一下。它像是一个旅行工具，是的，它是一个旅行代理，我经常旅行。我觉得我今年到目前为止大概有 55 或 60 次航班。天哪，大约 89,000 英里，而且旅行总是让我不太期待，因为这非常累人，比如订航班和各种事情。我最近在他们在 X 平台上推出这个产品时偶然发现了，我给他们发了私信</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>在 Instagram 上看到创始人，我当时就想，“哟，把我从等候名单上弄下来。我想试试这个。” 自从我下载以来，已经差不多三个月了。我停不下来，一直在使用，也一直推荐给朋友们。举个例子，就在前几天，我睡过了闹钟，错过了从 PR 飞往 SF 的航班。我醒来后发了信息给 Miso，我说，“嘿，我错过了航班，你能帮我订下一班吗？”我不用做其他任何事情。它处理了一切，两小时之内就帮我订好了下一个航班。我就放轻松了，也没有额外付费。是的，就是这样。</p>
+<p>就像我以前试过的最好的旅行代理一样。明显地，Instinct 确实是一个不错的代理什么的，但我觉得在旅行方面，它根本不够快。而且 Miso 还有一个很酷的地方，就是他们后台有人类可以升级处理问题。如果代理卡住了，他们有与每家主要航空公司直接联系的渠道，可以升级处理并帮你解决问题。所以，它就像一个救星。我只需发条信息说：“嘿，我想订一趟航班。” 它就知道了，然后会发送给我，我大约两分钟就能订好。真的非常酷。我查了一下。就是 miso.com 吗？对，miso.com。域名真是太棒了。我</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>想象一下没有任何隶属关系。你只是一个粉丝。就像，没有任何隶属关系。太酷了。好，干得好，Mesa。好了，还有两个问题。你是否有一个你经常在工作或生活中回想的生活箴言？是的，我有一个我非常喜欢的生活箴言。我不知道我会不会说错，所以也许你可以帮我，但是它是来自史蒂夫·乔布斯的，他说你无法总是向前看连接点滴，但你总是可以回顾过去找到它们。当我回顾自己的生活时，我发现几乎在一切事情中都是如此。我从来不是学校里最聪明的孩子。我的父母总是对我感到相当失望。我很</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="hector"><div class="label"><span class="badge" title="赫克托·塞拉诺（Hector Serrano）">Hector</span></div><div class="content">
+<p>严重的注意力缺陷多动症。就像足球是我唯一拥有的东西，然后我失去了它，然后我有几个月都迷失了方向，即使我在 Wispr Flow，我也不太理解发生的所有事情，或者为什么我在16岁时拿起相机，或者为什么我开始在 YouTube 上发布内容，或者为什么我参加体育运动。现在回头看，一切都非常清晰，非常有意义，我理解自己人生的道路。我觉得有时候你只需要继续前行，到最后一切都会有意义。是的，我想那是我最喜欢的一句名言。我也觉得这是真的，并且</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>莱尼致谢；赫克托邀请听众在 X/Instagram/YouTube 关注他（句柄即 Hector）。</p>
+<p>Spotify，或者你最喜欢的播客应用程序。此外，请考虑给我们评分或留下评论，因为这真的有助于其他听众发现这个播客。你可以在 lennyspodcast.com 找到所有往期节目或了解更多关于节目的信息。下期节目再见。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Lenny's Podcast", "title": "86分钟付费UGC干货｜赫克托·塞拉诺（Wispr Flow）", "url": "https://www.youtube.com/watch?v=KzS5Qs7vSMg", "videoId": "KzS5Qs7vSMg", "published_at": "2026-11-01", "duration": 5267, "caption_source": "YouTube 自动生成字幕（en-orig；.en.vtt 呈机器翻译腔已弃用；普通 yt-dlp 遇 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 补拉成功）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段；赞助口播已标灰（WorkOS、DX）；说话人按主持/嘉宾问答轮次推断（自动字幕无说话人标签，中等把握）；口播品牌名 Wispr Flow 在字幕中常误识别为 Whisper/WhisperFlow，正文已统一", "guests": ["Hector Serrano"], "intro": {"summary": "莱尼访谈 Wispr Flow 内容/付费UGC负责人赫克托·塞拉诺：从19岁加入、收入约30倍与约20亿美元估值语境，到把有机UGC玩法迁到付费、约50人创作者池与每月500–600条广告，以及年轻人招聘与「营销人过敏AI」。", "points": ["有机UGC（托宾约2.5个月~5亿播放）业务结果不够后，迁到付费UGC+效果结算", "约50创作者；配额保底（例~1500美元）+佣金；顶尖月入约1.3万美元", "每月上新约500–600条；库约5000/在投约800–900；防Meta相似度归并", "招人看作品与饥饿感，不要名校滤镜；给年轻人真实reps", "最终成片少用AI垃圾；创始人内容+YouTube长半衰期与付费互相降本"], "verdict": "值得看：做增长、创作者营销、消费级AI获客的人；可跳过：完全不做UGC/付费投放者（约88分钟）。", "audience": "增长 / 创作者营销 / AI消费产品 / Lenny's Podcast 听众"}, "speakers": [{"id": "lenny", "name": "莱尼·拉奇茨基（Lenny Rachitsky）", "role": "host", "short": "Lenny"}, {"id": "hector", "name": "赫克托·塞拉诺（Hector Serrano）", "role": "guest", "short": "Hector"}], "sections": [{"id": "s1", "title": "开场：19岁加入、收入约30倍与约20亿美元估值语境", "start_sec": 0, "summary": "冷开场回顾赫克托·塞拉诺（Hector Serrano）19岁在LinkedIn海投约200个创作者岗后加入Wispr Flow（字幕常误作WhisperFlow），并直接向塔奈（Tanay）要股权。莱尼给出语境：过去一年收入约增30倍、近期在竞争市场以约20亿美元量级估值融资。赫克托自定位内容/付费UGC负责人，强调增长首先是产品起势，付费UGC、静态、影响者与创始人叙事等是叠加杠杆；没有真实PMF，付费难以持久。"}, {"id": "s2", "title": "何时开付费：冷流量转化信号 vs 过早怕饱和", "start_sec": 274, "summary": "莱尼追问是否必须先有机跑通再砸付费。赫克托认同产品是根基，但主张在预算边界内尽早小规模测试付费：打开「付费引擎」能更快验证信息是否打动受众、冷流量能否变付费用户——多数团队并不擅长有机内容。担心过早饱和时，关键是持续换角度、信息与ICP，而不是永远不开量。中插赞助WorkOS另标。"}, {"id": "s3", "title": "从托宾有机UGC到付费UGC：Tribe与500–600条/月", "start_sec": 518, "summary": "约2025年初实习生托宾（Tobin，后加入Polymarket）用有机UGC约两个半月做到约5亿播放、低CPM，但偏虚荣指标、Wispr侧业务结果不够。团队把「建社群+名单+效果付」迁到付费，并借鉴TikTok Shop卖货品牌在Meta侧做创作者广告结算工具的思路；Wispr成早期客户。如今每月大约上新500–600条广告，花名册约50人。"}, {"id": "s4", "title": "报酬设计：保底retainer + 佣金，顶尖月入约1.3万美元", "start_sec": 843, "summary": "纯抽成会打击新人：拍很多片却只赚很少会流失。做法是完成视频配额给约1500美元量级「智能retainer」保底，佣金高则可能不再叠保底，让前几个月也有稳定收入。SaaS/免费增值难追单次转化时多用广告花费分成，电商可用GMV比例——让创作者分享「自己那条广告」的成功。顶尖创作者月入约1.3万美元，甚至超过许多全职影响者，粉丝却可能只有一两千。开放brief、拒绝把创作者锁死话术，是对方愿意加入紧密小团体的原因。"}, {"id": "s5", "title": "招年轻人做增长：别找第二个赫克托，看作品与饥饿感", "start_sec": 1156, "summary": "赫克托与托宾简历截然不同却都能成事；名校GPA不是主信号。看重：是否养过账号（哪怕约1–1.5万粉）、懂拍剪与趋势、勤奋与文化契合，并敢于下注。Instagram信号通常强于「易涨的TikTok脑腐」；他两周内把X内容打爆被莱尼刷屏。建议不要找「另一个我」，去找背景怪异但有作品的年轻人；身边放懂新渠道的年轻人是alpha。穿插自述：退一级联赛足球三天后入职、微积分课中被拉进Slack huddle、花约一年才找准位置，并曾怀疑内容是否「正经事业」。"}, {"id": "s6", "title": "组群与扩编：站外开发、周会教练、推荐100美元、防同质化", "start_sec": 1874, "summary": "先定分成规则再组群，平台偏好Tribe；展示已向创作者累计支出（例约30万美元）有助招募。站外Instagram关键词钻子话题+精心私信，避免自动化海量开发招来差创作者。文化侧：周会、创作者教练、抽奖、旧金山撤退营；从5人每隔几周加5–6人扩到约50。推荐奖约100美元/人但强调非传销、名单保持紧密。创作者互抄头部片会导致同质；Meta Andromeda对高相似度素材归并。开放brief带来「屋顶淋雨键盘」等黑马创意；花名册要覆盖妈妈到律师等不同人设，技术向受众反而吃更丑的屏录广告，高客单睡眠品不该让小孩推。"}, {"id": "s7", "title": "私信转化、7天结算与营销组织：约120人公司、约15人营销", "start_sec": 2521, "summary": "赞助DX另标后进入开发话术：优先从已关注/私信池挖人；冷DM先问兴趣再发结构与报酬PDF，不要开场硬推销。用Instagram快拍招摄像/剪辑。强调当人对待、尽早给现金与多巴胺——约7天结算。公司从约4人扩到约120全职，营销仍扁平，全职营销约15人（含创意合伙、设计、导演、公关），CMO Daniel直管多线。赫克托曾是「内部UGC」，花费升高后把供给外化；广告库终身约5000条、在投约800–900，疲劳快必须持续补概念。付费UGC对B2B亦可：公司由个人组成，先拿个人爱用者再内部扩散。"}, {"id": "s8", "title": "创作者路径、招聘滤镜与「营销人过敏AI」", "start_sec": 3350, "summary": "普通人怕永远不如赫克托出镜：建议少找建议、多开机；先问再做的人难成。他自己成片也常卡壳，仍坚持拍。招聘上别开天价JD+名校滤镜——会招来「机器人」；他19岁薪资不高却要股权，体现一起长大。应用体育青训思维给年轻人真实reps，批评取消实习；以拉明·亚马尔少年夺冠作类比。谈AI：推文「最好的营销人过敏AI」——面向用户的最终创意不要AI垃圾广告/AI网红，受众反感、风险回报差；流程可用AI，但最后约10%必须人把关。噪音时代重质量轻为量而量的自动化，YouTube靠故事也可慢增长。"}, {"id": "s9", "title": "创始人内容与YouTube复利：北极星、触点降付费成本", "start_sec": 4093, "summary": "创始人出镜让产品更有人味，能养超级粉丝并带来新人群；不要一开频道就硬卖，应先超额交付价值与幕后。Wispr叙事锚在冲向约10亿日活量级目标，跨平台用不同格式讲同一北极星。有机触点越多，付费转化往往越便宜（归因却常记在付费上）。内容负责人可贯通UGC与创始人内容；摄像等从Instagram快拍招到（例24岁摄像）。YouTube难但半衰期长：一条片可从约4万涨到约60万播放；先把长视频后期做好再反哺短视频切片。"}, {"id": "s10", "title": "收尾闪电轮：书单、旅行AI Miso、人生座右铭与行动号召", "start_sec": 4799, "summary": "赫克托强调给年轻人真实责任会形成长期互助网络，感谢塔奈与Daniel。闪电轮：推荐Naval相关杠杆/媒体杠杆观念的书；电影与爱好闲聊；爱用的旅行AI产品Miso（约三个月高频，后端可升级人工，错过航班等场景帮大忙，自称无利益相关）；人生座右铭联系到从足球到镜头的「串联点」与乔布斯名言。莱尼致谢；关注赫克托社交账号；节目outro引导订阅评分。"}], "paragraphs": [{"start_sec": 0, "type": "text", "zh": "冷开场：莱尼夸赫克托过去几年把 Wispr Flow（口播/字幕常误成 WhisperFlow）做得极猛。赫克托自述 19 岁在 LinkedIn 搜创作者岗位，扫了约 200 个职位后发现这家公司，与塔奈（Tanay，字幕偶作 Tanae）通话后加入——此前从未在初创待过。他直接跟塔奈要股权（equity），对方笑了。【音乐】", "speaker_id": "hector", "section_id": "s1"}, {"start_sec": 32, "type": "text", "zh": "每天在 Instagram 和 TikTok 上。他们不理解什么是真正有效的，以及接触这些新渠道的最佳方式。我认为让这样的人加入你的团队是显而易见的选择。你前几天实际上发过这条推文，‘最好的营销人员对 AI 过敏。’如果我们出去开始制作 AI 垃圾广告，可能不会受到很好的反响。有太多噪音。如果你实际上更多关注质量而不是数量，🎵 就会很容易突破噪音。我们来谈谈付费 UGC。你让网红、创作者为 Wispr Flow 制作推广方案。保持他们实验的自由度，🎵 做他们认为合适的任何事情。", "speaker_id": "lenny", "section_id": "s1"}, {"start_sec": 64, "type": "text", "zh": "适合。他们的收入没有上限。我们现在有一些创作者每个月的收入大约是 1.3 万美元。现在最难招聘的职位就是像你这样的。我认为如果你只是认为【音乐】寻找成绩最好或学校最好的候选人就能得到最优秀的员工，你会大失所望。赫克托，非常感谢你今天的到来。欢迎来到播客节目。谢谢你。谢谢。我很高兴能参与。我更高兴你能来。我希望通过这次对话，尝试创建一个非常实用的指南，介绍当前发展 B2B SaaS 产品的有效方法。你一直在这方面做得非常出色", "speaker_id": "hector", "section_id": "s1"}, {"start_sec": 101, "type": "text", "zh": "莱尼正式开场：Wispr Flow 过去一年收入约增长 30 倍；近期在竞争激烈的市场里以约 20 亿美元量级估值融资。赫克托开始对外分享策略，值得拆解。", "speaker_id": "lenny", "section_id": "s1"}, {"start_sec": 139, "type": "text", "zh": "赫克托谦称自己触达的只是业务一小块，主要是内容整体；他本人也是创作者，因此进入 Wispr，角色演变到如今负责付费 UGC 计划的内容侧。", "speaker_id": "hector", "section_id": "s1"}, {"start_sec": 170, "type": "text", "zh": "无论是在你创作的内容上，比如你最近的推文在推特上疯狂传播，大家都在我的动态里分享它。所以很明显，你自己已经找到了做到这一点的方法。同样，在你做的广告工作、用户生成内容(UGC)工作上，也非常有效。所以我们都可以从你和你所发现的内容中学到很多。先从宏观的角度来看，谈谈你一直在关注的增长杠杆。最近在增长Wispr Flow {slash}方面有什么有效的方法，这些方法也可能适用于其他B2B SaaS产品。我认为第一个，虽然说出来可能有点老套，但我认为大多数", "speaker_id": "lenny", "section_id": "s1"}, {"start_sec": 207, "type": "text", "zh": "他强调增长首先是产品驱动：自己在产品上线前加入，早期只有数千用户，大约半年后塔奈说产品开始起势。付费只是叠加杠杆。", "speaker_id": "hector", "section_id": "s1"}, {"start_sec": 239, "type": "text", "zh": "当前主渠道之一是付费，并用大量 UGC 内容供能；付费内部又有多支柱：UGC 视频、静态图、影响者、内部成片、创始人叙事等，覆盖 Meta、LinkedIn、YouTube 等。", "speaker_id": "hector", "section_id": "s1"}, {"start_sec": 274, "type": "text", "zh": "莱尼追问：若没有真实的有机产品市场契合（PMF），付费迟早会衰减——是否必须先让产品自己跑通再砸付费？赫克托认同：没有好产品就没有捷径，付费是额外杠杆。", "speaker_id": "lenny", "section_id": "s2"}, {"start_sec": 308, "type": "text", "zh": "定位产品。它对你的用户真的有价值吗？如果有价值，为什么它不能自然而然地增长呢？而且，实际上除了做一个好产品然后增加更多可操作的杠杆外，真的没有什么捷径。那么，让我问一下，你认为什么时候开始投资这些自然渠道才有意义呢？我认为付费实际上是早期投资的最佳渠道之一，我从Matt那里学到了这一点，他实际上是Wispr Flow的前增长负责人。他现在在Victor，他的很多经验以及我从他那里学到的很多课程，就是将这种电商的方法应用到SaaS上，而很多公司都害怕开启这个模式。", "speaker_id": "lenny", "section_id": "s2"}, {"start_sec": 342, "type": "text", "zh": "何时开付费引擎：打开后能更快验证信息是否打动受众、能否把冷流量转成用户；多数公司其实并不擅长有机内容，付费能给出更清晰信号。", "speaker_id": "hector", "section_id": "s2"}, {"start_sec": 374, "type": "text", "zh": "这些转化等等。所以，我认为从一开始就使用付费是有意义的。显然，要在你的限额和预算范围内进行测试。但如果你能够看到，我能够将这些冷流量转化为付费用户，那么你就有一个很清晰的信号，表明如果你进一步优化，一样的营销信息或产品在自然流量上也可以有效。我想回到这个问题，就是早期团队可能是什么样子，甚至可能在产品与市场匹配之前。但关于你在这里分享的内容，真正有趣的是，人们知道，付费已经存在很长时间了，在Instagram、Facebook、TikTok上投放广告，都", "speaker_id": "hector", "section_id": "s2"}, {"start_sec": 405, "type": "text", "zh": "这些东西。就像作为一个平台没有什么新鲜的东西。而你在这里说的是，这里仍然有很多潜力和机会可以大幅增长，并且在付费方面做一些不同的事情。是的，百分之百。而且很多时候人们也会感到害怕，因为他们会说，‘哦，我还不想开启付费引擎或者花很多钱，因为那样我们可能会达到一个点，使这个市场或这个理想客户群过度饱和。’但归根结底，这只是关于如何更聪明地定位你的产品，而且总是有新的方式或者新的信息、新的理想客户群可以去针对。", "speaker_id": "lenny", "section_id": "s2"}, {"start_sec": 438, "type": "text", "zh": "若角度与付费机制够聪明，未必很快触达饱和——总有新定位、新信息与新 ICP。", "speaker_id": "hector", "section_id": "s2"}, {"start_sec": 438, "type": "ad_omitted", "ad_brand": "WorkOS", "section_id": "s2"}, {"start_sec": 475, "type": "ad_omitted", "ad_brand": "WorkOS", "section_id": "s2"}, {"start_sec": 475, "type": "text", "zh": "好，我们正式深入付费 UGC 与付费投放整体。你们整体策略是什么，为什么效果这么好？", "speaker_id": "hector", "section_id": "s2"}, {"start_sec": 518, "type": "text", "zh": "回到约 2025 年初：实习生托宾（Tobin，后加入 Polymarket）几乎没经验，塔奈给他预算「先乱砸看什么管用」。他试过一些方向效果一般，但后来在有机 UGC 上找到感觉。", "speaker_id": "hector", "section_id": "s3"}, {"start_sec": 556, "type": "text", "zh": "莱尼请他定义有机 UGC：把一群创作者拉进社群，让他们在自己的频道发产品相关视频，按曝光（偏 CPM）结算——内容发在创作者账号，而非品牌号。", "speaker_id": "lenny", "section_id": "s3"}, {"start_sec": 590, "type": "text", "zh": "托宾约两个半月做出约 5 亿次播放、CPM 很低；但早期有机 UGC 偏虚荣指标，Wispr 侧并未达到他们想要的业务结果。", "speaker_id": "hector", "section_id": "s3"}, {"start_sec": 625, "type": "text", "zh": "指标。然后托宾（Tobin）在Polymarket做得好多了。他好像破解了有机用户生成内容（UGC）的密码，而不仅仅是在做非常顶部的概念。但对，有机UGC确实有效。我们只是在Wispr Flow没有看到那么大的成功，或者没有达到我们想要的成功。而且在他离开后，要找到接替托宾（Tobin）角色的人也会非常困难。所以，我们就想，干脆结束这个项目吧。然后，再说一次，付费广告对我们来说相对有效。所以，这就把我们带到了现在，我是说，不是现在，而是大约七个月前，我意识到付费广告效果真的很好。而且所有付费素材都是我做的。所以，我想，如果我", "speaker_id": "hector", "section_id": "s3"}, {"start_sec": 658, "type": "text", "zh": "团队决定把托宾那套「建社群、组名单、按效果付」迁到付费：广告更偏中漏斗、更直接推产品，同时保留漏斗各层素材。", "speaker_id": "hector", "section_id": "s3"}, {"start_sec": 697, "type": "text", "zh": "灵感来自一位靠 TikTok Shop 快速做大服装品牌的人：Meta 上缺同类机制，于是做出内部工具，让创作者广告可按效果结算并对外开放；Wispr 是早期客户之一。", "speaker_id": "hector", "section_id": "s3"}, {"start_sec": 731, "type": "text", "zh": "快进到现在：每月大约上新 500–600 条广告，流程已跑顺——中间省略了大量试错。", "speaker_id": "hector", "section_id": "s3"}, {"start_sec": 764, "type": "text", "zh": "他们的视频，你把它放在你的频道上，然后按观看次数付费给他们。不，所以他们把它发布在自己的频道上。他们把它发布在自己的频道上。是的，是的。所以，这是基于 CPM 的。举例来说，我们再次把你拉进这个群组，然后你在 TikTok 和 Instagram 上开自己的频道，就像 莱尼 Wispr Flow 或 莱尼 Talks。实际上可以是任何名字，但你不会把它发布在你的主要 Instagram 上，而是发在备用帐号上。然后我们会按 CPM 付费给你。好的，所以这里的主要区别是，不是基于 CPM，也就是基于观看次数，而是按支出或者 GMB 的百分比来拿取分成，这取决于你是做 SaaS 还是其他类型。", "speaker_id": "lenny", "section_id": "s3"}, {"start_sec": 804, "type": "text", "zh": "莱尼确认模型：偏效果导向的付费 UGC。目前约有 50 位创作者。", "speaker_id": "lenny", "section_id": "s3"}, {"start_sec": 843, "type": "text", "zh": "不能只靠抽成：新人前几个月可能拍很多片却只赚很少佣金，会打击积极性；顶尖创作者往往因「一直留下来迭代」才变顶尖。", "speaker_id": "hector", "section_id": "s4"}, {"start_sec": 874, "type": "text", "zh": "设计：例如完成约 25 条视频配额可拿约 1500 美元量级的「智能 retainer」保底；若佣金已超过，可能不再叠保底。目标是让前几个月也能有稳定收入、愿意继续成长。", "speaker_id": "hector", "section_id": "s4"}, {"start_sec": 908, "type": "text", "zh": "将支付你X金额。这使得加入该团体的创作者在第一个月、第二个月、第三个月，也许他们不能单靠佣金超过那个金额，但他们能够赚取一定的收入，从而真正保持投入并持续成长。然后在三到四个月之后，你会看到这些创作者开始脱颖而出，并完全依靠佣金赚钱，对我这个运营该项目的人来说，或者如果你是品牌方，这就是最好的事情，因为你支付的只是纯利润，或者是最优秀视频的纯收益，而不是自掏腰包。另外，我觉得有个背景说明一下，我自己也是一名创作者，所以", "speaker_id": "hector", "section_id": "s4"}, {"start_sec": 940, "type": "text", "zh": "我发现很多公司，包括Wish，有时候也会这么做。我们会给这些创作者提供简报，让他们为我们制作广告，我们会给他们整张表格，上面写着，“不要说这个，要说这个。使用这些吸引点。这是我们希望你如何谈论产品的方式。这是你拍摄产品的方式。”当你给创作者发送一份10页的指南，告诉他们需要如何拍摄内容，需要说些什么，你最终会剥夺创作者本来的创意性。没有什么比这更让人没有动力的了。我知道作为创作者，如果我有一个品牌信任我，邀请我是有原因的，并且只是", "speaker_id": "hector", "section_id": "s4"}, {"start_sec": 973, "type": "text", "zh": "为我打开了创作内容的自由，让我可以根据自己认为最适合产品的方式去创作，如果你只是把我放在一个框里，你得到的内容不会比现在更好。所以，这也是很多创作者想加入我们团队的主要原因之一。我们也保持团队非常紧密，所以有一种紧密的感觉。我们邀请最优秀的人才，然后在此基础上，我们允许他们自由尝试，做任何他们认为合适的事情。他们都是产品的粉丝。除此之外，他们的收入没有上限。我们不会为一条视频支付100美元，也不会支付50美元，也不是一个月1000美元。收入是真正没有上限的，如果", "speaker_id": "hector", "section_id": "s4"}, {"start_sec": 1004, "type": "text", "zh": "最强创作者如今月入约 1.3 万美元量级，甚至超过许多全职影响者——即便本人粉丝可能只有一两千。", "speaker_id": "hector", "section_id": "s4"}, {"start_sec": 1037, "type": "text", "zh": "SaaS/免费增值难直接按单次转化分成时，更常用「广告花费分成」；电商则可按 GMV 比例。核心创新是让创作者分享自己广告的成功，同时用保底封住下行。", "speaker_id": "hector", "section_id": "s4"}, {"start_sec": 1064, "type": "text", "zh": "或者那个广告，如果他们购买与否，那么按GMV百分比来做更有意义。因此，这里真正行之有效的创新是给创作者一种分享他们广告成功成果的方式。完全正确，太棒了。然后还限制了下行风险，这样他们实际上可以花时间去做这件事，而不是担心自己无法维持生计。是的，没错。因为很多时候，这些创作者最终必须不断与品牌进行谈判，或与新公司合作，学习新东西。而且不仅这些创作者都是高级用户，他们每个月都能与同一家公司合作。所以，只是", "speaker_id": "lenny", "section_id": "s4"}, {"start_sec": 1098, "type": "text", "zh": "要考虑视频质量随着时间的推移提升的复利效应，而不是想着“哦，你是这个品牌，正在推出一个新功能”，然后你就想着，“好吧，赶紧去找新的创作者。”实际上，如果你已经有了一群内部创作者，他们已经了解你的产品并且相信你，甚至有些创作者对产品的理解几乎比我还深，他们会提出我从未想到的点子。所以，如果你已经有了这群内部创作者，那么每当我们推出新功能时，无论是像 Wispr Flow 笔记功能还是我们发布的各种其他功能，都变得非常轻松。", "speaker_id": "hector", "section_id": "s4"}, {"start_sec": 1128, "type": "text", "zh": "对我来说，把它直接扔到 Discord 里，然后说，‘嘿，大家，我们来做一个关于这个的视频吧。’ 这真的很容易。相比之下，不用去到处找这些不同的创作者并给他们做简报，然后下个月他们又消失了，两个月后你还得再去找他们。 所以，是的，这对品牌方和创作者双方来说都是很棒的体验。而这又回到产品本身必须很棒，因为如果产品不好，很难找到爱你产品的创作者。是的，而且作为创作者，也很容易感到精疲力尽。比如，你在谈论一些你自己都不相信的东西的时候，", "speaker_id": "hector", "section_id": "s4"}, {"start_sec": 1156, "type": "text", "zh": "赫克托曾独自做了约一年半几乎所有广告、成百上千条，才会深刻理解「养内部创作者池」比每月重找人更划算。", "speaker_id": "hector", "section_id": "s5"}, {"start_sec": 1188, "type": "text", "zh": "这回到我之前提到过的一个点：很多从未从事过内容工作或从未和创作者合作过的人，最终却成为向他们布置任务、告诉他们该做什么的人。就像你绝不会让一个不是工程师的人去告诉工程师该怎么做一样。我绝不会走到工程团队面前说，“嘿，你们需要这样解决这个问题，还要做这个和那个”。他们会想，“这个人到底在跟我说什么？” 好吧，那么让我们沿着这个话题谈谈，如果要找到像赫克托这样的人来领导这项工作，他的个人资料应该是什么样的？", "speaker_id": "hector", "section_id": "s5"}, {"start_sec": 1218, "type": "text", "zh": "在你们公司？因为这是我和很多朋友进行的最有趣的对话之一，特别是像我之前提到的托宾（Tobin），因为我们俩完全相反。比如，如果你把我们的简历并排放在一起，然后让我你选择其中一个，你脑海中可能会觉得哪一个是正确答案非常明显，但最终，两者都是正确答案。我当时的GPA是2.5，托宾（Tobin）是4.0。我没有上顶尖学校，托宾（Tobin）上了沃特卢大学。我参加了一级体育比赛，托宾（Tobin）没有。还有很多不同的事情，但最终", "speaker_id": "lenny", "section_id": "s5"}, {"start_sec": 1250, "type": "text", "zh": "有一天我们都成了很棒的营销人员。但如果你只是看我们简历的表面内容，这其实并不明显。但我认为 Wispr Flow 在识别一两件真正关键的事情方面做得非常好。同时也能够判断，好，这个人是否适合公司的文化？他们看起来是否勤奋？他们是否拥有与 Wispr Flow 现有员工相同的价值观或文化？我觉得 Tenny、Daniel 和团队的其余成员不仅擅长发掘早期人才，知道需要注意哪些关键点，同时也能判断，好，这个人是否是可以加入团队的好人。我觉得 托宾（Tobin） 和我显然也是如此。", "speaker_id": "hector", "section_id": "s5"}, {"start_sec": 1286, "type": "text", "zh": "可能我说得有点太自我了，但我觉得我们完全体现了这些性格特质。你可能会问，好吧，我需要在一个好的市场营销新人身上寻找哪些特质呢？说实话，这并不复杂。就是看这个人是否发展过一个账号，即使只有一万粉丝？还有，他们在创作者方面是否多少了解自己在说什么，并且是否制作过内容？就是这么基本。只要他们有一些建立粉丝基础的经验，即使是小粉丝，也能说明他们理解要增长社交媒体粉丝所需的持续性。", "speaker_id": "hector", "section_id": "s5"}, {"start_sec": 1316, "type": "text", "zh": "招现代营销人：看是否养过账号（哪怕粉丝仅约 1–1.5 万）、是否懂趋势/拍摄/剪辑、是否像勤奋且价值观合拍——然后敢于下注；简历名校GPA不是主信号。", "speaker_id": "hector", "section_id": "s5"}, {"start_sec": 1351, "type": "text", "zh": "这里有一些艰难的对话，有时候你会想，“赫克托 在做什么？”但他们确实给了我自由去不断尝试和实验新的东西。而且只要你在持续学习和进步，失败并不重要。托宾（Tobin） 也是一样。托宾（Tobin） 来了，他们给了他一些资金和时间去实验。大约两个月后，他找到了有效的方法，并且成功了。这非常有价值。前几天有一条推文说，现在最难招聘的职位基本上是像你这样的人，他们可以讨论产品和技术的那类人。", "speaker_id": "hector", "section_id": "s5"}, {"start_sec": 1382, "type": "text", "zh": "各个方面，让人们兴奋，让产品具有吸引力。而你正在告诉我们这个人物的特征。所以，为了反映你刚刚所说的，其中一点是有证据表明他们非常努力工作，有证据表明他们是一个好人，他们的价值观和文化与贵公司相符。第三，他们实际上已经将某个平台的粉丝数量增长到至少 10,000 粉丝。这个平台可以是任何平台，比如 Instagram、TikTok。我会说 Instagram 可能是最重要的标志，因为 TikTok 通常是一些比较脑残的内容，而 Instagram 则更精致，包装更好。而且你获得的粉丝数量", "speaker_id": "lenny", "section_id": "s5"}, {"start_sec": 1418, "type": "text", "zh": "在那里的平台上只是更好。所以，我只是觉得Instagram可能比TikTok信号更高。我会说，在TikTok上增长相对容易，比如发布一些脑残内容。我明白了。那么X和YouTube呢？YouTube还可以，但我会说如果你了解像Instagram这样的平台，你可以攻克任何平台。是的，这就是我的经验。Instagram和YouTube，我会说如果你能攻克Instagram和YouTube，我很自信，尤其是如果你是年轻人，你可以攻克任何平台。我以前几乎没在X上发过帖子，直到大概两周前。我从X上大约500个粉丝涨到了大约18,000个。而且我以前真的不太习惯在X上发帖。", "speaker_id": "hector", "section_id": "s5"}, {"start_sec": 1456, "type": "text", "zh": "仅限文本的平台，但我大概花了一周时间才搞明白，就像，好的，这是一个量的游戏。你需要保持短小，有自己的风格，并且真正提供一些价值。这其实挺容易学的。我觉得如果你从 X 平台开始的话，做视频会有点难，因为视频是完全另一回事。坐下来拍摄可不是一件容易的事。我有些同事，我曾推动他们开始制作视频，特别感谢 Eric。他是我们的媒体采购员。教他如何制作视频。是的，他在第一个月有点挣扎，但我认为走出舒适区，尝试拍视频还是很好的。总之，就是这样。", "speaker_id": "hector", "section_id": "s5"}, {"start_sec": 1486, "type": "text", "zh": "绝对不容易。所以我会说是的，Instagram和YouTube。实际上就是我通过它们发现了你和X的，而且它们已经爆红了，现在我整个信息流最近都是赫克托的视频。所以我没意识到你才开始发帖两周。太疯狂了。这显然也是你在这方面效率很高的另一个迹象。所以我想在这里再强调另一点，就是年轻人才的概念。这是你经常谈论的。就是年轻人在招聘中的价值，以及几乎像是他们的领导力。是的。我是说，也回到你刚才提到的观点，就是这是最难招聘的职位。我", "speaker_id": "lenny", "section_id": "s5"}, {"start_sec": 1519, "type": "text", "zh": "两条截然不同的简历都能成为优秀营销人；别按「最好学校/成绩」筛选。年轻人理解新渠道是 alpha。", "speaker_id": "hector", "section_id": "s5"}, {"start_sec": 1551, "type": "text", "zh": "建议：不要找「另一个赫克托」；去找背景怪异但有作品证明的年轻人。", "speaker_id": "hector", "section_id": "s5"}, {"start_sec": 1585, "type": "text", "zh": "最大的品牌之一。最近我听说他的代理机构好像被 Physician's Choice 以大约 200 万美元收购了，现在他像是在他们公司内部工作，同时还参与另外两个品牌。但我只是看到这个孩子，我是说他现在比我年长，但我看到他周围都是这些年长的创始人，而这些电商品牌的年长创始人总是谈论有一个 Jimmy 在你身边是多么的优势，因为一个 30-40 岁的创始人根本不理解一个 18 岁的孩子，他在这些 Discord 频道里，或者每天刷 Instagram 和 TikTok。他们不理解", "speaker_id": "hector", "section_id": "s5"}, {"start_sec": 1618, "type": "text", "zh": "实际上有效的方法以及接触这些新渠道的最佳方式，如果你身边有年轻人，无论你处于哪个行业，无论你是在SaaS领域，还是在电商领域，或者其他什么领域，只要你找到某个大致理解你不懂的事情和早期情况的人，并且你能够向他们提问并向他们学习。我认为在你的团队中拥有这样的人是显而易见的。即使你现在尽最大努力去深入TikTok商城或Tribe，你仍然会遇到困难，因为你可能无法与创作者建立太多联系，或者你不理解某些事情，这只是", "speaker_id": "hector", "section_id": "s5"}, {"start_sec": 1647, "type": "text", "zh": "适应这些事情会花你很长的时间，而不是把你的时间投入到你更擅长的事情上，然后带一个可以帮你管理这些事情的人。我很喜欢这个建议。总是有人说，没有给年轻人的工作了，人工智能正在取代所有人的工作，而这是一个很好的例子，年轻人在这类工作上实际上要好得多。是的，我认为很明显，塔奈（Tanay） 塔奈（Tanay） 还很年轻，她是我认识的最聪明的人之一，她还会让我进他的办公室或者打电话给我，问我比如，哦，Instagram 上什么有效？你怎么做到的这么快？或", "speaker_id": "lenny", "section_id": "s5"}, {"start_sec": 1679, "type": "text", "zh": "就像问我一些关于内容的总体问题，我不认为我从塔奈（Tanay）和团队那里见过这种情况，而且团队总体上也是这样。我不认为有哪一刻你会聪明到不需要继续学习。如果你有创始人的心态，我觉得就是你停止成长的那一天。我确实从塔奈（Tanay）那里学到了这一点：你永远不会太优秀或太聪明以至于不继续学习，而且学习的对象甚至可能是一个随机的22岁或19岁的年轻人，就像我一样。是的，我很喜欢这个。你是在19岁的时候加入Vesper的，是的，我刚满19岁。那是在我生日后的第3天。", "speaker_id": "hector", "section_id": "s5"}, {"start_sec": 1710, "type": "text", "zh": "你花了多久才觉得‘好吧，我好像有点搞明白了’？你一开始说的时候有点坎坷，不确定自己在做什么。给大家一些背景吧。那是一个很奇怪的过渡阶段，因为我刚刚在三天前才辞掉了一级联赛的足球运动员的工作。我回家后， literally 在 LinkedIn 上查了 Wispr Flow。对，我想说我在 LinkedIn 上查了创作者相关的工作。我申请了大约200个职位，找到了一家公司叫 Wispr Flow。我申请了，然后和 塔奈（Tanay） 通了电话，然后就加入了。回忆起来，真的是疯狂。", "speaker_id": "lenny", "section_id": "s5"}, {"start_sec": 1744, "type": "text", "zh": "记得那时候就像我们为发布做准备的最初几天之一。我当时应该在我的微积分课上，塔奈（Tanay）开始在课堂上给我发Slack消息，我去上厕所的时候打开了我的笔记本电脑，然后我加入了Slack的会议，他基本上是说：“我们的发布视频不是想要的效果。你觉得你能用CapCut或者你拥有的其他工具编辑一下，让它更有Z世代的感觉吗？”是的，我在上微积分课的时候就开始编辑视频。我有一些编辑经验，但在我入职的第一周之一塔奈（Tanay）就让我做这个，还是挺吓人的。但就是这样。", "speaker_id": "hector", "section_id": "s5"}, {"start_sec": 1780, "type": "text", "zh": "基本上总结了我在Wispr Flow的第一年。我只是随便学了一些东西，并没有一个明确的职位。我很确定他们也不太清楚我在做什么。我自己也不知道自己在做什么。是的，大概花了一年时间我才真正感到舒适。期间有很多起起落落。实际上，我还想指出的一件事是，那年我也在做金融实习。所以，那已经是整整一学年了。然后到了我大三到大四的那个夏天，我申请了……我年初申请了一堆金融实习。", "speaker_id": "hector", "section_id": "s5"}, {"start_sec": 1809, "type": "text", "zh": "因为我不知道内容创作是否是真正的职业。显然，我喜欢做Wispr Flow，也为我的个人品牌赚了一些可观的钱，但我在想，‘我不知道这是否是真正的职业。’而且我的父母，我们移民到了美国什么的，然后我上大学，学金融，这是件大事，他们希望我走传统的道路。所以，我最终在纽约市找到了一份金融实习，我在同时平衡两门暑期课程、Wispr Flow和金融实习。而且实习才两周，我就讨厌它。我当时想，‘我不想让我的人生是这样的。我需要做’", "speaker_id": "hector", "section_id": "s5"}, {"start_sec": 1838, "type": "text", "zh": "内容和Wispr Flow取得了进展。所以，我会偷偷溜出办公室，去苏荷区的咖啡馆，只做Wispr Flow和我的个人内容。从那里，一切开始慢慢理顺，然后，是的，这就是事情的运作方式。真是一段旅程。我觉得我们完全可以再有一整场关于创作者之路，以及如何在Instagram和所有这些平台上成为内容创作者的讨论。那本身就是一件事。我会回到如何为这种付费UGC策略找到创作者。如果我们现在把整个策略走一遍，我觉得现在是一个很好的时机来梳理所有事情。所以，是的，我想", "speaker_id": "lenny", "section_id": "s5"}, {"start_sec": 1874, "type": "text", "zh": "落地步骤：先定分成规则（SaaS→广告花费%；电商→GMV%），再选平台组群；他们认为 Tribe 最好用。", "speaker_id": "hector", "section_id": "s6"}, {"start_sec": 1906, "type": "text", "zh": "平台上展示已向创作者累计支出（例如约 30 万美元）有助于吸引人；很多品牌一上来海量陌生开发却无人理。", "speaker_id": "hector", "section_id": "s6"}, {"start_sec": 1936, "type": "text", "zh": "他会站外+站内找人：Instagram 用 UGC、科技、朝九晚五、律师、医生、睡眠补剂等关键词钻子话题，找到对味创作者再私信。", "speaker_id": "hector", "section_id": "s6"}, {"start_sec": 1974, "type": "text", "zh": "3,000条消息。你需要非常重视，你需要关注小事情，因为现在随着所有这些自动化，是的，你可以很快地做很多事情，但如果你做得太快，你可能会收到很多无用的回复或者很多不好的创作者。我是的，我认为在外联方面，手动操作仍然更好。显然，这会花费更长的时间，但如果做对了，我就再也不需要进行外联了。是的，从那150到250条私信里，你可能会找到五六个真正优秀的创作者。然后从那里，你将他们加入到群组中，这就是你进入下一步的地方，实际上", "speaker_id": "hector", "section_id": "s6"}, {"start_sec": 2005, "type": "text", "zh": "文化：周会、创作者教练、抽奖，还计划在旧金山办撤退营；从约 5→10→15→20 人、每隔几周加 5–6 人扩编。", "speaker_id": "hector", "section_id": "s6"}, {"start_sec": 2041, "type": "text", "zh": "更多的创作者。我们在 Wispr Flow 采取的方法可能是从大约五个到十个，十个到十五个，十五个到二十个。我们可能每几周就增加五到六个创作者。既然到现在你也有了大约五个创作者，而且可能已经支付了一些费用，你会开始有人在 Tribe 上申请。我想现在我们每周大约会收到 1,000 到 1,500 个申请。因此，我会审核这些创作者的申请，然后由于我们现在有很多创作者，我保持很高的标准，只会接受一两个或三个人。是的，我们增长得相当慢，现在大约有 50 个创作者。除此之外", "speaker_id": "hector", "section_id": "s6"}, {"start_sec": 2075, "type": "text", "zh": "引入推荐：老创作者每带进一位新创作者奖励约 100 美元——强调不是传销式无限裂变，名单维持紧密。", "speaker_id": "hector", "section_id": "s6"}, {"start_sec": 2105, "type": "text", "zh": "在50岁时。并不是说，“哦，给我带来100个创作者，我会为100个创作者付钱，然后我们再付给另外100个创作者。”这里是一个非常紧密的大家庭，这只是我们表达感谢的一种方式，感谢你帮助我们发展这个项目。是的，那些就是你应用的一些不同的杠杆来发展这个群体。然后这就把我带到最后一步，我不知道。我是不是讲得太快了？不，我没事。我确实有问题，但请继续。是的，这把我带到最后一步，现在你有了文化，你有了群体中的人，你达到了一个相当不错的规模，你", "speaker_id": "hector", "section_id": "s6"}, {"start_sec": 2132, "type": "text", "zh": "有 GMV 的百分比，广告支出的百分比。现在有一件事要开始发生了，那就是你会获得很多广告。你的广告会像在群组中显示一样展示出来，会显示为，“好的，哪个广告花费最多，第二多，第三？”你的创作者可以看到这些内容。显然，你希望他们看到它。但如果你在指导创作者方面不够好，也可能会适得其反，因为这些创作者会看到表现最好的广告，他们会像这样想，“好的，我也要复制这些广告，我也要复制他们的做法。”", "speaker_id": "hector", "section_id": "s6"}, {"start_sec": 2157, "type": "text", "zh": "创作者若互相抄头部广告，会出现大量同质片；Meta（Andromeda）对约 160% 相似度素材会归并，伤害分发。", "speaker_id": "hector", "section_id": "s6"}, {"start_sec": 2189, "type": "text", "zh": "不断重复相同的格式、相同的信息、相同的人。所以我们所做的是不断推动这些创作者，并提醒他们，这些创作者之所以赚这么多钱，以及他们的广告总是排在最前面，是因为他们不断地尝试，并且一直在发挥他们作为创作者真正擅长的和感兴趣的东西。如果你只是跟随A、B或C在做的事情，那么你的广告只会排在他们的下面，你的花费根本不会增加。所以，我们不断推动创作者去不断尝试，去做疯狂的事情。当你看看我们广告库中的一些广告时，它就像是", "speaker_id": "hector", "section_id": "s6"}, {"start_sec": 2219, "type": "text", "zh": "开放式 brief：有人把键盘放在窗外屋顶淋雨拍产品——成了顶级素材；库中尽量避免两条广告长得一样。", "speaker_id": "hector", "section_id": "s6"}, {"start_sec": 2255, "type": "text", "zh": "表现最好的广告。就像我都不知道我们是怎么想出那个主意的。所以，要为他点赞。但这就是保持非常开放的结果。当你有一个有趣的产品，让创作者们也玩得开心，并不断尝试。是的，我们广告库里的广告没有两个是相同的。哇，太棒了。好的，让我尝试梳理一下步骤，因为这里有太多精彩的干货建议。第一步，在Tribe上注册。Tribe有点像你管理创作者、支付报酬以及处理各种事情的地方。你的建议是在找到创作者时不要通过Tribe，因为没人会在意你，而你的建议是去Instagram。", "speaker_id": "lenny", "section_id": "s6"}, {"start_sec": 2290, "type": "text", "zh": "在你的市场中进行关键词搜索，比如UGC、科技、律师，可能想通过兼职赚钱来招募最初的五个人。建议是从五个人开始，不要做得太大。好的。我还想说，这不仅仅是从五个人开始，或者从律师开始，或者其他什么开始，你需要看看你的广告库，看看你的产品，然后想，“好吧，我们实际需要填补哪些具体的空白？”因为多并不一定更好，这适用于生活中的一切，但特别是针对创作者，如果你只是带来100个或200个相同的创作者，那并不会带来规模，因为一切都会", "speaker_id": "hector", "section_id": "s6"}, {"start_sec": 2321, "type": "text", "zh": "看起来完全一样。但当你邀请五位创作者，每位创作者都针对特定的受众，每位可能都针对你的产品的特定信息时，你会得到五位完全不同的创作者，他们都可以创作全新的概念，而且你引入的创作者越多，这种增长就呈指数增加。所以，这不仅仅是关于邀请少数创作者的问题，还包括非常具体地选择你实际上要邀请的那些创作者。因此，当你这么说时，要考虑目标客户的类型、你瞄准的市场、你的理想客户画像（ICP），以及哪位创作者能够与该受众沟通。", "speaker_id": "hector", "section_id": "s6"}, {"start_sec": 2350, "type": "text", "zh": "花名册从妈妈到律师都有；有八位数电商创始人因爱用产品主动做内容。产品被真爱时，人设供给会「指数」变丰富。", "speaker_id": "hector", "section_id": "s6"}, {"start_sec": 2388, "type": "text", "zh": "你可以想象。我也经常收到这个问题，很多来自不同业务的创始人会联系我，他们会说，‘哦，我有一个开发工具，或者我在睡眠领域。我不能为我的品牌制作内容，或者我在用户生成内容（UGC）上没有成功。’很多时候，问题在于人们误解了UGC，以为它只是大学生在制作内容，但UGC是用户生成的内容，如果你是一个开发工具，你的用户很可能是年纪较大的技术人员，你不能仅仅找一个不懂技术的18岁年轻人来谈你的产品。而那些广告可能看起来会大不相同，可能会非常不同。", "speaker_id": "hector", "section_id": "s6"}, {"start_sec": 2422, "type": "text", "zh": "技术向受众反而吃「更丑」的屏录+大字 9:16 长视频；睡眠品类不该让 18 岁小孩推 3000 美元产品——人设要匹配客单价与人群。", "speaker_id": "hector", "section_id": "s6"}, {"start_sec": 2453, "type": "text", "zh": "技术上的。这和睡眠产品差不多。比如说，如果你在睡眠这一领域或者行业有一个昂贵的产品，而一个18岁的孩子在卖它，你为什么或者我为什么要从一个孩子那里买一个3000美元的产品？可能不会是那样运作的。你想买的人可能是说话方式和你相同，做的工作和你相同，遇到的问题也和你一样的人。是的，我认为UGC适用于任何公司。只是，当你产品越上游、越昂贵、越小众的时候，会有点难度，但本质上就是，如何找到愿意制作内容的用户。", "speaker_id": "hector", "section_id": "s6"}, {"start_sec": 2487, "type": "text", "zh": "莱尼复述：意外有效是狂测的原因之一；对方提到每月大约 500–700–1000 条量级，为了发现黑马。", "speaker_id": "lenny", "section_id": "s6"}, {"start_sec": 2521, "type": "text", "zh": "一年前做的一些广告，其实就是屏录产品用法、顶部加字、9:16 超长视频——它们既是最好的广告，也是最丑的。", "speaker_id": "hector", "section_id": "s7"}, {"start_sec": 2521, "type": "ad_omitted", "ad_brand": "DX", "section_id": "s7"}, {"start_sec": 2560, "type": "ad_omitted", "ad_brand": "DX", "section_id": "s7"}, {"start_sec": 2560, "type": "text", "zh": "联系创作者时，私信长什么样？取决于场景，路径也不止一种。很多时候品牌私信箱/关注者里已经有创作者——那是最优先的起点，早期创作者不少就从那里来。", "speaker_id": "hector", "section_id": "s7"}, {"start_sec": 2601, "type": "text", "zh": "开发话术：先从已关注者/私信请求里找 UGC 创作者——他们已知产品，转化成本低。", "speaker_id": "hector", "section_id": "s7"}, {"start_sec": 2632, "type": "text", "zh": "冷启动 DM 不要一上来硬推销：先夸内容、问是否有兴趣进创作者群，再发 PDF 讲结构与报酬。", "speaker_id": "hector", "section_id": "s7"}, {"start_sec": 2664, "type": "text", "zh": "然后让他们制作视频。另一种方法是，如果他们没有关注我们，而我正在进行外展，我就会直接给他们发私信，说：“嘿，我偶然看到你的内容。我非常喜欢。我希望你能加入我们的Wispr Flow群组。这是这个工具，这是它的工作方式，这是链接。如果你有兴趣，请告诉我。” 然后，如果他们感兴趣，我会继续向他们推销，这基本上是同样的路线。这是从Wispr Flow的Instagram账号吗？有时候我会两种方式都用，因为我自己也是创作者，我也做很多事情，这也是雇佣内容创作者的一大优势。我们的一些最佳雇员就在", "speaker_id": "hector", "section_id": "s7"}, {"start_sec": 2698, "type": "text", "zh": "通过在 Instagram 故事上发布内容或聘请我们最好的创作者，我已经体验过 Wispr Flow 的内容。我可能会说，“嘿，我正在寻找 UGC 创作者。” 只需发布一个故事。或者说，嘿，我在找一名摄像师。或者说，嘿，我在找一名编辑。聘请内容创作者的一个很酷的地方就是，如果他们再次制作内容，并且你确保他们制作高价值内容，他们也可以被用作一个非常好的招聘机制。是的，这取决于情况。如果你有一个创作者，我认为效果相当不错。显然，你会得到创作者面孔之类的东西，还有如果你是一个", "speaker_id": "hector", "section_id": "s7"}, {"start_sec": 2729, "type": "text", "zh": "非常知名的品牌，显然如果你的创作者收到像耐克之类的消息，你明白我的意思吗？这非常令人印象深刻，你也更有可能得到回复。我觉得这取决于情况。然后，好吧，你私信他们，他们感兴趣，你给他们发送一个概览。在最初的五次交互中，你可以很快安排一次电话，然后向他们推介并解释这个项目。下板对接的流程是什么样的？这些创作者非常习惯于被“使用”，他们所做的一切几乎都是交易性的。他们做一个视频，拿到报酬，然后再也不与人交流。我们生活在一个", "speaker_id": "lenny", "section_id": "s7"}, {"start_sec": 2761, "type": "text", "zh": "就像在这个一切都是数字化、一切都是虚拟化的时代。大多数人都是远程工作，大多数创作者也是远程工作，他们对社区的渴望和普通人对社区的渴望一样。我们只是确保从一开始就建立联系，就像最后他们最终只是朋友一样。我们一起工作。我并不只是把他们看作“嘿，一个我可以提取一些视频然后再也不联系的创作者”。正如你说的，我会和他们视频通话，我有整个幻灯片展示，但在展示之前，我会问他们一些关于自己的事情，比如他们是怎么进入内容创作的，为什么喜欢它，以及", "speaker_id": "hector", "section_id": "s7"}, {"start_sec": 2792, "type": "text", "zh": "就像进行一次对话。尝试去了解他们。然后从那里，幻灯片的流程是我有一个介绍幻灯片，我在上面谈论自己。我谈论自己作为创作者的背景，这样他们就会尊重我，并且知道我不是随便跟他们说话的人。然后从那里我也会介绍我们的媒介采购员，Eric。向Eric问好。然后从那里我解释产品。接着我解释Tribe是如何运作的。所以我喜欢让他们知道，从他们制作视频，到视频被接受，再到视频作为广告运行，他们可以期待的流程。我告诉他们我们每7天支付一次。", "speaker_id": "hector", "section_id": "s7"}, {"start_sec": 2827, "type": "text", "zh": "激励黑客：尽早给多巴胺与现金；他们约 7 天结算一次并明示。", "speaker_id": "hector", "section_id": "s7"}, {"start_sec": 2857, "type": "text", "zh": "让他们开始行动，让他们知道，‘嘿，你现在就可以开始制作视频。’所以，这里一个重要的教训是，把他们当做人看待。关心他们，帮助他们觉得自己是这个事情的一部分，而不仅仅是觉得你们，‘好吧，你会赚钱的。闭嘴，不用担心。你会赚钱的。’而我认为这实际上也是很好的先机。所以，我认为那些长期会成功的公司，是那些与创作者关系最好的公司，因为消息传播得非常快。如果你的品牌对创作者不好，付款不及时，不支付他们", "speaker_id": "lenny", "section_id": "s7"}, {"start_sec": 2887, "type": "text", "zh": "无论可能发生什么，或者你只是屏蔽他们等，消息都会传出去，创作者可能不想和你合作，或者你得不到最好的条件，或者你得不到最优质的创作者。所以，我认为我们非常重视的一件大事，不仅是在与创作者合作时，而是在与任何外部机构或任何我们合作的人合作时，我们总是希望以高度尊重的态度对待每一个人。是的，我认为那些最能做到这一点的公司，长期来看也会获胜。启动这个计划的早期团队是什么样的？是只有 赫克托 独自执行，还是你会从一个更大的团队开始？老实说，团队相当精简。所以，我们的", "speaker_id": "hector", "section_id": "s7"}, {"start_sec": 2920, "type": "text", "zh": "公司已从约 4 人扩到约 120 名全职；营销组织仍较扁平。", "speaker_id": "hector", "section_id": "s7"}, {"start_sec": 2954, "type": "text", "zh": "想出新的概念，批准视频，有点像把一切启动起来，然后你需要一个媒介买手。找到既有创意又会做媒介购买的人相当罕见。我不太喜欢数字，我不太擅长数字，也不喜欢盯着Meta广告管理器。我听说那很让人头疼，所以我很高兴我不必做那件事。但没错，我们有Eric负责媒介购买方面的事情，他会架构我们的广告账户和所有相关内容。那么这个媒介买手是那种只在Facebook广告系统里工作的绩效营销人员吗？对，完全正确。所以是的，Eric基本上就是专注于我们的媒介方面。", "speaker_id": "hector", "section_id": "s7"}, {"start_sec": 2989, "type": "text", "zh": "在 Facebook、LinkedIn、YouTube 等平台上的购买方面，明白，所以你有点像是创意方面的，你负责内容供应，然后这个人拿到后负责投放广告、关注表现，从而优化支出，明白了。然后团队中还有其他你认为重要、有价值的人吗？不论是早期还是稍后阶段。早期的话，如果我们回到最早的日子，营销团队是我们的首席营销官 Daniel，增长负责人 Matt 在 Eric 来之前负责，然后就是我，作为唯一的创作者，自己制作广告。然后我们也有一些外部机构，慢慢地……", "speaker_id": "lenny", "section_id": "s7"}, {"start_sec": 3029, "type": "text", "zh": "营销全职大约 15 人量级：创意合伙/影响者、设计、导演制片、公关等；CMO Daniel 直管很多线。", "speaker_id": "hector", "section_id": "s7"}, {"start_sec": 3069, "type": "text", "zh": "我们可怜的首席营销官丹尼尔，他真是个传奇，他刚刚有了一堆直接下属。所以，我为他的日程感到难过，但这就是整个结构的方式。结构非常扁平，没有中层管理，每个人只管做自己的工作。从这次对话中一个核心的收获是，当你今天在做付费推广时，UGC（用户生成内容）视频是最佳选择，而不是你自己创建的广告？所以，你是在比较我以前做的和我们现在做的对吗？当你想到在 Facebook、Instagram、TikTok 上投放付费广告时，大多数人会想到创建一个推广自己产品的视频或广告单元。", "speaker_id": "lenny", "section_id": "s7"}, {"start_sec": 3105, "type": "text", "zh": "赫克托曾像「内部 UGC」；广告花费升高后单人产能不够，就把供给外化给创作者池，花费升高还能测更多概念。", "speaker_id": "hector", "section_id": "s7"}, {"start_sec": 3144, "type": "text", "zh": "是的，这基本上就是我们所做的，而且我们能够更快地扩大规模，测试更多的想法，因为我们有更多的广告支出，我们显然希望有更多的创意在运行。而且，一旦你的广告预算达到相当高的水平，你的广告通常会更快地达到疲劳期。尤其是现在有了Andromeda，广告达到疲劳的速度甚至更快，因为在此之前，也就是2024年我们投放广告的时候，我可以让一个广告运行12个月，我的产出会少得多，但现在，不仅有了新的更新，而且考虑到我们投入的广告支出，一个广告一旦达到大约10万美元的广告支出，就会失效，而这个金额可能很快就会达到。", "speaker_id": "hector", "section_id": "s7"}, {"start_sec": 3178, "type": "text", "zh": "广告库终身或约 5000 条，当前在投约 800–900 条；疲劳快（尤其 Andromeda 时代），必须持续补量。", "speaker_id": "hector", "section_id": "s7"}, {"start_sec": 3218, "type": "text", "zh": "我想就是尽可能拥有更多的格式，因为我们有很多广告支出，我们希望最终种类越多越好。好的。所以，这是付费广告核心的一部分，UGC明显有效。你认为这适用于每家公司吗？这是大多数B2B会使用的东西吗，我不知道。是的，你认为这会有效吗？我认为这适用于所有人，这又回到了我之前说的，就是找到那些能够对你想要获取的用户说话的用户。最终，我们在Wispr Flow关注的一点是，B2B和企业方面都是由个人组成的。如果你", "speaker_id": "lenny", "section_id": "s7"}, {"start_sec": 3252, "type": "text", "zh": "可以找到一种方法，让你的内容能够对那些团队中的个人产生共鸣，也许你可以把他们当作一种单独的——怎么说呢，就像一个单独的客户或什么的——去下载应用，使用它，然后他们再告诉公司里的朋友，然后公司里更多的人开始使用它。然后也许你再去追踪那些企业客户，实际达成交易。现实中大多数公司最终可以这样去处理问题。并不是说，“哦，X公司的谁会看我的视频，然后参加企业电话会议并且想要达成交易什么的。”但是，我认为如果你从", "speaker_id": "hector", "section_id": "s7"}, {"start_sec": 3284, "type": "text", "zh": "公司是由人组成的，你只需这样看待它，然后你会想，‘好吧，我想如何向这些人销售，这些人会如何对销售做出良好反应？’我认为你只需要把它分解得非常简单，然后你会想，‘哦，是的，这对任何人都有效。’好的，这很有道理。另外，我听到的是，这可能对那种以产品为主导、底层驱动的增长型产品最有效。不是像 Workday 或 Salesforce 这样的产品。更像是 Wispr Flow 或 Notion 之类的东西。太棒了。而且如果你仔细想想，就会非常明白为什么这会有效。一个", "speaker_id": "hector", "section_id": "s7"}, {"start_sec": 3315, "type": "text", "zh": "影响者本质上是某种能影响你去做某事的人。你基本上是让影响者/创作者制作推广产品的内容，然后通过付费广告把这些内容放到人们的动态里。我明白为什么这样有效，因为他们在努力说服别人这个产品有多棒。我也认为一个很好的区分是，这不仅仅是影响者或创作者。我几乎觉得，没有粉丝的创作者反而可能成为品牌更好的投资，因为现在人们往往会认为影响者有些变质，而当你看到大牌或大明星在卖产品时，会觉得‘哦我的天’。", "speaker_id": "lenny", "section_id": "s7"}, {"start_sec": 3350, "type": "text", "zh": "天这个人已经卖给我东西差不多有十年了。我知道她只是买了一个包，或者他只是买了一个包，并不是真的出于真心购买，而且有一种感觉就是你并不真正了解这个人，他们也不出名，粉丝不多，如果这些合作广告来自他们的账户，就感觉更真诚一些，所以我只是想提一下。越不像网红，越好。完全正确。越不像是在试图说服你，而只是像普通人一样谈论你的产品有多棒。我明白为什么这会有效。", "speaker_id": "hector", "section_id": "s8"}, {"start_sec": 3377, "type": "text", "zh": "我现在想到的是，之前有人做过一个调查，问年轻人‘你长大后想做什么？’当时很多年轻人说想做创作者、网红或者主播。我觉得很多人都说他们想成为主播，或者直播主播，而不是宇航员或律师。所以，你描述的是一种职业路径，这是一种通过做这些事情赚钱的方式。实际上，很多人通过成为网络创作者赚钱。所以，对于正在听的那些人，如果你在想，也许将来这可以成为你的职业，也许我应该探索一下创作者的生活，对这样的人你有什么建议吗？", "speaker_id": "hector", "section_id": "s8"}, {"start_sec": 3408, "type": "text", "zh": "给想做创作者的人：少找建议、多开机——先问再做的人往往不成。", "speaker_id": "lenny", "section_id": "s8"}, {"start_sec": 3437, "type": "text", "zh": "不同的家伙、PDF、我做过的东西等等，都是为了让他们知道如何开始。但他们却什么也不做。到了最后，如果你是那种做事前总要先问的人，你可能不会成功。即使是我有幸合作过的最优秀的人，很多最有名的播客主持人、网红或名人，很多这些人也会结巴，也需要重新拍摄某些内容，他们也有一些特定的做法来重新集中，无论是像嘴里发出的奇怪声音，还是用手摆弄，或者反复重复某个词句，我甚至见过一些人", "speaker_id": "hector", "section_id": "s8"}, {"start_sec": 3472, "type": "text", "zh": "创作者在重复同样的剧本时，会开始频繁口吃，他们会把笔放在嘴里，张大嘴说话，并大声清晰地发音。是这样说吗？清晰地发音。大概是这样。然后当他们停下来，把笔从嘴里拿出来时，他们就能更好地发音。所以这就像是一种创作者的自然现象，即使你做这个工作5年、10年、15年，也会有必须剪掉视频、口吃或者需要重拍十次的时刻，有时你可能会对着摄像机破口大骂然后转身。", "speaker_id": "hector", "section_id": "s8"}, {"start_sec": 3502, "type": "text", "zh": "关掉它，但就像是重新打开它然后继续拍摄那样的事情，对，这就是我的建议。就是开始行动，不要再寻找更多的建议，因为作为创作者，没有比打开相机然后发布更好的学习方式了。我很喜欢这个建议。我还听到的是，你不必……当你看不到别人做这些事情时的挣扎时，你会觉得不需要去模仿。你看到的是这个精美的视频，却不知道他们不得不把针放进嘴里，对，没错。或者对着相机骂人。是的。【笑声】甚至我那条在 X 上算是有点病毒式传播的视频，我想它大概是一个15分钟的剪辑，我之前大概剪过两次。", "speaker_id": "hector", "section_id": "s8"}, {"start_sec": 3537, "type": "text", "zh": "那个。我可能会花大约30分钟。然后我做了最后一个，也可能又是大约30分钟，然后我把它整理成一个漂亮的视频。我是以此为生的，我在过去7个月里管理我们的部落群，我对她非常了解，就像对自己的一样，即便如此，我在整理和简明表达我的想法、梳理一切时仍然会挣扎，但它并不完美，但我传递了信息，提供了一些价值，人们也很喜欢。是的，我认为它不需要完美。听到这个真是太好了，因为看我的视频时，你看起来非常轻松、放松，就那样坐着说话一点也不紧张。", "speaker_id": "lenny", "section_id": "s8"}, {"start_sec": 3571, "type": "text", "zh": "iPad，然后喜欢那种，人们看到那个，就会觉得我永远做不到这么好。所以听到这个真的很有帮助。当我考虑开始创作，成为内容创作者时，我觉得我需要先弄一个小毛绒麦克风或者类似的东西。你觉得这是第一步。它是Canon的，是Canon的麦克风。没错。【笑声】没有一个小小的毛绒麦克风，你就不能算是创作者。是的。让我沿着这个话题问你最后一个问题。假设有人非常棒，我要做这个。我们要投入承诺。我们要雇人。我们要找到某个人来运营它。当公司或个人开始做这种付费UGC时，你发现的一些最常见的错误是什么？", "speaker_id": "lenny", "section_id": "s8"}, {"start_sec": 3605, "type": "text", "zh": "路线？我认为很多时候，人们通常会看错地方，可能会在网上或 LinkedIn 上发布招聘信息，或者其他地方，给出的薪资太高，或者说要求太高，你不会吸引到最优秀的人。如果你发布一个职位，说要支付，比如，这些运行 UGC 活动的人需求非常高，我要发布一个年薪 25 万或 20 万的职位，再加上丰厚的股权，你最终吸引到的会是错误类型的人。当我加入 Wispr Flow，以及 Tuan 加入 Wispr Flow 时，我可以告诉你，我们是……", "speaker_id": "hector", "section_id": "s8"}, {"start_sec": 3643, "type": "text", "zh": "我们赚得远不到那个数，当时我们还是实习生，我们只是渴望学习、渴望成长的孩子，而且也有一些内容方面的经验。我认为，如果你只是认为扔钱出去，寻找成绩最好、学校最好、经验最丰富的人就能让你找到最适合的人来为你运行这个项目，你迟早会大失所望。是的，我会更专注于找到一个有干劲、渴望学习的孩子，就像那种你能从他们身上感觉到的好感觉一样。就像我前几天也告诉你的那样，有一天我和Julia进行了初次通话，她当时领导我们的营销团队。", "speaker_id": "hector", "section_id": "s8"}, {"start_sec": 3676, "type": "text", "zh": "19 岁被招为 UGC 创作者、薪资不高却要股权；塔奈笑了，但这体现「想一起长大」的心态。别用天价JD+名校滤镜招营销「机器人」。", "speaker_id": "hector", "section_id": "s8"}, {"start_sec": 3711, "type": "text", "zh": "想要成长。然后是的，我认为不要把目光放错地方。不要想去错误的地方，因为你会吸引错误的人。你有几条类似的很棒的推文。其中一条是，每个人寻找拥有最好简历的营销人员，最终都会雇用一个机器人。是的。【笑声】然后另一条是非常重要的推文，我遇到的最成功的创始人、投资者、创作者并不是最有天赋的。他们自信得近乎幻觉，工作比任何人都努力，而且热爱他们所做的事情。是的。我认为这差不多总结了。还有另一条我非常认同、最近发布的推文是关于体育的。", "speaker_id": "lenny", "section_id": "s8"}, {"start_sec": 3746, "type": "text", "zh": "用竞技体育思维：青训、给真实出场时间；很多公司停实习是损失。点名拉明·亚马尔（Lamine Yamal）少年成才作类比。", "speaker_id": "hector", "section_id": "s8"}, {"start_sec": 3777, "type": "text", "zh": "很多初创公司应该采取那种心态。我觉得实际上有很多公司现在已经不再开展实习项目了。他们认为这些项目没有价值。但我认为这是最有价值的事情之一，如果你能找到合适的人，这并不是一件花费很高的事情，也不需要花费很多时间。是的，我认为，给年轻人机会，给他们一些资金去尝试，给他们一些自由去尝试，允许他们失败并继续学习，这可能是你可以从体育中学到的最佳模式之一。", "speaker_id": "hector", "section_id": "s8"}, {"start_sec": 3808, "type": "text", "zh": "显然这是有效的，我不知道你对足球是否很熟悉，但看看拉米内·雅马尔，他刚刚在 19 岁、18 岁的时候赢得了世界杯。我认为同样的方法也可以应用到创业世界：找到年轻的人才，投资他们，让他们在现实世界中获得真正的经验，然后最终他们可能会成为你的一线人才。我喜欢这一点。我也喜欢这一点的另一部分是给他们时间去弄明白。是的，100%。到目前为止，这次对话真正有趣的是，我意识到，我们一次也没有提到 AI 在你所做的工作中扮演的角色。", "speaker_id": "hector", "section_id": "s8"}, {"start_sec": 3841, "type": "text", "zh": "推文「最好的营销人过敏 AI」：成片创意侧尤其不要用 AI 垃圾广告/AI 网红；受众已反感，风险回报不成比例。", "speaker_id": "lenny", "section_id": "s8"}, {"start_sec": 3875, "type": "text", "zh": "在 Figma 中的设计、编辑、后期制作等等，这些都是由大量人类团队完成的，我认为至少在短期内，没有真正的办法可以绕过这些，尤其是在我们当前的环境下，很多人对人工智能感到反感，这可能是一个令人害怕的话题。如果你是一家像 Wispr Flow 这样的人工智能公司，理论上我们是为了让人类的工作更出色而提供支持，我们不想替代任何人的工作，而是希望提供工具，让他们能够更高效地工作，做更多的事情，并且能够更自然地表现自己。如果我们从另一方面来看", "speaker_id": "hector", "section_id": "s8"}, {"start_sec": 3913, "type": "text", "zh": "出去开始用 AI 做垃圾广告和视频，用 AI 网红，我又不懂 AI 设计和 AI 静态图，这可能不会被很好地接受，而且看起来很奇怪。我觉得这更多是指不要自动化最终产品的工作，因为我认为你经常会看到这种情况：这最终会影响到公司，不管是他们用 Claude 做的动画，还是他们制作的某个素材，也许有拼写错误，或者写作全都混乱，当你用 OpenAI 做的时候会发生什么呢。", "speaker_id": "hector", "section_id": "s8"}, {"start_sec": 3948, "type": "text", "zh": "用 Chat GPT 之类的东西。是的，我觉得不值得。风险和回报不成比例。所以我听到的主要观点是，不要用 AI 来做这类工作。是的，尤其是最终的输出，在创意方面，也就是其他人会看到的，我认为 AI 还不应该涉足。这真的很有趣。感觉每个人都在倾向于使用 AI。是的，即使是我认识的对 AI 最看好的那个人，Matt，他现在在 Victor 或 Exited Growth 工作，他使用的自动化是我见过最多的，但即便如此……", "speaker_id": "lenny", "section_id": "s8"}, {"start_sec": 3986, "type": "text", "zh": "AI 可助力流程，但面向用户的最终 10% 必须人审；品牌容不得一次翻车。", "speaker_id": "hector", "section_id": "s8"}, {"start_sec": 4026, "type": "text", "zh": "噪音极大时，重质量轻「为了量而量」的自动化，反而更容易穿透。", "speaker_id": "hector", "section_id": "s8"}, {"start_sec": 4062, "type": "text", "zh": "在YouTube上有数百万的观看次数，2万或2.1万的订阅者，而YouTube是最难增长的平台之一。很多人会想，哦，我们要开一个YouTube频道，我们需要每周发布三条视频。其实并不是这样的。如果你真的投入时间和精力，讲一个非常好的故事，每件事都有目的地去做，并且包装得很好，同时有一支非常优秀的团队在每个环节参与，你就能得到非常好的最终作品，人们也能看到你付出的努力。这实际上就是我想说的，我们可以作为最后一个话题来讨论一下这个问题。", "speaker_id": "hector", "section_id": "s8"}, {"start_sec": 4093, "type": "text", "zh": "创始人内容：让会出镜的创始人讲故事，产品更「人味」；对比只看广告。", "speaker_id": "lenny", "section_id": "s9"}, {"start_sec": 4127, "type": "text", "zh": "可以在镜头前说话，可以用在广告中，可以用来讲故事，这让公司和产品显得更加有人情味。就像当你比较两个产品时，我更愿意——甚至根据我自己的经验——比如说，如果我关注……我不知道，比如说我关注乔治·希顿，他是Represent的创始人。他有一个服装品牌。然后我又看到另一则服装品牌的广告时，我更有可能购买乔治的产品，因为我了解他的工作方式。我知道他的日常。我知道他是什么样的人。我知道他的理念。我知道他为了公司付出了多少努力以及他投入了什么。", "speaker_id": "hector", "section_id": "s9"}, {"start_sec": 4165, "type": "text", "zh": "人们真的很欣赏这一点，再加上在这样一个数字化的时代，能够与产品背后的创始人连接。而且你不仅会培养超级粉丝和已经使用你产品的人，而且他们现在也喜欢你。你还会吸引一群从未见过你产品的人。他们并不真正了解你，然后慢慢地，他们开始喜欢你发布的内容。他们开始认同你的使命。他们开始认同公司。然后他们实际上会去尝试产品，这就像一个长远的、广阔的布局。我不知道，这种长期的布局你必须去做，而且这是一种投资，因为你", "speaker_id": "hector", "section_id": "s9"}, {"start_sec": 4195, "type": "text", "zh": "不能只是开一个YouTube频道或创始人主导的品牌，然后立刻开始向人们推销，因为人们很快就会失去兴趣，然后想，‘好了，我不想再参与了。’但是如果你只是提供大量的价值，过度分享，超额交付，并且只是开放展示文化是什么样的，你在建立什么，人们会非常感激，你也能够让他们接受并放下戒备。然后也许一年后，我们可能会有一个软性销售。也许我们会有一个，‘大家好，这里有一些支持，感谢你们帮我们达到了十万订阅者。just’", "speaker_id": "hector", "section_id": "s9"}, {"start_sec": 4221, "type": "text", "zh": "想要发布这段代码。 blah blah。然后人们会想要支持你。所以我再次思考，在这个每个人都在追求即时增长、一切都超级快并且从一开始就优化一切的世界里，这些在当前可能没有任何直接关联的渠道，最终可能成为一些最佳的长期策略，同时也是品牌建设的策略。在你进行这种创始人主导的内容时，有哪些角度或故事似乎效果不错？是像‘这是我们公司的故事’吗？。那里面有什么吗？所以我们考虑问题的方式是", "speaker_id": "hector", "section_id": "s9"}, {"start_sec": 4249, "type": "text", "zh": "Wispr 北极星叙事：冲向约 10 亿日活量级目标，把故事贯穿各平台内容。", "speaker_id": "hector", "section_id": "s9"}, {"start_sec": 4286, "type": "text", "zh": "你作为一家公司正在追求的目标。你希望让人们一路同行。如果你把这个理念融入到每一集节目或每一个 LinkedIn 帖子、每一个 X 帖子中，显然每个平台的格式和信息表达方式不同，但如果你把这一切联系起来，就能让大家共同参与这个旅程，也更容易理解，同时也更容易在此基础上展开，因为你可以说，“好的，这是愿景，这是我们要实现的目标，而每一步实际上都是引导我们达到目标的过程。”这是我们的使命。这几乎像是产品路线图或实际情况的实体化呈现。", "speaker_id": "hector", "section_id": "s9"}, {"start_sec": 4314, "type": "text", "zh": "发生在公司身上的事情，比如向全世界展示它的起伏、跌宕、挣扎，一切。这就是我们在 Wispr Flow 的思考方式，也是我认为其他公司也应该采取的思考方式。这真是很棒的建议。基本上，要有一个北极星，就像你在追逐的北极星指标。是的，以及到达那里过程中旅程和你学到的东西。一些让人惊讶的事情。我们会指引人们去那个频道，让他们了解你在那里实际上在做什么。是的，就是 塔奈（Tanay） Kothari，对，我们就在上面记录一切，比如各个剧集。我们基本上做了所有事情，从展示我们如何启动我们的……", "speaker_id": "lenny", "section_id": "s9"}, {"start_sec": 4346, "type": "text", "zh": "新的产品笔记者塔奈（Tanay）去印度采购婚礼用品，同时也远程工作，以及他如何平衡这些和他与Sahaj的关系，就像是创始人一周的生活。我们还做了一个白板分解，我和塔奈（Tanay）进行了交谈。这些都是不同的形式，看起来可能不同，但最终都在朝着Wispr Flow所建设的更大愿景发展。我想在你开始Wispr Flow的时候，已经对它有一些天生的兴趣。它就像是一家公司，人们看到它会说，“哦，我想要。”所以，可能会有一点像你", "speaker_id": "hector", "section_id": "s9"}, {"start_sec": 4375, "type": "text", "zh": "当没有人在乎你所学到的东西时，你不能从头开始，因为还没有人关心你的公司。说实话，我认为你还是可以开始。但这可能会让我们处于一个稍微好一点的位置，但有些创始人的品牌并不像Wispr Flow那么大，却依然通过个人品牌内容取得了成功。同样地，这也是进入实际品牌的一个路径。而且，还有什么比通过一个只是讲述自己故事并获得价值的人来让品牌更容易接触更简单的方式呢？有趣的是，这只是另一个，可以说是阿尔法机会。", "speaker_id": "hector", "section_id": "s9"}, {"start_sec": 4406, "type": "text", "zh": "增长，这就是创始人以非常引人入胜的方式分享他们的故事。你会看到一切似乎也开始联系起来，因为你在更多地方自然地出现，并且与客户的接触点越多，当涉及付费时成本就会越低，因为是什么呢？我认为一个客户或一个人需要看到公司的内容大约七次，才会真正购买。如果你能够在 YouTube 上以长格式接触他们，这是一个积累信任的平台，然后你还在发布创始人的 Instagram 短视频，同时也在 LinkedIn 上发布内容，那么当他们来到我的...", "speaker_id": "hector", "section_id": "s9"}, {"start_sec": 4438, "type": "text", "zh": "有机触点越多，付费转化越便宜——付费平台还常拿走归因功劳。【笑声】", "speaker_id": "hector", "section_id": "s9"}, {"start_sec": 4474, "type": "text", "zh": "表单编辑器来接收它并创建剪辑。是的，完全正确。内容负责人，是你吗？你也是做UGC付费内容的人吗？是的，是的，是的。所以，是的，我是内容负责人，这就是为什么如果你找到一个懂内容的年轻人，他们基本上可以做任何事情，无论是自然流量，还是付费流量。这也是为什么找到有粉丝的人很重要，因为我知道如何建立粉丝，也知道如何组建团队。有趣的是，正如我之前提到的，我团队中的每个人，无论是UGC还是其他方面，都是这样。", "speaker_id": "lenny", "section_id": "s9"}, {"start_sec": 4513, "type": "text", "zh": "创始人内容团队与摄像：发 Instagram 快拍招人——24 岁摄像约在毕业后 5 月入职；好社交人才往往在社交上找到。", "speaker_id": "hector", "section_id": "s9"}, {"start_sec": 4546, "type": "text", "zh": "代理机构。我们通过 Instagram 认识的，现在他们是我一些亲密的朋友，所以就像通常在社交平台上你也能遇到的最好社交人一样。大概就是这样。拥有观众有太多好处。这是我们会获得的胜利。100%，从你的故事中可以看到。好的，所以在你这个视频中分享的最后一个小信息是，你有这个内容负责人，有 赫克托，还有一个拍摄视频的人，还有 YouTube 短视频团队。你实际上还分享了 YouTube 打包团队。如果你必须选择哪方面需要更强，你发现 YouTube 团队比视频质量更重要。", "speaker_id": "lenny", "section_id": "s9"}, {"start_sec": 4579, "type": "text", "zh": "是的，YouTube通常是最难的平台之一，这也是为什么当你说Instagram或YouTube的时候，我退了一步，心想，“其实，YouTube非常重要。”而这也是我最初开始的地方。我看到制作YouTube视频需要投入多少。比如，并不是说你只要做一个视频，发布它，放一个缩略图和某种图片就好了。归根结底，我喜欢这样想，你可以做出一段杰作视频，你可以制作一部好莱坞级别的电影。但如果你放了一个很差的缩略图和一个让人不想点击的标题，实际上没人会知道它有多好。", "speaker_id": "hector", "section_id": "s9"}, {"start_sec": 4607, "type": "text", "zh": "你的视频。因此，你可能已经投入了所有的时间、金钱、精力和努力去制作这个视频杰作，但如果你不了解YouTube的运作方式以及它实际上如何排名最高，你就无法获得想要的结果。这就是为什么我认为YouTube方面如此重要，因为这不仅仅是缩略图，不仅仅是点击率，不仅仅是标题，也不仅仅是观看时间或平均观看时长。它还包括故事讲述、节奏、如何包装视频、开头、缩略图如何与视频内容关联，而且实际上还需要某种形式的回报，因为", "speaker_id": "hector", "section_id": "s9"}, {"start_sec": 4638, "type": "text", "zh": "如果你不这样做，那么观看率会下降，人们不会坚持去完整观看视频。你YouTube团队越优秀，这对短视频部分就越容易，因为通常你用来做短视频的人可能没有那么……我想他们没有那么投入，因为他们通常有很多客户，而且还在海外。比如，我们很多短视频编辑都来自德国。我觉得我们还有一个在罗马尼亚的，还有一个在澳大利亚。他们都是非常优秀的短视频编辑，但他们同样也想获得很多点击量。所以，他们不会……", "speaker_id": "hector", "section_id": "s9"}, {"start_sec": 4670, "type": "text", "zh": "去尽可能多地关注实际的故事讲述。他们在剪辑素材的选择上可能不会那么好。所以，如果我给他们发送40小时的素材，我可能得不到最好的片段。而如果我的YouTube团队在后期制作方面非常出色，他们剪辑出一个超棒的视频，那么我可以把它以一个干净的版本发送给我的编辑们，没有标题，没有音乐等等。他们可以直接剪出最精彩的瞬间，并把它制作成非常好的短视频作品。这也就是为什么我说长视频团队是最重要的部分。同时，它也是最受喜欢的部分。像YouTube视频可以持续播放很长时间，即便是在我自己的个人频道上也是如此。", "speaker_id": "hector", "section_id": "s9"}, {"start_sec": 4703, "type": "text", "zh": "YouTube 半衰期长：一条片五年前约 4 万播放，一年前起涨到约 60 万；短视频日更消耗大，长视频长期复利。", "speaker_id": "hector", "section_id": "s9"}, {"start_sec": 4735, "type": "text", "zh": "在这些平台中，我喜欢，信我，我喜欢创作内容，但有时这有点令人泄气，就像，“哦，你拍了一段内容，发布了。你得创作新的。” 显然在 YouTube 上你也得这样做，但你也会长期收获回报。它不像在 Instagram 上，你发布一个视频，48 小时后就没人看了。YouTube 视频不同，你投入大量精力制作，我们看今天视频的一些数据图表，发现即使视频已经发布了大约三个月，在过去的 48 小时里，它还是获得了 1 万次观看。它仍然对我们有效，仍然吸引新的观众和新的人群。", "speaker_id": "hector", "section_id": "s9"}, {"start_sec": 4764, "type": "text", "zh": "顾客。所以，是的，YouTube真是太棒了。我，我，我，我也猜想，考虑到你有那么多的播客，比如你从多年前或者其他什么时候开始的视频所获得的观看量，真的非常惊人。是的，观看那些随着时间慢慢爬升的影片很有趣。我在播客中请到了Elizabeth Stone，她是Netflix的CPT O，她慢慢地在排行榜上攀升，现在她紧随第一名之后。她正在努力向第一名靠近，所以你会以为这些排名已经固定，但它们还是不断上升，就像这样，然后突然间就像这样，你会想，哦，我没想到会这样，我也不知道。", "speaker_id": "lenny", "section_id": "s9"}, {"start_sec": 4799, "type": "text", "zh": "不会经常遇到那种只是变化形式的情况，但它确实会成长，就像，哇，我都不知道它还在成长。是的。总之，赫克托，这真是太棒了。在我们进入令人兴奋的闪电问答环节之前，你还有什么想分享的，或者还有什么想强调，让听众记住的吗？我最后想说一点，也是我提到过很多次的，我只是想鼓励其他创始人，给年轻人才一个机会，是的，去找到那些人，相信他们，信任他们，给他们机会，是的，他们不仅会成为你最出色的核心成员之一，而且他们的忠诚度也会很高。", "speaker_id": "lenny", "section_id": "s10"}, {"start_sec": 4840, "type": "text", "zh": "收束：给年轻人真实责任，他们会留下帮你或继续输送人才；感谢塔奈与 Daniel 的空间。", "speaker_id": "hector", "section_id": "s10"}, {"start_sec": 4874, "type": "text", "zh": "要问你的问题。你准备好了吗？我见过这些。我在播客里见过这些。不会感到惊讶。好，我们开始吧。第一个问题，你最常推荐给别人的两三本书是什么？我会给一本书。我会推荐一本非常好的书，可能有点陈词滥调，那就是纳瓦尔·拉维坎特的《年鉴》。我记得大约两年前，或者一年前半的时候读过这本书。那时候我正处在一个阶段，我不太确定自己是否想做内容创作，但我也不明白它为什么重要或者为什么如此关键，我第一次读的时候，其实并不是很理解。", "speaker_id": "lenny", "section_id": "s10"}, {"start_sec": 4911, "type": "text", "zh": "对我而言。然后我给了自己一些时间，然后事情开始像书中说的那样慢慢对齐。他怎么说的呢，媒体是最好的杠杆之一，因为你不需要获得许可，它是无需许可的杠杆，你可以创作内容并发布到互联网上，它会持续为你工作。我开始看到随着时间的推移，我将自己展示出来所产生的复合效果，这本书让我不断回去阅读。我最近也给我弟弟买了这本书。这是我一直与朋友分享、不断推荐的东西。", "speaker_id": "hector", "section_id": "s10"}, {"start_sec": 4946, "type": "text", "zh": "也让他们去阅读。我觉得这也给年轻人在我们生活的这个疯狂世界中提供了很多方向感。我知道你说这是我最喜欢的书之一，我读过。是的，我也经历过这样一个阶段，只是在 Twitter 上分享这些深刻的建议，然后他有点慢下来了，我很喜欢有一本书把这些都收集起来。我很喜欢。很多建议，你看到时会觉得‘没关系’，然后你回想起来会想‘哇，他说得真对’。你读过《自我为敌》吗？那是一本书还是他的一句名言？不，那是一本新书，我想我", "speaker_id": "hector", "section_id": "s10"}, {"start_sec": 4977, "type": "text", "zh": "我记得好像叫这个名字，我只是想知道你有没有读过它，因为我有兴趣读。我正打算买它。我需要去书店。波多黎各并不是只有这一家书店。不过，是的，我在找一本新书，所以如果有人想在视频下留言的话，欢迎。好的，亚马逊会送货到波多黎各吗？会的，但有点慢，因为住在岛上，一切都慢很多，兴奋感也低很多。你不会有24小时送货服务。我喜欢这样。好的，下一个问题。你最近有没有特别喜欢的电影或电视节目？我刚看了《伊丽莎白·霍尔姆斯》。", "speaker_id": "hector", "section_id": "s10"}, {"start_sec": 5008, "type": "text", "zh": "和我女朋友看电影。是的，我不会剧透，但哇。这真的是一部很好看的电影。有一件事是有人从预告片里分享的，这不是剧透。在预告片中，当他们互相凝视时，他的嘴巴里会做一些滑稽的动作。是的，事实是，当他试图不笑或者保持角色时，他会把舌头顶在臼齿上，用力按着以防自己笑出来。怎么样？我之前不知道。是的。不过，电影确实很好看。我很喜欢。很棒。好了，下一个问题。最喜欢的", "speaker_id": "hector", "section_id": "s10"}, {"start_sec": 5044, "type": "text", "zh": "{slash} 你现在正在使用的最有趣的 AI 产品。最好不是 Wispr Flow。老实说，我得说我前几天在你的帖子上评论了，Miso。我不知道，你最后下载了吗？我刚试着去看一下。它像是一个旅行工具，是的，它是一个旅行代理，我经常旅行。我觉得我今年到目前为止大概有 55 或 60 次航班。天哪，大约 89,000 英里，而且旅行总是让我不太期待，因为这非常累人，比如订航班和各种事情。我最近在他们在 X 平台上推出这个产品时偶然发现了，我给他们发了私信", "speaker_id": "lenny", "section_id": "s10"}, {"start_sec": 5080, "type": "text", "zh": "在 Instagram 上看到创始人，我当时就想，“哟，把我从等候名单上弄下来。我想试试这个。” 自从我下载以来，已经差不多三个月了。我停不下来，一直在使用，也一直推荐给朋友们。举个例子，就在前几天，我睡过了闹钟，错过了从 PR 飞往 SF 的航班。我醒来后发了信息给 Miso，我说，“嘿，我错过了航班，你能帮我订下一班吗？”我不用做其他任何事情。它处理了一切，两小时之内就帮我订好了下一个航班。我就放轻松了，也没有额外付费。是的，就是这样。", "speaker_id": "hector", "section_id": "s10"}, {"start_sec": 5112, "type": "text", "zh": "就像我以前试过的最好的旅行代理一样。明显地，Instinct 确实是一个不错的代理什么的，但我觉得在旅行方面，它根本不够快。而且 Miso 还有一个很酷的地方，就是他们后台有人类可以升级处理问题。如果代理卡住了，他们有与每家主要航空公司直接联系的渠道，可以升级处理并帮你解决问题。所以，它就像一个救星。我只需发条信息说：“嘿，我想订一趟航班。” 它就知道了，然后会发送给我，我大约两分钟就能订好。真的非常酷。我查了一下。就是 miso.com 吗？对，miso.com。域名真是太棒了。我", "speaker_id": "hector", "section_id": "s10"}, {"start_sec": 5144, "type": "text", "zh": "想象一下没有任何隶属关系。你只是一个粉丝。就像，没有任何隶属关系。太酷了。好，干得好，Mesa。好了，还有两个问题。你是否有一个你经常在工作或生活中回想的生活箴言？是的，我有一个我非常喜欢的生活箴言。我不知道我会不会说错，所以也许你可以帮我，但是它是来自史蒂夫·乔布斯的，他说你无法总是向前看连接点滴，但你总是可以回顾过去找到它们。当我回顾自己的生活时，我发现几乎在一切事情中都是如此。我从来不是学校里最聪明的孩子。我的父母总是对我感到相当失望。我很", "speaker_id": "lenny", "section_id": "s10"}, {"start_sec": 5176, "type": "text", "zh": "严重的注意力缺陷多动症。就像足球是我唯一拥有的东西，然后我失去了它，然后我有几个月都迷失了方向，即使我在 Wispr Flow，我也不太理解发生的所有事情，或者为什么我在16岁时拿起相机，或者为什么我开始在 YouTube 上发布内容，或者为什么我参加体育运动。现在回头看，一切都非常清晰，非常有意义，我理解自己人生的道路。我觉得有时候你只需要继续前行，到最后一切都会有意义。是的，我想那是我最喜欢的一句名言。我也觉得这是真的，并且", "speaker_id": "hector", "section_id": "s10"}, {"start_sec": 5207, "type": "text", "zh": "莱尼致谢；赫克托邀请听众在 X/Instagram/YouTube 关注他（句柄即 Hector）。", "speaker_id": "lenny", "section_id": "s10"}, {"start_sec": 5248, "type": "text", "zh": "Spotify，或者你最喜欢的播客应用程序。此外，请考虑给我们评分或留下评论，因为这真的有助于其他听众发现这个播客。你可以在 lennyspodcast.com 找到所有往期节目或了解更多关于节目的信息。下期节目再见。", "speaker_id": "lenny", "section_id": "s10"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
