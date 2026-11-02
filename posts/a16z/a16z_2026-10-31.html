@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>AI 如何让小型律所变成十亿美元级生意</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="alex">亚历克斯·兰佩尔（Alex Rampell）</option><option value="jay">杰伊·马德什瓦兰（Jay Madheswaran）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">a16z</span><span class="pill">2026-10-30T14:30:33+00:00</span></div>
+<h1>AI 如何让小型律所变成十亿美元级生意</h1>
+<p class="sub">嘉宾：Jay Madheswaran · 约 52 分钟（3131 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=iRMmPjunm3Q" target="_blank" rel="noopener">https://www.youtube.com/watch?v=iRMmPjunm3Q</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>a16z</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-30T14:30:33+00:00</dd></div><div class="meta-row"><dt>时长</dt><dd>约 52 分钟（3131 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en；普通 yt-dlp 遇 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 补拉成功）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>iRMmPjunm3Q</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>Eve CEO 杰伊·马德什瓦兰（Jay Madheswaran）与 a16z GP 亚历克斯·兰佩尔（Alex Rampell）讨论 AI 如何让原告律所承接此前不经济的案件、做大业务。</p>
+<h3>核心要点</h3><ul><li>原告侧法律劳动短缺</li><li>AI 降低单位案件成本、扩大可接案量</li><li>从首通电话到和解的端到端自动化</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：关心法律科技、原告业务与 AI 垂直落地的人；可跳过：对美国诉讼经济无兴趣者。</p>
+<h3>适合人群</h3><p>法律科技 / a16z 听众 / AI 应用</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场：原告侧缺软件与爱因斯坦悖论</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">亚历克斯·兰佩尔（Alex Rampell）开场：历史上一部手机+邮箱几乎就能维护原告利益，真正缺口是劳动力而非更多软件。抛出「把爱因斯坦放进律所也很快不产能」——领域知识密集、流程碎，正是 Eve 要解的。对照：法律还有更大、更分散的原告侧；101 公路广告牌即象征。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">什么是 Eve：日常人的法律 AI</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">请 Eve CEO 杰伊·马德什瓦兰（Jay Madheswaran）用自己的话定义：Eve 是面向普通人的法律 AI。律师时间越来越贵、账单压力大；传统逻辑是「投入越多举证越好」。Eve 目标覆盖从首通电话到拿到赔偿的全流程，提升个人对机构对峙中的胜算。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">成功费经济：价格×数量与不可接之案</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">用价格-数量曲线讲成功费（contingency）：律师拿结果约三分之一，小案在固定劳动成本下不经济→拒接。AI 一定程度「解放」单位案件成本后，供给曲线右移，可服务原先找不到代理、涉及丢薪级损失却请不起人的当事人。美国雇佣「at-will」下还要把问题挂到受保护条款才有诉因，自费更难——软件做功则市场机会显著变大，接近「更多人获得正义」。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">广告牌获客与案源吞吐</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">营销加码（更吸睛广告牌）带来电话洪峰时，吞吐与筛选、冲突检查、初步评估成为瓶颈；没有软件时只能人肉挡。讨论如何在获客放大时仍维持服务质量与经济账。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">Word 时代结束：AI 把劳动变成流程</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">对比：过去核心工具近乎 Word，难以按任务精细核算成本。AI 足够好之后可把工作「流程化」——这是从未真正实现过的结构性转变（早年规则引擎/专家系统未成）。重复文书、检索、沟通草稿进入可编排流水线。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">估值威胁、平台上的胜率与攻防不对称</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">攻防不对称：机构侧历来有资源与「Colossus」类系统给伤情标价施压。Eve 侧自雇律师、在平台追踪案件成败——用 Eve 应更成功，用软件做你原先想不到的工作以改善结果。家庭式小所面对的是系统性对手。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">家庭作坊律所如何长成大机构</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">本地「家族」小所是否有机会长成大型机构：杰伊认为 AI 驱动的转型会让原告业务出现全新规模曲线——过去劳动密集封顶，现在边际案件变可做。举例曾年收入约20亿美元的公开公司被 Permira 与 Hellman &amp; Friedman 收购等行业资本叙事，说明品类本身可很大。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">公开市场并购、结果成本与融资叙事</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">融资与「结果实际成本」不透明的机制；募资时如何讲清单位经济。把获客、评估、立案、协商、和解串成可度量漏斗，而不仅是律师主观经验。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">把案子交给 Eve：端到端任务链</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">产品形态：「把案子交给 Eve，需要时再把你接进来」。原告律师的工作被拆成可委托任务——生成文书、与对方沟通等逐步由系统承担。收束：AI 不只降本，更让此前碰不起的案件变得经济可行，从而放大小型律所的天花板。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">亚历克斯·兰佩尔（Alex Rampell）<em>主持</em></span><span class="spk-1">杰伊·马德什瓦兰（Jay Madheswaran）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场：原告侧缺软件与爱因斯坦悖论</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·兰佩尔（Alex Rampell）">兰佩尔</span></div><div class="content">
+<p>从历史上看，保护原告利益所需的不超过一部手机和电子邮件。那几乎就是一切。没有任何软件真正解决了他们的主要问题——人手短缺。大多数人想到人工智能时会说：“哦，你要解雇所有人并削减成本。”而事实上：“不，如果我使用Eve（Eve），我能为公司赚更多的钱。”无论案件持续多久，人们都无法支付每小时500或600美元来使用无限账户。Eve旨在从头到尾解决这个问题。洛杉矶的一家律所将每位律师的案件量从大约一百名客户减少到五名。没错，这就是实际可能实现的。为什么Eve比普通的“纯”更好？</p>
+<p>智力？如果你把阿尔伯特·爱因斯坦今天放进一家律师事务所，他不会工作很长时间就会失去效率。这是Eve解决的一个常见问题。为什么这个人会效率低下呢？这有很多原因。其中之一是大家好。我是亚历克斯（Alex）Rumpell，AndreessenHorowitz的合伙人，我很高兴今天能和Eve的联合创始人兼首席执行官Jay一起在这里。每个人至少都认识一个律师，对吧？每个人都知道法律是什么。但大多数人，尤其是在硅谷，当他们听到“法律”或“法律事务”时，会想到企业法。那些大型的、所谓的精英律师事务所，哈佛毕业生在那里以每小时2000美元的价格工作。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>什么是 Eve：日常人的法律 AI</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·兰佩尔（Alex Rampell）">兰佩尔</span></div><div class="content">
+<p>但是法律还有另一面，它实际上更大、更分散，我们称之为原告法律律。每次你在101号公路上开车时，你都会看到所有这些广告牌。也许我们先从Eve是什么开始？你关注的是哪种形式的法律和法律人工智能？也许还可以稍微谈谈整个行业，因为我认为大多数美国人都很熟悉它，但他们没有意识到——尤其是在硅谷，每个人都听说过WilsonSonsini，但没有听说过Morgan&amp;Morgan，对吧？而Morgan&amp;Morgan可能比WilsonSonsini更赚钱。原告的权利是什么，</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jay"><div class="label"><span class="badge" title="杰伊·马德什瓦兰（Jay Madheswaran）">杰伊</span></div><div class="content">
+<p>请用你自己的话解释一下什么是Eve。Eve是什么。当然。首先，谢谢你邀请我，亚历克斯（Alex）。谈论Eve总是很愉快。Eve。Eve是为普通人提供的法律人工智能，对吧？像你我这样的人，而不是机构、内部律师，也不是那些已经拥有所有资源的人。但我们实际上如何为那些无法负担法律服务的人提供法律服务呢？这就是原告代理行业诞生的原因。因为最终，就像你说的，WilsonSonsini每小时收费2000美元，这确实是他们的商业模式。律师的时间很昂贵，而且你试图</p>
+<p>指引律师花费越来越多的昂贵时间。大多数律师也是如此。他们有很多账单要支付，而在当今的法律工作中：你投入的努力越多，就越能更好地陈述事实。你可以获得更好的结果。这就是我们今天生活的世界的现状。有了这一点，律师们明白，无论案件持续多久，人们都无法负担每小时500-600美元的高额费用，因此原告行业在按或有费用的基础上兴起。这意味着他们只有在为客户赢得案件时才会获得报酬。这至少在某种程度上让他们得以平衡。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>成功费经济：价格×数量与不可接之案</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="jay"><div class="label"><span class="badge" title="杰伊·马德什瓦兰（Jay Madheswaran）">杰伊</span></div><div class="content">
+<p>人与机构对抗中的机会。而伊芙的目标是从头到尾处理整个过程：如何从第一次电话到获得赔偿来代表客户。如何完全用人工智能来实现这一点，并提供给律师，以便他们能够改善工作成果。这就是伊芙所做的，我们实际上是在武装他们——想象一下给大卫一条投石索去打败歌利亚。这就是我们所做的。让我着迷的是，我回想起经济学的基础知识，其中有一条向右上方倾斜的供给曲线，这意味着什么？</p>
+<p>什么意思？只要记住有价格和数量。所以，这里是数量，这里是价格。那么，当价格上升时，对吧？那么供给量就会增加。。。是吗？所以如果我能在某件事上赚到十万美元，哇，我全力以赴。但需求曲线的方向恰好相反。这是真的。所以，价格和数量正在朝这个方向移动。那么需求，我想要的单位数——实际上我应该说，这是数量，这是价格。所以，价格在下降，而需求量显著增加。如果我考虑将其应用于法律，例如，如果我有一千美元的损失呢？是吗？是的，我甚至可以为</p>
+<p>按成功费（风险代理）用计算，对吧？他们可能不想接我的案子，因为如果他们拿结果的三分之一，那么他们需要一个更大的案件，这将需要一定量的工作。工作。AI在某种程度上确实可以让我们摆脱这些市场失灵。因为，你提到给大卫一个更大的弹弓。因为经常发生的情况是大卫只是……首先，如果我有1000美元的损害赔偿，我绝对付不起律师每小时1200美元的费用。所以，我很着急。这就是成功费（风险代理）用出现的原因。问题是和解金额可能不够大。所以，律师可能想帮助我，但他或她有需要被</p>
+<p>付费，等等。但是如果软件能够完成这项工作，那么市场机会就会大得多。是吧？你真的可以为许多本来负担不起的人提供正义，因为你怎么可能负担不起成功费（风险代理）呢？但这并不完全符合律师的最佳利益。他们想要服务，1000个客户，但他们做不到。他们必须专注于最重要的事情，而牺牲较小的事情，因为这又是在平衡点的右侧。我不知道你是否同意，或者你对此有何看法。那绝对是正确的。我认为这是我们今天面临的一个真正的市场问题：回到基本原则，你应得一个</p>
+<p>优秀的律师来为你的案件辩护。通常，你只有在处于绝望的境地时才需要律师，对吧？在这个时候，我们的最好和最坏都会显现出来，而我们没有能力自己为自己辩护。这就是整个职业存在的原因。这也是为什么法律制度占据我们政府约三分之一的比例。正是出于这个原因。是的，……而今天的情况是：因为律师仍然需要得到报酬，法律工作仍然受到“瓶颈”的限制。今天，如果一个律师在一个案件上不能赚到至少5000美元，他就不会接这个案子。是的，这就是今天的市场动态。即使是5000美元，他们在许多事情上也会亏钱。</p>
+<p>他们真的在押注一些事情会带来巨额利润。他们，甚至连赢的保证都没有，就这样。这……所以他们已经在承担这个……这是成功情况下的一个方面。没错。但事实就是这样：即使我赢了，我也会输，因为进行诉讼的成本会高于实际潜在收益，即使在胜诉的情况下。没错。我的意思是，这里的大多数人都经历过车祸，某种轻微的事故。如果金额低于免赔额，美国没有律师会接这样的案子，对吧？从经济上根本不划算。即使免赔额是三千或四千美元。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·兰佩尔（Alex Rampell）">兰佩尔</span></div><div class="content">
+<p>对于一个人来说，这就是失去工资和保住工资之间的区别，对吧？而且这是不可能找到一个代表处的，对吧？对吧？而且，情况也是一样的。原因实际上在于他们那边，我们也必须理解他们的立场，对吧？假设你在工作中受到骚扰，而你的雇主可以阻止它。例如，在酒店业，你可以告诉顾客：“嘿，不要碰我的员工。”并改变政策以确保这一点。今天，这种情况不会发生，因为当那个人接到电话时，对方的律师必须接听电话、处理它——大约需要30到45分钟的工作——然后进行法律研究，因为在</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jay"><div class="label"><span class="badge" title="杰伊·马德什瓦兰（Jay Madheswaran）">杰伊</span></div><div class="content">
+<p>美国的劳动关系，一切都基于“随意雇佣”的原则，你需要将问题与某些受保护的条款联系起来。这被称为诉讼理由。因此，你需要将案件与索赔的依据联系起来，这项工作需要他们花费10个小时。是的。研究判例法、审查事实、进行通信，并提出后续问题，以确定案件是否符合标准。而当他们花费所有这些时间时，他们可能会意识到，“嘿，这甚至不会让我赚到5000美元。”是的。是的。因此，例如在劳动法领域，96%的案件都会被驳回。是的。所以你永远也找不到</p>
+<p>有人来为你介绍。自掏腰包，而且在很多情况下，人们没有足够的钱自费。这……这完全正确。完全正确。所以你只能忍受，直到发生真正糟糕的事情。而这就是目前的状况，一切都汇聚到了瓶颈——法律工作。而这正是Eve被创建的目的：现在如何用Eve用即时结果替代那10小时的工作。电话打进来，Eve接听，并自动利用她对律师事务所的了解来判断律师是否应该接手此案，然后立即开始处理诉讼或初步文件。</p>
+<p>是吗？而这从根本上改变了这种类型商业的经济学，而且我们还处在旅程的起点。发生了什么吗？Eve正变得越来越能够在长时间内从头到尾管理结果。这类案例可能持续6个月或一年，在此期间，可能会有成千上万种不同的行动和互动。随着Eve的准确性持续提高，这种长期工作变得可能。因此，这种可能性越大，更复杂的工作就以稳定的成本被分配出去。所以现在所有这些没有保护的人都得到了代言。是的，如果你真的问自己，</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·兰佩尔（Alex Rampell）">兰佩尔</span></div><div class="content">
+<p>如果寻求法律帮助不是问题，你一生中会寻求多少次法律帮助？这个数字比我们想象的要高得多。是的，这是一个有趣的故事，而且是真的。大约九个月前，我在洛斯阿尔托斯的一家小咖啡馆BlueBottle，向某人解释Eve。我之所以解释这个，是因为大多数人认为人工智能就是“哦，你要裁掉所有人，降低成本，一切都是为了省钱。”而我说，“不，实际上，如果我使用Eve，我的公司会赚更多的钱。”而这并不是因为我在削减成本，而是因为我可以接更多的案件。这实际上是收入的扩展。所以，我作为一个外部投资者在解释这件事——可能没有你解释得好。最后——我们</p>
+<p>讨论了很多话题，但我们想起了夏娃。这个人出现了，看起来有点生气，带着一只大狗，而我有点害怕大狗。他问：“你刚才说的那家公司是什么？”我心想，“哦，他现在会生气吗？”他说，“我是个审判律师。”“我想尝试这个。”哦，太好了。所以我给你找了一个新客户。谢谢你。但主要的意思是你在扩大你的收入机会。但也许你可以解释一下其中的动态，因为每个人都在101号公路或I-95上开车。I-95是一条从佛罗里达到缅因州沿整个东海岸延伸的走廊。我几乎开车跑到那里，到我看来，一半的人</p>
+<p>广告是为审判律师、原告代表投放的。他们当然会在那里做广告，因为他们希望有人打电话给他们。比如：“嘿，我出了事故，或者我有这个问题。”但是，这个过程的经济学看起来是怎样的呢？这就是为什么我觉得伊芙如此有趣，因为我认为你必须拒绝90%的潜在客户。是不是这样？或者数字看起来怎么样？我在广告牌上花钱，然后接到一堆来电。这些电话中有多少会转化为业务？这些案件中有多少会带来利润？也许我们应该比较“之前”和“之后”，因为你提出的并不是为律师节省成本，而是扩展他们的业务。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jay"><div class="label"><span class="badge" title="杰伊·马德什瓦兰（Jay Madheswaran）">杰伊</span></div><div class="content">
+<p>收入。这是从法律方面来看。但是对于一个律师事务所来说，经济情况是怎样的呢？你完全正确。当大多数人经过时，他们看到的是广告上的面孔，却忘记了幕后的人以及每一个电话所需投入的工作量。今天就是这种情况。这也是伊芙所帮助的地方。对于律师事务所来说，数学计算非常简单。通常，你代理的人越多，你赚的钱就越多。但由于你可以接更多的客户，但被迫拒绝许多案件，因为服务这些案件的成本太高，从他们的角度来看，需求实际上是无限的。劳动力的供应是有限的。</p>
+<p>我有足够的人手真正解决这个问题吗？而且情况更复杂，不同的公司面临不同的问题，瓶颈不断变化。是不是这样？例如，一家小公司可能只有一个律师、案件经理或办公室经理接听第一次电话，记录数据，然后律师在空闲时间回电。对。他们工作混乱，不断忙碌。而接下来是下一层次，他们找到一种系统化的方法。例如，他们有客户接待团队或呼叫中心处理初步流程。现在，这又成为了一个新的瓶颈。所以</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>广告牌获客与案源吞吐</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·兰佩尔（Alex Rampell）">兰佩尔</span></div><div class="content">
+<p>现在既然你增加了营销支出，假设你在那个广告牌上有一张特别吸引人的图片，而且很多人打电话进来，团队突然不堪重负。而你再次受到你能代表的人数的限制。没错，没错。这就是这些小企业每天面临的挑战。这些是小企业，不是大型公司。他们想代表个人的利益，而在座的每个人都是法学院毕业的，不是商学院毕业的。他们想对人们有帮助。所以我们基本上把所有这些整合到Eve平台上，这样他们只参与真正需要的事务。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jay"><div class="label"><span class="badge" title="杰伊·马德什瓦兰（Jay Madheswaran）">杰伊</span></div><div class="content">
+<p>不是吗？例如，他们的专业建议，他们对如何经营企业的看法；伊芙不断提高标准，那么我如何将事情提升到一个新的水平呢？我认为所有律师真正应该花时间做的是：与他们的人建立联系，并帮助客户取得成果。这有点像市场失灵的意义，也就是说，如果我能以每小时12美分雇佣一名律师助理，我就可以服务所有5000个潜在客户，对吗？或者代币的价值是多少，但我做不到。。所以我会说，没有哪个劳动力市场可以这样运作。但借助人工智能，我现在可以做到。我的意思是，你有任何“之前”的情况吗？</p>
+<p>“‘之后’的例子？就像，的，‘男士脱发俱乐部’：‘这是我之前的样子，这是我之后的样子——我有了一个漂亮的发型。’那你们为最好的客户所做的情况是什么样的呢？我想收入的转变应该非常显著。例如，洛杉矶的一家公司，其每位律师处理的客户数量从大约一百名增加到五百名。哇。哇。没错。这正是可以实现的。而且值得称赞的是，他们为了实现这一点付出了非常大的努力。他们充分利用了Eve的功能：从最初的接待、电话处理和自动资格审查，到消除律师之间或律师与案件经理之间转交案件的问题。</p>
+<p>.这一切现在都由Eve中的代理处理。一直到和解阶段，系统会在与调解员讨论前准备简报，建议具体关注的重点。这就是像我们处理的案件那样的和解结果应有的样子。以下是之前为了达成这一目标所使用的策略。是的。这就是未来的样子。这是在一个你帮助完成工作比单独做更好的业务中真正的持续进步。我认为这就是法律的未来。不是吗？作为律师，你实际上会更像是一名数据科学家，设计某些东西来使它更好。</p>
+<p>越来越好。这也是Eve上领先的律师事务所正在经历的思维转变。是的。我这样想：如果你看看那些还不熟悉人工智能的普通律师事务所——这实际上是观察人工智能应用世界的一种有趣方式——律师之前的软件堆栈是什么样的呢？如果你是一家像WilsonSonsini这样的大型事务所，最重要的可能是你的时间跟踪器，对吗？因为你按小时计费。如果你按风险代理费工作，你的时间也很重要，但你不</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>Word 时代结束：AI 把劳动变成流程</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="jay"><div class="label"><span class="badge" title="杰伊·马德什瓦兰（Jay Madheswaran）">杰伊</span></div><div class="content">
+<p>向客户开账单。你可能需要知道每个任务花了多少钱，但我想你的主要工具是微软Word。而它并不是……风险投资家过去在这个行业中犯的错误是：&quot;哦，为原告律师提供的软件市场很小。&quot;他们都买微软Office。是的，微软Office相当昂贵，所以软件成本每年高达数百亿美元，这看起来可笑地小。但等等，他们带来的结果每年以数千亿美元计。他们无法取得更好的结果，因为他们在劳动力资源上受到限制。他们也无法</p>
+<p>以每小时12美分雇佣工人，因为他们根本不存在。所以事实证明，软件市场就像一个影子劳动力市场，而且比任何人预期的都要大。这总是一种奇怪的情况，因为当你是一家合法的软件公司时，你不能说软件市场很小。人们知道Harvey、公司法或者长期存在的电子发现工具。但我想象在Eve出现之前，底层的软件堆栈是什么样的？那只是微软Word，还是需要的其他东西才能开始运作？我从法学院毕业，我想在这个行业的特定领域工作。什么</p>
+<p>我的软件堆栈是什么？关于原告律师和机构的不幸之处在于，历史上他们实际上除了手机和电子邮件几乎什么都不需要。老实说，有些单独的律师甚至因为成本或其他原因没有购买微软Word。不是这样的，如果你仔细想想，你实际上并不需要进行太多文档编辑。这是一个信任的问题。信任。对吧？所以一方与另一方对立，因此你不合作。就像你在审查合同或类似事情时一样。所以，不知怎么的，没有任何软件解决了他们的主要问题。</p>
+<p>问题。就是你刚才提到的。他们的局限在于劳动力。这是他们做任何事情的基础。由于他们有员工并且知道如何管理员工，他们找到了借助这些员工解决每一个问题的方法。这就是他们发展的方式。结果，发生的是大量的软件资源被导向国防机构。因为那里有预算。对于哈维，以及任何公司来说，实际上，现在大多数开发法律软件的公司都是在国防方面工作。因为那里有预算。对。对。对。这也是一个容易创造解决方案的方面，也比较容易</p>
+<p>为了赚钱。在原告方面，这是一个每个月都监控开支的小企业。对吗？如果你从第一天起没有为他们带来成果，你就会被淘汰。他们不会继续雇用你。他们会诅咒你，的，他们会尽一切可能来困扰你。对吗？这就是让情况变得如此困难的原因。但我们明白：我们知道他们的主要问题是什么，我们知道他们的激励。他们想要代表更多的人。他们想要获胜。而我们现在可以做到。现代软件的美妙之处在于，一旦你手动执行任务，即使是涉及处理新数据和转换数据的任务——那就是</p>
+<p>人工智能真的很强大。你可以把它转化为一个流程。这是一个根本性的全新转变。这以前从未发生过。这就是他们尝试在人力资源管理中所做的事情。但那从未成功过，因为每个个案都非常不同，根本无法操作。一切归结为招聘足够聪明的人来处理。而现在，正如我们所说，一个聪明的人可以处理500个完全不同事实和情况的不同案件。那么你如何把所有这些都记在脑子里呢？这很难，不是吗？但是现在你不需要了。我认为很多应用级创业公司的创始人现在正在想的是，“哦，也许大公司...</p>
+<p>“玩家们会直接击败我，对吗？”例如，那些创造智能的实验室可能会占据我的空间，那将是我的终结。有很多方法可以保护自己，但“保护”这个词在这里并不完全合适，因为如果你拥有网络效应或别人没有的数据，你会取得更好的结果。所以，不管人人使用的是ChatGPT还是Claude，有什么区别呢，但也许你可以告诉我，因为我相信你已经考虑过很多了。为什么Eve比仅仅的“原始”智能更好吗？而且随着更多的从业者使用它，它是如何变得更好的？</p>
+<p>是的，我们正在押注这些模型会变得越来越好。这就是我们的价值所在。如果我们有1000个阿尔伯特·爱因斯坦来处理法庭案件，或者为每个任务配备世界上最好的律师，我们会同意的。问题是，如果今天把阿尔伯特·爱因斯坦送到律师事务所，他不会在短时间内高效工作。而这正是Eve解决的常见问题，对吗？那为什么这个人不会高效工作呢？这涉及很多因素。我认为其中之一是，在原告法律律实践中，绝大多数数据并不容易简单收集。实际上，只有不到百分之一的案件真正上法庭并成为法院判决。</p>
+<p>没错。绝大多数案件在提起诉讼或开庭审理之前就已解决。有些甚至更早，对吧？那时候实际上只是谈判：‘嘿，他们对我做了这件事，请解决一下。’为了举一个具体的例子：我出了车祸，这不是我的错。对方，如果你愿意这样说，对方的保险公司会说，‘哦，你没那么严重受伤。我们给你一美元。’这是真的吗？他们总是试图否认、否认再否认。例如，保险公司的第一条规则是否认，第二条规则是否认。一直都是这样。这些都是保险公司的规则。所以</p>
+<p>现在我正在雇佣一名律师来拿回他们欠我的钱，因为我真的受伤了，我的车完全报废了，而他们就是不想赔我，而且你会得到和解。这不涉及法院，不会真正开庭，但没错。确实，Geico确实支付了29,000美元，我认为这是非常非常有用的信息。这是真的，因为保险公司要处理10万家不同的律师事务所……有共享社区的概念。他们知道所有案件，但因为信息分散在各个地方的律所中，他们并不确切知道Geico的每一个动作。绝对是真的。而且，他们，甚至有软件来</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>估值威胁、平台上的胜率与攻防不对称</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="jay"><div class="label"><span class="badge" title="杰伊·马德什瓦兰（Jay Madheswaran）">杰伊</span></div><div class="content">
+<p>像Colossus这样的威胁性名称，它会追踪，的，他们本质上是在说，“拇指骨折，这就是我们认为它值多少钱。”这是对他们的辩护来说一个困难的任务，真的很难做到，但他们做到了，他们还会说，“这是我们能给他们的最低金额。”不管那个人的实际需求或具体情况如何。这就是法律系统应该解决的问题。这也是它存在的意义。没错。。现在正在发生的情况是，这是一个有趣的观点和挑战：如果你尝试在谷歌上搜索，“在软组织损伤案件中如何写一封针对StateFarm的优质索赔信？”今天任何地方都找不到类似的东西。</p>
+<p>即使是刚进入代表原告的律师事务所的新助理律师，这也是他们必须学习的内容。此外，情况会变得更加复杂，因为当你处在特定的司法管辖区时，当地环境，比如法院系统或你的对手，行为方式都会略有不同，而这种背景也很重要。所以，Eva所做的是将这种历史上极其难以使用的多属性、多维度信息转化为对问题的回答：“在这一特定时刻，我可以做的最好的事情是什么，以改善案件的结果？”是的。是的。而且在整个案件过程中，这个问题被重复了成千上万次。</p>
+<p>而且人类的大脑根本无法记住所有这些信息。但人工智能可以，对吗？而这就是我们帮助律师事务所创建的数据类型，他们立即就能看到好处。他们首先看到价值的地方，当然是在迎接客户时。我到底应该雇谁？我能最好地代表谁？也许值得从这个开始，并不断改进。是的。是的。我想既然这些不是大型律所，对吧？例如，如果我是在新泽西的律师，我有一个四名律师的事务所，还有另一个在亚利桑那的律师，他有一个七名律师的事务所，但他们</p>
+<p>交易对手通常是StateFarm、Geico等。毕竟，共享信息是完全正常的。我想知道你对这些数据有什么看法？因为对于处于初创阶段的公司来说，这总是有点困难。他说：“不，不，这是我的数据。”但是，我想，“你付出一些，你就会得到一些”的原则在这里也适用。这就像，的，我正在和一家牙科人工智能公司合作，他们说，“爱荷华州的牙医不能为佛罗里达的患者服务，但他们希望从彼此的集体经验中学习。”但是，你怎么认为数据隔离等问题？这会成为问题吗，你通常如何使用这些数据？</p>
+<p>我们大多遵循行业中已存在的交战规则，但我们通过软件对其进行了加强。这是我们的立场，对吗？交战规则如下：他们希望自己的事务保持高度机密。根据法律，这一点很重要，这是律师的特权。而且我们从这些数据中从未学习。是的。确实如此。但律师们也会共享他们的知识：他们会出差，参加进修课程，并交流对抗州立农业保险公司（StateFarm）防御策略的战术，因为州立农业保险公司的防御策略在各地都是一样的，对吗？我并不是针对州立农业保险公司，这里每个人都是平等的，但这就是他们原本的做法。</p>
+<p>所以我们雇佣自己的律师，并在我们的平台上跟踪案件的成功情况，我们希望提供帮助：如果你使用Eve，你应该会更成功。这就是我们跟踪的内容。我们还有一个审计员产品，每晚逐页分析每个案件，寻找一个完美无瑕的律师每次都会注意到的情况。不幸的是，总体来说，在绝大多数案件中，几乎每个案件，信息都是不足的。对吗？而现在，这不再是问题了。是的。也许我们可以谈谈未来的方向，因为一方面，我</p>
+<p>可以想象有一天Geico变得更聪明，他们可能仍会坚持“否认、否认、否认”的策略。这就是他们以前变聪明的方式，对吧？因为他们明白这是一个对抗性的系统：例如，我因为火灾失去了房子，我会声称里面有一幅毕加索画，而他们会认为我在编造。他们会简单地拒绝理赔。他们会否认，他们会否认。也就是说，每一方似乎都在互相对抗，但他们将获得超级能力。我是说，你可以在Muse和所有消费者代理身上看到这一点，当我想预订一家几乎不可能预约到的餐厅时，就会有这种情况。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·兰佩尔（Alex Rampell）">兰佩尔</span></div><div class="content">
+<p>有人接电话。我现在可以对他们发起DDoS攻击，因为我只需要支付每小时几美分之类的费用，最终他们会意识到自己正在被“吸取”，并试图阻止它。所以，我想问的是，从一方面来说，你如何看待你的对手？不是你的对手，而是你客户的对手。他们如何适应这样一个世界，比如说，对Geico来说，说“嘿，你有2000美元的损失”是很好的。消费者说，“是的，我可能有2500美元的损失。”但他们以前从不需要担心理赔金额。现在，对他们来说不幸，但对世界上的大卫们来说幸运，也就是那些真正的人</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jay"><div class="label"><span class="badge" title="杰伊·马德什瓦兰（Jay Madheswaran）">杰伊</span></div><div class="content">
+<p>他们曾经遭受痛苦并成为受害者，现在他们可以反击，而你正在促成这一点。这是一件事，但你也提到了具有长期规划的代理人。因为，当人工智能能够做很多事情时，法律实践会是什么样子？你似乎把它描述成律师几乎成为未来的数据科学家，但也许可以谈谈对手或者对抗性过程本身会是什么样子？你是否知道StateFarm和Geico在使用什么，也许是因为你在这个领域的出现？但这也是一个大问题，法律如何演变和出现，考虑到你在某种程度上是在操纵语言。</p>
+<p>寻找事实，并做所有这些让人们变得不那么重要的事情？他们在将案件看到完成方面确实起着重要作用，但人工智能到底做什么，不做什么呢？所以，归根结底，我对此的概念是，当有个体存在时，他们需要保护。不管是谁在做代理工作，都可以假设99%是人工智能，也许是99.9%是人工智能。总会有那一小部分是人的因素，对吧？而且我们认为人们会积极影响案件的结果。</p>
+<p>而这正是你所拥有的，不是吗？所以在防御方面，或者更准确地说，在机构方面，你所面对的始终如一：他们拥有更多的资源、更多的钱，甚至更多的时间，这是他们的另一种武器，非常强大。而私人个体则被迫负债来支付他们的服务费用，这是他们拥有的一种非常强大的工具。这就是他们所依靠的力量，试图依赖集中化和标准化。在防御方面，你有一个律师为你的案件辩护，并推动他们进入审判。我认为这正是将会发生的情况。我认为在许多案件中，参与的人会更少。</p>
+<p>，所有日常通信都将通过代理人之间的沟通来完成。我认为这是一个未来疯狂的世界，但我认为我们正朝那个方向发展。而决定性因素是：律师对客户的理解，对这一系列事实及其当地环境的理解，以及他们在这家律师事务所、在这家防务公司中面对的对手的了解。他们利用这种理解来扭转局面，以客户的利益为目的。我认为这种情况永远不会消失……实际上，我们已经看到许多Eve客户选择花更多时间在诉讼工作上。是的，因为这实际上变得可能。</p>
+<p>.在过去，上法庭会耗尽你整个公司的资源。没错。突然间，你把所有时间都花在为审判做准备，质询陪审团。你希望事情能够和平解决。没错。这看起来更像是朝着和平协议迈进。完全正确。相反，我认为它越来越趋向于真正保护利益。我如何才能真正表达我们的观点？我如何……我的客户被逼入困境。他们有时候做坏事，有时候做好事。我如何才能在对他们真正重要的事情上为他们辩护？我想象这可能就是你们在处理这个可能从未有过的庞大数据集时的数据科学工作的一部分。</p>
+<p>之前积累的。因为正如你提到的所有这些事情，它是如此个性化，以至于没有一个所有和解金额的通用存储库。但我在诉讼融资中稍微见过这种情况，如果我是律师，如果我是辩护律师，并且不是按小时向你，即我的客户收费，那么我如何支付自己、我的员工、办公室租金以及其他一切？好吧，有些公司会出现并说，“我来为这个事情融资。”这是真的，不是吗？我在为这个案件提供资金，因为我指望你赢得它。他们做各种聪明的事情，比如：这是法官，这是这个。也就是说，他们使用数据。除此之外，我</p>
+<p>我认为这些人在数据科学方面非常先进。但从历史上看，这些数据从未被存储过。而现在数据被存储了，作为律师你可以做出更明智的决策。我在想是否去法院、接受和解，还是抗争？哦，Geico给我提供了12,000美元。我应该放弃还是争取15,000美元呢？我应该，的，去法院争取100,000美元吗？我该如何做这些决定？没错。这就是为什么我们可以帮助他们在每个案件中做出最佳决策，并知道何时已达到最佳结果。是的。我会说，推动案件进展仍然是律师的责任，对吧？我认为这就是我所说的数据科学风格工作的意思，因为他们</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>家庭作坊律所如何长成大机构</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·兰佩尔（Alex Rampell）">兰佩尔</span></div><div class="content">
+<p>利用软件的力量去完成一些你甚至没有考虑过的工作，从而改善结果。我的意思是，你怎么看，这是一个非常宽泛的问题，当然，但法律体系的发展方向是什么？我在与富国银行（WellsFargo）有麻烦。我想：？我已经尝试了四个小时，干脆就起诉他们吧。所以我去了Codex，也就是ChatGPT，说：“起诉富国银行。”四个小时后，它就对富国银行提起了诉讼。这确实找到了法院命令的执行人。我收到一条消息，说我们要上法庭，但日期嘛，在二月份。专利法中也发生了类似的事情，以前提交专利需要付出很大努力，现在</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jay"><div class="label"><span class="badge" title="杰伊·马德什瓦兰（Jay Madheswaran）">杰伊</span></div><div class="content">
+<p>这更容易，但美国专利商标局仍然是“瓶颈”。所以，如果你试图预测在人工智能成为强制标准的情况下法律行业将走向何方，而你正在为此做出贡献，尤其是在诉讼法律方面，你会怎么预测？但如果你考虑整个法律实践，如果你向前看五年，它将会如何变化？它会是什么样子？哪些会保持不变？哪些会不同？我认为最有可能的是，我们不可避免地必须创建一些系统，使并非一切都通过司法系统进行。这实际上已经是法律中使用的一个结构，对吧？例如，一些类型的退伍军人事务案件是由一个</p>
+<p>不同的委员会。即使在雇佣纠纷中，许多案件在诉诸法院之前也会经过平等就业机会委员会（EEOC）。雇主们也找到各种调解和仲裁的方法，这些方法不一定需要通过法院系统。是的。是的。这是一种自然发展的结构，我预计这种情况会越来越普遍。我认为变化在于，在某些领域，我们可能会转向一种ADR（自动化争议解决）版本，在这种版本中，具备AI功能的调解员或中立方将使用AI加快决策过程。</p>
+<p>我不认为判决本身会被替代，但他们会被提供一套历史上显示事情是如何发生的事实，而且他们将是必须消除任何可能存在的偏见的人。我认为我们会在这一方面投入越来越多的时间。你认为小型律师事务所会变得更大吗？因为那将会是一个不同的结果。我过去每位律师只能处理100个案件，现在是500个，将来可能是5,000个。为什么我应该把我的办公室限制在新泽西的一个很小的地方呢？也许我应该扩大我的活动……而且你将会拥有更大、几乎像企业一样的法律结构。就像，</p>
+<p>例如，最大的诉讼律师事务所——摩根&amp;摩根。这是真的吗？他们的收入有数十亿美元，但平均的律所规模相当小。但你可以想象：得益于人工智能和我们讨论的所有变化，一个小型律所也可以发展成为一个十亿美元的企业。这就像风险投资与所谓的生活方式企业的区别。你曾经是风险投资家，这个术语。这是一个有些贬义的说法，用来描述仅仅是为了盈利的情况。但你认为假设一些小型参与者……显然现在你不能以律师事务所的身份上市。也许在亚利桑那州或其他地方可以，但……</p>
+<p>你认为这些当地的“家庭式”律师事务所有机会成为，如果你愿意的话，非常大的机构吗？我认为将要发生的转变是，很多这些律师事务所将更像软件公司。我猜他们最终会参与过去30年来一直在进行，而他们一直被排除在外的软件革命，对吧？如果你深入探讨一下，你会明白原因。假设你有一笔25,000美元的和解款。律师可能会收到其中的三分之一。好吧，为了简化，我们称之为8,000美元。在这8,000美元中，大约一半用于工资，30%用于市场营销，其余的</p>
+<p>可能是利润。是吗？这就是今天存在的那种业务模式。今天。这种模式使得将资金再投资以更好地服务下一个客户变得非常困难。是吗？今天唯一的办法是雇佣一个更好的律师。对，对。现在正在发生变化的是，他们可以积累一个独特的数据库，在特定法律领域提供比竞争对手更好的结果。是吗？这是一种专业化。而从历史上看，这个行业以前也经历过类似的情况。大约30年前，有一个本地律师处理从……从……是的，是的，从劳动争议到知识产权的所有事务。</p>
+<p>财产以及介于两者之间的一切。酒后驾车指控，是的。是的。没错。完全正确。现在我们有了按执业领域的专业化。有的人在知识产权方面非常强，有的人在劳动法方面，而现在这种分化变得更细了，对吧？例如，有人专门处理由于护理失误导致的出生缺陷之类的案件。我预计这一趋势将达到一个新高度，有人可以成为涉及特定情况模式的软组织损伤案件的真正专家。为这些案件做广告比像Morgan&amp;Morgan这样的大公司更具成本效益。是的。是的。他们只是把广告牌到处都放。</p>
+<p>所以，先在本地取得成功，然后再扩展。扩展。没错。因为你对这个特定的细分市场有很大的信心，所以可以扩展到全国。绝对正确。我认为我们将看到这种类型的专业化。我还认为我们会看到相反的情况，因为我们与一些规模像Morgan&amp;Morgan这样的公司合作。其中一些公司实际上进行了合并。所以那些已经变得非常大的公司，实际上是在收购其他律所，因为有了Eve，他们可以非常快速地结合过去曾经是一个痛苦的再整合过程的内容，而现在可以在专注于客户需求的同时完成——客户想要的就是法律结果。而Eve正是为此而设计的。</p>
+<p>是的，通过这样做，他们在很大程度上消除了变更管理、人员变动或运营变动的问题，因为Eve处理了很多事情。他们可以加快收购的回报。有趣的是，现在有一个向基于结果的定价转变的趋势。以前，软件即服务（SaaS）按每个工作站每月收费。我开玩笑说，这是“高杯、大杯、超大杯”的软件销售模式。你可以访问任何SaaS公司的官网。这就是为什么，克劳德可以轻松克隆它们。它们看起来都一样。比如每月79美元、99美元、129美元，——高杯、大杯、超大杯。而且这是针对一个工作场所的。。看看像Zendesk这样的公司。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>公开市场并购、结果成本与融资叙事</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·兰佩尔（Alex Rampell）">兰佩尔</span></div><div class="content">
+<p>当它还是一家上市公司时，年收入为20亿美元。他们被Permira和Hellman&amp;Friedman收购了。现在他们就像，‘哦，你需要多少工作岗位？’‘也许是零？’‘我们必须……我们必须交付。’现在软件界的每个人，包括许多人工智能初创公司，都在说，‘我们交付成果，我们按成果收费。’有趣的是，你所专攻的法律领域从一开始就是以结果为导向的。但也有些法律领域不是以结果为导向的，尽管我保证所有客户都会更希望它是以结果为导向的。不是吗？我的意思是，有时候也不容易，例如，我搞信托和</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jay"><div class="label"><span class="badge" title="杰伊·马德什瓦兰（Jay Madheswaran）">杰伊</span></div><div class="content">
+<p>麦克德莫特·威尔与埃默里（McDermottWill&amp;Emery）的遗嘱认证律师。她非常非常优秀。她人也很亲切。看起来我的结果……结果就是我的死亡，所以我不知道我是否想要那样。但，你宁愿只是说有一个固定价格。但通常会有这种信息不对称……为自己辩护的理由是，按小时收费的原因并不是为了敲诈客户，而是我脑海中的信息与我表述出来的方式之间存在数据不对称。也许项目的范围会随时间变化。但，我会说，其他法律领域，可能应该更像原告法律。他们也应该有基于绩效的定价。。是吧？或者，例如，</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·兰佩尔（Alex Rampell）">兰佩尔</span></div><div class="content">
+<p>移民法应该以结果为导向。这就像一切都应该基于结果定价，但这很困难，因为缺乏数据，比如说，我如何代表被告赢得这个案件？但我认为，正如你所想，其他形式……你可能可以远远超出原告的权利。我不知道你是否同意我的看法，但你对法律总体上的变化有何看法？因为在我看来，原告法律走在了我们现在看到的一切前面。这就像……每个人都想要结果。没有人愿意为原料或资源付费。这可能是商业中唯一一个一切总是以结果为导向的领域。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jay"><div class="label"><span class="badge" title="杰伊·马德什瓦兰（Jay Madheswaran）">杰伊</span></div><div class="content">
+<p>但是法律的其他部分不应该也以同样的方式运作吗？这是我们的信念，不是吗？所以，最困难的部分是……真的很难。当你站在被告一方或者甚至原告一方时，关于你案件的问题是：这是10小时的工作吗？还是100小时的工作？在很多情况下，你真的要到做了之后才知道。对于原告而言，这就是为什么我们必须深入到每一个实践领域以取得结果的原因。而且，我们去年所做的就是现在称为“长期规划代理人”的工作。这正是取得结果所需要的。而现在，实际上提供法律结果的能力越来越好。最终，我认为</p>
+<p>法律的民主化要求你在基于一系列事实的基础上，知道需要多少计算资源才能达到一个结果。这是通过数据聚合、更好地利用数据以及高效使用计算能力来实现结果的。因此我们两者都做，对吗？这就是为什么我们专注于结果并希望实现它们。毕竟，这场大卫与歌利亚的对抗无处不在。的，它不仅存在于大型律师事务所或企业法务部门。这些只是有预算的地方，因此，他们可以在一定时期内有效地开具“空白支票”。</p>
+<p>让你想知道这对我带来了多少实际结果的机制是未知的，对吧？当你筹款时，你可能会收到一张账单，比如说10万美元。这个到底带来了什么结果？很难理解它的价值，但这是他们今天能够给它定价的唯一方式。是的。是的。这是因为他们不知道自己工作的预期价值到底是多少。这也是一种不对称性。就像：我不知道。就像，“好吧，你需要为你的C轮融资聘请一位律师。”天哪，这是什么意思？这可以非常非常简单，也可以非常困难。因此，很难设定一个固定的费用。这是真的。</p>
+<p>因为他们可能会输，虽然他们不能以较少的金额输，对吧？就像，‘哦，我从你那里拿了25,000美元。’‘我在这上面花了一个小时。’但如果他们必须花4,000小时的律师时间，他们可能会输。‘我可能会在这上面亏钱。’当然，每家公司都是…实际上，你也知道，在公司法中，这些都是为了吸引客户的无利可图产品。然后你试图通过并购、首次公开募股或其他事情赚取利润。这与原告法律有些不同。你怎么收取费用？你当时怎么想的？因为我猜想，你在创业的第一天，并不知道你会向哪种类型的客户收费以及收费多少。我想象你</p>
+<p>对此的思考也发生了变化。当然。所以，奇怪的是，从我们一开始开始的那一天，我想，我们是从什么开始的来着？Tall,grande，Tall,grande，venti。是的，venti模型。我们就是从那里开始的，因为我们不知道还有更好的方法，对吧？然后，随着我们更深入地研究它，我们意识到他们对结果感兴趣。他们想知道如何服务更多的顾客。所以这实际上迫使我们从一开始就以结果为导向。我们说的是一年前半的事，这也挺有趣的，因为在今天的世界里那已经算是“过去的时代”了。人工智能的时代。就像按狗年的算法乘以100一样。是的，没错。</p>
+<p>但这实际上就是发生在我们身上的，对吧？而且还有很大的成长空间，现在，的，我们谈到了那个价值图表，三分之一的钱流向律师，其中一半是他们不再需要花费的劳动力。是不是这样？那么你如何将其转化为更有用的东西呢？而获得更有用工作的最佳方式，奇怪的是，是将其花在更多的代币和更多的任务上，让Eve完成，为你的公司赚取更多的钱。是不是这样？这就是我们今天所处的循环。还有许多市场动态正是帮助我们的。例如，我们认为按小时支付的模式不太可能完全消失，但我认为它会……</p>
+<p>采用基于工作的薪酬模式……对于法律的某些部分，这可能是支付的最佳方式，因为在很多年之后得到结果之前，很难评估其价值。但对于许多案件，情况已经不再是这样。对于很多案件，你实际上已经知道结果会是什么。你应该能够将工作量折算成一个摊销金额并提供，对吧？这就是我们押注的方向。不是吗？这就是为什么我们专注于从第一天起，从开始到结束实现法律结果。我们让这一切变得如此简单，以至于律师可以说：“这是我获得的客户。”</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>把案子交给 Eve：端到端任务链</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="jay"><div class="label"><span class="badge" title="杰伊·马德什瓦兰（Jay Madheswaran）">杰伊</span></div><div class="content">
+<p>把案件交给伊芙。伊芙会在你需要的时候联系你，并在你准备好时带你走。比如，我们谈到过，原告律师受到供应而非需求的约束，或者至少他们中的许多人是这样，因为他们有源源不断的客户，但因为数学不成立而无法服务——成本与收入、客户获取成本（CAC）与客户终身价值（LTV）。这是任何企业都会遇到的老问题。这也适用于他们。你清楚自己的限制在哪里吗？那么，到底是什么在阻碍你更快地成长？我是说，你无论如何都在飞速成长。你的限制因素是什么？你需要什么作为输入才能获得更多？</p>
+<p>产出更快的增长？这真的很有趣，因为很多法律测试，即使是你们发布的那些，以及我们密切合作的Anthropic、OpenAI和许多其他公司，几乎都专注于一个结果。是不是这样？例如，这是一个任务。它处理得更好还是更差？而现在世界正在向代理工作方向发展。对我们来说，唯一一直重要的就是代理结果。是不是这样？所以现在这一点变得越来越相关。最终结果是，今天我们的技术和流程水平仍然处于一个阶段，工作仍然需要大量的人类参与。但是，通过做更多并</p>
+<p>更多的工作，我们正在显著地从一个月到下一个月减少这个数字。在我们的行业中，我们必须对每种类型的案件都这样做。不是吗？所以对于每一个案件，我们都像科学一样进行研究。如何真正解决这个案件？以及如何创建一个能够处理所有这些数据以得出解决方案的“迷你律师大脑”，在各处执行，并使用所有可用的工具，包括Claude和其他工具，以确保结果。实际上，这是一个非常困难的任务。不是吗？所以，在这个阶段，我们在很大程度上受到工程师数量的限制。我们有无尽的事情要做，以推动这一进展。还有其他好的方面</p>
+<p>部分原因是——我们有需求。在我们能够完全自动化的时候，比如说，处理交通事故案件从头到尾，通过这项技术为世界创造的价值将达到数千亿美元。而这只是案件的一个子类型。那是一个很好的问题。你有没有见过从头到尾完全自主的案件处理？也就是说，接听电话，接待客户，从保险公司收到支票。从开始到结束都实现了吗？还没有，但我们很接近了。这就是为什么我们需要工程师。不是吗？为了让你了解规模，一件事是，它可能涉及1万次交互。1万次？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·兰佩尔（Alex Rampell）">兰佩尔</span></div><div class="content">
+<p>10,000？大约是这个数字吧。因为……哇。哇。你可以这样想，不是吗？一个客户进来了，比如说这是一个关于健康损害赔偿的案件。现在你已经有了他们的病历。那么现在你实际上必须打电话给保险公司和医疗机构，去获取客户手上已经有的记录。不是吗？所以实际上今天需要两周的时间。而有了Eve的外呼代理，我们有一个可以进行外呼的语音AI。奇怪的是，在这个领域，我们已经看到代理们彼此交流，学会绕过限制。完全是相互之间，这简直荒谬。而且这是非常必要的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jay"><div class="label"><span class="badge" title="杰伊·马德什瓦兰（Jay Madheswaran）">杰伊</span></div><div class="content">
+<p>对吧？然后从那时起，你需要创建一个文档并与对方进行对话。所以，这些都是我们从头到尾执行的任务。今天，当有人改进结果或做某件事时，仍然需要稍作干预。但我们现在正在构建的是如何自动实施整个流程？是的，是的。我们已经看到了一些初步迹象，因为它已经在一些客户那里起作用了。回到防御方面以及他们大量的信息，你是否注意到他们的反应总体上发生了变化？这里有一个例子：“哦，这些人主动接洽了”</p>
+<p>关于这件事告诉我。”我总是必须解决这个问题，因为他们可能对此有相当严格的规定。我假设他们不是临时编造的，因为他们每年处理这类事情的次数可能有数万次，甚至更多。所以，如果我是GEICO，我会想，“哦，你要求这么多，好吧，我的第一步尝试是先在这里解决。”但是，如果他们的支出减少，也许情况会改变，对吧？那么，你有没有注意到你……不是你的对方，而是你客户的对方的反应有什么变化？我会说，辩护方仍然主要是按照小时计费模式运营。所以他们还没有完全跟上步伐</p>
+<p>我们的律师还没有。因此，我会说这里在定价上存在显著的不对称。在过去，我们合作的一家律师事务所的辩护方会将证据披露请求的日期拖延到感恩节前一天或一个重要节假日前。是的。是的，他们就在那时发送请求，因为他们知道对方会去度假，并且在假期期间工作会很繁忙，因此不会高效或迅速地处理。而现在，由于这种重复的策略，他们在EVE上创建了一个代理来同一天回应请求。因此下一次发生同样情况时，他们立刻就回应了，辩护方感到震惊：“这是怎么回事？”</p>
+<p>是的。是的。这种策略不起作用。我们看到它的很多变种现在正在出现，以至于防守方开始意识到：等等，当对方有资源时会发生什么？是的。哦，灾难啊。这正是观察的有趣之处。好了，Jay，这真是一场精彩的对话。我学到了很多。我没意识到每个案例都需要一万次接触，但这真的很令人兴奋，我也很高兴成为你的合作伙伴，把Eve推广到下一个一万家公司。谢谢。我的意思是，我们仍有很多事情要实现。我们可能已经帮助了几十万客户，并拥有数亿联系人，我很希望能改变</p>
+<p>他们每天都在改善自己的生活。所以如果你对此感兴趣，请加入伊芙……完美。谢谢。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "a16z", "title": "AI 如何让小型律所变成十亿美元级生意", "url": "https://www.youtube.com/watch?v=iRMmPjunm3Q", "videoId": "iRMmPjunm3Q", "published_at": "2026-10-30T14:30:33+00:00", "duration": 3131, "caption_source": "YouTube 自动生成字幕（en；普通 yt-dlp 遇 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 补拉成功）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段", "guests": ["Jay Madheswaran"], "intro": {"summary": "Eve CEO 杰伊·马德什瓦兰（Jay Madheswaran）与 a16z GP 亚历克斯·兰佩尔（Alex Rampell）讨论 AI 如何让原告律所承接此前不经济的案件、做大业务。", "points": ["原告侧法律劳动短缺", "AI 降低单位案件成本、扩大可接案量", "从首通电话到和解的端到端自动化"], "verdict": "值得看：关心法律科技、原告业务与 AI 垂直落地的人；可跳过：对美国诉讼经济无兴趣者。", "audience": "法律科技 / a16z 听众 / AI 应用"}, "speakers": [{"id": "alex", "name": "亚历克斯·兰佩尔（Alex Rampell）", "role": "host", "short": "兰佩尔"}, {"id": "jay", "name": "杰伊·马德什瓦兰（Jay Madheswaran）", "role": "guest", "short": "杰伊"}], "sections": [{"id": "s1", "title": "开场：原告侧缺软件与爱因斯坦悖论", "start_sec": 0, "summary": "亚历克斯·兰佩尔（Alex Rampell）开场：历史上一部手机+邮箱几乎就能维护原告利益，真正缺口是劳动力而非更多软件。抛出「把爱因斯坦放进律所也很快不产能」——领域知识密集、流程碎，正是 Eve 要解的。对照：法律还有更大、更分散的原告侧；101 公路广告牌即象征。"}, {"id": "s2", "title": "什么是 Eve：日常人的法律 AI", "start_sec": 78, "summary": "请 Eve CEO 杰伊·马德什瓦兰（Jay Madheswaran）用自己的话定义：Eve 是面向普通人的法律 AI。律师时间越来越贵、账单压力大；传统逻辑是「投入越多举证越好」。Eve 目标覆盖从首通电话到拿到赔偿的全流程，提升个人对机构对峙中的胜算。"}, {"id": "s3", "title": "成功费经济：价格×数量与不可接之案", "start_sec": 199, "summary": "用价格-数量曲线讲成功费（contingency）：律师拿结果约三分之一，小案在固定劳动成本下不经济→拒接。AI 一定程度「解放」单位案件成本后，供给曲线右移，可服务原先找不到代理、涉及丢薪级损失却请不起人的当事人。美国雇佣「at-will」下还要把问题挂到受保护条款才有诉因，自费更难——软件做功则市场机会显著变大，接近「更多人获得正义」。"}, {"id": "s4", "title": "广告牌获客与案源吞吐", "start_sec": 783, "summary": "营销加码（更吸睛广告牌）带来电话洪峰时，吞吐与筛选、冲突检查、初步评估成为瓶颈；没有软件时只能人肉挡。讨论如何在获客放大时仍维持服务质量与经济账。"}, {"id": "s5", "title": "Word 时代结束：AI 把劳动变成流程", "start_sec": 987, "summary": "对比：过去核心工具近乎 Word，难以按任务精细核算成本。AI 足够好之后可把工作「流程化」——这是从未真正实现过的结构性转变（早年规则引擎/专家系统未成）。重复文书、检索、沟通草稿进入可编排流水线。"}, {"id": "s6", "title": "估值威胁、平台上的胜率与攻防不对称", "start_sec": 1381, "summary": "攻防不对称：机构侧历来有资源与「Colossus」类系统给伤情标价施压。Eve 侧自雇律师、在平台追踪案件成败——用 Eve 应更成功，用软件做你原先想不到的工作以改善结果。家庭式小所面对的是系统性对手。"}, {"id": "s7", "title": "家庭作坊律所如何长成大机构", "start_sec": 1974, "summary": "本地「家族」小所是否有机会长成大型机构：杰伊认为 AI 驱动的转型会让原告业务出现全新规模曲线——过去劳动密集封顶，现在边际案件变可做。举例曾年收入约20亿美元的公开公司被 Permira 与 Hellman \u0026 Friedman 收购等行业资本叙事，说明品类本身可很大。"}, {"id": "s8", "title": "公开市场并购、结果成本与融资叙事", "start_sec": 2382, "summary": "融资与「结果实际成本」不透明的机制；募资时如何讲清单位经济。把获客、评估、立案、协商、和解串成可度量漏斗，而不仅是律师主观经验。"}, {"id": "s9", "title": "把案子交给 Eve：端到端任务链", "start_sec": 2764, "summary": "产品形态：「把案子交给 Eve，需要时再把你接进来」。原告律师的工作被拆成可委托任务——生成文书、与对方沟通等逐步由系统承担。收束：AI 不只降本，更让此前碰不起的案件变得经济可行，从而放大小型律所的天花板。"}], "paragraphs": [{"start_sec": 0, "type": "text", "zh": "从历史上看，保护原告利益所需的不超过一部手机和电子邮件。那几乎就是一切。没有任何软件真正解决了他们的主要问题——人手短缺。大多数人想到人工智能时会说：“哦，你要解雇所有人并削减成本。”而事实上：“不，如果我使用Eve（Eve），我能为公司赚更多的钱。”无论案件持续多久，人们都无法支付每小时500或600美元来使用无限账户。Eve旨在从头到尾解决这个问题。洛杉矶的一家律所将每位律师的案件量从大约一百名客户减少到五名。没错，这就是实际可能实现的。为什么Eve比普通的“纯”更好？", "speaker_id": "alex", "section_id": "s1"}, {"start_sec": 37, "type": "text", "zh": "智力？如果你把阿尔伯特·爱因斯坦今天放进一家律师事务所，他不会工作很长时间就会失去效率。这是Eve解决的一个常见问题。为什么这个人会效率低下呢？这有很多原因。其中之一是大家好。我是亚历克斯（Alex）Rumpell，AndreessenHorowitz的合伙人，我很高兴今天能和Eve的联合创始人兼首席执行官Jay一起在这里。每个人至少都认识一个律师，对吧？每个人都知道法律是什么。但大多数人，尤其是在硅谷，当他们听到“法律”或“法律事务”时，会想到企业法。那些大型的、所谓的精英律师事务所，哈佛毕业生在那里以每小时2000美元的价格工作。", "speaker_id": "alex", "section_id": "s1"}, {"start_sec": 78, "type": "text", "zh": "但是法律还有另一面，它实际上更大、更分散，我们称之为原告法律律。每次你在101号公路上开车时，你都会看到所有这些广告牌。也许我们先从Eve是什么开始？你关注的是哪种形式的法律和法律人工智能？也许还可以稍微谈谈整个行业，因为我认为大多数美国人都很熟悉它，但他们没有意识到——尤其是在硅谷，每个人都听说过WilsonSonsini，但没有听说过Morgan\u0026Morgan，对吧？而Morgan\u0026Morgan可能比WilsonSonsini更赚钱。原告的权利是什么，", "speaker_id": "alex", "section_id": "s2"}, {"start_sec": 118, "type": "text", "zh": "请用你自己的话解释一下什么是Eve。Eve是什么。当然。首先，谢谢你邀请我，亚历克斯（Alex）。谈论Eve总是很愉快。Eve。Eve是为普通人提供的法律人工智能，对吧？像你我这样的人，而不是机构、内部律师，也不是那些已经拥有所有资源的人。但我们实际上如何为那些无法负担法律服务的人提供法律服务呢？这就是原告代理行业诞生的原因。因为最终，就像你说的，WilsonSonsini每小时收费2000美元，这确实是他们的商业模式。律师的时间很昂贵，而且你试图", "speaker_id": "jay", "section_id": "s2"}, {"start_sec": 159, "type": "text", "zh": "指引律师花费越来越多的昂贵时间。大多数律师也是如此。他们有很多账单要支付，而在当今的法律工作中：你投入的努力越多，就越能更好地陈述事实。你可以获得更好的结果。这就是我们今天生活的世界的现状。有了这一点，律师们明白，无论案件持续多久，人们都无法负担每小时500-600美元的高额费用，因此原告行业在按或有费用的基础上兴起。这意味着他们只有在为客户赢得案件时才会获得报酬。这至少在某种程度上让他们得以平衡。", "speaker_id": "jay", "section_id": "s2"}, {"start_sec": 199, "type": "text", "zh": "人与机构对抗中的机会。而伊芙的目标是从头到尾处理整个过程：如何从第一次电话到获得赔偿来代表客户。如何完全用人工智能来实现这一点，并提供给律师，以便他们能够改善工作成果。这就是伊芙所做的，我们实际上是在武装他们——想象一下给大卫一条投石索去打败歌利亚。这就是我们所做的。让我着迷的是，我回想起经济学的基础知识，其中有一条向右上方倾斜的供给曲线，这意味着什么？", "speaker_id": "jay", "section_id": "s3"}, {"start_sec": 240, "type": "text", "zh": "什么意思？只要记住有价格和数量。所以，这里是数量，这里是价格。那么，当价格上升时，对吧？那么供给量就会增加。。。是吗？所以如果我能在某件事上赚到十万美元，哇，我全力以赴。但需求曲线的方向恰好相反。这是真的。所以，价格和数量正在朝这个方向移动。那么需求，我想要的单位数——实际上我应该说，这是数量，这是价格。所以，价格在下降，而需求量显著增加。如果我考虑将其应用于法律，例如，如果我有一千美元的损失呢？是吗？是的，我甚至可以为", "speaker_id": "jay", "section_id": "s3"}, {"start_sec": 282, "type": "text", "zh": "按成功费（风险代理）用计算，对吧？他们可能不想接我的案子，因为如果他们拿结果的三分之一，那么他们需要一个更大的案件，这将需要一定量的工作。工作。AI在某种程度上确实可以让我们摆脱这些市场失灵。因为，你提到给大卫一个更大的弹弓。因为经常发生的情况是大卫只是……首先，如果我有1000美元的损害赔偿，我绝对付不起律师每小时1200美元的费用。所以，我很着急。这就是成功费（风险代理）用出现的原因。问题是和解金额可能不够大。所以，律师可能想帮助我，但他或她有需要被", "speaker_id": "jay", "section_id": "s3"}, {"start_sec": 322, "type": "text", "zh": "付费，等等。但是如果软件能够完成这项工作，那么市场机会就会大得多。是吧？你真的可以为许多本来负担不起的人提供正义，因为你怎么可能负担不起成功费（风险代理）呢？但这并不完全符合律师的最佳利益。他们想要服务，1000个客户，但他们做不到。他们必须专注于最重要的事情，而牺牲较小的事情，因为这又是在平衡点的右侧。我不知道你是否同意，或者你对此有何看法。那绝对是正确的。我认为这是我们今天面临的一个真正的市场问题：回到基本原则，你应得一个", "speaker_id": "jay", "section_id": "s3"}, {"start_sec": 362, "type": "text", "zh": "优秀的律师来为你的案件辩护。通常，你只有在处于绝望的境地时才需要律师，对吧？在这个时候，我们的最好和最坏都会显现出来，而我们没有能力自己为自己辩护。这就是整个职业存在的原因。这也是为什么法律制度占据我们政府约三分之一的比例。正是出于这个原因。是的，……而今天的情况是：因为律师仍然需要得到报酬，法律工作仍然受到“瓶颈”的限制。今天，如果一个律师在一个案件上不能赚到至少5000美元，他就不会接这个案子。是的，这就是今天的市场动态。即使是5000美元，他们在许多事情上也会亏钱。", "speaker_id": "jay", "section_id": "s3"}, {"start_sec": 402, "type": "text", "zh": "他们真的在押注一些事情会带来巨额利润。他们，甚至连赢的保证都没有，就这样。这……所以他们已经在承担这个……这是成功情况下的一个方面。没错。但事实就是这样：即使我赢了，我也会输，因为进行诉讼的成本会高于实际潜在收益，即使在胜诉的情况下。没错。我的意思是，这里的大多数人都经历过车祸，某种轻微的事故。如果金额低于免赔额，美国没有律师会接这样的案子，对吧？从经济上根本不划算。即使免赔额是三千或四千美元。", "speaker_id": "jay", "section_id": "s3"}, {"start_sec": 435, "type": "text", "zh": "对于一个人来说，这就是失去工资和保住工资之间的区别，对吧？而且这是不可能找到一个代表处的，对吧？对吧？而且，情况也是一样的。原因实际上在于他们那边，我们也必须理解他们的立场，对吧？假设你在工作中受到骚扰，而你的雇主可以阻止它。例如，在酒店业，你可以告诉顾客：“嘿，不要碰我的员工。”并改变政策以确保这一点。今天，这种情况不会发生，因为当那个人接到电话时，对方的律师必须接听电话、处理它——大约需要30到45分钟的工作——然后进行法律研究，因为在", "speaker_id": "alex", "section_id": "s3"}, {"start_sec": 476, "type": "text", "zh": "美国的劳动关系，一切都基于“随意雇佣”的原则，你需要将问题与某些受保护的条款联系起来。这被称为诉讼理由。因此，你需要将案件与索赔的依据联系起来，这项工作需要他们花费10个小时。是的。研究判例法、审查事实、进行通信，并提出后续问题，以确定案件是否符合标准。而当他们花费所有这些时间时，他们可能会意识到，“嘿，这甚至不会让我赚到5000美元。”是的。是的。因此，例如在劳动法领域，96%的案件都会被驳回。是的。所以你永远也找不到", "speaker_id": "jay", "section_id": "s3"}, {"start_sec": 516, "type": "text", "zh": "有人来为你介绍。自掏腰包，而且在很多情况下，人们没有足够的钱自费。这……这完全正确。完全正确。所以你只能忍受，直到发生真正糟糕的事情。而这就是目前的状况，一切都汇聚到了瓶颈——法律工作。而这正是Eve被创建的目的：现在如何用Eve用即时结果替代那10小时的工作。电话打进来，Eve接听，并自动利用她对律师事务所的了解来判断律师是否应该接手此案，然后立即开始处理诉讼或初步文件。", "speaker_id": "jay", "section_id": "s3"}, {"start_sec": 553, "type": "text", "zh": "是吗？而这从根本上改变了这种类型商业的经济学，而且我们还处在旅程的起点。发生了什么吗？Eve正变得越来越能够在长时间内从头到尾管理结果。这类案例可能持续6个月或一年，在此期间，可能会有成千上万种不同的行动和互动。随着Eve的准确性持续提高，这种长期工作变得可能。因此，这种可能性越大，更复杂的工作就以稳定的成本被分配出去。所以现在所有这些没有保护的人都得到了代言。是的，如果你真的问自己，", "speaker_id": "jay", "section_id": "s3"}, {"start_sec": 593, "type": "text", "zh": "如果寻求法律帮助不是问题，你一生中会寻求多少次法律帮助？这个数字比我们想象的要高得多。是的，这是一个有趣的故事，而且是真的。大约九个月前，我在洛斯阿尔托斯的一家小咖啡馆BlueBottle，向某人解释Eve。我之所以解释这个，是因为大多数人认为人工智能就是“哦，你要裁掉所有人，降低成本，一切都是为了省钱。”而我说，“不，实际上，如果我使用Eve，我的公司会赚更多的钱。”而这并不是因为我在削减成本，而是因为我可以接更多的案件。这实际上是收入的扩展。所以，我作为一个外部投资者在解释这件事——可能没有你解释得好。最后——我们", "speaker_id": "alex", "section_id": "s3"}, {"start_sec": 632, "type": "text", "zh": "讨论了很多话题，但我们想起了夏娃。这个人出现了，看起来有点生气，带着一只大狗，而我有点害怕大狗。他问：“你刚才说的那家公司是什么？”我心想，“哦，他现在会生气吗？”他说，“我是个审判律师。”“我想尝试这个。”哦，太好了。所以我给你找了一个新客户。谢谢你。但主要的意思是你在扩大你的收入机会。但也许你可以解释一下其中的动态，因为每个人都在101号公路或I-95上开车。I-95是一条从佛罗里达到缅因州沿整个东海岸延伸的走廊。我几乎开车跑到那里，到我看来，一半的人", "speaker_id": "alex", "section_id": "s3"}, {"start_sec": 666, "type": "text", "zh": "广告是为审判律师、原告代表投放的。他们当然会在那里做广告，因为他们希望有人打电话给他们。比如：“嘿，我出了事故，或者我有这个问题。”但是，这个过程的经济学看起来是怎样的呢？这就是为什么我觉得伊芙如此有趣，因为我认为你必须拒绝90%的潜在客户。是不是这样？或者数字看起来怎么样？我在广告牌上花钱，然后接到一堆来电。这些电话中有多少会转化为业务？这些案件中有多少会带来利润？也许我们应该比较“之前”和“之后”，因为你提出的并不是为律师节省成本，而是扩展他们的业务。", "speaker_id": "alex", "section_id": "s3"}, {"start_sec": 702, "type": "text", "zh": "收入。这是从法律方面来看。但是对于一个律师事务所来说，经济情况是怎样的呢？你完全正确。当大多数人经过时，他们看到的是广告上的面孔，却忘记了幕后的人以及每一个电话所需投入的工作量。今天就是这种情况。这也是伊芙所帮助的地方。对于律师事务所来说，数学计算非常简单。通常，你代理的人越多，你赚的钱就越多。但由于你可以接更多的客户，但被迫拒绝许多案件，因为服务这些案件的成本太高，从他们的角度来看，需求实际上是无限的。劳动力的供应是有限的。", "speaker_id": "jay", "section_id": "s3"}, {"start_sec": 743, "type": "text", "zh": "我有足够的人手真正解决这个问题吗？而且情况更复杂，不同的公司面临不同的问题，瓶颈不断变化。是不是这样？例如，一家小公司可能只有一个律师、案件经理或办公室经理接听第一次电话，记录数据，然后律师在空闲时间回电。对。他们工作混乱，不断忙碌。而接下来是下一层次，他们找到一种系统化的方法。例如，他们有客户接待团队或呼叫中心处理初步流程。现在，这又成为了一个新的瓶颈。所以", "speaker_id": "jay", "section_id": "s3"}, {"start_sec": 783, "type": "text", "zh": "现在既然你增加了营销支出，假设你在那个广告牌上有一张特别吸引人的图片，而且很多人打电话进来，团队突然不堪重负。而你再次受到你能代表的人数的限制。没错，没错。这就是这些小企业每天面临的挑战。这些是小企业，不是大型公司。他们想代表个人的利益，而在座的每个人都是法学院毕业的，不是商学院毕业的。他们想对人们有帮助。所以我们基本上把所有这些整合到Eve平台上，这样他们只参与真正需要的事务。", "speaker_id": "alex", "section_id": "s4"}, {"start_sec": 821, "type": "text", "zh": "不是吗？例如，他们的专业建议，他们对如何经营企业的看法；伊芙不断提高标准，那么我如何将事情提升到一个新的水平呢？我认为所有律师真正应该花时间做的是：与他们的人建立联系，并帮助客户取得成果。这有点像市场失灵的意义，也就是说，如果我能以每小时12美分雇佣一名律师助理，我就可以服务所有5000个潜在客户，对吗？或者代币的价值是多少，但我做不到。。所以我会说，没有哪个劳动力市场可以这样运作。但借助人工智能，我现在可以做到。我的意思是，你有任何“之前”的情况吗？", "speaker_id": "jay", "section_id": "s4"}, {"start_sec": 863, "type": "text", "zh": "“‘之后’的例子？就像，的，‘男士脱发俱乐部’：‘这是我之前的样子，这是我之后的样子——我有了一个漂亮的发型。’那你们为最好的客户所做的情况是什么样的呢？我想收入的转变应该非常显著。例如，洛杉矶的一家公司，其每位律师处理的客户数量从大约一百名增加到五百名。哇。哇。没错。这正是可以实现的。而且值得称赞的是，他们为了实现这一点付出了非常大的努力。他们充分利用了Eve的功能：从最初的接待、电话处理和自动资格审查，到消除律师之间或律师与案件经理之间转交案件的问题。", "speaker_id": "jay", "section_id": "s4"}, {"start_sec": 904, "type": "text", "zh": ".这一切现在都由Eve中的代理处理。一直到和解阶段，系统会在与调解员讨论前准备简报，建议具体关注的重点。这就是像我们处理的案件那样的和解结果应有的样子。以下是之前为了达成这一目标所使用的策略。是的。这就是未来的样子。这是在一个你帮助完成工作比单独做更好的业务中真正的持续进步。我认为这就是法律的未来。不是吗？作为律师，你实际上会更像是一名数据科学家，设计某些东西来使它更好。", "speaker_id": "jay", "section_id": "s4"}, {"start_sec": 946, "type": "text", "zh": "越来越好。这也是Eve上领先的律师事务所正在经历的思维转变。是的。我这样想：如果你看看那些还不熟悉人工智能的普通律师事务所——这实际上是观察人工智能应用世界的一种有趣方式——律师之前的软件堆栈是什么样的呢？如果你是一家像WilsonSonsini这样的大型事务所，最重要的可能是你的时间跟踪器，对吗？因为你按小时计费。如果你按风险代理费工作，你的时间也很重要，但你不", "speaker_id": "jay", "section_id": "s4"}, {"start_sec": 987, "type": "text", "zh": "向客户开账单。你可能需要知道每个任务花了多少钱，但我想你的主要工具是微软Word。而它并不是……风险投资家过去在这个行业中犯的错误是：\"哦，为原告律师提供的软件市场很小。\"他们都买微软Office。是的，微软Office相当昂贵，所以软件成本每年高达数百亿美元，这看起来可笑地小。但等等，他们带来的结果每年以数千亿美元计。他们无法取得更好的结果，因为他们在劳动力资源上受到限制。他们也无法", "speaker_id": "jay", "section_id": "s5"}, {"start_sec": 1028, "type": "text", "zh": "以每小时12美分雇佣工人，因为他们根本不存在。所以事实证明，软件市场就像一个影子劳动力市场，而且比任何人预期的都要大。这总是一种奇怪的情况，因为当你是一家合法的软件公司时，你不能说软件市场很小。人们知道Harvey、公司法或者长期存在的电子发现工具。但我想象在Eve出现之前，底层的软件堆栈是什么样的？那只是微软Word，还是需要的其他东西才能开始运作？我从法学院毕业，我想在这个行业的特定领域工作。什么", "speaker_id": "jay", "section_id": "s5"}, {"start_sec": 1069, "type": "text", "zh": "我的软件堆栈是什么？关于原告律师和机构的不幸之处在于，历史上他们实际上除了手机和电子邮件几乎什么都不需要。老实说，有些单独的律师甚至因为成本或其他原因没有购买微软Word。不是这样的，如果你仔细想想，你实际上并不需要进行太多文档编辑。这是一个信任的问题。信任。对吧？所以一方与另一方对立，因此你不合作。就像你在审查合同或类似事情时一样。所以，不知怎么的，没有任何软件解决了他们的主要问题。", "speaker_id": "jay", "section_id": "s5"}, {"start_sec": 1110, "type": "text", "zh": "问题。就是你刚才提到的。他们的局限在于劳动力。这是他们做任何事情的基础。由于他们有员工并且知道如何管理员工，他们找到了借助这些员工解决每一个问题的方法。这就是他们发展的方式。结果，发生的是大量的软件资源被导向国防机构。因为那里有预算。对于哈维，以及任何公司来说，实际上，现在大多数开发法律软件的公司都是在国防方面工作。因为那里有预算。对。对。对。这也是一个容易创造解决方案的方面，也比较容易", "speaker_id": "jay", "section_id": "s5"}, {"start_sec": 1149, "type": "text", "zh": "为了赚钱。在原告方面，这是一个每个月都监控开支的小企业。对吗？如果你从第一天起没有为他们带来成果，你就会被淘汰。他们不会继续雇用你。他们会诅咒你，的，他们会尽一切可能来困扰你。对吗？这就是让情况变得如此困难的原因。但我们明白：我们知道他们的主要问题是什么，我们知道他们的激励。他们想要代表更多的人。他们想要获胜。而我们现在可以做到。现代软件的美妙之处在于，一旦你手动执行任务，即使是涉及处理新数据和转换数据的任务——那就是", "speaker_id": "jay", "section_id": "s5"}, {"start_sec": 1190, "type": "text", "zh": "人工智能真的很强大。你可以把它转化为一个流程。这是一个根本性的全新转变。这以前从未发生过。这就是他们尝试在人力资源管理中所做的事情。但那从未成功过，因为每个个案都非常不同，根本无法操作。一切归结为招聘足够聪明的人来处理。而现在，正如我们所说，一个聪明的人可以处理500个完全不同事实和情况的不同案件。那么你如何把所有这些都记在脑子里呢？这很难，不是吗？但是现在你不需要了。我认为很多应用级创业公司的创始人现在正在想的是，“哦，也许大公司...", "speaker_id": "jay", "section_id": "s5"}, {"start_sec": 1232, "type": "text", "zh": "“玩家们会直接击败我，对吗？”例如，那些创造智能的实验室可能会占据我的空间，那将是我的终结。有很多方法可以保护自己，但“保护”这个词在这里并不完全合适，因为如果你拥有网络效应或别人没有的数据，你会取得更好的结果。所以，不管人人使用的是ChatGPT还是Claude，有什么区别呢，但也许你可以告诉我，因为我相信你已经考虑过很多了。为什么Eve比仅仅的“原始”智能更好吗？而且随着更多的从业者使用它，它是如何变得更好的？", "speaker_id": "jay", "section_id": "s5"}, {"start_sec": 1273, "type": "text", "zh": "是的，我们正在押注这些模型会变得越来越好。这就是我们的价值所在。如果我们有1000个阿尔伯特·爱因斯坦来处理法庭案件，或者为每个任务配备世界上最好的律师，我们会同意的。问题是，如果今天把阿尔伯特·爱因斯坦送到律师事务所，他不会在短时间内高效工作。而这正是Eve解决的常见问题，对吗？那为什么这个人不会高效工作呢？这涉及很多因素。我认为其中之一是，在原告法律律实践中，绝大多数数据并不容易简单收集。实际上，只有不到百分之一的案件真正上法庭并成为法院判决。", "speaker_id": "jay", "section_id": "s5"}, {"start_sec": 1313, "type": "text", "zh": "没错。绝大多数案件在提起诉讼或开庭审理之前就已解决。有些甚至更早，对吧？那时候实际上只是谈判：‘嘿，他们对我做了这件事，请解决一下。’为了举一个具体的例子：我出了车祸，这不是我的错。对方，如果你愿意这样说，对方的保险公司会说，‘哦，你没那么严重受伤。我们给你一美元。’这是真的吗？他们总是试图否认、否认再否认。例如，保险公司的第一条规则是否认，第二条规则是否认。一直都是这样。这些都是保险公司的规则。所以", "speaker_id": "jay", "section_id": "s5"}, {"start_sec": 1344, "type": "text", "zh": "现在我正在雇佣一名律师来拿回他们欠我的钱，因为我真的受伤了，我的车完全报废了，而他们就是不想赔我，而且你会得到和解。这不涉及法院，不会真正开庭，但没错。确实，Geico确实支付了29,000美元，我认为这是非常非常有用的信息。这是真的，因为保险公司要处理10万家不同的律师事务所……有共享社区的概念。他们知道所有案件，但因为信息分散在各个地方的律所中，他们并不确切知道Geico的每一个动作。绝对是真的。而且，他们，甚至有软件来", "speaker_id": "jay", "section_id": "s5"}, {"start_sec": 1381, "type": "text", "zh": "像Colossus这样的威胁性名称，它会追踪，的，他们本质上是在说，“拇指骨折，这就是我们认为它值多少钱。”这是对他们的辩护来说一个困难的任务，真的很难做到，但他们做到了，他们还会说，“这是我们能给他们的最低金额。”不管那个人的实际需求或具体情况如何。这就是法律系统应该解决的问题。这也是它存在的意义。没错。。现在正在发生的情况是，这是一个有趣的观点和挑战：如果你尝试在谷歌上搜索，“在软组织损伤案件中如何写一封针对StateFarm的优质索赔信？”今天任何地方都找不到类似的东西。", "speaker_id": "jay", "section_id": "s6"}, {"start_sec": 1422, "type": "text", "zh": "即使是刚进入代表原告的律师事务所的新助理律师，这也是他们必须学习的内容。此外，情况会变得更加复杂，因为当你处在特定的司法管辖区时，当地环境，比如法院系统或你的对手，行为方式都会略有不同，而这种背景也很重要。所以，Eva所做的是将这种历史上极其难以使用的多属性、多维度信息转化为对问题的回答：“在这一特定时刻，我可以做的最好的事情是什么，以改善案件的结果？”是的。是的。而且在整个案件过程中，这个问题被重复了成千上万次。", "speaker_id": "jay", "section_id": "s6"}, {"start_sec": 1464, "type": "text", "zh": "而且人类的大脑根本无法记住所有这些信息。但人工智能可以，对吗？而这就是我们帮助律师事务所创建的数据类型，他们立即就能看到好处。他们首先看到价值的地方，当然是在迎接客户时。我到底应该雇谁？我能最好地代表谁？也许值得从这个开始，并不断改进。是的。是的。我想既然这些不是大型律所，对吧？例如，如果我是在新泽西的律师，我有一个四名律师的事务所，还有另一个在亚利桑那的律师，他有一个七名律师的事务所，但他们", "speaker_id": "jay", "section_id": "s6"}, {"start_sec": 1504, "type": "text", "zh": "交易对手通常是StateFarm、Geico等。毕竟，共享信息是完全正常的。我想知道你对这些数据有什么看法？因为对于处于初创阶段的公司来说，这总是有点困难。他说：“不，不，这是我的数据。”但是，我想，“你付出一些，你就会得到一些”的原则在这里也适用。这就像，的，我正在和一家牙科人工智能公司合作，他们说，“爱荷华州的牙医不能为佛罗里达的患者服务，但他们希望从彼此的集体经验中学习。”但是，你怎么认为数据隔离等问题？这会成为问题吗，你通常如何使用这些数据？", "speaker_id": "jay", "section_id": "s6"}, {"start_sec": 1544, "type": "text", "zh": "我们大多遵循行业中已存在的交战规则，但我们通过软件对其进行了加强。这是我们的立场，对吗？交战规则如下：他们希望自己的事务保持高度机密。根据法律，这一点很重要，这是律师的特权。而且我们从这些数据中从未学习。是的。确实如此。但律师们也会共享他们的知识：他们会出差，参加进修课程，并交流对抗州立农业保险公司（StateFarm）防御策略的战术，因为州立农业保险公司的防御策略在各地都是一样的，对吗？我并不是针对州立农业保险公司，这里每个人都是平等的，但这就是他们原本的做法。", "speaker_id": "jay", "section_id": "s6"}, {"start_sec": 1584, "type": "text", "zh": "所以我们雇佣自己的律师，并在我们的平台上跟踪案件的成功情况，我们希望提供帮助：如果你使用Eve，你应该会更成功。这就是我们跟踪的内容。我们还有一个审计员产品，每晚逐页分析每个案件，寻找一个完美无瑕的律师每次都会注意到的情况。不幸的是，总体来说，在绝大多数案件中，几乎每个案件，信息都是不足的。对吗？而现在，这不再是问题了。是的。也许我们可以谈谈未来的方向，因为一方面，我", "speaker_id": "jay", "section_id": "s6"}, {"start_sec": 1625, "type": "text", "zh": "可以想象有一天Geico变得更聪明，他们可能仍会坚持“否认、否认、否认”的策略。这就是他们以前变聪明的方式，对吧？因为他们明白这是一个对抗性的系统：例如，我因为火灾失去了房子，我会声称里面有一幅毕加索画，而他们会认为我在编造。他们会简单地拒绝理赔。他们会否认，他们会否认。也就是说，每一方似乎都在互相对抗，但他们将获得超级能力。我是说，你可以在Muse和所有消费者代理身上看到这一点，当我想预订一家几乎不可能预约到的餐厅时，就会有这种情况。", "speaker_id": "jay", "section_id": "s6"}, {"start_sec": 1661, "type": "text", "zh": "有人接电话。我现在可以对他们发起DDoS攻击，因为我只需要支付每小时几美分之类的费用，最终他们会意识到自己正在被“吸取”，并试图阻止它。所以，我想问的是，从一方面来说，你如何看待你的对手？不是你的对手，而是你客户的对手。他们如何适应这样一个世界，比如说，对Geico来说，说“嘿，你有2000美元的损失”是很好的。消费者说，“是的，我可能有2500美元的损失。”但他们以前从不需要担心理赔金额。现在，对他们来说不幸，但对世界上的大卫们来说幸运，也就是那些真正的人", "speaker_id": "alex", "section_id": "s6"}, {"start_sec": 1701, "type": "text", "zh": "他们曾经遭受痛苦并成为受害者，现在他们可以反击，而你正在促成这一点。这是一件事，但你也提到了具有长期规划的代理人。因为，当人工智能能够做很多事情时，法律实践会是什么样子？你似乎把它描述成律师几乎成为未来的数据科学家，但也许可以谈谈对手或者对抗性过程本身会是什么样子？你是否知道StateFarm和Geico在使用什么，也许是因为你在这个领域的出现？但这也是一个大问题，法律如何演变和出现，考虑到你在某种程度上是在操纵语言。", "speaker_id": "jay", "section_id": "s6"}, {"start_sec": 1741, "type": "text", "zh": "寻找事实，并做所有这些让人们变得不那么重要的事情？他们在将案件看到完成方面确实起着重要作用，但人工智能到底做什么，不做什么呢？所以，归根结底，我对此的概念是，当有个体存在时，他们需要保护。不管是谁在做代理工作，都可以假设99%是人工智能，也许是99.9%是人工智能。总会有那一小部分是人的因素，对吧？而且我们认为人们会积极影响案件的结果。", "speaker_id": "jay", "section_id": "s6"}, {"start_sec": 1782, "type": "text", "zh": "而这正是你所拥有的，不是吗？所以在防御方面，或者更准确地说，在机构方面，你所面对的始终如一：他们拥有更多的资源、更多的钱，甚至更多的时间，这是他们的另一种武器，非常强大。而私人个体则被迫负债来支付他们的服务费用，这是他们拥有的一种非常强大的工具。这就是他们所依靠的力量，试图依赖集中化和标准化。在防御方面，你有一个律师为你的案件辩护，并推动他们进入审判。我认为这正是将会发生的情况。我认为在许多案件中，参与的人会更少。", "speaker_id": "jay", "section_id": "s6"}, {"start_sec": 1824, "type": "text", "zh": "，所有日常通信都将通过代理人之间的沟通来完成。我认为这是一个未来疯狂的世界，但我认为我们正朝那个方向发展。而决定性因素是：律师对客户的理解，对这一系列事实及其当地环境的理解，以及他们在这家律师事务所、在这家防务公司中面对的对手的了解。他们利用这种理解来扭转局面，以客户的利益为目的。我认为这种情况永远不会消失……实际上，我们已经看到许多Eve客户选择花更多时间在诉讼工作上。是的，因为这实际上变得可能。", "speaker_id": "jay", "section_id": "s6"}, {"start_sec": 1865, "type": "text", "zh": ".在过去，上法庭会耗尽你整个公司的资源。没错。突然间，你把所有时间都花在为审判做准备，质询陪审团。你希望事情能够和平解决。没错。这看起来更像是朝着和平协议迈进。完全正确。相反，我认为它越来越趋向于真正保护利益。我如何才能真正表达我们的观点？我如何……我的客户被逼入困境。他们有时候做坏事，有时候做好事。我如何才能在对他们真正重要的事情上为他们辩护？我想象这可能就是你们在处理这个可能从未有过的庞大数据集时的数据科学工作的一部分。", "speaker_id": "jay", "section_id": "s6"}, {"start_sec": 1899, "type": "text", "zh": "之前积累的。因为正如你提到的所有这些事情，它是如此个性化，以至于没有一个所有和解金额的通用存储库。但我在诉讼融资中稍微见过这种情况，如果我是律师，如果我是辩护律师，并且不是按小时向你，即我的客户收费，那么我如何支付自己、我的员工、办公室租金以及其他一切？好吧，有些公司会出现并说，“我来为这个事情融资。”这是真的，不是吗？我在为这个案件提供资金，因为我指望你赢得它。他们做各种聪明的事情，比如：这是法官，这是这个。也就是说，他们使用数据。除此之外，我", "speaker_id": "jay", "section_id": "s6"}, {"start_sec": 1935, "type": "text", "zh": "我认为这些人在数据科学方面非常先进。但从历史上看，这些数据从未被存储过。而现在数据被存储了，作为律师你可以做出更明智的决策。我在想是否去法院、接受和解，还是抗争？哦，Geico给我提供了12,000美元。我应该放弃还是争取15,000美元呢？我应该，的，去法院争取100,000美元吗？我该如何做这些决定？没错。这就是为什么我们可以帮助他们在每个案件中做出最佳决策，并知道何时已达到最佳结果。是的。我会说，推动案件进展仍然是律师的责任，对吧？我认为这就是我所说的数据科学风格工作的意思，因为他们", "speaker_id": "jay", "section_id": "s6"}, {"start_sec": 1974, "type": "text", "zh": "利用软件的力量去完成一些你甚至没有考虑过的工作，从而改善结果。我的意思是，你怎么看，这是一个非常宽泛的问题，当然，但法律体系的发展方向是什么？我在与富国银行（WellsFargo）有麻烦。我想：？我已经尝试了四个小时，干脆就起诉他们吧。所以我去了Codex，也就是ChatGPT，说：“起诉富国银行。”四个小时后，它就对富国银行提起了诉讼。这确实找到了法院命令的执行人。我收到一条消息，说我们要上法庭，但日期嘛，在二月份。专利法中也发生了类似的事情，以前提交专利需要付出很大努力，现在", "speaker_id": "alex", "section_id": "s7"}, {"start_sec": 2013, "type": "text", "zh": "这更容易，但美国专利商标局仍然是“瓶颈”。所以，如果你试图预测在人工智能成为强制标准的情况下法律行业将走向何方，而你正在为此做出贡献，尤其是在诉讼法律方面，你会怎么预测？但如果你考虑整个法律实践，如果你向前看五年，它将会如何变化？它会是什么样子？哪些会保持不变？哪些会不同？我认为最有可能的是，我们不可避免地必须创建一些系统，使并非一切都通过司法系统进行。这实际上已经是法律中使用的一个结构，对吧？例如，一些类型的退伍军人事务案件是由一个", "speaker_id": "jay", "section_id": "s7"}, {"start_sec": 2054, "type": "text", "zh": "不同的委员会。即使在雇佣纠纷中，许多案件在诉诸法院之前也会经过平等就业机会委员会（EEOC）。雇主们也找到各种调解和仲裁的方法，这些方法不一定需要通过法院系统。是的。是的。这是一种自然发展的结构，我预计这种情况会越来越普遍。我认为变化在于，在某些领域，我们可能会转向一种ADR（自动化争议解决）版本，在这种版本中，具备AI功能的调解员或中立方将使用AI加快决策过程。", "speaker_id": "jay", "section_id": "s7"}, {"start_sec": 2098, "type": "text", "zh": "我不认为判决本身会被替代，但他们会被提供一套历史上显示事情是如何发生的事实，而且他们将是必须消除任何可能存在的偏见的人。我认为我们会在这一方面投入越来越多的时间。你认为小型律师事务所会变得更大吗？因为那将会是一个不同的结果。我过去每位律师只能处理100个案件，现在是500个，将来可能是5,000个。为什么我应该把我的办公室限制在新泽西的一个很小的地方呢？也许我应该扩大我的活动……而且你将会拥有更大、几乎像企业一样的法律结构。就像，", "speaker_id": "jay", "section_id": "s7"}, {"start_sec": 2139, "type": "text", "zh": "例如，最大的诉讼律师事务所——摩根\u0026摩根。这是真的吗？他们的收入有数十亿美元，但平均的律所规模相当小。但你可以想象：得益于人工智能和我们讨论的所有变化，一个小型律所也可以发展成为一个十亿美元的企业。这就像风险投资与所谓的生活方式企业的区别。你曾经是风险投资家，这个术语。这是一个有些贬义的说法，用来描述仅仅是为了盈利的情况。但你认为假设一些小型参与者……显然现在你不能以律师事务所的身份上市。也许在亚利桑那州或其他地方可以，但……", "speaker_id": "jay", "section_id": "s7"}, {"start_sec": 2180, "type": "text", "zh": "你认为这些当地的“家庭式”律师事务所有机会成为，如果你愿意的话，非常大的机构吗？我认为将要发生的转变是，很多这些律师事务所将更像软件公司。我猜他们最终会参与过去30年来一直在进行，而他们一直被排除在外的软件革命，对吧？如果你深入探讨一下，你会明白原因。假设你有一笔25,000美元的和解款。律师可能会收到其中的三分之一。好吧，为了简化，我们称之为8,000美元。在这8,000美元中，大约一半用于工资，30%用于市场营销，其余的", "speaker_id": "jay", "section_id": "s7"}, {"start_sec": 2222, "type": "text", "zh": "可能是利润。是吗？这就是今天存在的那种业务模式。今天。这种模式使得将资金再投资以更好地服务下一个客户变得非常困难。是吗？今天唯一的办法是雇佣一个更好的律师。对，对。现在正在发生变化的是，他们可以积累一个独特的数据库，在特定法律领域提供比竞争对手更好的结果。是吗？这是一种专业化。而从历史上看，这个行业以前也经历过类似的情况。大约30年前，有一个本地律师处理从……从……是的，是的，从劳动争议到知识产权的所有事务。", "speaker_id": "jay", "section_id": "s7"}, {"start_sec": 2263, "type": "text", "zh": "财产以及介于两者之间的一切。酒后驾车指控，是的。是的。没错。完全正确。现在我们有了按执业领域的专业化。有的人在知识产权方面非常强，有的人在劳动法方面，而现在这种分化变得更细了，对吧？例如，有人专门处理由于护理失误导致的出生缺陷之类的案件。我预计这一趋势将达到一个新高度，有人可以成为涉及特定情况模式的软组织损伤案件的真正专家。为这些案件做广告比像Morgan\u0026Morgan这样的大公司更具成本效益。是的。是的。他们只是把广告牌到处都放。", "speaker_id": "jay", "section_id": "s7"}, {"start_sec": 2300, "type": "text", "zh": "所以，先在本地取得成功，然后再扩展。扩展。没错。因为你对这个特定的细分市场有很大的信心，所以可以扩展到全国。绝对正确。我认为我们将看到这种类型的专业化。我还认为我们会看到相反的情况，因为我们与一些规模像Morgan\u0026Morgan这样的公司合作。其中一些公司实际上进行了合并。所以那些已经变得非常大的公司，实际上是在收购其他律所，因为有了Eve，他们可以非常快速地结合过去曾经是一个痛苦的再整合过程的内容，而现在可以在专注于客户需求的同时完成——客户想要的就是法律结果。而Eve正是为此而设计的。", "speaker_id": "jay", "section_id": "s7"}, {"start_sec": 2341, "type": "text", "zh": "是的，通过这样做，他们在很大程度上消除了变更管理、人员变动或运营变动的问题，因为Eve处理了很多事情。他们可以加快收购的回报。有趣的是，现在有一个向基于结果的定价转变的趋势。以前，软件即服务（SaaS）按每个工作站每月收费。我开玩笑说，这是“高杯、大杯、超大杯”的软件销售模式。你可以访问任何SaaS公司的官网。这就是为什么，克劳德可以轻松克隆它们。它们看起来都一样。比如每月79美元、99美元、129美元，——高杯、大杯、超大杯。而且这是针对一个工作场所的。。看看像Zendesk这样的公司。", "speaker_id": "jay", "section_id": "s7"}, {"start_sec": 2382, "type": "text", "zh": "当它还是一家上市公司时，年收入为20亿美元。他们被Permira和Hellman\u0026Friedman收购了。现在他们就像，‘哦，你需要多少工作岗位？’‘也许是零？’‘我们必须……我们必须交付。’现在软件界的每个人，包括许多人工智能初创公司，都在说，‘我们交付成果，我们按成果收费。’有趣的是，你所专攻的法律领域从一开始就是以结果为导向的。但也有些法律领域不是以结果为导向的，尽管我保证所有客户都会更希望它是以结果为导向的。不是吗？我的意思是，有时候也不容易，例如，我搞信托和", "speaker_id": "alex", "section_id": "s8"}, {"start_sec": 2417, "type": "text", "zh": "麦克德莫特·威尔与埃默里（McDermottWill\u0026Emery）的遗嘱认证律师。她非常非常优秀。她人也很亲切。看起来我的结果……结果就是我的死亡，所以我不知道我是否想要那样。但，你宁愿只是说有一个固定价格。但通常会有这种信息不对称……为自己辩护的理由是，按小时收费的原因并不是为了敲诈客户，而是我脑海中的信息与我表述出来的方式之间存在数据不对称。也许项目的范围会随时间变化。但，我会说，其他法律领域，可能应该更像原告法律。他们也应该有基于绩效的定价。。是吧？或者，例如，", "speaker_id": "jay", "section_id": "s8"}, {"start_sec": 2453, "type": "text", "zh": "移民法应该以结果为导向。这就像一切都应该基于结果定价，但这很困难，因为缺乏数据，比如说，我如何代表被告赢得这个案件？但我认为，正如你所想，其他形式……你可能可以远远超出原告的权利。我不知道你是否同意我的看法，但你对法律总体上的变化有何看法？因为在我看来，原告法律走在了我们现在看到的一切前面。这就像……每个人都想要结果。没有人愿意为原料或资源付费。这可能是商业中唯一一个一切总是以结果为导向的领域。", "speaker_id": "alex", "section_id": "s8"}, {"start_sec": 2488, "type": "text", "zh": "但是法律的其他部分不应该也以同样的方式运作吗？这是我们的信念，不是吗？所以，最困难的部分是……真的很难。当你站在被告一方或者甚至原告一方时，关于你案件的问题是：这是10小时的工作吗？还是100小时的工作？在很多情况下，你真的要到做了之后才知道。对于原告而言，这就是为什么我们必须深入到每一个实践领域以取得结果的原因。而且，我们去年所做的就是现在称为“长期规划代理人”的工作。这正是取得结果所需要的。而现在，实际上提供法律结果的能力越来越好。最终，我认为", "speaker_id": "jay", "section_id": "s8"}, {"start_sec": 2530, "type": "text", "zh": "法律的民主化要求你在基于一系列事实的基础上，知道需要多少计算资源才能达到一个结果。这是通过数据聚合、更好地利用数据以及高效使用计算能力来实现结果的。因此我们两者都做，对吗？这就是为什么我们专注于结果并希望实现它们。毕竟，这场大卫与歌利亚的对抗无处不在。的，它不仅存在于大型律师事务所或企业法务部门。这些只是有预算的地方，因此，他们可以在一定时期内有效地开具“空白支票”。", "speaker_id": "jay", "section_id": "s8"}, {"start_sec": 2571, "type": "text", "zh": "让你想知道这对我带来了多少实际结果的机制是未知的，对吧？当你筹款时，你可能会收到一张账单，比如说10万美元。这个到底带来了什么结果？很难理解它的价值，但这是他们今天能够给它定价的唯一方式。是的。是的。这是因为他们不知道自己工作的预期价值到底是多少。这也是一种不对称性。就像：我不知道。就像，“好吧，你需要为你的C轮融资聘请一位律师。”天哪，这是什么意思？这可以非常非常简单，也可以非常困难。因此，很难设定一个固定的费用。这是真的。", "speaker_id": "jay", "section_id": "s8"}, {"start_sec": 2610, "type": "text", "zh": "因为他们可能会输，虽然他们不能以较少的金额输，对吧？就像，‘哦，我从你那里拿了25,000美元。’‘我在这上面花了一个小时。’但如果他们必须花4,000小时的律师时间，他们可能会输。‘我可能会在这上面亏钱。’当然，每家公司都是…实际上，你也知道，在公司法中，这些都是为了吸引客户的无利可图产品。然后你试图通过并购、首次公开募股或其他事情赚取利润。这与原告法律有些不同。你怎么收取费用？你当时怎么想的？因为我猜想，你在创业的第一天，并不知道你会向哪种类型的客户收费以及收费多少。我想象你", "speaker_id": "jay", "section_id": "s8"}, {"start_sec": 2641, "type": "text", "zh": "对此的思考也发生了变化。当然。所以，奇怪的是，从我们一开始开始的那一天，我想，我们是从什么开始的来着？Tall,grande，Tall,grande，venti。是的，venti模型。我们就是从那里开始的，因为我们不知道还有更好的方法，对吧？然后，随着我们更深入地研究它，我们意识到他们对结果感兴趣。他们想知道如何服务更多的顾客。所以这实际上迫使我们从一开始就以结果为导向。我们说的是一年前半的事，这也挺有趣的，因为在今天的世界里那已经算是“过去的时代”了。人工智能的时代。就像按狗年的算法乘以100一样。是的，没错。", "speaker_id": "jay", "section_id": "s8"}, {"start_sec": 2680, "type": "text", "zh": "但这实际上就是发生在我们身上的，对吧？而且还有很大的成长空间，现在，的，我们谈到了那个价值图表，三分之一的钱流向律师，其中一半是他们不再需要花费的劳动力。是不是这样？那么你如何将其转化为更有用的东西呢？而获得更有用工作的最佳方式，奇怪的是，是将其花在更多的代币和更多的任务上，让Eve完成，为你的公司赚取更多的钱。是不是这样？这就是我们今天所处的循环。还有许多市场动态正是帮助我们的。例如，我们认为按小时支付的模式不太可能完全消失，但我认为它会……", "speaker_id": "jay", "section_id": "s8"}, {"start_sec": 2721, "type": "text", "zh": "采用基于工作的薪酬模式……对于法律的某些部分，这可能是支付的最佳方式，因为在很多年之后得到结果之前，很难评估其价值。但对于许多案件，情况已经不再是这样。对于很多案件，你实际上已经知道结果会是什么。你应该能够将工作量折算成一个摊销金额并提供，对吧？这就是我们押注的方向。不是吗？这就是为什么我们专注于从第一天起，从开始到结束实现法律结果。我们让这一切变得如此简单，以至于律师可以说：“这是我获得的客户。”", "speaker_id": "jay", "section_id": "s8"}, {"start_sec": 2764, "type": "text", "zh": "把案件交给伊芙。伊芙会在你需要的时候联系你，并在你准备好时带你走。比如，我们谈到过，原告律师受到供应而非需求的约束，或者至少他们中的许多人是这样，因为他们有源源不断的客户，但因为数学不成立而无法服务——成本与收入、客户获取成本（CAC）与客户终身价值（LTV）。这是任何企业都会遇到的老问题。这也适用于他们。你清楚自己的限制在哪里吗？那么，到底是什么在阻碍你更快地成长？我是说，你无论如何都在飞速成长。你的限制因素是什么？你需要什么作为输入才能获得更多？", "speaker_id": "jay", "section_id": "s9"}, {"start_sec": 2799, "type": "text", "zh": "产出更快的增长？这真的很有趣，因为很多法律测试，即使是你们发布的那些，以及我们密切合作的Anthropic、OpenAI和许多其他公司，几乎都专注于一个结果。是不是这样？例如，这是一个任务。它处理得更好还是更差？而现在世界正在向代理工作方向发展。对我们来说，唯一一直重要的就是代理结果。是不是这样？所以现在这一点变得越来越相关。最终结果是，今天我们的技术和流程水平仍然处于一个阶段，工作仍然需要大量的人类参与。但是，通过做更多并", "speaker_id": "jay", "section_id": "s9"}, {"start_sec": 2838, "type": "text", "zh": "更多的工作，我们正在显著地从一个月到下一个月减少这个数字。在我们的行业中，我们必须对每种类型的案件都这样做。不是吗？所以对于每一个案件，我们都像科学一样进行研究。如何真正解决这个案件？以及如何创建一个能够处理所有这些数据以得出解决方案的“迷你律师大脑”，在各处执行，并使用所有可用的工具，包括Claude和其他工具，以确保结果。实际上，这是一个非常困难的任务。不是吗？所以，在这个阶段，我们在很大程度上受到工程师数量的限制。我们有无尽的事情要做，以推动这一进展。还有其他好的方面", "speaker_id": "jay", "section_id": "s9"}, {"start_sec": 2877, "type": "text", "zh": "部分原因是——我们有需求。在我们能够完全自动化的时候，比如说，处理交通事故案件从头到尾，通过这项技术为世界创造的价值将达到数千亿美元。而这只是案件的一个子类型。那是一个很好的问题。你有没有见过从头到尾完全自主的案件处理？也就是说，接听电话，接待客户，从保险公司收到支票。从开始到结束都实现了吗？还没有，但我们很接近了。这就是为什么我们需要工程师。不是吗？为了让你了解规模，一件事是，它可能涉及1万次交互。1万次？", "speaker_id": "jay", "section_id": "s9"}, {"start_sec": 2915, "type": "text", "zh": "10,000？大约是这个数字吧。因为……哇。哇。你可以这样想，不是吗？一个客户进来了，比如说这是一个关于健康损害赔偿的案件。现在你已经有了他们的病历。那么现在你实际上必须打电话给保险公司和医疗机构，去获取客户手上已经有的记录。不是吗？所以实际上今天需要两周的时间。而有了Eve的外呼代理，我们有一个可以进行外呼的语音AI。奇怪的是，在这个领域，我们已经看到代理们彼此交流，学会绕过限制。完全是相互之间，这简直荒谬。而且这是非常必要的。", "speaker_id": "alex", "section_id": "s9"}, {"start_sec": 2950, "type": "text", "zh": "对吧？然后从那时起，你需要创建一个文档并与对方进行对话。所以，这些都是我们从头到尾执行的任务。今天，当有人改进结果或做某件事时，仍然需要稍作干预。但我们现在正在构建的是如何自动实施整个流程？是的，是的。我们已经看到了一些初步迹象，因为它已经在一些客户那里起作用了。回到防御方面以及他们大量的信息，你是否注意到他们的反应总体上发生了变化？这里有一个例子：“哦，这些人主动接洽了”", "speaker_id": "jay", "section_id": "s9"}, {"start_sec": 2991, "type": "text", "zh": "关于这件事告诉我。”我总是必须解决这个问题，因为他们可能对此有相当严格的规定。我假设他们不是临时编造的，因为他们每年处理这类事情的次数可能有数万次，甚至更多。所以，如果我是GEICO，我会想，“哦，你要求这么多，好吧，我的第一步尝试是先在这里解决。”但是，如果他们的支出减少，也许情况会改变，对吧？那么，你有没有注意到你……不是你的对方，而是你客户的对方的反应有什么变化？我会说，辩护方仍然主要是按照小时计费模式运营。所以他们还没有完全跟上步伐", "speaker_id": "jay", "section_id": "s9"}, {"start_sec": 3028, "type": "text", "zh": "我们的律师还没有。因此，我会说这里在定价上存在显著的不对称。在过去，我们合作的一家律师事务所的辩护方会将证据披露请求的日期拖延到感恩节前一天或一个重要节假日前。是的。是的，他们就在那时发送请求，因为他们知道对方会去度假，并且在假期期间工作会很繁忙，因此不会高效或迅速地处理。而现在，由于这种重复的策略，他们在EVE上创建了一个代理来同一天回应请求。因此下一次发生同样情况时，他们立刻就回应了，辩护方感到震惊：“这是怎么回事？”", "speaker_id": "jay", "section_id": "s9"}, {"start_sec": 3069, "type": "text", "zh": "是的。是的。这种策略不起作用。我们看到它的很多变种现在正在出现，以至于防守方开始意识到：等等，当对方有资源时会发生什么？是的。哦，灾难啊。这正是观察的有趣之处。好了，Jay，这真是一场精彩的对话。我学到了很多。我没意识到每个案例都需要一万次接触，但这真的很令人兴奋，我也很高兴成为你的合作伙伴，把Eve推广到下一个一万家公司。谢谢。我的意思是，我们仍有很多事情要实现。我们可能已经帮助了几十万客户，并拥有数亿联系人，我很希望能改变", "speaker_id": "jay", "section_id": "s9"}, {"start_sec": 3109, "type": "text", "zh": "他们每天都在改善自己的生活。所以如果你对此感兴趣，请加入伊芙……完美。谢谢。", "speaker_id": "jay", "section_id": "s9"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

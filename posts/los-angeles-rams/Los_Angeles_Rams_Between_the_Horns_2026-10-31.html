@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>找回节奏、倚重跑球与击败闪电队的关键｜两角之间</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-2{--c:#4c8c5a;--cbg:#29392a;--cbgl:#eaf1eb}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="jb">杰伊·B·朗（J.B. Long）</option><option value="df">德马科·法尔（DeMarco Farr）</option><option value="mjd">莫里斯·琼斯-德鲁（Maurice Jones-Drew）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Los Angeles Rams</span><span class="pill">2026-10-29</span></div>
+<h1>找回节奏、倚重跑球与击败闪电队的关键｜两角之间</h1>
+<p class="sub">嘉宾：DeMarco Farr、Maurice Jones-Drew · 约 39 分钟（2327 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=q3s_KMV6HkE" target="_blank" rel="noopener">https://www.youtube.com/watch?v=q3s_KMV6HkE</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Los Angeles Rams</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-29</dd></div><div class="meta-row"><dt>时长</dt><dd>约 39 分钟（2327 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；普通 yt-dlp + android/tv client）；caption_source=yt-dlp-auto；中文为全文翻译并按话题分段；赞助口播已标灰（Southern California Toyota Dealers）</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>q3s_KMV6HkE</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>公羊官方节目《两角之间》：杰伊·B·朗与德马科·法尔、莫里斯·琼斯-德鲁复盘大胜突袭者——13人组与双跑卫跑球重新定调、传球节奏与红区效率回暖，并展望第8周主场对阵零胜闪电队的同城德比与伤病名单变数。</p>
+<h3>核心要点</h3><ul><li>MJD认错「多传」建议：双跑卫+13人组控线并减少与克罗斯比纠缠的第三档</li><li>进攻哲学从「传球铺垫跑球」切到「跑球铺垫传球」；亚当斯缺阵加速简化</li><li>斯塔福德短快手术式传球+行动假传；红区靠近端锋群与跑球终结并刷新纪录节点</li><li>谢尔顿/帕金森伤情威胁13人组连续性；弗格森预计不练</li><li>防守擒杀少但档下转换多；沃勒斯开阔地回铲、斯佩兹亮眼</li><li>对阵闪电队：两队皆绝境，须复制拉斯维加斯身体性、不可轻视零胜对手</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：公羊球迷与关心第8周德比、跑球身份与伤病名单的人；可跳过：对 NFL 战术复盘节目不感兴趣者（约39分钟）。</p>
+<h3>适合人群</h3><p>NFL / 洛杉矶公羊球迷；关注跑传平衡、13人组与同城大战的读者</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场：丰田冠名与连胜「幸运衣」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">杰伊·B·朗（J.B. Long）在索菲球场（SoFi Stadium）丰田露台俱乐部开场，本周末公羊主场对阵同城闪电队；搭档德马科·法尔（DeMarco Farr）与莫里斯·琼斯-德鲁（Maurice Jones-Drew，MJD）。三人调侃 MJD 连续两周同款卫衣——对方回应「我们赢了」，类比酿酒人队球帽「运气」；公羊本赛季第三胜、有望回到五成胜率，讨论从复盘突袭者一战开始。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">跑球回归：13人组与双跑卫压垮突袭者</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">MJD 认错上周「多传球」的建议：当双跑卫合计冲出约200码、两边线争控球、13人组（1跑卫3近端锋）奏效时，应让进攻线前推、给防守休息并消耗突袭者。普卡·纳库阿（Puka Nacua）出场有助跑球；侧翼与安全卫若不善防13人组边到边扑倒，布莱克·科勒姆（Blake Corum）或凯伦·威廉姆斯（Kyren Williams）晃开自由击球手就可能大码数。避开与马克斯·克罗斯比（Max Crosby）纠缠的第三档——干脆少进第三档——四次成功进攻系列的关键是跑球。不能因对手战绩差就掉以轻心：红雀同样不强却曾在主场拿不下；对阵零胜闪电队也要用同一套「打穿弱旅」的方式。沃伦·麦克伦登（Warren McClendon）单防克罗斯比多次站稳；开场三连传不理想后第二波改为暴力跑球见效，普卡有时领堵、科勒姆达阵配合近端锋斜线与假传真跑。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">为何现在才简化？伤病与「正装 vs 礼服」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">被问为何赛季初一个多月才打出对阵拉斯维加斯的简洁打法：法尔指出有达文特·亚当斯（Davante Adams）与普卡时需要「拆分剧本」喂球，简化成跑球+找普卡后节奏明显更好；在他人伤愈或接球手冒头前会先押一边。朗提起麦克维时代首胜达拉斯的季后赛——两名跑卫各90+码并达阵，与本场数据相似——似乎要「减配」才肯打出线争控制。MJD 用「舞会礼服想两个月 vs 一周只穿经典西装」比喻：武器太多时人人想摸球（弗格森、亚当斯等），反而不如13人组跑球+行动假传干净；第1周对阵四九人队最好的进攻系列也是13人组强攻。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">跑传哲学切换与坚持身份</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">法尔总结哲学切换：开赛是「传球铺垫跑球」，现在是「跑球铺垫传球」。MJD 认为即便战绩不同也会朝感恩节后「天冷靠跑」演进，亚当斯缺阵只是加速；朗感觉有点像背水一战才找回身份。权力排名各单元，跑球进攻近一年尤其本季最高效——两跑卫场均约5码。双跑卫内部竞争让对面更难受；凯伦两步假动作说明手感在线。朗追问鸡生蛋：为何总要大比分领先后才敢坚持跑球身份？球迷希望早早落后也「固执」跑下去。法尔：关键分差下更易在脑中选「8码——给普卡短传/掩护」而非递手；水牛城一战所谓跑球统计很多是快传。MJD 回忆杰克逊维尔与托里·霍尔特（Torry Holt）时代——即使大比分落后仍跑球优先；训练营磨合的是外接组合，跑球同样强，有时是「此刻最佳选项」问题。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">传球节奏、靴腿与红区效率</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">传球端也变了：重回三近端锋人员、移动口袋、持球者、快速外放，斯塔福德节奏像上季 MVP 蓝图；行动假传骗得线卫追鬼。突袭者/闪电类「费劲停跑」的队会露出靴腿与深传时机。对阵亚利桑那时因佛陀·贝克（Budda Baker）难以预测而不敢轻易被陷在后场。斯塔福德仅六次不完成（含应接住的偏转抄截）；平均目标深度偏短不构成担忧——是「手术式」短快而非无脑短传，会随对手拉开。MJD：深传高风险，麦克维更愿用普卡单切快速出球与掩护当「爆炸戏」；持续推进也让防守在边线喝电解质饮料。朗问最重要的一次不完成：希格比/图图·阿特维尔（Tutu Atwell）身后大开——逼对手尊深远威胁，类似法布雷/罗斯利斯伯格开场「示威长传」。红区：无亚当斯「作弊码」仍靠戴维斯·艾伦（Davis Allen）、普卡达阵并送斯塔福德刷新纪录；近端锋群（「将军」希格比外号来自家乡或从警联想）假跑真挡掩护出色。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">伤病名单：谢尔顿/帕金森与13人组连续性</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">连续性成忧：帕金森肋骨多次倒地爬起；中锋科尔曼·谢尔顿（Coleman Shelton）被夸成 NFC 西乃至 NFC 最被低估齿轮——中锋受伤极伤进攻气质。有人称他 QB2 反成全年被斯顿特针对的隐患。若帕金森与 T·弗格森（Terrance Ferguson）本周无法参与，上周转身 bulk 的13人组身份会被掏空；可上克拉克但经验差一截，12人组仍在，需惠廷顿或普卡客串第三近端锋。沟通是11人同步的前提——即使只有八成战力也要贴好胶带上场。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">防守亮点：沃勒斯、斯佩兹与拿不到的擒杀</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">防守：对亚利桑那整场未丢达阵（却输掉）、对拉斯维加斯直到第四节首个进攻才丢达阵，且无特伦特·麦克达菲（Trent McDuffie）。法尔难忘乔什·沃勒斯（Josh Wallace）开阔地把人过肩摔回地面——大打后的「活下来再打下一档」。轻人员仍锁跑，几乎不尊重突袭者跑球；菲斯克、AD（亚伦·唐纳德）出镜，鲍尔斯被限制。奥马尔·斯佩兹（Omar Speights）表现亮眼——对比两年前被萨奎恩晃倒的嘲讽，如今对普通跑卫与特勤组都能引爆；朗希望他成长为绿点指挥，法尔更想让他纯靠破坏力打球。擒杀偏少、夺球少但「档下转换」多；对手出球快、公羊少靠四/五人施压。伤兵名单仍缺麦达菲、科比·特纳、普纳·福特、迈尔斯等，却仍有效。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">第8周德比：两只「被逼入绝境的动物」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">还剩三场常规赛到轮休，下一场零胜闪电队刚轮休归来会把同城大战当「超级碗」。两队都是「被逼入绝境的动物」——公羊刚取胜是唯一差别，但仍低于五成、都有出局危险。朗仍被昔日零胜喷气机（萨姆·多纳尔）来索菲赢球的阴影折磨；麦克维新闻发布会称不看对方战绩。麦克维处理凯伦「我该在场上」情绪并让他用表现赢回信任、帕金森带伤坚持，被形容为「掐住球队喉咙」整顿态度。斯塔福德称外界只知帕金森痛苦的一半。结论：带来拉斯维加斯那种连接感与跑传配，闪电队很难赢；但心态必须同等绝望、不可轻敌。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">交易截止、锋线深度与对阵闪电队关键</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">讨论交易截止补强与锋线/边路深度：能中止大码跑与克罗斯比式边锋的阵容价值；公羊更可能指望伤愈核心回归而非大举外援。强调对阵闪电队要继续用双跑卫与进攻线「欺负」对方前排，行动假传与快速游戏拉开；特勤组精力与唐纳德在被忽视后的旋转摆脱也被点名。保持拉斯维加斯的身体性与沟通，把同城对手当成全明星挑战。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">收尾：用拉斯维加斯的打法拿下同城对手</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">收束：若复制突袭者之战的进攻线前推、红区终结与防守「活到下一档」的韧性，公羊能在主场拿下闪电队并朝 .500 前进；若早早放弃跑球身份或轻视零胜对手，旧伤会复发。节目在丰田冠名的「两角之间」以备战提示结束。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">杰伊·B·朗（J.B. Long）<em>主持</em></span><span class="spk-1">德马科·法尔（DeMarco Farr）<em>嘉宾</em></span><span class="spk-2">莫里斯·琼斯-德鲁（Maurice Jones-Drew）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场：丰田冠名与连胜「幸运衣」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="marker-line"><span class="tag">[已省略广告：Southern California Toyota Dealers]</span></div>
+<div class="turn spk-0 host" data-spk="jb"><div class="label"><span class="badge" title="杰伊·B·朗（J.B. Long）">朗</span></div><div class="content">
+<p>公羊队回到英格尔伍德，本周末将迎战闪电队。我是杰伊·B·朗（J.B. Long），与我的朋友德马科·法尔（DeMarco Farr）和Maurice Jones Drew一起。如果你想知道，有没有人因为MJD穿了和上周一样的连帽衫而指出来？是的，我们指出来了。你的回应是什么？我们赢了。对。所以，没跟随榜样是我们的错。我们到底在做什么？我们刚刚看到酿酒人队赢得了世界大赛，而我</p>
+<p>当然，那顶帽子上有汗渍的那个家伙，并不是因为，你知道，他只是找不到一顶新帽子。那个家伙帮不了他。我的意思是，我们只能坚持保持好的运气，并继续下去。不过我希望你洗过它了。〔笑声〕我的意思是，我只是为了比赛才戴的。我在上面弄了点甜甜圈。不过没关系。是的，我的意思是，你应该对闪电队重复他们对突袭者队做的事。你会得到同样的结果。本赛季的第三场胜利，有机会在周日回到五成胜率。让我们回顾一下你喜欢那场胜利的哪些方面。感觉好像公羊队在某种程度上回归了基本。你</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>跑球回归：13人组与双跑卫压垮突袭者</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>举手。你想先说吗？让我道个歉。让我让我道个歉，我认错。我喜欢这个。对我来说出去说，‘让我们积极进攻，把球扔出去。’当你有200码的冲球手时，你可以控制双方的争球线。你可以让防守得到休息。基本上你让整个进攻端的突袭者疲惫不堪。两名跑卫都跑得很好，进攻线挡得很好，13人阵容发挥很大作用。你们的指挥真棒。是的，我说过。那是我的错，尝试做得太多了。不，我是说，你有一个MVP四分卫，我明白。而且我们不知道普卡能否上场，我想</p>
+<p>那种改变了我们的思维方式。但把普卡放在那里，我认为有助于跑球。可是，13人阵在某些防守面前简直是杀手。如果你无法从边线到边线完成擒抱，如果你的角卫和安全卫在对付13人阵时不擅长擒抱，你可能会有麻烦。真的会，因为它迫使每个人都进入一个缺口，然后就会有一个游击手去防跑卫。如果布雷克·科鲁姆或凯伦·威廉姆斯让那个人失误，你就可以自由奔跑了。但这是控制比赛的最好方式，而你也做到了。我们整周都在讨论哪些可能伤害公羊队的事情。马克斯·克罗斯比在</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="jb"><div class="label"><span class="badge" title="杰伊·B·朗（J.B. Long）">朗</span></div><div class="content">
+<p>第三次进攻。我们谈到了如何防守马克斯·克罗斯比。用人撞他，保留一个近端锋，你可能不得不单打独斗。那要不干脆完全避免第三次进攻呢？那真是太棒了。我觉得那四次进攻很棒，但跑卫进攻才是一切的关键。就像我们上周说的，跑卫进攻是为这支球队争取时间、让球队重回正轨的关键。让我立刻看看评论区，我就假设性地说一句，“是的，但突袭者表现很差。”这是真的。他们不行，他们不会很快取得进展。红雀队当时也不怎么样，对吧。而且你在这里也打不赢他们，对吧？所以，这很重要。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>向前迈进。闪电队还未取胜。必须用同样的方式击败他们。就像，正如德玛尔科喜欢说的，我们可以在十二月和一月时再担心最终的Boss关，希望如此。公羊队有资格到那那里。现在，重点是击败那些不如你的球队。不，你说得完全正确。而做这件事的方式就是让你强大的进攻线前进，让你的跑卫摆脱铲球。再说一次，你可能本该有多少呢，我会说你本该有一次被判无效的40码或50码长跑。布雷克本赛季最长的跑。是的，我是说，再说一遍这些事情，然后它也提高了你的四分卫效率。我们听到肖恩讲过这个。然后向沃伦致敬</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="df"><div class="label"><span class="badge" title="德马科·法尔（DeMarco Farr）">法尔</span></div><div class="content">
+<p>麦克伦登因为不得不去。他和马克斯·克罗斯比有过几次一对一的对抗，他都能坚持住。对我来说，这就是你要找的。他们通过跑动进攻消耗对方体力，迫使这些防守锋线球员不得不脱离阻挡进行争夺和各种动作，从而浪费他们的能量，这样他们就没有足够的体力去冲击四分卫。有意思的是，就像我们之前谈到的，JB，公羊队开局连续三次传球被迫三出局，但在第二次进攻时，他们就像说：‘看，我们要跑这个球。我们要强力推进，我们要…’</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>会变得身体对抗强烈。结果对他们有利。希望他们开始在比赛一开始就投出刺拳。就像。嗯，希望如此。和上周一样吗？不。<span class="tag">【笑声】</span>希望我们能以几记重击开场，你懂我的意思？跑球。而且，我也喜欢这个战术布局。有时候是Puka带球。然后到最后布莱克·科勒姆（Blake Corum）达阵，我不知道你有没有看到，Puka跑了个角出路线。然后近端锋跑了个箭头路线，然后他们看起来像是传球，你把人从盒子里拉出来，但那里没人。所以，对我来说，能够把一切看起来一致，真的很重要。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>为何现在才简化？伤病与「正装 vs 礼服」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="df"><div class="label"><span class="badge" title="德马科·法尔（DeMarco Farr）">法尔</span></div><div class="content">
+<p>将我们为他们使用的跑动和假动作传球结合起来。为什么花了这么长时间？这是否是某种开始其实并不重要，但为什么他们花了整整一个月才达到对阵拉斯维加斯时的水平呢？我有答案给你，而且听起来可能有点奇怪。当你观看录像时，我不会说很容易，但你会看到他们的节奏感有多好。当你还需要担心把球传给Devonte和Puka的时候，这就有点困难。你懂我的意思吗？当你在那方面需要分拆你的战术手册时。如果简化一下，跑球、传球给Puka，他们表现得很棒。我认为就是这样</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="jb"><div class="label"><span class="badge" title="杰伊·B·朗（J.B. Long）">朗</span></div><div class="content">
+<p>你会一直坚持下去，直到队员们恢复健康，或者直到出现其他接球手，但我认为赛季开始时的计划是投掷足球。这是他们原本计划要做的，并使用13人组阵型在其背后进行跑动，但我不认为你现在准备放弃这一点。我认为你只需要依靠某一部分，直到替补球员上场，然后你就可以再次启动传球进攻。让我引导你理解一些事情，因为我知道你对这个问题的看法。上周在这个节目中，我提到了我最喜欢的洛杉矶公羊队比赛之一。那是肖恩·麦克维执教时期的首场季后赛胜利，地点是在主场对阵达拉斯牛仔队。如你所见，你看看赛果统计表</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>拉斯维加斯和那场比赛的比分，非常相似。那是公羊队上一次有两名跑卫单场冲过90码以上的比赛，他们各自都有一次达阵。那是CJ，那是托德·古尔利。那是进攻线在证明什么，对吧？赢得坦克线的优势。所以，那正是我所渴望的，我会这么说。但要达到那种状态，需要在天赋不齐全的情况下才能实现，莫里斯。我知道你对此有自己的看法或感觉。我觉得就像德马库斯说的，当你拥有其他这些武器时，特伦斯·弗格森、德万特·亚当斯，对吧？你会想把球交给这些人，因为他们的对位看起来</p>
+<p>太好了，你想确保每个人都能触球，但有时候这并不能让你展现出最好的一面，对吧？就像你要去参加返校舞会，当你有两个月时间考虑你的礼服该穿什么时，男生们会准备好一切：领结、手表和项链。当你只有一周时间考虑时，你会穿得随意一些，只穿一套燕尾服，这样总是没问题，对吧？所以对我来说，我认为有时候我们拥有的东西太多，公羊队可支配的资源太多，这在NFL说出来很疯狂，因为最简单的事情就是出动13人阵型，跑一场足球动作传球，并让它奏效。让我们...</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>跑传哲学切换与坚持身份</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="df"><div class="label"><span class="badge" title="德马科·法尔（DeMarco Farr）">法尔</span></div><div class="content">
+<p>记住这一点，在第一周，公羊队开场时把球到处传试图找出方法，然后他们最好的攻势是什么？13人阵型，我们要直接跑球冲你们，结果他们确实把球推进到四十九人队那边。所以，这一直存在，我觉得你说得对，DeMarcus，这一直存在，但我相信公羊队的理念在整个赛季过程中已经改变了。最初的想法是，先传球为跑球做准备。现在，我们是跑球为传球做准备，我认为进攻理念已经改变了。你看，我觉得你无论如何都会到这里来。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>毫无疑问。无论记录如何，我认为这就是这支进攻会进行的方式，因为我们总是说，什么时候足球才真正开始？感恩节，天气变冷的时候。那在冷天赢球你需要做什么？就是跑进攻。所以，我认为你大概在这时候就会开始加强跑动游戏。不是什么万不得已的办法，我认为这一直就是这套阵容和这两位跑卫的运作方式。只是现在因为德万特缺席，这个过程加快了。感觉有点像万不得已，有点像我们的背水一战，而我们的感恩节足球可能不会这样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="jb"><div class="label"><span class="badge" title="杰伊·B·朗（J.B. Long）">朗</span></div><div class="content">
+<p>如果我们现在不谈到这一点，那就没有意义。比如，如果我要为公羊队的各个单位做排名，你知道的，各种踢球比赛、防守传球、防守跑球、进攻传球、进攻跑球，哪一个在一年多的时间里表现最出色，特别是这个赛季？榜单的顶部是谁？跑球。这是他们做得最好的。他们在历史上效率很高，一年前，两名跑卫每次持球平均获得5码。我认为进攻线未来会比在那些紧张的第三次机会和长码情况中表现得更好，这对大多数进攻线来说都是如此。但是，你喜欢和弗雷德竞争吗？我很好奇。我的意思是，当我年轻的时候，是的，肯定是。-嗯。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>当我成为那个人时，不。我想要，我想要全部，但我感受到了上周比赛的每一步。我感受到了上周每一步。那种当你有两个人在内部竞争时，这会给另一方施加更多的压力，因为这甚至不是关于你们的。这不是关于……就像我和这个家伙有些事情必须弄清楚，对吧？我们要弄清楚这些事情，现在是针对你们的，但当你有两名跑者那样奔跑时，你看到了额外的斗志、爆发力。Blake Corum，你知道，我是说，他们都全神贯注。我认为拥有这种状态是特别的，这可以带来动力</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="jb"><div class="label"><span class="badge" title="杰伊·B·朗（J.B. Long）">朗</span></div><div class="content">
+<p>在整个赛季的剩余时间里，因为你看到了吗，凯伦·威廉姆斯在场上的那个小两步？那就是你知道他状态正佳的方式。是的。来一个这样的，把腿抬起来。他到底想做什么呢？想做假动作。你做了一个小假动作吗？是的，是的。好吧。摆姿势，好的。是的，我的意思是假装一下然后回去，什么有效就用什么，伙计。<span class="tag">【笑声】</span>你懂吗？是的，做你必须做的。让我问你一下我今天早上试着跟MJD提出的这个先有鸡还是先有蛋的动态。我想很多公羊队球迷都有这种感觉。就像，是啊，很高兴看到这个。那是我们。那就是我们熟知并喜爱的公羊队进攻。</p>
+<p>但是，为什么非得是一路领先才能体现出那种身份呢？如果你一开始失分，为什么不能带一点那种风格呢？你明白我的意思吗？就是说要坚持它。我的意思是坚持跑动战术。没错。就像—那些公羊队，每当比赛进行顺利，无论是时间还是得分方面，他们就会依靠那种身份稳住比赛的节奏。为什么你不能从一开始就按你希望的方式控制比赛呢？我不想说是“以跑为主”的身份，因为那听起来有点天真、有点老派。公羊队依然非常擅长传球。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="df"><div class="label"><span class="badge" title="德马科·法尔（DeMarco Farr）">法尔</span></div><div class="content">
+<p>他们也是一个非常好的传球进攻队。斯塔福德只有六次传球未达，其中一次是被撞偏的拦截，本来应该接到的。所以，我不想把事情往回扔得太远，但你知道我的意思吗？我认为很多球迷会想，为什么我们放弃了那个？就像一周前对上红雀队的比赛整场比赛只是以一记射门的差距进行的。因为如果你是战术指挥者，在你脑子里更容易说，如果你是肖恩，你会想，‘好吧，我们需要获得8码。’转身把球交给某人还是抛给普卡做屏幕传球更容易呢？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>把一个6码的球传给普卡，对吧？我觉得那就是区别。如果你回看布法罗比尔队的比赛，他们就是把那算作他们的跑动进攻。如果你看了，会发现其实是快速传球出球，试图让普卡一对一地面对防守后卫。当然，我明白。我以前也在有爆发力球员的进攻体系里，你会觉得，“哟，我们有托里·霍尔特，我最后一年在杰克逊维尔的时候。”托里总是完全空位，对吧？我的意思是，他总是空位，而且他会大喊。但要明白，我们打的是以跑为主的进攻。即便落后30分，我们也是如此。</p>
+<p>我们打算跑橄榄球进攻。所以，理解到当你有你拥有的武器，所有这些因素都在起作用时，年初的时候，像德马尔科说的，最佳选择是在外线是达万特和普卡，对吧？我认为，这也是你会倾向的方向，因为这是你训练的重点。这些都是你整个夏天和整个训练营里一直在练习的，目的是让这些球员调整状态，做好准备。碰巧的是，我们的跑球也非常不错。所以，有时候情况就是这样：这是唯一的选择，这是我们最好的选择，我的想法是这样。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>传球节奏、靴腿与红区效率</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="jb"><div class="label"><span class="badge" title="杰伊·B·朗（J.B. Long）">朗</span></div><div class="content">
+<p>对阵红雀队时，你会觉得，‘看看，我们有达万特，他可以在这一边一对一取胜。我们有普卡，他可以做这些事情。’就是这些是我们最好的选择。我们总是想把最好的牌拿出来。我也换一种方式来说明，因为我可能太多地把你引向了这支球队的跑球风格，但传球游戏看起来也不同。不仅是在他们的设置方式上，还有球员组合方面，又回到了三翼锋的阵型，同时也在移动口袋。嗯。持球者游戏。快速传到边线。像他在打得很快，很准时，甚至超前计划。就像这是上个赛季MVP的蓝图一样。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="df"><div class="label"><span class="badge" title="德马科·法尔（DeMarco Farr）">法尔</span></div><div class="content">
+<p>而这一切的开始，是因为你能打跑球，而且你让他们买账。一些假动作绝对精彩。你会看到后卫们在追逐空气，完全被跑动吸引而偏离了位置，没有拦阻者，也没有其他动力。就是因为跑动向那个方向。这就是他们的想法。当你面对像突袭者和闪电这样的球队时，他们在防守跑动上吃力。我讨厌他们说自己防不住跑动，因为他们有时确实能防住，但他们确实挣扎。这需要他们全力以赴。当他们害怕跑动时，你完全能看出来。所以，那种外摆跑的战术就会存在，我很高兴这些战术存在。回到之前说的事情，</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>亚利桑那尝试进行跑动进攻，我有时能理解，因为那支防守队伍很难预测。想想布达·贝克因素，你不知道他会从哪里出现。你最不想做的就是在这些所有的跑动中被困在后卫区。但对阵突袭者队和闪电队时，跑动进攻是可行的。如何击败这些球队再明显不过了。但我认为这会为你说的所有内容铺平道路，一些深远传球也会随着时间出现。他们仍在寻找机会。他们确实尝试过用芒菲尔德几次传球，如果斯塔福德在那次传球时顺势将球传给芒菲尔德，他抓到球后，高抬步就能进入端区。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="jb"><div class="label"><span class="badge" title="杰伊·B·朗（J.B. Long）">朗</span></div><div class="content">
+<p>如果传球不是把他拉回来并撞倒他，那本来会是一次达阵。所以，平均目标深度或缺乏深度并不会困扰你。至少目前不会。现在还不会。斯塔福德在过去几场比赛中的喷射图并不像其他一些四分卫那样作弊式传球。他的传球很精准、迅速、短距离，而且我认为非常针对对手。根据对手的不同，他的传球会有所变化。我们也必须记住，长传达阵很刺激，但那并不是赢得比赛的方法。这些只是</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>高风险、高回报的打法，对吧？就像如果我在第一攻试一把，比如说在第二攻四码时尝试，如果没成功，就是第三攻四码。那时我们就得退回来，稍微整理一下自己。所以，我认为肖恩想表达的是，听着，让我们的尝试是那种没人防守的快速外线球，对吧？普卡·纳库阿单对单快速出球。让那成为我们的快速外线球，让我们尽早尝试。然后让挡拆配合接管比赛，我们看到很多这样的情况。而且，这种打法效果很好。我相信有时候在NFL里和大学、甚至高中相比确实很不同，但按部就班的进攻也是很重要的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="df"><div class="label"><span class="badge" title="德马科·法尔（DeMarco Farr）">法尔</span></div><div class="content">
+<p>一遍又一遍地反复，这不仅有助于你的进攻，也有助于你的防守。那些在场边喝着佳得乐、兴奋地看着比赛的队员们，看了十五次进攻可能会想多待一会儿。没错。所以他们鼓励队员们上场。有时候，你最好的进攻，或者跑动型进攻，高效的进攻，不仅能帮助你提升数据，还能帮助你的防守并让他们得到休息。还有一点，我正要说，作为防守队员，对我来说，担心你长传进攻比实际被迫尝试要好，然后我就知道你到不了那里。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="jb"><div class="label"><span class="badge" title="杰伊·B·朗（J.B. Long）">朗</span></div><div class="content">
+<p>甚至不必遵守它。明白吗？我正想问一天完成中最重要的是什么。关于那场胜利。哦，那个投给泰勒·希格比（Tyler Higbee）的吗？我是说，Tutu Atwell沿着场地快速冲刺。你有两个球员在场上毫无遮挡地冲刺，你把球投高了，然后球在他们之间弹来弹去，这迫使突袭者们想，“哦。”而且，很有趣的是，在其他几次进攻中，Tutu Atwell也在跑着像是任意路线或角球路线，他完全空挡。但是好像有人在试图追他，他在对安全卫大喊，“你在哪？我搞不了。”然后又是这样,</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>这只是迫使防守协调员或者在广播席上的人要说：“看，这个人开了。我们必须确保盯着他，因为他能影响比赛。”你们还记得法弗吗，对吧？太有趣了，他会直接长传，不试图完成传球。只是为了让我们知道他能把球投得很远。是的，这就是本·罗斯里布格所做的。他整周都在受伤。第一场比赛开始。我记得是对阵野马队的季后赛。第一球，他就尽可能地远传。只是为了让你知道，“嘿，我仍然能做到。”然后他们会让你退后，这就打开了其他所有的机会。最后，我想谈谈红区。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="jb"><div class="label"><span class="badge" title="杰伊·B·朗（J.B. Long）">朗</span></div><div class="content">
+<p>分区成功，因为没有作弊码——就是下场那些短区间的达万特·亚当斯——我们也能看到公羊队冲到达阵线，甚至克服一些处罚仍然将球送入端区，由戴维斯·艾伦得到几个，由普卡·纳库亚得到一个，使马修·斯塔福德登上纪录书榜首。觉得这非常令人振奋，不仅因为他们维持了攻势，更因为重要的是完成了进攻。是的。我会说是一个很棒的房间。每一个首发近端锋的表现都是完美的一天。甚至连将军我也明白了，他们告诉我这是什么意思。顺便说一句，他就是美国队长。他们说如果把他的制服换成军装……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="df"><div class="label"><span class="badge" title="德马科·法尔（DeMarco Farr）">法尔</span></div><div class="content">
+<p>看起来几乎一样。所以他们叫他将军。说得通。是的，我觉得希格斯说过，当他回到家乡时，他可能会退休从事执法工作，然后这就演变成了‘将军’。现在，我再也无法不把他看作将军了。美好的一天。我的意思是，靠近端锋的美好一天，并且就像你说的，跑球进攻让他们启动起来，还有一些他们做的虚晃挡拆的动作。是的，他们在这方面很棒。我是说，他们真的能把跑动卖得让人信服，然后他们在屏幕外出球，哐当，下场冲刺。时机非常棒。再次强调，在红区有多种得分方式。我认为在这场比赛中，跑球是最有效的方式。他们</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>进入大约两三码线的情况下，即使我们犯了一个罚球，你也可以通过一次跑动拿回码数，然后你又……如果你在红区让对方每次跑动拿到六七码，你认为每个人会怎么做？队员们一旦被挡开，他们就会偷看跑向哪里，然后Davis Allen就会完全空位，对吧？所以再次强调，这是一个很棒的比赛计划，很棒的执行，但这一切都始于他们真的像恶霸一样，压制对方进攻线。你们说过Crosby吗？很少，对吧？我想他唯一完成的一次进攻就是在跑动防守中斜插进去，是的，全力防守跑动。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>伤病名单：谢尔顿/帕金森与13人组连续性</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="jb"><div class="label"><span class="badge" title="杰伊·B·朗（J.B. Long）">朗</span></div><div class="content">
+<p>我只是希望他们能够保持连续性，在那场比赛的基础上继续发挥。我担心周初的伤病报告。我的意思是，帕金森三次从场地上自己爬起来，结果是肋骨在困扰他。我的意思是，科尔曼·谢尔顿可能是整个NFC西区，甚至可能是整个NFC中最被低估的球员，就这支球队的进攻如何看待他而言。如果你的中锋受伤，那可不是你想处在的位置。所以随着本周进行，这也是值得关注的——我们在拉斯维加斯看到的那些进攻贡献者中，有多少会在对阵充电器队时上场。我讨厌（这种称呼），当有人称他为QB2时，那其实是极大的赞美。你觉得呢</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="df"><div class="label"><span class="badge" title="德马科·法尔（DeMarco Farr）">法尔</span></div><div class="content">
+<p>还记得吗？我不记得，但我喜欢那样。他作为第二四分卫从训练营出来。那显示了他有多聪明。给他点应得的赞美，我首先想到的是，如果他是你的第二四分卫，那么整年他都会成为对手的目标。如果你看看其中的一些伎俩，那些都是为了突破或者击打对手来获得空档的伎俩。在过去四周里，他们一直在针对他下手。所以，我并不惊讶他有些受伤。就像科尔比·帕金森一样，你必须坚持下去，这就是现实。他们需要你，你必须上场。没有人像你这么聪明。所以，作为中锋，你有责任上场。我明白，这很糟糕。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>这很痛，但你得想办法把他们从那些位置上弄出来。不过，他们做的就是针对较小的中锋，通过这些套路冲过他。是的，知道T Ferg这周不训练。如果Colby不能上场，我认为这会削弱你上周部署得非常好的许多身份和人员组合。你可以让Clark上场，但考虑到缺乏经验，这可能是一个相当大的替换。12人组阵容会保持不变。你只是得让Whittington进来，充当第三个近端锋。普卡·纳库阿（Puka Nacua）进来，充当第三个近端锋。我的意思是,</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>防守亮点：沃勒斯、斯佩兹与拿不到的擒杀</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="jb"><div class="label"><span class="badge" title="杰伊·B·朗（J.B. Long）">朗</span></div><div class="content">
+<p>显然，当他插入并做那些事情时，但你知道的，再次强调，沟通是整个进攻的关键，对吗？如果所有11个人都在同一频道上，你就有一个很好的机会去超越并在所说的进攻中表现出色。所以，有时，就像你说的那样，比如“嘿，兄弟，我知道你只在85%，但还是绑上绷带。”保持它，保持进度，你得继续前进。是的。那么防守呢？我的意思是，在输给亚利桑那的比赛中没有让对方达阵。在拉斯维加斯甚至没有让对方在第四节的第一球达阵，即使没有Trent McDuffie。我的意思是，替补中谁给你留下了深刻印象？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="df"><div class="label"><span class="badge" title="德马科·法尔（DeMarco Farr）">法尔</span></div><div class="content">
+<p>前面的一些大牌球员？好吧，我知道这是他们本周袭击队最大的一次进攻之一。防守做得非常好，除了两次进攻或者几次关键的进攻。不过，塔克乔什·华莱士的那次擒抱，我真是难以忘怀。还记得那次吗？袭击队的第一次重大传球，他在开阔地带把对手扑倒并完成了一个甩摔？你知道那有多难吗？这就是他在这里的原因。这就是他被选中的原因。我一直忘不掉那画面。我知道那只是一个无关紧要的动作。它发生在一次大进攻的尾声。袭击队的人在欢呼，而你却没有。但这正是你在星期一停止回放时，会对大家说，“看这个。”</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>这就是重点。活着去再打下一次。这是一个大动作。场中一个人对抗一个技术型球员，而你独自把他放倒，太棒了。那应该是一个得分的机会。所以，这一点很突出，但他们在那条进攻线上的表现，他们对柯克·考辛斯的压迫，以及阻止跑动的表现都很出色。你应该对阵突袭者。我一直不知道金蒂作为接球手这么厉害，直到那场比赛。我觉得他们也不知道。如果他们现在不再使用他，那他们就是疯狂。这家伙手非常好。但就阻止跑动而言，他们做得非常出色。在使用轻型人员配置时也是如此。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="df"><div class="label"><span class="badge" title="德马科·法尔（DeMarco Farr）">法尔</span></div><div class="content">
+<p>我觉得他们接下来要采取的步骤是把埃马纽埃尔·福布斯放在正中间。他们对拉斯维加斯的跑球战术已经没有任何尊重了，但他们仍然把它封锁住了。是的，Fisch出现了，AD出现了，队员们也有精彩的表现。是的，我再次认为，当你看那个情况时，他们在说我们要放胆让你们跑球。放胆。因为我们出去的时候全是些防守后卫，我们只有五个防守前线球员。你们必须跑球。我们会迫使你们这样做。而袭击者在上半场试图这样做，对吧，前三节他们都试图这么做。然后他们就…</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="jb"><div class="label"><span class="badge" title="杰伊·B·朗（J.B. Long）">朗</span></div><div class="content">
+<p>像‘算了’这样的调整。我们打算全力以赴，尽力投球然后尽快结束这里。再次，布罗克·鲍尔斯干得很棒。我觉得每个人在放慢他的速度方面都做得很好。沃特森再次出色，他的表现非常亮眼。我觉得安全卫麦克科勒姆做了一些关键擒抱。我觉得他们所有人都做得很棒。这是一个总体上非常棒的团队。斯佩德斯怎么样？你见过奥马尔·斯佩德斯打得比那场比赛更好吗？托·拉克完成了一些重要的动作。很高兴你提到这个。还记得几年前吗，当人们试图取笑他时，萨昆在那个铁套里晃动了他，而那个洞大约有一英里宽。哦，天啊，我们需要一个新的线卫。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="df"><div class="label"><span class="badge" title="德马科·法尔（DeMarco Farr）">法尔</span></div><div class="content">
+<p>你不能，你不能那样做。那是Saquon Barkley，业内最优秀的球员之一。现在，看这个家伙对付Joe Blow跑卫会做什么。他上去就炸你，即使在特勤队也是如此。我喜欢他的比赛方式，真的。我希望有一天他能成长为绿点（Green Dot）球员，因为他具备你想要的一切。坚韧、能发动猛攻、顽强、让每个人都排列整齐。我喜欢他的比赛方式。是的，我不知道。我们只是讨论那种思想者，对吧？对我来说，我希望他出去就去打球。因为他能摧毁对手。因为他真的...有一次跑球时，他冲破了防线。他们做了一个……</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>跑动作，他在中锋脸部越过后，撞到了阿隆·唐纳德的背后，我忘了他撞的是哪个跑卫，但当他撞到那个跑卫时，他向另一个方向去了，对吧？你可以看出他臀部的力量和爆发力。再次强调，我只是觉得总体上，这真的是一次精彩的表现，我不认为对手必须是突袭者队，任何队都可以。当公羊队那样打球并且配合得那么好时，要击败他们是非常困难的。这就是你看到的。防守出手做出了动作，进攻也做出了动作，特勤组在最后阶段搞得热闹起来，但我的意思是，一些</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="jb"><div class="label"><span class="badge" title="杰伊·B·朗（J.B. Long）">朗</span></div><div class="content">
+<p>那些攻守转换和在踢球队中你看到的努力和精力的家伙们，那就是你想看到的。你想看绝望吗？看看阿隆在我记得是B.杨拿到一次擒杀后是怎么做的。所以，菲斯克拿到一次，然后B.杨又拿到一次。又来了。对，又来了，没错。阿隆当时的意思是，我必须上场。是啊，你不喜欢我在第三轮吗？然后他又用了旋转动作。我看到了。哈哈。<span class="tag">【笑声】</span> 对于缺乏擒杀的情况，你们有多担心？我是说，直到进入绝望模式，公羊队才抓到库辛斯。他们连续两次成功。我明白了。他的擒杀率真的很低。他在比赛中尽量避免被击中。有时候你只能让他自投罗网。好吧。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>压力是存在的。对手的擒杀没有实现。抢断也没有实现。然而，这支防守队伍依然在取得成绩。你怎么能因此而放松呢？我的意思是，我认为很多球队，他们的目标就是快速传球。你很少看到有人长时间持球。上一个这样做的球队是巨人队，而他们的四分卫受伤了。让我快速补充一点，我知道抢断不多。不过在关键的第四次进攻中有抢断是存在的。这些应该算数。你在第四次进攻中得到的机会甚至比一次截球还好。对我来说，那确实是的，肯定是这样。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="df"><div class="label"><span class="badge" title="德马科·法尔（DeMarco Farr）">法尔</span></div><div class="content">
+<p>就像我说的，我只是觉得，当你看比赛，看看各队对阵其他队的打法时，球出来得更快了。我的意思是，它是准时的。如果他们打算尝试下场进攻投篮，那就是重型假动作传球配最大保护。公羊队通常不会进行冲锋，对吧？他们只是试图用四五个人施加压力。所以，你知道的，我最终他们会来的，而德马科知道这一点，当他们来的时候，是成群结队的。哦，是的，对吧？然后你就开始慢慢搞清楚一切，事情开始运转，随着比赛进入下半段，球队没有时间去……</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>快速的比赛，对吧？你必须去做一些其他事情，你在次级防守上需要稍微安定下来一些，所以我认为他们做得很棒。是的，我们想要擒杀和抄截，但如果你在防守中让对方进攻没有拿到新的阵地，如果一支球队在自己的35码线上开球，然后三次攻防都没推进就踢球，你的防守做得非常好。如果你让他们无法进入达阵区，你也做得非常好。在没有Troy Mcduffie打几场比赛、没有Kobe Turner、没有上周的Poona Ford，并且仍然没有Miles Garrett的情况下，又一周过去了，你仍然看不到他。但是现在，公羊队有三人</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>第8周德比：两只「被逼入绝境的动物」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="jb"><div class="label"><span class="badge" title="杰伊·B·朗（J.B. Long）">朗</span></div><div class="content">
+<p>在他们轮空之前还有几场比赛，而尚未获胜的闪电队是下一个对手。你得预计到这是一个被逼入绝境的动物，对吧？在轮空之后，闪电队会把这场比赛当作他们的超级碗来打。我们不是被逼入绝境的动物吗？是的。所以，两个被逼入绝境的动物，总有人得进垃圾桶，总有人得出来。你把两个人放进垃圾桶，总有人得出来。你是说这是一场任何一方都不能输的比赛。是的，你们都非常渴望赢。绝对绝对渴望。你们刚赢了一场比赛。那是唯一的区别。他们刚轮空完。他们刚轮空完而且输了比赛。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="df"><div class="label"><span class="badge" title="德马科·法尔（DeMarco Farr）">法尔</span></div><div class="content">
+<p>所以，是的，你们处境相同。你们的胜率仍然低于5成，就像他们一样。你们也有可能错过季后赛，就像他们一样。所以，目前没有哪个球队更好或更差。你们必须出去从他们那里抢回比赛，但如果你们像在拉斯维加斯那样比赛，他们就无法阻止你们。他们赢不了你们。你们继续跑球，因为你们能在他们身上跑动，然后利用动作假跑再传球，同时在防守端压制他们。你们可以击败闪电队。但你们同样绝望。我将永远被20岁的喷气机队带着萨姆·达诺德来这里赢得那场比赛所留下的情感创伤折磨。是的，把特雷弗·劳伦斯交给美洲虎队。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>每当我看到公羊队赛程上有一个未取胜的对手时，那都会让我做噩梦。肖恩当时在那里。他记得。看，我觉得他在新闻发布会上说过，他不在意他们的战绩。而且你必须给教练应得的赞扬，因为他吸引了球队的注意力。我真不知道该怎么说。他处理整个凯伦的事情的方式，你知道，我本应该在场上，所有那些事情。你也看到了比赛期间的情况。那是处理这件事的完美方式。你给了他重新赢回职位的机会，他做到了。他表现出了色。所以，他引起了球队的注意。我觉得科比·帕金森受伤下场，然后...</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="df"><div class="label"><span class="badge" title="德马科·法尔（DeMarco Farr）">法尔</span></div><div class="content">
+<p>起床并回来的事情说明了本周训练的很多情况。他们在比赛后都这么说。这周的训练很棒。所以，肖恩·麦克维带领这支球队非常强势。所以，没有哪支球队是低于你们的。你们都有同样的感觉。所以，不管谁上场，我认为你都会得到他们最好的表现。如果你带来你在拉斯维加斯的状态，闪电队就赢不了你。斯塔福德说，‘如果你们知道科比·帕金森为了完成那场比赛所承受的一半压力就好了。’是的。我认为最大的部分是球员带伤上场，对吧？因为现在情况不同了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="jb"><div class="label"><span class="badge" title="杰伊·B·朗（J.B. Long）">朗</span></div><div class="content">
+<p>如果我们只是排好队去踢一场足球比赛，假设两队的战绩都是0-0，而且没有其他因素的话，公羊队的阵容更好，他们应该出去赢，对吧？但是现在你加上失利，加上伤病，加上所有其他因素。但是人们没有意识到的是，球员们是在带伤上场，对吧？科比·帕金森在他经历的困境中上场比赛，这是很鼓舞人心的。这会让其他球员站起来继续前进。看到默奇森、汉密尔顿和特洛伊·戴维斯在一档和二档冲跑时的防守表现，再看看公羊队在第三档换下七名球员的情况。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>让防守冲刺的球员冲进来。而且没有争吵，也没有‘不不不，什么？’之类的情况。再说一次，他们是认真的。对我来说，他们的饥饿感和充电队一样，甚至可能更强。因为你没有全部的球员，球员还带伤作战。你必须出去表现出色。而且，你无法输掉这场比赛。这不是……嗯，上周是必须赢的比赛。那这周呢？你又赢得了另一场必须赢的比赛。所以，这就是他们出去比赛的心态。我想说的一点是，我在场上看到他们在享受比赛。他们玩得很开心，庆祝比赛。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="df"><div class="label"><span class="badge" title="德马科·法尔（DeMarco Farr）">法尔</span></div><div class="content">
+<p>互相庆祝。是的，确实如此。这就是我们上周看到的与在亚利桑那看到的不同之处。那很无忧无虑。尽管那场在拉斯维加斯的比赛有后果，对吧。他们完全放开了，是的。我，我，我记得我在杰克逊维尔时我们对阵突袭者，那是一场重要的比赛。我们的名册上有柯克·莫里森，而柯克在半场时哭了，因为我们在输球。他来自奥克兰，我们刚刚从那边交易过来。他很沮丧。哎。我当时想，“兄弟，放轻松。我们比他们更强，我们只需要安定下来，做好自己的部分。”然后我们做到了。我们在下半场连得分数，我们那支队伍连胜下半场，我想我们那年可能还是错过了季后赛。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="jb"><div class="label"><span class="badge" title="杰伊·B·朗（J.B. Long）">朗</span></div><div class="content">
+<p>打了大概四五场比赛，我记得我们差一名就能进入季后赛，但那都是因为我们太紧张，试图做所有这些伟大的事情。而当你只是放松然后去执行，如果你相信没有人比你更强，队友们都在做无私的事情，士气就会不断提升。然后教练可以跟你说：“看，他们是饿狼，被逼到角落里。”你猜怎么着？我们也是。然后你就得让两只狗被逼到角落里，如果有人把墙推在一起，我们会怎么办？谁会走出房间？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>对吧？这就是你在本赛季剩下的比赛中必须保持的心态。是的，让阵容深处的球员有所贡献确实很重要。我知道除了Puka之外，接球手只完成了一个接球。你知道，Kanak的那个接球。但去看看Kanak在Kyren达阵时的封堵方式吧。整个达阵过程需要全队11人齐心协力。我觉得那段录像非常精彩，更能代表公羊队的现状以及他们本赛季希望重现的状态，你可以以此为基础继续发展。那很有趣。这就是我们所谓的“爆米花录像”——打开来看就好，好好享受。我们不是在纠正，只是在...</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>交易截止、锋线深度与对阵闪电队关键</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="df"><div class="label"><span class="badge" title="德马科·法尔（DeMarco Farr）">法尔</span></div><div class="content">
+<p>观看。我们正在享受彼此的表演。庆祝。庆祝。我有一个问题要问你。当T. Ferd回来并且你拥有完整的近端锋阵容时，对吧？那么，当你走到13号时，你会去14号并把Puka放到替补席上吗？不会。然后让T. Ferd成为主要球员？天啊，我们能不能只是品尝一下那个香槟般的问题？是的，这让我想到了。我们什么时候必须面对那个问题？有很多类似的情况。 <span class="tag">【笑声】</span>因为，比如说，让我们直接跳到我们节目中的另一部分。军备竞赛开始了。哦天哪。你准备好了吗？公羊队领先于他们。他们领先。我会这么说。向昨晚的公羊队以及所有人致敬。很棒的表现</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="jb"><div class="label"><span class="badge" title="杰伊·B·朗（J.B. Long）">朗</span></div><div class="content">
+<p>未来是不可能的。我从来没见过这么多明星球员这么早就被清掉。你这么快就把球员们清掉，真是了不起。是的。就在小马队解雇总经理的时候，你就知道清仓来了。我脑海里浮现的第一个人是德福雷斯特·巴克纳。他会去哪？拜托不要到这里来。你猜他最后去了哪里？就那边。然后你会得到一个最好的，如果有的话，最能克制阿隆·唐纳德的克星——昆顿·尼尔森去了西雅图。耶，真有趣。那是最让我心痛的。哦天哪，这比任何事情都让我难受。因为这就像为什么？为什么你会…因为他们需要他，而且他很棒。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>完全正确。他真的很棒。如果你是小马队，你怎么能放手呢？不是打断你的谈话，但如果事情顺利的话，你可能今年一月要再去一次士兵球场了。而且他们今天早上也有动作。杰弗里·西蒙斯现在是熊队的一员。所以，NFL中最大的熊队有了他。但我认为这把事情联系起来了。为什么MJD会说你不能输给闪电队这场比赛？那是因为你的交易截止日期已经过去了。那是在春天的时候。你已经做了你的交易。你只需要在水面之上保持足够久的时间，让那些球员回来，加强你的阵容，巩固你的队伍。</p>
+<p>名单。无论是Myles Garrett、Terrance Ferguson，还是让Devante回来，让Kobe Turner回来，以及后面的一系列情况。这就是我对擒杀的评论。就像缺乏擒杀一样。你们有施加压力，你们做得很棒。当Myles Garrett回来的时候，擒杀自然会出现。而Aaron也重新找回了自己的状态。就像哦对，在第三档出场，结束进攻。这一幕你看到了吗，他把Kirk Cousins的脸瞬间压在地上？那让我笑了。他的传球命中率也很高。就是那一球。他把脸直接摁在地上。那就是我们熟知和喜爱的Aaron。记得他把Drew Brees的拇指拍掉的时候吗？那</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="df"><div class="label"><span class="badge" title="德马科·法尔（DeMarco Farr）">法尔</span></div><div class="content">
+<p>东西。我的意思是，当你甚至只是触碰人就能产生影响的时候。所以，你让迈尔斯回来，让麦克杜菲回来，你看起来就像一个出色的橄榄球队一样。是的，你必须以某种方式通过积累胜利来赢得你的交易截止日期，连续取得胜利，拿到赛季的首次连胜，然后从赛程休息回来时看看积分榜和你的阵容，希望如此。我认为，你在这方面说得非常正确，比如让特伦斯·弗格森回来，让迈尔斯·加勒特回来，让科比·特纳回来，让达万特·亚当斯回来。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>那是一个交易截止日。那是一个人们为了这样的球员而进行交易的截止日，而你却只是把他们列在你的名单上，他们又受了伤。你能坚持多久呢？事实上，我甚至不认为是坚持的问题。我觉得关键是，你能多长时间保持主导地位？因为你仍然拥有那些组成部分。我们在休赛期谈到了深度，现在它们开始显现出来。这些深度球员开始获得未来季后赛中必须上场时的可行经验。想要以一些击败充电器队的关键方法来结束，去做到你所说的那些事情。</p>
+<p>刚才问的？当然。我一直在看他们的防守，而卡利尔·马克就是那个老练的老将。就在你感到无聊，认为这家伙没什么的时候，不，他一直在设套。 他仍然有实力。另一边的图伊·普洛图呢？嗯，哇。手很稳。好吧，我敢说，有时可能是因为他穿着的制服和外表的原因，但有时候，他做出的那些二次努力的动作，让人很容易联想到以前那位伟大的闪电队球员，如果你懂我在说谁。你知道我说的是谁。他就是那种球员。所以那些边线</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="df"><div class="label"><span class="badge" title="德马科·法尔（DeMarco Farr）">法尔</span></div><div class="content">
+<p>伙计们，这将会是一个问题。他们有不错的球员，但如果你像我们说的那样控制争球线，通过跑球，你可以保护自己。你在你们的后场保持了最好的比赛记录，基本上持续了三个半节。你这周也可以通过跑球再次做到这一点。我也要说一点，你说他是Tuohpu？Tui Pulotu。他总是想要把球拿出来。我是说，他在对阵野马队的时候抢断过球，他有一次。Bo Nix以为他已经倒地了，球还是被抢走了，对吧？所以你必须确保保护好球。对我来说，是Herbert，他正在经历一个历史性的连胜纪录，保持未被…</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="jb"><div class="label"><span class="badge" title="杰伊·B·朗（J.B. Long）">朗</span></div><div class="content">
+<p>打得不错，对吧？这很像突袭者队不能推进跑球，对吧？继续保持。是选秀权的原因还是还有其他原因？不仅仅是选秀权的原因。因为每场比赛都有拦截，但这些都是长传。是的，不，我的意思是，也有一些短传，但要让他无法轻松后退然后把球传出去，对吧？而且这就是第二次努力的比赛，他必须重新调整然后把球传下场，或者他感觉有点压力不得不跑出来。你必须掌控局面，让他继续打比赛。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>是这样，对吧？不要让他轻易投球。不要让他进入节奏。我说过，老实说，他是一个有节奏感的传球手。他的实力和手臂一样强大，还有很多闪光点。但如果他没有进入节奏，他就打得不好。所以你必须让他脱离节奏。你期望Shanahan式的比赛计划吗？毫无疑问。他们会尝试，他们会尝试跑球。你必须阻止跑动。他们有一个大个子跑卫，但他们的体系不符合他最擅长的方式，但他们会用他跑外侧区域跑。他们会进入散弹阵（shotgun），把近端锋（tight end）往后移。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="df"><div class="label"><span class="badge" title="德马科·法尔（DeMarco Farr）">法尔</span></div><div class="content">
+<p>穿过切入。他们会去做。如果我是迈克·麦克丹尼尔，我会看看第一周，然后想九人队做了什么？嗯。我们可能会运行完全相同的东西。在作弊周没有做任何更改。有趣。没有任何更改。德温·詹姆斯可能会进入伤病名单，不过我们这周确实得知了这一点。等这段内容发布时，不知道情况会如何，但我的意思是在他们防守后端，他绝对是一个身份性球员。见鬼，当他健康时，但经常生病。是的，还有另一件事要指出，上周我关注的大数据是第二次进攻平均码数。我记得大约是5.67左右。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>收尾：用拉斯维加斯的打法拿下同城对手</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>就是那样。你说的中和那些边路的方式，上周中和马克斯·克罗斯比（Max Crosby）的方式，不给他们竖起耳朵的机会。我没意识到，直到Sean在赛后和你们交流时说，我们表现很棒，没有让太多的第三次进攻。我看了统计表，哇，那四次达阵进攻让你们基本上取得领先，基本上锁定了比赛，你们在第三次进攻中只有三次。是的，他们在正式发起之前就刷新了次数。是的，那意味着你们的前线很稳。而且你必须赢得一些压力大的下场进攻，否则你不会赢。</p>
+<p>在这个联盟里，你知道，长时间避免第三档和八码以上的情况是不可能的，但他们尽量减少这种情况，并且他们确实有一些球员能够赢下其中的一些情况，但在本赛季前六场比赛中，似乎出现了太多紧张的进攻回合。在拉斯维加斯，那是一场无忧无虑的进攻胜利，因为你能把三码变成五码，把五码变成六码或七码，然后为指挥进攻的教练打开整个战术菜单，说实话，他当时可是压力很大。我告诉你，第三档八码从来都不容易。而当你多次面对第三档八码以上的情况时，你就会暴露自己不得不执行一些本不该调用的战术。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="jb"><div class="label"><span class="badge" title="杰伊·B·朗（J.B. Long）">朗</span></div><div class="content">
+<p>练得那么多，对吧？我会为我们的球迷说这句话，在第三次进攻和八码的情况下，你可能会练五到六个战术。如果我在第三次进攻八码的情况下出现七次，这意味着我们必须回去跑一个已经跑过的战术。也就是说，我们已经向他们展示过了。所以对我来说，当你处在那些长码数的情况下，你会让自己陷入困境。我认为公羊队做得非常好的是，他们在第一下就能赢得九、八、十、十二码，对吧？那么这对防守协调员意味着什么呢？我现在必须展示我的第一和第二次进攻战术。哦，我们已经掌握了。他们在这个阵型中，他们会跑这种防守战术。就是这样。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="df"><div class="label"><span class="badge" title="德马科·法尔（DeMarco Farr）">法尔</span></div><div class="content">
+<p>他们上次跑了。像这样，而且再次强调，这是关于暴露的问题，而公羊队上周限制了他们的暴露。希望他们能做到。另一个关键因素是，对公羊队只接受了六个罚球。技术上是七个，但其中一个是像“嘿，我们在准备开踢之前用了节奏，我们要接受延迟比赛”的情况。在这六个中，只有一个是在开球前，是在球门线上产生的假动作，最终变成了达阵。所以在你的下次进攻和距离上，你甚至不在第一档15码的情况下，就像他们不幸的情况太多次发生的那样。或者说是什么呢？第四档三码变成第四档八码。你知道，他们之前生活的噩梦就是这样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="jb"><div class="label"><span class="badge" title="杰伊·B·朗（J.B. Long）">朗</span></div><div class="content">
+<p>他们在SoFi的时候。所以尽量减少开球前的故障是非常重要的。问我以前有船的时候船的名字。什么？你有船？第三次长码。是啊，因为你是。就是你赚到钱的地方。<span class="tag">【笑声】</span>船主经历中最好的两天是拥有的第一天和最后一天，这是真的吗？绝对是真的。<span class="tag">【笑声】</span>等不及了。来拿这东西吧。希望这周日能在SoFi体育场见到你。来自Reese Davis、Drew Litton、DeMarco Farr和J.B. Long的问候。感谢你观看由你们南加州丰田经销商在丰田露台呈现的《Between the Horns》。</p>
+<p>俱乐部在SoFi体育场。公羊队和闪电队将于周日与你见面。开球时间是1:05。我们要做一些像<span class="tag">【音乐】</span>这样的事情。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Los Angeles Rams", "title": "找回节奏、倚重跑球与击败闪电队的关键｜两角之间", "url": "https://www.youtube.com/watch?v=q3s_KMV6HkE", "videoId": "q3s_KMV6HkE", "published_at": "2026-10-29", "duration": 2327, "caption_source": "YouTube 自动生成字幕（en-orig；普通 yt-dlp + android/tv client）；caption_source=yt-dlp-auto；中文为全文翻译并按话题分段；赞助口播已标灰（Southern California Toyota Dealers）", "guests": ["DeMarco Farr", "Maurice Jones-Drew"], "intro": {"summary": "公羊官方节目《两角之间》：杰伊·B·朗与德马科·法尔、莫里斯·琼斯-德鲁复盘大胜突袭者——13人组与双跑卫跑球重新定调、传球节奏与红区效率回暖，并展望第8周主场对阵零胜闪电队的同城德比与伤病名单变数。", "points": ["MJD认错「多传」建议：双跑卫+13人组控线并减少与克罗斯比纠缠的第三档", "进攻哲学从「传球铺垫跑球」切到「跑球铺垫传球」；亚当斯缺阵加速简化", "斯塔福德短快手术式传球+行动假传；红区靠近端锋群与跑球终结并刷新纪录节点", "谢尔顿/帕金森伤情威胁13人组连续性；弗格森预计不练", "防守擒杀少但档下转换多；沃勒斯开阔地回铲、斯佩兹亮眼", "对阵闪电队：两队皆绝境，须复制拉斯维加斯身体性、不可轻视零胜对手"], "verdict": "值得看：公羊球迷与关心第8周德比、跑球身份与伤病名单的人；可跳过：对 NFL 战术复盘节目不感兴趣者（约39分钟）。", "audience": "NFL / 洛杉矶公羊球迷；关注跑传平衡、13人组与同城大战的读者"}, "speakers": [{"id": "jb", "name": "杰伊·B·朗（J.B. Long）", "role": "host", "short": "朗"}, {"id": "df", "name": "德马科·法尔（DeMarco Farr）", "role": "guest", "short": "法尔"}, {"id": "mjd", "name": "莫里斯·琼斯-德鲁（Maurice Jones-Drew）", "role": "guest", "short": "MJD"}], "sections": [{"id": "s1", "title": "开场：丰田冠名与连胜「幸运衣」", "start_sec": 0, "summary": "杰伊·B·朗（J.B. Long）在索菲球场（SoFi Stadium）丰田露台俱乐部开场，本周末公羊主场对阵同城闪电队；搭档德马科·法尔（DeMarco Farr）与莫里斯·琼斯-德鲁（Maurice Jones-Drew，MJD）。三人调侃 MJD 连续两周同款卫衣——对方回应「我们赢了」，类比酿酒人队球帽「运气」；公羊本赛季第三胜、有望回到五成胜率，讨论从复盘突袭者一战开始。"}, {"id": "s2", "title": "跑球回归：13人组与双跑卫压垮突袭者", "start_sec": 77, "summary": "MJD 认错上周「多传球」的建议：当双跑卫合计冲出约200码、两边线争控球、13人组（1跑卫3近端锋）奏效时，应让进攻线前推、给防守休息并消耗突袭者。普卡·纳库阿（Puka Nacua）出场有助跑球；侧翼与安全卫若不善防13人组边到边扑倒，布莱克·科勒姆（Blake Corum）或凯伦·威廉姆斯（Kyren Williams）晃开自由击球手就可能大码数。避开与马克斯·克罗斯比（Max Crosby）纠缠的第三档——干脆少进第三档——四次成功进攻系列的关键是跑球。不能因对手战绩差就掉以轻心：红雀同样不强却曾在主场拿不下；对阵零胜闪电队也要用同一套「打穿弱旅」的方式。沃伦·麦克伦登（Warren McClendon）单防克罗斯比多次站稳；开场三连传不理想后第二波改为暴力跑球见效，普卡有时领堵、科勒姆达阵配合近端锋斜线与假传真跑。"}, {"id": "s3", "title": "为何现在才简化？伤病与「正装 vs 礼服」", "start_sec": 268, "summary": "被问为何赛季初一个多月才打出对阵拉斯维加斯的简洁打法：法尔指出有达文特·亚当斯（Davante Adams）与普卡时需要「拆分剧本」喂球，简化成跑球+找普卡后节奏明显更好；在他人伤愈或接球手冒头前会先押一边。朗提起麦克维时代首胜达拉斯的季后赛——两名跑卫各90+码并达阵，与本场数据相似——似乎要「减配」才肯打出线争控制。MJD 用「舞会礼服想两个月 vs 一周只穿经典西装」比喻：武器太多时人人想摸球（弗格森、亚当斯等），反而不如13人组跑球+行动假传干净；第1周对阵四九人队最好的进攻系列也是13人组强攻。"}, {"id": "s4", "title": "跑传哲学切换与坚持身份", "start_sec": 404, "summary": "法尔总结哲学切换：开赛是「传球铺垫跑球」，现在是「跑球铺垫传球」。MJD 认为即便战绩不同也会朝感恩节后「天冷靠跑」演进，亚当斯缺阵只是加速；朗感觉有点像背水一战才找回身份。权力排名各单元，跑球进攻近一年尤其本季最高效——两跑卫场均约5码。双跑卫内部竞争让对面更难受；凯伦两步假动作说明手感在线。朗追问鸡生蛋：为何总要大比分领先后才敢坚持跑球身份？球迷希望早早落后也「固执」跑下去。法尔：关键分差下更易在脑中选「8码——给普卡短传/掩护」而非递手；水牛城一战所谓跑球统计很多是快传。MJD 回忆杰克逊维尔与托里·霍尔特（Torry Holt）时代——即使大比分落后仍跑球优先；训练营磨合的是外接组合，跑球同样强，有时是「此刻最佳选项」问题。"}, {"id": "s5", "title": "传球节奏、靴腿与红区效率", "start_sec": 694, "summary": "传球端也变了：重回三近端锋人员、移动口袋、持球者、快速外放，斯塔福德节奏像上季 MVP 蓝图；行动假传骗得线卫追鬼。突袭者/闪电类「费劲停跑」的队会露出靴腿与深传时机。对阵亚利桑那时因佛陀·贝克（Budda Baker）难以预测而不敢轻易被陷在后场。斯塔福德仅六次不完成（含应接住的偏转抄截）；平均目标深度偏短不构成担忧——是「手术式」短快而非无脑短传，会随对手拉开。MJD：深传高风险，麦克维更愿用普卡单切快速出球与掩护当「爆炸戏」；持续推进也让防守在边线喝电解质饮料。朗问最重要的一次不完成：希格比/图图·阿特维尔（Tutu Atwell）身后大开——逼对手尊深远威胁，类似法布雷/罗斯利斯伯格开场「示威长传」。红区：无亚当斯「作弊码」仍靠戴维斯·艾伦（Davis Allen）、普卡达阵并送斯塔福德刷新纪录；近端锋群（「将军」希格比外号来自家乡或从警联想）假跑真挡掩护出色。"}, {"id": "s6", "title": "伤病名单：谢尔顿/帕金森与13人组连续性", "start_sec": 1051, "summary": "连续性成忧：帕金森肋骨多次倒地爬起；中锋科尔曼·谢尔顿（Coleman Shelton）被夸成 NFC 西乃至 NFC 最被低估齿轮——中锋受伤极伤进攻气质。有人称他 QB2 反成全年被斯顿特针对的隐患。若帕金森与 T·弗格森（Terrance Ferguson）本周无法参与，上周转身 bulk 的13人组身份会被掏空；可上克拉克但经验差一截，12人组仍在，需惠廷顿或普卡客串第三近端锋。沟通是11人同步的前提——即使只有八成战力也要贴好胶带上场。"}, {"id": "s7", "title": "防守亮点：沃勒斯、斯佩兹与拿不到的擒杀", "start_sec": 1159, "summary": "防守：对亚利桑那整场未丢达阵（却输掉）、对拉斯维加斯直到第四节首个进攻才丢达阵，且无特伦特·麦克达菲（Trent McDuffie）。法尔难忘乔什·沃勒斯（Josh Wallace）开阔地把人过肩摔回地面——大打后的「活下来再打下一档」。轻人员仍锁跑，几乎不尊重突袭者跑球；菲斯克、AD（亚伦·唐纳德）出镜，鲍尔斯被限制。奥马尔·斯佩兹（Omar Speights）表现亮眼——对比两年前被萨奎恩晃倒的嘲讽，如今对普通跑卫与特勤组都能引爆；朗希望他成长为绿点指挥，法尔更想让他纯靠破坏力打球。擒杀偏少、夺球少但「档下转换」多；对手出球快、公羊少靠四/五人施压。伤兵名单仍缺麦达菲、科比·特纳、普纳·福特、迈尔斯等，却仍有效。"}, {"id": "s8", "title": "第8周德比：两只「被逼入绝境的动物」", "start_sec": 1509, "summary": "还剩三场常规赛到轮休，下一场零胜闪电队刚轮休归来会把同城大战当「超级碗」。两队都是「被逼入绝境的动物」——公羊刚取胜是唯一差别，但仍低于五成、都有出局危险。朗仍被昔日零胜喷气机（萨姆·多纳尔）来索菲赢球的阴影折磨；麦克维新闻发布会称不看对方战绩。麦克维处理凯伦「我该在场上」情绪并让他用表现赢回信任、帕金森带伤坚持，被形容为「掐住球队喉咙」整顿态度。斯塔福德称外界只知帕金森痛苦的一半。结论：带来拉斯维加斯那种连接感与跑传配，闪电队很难赢；但心态必须同等绝望、不可轻敌。"}, {"id": "s9", "title": "交易截止、锋线深度与对阵闪电队关键", "start_sec": 1795, "summary": "讨论交易截止补强与锋线/边路深度：能中止大码跑与克罗斯比式边锋的阵容价值；公羊更可能指望伤愈核心回归而非大举外援。强调对阵闪电队要继续用双跑卫与进攻线「欺负」对方前排，行动假传与快速游戏拉开；特勤组精力与唐纳德在被忽视后的旋转摆脱也被点名。保持拉斯维加斯的身体性与沟通，把同城对手当成全明星挑战。"}, {"id": "s10", "title": "收尾：用拉斯维加斯的打法拿下同城对手", "start_sec": 2151, "summary": "收束：若复制突袭者之战的进攻线前推、红区终结与防守「活到下一档」的韧性，公羊能在主场拿下闪电队并朝 .500 前进；若早早放弃跑球身份或轻视零胜对手，旧伤会复发。节目在丰田冠名的「两角之间」以备战提示结束。"}], "paragraphs": [{"start_sec": 8, "type": "ad_omitted", "ad_brand": "Southern California Toyota Dealers", "section_id": "s1"}, {"start_sec": 8, "type": "text", "zh": "公羊队回到英格尔伍德，本周末将迎战闪电队。我是杰伊·B·朗（J.B. Long），与我的朋友德马科·法尔（DeMarco Farr）和Maurice Jones Drew一起。如果你想知道，有没有人因为MJD穿了和上周一样的连帽衫而指出来？是的，我们指出来了。你的回应是什么？我们赢了。对。所以，没跟随榜样是我们的错。我们到底在做什么？我们刚刚看到酿酒人队赢得了世界大赛，而我", "speaker_id": "jb", "section_id": "s1"}, {"start_sec": 43, "type": "text", "zh": "当然，那顶帽子上有汗渍的那个家伙，并不是因为，你知道，他只是找不到一顶新帽子。那个家伙帮不了他。我的意思是，我们只能坚持保持好的运气，并继续下去。不过我希望你洗过它了。〔笑声〕我的意思是，我只是为了比赛才戴的。我在上面弄了点甜甜圈。不过没关系。是的，我的意思是，你应该对闪电队重复他们对突袭者队做的事。你会得到同样的结果。本赛季的第三场胜利，有机会在周日回到五成胜率。让我们回顾一下你喜欢那场胜利的哪些方面。感觉好像公羊队在某种程度上回归了基本。你", "speaker_id": "jb", "section_id": "s1"}, {"start_sec": 77, "type": "text", "zh": "举手。你想先说吗？让我道个歉。让我让我道个歉，我认错。我喜欢这个。对我来说出去说，‘让我们积极进攻，把球扔出去。’当你有200码的冲球手时，你可以控制双方的争球线。你可以让防守得到休息。基本上你让整个进攻端的突袭者疲惫不堪。两名跑卫都跑得很好，进攻线挡得很好，13人阵容发挥很大作用。你们的指挥真棒。是的，我说过。那是我的错，尝试做得太多了。不，我是说，你有一个MVP四分卫，我明白。而且我们不知道普卡能否上场，我想", "speaker_id": "mjd", "section_id": "s2"}, {"start_sec": 113, "type": "text", "zh": "那种改变了我们的思维方式。但把普卡放在那里，我认为有助于跑球。可是，13人阵在某些防守面前简直是杀手。如果你无法从边线到边线完成擒抱，如果你的角卫和安全卫在对付13人阵时不擅长擒抱，你可能会有麻烦。真的会，因为它迫使每个人都进入一个缺口，然后就会有一个游击手去防跑卫。如果布雷克·科鲁姆或凯伦·威廉姆斯让那个人失误，你就可以自由奔跑了。但这是控制比赛的最好方式，而你也做到了。我们整周都在讨论哪些可能伤害公羊队的事情。马克斯·克罗斯比在", "speaker_id": "mjd", "section_id": "s2"}, {"start_sec": 146, "type": "text", "zh": "第三次进攻。我们谈到了如何防守马克斯·克罗斯比。用人撞他，保留一个近端锋，你可能不得不单打独斗。那要不干脆完全避免第三次进攻呢？那真是太棒了。我觉得那四次进攻很棒，但跑卫进攻才是一切的关键。就像我们上周说的，跑卫进攻是为这支球队争取时间、让球队重回正轨的关键。让我立刻看看评论区，我就假设性地说一句，“是的，但突袭者表现很差。”这是真的。他们不行，他们不会很快取得进展。红雀队当时也不怎么样，对吧。而且你在这里也打不赢他们，对吧？所以，这很重要。", "speaker_id": "jb", "section_id": "s2"}, {"start_sec": 176, "type": "text", "zh": "向前迈进。闪电队还未取胜。必须用同样的方式击败他们。就像，正如德玛尔科喜欢说的，我们可以在十二月和一月时再担心最终的Boss关，希望如此。公羊队有资格到那那里。现在，重点是击败那些不如你的球队。不，你说得完全正确。而做这件事的方式就是让你强大的进攻线前进，让你的跑卫摆脱铲球。再说一次，你可能本该有多少呢，我会说你本该有一次被判无效的40码或50码长跑。布雷克本赛季最长的跑。是的，我是说，再说一遍这些事情，然后它也提高了你的四分卫效率。我们听到肖恩讲过这个。然后向沃伦致敬", "speaker_id": "mjd", "section_id": "s2"}, {"start_sec": 208, "type": "text", "zh": "麦克伦登因为不得不去。他和马克斯·克罗斯比有过几次一对一的对抗，他都能坚持住。对我来说，这就是你要找的。他们通过跑动进攻消耗对方体力，迫使这些防守锋线球员不得不脱离阻挡进行争夺和各种动作，从而浪费他们的能量，这样他们就没有足够的体力去冲击四分卫。有意思的是，就像我们之前谈到的，JB，公羊队开局连续三次传球被迫三出局，但在第二次进攻时，他们就像说：‘看，我们要跑这个球。我们要强力推进，我们要…’", "speaker_id": "df", "section_id": "s2"}, {"start_sec": 239, "type": "text", "zh": "会变得身体对抗强烈。结果对他们有利。希望他们开始在比赛一开始就投出刺拳。就像。嗯，希望如此。和上周一样吗？不。【笑声】希望我们能以几记重击开场，你懂我的意思？跑球。而且，我也喜欢这个战术布局。有时候是Puka带球。然后到最后布莱克·科勒姆（Blake Corum）达阵，我不知道你有没有看到，Puka跑了个角出路线。然后近端锋跑了个箭头路线，然后他们看起来像是传球，你把人从盒子里拉出来，但那里没人。所以，对我来说，能够把一切看起来一致，真的很重要。", "speaker_id": "mjd", "section_id": "s2"}, {"start_sec": 268, "type": "text", "zh": "将我们为他们使用的跑动和假动作传球结合起来。为什么花了这么长时间？这是否是某种开始其实并不重要，但为什么他们花了整整一个月才达到对阵拉斯维加斯时的水平呢？我有答案给你，而且听起来可能有点奇怪。当你观看录像时，我不会说很容易，但你会看到他们的节奏感有多好。当你还需要担心把球传给Devonte和Puka的时候，这就有点困难。你懂我的意思吗？当你在那方面需要分拆你的战术手册时。如果简化一下，跑球、传球给Puka，他们表现得很棒。我认为就是这样", "speaker_id": "df", "section_id": "s3"}, {"start_sec": 302, "type": "text", "zh": "你会一直坚持下去，直到队员们恢复健康，或者直到出现其他接球手，但我认为赛季开始时的计划是投掷足球。这是他们原本计划要做的，并使用13人组阵型在其背后进行跑动，但我不认为你现在准备放弃这一点。我认为你只需要依靠某一部分，直到替补球员上场，然后你就可以再次启动传球进攻。让我引导你理解一些事情，因为我知道你对这个问题的看法。上周在这个节目中，我提到了我最喜欢的洛杉矶公羊队比赛之一。那是肖恩·麦克维执教时期的首场季后赛胜利，地点是在主场对阵达拉斯牛仔队。如你所见，你看看赛果统计表", "speaker_id": "jb", "section_id": "s3"}, {"start_sec": 337, "type": "text", "zh": "拉斯维加斯和那场比赛的比分，非常相似。那是公羊队上一次有两名跑卫单场冲过90码以上的比赛，他们各自都有一次达阵。那是CJ，那是托德·古尔利。那是进攻线在证明什么，对吧？赢得坦克线的优势。所以，那正是我所渴望的，我会这么说。但要达到那种状态，需要在天赋不齐全的情况下才能实现，莫里斯。我知道你对此有自己的看法或感觉。我觉得就像德马库斯说的，当你拥有其他这些武器时，特伦斯·弗格森、德万特·亚当斯，对吧？你会想把球交给这些人，因为他们的对位看起来", "speaker_id": "mjd", "section_id": "s3"}, {"start_sec": 373, "type": "text", "zh": "太好了，你想确保每个人都能触球，但有时候这并不能让你展现出最好的一面，对吧？就像你要去参加返校舞会，当你有两个月时间考虑你的礼服该穿什么时，男生们会准备好一切：领结、手表和项链。当你只有一周时间考虑时，你会穿得随意一些，只穿一套燕尾服，这样总是没问题，对吧？所以对我来说，我认为有时候我们拥有的东西太多，公羊队可支配的资源太多，这在NFL说出来很疯狂，因为最简单的事情就是出动13人阵型，跑一场足球动作传球，并让它奏效。让我们...", "speaker_id": "mjd", "section_id": "s3"}, {"start_sec": 404, "type": "text", "zh": "记住这一点，在第一周，公羊队开场时把球到处传试图找出方法，然后他们最好的攻势是什么？13人阵型，我们要直接跑球冲你们，结果他们确实把球推进到四十九人队那边。所以，这一直存在，我觉得你说得对，DeMarcus，这一直存在，但我相信公羊队的理念在整个赛季过程中已经改变了。最初的想法是，先传球为跑球做准备。现在，我们是跑球为传球做准备，我认为进攻理念已经改变了。你看，我觉得你无论如何都会到这里来。", "speaker_id": "df", "section_id": "s4"}, {"start_sec": 433, "type": "text", "zh": "毫无疑问。无论记录如何，我认为这就是这支进攻会进行的方式，因为我们总是说，什么时候足球才真正开始？感恩节，天气变冷的时候。那在冷天赢球你需要做什么？就是跑进攻。所以，我认为你大概在这时候就会开始加强跑动游戏。不是什么万不得已的办法，我认为这一直就是这套阵容和这两位跑卫的运作方式。只是现在因为德万特缺席，这个过程加快了。感觉有点像万不得已，有点像我们的背水一战，而我们的感恩节足球可能不会这样。", "speaker_id": "mjd", "section_id": "s4"}, {"start_sec": 460, "type": "text", "zh": "如果我们现在不谈到这一点，那就没有意义。比如，如果我要为公羊队的各个单位做排名，你知道的，各种踢球比赛、防守传球、防守跑球、进攻传球、进攻跑球，哪一个在一年多的时间里表现最出色，特别是这个赛季？榜单的顶部是谁？跑球。这是他们做得最好的。他们在历史上效率很高，一年前，两名跑卫每次持球平均获得5码。我认为进攻线未来会比在那些紧张的第三次机会和长码情况中表现得更好，这对大多数进攻线来说都是如此。但是，你喜欢和弗雷德竞争吗？我很好奇。我的意思是，当我年轻的时候，是的，肯定是。-嗯。", "speaker_id": "jb", "section_id": "s4"}, {"start_sec": 497, "type": "text", "zh": "当我成为那个人时，不。我想要，我想要全部，但我感受到了上周比赛的每一步。我感受到了上周每一步。那种当你有两个人在内部竞争时，这会给另一方施加更多的压力，因为这甚至不是关于你们的。这不是关于……就像我和这个家伙有些事情必须弄清楚，对吧？我们要弄清楚这些事情，现在是针对你们的，但当你有两名跑者那样奔跑时，你看到了额外的斗志、爆发力。Blake Corum，你知道，我是说，他们都全神贯注。我认为拥有这种状态是特别的，这可以带来动力", "speaker_id": "mjd", "section_id": "s4"}, {"start_sec": 532, "type": "text", "zh": "在整个赛季的剩余时间里，因为你看到了吗，凯伦·威廉姆斯在场上的那个小两步？那就是你知道他状态正佳的方式。是的。来一个这样的，把腿抬起来。他到底想做什么呢？想做假动作。你做了一个小假动作吗？是的，是的。好吧。摆姿势，好的。是的，我的意思是假装一下然后回去，什么有效就用什么，伙计。【笑声】你懂吗？是的，做你必须做的。让我问你一下我今天早上试着跟MJD提出的这个先有鸡还是先有蛋的动态。我想很多公羊队球迷都有这种感觉。就像，是啊，很高兴看到这个。那是我们。那就是我们熟知并喜爱的公羊队进攻。", "speaker_id": "jb", "section_id": "s4"}, {"start_sec": 563, "type": "text", "zh": "但是，为什么非得是一路领先才能体现出那种身份呢？如果你一开始失分，为什么不能带一点那种风格呢？你明白我的意思吗？就是说要坚持它。我的意思是坚持跑动战术。没错。就像—那些公羊队，每当比赛进行顺利，无论是时间还是得分方面，他们就会依靠那种身份稳住比赛的节奏。为什么你不能从一开始就按你希望的方式控制比赛呢？我不想说是“以跑为主”的身份，因为那听起来有点天真、有点老派。公羊队依然非常擅长传球。", "speaker_id": "jb", "section_id": "s4"}, {"start_sec": 598, "type": "text", "zh": "他们也是一个非常好的传球进攻队。斯塔福德只有六次传球未达，其中一次是被撞偏的拦截，本来应该接到的。所以，我不想把事情往回扔得太远，但你知道我的意思吗？我认为很多球迷会想，为什么我们放弃了那个？就像一周前对上红雀队的比赛整场比赛只是以一记射门的差距进行的。因为如果你是战术指挥者，在你脑子里更容易说，如果你是肖恩，你会想，‘好吧，我们需要获得8码。’转身把球交给某人还是抛给普卡做屏幕传球更容易呢？", "speaker_id": "df", "section_id": "s4"}, {"start_sec": 628, "type": "text", "zh": "把一个6码的球传给普卡，对吧？我觉得那就是区别。如果你回看布法罗比尔队的比赛，他们就是把那算作他们的跑动进攻。如果你看了，会发现其实是快速传球出球，试图让普卡一对一地面对防守后卫。当然，我明白。我以前也在有爆发力球员的进攻体系里，你会觉得，“哟，我们有托里·霍尔特，我最后一年在杰克逊维尔的时候。”托里总是完全空位，对吧？我的意思是，他总是空位，而且他会大喊。但要明白，我们打的是以跑为主的进攻。即便落后30分，我们也是如此。", "speaker_id": "mjd", "section_id": "s4"}, {"start_sec": 661, "type": "text", "zh": "我们打算跑橄榄球进攻。所以，理解到当你有你拥有的武器，所有这些因素都在起作用时，年初的时候，像德马尔科说的，最佳选择是在外线是达万特和普卡，对吧？我认为，这也是你会倾向的方向，因为这是你训练的重点。这些都是你整个夏天和整个训练营里一直在练习的，目的是让这些球员调整状态，做好准备。碰巧的是，我们的跑球也非常不错。所以，有时候情况就是这样：这是唯一的选择，这是我们最好的选择，我的想法是这样。", "speaker_id": "mjd", "section_id": "s4"}, {"start_sec": 694, "type": "text", "zh": "对阵红雀队时，你会觉得，‘看看，我们有达万特，他可以在这一边一对一取胜。我们有普卡，他可以做这些事情。’就是这些是我们最好的选择。我们总是想把最好的牌拿出来。我也换一种方式来说明，因为我可能太多地把你引向了这支球队的跑球风格，但传球游戏看起来也不同。不仅是在他们的设置方式上，还有球员组合方面，又回到了三翼锋的阵型，同时也在移动口袋。嗯。持球者游戏。快速传到边线。像他在打得很快，很准时，甚至超前计划。就像这是上个赛季MVP的蓝图一样。", "speaker_id": "jb", "section_id": "s5"}, {"start_sec": 727, "type": "text", "zh": "而这一切的开始，是因为你能打跑球，而且你让他们买账。一些假动作绝对精彩。你会看到后卫们在追逐空气，完全被跑动吸引而偏离了位置，没有拦阻者，也没有其他动力。就是因为跑动向那个方向。这就是他们的想法。当你面对像突袭者和闪电这样的球队时，他们在防守跑动上吃力。我讨厌他们说自己防不住跑动，因为他们有时确实能防住，但他们确实挣扎。这需要他们全力以赴。当他们害怕跑动时，你完全能看出来。所以，那种外摆跑的战术就会存在，我很高兴这些战术存在。回到之前说的事情，", "speaker_id": "df", "section_id": "s5"}, {"start_sec": 758, "type": "text", "zh": "亚利桑那尝试进行跑动进攻，我有时能理解，因为那支防守队伍很难预测。想想布达·贝克因素，你不知道他会从哪里出现。你最不想做的就是在这些所有的跑动中被困在后卫区。但对阵突袭者队和闪电队时，跑动进攻是可行的。如何击败这些球队再明显不过了。但我认为这会为你说的所有内容铺平道路，一些深远传球也会随着时间出现。他们仍在寻找机会。他们确实尝试过用芒菲尔德几次传球，如果斯塔福德在那次传球时顺势将球传给芒菲尔德，他抓到球后，高抬步就能进入端区。", "speaker_id": "mjd", "section_id": "s5"}, {"start_sec": 790, "type": "text", "zh": "如果传球不是把他拉回来并撞倒他，那本来会是一次达阵。所以，平均目标深度或缺乏深度并不会困扰你。至少目前不会。现在还不会。斯塔福德在过去几场比赛中的喷射图并不像其他一些四分卫那样作弊式传球。他的传球很精准、迅速、短距离，而且我认为非常针对对手。根据对手的不同，他的传球会有所变化。我们也必须记住，长传达阵很刺激，但那并不是赢得比赛的方法。这些只是", "speaker_id": "jb", "section_id": "s5"}, {"start_sec": 820, "type": "text", "zh": "高风险、高回报的打法，对吧？就像如果我在第一攻试一把，比如说在第二攻四码时尝试，如果没成功，就是第三攻四码。那时我们就得退回来，稍微整理一下自己。所以，我认为肖恩想表达的是，听着，让我们的尝试是那种没人防守的快速外线球，对吧？普卡·纳库阿单对单快速出球。让那成为我们的快速外线球，让我们尽早尝试。然后让挡拆配合接管比赛，我们看到很多这样的情况。而且，这种打法效果很好。我相信有时候在NFL里和大学、甚至高中相比确实很不同，但按部就班的进攻也是很重要的。", "speaker_id": "mjd", "section_id": "s5"}, {"start_sec": 856, "type": "text", "zh": "一遍又一遍地反复，这不仅有助于你的进攻，也有助于你的防守。那些在场边喝着佳得乐、兴奋地看着比赛的队员们，看了十五次进攻可能会想多待一会儿。没错。所以他们鼓励队员们上场。有时候，你最好的进攻，或者跑动型进攻，高效的进攻，不仅能帮助你提升数据，还能帮助你的防守并让他们得到休息。还有一点，我正要说，作为防守队员，对我来说，担心你长传进攻比实际被迫尝试要好，然后我就知道你到不了那里。", "speaker_id": "df", "section_id": "s5"}, {"start_sec": 892, "type": "text", "zh": "甚至不必遵守它。明白吗？我正想问一天完成中最重要的是什么。关于那场胜利。哦，那个投给泰勒·希格比（Tyler Higbee）的吗？我是说，Tutu Atwell沿着场地快速冲刺。你有两个球员在场上毫无遮挡地冲刺，你把球投高了，然后球在他们之间弹来弹去，这迫使突袭者们想，“哦。”而且，很有趣的是，在其他几次进攻中，Tutu Atwell也在跑着像是任意路线或角球路线，他完全空挡。但是好像有人在试图追他，他在对安全卫大喊，“你在哪？我搞不了。”然后又是这样,", "speaker_id": "jb", "section_id": "s5"}, {"start_sec": 924, "type": "text", "zh": "这只是迫使防守协调员或者在广播席上的人要说：“看，这个人开了。我们必须确保盯着他，因为他能影响比赛。”你们还记得法弗吗，对吧？太有趣了，他会直接长传，不试图完成传球。只是为了让我们知道他能把球投得很远。是的，这就是本·罗斯里布格所做的。他整周都在受伤。第一场比赛开始。我记得是对阵野马队的季后赛。第一球，他就尽可能地远传。只是为了让你知道，“嘿，我仍然能做到。”然后他们会让你退后，这就打开了其他所有的机会。最后，我想谈谈红区。", "speaker_id": "mjd", "section_id": "s5"}, {"start_sec": 956, "type": "text", "zh": "分区成功，因为没有作弊码——就是下场那些短区间的达万特·亚当斯——我们也能看到公羊队冲到达阵线，甚至克服一些处罚仍然将球送入端区，由戴维斯·艾伦得到几个，由普卡·纳库亚得到一个，使马修·斯塔福德登上纪录书榜首。觉得这非常令人振奋，不仅因为他们维持了攻势，更因为重要的是完成了进攻。是的。我会说是一个很棒的房间。每一个首发近端锋的表现都是完美的一天。甚至连将军我也明白了，他们告诉我这是什么意思。顺便说一句，他就是美国队长。他们说如果把他的制服换成军装……", "speaker_id": "jb", "section_id": "s5"}, {"start_sec": 987, "type": "text", "zh": "看起来几乎一样。所以他们叫他将军。说得通。是的，我觉得希格斯说过，当他回到家乡时，他可能会退休从事执法工作，然后这就演变成了‘将军’。现在，我再也无法不把他看作将军了。美好的一天。我的意思是，靠近端锋的美好一天，并且就像你说的，跑球进攻让他们启动起来，还有一些他们做的虚晃挡拆的动作。是的，他们在这方面很棒。我是说，他们真的能把跑动卖得让人信服，然后他们在屏幕外出球，哐当，下场冲刺。时机非常棒。再次强调，在红区有多种得分方式。我认为在这场比赛中，跑球是最有效的方式。他们", "speaker_id": "df", "section_id": "s5"}, {"start_sec": 1018, "type": "text", "zh": "进入大约两三码线的情况下，即使我们犯了一个罚球，你也可以通过一次跑动拿回码数，然后你又……如果你在红区让对方每次跑动拿到六七码，你认为每个人会怎么做？队员们一旦被挡开，他们就会偷看跑向哪里，然后Davis Allen就会完全空位，对吧？所以再次强调，这是一个很棒的比赛计划，很棒的执行，但这一切都始于他们真的像恶霸一样，压制对方进攻线。你们说过Crosby吗？很少，对吧？我想他唯一完成的一次进攻就是在跑动防守中斜插进去，是的，全力防守跑动。", "speaker_id": "mjd", "section_id": "s5"}, {"start_sec": 1051, "type": "text", "zh": "我只是希望他们能够保持连续性，在那场比赛的基础上继续发挥。我担心周初的伤病报告。我的意思是，帕金森三次从场地上自己爬起来，结果是肋骨在困扰他。我的意思是，科尔曼·谢尔顿可能是整个NFC西区，甚至可能是整个NFC中最被低估的球员，就这支球队的进攻如何看待他而言。如果你的中锋受伤，那可不是你想处在的位置。所以随着本周进行，这也是值得关注的——我们在拉斯维加斯看到的那些进攻贡献者中，有多少会在对阵充电器队时上场。我讨厌（这种称呼），当有人称他为QB2时，那其实是极大的赞美。你觉得呢", "speaker_id": "jb", "section_id": "s6"}, {"start_sec": 1090, "type": "text", "zh": "还记得吗？我不记得，但我喜欢那样。他作为第二四分卫从训练营出来。那显示了他有多聪明。给他点应得的赞美，我首先想到的是，如果他是你的第二四分卫，那么整年他都会成为对手的目标。如果你看看其中的一些伎俩，那些都是为了突破或者击打对手来获得空档的伎俩。在过去四周里，他们一直在针对他下手。所以，我并不惊讶他有些受伤。就像科尔比·帕金森一样，你必须坚持下去，这就是现实。他们需要你，你必须上场。没有人像你这么聪明。所以，作为中锋，你有责任上场。我明白，这很糟糕。", "speaker_id": "df", "section_id": "s6"}, {"start_sec": 1127, "type": "text", "zh": "这很痛，但你得想办法把他们从那些位置上弄出来。不过，他们做的就是针对较小的中锋，通过这些套路冲过他。是的，知道T Ferg这周不训练。如果Colby不能上场，我认为这会削弱你上周部署得非常好的许多身份和人员组合。你可以让Clark上场，但考虑到缺乏经验，这可能是一个相当大的替换。12人组阵容会保持不变。你只是得让Whittington进来，充当第三个近端锋。普卡·纳库阿（Puka Nacua）进来，充当第三个近端锋。我的意思是,", "speaker_id": "mjd", "section_id": "s6"}, {"start_sec": 1159, "type": "text", "zh": "显然，当他插入并做那些事情时，但你知道的，再次强调，沟通是整个进攻的关键，对吗？如果所有11个人都在同一频道上，你就有一个很好的机会去超越并在所说的进攻中表现出色。所以，有时，就像你说的那样，比如“嘿，兄弟，我知道你只在85%，但还是绑上绷带。”保持它，保持进度，你得继续前进。是的。那么防守呢？我的意思是，在输给亚利桑那的比赛中没有让对方达阵。在拉斯维加斯甚至没有让对方在第四节的第一球达阵，即使没有Trent McDuffie。我的意思是，替补中谁给你留下了深刻印象？", "speaker_id": "jb", "section_id": "s7"}, {"start_sec": 1196, "type": "text", "zh": "前面的一些大牌球员？好吧，我知道这是他们本周袭击队最大的一次进攻之一。防守做得非常好，除了两次进攻或者几次关键的进攻。不过，塔克乔什·华莱士的那次擒抱，我真是难以忘怀。还记得那次吗？袭击队的第一次重大传球，他在开阔地带把对手扑倒并完成了一个甩摔？你知道那有多难吗？这就是他在这里的原因。这就是他被选中的原因。我一直忘不掉那画面。我知道那只是一个无关紧要的动作。它发生在一次大进攻的尾声。袭击队的人在欢呼，而你却没有。但这正是你在星期一停止回放时，会对大家说，“看这个。”", "speaker_id": "df", "section_id": "s7"}, {"start_sec": 1228, "type": "text", "zh": "这就是重点。活着去再打下一次。这是一个大动作。场中一个人对抗一个技术型球员，而你独自把他放倒，太棒了。那应该是一个得分的机会。所以，这一点很突出，但他们在那条进攻线上的表现，他们对柯克·考辛斯的压迫，以及阻止跑动的表现都很出色。你应该对阵突袭者。我一直不知道金蒂作为接球手这么厉害，直到那场比赛。我觉得他们也不知道。如果他们现在不再使用他，那他们就是疯狂。这家伙手非常好。但就阻止跑动而言，他们做得非常出色。在使用轻型人员配置时也是如此。", "speaker_id": "mjd", "section_id": "s7"}, {"start_sec": 1261, "type": "text", "zh": "我觉得他们接下来要采取的步骤是把埃马纽埃尔·福布斯放在正中间。他们对拉斯维加斯的跑球战术已经没有任何尊重了，但他们仍然把它封锁住了。是的，Fisch出现了，AD出现了，队员们也有精彩的表现。是的，我再次认为，当你看那个情况时，他们在说我们要放胆让你们跑球。放胆。因为我们出去的时候全是些防守后卫，我们只有五个防守前线球员。你们必须跑球。我们会迫使你们这样做。而袭击者在上半场试图这样做，对吧，前三节他们都试图这么做。然后他们就…", "speaker_id": "df", "section_id": "s7"}, {"start_sec": 1290, "type": "text", "zh": "像‘算了’这样的调整。我们打算全力以赴，尽力投球然后尽快结束这里。再次，布罗克·鲍尔斯干得很棒。我觉得每个人在放慢他的速度方面都做得很好。沃特森再次出色，他的表现非常亮眼。我觉得安全卫麦克科勒姆做了一些关键擒抱。我觉得他们所有人都做得很棒。这是一个总体上非常棒的团队。斯佩德斯怎么样？你见过奥马尔·斯佩德斯打得比那场比赛更好吗？托·拉克完成了一些重要的动作。很高兴你提到这个。还记得几年前吗，当人们试图取笑他时，萨昆在那个铁套里晃动了他，而那个洞大约有一英里宽。哦，天啊，我们需要一个新的线卫。", "speaker_id": "jb", "section_id": "s7"}, {"start_sec": 1323, "type": "text", "zh": "你不能，你不能那样做。那是Saquon Barkley，业内最优秀的球员之一。现在，看这个家伙对付Joe Blow跑卫会做什么。他上去就炸你，即使在特勤队也是如此。我喜欢他的比赛方式，真的。我希望有一天他能成长为绿点（Green Dot）球员，因为他具备你想要的一切。坚韧、能发动猛攻、顽强、让每个人都排列整齐。我喜欢他的比赛方式。是的，我不知道。我们只是讨论那种思想者，对吧？对我来说，我希望他出去就去打球。因为他能摧毁对手。因为他真的...有一次跑球时，他冲破了防线。他们做了一个……", "speaker_id": "df", "section_id": "s7"}, {"start_sec": 1354, "type": "text", "zh": "跑动作，他在中锋脸部越过后，撞到了阿隆·唐纳德的背后，我忘了他撞的是哪个跑卫，但当他撞到那个跑卫时，他向另一个方向去了，对吧？你可以看出他臀部的力量和爆发力。再次强调，我只是觉得总体上，这真的是一次精彩的表现，我不认为对手必须是突袭者队，任何队都可以。当公羊队那样打球并且配合得那么好时，要击败他们是非常困难的。这就是你看到的。防守出手做出了动作，进攻也做出了动作，特勤组在最后阶段搞得热闹起来，但我的意思是，一些", "speaker_id": "mjd", "section_id": "s7"}, {"start_sec": 1387, "type": "text", "zh": "那些攻守转换和在踢球队中你看到的努力和精力的家伙们，那就是你想看到的。你想看绝望吗？看看阿隆在我记得是B.杨拿到一次擒杀后是怎么做的。所以，菲斯克拿到一次，然后B.杨又拿到一次。又来了。对，又来了，没错。阿隆当时的意思是，我必须上场。是啊，你不喜欢我在第三轮吗？然后他又用了旋转动作。我看到了。哈哈。【笑声】 对于缺乏擒杀的情况，你们有多担心？我是说，直到进入绝望模式，公羊队才抓到库辛斯。他们连续两次成功。我明白了。他的擒杀率真的很低。他在比赛中尽量避免被击中。有时候你只能让他自投罗网。好吧。", "speaker_id": "jb", "section_id": "s7"}, {"start_sec": 1423, "type": "text", "zh": "压力是存在的。对手的擒杀没有实现。抢断也没有实现。然而，这支防守队伍依然在取得成绩。你怎么能因此而放松呢？我的意思是，我认为很多球队，他们的目标就是快速传球。你很少看到有人长时间持球。上一个这样做的球队是巨人队，而他们的四分卫受伤了。让我快速补充一点，我知道抢断不多。不过在关键的第四次进攻中有抢断是存在的。这些应该算数。你在第四次进攻中得到的机会甚至比一次截球还好。对我来说，那确实是的，肯定是这样。", "speaker_id": "mjd", "section_id": "s7"}, {"start_sec": 1448, "type": "text", "zh": "就像我说的，我只是觉得，当你看比赛，看看各队对阵其他队的打法时，球出来得更快了。我的意思是，它是准时的。如果他们打算尝试下场进攻投篮，那就是重型假动作传球配最大保护。公羊队通常不会进行冲锋，对吧？他们只是试图用四五个人施加压力。所以，你知道的，我最终他们会来的，而德马科知道这一点，当他们来的时候，是成群结队的。哦，是的，对吧？然后你就开始慢慢搞清楚一切，事情开始运转，随着比赛进入下半段，球队没有时间去……", "speaker_id": "df", "section_id": "s7"}, {"start_sec": 1479, "type": "text", "zh": "快速的比赛，对吧？你必须去做一些其他事情，你在次级防守上需要稍微安定下来一些，所以我认为他们做得很棒。是的，我们想要擒杀和抄截，但如果你在防守中让对方进攻没有拿到新的阵地，如果一支球队在自己的35码线上开球，然后三次攻防都没推进就踢球，你的防守做得非常好。如果你让他们无法进入达阵区，你也做得非常好。在没有Troy Mcduffie打几场比赛、没有Kobe Turner、没有上周的Poona Ford，并且仍然没有Miles Garrett的情况下，又一周过去了，你仍然看不到他。但是现在，公羊队有三人", "speaker_id": "mjd", "section_id": "s7"}, {"start_sec": 1509, "type": "text", "zh": "在他们轮空之前还有几场比赛，而尚未获胜的闪电队是下一个对手。你得预计到这是一个被逼入绝境的动物，对吧？在轮空之后，闪电队会把这场比赛当作他们的超级碗来打。我们不是被逼入绝境的动物吗？是的。所以，两个被逼入绝境的动物，总有人得进垃圾桶，总有人得出来。你把两个人放进垃圾桶，总有人得出来。你是说这是一场任何一方都不能输的比赛。是的，你们都非常渴望赢。绝对绝对渴望。你们刚赢了一场比赛。那是唯一的区别。他们刚轮空完。他们刚轮空完而且输了比赛。", "speaker_id": "jb", "section_id": "s8"}, {"start_sec": 1540, "type": "text", "zh": "所以，是的，你们处境相同。你们的胜率仍然低于5成，就像他们一样。你们也有可能错过季后赛，就像他们一样。所以，目前没有哪个球队更好或更差。你们必须出去从他们那里抢回比赛，但如果你们像在拉斯维加斯那样比赛，他们就无法阻止你们。他们赢不了你们。你们继续跑球，因为你们能在他们身上跑动，然后利用动作假跑再传球，同时在防守端压制他们。你们可以击败闪电队。但你们同样绝望。我将永远被20岁的喷气机队带着萨姆·达诺德来这里赢得那场比赛所留下的情感创伤折磨。是的，把特雷弗·劳伦斯交给美洲虎队。", "speaker_id": "df", "section_id": "s8"}, {"start_sec": 1575, "type": "text", "zh": "每当我看到公羊队赛程上有一个未取胜的对手时，那都会让我做噩梦。肖恩当时在那里。他记得。看，我觉得他在新闻发布会上说过，他不在意他们的战绩。而且你必须给教练应得的赞扬，因为他吸引了球队的注意力。我真不知道该怎么说。他处理整个凯伦的事情的方式，你知道，我本应该在场上，所有那些事情。你也看到了比赛期间的情况。那是处理这件事的完美方式。你给了他重新赢回职位的机会，他做到了。他表现出了色。所以，他引起了球队的注意。我觉得科比·帕金森受伤下场，然后...", "speaker_id": "mjd", "section_id": "s8"}, {"start_sec": 1607, "type": "text", "zh": "起床并回来的事情说明了本周训练的很多情况。他们在比赛后都这么说。这周的训练很棒。所以，肖恩·麦克维带领这支球队非常强势。所以，没有哪支球队是低于你们的。你们都有同样的感觉。所以，不管谁上场，我认为你都会得到他们最好的表现。如果你带来你在拉斯维加斯的状态，闪电队就赢不了你。斯塔福德说，‘如果你们知道科比·帕金森为了完成那场比赛所承受的一半压力就好了。’是的。我认为最大的部分是球员带伤上场，对吧？因为现在情况不同了。", "speaker_id": "df", "section_id": "s8"}, {"start_sec": 1639, "type": "text", "zh": "如果我们只是排好队去踢一场足球比赛，假设两队的战绩都是0-0，而且没有其他因素的话，公羊队的阵容更好，他们应该出去赢，对吧？但是现在你加上失利，加上伤病，加上所有其他因素。但是人们没有意识到的是，球员们是在带伤上场，对吧？科比·帕金森在他经历的困境中上场比赛，这是很鼓舞人心的。这会让其他球员站起来继续前进。看到默奇森、汉密尔顿和特洛伊·戴维斯在一档和二档冲跑时的防守表现，再看看公羊队在第三档换下七名球员的情况。", "speaker_id": "jb", "section_id": "s8"}, {"start_sec": 1672, "type": "text", "zh": "让防守冲刺的球员冲进来。而且没有争吵，也没有‘不不不，什么？’之类的情况。再说一次，他们是认真的。对我来说，他们的饥饿感和充电队一样，甚至可能更强。因为你没有全部的球员，球员还带伤作战。你必须出去表现出色。而且，你无法输掉这场比赛。这不是……嗯，上周是必须赢的比赛。那这周呢？你又赢得了另一场必须赢的比赛。所以，这就是他们出去比赛的心态。我想说的一点是，我在场上看到他们在享受比赛。他们玩得很开心，庆祝比赛。", "speaker_id": "mjd", "section_id": "s8"}, {"start_sec": 1709, "type": "text", "zh": "互相庆祝。是的，确实如此。这就是我们上周看到的与在亚利桑那看到的不同之处。那很无忧无虑。尽管那场在拉斯维加斯的比赛有后果，对吧。他们完全放开了，是的。我，我，我记得我在杰克逊维尔时我们对阵突袭者，那是一场重要的比赛。我们的名册上有柯克·莫里森，而柯克在半场时哭了，因为我们在输球。他来自奥克兰，我们刚刚从那边交易过来。他很沮丧。哎。我当时想，“兄弟，放轻松。我们比他们更强，我们只需要安定下来，做好自己的部分。”然后我们做到了。我们在下半场连得分数，我们那支队伍连胜下半场，我想我们那年可能还是错过了季后赛。", "speaker_id": "df", "section_id": "s8"}, {"start_sec": 1740, "type": "text", "zh": "打了大概四五场比赛，我记得我们差一名就能进入季后赛，但那都是因为我们太紧张，试图做所有这些伟大的事情。而当你只是放松然后去执行，如果你相信没有人比你更强，队友们都在做无私的事情，士气就会不断提升。然后教练可以跟你说：“看，他们是饿狼，被逼到角落里。”你猜怎么着？我们也是。然后你就得让两只狗被逼到角落里，如果有人把墙推在一起，我们会怎么办？谁会走出房间？", "speaker_id": "jb", "section_id": "s8"}, {"start_sec": 1765, "type": "text", "zh": "对吧？这就是你在本赛季剩下的比赛中必须保持的心态。是的，让阵容深处的球员有所贡献确实很重要。我知道除了Puka之外，接球手只完成了一个接球。你知道，Kanak的那个接球。但去看看Kanak在Kyren达阵时的封堵方式吧。整个达阵过程需要全队11人齐心协力。我觉得那段录像非常精彩，更能代表公羊队的现状以及他们本赛季希望重现的状态，你可以以此为基础继续发展。那很有趣。这就是我们所谓的“爆米花录像”——打开来看就好，好好享受。我们不是在纠正，只是在...", "speaker_id": "mjd", "section_id": "s8"}, {"start_sec": 1795, "type": "text", "zh": "观看。我们正在享受彼此的表演。庆祝。庆祝。我有一个问题要问你。当T. Ferd回来并且你拥有完整的近端锋阵容时，对吧？那么，当你走到13号时，你会去14号并把Puka放到替补席上吗？不会。然后让T. Ferd成为主要球员？天啊，我们能不能只是品尝一下那个香槟般的问题？是的，这让我想到了。我们什么时候必须面对那个问题？有很多类似的情况。 【笑声】因为，比如说，让我们直接跳到我们节目中的另一部分。军备竞赛开始了。哦天哪。你准备好了吗？公羊队领先于他们。他们领先。我会这么说。向昨晚的公羊队以及所有人致敬。很棒的表现", "speaker_id": "df", "section_id": "s9"}, {"start_sec": 1833, "type": "text", "zh": "未来是不可能的。我从来没见过这么多明星球员这么早就被清掉。你这么快就把球员们清掉，真是了不起。是的。就在小马队解雇总经理的时候，你就知道清仓来了。我脑海里浮现的第一个人是德福雷斯特·巴克纳。他会去哪？拜托不要到这里来。你猜他最后去了哪里？就那边。然后你会得到一个最好的，如果有的话，最能克制阿隆·唐纳德的克星——昆顿·尼尔森去了西雅图。耶，真有趣。那是最让我心痛的。哦天哪，这比任何事情都让我难受。因为这就像为什么？为什么你会…因为他们需要他，而且他很棒。", "speaker_id": "jb", "section_id": "s9"}, {"start_sec": 1869, "type": "text", "zh": "完全正确。他真的很棒。如果你是小马队，你怎么能放手呢？不是打断你的谈话，但如果事情顺利的话，你可能今年一月要再去一次士兵球场了。而且他们今天早上也有动作。杰弗里·西蒙斯现在是熊队的一员。所以，NFL中最大的熊队有了他。但我认为这把事情联系起来了。为什么MJD会说你不能输给闪电队这场比赛？那是因为你的交易截止日期已经过去了。那是在春天的时候。你已经做了你的交易。你只需要在水面之上保持足够久的时间，让那些球员回来，加强你的阵容，巩固你的队伍。", "speaker_id": "mjd", "section_id": "s9"}, {"start_sec": 1899, "type": "text", "zh": "名单。无论是Myles Garrett、Terrance Ferguson，还是让Devante回来，让Kobe Turner回来，以及后面的一系列情况。这就是我对擒杀的评论。就像缺乏擒杀一样。你们有施加压力，你们做得很棒。当Myles Garrett回来的时候，擒杀自然会出现。而Aaron也重新找回了自己的状态。就像哦对，在第三档出场，结束进攻。这一幕你看到了吗，他把Kirk Cousins的脸瞬间压在地上？那让我笑了。他的传球命中率也很高。就是那一球。他把脸直接摁在地上。那就是我们熟知和喜爱的Aaron。记得他把Drew Brees的拇指拍掉的时候吗？那", "speaker_id": "mjd", "section_id": "s9"}, {"start_sec": 1929, "type": "text", "zh": "东西。我的意思是，当你甚至只是触碰人就能产生影响的时候。所以，你让迈尔斯回来，让麦克杜菲回来，你看起来就像一个出色的橄榄球队一样。是的，你必须以某种方式通过积累胜利来赢得你的交易截止日期，连续取得胜利，拿到赛季的首次连胜，然后从赛程休息回来时看看积分榜和你的阵容，希望如此。我认为，你在这方面说得非常正确，比如让特伦斯·弗格森回来，让迈尔斯·加勒特回来，让科比·特纳回来，让达万特·亚当斯回来。", "speaker_id": "df", "section_id": "s9"}, {"start_sec": 1960, "type": "text", "zh": "那是一个交易截止日。那是一个人们为了这样的球员而进行交易的截止日，而你却只是把他们列在你的名单上，他们又受了伤。你能坚持多久呢？事实上，我甚至不认为是坚持的问题。我觉得关键是，你能多长时间保持主导地位？因为你仍然拥有那些组成部分。我们在休赛期谈到了深度，现在它们开始显现出来。这些深度球员开始获得未来季后赛中必须上场时的可行经验。想要以一些击败充电器队的关键方法来结束，去做到你所说的那些事情。", "speaker_id": "mjd", "section_id": "s9"}, {"start_sec": 1990, "type": "text", "zh": "刚才问的？当然。我一直在看他们的防守，而卡利尔·马克就是那个老练的老将。就在你感到无聊，认为这家伙没什么的时候，不，他一直在设套。 他仍然有实力。另一边的图伊·普洛图呢？嗯，哇。手很稳。好吧，我敢说，有时可能是因为他穿着的制服和外表的原因，但有时候，他做出的那些二次努力的动作，让人很容易联想到以前那位伟大的闪电队球员，如果你懂我在说谁。你知道我说的是谁。他就是那种球员。所以那些边线", "speaker_id": "mjd", "section_id": "s9"}, {"start_sec": 2024, "type": "text", "zh": "伙计们，这将会是一个问题。他们有不错的球员，但如果你像我们说的那样控制争球线，通过跑球，你可以保护自己。你在你们的后场保持了最好的比赛记录，基本上持续了三个半节。你这周也可以通过跑球再次做到这一点。我也要说一点，你说他是Tuohpu？Tui Pulotu。他总是想要把球拿出来。我是说，他在对阵野马队的时候抢断过球，他有一次。Bo Nix以为他已经倒地了，球还是被抢走了，对吧？所以你必须确保保护好球。对我来说，是Herbert，他正在经历一个历史性的连胜纪录，保持未被…", "speaker_id": "df", "section_id": "s9"}, {"start_sec": 2057, "type": "text", "zh": "打得不错，对吧？这很像突袭者队不能推进跑球，对吧？继续保持。是选秀权的原因还是还有其他原因？不仅仅是选秀权的原因。因为每场比赛都有拦截，但这些都是长传。是的，不，我的意思是，也有一些短传，但要让他无法轻松后退然后把球传出去，对吧？而且这就是第二次努力的比赛，他必须重新调整然后把球传下场，或者他感觉有点压力不得不跑出来。你必须掌控局面，让他继续打比赛。", "speaker_id": "jb", "section_id": "s9"}, {"start_sec": 2087, "type": "text", "zh": "是这样，对吧？不要让他轻易投球。不要让他进入节奏。我说过，老实说，他是一个有节奏感的传球手。他的实力和手臂一样强大，还有很多闪光点。但如果他没有进入节奏，他就打得不好。所以你必须让他脱离节奏。你期望Shanahan式的比赛计划吗？毫无疑问。他们会尝试，他们会尝试跑球。你必须阻止跑动。他们有一个大个子跑卫，但他们的体系不符合他最擅长的方式，但他们会用他跑外侧区域跑。他们会进入散弹阵（shotgun），把近端锋（tight end）往后移。", "speaker_id": "mjd", "section_id": "s9"}, {"start_sec": 2117, "type": "text", "zh": "穿过切入。他们会去做。如果我是迈克·麦克丹尼尔，我会看看第一周，然后想九人队做了什么？嗯。我们可能会运行完全相同的东西。在作弊周没有做任何更改。有趣。没有任何更改。德温·詹姆斯可能会进入伤病名单，不过我们这周确实得知了这一点。等这段内容发布时，不知道情况会如何，但我的意思是在他们防守后端，他绝对是一个身份性球员。见鬼，当他健康时，但经常生病。是的，还有另一件事要指出，上周我关注的大数据是第二次进攻平均码数。我记得大约是5.67左右。", "speaker_id": "df", "section_id": "s9"}, {"start_sec": 2151, "type": "text", "zh": "就是那样。你说的中和那些边路的方式，上周中和马克斯·克罗斯比（Max Crosby）的方式，不给他们竖起耳朵的机会。我没意识到，直到Sean在赛后和你们交流时说，我们表现很棒，没有让太多的第三次进攻。我看了统计表，哇，那四次达阵进攻让你们基本上取得领先，基本上锁定了比赛，你们在第三次进攻中只有三次。是的，他们在正式发起之前就刷新了次数。是的，那意味着你们的前线很稳。而且你必须赢得一些压力大的下场进攻，否则你不会赢。", "speaker_id": "mjd", "section_id": "s10"}, {"start_sec": 2179, "type": "text", "zh": "在这个联盟里，你知道，长时间避免第三档和八码以上的情况是不可能的，但他们尽量减少这种情况，并且他们确实有一些球员能够赢下其中的一些情况，但在本赛季前六场比赛中，似乎出现了太多紧张的进攻回合。在拉斯维加斯，那是一场无忧无虑的进攻胜利，因为你能把三码变成五码，把五码变成六码或七码，然后为指挥进攻的教练打开整个战术菜单，说实话，他当时可是压力很大。我告诉你，第三档八码从来都不容易。而当你多次面对第三档八码以上的情况时，你就会暴露自己不得不执行一些本不该调用的战术。", "speaker_id": "mjd", "section_id": "s10"}, {"start_sec": 2214, "type": "text", "zh": "练得那么多，对吧？我会为我们的球迷说这句话，在第三次进攻和八码的情况下，你可能会练五到六个战术。如果我在第三次进攻八码的情况下出现七次，这意味着我们必须回去跑一个已经跑过的战术。也就是说，我们已经向他们展示过了。所以对我来说，当你处在那些长码数的情况下，你会让自己陷入困境。我认为公羊队做得非常好的是，他们在第一下就能赢得九、八、十、十二码，对吧？那么这对防守协调员意味着什么呢？我现在必须展示我的第一和第二次进攻战术。哦，我们已经掌握了。他们在这个阵型中，他们会跑这种防守战术。就是这样。", "speaker_id": "jb", "section_id": "s10"}, {"start_sec": 2246, "type": "text", "zh": "他们上次跑了。像这样，而且再次强调，这是关于暴露的问题，而公羊队上周限制了他们的暴露。希望他们能做到。另一个关键因素是，对公羊队只接受了六个罚球。技术上是七个，但其中一个是像“嘿，我们在准备开踢之前用了节奏，我们要接受延迟比赛”的情况。在这六个中，只有一个是在开球前，是在球门线上产生的假动作，最终变成了达阵。所以在你的下次进攻和距离上，你甚至不在第一档15码的情况下，就像他们不幸的情况太多次发生的那样。或者说是什么呢？第四档三码变成第四档八码。你知道，他们之前生活的噩梦就是这样。", "speaker_id": "df", "section_id": "s10"}, {"start_sec": 2277, "type": "text", "zh": "他们在SoFi的时候。所以尽量减少开球前的故障是非常重要的。问我以前有船的时候船的名字。什么？你有船？第三次长码。是啊，因为你是。就是你赚到钱的地方。【笑声】船主经历中最好的两天是拥有的第一天和最后一天，这是真的吗？绝对是真的。【笑声】等不及了。来拿这东西吧。希望这周日能在SoFi体育场见到你。来自Reese Davis、Drew Litton、DeMarco Farr和J.B. Long的问候。感谢你观看由你们南加州丰田经销商在丰田露台呈现的《Between the Horns》。", "speaker_id": "jb", "section_id": "s10"}, {"start_sec": 2311, "type": "text", "zh": "俱乐部在SoFi体育场。公羊队和闪电队将于周日与你见面。开球时间是1:05。我们要做一些像【音乐】这样的事情。", "speaker_id": "jb", "section_id": "s10"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

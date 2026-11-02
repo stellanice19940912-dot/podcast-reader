@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>用智能体做长周期金融工作——Arca AI 负责人 Aman Singh</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="richard">理查德·麦克马纳斯（Richard MacManus）</option><option value="aman">阿曼·辛格（Aman Singh）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Latent Space</span><span class="pill">2026-10-31</span></div>
+<h1>用智能体做长周期金融工作——Arca AI 负责人 Aman Singh</h1>
+<p class="sub">嘉宾：Aman Singh · 约 26 分钟（1565 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=KM3VQZKjpiY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=KM3VQZKjpiY</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Latent Space</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-10-31</dd></div><div class="meta-row"><dt>时长</dt><dd>约 26 分钟（1565 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en/en-orig 均含词级时间戳、内容接近；普通 yt-dlp 遇 timedtext 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 补拉成功）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段；说话人按主持/嘉宾问答轮次推断（自动字幕无说话人标签，中等把握）</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>KM3VQZKjpiY</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>在 AI Engineer New York，Latent Space 编辑总监 Richard MacManus 对话 Arca AI 负责人 Aman Singh：Arca 如何用自研 harness、持久记忆与人工审批，把智能体工作流拉到跨天数的财富管理场景。</p>
+<h3>核心要点</h3><ul><li>Arca 定位 AI 原生财富管理，智能体支持顾问而非替代</li><li>自研 harness + 任务路由 + 内部评测选型模型</li><li>跨天数任务的持久记忆与合规审计默认开启</li><li>人审节点：高额税单/交易执行仍由专家把关</li><li>员工反馈沉淀为 evals，把运营知识写入智能体上下文</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：关心金融智能体、长周期 agent 与合规落地者；可跳过：对财富管理场景无兴趣（约26分钟）。</p>
+<h3>适合人群</h3><p>AI 工程师 / 金融科技 / Latent Space 听众</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场：AI 原生财富管理与 6400 万美元融资</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">冷开场抛出 Aman 的金句：Arca 不是 SaaS，而是自己做业务的事务所；智能体主动找人的频率高于人去提示智能体，服务 7×24 在跑。主持人理查德·麦克马纳斯（Richard MacManus）在纽约 2026 AI Engineer 大会介绍嘉宾阿曼·辛格（Aman Singh）：Arca 作为 AI 原生财富管理公司刚融资 6400 万美元，请他说明角色、服务范围与智能体用法。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">AI 不换顾问，换顾问周围的全部杂活</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">Aman 领导 AI 平台，目标是用自研 harness 把公司跑在 AI 上。服务覆盖理财规划、税务、保险与遗产规划，客户从刚卖公司的企业家、想提前退休的科技高管到首套房家庭。关键定位：AI 不取代顾问，而是吃掉顾问周围工作；客户不直接碰 AI，体验的是真人顾问的共情，却叠加行业以往做不到的主动与响应速度——后台由持续关注市场与生活纹理的智能体机器支撑。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">模型选型：内部基准 &gt; 外部榜，Claude 为主</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">当前主力来自 Anthropic、OpenAI 等前沿实验室，Claude 是主模型；历史上用过 Gemini→OpenAI→Anthropic。选型完全看内部基准是否覆盖 harness 经营业务所需能力。反例：外部对 Luna 喊好，但内部测下来又慢又贵，弃用。原则是模型无关、不绑死单一实验室的供应商或现成 harness，保留切换期权。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">自研 harness 与按复杂度分档路由</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">不因模型换 harness，而是自研一套模型无关框架。任务按复杂度分档：税务规划/分析走最重档（Opus / Sonnet / 重型 GPT 等可灵活选）；大量后台低复杂度活动走轻量模型。顾问侧完全无感——产品把路由抽象掉，决策在系统内部完成。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">十天税单案例：分析自动化，动钱必须人审</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">典型流程跨约 10 天：客户邮件抛出税单需求后，智能体负责分析「资产如何配置、怎样最优变现约 10 万美元」；分析可全自动，但禁止自动划转资金或变现。即便与托管行有深度 API，动钱、清算与对客沟通一律人在回路。智能体做完内部分析后拉对的人执行交易，并给出可审阅微调的方案——比常见 agent demo 的时间尺度长一个数量级。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">跨天恢复：邮件线程、新信号与「做梦」记忆</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">长任务靠信号与记忆续上。同一邮件线程的后续仍交给原智能体；中途新电话等「新鲜信号」则唤醒新智能体。对齐靠每客户持久记忆：当前事项、服务目标、权责、已完成/待办、近几日紧急项与长期跟踪。智能体写入记忆，另有反思式「做梦」过程更新长期状态，使新信号智能体能迅速认出「正在推进大税单」并并入正确世界模型。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">确定性护栏、提示注入与默认可审计</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">安全限制尽量确定性，关键决策不交给智能体自由裁量；写库工具每次调用叠加快速 LLM 校验。邮件/文档/电话在边界做提示注入检测；数据外发（搜索、日历邀请等）叠加 PII 确定性检查与小模型共识防外泄。护栏装在能力边缘而非过早掐死能力。合规上行业看结果、合规看审计——每步智能体与人类 UI 变更都写变更日志，默认可审计既满足监管，也反哺智能体感知「世界刚变了」。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">智能体找人，以及为何不绑托管智能体</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">金句落地：十天多角色流程里，智能体按长记忆与每日反思在正确时刻拉人，并只给够用的上下文——把行业与 Arca 自有作业标准产品化。相对 Anthropic 托管智能体：看好其模型，但拒绝把记忆与运营知识外包，因为「拥有智力」才保有业务控制权。Anthropic 进军金融是赛道验证；「工具加持的服务公司」仍要人去提示，而 AI 原生事务所是智能体 7×24 主动驱动、形态不同。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">沙箱产物验证与决策模型纠正过时税率</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">沙箱是 harness 组件：智能体不在沙箱内居住，而是卸载计算；生成代码被译成严格格式、丢弃源码、加护栏后再打后端，从而安全地用代码聚合数据并生成财务计划 PDF。产物出炉即跑验证：确定性检查（如明文账号）、小模型/Jev 抓「承诺收益」等违规措辞。决策模型还用于纠偏过度自信：例如模型爱用过时的 2025 税率档——一旦检测到需财务严谨的建议，就逼它改用当日核验知识库或搜索。不做智能体自主交易，失败恢复也非当前决策模型场景；交易仅提案，专家拍板执行。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">员工反馈→夜间元智能体，知识库一等公民</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">每次员工编辑/取消须带「为什么」并变成 eval：反馈与智能体轨迹入库，每晚元智能体建议改 harness（误导工具、缺口知识等），上线前提示词仍由工程师把关——因放任智能体改提示易把小修补胀成整段、难以泛化。运营知识以文件知识库呈现，专家策展，产品左侧 Knowledge 页签；引用、发现错误、在产品内直接改技能，形成保鲜闭环。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">客户案例：挖出隐性收费与非受托人风险</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">转化中客户已有顾问、年费约 1500 美元且响应差。Arca 智能体通读账单持仓、对照目标与现顾问收费后，发现其不知情的额外费用，并指出对方并非受托人（fiduciary）、无义务以客户利益行事。这种细节注意力难靠人规模化；另如截止日期、RMD 漏做风险等主动提醒，是智能体默认行为。访谈在此收束致谢。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">理查德·麦克马纳斯（Richard MacManus）<em>主持</em></span><span class="spk-1">阿曼·辛格（Aman Singh）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场：AI 原生财富管理与 6400 万美元融资</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="richard"><div class="label"><span class="badge" title="理查德·麦克马纳斯（Richard MacManus）">Richard</span></div><div class="content">
+<p>冷开场金句：「我们其实不是一家 SaaS 公司，我们自己就是那家事务所。智能体主动找人，比人去提示智能体更频繁——这是一套 7×24 小时在跑的主动服务。」<span class="tag">【音乐】</span>我们在纽约 2026 年 AI Engineer 大会现场，请来了 Arca 的阿曼·辛格（Aman Singh）。Arca 刚为这家「AI 原生」财富管理公司融到 6400 万美元。阿曼，先介绍一下你在 Arca 的角色、你们提供的金融服务，以及你们如何用 AI 智能体来运转这些业务？</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>AI 不换顾问，换顾问周围的全部杂活</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="aman"><div class="label"><span class="badge" title="阿曼·辛格（Aman Singh）">Aman</span></div><div class="content">
+<p>谢谢邀请。我在 Arca 负责 AI 平台团队，搭建底层 harness（编排/运行框架）和能力，终极目标是用 AI 把整家公司跑起来。对客户，我们覆盖面很广：财务建议与规划、税务、保险，以及财富变厚之后的遗产规划。比如刚卖掉公司的人，会面对大量合伙人与结构复杂度；我们也会帮他们想清楚。</p>
+<p>我们也服务大型科技公司高管——他们想认真规划提前退休；还有想买第一套房的小家庭。主持人追问：现有客户是否需要你专门讲解「为什么用智能体、背后技术是什么」？阿曼说：AI 在 Arca 的定位不是取代顾问，而是取代顾问周围的全部杂活。客户并不直接面对 AI。</p>
+<p>客户感受到的，是这个行业以前做不到的服务密度，但仍由真人顾问提供共情与关怀。我们在每位客户身后搭一套「机器」，持续想：市场在干什么、对「理查德」这类具体客户意味着什么；生活里还有哪些纹理会影响财务。靠 AI 扛后台，我们能更主动、更快响应，把客户服务水位抬高。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>模型选型：内部基准 &gt; 外部榜，Claude 为主</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="aman"><div class="label"><span class="badge" title="阿曼·辛格（Aman Singh）">Aman</span></div><div class="content">
+<p>主持人转到技术：你们用哪些模型驱动智能体？如何决定某个动作该用哪个模型？阿曼：目前用 Anthropic、OpenAI 等前沿实验室的模型，Claude 是主力，但这些年迭代过——早年用过 Gemini，再到 OpenAI，再到 Anthropic。选型完全由内部基准驱动，覆盖 harness 跑业务所需的各项能力。</p>
+<p>举例：外部基准对 Luna 吹得很响，但对他们并不合用——太慢、太贵。因此内部评测说了算；原则上保持模型无关，不押某个实验室的供应商或现成 harness，把可切换性留在自己手里。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>自研 harness 与按复杂度分档路由</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="aman"><div class="label"><span class="badge" title="阿曼·辛格（Aman Singh）">Aman</span></div><div class="content">
+<p>主持人问：不同模型是否换不同 harness？阿曼：没有，自研一套模型无关的 harness。再问：顾问做税务报告一类工作时，harness 如何选模型、是否全自动？阿曼：按任务复杂度分档。税务规划/分析走最重一档；档内可灵活选 Opus 级、Sonnet 级或重型 GPT。</p>
+<p>后台大量低复杂度活动则用更轻的模型。顾问本人通常并不知道此刻路由到哪一档——产品把选型抽象掉了，他们像用普通产品一样操作，决策在系统内部完成。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>十天税单案例：分析自动化，动钱必须人审</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="aman"><div class="label"><span class="badge" title="阿曼·辛格（Aman Singh）">Aman</span></div><div class="content">
+<p>主持人提起会上讲过的税单例子，请阿曼走一遍：从发现需要再平衡，到执行交易，智能体做哪一段、顾问做哪一段。阿曼：就像演讲里说的，整件事会跨大约 10 天。智能体对最终结果负责，但有些环节它们做、有些绝不做。</p>
+<p>场景：客户发来邮件说要处理一笔税单。分析「钱现在配在哪、怎样最优地变现出 10 万美元」——这类分析最适合智能体。分析可全自动；但它们不能自动执行任何资金划转或资产变现。</p>
+<p>即便与托管行（custodian）有很深的 API 集成，涉及动钱、变现、或直接对终端客户沟通，都有严格的人在回路护栏，因为服务品质有硬标准。内部分析由智能体完成，再在需要时拉进正确的人执行交易，并给出可供审阅、微调的个人方案。主持人确认：这类流程往往十天量级，比当下多数 agent demo 长得多。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>跨天恢复：邮件线程、新信号与「做梦」记忆</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="aman"><div class="label"><span class="badge" title="阿曼·辛格（Aman Singh）">Aman</span></div><div class="content">
+<p>那智能体隔几天再捡起任务时，如何恢复上下文、如何确认方案仍贴合客户需求？阿曼：他们有大量「信号」。一类是同一邮件线程的后续回复——仍交给正在读这条线的同一智能体；</p>
+<p>另一类是全新信号，比如过程中突然来了一通电话——与既有流程没有挂接，于是唤醒一个新智能体去理解「这意味着什么」。它靠内部记忆系统快速对齐现状：这位客户现在在发生什么、我们在服务什么、谁负责什么、已完成与待办、未来几天紧急项与长期跟踪项。</p>
+<p>智能体既往记忆里写，也有一套「做梦/反思」过程，对照客户（例如 Richard）的世界状态去更新长期任务记忆。新信号智能体能迅速意识到「我们正在推进一笔大税单」，判断自己的信号是否相关，再贡献到那条世界状态上。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>确定性护栏、提示注入与默认可审计</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="aman"><div class="label"><span class="badge" title="阿曼·辛格（Aman Singh）">Aman</span></div><div class="content">
+<p>安全方面：所有安全限制尽量做成确定性规则，把关键决策从智能体手里拿开。简单记账类工具可让智能体直接执行；但每次写数据的工具调用，都会再跑一轮基于 LLM 的快速校验，盯每一笔对库写入。</p>
+<p>外部输入——邮件、文档、电话——都是提示注入（prompt injection）目标，因此在边界做注入气味检测。数据出系统时（最明显是网页搜索，也包括给 Richard 发日历邀请这类外发），既有确定性的 PII 检查，也有小模型共识，防止数据外泄企图。</p>
+<p>原则是：护栏尽量装在能力边界上，而不是过早掐死有用能力。合规上，行业关心结果，合规部门关心可审计性；所以系统设计成「默认可审计」。</p>
+<p>智能体每一步动作都产生变更日志：改了什么、谁改的、来自系统哪一块、何时。人类在 UI 里改客户相关信息同样落日志。默认可审计既服务监管，也反哺智能体回路——同一条 UI 变更轨迹可以通知智能体「世界刚变了」。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>智能体找人，以及为何不绑托管智能体</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="aman"><div class="label"><span class="badge" title="阿曼·辛格（Aman Singh）">Aman</span></div><div class="content">
+<p>演讲金句「智能体提示人，多于人提示智能体」——智能体如何决定拉谁进场、给对方多少上下文？阿曼：类似真人协作。十天流程里有多名参与者；第 7 步的人现在还不需要知道，到该他出场时才拉进来。</p>
+<p>靠长记忆持久化加每日反思，智能体判断当前世界状态，在信号出现时把对的人拉进来，并带上刚好够用的上下文。这是把行业运作方式——以及 Arca 希望它如何运作——产品化；也是「我们不是 SaaS、我们就是事务所」的优势：能标准化工作本身，让智能体以标准方式参与。</p>
+<p>会上 Anthropic 有托管智能体（managed agents）基础设施工作坊，编排也越来越自动化。主持人问：会不会用这类能力进一步减少人在回路？阿曼：对 Anthropic、OpenAI 的模型很看好，但对依赖「托管智能体」这类产品更谨慎。</p>
+<p>托管智能体的关键卖点之一，是模型如何持久化、贡献「世界上正在发生什么」的记忆，以及成功所需的运营知识。把这块交给外部，等于把「智力」外包——而拥有智力才能深度影响业务。</p>
+<p>把智能交给别家，会丢掉打造高度贴合自身业务、真正能撬动结果的控制权。至于 Anthropic 近期进军金融服务、与多家机构合作：阿曼觉得这是对赛道的强验证；但「手上有 AI 工具的服务公司」和「按 AI 原生方式建起来的事务所」是两回事。</p>
+<p>有 AI 工具的公司，要靠用户去提示智能体才能出活；在 Arca，智能体主动找人更多，是 7×24 按他们期望的标准水位在跑业务——形态与「工具加持的传统公司」完全不同。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>沙箱产物验证与决策模型纠正过时税率</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="aman"><div class="label"><span class="badge" title="阿曼·辛格（Aman Singh）">Aman</span></div><div class="content">
+<p>安全再问一层：流程里什么跑在沙箱？财务计划变更如何在有人行动前被验证？阿曼：沙箱是 harness 的一个组件；智能体并不住在沙箱里，而是把计算卸载进沙箱。他们把沙箱内代码访问数据做成可控：把生成代码翻译成期望的严格格式，扔掉原代码，再在格式层加护栏后才打到后端。</p>
+<p>于是智能体可用代码查询、聚合、加工数据，例如产出财务计划；同一沙箱里还能生成可给客户看的精美产物（如 PDF 计划书）。产物一出来就跑一串验证器。</p>
+<p>有的是确定性检查——例如是否把原始账号明文塞进 PDF；有的用小模型或 Jev 等决策模型，抓不合规表述，比如不该承诺收益率。通过才算可发布。</p>
+<p>阿曼强调：这套比纯靠人盯合规更稳——AI 不知疲倦，连最轻微的违规措辞都能抓。他们会继续在能力边界加约束。主持人提到 Jev：除了 Jev，还看哪些决策模型产品？</p>
+<p>观察是：模型处理财务知识时往往过度自信。小例子——模型会很爽快地用 2025 年税率档做分析并当正确答案，但这常常已过时。因此 harness 里用决策模型：一旦检测到即将给出需要财务严谨性的建议或动作，就推动模型改用「今日仍真」的已核验知识库，或走网页搜索。</p>
+<p>这正是「自研并拥有 harness」的价值：能在关键处把模型拽回准确。交易执行失败是否用决策模型做恢复？阿曼：目前没有，不是在探索的场景。当前也不做智能体自主交易——智能体只提案，是否交易、如何下单完全由专家决定并执行。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>员工反馈→夜间元智能体，知识库一等公民</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="aman"><div class="label"><span class="badge" title="阿曼·辛格（Aman Singh）">Aman</span></div><div class="content">
+<p>幻灯片写：员工每一次编辑或取消都要带「为什么」，并沉淀成 eval。反馈如何变成可度量改进？阿曼：因为他们就是业务方而不是 SaaS，能要求一线给反馈。</p>
+<p>反馈进数据仓，与产出该结果的智能体轨迹（trace）耦在一起。每晚跑流程：采集真实世界轨迹，再上一个元智能体，建议改 harness——误导性工具、报错点、知识库缺口等——再交给团队改进。</p>
+<p>今天上线提示词改动前，仍有人类工程师把关。阿曼吐槽：放任智能体改提示会很糟糕，每个小修补都膨胀成整段提示，它们很难保持「元层」抽象、写出可泛化的修复。产品把收集反馈做成一等公民特性，再转成 eval 与改进。</p>
+<p>另一主题：把「事务所如何运作」的知识变成智能体上下文——很多前线工程师也在做组织知识产品化。技术上怎么做、如何保鲜？</p>
+<p>他们有一份以文件呈现的知识库；保鲜交给专家策展与更新，并且是产品一等功能：左侧有「Knowledge」页签，放智能体用的完整运营上下文。工作中可引用知识；发现知识错了会在轨迹分析里冒出来；因为就在产品里，人可以直接改技能/知识条目，形成闭环。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>客户案例：挖出隐性收费与非受托人风险</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="aman"><div class="label"><span class="badge" title="阿曼·辛格（Aman Singh）">Aman</span></div><div class="content">
+<p>主持人请举客户侧可感知的改善例子。阿曼讲最近一例：对方还不是客户、但已在转化中，已提供账单、持仓等材料；此人已有顾问。</p>
+<p>见面时对方说：现顾问一年收 1500 美元，还不怎么回消息，所以来聊聊。智能体通读材料、对照其陈述目标，并分析现顾问身份与收费；结果发现对方被收取了自己不知情的费用。</p>
+<p>系统不仅揭示「被多收费」，还指出对方并非受托人（fiduciary）——没有必须以客户利益行事的义务。这种分析财务全貌时的细节注意力，没有智能体很难规模化。还有大量主动行为：临近截止日期、有漏做 RMD（强制最低取款）风险等——人很难大规模盯住，却是 Arca 智能体的默认行为。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="richard"><div class="label"><span class="badge" title="理查德·麦克马纳斯（Richard MacManus）">Richard</span></div><div class="content">
+<p>主持人收束：这是很好的停点。非常感谢阿曼参加。阿曼：谢谢邀请。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Latent Space", "title": "用智能体做长周期金融工作——Arca AI 负责人 Aman Singh", "url": "https://www.youtube.com/watch?v=KM3VQZKjpiY", "videoId": "KM3VQZKjpiY", "published_at": "2026-10-31", "duration": 1565, "caption_source": "YouTube 自动生成字幕（en/en-orig 均含词级时间戳、内容接近；普通 yt-dlp 遇 timedtext 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 补拉成功）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段；说话人按主持/嘉宾问答轮次推断（自动字幕无说话人标签，中等把握）", "guests": ["Aman Singh"], "intro": {"summary": "在 AI Engineer New York，Latent Space 编辑总监 Richard MacManus 对话 Arca AI 负责人 Aman Singh：Arca 如何用自研 harness、持久记忆与人工审批，把智能体工作流拉到跨天数的财富管理场景。", "points": ["Arca 定位 AI 原生财富管理，智能体支持顾问而非替代", "自研 harness + 任务路由 + 内部评测选型模型", "跨天数任务的持久记忆与合规审计默认开启", "人审节点：高额税单/交易执行仍由专家把关", "员工反馈沉淀为 evals，把运营知识写入智能体上下文"], "verdict": "值得看：关心金融智能体、长周期 agent 与合规落地者；可跳过：对财富管理场景无兴趣（约26分钟）。", "audience": "AI 工程师 / 金融科技 / Latent Space 听众"}, "speakers": [{"id": "richard", "name": "理查德·麦克马纳斯（Richard MacManus）", "role": "host", "short": "Richard"}, {"id": "aman", "name": "阿曼·辛格（Aman Singh）", "role": "guest", "short": "Aman"}], "sections": [{"id": "s1", "title": "开场：AI 原生财富管理与 6400 万美元融资", "start_sec": 0, "summary": "冷开场抛出 Aman 的金句：Arca 不是 SaaS，而是自己做业务的事务所；智能体主动找人的频率高于人去提示智能体，服务 7×24 在跑。主持人理查德·麦克马纳斯（Richard MacManus）在纽约 2026 AI Engineer 大会介绍嘉宾阿曼·辛格（Aman Singh）：Arca 作为 AI 原生财富管理公司刚融资 6400 万美元，请他说明角色、服务范围与智能体用法。"}, {"id": "s2", "title": "AI 不换顾问，换顾问周围的全部杂活", "start_sec": 40, "summary": "Aman 领导 AI 平台，目标是用自研 harness 把公司跑在 AI 上。服务覆盖理财规划、税务、保险与遗产规划，客户从刚卖公司的企业家、想提前退休的科技高管到首套房家庭。关键定位：AI 不取代顾问，而是吃掉顾问周围工作；客户不直接碰 AI，体验的是真人顾问的共情，却叠加行业以往做不到的主动与响应速度——后台由持续关注市场与生活纹理的智能体机器支撑。"}, {"id": "s3", "title": "模型选型：内部基准 \u003e 外部榜，Claude 为主", "start_sec": 161, "summary": "当前主力来自 Anthropic、OpenAI 等前沿实验室，Claude 是主模型；历史上用过 Gemini→OpenAI→Anthropic。选型完全看内部基准是否覆盖 harness 经营业务所需能力。反例：外部对 Luna 喊好，但内部测下来又慢又贵，弃用。原则是模型无关、不绑死单一实验室的供应商或现成 harness，保留切换期权。"}, {"id": "s4", "title": "自研 harness 与按复杂度分档路由", "start_sec": 244, "summary": "不因模型换 harness，而是自研一套模型无关框架。任务按复杂度分档：税务规划/分析走最重档（Opus / Sonnet / 重型 GPT 等可灵活选）；大量后台低复杂度活动走轻量模型。顾问侧完全无感——产品把路由抽象掉，决策在系统内部完成。"}, {"id": "s5", "title": "十天税单案例：分析自动化，动钱必须人审", "start_sec": 325, "summary": "典型流程跨约 10 天：客户邮件抛出税单需求后，智能体负责分析「资产如何配置、怎样最优变现约 10 万美元」；分析可全自动，但禁止自动划转资金或变现。即便与托管行有深度 API，动钱、清算与对客沟通一律人在回路。智能体做完内部分析后拉对的人执行交易，并给出可审阅微调的方案——比常见 agent demo 的时间尺度长一个数量级。"}, {"id": "s6", "title": "跨天恢复：邮件线程、新信号与「做梦」记忆", "start_sec": 444, "summary": "长任务靠信号与记忆续上。同一邮件线程的后续仍交给原智能体；中途新电话等「新鲜信号」则唤醒新智能体。对齐靠每客户持久记忆：当前事项、服务目标、权责、已完成/待办、近几日紧急项与长期跟踪。智能体写入记忆，另有反思式「做梦」过程更新长期状态，使新信号智能体能迅速认出「正在推进大税单」并并入正确世界模型。"}, {"id": "s7", "title": "确定性护栏、提示注入与默认可审计", "start_sec": 562, "summary": "安全限制尽量确定性，关键决策不交给智能体自由裁量；写库工具每次调用叠加快速 LLM 校验。邮件/文档/电话在边界做提示注入检测；数据外发（搜索、日历邀请等）叠加 PII 确定性检查与小模型共识防外泄。护栏装在能力边缘而非过早掐死能力。合规上行业看结果、合规看审计——每步智能体与人类 UI 变更都写变更日志，默认可审计既满足监管，也反哺智能体感知「世界刚变了」。"}, {"id": "s8", "title": "智能体找人，以及为何不绑托管智能体", "start_sec": 721, "summary": "金句落地：十天多角色流程里，智能体按长记忆与每日反思在正确时刻拉人，并只给够用的上下文——把行业与 Arca 自有作业标准产品化。相对 Anthropic 托管智能体：看好其模型，但拒绝把记忆与运营知识外包，因为「拥有智力」才保有业务控制权。Anthropic 进军金融是赛道验证；「工具加持的服务公司」仍要人去提示，而 AI 原生事务所是智能体 7×24 主动驱动、形态不同。"}, {"id": "s9", "title": "沙箱产物验证与决策模型纠正过时税率", "start_sec": 962, "summary": "沙箱是 harness 组件：智能体不在沙箱内居住，而是卸载计算；生成代码被译成严格格式、丢弃源码、加护栏后再打后端，从而安全地用代码聚合数据并生成财务计划 PDF。产物出炉即跑验证：确定性检查（如明文账号）、小模型/Jev 抓「承诺收益」等违规措辞。决策模型还用于纠偏过度自信：例如模型爱用过时的 2025 税率档——一旦检测到需财务严谨的建议，就逼它改用当日核验知识库或搜索。不做智能体自主交易，失败恢复也非当前决策模型场景；交易仅提案，专家拍板执行。"}, {"id": "s10", "title": "员工反馈→夜间元智能体，知识库一等公民", "start_sec": 1206, "summary": "每次员工编辑/取消须带「为什么」并变成 eval：反馈与智能体轨迹入库，每晚元智能体建议改 harness（误导工具、缺口知识等），上线前提示词仍由工程师把关——因放任智能体改提示易把小修补胀成整段、难以泛化。运营知识以文件知识库呈现，专家策展，产品左侧 Knowledge 页签；引用、发现错误、在产品内直接改技能，形成保鲜闭环。"}, {"id": "s11", "title": "客户案例：挖出隐性收费与非受托人风险", "start_sec": 1411, "summary": "转化中客户已有顾问、年费约 1500 美元且响应差。Arca 智能体通读账单持仓、对照目标与现顾问收费后，发现其不知情的额外费用，并指出对方并非受托人（fiduciary）、无义务以客户利益行事。这种细节注意力难靠人规模化；另如截止日期、RMD 漏做风险等主动提醒，是智能体默认行为。访谈在此收束致谢。"}], "paragraphs": [{"start_sec": 0, "type": "text", "zh": "冷开场金句：「我们其实不是一家 SaaS 公司，我们自己就是那家事务所。智能体主动找人，比人去提示智能体更频繁——这是一套 7×24 小时在跑的主动服务。」【音乐】我们在纽约 2026 年 AI Engineer 大会现场，请来了 Arca 的阿曼·辛格（Aman Singh）。Arca 刚为这家「AI 原生」财富管理公司融到 6400 万美元。阿曼，先介绍一下你在 Arca 的角色、你们提供的金融服务，以及你们如何用 AI 智能体来运转这些业务？", "speaker_id": "richard", "section_id": "s1"}, {"start_sec": 40, "type": "text", "zh": "谢谢邀请。我在 Arca 负责 AI 平台团队，搭建底层 harness（编排/运行框架）和能力，终极目标是用 AI 把整家公司跑起来。对客户，我们覆盖面很广：财务建议与规划、税务、保险，以及财富变厚之后的遗产规划。比如刚卖掉公司的人，会面对大量合伙人与结构复杂度；我们也会帮他们想清楚。", "speaker_id": "aman", "section_id": "s2"}, {"start_sec": 80, "type": "text", "zh": "我们也服务大型科技公司高管——他们想认真规划提前退休；还有想买第一套房的小家庭。主持人追问：现有客户是否需要你专门讲解「为什么用智能体、背后技术是什么」？阿曼说：AI 在 Arca 的定位不是取代顾问，而是取代顾问周围的全部杂活。客户并不直接面对 AI。", "speaker_id": "aman", "section_id": "s2"}, {"start_sec": 121, "type": "text", "zh": "客户感受到的，是这个行业以前做不到的服务密度，但仍由真人顾问提供共情与关怀。我们在每位客户身后搭一套「机器」，持续想：市场在干什么、对「理查德」这类具体客户意味着什么；生活里还有哪些纹理会影响财务。靠 AI 扛后台，我们能更主动、更快响应，把客户服务水位抬高。", "speaker_id": "aman", "section_id": "s2"}, {"start_sec": 162, "type": "text", "zh": "主持人转到技术：你们用哪些模型驱动智能体？如何决定某个动作该用哪个模型？阿曼：目前用 Anthropic、OpenAI 等前沿实验室的模型，Claude 是主力，但这些年迭代过——早年用过 Gemini，再到 OpenAI，再到 Anthropic。选型完全由内部基准驱动，覆盖 harness 跑业务所需的各项能力。", "speaker_id": "aman", "section_id": "s3"}, {"start_sec": 202, "type": "text", "zh": "举例：外部基准对 Luna 吹得很响，但对他们并不合用——太慢、太贵。因此内部评测说了算；原则上保持模型无关，不押某个实验室的供应商或现成 harness，把可切换性留在自己手里。", "speaker_id": "aman", "section_id": "s3"}, {"start_sec": 244, "type": "text", "zh": "主持人问：不同模型是否换不同 harness？阿曼：没有，自研一套模型无关的 harness。再问：顾问做税务报告一类工作时，harness 如何选模型、是否全自动？阿曼：按任务复杂度分档。税务规划/分析走最重一档；档内可灵活选 Opus 级、Sonnet 级或重型 GPT。", "speaker_id": "aman", "section_id": "s4"}, {"start_sec": 285, "type": "text", "zh": "后台大量低复杂度活动则用更轻的模型。顾问本人通常并不知道此刻路由到哪一档——产品把选型抽象掉了，他们像用普通产品一样操作，决策在系统内部完成。", "speaker_id": "aman", "section_id": "s4"}, {"start_sec": 326, "type": "text", "zh": "主持人提起会上讲过的税单例子，请阿曼走一遍：从发现需要再平衡，到执行交易，智能体做哪一段、顾问做哪一段。阿曼：就像演讲里说的，整件事会跨大约 10 天。智能体对最终结果负责，但有些环节它们做、有些绝不做。", "speaker_id": "aman", "section_id": "s5"}, {"start_sec": 366, "type": "text", "zh": "场景：客户发来邮件说要处理一笔税单。分析「钱现在配在哪、怎样最优地变现出 10 万美元」——这类分析最适合智能体。分析可全自动；但它们不能自动执行任何资金划转或资产变现。", "speaker_id": "aman", "section_id": "s5"}, {"start_sec": 407, "type": "text", "zh": "即便与托管行（custodian）有很深的 API 集成，涉及动钱、变现、或直接对终端客户沟通，都有严格的人在回路护栏，因为服务品质有硬标准。内部分析由智能体完成，再在需要时拉进正确的人执行交易，并给出可供审阅、微调的个人方案。主持人确认：这类流程往往十天量级，比当下多数 agent demo 长得多。", "speaker_id": "aman", "section_id": "s5"}, {"start_sec": 448, "type": "text", "zh": "那智能体隔几天再捡起任务时，如何恢复上下文、如何确认方案仍贴合客户需求？阿曼：他们有大量「信号」。一类是同一邮件线程的后续回复——仍交给正在读这条线的同一智能体；", "speaker_id": "aman", "section_id": "s6"}, {"start_sec": 488, "type": "text", "zh": "另一类是全新信号，比如过程中突然来了一通电话——与既有流程没有挂接，于是唤醒一个新智能体去理解「这意味着什么」。它靠内部记忆系统快速对齐现状：这位客户现在在发生什么、我们在服务什么、谁负责什么、已完成与待办、未来几天紧急项与长期跟踪项。", "speaker_id": "aman", "section_id": "s6"}, {"start_sec": 529, "type": "text", "zh": "智能体既往记忆里写，也有一套「做梦/反思」过程，对照客户（例如 Richard）的世界状态去更新长期任务记忆。新信号智能体能迅速意识到「我们正在推进一笔大税单」，判断自己的信号是否相关，再贡献到那条世界状态上。", "speaker_id": "aman", "section_id": "s6"}, {"start_sec": 569, "type": "text", "zh": "安全方面：所有安全限制尽量做成确定性规则，把关键决策从智能体手里拿开。简单记账类工具可让智能体直接执行；但每次写数据的工具调用，都会再跑一轮基于 LLM 的快速校验，盯每一笔对库写入。", "speaker_id": "aman", "section_id": "s7"}, {"start_sec": 609, "type": "text", "zh": "外部输入——邮件、文档、电话——都是提示注入（prompt injection）目标，因此在边界做注入气味检测。数据出系统时（最明显是网页搜索，也包括给 Richard 发日历邀请这类外发），既有确定性的 PII 检查，也有小模型共识，防止数据外泄企图。", "speaker_id": "aman", "section_id": "s7"}, {"start_sec": 650, "type": "text", "zh": "原则是：护栏尽量装在能力边界上，而不是过早掐死有用能力。合规上，行业关心结果，合规部门关心可审计性；所以系统设计成「默认可审计」。", "speaker_id": "aman", "section_id": "s7"}, {"start_sec": 690, "type": "text", "zh": "智能体每一步动作都产生变更日志：改了什么、谁改的、来自系统哪一块、何时。人类在 UI 里改客户相关信息同样落日志。默认可审计既服务监管，也反哺智能体回路——同一条 UI 变更轨迹可以通知智能体「世界刚变了」。", "speaker_id": "aman", "section_id": "s7"}, {"start_sec": 731, "type": "text", "zh": "演讲金句「智能体提示人，多于人提示智能体」——智能体如何决定拉谁进场、给对方多少上下文？阿曼：类似真人协作。十天流程里有多名参与者；第 7 步的人现在还不需要知道，到该他出场时才拉进来。", "speaker_id": "aman", "section_id": "s8"}, {"start_sec": 771, "type": "text", "zh": "靠长记忆持久化加每日反思，智能体判断当前世界状态，在信号出现时把对的人拉进来，并带上刚好够用的上下文。这是把行业运作方式——以及 Arca 希望它如何运作——产品化；也是「我们不是 SaaS、我们就是事务所」的优势：能标准化工作本身，让智能体以标准方式参与。", "speaker_id": "aman", "section_id": "s8"}, {"start_sec": 812, "type": "text", "zh": "会上 Anthropic 有托管智能体（managed agents）基础设施工作坊，编排也越来越自动化。主持人问：会不会用这类能力进一步减少人在回路？阿曼：对 Anthropic、OpenAI 的模型很看好，但对依赖「托管智能体」这类产品更谨慎。", "speaker_id": "aman", "section_id": "s8"}, {"start_sec": 853, "type": "text", "zh": "托管智能体的关键卖点之一，是模型如何持久化、贡献「世界上正在发生什么」的记忆，以及成功所需的运营知识。把这块交给外部，等于把「智力」外包——而拥有智力才能深度影响业务。", "speaker_id": "aman", "section_id": "s8"}, {"start_sec": 894, "type": "text", "zh": "把智能交给别家，会丢掉打造高度贴合自身业务、真正能撬动结果的控制权。至于 Anthropic 近期进军金融服务、与多家机构合作：阿曼觉得这是对赛道的强验证；但「手上有 AI 工具的服务公司」和「按 AI 原生方式建起来的事务所」是两回事。", "speaker_id": "aman", "section_id": "s8"}, {"start_sec": 934, "type": "text", "zh": "有 AI 工具的公司，要靠用户去提示智能体才能出活；在 Arca，智能体主动找人更多，是 7×24 按他们期望的标准水位在跑业务——形态与「工具加持的传统公司」完全不同。", "speaker_id": "aman", "section_id": "s8"}, {"start_sec": 975, "type": "text", "zh": "安全再问一层：流程里什么跑在沙箱？财务计划变更如何在有人行动前被验证？阿曼：沙箱是 harness 的一个组件；智能体并不住在沙箱里，而是把计算卸载进沙箱。他们把沙箱内代码访问数据做成可控：把生成代码翻译成期望的严格格式，扔掉原代码，再在格式层加护栏后才打到后端。", "speaker_id": "aman", "section_id": "s9"}, {"start_sec": 1016, "type": "text", "zh": "于是智能体可用代码查询、聚合、加工数据，例如产出财务计划；同一沙箱里还能生成可给客户看的精美产物（如 PDF 计划书）。产物一出来就跑一串验证器。", "speaker_id": "aman", "section_id": "s9"}, {"start_sec": 1057, "type": "text", "zh": "有的是确定性检查——例如是否把原始账号明文塞进 PDF；有的用小模型或 Jev 等决策模型，抓不合规表述，比如不该承诺收益率。通过才算可发布。", "speaker_id": "aman", "section_id": "s9"}, {"start_sec": 1100, "type": "text", "zh": "阿曼强调：这套比纯靠人盯合规更稳——AI 不知疲倦，连最轻微的违规措辞都能抓。他们会继续在能力边界加约束。主持人提到 Jev：除了 Jev，还看哪些决策模型产品？", "speaker_id": "aman", "section_id": "s9"}, {"start_sec": 1141, "type": "text", "zh": "观察是：模型处理财务知识时往往过度自信。小例子——模型会很爽快地用 2025 年税率档做分析并当正确答案，但这常常已过时。因此 harness 里用决策模型：一旦检测到即将给出需要财务严谨性的建议或动作，就推动模型改用「今日仍真」的已核验知识库，或走网页搜索。", "speaker_id": "aman", "section_id": "s9"}, {"start_sec": 1182, "type": "text", "zh": "这正是「自研并拥有 harness」的价值：能在关键处把模型拽回准确。交易执行失败是否用决策模型做恢复？阿曼：目前没有，不是在探索的场景。当前也不做智能体自主交易——智能体只提案，是否交易、如何下单完全由专家决定并执行。", "speaker_id": "aman", "section_id": "s9"}, {"start_sec": 1225, "type": "text", "zh": "幻灯片写：员工每一次编辑或取消都要带「为什么」，并沉淀成 eval。反馈如何变成可度量改进？阿曼：因为他们就是业务方而不是 SaaS，能要求一线给反馈。", "speaker_id": "aman", "section_id": "s10"}, {"start_sec": 1266, "type": "text", "zh": "反馈进数据仓，与产出该结果的智能体轨迹（trace）耦在一起。每晚跑流程：采集真实世界轨迹，再上一个元智能体，建议改 harness——误导性工具、报错点、知识库缺口等——再交给团队改进。", "speaker_id": "aman", "section_id": "s10"}, {"start_sec": 1306, "type": "text", "zh": "今天上线提示词改动前，仍有人类工程师把关。阿曼吐槽：放任智能体改提示会很糟糕，每个小修补都膨胀成整段提示，它们很难保持「元层」抽象、写出可泛化的修复。产品把收集反馈做成一等公民特性，再转成 eval 与改进。", "speaker_id": "aman", "section_id": "s10"}, {"start_sec": 1346, "type": "text", "zh": "另一主题：把「事务所如何运作」的知识变成智能体上下文——很多前线工程师也在做组织知识产品化。技术上怎么做、如何保鲜？", "speaker_id": "aman", "section_id": "s10"}, {"start_sec": 1386, "type": "text", "zh": "他们有一份以文件呈现的知识库；保鲜交给专家策展与更新，并且是产品一等功能：左侧有「Knowledge」页签，放智能体用的完整运营上下文。工作中可引用知识；发现知识错了会在轨迹分析里冒出来；因为就在产品里，人可以直接改技能/知识条目，形成闭环。", "speaker_id": "aman", "section_id": "s10"}, {"start_sec": 1426, "type": "text", "zh": "主持人请举客户侧可感知的改善例子。阿曼讲最近一例：对方还不是客户、但已在转化中，已提供账单、持仓等材料；此人已有顾问。", "speaker_id": "aman", "section_id": "s11"}, {"start_sec": 1467, "type": "text", "zh": "见面时对方说：现顾问一年收 1500 美元，还不怎么回消息，所以来聊聊。智能体通读材料、对照其陈述目标，并分析现顾问身份与收费；结果发现对方被收取了自己不知情的费用。", "speaker_id": "aman", "section_id": "s11"}, {"start_sec": 1510, "type": "text", "zh": "系统不仅揭示「被多收费」，还指出对方并非受托人（fiduciary）——没有必须以客户利益行事的义务。这种分析财务全貌时的细节注意力，没有智能体很难规模化。还有大量主动行为：临近截止日期、有漏做 RMD（强制最低取款）风险等——人很难大规模盯住，却是 Arca 智能体的默认行为。", "speaker_id": "aman", "section_id": "s11"}, {"start_sec": 1552, "type": "text", "zh": "主持人收束：这是很好的停点。非常感谢阿曼参加。阿曼：谢谢邀请。", "speaker_id": "richard", "section_id": "s11"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
