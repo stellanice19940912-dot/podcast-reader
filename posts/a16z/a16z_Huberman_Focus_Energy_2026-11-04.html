@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>安德鲁·胡伯曼谈专注、能量与最佳表现</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="daisy">黛西·沃尔夫（Daisy Wolf）</option><option value="huberman">安德鲁·胡伯曼（Andrew Huberman）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">a16z</span><span class="pill">2026-11-03</span></div>
+<h1>安德鲁·胡伯曼谈专注、能量与最佳表现</h1>
+<p class="sub">嘉宾：Andrew Huberman、Daisy Wolf · 约 48 分钟（2888 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=Ezi-nwe6LlY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Ezi-nwe6LlY</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>a16z</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-03</dd></div><div class="meta-row"><dt>时长</dt><dd>约 48 分钟（2888 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；普通 yt-dlp 遇 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 补拉；en 与 en-orig 内容一致，按自动字幕标注）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段；说话人：主持黛西·沃尔夫 ↔ 嘉宾安德鲁·胡伯曼（简介确认；自动字幕无标签，问句与回答偶有粘连，中等把握）</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>Ezi-nwe6LlY</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>a16z 合伙人黛西·沃尔夫（Daisy Wolf）访谈安德鲁·胡伯曼（Andrew Huberman）：健康三件事、日常协议、创始人认知表现窗口，以及睡眠/神经科技趋势。</p>
+<h3>核心要点</h3><ul><li>晨光、抗阻训练与睡眠质量三原则</li><li>一天协议：冥想、咖啡因、训练与饮食</li><li>非睡眠深度休息与晚间节律</li><li>创始人：保护认知高峰时段</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：关心表现科学、创业作息与健康协议者；可跳过：已熟听胡伯曼长播、只求新研究突破者（约48分钟）。</p>
+<h3>适合人群</h3><p>a16z / 健康科学 / 创始人效能</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场剪辑与欢迎：安德森戒酒逸事</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">冷开场拼贴健康三原则与训练/睡眠问题。黛西·沃尔夫（Daisy Wolf）欢迎安德鲁·胡伯曼（Andrew Huberman）上 a16z 节目：播客自 2021 年 1 月改变数百万人习惯；提到马克·安德森（Marc Andreessen）因他减/戒酒。胡伯曼称数据上零酒精优于任何量、非酒精依赖成年人每周上限约两杯；有人发现「完全不喝」比「喝一点」更好坚持。他意外于影响力，并强调多数协议来自他人科学，自己乐于学习与转述。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">昨日协议：冥想、日照与咖啡因时机</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">逐时回放「昨天」：起床不用床上手机、手机不进卧室；爱 Eight Sleep 否则想关全屋夜间 Wi-Fi。五分钟呼吸冥想——目标不是强求平静而是观察「心猴」混乱（「心灵的乳酸」）。严格晨间日照（屋顶/步行；阴天也对着光；日出前则用约 10000 lux 灯）。若当日要训练则立刻咖啡因（耶巴马特），不等 30–90 分钟那套「非训练日延迟」规则。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">35 年训练框架：腿、推拉与 Zone 风格补充</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">50 岁仍无大伤，归功于「没做的事」：不跟风别人课表。偏好跑步/风阻车等可控接近极限的刺激。腿日强调大肌群与激素/代谢；热身 + 安全动作、总量不必虚高。另有约 20 秒全力/10 秒歇的短间歇约 6 分钟，以及负重徒步/偶尔中周跑步。三节力量课可覆盖大多数人的体成分与姿态需求。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">饮食：训练后淀粉、不吃西兰花与「放纵」定义</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">训练后补糖原：香蕉蓝莓、乳清、燕麦、黄油海盐酸面包。正餐偏牛肉/鸡肉 + 蔬菜；不爱鱼（除难求的高质量吞拿）。强调纤维重要但个体耐受差——他不吃西兰花、洋葱等易组胺食物；建议单食材试错。牛排+黄瓜番茄+米；甜食少、偏好 100% 巧克力或帕玛森；东岸随意披萨切片、西岸几乎只认东湾某店。不喝酒不嗜甜，「放纵」对他是优质肋眼。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">NSDR/瑜伽休息术、日落与蓝光分歧</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">睡好则不做 Yoga Nidra/NSDR；否则躺着保持觉知——不是小睡、无睡眠惰性，还利于夜醒回睡；马克玩笑称「就是小睡」。下午尽量看日落/方向性日光（源自斯坦福睡眠实验室 intern 经验）。咖啡因约下午 2 点截止。睡前一小时降光、收手机；红片眼镜/蓝光阻隔个体差异大——安德森公开拒绝蓝光管理，黛西则用阻蓝隐形。日出日落因瑞利散射可相对安全直视低空太阳。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">补剂清单与社交锁箱</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">澄清非广告：2012 年起多数习惯已有。AG1 早晚；鱼油高 EPA；部分草本与 B6 衍生物温和降催乳素；感冒时用黏液溶解类工具（自 ER 医生处学来，剂量场景谨慎）。消化酶应对过敏样反应；干肝片（注意铁负荷）；晚间睡眠配方。把 X/Instagram 放到独立手机再锁进「超强监狱」锁箱限时刷——算法太会抓注意力；研究显示手机即使关机在包里也占用认知资源。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">健康三件事与创始人认知窗口</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">若只能荐三件：①醒后尽快亮光；②抗阻训练协议；③把「你能睡到的觉」做成最高质量——对准深度睡眠窗口、用延长呼气与眼动技巧助入睡，不神化完美 8 小时。给创始人的认知习惯：摸清自己每日约两段高效窗口并像「搏击」一样保护（他例：约 9:30–12:30 与 16:30–19:00）；训练安排要反哺工作而非耗尽（早练往往全天更有电）。里克·鲁宾（Rick Rubin）则偏下午单峰。窗口里被无关事吸走，损失的不只是那几小时。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">刺激-反应之外的向内检查与神经科技</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">每日哪怕几分钟离开纯刺激-反应、向内核对能量分配。展望个性化脑状态工具与「用自己声音教练」的 AI；睡眠面罩经轻度耳周/眼外肌电刺激助入睡与唤醒（他试过约 6 分钟入睡）。过渡态（入睡/醒来）或成神经科技先落地处。收束：用非破坏性方式每周重置，比「偶发拼命一天」更能持续产出；人与人差异大，协议必须可执行并服务事业与家庭。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">黛西·沃尔夫（Daisy Wolf）<em>主持</em></span><span class="spk-1">安德鲁·胡伯曼（Andrew Huberman）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场剪辑与欢迎：安德森戒酒逸事</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="huberman"><div class="label"><span class="badge" title="安德鲁·胡伯曼（Andrew Huberman）">Huberman</span></div><div class="content">
+<p>如果你对自己和你的工作非常认真，你就需要以这种方式安排你的一天。如果你必须向人们推荐三件事以过上更健康的生活，那会是什么？做我之前提到的重量训练方案吗？它会彻底改变你的生活。想办法让你能获得的睡眠质量最高。你昨天服用过任何补充剂或药物吗？大量的。<span class="tag">【笑声】</span>有什么是你会推荐给别人但自己并不擅长遵守的？我觉得社交媒体可能是最大的一个。我最近把X和Instagram移到了一部单独的手机上，然后我把那部手机放在一个锁盒里。你实际上无法从中编码出去。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="daisy"><div class="label"><span class="badge" title="黛西·沃尔夫（Daisy Wolf）">Daisy</span></div><div class="content">
+<p>我们有很多创始人听众。若只能浓缩成三条有证据支持的认知表现习惯，会是哪三条？胡伯曼博士，欢迎来到 a16z 节目。谢谢。很高兴来到这里。你的播客 2021 年 1 月上线，改变了数百万人的生活。今早我还让孩子稍微推迟了咖啡因——大概没你希望的那么久。你还「成功」让我们公司创始人马克·安德森（Marc Andreessen）戒了酒。我本人还没做到。回看有没有某个瞬间，你突然意识到——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="huberman"><div class="label"><span class="badge" title="安德鲁·胡伯曼（Andrew Huberman）">Huberman</span></div><div class="content">
+<p>“哇，人们不仅仅是在听我说话，他们甚至因为我说的内容而改变了日常习惯。” 好吧，这真是一路狂奔，我完全没预料到这一切。但我很高兴人们为了健康而采取行动，我不知道应该通过说谢谢来接受，还是为马克戒酒而道歉。我知道他偶尔喜欢喝一杯。我想他对此有点不高兴。我想说得非常清楚，数据表明零比任何饮酒都好。对于一个非酗酒的成年人来说，每周两次可能是上限。我不认为马克是酗酒者。他理论上可以喝两杯酒。但当我建议他不喝时，……</p>
+<p>他有点像很多人所做的那样，有时候不做比做一点更容易坚持。我确实认为酒精是可以享受的。如果有人想这样做，也可以考虑做一些其他可能有益的事情。不过直接回答你的问题，我之前并没有预料到这些。正如我所说，我很高兴人们为了健康采取了措施。在某个时候，我意识到，哇，人们开始采取行动了。我无法判断这是因为我们展示的科学，还是因为我知道非常有效的方案。好的一点是，我并没有为实际结果谋取功劳。</p>
+<p>协议，因为在大多数情况下，除了像一些与缓解压力相关的事项的少数例外，大多数情况下，这些协议都是来自别人的科学。所以在观察科学和健康教育领域时，大多数在那个领域的人都是在谈论他们自己的科学。所以以这种方式进行给了我一定的自由。我也必须小心，因为我经常是在谈论别人的科学。但我喜欢学习，我喜欢教学。对我来说，没有什么比阅读论文、分享我认为有趣的信息、尝试事物并观察效果更让我快乐的了。以及那些与我关系密切的人</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="daisy"><div class="label"><span class="badge" title="黛西·沃尔夫（Daisy Wolf）">Daisy</span></div><div class="content">
+<p>我会告诉你，在我一生中，当我学到一些我认为很酷的东西时，我就会去教别人，无论他们是否愿意听。所以，他们只是把麦克风放在我面前，然后我就出现了。太棒了。你对你的日常习惯一直非常坦诚。就像我提到的，阳光照眼睛、延迟摄入咖啡因，但也会按天轮换锻炼、冷水浴、桑拿、做瑜伽、尼德拉冥想、服用各种补充剂。不过，也许你可以带我们了解一下昨天的情况。我很好奇。你吃了什么？做了哪些锻炼？吃了哪些补充剂？你遵循了哪些建议？有哪些没有遵循？</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>昨日协议：冥想、日照与咖啡因时机</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="huberman"><div class="label"><span class="badge" title="安德鲁·胡伯曼（Andrew Huberman）">Huberman</span></div><div class="content">
+<p>一天的时间。所以我醒来，我像其他人一样去洗手间。你在床上会玩手机吗？不会。好，没有手机。睡觉时手机不在房间里。如果我不是那么爱爱爱我的八小时睡眠，我会想办法晚上让家里完全没有Wi-Fi。很有意思。所以我醒来时，像其他人一样有些昏昏沉沉。我的思绪开始飘到各个地方，醒来的时候头脑有些混乱。我觉得我从没醒来只是打个大哈欠然后觉得生活如此美好。我醒来时想着，好的，我有这个要做，我有那个要做。所以我做的第一件事就是起床去洗手间，然后这几天我会做五分钟的</p>
+<p>冥想。我把手机定为 5 分钟，然后进行一个标准的呼吸冥想。我认为这是一个非常重要的练习，我之前没有多说过。即使没有其他原因，它也能让你非常清楚地意识到大脑即将接收到的输入，同时也让你非常清楚地意识到我们头脑有多么混乱。在与一些专门研究冥想科学的人交谈后，特别是威斯康星大学的几个人，他们进行了大量的大脑成像研究，很明显，冥想的真正好处并不在于让大脑安静，而在于能够吸收并观察它有多么混乱。</p>
+<p>并把它看作与所谓的观察者略微分离的东西，我们认为有一些回路支撑着观察者，与他们所说的猴子心灵的所有东西相对立。但我一直认为冥想是为了达到真正的平静状态，结果发现它是为了观察混乱。因此，我能用来描述这种练习效用的最好方式是，就像锻炼一样，如果你的腿在举重的最后几次重复中感到烧灼，那就是触发适应的方式。冥想在意识、专注和觉知方面也是如此。我认为这就像有人对我描述的大脑乳酸，不完全是这样。</p>
+<p>我没有想出那个短语。心灵的乳酸就是能够体验那种混乱，观察它而不做任何处理。这让你能在一天的生活中，我认为，更有意识地分辨什么是有意义的想法或反应，什么不是。好的。所以我会坚持五分钟。但这些天，我发现闹钟响起时，我不会去想‘什么时候结束？什么时候结束？’，然后我就会迎接阳光照在眼睛上。我对这件事非常虔诚。有时我会上屋顶，有时我去散步。你昨天在家吗？我在。是的。好的。是的。我通常会带一些水，喝一些。</p>
+<p>水，让一些阳光照进我的眼睛。今天我在一家酒店醒来。早上我面向东方，所以很棒。终于能看到日出了。但是今天是多云的，阴天，我一醒来首先就让阳光照进眼睛。如果我在太阳出来很久之前醒来，我会用一盏一万勒克斯的人工灯，并在早上煮咖啡或做我的事情时就在那盏灯前。我如果要锻炼，会立即喝咖啡因。我认为这是我努力澄清的事情，但并不总是明确。如果我要锻炼，我需要咖啡因。所以，我不会等甚至30分钟，我会喝咖啡因。所以，我喝马黛茶，这是我的</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>35 年训练框架：腿、推拉与 Zone 风格补充</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="daisy"><div class="label"><span class="badge" title="黛西·沃尔夫（Daisy Wolf）">Daisy</span></div><div class="content">
+<p>长久以来，我一直偏爱摄取咖啡因的来源。然后我会做运动。我的锻炼方式非常简单。我可能会分享它，因为我发现它非常有益，不仅对我，对我训练过的女性、男性和各个年龄段的人都是如此。我已经坚持这个方法35年了，我认为这是最节省时间且有效的锻炼计划。而且它真的很直接。每周三天举重，每周两到三天进行某种所谓的有氧运动。关于有氧运动，我先解释一下。就是安全地让你的心率大幅度升高的运动。可以是划船机，也可以是…</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="huberman"><div class="label"><span class="badge" title="安德鲁·胡伯曼（Andrew Huberman）">Huberman</span></div><div class="content">
+<p>气动健身车，就是那种你在踩踏板的时候用手臂前后推拉的那种，可能还在运行中。选择一个你可以接近最大努力但不会伤害自己的项目。这真的很重要，尤其是现在我已经50岁了。我感到相当自豪，因为我从来没有过重大伤害，而且我在50岁时感觉很好，很大程度上是因为我没有做过那些事情。很多人都在谈论他们做过的所有事情。而我说的是我没有做过的所有事情。我从来不会仅仅因为受到挑战就去做别人的锻炼。那样你会伤到自己。我选择的都是感觉正确的事情。骑自行车感觉不舒服。</p>
+<p>对我来说。跑步和骑动感单车都可以。所以先热身一分钟，我的做法是轻松踩踏。然后全力冲刺20秒，休息10秒。重复八次。完成。这就是一次有氧训练。你会达到最大心率，接近最大心率。这是VO2最大类型，很快。好了，所以昨天是星期天。星期天是什么？所以第一天，这一天可以是星期日，也可以是星期一，对某些人来说无所谓。但我一周的第一天会进行腿部阻力训练。大约需要一个小时。这是一周中最艰难的训练。如果我一周只做一次训练的话，剩下的时间……</p>
+<p>如果谈到我的生活，那就是它。好的。有很多原因，最大的肌肉群，对激素和新陈代谢的系统性影响，等等等等。腿部训练日之后，我通常会完全休息一天。我会在那些天尝试进行桑拿和冷水交替，以帮助恢复。我们可以在那里讨论细节。然后根据恢复情况，可能只休息一天，也可能休息两天。接着我会对上身进行某种推拉训练。所以，包括一些胸部推举，一些肩部推举，如果有人做不了引体向上或下拉训练，会做一些拉或下拉的动作，还有某种划船动作。可能还会做一些颈部训练。如果有人颈部情况不好</p>
+<p>姿势问题，或者他们会发现，很多时候男性会发现他们的肩膀仍然开始变宽，而他们并没有训练脖子。首先，这看起来有点不协调，但随后他们会开始出现肩袖问题。训练脖子对于整个肩带的稳定性非常有帮助，非常重要。所以，然后我会休息一天，然后我会做一些手臂、小腿、腹部的训练，就是一些较小的身体部位。所以，这些是三个不同的重量训练日。它们都遵循相同的方法。而这也是我认为人们容易犯错误的地方，但数据以及实际情况表明...</p>
+<p>你在网上听到的内容终于开始赶上来了。如果你愿意，可以在自行车上热身几分钟或做一些开合跳，但我建议做一组轻量训练。所以，10到12次，非常轻，只是让血液为第一个动作流动。然后第二个动作，或者说第二组，顺便说一下，是中等强度的一组。也就是说，一组你可能可以做10次的动作，你只做三次。这只是为了让神经系统为更重的负荷做准备。然后你进行两组工作组，中间休息大约3到4分钟，这样的休息时间算长。但那些工作组都是全力以赴、完美动作并进行到暂时性肌肉力竭的训练。二二</p>
+<p>只有组数。所以，这可能是股四头肌的腿部伸展，然后你会进行其他动作。一种你可以安全完成的动作，比如深蹲、前蹲、腿举。我是说，有很多变体，先做一些复合动作，然后对腿弯肌做同样的事情。关键是先轻量组、中等重量组，次数比你中等重量组能做的还要少。然后两组高强度训练。记下你做了什么，并且在每次训练中增加重量或增加重复次数。我对刚才描述的每一个动作都这么做，无论是哪个部位。最后每个部位大约两种练习，也可能三种。这样总训练量就是这样。</p>
+<p>工作的量非常低。即使是腿部训练，你完成这些锻炼后，感觉不完全焕发活力，但你也不会感到筋疲力尽。你的恢复非常快。你的神经系统不会过度疲劳，而且你的进步非常迅速。我建议过一位女性，她曾是一级大学运动员，踢足球多年，前几天她来找我，她说：“我简直不敢相信这效果那么好。这只是我之前训练量的三分之一。”你可以在每一组中投入更多。因此，我可以不断谈下去，但在一周的某个时候，我会找到办法去做那6分钟的练习，结果大约是</p>
+<p>大约6分钟的，20秒全力，10秒休息，然后找一天去做某种长途徒步。以前是慢跑。现在，我喜欢戴上负重背心或只是背个背包去徒步。让我的心率上升，呼吸加快。如果我真的有雄心壮志，并且每晚都睡得够，我可能在周中再跑20到30分钟。但是这三次重量训练对大多数人来说足以达到他们想要的身体重组、力量的效果，不仅是抵消随年龄增长的肌肉流失和力量下降，还能在姿势和灵活性上感觉更好。当然，你总是可以拉伸，但你</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>饮食：训练后淀粉、不吃西兰花与「放纵」定义</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="huberman"><div class="label"><span class="badge" title="安德鲁·胡伯曼（Andrew Huberman）">Huberman</span></div><div class="content">
+<p>你可以在晚上看电视或做其他事情的时候进行。所以这就是这种方法的框架。我已经这样做了35年。我给过的每个人都会对它的简洁感、最重要的是效果，以及当你期待着真正的45到60分钟高强度训练时的乐趣而感到非常震惊。这很有趣，实际上开始成为一种乐趣。好。昨天是腿部锻炼日。腿部锻炼后发生了什么？好，腿部锻炼后我摄入了一些淀粉和水果。好，在你进行力量训练后，如果像我描述的那样高强度训练，你需要补充糖原。有人说：“你没有，你没有把所有的糖原消耗完</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="daisy"><div class="label"><span class="badge" title="黛西·沃尔夫（Daisy Wolf）">Daisy</span></div><div class="content">
+<p>你的糖原。在训练后摄入一些淀粉是个好主意。你吃了什么淀粉？我进行了非常激烈的训练，所以我吃了我喜欢吃的东西。所以，我吃了香蕉、蓝莓，我吃了几勺乳清蛋白。我吃了一些燕麦，还吃了一些涂了黄油和盐的酸面包吐司，因为在我看来，如果东西上有黄油，就必须加盐。然后几个小时后，也许三小时后，我吃了一顿比较标准的餐饭，那通常是我的正常午餐，包括一些肉类，要么是牛肉，要么是鸡肉。我不是很喜欢鱼，除非是像AI金枪鱼那样的，但那很难买到。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="huberman"><div class="label"><span class="badge" title="安德鲁·胡伯曼（Andrew Huberman）">Huberman</span></div><div class="content">
+<p>天数。还有一些蔬菜。我是纤维的坚定信徒，但我想强调一点，我认为这个问题没有得到足够的讨论，那就是许多人因某些富含纤维的食物而出现胃肠不适。我认为，找到对自己有益、吃了身体感觉良好的食物非常重要。例如，你不会看到我吃西兰花。它让我感觉不太舒服，无论我怎么咀嚼，它都不好消化。这并不是我一个人的情况。有些食物，比如洋葱，会产生组胺，因此有些人在吃了某些食物后just会感觉不适。你</p>
+<p>你得去尝试，看看什么适合你。而真正唯一的方法就是暂时开始尝试单一种食材的食物，比如只吃一些西兰花。你可以在上面加一些橄榄油或黄油，只是看看什么适合你。如果人们一直在吃三明治、炖菜、比萨、炖豆菜和千层面，你就不知道什么适合你，什么不适合你。所以，培养真正健康的饮食习惯，吃你喜欢的食物，有很多选择，就是要弄清楚你能吃什么，并且吃了之后感觉非常好。好吧。那么，你午餐吃了什么蛋白质？我吃了牛肉。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="daisy"><div class="label"><span class="badge" title="黛西·沃尔夫（Daisy Wolf）">Daisy</span></div><div class="content">
+<p>牛肉。好的。我刚吃了一些烤牛排。我那时候吃了切片的黄瓜和西红柿。我还吃了一些米饭。甜点呢？我是橄榄油的忠实粉丝，所以我也吃了一些橄榄油。不，我不太喜欢甜食。如果吃的话，通常是100%的巧克力，这真的很无聊，而且有点书呆子气，但你会慢慢喜欢上它。我有点失去了对甜食的胃口。我对脂肪的胃口还没减。对我来说，犒劳自己就是吃一块非常非常好的帕尔马干酪。你最近吃过的最奢侈的东西是什么？天这听起来会非常健康，但我吃了一块非常棒的肋眼牛排。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="huberman"><div class="label"><span class="badge" title="安德鲁·胡伯曼（Andrew Huberman）">Huberman</span></div><div class="content">
+<p>前几天。我不是那种人，因为我不喜欢甜食，也不喝酒。对我来说，放纵可能就是披萨。披萨我爱。披萨我爱，但我对披萨非常挑剔。所以，在东海岸，在纽约，我会随便从任何走进去的地方买一片。西海岸的话，东湾的Aaronelli&#x27;s披萨几乎是唯一符合我对东海岸风味披萨标准的东西。所以，是的，我会这样做。如果我要吃冰淇淋，那就是巧克力碎片冰淇淋。我在想我是否有任何其他放纵。我需要非常明确，这并不是因为我所谓的“沉迷于感觉良好”</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>NSDR/瑜伽休息术、日落与蓝光分歧</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="huberman"><div class="label"><span class="badge" title="安德鲁·胡伯曼（Andrew Huberman）">Huberman</span></div><div class="content">
+<p>那些事情让我感觉不好。我只是觉得在锻炼和睡眠等方面正确地做事情确实有复合效果。但我得说，如果我曾经长期吃得非常健康，其实我的力量会下降，心情也不如以前好，整体上进步也少。所以偶尔偶尔，比如吃几片意大利辣香肠披萨，似乎是一件非常好的事情。牛角面包，这是另一件事。任何含黄油的东西，但脂肪和淀粉的组合才是对我有效的。如果你说你不喜欢牛角面包，我是不会相信你的。所以牛角面包太棒了。就是这样，午餐、晚餐、睡觉。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="daisy"><div class="label"><span class="badge" title="黛西·沃尔夫（Daisy Wolf）">Daisy</span></div><div class="content">
+<p>是的。所以如果我睡得很好，我就不会打盹或做任何形式的瑜伽休息术（Yoga Nidra）/非睡眠深度休息（NSDR），但通常我睡眠不足。我觉得人们听到这会很震惊，就像，“你不是那个睡眠专家吗？”事实上，我和许多人一样，也很难早早入睡。好的，所以我在下午会进行10到30分钟的非睡眠深度休息瑜伽休息术（Yoga Nidra）/非睡眠深度休息（NSDR）。我认为这是恢复身心活力的极好方法，而且不会产生睡眠惯性。实际上，你们熟知的马克·安德烈，他喜欢在网上嘲讽我，这在X平台上有点有趣，人们觉得我们是敌人，但我认为这是一种友好的互动，我也欢迎。不过我曾经说过，瑜伽休息术（Yoga Nidra）/非睡眠深度休息（NSDR），哪里</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="huberman"><div class="label"><span class="badge" title="安德鲁·胡伯曼（Andrew Huberman）">Huberman</span></div><div class="content">
+<p>你保持静躺，全身深度放松，同时有意保持大脑清醒。我说过，这不是小睡。它不会引起睡眠惯性。它比小睡更好。它教你如果在半夜醒来，如何重新入睡。当然，马克写道：&quot;这是小睡。&quot;<span class="tag">【笑声】</span>所以，马克，这不是小睡。但我很欣赏这个笑话。它非常不同。实际上，有一些新的证据表明，在这些非睡眠的深度休息状态下，大脑的某些区域正在经历深度睡眠，甚至可能释放生长激素，这相当有趣。所以我对这些所谓的入睡前状态或某种临睡状态非常感兴趣。</p>
+<p>在睡眠和清醒之间。这也是对心灵的一种有趣的探索。通常我从中出来后，会对自己想做的事情有一些清晰的认识。现在，我应该提到，在我训练完腿部之后，我会看论文并工作。我应该吗？甚至在周日？然后在下午晚些时候，我会特意去散步，在太阳下山前，或者如果我没有时间而且正在打电话，我就会走到外面，如果可能的话看日落，或者只是朝着阴天里太阳的方向看。我实际上是从斯坦福大学附近的睡眠实验室学到这个习惯的，当我在大学一个暑假在那里工作时。</p>
+<p>在发现眼睛中那些能够记录环境光并向大脑的昼夜节律时钟发送信号的神经元之前，是这样的。这是在90年代中期。这些细胞直到2000年代初才被发现。有趣的是，睡眠实验室的所有工作人员都会从地下室出来，看日落。我当时想，为什么我们要这样做？他们说，哦，这能设置你的昼夜节律，这是众所周知的。理想情况下，你早晨也要做。这就是我开始这一做法的时候。这些都是严肃的科学家，有霍华德·休斯研究员、国家科学院成员。现在我们理解了所有的</p>
+<p>机制。但我指出这一点，是因为我认为有些人认为你必须先搞清楚所有的机制科学。有些做法对我们非常有益，而机制数据则是后来才出现的。所以我尽量在下午做这些。有时我会站在外面，手里拿着一杯茶或其他什么饮料。我一般在下午两点左右停止摄入咖啡因。那大概是最晚的时候。否则，我会很难入睡。然后通常回到室内后会进行一些工作。到了晚上，我会吃晚餐。说到晚餐，如果是做力量训练的日子，我通常晚餐会比较饿。</p>
+<p>我会吃一些类似午餐的东西，但又不完全一样。如果那天我没有锻炼，这通常会是比较小的一餐，而且通常最后一餐的蛋白质不会太多。我的最后一口食物通常在大约7:30到8:00之间，但我对这个时间不是特别在意，因为我一般在晚上11:00左右睡觉。在睡前的最后一小时，我会调暗灯光，试着让自己逐渐放松。我会把手机收起来，因为我发现深夜很容易陷入短信聊天中。我也喜欢用电脑到比较晚的时候，有时我会</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="daisy"><div class="label"><span class="badge" title="黛西·沃尔夫（Daisy Wolf）">Daisy</span></div><div class="content">
+<p>通过看东西来获得一些娱乐，但现在我大多只是阅读。你喜欢蓝光眼镜或类似的东西吗？我喜欢。我有红色镜片的眼镜。我们和Roka一起设计了一些这样的眼镜。我认为这有一个重要的点，也是在Elon和Mark在线上的一次对话中产生的，我记得，不，应该是Lex和Mark，然后Elon加入了。Mark说的，他说他因为Huberman而戒酒，但他不会做任何关于蓝光的事情。这就是他说的。所以他的意思是，晚上人们对蓝光的敏感度有很大差异。我认为很多人以为灯光必须看起来是蓝色的，但</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="huberman"><div class="label"><span class="badge" title="安德鲁·胡伯曼（Andrew Huberman）">Huberman</span></div><div class="content">
+<p>明亮的灯光，白色的灯光，黄色的灯光具有短波长的光。因此，当我们谈论蓝光时，就是在谈论这个。有些人对它非常敏感。它会让他们的皮质醇飙升，扰乱他们的睡眠，即便是100勒克斯这么微弱的光，通过闭着的眼皮也会有影响。其他人对它的敏感度较低。我们不知道这是怎么回事。似乎与一个人的眼睛是浅色还是深色无关。我的眼睛对光非常敏感。所以在夜间，如果我受到大量明亮的顶灯照射，我会难以入睡，或者虽然入睡了，但会在半夜醒来。如果我调暗灯光或者戴上助眠眼镜，我会感觉</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="daisy"><div class="label"><span class="badge" title="黛西·沃尔夫（Daisy Wolf）">Daisy</span></div><div class="content">
+<p>好多了。所以我认为这方面有点分歧。我们并不真正知道潜在的原因是什么。但无论如何，上一次我配隐形眼镜时，他们向我推销了蓝光阻隔隐形眼镜。我丈夫说这让我的眼睛看起来很奇怪，但我当时想，我不会回去的。所以他们给眼科医生用了蓝光。是的，你白天的皮肤和眼睛需要一些短波长光线来生成维生素D。例如，紫外线并非一概对人体有害。我应该提一下，当太阳低悬时，紫外线指数非常低。这也是你可以观察到的原因之一。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="huberman"><div class="label"><span class="badge" title="安德鲁·胡伯曼（Andrew Huberman）">Huberman</span></div><div class="content">
+<p>日出或日落时看太阳而不伤眼睛，是因为存在一种大气瑞利散射现象，其中短波长的光，比如紫外线，会被滤掉。当太阳在头顶时，非常明亮，看着很刺眼。这是因为有更多短波长的光到达你的眼睛。所以，如果人们担心紫外线暴露，早晨和傍晚或下午晚些时候的光照紫外线暴露非常低，或者你可以直接查看紫外线指数，可以在谷歌搜索一下。你昨天有没有吃任何补充剂或药物？很多，<span class="tag">【笑声】</span></p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>补剂清单与社交锁箱</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="huberman"><div class="label"><span class="badge" title="安德鲁·胡伯曼（Andrew Huberman）">Huberman</span></div><div class="content">
+<p>但赶快把它们拿掉。好的，没错。所以，这不是一个推广。我想非常明确。这是我所做的，以及自2012年以来我实际上一直在做的大部分事情。人们。所以，我确实每天服用两次AG1。我通常在早上，也就是在一天的第一餐前，以及晚上服用。有人说，“好吧，那是因为他们是播客的赞助商。”我使用它只是像我描述的那样，作为营养的补充基础，如果我没有摄入足够的水果和蔬菜，我可以弥补任何不足。我喜欢它。所以我已经这样做了很长时间，远在我知道播客是什么之前。我服用鱼油。我是一个坚定的信徒。</p>
+<p>在高剂量的EPA，欧米伽-3中。有关欧米伽-6与欧米伽-3比例的争论很多。如今，我发现获得每天超过一克EPA（而不仅仅是超过一克鱼油）的最有效方法是服用Lovaza，这是一种处方欧米伽-3。它还去除了所有重金属，所以你不必担心这个问题。而且它有仿制药版本，所以现在相当便宜。因此，我认为人们可能想要服用Lovaza，也可能不，但我服用Lovaza。我服用一些维生素D，我服用三到五千单位的维生素D3。还有我的</p>
+<p>早晨补充剂的摄入包括我实际上，我实际上相信一些草本补充剂。现在，仅根据我的血液检查，我服用400毫克一种叫做Tonga Ali的东西，它是一种印尼药材，有几种不同的版本，但我服用Tonga Ali，它被认为有助于使一种叫做性激素结合球蛋白的东西从睾酮中解开，所以它可以稍微释放一些睾酮。男性和女性都可以服用这个。我与销售它的公司没有任何经济关系。所以，我服用太阳能阵列版本，它也是最便宜的。所以我就是这样。我服用一种叫做P5P的东西。</p>
+<p>它是一种维生素B6衍生物。我服用50毫克。我服用它是为了略微降低催乳素。我并没有高催乳素，但我早上会服用。你希望能够增强皮质醇和所谓的儿茶酚胺，也就是多巴胺或肾上腺素的作用。它在这方面可以稍微有所帮助。再看看，还有什么？哦，我每天服用600毫克乙酰半胱氨酸。它是谷胱甘肽的前体。关于乙酰半胱氨酸，有一项非常不错的研究显示，每天三次服用600到900毫克乙酰半胱氨酸可以降低你……的可能性。</p>
+<p>感冒。他们通过让人们接触其他感冒的人来进行这项研究。我只会在感觉自己快要生病的时候才吃。很好。它可能会让你的鼻子有点流鼻涕。它是一种化痰药。实际上，它在其他情况下和剂量下用于囊性纤维化，即肺部液体积聚。所以，它是一个相当强大的工具。我每天只吃一次，如果我感到疲惫或者在旅行中，或者周围有人生病，我会一天吃三次。它也可能有助于缩短感冒或流感的病程。但我从一位在大流行期间工作的急诊医生那里学到了这个技巧。</p>
+<p>需要保持健康。但那篇论文中的数据——如果你愿意，我可以提供链接——相当有趣。在这种情况下流感的传播情况，我认为中期大约有70%的接受安慰剂的人在接触到明确的流感病毒后感染了流感，而在服用乙酰半胱氨酸的那组人数减少到了高二十几百分比。我们需要对这些数据进行复查。相当令人印象深刻。我认为安全，增加谷胱甘肽，安全，那为什么不呢？与销售它的任何公司没有经济关系，但它们几乎都是等同的。然后吃午餐时，我会服用复合维生素。我服用</p>
+<p>两种消化酶。我确实认为那会有帮助。如果有人在吃了食物后感到发痒，或认为自己有食物过敏，在你去做一些昂贵的食物过敏分析或治疗之前，我推荐有一种酶，可以在你吃任何含组胺的食物之前服用，这完全改变了我与食物的关系，因为我几乎可以吃任何东西。实际上，这是斯坦福的一位同事建议给我的工具，这并不一定意味着有临床研究支持，但道理很合理。如果你体内没有产生足够的酶来处理含组胺的食物，你可以想象可能会感到一些不适。</p>
+<p>症状。我是一个非常过敏的人。我觉得我需要知道这是很好的意思。我以前吃某些食物后会感到困倦。我当时在想，这是什么情况？通常是乳制品让我的身体这种反应，我还以为是色氨酸引起的。事实证明那是胡说，乳制品或火鸡中的色氨酸量相对于其他食物来说并不够。我看到它就像在眉毛周围发痒一样，而那些容易患自身免疫病的人，比如像我一样，如果有人有轻微的银屑病之类的情况，他们通常会发现这些食物有点问题。</p>
+<p>对他们来说是刺激性的。所以我也这么做，我在这里描述的可能每天这种酶的成本不到一分钱。所以这是一个微不足道的成本。我们来看看。然后在那餐中，我会服用LVaza复合维生素。我确实会服用脱水肝。人们必须小心增加铁的摄入量，因为它含有丰富的血红素铁。但我不想吃肝脏，我对吃肝脏毫无兴趣，它对我没有吸引力。但我服用它是为了其中的一些营养成分。然后在晚上，同样，这不是广告，但我会服用助眠补充剂。</p>
+<p>对我来说，迄今为止最好的事情就是服用AGZ，这是一种我帮助他们配制的混合饮品。它含有三钠镁，含有酸樱桃，所有提取物和各种成分的组合。我服用它后，睡眠非常好。它实际上让我不再需要携带各种不同的药丸。我也尝试过肽类，并且我一直对自己在荷尔蒙和肽类方面的其他实验持开放态度。也许我们可以把那个话题分开讨论，因为我刚才描述的东西，我想非常明确地说，基本上是我在……岁之间所做的事情。</p>
+<p>20岁左右，上下浮动，当时AG还不存在，还有一些类似的事情，但在45岁左右，我开始尝试一些其他的东西，但就是这样。我会说，如果你想讨论一些工具，特别是在硅谷这里，人们用来提高专注力的一些工具，以及一些兴奋剂和非兴奋剂方式来提高专注力。我在这方面花了很多时间研究，也花了一些时间去尝试。你会向别人推荐什么，但自己却做得不太好，或者你明知道不好却会做什么？我觉得社交媒体可能是最大的问题。我最近搬到了X。</p>
+<p>把 Instagram 放到一个单独的手机上，这样如果有人发东西给我，我就打不开，然后我把那部手机放在一个锁盒里，所以我会说好吧，我一个小时会上去看看，然后它又回到锁盒里。这是超级监狱级别的锁盒，所以你不能真的破解出来。这对我来说有点尴尬，因为我可以控制自己的行为，但我发现时间还是会过去。你是人，你和我们一样。算法已经变得非常好，非常好，而且非常有娱乐性，而且情况有点不同，因为我在上面，所以我是以一种相当积极的方式在与它互动。</p>
+<p>这也是一种奇怪的经历，比方说上网看到有人在说你的事情，然后你试图去解释，试图搞清楚他们是否是善意的，这真的可能浪费很多时间。完全同意。所以，我认为这可能是最大的问题，而且它带有一点羞耻感，我们都应该能够控制自己的行为。那么，为什么我需要给手机设置一个锁盒呢？另一方面，我觉得当手机在锁盒里时，数据也支持这一点，如果手机不在房间里或者完全无法使用，</p>
+<p>有一些认知资源会变得对你可用，而如果它即使在你的包里或者关掉放在椅子下，就不会有可用。这是一项已经做过的研究。人们可以同样专注，但他们需要使用额外的认知资源才能达到那个专注水平。在这项研究中，这一点以相当聪明的方式被观察到。所以，我尽量把手机放在另一个房间，我发现把它锁起来是一种完全不同层次的不可接触性，我认为这对我有帮助。这对我完全有道理。好，你以提炼健康研究为生，这导致了很多建议和方案。如果你不得不说，如果你必须推荐</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>健康三件事与创始人认知窗口</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="daisy"><div class="label"><span class="badge" title="黛西·沃尔夫（Daisy Wolf）">Daisy</span></div><div class="content">
+<p>排名给人们的三件事，不超过三件，以便过上更健康的生活，那这三件事会是什么？很好。早晨明亮的光线，最好是阳光照射。所以应该在醒来的前30到60分钟内进行。如果你不能从阳光中获得光照，就使用一个10000勒克斯的人造光源，然后在有机会时再晒一些太阳。这是第一件事。接下来是做我之前提到的重量训练方案。这会彻底改变你的生活。如果女性担心变得过于肌肉发达，其实不会那样。但从身体重组、情绪、脑健康的角度来看，你不会找到</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="huberman"><div class="label"><span class="badge" title="安德鲁·胡伯曼（Andrew Huberman）">Huberman</span></div><div class="content">
+<p>更强的刺激。然后最后一点是想办法让你获得的睡眠成为最高质量的睡眠。我有时会因为这个受到适当的责备，比如，嘿，我有孩子。我有一份忙碌的工作。邻居总是在制造噪音。我该怎么办？找到一个大多数晚上可以尝试的固定睡觉时间，这样你就能获得最多的深度睡眠。不要错过这个时间窗口。在这里，我把第四点也合并进来了，但实际上要学会入睡和再次入睡。我不会说要获得完美的睡眠，因为那样你得围绕它安排你整个生活。我会建议进行长呼气呼吸来放慢你的节奏</p>
+<p>心率。学习如何闭上眼睛。这听起来很古怪，但它基于我们对基础神经回路的理解。当你难以入睡、思绪万千时，来回移动眼睛、上下移动眼睛，等等，这会大大帮助你入睡。这并不神秘，其原因是，为了入睡，你需要忘记自己的身体姿势，而这会干扰前庭系统。事实上，如果可以的话，我最兴奋的技术之一——我希望A6Z会实现它，但我目前还没有相关的公司——就是通过控制眼睛来诱导睡眠的睡眠面罩。</p>
+<p>以某些方式运动。很有趣。那会有多酷？并且测量快速眼动睡眠和慢波睡眠。我认为这是我们所有人迫切需要的下一波技术。但正如我所说，有三件事：早晨的明亮光线。是的。抗阻训练。如果你愿意仍然可以做有氧运动，但抗阻训练才是健康改善的真正利器。并在你当前的环境中每晚找到获取最高质量睡眠的方法，无论是5小时、6小时，理想情况下是8小时，但要找出在酒店房间、飞机等环境中你可以做的事情。弄清楚这些事情。</p>
+<p>然后你会开始体验到一种灵活性，这种灵活性来自于不害怕自己没有得到完美的睡眠。就像我睡六小时也没问题，因为我知道如果只睡六小时，我如何调节白天的精力。我当然很想睡八小时，但我已经记不清上一次连续八小时没有起夜一次或两次是什么时候了。这种情况根本不会发生。我们有很多创业者在听我们的播客。如果你必须把适合创业者或任何人的认知表现的基于证据的习惯压缩到三条，那会是什么呢？第一个是，知道你高认知能力的时间窗口是什么时候。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="daisy"><div class="label"><span class="badge" title="黛西·沃尔夫（Daisy Wolf）">Daisy</span></div><div class="content">
+<p>这对每个人来说都不同。对我来说，我能感觉到上午11点快到了。我天哪，我希望这发生的时候是早上7点。而且我起得相当早。我应该说我通常在早上6点到7点之间起床。有时候如果我在晚上9点睡觉，我会在早上5点醒来，好吗？如果我在10点或11点睡觉，我通常会在早上7点醒来。所以，就是这样，而且我像大多数正常人一样会在半夜醒来，我会去洗手间，然后再回到床上，我一生中有90%的夜晚都是这样。好吧？所以，我知道早上我往往会有很强的睡眠惯性。我需要做这些事情。我会做运动，</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="huberman"><div class="label"><span class="badge" title="安德鲁·胡伯曼（Andrew Huberman）">Huberman</span></div><div class="content">
+<p>等等。但我之所以这么做，部分原因是我知道如果我在上午9:00之前锻炼，我整天会有更多的精力和专注力。如果我在上午11:00锻炼，这大约是我上午精力的高峰，那么到了下午3:00，我就会感到精疲力尽。这只是我个人的情况，其他人可能不同。因此，有些人会发现他们工作效率的高峰期在一天中的某个特定时间。对我来说，有两个时间段。真正关键的是上午9:30到12:30之间的时间段。这个时间窗口非常重要。所以我必须非常小心，不能在这个时间窗口锻炼，因为像大多数创业者一样，我锻炼是不会得到报酬的。这非常重要。如果你要做那件事情</p>
+<p>健康方面，他们必须支持你生活中的其他领域，以某种方式反过来促进你公司的成功，然后你实际上有资源也许某天可以改变你的日程安排。但否则的话，如果人们只是试图把所有这些方案都塞进去，他们只会耗尽自己。对我来说，是早上9:30到12:30，这是一个关键的时间段。然后我注意到注意力和认知会稍有下降。然后对我来说，在下午晚些时候，大约在下午4:30、5:00左右，我会开始有另一个时间段，这个时间段会持续到大约晚上7点左右，也就是晚餐前。我必须抓住这个时间段。我已经了解到，我的大脑在某些事情上表现得更好。</p>
+<p>在那两个时间段里。同样，这非常因人而异。对一些人来说，可能是半夜。所以，我认为了解自己很重要，这可能会随着人生阶段或生活情况的变化而改变，但了解自己并真正抓住这两个时间段，并把这些时间当作一天中最重要的时间来保护。所以，也许只有你的家人和同事在紧急情况下才能在那个时间或那些时间联系你。对于大多数人来说，这大约是一天两次。你可能会说，“这时间不够。那就是3小时的专注工作，然后也许下午再3小时，或者两三个小时。我不认识很多人是</p>
+<p>每天完全专注工作八九个小时而第二天不会完全崩溃。我同意。尤其是如果你使用药理学，我们可以谈谈药理学。正如我所说，我在一天中一直啜饮咖啡直到下午。如果我早上锻炼，我下午通常不需要那么多咖啡。我只是补充水分和电解质。很多人会发现，仅仅更好地补水就会提高他们的警觉性。所以这是第一点。弄清楚什么时候锻炼能给你带来更多的能量，并保护那些我称之为“工作时间”的时段。我真的把真正的工作当作一场战斗。我的朋友瑞克·鲁宾</p>
+<p>喜欢醒来，我不会说慢慢醒来，但会以一种平静或者说冷静的状态进入一天，然后他的工作时间通常是在下午。我知道这一点，因为我和 Rick 相处了很长时间。那时他的头脑最清晰，然后到了晚上他就会逐渐疲惫。但是在那些时间里他工作非常努力，而且他知道这些时间什么时候到。我有点不同。我的工作时间分两段，但真的像是一阵斗争。你应该把它们当作一场战斗来看。而真正的危险在于，如果你正处在其中一个时间窗口，却让你的注意力被</p>
+<p>如果你在做一些对公司建设毫无价值的事情，你是在失去时间，你不仅仅是失去了那三四个小时，因为这三四个小时带来的生产力，其指数级大于你在之后完成这些工作的生产力，或者为赶工而付出的生产力。同时，这也会妨碍你拥有健康的个人生活。所以，我们必须像保护最重要的东西一样保护这些时间，家庭紧急情况除外。好的，这是第一点。我认为另一点是，在我长大的硅谷，人们常说，没有一个成功的创始人是</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>刺激-反应之外的向内检查与神经科技</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="daisy"><div class="label"><span class="badge" title="黛西·沃尔夫（Daisy Wolf）">Daisy</span></div><div class="content">
+<p>不是冥想者什么的，或者他们都冥想，我在想，这真的可能是真的吗？他们真的都是冥想者吗？我认为，这真正意味着的是，你需要在生活的整个刺激-反应模式中做得相当好。你有任务，你在处理任务，你很有条理。但我确实认为，每天一次，即使只是几分钟，也是非常有价值的，只是从刺激-反应中跳出来，向内看，并检查自己是否在正确分配精力。有些人更容易被对话、戏剧和他们所看到的东西吸引，有时</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="huberman"><div class="label"><span class="badge" title="安德鲁·胡伯曼（Andrew Huberman）">Huberman</span></div><div class="content">
+<p>人们会在网上看到各种东西。这些东西在他们的神经系统中有一个长尾效应。有相关的数据表明，你两小时后的想法在某种程度上是由你前几小时所看到的东西决定的。但有些人的思维更像方波，他们更善于分隔不同的信息。而像我这样的人，如果我之前有一段让我感兴趣的对话，它会在脑中停留，并影响我接下来的行为。所以，我认为这些你仅仅是稍作停顿并将自己从所有输入中分离出来的时刻，可以让你更有效地进行转变。因此，我们实际上没有正式的任务切换协议，但这非常</p>
+<p>对公司创始人和全体员工来说，这很重要，必须能够进行认知任务切换。因此，我们需要更多关于如何做到这一点的数据。但这肯定涉及回到某种没有任何输入的状态。我认为这非常重要。事实上，Rick 和我一直在研究一些不是冥想的工具。我们一直在尝试构建一些不是冥想的工具，它们不是瑜伽尼德拉，但可以让你为接下来的事情编程你的大脑。比如，如果你想想，现在是 2026 年，为什么我们还要坐下来工作，然后只是说，‘好吧，’</p>
+<p>现在我要集中注意力，现在我要有创造力。现在我要像……我们应该有一些方法来控制神经活动，这样我们就能够更快速、更深入地访问这些神经回路。我被推荐一种头带，它通过向大脑发送波动来减少类似注意力缺陷多动症（ADHD）的症状并帮助集中注意力。是的，我认为这在某种程度上会通过控制大脑活动实现。所以它将会是某种一般性的大脑状态振荡之类的东西。我喜欢它的个性化概念，我喜欢你在脑中通过耳机听到自己的声音的想法，它会告诉你……</p>
+<p>知道你的弱点和强项，并且是你自己的人工智能教练，它会告诉你如何在某些事情上设定盲点，组织你的注意力，或者可能帮助你从一天的疲惫中放松，完全放松。我对这些技术非常兴奋，但主要是在睡眠和醒来的领域，因为现在我们还没有理想的工具。也许这家公司有，但如果你考虑一个睡眠面罩，它可以通过控制你的眼动来让你入睡，这是很容易做到的，只需在耳后做一点电刺激。是的，我会告诉你，那就是迷走神经。</p>
+<p>或者什么的？你在耳朵周围有迷走神经的分支。还有一些其他前庭神经，因为它们支配内耳，所以它们走得够浅，你可以这样做，还有外眼肌。所以我实际上有机会尝试过其中一个睡眠面罩，对我来说，大约6分钟我就睡着了。这也可以让你醒来，这真的很有趣。我是说，也许它可以提供适当的照明，类似的东西。是的，所以我认为睡眠的进入和退出的转换，将会是神经技术真正征服的第一个领域。</p>
+<p>挑战在于我们确切地知道你需要什么。你需要睡着。好。你需要清醒。你需要保持警觉。当涉及到“好了，现在我们要坐下来做这类任务”的时候，我们仍然不清楚你真正想要的脑活动模式是什么。比如为了集中注意力，你希望保持警觉，但又不能过于警觉，那是一个倒U型的函数，超过那个峰值你会非常容易分心，太困了，你也会非常容易分心。就是那个最佳状态。所以，我认为这是神经技术一个非常令人兴奋的领域。而且，我再说一遍，这首先会在睡眠方面实现。此外，人工智能也能够进行校准并说，哦，我们我们</p>
+<p>需要让眼睛的偏转更宽，以便在你处于这种特定状态时引发效果。是的，我对此感到非常兴奋。所以你问过创始人的工具。我想，是吗？我认为，把你的一天按对你最重要的事情来安排是很重要的，所以不论个人生活差异如何，你每天需要两次完成你最好的工作。你需要像对待运动员那样对待自己。我在管理实验室时就想到过这一点，也是在我做博士后时，当我在会议上早点上床睡觉时，我第二天在会议上会更加敏锐。当时，会议对我来说非常重要。同样在做事情方面也是如此。</p>
+<p>实验，我可以做的实验数量是别人两倍，不仅仅是因为有一天工作特别努力，而是我额外获得了一小时的工作时间。当然，我也是那种有时会把实验带到研讨会去展示的人。我觉得，这太疯狂了。我需要做一些免疫组织化学实验。为什么不带到研讨会去呢？我听说有人也这样做过。我想，我就把我的培养盘带过去然后转移一下。所以，如果每个人都开始这样做，那可能会有问题。但重点是，如果你真的非常认真对待自己和你的工作，你需要以这种方式组织你的一天。我确实认为，每周有一天完全脱离工作会非常重要。</p>
+<p>从这些事情中受益匪浅，对你重新投入的能力非常有帮助。我爸爸是个科学家，曾长期在施乐帕克工作，现在他在做其他事情。但很久以前，他就说，你必须成为一名长跑运动员。这是一次耐力赛。我同意。所以，我得到的最好建议，也是最后一点，是伯克利加州大学和旧金山加州大学的一位神经学家Bob Knight，多年前，他非常有才华。我向他请教建议，当时我刚开始读研究生，他说：“弄清楚你每天能够持续完成的最大真实工作量，然后再想办法”</p>
+<p>每周都用非破坏性的方式重置自己。“我想，”好吧。“好吧。那时我可以工作非常非常长时间。我说，”怎么重置？“他说他喜欢钓鱼。我对钓鱼没问题，但我不喜欢，我知道自己喜欢什么。我喜欢徒步。我喜欢亲近大自然，和人共度时光。所以，我发现我可以每天工作一定小时，一周工作5天。有时一周中间会有点低谷。我坚持了25年。如果你们这些服用大量兴奋剂却总是一波波打采的人，他们就是那些最终崩溃消失的人。所以，你得弄清楚</p>
+<p>并且提升你的能力。我认为我们对此讨论得还不够多，因为人们在这方面确实有很大差异。但没错，你必须非常努力地工作，你必须非常专注，但你也必须弄清楚自己能坚持多久。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "a16z", "title": "安德鲁·胡伯曼谈专注、能量与最佳表现", "url": "https://www.youtube.com/watch?v=Ezi-nwe6LlY", "videoId": "Ezi-nwe6LlY", "published_at": "2026-11-03", "duration": 2888, "caption_source": "YouTube 自动生成字幕（en-orig；普通 yt-dlp 遇 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 补拉；en 与 en-orig 内容一致，按自动字幕标注）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段；说话人：主持黛西·沃尔夫 ↔ 嘉宾安德鲁·胡伯曼（简介确认；自动字幕无标签，问句与回答偶有粘连，中等把握）", "guests": ["Andrew Huberman", "Daisy Wolf"], "intro": {"summary": "a16z 合伙人黛西·沃尔夫（Daisy Wolf）访谈安德鲁·胡伯曼（Andrew Huberman）：健康三件事、日常协议、创始人认知表现窗口，以及睡眠/神经科技趋势。", "points": ["晨光、抗阻训练与睡眠质量三原则", "一天协议：冥想、咖啡因、训练与饮食", "非睡眠深度休息与晚间节律", "创始人：保护认知高峰时段"], "verdict": "值得看：关心表现科学、创业作息与健康协议者；可跳过：已熟听胡伯曼长播、只求新研究突破者（约48分钟）。", "audience": "a16z / 健康科学 / 创始人效能"}, "speakers": [{"id": "daisy", "name": "黛西·沃尔夫（Daisy Wolf）", "role": "host", "short": "Daisy"}, {"id": "huberman", "name": "安德鲁·胡伯曼（Andrew Huberman）", "role": "guest", "short": "Huberman"}], "sections": [{"id": "s1", "title": "开场剪辑与欢迎：安德森戒酒逸事", "start_sec": 0, "summary": "冷开场拼贴健康三原则与训练/睡眠问题。黛西·沃尔夫（Daisy Wolf）欢迎安德鲁·胡伯曼（Andrew Huberman）上 a16z 节目：播客自 2021 年 1 月改变数百万人习惯；提到马克·安德森（Marc Andreessen）因他减/戒酒。胡伯曼称数据上零酒精优于任何量、非酒精依赖成年人每周上限约两杯；有人发现「完全不喝」比「喝一点」更好坚持。他意外于影响力，并强调多数协议来自他人科学，自己乐于学习与转述。"}, {"id": "s2", "title": "昨日协议：冥想、日照与咖啡因时机", "start_sec": 241, "summary": "逐时回放「昨天」：起床不用床上手机、手机不进卧室；爱 Eight Sleep 否则想关全屋夜间 Wi-Fi。五分钟呼吸冥想——目标不是强求平静而是观察「心猴」混乱（「心灵的乳酸」）。严格晨间日照（屋顶/步行；阴天也对着光；日出前则用约 10000 lux 灯）。若当日要训练则立刻咖啡因（耶巴马特），不等 30–90 分钟那套「非训练日延迟」规则。"}, {"id": "s3", "title": "35 年训练框架：腿、推拉与 Zone 风格补充", "start_sec": 433, "summary": "50 岁仍无大伤，归功于「没做的事」：不跟风别人课表。偏好跑步/风阻车等可控接近极限的刺激。腿日强调大肌群与激素/代谢；热身 + 安全动作、总量不必虚高。另有约 20 秒全力/10 秒歇的短间歇约 6 分钟，以及负重徒步/偶尔中周跑步。三节力量课可覆盖大多数人的体成分与姿态需求。"}, {"id": "s4", "title": "饮食：训练后淀粉、不吃西兰花与「放纵」定义", "start_sec": 765, "summary": "训练后补糖原：香蕉蓝莓、乳清、燕麦、黄油海盐酸面包。正餐偏牛肉/鸡肉 + 蔬菜；不爱鱼（除难求的高质量吞拿）。强调纤维重要但个体耐受差——他不吃西兰花、洋葱等易组胺食物；建议单食材试错。牛排+黄瓜番茄+米；甜食少、偏好 100% 巧克力或帕玛森；东岸随意披萨切片、西岸几乎只认东湾某店。不喝酒不嗜甜，「放纵」对他是优质肋眼。"}, {"id": "s5", "title": "NSDR/瑜伽休息术、日落与蓝光分歧", "start_sec": 1008, "summary": "睡好则不做 Yoga Nidra/NSDR；否则躺着保持觉知——不是小睡、无睡眠惰性，还利于夜醒回睡；马克玩笑称「就是小睡」。下午尽量看日落/方向性日光（源自斯坦福睡眠实验室 intern 经验）。咖啡因约下午 2 点截止。睡前一小时降光、收手机；红片眼镜/蓝光阻隔个体差异大——安德森公开拒绝蓝光管理，黛西则用阻蓝隐形。日出日落因瑞利散射可相对安全直视低空太阳。"}, {"id": "s6", "title": "补剂清单与社交锁箱", "start_sec": 1417, "summary": "澄清非广告：2012 年起多数习惯已有。AG1 早晚；鱼油高 EPA；部分草本与 B6 衍生物温和降催乳素；感冒时用黏液溶解类工具（自 ER 医生处学来，剂量场景谨慎）。消化酶应对过敏样反应；干肝片（注意铁负荷）；晚间睡眠配方。把 X/Instagram 放到独立手机再锁进「超强监狱」锁箱限时刷——算法太会抓注意力；研究显示手机即使关机在包里也占用认知资源。"}, {"id": "s7", "title": "健康三件事与创始人认知窗口", "start_sec": 1969, "summary": "若只能荐三件：①醒后尽快亮光；②抗阻训练协议；③把「你能睡到的觉」做成最高质量——对准深度睡眠窗口、用延长呼气与眼动技巧助入睡，不神化完美 8 小时。给创始人的认知习惯：摸清自己每日约两段高效窗口并像「搏击」一样保护（他例：约 9:30–12:30 与 16:30–19:00）；训练安排要反哺工作而非耗尽（早练往往全天更有电）。里克·鲁宾（Rick Rubin）则偏下午单峰。窗口里被无关事吸走，损失的不只是那几小时。"}, {"id": "s8", "title": "刺激-反应之外的向内检查与神经科技", "start_sec": 2433, "summary": "每日哪怕几分钟离开纯刺激-反应、向内核对能量分配。展望个性化脑状态工具与「用自己声音教练」的 AI；睡眠面罩经轻度耳周/眼外肌电刺激助入睡与唤醒（他试过约 6 分钟入睡）。过渡态（入睡/醒来）或成神经科技先落地处。收束：用非破坏性方式每周重置，比「偶发拼命一天」更能持续产出；人与人差异大，协议必须可执行并服务事业与家庭。"}], "paragraphs": [{"start_sec": 0, "type": "text", "zh": "如果你对自己和你的工作非常认真，你就需要以这种方式安排你的一天。如果你必须向人们推荐三件事以过上更健康的生活，那会是什么？做我之前提到的重量训练方案吗？它会彻底改变你的生活。想办法让你能获得的睡眠质量最高。你昨天服用过任何补充剂或药物吗？大量的。【笑声】有什么是你会推荐给别人但自己并不擅长遵守的？我觉得社交媒体可能是最大的一个。我最近把X和Instagram移到了一部单独的手机上，然后我把那部手机放在一个锁盒里。你实际上无法从中编码出去。", "speaker_id": "huberman", "section_id": "s1"}, {"start_sec": 35, "type": "text", "zh": "我们有很多创始人听众。若只能浓缩成三条有证据支持的认知表现习惯，会是哪三条？胡伯曼博士，欢迎来到 a16z 节目。谢谢。很高兴来到这里。你的播客 2021 年 1 月上线，改变了数百万人的生活。今早我还让孩子稍微推迟了咖啡因——大概没你希望的那么久。你还「成功」让我们公司创始人马克·安德森（Marc Andreessen）戒了酒。我本人还没做到。回看有没有某个瞬间，你突然意识到——", "speaker_id": "daisy", "section_id": "s1"}, {"start_sec": 77, "type": "text", "zh": "“哇，人们不仅仅是在听我说话，他们甚至因为我说的内容而改变了日常习惯。” 好吧，这真是一路狂奔，我完全没预料到这一切。但我很高兴人们为了健康而采取行动，我不知道应该通过说谢谢来接受，还是为马克戒酒而道歉。我知道他偶尔喜欢喝一杯。我想他对此有点不高兴。我想说得非常清楚，数据表明零比任何饮酒都好。对于一个非酗酒的成年人来说，每周两次可能是上限。我不认为马克是酗酒者。他理论上可以喝两杯酒。但当我建议他不喝时，……", "speaker_id": "huberman", "section_id": "s1"}, {"start_sec": 121, "type": "text", "zh": "他有点像很多人所做的那样，有时候不做比做一点更容易坚持。我确实认为酒精是可以享受的。如果有人想这样做，也可以考虑做一些其他可能有益的事情。不过直接回答你的问题，我之前并没有预料到这些。正如我所说，我很高兴人们为了健康采取了措施。在某个时候，我意识到，哇，人们开始采取行动了。我无法判断这是因为我们展示的科学，还是因为我知道非常有效的方案。好的一点是，我并没有为实际结果谋取功劳。", "speaker_id": "huberman", "section_id": "s1"}, {"start_sec": 160, "type": "text", "zh": "协议，因为在大多数情况下，除了像一些与缓解压力相关的事项的少数例外，大多数情况下，这些协议都是来自别人的科学。所以在观察科学和健康教育领域时，大多数在那个领域的人都是在谈论他们自己的科学。所以以这种方式进行给了我一定的自由。我也必须小心，因为我经常是在谈论别人的科学。但我喜欢学习，我喜欢教学。对我来说，没有什么比阅读论文、分享我认为有趣的信息、尝试事物并观察效果更让我快乐的了。以及那些与我关系密切的人", "speaker_id": "huberman", "section_id": "s1"}, {"start_sec": 203, "type": "text", "zh": "我会告诉你，在我一生中，当我学到一些我认为很酷的东西时，我就会去教别人，无论他们是否愿意听。所以，他们只是把麦克风放在我面前，然后我就出现了。太棒了。你对你的日常习惯一直非常坦诚。就像我提到的，阳光照眼睛、延迟摄入咖啡因，但也会按天轮换锻炼、冷水浴、桑拿、做瑜伽、尼德拉冥想、服用各种补充剂。不过，也许你可以带我们了解一下昨天的情况。我很好奇。你吃了什么？做了哪些锻炼？吃了哪些补充剂？你遵循了哪些建议？有哪些没有遵循？", "speaker_id": "daisy", "section_id": "s1"}, {"start_sec": 241, "type": "text", "zh": "一天的时间。所以我醒来，我像其他人一样去洗手间。你在床上会玩手机吗？不会。好，没有手机。睡觉时手机不在房间里。如果我不是那么爱爱爱我的八小时睡眠，我会想办法晚上让家里完全没有Wi-Fi。很有意思。所以我醒来时，像其他人一样有些昏昏沉沉。我的思绪开始飘到各个地方，醒来的时候头脑有些混乱。我觉得我从没醒来只是打个大哈欠然后觉得生活如此美好。我醒来时想着，好的，我有这个要做，我有那个要做。所以我做的第一件事就是起床去洗手间，然后这几天我会做五分钟的", "speaker_id": "huberman", "section_id": "s2"}, {"start_sec": 281, "type": "text", "zh": "冥想。我把手机定为 5 分钟，然后进行一个标准的呼吸冥想。我认为这是一个非常重要的练习，我之前没有多说过。即使没有其他原因，它也能让你非常清楚地意识到大脑即将接收到的输入，同时也让你非常清楚地意识到我们头脑有多么混乱。在与一些专门研究冥想科学的人交谈后，特别是威斯康星大学的几个人，他们进行了大量的大脑成像研究，很明显，冥想的真正好处并不在于让大脑安静，而在于能够吸收并观察它有多么混乱。", "speaker_id": "huberman", "section_id": "s2"}, {"start_sec": 324, "type": "text", "zh": "并把它看作与所谓的观察者略微分离的东西，我们认为有一些回路支撑着观察者，与他们所说的猴子心灵的所有东西相对立。但我一直认为冥想是为了达到真正的平静状态，结果发现它是为了观察混乱。因此，我能用来描述这种练习效用的最好方式是，就像锻炼一样，如果你的腿在举重的最后几次重复中感到烧灼，那就是触发适应的方式。冥想在意识、专注和觉知方面也是如此。我认为这就像有人对我描述的大脑乳酸，不完全是这样。", "speaker_id": "huberman", "section_id": "s2"}, {"start_sec": 362, "type": "text", "zh": "我没有想出那个短语。心灵的乳酸就是能够体验那种混乱，观察它而不做任何处理。这让你能在一天的生活中，我认为，更有意识地分辨什么是有意义的想法或反应，什么不是。好的。所以我会坚持五分钟。但这些天，我发现闹钟响起时，我不会去想‘什么时候结束？什么时候结束？’，然后我就会迎接阳光照在眼睛上。我对这件事非常虔诚。有时我会上屋顶，有时我去散步。你昨天在家吗？我在。是的。好的。是的。我通常会带一些水，喝一些。", "speaker_id": "huberman", "section_id": "s2"}, {"start_sec": 400, "type": "text", "zh": "水，让一些阳光照进我的眼睛。今天我在一家酒店醒来。早上我面向东方，所以很棒。终于能看到日出了。但是今天是多云的，阴天，我一醒来首先就让阳光照进眼睛。如果我在太阳出来很久之前醒来，我会用一盏一万勒克斯的人工灯，并在早上煮咖啡或做我的事情时就在那盏灯前。我如果要锻炼，会立即喝咖啡因。我认为这是我努力澄清的事情，但并不总是明确。如果我要锻炼，我需要咖啡因。所以，我不会等甚至30分钟，我会喝咖啡因。所以，我喝马黛茶，这是我的", "speaker_id": "huberman", "section_id": "s2"}, {"start_sec": 433, "type": "text", "zh": "长久以来，我一直偏爱摄取咖啡因的来源。然后我会做运动。我的锻炼方式非常简单。我可能会分享它，因为我发现它非常有益，不仅对我，对我训练过的女性、男性和各个年龄段的人都是如此。我已经坚持这个方法35年了，我认为这是最节省时间且有效的锻炼计划。而且它真的很直接。每周三天举重，每周两到三天进行某种所谓的有氧运动。关于有氧运动，我先解释一下。就是安全地让你的心率大幅度升高的运动。可以是划船机，也可以是…", "speaker_id": "daisy", "section_id": "s3"}, {"start_sec": 474, "type": "text", "zh": "气动健身车，就是那种你在踩踏板的时候用手臂前后推拉的那种，可能还在运行中。选择一个你可以接近最大努力但不会伤害自己的项目。这真的很重要，尤其是现在我已经50岁了。我感到相当自豪，因为我从来没有过重大伤害，而且我在50岁时感觉很好，很大程度上是因为我没有做过那些事情。很多人都在谈论他们做过的所有事情。而我说的是我没有做过的所有事情。我从来不会仅仅因为受到挑战就去做别人的锻炼。那样你会伤到自己。我选择的都是感觉正确的事情。骑自行车感觉不舒服。", "speaker_id": "huberman", "section_id": "s3"}, {"start_sec": 507, "type": "text", "zh": "对我来说。跑步和骑动感单车都可以。所以先热身一分钟，我的做法是轻松踩踏。然后全力冲刺20秒，休息10秒。重复八次。完成。这就是一次有氧训练。你会达到最大心率，接近最大心率。这是VO2最大类型，很快。好了，所以昨天是星期天。星期天是什么？所以第一天，这一天可以是星期日，也可以是星期一，对某些人来说无所谓。但我一周的第一天会进行腿部阻力训练。大约需要一个小时。这是一周中最艰难的训练。如果我一周只做一次训练的话，剩下的时间……", "speaker_id": "huberman", "section_id": "s3"}, {"start_sec": 543, "type": "text", "zh": "如果谈到我的生活，那就是它。好的。有很多原因，最大的肌肉群，对激素和新陈代谢的系统性影响，等等等等。腿部训练日之后，我通常会完全休息一天。我会在那些天尝试进行桑拿和冷水交替，以帮助恢复。我们可以在那里讨论细节。然后根据恢复情况，可能只休息一天，也可能休息两天。接着我会对上身进行某种推拉训练。所以，包括一些胸部推举，一些肩部推举，如果有人做不了引体向上或下拉训练，会做一些拉或下拉的动作，还有某种划船动作。可能还会做一些颈部训练。如果有人颈部情况不好", "speaker_id": "huberman", "section_id": "s3"}, {"start_sec": 582, "type": "text", "zh": "姿势问题，或者他们会发现，很多时候男性会发现他们的肩膀仍然开始变宽，而他们并没有训练脖子。首先，这看起来有点不协调，但随后他们会开始出现肩袖问题。训练脖子对于整个肩带的稳定性非常有帮助，非常重要。所以，然后我会休息一天，然后我会做一些手臂、小腿、腹部的训练，就是一些较小的身体部位。所以，这些是三个不同的重量训练日。它们都遵循相同的方法。而这也是我认为人们容易犯错误的地方，但数据以及实际情况表明...", "speaker_id": "huberman", "section_id": "s3"}, {"start_sec": 615, "type": "text", "zh": "你在网上听到的内容终于开始赶上来了。如果你愿意，可以在自行车上热身几分钟或做一些开合跳，但我建议做一组轻量训练。所以，10到12次，非常轻，只是让血液为第一个动作流动。然后第二个动作，或者说第二组，顺便说一下，是中等强度的一组。也就是说，一组你可能可以做10次的动作，你只做三次。这只是为了让神经系统为更重的负荷做准备。然后你进行两组工作组，中间休息大约3到4分钟，这样的休息时间算长。但那些工作组都是全力以赴、完美动作并进行到暂时性肌肉力竭的训练。二二", "speaker_id": "huberman", "section_id": "s3"}, {"start_sec": 654, "type": "text", "zh": "只有组数。所以，这可能是股四头肌的腿部伸展，然后你会进行其他动作。一种你可以安全完成的动作，比如深蹲、前蹲、腿举。我是说，有很多变体，先做一些复合动作，然后对腿弯肌做同样的事情。关键是先轻量组、中等重量组，次数比你中等重量组能做的还要少。然后两组高强度训练。记下你做了什么，并且在每次训练中增加重量或增加重复次数。我对刚才描述的每一个动作都这么做，无论是哪个部位。最后每个部位大约两种练习，也可能三种。这样总训练量就是这样。", "speaker_id": "huberman", "section_id": "s3"}, {"start_sec": 689, "type": "text", "zh": "工作的量非常低。即使是腿部训练，你完成这些锻炼后，感觉不完全焕发活力，但你也不会感到筋疲力尽。你的恢复非常快。你的神经系统不会过度疲劳，而且你的进步非常迅速。我建议过一位女性，她曾是一级大学运动员，踢足球多年，前几天她来找我，她说：“我简直不敢相信这效果那么好。这只是我之前训练量的三分之一。”你可以在每一组中投入更多。因此，我可以不断谈下去，但在一周的某个时候，我会找到办法去做那6分钟的练习，结果大约是", "speaker_id": "huberman", "section_id": "s3"}, {"start_sec": 724, "type": "text", "zh": "大约6分钟的，20秒全力，10秒休息，然后找一天去做某种长途徒步。以前是慢跑。现在，我喜欢戴上负重背心或只是背个背包去徒步。让我的心率上升，呼吸加快。如果我真的有雄心壮志，并且每晚都睡得够，我可能在周中再跑20到30分钟。但是这三次重量训练对大多数人来说足以达到他们想要的身体重组、力量的效果，不仅是抵消随年龄增长的肌肉流失和力量下降，还能在姿势和灵活性上感觉更好。当然，你总是可以拉伸，但你", "speaker_id": "huberman", "section_id": "s3"}, {"start_sec": 765, "type": "text", "zh": "你可以在晚上看电视或做其他事情的时候进行。所以这就是这种方法的框架。我已经这样做了35年。我给过的每个人都会对它的简洁感、最重要的是效果，以及当你期待着真正的45到60分钟高强度训练时的乐趣而感到非常震惊。这很有趣，实际上开始成为一种乐趣。好。昨天是腿部锻炼日。腿部锻炼后发生了什么？好，腿部锻炼后我摄入了一些淀粉和水果。好，在你进行力量训练后，如果像我描述的那样高强度训练，你需要补充糖原。有人说：“你没有，你没有把所有的糖原消耗完", "speaker_id": "huberman", "section_id": "s4"}, {"start_sec": 807, "type": "text", "zh": "你的糖原。在训练后摄入一些淀粉是个好主意。你吃了什么淀粉？我进行了非常激烈的训练，所以我吃了我喜欢吃的东西。所以，我吃了香蕉、蓝莓，我吃了几勺乳清蛋白。我吃了一些燕麦，还吃了一些涂了黄油和盐的酸面包吐司，因为在我看来，如果东西上有黄油，就必须加盐。然后几个小时后，也许三小时后，我吃了一顿比较标准的餐饭，那通常是我的正常午餐，包括一些肉类，要么是牛肉，要么是鸡肉。我不是很喜欢鱼，除非是像AI金枪鱼那样的，但那很难买到。", "speaker_id": "daisy", "section_id": "s4"}, {"start_sec": 845, "type": "text", "zh": "天数。还有一些蔬菜。我是纤维的坚定信徒，但我想强调一点，我认为这个问题没有得到足够的讨论，那就是许多人因某些富含纤维的食物而出现胃肠不适。我认为，找到对自己有益、吃了身体感觉良好的食物非常重要。例如，你不会看到我吃西兰花。它让我感觉不太舒服，无论我怎么咀嚼，它都不好消化。这并不是我一个人的情况。有些食物，比如洋葱，会产生组胺，因此有些人在吃了某些食物后just会感觉不适。你", "speaker_id": "huberman", "section_id": "s4"}, {"start_sec": 886, "type": "text", "zh": "你得去尝试，看看什么适合你。而真正唯一的方法就是暂时开始尝试单一种食材的食物，比如只吃一些西兰花。你可以在上面加一些橄榄油或黄油，只是看看什么适合你。如果人们一直在吃三明治、炖菜、比萨、炖豆菜和千层面，你就不知道什么适合你，什么不适合你。所以，培养真正健康的饮食习惯，吃你喜欢的食物，有很多选择，就是要弄清楚你能吃什么，并且吃了之后感觉非常好。好吧。那么，你午餐吃了什么蛋白质？我吃了牛肉。", "speaker_id": "huberman", "section_id": "s4"}, {"start_sec": 922, "type": "text", "zh": "牛肉。好的。我刚吃了一些烤牛排。我那时候吃了切片的黄瓜和西红柿。我还吃了一些米饭。甜点呢？我是橄榄油的忠实粉丝，所以我也吃了一些橄榄油。不，我不太喜欢甜食。如果吃的话，通常是100%的巧克力，这真的很无聊，而且有点书呆子气，但你会慢慢喜欢上它。我有点失去了对甜食的胃口。我对脂肪的胃口还没减。对我来说，犒劳自己就是吃一块非常非常好的帕尔马干酪。你最近吃过的最奢侈的东西是什么？天这听起来会非常健康，但我吃了一块非常棒的肋眼牛排。", "speaker_id": "daisy", "section_id": "s4"}, {"start_sec": 966, "type": "text", "zh": "前几天。我不是那种人，因为我不喜欢甜食，也不喝酒。对我来说，放纵可能就是披萨。披萨我爱。披萨我爱，但我对披萨非常挑剔。所以，在东海岸，在纽约，我会随便从任何走进去的地方买一片。西海岸的话，东湾的Aaronelli's披萨几乎是唯一符合我对东海岸风味披萨标准的东西。所以，是的，我会这样做。如果我要吃冰淇淋，那就是巧克力碎片冰淇淋。我在想我是否有任何其他放纵。我需要非常明确，这并不是因为我所谓的“沉迷于感觉良好”", "speaker_id": "huberman", "section_id": "s4"}, {"start_sec": 1008, "type": "text", "zh": "那些事情让我感觉不好。我只是觉得在锻炼和睡眠等方面正确地做事情确实有复合效果。但我得说，如果我曾经长期吃得非常健康，其实我的力量会下降，心情也不如以前好，整体上进步也少。所以偶尔偶尔，比如吃几片意大利辣香肠披萨，似乎是一件非常好的事情。牛角面包，这是另一件事。任何含黄油的东西，但脂肪和淀粉的组合才是对我有效的。如果你说你不喜欢牛角面包，我是不会相信你的。所以牛角面包太棒了。就是这样，午餐、晚餐、睡觉。", "speaker_id": "huberman", "section_id": "s5"}, {"start_sec": 1049, "type": "text", "zh": "是的。所以如果我睡得很好，我就不会打盹或做任何形式的瑜伽休息术（Yoga Nidra）/非睡眠深度休息（NSDR），但通常我睡眠不足。我觉得人们听到这会很震惊，就像，“你不是那个睡眠专家吗？”事实上，我和许多人一样，也很难早早入睡。好的，所以我在下午会进行10到30分钟的非睡眠深度休息瑜伽休息术（Yoga Nidra）/非睡眠深度休息（NSDR）。我认为这是恢复身心活力的极好方法，而且不会产生睡眠惯性。实际上，你们熟知的马克·安德烈，他喜欢在网上嘲讽我，这在X平台上有点有趣，人们觉得我们是敌人，但我认为这是一种友好的互动，我也欢迎。不过我曾经说过，瑜伽休息术（Yoga Nidra）/非睡眠深度休息（NSDR），哪里", "speaker_id": "daisy", "section_id": "s5"}, {"start_sec": 1091, "type": "text", "zh": "你保持静躺，全身深度放松，同时有意保持大脑清醒。我说过，这不是小睡。它不会引起睡眠惯性。它比小睡更好。它教你如果在半夜醒来，如何重新入睡。当然，马克写道：\"这是小睡。\"【笑声】所以，马克，这不是小睡。但我很欣赏这个笑话。它非常不同。实际上，有一些新的证据表明，在这些非睡眠的深度休息状态下，大脑的某些区域正在经历深度睡眠，甚至可能释放生长激素，这相当有趣。所以我对这些所谓的入睡前状态或某种临睡状态非常感兴趣。", "speaker_id": "huberman", "section_id": "s5"}, {"start_sec": 1130, "type": "text", "zh": "在睡眠和清醒之间。这也是对心灵的一种有趣的探索。通常我从中出来后，会对自己想做的事情有一些清晰的认识。现在，我应该提到，在我训练完腿部之后，我会看论文并工作。我应该吗？甚至在周日？然后在下午晚些时候，我会特意去散步，在太阳下山前，或者如果我没有时间而且正在打电话，我就会走到外面，如果可能的话看日落，或者只是朝着阴天里太阳的方向看。我实际上是从斯坦福大学附近的睡眠实验室学到这个习惯的，当我在大学一个暑假在那里工作时。", "speaker_id": "huberman", "section_id": "s5"}, {"start_sec": 1165, "type": "text", "zh": "在发现眼睛中那些能够记录环境光并向大脑的昼夜节律时钟发送信号的神经元之前，是这样的。这是在90年代中期。这些细胞直到2000年代初才被发现。有趣的是，睡眠实验室的所有工作人员都会从地下室出来，看日落。我当时想，为什么我们要这样做？他们说，哦，这能设置你的昼夜节律，这是众所周知的。理想情况下，你早晨也要做。这就是我开始这一做法的时候。这些都是严肃的科学家，有霍华德·休斯研究员、国家科学院成员。现在我们理解了所有的", "speaker_id": "huberman", "section_id": "s5"}, {"start_sec": 1200, "type": "text", "zh": "机制。但我指出这一点，是因为我认为有些人认为你必须先搞清楚所有的机制科学。有些做法对我们非常有益，而机制数据则是后来才出现的。所以我尽量在下午做这些。有时我会站在外面，手里拿着一杯茶或其他什么饮料。我一般在下午两点左右停止摄入咖啡因。那大概是最晚的时候。否则，我会很难入睡。然后通常回到室内后会进行一些工作。到了晚上，我会吃晚餐。说到晚餐，如果是做力量训练的日子，我通常晚餐会比较饿。", "speaker_id": "huberman", "section_id": "s5"}, {"start_sec": 1236, "type": "text", "zh": "我会吃一些类似午餐的东西，但又不完全一样。如果那天我没有锻炼，这通常会是比较小的一餐，而且通常最后一餐的蛋白质不会太多。我的最后一口食物通常在大约7:30到8:00之间，但我对这个时间不是特别在意，因为我一般在晚上11:00左右睡觉。在睡前的最后一小时，我会调暗灯光，试着让自己逐渐放松。我会把手机收起来，因为我发现深夜很容易陷入短信聊天中。我也喜欢用电脑到比较晚的时候，有时我会", "speaker_id": "huberman", "section_id": "s5"}, {"start_sec": 1275, "type": "text", "zh": "通过看东西来获得一些娱乐，但现在我大多只是阅读。你喜欢蓝光眼镜或类似的东西吗？我喜欢。我有红色镜片的眼镜。我们和Roka一起设计了一些这样的眼镜。我认为这有一个重要的点，也是在Elon和Mark在线上的一次对话中产生的，我记得，不，应该是Lex和Mark，然后Elon加入了。Mark说的，他说他因为Huberman而戒酒，但他不会做任何关于蓝光的事情。这就是他说的。所以他的意思是，晚上人们对蓝光的敏感度有很大差异。我认为很多人以为灯光必须看起来是蓝色的，但", "speaker_id": "daisy", "section_id": "s5"}, {"start_sec": 1313, "type": "text", "zh": "明亮的灯光，白色的灯光，黄色的灯光具有短波长的光。因此，当我们谈论蓝光时，就是在谈论这个。有些人对它非常敏感。它会让他们的皮质醇飙升，扰乱他们的睡眠，即便是100勒克斯这么微弱的光，通过闭着的眼皮也会有影响。其他人对它的敏感度较低。我们不知道这是怎么回事。似乎与一个人的眼睛是浅色还是深色无关。我的眼睛对光非常敏感。所以在夜间，如果我受到大量明亮的顶灯照射，我会难以入睡，或者虽然入睡了，但会在半夜醒来。如果我调暗灯光或者戴上助眠眼镜，我会感觉", "speaker_id": "huberman", "section_id": "s5"}, {"start_sec": 1348, "type": "text", "zh": "好多了。所以我认为这方面有点分歧。我们并不真正知道潜在的原因是什么。但无论如何，上一次我配隐形眼镜时，他们向我推销了蓝光阻隔隐形眼镜。我丈夫说这让我的眼睛看起来很奇怪，但我当时想，我不会回去的。所以他们给眼科医生用了蓝光。是的，你白天的皮肤和眼睛需要一些短波长光线来生成维生素D。例如，紫外线并非一概对人体有害。我应该提一下，当太阳低悬时，紫外线指数非常低。这也是你可以观察到的原因之一。", "speaker_id": "daisy", "section_id": "s5"}, {"start_sec": 1381, "type": "text", "zh": "日出或日落时看太阳而不伤眼睛，是因为存在一种大气瑞利散射现象，其中短波长的光，比如紫外线，会被滤掉。当太阳在头顶时，非常明亮，看着很刺眼。这是因为有更多短波长的光到达你的眼睛。所以，如果人们担心紫外线暴露，早晨和傍晚或下午晚些时候的光照紫外线暴露非常低，或者你可以直接查看紫外线指数，可以在谷歌搜索一下。你昨天有没有吃任何补充剂或药物？很多，【笑声】", "speaker_id": "huberman", "section_id": "s5"}, {"start_sec": 1417, "type": "text", "zh": "但赶快把它们拿掉。好的，没错。所以，这不是一个推广。我想非常明确。这是我所做的，以及自2012年以来我实际上一直在做的大部分事情。人们。所以，我确实每天服用两次AG1。我通常在早上，也就是在一天的第一餐前，以及晚上服用。有人说，“好吧，那是因为他们是播客的赞助商。”我使用它只是像我描述的那样，作为营养的补充基础，如果我没有摄入足够的水果和蔬菜，我可以弥补任何不足。我喜欢它。所以我已经这样做了很长时间，远在我知道播客是什么之前。我服用鱼油。我是一个坚定的信徒。", "speaker_id": "huberman", "section_id": "s6"}, {"start_sec": 1460, "type": "text", "zh": "在高剂量的EPA，欧米伽-3中。有关欧米伽-6与欧米伽-3比例的争论很多。如今，我发现获得每天超过一克EPA（而不仅仅是超过一克鱼油）的最有效方法是服用Lovaza，这是一种处方欧米伽-3。它还去除了所有重金属，所以你不必担心这个问题。而且它有仿制药版本，所以现在相当便宜。因此，我认为人们可能想要服用Lovaza，也可能不，但我服用Lovaza。我服用一些维生素D，我服用三到五千单位的维生素D3。还有我的", "speaker_id": "huberman", "section_id": "s6"}, {"start_sec": 1501, "type": "text", "zh": "早晨补充剂的摄入包括我实际上，我实际上相信一些草本补充剂。现在，仅根据我的血液检查，我服用400毫克一种叫做Tonga Ali的东西，它是一种印尼药材，有几种不同的版本，但我服用Tonga Ali，它被认为有助于使一种叫做性激素结合球蛋白的东西从睾酮中解开，所以它可以稍微释放一些睾酮。男性和女性都可以服用这个。我与销售它的公司没有任何经济关系。所以，我服用太阳能阵列版本，它也是最便宜的。所以我就是这样。我服用一种叫做P5P的东西。", "speaker_id": "huberman", "section_id": "s6"}, {"start_sec": 1544, "type": "text", "zh": "它是一种维生素B6衍生物。我服用50毫克。我服用它是为了略微降低催乳素。我并没有高催乳素，但我早上会服用。你希望能够增强皮质醇和所谓的儿茶酚胺，也就是多巴胺或肾上腺素的作用。它在这方面可以稍微有所帮助。再看看，还有什么？哦，我每天服用600毫克乙酰半胱氨酸。它是谷胱甘肽的前体。关于乙酰半胱氨酸，有一项非常不错的研究显示，每天三次服用600到900毫克乙酰半胱氨酸可以降低你……的可能性。", "speaker_id": "huberman", "section_id": "s6"}, {"start_sec": 1587, "type": "text", "zh": "感冒。他们通过让人们接触其他感冒的人来进行这项研究。我只会在感觉自己快要生病的时候才吃。很好。它可能会让你的鼻子有点流鼻涕。它是一种化痰药。实际上，它在其他情况下和剂量下用于囊性纤维化，即肺部液体积聚。所以，它是一个相当强大的工具。我每天只吃一次，如果我感到疲惫或者在旅行中，或者周围有人生病，我会一天吃三次。它也可能有助于缩短感冒或流感的病程。但我从一位在大流行期间工作的急诊医生那里学到了这个技巧。", "speaker_id": "huberman", "section_id": "s6"}, {"start_sec": 1621, "type": "text", "zh": "需要保持健康。但那篇论文中的数据——如果你愿意，我可以提供链接——相当有趣。在这种情况下流感的传播情况，我认为中期大约有70%的接受安慰剂的人在接触到明确的流感病毒后感染了流感，而在服用乙酰半胱氨酸的那组人数减少到了高二十几百分比。我们需要对这些数据进行复查。相当令人印象深刻。我认为安全，增加谷胱甘肽，安全，那为什么不呢？与销售它的任何公司没有经济关系，但它们几乎都是等同的。然后吃午餐时，我会服用复合维生素。我服用", "speaker_id": "huberman", "section_id": "s6"}, {"start_sec": 1664, "type": "text", "zh": "两种消化酶。我确实认为那会有帮助。如果有人在吃了食物后感到发痒，或认为自己有食物过敏，在你去做一些昂贵的食物过敏分析或治疗之前，我推荐有一种酶，可以在你吃任何含组胺的食物之前服用，这完全改变了我与食物的关系，因为我几乎可以吃任何东西。实际上，这是斯坦福的一位同事建议给我的工具，这并不一定意味着有临床研究支持，但道理很合理。如果你体内没有产生足够的酶来处理含组胺的食物，你可以想象可能会感到一些不适。", "speaker_id": "huberman", "section_id": "s6"}, {"start_sec": 1704, "type": "text", "zh": "症状。我是一个非常过敏的人。我觉得我需要知道这是很好的意思。我以前吃某些食物后会感到困倦。我当时在想，这是什么情况？通常是乳制品让我的身体这种反应，我还以为是色氨酸引起的。事实证明那是胡说，乳制品或火鸡中的色氨酸量相对于其他食物来说并不够。我看到它就像在眉毛周围发痒一样，而那些容易患自身免疫病的人，比如像我一样，如果有人有轻微的银屑病之类的情况，他们通常会发现这些食物有点问题。", "speaker_id": "huberman", "section_id": "s6"}, {"start_sec": 1734, "type": "text", "zh": "对他们来说是刺激性的。所以我也这么做，我在这里描述的可能每天这种酶的成本不到一分钱。所以这是一个微不足道的成本。我们来看看。然后在那餐中，我会服用LVaza复合维生素。我确实会服用脱水肝。人们必须小心增加铁的摄入量，因为它含有丰富的血红素铁。但我不想吃肝脏，我对吃肝脏毫无兴趣，它对我没有吸引力。但我服用它是为了其中的一些营养成分。然后在晚上，同样，这不是广告，但我会服用助眠补充剂。", "speaker_id": "huberman", "section_id": "s6"}, {"start_sec": 1775, "type": "text", "zh": "对我来说，迄今为止最好的事情就是服用AGZ，这是一种我帮助他们配制的混合饮品。它含有三钠镁，含有酸樱桃，所有提取物和各种成分的组合。我服用它后，睡眠非常好。它实际上让我不再需要携带各种不同的药丸。我也尝试过肽类，并且我一直对自己在荷尔蒙和肽类方面的其他实验持开放态度。也许我们可以把那个话题分开讨论，因为我刚才描述的东西，我想非常明确地说，基本上是我在……岁之间所做的事情。", "speaker_id": "huberman", "section_id": "s6"}, {"start_sec": 1817, "type": "text", "zh": "20岁左右，上下浮动，当时AG还不存在，还有一些类似的事情，但在45岁左右，我开始尝试一些其他的东西，但就是这样。我会说，如果你想讨论一些工具，特别是在硅谷这里，人们用来提高专注力的一些工具，以及一些兴奋剂和非兴奋剂方式来提高专注力。我在这方面花了很多时间研究，也花了一些时间去尝试。你会向别人推荐什么，但自己却做得不太好，或者你明知道不好却会做什么？我觉得社交媒体可能是最大的问题。我最近搬到了X。", "speaker_id": "huberman", "section_id": "s6"}, {"start_sec": 1860, "type": "text", "zh": "把 Instagram 放到一个单独的手机上，这样如果有人发东西给我，我就打不开，然后我把那部手机放在一个锁盒里，所以我会说好吧，我一个小时会上去看看，然后它又回到锁盒里。这是超级监狱级别的锁盒，所以你不能真的破解出来。这对我来说有点尴尬，因为我可以控制自己的行为，但我发现时间还是会过去。你是人，你和我们一样。算法已经变得非常好，非常好，而且非常有娱乐性，而且情况有点不同，因为我在上面，所以我是以一种相当积极的方式在与它互动。", "speaker_id": "huberman", "section_id": "s6"}, {"start_sec": 1897, "type": "text", "zh": "这也是一种奇怪的经历，比方说上网看到有人在说你的事情，然后你试图去解释，试图搞清楚他们是否是善意的，这真的可能浪费很多时间。完全同意。所以，我认为这可能是最大的问题，而且它带有一点羞耻感，我们都应该能够控制自己的行为。那么，为什么我需要给手机设置一个锁盒呢？另一方面，我觉得当手机在锁盒里时，数据也支持这一点，如果手机不在房间里或者完全无法使用，", "speaker_id": "huberman", "section_id": "s6"}, {"start_sec": 1933, "type": "text", "zh": "有一些认知资源会变得对你可用，而如果它即使在你的包里或者关掉放在椅子下，就不会有可用。这是一项已经做过的研究。人们可以同样专注，但他们需要使用额外的认知资源才能达到那个专注水平。在这项研究中，这一点以相当聪明的方式被观察到。所以，我尽量把手机放在另一个房间，我发现把它锁起来是一种完全不同层次的不可接触性，我认为这对我有帮助。这对我完全有道理。好，你以提炼健康研究为生，这导致了很多建议和方案。如果你不得不说，如果你必须推荐", "speaker_id": "huberman", "section_id": "s6"}, {"start_sec": 1969, "type": "text", "zh": "排名给人们的三件事，不超过三件，以便过上更健康的生活，那这三件事会是什么？很好。早晨明亮的光线，最好是阳光照射。所以应该在醒来的前30到60分钟内进行。如果你不能从阳光中获得光照，就使用一个10000勒克斯的人造光源，然后在有机会时再晒一些太阳。这是第一件事。接下来是做我之前提到的重量训练方案。这会彻底改变你的生活。如果女性担心变得过于肌肉发达，其实不会那样。但从身体重组、情绪、脑健康的角度来看，你不会找到", "speaker_id": "daisy", "section_id": "s7"}, {"start_sec": 2006, "type": "text", "zh": "更强的刺激。然后最后一点是想办法让你获得的睡眠成为最高质量的睡眠。我有时会因为这个受到适当的责备，比如，嘿，我有孩子。我有一份忙碌的工作。邻居总是在制造噪音。我该怎么办？找到一个大多数晚上可以尝试的固定睡觉时间，这样你就能获得最多的深度睡眠。不要错过这个时间窗口。在这里，我把第四点也合并进来了，但实际上要学会入睡和再次入睡。我不会说要获得完美的睡眠，因为那样你得围绕它安排你整个生活。我会建议进行长呼气呼吸来放慢你的节奏", "speaker_id": "huberman", "section_id": "s7"}, {"start_sec": 2050, "type": "text", "zh": "心率。学习如何闭上眼睛。这听起来很古怪，但它基于我们对基础神经回路的理解。当你难以入睡、思绪万千时，来回移动眼睛、上下移动眼睛，等等，这会大大帮助你入睡。这并不神秘，其原因是，为了入睡，你需要忘记自己的身体姿势，而这会干扰前庭系统。事实上，如果可以的话，我最兴奋的技术之一——我希望A6Z会实现它，但我目前还没有相关的公司——就是通过控制眼睛来诱导睡眠的睡眠面罩。", "speaker_id": "huberman", "section_id": "s7"}, {"start_sec": 2087, "type": "text", "zh": "以某些方式运动。很有趣。那会有多酷？并且测量快速眼动睡眠和慢波睡眠。我认为这是我们所有人迫切需要的下一波技术。但正如我所说，有三件事：早晨的明亮光线。是的。抗阻训练。如果你愿意仍然可以做有氧运动，但抗阻训练才是健康改善的真正利器。并在你当前的环境中每晚找到获取最高质量睡眠的方法，无论是5小时、6小时，理想情况下是8小时，但要找出在酒店房间、飞机等环境中你可以做的事情。弄清楚这些事情。", "speaker_id": "huberman", "section_id": "s7"}, {"start_sec": 2128, "type": "text", "zh": "然后你会开始体验到一种灵活性，这种灵活性来自于不害怕自己没有得到完美的睡眠。就像我睡六小时也没问题，因为我知道如果只睡六小时，我如何调节白天的精力。我当然很想睡八小时，但我已经记不清上一次连续八小时没有起夜一次或两次是什么时候了。这种情况根本不会发生。我们有很多创业者在听我们的播客。如果你必须把适合创业者或任何人的认知表现的基于证据的习惯压缩到三条，那会是什么呢？第一个是，知道你高认知能力的时间窗口是什么时候。", "speaker_id": "huberman", "section_id": "s7"}, {"start_sec": 2169, "type": "text", "zh": "这对每个人来说都不同。对我来说，我能感觉到上午11点快到了。我天哪，我希望这发生的时候是早上7点。而且我起得相当早。我应该说我通常在早上6点到7点之间起床。有时候如果我在晚上9点睡觉，我会在早上5点醒来，好吗？如果我在10点或11点睡觉，我通常会在早上7点醒来。所以，就是这样，而且我像大多数正常人一样会在半夜醒来，我会去洗手间，然后再回到床上，我一生中有90%的夜晚都是这样。好吧？所以，我知道早上我往往会有很强的睡眠惯性。我需要做这些事情。我会做运动，", "speaker_id": "daisy", "section_id": "s7"}, {"start_sec": 2204, "type": "text", "zh": "等等。但我之所以这么做，部分原因是我知道如果我在上午9:00之前锻炼，我整天会有更多的精力和专注力。如果我在上午11:00锻炼，这大约是我上午精力的高峰，那么到了下午3:00，我就会感到精疲力尽。这只是我个人的情况，其他人可能不同。因此，有些人会发现他们工作效率的高峰期在一天中的某个特定时间。对我来说，有两个时间段。真正关键的是上午9:30到12:30之间的时间段。这个时间窗口非常重要。所以我必须非常小心，不能在这个时间窗口锻炼，因为像大多数创业者一样，我锻炼是不会得到报酬的。这非常重要。如果你要做那件事情", "speaker_id": "huberman", "section_id": "s7"}, {"start_sec": 2246, "type": "text", "zh": "健康方面，他们必须支持你生活中的其他领域，以某种方式反过来促进你公司的成功，然后你实际上有资源也许某天可以改变你的日程安排。但否则的话，如果人们只是试图把所有这些方案都塞进去，他们只会耗尽自己。对我来说，是早上9:30到12:30，这是一个关键的时间段。然后我注意到注意力和认知会稍有下降。然后对我来说，在下午晚些时候，大约在下午4:30、5:00左右，我会开始有另一个时间段，这个时间段会持续到大约晚上7点左右，也就是晚餐前。我必须抓住这个时间段。我已经了解到，我的大脑在某些事情上表现得更好。", "speaker_id": "huberman", "section_id": "s7"}, {"start_sec": 2285, "type": "text", "zh": "在那两个时间段里。同样，这非常因人而异。对一些人来说，可能是半夜。所以，我认为了解自己很重要，这可能会随着人生阶段或生活情况的变化而改变，但了解自己并真正抓住这两个时间段，并把这些时间当作一天中最重要的时间来保护。所以，也许只有你的家人和同事在紧急情况下才能在那个时间或那些时间联系你。对于大多数人来说，这大约是一天两次。你可能会说，“这时间不够。那就是3小时的专注工作，然后也许下午再3小时，或者两三个小时。我不认识很多人是", "speaker_id": "huberman", "section_id": "s7"}, {"start_sec": 2321, "type": "text", "zh": "每天完全专注工作八九个小时而第二天不会完全崩溃。我同意。尤其是如果你使用药理学，我们可以谈谈药理学。正如我所说，我在一天中一直啜饮咖啡直到下午。如果我早上锻炼，我下午通常不需要那么多咖啡。我只是补充水分和电解质。很多人会发现，仅仅更好地补水就会提高他们的警觉性。所以这是第一点。弄清楚什么时候锻炼能给你带来更多的能量，并保护那些我称之为“工作时间”的时段。我真的把真正的工作当作一场战斗。我的朋友瑞克·鲁宾", "speaker_id": "huberman", "section_id": "s7"}, {"start_sec": 2359, "type": "text", "zh": "喜欢醒来，我不会说慢慢醒来，但会以一种平静或者说冷静的状态进入一天，然后他的工作时间通常是在下午。我知道这一点，因为我和 Rick 相处了很长时间。那时他的头脑最清晰，然后到了晚上他就会逐渐疲惫。但是在那些时间里他工作非常努力，而且他知道这些时间什么时候到。我有点不同。我的工作时间分两段，但真的像是一阵斗争。你应该把它们当作一场战斗来看。而真正的危险在于，如果你正处在其中一个时间窗口，却让你的注意力被", "speaker_id": "huberman", "section_id": "s7"}, {"start_sec": 2394, "type": "text", "zh": "如果你在做一些对公司建设毫无价值的事情，你是在失去时间，你不仅仅是失去了那三四个小时，因为这三四个小时带来的生产力，其指数级大于你在之后完成这些工作的生产力，或者为赶工而付出的生产力。同时，这也会妨碍你拥有健康的个人生活。所以，我们必须像保护最重要的东西一样保护这些时间，家庭紧急情况除外。好的，这是第一点。我认为另一点是，在我长大的硅谷，人们常说，没有一个成功的创始人是", "speaker_id": "huberman", "section_id": "s7"}, {"start_sec": 2433, "type": "text", "zh": "不是冥想者什么的，或者他们都冥想，我在想，这真的可能是真的吗？他们真的都是冥想者吗？我认为，这真正意味着的是，你需要在生活的整个刺激-反应模式中做得相当好。你有任务，你在处理任务，你很有条理。但我确实认为，每天一次，即使只是几分钟，也是非常有价值的，只是从刺激-反应中跳出来，向内看，并检查自己是否在正确分配精力。有些人更容易被对话、戏剧和他们所看到的东西吸引，有时", "speaker_id": "daisy", "section_id": "s8"}, {"start_sec": 2475, "type": "text", "zh": "人们会在网上看到各种东西。这些东西在他们的神经系统中有一个长尾效应。有相关的数据表明，你两小时后的想法在某种程度上是由你前几小时所看到的东西决定的。但有些人的思维更像方波，他们更善于分隔不同的信息。而像我这样的人，如果我之前有一段让我感兴趣的对话，它会在脑中停留，并影响我接下来的行为。所以，我认为这些你仅仅是稍作停顿并将自己从所有输入中分离出来的时刻，可以让你更有效地进行转变。因此，我们实际上没有正式的任务切换协议，但这非常", "speaker_id": "huberman", "section_id": "s8"}, {"start_sec": 2513, "type": "text", "zh": "对公司创始人和全体员工来说，这很重要，必须能够进行认知任务切换。因此，我们需要更多关于如何做到这一点的数据。但这肯定涉及回到某种没有任何输入的状态。我认为这非常重要。事实上，Rick 和我一直在研究一些不是冥想的工具。我们一直在尝试构建一些不是冥想的工具，它们不是瑜伽尼德拉，但可以让你为接下来的事情编程你的大脑。比如，如果你想想，现在是 2026 年，为什么我们还要坐下来工作，然后只是说，‘好吧，’", "speaker_id": "huberman", "section_id": "s8"}, {"start_sec": 2557, "type": "text", "zh": "现在我要集中注意力，现在我要有创造力。现在我要像……我们应该有一些方法来控制神经活动，这样我们就能够更快速、更深入地访问这些神经回路。我被推荐一种头带，它通过向大脑发送波动来减少类似注意力缺陷多动症（ADHD）的症状并帮助集中注意力。是的，我认为这在某种程度上会通过控制大脑活动实现。所以它将会是某种一般性的大脑状态振荡之类的东西。我喜欢它的个性化概念，我喜欢你在脑中通过耳机听到自己的声音的想法，它会告诉你……", "speaker_id": "huberman", "section_id": "s8"}, {"start_sec": 2595, "type": "text", "zh": "知道你的弱点和强项，并且是你自己的人工智能教练，它会告诉你如何在某些事情上设定盲点，组织你的注意力，或者可能帮助你从一天的疲惫中放松，完全放松。我对这些技术非常兴奋，但主要是在睡眠和醒来的领域，因为现在我们还没有理想的工具。也许这家公司有，但如果你考虑一个睡眠面罩，它可以通过控制你的眼动来让你入睡，这是很容易做到的，只需在耳后做一点电刺激。是的，我会告诉你，那就是迷走神经。", "speaker_id": "huberman", "section_id": "s8"}, {"start_sec": 2631, "type": "text", "zh": "或者什么的？你在耳朵周围有迷走神经的分支。还有一些其他前庭神经，因为它们支配内耳，所以它们走得够浅，你可以这样做，还有外眼肌。所以我实际上有机会尝试过其中一个睡眠面罩，对我来说，大约6分钟我就睡着了。这也可以让你醒来，这真的很有趣。我是说，也许它可以提供适当的照明，类似的东西。是的，所以我认为睡眠的进入和退出的转换，将会是神经技术真正征服的第一个领域。", "speaker_id": "huberman", "section_id": "s8"}, {"start_sec": 2668, "type": "text", "zh": "挑战在于我们确切地知道你需要什么。你需要睡着。好。你需要清醒。你需要保持警觉。当涉及到“好了，现在我们要坐下来做这类任务”的时候，我们仍然不清楚你真正想要的脑活动模式是什么。比如为了集中注意力，你希望保持警觉，但又不能过于警觉，那是一个倒U型的函数，超过那个峰值你会非常容易分心，太困了，你也会非常容易分心。就是那个最佳状态。所以，我认为这是神经技术一个非常令人兴奋的领域。而且，我再说一遍，这首先会在睡眠方面实现。此外，人工智能也能够进行校准并说，哦，我们我们", "speaker_id": "huberman", "section_id": "s8"}, {"start_sec": 2706, "type": "text", "zh": "需要让眼睛的偏转更宽，以便在你处于这种特定状态时引发效果。是的，我对此感到非常兴奋。所以你问过创始人的工具。我想，是吗？我认为，把你的一天按对你最重要的事情来安排是很重要的，所以不论个人生活差异如何，你每天需要两次完成你最好的工作。你需要像对待运动员那样对待自己。我在管理实验室时就想到过这一点，也是在我做博士后时，当我在会议上早点上床睡觉时，我第二天在会议上会更加敏锐。当时，会议对我来说非常重要。同样在做事情方面也是如此。", "speaker_id": "huberman", "section_id": "s8"}, {"start_sec": 2746, "type": "text", "zh": "实验，我可以做的实验数量是别人两倍，不仅仅是因为有一天工作特别努力，而是我额外获得了一小时的工作时间。当然，我也是那种有时会把实验带到研讨会去展示的人。我觉得，这太疯狂了。我需要做一些免疫组织化学实验。为什么不带到研讨会去呢？我听说有人也这样做过。我想，我就把我的培养盘带过去然后转移一下。所以，如果每个人都开始这样做，那可能会有问题。但重点是，如果你真的非常认真对待自己和你的工作，你需要以这种方式组织你的一天。我确实认为，每周有一天完全脱离工作会非常重要。", "speaker_id": "huberman", "section_id": "s8"}, {"start_sec": 2781, "type": "text", "zh": "从这些事情中受益匪浅，对你重新投入的能力非常有帮助。我爸爸是个科学家，曾长期在施乐帕克工作，现在他在做其他事情。但很久以前，他就说，你必须成为一名长跑运动员。这是一次耐力赛。我同意。所以，我得到的最好建议，也是最后一点，是伯克利加州大学和旧金山加州大学的一位神经学家Bob Knight，多年前，他非常有才华。我向他请教建议，当时我刚开始读研究生，他说：“弄清楚你每天能够持续完成的最大真实工作量，然后再想办法”", "speaker_id": "huberman", "section_id": "s8"}, {"start_sec": 2822, "type": "text", "zh": "每周都用非破坏性的方式重置自己。“我想，”好吧。“好吧。那时我可以工作非常非常长时间。我说，”怎么重置？“他说他喜欢钓鱼。我对钓鱼没问题，但我不喜欢，我知道自己喜欢什么。我喜欢徒步。我喜欢亲近大自然，和人共度时光。所以，我发现我可以每天工作一定小时，一周工作5天。有时一周中间会有点低谷。我坚持了25年。如果你们这些服用大量兴奋剂却总是一波波打采的人，他们就是那些最终崩溃消失的人。所以，你得弄清楚", "speaker_id": "huberman", "section_id": "s8"}, {"start_sec": 2860, "type": "text", "zh": "并且提升你的能力。我认为我们对此讨论得还不够多，因为人们在这方面确实有很大差异。但没错，你必须非常努力地工作，你必须非常专注，但你也必须弄清楚自己能坚持多久。", "speaker_id": "huberman", "section_id": "s8"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
