@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>AI 如何把 Figma 财务团队变成建设者</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-2{--c:#4c8c5a;--cbg:#29392a;--cbgl:#eaf1eb}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="seema">西玛·安布尔（Seema Amble）</option><option value="ivan">伊万·马卡罗夫（Ivan Makarov）</option><option value="praveer">普拉维尔·梅尔瓦尼（Praveer Melwani）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">a16z</span><span class="pill">2026-11-05</span></div>
+<h1>AI 如何把 Figma 财务团队变成建设者</h1>
+<p class="sub">嘉宾：Praveer Melwani、Seema Amble、Ivan Makarov · 约 50 分钟（3012 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=9iAQdKxyiQc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=9iAQdKxyiQc</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>a16z</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-05</dd></div><div class="meta-row"><dt>时长</dt><dd>约 50 分钟（3012 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 官方字幕（普通 yt-dlp 遇 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 补拉成功）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段（说话人姓名已按官方简介校正：Seema Amble / Ivan Makarov / Praveer Melwani）</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>9iAQdKxyiQc</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>a16z 的西玛·安布尔（Seema Amble）与伊万·马卡罗夫（Ivan Makarov）对话 Figma CFO 普拉维尔·梅尔瓦尼（Praveer Melwani）：财务团队如何用 AI 自己当「建设者」，把对账与催收等重复劳动自动化，把时间留给客户洞察、实验与战略。</p>
+<h3>核心要点</h3><ul><li>招人看重智力好奇心与案例作业：AI 可吐模型，但不能外包思考与敏感性分析。</li><li>实战自动化：催收对账系统、corp dev 复现产品尽调、按领导人格预审投资备忘录。</li><li>警惕 AI「垃圾内容」；差旅费用等多源数据约 95% 难点在结构化，模型给「够好」方向即可加速。</li><li>个人 Agent 需 CIO/系统层产品化；Figma 处在集中与自建并存的「混乱中间态」。</li><li>Excel 仍是建立直觉的母语；若业务复杂度不变，一年后或许不需要同等人数。</li><li>起步永远是数据完整性；《You Need a New CFO》强调自动化优先的业务领导人画像。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：少空谈、多 Figma 内部可复用细节（工具栈、组织、招聘与 buy/build）。</p>
+<h3>适合人群</h3><p>CFO/财务负责人、运营与系统负责人、关注企业 AI 落地的创始人与投资人。</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场：AI 把财务从「对账」推向「建设」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">a16z 的西玛·安布尔（Seema Amble）与伊万·马卡罗夫（Ivan Makarov）引出文章《You Need a New CFO》：AI 正把财务从核对上月数字，推向设计自动化与搭建系统。嘉宾是 Figma CFO 普拉维尔·梅尔瓦尼（Praveer Melwani）。开场声画强调：顶尖财务组织靠智力好奇心、用 AI 赋能但不外包思考；也有人抱怨 AI 每天制造海量文档——95% 难点仍在整理数据。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">从 SQL「超人」到业务合伙人：自动化如何改写财务角色</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">普拉维尔认为财务本应是运营领导者。他加入早期 Figma 时几乎没有自动化，靠几百行 SQL 把产品用量与 Stripe 财务数据接成「黄金表」，再推进 ETL、Salesforce/Marketo。统一指标定义后，组织不必再争论「真相是什么」。疫情初期用量暴增曾让人怀疑数据坏了、花数周排查；如今小时级仪表盘就能发现异常。节奏从月/季→周→日，他每天逐行看早期付费注册来塑造组织版产品。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">招人标准：智力好奇心、案例作业与「不外包思考」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">AI 前后招人核心未变：极端智力好奇心、数据素养、会提问并结构化表达。他正在招财务副总裁（VP of Finance），案例环节极看重：给有限公开信息，看候选人如何用工具拼出逻辑自洽、能做敏感性分析、能讲清业务机制的模型——任何人都能让大模型吐出一张表，关键是模型是否帮你思考、你是否仍是思考主体。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">Figma 财务已自动化的工作流：回款、尽调与「领导人格」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">公司年会「Fignation」展示 AI 用法，财务常是亮点。收款/催收同事 Kajal 重建从发票追踪、回款到与 NetSuite 对账的内部系统，并重做信用审查、组合数据集。公司发展（corp dev）把「能否快速复现产品」纳入尽调：不必全靠产品团队也能自信给出判断。文档文化下他们还为普拉维尔、Dylan、CRO Sean 等领导建「人格」，用 AI 预演投委会质询，缩短共同审阅周期。工具栈含 Codex、ChatGPT 工作流技能，以及 Figma Make（自然语言做应用并可托管）。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">AI「垃圾内容」、标注政策与差旅费用案例</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">业界从「无限 token」谈到「垃圾（slop）」：有 CFO 称 AI 让每天可写无数文档，却找不到重点，也动摇「世界级工作长什么样」的记忆。Figma 内部要求标注 AI 写作，并坚持：你发出让人读的东西占用他人时间，标准不能降低。反例是 2027 规划中的差旅娱乐（T&amp;E）复盘：财务把 Navan、Zip、Ramp 等多源模糊匹配拼起来，约 95% 难度在数据结构化；模型给「够用」的方向性洞察后，他上午反馈、开会时可视化已就绪——对的工具+「够好 vs 必须完美」的判断才是魔法。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">从个人 Agent 到共享系统：CIO 与「混乱的中间态」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">AI 让跨源模糊匹配与自助分析变快；成长型公司一个月可造出四五十个 Agent，约九成闲置，但重要的是养成「手工=缺工具」的反射。内审、GRC（ISO/SOC2）、应收等多处重复催票与对账，应收敛成平台。领域专家做原型，发布依赖与跨团队复用则需要顶尖 CIO 组织——Figma 新任 CIO Casper Sorensen（自 Coinbase）强调在 CIO 内建类 PM 能力、打地基让业务加建。公司增速曾快于支撑工具，现处「messy middle」：有的团队已集中、有的仍各自狂奔；「财务工程师」画像也尚未定型。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">指标定义所有权、全员竞赛与「又开始享受工作」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">财务对董事会与管理层交付的数字必须前后一致、历史不被悄悄改写；AI 虽让读 Stripe 逻辑更容易，成熟公司更强调披露层级的一致性。自动化没有单一冠军——预测模型、BizOps 竞品对标与定价调研等都在你追我赶。先理解数据集如何咬合，才能像架构师一样决定何处交给模型终裁、何处只是假设。内部演示、黑客松与外部 CFO 交流形成节奏；许多人说工作再次有趣，因为从连周对账解放出来，能盯业务与新洞察。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">自建 vs 外购、招聘福利与战略时间被释放</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">核心会计等「错不起」的系统倾向外购；趣味与杠杆在工作流自动化。技术与探索自由被当作留人与面试卖点——对非技术背景者像「进入新世界的门票」，应像谈奖金福利一样谈模型与工具权限。西玛回顾 2020 年与 Angela 的 CFO 工具金字塔：底部对账吃掉几乎全部时间。普拉维尔把 go-to-market/自助业务团队从比上周指标，推向实验、趋势与加投哪里；有人甚至用 Figma 插件加速资产迭代。投资标的也从「追踪流程」转向「交付结果+内置审计轨迹」。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">未来 12–18 个月：人效、审计就绪与 Excel 仍是「母语」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">加人条件应收紧为：业务复杂度增速超过支撑效率时才扩编；若复杂度不变，一年后或许不需要同等人数。希望更多端到端自动化，从确定性流程起步，但对「审计就绪」的关键系统仍极难，需与审计师对话。Excel 不是威胁——他称之为 love language：像 Figma 里用色轮亲手调色胜过对 Agent 写提示，表格仍是建立信任与空间化思考的方式；可用模型吃下二十页签模型、标出驱动因素与敏感区，再人工深挖。大学课程甚至一学期改数次大纲，最终仍回基础分析与 Excel。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">新 CFO 画像、从何处开始自动化与收束</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">《You Need a New CFO》核心是心态：自动化优先、按场景自建或外购。普拉维尔建议招「与 CEO 同样想赢、能操盘 P&amp;L 的业务领导人」，而非交通警察式监管者；会计与规划是底盘，独特价值在理解业务、推动变革、把商业模式讲简单。伊万给组合公司的起步建议永远是数据完整性——没有扎实数据就谈不上准时关账与董事会材料；叙事能力也前移到 A/B 轮。约九个月前市场从「用 AI 写入职文档」转向「整理数据并自动化核心工作流」；财务开始在内部 Maker Week/黑客松里拿奖。致谢收束。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">西玛·安布尔（Seema Amble）<em>主持</em></span><span class="spk-1">伊万·马卡罗夫（Ivan Makarov）<em>主持</em></span><span class="spk-2">普拉维尔·梅尔瓦尼（Praveer Melwani）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场：AI 把财务从「对账」推向「建设」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>我认为我们能够吸引并建立世界上最优秀的金融组织，因为人们非常渴望学习，渴望获得投入感，并渴望成为那些希望在自己所做的事情上做到最好的人之一。我想听听到底是什么使一个人成为你们团队的优秀候选人，一个出色的专家。我需要极具智力好奇心的人。你会进来尝试解决问题，尽力理解业务。你希望将人工智能作为一个帮助和赋能的工具，但关键是要保持独立思考。我们现在生活在一个许多劣质工作被曝光的时代。我听一位首席财务官说，人工智能的使用已经导致了……</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="seema"><div class="label"><span class="badge" title="西玛·安布尔（Seema Amble）">Seema</span></div><div class="content">
+<p>每天都会创建无数的文档。你创建的每一件事，并提供给别人使用，都需要他们投入时间、精力和能量。这里95%的挑战仅仅是组织你的数据。数据。我们预计在未来12到18个月会有哪些变化？如果我们业务的复杂性保持不变，我认为一年后我们可能不需要那么多的人。欢迎收听安德森·霍洛维茨（a16z）播客。我是西玛·安布尔（Seema Amble）。和我一起的是我的同事伊万·马卡罗夫（Ivan Makarov）。我们最近写了一篇文章，叫做《你需要一个新的首席财务官》。我们的观点是，人工智能正在将财务提升到一个新的水平，而首席财务官的工作越来越涉及构建自动化和</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>从 SQL「超人」到业务合伙人：自动化如何改写财务角色</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="seema"><div class="label"><span class="badge" title="西玛·安布尔（Seema Amble）">Seema</span></div><div class="content">
+<p>设计系统和团队来实现这一目标。今天我们有 Figma（Figma） 的首席财务官 普拉维尔·梅尔瓦尼（Praveer Melwani） 与我们一起，我们想讨论您在职业生涯中所见到的情况，以及您和您的团队目前正在进行的工作。普拉维尔·梅尔瓦尼（Praveer Melwani），感谢您加入我们。是的，谢谢您的邀请，非常高兴。也许从这里开始，伊万·马卡罗夫（Ivan Makarov） 和 普拉维尔·梅尔瓦尼（Praveer Melwani），我们想听听在你们的职业生涯中，自动化如何改变了财务的角色以及团队的工作。我一直认为财务人员的角色应该是运营领导者。当我加入 Figma 时，当时根本没有任何自动化元素。我觉得为了在到任时能够有效发挥作用,</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>我不得不花大量时间处理 SQL，构建数据表，深入理解如何组织财务信息，以推动我希望在公司内部开展的对话。我不断回想，我不断回想在这个职位上的早期日子，以及我作为绩效提升者所做的事情，作为允许我在整个组织中扩大影响的因素。说实话，我认为当时我所构建的东西现在由于人们拥有的工具，已经变得更加易于接近和真实。所以我希望越来越多的人会觉得他们可以大胆地在工作和与同事的互动中使用这种运营方法。</p>
+<p>业务方面。因为我相信这是将这个角色从某种管理流程的“财务警察”转变为业务伙伴和组织中真正的变革推动者的魔力。为了详细说明你在人工智能时代之前用于自动化的工具，也许你可以向大家解释你到底做了什么？是 Excel 中的宏吗？还是使用 OCR 处理文档？是的，说实话，应有尽有。我几乎都在使用 SQL，分析我们所有的产品指标和使用数据，并将其与我们在 Stripe 中的财务信息关联。我为获取“黄金”表格创建了 400-500 行 SQL 查询，然后我会...</p>
+<p>传递给某人或我们使用的各种市场系统。所以感觉我整天都在那个查询编辑器里。然后我会联系，而且当然，要等到请求完成，绝对如此。我也希望自己第一次就做对了。最终，我雇佣了数据科学家，我去找他们说：“嘿，我在这里建立了一个东西。你们能把它加入我们的ETL流程以设置一个定期任务吗？然后我可以使用那些信息并将其输入到Salesforce、Marketo或者我们当时使用的任何系统中。”对我来说，这真是一个启示：“我的天如果我能够在如何方面实现统一的定义</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="ivan"><div class="label"><span class="badge" title="伊万·马卡罗夫（Ivan Makarov）">Ivan</span></div><div class="content">
+<p>我们谈论事情，我们再也不会争论什么是真相，什么是事实。我们可以把这些放在一边，专注于我们实际上将如何发展业务。我在跟一位二十出头的人交谈，他在抱怨处理一个查询需要多长时间。我向他解释：“你还没有感受到等待几个小时的 SQL 查询执行完毕的痛苦，然后看到：‘该死，没成功，整个过程都没成功。’”所以我们的情况，数字的数量级完全不同。绝对是的。时间真的很有趣，不是吗？尤其是我们所经历的那个时代。当我在 Webflow 和 Figma 时，我们看到了</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>例如，在 COVID 期间使用量出现了巨大的激增，这一开始我简直不敢相信。我不知道你是否也经历过这种情况，我以为我们的数据被损坏了或者其他什么地方出了问题，但我们花了几个星期才弄明白。是的。我觉得现在，在我们的时代，我们生活在一个你可以在一小时内了解一切的时代。这既适用于使用量的激增，也适用于收入的激增。我们生活在一个完全不同的世界里。你有同感吗？同感吗？是的。我们的业务在疫情初期上升了。我想那大约也是我们开始与 Andreessen 那边的人合作的时候，在早期阶段。</p>
+<p>但是是的，我每天都会醒来。我能够去更新我的联系人，了解发生了什么。在一天中的任何时候，团队喜欢我——我不知道他们是否真的喜欢，但他们知道我一直在，查看每小时的仪表板或每日指标，以确保我也能发现看起来像异常的事情或者提出正确的问题。我想他们看我的方式与他们看待自己在组织中的角色类似——作为一个有想法的同事，想要来找他们，共同建立最好的业务，使用并获取我们每个人都可以使用的数据。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="ivan"><div class="label"><span class="badge" title="伊万·马卡罗夫（Ivan Makarov）">Ivan</span></div><div class="content">
+<p>是很有意思，当你和我还在大学时，数据的节奏更多是按月或按季度的，然后变成了每周一次。我记得，尤其是随着数据搬到云端，它变成了一个大大的每周仪表板，现在甚至可以做到每天一次。这改变了你的习惯吗？甚至是你看待数据的方式，思考它的方式，以及你提到它的频率？说实话，我认为数据和对数据的访问是全天高效工作的关键。在我在Figma的时间里，我每天都会醒来……是的，我记得在我加入的早期阶段，大约有30个人注册了付费计划，我会逐行查看数据。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>他们是谁？这些是个人地址吗？这些是商业地址吗？这些是我们可以联系的人吗？我能从中学到什么？以帮助我们塑造最终创建的产品——即我们为组织开发的产品。我认为在早期阶段，这非常重要。现在我只是明白了，无论朝哪个方向发展，其后果都是显而易见的。如果你在问题变得严重之前发现它，它实际上可以为企业节省数百或数千美元。但如果你在另一个方向上看到成功，你可以将更多资源投入那里，并真正努力取得更大的成果。所以，说实话，我把它看作是日常的一部分,</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>招人标准：智力好奇心、案例作业与「不外包思考」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="seema"><div class="label"><span class="badge" title="西玛·安布尔（Seema Amble）">Seema</span></div><div class="content">
+<p>如果不是更频繁的话，就是节奏。我认为我的目标是：如何激励我团队内和整个业务中的其他人也对这些指标感到同样的责任，真正像业务所有者一样行事，努力解决问题，而不是说，‘嘿，我可以等到下周。’你真的应该尽快解决这个问题，因为我认为这里的节奏变化非常快。在我们讨论你自动化的内容之前，我们希望先听一听在人工智能时代之前，是什么让一个人成为你团队中的优秀员工、成为领导职位上的优秀人士。我认为，老实说，很多事情依然保持不变，但方法可能已经</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>变得有一点不同。我需要那些极度好奇的人。你进来，试着理解业务，并尽可能最好地理解它，然后寻找解决问题的方法以获得正确的结果。我认为今天这一点并没有发生根本性的变化。我仍然非常欣赏这一点。我相信许多乏味和例行的任务可以减少你花费的时间，这样你就可以花更多的精力去寻找那些在业务中可以显著加速的神奇时刻。所以，智力上的好奇心、数据素养、提出正确问题的能力</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="seema"><div class="label"><span class="badge" title="西玛·安布尔（Seema Amble）">Seema</span></div><div class="content">
+<p>提出问题，然后整理你的思路，以便你能够理解所提供的数据并有条理地呈现它。你会如何进行这样职位的面试？这个过程是如何发展的，有没有什么方法？方法？这是一个有趣的问题。我目前正在寻找一位财务副总裁，案例分析阶段对我来说极其重要。我想了解你如何准确地使用可用的工具。所以是的，我对人们有期待……在这个案例中，我并没有给他们很多信息。我们是一家上市公司，因此我可以利用大量公开数据。但关键在于你如何将这些难题拼接起来，以便</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>这个模型运作逻辑合理，因此你不仅可以创建一个结果，更能真正理解它的工作原理。因此，我在案例讨论中重点关注你是否真正深入理解了你所创建的结构。你是否设置了检查模型中哪些部分对任何变化最敏感？你是否清楚地理解了使用你创建的工具，业务实际是如何运作的？而且，正如我们刚才讨论的，你能否有效地将这一点传达给他人？因为是的，我认为任何人都可以去创建一个模型，选择他们喜欢的方式</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="seema"><div class="label"><span class="badge" title="西玛·安布尔（Seema Amble）">Seema</span></div><div class="content">
+<p>语言模型。这可以非常非常容易地完成。但你是在把它当作真正帮助你思考的有效工具吗？我相信今天你不应该把思考委托出去。我认为你应该把 人工智能（AI） 作为帮助和赋能你的工具，但保持思考者的身份至关重要。是的，你描述的很多情况都适用于任何优秀的员工，无论是否使用 AI。我认为 AI 只是需要更多的责任感和勤勉，以理解工作背后确实存在真正的思考。让我们更深入地了解一下你自动化的内容，我们可以讨论。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>Figma 财务已自动化的工作流：回款、尽调与「领导人格」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>我们在投资组合公司中看到的情况。也许可以告诉我们一些你在 Figma 中自动化的工作流程，以及你是如何选择重点的，以及具体做了哪些自动化操作？是的，有很多，所以也许我会挑几个我觉得有趣的来看。我认为在过去的一年里我们发展得非常快：从试图教人们采用新工具和工作方式，到现在我不断遇到许多很酷的想法。我们公司的年度股东大会有一个环节，我们称之为 Fignation，在那里我们</p>
+<p>展示其他人如何使用人工智能，而我们的团队在这方面始终表现突出。因此，这同样适用于例如Kajal以及我们的贷款和债务催收团队。他重新设计并重建了整个工作流程：从跟踪发票和收款，到确保所有内容与NetSuite完全对账；他将其变成了自己内部的系统，与我们使用的各种工具相连接。这让他能够说：“好吧，我可以继续缩短应收账款周期，同时专注于真正重要的事情，以及其他我可以通过自动化设置完成的繁琐任务。”于是他决定，“我可以重新设计这个方式</p>
+<p>我们进行信用检查。&quot;我可以以有趣的方式组合数据集，这样我就不必手动操作，现在他可以对任何人说，‘嘿，使用我构建的工具真正影响局势并带来改变。’&quot; 观看我们的企业发展团队检查产品代码是否可以快速复现真的很有趣——这是我们新的尽职调查检查之一，真的很令人兴奋。你的防御护城河有多深？那里的技术有多有趣？我认为每个人都应该能够……你尝试复制产品以了解它是否真实。是的，我认为我们的团队已经变得</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="seema"><div class="label"><span class="badge" title="西玛·安布尔（Seema Amble）">Seema</span></div><div class="content">
+<p>在这方面非常擅长，所以我们可以弄清楚：它真的有效吗？还是无效？这有多难，或者相反？当然，这些想法有细微差别，但它给你提供了一个相当清晰的情况理解。你以前有过为了做这部分审查而联系产品团队吗？是的，我们仍然与产品团队合作，但现在我们可以更自信地说，“嘿，这是我做的。” “这是我看到的。” 这显著提高了信任度。我们的……我现在可以做出贡献。这些人是企业发展团队的人，不是食品专家。他们有金融教育背景，是的。是的，当然。而且他们，我们有一个</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>非常以文档为导向的文化，所以他们会撰写投资备忘录，他们会撰写，兼并与收购备忘录，或者其他什么。在他们之中，最终的读者，那些参与其中的人，会专注于我们的领导团队或其他产品负责人。并且，经常会出现某些主题，相似的问题，以及我们作为领导者在看待问题时通常的方式。有趣的是，他们为我们每个领导者创建了独特的角色模型，一套技能，他们可以在投资备忘录中运行，以真正改善流程。你可以把它理解为一个投资委员会，存在于他们之间的互动中。</p>
+<p>一切。是的，没错。所以这就是他们最终要展示的，或者更确切地说，他们会坐在那里讨论并说：“好，这是普拉维尔·梅尔瓦尼（Praveer Melwani）会怎么说，这是Dylan会怎么说，而这是我们的CRO Sean会怎么说。” “因此，你会得到文档中的某些部分，你想要添加内容、进行更深入的检查，或者一套总体的反馈，我需要确保提出问题。” 这缩短了我们一起花费的周期时间。所以，有很多方面我们觉得这是一个有助于补充工作的工具。它是一个帮助你替代工作流程的工具。同时，它也是一个帮助你努力去理解的工具。</p>
+<p>学习。而且，我，我总是对我们能够如此迅速地发展想法感到惊讶。而且，对我来说，这实际上让我处于一个非常乐观的状态，我会说，我认为我们可以吸引并建立世界上最好的金融机构，因为人们最渴望的是学习的机会，并感到被投入其中，同时周围都是那些想要在自己领域做到最好的人的团队。而我能做的越多来影响和促进这些变化，我认为，我们就能越好地保留、发展并培养这些人才。你是直接使用大语言模型创建所有这些工具的吗？你是否也在考虑使用现成的人工智能工具来协作？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="seema"><div class="label"><span class="badge" title="西玛·安布尔（Seema Amble）">Seema</span></div><div class="content">
+<p>？那你会选择什么：自己创建还是购买？购买？是的，我描述的那些，是组合的。例如，一些员工曾在Codex工作，我认为这就是企业发展团队的工作。他们坐在Codex里，尝试，解决某些任务。我们还看到有人在使用一些工作流自动化的元素，并利用ChatGPT开发技能。这就是，贷款和催收系统的一些元素被创建的方式。我们还开始注意到，人们也开始在我们的工具包中使用它。我们有一个叫Figma Make的工具，它允许人们使用自然方式创建应用程序或网站</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>AI「垃圾内容」、标注政策与差旅费用案例</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>语言查询。之后你可以将它托管在托管服务上。你会得到，它的后端。因此，这些情况中的一些也开始出现了。我实际上对此感到兴奋，因为这样我们就可以进入一个我们也可以提供产品评论的世界。我知道每个人都会喜欢。我认为我们现在生活在一个批评大量低质量内容的时代。关于我们是如何从无限代币变成人们称之为“垃圾”的东西，有很多讨论。在会议上，我听到一位首席财务官说，人工智能的使用导致每天创建无数文件，而你找不到任何东西，因为现在任何人都可以写一个</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="ivan"><div class="label"><span class="badge" title="伊万·马卡罗夫（Ivan Makarov）">Ivan</span></div><div class="content">
+<p>文件，或者十份文件，在几分钟内就能完成，而以前可能需要一到两周。这是一个自然引发关于招聘讨论的领域。我们应该招聘更擅长这些工具的年轻人吗？我们应该招聘更有经验的人，也许是两者兼顾，还是应该招聘更高素质的专业人士，他们知道世界级的标准是什么？这正是让我有点担心的——我们会忘记世界级的标准是什么。就像在AI出现之前，一个真正好的模型是什么样的，尤其是有一些经验和模型制作背景的人。你觉得这会导致什么？你有没有把用AI创造的一些东西称为“垃圾”?</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>有时候。是的。是的。我，我认为我们在内部制定关于标注 AI 写作内容的政策方面也做得不错。我认为，我之前分享过的一个非常重要的事情是，你不应该外包你的思考。任何你发布并要求别人去阅读的内容，都会占用他们的时间、精力和精力。所以我认为你必须确保在检查、阅读、总结和简化方面设定相同的标准。你可以从别的地方开始。这对我来说完全合适。但我真的认为我们每个人都应该确保非常谨慎地对待彼此的时间。是的，</p>
+<p>我曾经遇到过这样的情况，事情看起来有点生硬，你开始慢慢弄清楚，心里想着，“你真的明白这里发生了什么吗？” 但我也遇到过这样的情况，我想，“天哪，你这里的迭代速度简直不可思议，这都是因为你把一切都安排好了。” 例如，几周前我参加了第27年的规划会议。我在一个差旅和娱乐（T&amp;E）费用审查会上。我们查看了我们的支出组合，并说，“好吧，我们在哪些地方有机会进行政策调整，或者我们是否在某些地方没有遵循应该遵循的政策？”我们的财务团队做得非常好</p>
+<p>很好地将来自不同数据源的信息整合在一起。我们使用Navan，我们使用Zip，我们使用Ramp，要使这些信息有效，需要进行大量模糊匹配。例如，对于一个在国外旅行的人，如果他们住在旧金山只是来访，我们究竟应该如何标记和处理这些数据？95%的难点在于正确组织你的数据，而这些模型在为你做这些假设方面非常擅长。我并不需要完全完美的东西，我只是希望有些东西朝着正确的方向，类似于我想要的方向，能够提供足够的信息。</p>
+<p>这些信息帮助我理解了我真正需要处理的工作内容。这非常有趣。他们都给出了一套我们可以采取的建议修改。我记得那个早晨我就给了反馈。在思考了大约30分钟我真正希望的效果之后，当我们聚在会议上时，一切已经为我可视化了。我感到很惊讶：“哇，这真是一个非常棒的用例。”在我看来，他们的方式绝对不可能手动实现。所以，尽管疏忽是可能发生的，我相信，通过使用适合用途的正确工具，并理解什么是足够好、什么需要完美，真正的魔力是可以被释放的。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>从个人 Agent 到共享系统：CIO 与「混乱的中间态」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 host" data-spk="ivan"><div class="label"><span class="badge" title="伊万·马卡罗夫（Ivan Makarov）">Ivan</span></div><div class="content">
+<p>对此有几点评论。这里的关键因素是数据，现在有了人工智能，就可以处理所有这些数据源，并快速执行模糊搜索，从而在这些数据源之间获得正确或准确的匹配。以前，你必须运行 SQL 查询，等待，然后本质上成为你自己的 BI 分析师。第二点是自动化工作技能的发展。即使有一些疏忽，例如，我与我们的一位首席财务官交谈时，</p>
+<p>一家处于成长阶段的公司，他们表示在一个月或两个月内，他们的团队创建了40到50个代理，虽然并不是所有的代理都在使用，但这让每个人都习惯了这样一个想法：如果我在做某些手动或枯燥的事情，那说明我没有一个好的工具。让我总结一下：其中很多，我会说大约90%的这些工具和代理已经不再使用，但它让人们思考，“好吧，不用手动做这个……让我考虑一下围绕这个的自动化，”我认为这几乎和创建代理本身同样重要。是的，我100%同意你的观点。我也在思考如何推广它，如何让其他人理解别人正在创建的东西。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>然后你会发现自己处于这样的情况，我们的内部审计团队花费大量时间不断联系人员，以确保他们在票据中添加我们SOC审计所需的信息。然后你会想，“这个内部审计小组并不是唯一在做这件事的；我们的GRC团队也在做同样的事情，处理我们所有的ISO和SOC 2审计。”当应收账款部门在向你收取费用时，会有很多这样的繁文缛节，而你又想建立一个用于分类、收集和核对信息的流程——为什么不创建一个可以做到这一点的单一平台呢？这正是我...的观点。</p>
+<p>我认为系统团队在其中介入、协调正在发生的事情并真正将其转化为产品时变得非常有趣，这样所有人就不会各自独立地构建类似的东西。我相信这是CIO职能应有或可能发展的一个演变。它涉及将许多由人们创建的自下而上的举措重建或调整，使它们能够在创作者或原始开发者之外存在。因此，我认为我们共同完成这项工作，我们在公司的全体会议上部分进行，但我们在团队内部也做了很多。我还与我们其中一家成长阶段的公司进行了交流，那里的客户成功负责人说他每个代表都有</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="ivan"><div class="label"><span class="badge" title="伊万·马卡罗夫（Ivan Makarov）">Ivan</span></div><div class="content">
+<p>他们自己编写的仪表板，而且他们有不同的指标。所以，我认为必须有某种协调功能，这也是一个向你请教的好借口：人们是如何组织负责创建这些仪表板的团队的，谁来主动承担？看起来是不是你们团队有人先构建一个代理，然后再交给中央工程团队？我们已经讨论了很多关于金融工程师的概念，我们可以更详细地探讨，但我们想听听你的看法。是的，我认为我们一直都有提出想法并改进它们的专门人员，他们知道什么是</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>他们知道高质量的结果是什么，也清楚自己想要什么。他们理解自己正在尝试建立的流程。他们在创建这些初始原型方面做得非常出色。但我是否希望这个人成为检查所有源依赖关系的人，并确保产品发布时正确部署？此外，组织中还有其他人有同样的需求吗？可能没有。在我看来，这正是一支一流CIO团队能够施展真正魔力的地方。是的，我非常兴奋。昨天，我们迎来了新CIO Casper Sorensen，他从Coinbase转来加入我们，而且……我们讨论的很多内容都是关于</p>
+<p>面试内容是关于如何在首席信息官组织内创建集中式的项目管理型职能，这些职能能够与其他业务团队合作，找到有效的解决方案，并建立他人可以在其基础上发展的基础，这与系统组织以前的运作方式差别不大。但你实施变革的速度，以及如何赋能他人在此基础上进行建设，现在正在发生变化。你认为这在公司内目前是集中化的，还是你认为会随着时间改变？是的。就像Figma的所有事情一样，我认为我们的增长速度超出了我们构建支持工具的能力。我有责任始终提供...</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="ivan"><div class="label"><span class="badge" title="伊万·马卡罗夫（Ivan Makarov）">Ivan</span></div><div class="content">
+<p>组织有成长的空间，我不想通过建立过多的基础设施来拖慢人们的速度，所以我们现在有点在追赶。我认为在一些团队中，我们能够更好地集中管理，而在其他团队中——他们发展得更快，现在我们处于一个阶段，我们会问自己：“好吧，我们如何提供帮助？”所以，我认为我们现在处于这种“杂乱的中心”。我认为这与我们从公司听到的很多情况产生共鸣——无论是市场入门工程师、人才工程师，还是金融工程师的概念——这是一个跨不同团队的去中心化开发者群体。他们可能有不同的</p>
+<p>档案。有时这是一位具有金融背景的工程师，他对哪些工作流程需要自动化有很好的理解。有时，这是你借来的人，比如来自其他团队的产品工程师，来帮助开发。但我认为，对于这样一个人的档案应该是什么样子，目前每个人都处于这种“混乱中心”。在很多方面，这让我想起数据分析团队以及他们如何与组织的其他部分合作。作为数据分析合作伙伴，你会理解，你越深入了解你所合作团队的背景，就越能作为专家发挥作用。所以我们有数据分析师，他们</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>与我们的产品团队合作。他们的发展直觉与我们的经理和工程师一样，甚至可能更强，并且被视为核心团队的一部分，通过使用其他工具产生创意并实施变更。同样地，我们在数据分析方面也有人支持我们的财务组织。事实上，这非常有趣，因为在那里工作的人，其中一些人拥有会计学位。他们明白所有这些必须非常可靠、无错误且始终准确。他们理解我们所说的细微差别，比如控制机制、什么是退款、什么是坏账——所有这些。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>指标定义所有权、全员竞赛与「又开始享受工作」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 host" data-spk="ivan"><div class="label"><span class="badge" title="伊万·马卡罗夫（Ivan Makarov）">Ivan</span></div><div class="content">
+<p>术语。而且它实际上有助于他们更好地建立流程。我也认为这同样适用于你所说的金融工程师。你们对必要的事项有共同的理解。你可以随着时间的推移在这个背景上进行拓展，但至少要打好基础，这样你也可以影响其他人的思维方式。谁负责定义？我之所以提出这个问题，是因为我们经常在早期阶段看到这种情况，当一个20人的团队中只有创始人，但没有金融人员或业务经理。然后他们最终会聘请这样的专家。但他们已经在创建用于的关键指标的定义</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>报告，对于投资者来说，实际上也是为了商业决策。然后他们会雇佣一位财务专家。你多久会审查一次定义？以前我们似乎每隔几年才做一次，但现在，由于人工智能，访问Stripe的代码或逻辑变得容易多了。这是否改变了你们回顾它们的频率？是的，我的团队对这一部分的结果负责。相比一些年轻公司，我们在开发过程可能稍晚一些。我们对如何讨论这些内容有更多的掌控权。对我来说，一直非常重要的一点是，我们的业务信息要保持一致。这是其中一件事。</p>
+<p>我觉得这一直让我在向董事会、管理层和其他同事展示自己时充满自信：他们知道我现在提供的信息和一个月前提供的信息是一样的，历史数据不会改变，而且我没有试图隐瞒任何事情。我只是想确保，随着我们的发展以及有机会改进，我们在报告期间不断讨论不同层次的信息披露。我们希望保持一致，也希望我们做出的决定是可以让我们回顾时感到愉快并在未来产生持久影响的。因此，我认为当人们发现不同方法时，这是非常棒的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="seema"><div class="label"><span class="badge" title="西玛·安布尔（Seema Amble）">Seema</span></div><div class="content">
+<p>如果这能让他们更好地构建业务，那么思考业务的方式是有价值的。但我也相信一致性是有价值的……你们团队中谁自动化程度最高？是什么角色？我可以点名某个人，但我想很快别人可能会想到其他人。但说实话，是每个人：从负责我们某些预测模型部分的人，到我们BizOps团队中自动化日常任务的专家，也就是他们实际工作的方式，包括进行竞争性基准测试和定价研究</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>所以我真的相信，正是这种彼此之间的竞争，使创建一个每个人都努力超越他人的组织成为可能。所以对我来说单独指出一个人会很尴尬，因为我真正相信这是一个团队在一起努力实现目标的过程。你认为这通常是有特定领域更多专业知识或经验的人，还是在整个团队中普遍存在的？这在多大程度上取决于你自己和你自动化的角色？是的，我认为在初期阶段向他人展示，如果我尝试以不同的方式做事，这应该向你发出信号，表明我期望同样的</p>
+<p>来自你。但我认为最重要的是清楚地了解你正在处理的数据集。那些能够更快推进的人，了解这些事物是如何相互关联的……当你理解了一切是如何布局和设计时，你就能更像一个架构师地思考：“好，我如何逻辑地连接这些元素？”“我怎么知道模型何时在做最终决策，何时只是在做假设，以及哪些任务是可以接受的，哪些是不可以的。”我认为其他人也能从中学习。但我真的认为这</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="ivan"><div class="label"><span class="badge" title="伊万·马卡罗夫（Ivan Makarov）">Ivan</span></div><div class="content">
+<p>我们创造的节奏——展示和故事的节奏、内部黑客马拉松、引入其他专家的能力——我经常与其他财务领导交流，并尝试将一些信息传递到内部，以便它们被传播开来，我也看到我的领导们在这样做，这真的很酷。我认为每个人现在都在努力互相学习，这真的很棒。太好了。是的，我认为我与首席财务官、财务负责人或甚至普通员工的对话中一个共同的主题是，他们开始重新享受工作了。因为过去情况是，你需要检查某些事情两三周，然后完成两三周的报告关闭。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>自建 vs 外购、招聘福利与战略时间被释放</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>几周，否则你会一直这样做。现在似乎人们真的在关注业务，并且能够发现新的见解等等。对于人工智能和垂直解决方案的可能性，大家充满了期待。我想回到其中一件事，就是“购买”情景。前几天我和我们一家快速增长的公司聊，他们说，我们只能购买现成的所有东西。我们的发展太快了。你有没有时常觉得，自行构建比直接购买市场上的现成解决方案要耗时更长？我认为，对于核心会计系统以及那些我们不能出错的事情，是的，我们会寻找并购买现成的</p>
+<p>现成的解决方案。我认为我们团队玩得很开心的地方正是你所说的。那就是自动化工作流。那么有哪些方面，如果你想想我的一天，我几乎不费力气，并且我如何补充我的工作日以按我想要的方式重新规划时间。我也完全同意你提出的观点，即工作总是会有趣的，但因为你可以更快地探索新事物，所以变得更有趣。我团队里有人会走过来对我说，“天我真的很开心。” 我真的认为我们制定的政策和给予的自由</p>
+<p>我们给人们探索的原因是一些人会说，‘我想留在这里。’我真的非常喜欢我所做的事情。我认为，我不确定人们是否真的像他们应该或可以那样，利用技术访问作为员工参与的工具。自从我开始从团队那里听到这些之后，我至少在面试中开始这样做了。特别是当你试图吸引那些不一定精通技术的人时。他们会说，‘哦，我的天这是我的入口，是通向全新世界的门票，如果我有机会学习——这真的很酷。’是的。所以，我实际上会倾向于那样，我知道其他人可能会……</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="ivan"><div class="label"><span class="badge" title="伊万·马卡罗夫（Ivan Makarov）">Ivan</span></div><div class="content">
+<p>现在就去偷，但对我来说，那真是其中一件非常有趣的事情。我同意。事实上，我也有这个想法，我认为我们应该开始像谈论奖金和福利一样谈论这个。如果你来这里工作，你会得到X、Y和Z，这些是你以前的雇主没有提供的，现在你还可以使用所有这些模型或其他工具。是的。是的，我认为这不仅仅是关于这些，还在于人们理解周围的人在建造什么。而你学到的很多东西将通过渗透从别人建造的东西中获得。如果你感觉自己加入的组织不仅仅是在说他们</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="seema"><div class="label"><span class="badge" title="西玛·安布尔（Seema Amble）">Seema</span></div><div class="content">
+<p>不仅提供访问这些东西的机会，而且实际上去构建它们，你可以在面试过程中看到和感受到这些。我会倾向去那些地方。所以，在2020年，我和我的合作伙伴Angela写了一篇关于CFO需要现代化工具的文章。我们有一个金字塔图表，基本上显示财务团队将所有时间都花在数据对账层面。而在顶部，花费最少时间的则是战略财务，或者说战略性问题。我想知道，你是否觉得你和你团队的时间不仅被释放出来去做他们更喜欢的事情，同时也能够更加具有战略性或者产生更多影响？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>决策，这改变了你的角色吗？我很幸运，在公司职业发展过程中，这已经越来越成为我角色的一部分。当我思考是什么激励他人时，我也意识到，为组织中的其他人创造空间同样对我有益。所以，是的，我们确实需要在日常或每周的工作节奏中完成一些事情。但与此同时，如果我能够管理我们的财务组织，该组织分为多个领域，其中一个是市场拓展。如果我能让专注于我们自助服务业务的团队不用再比较上周或上个月的指标，而是将他们的注意力转向</p>
+<p>在询问，“我们在进行哪些实验？”“我们看到哪些趋势？”“我们应该投资额外的资金在哪些方面？”对他们来说，这更具吸引力。我认为他们现在实际上可以更频繁地这样做。小事情很重要。我如何自动创建一组我知道外观和感受相同的资产，以便我可以将时间专注于注释、研究和分析？而我们看到这一过程发生得更快，而且质量也在提高。我们甚至有一个案例，其中这个团队的一个领导在谈论他如何在 Figma 中构建了一组插件，以便非常快速地进行修改。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="ivan"><div class="label"><span class="badge" title="伊万·马卡罗夫（Ivan Makarov）">Ivan</span></div><div class="content">
+<p>所以我希望我的团队会确认他们在这些任务上花费的时间越来越多。但你总是需要在你的业务中追求复杂性，并根据你可以分配给其他任务的时间来管理这种复杂性。我完全同意。我们在投资的CFO工具中看到的其中一件事是，产品正从跟踪工作流程转向交付结果，审计成为产品本身的一部分。追踪。当然，财务需要确保一切都是正确的。你需要能够精确追踪产品是如何达到某个具体对账的，但这一切都…</p>
+<p>自动为您完成。这是在拥有审计记录和结果之间的平衡，但我们确实看到我们的团队花更多的时间在进行实验和做那些以前需要数月研究的事情上。你以前必须请数据科学家，你必须通过电子邮件找到一堆人，你必须让每个人聚在一个房间里，而现在你可以快速迭代，因为后台有代理在运行。这甚至延伸到会计方面的事情，比如差异分析，你作为会计师会花时间查看不同期间的账户。如果你能使用一个工具——我知道有一些工具——</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>一堆工具，可以让你初步了解发生了什么变化。它给了他们一系列可以执行的操作。它提供了一个初步的数据集，可能立刻就是正确的，而我真的希望越来越频繁地把这种情况变为现实。然后他们就可以把时间专注在其他事情上，所以我完全预期，在你创建相同的初始期望集，相同的可以依附的初始想法的这段时间里，所有这些都可以通过工具呈现出来。这大概就是我在谈论差旅和费用部分时想表达的意思，它给了我们的团队一些可以利用的线索。然后我们所要做的就是去弄明白它。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="ivan"><div class="label"><span class="badge" title="伊万·马卡罗夫（Ivan Makarov）">Ivan</span></div><div class="content">
+<p>搞清楚。对。你有了数据，现在有时间去处理这些二级问题，看看到底发生了什么。对。我只是在想我们成长的过程中，“动物”这个词被看作非常消极的东西。它与许多不愉快的记忆以及几周几个月努力赶上的经历联系在一起，而现在它只是常规的事情，甚至可能是积极的，因为借助现代工具和人工智能，你可以更容易或更快地解决它。也许不能准确找到错误所在，但可以更快地到达它们。当然，你仍然需要与人交流，因为FP&amp;A总会存在。对。对。与人合作。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>是的，这可能是我低估的事情之一，或者我没有意识到沟通和建立关系以及影响他人的能力对这个角色有多么重要。哦，是的。我想我刚开始的时候，觉得自己可以成为房间里最聪明的人，然后自己搞定一切。但后来我意识到，这是一个团队游戏，你能产生的影响是有限的；你真的必须让其他人与你保持一致。如果你能有效做到这一点，我认为你可以成为一个非常有效的领导者。我认为，这些就是你之前问到的真正的技能，比如，什么是...</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>未来 12–18 个月：人效、审计就绪与 Excel 仍是「母语」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 host" data-spk="ivan"><div class="label"><span class="badge" title="伊万·马卡罗夫（Ivan Makarov）">Ivan</span></div><div class="content">
+<p>我在选择时会寻找什么？如果我可以测试并感受到你有建立强大支持的能力，有与他人建立信任的能力，那是非常有价值的。这很好地过渡到我下一个想谈的话题，那就是我们如何看待团队在未来12到18个月的变化，角色和职能整体情况。我不知道你是否对可能的变化有任何想法。也许我们可以先从你团队总体的组织方式开始。是的，我希望处于一种情况，我们只在业务的复杂性增长速度超过支持其需要时才增加人员。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>我真的认为我们现在已经到了一个阶段，可以开始减少很多正常业务节奏的元素，而不是通过招聘新员工来跟上进度。我认为我们会继续在这方面挣扎，因为我们会增加新产品，我们在收购团队和企业，我们继续扩大我们的业务。所以我认为在这个世界上总会有越来越多的事情。更复杂的情况还在前方，比我们目前能够真正实现的全面效率要复杂。但我们确实在变得更加高效，一段又一段时期。你认为效率会停滞吗？你觉得会吗？</p>
+<p>你有工具去完成必要的工作，还是你认为更多的这些流程将会从头到尾完全自动化？我希望更多的流程能够完全自动化。我想我可能会从那些真正确定性的部分开始，并思考如何提供足够的信息让输出看起来完全可靠。我认为，对于一个业务关键系统，要达到审计准备级别是非常困难的。我也认为，这将会是一次有趣的与审计员的对话，讨论是什么导致了不适感。但我并没有排除这种可能。我真的</p>
+<p>我认为随着时间的推移我们会达到目标。我觉得，就像我说的，如果我们的业务复杂性保持不变，我想我们一年可能不需要这么多人。但是，我觉得你只有在更擅长找到可以创造更多工作一致性的地方和节奏时，才能做到这一点。Excel会受到威胁吗？不会，它是我的表达爱意的方式，伙计。我，我觉得，就像我刚才描述的，我，知道吗，我仍然认为案例非常重要，因为你把它当作工具来使用，你用它来培养直觉。到目前为止人们创造的大部分都是一个模型。你可以把那个模型放到某个地方，或者它也可以是其他东西，但我</p>
+<p>你会希望那个工具能够让你精炼自己的理解，并自己操作处理事物。这有点像我们在 Figma 中看到的魔法，我们可以给人们能力，让他们通过提示和自然语言先进行第一次尝试、第一次草稿，但有时候自己动手进行更改会容易得多。拿颜色轮为例。你有一个设计好的屏幕，然后你想，&quot;嘿，我想更改背景。&quot;你可以坐下来给代理写提示，比如，&quot;把背景颜色从红色改为绿色。&quot;或者我可以拿起颜色轮，看所有的色调，真正感受其中发生的事情。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="ivan"><div class="label"><span class="badge" title="伊万·马卡罗夫（Ivan Makarov）">Ivan</span></div><div class="content">
+<p>我对 Excel 的看法类似。这是我建立信任的一种方式。这是我建立理解的一种方式。也许将来会有更好的东西出现，但对我来说放弃它将非常非常困难。我也是在 Excel 中成长的，我仍然用它来整理我的思路。当我试图进行分析时，即使只是因为数据的空间排列，我也会使用它。我认为这些模型还不够好，无法创建预测或复杂模型，但那个框架仍然有价值。我不知道你是否有同样的感受。绝对如此。我也认为我现在正在尝试实验的一件事是，我如何能够使用这些模型之一来</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>更好地理解团队的绩效？如果你给我一个有20个标签页的模型，我会很难在它们之间切换并手动查看所有内容。但如果我可以将这些背景信息提供给模型，使其能够帮助我理解关键驱动因素或最敏感的领域，这就给了我分析和协调的更好起点，我发现这非常有用且有效。我们生活的世界也充满了挑战。我前几天在和一位大学教授交谈时问他，他们在大学里如何教授人工智能？答案是根本没有。他们谈到的一个挑战是他们</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="ivan"><div class="label"><span class="badge" title="伊万·马卡罗夫（Ivan Makarov）">Ivan</span></div><div class="content">
+<p>上过一门课程，他们一个学期改变几次课程安排，因为新模型不断推出。但他们必须完全改变方法，所以在某种程度上他们回到了基础，教人们分析性思维和Excel之类的东西。因为我想你也处在类似的情况，如果你过度依赖人力，你就必须重新设计你的收益报告方式。很多事情变了，但也有很多没有变。我认为这大概就是你在说的核心。我认为造就一个优秀CFO的核心素质是一样的，关键在于你如何利用手头的工具做出更好的决策。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>新 CFO 画像、从何处开始自动化与收束</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="seema"><div class="label"><span class="badge" title="西玛·安布尔（Seema Amble）">Seema</span></div><div class="content">
+<p>对于你来说，决策始终会是一个不断变化的目标。就像 SQL 对我来说曾是一项突破，现在，AI 成为了我作为工具和机会推动者的新突破。所以我认为，如果一位出色的 CFO 能够持续适应，他们将拥有长期发展的未来。我们甚至写过一篇文章，叫做《你需要一个新的 CFO》。主要观点是因为心态的变化。所以，无论这个人是否已经改变，重要的是他们应该优先考虑自动化。根据可用性和适用性，选择构建还是购买工具，但自动化应当是首要任务。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>我想知道你是否认为首席财务官的角色在未来一两年会有所变化，或者，正如你所说的，这些维度仍然很重要，但思维方式会不断发展。如果我要给某人建议，那就是：雇一个对业务有同样责任感、并且像你作为CEO一样拥有相同运营纪律的人。他们渴望赢。他们不惜一切代价去赢。他们有一套将会使用的工具，并且理解损益表来推动变革。但你真的需要的是一个业务领导者，而不是像我之前说的那种仅仅是“监管者”的人，</p>
+<p>因为那根本不是重点。因此，我认为有很多事情你需要作为基础去了解，比如对所有会计基础知识有扎实的理解，或者你组织规划过程的能力，但我真正认为让人们在这个角色中独特之处在于这个问题：你是否理解这个业务？你能实施变革吗？你能简化业务模型的理解，让其他人都朝同一方向前进吗？是的，我认为无论我们谈论的是像 Figma 这样的上市公司，还是刚开始拓展市场、获得发展势头的种子期或 A 轮初创公司，这都是成立者和</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="ivan"><div class="label"><span class="badge" title="伊万·马卡罗夫（Ivan Makarov）">Ivan</span></div><div class="content">
+<p>CEO们对财务部门的真正期望是：在事务上提供额外的业务思考和更容易获取的洞察。但当然，你也会回到基础，例如客户：你了解你的客户吗？你了解他们的行为吗？你了解那些来自进出数据源的指标吗？我认为这一点永远不会改变，这也是我们对……的期望。也许我可以补充一点，我认为创造力很重要——不是指创造一些有趣或古怪的指标，而是指你如何能从稍微不同的角度看待你的业务？并利用这一点作为实施变革和塑造自身的方式</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>职位。我呢，我真的不是很清楚，我尽量去做。我不确定我是否能像应该的那样经常去做，但如果我有那些想法，如果我能想出新的思路来看待问题，我真的认为伟大的想法可以来自你的财务部门。如果你正确地设置它们，它们可以成为你组织中同样高效并真正推动内部战略的层级。我会说，在投资者层面和董事会层面，我们看到更多深入的分析和快速的迭代。过去情况是这样的，‘哦，我们有所有的’</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="seema"><div class="label"><span class="badge" title="西玛·安布尔（Seema Amble）">Seema</span></div><div class="content">
+<p>在董事会会议上或之前提出这些问题，然后团队必须全部解决。这个过程已经缩短，希望对财务团队本身来说变得不那么痛苦。伊万，我还有最后一个问题。当我们的投资组合公司或只是一些企业来找你问：“从自动化哪里开始？”你会给他们什么建议？我认为这和我们一直以来的起点是一样的。你必须从数据完整性开始。你必须了解自己是否真的能够很好地访问数据，以及是否正确地跟踪一切。很多时候，尤其是在初创企业阶段，他们根本不跟踪任何东西，所以你必须从</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="ivan"><div class="label"><span class="badge" title="伊万·马卡罗夫（Ivan Makarov）">Ivan</span></div><div class="content">
+<p>从头开始。而这往往与第一任首席财务官的优先事项相冲突，比如，“哦，我需要按时结账。”“我需要给董事会发送更新。”实际上，情况并非如此。在你拥有坚实的基础之前，你甚至无法做到这一点。有时你可能需要建立一些东西。你可能需要重建一些东西。你可能需要更改一些东西。尤其是现在，很多人来找我们，在几周内你就可以理解，也许收入并没有按照这种商业模式应有的方式计算。我看到在早期阶段计算应收账款的方法，比我以前见过的要有创意得多。</p>
+<p>以前。绝对是。而且这也在迅速变化……但一切都始于数据，并基于此你建立报告规范，创建指标，然后讲述公司的故事。我认为对于一位CFO来说，经历过这一过程非常重要：当你瞄准IPO时，讲故事变得极其重要，而且你必须能够讲述同样的故事。我认为这已经转向越来越早的阶段，因为你在A轮和B轮融资期间就被期望讲述一个故事。而且这不仅仅是关于产品愿景的故事，而是一个用数据展示这个业务实际可能成为什么样的故事。虽然变得更容易了，但</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="seema"><div class="label"><span class="badge" title="西玛·安布尔（Seema Amble）">Seema</span></div><div class="content">
+<p>同时这也更难，因为我认为很多人对人工智能想得过多。我和伊凡已经为首席财务官和财务主管举办这些晚宴，我也不知道，已经有几年了，大约九个月前，我们看到了市场的真正转变：从类似“哦，是的，我用人工智能生成税务说明或入职文件”的对话，到“好吧，我真的在做核心工作——我在整理数据并自动化大部分工作流程”。这确实是人力资源职能的一个转变。而领导者更可能会说，“我必须做这件事，否则我会被认为是组织中的落后者。” 这又把我们带回了原点。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="praveer"><div class="label"><span class="badge" title="普拉维尔·梅尔瓦尼（Praveer Melwani）">Praveer</span></div><div class="content">
+<p>关于你提到的黑客马拉松获奖情况。几年前，金融部门从来不是赢得自动化黑客马拉松的那一个。而看到现在完全不同了，真的很酷。是的，我喜欢这一点。我们会举办这种内部“创造者周”活动——这是我们公司的内部黑客马拉松。以前我总是坐在那里，不太明白如何参与。现在的话，如果我有一小会儿空闲时间，我可以想到无数不同的点子。我相信我的团队也有同样的感觉。普拉维尔·梅尔瓦尼（Praveer Melwani），非常感谢你加入我们。这次聊天真的很有趣，也能够从亲身经历过这些的人那里学习到很多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="seema"><div class="label"><span class="badge" title="西玛·安布尔（Seema Amble）">Seema</span></div><div class="content">
+<p>在他们的职业生涯中进行自动化旅程。谢谢你，伊冯。那真是一次非常有趣的对话。是的，谢谢你邀请我。是的。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "a16z", "title": "AI 如何把 Figma 财务团队变成建设者", "url": "https://www.youtube.com/watch?v=9iAQdKxyiQc", "videoId": "9iAQdKxyiQc", "published_at": "2026-11-05", "duration": 3012, "caption_source": "YouTube 官方字幕（普通 yt-dlp 遇 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 补拉成功）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段（说话人姓名已按官方简介校正：Seema Amble / Ivan Makarov / Praveer Melwani）", "guests": ["Praveer Melwani", "Seema Amble", "Ivan Makarov"], "intro": {"summary": "a16z 的西玛·安布尔（Seema Amble）与伊万·马卡罗夫（Ivan Makarov）对话 Figma CFO 普拉维尔·梅尔瓦尼（Praveer Melwani）：财务团队如何用 AI 自己当「建设者」，把对账与催收等重复劳动自动化，把时间留给客户洞察、实验与战略。", "points": ["招人看重智力好奇心与案例作业：AI 可吐模型，但不能外包思考与敏感性分析。", "实战自动化：催收对账系统、corp dev 复现产品尽调、按领导人格预审投资备忘录。", "警惕 AI「垃圾内容」；差旅费用等多源数据约 95% 难点在结构化，模型给「够好」方向即可加速。", "个人 Agent 需 CIO/系统层产品化；Figma 处在集中与自建并存的「混乱中间态」。", "Excel 仍是建立直觉的母语；若业务复杂度不变，一年后或许不需要同等人数。", "起步永远是数据完整性；《You Need a New CFO》强调自动化优先的业务领导人画像。"], "verdict": "值得看：少空谈、多 Figma 内部可复用细节（工具栈、组织、招聘与 buy/build）。", "audience": "CFO/财务负责人、运营与系统负责人、关注企业 AI 落地的创始人与投资人。"}, "speakers": [{"id": "seema", "name": "西玛·安布尔（Seema Amble）", "role": "host", "short": "Seema"}, {"id": "ivan", "name": "伊万·马卡罗夫（Ivan Makarov）", "role": "host", "short": "Ivan"}, {"id": "praveer", "name": "普拉维尔·梅尔瓦尼（Praveer Melwani）", "role": "guest", "short": "Praveer"}], "sections": [{"id": "s1", "title": "开场：AI 把财务从「对账」推向「建设」", "start_sec": 0, "summary": "a16z 的西玛·安布尔（Seema Amble）与伊万·马卡罗夫（Ivan Makarov）引出文章《You Need a New CFO》：AI 正把财务从核对上月数字，推向设计自动化与搭建系统。嘉宾是 Figma CFO 普拉维尔·梅尔瓦尼（Praveer Melwani）。开场声画强调：顶尖财务组织靠智力好奇心、用 AI 赋能但不外包思考；也有人抱怨 AI 每天制造海量文档——95% 难点仍在整理数据。"}, {"id": "s2", "title": "从 SQL「超人」到业务合伙人：自动化如何改写财务角色", "start_sec": 73, "summary": "普拉维尔认为财务本应是运营领导者。他加入早期 Figma 时几乎没有自动化，靠几百行 SQL 把产品用量与 Stripe 财务数据接成「黄金表」，再推进 ETL、Salesforce/Marketo。统一指标定义后，组织不必再争论「真相是什么」。疫情初期用量暴增曾让人怀疑数据坏了、花数周排查；如今小时级仪表盘就能发现异常。节奏从月/季→周→日，他每天逐行看早期付费注册来塑造组织版产品。"}, {"id": "s3", "title": "招人标准：智力好奇心、案例作业与「不外包思考」", "start_sec": 430, "summary": "AI 前后招人核心未变：极端智力好奇心、数据素养、会提问并结构化表达。他正在招财务副总裁（VP of Finance），案例环节极看重：给有限公开信息，看候选人如何用工具拼出逻辑自洽、能做敏感性分析、能讲清业务机制的模型——任何人都能让大模型吐出一张表，关键是模型是否帮你思考、你是否仍是思考主体。"}, {"id": "s4", "title": "Figma 财务已自动化的工作流：回款、尽调与「领导人格」", "start_sec": 636, "summary": "公司年会「Fignation」展示 AI 用法，财务常是亮点。收款/催收同事 Kajal 重建从发票追踪、回款到与 NetSuite 对账的内部系统，并重做信用审查、组合数据集。公司发展（corp dev）把「能否快速复现产品」纳入尽调：不必全靠产品团队也能自信给出判断。文档文化下他们还为普拉维尔、Dylan、CRO Sean 等领导建「人格」，用 AI 预演投委会质询，缩短共同审阅周期。工具栈含 Codex、ChatGPT 工作流技能，以及 Figma Make（自然语言做应用并可托管）。"}, {"id": "s5", "title": "AI「垃圾内容」、标注政策与差旅费用案例", "start_sec": 950, "summary": "业界从「无限 token」谈到「垃圾（slop）」：有 CFO 称 AI 让每天可写无数文档，却找不到重点，也动摇「世界级工作长什么样」的记忆。Figma 内部要求标注 AI 写作，并坚持：你发出让人读的东西占用他人时间，标准不能降低。反例是 2027 规划中的差旅娱乐（T\u0026E）复盘：财务把 Navan、Zip、Ramp 等多源模糊匹配拼起来，约 95% 难度在数据结构化；模型给「够用」的方向性洞察后，他上午反馈、开会时可视化已就绪——对的工具+「够好 vs 必须完美」的判断才是魔法。"}, {"id": "s6", "title": "从个人 Agent 到共享系统：CIO 与「混乱的中间态」", "start_sec": 1172, "summary": "AI 让跨源模糊匹配与自助分析变快；成长型公司一个月可造出四五十个 Agent，约九成闲置，但重要的是养成「手工=缺工具」的反射。内审、GRC（ISO/SOC2）、应收等多处重复催票与对账，应收敛成平台。领域专家做原型，发布依赖与跨团队复用则需要顶尖 CIO 组织——Figma 新任 CIO Casper Sorensen（自 Coinbase）强调在 CIO 内建类 PM 能力、打地基让业务加建。公司增速曾快于支撑工具，现处「messy middle」：有的团队已集中、有的仍各自狂奔；「财务工程师」画像也尚未定型。"}, {"id": "s7", "title": "指标定义所有权、全员竞赛与「又开始享受工作」", "start_sec": 1567, "summary": "财务对董事会与管理层交付的数字必须前后一致、历史不被悄悄改写；AI 虽让读 Stripe 逻辑更容易，成熟公司更强调披露层级的一致性。自动化没有单一冠军——预测模型、BizOps 竞品对标与定价调研等都在你追我赶。先理解数据集如何咬合，才能像架构师一样决定何处交给模型终裁、何处只是假设。内部演示、黑客松与外部 CFO 交流形成节奏；许多人说工作再次有趣，因为从连周对账解放出来，能盯业务与新洞察。"}, {"id": "s8", "title": "自建 vs 外购、招聘福利与战略时间被释放", "start_sec": 1841, "summary": "核心会计等「错不起」的系统倾向外购；趣味与杠杆在工作流自动化。技术与探索自由被当作留人与面试卖点——对非技术背景者像「进入新世界的门票」，应像谈奖金福利一样谈模型与工具权限。西玛回顾 2020 年与 Angela 的 CFO 工具金字塔：底部对账吃掉几乎全部时间。普拉维尔把 go-to-market/自助业务团队从比上周指标，推向实验、趋势与加投哪里；有人甚至用 Figma 插件加速资产迭代。投资标的也从「追踪流程」转向「交付结果+内置审计轨迹」。"}, {"id": "s9", "title": "未来 12–18 个月：人效、审计就绪与 Excel 仍是「母语」", "start_sec": 2295, "summary": "加人条件应收紧为：业务复杂度增速超过支撑效率时才扩编；若复杂度不变，一年后或许不需要同等人数。希望更多端到端自动化，从确定性流程起步，但对「审计就绪」的关键系统仍极难，需与审计师对话。Excel 不是威胁——他称之为 love language：像 Figma 里用色轮亲手调色胜过对 Agent 写提示，表格仍是建立信任与空间化思考的方式；可用模型吃下二十页签模型、标出驱动因素与敏感区，再人工深挖。大学课程甚至一学期改数次大纲，最终仍回基础分析与 Excel。"}, {"id": "s10", "title": "新 CFO 画像、从何处开始自动化与收束", "start_sec": 2607, "summary": "《You Need a New CFO》核心是心态：自动化优先、按场景自建或外购。普拉维尔建议招「与 CEO 同样想赢、能操盘 P\u0026L 的业务领导人」，而非交通警察式监管者；会计与规划是底盘，独特价值在理解业务、推动变革、把商业模式讲简单。伊万给组合公司的起步建议永远是数据完整性——没有扎实数据就谈不上准时关账与董事会材料；叙事能力也前移到 A/B 轮。约九个月前市场从「用 AI 写入职文档」转向「整理数据并自动化核心工作流」；财务开始在内部 Maker Week/黑客松里拿奖。致谢收束。"}], "paragraphs": [{"start_sec": 0, "type": "text", "zh": "我认为我们能够吸引并建立世界上最优秀的金融组织，因为人们非常渴望学习，渴望获得投入感，并渴望成为那些希望在自己所做的事情上做到最好的人之一。我想听听到底是什么使一个人成为你们团队的优秀候选人，一个出色的专家。我需要极具智力好奇心的人。你会进来尝试解决问题，尽力理解业务。你希望将人工智能作为一个帮助和赋能的工具，但关键是要保持独立思考。我们现在生活在一个许多劣质工作被曝光的时代。我听一位首席财务官说，人工智能的使用已经导致了……", "speaker_id": "praveer", "section_id": "s1"}, {"start_sec": 34, "type": "text", "zh": "每天都会创建无数的文档。你创建的每一件事，并提供给别人使用，都需要他们投入时间、精力和能量。这里95%的挑战仅仅是组织你的数据。数据。我们预计在未来12到18个月会有哪些变化？如果我们业务的复杂性保持不变，我认为一年后我们可能不需要那么多的人。欢迎收听安德森·霍洛维茨（a16z）播客。我是西玛·安布尔（Seema Amble）。和我一起的是我的同事伊万·马卡罗夫（Ivan Makarov）。我们最近写了一篇文章，叫做《你需要一个新的首席财务官》。我们的观点是，人工智能正在将财务提升到一个新的水平，而首席财务官的工作越来越涉及构建自动化和", "speaker_id": "seema", "section_id": "s1"}, {"start_sec": 73, "type": "text", "zh": "设计系统和团队来实现这一目标。今天我们有 Figma（Figma） 的首席财务官 普拉维尔·梅尔瓦尼（Praveer Melwani） 与我们一起，我们想讨论您在职业生涯中所见到的情况，以及您和您的团队目前正在进行的工作。普拉维尔·梅尔瓦尼（Praveer Melwani），感谢您加入我们。是的，谢谢您的邀请，非常高兴。也许从这里开始，伊万·马卡罗夫（Ivan Makarov） 和 普拉维尔·梅尔瓦尼（Praveer Melwani），我们想听听在你们的职业生涯中，自动化如何改变了财务的角色以及团队的工作。我一直认为财务人员的角色应该是运营领导者。当我加入 Figma 时，当时根本没有任何自动化元素。我觉得为了在到任时能够有效发挥作用,", "speaker_id": "seema", "section_id": "s2"}, {"start_sec": 116, "type": "text", "zh": "我不得不花大量时间处理 SQL，构建数据表，深入理解如何组织财务信息，以推动我希望在公司内部开展的对话。我不断回想，我不断回想在这个职位上的早期日子，以及我作为绩效提升者所做的事情，作为允许我在整个组织中扩大影响的因素。说实话，我认为当时我所构建的东西现在由于人们拥有的工具，已经变得更加易于接近和真实。所以我希望越来越多的人会觉得他们可以大胆地在工作和与同事的互动中使用这种运营方法。", "speaker_id": "praveer", "section_id": "s2"}, {"start_sec": 156, "type": "text", "zh": "业务方面。因为我相信这是将这个角色从某种管理流程的“财务警察”转变为业务伙伴和组织中真正的变革推动者的魔力。为了详细说明你在人工智能时代之前用于自动化的工具，也许你可以向大家解释你到底做了什么？是 Excel 中的宏吗？还是使用 OCR 处理文档？是的，说实话，应有尽有。我几乎都在使用 SQL，分析我们所有的产品指标和使用数据，并将其与我们在 Stripe 中的财务信息关联。我为获取“黄金”表格创建了 400-500 行 SQL 查询，然后我会...", "speaker_id": "praveer", "section_id": "s2"}, {"start_sec": 198, "type": "text", "zh": "传递给某人或我们使用的各种市场系统。所以感觉我整天都在那个查询编辑器里。然后我会联系，而且当然，要等到请求完成，绝对如此。我也希望自己第一次就做对了。最终，我雇佣了数据科学家，我去找他们说：“嘿，我在这里建立了一个东西。你们能把它加入我们的ETL流程以设置一个定期任务吗？然后我可以使用那些信息并将其输入到Salesforce、Marketo或者我们当时使用的任何系统中。”对我来说，这真是一个启示：“我的天如果我能够在如何方面实现统一的定义", "speaker_id": "praveer", "section_id": "s2"}, {"start_sec": 239, "type": "text", "zh": "我们谈论事情，我们再也不会争论什么是真相，什么是事实。我们可以把这些放在一边，专注于我们实际上将如何发展业务。我在跟一位二十出头的人交谈，他在抱怨处理一个查询需要多长时间。我向他解释：“你还没有感受到等待几个小时的 SQL 查询执行完毕的痛苦，然后看到：‘该死，没成功，整个过程都没成功。’”所以我们的情况，数字的数量级完全不同。绝对是的。时间真的很有趣，不是吗？尤其是我们所经历的那个时代。当我在 Webflow 和 Figma 时，我们看到了", "speaker_id": "ivan", "section_id": "s2"}, {"start_sec": 279, "type": "text", "zh": "例如，在 COVID 期间使用量出现了巨大的激增，这一开始我简直不敢相信。我不知道你是否也经历过这种情况，我以为我们的数据被损坏了或者其他什么地方出了问题，但我们花了几个星期才弄明白。是的。我觉得现在，在我们的时代，我们生活在一个你可以在一小时内了解一切的时代。这既适用于使用量的激增，也适用于收入的激增。我们生活在一个完全不同的世界里。你有同感吗？同感吗？是的。我们的业务在疫情初期上升了。我想那大约也是我们开始与 Andreessen 那边的人合作的时候，在早期阶段。", "speaker_id": "praveer", "section_id": "s2"}, {"start_sec": 313, "type": "text", "zh": "但是是的，我每天都会醒来。我能够去更新我的联系人，了解发生了什么。在一天中的任何时候，团队喜欢我——我不知道他们是否真的喜欢，但他们知道我一直在，查看每小时的仪表板或每日指标，以确保我也能发现看起来像异常的事情或者提出正确的问题。我想他们看我的方式与他们看待自己在组织中的角色类似——作为一个有想法的同事，想要来找他们，共同建立最好的业务，使用并获取我们每个人都可以使用的数据。", "speaker_id": "praveer", "section_id": "s2"}, {"start_sec": 350, "type": "text", "zh": "是很有意思，当你和我还在大学时，数据的节奏更多是按月或按季度的，然后变成了每周一次。我记得，尤其是随着数据搬到云端，它变成了一个大大的每周仪表板，现在甚至可以做到每天一次。这改变了你的习惯吗？甚至是你看待数据的方式，思考它的方式，以及你提到它的频率？说实话，我认为数据和对数据的访问是全天高效工作的关键。在我在Figma的时间里，我每天都会醒来……是的，我记得在我加入的早期阶段，大约有30个人注册了付费计划，我会逐行查看数据。", "speaker_id": "ivan", "section_id": "s2"}, {"start_sec": 389, "type": "text", "zh": "他们是谁？这些是个人地址吗？这些是商业地址吗？这些是我们可以联系的人吗？我能从中学到什么？以帮助我们塑造最终创建的产品——即我们为组织开发的产品。我认为在早期阶段，这非常重要。现在我只是明白了，无论朝哪个方向发展，其后果都是显而易见的。如果你在问题变得严重之前发现它，它实际上可以为企业节省数百或数千美元。但如果你在另一个方向上看到成功，你可以将更多资源投入那里，并真正努力取得更大的成果。所以，说实话，我把它看作是日常的一部分,", "speaker_id": "praveer", "section_id": "s2"}, {"start_sec": 430, "type": "text", "zh": "如果不是更频繁的话，就是节奏。我认为我的目标是：如何激励我团队内和整个业务中的其他人也对这些指标感到同样的责任，真正像业务所有者一样行事，努力解决问题，而不是说，‘嘿，我可以等到下周。’你真的应该尽快解决这个问题，因为我认为这里的节奏变化非常快。在我们讨论你自动化的内容之前，我们希望先听一听在人工智能时代之前，是什么让一个人成为你团队中的优秀员工、成为领导职位上的优秀人士。我认为，老实说，很多事情依然保持不变，但方法可能已经", "speaker_id": "seema", "section_id": "s3"}, {"start_sec": 470, "type": "text", "zh": "变得有一点不同。我需要那些极度好奇的人。你进来，试着理解业务，并尽可能最好地理解它，然后寻找解决问题的方法以获得正确的结果。我认为今天这一点并没有发生根本性的变化。我仍然非常欣赏这一点。我相信许多乏味和例行的任务可以减少你花费的时间，这样你就可以花更多的精力去寻找那些在业务中可以显著加速的神奇时刻。所以，智力上的好奇心、数据素养、提出正确问题的能力", "speaker_id": "praveer", "section_id": "s3"}, {"start_sec": 513, "type": "text", "zh": "提出问题，然后整理你的思路，以便你能够理解所提供的数据并有条理地呈现它。你会如何进行这样职位的面试？这个过程是如何发展的，有没有什么方法？方法？这是一个有趣的问题。我目前正在寻找一位财务副总裁，案例分析阶段对我来说极其重要。我想了解你如何准确地使用可用的工具。所以是的，我对人们有期待……在这个案例中，我并没有给他们很多信息。我们是一家上市公司，因此我可以利用大量公开数据。但关键在于你如何将这些难题拼接起来，以便", "speaker_id": "seema", "section_id": "s3"}, {"start_sec": 554, "type": "text", "zh": "这个模型运作逻辑合理，因此你不仅可以创建一个结果，更能真正理解它的工作原理。因此，我在案例讨论中重点关注你是否真正深入理解了你所创建的结构。你是否设置了检查模型中哪些部分对任何变化最敏感？你是否清楚地理解了使用你创建的工具，业务实际是如何运作的？而且，正如我们刚才讨论的，你能否有效地将这一点传达给他人？因为是的，我认为任何人都可以去创建一个模型，选择他们喜欢的方式", "speaker_id": "praveer", "section_id": "s3"}, {"start_sec": 596, "type": "text", "zh": "语言模型。这可以非常非常容易地完成。但你是在把它当作真正帮助你思考的有效工具吗？我相信今天你不应该把思考委托出去。我认为你应该把 人工智能（AI） 作为帮助和赋能你的工具，但保持思考者的身份至关重要。是的，你描述的很多情况都适用于任何优秀的员工，无论是否使用 AI。我认为 AI 只是需要更多的责任感和勤勉，以理解工作背后确实存在真正的思考。让我们更深入地了解一下你自动化的内容，我们可以讨论。", "speaker_id": "seema", "section_id": "s3"}, {"start_sec": 636, "type": "text", "zh": "我们在投资组合公司中看到的情况。也许可以告诉我们一些你在 Figma 中自动化的工作流程，以及你是如何选择重点的，以及具体做了哪些自动化操作？是的，有很多，所以也许我会挑几个我觉得有趣的来看。我认为在过去的一年里我们发展得非常快：从试图教人们采用新工具和工作方式，到现在我不断遇到许多很酷的想法。我们公司的年度股东大会有一个环节，我们称之为 Fignation，在那里我们", "speaker_id": "praveer", "section_id": "s4"}, {"start_sec": 680, "type": "text", "zh": "展示其他人如何使用人工智能，而我们的团队在这方面始终表现突出。因此，这同样适用于例如Kajal以及我们的贷款和债务催收团队。他重新设计并重建了整个工作流程：从跟踪发票和收款，到确保所有内容与NetSuite完全对账；他将其变成了自己内部的系统，与我们使用的各种工具相连接。这让他能够说：“好吧，我可以继续缩短应收账款周期，同时专注于真正重要的事情，以及其他我可以通过自动化设置完成的繁琐任务。”于是他决定，“我可以重新设计这个方式", "speaker_id": "praveer", "section_id": "s4"}, {"start_sec": 720, "type": "text", "zh": "我们进行信用检查。\"我可以以有趣的方式组合数据集，这样我就不必手动操作，现在他可以对任何人说，‘嘿，使用我构建的工具真正影响局势并带来改变。’\" 观看我们的企业发展团队检查产品代码是否可以快速复现真的很有趣——这是我们新的尽职调查检查之一，真的很令人兴奋。你的防御护城河有多深？那里的技术有多有趣？我认为每个人都应该能够……你尝试复制产品以了解它是否真实。是的，我认为我们的团队已经变得", "speaker_id": "praveer", "section_id": "s4"}, {"start_sec": 762, "type": "text", "zh": "在这方面非常擅长，所以我们可以弄清楚：它真的有效吗？还是无效？这有多难，或者相反？当然，这些想法有细微差别，但它给你提供了一个相当清晰的情况理解。你以前有过为了做这部分审查而联系产品团队吗？是的，我们仍然与产品团队合作，但现在我们可以更自信地说，“嘿，这是我做的。” “这是我看到的。” 这显著提高了信任度。我们的……我现在可以做出贡献。这些人是企业发展团队的人，不是食品专家。他们有金融教育背景，是的。是的，当然。而且他们，我们有一个", "speaker_id": "seema", "section_id": "s4"}, {"start_sec": 796, "type": "text", "zh": "非常以文档为导向的文化，所以他们会撰写投资备忘录，他们会撰写，兼并与收购备忘录，或者其他什么。在他们之中，最终的读者，那些参与其中的人，会专注于我们的领导团队或其他产品负责人。并且，经常会出现某些主题，相似的问题，以及我们作为领导者在看待问题时通常的方式。有趣的是，他们为我们每个领导者创建了独特的角色模型，一套技能，他们可以在投资备忘录中运行，以真正改善流程。你可以把它理解为一个投资委员会，存在于他们之间的互动中。", "speaker_id": "praveer", "section_id": "s4"}, {"start_sec": 837, "type": "text", "zh": "一切。是的，没错。所以这就是他们最终要展示的，或者更确切地说，他们会坐在那里讨论并说：“好，这是普拉维尔·梅尔瓦尼（Praveer Melwani）会怎么说，这是Dylan会怎么说，而这是我们的CRO Sean会怎么说。” “因此，你会得到文档中的某些部分，你想要添加内容、进行更深入的检查，或者一套总体的反馈，我需要确保提出问题。” 这缩短了我们一起花费的周期时间。所以，有很多方面我们觉得这是一个有助于补充工作的工具。它是一个帮助你替代工作流程的工具。同时，它也是一个帮助你努力去理解的工具。", "speaker_id": "praveer", "section_id": "s4"}, {"start_sec": 872, "type": "text", "zh": "学习。而且，我，我总是对我们能够如此迅速地发展想法感到惊讶。而且，对我来说，这实际上让我处于一个非常乐观的状态，我会说，我认为我们可以吸引并建立世界上最好的金融机构，因为人们最渴望的是学习的机会，并感到被投入其中，同时周围都是那些想要在自己领域做到最好的人的团队。而我能做的越多来影响和促进这些变化，我认为，我们就能越好地保留、发展并培养这些人才。你是直接使用大语言模型创建所有这些工具的吗？你是否也在考虑使用现成的人工智能工具来协作？", "speaker_id": "praveer", "section_id": "s4"}, {"start_sec": 915, "type": "text", "zh": "？那你会选择什么：自己创建还是购买？购买？是的，我描述的那些，是组合的。例如，一些员工曾在Codex工作，我认为这就是企业发展团队的工作。他们坐在Codex里，尝试，解决某些任务。我们还看到有人在使用一些工作流自动化的元素，并利用ChatGPT开发技能。这就是，贷款和催收系统的一些元素被创建的方式。我们还开始注意到，人们也开始在我们的工具包中使用它。我们有一个叫Figma Make的工具，它允许人们使用自然方式创建应用程序或网站", "speaker_id": "seema", "section_id": "s4"}, {"start_sec": 950, "type": "text", "zh": "语言查询。之后你可以将它托管在托管服务上。你会得到，它的后端。因此，这些情况中的一些也开始出现了。我实际上对此感到兴奋，因为这样我们就可以进入一个我们也可以提供产品评论的世界。我知道每个人都会喜欢。我认为我们现在生活在一个批评大量低质量内容的时代。关于我们是如何从无限代币变成人们称之为“垃圾”的东西，有很多讨论。在会议上，我听到一位首席财务官说，人工智能的使用导致每天创建无数文件，而你找不到任何东西，因为现在任何人都可以写一个", "speaker_id": "praveer", "section_id": "s5"}, {"start_sec": 988, "type": "text", "zh": "文件，或者十份文件，在几分钟内就能完成，而以前可能需要一到两周。这是一个自然引发关于招聘讨论的领域。我们应该招聘更擅长这些工具的年轻人吗？我们应该招聘更有经验的人，也许是两者兼顾，还是应该招聘更高素质的专业人士，他们知道世界级的标准是什么？这正是让我有点担心的——我们会忘记世界级的标准是什么。就像在AI出现之前，一个真正好的模型是什么样的，尤其是有一些经验和模型制作背景的人。你觉得这会导致什么？你有没有把用AI创造的一些东西称为“垃圾”?", "speaker_id": "ivan", "section_id": "s5"}, {"start_sec": 1026, "type": "text", "zh": "有时候。是的。是的。我，我认为我们在内部制定关于标注 AI 写作内容的政策方面也做得不错。我认为，我之前分享过的一个非常重要的事情是，你不应该外包你的思考。任何你发布并要求别人去阅读的内容，都会占用他们的时间、精力和精力。所以我认为你必须确保在检查、阅读、总结和简化方面设定相同的标准。你可以从别的地方开始。这对我来说完全合适。但我真的认为我们每个人都应该确保非常谨慎地对待彼此的时间。是的，", "speaker_id": "praveer", "section_id": "s5"}, {"start_sec": 1065, "type": "text", "zh": "我曾经遇到过这样的情况，事情看起来有点生硬，你开始慢慢弄清楚，心里想着，“你真的明白这里发生了什么吗？” 但我也遇到过这样的情况，我想，“天哪，你这里的迭代速度简直不可思议，这都是因为你把一切都安排好了。” 例如，几周前我参加了第27年的规划会议。我在一个差旅和娱乐（T\u0026E）费用审查会上。我们查看了我们的支出组合，并说，“好吧，我们在哪些地方有机会进行政策调整，或者我们是否在某些地方没有遵循应该遵循的政策？”我们的财务团队做得非常好", "speaker_id": "praveer", "section_id": "s5"}, {"start_sec": 1096, "type": "text", "zh": "很好地将来自不同数据源的信息整合在一起。我们使用Navan，我们使用Zip，我们使用Ramp，要使这些信息有效，需要进行大量模糊匹配。例如，对于一个在国外旅行的人，如果他们住在旧金山只是来访，我们究竟应该如何标记和处理这些数据？95%的难点在于正确组织你的数据，而这些模型在为你做这些假设方面非常擅长。我并不需要完全完美的东西，我只是希望有些东西朝着正确的方向，类似于我想要的方向，能够提供足够的信息。", "speaker_id": "praveer", "section_id": "s5"}, {"start_sec": 1132, "type": "text", "zh": "这些信息帮助我理解了我真正需要处理的工作内容。这非常有趣。他们都给出了一套我们可以采取的建议修改。我记得那个早晨我就给了反馈。在思考了大约30分钟我真正希望的效果之后，当我们聚在会议上时，一切已经为我可视化了。我感到很惊讶：“哇，这真是一个非常棒的用例。”在我看来，他们的方式绝对不可能手动实现。所以，尽管疏忽是可能发生的，我相信，通过使用适合用途的正确工具，并理解什么是足够好、什么需要完美，真正的魔力是可以被释放的。", "speaker_id": "praveer", "section_id": "s5"}, {"start_sec": 1172, "type": "text", "zh": "对此有几点评论。这里的关键因素是数据，现在有了人工智能，就可以处理所有这些数据源，并快速执行模糊搜索，从而在这些数据源之间获得正确或准确的匹配。以前，你必须运行 SQL 查询，等待，然后本质上成为你自己的 BI 分析师。第二点是自动化工作技能的发展。即使有一些疏忽，例如，我与我们的一位首席财务官交谈时，", "speaker_id": "ivan", "section_id": "s6"}, {"start_sec": 1213, "type": "text", "zh": "一家处于成长阶段的公司，他们表示在一个月或两个月内，他们的团队创建了40到50个代理，虽然并不是所有的代理都在使用，但这让每个人都习惯了这样一个想法：如果我在做某些手动或枯燥的事情，那说明我没有一个好的工具。让我总结一下：其中很多，我会说大约90%的这些工具和代理已经不再使用，但它让人们思考，“好吧，不用手动做这个……让我考虑一下围绕这个的自动化，”我认为这几乎和创建代理本身同样重要。是的，我100%同意你的观点。我也在思考如何推广它，如何让其他人理解别人正在创建的东西。", "speaker_id": "ivan", "section_id": "s6"}, {"start_sec": 1251, "type": "text", "zh": "然后你会发现自己处于这样的情况，我们的内部审计团队花费大量时间不断联系人员，以确保他们在票据中添加我们SOC审计所需的信息。然后你会想，“这个内部审计小组并不是唯一在做这件事的；我们的GRC团队也在做同样的事情，处理我们所有的ISO和SOC 2审计。”当应收账款部门在向你收取费用时，会有很多这样的繁文缛节，而你又想建立一个用于分类、收集和核对信息的流程——为什么不创建一个可以做到这一点的单一平台呢？这正是我...的观点。", "speaker_id": "praveer", "section_id": "s6"}, {"start_sec": 1287, "type": "text", "zh": "我认为系统团队在其中介入、协调正在发生的事情并真正将其转化为产品时变得非常有趣，这样所有人就不会各自独立地构建类似的东西。我相信这是CIO职能应有或可能发展的一个演变。它涉及将许多由人们创建的自下而上的举措重建或调整，使它们能够在创作者或原始开发者之外存在。因此，我认为我们共同完成这项工作，我们在公司的全体会议上部分进行，但我们在团队内部也做了很多。我还与我们其中一家成长阶段的公司进行了交流，那里的客户成功负责人说他每个代表都有", "speaker_id": "praveer", "section_id": "s6"}, {"start_sec": 1328, "type": "text", "zh": "他们自己编写的仪表板，而且他们有不同的指标。所以，我认为必须有某种协调功能，这也是一个向你请教的好借口：人们是如何组织负责创建这些仪表板的团队的，谁来主动承担？看起来是不是你们团队有人先构建一个代理，然后再交给中央工程团队？我们已经讨论了很多关于金融工程师的概念，我们可以更详细地探讨，但我们想听听你的看法。是的，我认为我们一直都有提出想法并改进它们的专门人员，他们知道什么是", "speaker_id": "ivan", "section_id": "s6"}, {"start_sec": 1369, "type": "text", "zh": "他们知道高质量的结果是什么，也清楚自己想要什么。他们理解自己正在尝试建立的流程。他们在创建这些初始原型方面做得非常出色。但我是否希望这个人成为检查所有源依赖关系的人，并确保产品发布时正确部署？此外，组织中还有其他人有同样的需求吗？可能没有。在我看来，这正是一支一流CIO团队能够施展真正魔力的地方。是的，我非常兴奋。昨天，我们迎来了新CIO Casper Sorensen，他从Coinbase转来加入我们，而且……我们讨论的很多内容都是关于", "speaker_id": "praveer", "section_id": "s6"}, {"start_sec": 1409, "type": "text", "zh": "面试内容是关于如何在首席信息官组织内创建集中式的项目管理型职能，这些职能能够与其他业务团队合作，找到有效的解决方案，并建立他人可以在其基础上发展的基础，这与系统组织以前的运作方式差别不大。但你实施变革的速度，以及如何赋能他人在此基础上进行建设，现在正在发生变化。你认为这在公司内目前是集中化的，还是你认为会随着时间改变？是的。就像Figma的所有事情一样，我认为我们的增长速度超出了我们构建支持工具的能力。我有责任始终提供...", "speaker_id": "praveer", "section_id": "s6"}, {"start_sec": 1451, "type": "text", "zh": "组织有成长的空间，我不想通过建立过多的基础设施来拖慢人们的速度，所以我们现在有点在追赶。我认为在一些团队中，我们能够更好地集中管理，而在其他团队中——他们发展得更快，现在我们处于一个阶段，我们会问自己：“好吧，我们如何提供帮助？”所以，我认为我们现在处于这种“杂乱的中心”。我认为这与我们从公司听到的很多情况产生共鸣——无论是市场入门工程师、人才工程师，还是金融工程师的概念——这是一个跨不同团队的去中心化开发者群体。他们可能有不同的", "speaker_id": "ivan", "section_id": "s6"}, {"start_sec": 1487, "type": "text", "zh": "档案。有时这是一位具有金融背景的工程师，他对哪些工作流程需要自动化有很好的理解。有时，这是你借来的人，比如来自其他团队的产品工程师，来帮助开发。但我认为，对于这样一个人的档案应该是什么样子，目前每个人都处于这种“混乱中心”。在很多方面，这让我想起数据分析团队以及他们如何与组织的其他部分合作。作为数据分析合作伙伴，你会理解，你越深入了解你所合作团队的背景，就越能作为专家发挥作用。所以我们有数据分析师，他们", "speaker_id": "ivan", "section_id": "s6"}, {"start_sec": 1528, "type": "text", "zh": "与我们的产品团队合作。他们的发展直觉与我们的经理和工程师一样，甚至可能更强，并且被视为核心团队的一部分，通过使用其他工具产生创意并实施变更。同样地，我们在数据分析方面也有人支持我们的财务组织。事实上，这非常有趣，因为在那里工作的人，其中一些人拥有会计学位。他们明白所有这些必须非常可靠、无错误且始终准确。他们理解我们所说的细微差别，比如控制机制、什么是退款、什么是坏账——所有这些。", "speaker_id": "praveer", "section_id": "s6"}, {"start_sec": 1567, "type": "text", "zh": "术语。而且它实际上有助于他们更好地建立流程。我也认为这同样适用于你所说的金融工程师。你们对必要的事项有共同的理解。你可以随着时间的推移在这个背景上进行拓展，但至少要打好基础，这样你也可以影响其他人的思维方式。谁负责定义？我之所以提出这个问题，是因为我们经常在早期阶段看到这种情况，当一个20人的团队中只有创始人，但没有金融人员或业务经理。然后他们最终会聘请这样的专家。但他们已经在创建用于的关键指标的定义", "speaker_id": "ivan", "section_id": "s7"}, {"start_sec": 1601, "type": "text", "zh": "报告，对于投资者来说，实际上也是为了商业决策。然后他们会雇佣一位财务专家。你多久会审查一次定义？以前我们似乎每隔几年才做一次，但现在，由于人工智能，访问Stripe的代码或逻辑变得容易多了。这是否改变了你们回顾它们的频率？是的，我的团队对这一部分的结果负责。相比一些年轻公司，我们在开发过程可能稍晚一些。我们对如何讨论这些内容有更多的掌控权。对我来说，一直非常重要的一点是，我们的业务信息要保持一致。这是其中一件事。", "speaker_id": "praveer", "section_id": "s7"}, {"start_sec": 1638, "type": "text", "zh": "我觉得这一直让我在向董事会、管理层和其他同事展示自己时充满自信：他们知道我现在提供的信息和一个月前提供的信息是一样的，历史数据不会改变，而且我没有试图隐瞒任何事情。我只是想确保，随着我们的发展以及有机会改进，我们在报告期间不断讨论不同层次的信息披露。我们希望保持一致，也希望我们做出的决定是可以让我们回顾时感到愉快并在未来产生持久影响的。因此，我认为当人们发现不同方法时，这是非常棒的。", "speaker_id": "praveer", "section_id": "s7"}, {"start_sec": 1679, "type": "text", "zh": "如果这能让他们更好地构建业务，那么思考业务的方式是有价值的。但我也相信一致性是有价值的……你们团队中谁自动化程度最高？是什么角色？我可以点名某个人，但我想很快别人可能会想到其他人。但说实话，是每个人：从负责我们某些预测模型部分的人，到我们BizOps团队中自动化日常任务的专家，也就是他们实际工作的方式，包括进行竞争性基准测试和定价研究", "speaker_id": "seema", "section_id": "s7"}, {"start_sec": 1720, "type": "text", "zh": "所以我真的相信，正是这种彼此之间的竞争，使创建一个每个人都努力超越他人的组织成为可能。所以对我来说单独指出一个人会很尴尬，因为我真正相信这是一个团队在一起努力实现目标的过程。你认为这通常是有特定领域更多专业知识或经验的人，还是在整个团队中普遍存在的？这在多大程度上取决于你自己和你自动化的角色？是的，我认为在初期阶段向他人展示，如果我尝试以不同的方式做事，这应该向你发出信号，表明我期望同样的", "speaker_id": "praveer", "section_id": "s7"}, {"start_sec": 1760, "type": "text", "zh": "来自你。但我认为最重要的是清楚地了解你正在处理的数据集。那些能够更快推进的人，了解这些事物是如何相互关联的……当你理解了一切是如何布局和设计时，你就能更像一个架构师地思考：“好，我如何逻辑地连接这些元素？”“我怎么知道模型何时在做最终决策，何时只是在做假设，以及哪些任务是可以接受的，哪些是不可以的。”我认为其他人也能从中学习。但我真的认为这", "speaker_id": "praveer", "section_id": "s7"}, {"start_sec": 1802, "type": "text", "zh": "我们创造的节奏——展示和故事的节奏、内部黑客马拉松、引入其他专家的能力——我经常与其他财务领导交流，并尝试将一些信息传递到内部，以便它们被传播开来，我也看到我的领导们在这样做，这真的很酷。我认为每个人现在都在努力互相学习，这真的很棒。太好了。是的，我认为我与首席财务官、财务负责人或甚至普通员工的对话中一个共同的主题是，他们开始重新享受工作了。因为过去情况是，你需要检查某些事情两三周，然后完成两三周的报告关闭。", "speaker_id": "ivan", "section_id": "s7"}, {"start_sec": 1841, "type": "text", "zh": "几周，否则你会一直这样做。现在似乎人们真的在关注业务，并且能够发现新的见解等等。对于人工智能和垂直解决方案的可能性，大家充满了期待。我想回到其中一件事，就是“购买”情景。前几天我和我们一家快速增长的公司聊，他们说，我们只能购买现成的所有东西。我们的发展太快了。你有没有时常觉得，自行构建比直接购买市场上的现成解决方案要耗时更长？我认为，对于核心会计系统以及那些我们不能出错的事情，是的，我们会寻找并购买现成的", "speaker_id": "praveer", "section_id": "s8"}, {"start_sec": 1880, "type": "text", "zh": "现成的解决方案。我认为我们团队玩得很开心的地方正是你所说的。那就是自动化工作流。那么有哪些方面，如果你想想我的一天，我几乎不费力气，并且我如何补充我的工作日以按我想要的方式重新规划时间。我也完全同意你提出的观点，即工作总是会有趣的，但因为你可以更快地探索新事物，所以变得更有趣。我团队里有人会走过来对我说，“天我真的很开心。” 我真的认为我们制定的政策和给予的自由", "speaker_id": "praveer", "section_id": "s8"}, {"start_sec": 1918, "type": "text", "zh": "我们给人们探索的原因是一些人会说，‘我想留在这里。’我真的非常喜欢我所做的事情。我认为，我不确定人们是否真的像他们应该或可以那样，利用技术访问作为员工参与的工具。自从我开始从团队那里听到这些之后，我至少在面试中开始这样做了。特别是当你试图吸引那些不一定精通技术的人时。他们会说，‘哦，我的天这是我的入口，是通向全新世界的门票，如果我有机会学习——这真的很酷。’是的。所以，我实际上会倾向于那样，我知道其他人可能会……", "speaker_id": "praveer", "section_id": "s8"}, {"start_sec": 1952, "type": "text", "zh": "现在就去偷，但对我来说，那真是其中一件非常有趣的事情。我同意。事实上，我也有这个想法，我认为我们应该开始像谈论奖金和福利一样谈论这个。如果你来这里工作，你会得到X、Y和Z，这些是你以前的雇主没有提供的，现在你还可以使用所有这些模型或其他工具。是的。是的，我认为这不仅仅是关于这些，还在于人们理解周围的人在建造什么。而你学到的很多东西将通过渗透从别人建造的东西中获得。如果你感觉自己加入的组织不仅仅是在说他们", "speaker_id": "ivan", "section_id": "s8"}, {"start_sec": 1983, "type": "text", "zh": "不仅提供访问这些东西的机会，而且实际上去构建它们，你可以在面试过程中看到和感受到这些。我会倾向去那些地方。所以，在2020年，我和我的合作伙伴Angela写了一篇关于CFO需要现代化工具的文章。我们有一个金字塔图表，基本上显示财务团队将所有时间都花在数据对账层面。而在顶部，花费最少时间的则是战略财务，或者说战略性问题。我想知道，你是否觉得你和你团队的时间不仅被释放出来去做他们更喜欢的事情，同时也能够更加具有战略性或者产生更多影响？", "speaker_id": "seema", "section_id": "s8"}, {"start_sec": 2024, "type": "text", "zh": "决策，这改变了你的角色吗？我很幸运，在公司职业发展过程中，这已经越来越成为我角色的一部分。当我思考是什么激励他人时，我也意识到，为组织中的其他人创造空间同样对我有益。所以，是的，我们确实需要在日常或每周的工作节奏中完成一些事情。但与此同时，如果我能够管理我们的财务组织，该组织分为多个领域，其中一个是市场拓展。如果我能让专注于我们自助服务业务的团队不用再比较上周或上个月的指标，而是将他们的注意力转向", "speaker_id": "praveer", "section_id": "s8"}, {"start_sec": 2065, "type": "text", "zh": "在询问，“我们在进行哪些实验？”“我们看到哪些趋势？”“我们应该投资额外的资金在哪些方面？”对他们来说，这更具吸引力。我认为他们现在实际上可以更频繁地这样做。小事情很重要。我如何自动创建一组我知道外观和感受相同的资产，以便我可以将时间专注于注释、研究和分析？而我们看到这一过程发生得更快，而且质量也在提高。我们甚至有一个案例，其中这个团队的一个领导在谈论他如何在 Figma 中构建了一组插件，以便非常快速地进行修改。", "speaker_id": "praveer", "section_id": "s8"}, {"start_sec": 2105, "type": "text", "zh": "所以我希望我的团队会确认他们在这些任务上花费的时间越来越多。但你总是需要在你的业务中追求复杂性，并根据你可以分配给其他任务的时间来管理这种复杂性。我完全同意。我们在投资的CFO工具中看到的其中一件事是，产品正从跟踪工作流程转向交付结果，审计成为产品本身的一部分。追踪。当然，财务需要确保一切都是正确的。你需要能够精确追踪产品是如何达到某个具体对账的，但这一切都…", "speaker_id": "ivan", "section_id": "s8"}, {"start_sec": 2145, "type": "text", "zh": "自动为您完成。这是在拥有审计记录和结果之间的平衡，但我们确实看到我们的团队花更多的时间在进行实验和做那些以前需要数月研究的事情上。你以前必须请数据科学家，你必须通过电子邮件找到一堆人，你必须让每个人聚在一个房间里，而现在你可以快速迭代，因为后台有代理在运行。这甚至延伸到会计方面的事情，比如差异分析，你作为会计师会花时间查看不同期间的账户。如果你能使用一个工具——我知道有一些工具——", "speaker_id": "ivan", "section_id": "s8"}, {"start_sec": 2184, "type": "text", "zh": "一堆工具，可以让你初步了解发生了什么变化。它给了他们一系列可以执行的操作。它提供了一个初步的数据集，可能立刻就是正确的，而我真的希望越来越频繁地把这种情况变为现实。然后他们就可以把时间专注在其他事情上，所以我完全预期，在你创建相同的初始期望集，相同的可以依附的初始想法的这段时间里，所有这些都可以通过工具呈现出来。这大概就是我在谈论差旅和费用部分时想表达的意思，它给了我们的团队一些可以利用的线索。然后我们所要做的就是去弄明白它。", "speaker_id": "praveer", "section_id": "s8"}, {"start_sec": 2219, "type": "text", "zh": "搞清楚。对。你有了数据，现在有时间去处理这些二级问题，看看到底发生了什么。对。我只是在想我们成长的过程中，“动物”这个词被看作非常消极的东西。它与许多不愉快的记忆以及几周几个月努力赶上的经历联系在一起，而现在它只是常规的事情，甚至可能是积极的，因为借助现代工具和人工智能，你可以更容易或更快地解决它。也许不能准确找到错误所在，但可以更快地到达它们。当然，你仍然需要与人交流，因为FP\u0026A总会存在。对。对。与人合作。", "speaker_id": "ivan", "section_id": "s8"}, {"start_sec": 2257, "type": "text", "zh": "是的，这可能是我低估的事情之一，或者我没有意识到沟通和建立关系以及影响他人的能力对这个角色有多么重要。哦，是的。我想我刚开始的时候，觉得自己可以成为房间里最聪明的人，然后自己搞定一切。但后来我意识到，这是一个团队游戏，你能产生的影响是有限的；你真的必须让其他人与你保持一致。如果你能有效做到这一点，我认为你可以成为一个非常有效的领导者。我认为，这些就是你之前问到的真正的技能，比如，什么是...", "speaker_id": "praveer", "section_id": "s8"}, {"start_sec": 2295, "type": "text", "zh": "我在选择时会寻找什么？如果我可以测试并感受到你有建立强大支持的能力，有与他人建立信任的能力，那是非常有价值的。这很好地过渡到我下一个想谈的话题，那就是我们如何看待团队在未来12到18个月的变化，角色和职能整体情况。我不知道你是否对可能的变化有任何想法。也许我们可以先从你团队总体的组织方式开始。是的，我希望处于一种情况，我们只在业务的复杂性增长速度超过支持其需要时才增加人员。", "speaker_id": "ivan", "section_id": "s9"}, {"start_sec": 2338, "type": "text", "zh": "我真的认为我们现在已经到了一个阶段，可以开始减少很多正常业务节奏的元素，而不是通过招聘新员工来跟上进度。我认为我们会继续在这方面挣扎，因为我们会增加新产品，我们在收购团队和企业，我们继续扩大我们的业务。所以我认为在这个世界上总会有越来越多的事情。更复杂的情况还在前方，比我们目前能够真正实现的全面效率要复杂。但我们确实在变得更加高效，一段又一段时期。你认为效率会停滞吗？你觉得会吗？", "speaker_id": "praveer", "section_id": "s9"}, {"start_sec": 2376, "type": "text", "zh": "你有工具去完成必要的工作，还是你认为更多的这些流程将会从头到尾完全自动化？我希望更多的流程能够完全自动化。我想我可能会从那些真正确定性的部分开始，并思考如何提供足够的信息让输出看起来完全可靠。我认为，对于一个业务关键系统，要达到审计准备级别是非常困难的。我也认为，这将会是一次有趣的与审计员的对话，讨论是什么导致了不适感。但我并没有排除这种可能。我真的", "speaker_id": "praveer", "section_id": "s9"}, {"start_sec": 2414, "type": "text", "zh": "我认为随着时间的推移我们会达到目标。我觉得，就像我说的，如果我们的业务复杂性保持不变，我想我们一年可能不需要这么多人。但是，我觉得你只有在更擅长找到可以创造更多工作一致性的地方和节奏时，才能做到这一点。Excel会受到威胁吗？不会，它是我的表达爱意的方式，伙计。我，我觉得，就像我刚才描述的，我，知道吗，我仍然认为案例非常重要，因为你把它当作工具来使用，你用它来培养直觉。到目前为止人们创造的大部分都是一个模型。你可以把那个模型放到某个地方，或者它也可以是其他东西，但我", "speaker_id": "praveer", "section_id": "s9"}, {"start_sec": 2455, "type": "text", "zh": "你会希望那个工具能够让你精炼自己的理解，并自己操作处理事物。这有点像我们在 Figma 中看到的魔法，我们可以给人们能力，让他们通过提示和自然语言先进行第一次尝试、第一次草稿，但有时候自己动手进行更改会容易得多。拿颜色轮为例。你有一个设计好的屏幕，然后你想，\"嘿，我想更改背景。\"你可以坐下来给代理写提示，比如，\"把背景颜色从红色改为绿色。\"或者我可以拿起颜色轮，看所有的色调，真正感受其中发生的事情。", "speaker_id": "praveer", "section_id": "s9"}, {"start_sec": 2489, "type": "text", "zh": "我对 Excel 的看法类似。这是我建立信任的一种方式。这是我建立理解的一种方式。也许将来会有更好的东西出现，但对我来说放弃它将非常非常困难。我也是在 Excel 中成长的，我仍然用它来整理我的思路。当我试图进行分析时，即使只是因为数据的空间排列，我也会使用它。我认为这些模型还不够好，无法创建预测或复杂模型，但那个框架仍然有价值。我不知道你是否有同样的感受。绝对如此。我也认为我现在正在尝试实验的一件事是，我如何能够使用这些模型之一来", "speaker_id": "ivan", "section_id": "s9"}, {"start_sec": 2528, "type": "text", "zh": "更好地理解团队的绩效？如果你给我一个有20个标签页的模型，我会很难在它们之间切换并手动查看所有内容。但如果我可以将这些背景信息提供给模型，使其能够帮助我理解关键驱动因素或最敏感的领域，这就给了我分析和协调的更好起点，我发现这非常有用且有效。我们生活的世界也充满了挑战。我前几天在和一位大学教授交谈时问他，他们在大学里如何教授人工智能？答案是根本没有。他们谈到的一个挑战是他们", "speaker_id": "praveer", "section_id": "s9"}, {"start_sec": 2568, "type": "text", "zh": "上过一门课程，他们一个学期改变几次课程安排，因为新模型不断推出。但他们必须完全改变方法，所以在某种程度上他们回到了基础，教人们分析性思维和Excel之类的东西。因为我想你也处在类似的情况，如果你过度依赖人力，你就必须重新设计你的收益报告方式。很多事情变了，但也有很多没有变。我认为这大概就是你在说的核心。我认为造就一个优秀CFO的核心素质是一样的，关键在于你如何利用手头的工具做出更好的决策。", "speaker_id": "ivan", "section_id": "s9"}, {"start_sec": 2607, "type": "text", "zh": "对于你来说，决策始终会是一个不断变化的目标。就像 SQL 对我来说曾是一项突破，现在，AI 成为了我作为工具和机会推动者的新突破。所以我认为，如果一位出色的 CFO 能够持续适应，他们将拥有长期发展的未来。我们甚至写过一篇文章，叫做《你需要一个新的 CFO》。主要观点是因为心态的变化。所以，无论这个人是否已经改变，重要的是他们应该优先考虑自动化。根据可用性和适用性，选择构建还是购买工具，但自动化应当是首要任务。", "speaker_id": "seema", "section_id": "s10"}, {"start_sec": 2648, "type": "text", "zh": "我想知道你是否认为首席财务官的角色在未来一两年会有所变化，或者，正如你所说的，这些维度仍然很重要，但思维方式会不断发展。如果我要给某人建议，那就是：雇一个对业务有同样责任感、并且像你作为CEO一样拥有相同运营纪律的人。他们渴望赢。他们不惜一切代价去赢。他们有一套将会使用的工具，并且理解损益表来推动变革。但你真的需要的是一个业务领导者，而不是像我之前说的那种仅仅是“监管者”的人，", "speaker_id": "praveer", "section_id": "s10"}, {"start_sec": 2689, "type": "text", "zh": "因为那根本不是重点。因此，我认为有很多事情你需要作为基础去了解，比如对所有会计基础知识有扎实的理解，或者你组织规划过程的能力，但我真正认为让人们在这个角色中独特之处在于这个问题：你是否理解这个业务？你能实施变革吗？你能简化业务模型的理解，让其他人都朝同一方向前进吗？是的，我认为无论我们谈论的是像 Figma 这样的上市公司，还是刚开始拓展市场、获得发展势头的种子期或 A 轮初创公司，这都是成立者和", "speaker_id": "praveer", "section_id": "s10"}, {"start_sec": 2727, "type": "text", "zh": "CEO们对财务部门的真正期望是：在事务上提供额外的业务思考和更容易获取的洞察。但当然，你也会回到基础，例如客户：你了解你的客户吗？你了解他们的行为吗？你了解那些来自进出数据源的指标吗？我认为这一点永远不会改变，这也是我们对……的期望。也许我可以补充一点，我认为创造力很重要——不是指创造一些有趣或古怪的指标，而是指你如何能从稍微不同的角度看待你的业务？并利用这一点作为实施变革和塑造自身的方式", "speaker_id": "ivan", "section_id": "s10"}, {"start_sec": 2767, "type": "text", "zh": "职位。我呢，我真的不是很清楚，我尽量去做。我不确定我是否能像应该的那样经常去做，但如果我有那些想法，如果我能想出新的思路来看待问题，我真的认为伟大的想法可以来自你的财务部门。如果你正确地设置它们，它们可以成为你组织中同样高效并真正推动内部战略的层级。我会说，在投资者层面和董事会层面，我们看到更多深入的分析和快速的迭代。过去情况是这样的，‘哦，我们有所有的’", "speaker_id": "praveer", "section_id": "s10"}, {"start_sec": 2808, "type": "text", "zh": "在董事会会议上或之前提出这些问题，然后团队必须全部解决。这个过程已经缩短，希望对财务团队本身来说变得不那么痛苦。伊万，我还有最后一个问题。当我们的投资组合公司或只是一些企业来找你问：“从自动化哪里开始？”你会给他们什么建议？我认为这和我们一直以来的起点是一样的。你必须从数据完整性开始。你必须了解自己是否真的能够很好地访问数据，以及是否正确地跟踪一切。很多时候，尤其是在初创企业阶段，他们根本不跟踪任何东西，所以你必须从", "speaker_id": "seema", "section_id": "s10"}, {"start_sec": 2842, "type": "text", "zh": "从头开始。而这往往与第一任首席财务官的优先事项相冲突，比如，“哦，我需要按时结账。”“我需要给董事会发送更新。”实际上，情况并非如此。在你拥有坚实的基础之前，你甚至无法做到这一点。有时你可能需要建立一些东西。你可能需要重建一些东西。你可能需要更改一些东西。尤其是现在，很多人来找我们，在几周内你就可以理解，也许收入并没有按照这种商业模式应有的方式计算。我看到在早期阶段计算应收账款的方法，比我以前见过的要有创意得多。", "speaker_id": "ivan", "section_id": "s10"}, {"start_sec": 2874, "type": "text", "zh": "以前。绝对是。而且这也在迅速变化……但一切都始于数据，并基于此你建立报告规范，创建指标，然后讲述公司的故事。我认为对于一位CFO来说，经历过这一过程非常重要：当你瞄准IPO时，讲故事变得极其重要，而且你必须能够讲述同样的故事。我认为这已经转向越来越早的阶段，因为你在A轮和B轮融资期间就被期望讲述一个故事。而且这不仅仅是关于产品愿景的故事，而是一个用数据展示这个业务实际可能成为什么样的故事。虽然变得更容易了，但", "speaker_id": "ivan", "section_id": "s10"}, {"start_sec": 2914, "type": "text", "zh": "同时这也更难，因为我认为很多人对人工智能想得过多。我和伊凡已经为首席财务官和财务主管举办这些晚宴，我也不知道，已经有几年了，大约九个月前，我们看到了市场的真正转变：从类似“哦，是的，我用人工智能生成税务说明或入职文件”的对话，到“好吧，我真的在做核心工作——我在整理数据并自动化大部分工作流程”。这确实是人力资源职能的一个转变。而领导者更可能会说，“我必须做这件事，否则我会被认为是组织中的落后者。” 这又把我们带回了原点。", "speaker_id": "seema", "section_id": "s10"}, {"start_sec": 2954, "type": "text", "zh": "关于你提到的黑客马拉松获奖情况。几年前，金融部门从来不是赢得自动化黑客马拉松的那一个。而看到现在完全不同了，真的很酷。是的，我喜欢这一点。我们会举办这种内部“创造者周”活动——这是我们公司的内部黑客马拉松。以前我总是坐在那里，不太明白如何参与。现在的话，如果我有一小会儿空闲时间，我可以想到无数不同的点子。我相信我的团队也有同样的感觉。普拉维尔·梅尔瓦尼（Praveer Melwani），非常感谢你加入我们。这次聊天真的很有趣，也能够从亲身经历过这些的人那里学习到很多。", "speaker_id": "praveer", "section_id": "s10"}, {"start_sec": 2989, "type": "text", "zh": "在他们的职业生涯中进行自动化旅程。谢谢你，伊冯。那真是一次非常有趣的对话。是的，谢谢你邀请我。是的。", "speaker_id": "seema", "section_id": "s10"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

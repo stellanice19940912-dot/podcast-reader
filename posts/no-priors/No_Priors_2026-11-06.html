@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>代币化、智能体交易与 Harmonic：Robinhood CEO 弗拉德·特涅夫谈扩大所有权</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="sarah">萨拉·郭（Sarah Guo）</option><option value="vlad">弗拉德·特涅夫（Vlad Tenev）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">No Priors</span><span class="pill">2026-11-05</span></div>
+<h1>代币化、智能体交易与 Harmonic：Robinhood CEO 弗拉德·特涅夫谈扩大所有权</h1>
+<p class="sub">嘉宾：弗拉德·特涅夫（Vlad Tenev） · 约 54 分钟（3248 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=yULk8eNa2mg" target="_blank" rel="noopener">https://www.youtube.com/watch?v=yULk8eNa2mg</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>No Priors</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-05</dd></div><div class="meta-row"><dt>时长</dt><dd>约 54 分钟（3248 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 官方英文字幕（普通 yt-dlp 遇 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 补拉成功）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段（说话人：萨拉·郭 / 弗拉德·特涅夫；专名按官方简介校正）</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>yULk8eNa2mg</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>No Priors 主持人萨拉·郭（Sarah Guo）对话 Robinhood CEO 兼联合创始人弗拉德·特涅夫（Vlad Tenev）：公司如何以「所有权」为轴，从零佣金交易走向代币化、预测市场、智能体交易与特朗普账户；以及他创办的数学超智能公司 Harmonic 如何推动去中心化的发现。</p>
+<h3>核心要点</h3><ul><li>Robinhood 覆盖 120+ 国家，产品统一叙事：儿童账户、Ventures、代币化/Robinhood Chain。</li><li>Harmonic 模型亚里士多德获 IMO 金牌级表现并开源使用；反对实验室包办全部数学发现。</li><li>股票代币接入 DeFi；Robinhood Chain 开发者活跃度自称第一，服务银行薄弱地区接入美股。</li><li>智能体交易数月超 15 万账户、约日均 3000 万次工具调用；另有智能体信用卡与 Agents 应用商店。</li><li>Ventures Fund 1/2（含 OpenAI、YC 早期）+ 推动合格投资者知识考试改革。</li><li>特朗普账户唯一初始托管券商：新生儿 1000 美元种子资金，目标家庭持股率 65%→95%。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：把所有权、链上原语、代理交易与监管改革串成一条产品战略线，细节密度高。</p>
+<h3>适合人群</h3><p>关注金融科技、代币化、零售投资与 AI 应用的听众。</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场：所有权公司 Robinhood 与「拥有」使命</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">冷开场串联预测市场、数学 AI、代理交易等金句后，主持人萨拉·郭（Sarah Guo）引出嘉宾——Robinhood 联合创始人兼 CEO 弗拉德·特涅夫（Vlad Tenev）。弗拉德用一个词概括公司：所有权（ownership）。Robinhood 以某种形式覆盖 120 多个国家；从个人层面，资产持有是通向财务自由的路径，持仓也塑造身份；从社会层面，资产所有权不广布的社会更脆弱——更多人「有皮肤在场」会更关心系统结果。产品线被他串成同一叙事：儿童账户（从出生持有）、Robinhood Ventures（上市前私有公司）、代币化（把所有权全球化到银行体系薄弱的国家）。公司从手机零佣金买股 App，演进为多资产金融综合体。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">出身与使命：保加利亚通胀、铜锅资产与数学阶梯</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">萨拉追问：师从陶哲轩（Terence Tao）、做过高频交易（HFT），何以变成「为民」的使命感？弗拉德讲述：1980 年代末出生于东欧，苏联解体前后；1990 年代父亲先赴特拉华大学读硕，他与祖父母分开约一年半才移民美国。1991 年保加利亚通胀约 170%；最早记忆是断电、电池收音机、窗口外排队买牛奶鸡蛋、一年仅一周能买到古巴香蕉；1997 年保加利亚一度约 2000% 年通胀、货币不断加零。祖父母把工资换成铜锅铜器当「硬资产」——他眼中第一个真实投资品。马里兰大学公寓区五岁独自放学、邻居照看后拿钥匙自立；父母签证与奖学金压力逼出学业竞争心态；数学像「通关游戏」——代数几何、拓扑层层加难，读研曾想做出能让后人像学高斯、黎曼一样铭记的理论。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">Harmonic 与亚里士多德：数学超智能要不要去中心化</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">Harmonic 是弗拉德几年前联合创办的数学超智能创业公司。他认为 AI 让可验证证明自动化，数学正与编程合流：版本控制、Lean 验证等；而研究生时代还主要靠粉笔黑板。去年发布模型「亚里士多德（Aristotle）」，是国际数学奥林匹克（IMO）三枚金牌模型之一，公开发布后被用来攻克埃尔德什（Erdős）等问题并产生新结果。他反感「大实验室+保密模型+自有数据中心包办全部发现」的过度中心化；更希望工具交到个人手中，让普通人也能发明与发现。萨拉质疑「半人马」人机协作是否会被纯算力智能体循环碾压；弗拉德拆成两个问题：个体数学家角色 vs 产品由谁交付——后者更关键。若 OpenAI/Anthropic 垂直整合、包办药与论文，他认为既像反乌托邦也不太可能：显著发生会失去社会许可；纳维–斯托克斯或黎曼假设若由普通人借助工具完成，更值得庆祝，也是他认为一年内更可能的剧本；实验室前研究者应更多与外部数学家协作。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">代币化与 Robinhood Chain：股票代币进 DeFi</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">代币化逻辑类比稳定币：把美元/国债放进「盒子」，铸造/销毁代币做 backing，底层资产仍在银行等传统机构，代币则可在 DeFi 全球流转、碎片化、进协议与借贷池——具备软件属性。同一模式可套股票、私有公司 SPV、艺术品、收藏品、房地产。去年法国南部活动推出美股股票代币，欧洲客户可交易但未完全接入 DeFi（不能上以太坊进池子）。今年升级：股票代币全面支持 DeFi，并上线面向真实资产的新链 Robinhood Chain——他称其多项指标为史上增长最快之一，近日宣布开发者活跃度排第一；开发者把股票代币当乐高，做出 NFT、资金池、梗币挂钩股票代币等组合。更大愿景：南美、非洲等资本市场薄弱地区，只要智能手机+非托管钱包就能低成本接入美股，如同稳定币成为当地接触美元的标准路径。面对「公司链（corpo-chain）」批评，他承认牺牲一点组织去中心化纯度，换聚焦领导与清晰愿景；有 Robinhood 背书的原语比两三工程师自造原语更能激发开发者信任。他期待链上原生期权等衍生品，但更相信给原语、让开发者组合——自己也没料到梗币/NFT 与股票代币的搭配会这么快流行。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">预测市场：把知识变现与新闻的进化</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">弗拉德把预测市场也纳入「所有权」：许多人有独特洞见（例如谁最懂本周/本月最佳 AI 模型），过去只能间接通过谷歌、英伟达等衍生品变现；预测市场让信念更直接货币化。Robinhood 宣布并将推出 KPI 合约：以前赌公司超预期 EPS/营收只能买股票或期权，结果可能因展望等外部因素股价仍跌；KPI 合约可直接交易 EPS、营收等指标。也可更精细对冲——例如加州「亿万富翁税」能否通过的合约。他把预测市场视为新闻的进化：不一定取代《纽约时报》，但可有头版/商业/生活/体育分区，许多人甚至不交易，只打开 App 看赔率判断「接下来会发生什么」。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">智能体交易与智能体信用卡：15 万账户与日均 3000 万次调用</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">今年早些时候推出 Robinhood 的 MCP（模型上下文协议）形态产品，称智能体交易（agent trading），另有智能体信用卡（agentic credit card）。他认为代理金融里两件事已验证产品市场契合：一是代理代执行交易与策略——上线数月超 15 万客户开立智能体交易账户；工具调用呈平滑指数增长，最近公布约每天 3000 万次。数周前 Hood Summit 宣布 Robinhood Agents：界面嵌进账户，像面向交易优化的 Claude/Codex，可设每日循环执行策略、再平衡、找机会；并有技能与应用商店（例如接卫星数据数停车场车辆）。产品焦点是把对冲基金/量化机构能力下放到普通人，像写代码变容易一样降低成为 quant 的门槛；初期活跃会集中在少数老练用户但交易量剧增，再扩散。类比编程智能体：先让程序员指数提效，再让从未碰 VS Code/Cursor 的人用 Claude/Codex 搭网站——「用信念赚钱」的欲望比「写软件」更普遍，若把想法变成策略的摩擦降到「买一只股票」级别，参与者会更多。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">基础设施与风控：沙箱账户 vs 全民 HFT 负荷</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">安全设计从第一天起：智能体/MCP 需单独账户，与主余额隔离，资金要主动划转；默认需用户批准每笔交易，可关闭但仍在沙箱内、无法动用其他账户；内部加强沙箱与安全基础设施。他认为市场已电子化约二十年，多数成交是新泽西数据中心里的算法单，不必立刻大改监管，但增长中会出现需更清晰规则的个案。萨拉用编程类比：CI/CD 曾被代码生成量指数增长「压垮」——全民近似 HFT 会否压垮金融栈？弗拉德分层看：链上栈（Robinhood Chain 自称真实资产与 AI agent 交易友好）与中心化 C5 产品（自有数据库、策略与沙箱代码、端到端可控）都要优化；下游做市商如 Citadel、Jane Street、Jump Trading 与交易所 API 已为海量算法单做过优化。目前智能体成交占总成交比重仍低，远未到两位数百分比，还有观察窗口。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">AI 时代的私人公司所有权：Ventures、YC 与合格投资者改革</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">核心矛盾：主要创新 AI 公司多为私有（英伟达、谷歌等例外且早已很大）；个人很难早期投到 OpenAI/Anthropic。私人市场融资规模空前——微软/亚马逊年代 IPO 估值可能数亿美元，散户 IPO 后仍有千倍空间；若 AI 实验室以万亿级估值上市，散户难再复制那种倍数，收益更集中于 VC/机构。对比加密：即便有人亏损（他举例比特币从约 12 万回调到约 8.5 万），广泛的个人持仓催生政治动员；AI 则缺少这种「大众所有权」。应对：Robinhood Ventures——把 IPO 零售通道募来的资金投初创，基金在纽交所像股票一样交易；Fund 1 偏晚期私有公司，持仓含 OpenAI、金融科技与 AI（如 ElevenLabs、新宣布的 Cruzo 等）；Fund 2 与 YC 合作、由 Rich Aberman 管理，下探种子/A 轮高风险高赔率。另有私人资产代币化（目前主攻美国以外），目标 24/7、碎股交易 Anthropic 等，所有权质量不低于 SPV 的 LP。监管上支持降低合格投资者门槛：上周 SEC 路径、委托 FINRA 做约两小时知识型认证考试（非纯资产门槛），可与 Series 7 等并列；客户调研显示强烈认同「我的钱自己管」。他批评：模因币监管清晰可买，私有公司却受限，从风险逻辑不合理；合格投资者规则诞生于前互联网信息匮乏时代，如今信息与 AI 摘要泛滥，家长式限制应收敛。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">特朗普账户：唯一初始托管券商与从出生持有标普</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">Robinhood 被选为特朗普账户（Trump accounts）的唯一初始托管与经纪商，与美国银行老字号 BNY、财政部、国税局合作落地。构想：每个孩子从出生起通过低成本多元化 ETF（标普 500）持有美国经济一角；自 2025 年 1 月起三年内新生儿，财政部注入 1000 美元种子资金。迈克尔与苏珊·戴尔基金会已向低收入地区儿童追加逾 60 亿美元；格温·肖特韦尔（Gwynne Shotwell）捐赠 SpaceX 股票，布拉德·格斯特纳（Brad Gerstner）是项目策划者并向印第安纳儿童大额捐赠。Robinhood 做基础设施与应用；弗拉德希望借此把美国家庭股权拥有率从约 65% 拉向 95%，目标做成「政府推出过最好的产品」与特朗普遗产中最持久的正面部分，并呼吁为孩子登记。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">领导者的沉稳：童年艰难、厚脸皮与乐观复盘</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">萨拉转述双方都认识的 Andrew Reed 评价：弗拉德是「无尽智力」与面对市场/公关/海量用户时「极度沉稳」的奇异组合，请教如何保持镇定。弗拉德归因于童年被迫自立与全家共同移民闯关——不是被宠大的孩子，很早被当准平等成员。对比 Robinhood、Harmonic 的商业压力与童年驱逐风险、2000% 通胀，有助校准当下对 5% 通胀的恐慌。他也反思如何给自己孩子「设计」适度挑战（有家教、博物馆与安全感，难度不同）。给其他领导者的建议偏乐观：经历的挑战会强化韧性；引用贝索斯式「厚脸皮」——可控的是内在反应而非外部世界。致谢后萨拉引导订阅 @NoPriorsPod、YouTube、播客与 no-priors.com 文稿。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">萨拉·郭（Sarah Guo）<em>主持</em></span><span class="spk-1">弗拉德·特涅夫（Vlad Tenev）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场：所有权公司 Robinhood 与「拥有」使命</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特涅夫（Vlad Tenev）">Vlad</span></div><div class="content">
+<p>「预测市场是新闻的进化。你只需通过赔率，就能看到正在发生什么、未来更可能发生什么。」「你对今天 AI 带来的数学革命怎么看？是不是太中心化了？这很像 AI 公司靠大型数据中心和员工，用保密模型包办全部工作。」「你觉得人们会让智能体替自己交易吗？智能体交易显然已经产品市场契合——我们看到非常强劲的采用，已有超过 15 万客户开设智能体交易账户。」「你描述的很多能力机构交易员也能做，但昂贵又难；如果被民主化，会意味着什么？」</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sarah"><div class="label"><span class="badge" title="萨拉·郭（Sarah Guo）">Sarah</span></div><div class="content">
+<p>民主化之后意味着什么？听众朋友们，欢迎回到 No Priors。今天我请来 Robinhood 创始人兼首席执行官弗拉德·特涅夫（Vlad Tenev）。我们会谈今天的 Robinhood：作为试图扩大经济参与面的金融综合体，从代币化到预测市场，再到 AI 智能体如何为零售用户交易；也会谈到 Harmonic——它致力于打造数学超智能，以及科学发现能否分布式展开、而非高度中心化。弗拉德，恭喜，非常感谢你过来。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特涅夫（Vlad Tenev）">Vlad</span></div><div class="content">
+<p>谢谢你邀请我。那么，大家都知道Robinhood，但公司也发生了很大变化。你能否向我们的听众简要说明你今天会如何描述它？我们做很多事情。我们以某种形式在120多个国家开展业务。如果让我用一个词或一个概念概括Robinhood，那就是“拥有”。我认为我们是拥有的公司，是最与此相关的公司。当我这么说时，为什么拥有很重要呢？我认为在个人层面上，人们希望拥有某样东西。</p>
+<p>这是通往财务自由、经济独立的经过验证的路径。如果你拥有资产并随着时间积累它们，那就是建立财富的最佳方式。所以，这里有一个个人因素，无论你是在交易、积累资产，还是投资于风险投资项目，我认为这是非常非常重要的。而且，你拥有的东西也在很大程度上反映你的个性。它几乎成为你身份的一部分。例如，一系列汽车收藏或</p>
+<p>收藏品、你的卡片、你的股票组合——我认为其中有很多个性化的东西。所以，我认为既有个人利益，也有集体利益。从社会的角度来看，一个没有广泛资产拥有的社会本质上是非常不稳定的。这是一个脆弱的社会。如果更多的人拥有某些东西，他们会更投入，更关心结果，并且他们会成为这个体系的某种捍卫者。</p>
+<p>所以我认为，尤其是在现在，当人们在对抗社会以及围绕人工智能和所有这些动荡的情况显得有些紧张时，人们在早期阶段拥有公司的机会变得越来越重要。这是我们所有产品的共同点：从儿童账户，这意味着从出生开始拥有资产，Robinhood Ventures——拥有私营公司直到它们上市，以及代币化，这可以被视为所有权的全球化。例如，我们如何在美国以外的地区吸引人们，在超过120个国家，有时那里甚至没有正常运作的</p>
+<p>银行系统，我们如何将它们整合到这个社会的经济结构中？所以，是的，这就是我的思考方式。我们最初是一个简单的应用程序，可以在手机上免佣金购买股票，然后发展成为一个越来越全球化的金融集团，使客户能够拥有不同类型和不同领域的资产。你可能是我脑海中唯一认为具有使命感的主要金融机构，除了也许先锋基金之类的机构。我们可以谈谈吗</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>出身与使命：保加利亚通胀、铜锅资产与数学阶梯</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="sarah"><div class="label"><span class="badge" title="萨拉·郭（Sarah Guo）">Sarah</span></div><div class="content">
+<p>你是怎么走到这一步的？我最近了解到你曾跟随陶哲轩（Terence Tao）学习数学，并在高频交易（HFT）领域工作。所有这些似乎都不像是为了人民的使命，可以这么说。你是如何发现这个使命的，或者说，你是怎么走到这一步的？是的。是的。再往前说，我出生在1980年代末的东欧，正值苏联解体和“铁幕”倒塌的边缘。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特涅夫（Vlad Tenev）">Vlad</span></div><div class="content">
+<p>事实上，在1990年代，我在父母之后移民到了美国，我父亲得到了在特拉华大学攻读硕士学位的机会，他能够利用这个机会并永久留在美国。我的母亲大约一年后到达，而我在她之后六个月到达，这是一个相当独特的经历。你会和很多父母交谈。我小时候有一年半没见到我爸爸，六个月没见到我妈妈。我和祖父母住在一起，很大程度上是因为我们根本没有钱把整个家庭都送过去。</p>
+<p>所以，我们当时不确定我爸爸在这个国家是否有长期的未来。所以我们想着他可能一年或两年后会回来。无论如何，事情对他来说进展得相当顺利，他能够打电话给他妈妈，然后是我。还有我在保加利亚的最后一年，1991年，保加利亚的通货膨胀率大约是170%，170%。所以我最早的记忆是随机停电，还有，我的家人围坐在电池供电的收音机旁，只是听着发生了什么。我在商店看到的排队人群</p>
+<p>去买牛奶和鸡蛋的窗口。牛奶是用这些大塑料袋出售的。每年只有一周，你才能从其他共产主义国家买到香蕉。所以，古巴……我记得古巴的香蕉真的很棒。然后我来到美国，这里香蕉到处都是，但味道不太好。是的，即使我搬走之后，1997年保加利亚也以世界最高的通货膨胀率而臭名昭著。大约是年同比2000%。所以，他们每隔几个月就在货币上加零。</p>
+<p>从那时起，我就对金钱有了某种理解。我必须非常独立。我父母总是谈论这个话题，我们必须给远在家乡的祖父母寄钱，因为他们正在应对通货膨胀危机。实际上，我的祖父母把他们的资产存放在一个铜制容器里。所以，在我祖父的家里有一个这样的壁橱，他在造船和海军工业里做医生。所以他经常在船上。他在港口有联系人，一拿到工资就会进行兑换。</p>
+<p>用于铜制器具。所以这算是我看到人们投资的第一个真正的资产。他在囤积……抱歉，是囤积煎锅。在衣柜里，他们，会存放一些有价值的东西。是的，锅和煎锅比当时的本地货币要好得多。所以，是的，我就在这样的环境中长大。我在没有自由市场和健康资本市场的破碎体系中长大，并理解当时发生的情况。我可以说，我很快就意识到：我在学习上相当出色。</p>
+<p>而且也很独立。实际上，这是被迫的，因为我的父母负担不起保姆或课后俱乐部或类似的东西。他们俩都做多份工作，我父亲还是全职研究生……所以，当我上幼儿园的时候，五岁，我已经能自己走回家了。他们告诉我：“好吧，去找邻居。”我们住在马里兰大学的公寓楼里。敲门。邻居们会照看你几个小时。最终他们意识到，“好吧，我们的儿子正在经历这个复杂的仪式去</p>
+<p>回家。最好还是直接把钥匙给他。”之后不久，我自己开始开门、做作业，还会出去和朋友玩。所以我非常独立。同时，总是有必须成功、在学校表现好的压力。可能有几个原因。首先，我很成功，周围的人都说：“多学习，上课少缺席，在数学上取得更好的成绩。多学数学。”老师们也会和我的父母安排会议：“嘿，你的儿子，他数学很好吗？你应该把它记下来。”我认为这是其中的一个优势。</p>
+<p>住在马里兰大学附近，那里的社区以学术为导向，试图识别天才儿童并促进他们的发展。还有一件事是，我的父母有时会让我坐下来，然后说：“听着，我们家的经济状况非常不稳定。我们赚的钱不多，所以如果你想上大学，你必须获得奖学金，而要做到这一点，你必须在学校表现非常出色。”顺便说一句，我们是以签证身份在这里的，所以如果我们失业，就必须回保加利亚。因此，我感受到了义务带来的压力</p>
+<p>在学习上取得成功。对我来说，我的数学研究生阶段在某些时候变成了一个真正的挑战：“最难的事情是什么？”我如何能在最难的事情上变得更好？这几乎像是在与自己竞争。还有父母，他们在学业上也非常出色：“哦，爸爸，你上学时最难的科目是什么？”“哦，化学？那我就专注于化学，对吗？是的，是的。那你学过最难的数学是什么？”我认为在数学中有一种成就的阶梯。这几乎就像在玩一个非常好的电子游戏，其中</p>
+<p>总是要知道接下来什么会更难。就像：你能多快到达代数几何或拓扑学，并且能否更早地学习并理解它？我认为吸引我去读研究生的原因是，如果你创造了一个新的数学理论，你可能会被人记住很长时间。就像学校里的孩子们学习高斯、黎曼和其他伟人一样；如果你创造了一个理论，也许几百年后的孩子们会研究并思考你的工作。所以这就是</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sarah"><div class="label"><span class="badge" title="萨拉·郭（Sarah Guo）">Sarah</span></div><div class="content">
+<p>当时吸引了我……鉴于这种经历，你也应该解释一下Harmonic作为一个项目是什么。对于今天由于人工智能而正在发生的数学革命，你的反应是什么？我认为，一方面，这是非常令人兴奋的，而且在某种程度上也是意料之中的，因为人工智能模型的出现以及验证获得结果的能力，已经导致数学过程的某种自动化。我认为这真的很令人兴奋，你不觉得吗？</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>Harmonic 与亚里士多德：数学超智能要不要去中心化</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特涅夫（Vlad Tenev）">Vlad</span></div><div class="content">
+<p>我认为这些机会和工具……数学变化得非常快，尽管作为一个学科它几千年来变化不大。当我在研究生院时，大多数工作仍然是用粉笔和黑板亲自完成的。没有合作。人们甚至不使用计算机。所以，现在数学在某种程度上与编程结合在一起。数学家使用相同的工具。他们使用版本控制。他们使用 Lean 进行验证，而且这个行业发展得非常快。大约一年前，我几年前共同创办的初创公司 Harmonic,</p>
+<p>着手创建一个数学超级智能。去年，我们创建了一个名为亚里士多德（Aristotle）的模型，它是三枚国际数学奥林匹克金牌得主之一。后来我们将其公开发布，人们开始使用亚里士多德（Aristotle）来解决未解决的数学问题。例如，它被用来解决埃尔德什（Erdős）问题。还有其他数学家使用它来获得新的结果，等等。然后我开始思考很多关于什么的事情</p>
+<p>数学的未来是什么。这些工具具体应该如何使用？对我来说，非常重要的是我所构建的工具——不仅是在Harmonic，也包括在Robinhood——能够赋能个人。我唯一不喜欢这股用AI模型解决数学问题的新潮流的是过度集中化。看起来拥有大型数据中心和员工的AI公司正在使用秘密模型来完成这一切。</p>
+<p>工作。在我看来，最终会占上风的更有吸引力的模式，是传播这些工具，将它们直接交到人们手中，让他们自己进行有趣的发现和发明。所以我想我是作为去中心化这一基本哲学理念的支持者。我真的很希望相信这一点。我认为很多在大型集中式人工智能公司工作的人会说——如果我可以有点偏见的话——这是自我欺骗，而“半人马游戏”（人类-</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sarah"><div class="label"><span class="badge" title="萨拉·郭（Sarah Guo）">Sarah</span></div><div class="content">
+<p>人工智能协作) 在代理循环中简单地输给了更强大的计算能力。循环。你认为这是真的吗，或者在数学中哪种人类输入会是有生产力的？我认为这是两个不同的事情。首先——个别数学家的角色是什么？第二个问题是，这会是人们会使用的产品，还是人工智能实验室会自己生产这些产品？我对这两个选项都有看法，但第二个选项更有趣。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特涅夫（Vlad Tenev）">Vlad</span></div><div class="content">
+<p>我认为一个世界，在那里私有的人工智能实验室做出所有的发现，OpenAI 或 Anthropic 的数据中心只是运行这些公司员工编写的代码，它们实现垂直整合，制造所有药物并出售给人们，做出所有数学和物理的发现，并发表所有科学论文——那就是我所说的那种世界。如果这一切都在发生，并且归人工智能实验室自身所有，那么我认为这有点像一种反乌托邦的结果，由于多种原因，这种情况不太可能发生。</p>
+<p>不仅是因为技术和市场因素，还因为如果这种情况发生得很严重，他们将失去经营许可，我认为你可以得到同样的结果，比如证明纳维-斯托克斯方程或说黎曼猜想，如果是一个普通人用……做出来的，反响会好得多。这可能是值得庆祝的事情。是的。是的。我对此很肯定。我认为这正是会发生的情况。这是最可能的。</p>
+<p>一年的情景。我认为还有另一个混杂因素：很多进入这些人工智能实验室的人都是前研究人员。所以他们热衷于进行研究。我认为他们对为什么这种行为会被负面看待感到困惑。从他们的角度来看，就像是，“哦，我是一个研究人员。”我被邀请到一个研究机构做科学研究，现在所有这些学者都对我生气。但我觉得……我也对在这些公司工作的人说过，我认为如果他们找到一些数学家会好得多，并且</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sarah"><div class="label"><span class="badge" title="萨拉·郭（Sarah Guo）">Sarah</span></div><div class="content">
+<p>与他们合作，以便一切看起来不会像我们处在一个黑暗的反乌托邦未来，数据中心里只有一家公司进行所有科学发现。我们能否稍微谈谈在 Robinhood 内扩大所有权的新方法，以及 Robinhood 是如何与 AI 领域正在发生的事情互动的？也许我们可以从你们在代币化方面所做的事情开始，或者你们对这一过程的愿景。是的，代币化确实是一项新创新。这个想法几乎类似于稳定币。所以，稳定币的工作原理是这样的：你拿美元或国债，放入一个壳里，有条件地...</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>代币化与 Robinhood Chain：股票代币进 DeFi</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特涅夫（Vlad Tenev）">Vlad</span></div><div class="content">
+<p>“盒子”，然后发行并销毁代币以确保这个盒子。同时，传统资产保存在传统机构中，比如银行。之后，这些代币可以在去中心化金融（DeFi）中自由交易。所以它们可以在世界任何地方流通。它们可以以分数形式进行交易。它们可以在不同协议或信用池中交换。这就开启了……它们具有软件属性……是的，是的。所以，你可以将这个概念扩展到任何实物资产。例如，我们就是用股票做了这个操作。你可以把股票放入一个“盒子”中，</p>
+<p>发行和销毁代币以支持它们，并且它们可以像软件一样在区块链上通过互联网进行交易。这可以由私人公司来完成。不是发行股票，而是像一个持有私人公司股份的特殊目的载体（SPV）。它的行为方式是一样的，只是在赎回等方面有一些小的差异。这可以应用于艺术品、收藏品、房地产。我们多年来一直在进行代币化的研究和实验。去年，我们在法国南部举办了一次活动，推出了股权代币——这些是美国股票的代币化版本。</p>
+<p>. . 我们在欧洲做到了，但它们并没有完全整合到 DeFi 中。因此，如果你是欧洲的 Robinhood 用户，你可以交易它们，它们感觉就像真正的股票，但你不能将它们发送到以太坊网络或其他区块链，不能将它们添加到池中，也不能与其他智能合约结合。今年我们更进一步。我们重新推出了具有完整 DeFi 支持的股票代币，同时推出了 Robinhood Chain——我们为真实资产构建的新区块链。而 Robinhood Chain 已经成为历史上增长最快的区块链之一，我认为在很多方面是最快的。</p>
+<p>指标。我们正目睹开发者活动的爆发。我想我们最近宣布过，它在开发者活动方面是排名第一的区块链。开发者们拿了股票代币，把它变成类似乐高的东西，然后开始创建各种有趣的智能合约、NFT、资产池，例如，你可以把一个表情包币和股票代币关联起来。这只是第一个或第二个月的活动。我认为这些以金融原语为基础的开发者平台将会非常非常大。</p>
+<p>. . 我认为比这更令人兴奋的是，Robinhood Chain 是一种接触众多国家的方式。因此，在那些没有高效资本市场或金融系统的国家，比如南美或非洲，任何拥有智能手机和非托管钱包的人，现在都可以以极低成本访问美国市场。所以，我认为，就像稳定币已经成为这些国家的人们获取美元的标准方式一样，股票代币和类似产品将成为所有这些人获取美股的标准方式。</p>
+<p>这样他们不仅可以接触到铜锅，还可以获得创造财富的机会。没错。无论是私营公司，还是 Robinhood Chain 和代币化的真正愿景，都是将 Robinhood 的所有有效模式带到网络上，并让这些国家的人民都能使用。我认为我意识到的一点是，很多人……我们在区块链管理或者管理智能合约上的链上产品方面都是新手。Robinhood 收到的很多批评中，比如，我们被称为“企业链”，最好的区块链是……这是别人告诉我的。</p>
+<p>……他们说最好的区块链是由组织和联盟运行的，并且一切都是去中心化的。而你们呢，他们说，是一家运营区块链的公司。这怎么可能同样好呢？好吧，也许你们牺牲了一点组织去中心化的纯粹性，但作为回报，你们获得了专注的领导力和一群有着非常清晰愿景的人，他们推动一切向前发展。还有一点：我认为在网络上拥有由 Robinhood 支持的产品是件好事。许多网络选择“百花齐放”的做法，让……</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sarah"><div class="label"><span class="badge" title="萨拉·郭（Sarah Guo）">Sarah</span></div><div class="content">
+<p>开发者自己构建一切。我们也喜欢开发者，但我认为拥有像股权代币这样的原生资产，并且有我们的背书让人们可以信任……我们已经看到，这会激发更多的开发兴趣，因为人们知道，好的，Robinhood 支持它们。他们是可靠的。这是一个经过验证的品牌。我们知道它们不会消失。所以，这比起只是两三名工程师组建的团队提出这些原生资产，能给他们在构建产品时更多的信心。对于代币化股票，你认为应该存在的组合实例，或者已经存在的，有没有这样的例子？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特涅夫（Vlad Tenev）">Vlad</span></div><div class="content">
+<p>在你感到兴奋的生态系统中出现了吗？我在思考的其中一件事是，我们如何能够使用一些衍生产品，比如期权？是否有可能基于智能合约创建真正高质量的原生期权合约？传统市场已经有了很多创新，但在某种程度上受到从大型机向更现代系统转移的复杂性限制，同时还要考虑所有依赖系统可预测性和缓慢性的交易对手。我认为成功的一个重要部分是提供基本原语并让</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sarah"><div class="label"><span class="badge" title="萨拉·郭（Sarah Guo）">Sarah</span></div><div class="content">
+<p>开发者以新的方式将它们结合起来。我不想猜测开发者会想出什么，因为我无法预测与股票代币相关的NFT或与股票代币配对的表情包会变得流行。我根本无法预测这些事情会发展得如此之快并成为现实。这不一定是所有权。你对预测市场有什么看法？我实际上认为预测市场与所有权有关，因为</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>预测市场：把知识变现与新闻的进化</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特涅夫（Vlad Tenev）">Vlad</span></div><div class="content">
+<p>许多人拥有独特的知识和见解，以及他们对其他人可能不了解的事物的独特看法。例如，你可能是开发人工智能模型方面的专家。我们有许多合约允许我们对哪一个 AI 模型本周、这个月或今年将是最好的进行投机和对冲风险。在预测市场出现之前，这种知识被货币化的方式非常间接。你可以交易 Google 或 Nvidia 股票的衍生品，是的。所以能够以更直接的方式货币化你自己的知识确实是</p>
+<p>重要。这就是我们宣布并计划推出KPI合同的原因之一。长期以来，如果你研究一家公司，并有很好的想法认为它的每股收益（EPS）或收入会超出预期。那么，在过去，如果你购买了一只股票或者，比如说一个股票期权，有时公司会超出盈利预期，但股票仍然会因一些外部原因下跌，可能因为预测之类的原因。所以基于KPI的合同现在允许你直接进行交易</p>
+<p>每股收益、收入或任何对公司可能重要的关键绩效指标。因此，我认为这里有一个方面，你实际上可以将你的信念货币化。你可以更精确地对冲风险。例如，加利福尼亚州有一项通过“亿万富翁税”的合同，我认为这对某些人来说是一个有用的对冲工具……但对我个人来说不是。我不依靠他来对冲，但别人可能会。另一方面——我认为这是一个新的信息来源。我几乎把它看作是新闻的纯粹形式的演变：预测市场是新闻的演变。那么，新闻将会是什么样子呢</p>
+<p>未来？我认为它不会是《纽约时报》，但可能会是类似的东西，你会有一个头版、一个商业版块、生活方式、文化、体育，而且体育占很大一部分。你可以简单地看到正在发生的事情，以及由于概率而可能在未来发生的事情。很多人甚至都不进行这些交易。他们只是喜欢打开应用程序去看，看，这是关于我的。应该发生什么。是的。你认为当这种情况发生时，人们会允许代理为他们交易吗？这会产生什么影响？是的，今年早些时候我们推出了一款产品，本质上是Robinhood的MCP。我们称之为代理交易，我们也有一个代理。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>智能体交易与智能体信用卡：15 万账户与日均 3000 万次调用</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特涅夫（Vlad Tenev）">Vlad</span></div><div class="content">
+<p>信用卡。因此，在更广泛的代理金融领域，我相信有两件事具有产品与市场匹配度。第一是代理交易，很明显，当代理为你执行交易并实施策略时。我们看到采用率非常高：自推出以来的几个月内，已有超过15万客户开设了代理交易账户。推出。如果你看工具调用，它们遵循平滑的指数增长，我们最后公布的数字大约是每天3000万次工具调用。</p>
+<p>所以代理交易显然是产品与市场的契合。我们一开始只有 MCP，几周前在我们的 Hood 峰会上，我们宣布了 Robinhood 代理，这本质上是下一步，现在整个界面已经直接内置到你的 Robinhood 账户中。你可以把它看作是一个类似 Claude 或 Codex 的工具，但专门为交易优化。所以你可以设置周期，并说：“好的，每天执行我的策略，重新平衡你的投资组合，寻找新的机会。”</p>
+<p>我们拥有这些技能。例如，你可以进行投资组合再平衡或其他一系列操作。我们有代理应用程序，所以我们推出了一个应用商店，在那里你可以连接到卫星数据源。如果你想创建一个计算零售停车场车辆数量的策略或类似的东西，我们会提供这个功能。我认为开发将会如下进行：我们会考虑所有编程工具的可能性，并创建方便、适合交易员使用的版本，使主动交易尽可能简单。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sarah"><div class="label"><span class="badge" title="萨拉·郭（Sarah Guo）">Sarah</span></div><div class="content">
+<p>令人惊讶的是。你认为这将对市场参与者的构成或金融基础设施产生什么影响？毕竟，你描述的许多内容机构交易者都可以使用，但成本高且复杂，对吗？那么如果这些变得大众化，这意味着什么呢？这实际上是我们产品的主要关注点。我们能否将对冲基金或复杂算法交易公司的能力带给普通人？同样，比如说，如果你是一名高级计算机科学学生，你也可以编写交易策略。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特涅夫（Vlad Tenev）">Vlad</span></div><div class="content">
+<p>如果你付出更多的努力，你甚至可以部署它，获得一个数据中心的位置，并连接到交易所。我们能否优化所有这些方面，使得就像成为软件工程师变得更容易一样，Robinhood 代理和我们的 MCP 也能让成为量化交易员变得更容易？我认为这将导致交易活动显著增加。我认为最初它会集中在一小部分有经验的人群中，但他们的交易活动可能会显著增加。随着时间的推移，它会简单地扩展到更多人群中</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sarah"><div class="label"><span class="badge" title="萨拉·郭（Sarah Guo）">Sarah</span></div><div class="content">
+<p>更大部分的人口。是的，我认为编程是一个很好的类比。就像，有很多人想要……有些人会编程，他们，是最早使用代理进行编码的人，他们的生产力呈指数级增长。但现在有些人以前根本不会接触 VS Code 或 Cursor，但有人向他们展示了如何使用 Claude 或 Codex，现在他们可以非常轻松地创建一个网站。所以，我认为，这会提高每个人的标准，没有例外。我认为构建软件或自动化事物的愿望，比我之前想象的要更广泛。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特涅夫（Vlad Tenev）">Vlad</span></div><div class="content">
+<p>用于编程和代理编程的人工智能出现了，但想要通过自己的信念赚钱的欲望似乎更加普遍。是的，我认为，当人们得到，当事情变得更容易，当你可以……很多人都有想法，如果你能将这个想法以最少的努力转化为一个策略，如果我们能将所需的努力降低到仅仅买一只股票的水平，那么我认为会有更多人去做。这个问题可能没有答案，但在应对这一点时，金融基础设施或风险管理是否有明显的改变方式呢？</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>基础设施与风控：沙箱账户 vs 全民 HFT 负荷</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特涅夫（Vlad Tenev）">Vlad</span></div><div class="content">
+<p>这个吗？我不这么认为。所以我会告诉你从第一天起我们就有的保护措施。你现在应该创建一个新的独立账户，与你的主要 Robinhood 余额分开。所以你可以创建一个 MCP 账户，你可以创建一个代理账户，你必须把钱转到那里。然后，对于选择批准交易的客户，默认情况下你必须批准你的交易，但你可以关闭这个功能，这样你就可以……危险权限。没错。实际上这并不太危险，因为代理无法访问你的其他账户，而且……这不是我的主账户。所以这个，这在“沙盒”中。这个是在“</p>
+<p>沙箱。可能并不是完全与电网隔离，但非常接近。我们已经做了很多建设，在 Robinhood 内部为沙箱和安全性改进了很多基础设施。是的，到目前为止，我认为这在市场中占的比例并不大。我之所以认为没有必要进行任何重大变化，是因为高频交易已经存在很长时间了。市场大约在 20 年前就完全电子化了。所以，从交易所到许多经纪商——在某种程度上都已经适应了</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sarah"><div class="label"><span class="badge" title="萨拉·郭（Sarah Guo）">Sarah</span></div><div class="content">
+<p>新的现实是，大部分交易过程是在新泽西的数据中心通过算法交易完成的，而不是许多人仍然想象的：纸质票据和交易大厅上的交易员。所以，我不确定我们是否需要从根本上改变任何监管措施，但正如你理解的那样，随着发展——我毫不怀疑它会发展——我们可能会遇到需要更多监管明晰的个别情况……是的，我指的是更多基础设施方面的内容，如果我们以编程为例的话。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特涅夫（Vlad Tenev）">Vlad</span></div><div class="content">
+<p>我没有预见到这一点——也许我们都应该预见到——但对我来说，CI/CD 会因为代码生成量的指数级增长而完全“崩溃”似乎并不显而易见。哦，是的。所以，这就是我的问题：当然，我们之前有高频交易，但如果现在每个人都成为高频交易者，这看起来就是一个完全不同的负担。所以，看看，堆栈中有几个不同的层次，我们应该预期链上堆栈会有所不同，因为它已经有 MCP，但我们仍有我们的链上工具，正如我所说，Robinhood 链是处理真实资产的最佳区块链。</p>
+<p>此外，它是人工智能体的最佳区块链。因此，我们在那里看到了大量的代理交易。在我们的集中式 C5 产品中，我们对整个系统有显著的端到端控制，我们有自己的数据库，我们自有的代码，上面运行着策略和沙盒。我们自己开发了许多这些工具。我们必须优化所有这些。但是，当所有东西都通过我们的系统时，你会接触到像算法做市商这样的玩家，他们是极其复杂的软件公司。</p>
+<p>Citadel、Jane Street、Jump Trading。这些都是从事低延迟和高频交易的公司。所以我并不太担心他们是否能够应对这种需求的扩展。当然，还有交易所本身。而交易所由于高频和算法交易的压力，确实已经优化了它们的API以处理巨大的交易量。但同时，我认为在总交易量中，我们的代理交易比例仍然很低。所以，我认为我们会有一些预警。我们会看到它的增长情况。我不认为我们会，</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sarah"><div class="label"><span class="badge" title="萨拉·郭（Sarah Guo）">Sarah</span></div><div class="content">
+<p>很快将会达到一个阶段，代理人介导的交易将占活动的两位数百分比。我认为我们还有时间。鉴于你非常相信所有权以及所有权的民主化是社会稳定的重要因素，同时也是人们的一个机会，我认为有一种感觉，即人工智能革命并不是广大民众所拥有的。你有没有想过可能的解决方案是什么？也许你还可以谈谈特朗普的账户。是的，我认为我们去年就已经发现了这个问题。这里有几个要点，</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>AI 时代的私人公司所有权：Ventures、YC 与合格投资者改革</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特涅夫（Vlad Tenev）">Vlad</span></div><div class="content">
+<p>首先，所有主要的创新型人工智能公司都是私营的。当然，也有一些例外。你可以看看英伟达和谷歌。不过，是的，这些公司在真正进入人工智能这个新阶段之前已经相当大了。所以，如果几年前你想投资大语言模型，并想获得OpenAI或Anthropic的机会，作为个人投资者，你实际上是没有机会的。我认为这有很多原因。其中一个原因是，私人市场已经变得……高增长公司在私人市场融资变得非常容易。</p>
+<p>他们基本上是在一个巨大的规模上。一个巨大的规模上。而这以前从未发生过。在80年代，一家公司比如微软，或者即使在90年代的亚马逊，他们上市时的估值也只有几亿美元。所以在公开发行时进入的个人投资者可以赚上千倍的回报。现在，如果有一个人工智能实验室上市时估值达到一万亿或两万亿，对于一个个人投资者在首次公开募股期间获得那种利润，公司必须成长到千万亿级，简直疯狂。我认为这实际上不太可能。也许会发生，但我认为会困难得多。</p>
+<p>相反，利润继续集中在越来越少的风险投资家或机构投资者手中。而且，我们随后会问自己：为什么人们对数据中心如此不满？如果你仔细想想，作为一个个人，我从所有这些活动中没有获得任何经济利益。事实上，你可以说这威胁到我的收入、我的工作，污染我的社区，他们制造了大量噪音。然而，如果你将人工智能与加密货币之类的事物相比，加密货币并不是……并不是每个做加密货币交易的人都在赚钱，。</p>
+<p>而现在比特币的价值是，现在是多少钱呢？85,000。如果你几个月前以120,000买入，你现在就是亏损的。2022年和2023年对加密货币行业来说，至少可以说是艰难的年份。很多人在那些年都亏了钱。但即便如此，在2024年，他们全力以赴出来，我认为，显著影响了选举。如果甚至有一点点对加密货币的过度监管的迹象，就会有一大群人在社交媒体上爆发，写信给他们的国会议员，并进行抗争</p>
+<p>每一步。我认为这其中很大一部分原因是，加密货币从一开始就在私人个人中广泛分布拥有。而机构几乎是后来才进入的……而人工智能则不同。那么我们对此该怎么办呢？好吧，我们启动了两项举措。我们认为每个人都应该有机会投资私人公司，而我无法有效地说服公司提前上市，即使是我也不行。虽然我有时会尝试这样做。我们有我们的首次公开募股，我们实际上是承销商。我们积极参与这一过程。但私人投资者应该从私人公司中受益，并且</p>
+<p>大股东。实际上，这正是 Robinhood Ventures 的愿景。我们如何才能做到，让零售投资者不是你的种子轮和 A 轮阶段资本构成的重要组成部分，成为一种异常现象。因此他们应该……他们应该在尽可能早的阶段参与。因此，对于 Robinhood Ventures Fund I One，我们有一个非常创新的结构。你可以把它看作是一家上市的风险投资公司。我们所做的是：我们利用了我们的 IPO 渠道，而我们是 IPO 最大的零售渠道，并利用它从 Robinhood 客户那里筹集 IPO 资本，即私人零售资本。</p>
+<p>投资者，然后我们用这些资金投资于初创公司。这些基金在纽约证券交易所公开交易，所以它们的交易方式就像股票一样。因此，Robinhood Ventures Fund 1 的目标是晚期私营公司。OpenAI 就在这个基金中。那里还有几家公司，金融科技公司，许多人工智能初创公司，Eleven Labs、Cruzo，我们最近刚宣布。所以这是一个超晚期阶段。然后我们问自己：我们如何能走得更远，让人们有机会参与种子轮和 A 轮融资？</p>
+<p>这就是Robinhood Ventures Fund 2的创意产生的原因——与YC合作，并使用一种能够让人们进入最早期阶段的结构，这些阶段风险最高，但机会也最大。而这是一个由Rich Aberman为我们管理的基金……我们还有私人资产代币化，这以不同的方式解决了这个问题，但目前仅限于美国之外。我们的主要目标是看看我们是否能让一家私人公司像股票或加密货币一样，以碎股形式全天候实时交易。你能……你应该能够全天候交易Anthropic。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sarah"><div class="label"><span class="badge" title="萨拉·郭（Sarah Guo）">Sarah</span></div><div class="content">
+<p>以一定程度的优质所有权持有少量股份，至少不比拥有SPV中的LP股份差，而且它应该对所有人开放。因此，这需要在美国推动许多变革，包括合格投资者的规则，但我们确实非常有动力领导这一进程并实现它。我的问题是：例如，如果你是一名风险投资家，拥有一个你认为会从私人公司中获利的投资组合，那么人们有LP的选择：有机构，也有你的朋友，你可以为他们赚钱。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特涅夫（Vlad Tenev）">Vlad</span></div><div class="content">
+<p>显然，对于合格投资者（QP）和涉及零售投资者的认证方面有相关规则。你的观点清楚地表明，其中一些规则需要更新。是的，上周美国证券交易委员会（SEC）启动了一项计划，宣布了一个单独的路径。他们委托金融业监管局（FINRA），经纪商的主要监管机构，创建一个考试——一个认证考试，你可以以个人身份参加考试，并通过在考试中心进行为期两小时的考试获得认证。我认为这……而不是基于资产。不是基于资产的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sarah"><div class="label"><span class="badge" title="萨拉·郭（Sarah Guo）">Sarah</span></div><div class="content">
+<p>你可以选择加入某个机构，或者持有Series 7执照，这意味着与一家金融公司有联系。但确实，这是一个基于知识的考试，我认为这绝对是一个积极的步骤。我认为他们确实在做一些事情，但我认为目标应该是降低门槛，因为很多人会同意去专门的考点参加考试。所以我认为还需要做更多工作，我们将走在推动这一进程的前沿。我认为反对这种规则演变的主要理由，是出于对欺诈和家长式管理的某种保护。你对此有什么看法？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特涅夫（Vlad Tenev）">Vlad</span></div><div class="content">
+<p>对于我们的客户，我、我们花了很多时间与他们交谈，弄清楚对他们来说什么是重要的，其中他们最关心并且同意的一件事是这句话：“我可以管理自己的钱，不应该有人告诉我如何花或投资它。” 当我们问客户，“你同意吗？” 完全一致同意。所以，这并不意味着他们个人想把钱投资到所有有风险的投机性投资中，但他们不认为政府或其他任何人有权告诉他们该如何处理自己的钱。</p>
+<p>当然，我认为人们应该对这些产品有非常清楚的了解。所以我们必须确保告诉你它是什么，并提供尽可能多的信息。但是，我在想这个问题：我会告诉你不要投资热门的首次公开募股（IPO）吗？IPO 确实有风险。甚至是迷因币也是如此。迷因币几乎有完全明确的监管确定性。如果你想购买迷因币，你可以这么做。美国证券交易委员会（SEC）甚至写过一封信说：“这些不是证券。这些是收藏品。”这为其开辟了道路。所以我认为从几个不同的角度来看，这是荒谬的。</p>
+<p>尤其是因为梗币在任何数量上都是完全可以接受的，但私营公司……从纯粹的风险角度来看，限制对私营公司的访问是非理性的。是的，我认为，我认为这是对的。人们很聪明，不是吗？我认为，应该有某种合理的监管。我支持这一点，但我认为我们已经走得太远了。使合格投资者规则成为必要的条件已经不再适用。我是说，这些规则是互联网出现之前的。那时候你甚至无法获得任何信息。而现在关于一切的信息都如洪流般涌来。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sarah"><div class="label"><span class="badge" title="萨拉·郭（Sarah Guo）">Sarah</span></div><div class="content">
+<p>特别是私营公司，以及可以为你收集和总结所有信息的人工智能模型。所以，是的，我觉得现在这有点不太合理了。你能谈谈Robinhood为支持特朗普账户（Trump accounts）正在做什么吗？是的，这是我们服务国家的一种方式，我们对此感到非常自豪。所以Robinhood被选为特朗普账户（Trump accounts）的唯一初始托管人和经纪商。我们正在与美国最古老、最知名的银行BNY，以及财政部和国税局合作实施这个计划。这个想法是，我们能否让每个孩子</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>特朗普账户：唯一初始托管券商与从出生持有标普</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特涅夫（Vlad Tenev）">Vlad</span></div><div class="content">
+<p>通过低成本的多元化ETF，从出生起就拥有美国经济的一部分，通过标普500指数吗？从2025年1月起的每个新生儿，在接下来的三年里，财政部都会分配一千美元的启动资金。迈克尔和苏珊·戴尔通过他们的基金会，已经向低收入地区的儿童捐赠了超过60亿美元。许多人也在效仿，例如格温·肖特韦尔，她捐赠了SpaceX的股票，以及布拉德·格斯特纳，他是这一计划的策划者和</p>
+<p>该项目的架构师。他推动了该项目，并向印第安纳州的公民及其子女捐赠了巨额资金。我们提供基础设施和应用程序开发。我们喜欢这个，因为我认为这是将家庭股权所有权从65%提高到95%的最佳方式。当这项工作成功时，我认为它将在未来几十年带来一个更加稳定和繁荣的社会。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sarah"><div class="label"><span class="badge" title="萨拉·郭（Sarah Guo）">Sarah</span></div><div class="content">
+<p>我们的目标是让这是政府推出过的最好的产品，也是特朗普总统遗产中最持久的积极部分。这是我们的目标。这是一个了不起的计划。为你的孩子注册。最后一个问题给你。安德鲁·里德，我们俩都很熟悉他，形容你是无限智慧与在应对金融市场、公关和庞大用户群体的变幻莫测时极其坚定的手段的奇特结合——。你是如何保持从容或冷静的？你能给正在听我们的众多商业领袖什么建议？</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>领导者的沉稳：童年艰难、厚脸皮与乐观复盘</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特涅夫（Vlad Tenev）">Vlad</span></div><div class="content">
+<p>我认为小时候克服那么多困难只是让我习惯了挑战，我有一个非常支持我、令人难以置信的家庭，父母很棒，但我们可以说是一起经历这些的，你懂吗？我们全家同时移民到美国，我不是那种被一切都免费给予的孩子，几乎就像：你是这个家庭的一员，我们都必须自己弄明白。我有我的角色，他们有他们的角色。所以，当然，我是他们的孩子，但是</p>
+<p>我从很小的时候起就被赋予了很大的独立性，几乎像平等对待一样。我们在 Robinhood、Harmonic 以及所有这些项目中都面临着许多商业挑战。但当你退一步思考时，会想，“那么，这能和被驱逐的威胁相比吗？”我们在谈论的 5% 通胀会让每个人如此恐慌，那又如何呢？而我们小时候经历的 2000% 通胀又如何呢？所以，有时我会把它与我自己的孩子联系起来思考，？我们应该为他们创造挑战吗？我们正在尝试……我是说，我正在尝试创造一个挑战，但你</p>
+<p>必须自己设计，而且这有点难，因为他们有很多优势，比如导师，他们可以去各种博物馆，而我没有。他们有安全保障。是的，但他们有安全保障，我认为克服困难和忍耐其中有非常重要的意义。我尽量创造这样的环境，但我觉得我还没有找到完美的方式……我认为这是很大的一部分，而且可能，正如我们之前所说的，这也是天性与教养的问题。也许我生来就是这样，我不知道这在多大程度上取决于环境。</p>
+<p>我认为，如果我要把这个作为给其他领导者的建议，那就是一个简单的乐观态度：你经历的任何挑战都将使你在未来更加坚韧……我想这是贝佐斯说的，应对所有这些挑战的最好方法就是培养厚脸皮。这可以在你自己内心控制，但你无法控制外部世界。所以，如果你真的能做到这一点，我觉得这似乎是一种伟大的超能力，不是每个人都具备的。非常好。非常感谢你，弗拉德。这真棒。谢谢你的邀请。在推特上找到我们：@NoPriorsPod。如果你想看到我们的面孔，请订阅我们的YouTube频道。抓住</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="sarah"><div class="label"><span class="badge" title="萨拉·郭（Sarah Guo）">Sarah</span></div><div class="content">
+<p>在 Apple Podcasts、Spotify 或您收听播客的任何平台上收听。这样您每周都会收到一个新的节目。订阅新闻通讯或在 no-priors.com 查找每一集的文字稿。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "No Priors", "title": "代币化、智能体交易与 Harmonic：Robinhood CEO 弗拉德·特涅夫谈扩大所有权", "url": "https://www.youtube.com/watch?v=yULk8eNa2mg", "videoId": "yULk8eNa2mg", "published_at": "2026-11-05", "duration": 3248, "caption_source": "YouTube 官方英文字幕（普通 yt-dlp 遇 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 补拉成功）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段（说话人：萨拉·郭 / 弗拉德·特涅夫；专名按官方简介校正）", "guests": ["弗拉德·特涅夫（Vlad Tenev）"], "intro": {"summary": "No Priors 主持人萨拉·郭（Sarah Guo）对话 Robinhood CEO 兼联合创始人弗拉德·特涅夫（Vlad Tenev）：公司如何以「所有权」为轴，从零佣金交易走向代币化、预测市场、智能体交易与特朗普账户；以及他创办的数学超智能公司 Harmonic 如何推动去中心化的发现。", "points": ["Robinhood 覆盖 120+ 国家，产品统一叙事：儿童账户、Ventures、代币化/Robinhood Chain。", "Harmonic 模型亚里士多德获 IMO 金牌级表现并开源使用；反对实验室包办全部数学发现。", "股票代币接入 DeFi；Robinhood Chain 开发者活跃度自称第一，服务银行薄弱地区接入美股。", "智能体交易数月超 15 万账户、约日均 3000 万次工具调用；另有智能体信用卡与 Agents 应用商店。", "Ventures Fund 1/2（含 OpenAI、YC 早期）+ 推动合格投资者知识考试改革。", "特朗普账户唯一初始托管券商：新生儿 1000 美元种子资金，目标家庭持股率 65%→95%。"], "verdict": "值得看：把所有权、链上原语、代理交易与监管改革串成一条产品战略线，细节密度高。", "audience": "关注金融科技、代币化、零售投资与 AI 应用的听众。"}, "speakers": [{"id": "sarah", "name": "萨拉·郭（Sarah Guo）", "role": "host", "short": "Sarah"}, {"id": "vlad", "name": "弗拉德·特涅夫（Vlad Tenev）", "role": "guest", "short": "Vlad"}], "sections": [{"id": "s1", "title": "开场：所有权公司 Robinhood 与「拥有」使命", "start_sec": 0, "summary": "冷开场串联预测市场、数学 AI、代理交易等金句后，主持人萨拉·郭（Sarah Guo）引出嘉宾——Robinhood 联合创始人兼 CEO 弗拉德·特涅夫（Vlad Tenev）。弗拉德用一个词概括公司：所有权（ownership）。Robinhood 以某种形式覆盖 120 多个国家；从个人层面，资产持有是通向财务自由的路径，持仓也塑造身份；从社会层面，资产所有权不广布的社会更脆弱——更多人「有皮肤在场」会更关心系统结果。产品线被他串成同一叙事：儿童账户（从出生持有）、Robinhood Ventures（上市前私有公司）、代币化（把所有权全球化到银行体系薄弱的国家）。公司从手机零佣金买股 App，演进为多资产金融综合体。"}, {"id": "s2", "title": "出身与使命：保加利亚通胀、铜锅资产与数学阶梯", "start_sec": 287, "summary": "萨拉追问：师从陶哲轩（Terence Tao）、做过高频交易（HFT），何以变成「为民」的使命感？弗拉德讲述：1980 年代末出生于东欧，苏联解体前后；1990 年代父亲先赴特拉华大学读硕，他与祖父母分开约一年半才移民美国。1991 年保加利亚通胀约 170%；最早记忆是断电、电池收音机、窗口外排队买牛奶鸡蛋、一年仅一周能买到古巴香蕉；1997 年保加利亚一度约 2000% 年通胀、货币不断加零。祖父母把工资换成铜锅铜器当「硬资产」——他眼中第一个真实投资品。马里兰大学公寓区五岁独自放学、邻居照看后拿钥匙自立；父母签证与奖学金压力逼出学业竞争心态；数学像「通关游戏」——代数几何、拓扑层层加难，读研曾想做出能让后人像学高斯、黎曼一样铭记的理论。"}, {"id": "s3", "title": "Harmonic 与亚里士多德：数学超智能要不要去中心化", "start_sec": 745, "summary": "Harmonic 是弗拉德几年前联合创办的数学超智能创业公司。他认为 AI 让可验证证明自动化，数学正与编程合流：版本控制、Lean 验证等；而研究生时代还主要靠粉笔黑板。去年发布模型「亚里士多德（Aristotle）」，是国际数学奥林匹克（IMO）三枚金牌模型之一，公开发布后被用来攻克埃尔德什（Erdős）等问题并产生新结果。他反感「大实验室+保密模型+自有数据中心包办全部发现」的过度中心化；更希望工具交到个人手中，让普通人也能发明与发现。萨拉质疑「半人马」人机协作是否会被纯算力智能体循环碾压；弗拉德拆成两个问题：个体数学家角色 vs 产品由谁交付——后者更关键。若 OpenAI/Anthropic 垂直整合、包办药与论文，他认为既像反乌托邦也不太可能：显著发生会失去社会许可；纳维–斯托克斯或黎曼假设若由普通人借助工具完成，更值得庆祝，也是他认为一年内更可能的剧本；实验室前研究者应更多与外部数学家协作。"}, {"id": "s4", "title": "代币化与 Robinhood Chain：股票代币进 DeFi", "start_sec": 1129, "summary": "代币化逻辑类比稳定币：把美元/国债放进「盒子」，铸造/销毁代币做 backing，底层资产仍在银行等传统机构，代币则可在 DeFi 全球流转、碎片化、进协议与借贷池——具备软件属性。同一模式可套股票、私有公司 SPV、艺术品、收藏品、房地产。去年法国南部活动推出美股股票代币，欧洲客户可交易但未完全接入 DeFi（不能上以太坊进池子）。今年升级：股票代币全面支持 DeFi，并上线面向真实资产的新链 Robinhood Chain——他称其多项指标为史上增长最快之一，近日宣布开发者活跃度排第一；开发者把股票代币当乐高，做出 NFT、资金池、梗币挂钩股票代币等组合。更大愿景：南美、非洲等资本市场薄弱地区，只要智能手机+非托管钱包就能低成本接入美股，如同稳定币成为当地接触美元的标准路径。面对「公司链（corpo-chain）」批评，他承认牺牲一点组织去中心化纯度，换聚焦领导与清晰愿景；有 Robinhood 背书的原语比两三工程师自造原语更能激发开发者信任。他期待链上原生期权等衍生品，但更相信给原语、让开发者组合——自己也没料到梗币/NFT 与股票代币的搭配会这么快流行。"}, {"id": "s5", "title": "预测市场：把知识变现与新闻的进化", "start_sec": 1566, "summary": "弗拉德把预测市场也纳入「所有权」：许多人有独特洞见（例如谁最懂本周/本月最佳 AI 模型），过去只能间接通过谷歌、英伟达等衍生品变现；预测市场让信念更直接货币化。Robinhood 宣布并将推出 KPI 合约：以前赌公司超预期 EPS/营收只能买股票或期权，结果可能因展望等外部因素股价仍跌；KPI 合约可直接交易 EPS、营收等指标。也可更精细对冲——例如加州「亿万富翁税」能否通过的合约。他把预测市场视为新闻的进化：不一定取代《纽约时报》，但可有头版/商业/生活/体育分区，许多人甚至不交易，只打开 App 看赔率判断「接下来会发生什么」。"}, {"id": "s6", "title": "智能体交易与智能体信用卡：15 万账户与日均 3000 万次调用", "start_sec": 1728, "summary": "今年早些时候推出 Robinhood 的 MCP（模型上下文协议）形态产品，称智能体交易（agent trading），另有智能体信用卡（agentic credit card）。他认为代理金融里两件事已验证产品市场契合：一是代理代执行交易与策略——上线数月超 15 万客户开立智能体交易账户；工具调用呈平滑指数增长，最近公布约每天 3000 万次。数周前 Hood Summit 宣布 Robinhood Agents：界面嵌进账户，像面向交易优化的 Claude/Codex，可设每日循环执行策略、再平衡、找机会；并有技能与应用商店（例如接卫星数据数停车场车辆）。产品焦点是把对冲基金/量化机构能力下放到普通人，像写代码变容易一样降低成为 quant 的门槛；初期活跃会集中在少数老练用户但交易量剧增，再扩散。类比编程智能体：先让程序员指数提效，再让从未碰 VS Code/Cursor 的人用 Claude/Codex 搭网站——「用信念赚钱」的欲望比「写软件」更普遍，若把想法变成策略的摩擦降到「买一只股票」级别，参与者会更多。"}, {"id": "s7", "title": "基础设施与风控：沙箱账户 vs 全民 HFT 负荷", "start_sec": 2028, "summary": "安全设计从第一天起：智能体/MCP 需单独账户，与主余额隔离，资金要主动划转；默认需用户批准每笔交易，可关闭但仍在沙箱内、无法动用其他账户；内部加强沙箱与安全基础设施。他认为市场已电子化约二十年，多数成交是新泽西数据中心里的算法单，不必立刻大改监管，但增长中会出现需更清晰规则的个案。萨拉用编程类比：CI/CD 曾被代码生成量指数增长「压垮」——全民近似 HFT 会否压垮金融栈？弗拉德分层看：链上栈（Robinhood Chain 自称真实资产与 AI agent 交易友好）与中心化 C5 产品（自有数据库、策略与沙箱代码、端到端可控）都要优化；下游做市商如 Citadel、Jane Street、Jump Trading 与交易所 API 已为海量算法单做过优化。目前智能体成交占总成交比重仍低，远未到两位数百分比，还有观察窗口。"}, {"id": "s8", "title": "AI 时代的私人公司所有权：Ventures、YC 与合格投资者改革", "start_sec": 2310, "summary": "核心矛盾：主要创新 AI 公司多为私有（英伟达、谷歌等例外且早已很大）；个人很难早期投到 OpenAI/Anthropic。私人市场融资规模空前——微软/亚马逊年代 IPO 估值可能数亿美元，散户 IPO 后仍有千倍空间；若 AI 实验室以万亿级估值上市，散户难再复制那种倍数，收益更集中于 VC/机构。对比加密：即便有人亏损（他举例比特币从约 12 万回调到约 8.5 万），广泛的个人持仓催生政治动员；AI 则缺少这种「大众所有权」。应对：Robinhood Ventures——把 IPO 零售通道募来的资金投初创，基金在纽交所像股票一样交易；Fund 1 偏晚期私有公司，持仓含 OpenAI、金融科技与 AI（如 ElevenLabs、新宣布的 Cruzo 等）；Fund 2 与 YC 合作、由 Rich Aberman 管理，下探种子/A 轮高风险高赔率。另有私人资产代币化（目前主攻美国以外），目标 24/7、碎股交易 Anthropic 等，所有权质量不低于 SPV 的 LP。监管上支持降低合格投资者门槛：上周 SEC 路径、委托 FINRA 做约两小时知识型认证考试（非纯资产门槛），可与 Series 7 等并列；客户调研显示强烈认同「我的钱自己管」。他批评：模因币监管清晰可买，私有公司却受限，从风险逻辑不合理；合格投资者规则诞生于前互联网信息匮乏时代，如今信息与 AI 摘要泛滥，家长式限制应收敛。"}, {"id": "s9", "title": "特朗普账户：唯一初始托管券商与从出生持有标普", "start_sec": 2914, "summary": "Robinhood 被选为特朗普账户（Trump accounts）的唯一初始托管与经纪商，与美国银行老字号 BNY、财政部、国税局合作落地。构想：每个孩子从出生起通过低成本多元化 ETF（标普 500）持有美国经济一角；自 2025 年 1 月起三年内新生儿，财政部注入 1000 美元种子资金。迈克尔与苏珊·戴尔基金会已向低收入地区儿童追加逾 60 亿美元；格温·肖特韦尔（Gwynne Shotwell）捐赠 SpaceX 股票，布拉德·格斯特纳（Brad Gerstner）是项目策划者并向印第安纳儿童大额捐赠。Robinhood 做基础设施与应用；弗拉德希望借此把美国家庭股权拥有率从约 65% 拉向 95%，目标做成「政府推出过最好的产品」与特朗普遗产中最持久的正面部分，并呼吁为孩子登记。"}, {"id": "s10", "title": "领导者的沉稳：童年艰难、厚脸皮与乐观复盘", "start_sec": 3047, "summary": "萨拉转述双方都认识的 Andrew Reed 评价：弗拉德是「无尽智力」与面对市场/公关/海量用户时「极度沉稳」的奇异组合，请教如何保持镇定。弗拉德归因于童年被迫自立与全家共同移民闯关——不是被宠大的孩子，很早被当准平等成员。对比 Robinhood、Harmonic 的商业压力与童年驱逐风险、2000% 通胀，有助校准当下对 5% 通胀的恐慌。他也反思如何给自己孩子「设计」适度挑战（有家教、博物馆与安全感，难度不同）。给其他领导者的建议偏乐观：经历的挑战会强化韧性；引用贝索斯式「厚脸皮」——可控的是内在反应而非外部世界。致谢后萨拉引导订阅 @NoPriorsPod、YouTube、播客与 no-priors.com 文稿。"}], "paragraphs": [{"start_sec": 0, "type": "text", "zh": "「预测市场是新闻的进化。你只需通过赔率，就能看到正在发生什么、未来更可能发生什么。」「你对今天 AI 带来的数学革命怎么看？是不是太中心化了？这很像 AI 公司靠大型数据中心和员工，用保密模型包办全部工作。」「你觉得人们会让智能体替自己交易吗？智能体交易显然已经产品市场契合——我们看到非常强劲的采用，已有超过 15 万客户开设智能体交易账户。」「你描述的很多能力机构交易员也能做，但昂贵又难；如果被民主化，会意味着什么？」", "speaker_id": "vlad", "section_id": "s1"}, {"start_sec": 38, "type": "text", "zh": "民主化之后意味着什么？听众朋友们，欢迎回到 No Priors。今天我请来 Robinhood 创始人兼首席执行官弗拉德·特涅夫（Vlad Tenev）。我们会谈今天的 Robinhood：作为试图扩大经济参与面的金融综合体，从代币化到预测市场，再到 AI 智能体如何为零售用户交易；也会谈到 Harmonic——它致力于打造数学超智能，以及科学发现能否分布式展开、而非高度中心化。弗拉德，恭喜，非常感谢你过来。", "speaker_id": "sarah", "section_id": "s1"}, {"start_sec": 79, "type": "text", "zh": "谢谢你邀请我。那么，大家都知道Robinhood，但公司也发生了很大变化。你能否向我们的听众简要说明你今天会如何描述它？我们做很多事情。我们以某种形式在120多个国家开展业务。如果让我用一个词或一个概念概括Robinhood，那就是“拥有”。我认为我们是拥有的公司，是最与此相关的公司。当我这么说时，为什么拥有很重要呢？我认为在个人层面上，人们希望拥有某样东西。", "speaker_id": "vlad", "section_id": "s1"}, {"start_sec": 122, "type": "text", "zh": "这是通往财务自由、经济独立的经过验证的路径。如果你拥有资产并随着时间积累它们，那就是建立财富的最佳方式。所以，这里有一个个人因素，无论你是在交易、积累资产，还是投资于风险投资项目，我认为这是非常非常重要的。而且，你拥有的东西也在很大程度上反映你的个性。它几乎成为你身份的一部分。例如，一系列汽车收藏或", "speaker_id": "vlad", "section_id": "s1"}, {"start_sec": 163, "type": "text", "zh": "收藏品、你的卡片、你的股票组合——我认为其中有很多个性化的东西。所以，我认为既有个人利益，也有集体利益。从社会的角度来看，一个没有广泛资产拥有的社会本质上是非常不稳定的。这是一个脆弱的社会。如果更多的人拥有某些东西，他们会更投入，更关心结果，并且他们会成为这个体系的某种捍卫者。", "speaker_id": "vlad", "section_id": "s1"}, {"start_sec": 204, "type": "text", "zh": "所以我认为，尤其是在现在，当人们在对抗社会以及围绕人工智能和所有这些动荡的情况显得有些紧张时，人们在早期阶段拥有公司的机会变得越来越重要。这是我们所有产品的共同点：从儿童账户，这意味着从出生开始拥有资产，Robinhood Ventures——拥有私营公司直到它们上市，以及代币化，这可以被视为所有权的全球化。例如，我们如何在美国以外的地区吸引人们，在超过120个国家，有时那里甚至没有正常运作的", "speaker_id": "vlad", "section_id": "s1"}, {"start_sec": 246, "type": "text", "zh": "银行系统，我们如何将它们整合到这个社会的经济结构中？所以，是的，这就是我的思考方式。我们最初是一个简单的应用程序，可以在手机上免佣金购买股票，然后发展成为一个越来越全球化的金融集团，使客户能够拥有不同类型和不同领域的资产。你可能是我脑海中唯一认为具有使命感的主要金融机构，除了也许先锋基金之类的机构。我们可以谈谈吗", "speaker_id": "vlad", "section_id": "s1"}, {"start_sec": 287, "type": "text", "zh": "你是怎么走到这一步的？我最近了解到你曾跟随陶哲轩（Terence Tao）学习数学，并在高频交易（HFT）领域工作。所有这些似乎都不像是为了人民的使命，可以这么说。你是如何发现这个使命的，或者说，你是怎么走到这一步的？是的。是的。再往前说，我出生在1980年代末的东欧，正值苏联解体和“铁幕”倒塌的边缘。", "speaker_id": "sarah", "section_id": "s2"}, {"start_sec": 330, "type": "text", "zh": "事实上，在1990年代，我在父母之后移民到了美国，我父亲得到了在特拉华大学攻读硕士学位的机会，他能够利用这个机会并永久留在美国。我的母亲大约一年后到达，而我在她之后六个月到达，这是一个相当独特的经历。你会和很多父母交谈。我小时候有一年半没见到我爸爸，六个月没见到我妈妈。我和祖父母住在一起，很大程度上是因为我们根本没有钱把整个家庭都送过去。", "speaker_id": "vlad", "section_id": "s2"}, {"start_sec": 372, "type": "text", "zh": "所以，我们当时不确定我爸爸在这个国家是否有长期的未来。所以我们想着他可能一年或两年后会回来。无论如何，事情对他来说进展得相当顺利，他能够打电话给他妈妈，然后是我。还有我在保加利亚的最后一年，1991年，保加利亚的通货膨胀率大约是170%，170%。所以我最早的记忆是随机停电，还有，我的家人围坐在电池供电的收音机旁，只是听着发生了什么。我在商店看到的排队人群", "speaker_id": "vlad", "section_id": "s2"}, {"start_sec": 413, "type": "text", "zh": "去买牛奶和鸡蛋的窗口。牛奶是用这些大塑料袋出售的。每年只有一周，你才能从其他共产主义国家买到香蕉。所以，古巴……我记得古巴的香蕉真的很棒。然后我来到美国，这里香蕉到处都是，但味道不太好。是的，即使我搬走之后，1997年保加利亚也以世界最高的通货膨胀率而臭名昭著。大约是年同比2000%。所以，他们每隔几个月就在货币上加零。", "speaker_id": "vlad", "section_id": "s2"}, {"start_sec": 455, "type": "text", "zh": "从那时起，我就对金钱有了某种理解。我必须非常独立。我父母总是谈论这个话题，我们必须给远在家乡的祖父母寄钱，因为他们正在应对通货膨胀危机。实际上，我的祖父母把他们的资产存放在一个铜制容器里。所以，在我祖父的家里有一个这样的壁橱，他在造船和海军工业里做医生。所以他经常在船上。他在港口有联系人，一拿到工资就会进行兑换。", "speaker_id": "vlad", "section_id": "s2"}, {"start_sec": 496, "type": "text", "zh": "用于铜制器具。所以这算是我看到人们投资的第一个真正的资产。他在囤积……抱歉，是囤积煎锅。在衣柜里，他们，会存放一些有价值的东西。是的，锅和煎锅比当时的本地货币要好得多。所以，是的，我就在这样的环境中长大。我在没有自由市场和健康资本市场的破碎体系中长大，并理解当时发生的情况。我可以说，我很快就意识到：我在学习上相当出色。", "speaker_id": "vlad", "section_id": "s2"}, {"start_sec": 537, "type": "text", "zh": "而且也很独立。实际上，这是被迫的，因为我的父母负担不起保姆或课后俱乐部或类似的东西。他们俩都做多份工作，我父亲还是全职研究生……所以，当我上幼儿园的时候，五岁，我已经能自己走回家了。他们告诉我：“好吧，去找邻居。”我们住在马里兰大学的公寓楼里。敲门。邻居们会照看你几个小时。最终他们意识到，“好吧，我们的儿子正在经历这个复杂的仪式去", "speaker_id": "vlad", "section_id": "s2"}, {"start_sec": 577, "type": "text", "zh": "回家。最好还是直接把钥匙给他。”之后不久，我自己开始开门、做作业，还会出去和朋友玩。所以我非常独立。同时，总是有必须成功、在学校表现好的压力。可能有几个原因。首先，我很成功，周围的人都说：“多学习，上课少缺席，在数学上取得更好的成绩。多学数学。”老师们也会和我的父母安排会议：“嘿，你的儿子，他数学很好吗？你应该把它记下来。”我认为这是其中的一个优势。", "speaker_id": "vlad", "section_id": "s2"}, {"start_sec": 617, "type": "text", "zh": "住在马里兰大学附近，那里的社区以学术为导向，试图识别天才儿童并促进他们的发展。还有一件事是，我的父母有时会让我坐下来，然后说：“听着，我们家的经济状况非常不稳定。我们赚的钱不多，所以如果你想上大学，你必须获得奖学金，而要做到这一点，你必须在学校表现非常出色。”顺便说一句，我们是以签证身份在这里的，所以如果我们失业，就必须回保加利亚。因此，我感受到了义务带来的压力", "speaker_id": "vlad", "section_id": "s2"}, {"start_sec": 658, "type": "text", "zh": "在学习上取得成功。对我来说，我的数学研究生阶段在某些时候变成了一个真正的挑战：“最难的事情是什么？”我如何能在最难的事情上变得更好？这几乎像是在与自己竞争。还有父母，他们在学业上也非常出色：“哦，爸爸，你上学时最难的科目是什么？”“哦，化学？那我就专注于化学，对吗？是的，是的。那你学过最难的数学是什么？”我认为在数学中有一种成就的阶梯。这几乎就像在玩一个非常好的电子游戏，其中", "speaker_id": "vlad", "section_id": "s2"}, {"start_sec": 700, "type": "text", "zh": "总是要知道接下来什么会更难。就像：你能多快到达代数几何或拓扑学，并且能否更早地学习并理解它？我认为吸引我去读研究生的原因是，如果你创造了一个新的数学理论，你可能会被人记住很长时间。就像学校里的孩子们学习高斯、黎曼和其他伟人一样；如果你创造了一个理论，也许几百年后的孩子们会研究并思考你的工作。所以这就是", "speaker_id": "vlad", "section_id": "s2"}, {"start_sec": 742, "type": "text", "zh": "当时吸引了我……鉴于这种经历，你也应该解释一下Harmonic作为一个项目是什么。对于今天由于人工智能而正在发生的数学革命，你的反应是什么？我认为，一方面，这是非常令人兴奋的，而且在某种程度上也是意料之中的，因为人工智能模型的出现以及验证获得结果的能力，已经导致数学过程的某种自动化。我认为这真的很令人兴奋，你不觉得吗？", "speaker_id": "sarah", "section_id": "s2"}, {"start_sec": 782, "type": "text", "zh": "我认为这些机会和工具……数学变化得非常快，尽管作为一个学科它几千年来变化不大。当我在研究生院时，大多数工作仍然是用粉笔和黑板亲自完成的。没有合作。人们甚至不使用计算机。所以，现在数学在某种程度上与编程结合在一起。数学家使用相同的工具。他们使用版本控制。他们使用 Lean 进行验证，而且这个行业发展得非常快。大约一年前，我几年前共同创办的初创公司 Harmonic,", "speaker_id": "vlad", "section_id": "s3"}, {"start_sec": 826, "type": "text", "zh": "着手创建一个数学超级智能。去年，我们创建了一个名为亚里士多德（Aristotle）的模型，它是三枚国际数学奥林匹克金牌得主之一。后来我们将其公开发布，人们开始使用亚里士多德（Aristotle）来解决未解决的数学问题。例如，它被用来解决埃尔德什（Erdős）问题。还有其他数学家使用它来获得新的结果，等等。然后我开始思考很多关于什么的事情", "speaker_id": "vlad", "section_id": "s3"}, {"start_sec": 869, "type": "text", "zh": "数学的未来是什么。这些工具具体应该如何使用？对我来说，非常重要的是我所构建的工具——不仅是在Harmonic，也包括在Robinhood——能够赋能个人。我唯一不喜欢这股用AI模型解决数学问题的新潮流的是过度集中化。看起来拥有大型数据中心和员工的AI公司正在使用秘密模型来完成这一切。", "speaker_id": "vlad", "section_id": "s3"}, {"start_sec": 910, "type": "text", "zh": "工作。在我看来，最终会占上风的更有吸引力的模式，是传播这些工具，将它们直接交到人们手中，让他们自己进行有趣的发现和发明。所以我想我是作为去中心化这一基本哲学理念的支持者。我真的很希望相信这一点。我认为很多在大型集中式人工智能公司工作的人会说——如果我可以有点偏见的话——这是自我欺骗，而“半人马游戏”（人类-", "speaker_id": "vlad", "section_id": "s3"}, {"start_sec": 951, "type": "text", "zh": "人工智能协作) 在代理循环中简单地输给了更强大的计算能力。循环。你认为这是真的吗，或者在数学中哪种人类输入会是有生产力的？我认为这是两个不同的事情。首先——个别数学家的角色是什么？第二个问题是，这会是人们会使用的产品，还是人工智能实验室会自己生产这些产品？我对这两个选项都有看法，但第二个选项更有趣。", "speaker_id": "sarah", "section_id": "s3"}, {"start_sec": 995, "type": "text", "zh": "我认为一个世界，在那里私有的人工智能实验室做出所有的发现，OpenAI 或 Anthropic 的数据中心只是运行这些公司员工编写的代码，它们实现垂直整合，制造所有药物并出售给人们，做出所有数学和物理的发现，并发表所有科学论文——那就是我所说的那种世界。如果这一切都在发生，并且归人工智能实验室自身所有，那么我认为这有点像一种反乌托邦的结果，由于多种原因，这种情况不太可能发生。", "speaker_id": "vlad", "section_id": "s3"}, {"start_sec": 1039, "type": "text", "zh": "不仅是因为技术和市场因素，还因为如果这种情况发生得很严重，他们将失去经营许可，我认为你可以得到同样的结果，比如证明纳维-斯托克斯方程或说黎曼猜想，如果是一个普通人用……做出来的，反响会好得多。这可能是值得庆祝的事情。是的。是的。我对此很肯定。我认为这正是会发生的情况。这是最可能的。", "speaker_id": "vlad", "section_id": "s3"}, {"start_sec": 1079, "type": "text", "zh": "一年的情景。我认为还有另一个混杂因素：很多进入这些人工智能实验室的人都是前研究人员。所以他们热衷于进行研究。我认为他们对为什么这种行为会被负面看待感到困惑。从他们的角度来看，就像是，“哦，我是一个研究人员。”我被邀请到一个研究机构做科学研究，现在所有这些学者都对我生气。但我觉得……我也对在这些公司工作的人说过，我认为如果他们找到一些数学家会好得多，并且", "speaker_id": "vlad", "section_id": "s3"}, {"start_sec": 1119, "type": "text", "zh": "与他们合作，以便一切看起来不会像我们处在一个黑暗的反乌托邦未来，数据中心里只有一家公司进行所有科学发现。我们能否稍微谈谈在 Robinhood 内扩大所有权的新方法，以及 Robinhood 是如何与 AI 领域正在发生的事情互动的？也许我们可以从你们在代币化方面所做的事情开始，或者你们对这一过程的愿景。是的，代币化确实是一项新创新。这个想法几乎类似于稳定币。所以，稳定币的工作原理是这样的：你拿美元或国债，放入一个壳里，有条件地...", "speaker_id": "sarah", "section_id": "s3"}, {"start_sec": 1161, "type": "text", "zh": "“盒子”，然后发行并销毁代币以确保这个盒子。同时，传统资产保存在传统机构中，比如银行。之后，这些代币可以在去中心化金融（DeFi）中自由交易。所以它们可以在世界任何地方流通。它们可以以分数形式进行交易。它们可以在不同协议或信用池中交换。这就开启了……它们具有软件属性……是的，是的。所以，你可以将这个概念扩展到任何实物资产。例如，我们就是用股票做了这个操作。你可以把股票放入一个“盒子”中，", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1201, "type": "text", "zh": "发行和销毁代币以支持它们，并且它们可以像软件一样在区块链上通过互联网进行交易。这可以由私人公司来完成。不是发行股票，而是像一个持有私人公司股份的特殊目的载体（SPV）。它的行为方式是一样的，只是在赎回等方面有一些小的差异。这可以应用于艺术品、收藏品、房地产。我们多年来一直在进行代币化的研究和实验。去年，我们在法国南部举办了一次活动，推出了股权代币——这些是美国股票的代币化版本。", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1243, "type": "text", "zh": ". . 我们在欧洲做到了，但它们并没有完全整合到 DeFi 中。因此，如果你是欧洲的 Robinhood 用户，你可以交易它们，它们感觉就像真正的股票，但你不能将它们发送到以太坊网络或其他区块链，不能将它们添加到池中，也不能与其他智能合约结合。今年我们更进一步。我们重新推出了具有完整 DeFi 支持的股票代币，同时推出了 Robinhood Chain——我们为真实资产构建的新区块链。而 Robinhood Chain 已经成为历史上增长最快的区块链之一，我认为在很多方面是最快的。", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1285, "type": "text", "zh": "指标。我们正目睹开发者活动的爆发。我想我们最近宣布过，它在开发者活动方面是排名第一的区块链。开发者们拿了股票代币，把它变成类似乐高的东西，然后开始创建各种有趣的智能合约、NFT、资产池，例如，你可以把一个表情包币和股票代币关联起来。这只是第一个或第二个月的活动。我认为这些以金融原语为基础的开发者平台将会非常非常大。", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1328, "type": "text", "zh": ". . 我认为比这更令人兴奋的是，Robinhood Chain 是一种接触众多国家的方式。因此，在那些没有高效资本市场或金融系统的国家，比如南美或非洲，任何拥有智能手机和非托管钱包的人，现在都可以以极低成本访问美国市场。所以，我认为，就像稳定币已经成为这些国家的人们获取美元的标准方式一样，股票代币和类似产品将成为所有这些人获取美股的标准方式。", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1369, "type": "text", "zh": "这样他们不仅可以接触到铜锅，还可以获得创造财富的机会。没错。无论是私营公司，还是 Robinhood Chain 和代币化的真正愿景，都是将 Robinhood 的所有有效模式带到网络上，并让这些国家的人民都能使用。我认为我意识到的一点是，很多人……我们在区块链管理或者管理智能合约上的链上产品方面都是新手。Robinhood 收到的很多批评中，比如，我们被称为“企业链”，最好的区块链是……这是别人告诉我的。", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1410, "type": "text", "zh": "……他们说最好的区块链是由组织和联盟运行的，并且一切都是去中心化的。而你们呢，他们说，是一家运营区块链的公司。这怎么可能同样好呢？好吧，也许你们牺牲了一点组织去中心化的纯粹性，但作为回报，你们获得了专注的领导力和一群有着非常清晰愿景的人，他们推动一切向前发展。还有一点：我认为在网络上拥有由 Robinhood 支持的产品是件好事。许多网络选择“百花齐放”的做法，让……", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1450, "type": "text", "zh": "开发者自己构建一切。我们也喜欢开发者，但我认为拥有像股权代币这样的原生资产，并且有我们的背书让人们可以信任……我们已经看到，这会激发更多的开发兴趣，因为人们知道，好的，Robinhood 支持它们。他们是可靠的。这是一个经过验证的品牌。我们知道它们不会消失。所以，这比起只是两三名工程师组建的团队提出这些原生资产，能给他们在构建产品时更多的信心。对于代币化股票，你认为应该存在的组合实例，或者已经存在的，有没有这样的例子？", "speaker_id": "sarah", "section_id": "s4"}, {"start_sec": 1492, "type": "text", "zh": "在你感到兴奋的生态系统中出现了吗？我在思考的其中一件事是，我们如何能够使用一些衍生产品，比如期权？是否有可能基于智能合约创建真正高质量的原生期权合约？传统市场已经有了很多创新，但在某种程度上受到从大型机向更现代系统转移的复杂性限制，同时还要考虑所有依赖系统可预测性和缓慢性的交易对手。我认为成功的一个重要部分是提供基本原语并让", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1536, "type": "text", "zh": "开发者以新的方式将它们结合起来。我不想猜测开发者会想出什么，因为我无法预测与股票代币相关的NFT或与股票代币配对的表情包会变得流行。我根本无法预测这些事情会发展得如此之快并成为现实。这不一定是所有权。你对预测市场有什么看法？我实际上认为预测市场与所有权有关，因为", "speaker_id": "sarah", "section_id": "s4"}, {"start_sec": 1576, "type": "text", "zh": "许多人拥有独特的知识和见解，以及他们对其他人可能不了解的事物的独特看法。例如，你可能是开发人工智能模型方面的专家。我们有许多合约允许我们对哪一个 AI 模型本周、这个月或今年将是最好的进行投机和对冲风险。在预测市场出现之前，这种知识被货币化的方式非常间接。你可以交易 Google 或 Nvidia 股票的衍生品，是的。所以能够以更直接的方式货币化你自己的知识确实是", "speaker_id": "vlad", "section_id": "s5"}, {"start_sec": 1619, "type": "text", "zh": "重要。这就是我们宣布并计划推出KPI合同的原因之一。长期以来，如果你研究一家公司，并有很好的想法认为它的每股收益（EPS）或收入会超出预期。那么，在过去，如果你购买了一只股票或者，比如说一个股票期权，有时公司会超出盈利预期，但股票仍然会因一些外部原因下跌，可能因为预测之类的原因。所以基于KPI的合同现在允许你直接进行交易", "speaker_id": "vlad", "section_id": "s5"}, {"start_sec": 1661, "type": "text", "zh": "每股收益、收入或任何对公司可能重要的关键绩效指标。因此，我认为这里有一个方面，你实际上可以将你的信念货币化。你可以更精确地对冲风险。例如，加利福尼亚州有一项通过“亿万富翁税”的合同，我认为这对某些人来说是一个有用的对冲工具……但对我个人来说不是。我不依靠他来对冲，但别人可能会。另一方面——我认为这是一个新的信息来源。我几乎把它看作是新闻的纯粹形式的演变：预测市场是新闻的演变。那么，新闻将会是什么样子呢", "speaker_id": "vlad", "section_id": "s5"}, {"start_sec": 1702, "type": "text", "zh": "未来？我认为它不会是《纽约时报》，但可能会是类似的东西，你会有一个头版、一个商业版块、生活方式、文化、体育，而且体育占很大一部分。你可以简单地看到正在发生的事情，以及由于概率而可能在未来发生的事情。很多人甚至都不进行这些交易。他们只是喜欢打开应用程序去看，看，这是关于我的。应该发生什么。是的。你认为当这种情况发生时，人们会允许代理为他们交易吗？这会产生什么影响？是的，今年早些时候我们推出了一款产品，本质上是Robinhood的MCP。我们称之为代理交易，我们也有一个代理。", "speaker_id": "vlad", "section_id": "s5"}, {"start_sec": 1742, "type": "text", "zh": "信用卡。因此，在更广泛的代理金融领域，我相信有两件事具有产品与市场匹配度。第一是代理交易，很明显，当代理为你执行交易并实施策略时。我们看到采用率非常高：自推出以来的几个月内，已有超过15万客户开设了代理交易账户。推出。如果你看工具调用，它们遵循平滑的指数增长，我们最后公布的数字大约是每天3000万次工具调用。", "speaker_id": "vlad", "section_id": "s6"}, {"start_sec": 1783, "type": "text", "zh": "所以代理交易显然是产品与市场的契合。我们一开始只有 MCP，几周前在我们的 Hood 峰会上，我们宣布了 Robinhood 代理，这本质上是下一步，现在整个界面已经直接内置到你的 Robinhood 账户中。你可以把它看作是一个类似 Claude 或 Codex 的工具，但专门为交易优化。所以你可以设置周期，并说：“好的，每天执行我的策略，重新平衡你的投资组合，寻找新的机会。”", "speaker_id": "vlad", "section_id": "s6"}, {"start_sec": 1825, "type": "text", "zh": "我们拥有这些技能。例如，你可以进行投资组合再平衡或其他一系列操作。我们有代理应用程序，所以我们推出了一个应用商店，在那里你可以连接到卫星数据源。如果你想创建一个计算零售停车场车辆数量的策略或类似的东西，我们会提供这个功能。我认为开发将会如下进行：我们会考虑所有编程工具的可能性，并创建方便、适合交易员使用的版本，使主动交易尽可能简单。", "speaker_id": "vlad", "section_id": "s6"}, {"start_sec": 1869, "type": "text", "zh": "令人惊讶的是。你认为这将对市场参与者的构成或金融基础设施产生什么影响？毕竟，你描述的许多内容机构交易者都可以使用，但成本高且复杂，对吗？那么如果这些变得大众化，这意味着什么呢？这实际上是我们产品的主要关注点。我们能否将对冲基金或复杂算法交易公司的能力带给普通人？同样，比如说，如果你是一名高级计算机科学学生，你也可以编写交易策略。", "speaker_id": "sarah", "section_id": "s6"}, {"start_sec": 1913, "type": "text", "zh": "如果你付出更多的努力，你甚至可以部署它，获得一个数据中心的位置，并连接到交易所。我们能否优化所有这些方面，使得就像成为软件工程师变得更容易一样，Robinhood 代理和我们的 MCP 也能让成为量化交易员变得更容易？我认为这将导致交易活动显著增加。我认为最初它会集中在一小部分有经验的人群中，但他们的交易活动可能会显著增加。随着时间的推移，它会简单地扩展到更多人群中", "speaker_id": "vlad", "section_id": "s6"}, {"start_sec": 1955, "type": "text", "zh": "更大部分的人口。是的，我认为编程是一个很好的类比。就像，有很多人想要……有些人会编程，他们，是最早使用代理进行编码的人，他们的生产力呈指数级增长。但现在有些人以前根本不会接触 VS Code 或 Cursor，但有人向他们展示了如何使用 Claude 或 Codex，现在他们可以非常轻松地创建一个网站。所以，我认为，这会提高每个人的标准，没有例外。我认为构建软件或自动化事物的愿望，比我之前想象的要更广泛。", "speaker_id": "sarah", "section_id": "s6"}, {"start_sec": 1996, "type": "text", "zh": "用于编程和代理编程的人工智能出现了，但想要通过自己的信念赚钱的欲望似乎更加普遍。是的，我认为，当人们得到，当事情变得更容易，当你可以……很多人都有想法，如果你能将这个想法以最少的努力转化为一个策略，如果我们能将所需的努力降低到仅仅买一只股票的水平，那么我认为会有更多人去做。这个问题可能没有答案，但在应对这一点时，金融基础设施或风险管理是否有明显的改变方式呢？", "speaker_id": "vlad", "section_id": "s6"}, {"start_sec": 2036, "type": "text", "zh": "这个吗？我不这么认为。所以我会告诉你从第一天起我们就有的保护措施。你现在应该创建一个新的独立账户，与你的主要 Robinhood 余额分开。所以你可以创建一个 MCP 账户，你可以创建一个代理账户，你必须把钱转到那里。然后，对于选择批准交易的客户，默认情况下你必须批准你的交易，但你可以关闭这个功能，这样你就可以……危险权限。没错。实际上这并不太危险，因为代理无法访问你的其他账户，而且……这不是我的主账户。所以这个，这在“沙盒”中。这个是在“", "speaker_id": "vlad", "section_id": "s7"}, {"start_sec": 2078, "type": "text", "zh": "沙箱。可能并不是完全与电网隔离，但非常接近。我们已经做了很多建设，在 Robinhood 内部为沙箱和安全性改进了很多基础设施。是的，到目前为止，我认为这在市场中占的比例并不大。我之所以认为没有必要进行任何重大变化，是因为高频交易已经存在很长时间了。市场大约在 20 年前就完全电子化了。所以，从交易所到许多经纪商——在某种程度上都已经适应了", "speaker_id": "vlad", "section_id": "s7"}, {"start_sec": 2120, "type": "text", "zh": "新的现实是，大部分交易过程是在新泽西的数据中心通过算法交易完成的，而不是许多人仍然想象的：纸质票据和交易大厅上的交易员。所以，我不确定我们是否需要从根本上改变任何监管措施，但正如你理解的那样，随着发展——我毫不怀疑它会发展——我们可能会遇到需要更多监管明晰的个别情况……是的，我指的是更多基础设施方面的内容，如果我们以编程为例的话。", "speaker_id": "sarah", "section_id": "s7"}, {"start_sec": 2162, "type": "text", "zh": "我没有预见到这一点——也许我们都应该预见到——但对我来说，CI/CD 会因为代码生成量的指数级增长而完全“崩溃”似乎并不显而易见。哦，是的。所以，这就是我的问题：当然，我们之前有高频交易，但如果现在每个人都成为高频交易者，这看起来就是一个完全不同的负担。所以，看看，堆栈中有几个不同的层次，我们应该预期链上堆栈会有所不同，因为它已经有 MCP，但我们仍有我们的链上工具，正如我所说，Robinhood 链是处理真实资产的最佳区块链。", "speaker_id": "vlad", "section_id": "s7"}, {"start_sec": 2202, "type": "text", "zh": "此外，它是人工智能体的最佳区块链。因此，我们在那里看到了大量的代理交易。在我们的集中式 C5 产品中，我们对整个系统有显著的端到端控制，我们有自己的数据库，我们自有的代码，上面运行着策略和沙盒。我们自己开发了许多这些工具。我们必须优化所有这些。但是，当所有东西都通过我们的系统时，你会接触到像算法做市商这样的玩家，他们是极其复杂的软件公司。", "speaker_id": "vlad", "section_id": "s7"}, {"start_sec": 2243, "type": "text", "zh": "Citadel、Jane Street、Jump Trading。这些都是从事低延迟和高频交易的公司。所以我并不太担心他们是否能够应对这种需求的扩展。当然，还有交易所本身。而交易所由于高频和算法交易的压力，确实已经优化了它们的API以处理巨大的交易量。但同时，我认为在总交易量中，我们的代理交易比例仍然很低。所以，我认为我们会有一些预警。我们会看到它的增长情况。我不认为我们会，", "speaker_id": "vlad", "section_id": "s7"}, {"start_sec": 2283, "type": "text", "zh": "很快将会达到一个阶段，代理人介导的交易将占活动的两位数百分比。我认为我们还有时间。鉴于你非常相信所有权以及所有权的民主化是社会稳定的重要因素，同时也是人们的一个机会，我认为有一种感觉，即人工智能革命并不是广大民众所拥有的。你有没有想过可能的解决方案是什么？也许你还可以谈谈特朗普的账户。是的，我认为我们去年就已经发现了这个问题。这里有几个要点，", "speaker_id": "sarah", "section_id": "s7"}, {"start_sec": 2324, "type": "text", "zh": "首先，所有主要的创新型人工智能公司都是私营的。当然，也有一些例外。你可以看看英伟达和谷歌。不过，是的，这些公司在真正进入人工智能这个新阶段之前已经相当大了。所以，如果几年前你想投资大语言模型，并想获得OpenAI或Anthropic的机会，作为个人投资者，你实际上是没有机会的。我认为这有很多原因。其中一个原因是，私人市场已经变得……高增长公司在私人市场融资变得非常容易。", "speaker_id": "vlad", "section_id": "s8"}, {"start_sec": 2366, "type": "text", "zh": "他们基本上是在一个巨大的规模上。一个巨大的规模上。而这以前从未发生过。在80年代，一家公司比如微软，或者即使在90年代的亚马逊，他们上市时的估值也只有几亿美元。所以在公开发行时进入的个人投资者可以赚上千倍的回报。现在，如果有一个人工智能实验室上市时估值达到一万亿或两万亿，对于一个个人投资者在首次公开募股期间获得那种利润，公司必须成长到千万亿级，简直疯狂。我认为这实际上不太可能。也许会发生，但我认为会困难得多。", "speaker_id": "vlad", "section_id": "s8"}, {"start_sec": 2408, "type": "text", "zh": "相反，利润继续集中在越来越少的风险投资家或机构投资者手中。而且，我们随后会问自己：为什么人们对数据中心如此不满？如果你仔细想想，作为一个个人，我从所有这些活动中没有获得任何经济利益。事实上，你可以说这威胁到我的收入、我的工作，污染我的社区，他们制造了大量噪音。然而，如果你将人工智能与加密货币之类的事物相比，加密货币并不是……并不是每个做加密货币交易的人都在赚钱，。", "speaker_id": "vlad", "section_id": "s8"}, {"start_sec": 2450, "type": "text", "zh": "而现在比特币的价值是，现在是多少钱呢？85,000。如果你几个月前以120,000买入，你现在就是亏损的。2022年和2023年对加密货币行业来说，至少可以说是艰难的年份。很多人在那些年都亏了钱。但即便如此，在2024年，他们全力以赴出来，我认为，显著影响了选举。如果甚至有一点点对加密货币的过度监管的迹象，就会有一大群人在社交媒体上爆发，写信给他们的国会议员，并进行抗争", "speaker_id": "vlad", "section_id": "s8"}, {"start_sec": 2490, "type": "text", "zh": "每一步。我认为这其中很大一部分原因是，加密货币从一开始就在私人个人中广泛分布拥有。而机构几乎是后来才进入的……而人工智能则不同。那么我们对此该怎么办呢？好吧，我们启动了两项举措。我们认为每个人都应该有机会投资私人公司，而我无法有效地说服公司提前上市，即使是我也不行。虽然我有时会尝试这样做。我们有我们的首次公开募股，我们实际上是承销商。我们积极参与这一过程。但私人投资者应该从私人公司中受益，并且", "speaker_id": "vlad", "section_id": "s8"}, {"start_sec": 2531, "type": "text", "zh": "大股东。实际上，这正是 Robinhood Ventures 的愿景。我们如何才能做到，让零售投资者不是你的种子轮和 A 轮阶段资本构成的重要组成部分，成为一种异常现象。因此他们应该……他们应该在尽可能早的阶段参与。因此，对于 Robinhood Ventures Fund I One，我们有一个非常创新的结构。你可以把它看作是一家上市的风险投资公司。我们所做的是：我们利用了我们的 IPO 渠道，而我们是 IPO 最大的零售渠道，并利用它从 Robinhood 客户那里筹集 IPO 资本，即私人零售资本。", "speaker_id": "vlad", "section_id": "s8"}, {"start_sec": 2572, "type": "text", "zh": "投资者，然后我们用这些资金投资于初创公司。这些基金在纽约证券交易所公开交易，所以它们的交易方式就像股票一样。因此，Robinhood Ventures Fund 1 的目标是晚期私营公司。OpenAI 就在这个基金中。那里还有几家公司，金融科技公司，许多人工智能初创公司，Eleven Labs、Cruzo，我们最近刚宣布。所以这是一个超晚期阶段。然后我们问自己：我们如何能走得更远，让人们有机会参与种子轮和 A 轮融资？", "speaker_id": "vlad", "section_id": "s8"}, {"start_sec": 2613, "type": "text", "zh": "这就是Robinhood Ventures Fund 2的创意产生的原因——与YC合作，并使用一种能够让人们进入最早期阶段的结构，这些阶段风险最高，但机会也最大。而这是一个由Rich Aberman为我们管理的基金……我们还有私人资产代币化，这以不同的方式解决了这个问题，但目前仅限于美国之外。我们的主要目标是看看我们是否能让一家私人公司像股票或加密货币一样，以碎股形式全天候实时交易。你能……你应该能够全天候交易Anthropic。", "speaker_id": "vlad", "section_id": "s8"}, {"start_sec": 2655, "type": "text", "zh": "以一定程度的优质所有权持有少量股份，至少不比拥有SPV中的LP股份差，而且它应该对所有人开放。因此，这需要在美国推动许多变革，包括合格投资者的规则，但我们确实非常有动力领导这一进程并实现它。我的问题是：例如，如果你是一名风险投资家，拥有一个你认为会从私人公司中获利的投资组合，那么人们有LP的选择：有机构，也有你的朋友，你可以为他们赚钱。", "speaker_id": "sarah", "section_id": "s8"}, {"start_sec": 2696, "type": "text", "zh": "显然，对于合格投资者（QP）和涉及零售投资者的认证方面有相关规则。你的观点清楚地表明，其中一些规则需要更新。是的，上周美国证券交易委员会（SEC）启动了一项计划，宣布了一个单独的路径。他们委托金融业监管局（FINRA），经纪商的主要监管机构，创建一个考试——一个认证考试，你可以以个人身份参加考试，并通过在考试中心进行为期两小时的考试获得认证。我认为这……而不是基于资产。不是基于资产的。", "speaker_id": "vlad", "section_id": "s8"}, {"start_sec": 2738, "type": "text", "zh": "你可以选择加入某个机构，或者持有Series 7执照，这意味着与一家金融公司有联系。但确实，这是一个基于知识的考试，我认为这绝对是一个积极的步骤。我认为他们确实在做一些事情，但我认为目标应该是降低门槛，因为很多人会同意去专门的考点参加考试。所以我认为还需要做更多工作，我们将走在推动这一进程的前沿。我认为反对这种规则演变的主要理由，是出于对欺诈和家长式管理的某种保护。你对此有什么看法？", "speaker_id": "sarah", "section_id": "s8"}, {"start_sec": 2779, "type": "text", "zh": "对于我们的客户，我、我们花了很多时间与他们交谈，弄清楚对他们来说什么是重要的，其中他们最关心并且同意的一件事是这句话：“我可以管理自己的钱，不应该有人告诉我如何花或投资它。” 当我们问客户，“你同意吗？” 完全一致同意。所以，这并不意味着他们个人想把钱投资到所有有风险的投机性投资中，但他们不认为政府或其他任何人有权告诉他们该如何处理自己的钱。", "speaker_id": "vlad", "section_id": "s8"}, {"start_sec": 2819, "type": "text", "zh": "当然，我认为人们应该对这些产品有非常清楚的了解。所以我们必须确保告诉你它是什么，并提供尽可能多的信息。但是，我在想这个问题：我会告诉你不要投资热门的首次公开募股（IPO）吗？IPO 确实有风险。甚至是迷因币也是如此。迷因币几乎有完全明确的监管确定性。如果你想购买迷因币，你可以这么做。美国证券交易委员会（SEC）甚至写过一封信说：“这些不是证券。这些是收藏品。”这为其开辟了道路。所以我认为从几个不同的角度来看，这是荒谬的。", "speaker_id": "vlad", "section_id": "s8"}, {"start_sec": 2862, "type": "text", "zh": "尤其是因为梗币在任何数量上都是完全可以接受的，但私营公司……从纯粹的风险角度来看，限制对私营公司的访问是非理性的。是的，我认为，我认为这是对的。人们很聪明，不是吗？我认为，应该有某种合理的监管。我支持这一点，但我认为我们已经走得太远了。使合格投资者规则成为必要的条件已经不再适用。我是说，这些规则是互联网出现之前的。那时候你甚至无法获得任何信息。而现在关于一切的信息都如洪流般涌来。", "speaker_id": "vlad", "section_id": "s8"}, {"start_sec": 2903, "type": "text", "zh": "特别是私营公司，以及可以为你收集和总结所有信息的人工智能模型。所以，是的，我觉得现在这有点不太合理了。你能谈谈Robinhood为支持特朗普账户（Trump accounts）正在做什么吗？是的，这是我们服务国家的一种方式，我们对此感到非常自豪。所以Robinhood被选为特朗普账户（Trump accounts）的唯一初始托管人和经纪商。我们正在与美国最古老、最知名的银行BNY，以及财政部和国税局合作实施这个计划。这个想法是，我们能否让每个孩子", "speaker_id": "sarah", "section_id": "s8"}, {"start_sec": 2947, "type": "text", "zh": "通过低成本的多元化ETF，从出生起就拥有美国经济的一部分，通过标普500指数吗？从2025年1月起的每个新生儿，在接下来的三年里，财政部都会分配一千美元的启动资金。迈克尔和苏珊·戴尔通过他们的基金会，已经向低收入地区的儿童捐赠了超过60亿美元。许多人也在效仿，例如格温·肖特韦尔，她捐赠了SpaceX的股票，以及布拉德·格斯特纳，他是这一计划的策划者和", "speaker_id": "vlad", "section_id": "s9"}, {"start_sec": 2988, "type": "text", "zh": "该项目的架构师。他推动了该项目，并向印第安纳州的公民及其子女捐赠了巨额资金。我们提供基础设施和应用程序开发。我们喜欢这个，因为我认为这是将家庭股权所有权从65%提高到95%的最佳方式。当这项工作成功时，我认为它将在未来几十年带来一个更加稳定和繁荣的社会。", "speaker_id": "vlad", "section_id": "s9"}, {"start_sec": 3032, "type": "text", "zh": "我们的目标是让这是政府推出过的最好的产品，也是特朗普总统遗产中最持久的积极部分。这是我们的目标。这是一个了不起的计划。为你的孩子注册。最后一个问题给你。安德鲁·里德，我们俩都很熟悉他，形容你是无限智慧与在应对金融市场、公关和庞大用户群体的变幻莫测时极其坚定的手段的奇特结合——。你是如何保持从容或冷静的？你能给正在听我们的众多商业领袖什么建议？", "speaker_id": "sarah", "section_id": "s9"}, {"start_sec": 3076, "type": "text", "zh": "我认为小时候克服那么多困难只是让我习惯了挑战，我有一个非常支持我、令人难以置信的家庭，父母很棒，但我们可以说是一起经历这些的，你懂吗？我们全家同时移民到美国，我不是那种被一切都免费给予的孩子，几乎就像：你是这个家庭的一员，我们都必须自己弄明白。我有我的角色，他们有他们的角色。所以，当然，我是他们的孩子，但是", "speaker_id": "vlad", "section_id": "s10"}, {"start_sec": 3117, "type": "text", "zh": "我从很小的时候起就被赋予了很大的独立性，几乎像平等对待一样。我们在 Robinhood、Harmonic 以及所有这些项目中都面临着许多商业挑战。但当你退一步思考时，会想，“那么，这能和被驱逐的威胁相比吗？”我们在谈论的 5% 通胀会让每个人如此恐慌，那又如何呢？而我们小时候经历的 2000% 通胀又如何呢？所以，有时我会把它与我自己的孩子联系起来思考，？我们应该为他们创造挑战吗？我们正在尝试……我是说，我正在尝试创造一个挑战，但你", "speaker_id": "vlad", "section_id": "s10"}, {"start_sec": 3158, "type": "text", "zh": "必须自己设计，而且这有点难，因为他们有很多优势，比如导师，他们可以去各种博物馆，而我没有。他们有安全保障。是的，但他们有安全保障，我认为克服困难和忍耐其中有非常重要的意义。我尽量创造这样的环境，但我觉得我还没有找到完美的方式……我认为这是很大的一部分，而且可能，正如我们之前所说的，这也是天性与教养的问题。也许我生来就是这样，我不知道这在多大程度上取决于环境。", "speaker_id": "vlad", "section_id": "s10"}, {"start_sec": 3199, "type": "text", "zh": "我认为，如果我要把这个作为给其他领导者的建议，那就是一个简单的乐观态度：你经历的任何挑战都将使你在未来更加坚韧……我想这是贝佐斯说的，应对所有这些挑战的最好方法就是培养厚脸皮。这可以在你自己内心控制，但你无法控制外部世界。所以，如果你真的能做到这一点，我觉得这似乎是一种伟大的超能力，不是每个人都具备的。非常好。非常感谢你，弗拉德。这真棒。谢谢你的邀请。在推特上找到我们：@NoPriorsPod。如果你想看到我们的面孔，请订阅我们的YouTube频道。抓住", "speaker_id": "vlad", "section_id": "s10"}, {"start_sec": 3236, "type": "text", "zh": "在 Apple Podcasts、Spotify 或您收听播客的任何平台上收听。这样您每周都会收到一个新的节目。订阅新闻通讯或在 no-priors.com 查找每一集的文字稿。", "speaker_id": "sarah", "section_id": "s10"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
