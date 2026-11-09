@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>你家可能正在毁掉你的健康（以及如何补救）——迈克尔·费尔德斯坦（Michael Feldstein）</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="chris">克里斯·威廉姆森（Chris Williamson）</option><option value="michael">迈克尔·费尔德斯坦（Michael Feldstein）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Chris Williamson</span><span class="pill">2026-11-07</span></div>
+<h1>你家可能正在毁掉你的健康（以及如何补救）——迈克尔·费尔德斯坦（Michael Feldstein）</h1>
+<p class="sub">嘉宾：迈克尔·费尔德斯坦（Michael Feldstein） · 约 82 分钟（4939 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=2LULm7kcEH0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=2LULm7kcEH0</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Chris Williamson</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-07</dd></div><div class="meta-row"><dt>时长</dt><dd>约 82 分钟（4939 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；普通 yt-dlp 遇 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 补拉成功；弃用较弱的机翻风格 .en 轨）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段；说话人按主持/嘉宾轮次启发式标注（克里斯主持 / 迈克尔·费尔德斯坦）；中插 Eight Sleep、AG1、Whoop、RP Strength 标为 ad_omitted；片尾订阅提醒保留为主持人正文</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>2LULm7kcEH0</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>克里斯·威廉姆森请来同城奥斯汀的室内环境健康专家、贾斯珀（Jasper）空气清洗机创始人迈克尔·费尔德斯坦，从酒店房间「街头性工作者、来路不明的白粉、还是霉菌」的假设开场：嘉宾最担心霉菌。两人顺着空气质量、霉菌毒性与光污染这三大焦点，讲灾难修复如何走向家用空气净化、短期认知与睡眠数据、室内污染源、二氧化碳、城市与住房差异，以及不花钱就能做的通风习惯；中间穿插家用产品点评，并介绍贾斯珀的设计逻辑与使用优先级。</p>
+<h3>核心要点</h3><ul><li>人可三周不进食、三天不喝水，但约三分钟离不开空气；每天约吸入 1.7 万升空气，约 70% 的排毒发生在肺里</li><li>社区实验：150 人卧室用贾斯珀两周，平均每晚多睡约 25 分钟、深睡眠增约 18%、入睡加快约 5 分钟；约 30% 停止打鼾</li><li>室内空气通常比室外脏 5 到 10 倍；约 95% 的鞋子测出粪便残留；美国人约 95% 的时间待在室内</li><li>室外二氧化碳约从 2014 年的 395 ppm 升至约 460 ppm；室内 600–800 尚可，超过 1000 开始脑雾，3000 会感到精疲力竭</li><li>英国研究：受测住宅灰尘 100% 检出微塑料，肺部活检样本亦 100% 阳性；有说法称人均每周吸入约一张信用卡分量的微塑料</li><li>免费改善：进门脱鞋、开抽油烟机、浴室风扇排湿、尿布桶放到室外、开窗换气；买房时香氛插件常被用来掩盖霉菌气味</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：关心睡眠、过敏、霉菌、室内空气或正在装修/看房的听众（约 82 分钟，信息密度高，有具体数字和可立刻做的动作）。可跳过：只想听补剂和训练、对家居环境完全不感兴趣的人；后半段有产品介绍，可按其需求取舍。</p>
+<h3>适合人群</h3><p>关注睡眠与过敏、室内环境健康、霉菌敏感体质，或准备租房买房装修的听众</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场假设与麦克默里堡的空气觉醒</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯·威廉姆森拿出一堆常见家用产品，先抛出酒店房间假设：房里有街头性工作者、一袋来路不明（可能纯、可能掺假）的白粉，以及潜在霉菌问题——迈克尔·费尔德斯坦最担心霉菌，因为袋子可以扔掉、人可以请走，霉菌却最难控制，尤其当晚无处可睡时。克里斯把空气质量、霉菌毒性和光污染列为未来几年健康三大焦点，认为水质议题已接近峰值、人们已懂要喝干净的水。迈克尔认同：红光、冷水浸泡可能是来了又走的潮流，但一旦「有了水意识」、能尝出氯和铅，就不会再喝未过滤的水；空气也一样，只是可能变成「空气势利眼」，住民宿和酒店更难受。他出身灾难修复业，处理洪水、火灾、飓风和霉菌治理，会飞往飓风哈维（Hurricane Harvey）、加拿大阿尔伯塔或加州山火等大型灾区，而不是修马桶漏水的本地师傅。治理霉菌要隔离污染空间、清除实体霉菌并清洗空气，完工前后都要测空气；连洗四五天后，工地空气往往比自己家里还干净。转折发生在 2016 年加拿大史上最大山火麦克默里堡（Fort McMurray）：全城约 10 万人撤离一个月，约 5000 栋房屋连同汽车、油漆和石膏板燃烧，形成远超篝火味的有毒烟雾，许多房子并非被火烧掉，而是被烟浸透到必须拆到骨架再清洁。他们修好一户约一周后接到电话：婴儿住院；回测发现室内再度污染。测空气必须同时采室外对照，否则分不清是房子的问题还是当地环境本来就差；雨后 48 到 72 小时本不该做霉菌检测，却少有公司遵守，结果可能上百万孢子只是那天空气里本来就有的，不代表家里被污染。火灾后室外空气可差四到六个月，烟渗进土壤和灰烬。他们建议谭雅（Tanya）一家先离城住酒店、等环境空气好转再重洗，但保险公司说支票已寄出、工作结束。他们留下四台工业级空气清洗机，两三个小时空气就好转，却又吵又占设备；他去百思买、沃尔玛或家得宝买了五六台两三百美元的小型净化器，几小时后再测依然污染。西岸朋友说烟只需过城一两天就会渗进椅子、地毯和石膏板，气味习惯了，污染物还在。他由此想到做一台好看又安静的工业级清洗机；有一次把清洗机带回家，妻子瑞切尔（Rachel）说不管空气怎样都不许放房间里——空气旅程由此开始。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">三周、三天、三分钟：空气是睡眠与思维燃料</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯问：运动和睡眠都已经调整好的人，忽视空气质量会留下多少空间？迈克尔用生存时间打底：人大约可以三周不进食、三天不喝水，但约三分钟离不开空气；出生时做的第一件事和临终前做的最后一件事都是呼吸。空气、水和食物是三大摄入，睡着时唯一还在进行的是呼吸；人对不舒服、有毒的环境适应得很快，渴了会找水、饿了会找食物，呼吸却是下意识、无处不在的，所以空气意识大约落后水质二十年，新冠之后他感觉差距被压缩到十年左右。按体积计，人每天大约吸入 1.7 万升空气；喝水认真的人大约喝 2 升，食物大约 2 磅；有说法称体内约 70% 的排毒发生在肺里。他称夜间空气为「睡眠燃料」、白天为「思考燃料」：空气一般也能撑着过，但闷热、异味的房间会毁睡眠；干净空气的庇护所里，呼吸会像在山里那样更深、更不费力，从而安抚神经系统、改善睡眠、恢复和表现，过敏和打鼾也往往随之变化。克里斯区分即时表现（状态）与长期累积的系统性疾病风险，追问短期表现与长期健康各有哪些隐忧。迈克尔指出空气研究其实很多，只是很少被拿来聊天：哈佛、麻省理工等大学在生育、哮喘、认知、睡眠等方面都有大规模研究。让他印象深的三项包括：棒球裁判的好球坏球准确率与当天空气质量直接相关；国际象棋大师接近博弈论最优（完美下一步）的表现会因空气显著下降；SAT 分数同样受影响——这些都指向急性认知表现。闷的感觉本质是二氧化碳偏高，大脑不好使；若裁判都受影响，投球和挥棒的人也不会幸免。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">短期认知、睡眠实验与室内比室外更脏</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">现场有迈克尔送给克里斯的阿拉内特 4（Aranet 4）等传感器，当时二氧化碳约 973 ppm，处在「还算可以但已偏高」的上沿，挥发性有机物约 295 ppb。迈克尔第一次去克里斯家送贾斯珀（Jasper）时，发现整栋房子已经「极客化」：已有别的过滤品牌，每个房间都有空气监测器。克里斯说这非常私人——过去两年多他一直在从糟糕空气带来的健康打击中往回走，之前那栋房子水质和管道也有问题，而这位「空气大巫师」正好住在同一座城市。迈克尔说贾斯珀已经「武装」了奥斯汀不少柔术馆和健身房；克里斯补充：过滤器就放在乔·罗根（Joe Rogan）的准备室里，而且经常显示红色，像空气质量的「海军海豹」尖刀。短期方面他还强调睡眠：他们做了一项自己带队的社区实验（他谨慎不称之为严格实验室研究），给 150 名以前不过滤空气、使用 Aura 或 Whoop 的人贾斯珀，为期四周——第一周无过滤并记录睡眠，第二、三周卧室开贾斯珀三档风速，第四周再关掉。平均结果是每晚多睡约 25 分钟、深睡眠增加约 18%、入睡加快约 5 分钟；参与者须同意不匿名，以便把名字押在数据上，覆盖男女、各年龄段以及医生、科学家、教师等。他们自己的数据还显示，约 30% 的打鼾者停止打鼾，其余 70% 中超过一半明显减轻。常有女性来信说因过敏买了机器后，分房睡多年的丈夫终于能回到卧室。睡眠是长期健康的领先指标。他们在奥斯汀只要有人下单就会打电话或发短信、上门手递并在开关机前后测空气；奥斯汀以雪松热（cedar fever）过敏季出名，很多人症状降到接近零。人可以在路上短暂吸入沥青和毒素，但卧室枕头和床上的花粉浓度常常高于室外，因为花粉进来后会停在多孔材料里——能被水浸湿的东西（石膏板、地毯、绝缘材料和很多家具）也能被烟渗透，密封木材则可以擦干净。问题不是白天吸一两个小时，而是一天 24 小时都在吸。普通住宅室内空气往往比室外脏 5 到 10 倍；克里斯家里则反过来，室内可比室外干净约 10 倍。家本应是回来修复的居所。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">室内污染源：鞋底粪便、烹饪多环芳烃和过密闭的房子</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">谈到家里空气的「组成成分」，迈克尔边讲边给出立刻能做的建议。进门穿鞋很糟：受测鞋子约 95% 带有粪便残留，有粪便往往也有草甘膦，鞋底还会累积轮胎橡胶等户外脏东西；人几乎从不洗鞋底，却在地毯上走来走去。他们会做「扰动地毯采样」：用粒子计数器拍打地毯，能打出数百万计粒子，走路时也在发生同样的事，粒子包括霉菌孢子、死皮、头发、污染和花粉。烹饪是另一件大事：即便用优质油或草饲草完牛油、好锅和好食材，高温与蛋白质仍会产生多环芳烃（PAH, polycyclic aromatic hydrocarbons）；他灾后测房子时总在找六价铬和多环芳烃。培根和菜香很好闻，气味散了之后这些反应物仍嵌在房子里，而且多数人并不开抽油烟机。人类很晚才开始在室内烹饪、在室内生活；美国人平均约 95% 的时间待在室内，像住在密封保鲜盒里。霉菌和灰尘主要是室内问题，室外有阳光、风、雨和树，相当于大自然的空气净化器。流动的河水通常较干净，一潭死水就会长藻和细菌；生命、水和空气都想流动。此外还有发胶、纺必适（Febreze）、格莱德（Glade）插电香薰、蜡烛和熏香等化学品，以及建材本身。他认为自己存在的部分理由是最终把房子建得更好：房屋盖得太 Tight、不会呼吸。室外像河流，室内像池塘；房子不能呼吸，里面的人也不能。1970 年代能源危机后建筑规范为了节能把房子做得极 Tight，问题由此加剧。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">家里的空气从哪来，二氧化碳如何让大脑起雾</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">中插广告之后，克里斯问了一个听起来傻、早上却认真想过的问题：房子并非完全密封，为什么人在里面不会一直窒息？尤其是英国这类空调不多的地方，他本以为几乎没有气流。迈克尔用浸在水里的瓶子打比方：不必戳很多孔就会进水，因为房子就处在可呼吸的大气薄层里——如果地球是一只苹果，人类能生存的可呼吸区域大约只相当于苹果皮那么薄，爬到约 1 万英尺以上或到水下都很难长期存活。空气会从窗户、门（即便关着）、阁楼通气口、浴室和炉灶排气口以及所有漏风处进来；任何往外排的路径，也是空气进来的路径，房子像一个有压差的容器，可用鼓风门测试（blower door test）检查。二氧化碳是人自己在室内「循环」空气的产物：人吸进氧气、呼出二氧化碳，树和植物相反。室外二氧化碳大约 460 到 500 ppm，室内 600 到 800 还不错；超过 1000 尚可但脑雾开始出现，到 2000 会明显有感觉，到 3000 会觉得精疲力竭、没法思考。他 2014 年开始监测时室外大约 395 ppm，现在约 460 ppm，相当于环境本底上升了约一到两成；400 与 600、800 的体感可以差很多。克里斯说播客棚为了隔音尽量密封，天花有吸音板、双腔隔热，罗根的棚甚至是浮筑地面、双层门；四人圆桌录到三小时不能开门（会漏光漏声），二氧化碳曾到约 1800 ppm，而来这里的目的偏偏是清楚思考和表达。迈克尔承诺大约两三个代表就能给出安静的解决方案：他们在城里建「清洁空气工作室」（Clean Air Studios），会把换气设备放到远处，缓慢轻柔地换气以免破坏录音。克里斯开玩笑说要不在棚里做雨林，迈克尔立刻反对：湿度和霉菌会把人干掉。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">不要在细枝末节上较真：80/20 与城市空气地图</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯担心这会不会又变成一项繁重功课：已经要避开超加工食品、种子油、蓝 40 和红 5，还要练最大摄氧量、力量和维生素 B12，在满是芝士脆的世界里，人们是不是把空气这种「专业」做成了次要细节上的钻牛角尖？迈克尔说他几乎不靠意志力，而相信环境会告诉你该有什么感觉：码头、山里很难焦虑，水声、柔光、木头和石头的水疗会让人舒服，明亮吵闹、黑粉墙壁的牙科诊所则让人紧绷。与其靠一堆助眠药硬撑，不如先搞定床、温度和环境——控制环境是最「懒」的健康方式。空气、水和光线是一次性设置好就不用天天想的被动事项：家里装滤水器、一年换两次滤芯，出门买瓶装水，反渗透后再加回电解质，都很容易。英国广播公司（BBC）微塑料空气研究显示，受测住宅 100% 在灰尘中检出微塑料（灰尘是采样空气的好方法），98% 的样本浓度很高；他们与实验室合作，在活检中发现 100% 的人肺部有微塑料。有说法称人均每周吸入约一张信用卡分量的微塑料；他相信人吸入的微塑料远多于喝进去的，因为空气量大且免费。80/20 的底线是：睡觉时有干净空气、喝干净的水、日出前日落后再尽量不用人造光。若还要给浴室、淋浴、泳池和全屋红光加码也可以，但零到一的跃迁最大；亚马逊上约 50 美元的盐灯、台面滤水器，再加上用家得宝零件花 60 到 120 美元做科西-罗森塔尔箱（Corsi-Rosenthal Box）这类自己动手过滤器，也远好过商店里不工作的小塑料盒子，只是样子丑、有噪音、没有传感器。克里斯引用统计：全世界约 99% 的人口生活在空气污染超出世界卫生组织（WHO）指南的地方，并问洛杉矶烟雾、迈阿密和各地差异。迈克尔旅行时已把空气当作重要考量：墨西哥城文化很棒，他不会待超过一两天，且睡觉时一定清洗空气；曼谷、德里、北京等很多城市空气很差。美国则很区域化，但哪里都有问题。佛罗里达潮湿且霉菌严重，酒店为了省钱在客人离开后关掉空调，气流一停霉菌就积起来，现在常常见到酒店被拆到骨架；奥斯汀也有很多霉菌，既因为湿度，也因为得州房子盖得差——他在加拿大长大，炉子和空调在地下室，得州却把暖通放进阁楼：室外约 105 华氏度，管道里吹 70 度冷风，周围却是 105 度，冷凝水滴个不停，几乎每家阁楼都有大量霉菌，且使用柔性风管，一清洗转子就会撕开、无法再做管道清洁。很多人搬去亚利桑那沙漠想逃离霉菌，他却在那里看到一些最严重的霉菌毒性：沙漠沙子曾在水下，含有古老霉菌，再叠加哈布沙尘暴（haboob，克里斯联想到悉尼·斯威尼相关画面）；室外相对湿度只有约 20%，长期缺乏暴露，家里一旦漏水就会剧烈爆发——干燥地带里一个又凉又湿、仍会漏的盒子。他呼吸过最好的空气包括哥斯达黎加热带雨林和温哥华岛，雨林里二氧化碳检测器读数比世界其他地方低约 10%；奥斯汀仙女鸟湖（Lady Bird Lake）树下也能感到局部「树在对你呼吸」的清凉。克里斯提到赢大奖的南瓜西瓜研究：一度以为唱歌让植物长得更好，后来发现可能只是人对着植物呼出了额外的二氧化碳。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">香薰、杀虫剂、发胶与「室内空气污染产业」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">产品点评从熏香开始：迈克尔喜欢户外用，不赞成在家里燃烧东西；若一定要用，就要清洗空气或开窗。杀虫剂是坚决的不。崔丝美（TRESemmé）这类强力定型发胶让想要好看的人很难完全不用；两人同意不要对每件小事偏执到不敢动弹。迈克尔观察：他认识的一些病得最重的人，往往也是最「健康觉知」、永远在治愈下一项的人，神经质的压力反而让他们持续生病。贾斯珀上的传感器有个意外用处：喷发胶或止汗剂时读数会飙升（克里斯说自己每天喷除臭剂机器就会发狂），低毒网红会用它比较哪款产品更毒；较好的产品反应会小一些。若要用发胶，最好去室外，其次开窗，再不行就进浴室并让排气扇一直开着。浴室空气清新剂引出关键一点：这是香氛。美国香氛（他称之为室内空气污染产业）市场规模约 70 亿美元，空气过滤产业约 35 亿美元，前者是后者的两倍，他想把这个关系翻过来。最糟的体验之一是坐进挂着「死亡圣诞树」的优步；现场就有同事凯尔（Kyle）车上通风口用的那挂香片。萨钦·帕特尔博士（Dr. Sachin Patel）有一句话改变了他：除非在分泌唾液，否则不要吃东西——唾液会通知消化酶准备即将到来的食物，所以闻到美食会流口水。纺必适喷在球包上并没有把脏东西清掉，只是绑定鼻腔受体、让嗅觉系统失灵，闻不到原味；嗅觉与味觉、肠道、营养吸收紧密相连，闻不到就无法准备相应的酶。他随身带更低毒的 Primarily Pure 除臭剂，拥抱到用 Speed Stick 的人时会递给对方一支出去，并认为合成香氛将成为新的二手烟：从前有人抱怨吸烟像扫兴，后来研究显示二手烟一样糟甚至更糟。有人一进门他立刻知道对方喷了香水或古龙水。针对「这是不是过度敏感、让人更脆弱」的批评，他说希望既高度敏感又有韧性：休伯曼（Andrew Huberman）会强调突然开灯的影响，但他不再为此毁掉整天，而是把灯关掉、承认重要、同时保持弹性。狗弄脏沙发或地毯时，应拆下罩子拿到阳光下——太阳是最强的紫外线消毒，远好过纺必适。喷雾防晒不仅伤害植物和水体，户外 50 到 100 英尺外都能闻到；空气像水，三滴红色食用色素几秒内就会均匀染红整缸洗澡水，气味不会停留在局部。蜡烛方面：不用蜡烛最「最优」，但烛光是很好的光、利于神经系统放松，「蜡烛加拥抱」是新的「奈飞加放松」；他本人会用蜡烛，偏爱蜂蜡、优质木芯或大麻芯，蜂蜡有点像自然电离。他测过约 25 种品牌，还没有可以公开背书的；熄灭时应到室外吹灭，避免末端黑烟，或用熄烛罩。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">谁更脆弱，以及不花钱就能改善空气的办法</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">空气比水更「狡猾」：进户水通常只有一根管子，可以在水源、淋浴或全屋过滤；空气却从许多缝隙进来，过滤思路必须不同。谁更易受损？普通成年人每天大约呼吸 1.5 万到 2 万次，幼儿约 4 万到 6 万次，婴儿可达 6 万到 10 万次，婴儿和老人尤其脆弱。现代生产往往在强光、催促和仪器蜂鸣的医院里完成，回家后育儿房为了「Instagram 就绪」刷了新漆、堆满正在释放挥发性有机物的玩具，还常放一个密封尿布桶。育儿房若有粪便味，那就是粪便和大量细菌；妈妈本想保护宝宝，宝宝却整晚吸入这些微粒。免费干预就是把脏尿布直接拿到室外。女儿阿雅（Arya）刚出生、他们住在不列颠哥伦比亚时，妻子瑞切尔图方便使用尿布桶；他提议「做实验」——今晚把尿布桶放进主卧、自己去客厅沙发睡，她立刻说恶心、不行，而这正是重点：他们绝不会让自己跟尿布桶同睡，却让每晚呼吸约 10 万次、免疫系统仍在发育的宝宝去吸。不花钱的改善还包括：进门脱鞋、开抽油烟机、使用浴室风扇。浴室风扇主要不是为了去味，而是排湿；他建议装带 30 分钟、60 分钟或 2 小时定时的开关，淋浴后至少开一小时，因为几加仑的水会留在地漏或毛巾上再蒸发进房子，门一关、湿气一积，时间久了就是霉菌。还要清理烘干机排气和绒毛盒，很多家庭火灾就来自烘干机。温度合适就开窗；德国和许多欧洲地方每天给房子通风（他一时想不起以 L 开头的词，即 Lüften）是常规，美国却很少这样做。克里斯问空调不是已经在往家里送风吗，难道不像开窗，还有高效滤网和除湿机。迈克尔把暖通空调（HVAC）比作房子的肺：多数Subdivision 或公寓由银行用表格驱动——求快、求便宜、求面积和好看以便快卖，不是求最健康。炉子和空调只为节能地加热和制冷，并未按过滤来选型；人们常把系统停在自动模式，达到设定温度就停。他前两年曾想做炉内整屋过滤，结果又吵又会扼住气流。新冠期间有人把 MERV 16 高等级滤网塞进系统，电机被憋到烧毁。过滤要同时看效率（拦住多少粒子）和效能（有多少空气流过）。贾斯珀的长期愿景是做真正会「呼吸」的暖通产品，把花粉、霉菌和山火烟也考虑进去，但这大概还要几年。人对热舒适极敏感：房间 25 到 30 摄氏度会立刻觉得热，二氧化碳 2000 ppm 加一些挥发性有机物却常常觉得「还行」，问题会慢慢累积。人体其实是最好的传感器：他检测过数百栋发霉的房子后，一进门就能感觉到霉菌。让五个人早上未看天气预报时在餐巾纸上写下体感温度，大家通常只差 1 到 2 度，因为皮肤温度感受器天天被校准；人对天气的理解却被简化成冷热、阴晴、下不下雨。他想做一款也会报告「今天是四个月来最干净的空气、很适合出门」的天气应用。长期看相对湿度，身体同样会校准；他带着二氧化碳检测器太久，常能把读数猜到约 30 到 50 ppm 以内。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">买房验屋：香氛掩盖霉菌，「霉菌就是黄金」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">看房或搬家时该查什么、什么问题该直接走开？迈克尔 2014 年因兴趣拿过房屋检查认证，其实是三四天的网课；洪水、火灾和霉菌治理认证则是大约两天、约 500 美元、房间里一场简单考试——所谓专业人士并没有去读一年「霉菌大学」，证书本身意义很小。常规验屋报告通常排除环境问题：不查霉菌，往往也不仔细查屋顶；花 400 到 1000 美元、偶尔 2000 美元，主要在找未来几年会砸钱包的东西，比如屋顶年限、裂缝、接地故障插座是否工作，房子尽可以长满霉菌而完全不被提及，他们也没受过这方面训练。第一红旗：若屋里有大量插电香薰和香味，必须要求重新检查——先把香氛全部拿走，让房子透一两天再关上。卖霉菌屋最常用的手法就是插香氛，让人以为干净清新，其实只是堵住了闻霉的能力；买下后可能面对约 20 万美元的治理，全家生病。这是人生最大投资、也是家人住在里面的东西，他建议做空气质量和霉菌检测；克里斯也说，若房子伤到你，修复健康的代价（对他而言约两年）极其昂贵且费力。新旧房子都可能更糟。他做检测时大约三分之一的工作与「病态建筑综合征」有关，过去更多被用在商业楼：缺勤高、表现差。哈佛的约瑟夫·艾伦博士（Dr. Joseph Allen）的研究显示，优化员工健康与环境的成本，远低于养活一支常生病缺勤的团队；住宅逻辑完全一样。被问到黄金标准评估、包括他们做过的 ERMI 时，他没有简单答案：霉菌可以让人病得很重，但行业有「霉菌淘金热」和「霉菌就是黄金」的说法——承包商拆浴室再重装原先大约 1000 美元，一旦有黑霉就变成约 1 万美元，差别大约只是四小时准备、一台清洗机、一些抗菌剂、多三小时人工和约 50 美元材料，观感却从「换瓷砖」变成「核泄漏」。功能医学医生被霉菌患者淹没，尿检、血检公司随之涌现。克里斯推荐美国的霉菌公司 The Mold Co. 和阿里安娜（Ariana）：做检测、治疗并带人走排毒方案，遵循休梅克方案（Shoemaker protocol），团队里有该领域最循证方案创始人的早期弟子。行业常说验屋师不该兼承包商、霉菌检测师不该兼治理方，以免激励扭曲；但你找会计师、律师、机械师时并不会这样拆开，眼科医生却不卖眼镜。最终取决于信任，他反而认为最好的霉菌检测者往往是真正把东西拆掉的治理人员，就像找外科医生评估是否需要手术。这不是「大农业、大制药的邪恶阴谋」，而是一条用好意铺成的地狱之路：很少有真正的坏演员，但两天课程出身的人挥着检测棒、昨天刚下过雨，就可能警报并开始大拆。ERMI 本身是好测试，却偏警报化，查的是灰尘里过去约六个月有没有过霉菌——几乎总会有，就像验血几乎总能找到一些重金属、霉菌或双酚 A，于是人松一口气以为「终于找到元凶」；但这不是有或无的黑白问题，而是什么种类、有多少、能否复查。The Mold Co. 在这一点上做得好，也相对划算。买房时不妨多请几家治理承包商来看；多数承包商大概并不出色，只能多问。克里斯自己是在 Instagram 动态和朋友圈里反复打听，奥斯汀的 Toolman 公司被多次提起，对方档期很满但还是挤出了时间。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">贾斯珀不是普通净化器：从工业清洗机到牙医诊室</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯问贾斯珀作为空气清洗机如何工作、能帮多少、该放哪里。迈克尔强调他们称之为空气清洗机（air scrubber）而不是空气净化器：好比育空·丹纳利（Yukon Denali）与本田思域，都是车，但一个为城市通勤，一个能拉家人、更安全也更好看；高尔夫球车和皮卡也能说明「谁拉得动船」。清洗机是工业级净化器。SUV 大约 1990 年代才从军用级车辆变成现代家庭用品，如今美国售出的汽车超过 50% 是 SUV。一台贾斯珀大约相当于五台廉价小净化器。空气流过滤网，目标不是制造「特制优化空气」，而是尽量回到自然该有的空气，只过滤、不添加。机身用钢，按 10 到 25 年寿命设计，因此能提供终身保修。滤网约 4.5 磅，多数净化器滤网只有三分之一到半磅；更大意味着能在安静状态下推动更多空气。现场两台几乎听不见。贾斯珀在最低静音档的风量就超过多数净化器最高档：指标是每分钟立方英尺（CFM），他们静音档底部大约 100 CFM，很多产品最高才约 80 CFM。货架上写着「覆盖 1500 平方英尺大房间」的小机器，若你觉得它没在工作，那它多半就没在工作；卧室开三档、关灯，或放客厅，体感差异应当一目了然。传感器在十年十五年前可能值几千美元，现在更小更便宜，于是机器可以既安静又聪明：一做饭、点蜡烛、点香或遇到山火烟和污染，数字上升并变成橙色、红色，你听见它是因为你该听见，随后再降下来。贾斯珀是「在意室内设计的妻子」与「霉菌男」的孩子：若没有瑞切尔，他会继续用又吵又丑的工业清洗机，客人会觉得屋里不一样，她却会要求拿走。他认为设计本身就是健康趋势，好看会让人感觉更好。机器无蓝牙、无 Wi-Fi、无额外电磁场，没做焦点小组，是为他自己做的。二十多岁时他在灾难间隙大量旅行，刚有约 50 台机器，本不确定要不要把公司做下去，最初只为山火季的烟而做；接着新冠来了。安大略规定每间牙科诊室必须有过滤器才能重新开门，而且风量决定病人间隔：小净化器可能要间隔一小时，贾斯珀只需约 8 分钟，牙医一天就能回本。前一千名客户是多伦多的牙医，公司上市时甚至叫贾斯珀医疗（Jasper Medical）。最初三年他们不懂电商，只能「申请报价、免费咨询」，他会跟客户聊半小时霉菌或牙科情况，用长宽高做气流计算，告诉牙医间隔几分钟；涡轮模式就是为新冠期间的牙医一键深洗空气而发明的，后来留给消费者。克里斯家测过卧室机器和空气医生（Air Doctor，他一开始说成 Aquatrue）等，迈克尔说他们曾在克里斯不在时录像检测：那些机器吹出来的空气与环境空气完全一样，等于没在清洁，只是昂贵的「空气吹风机」。他建议预算极度紧张、只想改善睡眠的人谷歌科西-罗森塔尔箱自己做。贾斯珀滤网是三合一，每六个月自动寄到，30 秒可更换；他们只做这一款产品，没有小号、大号或水产品，现在大约是第五代滤网，只做一件事才能不断改进。他讨厌订阅，但换滤芯类似一年两次请人换水滤、每三个月寄牙刷头或汽车保养，有其道理。坏了就寄全新机器，用户把旧机放回原箱，他们提供预付运单并承担近 100 美元的回运费用。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">先放卧室，芬兰教室实验，以及呼吸更好、感觉更好</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">标志里的 A 既像树又像山，长期愿景是：如果房子建得好、污染少，这类产品本不该存在，真正的空气过滤是树。他本人抓住干净空气、干净水、干净食物和良好光线就够了，偶尔蒸个桑拿；前大约 20 期播客里他一次都没提贾斯珀，怕显得在推销，直到牙医开始展示机器、妈妈们问能不能家用，并反馈哮喘发作和过敏消失，他才觉得这成了一项使命。预算紧就先做自己动手的箱子；若只买一台，优先放卧室，无需紧贴床边，圆柱形 360 度进风，可靠墙或墙角，不像方形机器说明书要求离墙一两英尺、结果只能放房间中央。第二优先是你真正待着的地方。钱不是问题的人通常每间卧室一台、客厅一台：卧室开暗光模式和高风速，客厅开智能模式。如今厨房和客厅多半连通，不必紧挨炉灶；有人也放在家庭办公室。他们计划明年做更大规模睡眠研究，并希望与大公司合作，把贾斯珀放进 50% 员工的卧室（即便是居家办公），衡量表现和缺勤——若每天约 2 美元能做成一项计划，他觉得比自己仍搞不懂的蓝十字（Blue Cross）等医保账单更看得见、摸得着；很多合作企业会给全员家里各送一台，士气也更好。乔科（Jocko）团队 Echelon 的全部 54 名员工卧室里都有一台。节目上线日起两周全站折扣 300 美元，官网 jaspr.co（J-A-S-P-R 点 CO），不用折扣码，售价约 899 美元而非 1199 美元，相当于他们通常只在黑色星期五做的折扣（山火时会在当地另做活动）；几年前曾卖断货约三个月。他押上承诺：大约三天就能知道是否改变生活；请保留纸箱，前 30 天若不是「显而易见」——客厅智能模式白天应对烹饪、卧室三档暗光模式并记录睡眠，再对比一晚不用——他们会 100% 退款并承担退货运费，一美元都嫌多。另一项让他兴奋的研究在学校：奥斯汀金德林学院（Kindling Academy）两周前开学，每间教室都有贾斯珀。芬兰几年前的研究在 50% 的教室放入过滤器，师生缺勤约下降 30%。他们把学校当作活实验室，展示干净空气、干净水、自然光、低毒产品和户外时间（明年还想加入有机食物）能让孩子好多少。美国公立学校按出勤拨款，还有逃学相关规定，外出两周都可能惹麻烦；他们也在给本地学校赠送机器以扩大数据。若能证明空气、水和光线（他认为空气是主因）可把缺勤降约 50%，公立学校就会有财务理由去营造更健康的环境。目前只发货美国和加拿大，预计 10 月最后一周或 11 月第一周进入英国和澳大利亚，也因为克里斯的推动。克里斯感谢迈克尔以及阿里安娜、圣何塞的马特·库克（Matt Cook）、加布里埃尔·莱昂（Gabrielle Lyon）及其团队，说这是自己过去两年半健康旅程的尾风：他不希望别人再走同样的弯路，也知道许多人正被环境和毒素以更小剂量伤害；对未生病或不认识患者的人，这些听起来像在谈论鬼魂或通灵的捉弄，像过度敏感或在细枝末节上较真，但他清楚这对自己健康的差别，有些人的生理就是对环境更敏感。台式反渗透净水器大约 200 到 250 美元就能起步；不是人人都租得起或买得起下一栋房子、也不是人人都能做全屋治理，但至少可以立刻让正在呼吸的空气好一点。霉菌和过敏原影响人，通常不是因为吃进去或喝进去，而是吸进去；把东西滤掉，人就会好受得多。口诀是：呼吸更好，感觉更好。控制环境是懒人式的健康法。片尾克里斯提醒：很多人说已经点过订阅，YouTube 仍会取消，请再检查一下订阅按钮，可以更早看到节目，也支持他请来更大更好的嘉宾。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">克里斯·威廉姆森（Chris Williamson）<em>主持</em></span><span class="spk-1">迈克尔·费尔德斯坦（Michael Feldstein）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场假设与麦克默里堡的空气觉醒</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>我这边摆了一堆很多人家中都会有的产品，想听听你的看法。不过在看这些之前，先想象一下：你走进一间酒店房间，里面有一个街头性工作者，有一袋白粉——可能是纯的，也可能掺了东西，你不知道——还有一个潜在的霉菌问题。这三样里，你最担心哪一样？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>我最感兴趣、也最担心的，大概是霉菌。如果那天晚上我没有别的地方可睡，这是我最无法控制的一件事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>最感兴趣和最担心可能不是一回事。袋子可以扔掉，人可以请走，霉菌却难办得多。我觉得空气质量会是未来几年人人都会关心的健康三大领域之一：空气质量、霉菌毒性、光污染，这是我心目中的前三。水质曾经是大事，现在好像已经接近峰值，人们知道自己需要干净的水了。你是怎么开始做空气质量的？故事是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>我完全同意。有些东西是潮流，有些东西一旦意识被唤醒，就不会再退回去。红光现在有点流行，冷水浸泡也是，但十年后我不太确定它们还会不会在。水过滤不一样：一旦你开始喝干净的水，有了「水意识」，能尝出氯和铅，就再也不会回到不喝过滤水的日子。空气也是同一回事。呼吸干净空气唯一比较麻烦的是，你可能会变成「空气势利眼」，之后住民宿、酒店和别人家里会更难受。我是从灾难修复这一行进来的：洪水、火灾、飓风、霉菌治理。我不是你家马桶漏水时会打给的那个本地师傅，我们会飞去飓风哈维（Hurricane Harvey）、加拿大阿尔伯塔，或加州山火，去处理全国最大的那些灾难。治理霉菌到底意味着什么？你需要隔离被污染的空间，清除实体霉菌，并清洗空气，就是这些步骤。前后都要测空气。有些我呼吸过最干净、最新鲜的空气，反而是霉菌治理收尾之后，因为我们连洗了四五天。然后我回家，觉得：嗯，工地上更干净。真正让我豁然开朗的空气时刻，是 2016 年加拿大阿尔伯塔的麦克默里堡（Fort McMurray）。那是加拿大史上最大的山火，全城约 10 万人撤离了一个月。我们去了。每家每户都被烟浸透，不是火烧毁了房子，而是烟损严重到整栋必须拆到骨架再清洁。那也不是篝火和烤棉花糖的味道：大约 5000 栋房屋连同汽车、油漆、石膏板等材料一起燃烧，造出非常有毒的烟雾。我们进门清洁、修复，可能花几周，也可能要一个月。有一次房子刚洗完，一周后接到电话：婴儿住院了。我们回到那栋房子测空气，发现它其实又被重新污染了。测空气时一定要同时测室外和室内。如果有人只测室内，那他根本不懂自己在做什么。你必须采集室外环境空气作为对照，再和当时的室内空气比较，才能看到差值。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>不然也可能只是当地环境空气本来就差。要是火灾期间只看室内读数，你会觉得屋里糟透了；是的，但外面一样糟，只是相同而已。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>按理说，下雨后 48 到 72 小时内不该做霉菌检测，但几乎没有公司遵守，因为那样就接不了活。很多人拿到检测，结果上百万，回头一看前一天下过雨。他们做对照样本了吗？如果没有，空气里当然有霉菌孢子，这并不等于你家被污染了，只是那天空气里本来就有的东西。我们进去一看，室外空气污染非常重。一场严重山火之后，空气可以连续差四、五、六个月，烟会进土壤，烧过的房子和灰烬里都有。我们打电话给保险公司：谭雅（Tanya）的家又被污染了，我建议她和家人先离开这座城，住酒店等着，等环境空气好转再重洗，然后才能搬回去。保险公司说没门，支票已经在路上，她签收了，我们的工作结束了。可这里有一个生病的婴儿，保险却说我们完事了。于是我们把四台大型工业空气清洗机留在谭雅家里。大约两三个小时后空气就好了，缺点是有点吵。机器在转，但空气是好的。我们把它们留了几周，差不多一个月，而这种情况不断发生：房子洗干净后会再次被污染，保险不会再出钱重洗，我们却只能把清洗机留在工地上。这很贵，而且我们自己的工地还需要这些设备。</p>
+<p>我记不清是去了百思买、沃尔玛还是家得宝，总之买了一批常见的、两三百美元的小型空气净化器，大多长得很像，在家里放了五六台。几小时后再测，又完全被污染了。那时我对便携净化器了解不多，后来才明白它们有点像小玩具，做不了什么。我当时住在安大略的多伦多，西岸的人跟我说，他们每年都会有几天烟雾；但烟雾只需过城一两天，你家就会被浸透。烟味过后你习惯了，椅子、地毯和石膏板里的污染物却还在。别说那种超级大火，哪怕只是会碰到烟雾的地方，都需要比这些小净化器更像样的东西。工业清洗机非常有效，却又吵又难看；小净化器便宜、小巧、可爱，却几乎不起作用。我需要一台好看、安静、人家愿意放在家里的清洗机。灾难修复有时让人沮丧：房子洗净后又被污染，谈不上真正的影响。我觉得最有影响力的事，是把多年处理洪水、火灾和霉菌的经验做成一台真正经过设计的清洗机。有一天我把清洗机带回家，妻子瑞切尔（Rachel）说：把那东西拿走，我不管空气怎么样，都不能留在房间里。我的空气旅程就这样开始了。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>三周、三天、三分钟：空气是睡眠与思维燃料</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>假设有人运动和睡眠都已经调整到位，如果完全忽视空气质量，他们会在桌上留下多少空间？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>先用这个锚定：人大约可以三周不进食、三天不喝水，但大约三分钟离不开空气。你出生时做的第一件事是吸进第一口气，临终前做的最后一件事是呼出最后一口气。空气、水和食物是每天维持生命的三大摄入，睡着时唯一还在做的只有呼吸。而我们人类特别擅长适应不舒服、有毒的环境。渴了去喝，饿了去吃，空气却无处不在，我们在下意识地呼吸，根本没在注意。一旦开始有意识地关注呼吸，你会发现这件事非常有意思。用升来讲：你每天大约吸入 1.7 万升空气。如果喝水比较认真，大概喝 2 升水，食物也许有 2 磅。有说法称体内大约 70% 的排毒发生在肺里。我们面前也有饮料，但我接下来一个小时不喝不吃也没问题，呼吸却停不了。正因为这样，我们才不去注意它。我觉得空气意识大约落后水质二十年；新冠之后，这种滞后更像被压缩到了十年，我也在努力把这条时间线再压短一点。这是最大的事。睡觉时我把空气叫作「睡眠燃料」，白天叫作「思考燃料」，因为它是唯一真正让我们持续运转的东西。空气一般也能撑着过，可如果房间又热又闷又有异味，睡眠就会很差。反过来，当你在一个干净空气的庇护所里呼吸，我认为睡眠是最该先调好的事。去山上你会深深地、不费力地呼吸；又湿又脏的环境里，呼吸会自然变得短促受限，离开之后仍会保持这种短促，变成新的常态。空气越干净、越新鲜，你越容易自在地呼吸，神经系统也会平静下来，睡得更好。睡得好，恢复就更好；恢复更好，无论是运动、学业还是工作，表现都会更好。过敏、打鼾，全都连着这件事。空气就是我们赖以活着的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>有意思。很多人会同时想到「特质」和「状态」：它此刻对我的表现做了什么，以及它长期累积下去会不会造成系统性的疾病、让某些生物标志物变差、损害长期健康。空气质量差的时候，短期表现最大的隐忧是什么？长期健康影响又是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>先说短期表现。空气这件事大家聊得不多，研究却非常多。你在「空气质量」后面接上生育、哮喘、认知表现、睡眠，哈佛、麻省理工这些大学做过的大规模研究都在。有一组研究看棒球裁判：好球坏球出现在屏幕上时他们经常判错，而裁判的判罚准确率和当天的空气质量直接相关。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>我一直想不明白，这项运动怎么到现在还没有某种人工智能来做这件事。我们都有自动驾驶汽车了，裁判却还是人工的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>第二项是国际象棋大师。所谓博弈论最优，就是棋手走出完美的下一步；这种表现会因空气质量而大幅受影响。SAT 分数也一样。这些都在说急性的认知表现。我们谈空气，谈的是新鲜和干净。想象你和十二个人挤进一座大楼的电梯，或在办公室、在有三十人的家庭聚会里，你会想冲到外面去——那种闷，就是二氧化碳偏高，大脑不好使。这是短期。如果裁判都这样，那个投球的人、那个挥棒的人，又会怎样？他们正是从这同一件事出发去运作的。我很喜欢这三项研究。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>短期认知、睡眠实验与室内比室外更脏</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>跟听众说一下，我们面前有一些传感器，其中有一台你好意送我的阿拉内特 4（Aranet 4），主要在追踪二氧化碳。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>对，它就是干这个的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>现在是 973，处在「还算可以」的上沿。也就是说，要是我们等会儿开始讲得语无伦次，还可以对照这些不同的组成部分来看。哦，挥发性有机物是 295 ppb。反正我们这儿传感器不少。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>对了，我特别兴奋的是，我们第一次去你家送几台贾斯珀（Jasper）的时候，整栋房子已经「极客化」了。你已经有另一个过滤品牌，每个房间都有空气监测器。私下里看到那些，我心想：太好了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>你是在跟一个过去两年多都在努力把健康夺回来的人说话，而我基本上就是被糟糕的空气质量「感染」了。之前那栋房子里，水和管道当然也有问题，但这件事对我非常私人。我还找到了这位空气质量的「大巫师」，而他刚好住在同一座城市。所以回到短期表现：人们会更不准确，认知会受损。这些研究多半做在认知任务上，但体力任务、情绪调节这些，短期内大概也会被波及。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>贾斯珀已经「武装」了奥斯汀不少地方。你去柔术馆和很多健身房都能看到。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>老兄，它就在罗根（Joe Rogan）的准备室里。前几天我走进去就看到了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>而且那一台工作得很卖力。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>我敢肯定。那简直是空气质量的海军海豹，是矛尖。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>我们前几天还给他发消息：一台不够，兄弟们。我们不断收到那台机器一直显示红色的照片。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>一点不意外。那长期呢？长期健康正在发生什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>短期我还想补一句：睡眠。我们做了一项社区主导的实验——我会小心使用「研究」这个词。我们给 150 个以前不过滤空气的人贾斯珀，他们用的是奥拉（Aura）或 Whoop 手环。为期四周：第一周没有空气过滤，只记录睡眠；第二、三周卧室里开着贾斯珀，风速三档；第四周再关掉。然后大家把数据发给我们分析。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>他们都在用某种追踪器，比如 Whoop 手环或类似的东西，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>对。平均下来，每人每晚多睡 25 分钟，深睡眠增加 18%，入睡加快 5 分钟。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>所以第一周和第四周应该相近，第二周和第三周相近，变化会先上去再下来。这实验也太酷了。我知道它也许不算实验室里那种随机对照试验，但真的很棒。我们应该想办法做一版更大的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>也许春天在这里过敏特别严重的时候做。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>那会很有意思。反正我们应该想出一个办法来做成这件事。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>会做的。很酷的一点是：每个人都必须交出数据，并且同意不匿名。因为如果没有人愿意把名字押上去，就不会有人相信这项实验。参与者有男有女、各种年龄，有医生、科学家、教师，范围很广。这更像我们自己先做的测试版实验，再考虑做更大的研究。对睡眠来说这是大事。我们自己的数据还显示，大约 30% 的打鼾者停止了打鼾；其余 70% 里，超过一半明显减轻。我们刚开始做这件事时，我万万没想到会不断收到女性来信：我们因过敏买了贾斯珀，分房睡了好几年的丈夫现在又能回到卧室了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>天哪，你这是拯救了几十万美国人的性生活。挺好笑的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>这些大致属于短期。睡眠自然是各种长期问题的领先指标。人体很有韧性，急性场合下能扛住不少毒素。另外，在奥斯汀，任何人订购贾斯珀，我们都会打电话或发短信，上门亲手送达，并在使用前后测试空气——他们甚至不一定知道我们就在奥斯汀。所以我们测过很多空气。奥斯汀的过敏季非常明显，我们常说的雪松热（cedar fever）就是一例。很多人症状降到零，或大幅减轻。人体可以承受一点霉菌，也可以在马路被铺沥青时吸一两分钟的毒素。可我们测卧室时，枕头或床上的花粉水平常常比室外还高，因为它们进来以后就留下来了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>会沉降下来。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>它们会停在多孔材料里。任何能被水浸湿的东西，也能被空气渗透。做修复时，像这样的密封木材我们可以整天擦干净；可石膏板、地毯、绝缘材料和很多家具是多孔的，底部往往也没有密封。能被水打湿的，也会被烟渗透。白天在外面吸一两个小时花粉未必有大影响，问题是你一天 24 小时都在吸。如果能把卧室变成干净空气的庇护所，情况就会完全不同。现在普通住宅的室内空气往往比室外脏 5 到 10 倍。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>哇。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>而一旦翻过来，我可以告诉你，你家的空气大概比外面干净 10 倍。家之所以叫家，就应该是你回来疗愈和恢复的居所。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>室内污染源：鞋底粪便、烹饪多环芳烃和过密闭的房子</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>家里空气质量最大的隐忧是什么？我们面前已经有二氧化碳、挥发性有机物、霉菌、过敏这些。我们说空气质量的时候，构成它的那些「微量营养素」到底是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>好问题，这里面也会带出一些立刻能用的建议。进屋穿鞋非常不好。受测的鞋子里，大约 95% 带有粪便残留，说白了就是大便。有大便，往往也有草甘膦。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>等一下，95% 的鞋子上有大便？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>对，因为你在外面走，外面有狗大便，而你几乎从来不会去洗鞋底。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>可这量能大到影响健康吗？一点点大便、一点点草甘膦，再加上你踩过的别的东西。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>轮胎橡胶之类的，鞋子在外面会积累很多东西，然后你在地毯上走来走去，这些就渗透进家里。以后我可以演示我们做的「扰动地毯采样」：用粒子计数器拍打地毯，会打出数百万计的粒子。你每次走路，某种程度上都在发生同样的事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>那是生物性物质吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>什么都有一点：霉菌孢子、死皮细胞、头发、污染、花粉。再说回家里。鞋子之后是烹饪，这是一件大事。即便你用的是有机牛油果油——我觉得牛油果油现在已经不那么流行了——或者好油、草饲草完的牛油、草饲草完的牛排，这些本身都很好。可就算食材和锅都很好，高温和蛋白质仍会生成一种叫多环芳烃（PAH, polycyclic aromatic hydrocarbons）的东西。我灾后检测房子时，总在找六价铬和多环芳烃。这两样东西单独看也许没问题，高温下的化学反应却会严重污染你家。培根和菜香很好闻，气味散了之后，那些反应物仍嵌在房子里。而且多数人并不使用抽油烟机。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>就是炉子上方那个排气扇。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>对，开窗或者开抽油烟机都是好主意。我们很晚才开始在室内烹饪，也很晚才创造出「室内」这件事。想象一千年前，你要向人解释「里面」是什么概念。我们给自己造了这些住在里面的小保鲜盒。美国人平均大约 95% 的时间待在室内。霉菌其实不太在外面生长，灰尘也不是真正的室外问题，这些都是室内问题。外面有太阳、风、雨和树，那才是大自然的空气净化器，室外环境是被它们照顾着的。我们把房子盖得很密闭，把自然留在门外。最好的比喻是河流或溪水：流动的水通常相当干净，一旦停滞，池塘就会长藻、长细菌。生命想流动，水想流动，空气也想流动。所以我们有烹饪、有鞋子，然后是我们使用的各种化学品：发胶、纺必适（Febreze）、格莱德（Glade）插电香薰、蜡烛、熏香，还有桌上这些东西。另一件是建材本身。我觉得自己来到这颗星球的部分理由，就是最终把房子建得更好。现在的房子盖得太过密闭，不会呼吸。把外面想成河流，把你家想成池塘：如果房子不能呼吸，里面的人也不能呼吸。1970 年代能源危机之后，他们改了所有建筑规范，为了节能把房子做得超级密闭。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Eight Sleep]</span></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>家里的空气从哪来，二氧化碳如何让大脑起雾</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>房子里的空气是从哪儿来的？这听起来像个傻问题，可我今天早上一直在想：我为什么不会在自己家里一直窒息？我知道房子并非完全密封，但像英国那种空调并不多的地方，我本来以为几乎没有气流。空气到底从哪里来？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>可以想一想水瓶或保鲜盒。你不必戳很多孔，它就会进水，尤其当它本来就生活在水里。人类需要非常特定的空气配比才能存活：爬到大约 1 万英尺以上就不太行，到水下也不行。有人说，如果地球是一只苹果，可呼吸的区域大约只相当于苹果皮那么薄。而我们的房子就处在这层薄皮里。所以空气怎么进到家里？窗户、门，即便关着也会进来；阁楼必须通气，浴室有排气口，炉灶有排气口，阁楼也有通气口。房子每一个漏风的地方都是通道。你可以做鼓风门测试：凡是空气往外排的路径，也是空气进来的路径，房子像一个有压差的容器。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>有意思。那二氧化碳呢？我们刚才谈了家里的一些颗粒物，而这是你自己在室内把空气循环了一遍。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>我觉得二氧化碳应该像体育比分一样无处不在：你走在机场、商场或街上，到处都能看到比分，二氧化碳的存在感也该如此。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>因为今天早上我才从工作人员那儿知道，有人会拿着这些阿拉内特在机场里挥来挥去，发现自己以为该担心的是外面，结果机场才是在伤害自己。飞机上也是。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>我们吸进氧气、呼出二氧化碳，树和植物正好相反。室外二氧化碳大约 460 到 500。室内 600 到 800 还不错；超过 1000 仍然可以，但脑雾会开始出现；到 2000 就会真正有感觉；到 3000，你会觉得精疲力竭，没法思考。人们谈气候变化时，多半想的是自然灾害，觉得那不会发生在这里、只是偶尔一次。我 2014 年开始监测空气质量时，室外二氧化碳大约是 395，现在是 460。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>也就是说，环境本底的二氧化碳 ppm 大约上升了 10% 到 20%。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>400 的体感和 600、800 可以差很多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>抱歉打断一下。我们在棚里到处都放了这些东西，所以注意到了这一点。为了让家里听众听着舒服，天花板上有很多吸音板——别人看不见，你看得见。这里我们尽可能做成密封的，有双腔隔热。去罗根的棚，他用的是浮筑地面，有点像里克·鲁宾（Rick Rubin）的音乐工作室：整层地板是双层的、离开地基，为了隔振消音。他的门是双层厚，我们这里只用了单层。问题是，如果我跟四个人做一集圆桌、录到三个小时，门又不能开，因为会漏光、会从外面进声音，会一团糟。我只好在「隔音好、能完成播客棚的本职」和「空气流通好、里面的人不会严重脑雾」之间做选择。我们曾经到过大约 1800，尤其是四位嘉宾外加制作人、还有人进进出出的时候。而所有人来这里的全部目的，就是清楚思考、清楚表达。就因为大家都在呼吸这里的空气，反而限制了这种能力。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>我对你的承诺是：我已经非常接近了，大概还有两三个代表就能给出一个完善的方案。我们在城里也在建一间小播客棚，会叫作清洁空气工作室（Clean Air Studios），也许你会比我们先用上。我们会把一台小型换气设备放到另一侧很远的地方。如果把通风直接做在棚里，录音就毁了。它会在对面缓缓、安静地把空气抽走，完全不影响声音，只是一次缓慢轻柔的呼气。这就是我们的承诺。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>要么就在这里做一座雨林，放进去大量植物和绿叶。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>那湿度和霉菌会把我们干掉。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>不要在细枝末节上较真：80/20 与城市空气地图</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>我想很多人可能有这种感觉，我自己也有过：这是不是又给我的生活增加了一项负担？我已经在尽量避开超加工食品、种子油、蓝 40 和红 5 这些色素，还得去健身房练最大摄氧量和高强度间歇，还得练力量，还得确保维生素 B12，现在你又告诉我上面还压着另一份艰巨的功课。在一个满是芝士脆的世界里，人们在空气这件事上有多少是在细枝末节上较真？你又觉得它有多少应当被放进「你该非常在乎」的那一桶里？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>这也是我把生命献给这项使命的原因：我既没有、也不喜欢去动用意志力。我相信环境会告诉你该有什么感觉。你若待在码头上或山里，想紧张都难；去水疗会听到流水、轻柔的音乐，看到舒服的光线、木头和石头，你会感觉很好。去一个又亮又吵、墙是黑粉色的地方，比如牙科诊所，你会紧张。如果又吵又热又脏，想放松也难。我如果所处的工作环境不够好，就绝不会硬着头皮工作。与其吃一堆助眠药之类的东西，不如先有一张好床、把温度调凉、把环境调好。控制环境是最懒的健康方式：搬到一座你能茁壮成长的城市，去一个让你感觉美妙的环境，让卧室真正支持你，让孩子的学校和教室一走进去就让人平静。所以是的，人们大量地在细枝末节上较真，我喜欢这个说法。照顾空气、水和光线，这些都是容易的被动事项。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>一旦做完，你就不必再去想它。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>对。水不也是这样吗？我不想对水无知到还去喝水管水和自来水。只要一点点意识：家里装一台滤水器，一年换两次滤芯；出门就买瓶装水，如果玻璃瓶要 7 美元我也买；如果用反渗透，再加回一些电解质。就这么简单。「在细枝末节上较真」这个说法很准，因为总有人想卖东西给你。那些东西未必不真实，也未必不能产生很大影响，但优先顺序很重要。英国其实有一项研究，你搜「BBC 微塑料空气研究」就行：受测住宅 100% 在灰尘中检出微塑料，而灰尘是采样空气的好方法；98% 的样本浓度都很高。他们后来和实验室合作，在人们做活检时发现，100% 的人肺部都有微塑料。有说法称，普通人每周大约吸入一张信用卡分量的微塑料。我还没做过严格对比，但相信人们吸入的微塑料远多于喝进去的，因为空气太多了，而且它是免费的。即使在污染的地方，外面的新鲜空气总体上仍然不错。所以我强调 80/20 的基本功：睡觉时有干净空气，喝水时有干净的水，日出之前和日落之后不要使用人造光。先从这三件开始。若你还想在浴室、淋浴、泳池里都有干净空气，把整栋房子铺满红光，悉听尊便。但这三件把环境安顿好：几个小红灯泡、亚马逊上 50 美元的盐灯、一台台面饮水过滤器，从零到一永远是更大的一步。顺便说，你可以用家得宝的零件，花 60 到 120 美元做一台非常好的空气过滤器。搜「DIY 空气过滤器」，最流行的设计是科西-罗森塔尔箱（Corsi-Rosenthal Box）。它要花几个小时，缺点是有点丑、有点吵，而且没有传感器。可我宁可人们做这个，也不要去商店买一个并不工作的小塑料盒子。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>我还想谈一些家里不花钱就能做的办法，不过我先看到这个统计：全世界 99% 的人口生活在空气污染超出世界卫生组织指南限值的地方。不同城市的空气质量能差多少？人人都知道洛杉矶有烟雾，可那些烟雾有多少会进到家里和肺里？我还听说佛罗里达的迈阿密很差。奥斯汀我大概了解，世界其他地方呢？依你的经验，哪些地方更危险？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>我现在旅行时的一个主要考量就是空气质量。墨西哥城看起来很美、文化很有活力，但我不会在那里待超过一两天，而且睡觉时一定要清洗空气。曼谷、德里、北京，很多城市空气都很差。在美国则非常区域化，但哪里都有自己的问题，你可以说跑得了和尚跑不了庙。佛罗里达要对付大量霉菌。酒店尤其精明得只算小钱：客人一走就关掉空调，没有气流，霉菌就会积起来，现在他们甚至在把酒店拆到骨架。佛罗里达是霉菌中心。奥斯汀也有很多霉菌，一部分因为湿度，一部分因为得州的房子盖得太差。这里有阁楼，而且所有暖通设备都在阁楼上。我在加拿大长大，我们有地下室，炉子和空调都放在地下室。这里却放在阁楼里。外面大约 105 华氏度，管道里吹着 70 度的冷风，而暖通周围的环境空气是 105 度。朋友们，那就是冷凝，滴、滴、滴。所以几乎每家的阁楼都有大量霉菌，房子盖得太差了。得州还使用柔性风管，我以前从未听说过。我们用的是硬质金属、结实的镀锌铁皮，机械结构清晰，容易清洁。你若去清柔性风管，转子会把它撕开，之后连管道清洁都做不了了。亚利桑那也是。很多人搬去沙漠，心想这下可躲开霉菌了。我在亚利桑那看到过一些最严重的霉菌毒性。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>为什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>两个原因。第一，那些沙漠沙子曾经在水下，里面有古老的霉菌，然后哈布沙尘暴会吹过来。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>叫作哈布沙尘暴（haboob），就是沙尘暴。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>好吧，我想悉尼·斯威尼（Sydney Sweeney）好像也碰上过那种东西。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>另外，因为室外相对湿度只有大约 20%，非常干燥，你几乎完全没有暴露。于是家里只要稍微漏一点水，就会剧烈爆发。我们合作的那些专做霉菌的功能医学医生会告诉你，亚利桑那其实是一个热点，不是因为室外空气里有，而是因为你在干燥地带里放了一个又凉又湿的盒子，而房子仍会漏。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>那最好的空气呢？你去过哪些通常更好的地方？我想到英国，你说建材这点说得对：英国的房子至少是砖砌的，而不是木头再填上有机材料的空心隔热。建造过程中会淋雨，然后加热，再淋雨，再加热，等于把潮湿的有机材料烤进了房子的骨架，再挨着那些纤维状绝缘材料，谁知道会发生什么。所以最好的地方在哪？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>我呼吸过最好的空气是哥斯达黎加的热带雨林，非常好。温哥华岛也非常好。我在那里拿出二氧化碳检测器，读数比世界其他地方低大约 10%。所以你从树旁边走过，哪怕在奥斯汀的仙女鸟湖（Lady Bird Lake），一走进树下就会感到那种清凉的新鲜，因为它们在对你呼吸。那就像一套局部的空气过滤系统。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>你有没有看过那些研究：种出获奖南瓜、西瓜和其他植物的人，起初说对植物唱歌能让它们长得更好；后来有人意识到，其实只是人对着植物呼吸了太多，给了它们额外的二氧化碳。哪还用唱，对着它们喘气就行。结果他却在唱优美的歌剧。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>那下一个实验就该是呼吸练习对阵唱歌。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>就是这个，这才是随机对照试验。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：AG1]</span></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>香薰、杀虫剂、发胶与「室内空气污染产业」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>好，我想给你看一些人们家里通常会有的产品。比如这些熏香棒，你怎么看？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>我喜欢在室外用。你没法在家里燃烧东西，又指望它不污染你家。我喜欢那种氛围和气味，但不会喜欢它们出现在我家里。如果一定要用，我会清洗空气或打开窗户，但总体来说不行。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>那杀虫剂这类东西呢？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>不。不。杀虫剂，不。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>再看这个：崔丝美（TRESemmé）这类强力定型发胶。人们想要好看，多少得用这类产品。你家里不要虫子，那我怎么除掉虫子？我怎么让头发好看？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>这些都属于我们仍然想享受生活、都必须自己做决定的事情。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>而且不要对每一件小事偏执到好像一动就会杀死什么东西，以至于自己不敢动。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>我觉得我认识的一些病得最重的人，往往也是最「健康觉知」的人。他们是永远在治愈的人：解决了一个问题，这对人类其实是一种礼物，然后又执着于下一个。那种神经质的压力让他们持续生病。他们总在想下一件该优化的事，一专注就仿佛自己把病给显化出来了。贾斯珀有传感器，一个意外的用处是：人们一喷发胶，读数就会往上跳。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>对，我每天早上喷除臭剂的时候，我家那台就会对我发狂。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>所以取决于你用的产品。如果你用更好的产品，它的反应会小一些。很多低毒、无毒领域的网红会把贾斯珀当成小裁判：哪款产品最毒？等等，如果要用发胶这类东西，我建议能去外面就去外面；不行就开窗；再不行就进浴室，并让浴室风扇一直开着。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>好，那这个呢？浴室用的空气清新剂。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>我很高兴你把这个拿出来。这是香氛。每个人家里都有这些格莱德插件或纺必适。不是品牌的问题，是香氛本身。你听这个：美国的香氛市场——我指的是室内空气污染产业、那些室内空气污染物和香味——大约是 70 亿美元；空气过滤产业大约是 35 亿美元。所以室内空气污染产业是空气过滤产业的两倍。我们会把这个关系翻过来。没有什么比坐进一辆挂着「死亡圣诞树」的优步更糟。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>我刚才就在想这个。这挂是这里一位同事车上的，一直挂在他的通风口上。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>谁的？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>凯尔，外面那位块头很大的人。节目结束后去找凯尔。那你也不喜欢这些？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>它们是最糟的。关于香氛，萨钦·帕特尔博士（Dr. Sachin Patel）教过我一句话，老实说改变了我的生活：除非你在分泌唾液，否则不要吃东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>这和香氛有什么关系？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>好问题。当你分泌唾液，它会通知肠道和消化酶：即将进来的是这些东西，请做好准备。所以你闻到美食会流口水，肠道会说太好了，并制造定制的酶来分解食物，帮助消化、吸收和营养利用。而这些气味产品的工作方式是：你有一个冰球包或健身包，喷上纺必适，它并没有把脏东西清掉，只是阻断了你的嗅觉系统，让你闻不到那些东西。它绑定鼻子里的受体，于是你的鼻子暂时失明，再也闻不到那件事。为什么这是大问题？因为我们依赖嗅觉。闻不到，身体就不会制造那些消化酶，肠道也不知道什么要进来。嗅觉和味觉、肠道、营养、吸收都大规模连在一起。所以我随身带着一包真正低毒的除臭剂。如果我拥抱到一个用止汗膏斯毕利（Speed Stick）的人，我会给他一支普莱迈利纯（Primarily Pure）。对方会问：是因为我臭吗？我会说：其实是的，但不是你本人臭，是你的除臭剂臭。而且你周围所有人都会受影响。我认为合成香氛将会被称为新的二手烟。从前有人吸烟时，如果你抱怨，你就像那个扫兴的人、在破坏气氛；后来研究出来了：二手烟一样糟，甚至更糟。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>可一个人身上散出来的那点味道，量肯定少很多吧？我早上喷一点香水或除臭剂，三个小时后身上还剩多少？它还能往空气里释放多少？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>在我家，只要有人打开前门，我立刻就知道对方有没有喷香水或古龙水，马上知道。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>你已经校准到那种程度了。那对那些说这是一种脆弱的人，你怎么回应？他们觉得你现在对好坏如此敏感，意味着你不是更健康，而是更不强壮。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>我喜欢这个问题。我想既高度敏感，又有韧性。它不会毁掉我的一天。以前如果很暗，有人突然开灯，我会很抗拒。休伯曼（Andrew Huberman）会说你刚毁了我接下来四天，你把我这周搞砸了。我会生气。后来我想：慢着，事情本身是一个问题，我的反应却非常大。现在我会说：把灯关掉。我有韧性。好的，安德鲁，我理解这很重要，但我相当有韧性，它不会毁掉我的一天。我想敏感，想有共情，想感受自己的环境，但不要被海啸打中。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>你提到了纺必适，这个很有意思。包装上写着超强配方，对抗异味并带来清新。我有很长时间都这么想：沙发上、这块地毯上如果有什么味道，我喷上去，它就会钻进去把那些粒子拆掉之类的。有没有任何东西真的能做到这一点？还是说，该洗的东西就老老实实去洗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>该洗就去洗，然后拿到外面。太阳是有史以来最强大的紫外线灯，那是最好的消毒。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>所以狗进来了，狗有味道，狗到了地毯或沙发上，你会说把罩子拆下来拿到外面去？新鲜空气和阳光，远好过纺必适或其他东西。那还能怎么办？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>对，拿到外面。另外顺便说防晒。如果你在海滩或泳池边，看到有人用喷雾防晒：第一，它会伤害植物和水以及周围的一切；第二，下次你注意一下，对方可能在任意方向 50 英尺、100 英尺外，他们一喷你就能闻到。如果在室外 100 英尺外都能闻到——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>在室外。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>另一种想这件事的方式是：准备一缸洗澡水，滴进三滴红色食用色素，几秒钟内整缸水就会均匀变红，它不会停在局部。空气基本上就像水，移动方式相同，所以它会污染整个区域。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>那蜡烛呢？很多人喜欢蜡烛、烛光。这是格莱德限量版暖苹果香料口味，大概也算限量。你总体上怎么看蜡烛？有没有安全的蜡烛？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>这又是那种需要做决定的事。就我个人而言，我会用蜡烛，我喜欢蜡烛。但蜡烛和没有蜡烛相比，不用蜡烛才是你能做的最优化选择。从光的角度说，蜡烛却几乎是你能拥有的最好的光。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>对，它看起来很美，非常放松，对神经系统也好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>如果你能找到非常棒的蜡烛——「蜡烛加拥抱」是新的「奈飞加放松」。若能用蜂蜡蜡烛，配上好的灯芯，比如木芯或大麻芯。我们以前在 照片墙（Instagram） 上测过一些蜡烛，就在贾斯珀旁边点燃。蜂蜡蜡烛有点像自然电离，所以我喜欢蜂蜡蜡烛。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>有没有你推荐的公司？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>我还在过程中，手头大概有 25 种不同的。等我有一款可以担保的，会告诉你。不过要到室外去把蜡烛熄灭。结尾那股黑烟，如果你有一个小熄烛罩也可以。我通常走到外面去吹灭。或者，我家已经相当「贾斯珀化」了，也可以在室内处理。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>谁更脆弱，以及不花钱就能改善空气的办法</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>可以这样想水：无论是市政供水还是井水，你本质上都在把受污染的水泵进家里，所以必须过滤。空气也一样，只是更狡猾。水可以用壶滤，也可以在唯一一根进户水管上做过滤，淋浴和全屋都能覆盖。空气却从许多不同的地方进来，所以过滤空气的思路必须和过滤水不太一样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>谁特别容易受到空气问题的影响？我想到老人、孩子、免疫功能受损的人。有没有一个特别脆弱的人群画像？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>如果普通成年人每天大约呼吸 1.5 万到 2 万次，幼儿大约是 4 万到 6 万次，婴儿可以达到 6 万到 10 万次。我会说是婴儿和老人。再想想现代婴儿的出生：在医院里，强光、被匆匆推来推去、仪器嘀嘀作响，然后被急着送回家，进到布置得「照片墙（Instagram） 就绪」的育儿房——墙上是新漆，有大量挥发性有机物，一堆玩具也在释放气体。这一点非常重要：人们会在育儿房里放那些尿布桶，换完尿布就丢进这个小小的密封容器。你进过婴儿房吗？那里明显有粪便的味道。提醒一下：如果闻起来像粪便，那它就是粪便；如果是粪便，里面就有大量细菌。妈妈本想为健康的宝宝做尽一切，宝宝却整晚都在吸入这些微粒。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>所以你其实只要把它放到外面就行。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>我女儿阿雅（Arya）刚出生时，那是我们第一个孩子，当时住在不列颠哥伦比亚。妻子瑞切尔用过这种尿布桶——我不会说品牌，他们大概会恨我。我每次进去都觉得难受，跟她说真的该把这东西放到外面，脏尿布应该直接拿到室外。可那是第一个孩子，她手头已经有无数件事，图的是方便。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>优化尿布桶在待办清单上排得很靠后，我得先让这小生命活下去。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>于是我说：今晚我们做个实验。我发现如果我要求改变，会比较难；如果我称之为实验，她就很愿意。我说今晚把尿布桶放到我们卧室，我去客厅沙发睡。她说恶心，不行。我说：这就对了。我们一百万年来都不会把尿布桶放进自己的卧室，却让每晚呼吸大约 10 万次、免疫系统仍在发育的宝宝去吸这些粪便。所以拜托爸爸妈妈，请把尿布拿到外面。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>而且这是免费的干预。好，人们还有哪些不花钱就能改善家里空气质量的办法？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>不花钱的，先从脏尿布放到外面、进门脱鞋、使用抽油烟机开始。抽油烟机就是炉子上方那个排气扇。非常重要的一件是：浴室风扇不是为了去粪便的气味，而是为了排湿。调光开关是伟大的发明之一，你也可以给浴室风扇装一个带定时的开关，30 分钟、60 分钟或 2 小时。按 2 小时，至少也要一小时。想一想淋浴之后，一条毛巾能吸多少水：相当于好几加仑的水，要么留在地漏里，要么在毛巾上，然后蒸发进你家。浴室门常常关着，多余的湿气时间一长就变成霉菌问题。家里装这些排气扇，就是为了把多余的湿气排出去。所以请用浴室风扇，请用抽油烟机。烘干机也要清理排气和绒毛盒，很多家庭火灾就来自烘干机。再有就是觉察你使用的烹饪、清洁和化学品。通风是很大一部分。如果气温合适，就打开窗户。我知道在德国和欧洲很多地方，给房子通风——那个词以 L 开头，我想不起来了——是日常惯例，每天都做。我们这里不兴这个。让房子呼吸会很好。大致就是这些大事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>为什么空调系统还没有解决这个问题？我想着要往房子里送进更多空气，空调不是在从外面抽空气吗，这难道不像开窗，而且还是凉的？我也听过高效滤网、除湿机这些。住在有空调的房子里的人，正常气流难道不够吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>有一天会，但还不是现在。它叫作你的暖通空调系统：加热、通风、空气调节。炉子和空调，我把它们想成房子的肺。多数人住的是开发商级别的分区住宅或公寓。这些房子是银行家用表格建出来的，他们坐下来问的不是「我们如何建造最健康的房子」，而是「多快、多便宜、多少平方英尺，让它们好看，好赶快卖掉」。所以炉子和空调严格来说只被设计来加热和制冷，而且要节能。它们完全没有按过滤来选型。再加上我们如此优化能效，人们通常把系统留在自动模式，只在需要时才运行：加热到位就停，制冷到位也停。如果一直开着，会相当吵、相当烦人。贾斯珀刚开始的前两年，我其实是想设计一套暖通用的空气过滤系统。我以为那会是完美方案：塞进炉子里，眼不见心不烦，整栋房子都会好。结果它很吵，而且相当无效，因为它会扼住气流。系统只被设计来让空气通过并完成加热制冷。新冠期间很多人说上 MERV 16，把非常密的滤网塞进暖通系统，然后电机就烧毁了，因为你在憋这套系统。谈空气过滤时，你既要效率也要效能：效率是我们拦住了多少粒子，效能是有多少空气流过它。不幸的是，长期来看，贾斯珀的愿景是做出真正成为房子之肺的暖通产品，不只加热制冷，还会考虑花粉、霉菌和山火烟雾，真正被设计来呼吸。大概还要几年。不幸的是，那些系统服务的是人类对温度的第一反应。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>我们对热舒适太敏感了。你走进一个 30 度、哪怕 25 度的房间，会觉得有点热、不太舒服；走进一个二氧化碳 2000 ppm、还带一点挥发性有机物的房间，却会觉得：还行吧。而后者会慢慢累积。这完全说得通。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>很令人兴奋的是，人体本身就是最好的传感器。我检测过数百栋有霉菌问题的房子之后，有了一种感觉，一进门就能觉察到霉菌。我喜欢一个小把戏：找五个人到外面去，最好在早上、谁都还没看天气预报的时候，让每个人在餐巾纸上写下自己觉得外面几度。常常五六个人彼此只差 1 到 2 度，相当准。我们皮肤上的温度感受器被校准得很好，因为我们每天都在看温度。可我们对天气和环境的理解，却被限制成热、冷、阴、晴、下不下雨。我还想做一款天气应用，大概很快就会做：今天多云且凉，却是四个月来最干净的空气，非常适合出门。天气预报员总是那么消极。一旦你开始每天关注相对湿度，身体会立刻知道，并以一种好的方式影响你，你会变得有意识。就像干桑拿、沙漠和雨林，你知道干燥在头发和喉咙里是什么感觉，太湿或太干你都有数。因为我长期带着二氧化碳检测器生活，我的一个小把戏是：朋友有时会说他知道现在的二氧化碳是多少，然后拿出来对照，我通常能猜到大约 30 到 50 ppm 以内。身体是对这件事有感觉的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>那我只需带着你这台阿拉内特到处走就行了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>用上一段时间之后，你也许就被校准了。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Whoop]</span></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>买房验屋：香氛掩盖霉菌，「霉菌就是黄金」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>假设有人要买房，或考虑搬进新家、新公寓。如果你去看一栋房子或一套公寓，签字之前会检查什么？什么问题会让你直接走开？什么问题你会立刻动手修？很多人走进新公寓或新房子时会想，这必须是我真正在乎的事情。他们怎样才能有效率地判断，从空气质量的角度看，这栋房子对他们好不好？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>2014 年我拿过房屋检查认证，因为感兴趣，而且那其实是三四天的网课。顺便说，洪水、火灾和霉菌的认证是一门两天的课。所以你以为来家里的霉菌专业人士去读过一年「霉菌大学」？没有，他们花大约 500 美元，在一个小房间里上两天课，再考一场简单的试，就获得了所有这些治理认证。这些证书本身几乎毫无意义。你若去看一份房屋检查报告，里面通常有排除条款：我们不查任何环境问题，不查霉菌，通常也不仔细查屋顶。你花 400 到 1000 美元，也许 2000 美元，做一次所谓全面的验屋，他们却只在找未来几年会砸到你钱包的东西：屋顶多旧了，这里有没有裂缝，接地故障插座工作不工作。可你的房子尽可以长满霉菌，他们提都不会提，他们甚至没受过训练去看这些。搬进一栋房子时，第一个红旗是：如果有任何插电香薰和香味，你必须要求重新检查。把那些香氛全部拿走，让房子透一两天，再关上。卖霉菌侵扰房屋的人最常用的伎俩，就是放插件香氛。你走进去，觉得好闻、干净、清新，不，他们只是堵住了你闻霉菌的能力。然后你买下房子，发现自己面对的是大约 20 万美元的治理项目，全家人都生病。所以我看房子时，很多是从霉菌和环境角度出发的。我建议做空气质量和霉菌检测。这几乎是你人生最大的一笔投资，也是家人住在里面的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>而且如果进去之后它伤害了你，修复健康又会有多贵？那才是最贵的。对我来说大约是两年，极其昂贵，也极其费力。旧房子在空气质量上是不是更差？新的、旧的，比起来怎样？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>它们可以更差。我做很多空气质量检测时，大约三分之一的工作与所谓病态建筑综合征有关，也就是房子让人生病。这个概念过去更多被用在商业建筑上：缺勤率高、表现下降。他们后来意识到，哈佛的约瑟夫·艾伦博士（Dr. Joseph Allen）有一项研究显示，优化员工健康与环境的成本，远远低于养活一支常生病缺勤的团队。我认为住宅完全是同一回事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>对，那也是你能做的最有效率的方式。如果有人现在很在乎这件事，或者正在处理自己的健康，手里也有一些预算，家庭空气质量最好的评估是什么？黄金标准是什么？我听说过 ERMI 测试（环境相对霉菌指数），我们做过不少。哪些好、哪些不好，人们该选什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>我希望有一个简单清楚的答案，但这里有点微妙。一方面，霉菌是真家伙，它可以让你病得很重，真正影响你。可霉菌行业有两个词，大约十年前他们称之为「霉菌淘金热」，和现在比起来那根本不算什么；还有一句是「霉菌就是黄金」。你想一想：如果你是承包商，在治理之前拆一间浴室、准备做一个漂亮的新浴室，大约是 1000 美元；如果那间浴室有黑霉，就变成 1 万美元。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>因为工程更全面？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>唯一的差别大约是四小时准备时间：放进一台清洗机，用一些抗菌剂。人工大概只多三个小时，材料大概只多 50 美元。可一个感觉像核泄漏，另一个感觉像有人决定换新瓷砖。于是很多承包商进了霉菌这门生意。随着霉菌意识上升，功能医学医生被找上门来谈霉菌的人淹没，然后很多公司冒出来做尿检、血检，其中不少——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>霉菌公司（The Mold Co.）的阿里安娜（Ariana）。去霉菌公司（The Mold Co.），那是美国你需要用的那家公司。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>她是我见过最好的，而且是远远最好。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>对。所以如果有人想为自己的身体做检测，那就是霉菌公司（The Mold Co.）。他们做检测和治疗，会带你走完排毒方案。她遵循休梅克方案（Shoemaker protocol），团队里有当初那位提出全球最循证的霉菌排毒方案的「主创」最早的一批弟子。她非常棒，也是节目的朋友。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>我也喜欢她。有些行业不知为何会被贴上利益冲突的标签：房屋检查师不该是承包商，霉菌检测师不该是治理的人。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>反向激励。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>可你去找会计师、去找律师：你有问题吗？有。你去找机械师也一样。但眼科医生却不卖眼镜给你。不知为何会这样，可最终取决于信任。我其实认为最好的霉菌检测者是治理的人，因为他们真正把东西拆掉。你去找外科医生给你检查，并没有另外一个整整独立的行业只负责看看你需不需要手术、自己却不动刀。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>关于如何判断房屋检查师或评估者是否靠谱，你能说些什么吗？我理解这些都是警告，霉菌淘金热之类的，行业激励可能有点扭曲。可我们能不能说点什么，关于如何评估那些做评估的人？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>这里有一件好事：这不是大农业、大制药或邪恶阴谋的情况，这是一条用好意铺成的地狱之路。我不认为这个领域有很多真正的坏演员。功能医学医生只是想给你做一个好检测，然后说去检测你家。于是有人来挥着他们的检测棒，上过两天霉菌课，自以为工作做得很好。昨天下过雨，你测到了霉菌，于是开始把一切拆掉。所以它可能过于警报化。有些测试的设计本身也是如此。比如 ERMI（环境相对霉菌指数），它是一个好测试，但设计上偏警报化。它检查的是灰尘：过去六个月里有没有出现过任何霉菌？会有的。就像你验血查重金属或霉菌或双酚 A，你会有一些。于是你说：啊，我有霉菌了，有时甚至会松一口气，觉得终于找到那个东西了。可这不是有或无、黑或白的二元问题。霉菌公司（The Mold Co.） 的优点正在这里：是什么种类、有多少、让我们再测一次，而且也相当划算。我认为这个行业还在理顺自己。如果你在买房，其实可以打电话给几家治理承包商来看一看。至于你怎么知道哪个承包商好，你不会知道。他们大多数大概都不好。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>至少对我来说，我比较幸运，有人会关注我，也有一些朋友。我在 照片墙（Instagram） 上发了动态，但真正找到他们是靠问很多朋友：有没有人知道好的霉菌治理？问、问、问。奥斯汀有一家叫图尔曼（Toolman）的公司被提起很多次。我和他们谈了，对方档期非常满，但还是挤出了时间，我当时想：太好了。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>贾斯珀不是普通净化器：从工业清洗机到牙医诊室</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>好，说到贾斯珀。你把修复房屋时发现的东西，做成了更可供商业使用的产品。对那些觉得这事很重要、真正想处理自己健康的人来说，从空气清洗机的角度，贾斯珀是怎么工作的？为什么这是大事？它能帮多少？人们需要怎样使用，又该放在哪里？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>我们称贾斯珀为空气清洗机，而不是空气净化器。原因有点像说育空·丹纳利（Yukon Denali）和本田思域：它们都是车，都有四个轮子、窗户、门和气囊，但一款是为一对伴侣在城市里通勤、放进一个包而设计的，另一款能带孩子、带东西，更安全，做这些事的时候也更好看。高尔夫球车和皮卡也一样，一个拉得动你的船，一个不能。所以清洗机就像工业级的空气净化器。SUV 大约在 1990 年代才进入市场，当时的想法是：我们如何把军用级车辆做成现代家庭能用的东西？在那之前没有 SUV，现在美国售出的汽车超过 50% 是 SUV，因为它实用。一台贾斯珀通常大约相当于五台廉价的小净化器。它做的事情是让空气流过它，穿过一张滤网，把那些东西拦住，让空气通过。目标不是制造某种特殊优化过的空气，而是应当拥有自然原本意图中的空气。我们不往空气里添加任何东西，只是把不该有的过滤掉。它的独特之处在于我们用钢来做，它被设计成可以使用 10 年、25 年，所以我们才能提供终身保修。我讨厌买到会坏的产品。最简单地说，它推动更多空气。因为它大得多，上面的滤网大约有 4.5 磅，多数空气净化器的滤网只有三分之一磅、半磅，是很小的滤网。贾斯珀的像拖拉机滤网。因为更大，意味着两件事：第一，它能安静地推动更多空气。这间房间里就有两台，你完全听不见。</p>
+<p>贾斯珀在最低风速档推动的空气，比多数空气净化器最高风速档还多。有一个指标叫 CFM，即每分钟立方英尺。我们在静音档大约底部是 100 CFM，很多空气过滤器最高才大约 80 CFM。最狡猾的是你走在货架边，看到一个小过滤器写着「覆盖大房间，1500 平方英尺」，你觉得太好了，然后又觉得它好像没在工作。提醒一下：如果你觉得它没在工作，那它就没在工作。这应该是那种无可否认的事。你把它放在卧室开到风速三档，关掉灯，立即就能感到差别；或者放在客厅。感谢现代技术，十年、十五年前这些传感器可能要几千美元，现在传感器技术变得更小、更便宜，所以它可以既安静又聪明。但只要你一开始做饭、点蜡烛、点香，或遇到山火烟雾、污染，屏幕上的数字就会上升，变成橙色和红色。你听见它，是因为你应该听见，然后它再降下来。基本上，贾斯珀是一个霉菌男和一位在意室内设计的妻子的孩子，他们想要一样既有效又好看的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>如果没有你妻子的意见，你会不会设计出一样难看得多的东西？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>那我就直接用工业清洗机了。人们回家会说：哇，这里感觉不一样。可她会说：但它很吵，而且难看，我们得把这东西拿走。所以这是一种结合。我也喜欢审美。说到设计潮流或健康潮流，我认为设计本身就是一种健康潮流。东西好看，你就会感觉更好，审美很重要。所以做出一样美丽、不显眼、聪明、安静、没有蓝牙、没有 Wi-Fi、没有额外电磁场的东西。我没有做任何焦点小组，它是为这个霉菌男做的。我当时还在做灾难工作，会去加州山火、不列颠哥伦比亚、洪水现场。在灾难的间隙，我二十多岁时旅行很多，并没有精力再开一家公司。我们刚做好大约 50 台，我甚至没想过真的要把公司做下去。</p>
+<p>我最初做它们只是为了山火的烟。我想：夏天会有烟，我们可以去那里帮忙。接着新冠来了。结果安大略规定，每一位牙医的每一间诊室都必须有空气过滤器，才能重新开门营业。而且根据风量来决定病人之间的间隔时间：如果你有一台小净化器，病人之间要隔一小时；如果你有贾斯珀，只需 8 分钟。于是牙医一天就能回本。我们的前一千名客户——我们上市时甚至叫贾斯珀医疗（Jasper Medical），因为新冠期间我们是对着牙科行业起步的。我完全没预见到这件事。我车库里放着 50 台，本来只想给祖父母和家人用。我看到了它对我的影响，却不知道自己当时还能不能做生意。新冠等于在说：不，儿子，你得回到场上。大约一千位多伦多的牙医用上了它们。顺便说，我们前三年根本不懂电商，买贾斯珀的唯一方式是申请报价、免费咨询：你会打电话给我，我会跟你聊半小时你的霉菌情况或牙科情况。因为做过修复，我知道如何做气流计算，牙医们却很困惑。我会说：把长乘宽乘高给我，我告诉你病人之间要间隔几分钟。贾斯珀上的涡轮模式就是为新冠期间的牙医发明的，好让他们按一个按钮就能深洗空气，后来我们就把它留给了消费者。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>我换过各种各样的机器。现在家里到处都是贾斯珀，谢谢你帮我保持家里干净。我曾经用过那种卧室机器，挺有意思，但非常吵，也相当难看。我还用过——那个阿夸真（Aquatrue）是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>空气医生（Air Doctor）？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>对，空气医生。我也用过那些。当时觉得好像有点意思，但更像一站式商店里的东西，后来才转到贾斯珀。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>我们曾在你家对着那些其他过滤器做空气测试，还录了像。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>我当时不在。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>你不在，但录像在。我们做过上百次这样的测试，测从那台机器里出来的空气，结果和周围的环境空气完全一样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>所以它什么都没清洁。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>它什么都没清洁。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>太好了，原来我身边飘着很多非常昂贵的空气吹风机。如果有人觉得这件事重要，自己可能有一些鼻窦问题、过敏问题或霉菌问题，也愿意相信空气质量重要，应该优先把空气净化器或清洗机放在哪里？第一台贾斯珀放哪里？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>我们标志里的 A 有点像一棵树，也有点像一座山，因为这款产品的长期愿景是：它本不该存在。如果我们把房子建好、不要污染得那么厉害，就不会再需要这些东西。真正的空气过滤是树。我希望卧室里一定有干净空气。对我来说，干净空气、干净的水、干净的食物、良好的光线，我就够了，其他那些我不太做，偶尔蒸个桑拿。如果你去听我最早做的大约 20 期播客，我一次都没有提到贾斯珀，心想别显得在推销。后来我想等一等。直到牙医开始展示贾斯珀，妈妈们问：这些也能卖给家庭吗？牙医说不知道，打电话问他们。她把它放进家里，然后说：嘿，再没有哮喘发作了，再没有过敏了。我才觉得：哦，这现在像一项使命了，感觉非常好。所以我想要的是每间卧室一台，而不是五台。你问我会怎么排序。就像我说的，如果预算完全是问题，你只想要一样东西来睡觉，就去谷歌科西-罗森塔尔箱，做一个自己动手的，那会非常棒。我为了自己做贾斯珀，所以滤网是三合一的，每六个月会自动寄到，换滤网只需 30 秒。我喜欢简单的东西。大约八到十年前，我买过别的品牌的几台过滤器，后来一个小灯亮了，我回到商店，他们已经不再卖那种滤网，什么尺寸？那种压力。我不需要又一台得管理和维护的电器。我们设计这款产品时，顺便说，我们只做一件东西，它就叫贾斯珀：没有小号，没有大号，没有水产品。我们对一件事极端着迷。现在大约是第五代滤网，每六个月来一块新的，我会想：看起来不太一样。因为你只做一件事，就可以把它做得越来越好。</p>
+<p>考虑到现在房子里的气体释放和霉菌状况，这是非常好的 80/20，甚至是 95/5——如果你在意审美和服务的话。而且比贾斯珀如何工作更让我自豪的，是团队。如果有人的贾斯珀坏了，他们会收到一台寄到手上的全新机器：把新的从箱子里拿出来，把旧的放回去，我们给预付运单，承担运回的费用，大概接近 100 美元。所以如果你信任我们，对机器做一次性投资，然后一年换两次滤网。顺便说，我讨厌订阅，但有时它们说得通：每年两次来我家换水滤的人，每三个月寄到的牙刷头，汽车保养，有几样是合理的，这是其中之一。所以对我来说，空气是为了睡眠。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>所以你会优先考虑卧室。如果只买一台，就放在卧室。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>那它必须靠近你吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>不必，它可以在卧室里的任何地方。空气不在乎。你可以把它放在角落。我们做成圆柱形，是因为它是 360 度的。如果你有一台方形机器，只从一两个侧面进风，说明书会写你必须让它离墙一两英尺，结果它就得放在房间中央。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>而这个可以靠在墙角。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>墙角、靠墙都可以。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>好，如果卧室是第一，那第二呢？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>就是你花时间待着的地方。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：RP Strength]</span></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>先放卧室，芬兰教室实验，以及呼吸更好、感觉更好</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>通常卧室是人们开始这段旅程的地方。如果有人觉得钱不是大问题、我加入，他们会每间卧室放一台，再在客厅放一台。卧室那些保持暗光模式，开较高的风速；客厅那台保持智能模式，就这样。但如果你从一间卧室开始，放在房间里任何地方都可以。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>那厨房呢？因为你说过烹饪很重要，我想多数人——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>现在厨房和客厅常常是连通的。你不必把它放在炉子旁边，只要放在那个空间里的某处就行。有些人会在家庭办公室放一台。我们明年会做那个睡眠研究。另外两项对我非常重要的研究，我把贾斯珀想成一间实验室：把钱放到我们自己说的话后面，去证明一些事情。第一，我们想和一些大公司合作，把贾斯珀放进 50% 员工的卧室，即便那是居家办公的环境。因为我们想衡量表现和缺勤。如果每天 2 美元就能做成一项计划——我四年前搬到美国，到现在仍搞不懂蓝十字（Blue Cross）和这些医疗保险：我们在付几千美元，团队在付几千美元，不太清楚它怎么运作，他们却还在收到医疗账单。为什么不把钱投进一样真正能改变他们生活、他们看得见也感觉得到的东西？很多和我们合作的企业会给全体团队家里各送一台，团队能感觉到，对士气也很好。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>想必在办公室里放一台也是好主意，如果你有共享办公空间或联合办公空间。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>百分之百。乔科（Jocko）的团队梯队公司（Echelon），全部 54 名员工家里的卧室都有一台。所以我觉得这是显而易见的事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>太好了。如果人们想了解更多，该去哪里？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>如果你想了解更多——今天就是「有一天」。从今天起接下来两周，我们会做全站折扣。对我来说一切都关乎空气意识，可我知道自己很多重大的健康采购，比如八眠（Eight Sleep）之类，都会等到黑色星期五。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>给我们一个折扣。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>折扣能让我行动起来。哪怕是 50 美元、300 美元，我也想做成一笔划算的交易。我发现这对自己真的很重要。所以从播客上线的今天起，接下来两周，我们会在 jaspr.co 提供 300 美元的全站折扣。不用折扣码，什么都不用，J-A-S-P-R 点 CO。顺便说，这基本上会是我们的黑色星期五折扣，也是我们通常唯一做促销的时候，除了有山火烟雾时会在当地做活动。黑色星期五就是减 300 美元。几年前我们曾卖断货三个月，通常几个月内就会卖完。意图是：如果有听众对这件事有共鸣，那就会是减 300 美元，也就是 899 美元而不是 1199 美元。另一件事，就像我说的，我们把钱放到自己说的话后面。你大约三天就能知道它是不是改变生活。前 30 天请保留箱子，如果没有我们会再寄一个，但请留着箱子。如果它并非绝对让你感受到好处、看到差别——白天把它放在客厅开智能模式应对烹饪，晚上放在卧室开风速三档和暗光模式，记录你的睡眠，感受差别，然后再试一晚不用它——结果会自己说话。可如果它对你不是显而易见的事，1 美元都嫌多；如果它从根本上改变了你的睡眠和生活，那它就很便宜。所以如果对你不是显而易见，我们不仅会 100% 退款，还会承担退货运输的费用。因为买了一个产品再自己花钱寄回去又麻烦又糟心。我们的想法是：怎样把它的风险降到最低。最后一件我刚才差点忘了、真正想说的是：明年我们的研究是学校。我带你参观过那所学校吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>你带我参观过。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>学校两周前开学了。我们在每个教室都放了贾斯珀。芬兰几年前做了一项研究，在 50% 的教室放入空气过滤器，教师和学生的缺勤率大约下降了 30%。我们把这所叫作金德林学院（Kindling Academy）的奥斯汀学校当作活实验室，向其他学校展示：如果我们放入干净空气、干净的水、自然光、低毒产品，并且让孩子待在室外——明年我们还想加入一些有机食物——这些孩子会好多少。美国的公立学校系统是按出勤来获得资金的，还有那些逃学相关的规定：你想出门两周，某种程度上不行，你会有麻烦。所以如果能把这件事证明出来，我们也在给本地学校赠送贾斯珀，以便有更大的数据集。如果我们能证明用好空气、好水、好光线——我认为空气是主要的——可以把缺勤率降低 50%，那就会在财务上与公立学校为孩子创造健康环境对齐。请留意这件事。不过，jaspr.co，J-A-S-P-R 点 CO，不需要代码，你们可以在那里找到我们。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>你们国际配送吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>谢谢你问。目前到今天为止，我们只在美国和加拿大。但在那之前——不是希望，是正在发生——到 10 月最后一周或 11 月第一周，我们也会进入英国和澳大利亚。是的，因为有你。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>谢谢。听着，老兄，在你、阿里安娜、圣何塞的马特·库克（Matt Cook），以及加布里埃尔·莱昂（Gabrielle Lyon）和她的团队之间，这有点像我过去两年半这段旅程的尾风。我不希望任何人再去经历我经历过的那种挑战，可我也知道，许多人正以更小的剂量被自己的环境、被毒素伤害。对那些没有生病、或不认识生病的人的人来说，很多听起来几乎像在谈论鬼魂，像某种古怪的、看不见的、通灵一般的东西，也许是过度敏感，也许是在细枝末节上优化。兄弟，我知道它对我的健康造成的差别。有些人的生理就是对周围正在发生的事更敏感。如果那是你，或是你生命中的某个人，你真的需要仔细看这些东西。你可以花大约 200 美元、250 美元买一台不错的台式反渗透净水设备，然后就这样，当然还得换滤芯什么的，但做到这里就完成了。空气质量也是同一回事。如果有人担心某个问题，他们负担不起搬家，也做不起完整的治理。好，那至少我们可以让你正在呼吸的空气立刻好受一点。所以对我来说——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>霉菌或过敏原在影响你，并不是因为你在吃它或喝它。这些环境里的东西，你是在吸它。所以如果你能把这些东西过滤掉，你会感觉好得多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>这对我是大事，我感谢你所做的一切。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>呼吸更好，感觉更好。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>我感谢你为了帮助人们更健康而付出的所有努力。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>我们才刚刚开始。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>这对我是大事。我想看你去挑战那个空调行业，我知道那在你未来的地平线上。我觉得那会是一个巨大的解决方案。我感谢你。我非常喜欢贾斯珀，我全都在用，希望我们也教育了大家。我不希望人们害怕。空气质量，是的，是一件你应该思考的大事。有三种方式可以去做，有一些办法可以减轻问题，然后如果你想——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>这是一种懒人式的健康法。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>太棒了。好，谢谢你，老兄。真的很感谢。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·费尔德斯坦（Michael Feldstein）">Michael</span></div><div class="content">
+<p>我也感谢你。再见，我的各位美好的人。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>补充一句：很多人告诉我们，即使他们已经按过订阅按钮，YouTube 仍会取消他们对频道的订阅。所以请检查下面，看看订阅按钮是否处于按下状态。如果你按了，可以比其他人更早看到节目，也是在支持我和节目，帮我请来更大更好的嘉宾，这会让我非常高兴。所以去帮我点一下吧。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Chris Williamson", "title": "你家可能正在毁掉你的健康（以及如何补救）——迈克尔·费尔德斯坦（Michael Feldstein）", "url": "https://www.youtube.com/watch?v=2LULm7kcEH0", "videoId": "2LULm7kcEH0", "published_at": "2026-11-07", "duration": 4939, "caption_source": "YouTube 自动生成字幕（en-orig；普通 yt-dlp 遇 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 补拉成功；弃用较弱的机翻风格 .en 轨）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段；说话人按主持/嘉宾轮次启发式标注（克里斯主持 / 迈克尔·费尔德斯坦）；中插 Eight Sleep、AG1、Whoop、RP Strength 标为 ad_omitted；片尾订阅提醒保留为主持人正文", "guests": ["迈克尔·费尔德斯坦（Michael Feldstein）"], "intro": {"summary": "克里斯·威廉姆森请来同城奥斯汀的室内环境健康专家、贾斯珀（Jasper）空气清洗机创始人迈克尔·费尔德斯坦，从酒店房间「街头性工作者、来路不明的白粉、还是霉菌」的假设开场：嘉宾最担心霉菌。两人顺着空气质量、霉菌毒性与光污染这三大焦点，讲灾难修复如何走向家用空气净化、短期认知与睡眠数据、室内污染源、二氧化碳、城市与住房差异，以及不花钱就能做的通风习惯；中间穿插家用产品点评，并介绍贾斯珀的设计逻辑与使用优先级。", "points": ["人可三周不进食、三天不喝水，但约三分钟离不开空气；每天约吸入 1.7 万升空气，约 70% 的排毒发生在肺里", "社区实验：150 人卧室用贾斯珀两周，平均每晚多睡约 25 分钟、深睡眠增约 18%、入睡加快约 5 分钟；约 30% 停止打鼾", "室内空气通常比室外脏 5 到 10 倍；约 95% 的鞋子测出粪便残留；美国人约 95% 的时间待在室内", "室外二氧化碳约从 2014 年的 395 ppm 升至约 460 ppm；室内 600–800 尚可，超过 1000 开始脑雾，3000 会感到精疲力竭", "英国研究：受测住宅灰尘 100% 检出微塑料，肺部活检样本亦 100% 阳性；有说法称人均每周吸入约一张信用卡分量的微塑料", "免费改善：进门脱鞋、开抽油烟机、浴室风扇排湿、尿布桶放到室外、开窗换气；买房时香氛插件常被用来掩盖霉菌气味"], "verdict": "值得看：关心睡眠、过敏、霉菌、室内空气或正在装修/看房的听众（约 82 分钟，信息密度高，有具体数字和可立刻做的动作）。可跳过：只想听补剂和训练、对家居环境完全不感兴趣的人；后半段有产品介绍，可按其需求取舍。", "audience": "关注睡眠与过敏、室内环境健康、霉菌敏感体质，或准备租房买房装修的听众"}, "speakers": [{"id": "chris", "name": "克里斯·威廉姆森（Chris Williamson）", "role": "host", "short": "Chris"}, {"id": "michael", "name": "迈克尔·费尔德斯坦（Michael Feldstein）", "role": "guest", "short": "Michael"}], "sections": [{"id": "s1", "title": "开场假设与麦克默里堡的空气觉醒", "start_sec": 0, "summary": "克里斯·威廉姆森拿出一堆常见家用产品，先抛出酒店房间假设：房里有街头性工作者、一袋来路不明（可能纯、可能掺假）的白粉，以及潜在霉菌问题——迈克尔·费尔德斯坦最担心霉菌，因为袋子可以扔掉、人可以请走，霉菌却最难控制，尤其当晚无处可睡时。克里斯把空气质量、霉菌毒性和光污染列为未来几年健康三大焦点，认为水质议题已接近峰值、人们已懂要喝干净的水。迈克尔认同：红光、冷水浸泡可能是来了又走的潮流，但一旦「有了水意识」、能尝出氯和铅，就不会再喝未过滤的水；空气也一样，只是可能变成「空气势利眼」，住民宿和酒店更难受。他出身灾难修复业，处理洪水、火灾、飓风和霉菌治理，会飞往飓风哈维（Hurricane Harvey）、加拿大阿尔伯塔或加州山火等大型灾区，而不是修马桶漏水的本地师傅。治理霉菌要隔离污染空间、清除实体霉菌并清洗空气，完工前后都要测空气；连洗四五天后，工地空气往往比自己家里还干净。转折发生在 2016 年加拿大史上最大山火麦克默里堡（Fort McMurray）：全城约 10 万人撤离一个月，约 5000 栋房屋连同汽车、油漆和石膏板燃烧，形成远超篝火味的有毒烟雾，许多房子并非被火烧掉，而是被烟浸透到必须拆到骨架再清洁。他们修好一户约一周后接到电话：婴儿住院；回测发现室内再度污染。测空气必须同时采室外对照，否则分不清是房子的问题还是当地环境本来就差；雨后 48 到 72 小时本不该做霉菌检测，却少有公司遵守，结果可能上百万孢子只是那天空气里本来就有的，不代表家里被污染。火灾后室外空气可差四到六个月，烟渗进土壤和灰烬。他们建议谭雅（Tanya）一家先离城住酒店、等环境空气好转再重洗，但保险公司说支票已寄出、工作结束。他们留下四台工业级空气清洗机，两三个小时空气就好转，却又吵又占设备；他去百思买、沃尔玛或家得宝买了五六台两三百美元的小型净化器，几小时后再测依然污染。西岸朋友说烟只需过城一两天就会渗进椅子、地毯和石膏板，气味习惯了，污染物还在。他由此想到做一台好看又安静的工业级清洗机；有一次把清洗机带回家，妻子瑞切尔（Rachel）说不管空气怎样都不许放房间里——空气旅程由此开始。"}, {"id": "s2", "title": "三周、三天、三分钟：空气是睡眠与思维燃料", "start_sec": 426, "summary": "克里斯问：运动和睡眠都已经调整好的人，忽视空气质量会留下多少空间？迈克尔用生存时间打底：人大约可以三周不进食、三天不喝水，但约三分钟离不开空气；出生时做的第一件事和临终前做的最后一件事都是呼吸。空气、水和食物是三大摄入，睡着时唯一还在进行的是呼吸；人对不舒服、有毒的环境适应得很快，渴了会找水、饿了会找食物，呼吸却是下意识、无处不在的，所以空气意识大约落后水质二十年，新冠之后他感觉差距被压缩到十年左右。按体积计，人每天大约吸入 1.7 万升空气；喝水认真的人大约喝 2 升，食物大约 2 磅；有说法称体内约 70% 的排毒发生在肺里。他称夜间空气为「睡眠燃料」、白天为「思考燃料」：空气一般也能撑着过，但闷热、异味的房间会毁睡眠；干净空气的庇护所里，呼吸会像在山里那样更深、更不费力，从而安抚神经系统、改善睡眠、恢复和表现，过敏和打鼾也往往随之变化。克里斯区分即时表现（状态）与长期累积的系统性疾病风险，追问短期表现与长期健康各有哪些隐忧。迈克尔指出空气研究其实很多，只是很少被拿来聊天：哈佛、麻省理工等大学在生育、哮喘、认知、睡眠等方面都有大规模研究。让他印象深的三项包括：棒球裁判的好球坏球准确率与当天空气质量直接相关；国际象棋大师接近博弈论最优（完美下一步）的表现会因空气显著下降；SAT 分数同样受影响——这些都指向急性认知表现。闷的感觉本质是二氧化碳偏高，大脑不好使；若裁判都受影响，投球和挥棒的人也不会幸免。"}, {"id": "s3", "title": "短期认知、睡眠实验与室内比室外更脏", "start_sec": 707, "summary": "现场有迈克尔送给克里斯的阿拉内特 4（Aranet 4）等传感器，当时二氧化碳约 973 ppm，处在「还算可以但已偏高」的上沿，挥发性有机物约 295 ppb。迈克尔第一次去克里斯家送贾斯珀（Jasper）时，发现整栋房子已经「极客化」：已有别的过滤品牌，每个房间都有空气监测器。克里斯说这非常私人——过去两年多他一直在从糟糕空气带来的健康打击中往回走，之前那栋房子水质和管道也有问题，而这位「空气大巫师」正好住在同一座城市。迈克尔说贾斯珀已经「武装」了奥斯汀不少柔术馆和健身房；克里斯补充：过滤器就放在乔·罗根（Joe Rogan）的准备室里，而且经常显示红色，像空气质量的「海军海豹」尖刀。短期方面他还强调睡眠：他们做了一项自己带队的社区实验（他谨慎不称之为严格实验室研究），给 150 名以前不过滤空气、使用 Aura 或 Whoop 的人贾斯珀，为期四周——第一周无过滤并记录睡眠，第二、三周卧室开贾斯珀三档风速，第四周再关掉。平均结果是每晚多睡约 25 分钟、深睡眠增加约 18%、入睡加快约 5 分钟；参与者须同意不匿名，以便把名字押在数据上，覆盖男女、各年龄段以及医生、科学家、教师等。他们自己的数据还显示，约 30% 的打鼾者停止打鼾，其余 70% 中超过一半明显减轻。常有女性来信说因过敏买了机器后，分房睡多年的丈夫终于能回到卧室。睡眠是长期健康的领先指标。他们在奥斯汀只要有人下单就会打电话或发短信、上门手递并在开关机前后测空气；奥斯汀以雪松热（cedar fever）过敏季出名，很多人症状降到接近零。人可以在路上短暂吸入沥青和毒素，但卧室枕头和床上的花粉浓度常常高于室外，因为花粉进来后会停在多孔材料里——能被水浸湿的东西（石膏板、地毯、绝缘材料和很多家具）也能被烟渗透，密封木材则可以擦干净。问题不是白天吸一两个小时，而是一天 24 小时都在吸。普通住宅室内空气往往比室外脏 5 到 10 倍；克里斯家里则反过来，室内可比室外干净约 10 倍。家本应是回来修复的居所。"}, {"id": "s4", "title": "室内污染源：鞋底粪便、烹饪多环芳烃和过密闭的房子", "start_sec": 1056, "summary": "谈到家里空气的「组成成分」，迈克尔边讲边给出立刻能做的建议。进门穿鞋很糟：受测鞋子约 95% 带有粪便残留，有粪便往往也有草甘膦，鞋底还会累积轮胎橡胶等户外脏东西；人几乎从不洗鞋底，却在地毯上走来走去。他们会做「扰动地毯采样」：用粒子计数器拍打地毯，能打出数百万计粒子，走路时也在发生同样的事，粒子包括霉菌孢子、死皮、头发、污染和花粉。烹饪是另一件大事：即便用优质油或草饲草完牛油、好锅和好食材，高温与蛋白质仍会产生多环芳烃（PAH, polycyclic aromatic hydrocarbons）；他灾后测房子时总在找六价铬和多环芳烃。培根和菜香很好闻，气味散了之后这些反应物仍嵌在房子里，而且多数人并不开抽油烟机。人类很晚才开始在室内烹饪、在室内生活；美国人平均约 95% 的时间待在室内，像住在密封保鲜盒里。霉菌和灰尘主要是室内问题，室外有阳光、风、雨和树，相当于大自然的空气净化器。流动的河水通常较干净，一潭死水就会长藻和细菌；生命、水和空气都想流动。此外还有发胶、纺必适（Febreze）、格莱德（Glade）插电香薰、蜡烛和熏香等化学品，以及建材本身。他认为自己存在的部分理由是最终把房子建得更好：房屋盖得太 Tight、不会呼吸。室外像河流，室内像池塘；房子不能呼吸，里面的人也不能。1970 年代能源危机后建筑规范为了节能把房子做得极 Tight，问题由此加剧。"}, {"id": "s5", "title": "家里的空气从哪来，二氧化碳如何让大脑起雾", "start_sec": 1276, "summary": "中插广告之后，克里斯问了一个听起来傻、早上却认真想过的问题：房子并非完全密封，为什么人在里面不会一直窒息？尤其是英国这类空调不多的地方，他本以为几乎没有气流。迈克尔用浸在水里的瓶子打比方：不必戳很多孔就会进水，因为房子就处在可呼吸的大气薄层里——如果地球是一只苹果，人类能生存的可呼吸区域大约只相当于苹果皮那么薄，爬到约 1 万英尺以上或到水下都很难长期存活。空气会从窗户、门（即便关着）、阁楼通气口、浴室和炉灶排气口以及所有漏风处进来；任何往外排的路径，也是空气进来的路径，房子像一个有压差的容器，可用鼓风门测试（blower door test）检查。二氧化碳是人自己在室内「循环」空气的产物：人吸进氧气、呼出二氧化碳，树和植物相反。室外二氧化碳大约 460 到 500 ppm，室内 600 到 800 还不错；超过 1000 尚可但脑雾开始出现，到 2000 会明显有感觉，到 3000 会觉得精疲力竭、没法思考。他 2014 年开始监测时室外大约 395 ppm，现在约 460 ppm，相当于环境本底上升了约一到两成；400 与 600、800 的体感可以差很多。克里斯说播客棚为了隔音尽量密封，天花有吸音板、双腔隔热，罗根的棚甚至是浮筑地面、双层门；四人圆桌录到三小时不能开门（会漏光漏声），二氧化碳曾到约 1800 ppm，而来这里的目的偏偏是清楚思考和表达。迈克尔承诺大约两三个代表就能给出安静的解决方案：他们在城里建「清洁空气工作室」（Clean Air Studios），会把换气设备放到远处，缓慢轻柔地换气以免破坏录音。克里斯开玩笑说要不在棚里做雨林，迈克尔立刻反对：湿度和霉菌会把人干掉。"}, {"id": "s6", "title": "不要在细枝末节上较真：80/20 与城市空气地图", "start_sec": 1652, "summary": "克里斯担心这会不会又变成一项繁重功课：已经要避开超加工食品、种子油、蓝 40 和红 5，还要练最大摄氧量、力量和维生素 B12，在满是芝士脆的世界里，人们是不是把空气这种「专业」做成了次要细节上的钻牛角尖？迈克尔说他几乎不靠意志力，而相信环境会告诉你该有什么感觉：码头、山里很难焦虑，水声、柔光、木头和石头的水疗会让人舒服，明亮吵闹、黑粉墙壁的牙科诊所则让人紧绷。与其靠一堆助眠药硬撑，不如先搞定床、温度和环境——控制环境是最「懒」的健康方式。空气、水和光线是一次性设置好就不用天天想的被动事项：家里装滤水器、一年换两次滤芯，出门买瓶装水，反渗透后再加回电解质，都很容易。英国广播公司（BBC）微塑料空气研究显示，受测住宅 100% 在灰尘中检出微塑料（灰尘是采样空气的好方法），98% 的样本浓度很高；他们与实验室合作，在活检中发现 100% 的人肺部有微塑料。有说法称人均每周吸入约一张信用卡分量的微塑料；他相信人吸入的微塑料远多于喝进去的，因为空气量大且免费。80/20 的底线是：睡觉时有干净空气、喝干净的水、日出前日落后再尽量不用人造光。若还要给浴室、淋浴、泳池和全屋红光加码也可以，但零到一的跃迁最大；亚马逊上约 50 美元的盐灯、台面滤水器，再加上用家得宝零件花 60 到 120 美元做科西-罗森塔尔箱（Corsi-Rosenthal Box）这类自己动手过滤器，也远好过商店里不工作的小塑料盒子，只是样子丑、有噪音、没有传感器。克里斯引用统计：全世界约 99% 的人口生活在空气污染超出世界卫生组织（WHO）指南的地方，并问洛杉矶烟雾、迈阿密和各地差异。迈克尔旅行时已把空气当作重要考量：墨西哥城文化很棒，他不会待超过一两天，且睡觉时一定清洗空气；曼谷、德里、北京等很多城市空气很差。美国则很区域化，但哪里都有问题。佛罗里达潮湿且霉菌严重，酒店为了省钱在客人离开后关掉空调，气流一停霉菌就积起来，现在常常见到酒店被拆到骨架；奥斯汀也有很多霉菌，既因为湿度，也因为得州房子盖得差——他在加拿大长大，炉子和空调在地下室，得州却把暖通放进阁楼：室外约 105 华氏度，管道里吹 70 度冷风，周围却是 105 度，冷凝水滴个不停，几乎每家阁楼都有大量霉菌，且使用柔性风管，一清洗转子就会撕开、无法再做管道清洁。很多人搬去亚利桑那沙漠想逃离霉菌，他却在那里看到一些最严重的霉菌毒性：沙漠沙子曾在水下，含有古老霉菌，再叠加哈布沙尘暴（haboob，克里斯联想到悉尼·斯威尼相关画面）；室外相对湿度只有约 20%，长期缺乏暴露，家里一旦漏水就会剧烈爆发——干燥地带里一个又凉又湿、仍会漏的盒子。他呼吸过最好的空气包括哥斯达黎加热带雨林和温哥华岛，雨林里二氧化碳检测器读数比世界其他地方低约 10%；奥斯汀仙女鸟湖（Lady Bird Lake）树下也能感到局部「树在对你呼吸」的清凉。克里斯提到赢大奖的南瓜西瓜研究：一度以为唱歌让植物长得更好，后来发现可能只是人对着植物呼出了额外的二氧化碳。"}, {"id": "s7", "title": "香薰、杀虫剂、发胶与「室内空气污染产业」", "start_sec": 2239, "summary": "产品点评从熏香开始：迈克尔喜欢户外用，不赞成在家里燃烧东西；若一定要用，就要清洗空气或开窗。杀虫剂是坚决的不。崔丝美（TRESemmé）这类强力定型发胶让想要好看的人很难完全不用；两人同意不要对每件小事偏执到不敢动弹。迈克尔观察：他认识的一些病得最重的人，往往也是最「健康觉知」、永远在治愈下一项的人，神经质的压力反而让他们持续生病。贾斯珀上的传感器有个意外用处：喷发胶或止汗剂时读数会飙升（克里斯说自己每天喷除臭剂机器就会发狂），低毒网红会用它比较哪款产品更毒；较好的产品反应会小一些。若要用发胶，最好去室外，其次开窗，再不行就进浴室并让排气扇一直开着。浴室空气清新剂引出关键一点：这是香氛。美国香氛（他称之为室内空气污染产业）市场规模约 70 亿美元，空气过滤产业约 35 亿美元，前者是后者的两倍，他想把这个关系翻过来。最糟的体验之一是坐进挂着「死亡圣诞树」的优步；现场就有同事凯尔（Kyle）车上通风口用的那挂香片。萨钦·帕特尔博士（Dr. Sachin Patel）有一句话改变了他：除非在分泌唾液，否则不要吃东西——唾液会通知消化酶准备即将到来的食物，所以闻到美食会流口水。纺必适喷在球包上并没有把脏东西清掉，只是绑定鼻腔受体、让嗅觉系统失灵，闻不到原味；嗅觉与味觉、肠道、营养吸收紧密相连，闻不到就无法准备相应的酶。他随身带更低毒的 Primarily Pure 除臭剂，拥抱到用 Speed Stick 的人时会递给对方一支出去，并认为合成香氛将成为新的二手烟：从前有人抱怨吸烟像扫兴，后来研究显示二手烟一样糟甚至更糟。有人一进门他立刻知道对方喷了香水或古龙水。针对「这是不是过度敏感、让人更脆弱」的批评，他说希望既高度敏感又有韧性：休伯曼（Andrew Huberman）会强调突然开灯的影响，但他不再为此毁掉整天，而是把灯关掉、承认重要、同时保持弹性。狗弄脏沙发或地毯时，应拆下罩子拿到阳光下——太阳是最强的紫外线消毒，远好过纺必适。喷雾防晒不仅伤害植物和水体，户外 50 到 100 英尺外都能闻到；空气像水，三滴红色食用色素几秒内就会均匀染红整缸洗澡水，气味不会停留在局部。蜡烛方面：不用蜡烛最「最优」，但烛光是很好的光、利于神经系统放松，「蜡烛加拥抱」是新的「奈飞加放松」；他本人会用蜡烛，偏爱蜂蜡、优质木芯或大麻芯，蜂蜡有点像自然电离。他测过约 25 种品牌，还没有可以公开背书的；熄灭时应到室外吹灭，避免末端黑烟，或用熄烛罩。"}, {"id": "s8", "title": "谁更脆弱，以及不花钱就能改善空气的办法", "start_sec": 2799, "summary": "空气比水更「狡猾」：进户水通常只有一根管子，可以在水源、淋浴或全屋过滤；空气却从许多缝隙进来，过滤思路必须不同。谁更易受损？普通成年人每天大约呼吸 1.5 万到 2 万次，幼儿约 4 万到 6 万次，婴儿可达 6 万到 10 万次，婴儿和老人尤其脆弱。现代生产往往在强光、催促和仪器蜂鸣的医院里完成，回家后育儿房为了「Instagram 就绪」刷了新漆、堆满正在释放挥发性有机物的玩具，还常放一个密封尿布桶。育儿房若有粪便味，那就是粪便和大量细菌；妈妈本想保护宝宝，宝宝却整晚吸入这些微粒。免费干预就是把脏尿布直接拿到室外。女儿阿雅（Arya）刚出生、他们住在不列颠哥伦比亚时，妻子瑞切尔图方便使用尿布桶；他提议「做实验」——今晚把尿布桶放进主卧、自己去客厅沙发睡，她立刻说恶心、不行，而这正是重点：他们绝不会让自己跟尿布桶同睡，却让每晚呼吸约 10 万次、免疫系统仍在发育的宝宝去吸。不花钱的改善还包括：进门脱鞋、开抽油烟机、使用浴室风扇。浴室风扇主要不是为了去味，而是排湿；他建议装带 30 分钟、60 分钟或 2 小时定时的开关，淋浴后至少开一小时，因为几加仑的水会留在地漏或毛巾上再蒸发进房子，门一关、湿气一积，时间久了就是霉菌。还要清理烘干机排气和绒毛盒，很多家庭火灾就来自烘干机。温度合适就开窗；德国和许多欧洲地方每天给房子通风（他一时想不起以 L 开头的词，即 Lüften）是常规，美国却很少这样做。克里斯问空调不是已经在往家里送风吗，难道不像开窗，还有高效滤网和除湿机。迈克尔把暖通空调（HVAC）比作房子的肺：多数Subdivision 或公寓由银行用表格驱动——求快、求便宜、求面积和好看以便快卖，不是求最健康。炉子和空调只为节能地加热和制冷，并未按过滤来选型；人们常把系统停在自动模式，达到设定温度就停。他前两年曾想做炉内整屋过滤，结果又吵又会扼住气流。新冠期间有人把 MERV 16 高等级滤网塞进系统，电机被憋到烧毁。过滤要同时看效率（拦住多少粒子）和效能（有多少空气流过）。贾斯珀的长期愿景是做真正会「呼吸」的暖通产品，把花粉、霉菌和山火烟也考虑进去，但这大概还要几年。人对热舒适极敏感：房间 25 到 30 摄氏度会立刻觉得热，二氧化碳 2000 ppm 加一些挥发性有机物却常常觉得「还行」，问题会慢慢累积。人体其实是最好的传感器：他检测过数百栋发霉的房子后，一进门就能感觉到霉菌。让五个人早上未看天气预报时在餐巾纸上写下体感温度，大家通常只差 1 到 2 度，因为皮肤温度感受器天天被校准；人对天气的理解却被简化成冷热、阴晴、下不下雨。他想做一款也会报告「今天是四个月来最干净的空气、很适合出门」的天气应用。长期看相对湿度，身体同样会校准；他带着二氧化碳检测器太久，常能把读数猜到约 30 到 50 ppm 以内。"}, {"id": "s9", "title": "买房验屋：香氛掩盖霉菌，「霉菌就是黄金」", "start_sec": 3378, "summary": "看房或搬家时该查什么、什么问题该直接走开？迈克尔 2014 年因兴趣拿过房屋检查认证，其实是三四天的网课；洪水、火灾和霉菌治理认证则是大约两天、约 500 美元、房间里一场简单考试——所谓专业人士并没有去读一年「霉菌大学」，证书本身意义很小。常规验屋报告通常排除环境问题：不查霉菌，往往也不仔细查屋顶；花 400 到 1000 美元、偶尔 2000 美元，主要在找未来几年会砸钱包的东西，比如屋顶年限、裂缝、接地故障插座是否工作，房子尽可以长满霉菌而完全不被提及，他们也没受过这方面训练。第一红旗：若屋里有大量插电香薰和香味，必须要求重新检查——先把香氛全部拿走，让房子透一两天再关上。卖霉菌屋最常用的手法就是插香氛，让人以为干净清新，其实只是堵住了闻霉的能力；买下后可能面对约 20 万美元的治理，全家生病。这是人生最大投资、也是家人住在里面的东西，他建议做空气质量和霉菌检测；克里斯也说，若房子伤到你，修复健康的代价（对他而言约两年）极其昂贵且费力。新旧房子都可能更糟。他做检测时大约三分之一的工作与「病态建筑综合征」有关，过去更多被用在商业楼：缺勤高、表现差。哈佛的约瑟夫·艾伦博士（Dr. Joseph Allen）的研究显示，优化员工健康与环境的成本，远低于养活一支常生病缺勤的团队；住宅逻辑完全一样。被问到黄金标准评估、包括他们做过的 ERMI 时，他没有简单答案：霉菌可以让人病得很重，但行业有「霉菌淘金热」和「霉菌就是黄金」的说法——承包商拆浴室再重装原先大约 1000 美元，一旦有黑霉就变成约 1 万美元，差别大约只是四小时准备、一台清洗机、一些抗菌剂、多三小时人工和约 50 美元材料，观感却从「换瓷砖」变成「核泄漏」。功能医学医生被霉菌患者淹没，尿检、血检公司随之涌现。克里斯推荐美国的霉菌公司 The Mold Co. 和阿里安娜（Ariana）：做检测、治疗并带人走排毒方案，遵循休梅克方案（Shoemaker protocol），团队里有该领域最循证方案创始人的早期弟子。行业常说验屋师不该兼承包商、霉菌检测师不该兼治理方，以免激励扭曲；但你找会计师、律师、机械师时并不会这样拆开，眼科医生却不卖眼镜。最终取决于信任，他反而认为最好的霉菌检测者往往是真正把东西拆掉的治理人员，就像找外科医生评估是否需要手术。这不是「大农业、大制药的邪恶阴谋」，而是一条用好意铺成的地狱之路：很少有真正的坏演员，但两天课程出身的人挥着检测棒、昨天刚下过雨，就可能警报并开始大拆。ERMI 本身是好测试，却偏警报化，查的是灰尘里过去约六个月有没有过霉菌——几乎总会有，就像验血几乎总能找到一些重金属、霉菌或双酚 A，于是人松一口气以为「终于找到元凶」；但这不是有或无的黑白问题，而是什么种类、有多少、能否复查。The Mold Co. 在这一点上做得好，也相对划算。买房时不妨多请几家治理承包商来看；多数承包商大概并不出色，只能多问。克里斯自己是在 Instagram 动态和朋友圈里反复打听，奥斯汀的 Toolman 公司被多次提起，对方档期很满但还是挤出了时间。"}, {"id": "s10", "title": "贾斯珀不是普通净化器：从工业清洗机到牙医诊室", "start_sec": 3819, "summary": "克里斯问贾斯珀作为空气清洗机如何工作、能帮多少、该放哪里。迈克尔强调他们称之为空气清洗机（air scrubber）而不是空气净化器：好比育空·丹纳利（Yukon Denali）与本田思域，都是车，但一个为城市通勤，一个能拉家人、更安全也更好看；高尔夫球车和皮卡也能说明「谁拉得动船」。清洗机是工业级净化器。SUV 大约 1990 年代才从军用级车辆变成现代家庭用品，如今美国售出的汽车超过 50% 是 SUV。一台贾斯珀大约相当于五台廉价小净化器。空气流过滤网，目标不是制造「特制优化空气」，而是尽量回到自然该有的空气，只过滤、不添加。机身用钢，按 10 到 25 年寿命设计，因此能提供终身保修。滤网约 4.5 磅，多数净化器滤网只有三分之一到半磅；更大意味着能在安静状态下推动更多空气。现场两台几乎听不见。贾斯珀在最低静音档的风量就超过多数净化器最高档：指标是每分钟立方英尺（CFM），他们静音档底部大约 100 CFM，很多产品最高才约 80 CFM。货架上写着「覆盖 1500 平方英尺大房间」的小机器，若你觉得它没在工作，那它多半就没在工作；卧室开三档、关灯，或放客厅，体感差异应当一目了然。传感器在十年十五年前可能值几千美元，现在更小更便宜，于是机器可以既安静又聪明：一做饭、点蜡烛、点香或遇到山火烟和污染，数字上升并变成橙色、红色，你听见它是因为你该听见，随后再降下来。贾斯珀是「在意室内设计的妻子」与「霉菌男」的孩子：若没有瑞切尔，他会继续用又吵又丑的工业清洗机，客人会觉得屋里不一样，她却会要求拿走。他认为设计本身就是健康趋势，好看会让人感觉更好。机器无蓝牙、无 Wi-Fi、无额外电磁场，没做焦点小组，是为他自己做的。二十多岁时他在灾难间隙大量旅行，刚有约 50 台机器，本不确定要不要把公司做下去，最初只为山火季的烟而做；接着新冠来了。安大略规定每间牙科诊室必须有过滤器才能重新开门，而且风量决定病人间隔：小净化器可能要间隔一小时，贾斯珀只需约 8 分钟，牙医一天就能回本。前一千名客户是多伦多的牙医，公司上市时甚至叫贾斯珀医疗（Jasper Medical）。最初三年他们不懂电商，只能「申请报价、免费咨询」，他会跟客户聊半小时霉菌或牙科情况，用长宽高做气流计算，告诉牙医间隔几分钟；涡轮模式就是为新冠期间的牙医一键深洗空气而发明的，后来留给消费者。克里斯家测过卧室机器和空气医生（Air Doctor，他一开始说成 Aquatrue）等，迈克尔说他们曾在克里斯不在时录像检测：那些机器吹出来的空气与环境空气完全一样，等于没在清洁，只是昂贵的「空气吹风机」。他建议预算极度紧张、只想改善睡眠的人谷歌科西-罗森塔尔箱自己做。贾斯珀滤网是三合一，每六个月自动寄到，30 秒可更换；他们只做这一款产品，没有小号、大号或水产品，现在大约是第五代滤网，只做一件事才能不断改进。他讨厌订阅，但换滤芯类似一年两次请人换水滤、每三个月寄牙刷头或汽车保养，有其道理。坏了就寄全新机器，用户把旧机放回原箱，他们提供预付运单并承担近 100 美元的回运费用。"}, {"id": "s11", "title": "先放卧室，芬兰教室实验，以及呼吸更好、感觉更好", "start_sec": 4393, "summary": "标志里的 A 既像树又像山，长期愿景是：如果房子建得好、污染少，这类产品本不该存在，真正的空气过滤是树。他本人抓住干净空气、干净水、干净食物和良好光线就够了，偶尔蒸个桑拿；前大约 20 期播客里他一次都没提贾斯珀，怕显得在推销，直到牙医开始展示机器、妈妈们问能不能家用，并反馈哮喘发作和过敏消失，他才觉得这成了一项使命。预算紧就先做自己动手的箱子；若只买一台，优先放卧室，无需紧贴床边，圆柱形 360 度进风，可靠墙或墙角，不像方形机器说明书要求离墙一两英尺、结果只能放房间中央。第二优先是你真正待着的地方。钱不是问题的人通常每间卧室一台、客厅一台：卧室开暗光模式和高风速，客厅开智能模式。如今厨房和客厅多半连通，不必紧挨炉灶；有人也放在家庭办公室。他们计划明年做更大规模睡眠研究，并希望与大公司合作，把贾斯珀放进 50% 员工的卧室（即便是居家办公），衡量表现和缺勤——若每天约 2 美元能做成一项计划，他觉得比自己仍搞不懂的蓝十字（Blue Cross）等医保账单更看得见、摸得着；很多合作企业会给全员家里各送一台，士气也更好。乔科（Jocko）团队 Echelon 的全部 54 名员工卧室里都有一台。节目上线日起两周全站折扣 300 美元，官网 jaspr.co（J-A-S-P-R 点 CO），不用折扣码，售价约 899 美元而非 1199 美元，相当于他们通常只在黑色星期五做的折扣（山火时会在当地另做活动）；几年前曾卖断货约三个月。他押上承诺：大约三天就能知道是否改变生活；请保留纸箱，前 30 天若不是「显而易见」——客厅智能模式白天应对烹饪、卧室三档暗光模式并记录睡眠，再对比一晚不用——他们会 100% 退款并承担退货运费，一美元都嫌多。另一项让他兴奋的研究在学校：奥斯汀金德林学院（Kindling Academy）两周前开学，每间教室都有贾斯珀。芬兰几年前的研究在 50% 的教室放入过滤器，师生缺勤约下降 30%。他们把学校当作活实验室，展示干净空气、干净水、自然光、低毒产品和户外时间（明年还想加入有机食物）能让孩子好多少。美国公立学校按出勤拨款，还有逃学相关规定，外出两周都可能惹麻烦；他们也在给本地学校赠送机器以扩大数据。若能证明空气、水和光线（他认为空气是主因）可把缺勤降约 50%，公立学校就会有财务理由去营造更健康的环境。目前只发货美国和加拿大，预计 10 月最后一周或 11 月第一周进入英国和澳大利亚，也因为克里斯的推动。克里斯感谢迈克尔以及阿里安娜、圣何塞的马特·库克（Matt Cook）、加布里埃尔·莱昂（Gabrielle Lyon）及其团队，说这是自己过去两年半健康旅程的尾风：他不希望别人再走同样的弯路，也知道许多人正被环境和毒素以更小剂量伤害；对未生病或不认识患者的人，这些听起来像在谈论鬼魂或通灵的捉弄，像过度敏感或在细枝末节上较真，但他清楚这对自己健康的差别，有些人的生理就是对环境更敏感。台式反渗透净水器大约 200 到 250 美元就能起步；不是人人都租得起或买得起下一栋房子、也不是人人都能做全屋治理，但至少可以立刻让正在呼吸的空气好一点。霉菌和过敏原影响人，通常不是因为吃进去或喝进去，而是吸进去；把东西滤掉，人就会好受得多。口诀是：呼吸更好，感觉更好。控制环境是懒人式的健康法。片尾克里斯提醒：很多人说已经点过订阅，YouTube 仍会取消，请再检查一下订阅按钮，可以更早看到节目，也支持他请来更大更好的嘉宾。"}], "paragraphs": [{"start_sec": 1, "type": "text", "speaker_id": "chris", "section_id": "s1", "zh": "我这边摆了一堆很多人家中都会有的产品，想听听你的看法。不过在看这些之前，先想象一下：你走进一间酒店房间，里面有一个街头性工作者，有一袋白粉——可能是纯的，也可能掺了东西，你不知道——还有一个潜在的霉菌问题。这三样里，你最担心哪一样？"}, {"start_sec": 24, "type": "text", "speaker_id": "michael", "section_id": "s1", "zh": "我最感兴趣、也最担心的，大概是霉菌。如果那天晚上我没有别的地方可睡，这是我最无法控制的一件事。"}, {"start_sec": 35, "type": "text", "speaker_id": "chris", "section_id": "s1", "zh": "最感兴趣和最担心可能不是一回事。袋子可以扔掉，人可以请走，霉菌却难办得多。我觉得空气质量会是未来几年人人都会关心的健康三大领域之一：空气质量、霉菌毒性、光污染，这是我心目中的前三。水质曾经是大事，现在好像已经接近峰值，人们知道自己需要干净的水了。你是怎么开始做空气质量的？故事是什么？"}, {"start_sec": 62, "type": "text", "speaker_id": "michael", "section_id": "s1", "zh": "我完全同意。有些东西是潮流，有些东西一旦意识被唤醒，就不会再退回去。红光现在有点流行，冷水浸泡也是，但十年后我不太确定它们还会不会在。水过滤不一样：一旦你开始喝干净的水，有了「水意识」，能尝出氯和铅，就再也不会回到不喝过滤水的日子。空气也是同一回事。呼吸干净空气唯一比较麻烦的是，你可能会变成「空气势利眼」，之后住民宿、酒店和别人家里会更难受。我是从灾难修复这一行进来的：洪水、火灾、飓风、霉菌治理。我不是你家马桶漏水时会打给的那个本地师傅，我们会飞去飓风哈维（Hurricane Harvey）、加拿大阿尔伯塔，或加州山火，去处理全国最大的那些灾难。治理霉菌到底意味着什么？你需要隔离被污染的空间，清除实体霉菌，并清洗空气，就是这些步骤。前后都要测空气。有些我呼吸过最干净、最新鲜的空气，反而是霉菌治理收尾之后，因为我们连洗了四五天。然后我回家，觉得：嗯，工地上更干净。真正让我豁然开朗的空气时刻，是 2016 年加拿大阿尔伯塔的麦克默里堡（Fort McMurray）。那是加拿大史上最大的山火，全城约 10 万人撤离了一个月。我们去了。每家每户都被烟浸透，不是火烧毁了房子，而是烟损严重到整栋必须拆到骨架再清洁。那也不是篝火和烤棉花糖的味道：大约 5000 栋房屋连同汽车、油漆、石膏板等材料一起燃烧，造出非常有毒的烟雾。我们进门清洁、修复，可能花几周，也可能要一个月。有一次房子刚洗完，一周后接到电话：婴儿住院了。我们回到那栋房子测空气，发现它其实又被重新污染了。测空气时一定要同时测室外和室内。如果有人只测室内，那他根本不懂自己在做什么。你必须采集室外环境空气作为对照，再和当时的室内空气比较，才能看到差值。"}, {"start_sec": 251, "type": "text", "speaker_id": "chris", "section_id": "s1", "zh": "不然也可能只是当地环境空气本来就差。要是火灾期间只看室内读数，你会觉得屋里糟透了；是的，但外面一样糟，只是相同而已。"}, {"start_sec": 261, "type": "text", "speaker_id": "michael", "section_id": "s1", "zh": "按理说，下雨后 48 到 72 小时内不该做霉菌检测，但几乎没有公司遵守，因为那样就接不了活。很多人拿到检测，结果上百万，回头一看前一天下过雨。他们做对照样本了吗？如果没有，空气里当然有霉菌孢子，这并不等于你家被污染了，只是那天空气里本来就有的东西。我们进去一看，室外空气污染非常重。一场严重山火之后，空气可以连续差四、五、六个月，烟会进土壤，烧过的房子和灰烬里都有。我们打电话给保险公司：谭雅（Tanya）的家又被污染了，我建议她和家人先离开这座城，住酒店等着，等环境空气好转再重洗，然后才能搬回去。保险公司说没门，支票已经在路上，她签收了，我们的工作结束了。可这里有一个生病的婴儿，保险却说我们完事了。于是我们把四台大型工业空气清洗机留在谭雅家里。大约两三个小时后空气就好了，缺点是有点吵。机器在转，但空气是好的。我们把它们留了几周，差不多一个月，而这种情况不断发生：房子洗干净后会再次被污染，保险不会再出钱重洗，我们却只能把清洗机留在工地上。这很贵，而且我们自己的工地还需要这些设备。"}, {"start_sec": 350, "type": "text", "speaker_id": "michael", "section_id": "s1", "zh": "我记不清是去了百思买、沃尔玛还是家得宝，总之买了一批常见的、两三百美元的小型空气净化器，大多长得很像，在家里放了五六台。几小时后再测，又完全被污染了。那时我对便携净化器了解不多，后来才明白它们有点像小玩具，做不了什么。我当时住在安大略的多伦多，西岸的人跟我说，他们每年都会有几天烟雾；但烟雾只需过城一两天，你家就会被浸透。烟味过后你习惯了，椅子、地毯和石膏板里的污染物却还在。别说那种超级大火，哪怕只是会碰到烟雾的地方，都需要比这些小净化器更像样的东西。工业清洗机非常有效，却又吵又难看；小净化器便宜、小巧、可爱，却几乎不起作用。我需要一台好看、安静、人家愿意放在家里的清洗机。灾难修复有时让人沮丧：房子洗净后又被污染，谈不上真正的影响。我觉得最有影响力的事，是把多年处理洪水、火灾和霉菌的经验做成一台真正经过设计的清洗机。有一天我把清洗机带回家，妻子瑞切尔（Rachel）说：把那东西拿走，我不管空气怎么样，都不能留在房间里。我的空气旅程就这样开始了。"}, {"start_sec": 432, "type": "text", "speaker_id": "chris", "section_id": "s2", "zh": "假设有人运动和睡眠都已经调整到位，如果完全忽视空气质量，他们会在桌上留下多少空间？"}, {"start_sec": 436, "type": "text", "speaker_id": "michael", "section_id": "s2", "zh": "先用这个锚定：人大约可以三周不进食、三天不喝水，但大约三分钟离不开空气。你出生时做的第一件事是吸进第一口气，临终前做的最后一件事是呼出最后一口气。空气、水和食物是每天维持生命的三大摄入，睡着时唯一还在做的只有呼吸。而我们人类特别擅长适应不舒服、有毒的环境。渴了去喝，饿了去吃，空气却无处不在，我们在下意识地呼吸，根本没在注意。一旦开始有意识地关注呼吸，你会发现这件事非常有意思。用升来讲：你每天大约吸入 1.7 万升空气。如果喝水比较认真，大概喝 2 升水，食物也许有 2 磅。有说法称体内大约 70% 的排毒发生在肺里。我们面前也有饮料，但我接下来一个小时不喝不吃也没问题，呼吸却停不了。正因为这样，我们才不去注意它。我觉得空气意识大约落后水质二十年；新冠之后，这种滞后更像被压缩到了十年，我也在努力把这条时间线再压短一点。这是最大的事。睡觉时我把空气叫作「睡眠燃料」，白天叫作「思考燃料」，因为它是唯一真正让我们持续运转的东西。空气一般也能撑着过，可如果房间又热又闷又有异味，睡眠就会很差。反过来，当你在一个干净空气的庇护所里呼吸，我认为睡眠是最该先调好的事。去山上你会深深地、不费力地呼吸；又湿又脏的环境里，呼吸会自然变得短促受限，离开之后仍会保持这种短促，变成新的常态。空气越干净、越新鲜，你越容易自在地呼吸，神经系统也会平静下来，睡得更好。睡得好，恢复就更好；恢复更好，无论是运动、学业还是工作，表现都会更好。过敏、打鼾，全都连着这件事。空气就是我们赖以活着的东西。"}, {"start_sec": 593, "type": "text", "speaker_id": "chris", "section_id": "s2", "zh": "有意思。很多人会同时想到「特质」和「状态」：它此刻对我的表现做了什么，以及它长期累积下去会不会造成系统性的疾病、让某些生物标志物变差、损害长期健康。空气质量差的时候，短期表现最大的隐忧是什么？长期健康影响又是什么？"}, {"start_sec": 623, "type": "text", "speaker_id": "michael", "section_id": "s2", "zh": "先说短期表现。空气这件事大家聊得不多，研究却非常多。你在「空气质量」后面接上生育、哮喘、认知表现、睡眠，哈佛、麻省理工这些大学做过的大规模研究都在。有一组研究看棒球裁判：好球坏球出现在屏幕上时他们经常判错，而裁判的判罚准确率和当天的空气质量直接相关。"}, {"start_sec": 645, "type": "text", "speaker_id": "chris", "section_id": "s2", "zh": "我一直想不明白，这项运动怎么到现在还没有某种人工智能来做这件事。我们都有自动驾驶汽车了，裁判却还是人工的。"}, {"start_sec": 656, "type": "text", "speaker_id": "michael", "section_id": "s2", "zh": "第二项是国际象棋大师。所谓博弈论最优，就是棋手走出完美的下一步；这种表现会因空气质量而大幅受影响。SAT 分数也一样。这些都在说急性的认知表现。我们谈空气，谈的是新鲜和干净。想象你和十二个人挤进一座大楼的电梯，或在办公室、在有三十人的家庭聚会里，你会想冲到外面去——那种闷，就是二氧化碳偏高，大脑不好使。这是短期。如果裁判都这样，那个投球的人、那个挥棒的人，又会怎样？他们正是从这同一件事出发去运作的。我很喜欢这三项研究。"}, {"start_sec": 707, "type": "text", "speaker_id": "chris", "section_id": "s3", "zh": "跟听众说一下，我们面前有一些传感器，其中有一台你好意送我的阿拉内特 4（Aranet 4），主要在追踪二氧化碳。"}, {"start_sec": 713, "type": "text", "speaker_id": "michael", "section_id": "s3", "zh": "对，它就是干这个的。"}, {"start_sec": 716, "type": "text", "speaker_id": "chris", "section_id": "s3", "zh": "现在是 973，处在「还算可以」的上沿。也就是说，要是我们等会儿开始讲得语无伦次，还可以对照这些不同的组成部分来看。哦，挥发性有机物是 295 ppb。反正我们这儿传感器不少。"}, {"start_sec": 730, "type": "text", "speaker_id": "michael", "section_id": "s3", "zh": "对了，我特别兴奋的是，我们第一次去你家送几台贾斯珀（Jasper）的时候，整栋房子已经「极客化」了。你已经有另一个过滤品牌，每个房间都有空气监测器。私下里看到那些，我心想：太好了。"}, {"start_sec": 748, "type": "text", "speaker_id": "chris", "section_id": "s3", "zh": "你是在跟一个过去两年多都在努力把健康夺回来的人说话，而我基本上就是被糟糕的空气质量「感染」了。之前那栋房子里，水和管道当然也有问题，但这件事对我非常私人。我还找到了这位空气质量的「大巫师」，而他刚好住在同一座城市。所以回到短期表现：人们会更不准确，认知会受损。这些研究多半做在认知任务上，但体力任务、情绪调节这些，短期内大概也会被波及。"}, {"start_sec": 782, "type": "text", "speaker_id": "michael", "section_id": "s3", "zh": "贾斯珀已经「武装」了奥斯汀不少地方。你去柔术馆和很多健身房都能看到。"}, {"start_sec": 786, "type": "text", "speaker_id": "chris", "section_id": "s3", "zh": "老兄，它就在罗根（Joe Rogan）的准备室里。前几天我走进去就看到了。"}, {"start_sec": 790, "type": "text", "speaker_id": "michael", "section_id": "s3", "zh": "而且那一台工作得很卖力。"}, {"start_sec": 793, "type": "text", "speaker_id": "chris", "section_id": "s3", "zh": "我敢肯定。那简直是空气质量的海军海豹，是矛尖。"}, {"start_sec": 798, "type": "text", "speaker_id": "michael", "section_id": "s3", "zh": "我们前几天还给他发消息：一台不够，兄弟们。我们不断收到那台机器一直显示红色的照片。"}, {"start_sec": 806, "type": "text", "speaker_id": "chris", "section_id": "s3", "zh": "一点不意外。那长期呢？长期健康正在发生什么？"}, {"start_sec": 810, "type": "text", "speaker_id": "michael", "section_id": "s3", "zh": "短期我还想补一句：睡眠。我们做了一项社区主导的实验——我会小心使用「研究」这个词。我们给 150 个以前不过滤空气的人贾斯珀，他们用的是奥拉（Aura）或 Whoop 手环。为期四周：第一周没有空气过滤，只记录睡眠；第二、三周卧室里开着贾斯珀，风速三档；第四周再关掉。然后大家把数据发给我们分析。"}, {"start_sec": 846, "type": "text", "speaker_id": "chris", "section_id": "s3", "zh": "他们都在用某种追踪器，比如 Whoop 手环或类似的东西，对吧？"}, {"start_sec": 850, "type": "text", "speaker_id": "michael", "section_id": "s3", "zh": "对。平均下来，每人每晚多睡 25 分钟，深睡眠增加 18%，入睡加快 5 分钟。"}, {"start_sec": 856, "type": "text", "speaker_id": "chris", "section_id": "s3", "zh": "所以第一周和第四周应该相近，第二周和第三周相近，变化会先上去再下来。这实验也太酷了。我知道它也许不算实验室里那种随机对照试验，但真的很棒。我们应该想办法做一版更大的。"}, {"start_sec": 873, "type": "text", "speaker_id": "michael", "section_id": "s3", "zh": "也许春天在这里过敏特别严重的时候做。"}, {"start_sec": 876, "type": "text", "speaker_id": "chris", "section_id": "s3", "zh": "那会很有意思。反正我们应该想出一个办法来做成这件事。"}, {"start_sec": 881, "type": "text", "speaker_id": "michael", "section_id": "s3", "zh": "会做的。很酷的一点是：每个人都必须交出数据，并且同意不匿名。因为如果没有人愿意把名字押上去，就不会有人相信这项实验。参与者有男有女、各种年龄，有医生、科学家、教师，范围很广。这更像我们自己先做的测试版实验，再考虑做更大的研究。对睡眠来说这是大事。我们自己的数据还显示，大约 30% 的打鼾者停止了打鼾；其余 70% 里，超过一半明显减轻。我们刚开始做这件事时，我万万没想到会不断收到女性来信：我们因过敏买了贾斯珀，分房睡了好几年的丈夫现在又能回到卧室了。"}, {"start_sec": 938, "type": "text", "speaker_id": "chris", "section_id": "s3", "zh": "天哪，你这是拯救了几十万美国人的性生活。挺好笑的。"}, {"start_sec": 943, "type": "text", "speaker_id": "michael", "section_id": "s3", "zh": "这些大致属于短期。睡眠自然是各种长期问题的领先指标。人体很有韧性，急性场合下能扛住不少毒素。另外，在奥斯汀，任何人订购贾斯珀，我们都会打电话或发短信，上门亲手送达，并在使用前后测试空气——他们甚至不一定知道我们就在奥斯汀。所以我们测过很多空气。奥斯汀的过敏季非常明显，我们常说的雪松热（cedar fever）就是一例。很多人症状降到零，或大幅减轻。人体可以承受一点霉菌，也可以在马路被铺沥青时吸一两分钟的毒素。可我们测卧室时，枕头或床上的花粉水平常常比室外还高，因为它们进来以后就留下来了。"}, {"start_sec": 1004, "type": "text", "speaker_id": "chris", "section_id": "s3", "zh": "会沉降下来。"}, {"start_sec": 1005, "type": "text", "speaker_id": "michael", "section_id": "s3", "zh": "它们会停在多孔材料里。任何能被水浸湿的东西，也能被空气渗透。做修复时，像这样的密封木材我们可以整天擦干净；可石膏板、地毯、绝缘材料和很多家具是多孔的，底部往往也没有密封。能被水打湿的，也会被烟渗透。白天在外面吸一两个小时花粉未必有大影响，问题是你一天 24 小时都在吸。如果能把卧室变成干净空气的庇护所，情况就会完全不同。现在普通住宅的室内空气往往比室外脏 5 到 10 倍。"}, {"start_sec": 1045, "type": "text", "speaker_id": "chris", "section_id": "s3", "zh": "哇。"}, {"start_sec": 1046, "type": "text", "speaker_id": "michael", "section_id": "s3", "zh": "而一旦翻过来，我可以告诉你，你家的空气大概比外面干净 10 倍。家之所以叫家，就应该是你回来疗愈和恢复的居所。"}, {"start_sec": 1056, "type": "text", "speaker_id": "chris", "section_id": "s4", "zh": "家里空气质量最大的隐忧是什么？我们面前已经有二氧化碳、挥发性有机物、霉菌、过敏这些。我们说空气质量的时候，构成它的那些「微量营养素」到底是什么？"}, {"start_sec": 1074, "type": "text", "speaker_id": "michael", "section_id": "s4", "zh": "好问题，这里面也会带出一些立刻能用的建议。进屋穿鞋非常不好。受测的鞋子里，大约 95% 带有粪便残留，说白了就是大便。有大便，往往也有草甘膦。"}, {"start_sec": 1091, "type": "text", "speaker_id": "chris", "section_id": "s4", "zh": "等一下，95% 的鞋子上有大便？"}, {"start_sec": 1093, "type": "text", "speaker_id": "michael", "section_id": "s4", "zh": "对，因为你在外面走，外面有狗大便，而你几乎从来不会去洗鞋底。"}, {"start_sec": 1099, "type": "text", "speaker_id": "chris", "section_id": "s4", "zh": "可这量能大到影响健康吗？一点点大便、一点点草甘膦，再加上你踩过的别的东西。"}, {"start_sec": 1108, "type": "text", "speaker_id": "michael", "section_id": "s4", "zh": "轮胎橡胶之类的，鞋子在外面会积累很多东西，然后你在地毯上走来走去，这些就渗透进家里。以后我可以演示我们做的「扰动地毯采样」：用粒子计数器拍打地毯，会打出数百万计的粒子。你每次走路，某种程度上都在发生同样的事。"}, {"start_sec": 1129, "type": "text", "speaker_id": "chris", "section_id": "s4", "zh": "那是生物性物质吗？"}, {"start_sec": 1131, "type": "text", "speaker_id": "michael", "section_id": "s4", "zh": "什么都有一点：霉菌孢子、死皮细胞、头发、污染、花粉。再说回家里。鞋子之后是烹饪，这是一件大事。即便你用的是有机牛油果油——我觉得牛油果油现在已经不那么流行了——或者好油、草饲草完的牛油、草饲草完的牛排，这些本身都很好。可就算食材和锅都很好，高温和蛋白质仍会生成一种叫多环芳烃（PAH, polycyclic aromatic hydrocarbons）的东西。我灾后检测房子时，总在找六价铬和多环芳烃。这两样东西单独看也许没问题，高温下的化学反应却会严重污染你家。培根和菜香很好闻，气味散了之后，那些反应物仍嵌在房子里。而且多数人并不使用抽油烟机。"}, {"start_sec": 1187, "type": "text", "speaker_id": "chris", "section_id": "s4", "zh": "就是炉子上方那个排气扇。"}, {"start_sec": 1189, "type": "text", "speaker_id": "michael", "section_id": "s4", "zh": "对，开窗或者开抽油烟机都是好主意。我们很晚才开始在室内烹饪，也很晚才创造出「室内」这件事。想象一千年前，你要向人解释「里面」是什么概念。我们给自己造了这些住在里面的小保鲜盒。美国人平均大约 95% 的时间待在室内。霉菌其实不太在外面生长，灰尘也不是真正的室外问题，这些都是室内问题。外面有太阳、风、雨和树，那才是大自然的空气净化器，室外环境是被它们照顾着的。我们把房子盖得很密闭，把自然留在门外。最好的比喻是河流或溪水：流动的水通常相当干净，一旦停滞，池塘就会长藻、长细菌。生命想流动，水想流动，空气也想流动。所以我们有烹饪、有鞋子，然后是我们使用的各种化学品：发胶、纺必适（Febreze）、格莱德（Glade）插电香薰、蜡烛、熏香，还有桌上这些东西。另一件是建材本身。我觉得自己来到这颗星球的部分理由，就是最终把房子建得更好。现在的房子盖得太过密闭，不会呼吸。把外面想成河流，把你家想成池塘：如果房子不能呼吸，里面的人也不能呼吸。1970 年代能源危机之后，他们改了所有建筑规范，为了节能把房子做得超级密闭。"}, {"start_sec": 1276, "type": "ad_omitted", "ad_brand": "Eight Sleep", "section_id": "s4"}, {"start_sec": 1333, "type": "text", "speaker_id": "chris", "section_id": "s5", "zh": "房子里的空气是从哪儿来的？这听起来像个傻问题，可我今天早上一直在想：我为什么不会在自己家里一直窒息？我知道房子并非完全密封，但像英国那种空调并不多的地方，我本来以为几乎没有气流。空气到底从哪里来？"}, {"start_sec": 1357, "type": "text", "speaker_id": "michael", "section_id": "s5", "zh": "可以想一想水瓶或保鲜盒。你不必戳很多孔，它就会进水，尤其当它本来就生活在水里。人类需要非常特定的空气配比才能存活：爬到大约 1 万英尺以上就不太行，到水下也不行。有人说，如果地球是一只苹果，可呼吸的区域大约只相当于苹果皮那么薄。而我们的房子就处在这层薄皮里。所以空气怎么进到家里？窗户、门，即便关着也会进来；阁楼必须通气，浴室有排气口，炉灶有排气口，阁楼也有通气口。房子每一个漏风的地方都是通道。你可以做鼓风门测试：凡是空气往外排的路径，也是空气进来的路径，房子像一个有压差的容器。"}, {"start_sec": 1429, "type": "text", "speaker_id": "chris", "section_id": "s5", "zh": "有意思。那二氧化碳呢？我们刚才谈了家里的一些颗粒物，而这是你自己在室内把空气循环了一遍。"}, {"start_sec": 1443, "type": "text", "speaker_id": "michael", "section_id": "s5", "zh": "我觉得二氧化碳应该像体育比分一样无处不在：你走在机场、商场或街上，到处都能看到比分，二氧化碳的存在感也该如此。"}, {"start_sec": 1452, "type": "text", "speaker_id": "chris", "section_id": "s5", "zh": "因为今天早上我才从工作人员那儿知道，有人会拿着这些阿拉内特在机场里挥来挥去，发现自己以为该担心的是外面，结果机场才是在伤害自己。飞机上也是。"}, {"start_sec": 1466, "type": "text", "speaker_id": "michael", "section_id": "s5", "zh": "我们吸进氧气、呼出二氧化碳，树和植物正好相反。室外二氧化碳大约 460 到 500。室内 600 到 800 还不错；超过 1000 仍然可以，但脑雾会开始出现；到 2000 就会真正有感觉；到 3000，你会觉得精疲力竭，没法思考。人们谈气候变化时，多半想的是自然灾害，觉得那不会发生在这里、只是偶尔一次。我 2014 年开始监测空气质量时，室外二氧化碳大约是 395，现在是 460。"}, {"start_sec": 1517, "type": "text", "speaker_id": "chris", "section_id": "s5", "zh": "也就是说，环境本底的二氧化碳 ppm 大约上升了 10% 到 20%。"}, {"start_sec": 1525, "type": "text", "speaker_id": "michael", "section_id": "s5", "zh": "400 的体感和 600、800 可以差很多。"}, {"start_sec": 1530, "type": "text", "speaker_id": "chris", "section_id": "s5", "zh": "抱歉打断一下。我们在棚里到处都放了这些东西，所以注意到了这一点。为了让家里听众听着舒服，天花板上有很多吸音板——别人看不见，你看得见。这里我们尽可能做成密封的，有双腔隔热。去罗根的棚，他用的是浮筑地面，有点像里克·鲁宾（Rick Rubin）的音乐工作室：整层地板是双层的、离开地基，为了隔振消音。他的门是双层厚，我们这里只用了单层。问题是，如果我跟四个人做一集圆桌、录到三个小时，门又不能开，因为会漏光、会从外面进声音，会一团糟。我只好在「隔音好、能完成播客棚的本职」和「空气流通好、里面的人不会严重脑雾」之间做选择。我们曾经到过大约 1800，尤其是四位嘉宾外加制作人、还有人进进出出的时候。而所有人来这里的全部目的，就是清楚思考、清楚表达。就因为大家都在呼吸这里的空气，反而限制了这种能力。"}, {"start_sec": 1608, "type": "text", "speaker_id": "michael", "section_id": "s5", "zh": "我对你的承诺是：我已经非常接近了，大概还有两三个代表就能给出一个完善的方案。我们在城里也在建一间小播客棚，会叫作清洁空气工作室（Clean Air Studios），也许你会比我们先用上。我们会把一台小型换气设备放到另一侧很远的地方。如果把通风直接做在棚里，录音就毁了。它会在对面缓缓、安静地把空气抽走，完全不影响声音，只是一次缓慢轻柔的呼气。这就是我们的承诺。"}, {"start_sec": 1659, "type": "text", "speaker_id": "chris", "section_id": "s5", "zh": "要么就在这里做一座雨林，放进去大量植物和绿叶。"}, {"start_sec": 1666, "type": "text", "speaker_id": "michael", "section_id": "s5", "zh": "那湿度和霉菌会把我们干掉。"}, {"start_sec": 1672, "type": "text", "speaker_id": "chris", "section_id": "s6", "zh": "我想很多人可能有这种感觉，我自己也有过：这是不是又给我的生活增加了一项负担？我已经在尽量避开超加工食品、种子油、蓝 40 和红 5 这些色素，还得去健身房练最大摄氧量和高强度间歇，还得练力量，还得确保维生素 B12，现在你又告诉我上面还压着另一份艰巨的功课。在一个满是芝士脆的世界里，人们在空气这件事上有多少是在细枝末节上较真？你又觉得它有多少应当被放进「你该非常在乎」的那一桶里？"}, {"start_sec": 1699, "type": "text", "speaker_id": "michael", "section_id": "s6", "zh": "这也是我把生命献给这项使命的原因：我既没有、也不喜欢去动用意志力。我相信环境会告诉你该有什么感觉。你若待在码头上或山里，想紧张都难；去水疗会听到流水、轻柔的音乐，看到舒服的光线、木头和石头，你会感觉很好。去一个又亮又吵、墙是黑粉色的地方，比如牙科诊所，你会紧张。如果又吵又热又脏，想放松也难。我如果所处的工作环境不够好，就绝不会硬着头皮工作。与其吃一堆助眠药之类的东西，不如先有一张好床、把温度调凉、把环境调好。控制环境是最懒的健康方式：搬到一座你能茁壮成长的城市，去一个让你感觉美妙的环境，让卧室真正支持你，让孩子的学校和教室一走进去就让人平静。所以是的，人们大量地在细枝末节上较真，我喜欢这个说法。照顾空气、水和光线，这些都是容易的被动事项。"}, {"start_sec": 1785, "type": "text", "speaker_id": "chris", "section_id": "s6", "zh": "一旦做完，你就不必再去想它。"}, {"start_sec": 1788, "type": "text", "speaker_id": "michael", "section_id": "s6", "zh": "对。水不也是这样吗？我不想对水无知到还去喝水管水和自来水。只要一点点意识：家里装一台滤水器，一年换两次滤芯；出门就买瓶装水，如果玻璃瓶要 7 美元我也买；如果用反渗透，再加回一些电解质。就这么简单。「在细枝末节上较真」这个说法很准，因为总有人想卖东西给你。那些东西未必不真实，也未必不能产生很大影响，但优先顺序很重要。英国其实有一项研究，你搜「BBC 微塑料空气研究」就行：受测住宅 100% 在灰尘中检出微塑料，而灰尘是采样空气的好方法；98% 的样本浓度都很高。他们后来和实验室合作，在人们做活检时发现，100% 的人肺部都有微塑料。有说法称，普通人每周大约吸入一张信用卡分量的微塑料。我还没做过严格对比，但相信人们吸入的微塑料远多于喝进去的，因为空气太多了，而且它是免费的。即使在污染的地方，外面的新鲜空气总体上仍然不错。所以我强调 80/20 的基本功：睡觉时有干净空气，喝水时有干净的水，日出之前和日落之后不要使用人造光。先从这三件开始。若你还想在浴室、淋浴、泳池里都有干净空气，把整栋房子铺满红光，悉听尊便。但这三件把环境安顿好：几个小红灯泡、亚马逊上 50 美元的盐灯、一台台面饮水过滤器，从零到一永远是更大的一步。顺便说，你可以用家得宝的零件，花 60 到 120 美元做一台非常好的空气过滤器。搜「DIY 空气过滤器」，最流行的设计是科西-罗森塔尔箱（Corsi-Rosenthal Box）。它要花几个小时，缺点是有点丑、有点吵，而且没有传感器。可我宁可人们做这个，也不要去商店买一个并不工作的小塑料盒子。"}, {"start_sec": 1916, "type": "text", "speaker_id": "chris", "section_id": "s6", "zh": "我还想谈一些家里不花钱就能做的办法，不过我先看到这个统计：全世界 99% 的人口生活在空气污染超出世界卫生组织指南限值的地方。不同城市的空气质量能差多少？人人都知道洛杉矶有烟雾，可那些烟雾有多少会进到家里和肺里？我还听说佛罗里达的迈阿密很差。奥斯汀我大概了解，世界其他地方呢？依你的经验，哪些地方更危险？"}, {"start_sec": 1948, "type": "text", "speaker_id": "michael", "section_id": "s6", "zh": "我现在旅行时的一个主要考量就是空气质量。墨西哥城看起来很美、文化很有活力，但我不会在那里待超过一两天，而且睡觉时一定要清洗空气。曼谷、德里、北京，很多城市空气都很差。在美国则非常区域化，但哪里都有自己的问题，你可以说跑得了和尚跑不了庙。佛罗里达要对付大量霉菌。酒店尤其精明得只算小钱：客人一走就关掉空调，没有气流，霉菌就会积起来，现在他们甚至在把酒店拆到骨架。佛罗里达是霉菌中心。奥斯汀也有很多霉菌，一部分因为湿度，一部分因为得州的房子盖得太差。这里有阁楼，而且所有暖通设备都在阁楼上。我在加拿大长大，我们有地下室，炉子和空调都放在地下室。这里却放在阁楼里。外面大约 105 华氏度，管道里吹着 70 度的冷风，而暖通周围的环境空气是 105 度。朋友们，那就是冷凝，滴、滴、滴。所以几乎每家的阁楼都有大量霉菌，房子盖得太差了。得州还使用柔性风管，我以前从未听说过。我们用的是硬质金属、结实的镀锌铁皮，机械结构清晰，容易清洁。你若去清柔性风管，转子会把它撕开，之后连管道清洁都做不了了。亚利桑那也是。很多人搬去沙漠，心想这下可躲开霉菌了。我在亚利桑那看到过一些最严重的霉菌毒性。"}, {"start_sec": 2054, "type": "text", "speaker_id": "chris", "section_id": "s6", "zh": "为什么？"}, {"start_sec": 2055, "type": "text", "speaker_id": "michael", "section_id": "s6", "zh": "两个原因。第一，那些沙漠沙子曾经在水下，里面有古老的霉菌，然后哈布沙尘暴会吹过来。"}, {"start_sec": 2065, "type": "text", "speaker_id": "chris", "section_id": "s6", "zh": "什么？"}, {"start_sec": 2066, "type": "text", "speaker_id": "michael", "section_id": "s6", "zh": "叫作哈布沙尘暴（haboob），就是沙尘暴。"}, {"start_sec": 2069, "type": "text", "speaker_id": "chris", "section_id": "s6", "zh": "好吧，我想悉尼·斯威尼（Sydney Sweeney）好像也碰上过那种东西。"}, {"start_sec": 2074, "type": "text", "speaker_id": "michael", "section_id": "s6", "zh": "另外，因为室外相对湿度只有大约 20%，非常干燥，你几乎完全没有暴露。于是家里只要稍微漏一点水，就会剧烈爆发。我们合作的那些专做霉菌的功能医学医生会告诉你，亚利桑那其实是一个热点，不是因为室外空气里有，而是因为你在干燥地带里放了一个又凉又湿的盒子，而房子仍会漏。"}, {"start_sec": 2093, "type": "text", "speaker_id": "chris", "section_id": "s6", "zh": "那最好的空气呢？你去过哪些通常更好的地方？我想到英国，你说建材这点说得对：英国的房子至少是砖砌的，而不是木头再填上有机材料的空心隔热。建造过程中会淋雨，然后加热，再淋雨，再加热，等于把潮湿的有机材料烤进了房子的骨架，再挨着那些纤维状绝缘材料，谁知道会发生什么。所以最好的地方在哪？"}, {"start_sec": 2129, "type": "text", "speaker_id": "michael", "section_id": "s6", "zh": "我呼吸过最好的空气是哥斯达黎加的热带雨林，非常好。温哥华岛也非常好。我在那里拿出二氧化碳检测器，读数比世界其他地方低大约 10%。所以你从树旁边走过，哪怕在奥斯汀的仙女鸟湖（Lady Bird Lake），一走进树下就会感到那种清凉的新鲜，因为它们在对你呼吸。那就像一套局部的空气过滤系统。"}, {"start_sec": 2155, "type": "text", "speaker_id": "chris", "section_id": "s6", "zh": "你有没有看过那些研究：种出获奖南瓜、西瓜和其他植物的人，起初说对植物唱歌能让它们长得更好；后来有人意识到，其实只是人对着植物呼吸了太多，给了它们额外的二氧化碳。哪还用唱，对着它们喘气就行。结果他却在唱优美的歌剧。"}, {"start_sec": 2180, "type": "text", "speaker_id": "michael", "section_id": "s6", "zh": "那下一个实验就该是呼吸练习对阵唱歌。"}, {"start_sec": 2183, "type": "text", "speaker_id": "chris", "section_id": "s6", "zh": "就是这个，这才是随机对照试验。"}, {"start_sec": 2184, "type": "ad_omitted", "ad_brand": "AG1", "section_id": "s6"}, {"start_sec": 2239, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "好，我想给你看一些人们家里通常会有的产品。比如这些熏香棒，你怎么看？"}, {"start_sec": 2247, "type": "text", "speaker_id": "michael", "section_id": "s7", "zh": "我喜欢在室外用。你没法在家里燃烧东西，又指望它不污染你家。我喜欢那种氛围和气味，但不会喜欢它们出现在我家里。如果一定要用，我会清洗空气或打开窗户，但总体来说不行。"}, {"start_sec": 2266, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "那杀虫剂这类东西呢？"}, {"start_sec": 2268, "type": "text", "speaker_id": "michael", "section_id": "s7", "zh": "不。不。杀虫剂，不。"}, {"start_sec": 2276, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "再看这个：崔丝美（TRESemmé）这类强力定型发胶。人们想要好看，多少得用这类产品。你家里不要虫子，那我怎么除掉虫子？我怎么让头发好看？"}, {"start_sec": 2292, "type": "text", "speaker_id": "michael", "section_id": "s7", "zh": "这些都属于我们仍然想享受生活、都必须自己做决定的事情。"}, {"start_sec": 2296, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "而且不要对每一件小事偏执到好像一动就会杀死什么东西，以至于自己不敢动。"}, {"start_sec": 2304, "type": "text", "speaker_id": "michael", "section_id": "s7", "zh": "我觉得我认识的一些病得最重的人，往往也是最「健康觉知」的人。他们是永远在治愈的人：解决了一个问题，这对人类其实是一种礼物，然后又执着于下一个。那种神经质的压力让他们持续生病。他们总在想下一件该优化的事，一专注就仿佛自己把病给显化出来了。贾斯珀有传感器，一个意外的用处是：人们一喷发胶，读数就会往上跳。"}, {"start_sec": 2335, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "对，我每天早上喷除臭剂的时候，我家那台就会对我发狂。"}, {"start_sec": 2339, "type": "text", "speaker_id": "michael", "section_id": "s7", "zh": "所以取决于你用的产品。如果你用更好的产品，它的反应会小一些。很多低毒、无毒领域的网红会把贾斯珀当成小裁判：哪款产品最毒？等等，如果要用发胶这类东西，我建议能去外面就去外面；不行就开窗；再不行就进浴室，并让浴室风扇一直开着。"}, {"start_sec": 2368, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "好，那这个呢？浴室用的空气清新剂。"}, {"start_sec": 2373, "type": "text", "speaker_id": "michael", "section_id": "s7", "zh": "我很高兴你把这个拿出来。这是香氛。每个人家里都有这些格莱德插件或纺必适。不是品牌的问题，是香氛本身。你听这个：美国的香氛市场——我指的是室内空气污染产业、那些室内空气污染物和香味——大约是 70 亿美元；空气过滤产业大约是 35 亿美元。所以室内空气污染产业是空气过滤产业的两倍。我们会把这个关系翻过来。没有什么比坐进一辆挂着「死亡圣诞树」的优步更糟。"}, {"start_sec": 2400, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "我刚才就在想这个。这挂是这里一位同事车上的，一直挂在他的通风口上。"}, {"start_sec": 2407, "type": "text", "speaker_id": "michael", "section_id": "s7", "zh": "谁的？"}, {"start_sec": 2408, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "凯尔，外面那位块头很大的人。节目结束后去找凯尔。那你也不喜欢这些？"}, {"start_sec": 2416, "type": "text", "speaker_id": "michael", "section_id": "s7", "zh": "它们是最糟的。关于香氛，萨钦·帕特尔博士（Dr. Sachin Patel）教过我一句话，老实说改变了我的生活：除非你在分泌唾液，否则不要吃东西。"}, {"start_sec": 2428, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "这和香氛有什么关系？"}, {"start_sec": 2430, "type": "text", "speaker_id": "michael", "section_id": "s7", "zh": "好问题。当你分泌唾液，它会通知肠道和消化酶：即将进来的是这些东西，请做好准备。所以你闻到美食会流口水，肠道会说太好了，并制造定制的酶来分解食物，帮助消化、吸收和营养利用。而这些气味产品的工作方式是：你有一个冰球包或健身包，喷上纺必适，它并没有把脏东西清掉，只是阻断了你的嗅觉系统，让你闻不到那些东西。它绑定鼻子里的受体，于是你的鼻子暂时失明，再也闻不到那件事。为什么这是大问题？因为我们依赖嗅觉。闻不到，身体就不会制造那些消化酶，肠道也不知道什么要进来。嗅觉和味觉、肠道、营养、吸收都大规模连在一起。所以我随身带着一包真正低毒的除臭剂。如果我拥抱到一个用止汗膏斯毕利（Speed Stick）的人，我会给他一支普莱迈利纯（Primarily Pure）。对方会问：是因为我臭吗？我会说：其实是的，但不是你本人臭，是你的除臭剂臭。而且你周围所有人都会受影响。我认为合成香氛将会被称为新的二手烟。从前有人吸烟时，如果你抱怨，你就像那个扫兴的人、在破坏气氛；后来研究出来了：二手烟一样糟，甚至更糟。"}, {"start_sec": 2520, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "可一个人身上散出来的那点味道，量肯定少很多吧？我早上喷一点香水或除臭剂，三个小时后身上还剩多少？它还能往空气里释放多少？"}, {"start_sec": 2536, "type": "text", "speaker_id": "michael", "section_id": "s7", "zh": "在我家，只要有人打开前门，我立刻就知道对方有没有喷香水或古龙水，马上知道。"}, {"start_sec": 2545, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "你已经校准到那种程度了。那对那些说这是一种脆弱的人，你怎么回应？他们觉得你现在对好坏如此敏感，意味着你不是更健康，而是更不强壮。"}, {"start_sec": 2560, "type": "text", "speaker_id": "michael", "section_id": "s7", "zh": "我喜欢这个问题。我想既高度敏感，又有韧性。它不会毁掉我的一天。以前如果很暗，有人突然开灯，我会很抗拒。休伯曼（Andrew Huberman）会说你刚毁了我接下来四天，你把我这周搞砸了。我会生气。后来我想：慢着，事情本身是一个问题，我的反应却非常大。现在我会说：把灯关掉。我有韧性。好的，安德鲁，我理解这很重要，但我相当有韧性，它不会毁掉我的一天。我想敏感，想有共情，想感受自己的环境，但不要被海啸打中。"}, {"start_sec": 2592, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "你提到了纺必适，这个很有意思。包装上写着超强配方，对抗异味并带来清新。我有很长时间都这么想：沙发上、这块地毯上如果有什么味道，我喷上去，它就会钻进去把那些粒子拆掉之类的。有没有任何东西真的能做到这一点？还是说，该洗的东西就老老实实去洗？"}, {"start_sec": 2619, "type": "text", "speaker_id": "michael", "section_id": "s7", "zh": "该洗就去洗，然后拿到外面。太阳是有史以来最强大的紫外线灯，那是最好的消毒。"}, {"start_sec": 2627, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "所以狗进来了，狗有味道，狗到了地毯或沙发上，你会说把罩子拆下来拿到外面去？新鲜空气和阳光，远好过纺必适或其他东西。那还能怎么办？"}, {"start_sec": 2646, "type": "text", "speaker_id": "michael", "section_id": "s7", "zh": "对，拿到外面。另外顺便说防晒。如果你在海滩或泳池边，看到有人用喷雾防晒：第一，它会伤害植物和水以及周围的一切；第二，下次你注意一下，对方可能在任意方向 50 英尺、100 英尺外，他们一喷你就能闻到。如果在室外 100 英尺外都能闻到——"}, {"start_sec": 2676, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "在室外。"}, {"start_sec": 2678, "type": "text", "speaker_id": "michael", "section_id": "s7", "zh": "另一种想这件事的方式是：准备一缸洗澡水，滴进三滴红色食用色素，几秒钟内整缸水就会均匀变红，它不会停在局部。空气基本上就像水，移动方式相同，所以它会污染整个区域。"}, {"start_sec": 2698, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "那蜡烛呢？很多人喜欢蜡烛、烛光。这是格莱德限量版暖苹果香料口味，大概也算限量。你总体上怎么看蜡烛？有没有安全的蜡烛？"}, {"start_sec": 2716, "type": "text", "speaker_id": "michael", "section_id": "s7", "zh": "这又是那种需要做决定的事。就我个人而言，我会用蜡烛，我喜欢蜡烛。但蜡烛和没有蜡烛相比，不用蜡烛才是你能做的最优化选择。从光的角度说，蜡烛却几乎是你能拥有的最好的光。"}, {"start_sec": 2734, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "对，它看起来很美，非常放松，对神经系统也好。"}, {"start_sec": 2739, "type": "text", "speaker_id": "michael", "section_id": "s7", "zh": "如果你能找到非常棒的蜡烛——「蜡烛加拥抱」是新的「奈飞加放松」。若能用蜂蜡蜡烛，配上好的灯芯，比如木芯或大麻芯。我们以前在 照片墙（Instagram） 上测过一些蜡烛，就在贾斯珀旁边点燃。蜂蜡蜡烛有点像自然电离，所以我喜欢蜂蜡蜡烛。"}, {"start_sec": 2764, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "有没有你推荐的公司？"}, {"start_sec": 2766, "type": "text", "speaker_id": "michael", "section_id": "s7", "zh": "我还在过程中，手头大概有 25 种不同的。等我有一款可以担保的，会告诉你。不过要到室外去把蜡烛熄灭。结尾那股黑烟，如果你有一个小熄烛罩也可以。我通常走到外面去吹灭。或者，我家已经相当「贾斯珀化」了，也可以在室内处理。"}, {"start_sec": 2788, "type": "text", "speaker_id": "michael", "section_id": "s8", "zh": "可以这样想水：无论是市政供水还是井水，你本质上都在把受污染的水泵进家里，所以必须过滤。空气也一样，只是更狡猾。水可以用壶滤，也可以在唯一一根进户水管上做过滤，淋浴和全屋都能覆盖。空气却从许多不同的地方进来，所以过滤空气的思路必须和过滤水不太一样。"}, {"start_sec": 2819, "type": "text", "speaker_id": "chris", "section_id": "s8", "zh": "谁特别容易受到空气问题的影响？我想到老人、孩子、免疫功能受损的人。有没有一个特别脆弱的人群画像？"}, {"start_sec": 2832, "type": "text", "speaker_id": "michael", "section_id": "s8", "zh": "如果普通成年人每天大约呼吸 1.5 万到 2 万次，幼儿大约是 4 万到 6 万次，婴儿可以达到 6 万到 10 万次。我会说是婴儿和老人。再想想现代婴儿的出生：在医院里，强光、被匆匆推来推去、仪器嘀嘀作响，然后被急着送回家，进到布置得「照片墙（Instagram） 就绪」的育儿房——墙上是新漆，有大量挥发性有机物，一堆玩具也在释放气体。这一点非常重要：人们会在育儿房里放那些尿布桶，换完尿布就丢进这个小小的密封容器。你进过婴儿房吗？那里明显有粪便的味道。提醒一下：如果闻起来像粪便，那它就是粪便；如果是粪便，里面就有大量细菌。妈妈本想为健康的宝宝做尽一切，宝宝却整晚都在吸入这些微粒。"}, {"start_sec": 2900, "type": "text", "speaker_id": "chris", "section_id": "s8", "zh": "所以你其实只要把它放到外面就行。"}, {"start_sec": 2903, "type": "text", "speaker_id": "michael", "section_id": "s8", "zh": "我女儿阿雅（Arya）刚出生时，那是我们第一个孩子，当时住在不列颠哥伦比亚。妻子瑞切尔用过这种尿布桶——我不会说品牌，他们大概会恨我。我每次进去都觉得难受，跟她说真的该把这东西放到外面，脏尿布应该直接拿到室外。可那是第一个孩子，她手头已经有无数件事，图的是方便。"}, {"start_sec": 2920, "type": "text", "speaker_id": "chris", "section_id": "s8", "zh": "优化尿布桶在待办清单上排得很靠后，我得先让这小生命活下去。"}, {"start_sec": 2924, "type": "text", "speaker_id": "michael", "section_id": "s8", "zh": "于是我说：今晚我们做个实验。我发现如果我要求改变，会比较难；如果我称之为实验，她就很愿意。我说今晚把尿布桶放到我们卧室，我去客厅沙发睡。她说恶心，不行。我说：这就对了。我们一百万年来都不会把尿布桶放进自己的卧室，却让每晚呼吸大约 10 万次、免疫系统仍在发育的宝宝去吸这些粪便。所以拜托爸爸妈妈，请把尿布拿到外面。"}, {"start_sec": 2952, "type": "text", "speaker_id": "chris", "section_id": "s8", "zh": "而且这是免费的干预。好，人们还有哪些不花钱就能改善家里空气质量的办法？"}, {"start_sec": 2959, "type": "text", "speaker_id": "michael", "section_id": "s8", "zh": "不花钱的，先从脏尿布放到外面、进门脱鞋、使用抽油烟机开始。抽油烟机就是炉子上方那个排气扇。非常重要的一件是：浴室风扇不是为了去粪便的气味，而是为了排湿。调光开关是伟大的发明之一，你也可以给浴室风扇装一个带定时的开关，30 分钟、60 分钟或 2 小时。按 2 小时，至少也要一小时。想一想淋浴之后，一条毛巾能吸多少水：相当于好几加仑的水，要么留在地漏里，要么在毛巾上，然后蒸发进你家。浴室门常常关着，多余的湿气时间一长就变成霉菌问题。家里装这些排气扇，就是为了把多余的湿气排出去。所以请用浴室风扇，请用抽油烟机。烘干机也要清理排气和绒毛盒，很多家庭火灾就来自烘干机。再有就是觉察你使用的烹饪、清洁和化学品。通风是很大一部分。如果气温合适，就打开窗户。我知道在德国和欧洲很多地方，给房子通风——那个词以 L 开头，我想不起来了——是日常惯例，每天都做。我们这里不兴这个。让房子呼吸会很好。大致就是这些大事。"}, {"start_sec": 3042, "type": "text", "speaker_id": "chris", "section_id": "s8", "zh": "为什么空调系统还没有解决这个问题？我想着要往房子里送进更多空气，空调不是在从外面抽空气吗，这难道不像开窗，而且还是凉的？我也听过高效滤网、除湿机这些。住在有空调的房子里的人，正常气流难道不够吗？"}, {"start_sec": 3065, "type": "text", "speaker_id": "michael", "section_id": "s8", "zh": "有一天会，但还不是现在。它叫作你的暖通空调系统：加热、通风、空气调节。炉子和空调，我把它们想成房子的肺。多数人住的是开发商级别的分区住宅或公寓。这些房子是银行家用表格建出来的，他们坐下来问的不是「我们如何建造最健康的房子」，而是「多快、多便宜、多少平方英尺，让它们好看，好赶快卖掉」。所以炉子和空调严格来说只被设计来加热和制冷，而且要节能。它们完全没有按过滤来选型。再加上我们如此优化能效，人们通常把系统留在自动模式，只在需要时才运行：加热到位就停，制冷到位也停。如果一直开着，会相当吵、相当烦人。贾斯珀刚开始的前两年，我其实是想设计一套暖通用的空气过滤系统。我以为那会是完美方案：塞进炉子里，眼不见心不烦，整栋房子都会好。结果它很吵，而且相当无效，因为它会扼住气流。系统只被设计来让空气通过并完成加热制冷。新冠期间很多人说上 MERV 16，把非常密的滤网塞进暖通系统，然后电机就烧毁了，因为你在憋这套系统。谈空气过滤时，你既要效率也要效能：效率是我们拦住了多少粒子，效能是有多少空气流过它。不幸的是，长期来看，贾斯珀的愿景是做出真正成为房子之肺的暖通产品，不只加热制冷，还会考虑花粉、霉菌和山火烟雾，真正被设计来呼吸。大概还要几年。不幸的是，那些系统服务的是人类对温度的第一反应。"}, {"start_sec": 3174, "type": "text", "speaker_id": "chris", "section_id": "s8", "zh": "我们对热舒适太敏感了。你走进一个 30 度、哪怕 25 度的房间，会觉得有点热、不太舒服；走进一个二氧化碳 2000 ppm、还带一点挥发性有机物的房间，却会觉得：还行吧。而后者会慢慢累积。这完全说得通。"}, {"start_sec": 3206, "type": "text", "speaker_id": "michael", "section_id": "s8", "zh": "很令人兴奋的是，人体本身就是最好的传感器。我检测过数百栋有霉菌问题的房子之后，有了一种感觉，一进门就能觉察到霉菌。我喜欢一个小把戏：找五个人到外面去，最好在早上、谁都还没看天气预报的时候，让每个人在餐巾纸上写下自己觉得外面几度。常常五六个人彼此只差 1 到 2 度，相当准。我们皮肤上的温度感受器被校准得很好，因为我们每天都在看温度。可我们对天气和环境的理解，却被限制成热、冷、阴、晴、下不下雨。我还想做一款天气应用，大概很快就会做：今天多云且凉，却是四个月来最干净的空气，非常适合出门。天气预报员总是那么消极。一旦你开始每天关注相对湿度，身体会立刻知道，并以一种好的方式影响你，你会变得有意识。就像干桑拿、沙漠和雨林，你知道干燥在头发和喉咙里是什么感觉，太湿或太干你都有数。因为我长期带着二氧化碳检测器生活，我的一个小把戏是：朋友有时会说他知道现在的二氧化碳是多少，然后拿出来对照，我通常能猜到大约 30 到 50 ppm 以内。身体是对这件事有感觉的。"}, {"start_sec": 3289, "type": "text", "speaker_id": "chris", "section_id": "s8", "zh": "那我只需带着你这台阿拉内特到处走就行了。"}, {"start_sec": 3293, "type": "text", "speaker_id": "michael", "section_id": "s8", "zh": "用上一段时间之后，你也许就被校准了。"}, {"start_sec": 3297, "type": "ad_omitted", "ad_brand": "Whoop", "section_id": "s8"}, {"start_sec": 3378, "type": "text", "speaker_id": "chris", "section_id": "s9", "zh": "假设有人要买房，或考虑搬进新家、新公寓。如果你去看一栋房子或一套公寓，签字之前会检查什么？什么问题会让你直接走开？什么问题你会立刻动手修？很多人走进新公寓或新房子时会想，这必须是我真正在乎的事情。他们怎样才能有效率地判断，从空气质量的角度看，这栋房子对他们好不好？"}, {"start_sec": 3416, "type": "text", "speaker_id": "michael", "section_id": "s9", "zh": "2014 年我拿过房屋检查认证，因为感兴趣，而且那其实是三四天的网课。顺便说，洪水、火灾和霉菌的认证是一门两天的课。所以你以为来家里的霉菌专业人士去读过一年「霉菌大学」？没有，他们花大约 500 美元，在一个小房间里上两天课，再考一场简单的试，就获得了所有这些治理认证。这些证书本身几乎毫无意义。你若去看一份房屋检查报告，里面通常有排除条款：我们不查任何环境问题，不查霉菌，通常也不仔细查屋顶。你花 400 到 1000 美元，也许 2000 美元，做一次所谓全面的验屋，他们却只在找未来几年会砸到你钱包的东西：屋顶多旧了，这里有没有裂缝，接地故障插座工作不工作。可你的房子尽可以长满霉菌，他们提都不会提，他们甚至没受过训练去看这些。搬进一栋房子时，第一个红旗是：如果有任何插电香薰和香味，你必须要求重新检查。把那些香氛全部拿走，让房子透一两天，再关上。卖霉菌侵扰房屋的人最常用的伎俩，就是放插件香氛。你走进去，觉得好闻、干净、清新，不，他们只是堵住了你闻霉菌的能力。然后你买下房子，发现自己面对的是大约 20 万美元的治理项目，全家人都生病。所以我看房子时，很多是从霉菌和环境角度出发的。我建议做空气质量和霉菌检测。这几乎是你人生最大的一笔投资，也是家人住在里面的东西。"}, {"start_sec": 3531, "type": "text", "speaker_id": "chris", "section_id": "s9", "zh": "而且如果进去之后它伤害了你，修复健康又会有多贵？那才是最贵的。对我来说大约是两年，极其昂贵，也极其费力。旧房子在空气质量上是不是更差？新的、旧的，比起来怎样？"}, {"start_sec": 3557, "type": "text", "speaker_id": "michael", "section_id": "s9", "zh": "它们可以更差。我做很多空气质量检测时，大约三分之一的工作与所谓病态建筑综合征有关，也就是房子让人生病。这个概念过去更多被用在商业建筑上：缺勤率高、表现下降。他们后来意识到，哈佛的约瑟夫·艾伦博士（Dr. Joseph Allen）有一项研究显示，优化员工健康与环境的成本，远远低于养活一支常生病缺勤的团队。我认为住宅完全是同一回事。"}, {"start_sec": 3576, "type": "text", "speaker_id": "chris", "section_id": "s9", "zh": "对，那也是你能做的最有效率的方式。如果有人现在很在乎这件事，或者正在处理自己的健康，手里也有一些预算，家庭空气质量最好的评估是什么？黄金标准是什么？我听说过 ERMI 测试（环境相对霉菌指数），我们做过不少。哪些好、哪些不好，人们该选什么？"}, {"start_sec": 3609, "type": "text", "speaker_id": "michael", "section_id": "s9", "zh": "我希望有一个简单清楚的答案，但这里有点微妙。一方面，霉菌是真家伙，它可以让你病得很重，真正影响你。可霉菌行业有两个词，大约十年前他们称之为「霉菌淘金热」，和现在比起来那根本不算什么；还有一句是「霉菌就是黄金」。你想一想：如果你是承包商，在治理之前拆一间浴室、准备做一个漂亮的新浴室，大约是 1000 美元；如果那间浴室有黑霉，就变成 1 万美元。"}, {"start_sec": 3645, "type": "text", "speaker_id": "chris", "section_id": "s9", "zh": "因为工程更全面？"}, {"start_sec": 3647, "type": "text", "speaker_id": "michael", "section_id": "s9", "zh": "唯一的差别大约是四小时准备时间：放进一台清洗机，用一些抗菌剂。人工大概只多三个小时，材料大概只多 50 美元。可一个感觉像核泄漏，另一个感觉像有人决定换新瓷砖。于是很多承包商进了霉菌这门生意。随着霉菌意识上升，功能医学医生被找上门来谈霉菌的人淹没，然后很多公司冒出来做尿检、血检，其中不少——"}, {"start_sec": 3683, "type": "text", "speaker_id": "chris", "section_id": "s9", "zh": "霉菌公司（The Mold Co.）的阿里安娜（Ariana）。去霉菌公司（The Mold Co.），那是美国你需要用的那家公司。"}, {"start_sec": 3687, "type": "text", "speaker_id": "michael", "section_id": "s9", "zh": "她是我见过最好的，而且是远远最好。"}, {"start_sec": 3689, "type": "text", "speaker_id": "chris", "section_id": "s9", "zh": "对。所以如果有人想为自己的身体做检测，那就是霉菌公司（The Mold Co.）。他们做检测和治疗，会带你走完排毒方案。她遵循休梅克方案（Shoemaker protocol），团队里有当初那位提出全球最循证的霉菌排毒方案的「主创」最早的一批弟子。她非常棒，也是节目的朋友。"}, {"start_sec": 3715, "type": "text", "speaker_id": "michael", "section_id": "s9", "zh": "我也喜欢她。有些行业不知为何会被贴上利益冲突的标签：房屋检查师不该是承包商，霉菌检测师不该是治理的人。"}, {"start_sec": 3728, "type": "text", "speaker_id": "chris", "section_id": "s9", "zh": "反向激励。"}, {"start_sec": 3729, "type": "text", "speaker_id": "michael", "section_id": "s9", "zh": "可你去找会计师、去找律师：你有问题吗？有。你去找机械师也一样。但眼科医生却不卖眼镜给你。不知为何会这样，可最终取决于信任。我其实认为最好的霉菌检测者是治理的人，因为他们真正把东西拆掉。你去找外科医生给你检查，并没有另外一个整整独立的行业只负责看看你需不需要手术、自己却不动刀。"}, {"start_sec": 3754, "type": "text", "speaker_id": "chris", "section_id": "s9", "zh": "关于如何判断房屋检查师或评估者是否靠谱，你能说些什么吗？我理解这些都是警告，霉菌淘金热之类的，行业激励可能有点扭曲。可我们能不能说点什么，关于如何评估那些做评估的人？"}, {"start_sec": 3775, "type": "text", "speaker_id": "michael", "section_id": "s9", "zh": "这里有一件好事：这不是大农业、大制药或邪恶阴谋的情况，这是一条用好意铺成的地狱之路。我不认为这个领域有很多真正的坏演员。功能医学医生只是想给你做一个好检测，然后说去检测你家。于是有人来挥着他们的检测棒，上过两天霉菌课，自以为工作做得很好。昨天下过雨，你测到了霉菌，于是开始把一切拆掉。所以它可能过于警报化。有些测试的设计本身也是如此。比如 ERMI（环境相对霉菌指数），它是一个好测试，但设计上偏警报化。它检查的是灰尘：过去六个月里有没有出现过任何霉菌？会有的。就像你验血查重金属或霉菌或双酚 A，你会有一些。于是你说：啊，我有霉菌了，有时甚至会松一口气，觉得终于找到那个东西了。可这不是有或无、黑或白的二元问题。霉菌公司（The Mold Co.） 的优点正在这里：是什么种类、有多少、让我们再测一次，而且也相当划算。我认为这个行业还在理顺自己。如果你在买房，其实可以打电话给几家治理承包商来看一看。至于你怎么知道哪个承包商好，你不会知道。他们大多数大概都不好。"}, {"start_sec": 3850, "type": "text", "speaker_id": "chris", "section_id": "s9", "zh": "至少对我来说，我比较幸运，有人会关注我，也有一些朋友。我在 照片墙（Instagram） 上发了动态，但真正找到他们是靠问很多朋友：有没有人知道好的霉菌治理？问、问、问。奥斯汀有一家叫图尔曼（Toolman）的公司被提起很多次。我和他们谈了，对方档期非常满，但还是挤出了时间，我当时想：太好了。"}, {"start_sec": 3879, "type": "text", "speaker_id": "chris", "section_id": "s10", "zh": "好，说到贾斯珀。你把修复房屋时发现的东西，做成了更可供商业使用的产品。对那些觉得这事很重要、真正想处理自己健康的人来说，从空气清洗机的角度，贾斯珀是怎么工作的？为什么这是大事？它能帮多少？人们需要怎样使用，又该放在哪里？"}, {"start_sec": 3905, "type": "text", "speaker_id": "michael", "section_id": "s10", "zh": "我们称贾斯珀为空气清洗机，而不是空气净化器。原因有点像说育空·丹纳利（Yukon Denali）和本田思域：它们都是车，都有四个轮子、窗户、门和气囊，但一款是为一对伴侣在城市里通勤、放进一个包而设计的，另一款能带孩子、带东西，更安全，做这些事的时候也更好看。高尔夫球车和皮卡也一样，一个拉得动你的船，一个不能。所以清洗机就像工业级的空气净化器。SUV 大约在 1990 年代才进入市场，当时的想法是：我们如何把军用级车辆做成现代家庭能用的东西？在那之前没有 SUV，现在美国售出的汽车超过 50% 是 SUV，因为它实用。一台贾斯珀通常大约相当于五台廉价的小净化器。它做的事情是让空气流过它，穿过一张滤网，把那些东西拦住，让空气通过。目标不是制造某种特殊优化过的空气，而是应当拥有自然原本意图中的空气。我们不往空气里添加任何东西，只是把不该有的过滤掉。它的独特之处在于我们用钢来做，它被设计成可以使用 10 年、25 年，所以我们才能提供终身保修。我讨厌买到会坏的产品。最简单地说，它推动更多空气。因为它大得多，上面的滤网大约有 4.5 磅，多数空气净化器的滤网只有三分之一磅、半磅，是很小的滤网。贾斯珀的像拖拉机滤网。因为更大，意味着两件事：第一，它能安静地推动更多空气。这间房间里就有两台，你完全听不见。"}, {"start_sec": 4010, "type": "text", "speaker_id": "michael", "section_id": "s10", "zh": "贾斯珀在最低风速档推动的空气，比多数空气净化器最高风速档还多。有一个指标叫 CFM，即每分钟立方英尺。我们在静音档大约底部是 100 CFM，很多空气过滤器最高才大约 80 CFM。最狡猾的是你走在货架边，看到一个小过滤器写着「覆盖大房间，1500 平方英尺」，你觉得太好了，然后又觉得它好像没在工作。提醒一下：如果你觉得它没在工作，那它就没在工作。这应该是那种无可否认的事。你把它放在卧室开到风速三档，关掉灯，立即就能感到差别；或者放在客厅。感谢现代技术，十年、十五年前这些传感器可能要几千美元，现在传感器技术变得更小、更便宜，所以它可以既安静又聪明。但只要你一开始做饭、点蜡烛、点香，或遇到山火烟雾、污染，屏幕上的数字就会上升，变成橙色和红色。你听见它，是因为你应该听见，然后它再降下来。基本上，贾斯珀是一个霉菌男和一位在意室内设计的妻子的孩子，他们想要一样既有效又好看的东西。"}, {"start_sec": 4070, "type": "text", "speaker_id": "chris", "section_id": "s10", "zh": "如果没有你妻子的意见，你会不会设计出一样难看得多的东西？"}, {"start_sec": 4074, "type": "text", "speaker_id": "michael", "section_id": "s10", "zh": "那我就直接用工业清洗机了。人们回家会说：哇，这里感觉不一样。可她会说：但它很吵，而且难看，我们得把这东西拿走。所以这是一种结合。我也喜欢审美。说到设计潮流或健康潮流，我认为设计本身就是一种健康潮流。东西好看，你就会感觉更好，审美很重要。所以做出一样美丽、不显眼、聪明、安静、没有蓝牙、没有 Wi-Fi、没有额外电磁场的东西。我没有做任何焦点小组，它是为这个霉菌男做的。我当时还在做灾难工作，会去加州山火、不列颠哥伦比亚、洪水现场。在灾难的间隙，我二十多岁时旅行很多，并没有精力再开一家公司。我们刚做好大约 50 台，我甚至没想过真的要把公司做下去。"}, {"start_sec": 4135, "type": "text", "speaker_id": "michael", "section_id": "s10", "zh": "我最初做它们只是为了山火的烟。我想：夏天会有烟，我们可以去那里帮忙。接着新冠来了。结果安大略规定，每一位牙医的每一间诊室都必须有空气过滤器，才能重新开门营业。而且根据风量来决定病人之间的间隔时间：如果你有一台小净化器，病人之间要隔一小时；如果你有贾斯珀，只需 8 分钟。于是牙医一天就能回本。我们的前一千名客户——我们上市时甚至叫贾斯珀医疗（Jasper Medical），因为新冠期间我们是对着牙科行业起步的。我完全没预见到这件事。我车库里放着 50 台，本来只想给祖父母和家人用。我看到了它对我的影响，却不知道自己当时还能不能做生意。新冠等于在说：不，儿子，你得回到场上。大约一千位多伦多的牙医用上了它们。顺便说，我们前三年根本不懂电商，买贾斯珀的唯一方式是申请报价、免费咨询：你会打电话给我，我会跟你聊半小时你的霉菌情况或牙科情况。因为做过修复，我知道如何做气流计算，牙医们却很困惑。我会说：把长乘宽乘高给我，我告诉你病人之间要间隔几分钟。贾斯珀上的涡轮模式就是为新冠期间的牙医发明的，好让他们按一个按钮就能深洗空气，后来我们就把它留给了消费者。"}, {"start_sec": 4215, "type": "text", "speaker_id": "chris", "section_id": "s10", "zh": "我换过各种各样的机器。现在家里到处都是贾斯珀，谢谢你帮我保持家里干净。我曾经用过那种卧室机器，挺有意思，但非常吵，也相当难看。我还用过——那个阿夸真（Aquatrue）是什么？"}, {"start_sec": 4240, "type": "text", "speaker_id": "michael", "section_id": "s10", "zh": "空气医生（Air Doctor）？"}, {"start_sec": 4242, "type": "text", "speaker_id": "chris", "section_id": "s10", "zh": "对，空气医生。我也用过那些。当时觉得好像有点意思，但更像一站式商店里的东西，后来才转到贾斯珀。"}, {"start_sec": 4251, "type": "text", "speaker_id": "michael", "section_id": "s10", "zh": "我们曾在你家对着那些其他过滤器做空气测试，还录了像。"}, {"start_sec": 4254, "type": "text", "speaker_id": "chris", "section_id": "s10", "zh": "我当时不在。"}, {"start_sec": 4255, "type": "text", "speaker_id": "michael", "section_id": "s10", "zh": "你不在，但录像在。我们做过上百次这样的测试，测从那台机器里出来的空气，结果和周围的环境空气完全一样。"}, {"start_sec": 4261, "type": "text", "speaker_id": "chris", "section_id": "s10", "zh": "所以它什么都没清洁。"}, {"start_sec": 4262, "type": "text", "speaker_id": "michael", "section_id": "s10", "zh": "它什么都没清洁。"}, {"start_sec": 4263, "type": "text", "speaker_id": "chris", "section_id": "s10", "zh": "太好了，原来我身边飘着很多非常昂贵的空气吹风机。如果有人觉得这件事重要，自己可能有一些鼻窦问题、过敏问题或霉菌问题，也愿意相信空气质量重要，应该优先把空气净化器或清洗机放在哪里？第一台贾斯珀放哪里？"}, {"start_sec": 4291, "type": "text", "speaker_id": "michael", "section_id": "s10", "zh": "我们标志里的 A 有点像一棵树，也有点像一座山，因为这款产品的长期愿景是：它本不该存在。如果我们把房子建好、不要污染得那么厉害，就不会再需要这些东西。真正的空气过滤是树。我希望卧室里一定有干净空气。对我来说，干净空气、干净的水、干净的食物、良好的光线，我就够了，其他那些我不太做，偶尔蒸个桑拿。如果你去听我最早做的大约 20 期播客，我一次都没有提到贾斯珀，心想别显得在推销。后来我想等一等。直到牙医开始展示贾斯珀，妈妈们问：这些也能卖给家庭吗？牙医说不知道，打电话问他们。她把它放进家里，然后说：嘿，再没有哮喘发作了，再没有过敏了。我才觉得：哦，这现在像一项使命了，感觉非常好。所以我想要的是每间卧室一台，而不是五台。你问我会怎么排序。就像我说的，如果预算完全是问题，你只想要一样东西来睡觉，就去谷歌科西-罗森塔尔箱，做一个自己动手的，那会非常棒。我为了自己做贾斯珀，所以滤网是三合一的，每六个月会自动寄到，换滤网只需 30 秒。我喜欢简单的东西。大约八到十年前，我买过别的品牌的几台过滤器，后来一个小灯亮了，我回到商店，他们已经不再卖那种滤网，什么尺寸？那种压力。我不需要又一台得管理和维护的电器。我们设计这款产品时，顺便说，我们只做一件东西，它就叫贾斯珀：没有小号，没有大号，没有水产品。我们对一件事极端着迷。现在大约是第五代滤网，每六个月来一块新的，我会想：看起来不太一样。因为你只做一件事，就可以把它做得越来越好。"}, {"start_sec": 4397, "type": "text", "speaker_id": "michael", "section_id": "s10", "zh": "考虑到现在房子里的气体释放和霉菌状况，这是非常好的 80/20，甚至是 95/5——如果你在意审美和服务的话。而且比贾斯珀如何工作更让我自豪的，是团队。如果有人的贾斯珀坏了，他们会收到一台寄到手上的全新机器：把新的从箱子里拿出来，把旧的放回去，我们给预付运单，承担运回的费用，大概接近 100 美元。所以如果你信任我们，对机器做一次性投资，然后一年换两次滤网。顺便说，我讨厌订阅，但有时它们说得通：每年两次来我家换水滤的人，每三个月寄到的牙刷头，汽车保养，有几样是合理的，这是其中之一。所以对我来说，空气是为了睡眠。"}, {"start_sec": 4453, "type": "text", "speaker_id": "chris", "section_id": "s10", "zh": "所以你会优先考虑卧室。如果只买一台，就放在卧室。"}, {"start_sec": 4456, "type": "text", "speaker_id": "michael", "section_id": "s10", "zh": "是的。"}, {"start_sec": 4458, "type": "text", "speaker_id": "chris", "section_id": "s10", "zh": "那它必须靠近你吗？"}, {"start_sec": 4459, "type": "text", "speaker_id": "michael", "section_id": "s10", "zh": "不必，它可以在卧室里的任何地方。空气不在乎。你可以把它放在角落。我们做成圆柱形，是因为它是 360 度的。如果你有一台方形机器，只从一两个侧面进风，说明书会写你必须让它离墙一两英尺，结果它就得放在房间中央。"}, {"start_sec": 4479, "type": "text", "speaker_id": "chris", "section_id": "s10", "zh": "而这个可以靠在墙角。"}, {"start_sec": 4481, "type": "text", "speaker_id": "michael", "section_id": "s10", "zh": "墙角、靠墙都可以。"}, {"start_sec": 4482, "type": "text", "speaker_id": "chris", "section_id": "s10", "zh": "好，如果卧室是第一，那第二呢？"}, {"start_sec": 4484, "type": "text", "speaker_id": "michael", "section_id": "s10", "zh": "就是你花时间待着的地方。"}, {"start_sec": 4484.2, "type": "ad_omitted", "ad_brand": "RP Strength", "section_id": "s10"}, {"start_sec": 4484.4, "type": "text", "speaker_id": "michael", "section_id": "s11", "zh": "通常卧室是人们开始这段旅程的地方。如果有人觉得钱不是大问题、我加入，他们会每间卧室放一台，再在客厅放一台。卧室那些保持暗光模式，开较高的风速；客厅那台保持智能模式，就这样。但如果你从一间卧室开始，放在房间里任何地方都可以。"}, {"start_sec": 4500, "type": "text", "speaker_id": "chris", "section_id": "s11", "zh": "那厨房呢？因为你说过烹饪很重要，我想多数人——"}, {"start_sec": 4503, "type": "text", "speaker_id": "michael", "section_id": "s11", "zh": "现在厨房和客厅常常是连通的。你不必把它放在炉子旁边，只要放在那个空间里的某处就行。有些人会在家庭办公室放一台。我们明年会做那个睡眠研究。另外两项对我非常重要的研究，我把贾斯珀想成一间实验室：把钱放到我们自己说的话后面，去证明一些事情。第一，我们想和一些大公司合作，把贾斯珀放进 50% 员工的卧室，即便那是居家办公的环境。因为我们想衡量表现和缺勤。如果每天 2 美元就能做成一项计划——我四年前搬到美国，到现在仍搞不懂蓝十字（Blue Cross）和这些医疗保险：我们在付几千美元，团队在付几千美元，不太清楚它怎么运作，他们却还在收到医疗账单。为什么不把钱投进一样真正能改变他们生活、他们看得见也感觉得到的东西？很多和我们合作的企业会给全体团队家里各送一台，团队能感觉到，对士气也很好。"}, {"start_sec": 4564, "type": "text", "speaker_id": "chris", "section_id": "s11", "zh": "想必在办公室里放一台也是好主意，如果你有共享办公空间或联合办公空间。"}, {"start_sec": 4572, "type": "text", "speaker_id": "michael", "section_id": "s11", "zh": "百分之百。乔科（Jocko）的团队梯队公司（Echelon），全部 54 名员工家里的卧室都有一台。所以我觉得这是显而易见的事。"}, {"start_sec": 4579, "type": "text", "speaker_id": "chris", "section_id": "s11", "zh": "太好了。如果人们想了解更多，该去哪里？"}, {"start_sec": 4582, "type": "text", "speaker_id": "michael", "section_id": "s11", "zh": "如果你想了解更多——今天就是「有一天」。从今天起接下来两周，我们会做全站折扣。对我来说一切都关乎空气意识，可我知道自己很多重大的健康采购，比如八眠（Eight Sleep）之类，都会等到黑色星期五。"}, {"start_sec": 4604, "type": "text", "speaker_id": "chris", "section_id": "s11", "zh": "给我们一个折扣。"}, {"start_sec": 4605, "type": "text", "speaker_id": "michael", "section_id": "s11", "zh": "折扣能让我行动起来。哪怕是 50 美元、300 美元，我也想做成一笔划算的交易。我发现这对自己真的很重要。所以从播客上线的今天起，接下来两周，我们会在 jaspr.co 提供 300 美元的全站折扣。不用折扣码，什么都不用，J-A-S-P-R 点 CO。顺便说，这基本上会是我们的黑色星期五折扣，也是我们通常唯一做促销的时候，除了有山火烟雾时会在当地做活动。黑色星期五就是减 300 美元。几年前我们曾卖断货三个月，通常几个月内就会卖完。意图是：如果有听众对这件事有共鸣，那就会是减 300 美元，也就是 899 美元而不是 1199 美元。另一件事，就像我说的，我们把钱放到自己说的话后面。你大约三天就能知道它是不是改变生活。前 30 天请保留箱子，如果没有我们会再寄一个，但请留着箱子。如果它并非绝对让你感受到好处、看到差别——白天把它放在客厅开智能模式应对烹饪，晚上放在卧室开风速三档和暗光模式，记录你的睡眠，感受差别，然后再试一晚不用它——结果会自己说话。可如果它对你不是显而易见的事，1 美元都嫌多；如果它从根本上改变了你的睡眠和生活，那它就很便宜。所以如果对你不是显而易见，我们不仅会 100% 退款，还会承担退货运输的费用。因为买了一个产品再自己花钱寄回去又麻烦又糟心。我们的想法是：怎样把它的风险降到最低。最后一件我刚才差点忘了、真正想说的是：明年我们的研究是学校。我带你参观过那所学校吗？"}, {"start_sec": 4706, "type": "text", "speaker_id": "chris", "section_id": "s11", "zh": "你带我参观过。"}, {"start_sec": 4708, "type": "text", "speaker_id": "michael", "section_id": "s11", "zh": "学校两周前开学了。我们在每个教室都放了贾斯珀。芬兰几年前做了一项研究，在 50% 的教室放入空气过滤器，教师和学生的缺勤率大约下降了 30%。我们把这所叫作金德林学院（Kindling Academy）的奥斯汀学校当作活实验室，向其他学校展示：如果我们放入干净空气、干净的水、自然光、低毒产品，并且让孩子待在室外——明年我们还想加入一些有机食物——这些孩子会好多少。美国的公立学校系统是按出勤来获得资金的，还有那些逃学相关的规定：你想出门两周，某种程度上不行，你会有麻烦。所以如果能把这件事证明出来，我们也在给本地学校赠送贾斯珀，以便有更大的数据集。如果我们能证明用好空气、好水、好光线——我认为空气是主要的——可以把缺勤率降低 50%，那就会在财务上与公立学校为孩子创造健康环境对齐。请留意这件事。不过，jaspr.co，J-A-S-P-R 点 CO，不需要代码，你们可以在那里找到我们。"}, {"start_sec": 4767, "type": "text", "speaker_id": "chris", "section_id": "s11", "zh": "你们国际配送吗？"}, {"start_sec": 4770, "type": "text", "speaker_id": "michael", "section_id": "s11", "zh": "谢谢你问。目前到今天为止，我们只在美国和加拿大。但在那之前——不是希望，是正在发生——到 10 月最后一周或 11 月第一周，我们也会进入英国和澳大利亚。是的，因为有你。"}, {"start_sec": 4786, "type": "text", "speaker_id": "chris", "section_id": "s11", "zh": "谢谢。听着，老兄，在你、阿里安娜、圣何塞的马特·库克（Matt Cook），以及加布里埃尔·莱昂（Gabrielle Lyon）和她的团队之间，这有点像我过去两年半这段旅程的尾风。我不希望任何人再去经历我经历过的那种挑战，可我也知道，许多人正以更小的剂量被自己的环境、被毒素伤害。对那些没有生病、或不认识生病的人的人来说，很多听起来几乎像在谈论鬼魂，像某种古怪的、看不见的、通灵一般的东西，也许是过度敏感，也许是在细枝末节上优化。兄弟，我知道它对我的健康造成的差别。有些人的生理就是对周围正在发生的事更敏感。如果那是你，或是你生命中的某个人，你真的需要仔细看这些东西。你可以花大约 200 美元、250 美元买一台不错的台式反渗透净水设备，然后就这样，当然还得换滤芯什么的，但做到这里就完成了。空气质量也是同一回事。如果有人担心某个问题，他们负担不起搬家，也做不起完整的治理。好，那至少我们可以让你正在呼吸的空气立刻好受一点。所以对我来说——"}, {"start_sec": 4865, "type": "text", "speaker_id": "michael", "section_id": "s11", "zh": "霉菌或过敏原在影响你，并不是因为你在吃它或喝它。这些环境里的东西，你是在吸它。所以如果你能把这些东西过滤掉，你会感觉好得多。"}, {"start_sec": 4875, "type": "text", "speaker_id": "chris", "section_id": "s11", "zh": "这对我是大事，我感谢你所做的一切。"}, {"start_sec": 4879, "type": "text", "speaker_id": "michael", "section_id": "s11", "zh": "呼吸更好，感觉更好。"}, {"start_sec": 4881, "type": "text", "speaker_id": "chris", "section_id": "s11", "zh": "我感谢你为了帮助人们更健康而付出的所有努力。"}, {"start_sec": 4885, "type": "text", "speaker_id": "michael", "section_id": "s11", "zh": "我们才刚刚开始。"}, {"start_sec": 4886, "type": "text", "speaker_id": "chris", "section_id": "s11", "zh": "这对我是大事。我想看你去挑战那个空调行业，我知道那在你未来的地平线上。我觉得那会是一个巨大的解决方案。我感谢你。我非常喜欢贾斯珀，我全都在用，希望我们也教育了大家。我不希望人们害怕。空气质量，是的，是一件你应该思考的大事。有三种方式可以去做，有一些办法可以减轻问题，然后如果你想——"}, {"start_sec": 4913, "type": "text", "speaker_id": "michael", "section_id": "s11", "zh": "这是一种懒人式的健康法。"}, {"start_sec": 4914, "type": "text", "speaker_id": "chris", "section_id": "s11", "zh": "太棒了。好，谢谢你，老兄。真的很感谢。"}, {"start_sec": 4917, "type": "text", "speaker_id": "michael", "section_id": "s11", "zh": "我也感谢你。再见，我的各位美好的人。"}, {"start_sec": 4921, "type": "text", "speaker_id": "chris", "section_id": "s11", "zh": "补充一句：很多人告诉我们，即使他们已经按过订阅按钮，YouTube 仍会取消他们对频道的订阅。所以请检查下面，看看订阅按钮是否处于按下状态。如果你按了，可以比其他人更早看到节目，也是在支持我和节目，帮我请来更大更好的嘉宾，这会让我非常高兴。所以去帮我点一下吧。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
