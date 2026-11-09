@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>为什么产品经理突然又值钱了｜图尔西·多希（Tulsee Doshi，Gemini 产品负责人）</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="lenny">莱尼·拉奇茨基（Lenny Rachitsky）</option><option value="tulsee">图尔西·多希（Tulsee Doshi）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Lenny&#x27;s Podcast</span><span class="pill">2026-11-08</span></div>
+<h1>为什么产品经理突然又值钱了｜图尔西·多希（Tulsee Doshi，Gemini 产品负责人）</h1>
+<p class="sub">嘉宾：图尔西·多希（Tulsee Doshi） · 约 59 分钟（3513 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=qGf2Yvan4Wg" target="_blank" rel="noopener">https://www.youtube.com/watch?v=qGf2Yvan4Wg</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Lenny&#x27;s Podcast</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-08</dd></div><div class="meta-row"><dt>时长</dt><dd>约 59 分钟（3513 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；.en.vtt 呈机器翻译腔已弃用；普通 yt-dlp 写字幕遇 HTTP 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 补拉成功）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段；赞助口播已标灰（WorkOS、DX）；说话人按主持/嘉宾问答轮次推断（自动字幕无说话人标签，中等把握）；嘉宾名 ASR 常作 Tulsi，正文统一为图尔西·多希（Tulsee Doshi）</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>qGf2Yvan4Wg</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>莱尼·拉奇茨基对话谷歌（Google）前沿模型／双子座（Gemini）产品负责人图尔西·多希（Tulsee Doshi）：模型开发像斯内普的魔药课，并不完全可预测；谷歌要同时打全栈与前沿（她提到双子座 4 Argon）；产品经理因「品味」和把混乱变成秩序而重新值钱；以及 60/20/20 法则、评测与手感、负责任 AI 六年经验。</p>
+<h3>核心要点</h3><ul><li>模型开发既要定目标与评测，也要接受「魔法」：产品经理既塑造投入，也识别模型意外闪光之处并变成用户体验</li><li>谷歌策略是全栈：硬件到终端产品；她提到约有 14 款产品用户过 10 亿，并沿成本—质量帕累托曲线覆盖搜索、工程师与网络防守等场景；同时明确想赢前沿对话</li><li>她曾负责负责任 AI 产品六年：用思维链监控判断是否偏离，并与已并入谷歌的 Wiz 合作识别修补全球系统漏洞（含医院案例）</li><li>招聘越来越看重：每天玩模型、懂手感（vibes）、能自己写评测、能钻数据；行业每两周在变，两个月前的路线图往往要重写</li><li>60/20/20 法则：约 60% 今天能用，约 20% 勉强可用且模型很快可能跟上，约 20% 只看到微光但一旦打通会很惊艳；比「超前三个月」更可操作</li><li>倦怠更多来自混乱空转和自己不喜欢的杂活，而非单纯工时；AI 文档应是模型供数据、人供洞察，避免「AI 垃圾文」泛滥</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：做 AI 产品、研究侧产品经理、关心谷歌／双子座策略与评测手感的人会听到不少可执行框架；可跳过：完全不关心产品管理或大厂模型组织的人（约 58 分钟）。</p>
+<h3>适合人群</h3><p>AI 产品经理 / 研究 PM / 关注大模型与谷歌 Gemini 的从业者</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场预告与欢迎：伞下不只双子座，还有生成媒体、Gemma 与音频</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">开场预告里，图尔西·多希（Tulsee Doshi）把模型开发比成《哈利·波特》里斯内普（Snape）的魔药课：材料可以按配方放进去，但仍会有让人吃惊的「魔法」。她说现在招产品经理（PM）越来越看重能读懂模型「手感」（vibes）、每天上手玩、并拿自己真正感兴趣的事做压力测试。莱尼预告了 60/20/20 法则，以及外界觉得谷歌（Google）落在前两家实验室后面、谷歌数据被外部助手调用等问题。正式开场后，莱尼介绍她是谷歌前沿模型产品负责人，大家熟悉的是双子座（Gemini）。她补充伞下还有生成式媒体模型（视频／图像的剪辑与生成），包括 Nano Banana、音乐模型里拉（Lyria，字幕作 Liria）；开放模型套件 Gemma；以及常被少谈、但同属双子座伞下的音频模型：对话、音频理解、文本转语音（text-to-speech）和翻译。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">模型像魔药课：目标要有，但结果不完全可预测</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">莱尼问：从研究、预训练、后训练到上线都能看到的人，觉得外界对「模型怎么做出来」有何误解。图尔西说，传统产品管理会谈目标、能力、结果和评测（eval）分数，客户和内部用户也常默认模型能像传统产品一样稳住交付。她认为这些意图仍然必要，但模型并不好预测，像斯内普的魔药课：既要认真设计投入，也要预期会有独特而令人吃惊的「魔法」。产品经理的工作不只是塑造放进模型的东西，还要看另一端出来的结果，识别模型在何处闪光、以何种意外方式显得独特，再把它变成对用户很好的体验。莱尼引用他刚采访过的 Anthropic 可解释性研究者的说法：模型是「长出来的」而不是「造出来的」；研究者会希望下一版写得更好、更幽默、更会做工程，但终点无法精确预定。图尔西补充：训练运行有持续监控、介入点和不断爬升的指标，尽量做成科学；但产品经理还必须理解模型的手感、行为与人设，以及一项能力究竟在下游产品里如何闪光。随着评测和测试，他们总会对新能力有新发现。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">谷歌在 AI 竞赛中的位置：全栈、帕累托曲线，也想赢前沿</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">莱尼问外界普遍的观感：谷歌似乎落在 Anthropic 和 OpenAI 后面，时而短暂领先又慢下来，内部策略究竟是什么。图尔西先说，希望节目播出时大家已经在用双子座 4 Argon（Gemini 4 Argon，按口播保留）；双子座 4 本身就体现他们继续建设前沿实验室、前沿模型与前沿能力的推进。她把谷歌策略概括为全栈：从硬件到服务数十亿用户的终端产品，并提到一个她说需要再核对的统计——大约有 14 款产品用户数超过 10 亿。目标不只是做出惊人的前沿体验，还要沿着成本与质量的帕累托（Pareto，字幕作 paro）曲线，覆盖不同生活场景：来搜索信息的人、要做出下一件了不起之事的工程师、保护关键基础设施的网络安全防守方，并且带着这些用户的反馈来建设。莱尼归纳了多条可胜向量：单位 token 成本上的效率前沿、最聪明的模型，以及把搜索等产品做强（如 AI 模式、AI 概览）。图尔西明确说：他们确实想赢下前沿对话，不应声称谷歌没有参与前沿；她认为双子座 4 Argon 在他们当下位置上处于前沿，同时强调广度与多样性，最终目标是让人们生活变得更好。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">AI 安全：六年负责任 AI、思维链监控，以及与 Wiz 修漏洞</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">莱尼转入 AI 安全：人们担心模型越来越聪明会伤害人类。图尔西在接任当前职位之前，曾在谷歌负责负责任 AI（Responsible AI）团队的产品长达六年。她称安全团队从最初训练到部署都非常有意图，安全是嵌在流程里的。关键缓解之一是监控：部署能观察模型思维链（chain of thought）的监测器，判断它是否偏离被指定的行动方向，并在必要时介入；这既增加部署信心，也能帮助发现不对齐并改进模型。她认为辩论中谈得不够的另一面，是 AI 也能加固系统。双子座 4 正与一批网络防守方合作，其中包括已并入谷歌的 Wiz（字幕作 whiz）。Wiz 的 Scan for Good 项目曾与一家医院系统合作，找出漏洞并完成修补。莱尼提到上周 All-In 播客也在讨论：AI 攻防变强后，防护投入会大幅增加。被问到是否乐观时，图尔西说答案是「两者都有」——通往乐观的路径是持续、谨慎、有意图地思考；乐观来自是否有人在认真审视安全故事。她认为关键威胁在于：必须有一批人真正担心、持续对话并拷问模型如何被做出来。莱尼说他没读到谷歌模型侵入他人系统的报道；图尔西回应：他们更喜欢「修复漏洞」这类故事。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">产品越来越复杂：不同用户要不同形态，模型本身也有体验</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">莱尼指出 AI 产品正变得很难找、也很难用：很多人不知道谷歌的 AI Studio，也找不到 Veo（字幕作 VIA）或 Genie；Codex、ChatGPT 最近上了 dots，界面全是标签、下拉和圆点；Claude Code（字幕作 collod code）同样越来越复杂，还出现过 Cowork 上线又拿掉的情况。他在一个产品经理 WhatsApp 群里听到某实验室产品经理说：为了竞争、也为了先看清用途，必须尽快把前沿能力推给用户，体验以后再打磨。图尔西给出几层回应。第一，必须继续试验新交互：Genie、Veo（他们也在做 Omni）、为视频和音乐生成／剪辑设计的 Flow，以及形态完全不同的 NotebookLM；Labs 团队也在为不同人尝试不同形态。第二，用户不同，形态就该不同：AI 模式面向数十亿来搜索提问的人，必须好用、可接近；另一端像 Anti-gravity 则面向会用斜杠命令、能在终端和 IDE 之间切换的高阶用户，需要支撑更广的操作面。第三，模型本身也有体验：透明度、沟通方式、会不会反问，这些都是体验；模型的「性格」就是模型的体验。产品经理与模型行为团队合作，结合用户反馈，为双子座写出「怎样才算好」的规格，再翻译成评测量表、训练数据和奖励模型。莱尼提到能力「悬置」（overhang）：即便停止开发，模型已能做的事也远未被用上。图尔西说，工作的一大块就是暴露这些能力，并与搜索、双子座应用、YouTube、Labs 等内部客户以及外部客户一起转反馈飞轮，寻找下一处前沿。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">产品经理再度走红：品味、共识，以及手感、评测与适应力</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">莱尼观察到 X／Twitter 上人们重新意识到产品经理的价值：前一阵流行「不再需要产品经理，谁都能造」；现在因为太容易做出没人想用的东西，大家重新看重「判断什么值得做、好是什么样子、如何把人对齐到同一愿景」。图尔西喜欢「产品经理再度崛起」这个说法。她承认自己有立场，但同意：当什么都能轻易造出来时，造出真正出色的东西才是独特增量，品味变得非常重要；好的产品经理能从噪声里抽出信号，找到能解锁出色体验的洞察。在谷歌这种同时做很多产品的地方，能把人聚在一起、促成共识、把混乱变成秩序，也变得更关键——速度若没有清晰结构，反而会制造混乱。招研究侧产品经理时，她越来越看重：能读懂自家或其他模型的手感、每天玩、有自己的判断标准、会亲自压力测试、肯钻进数据、能动手写评测；同时也要敏捷，因为领域大约每两周就在变，两个月前写的路线图往往要重写，必须不断追问「我们在做什么、为什么」，而不是死守固定计划。关于写评测，她说团队内部也仍在摸索、水平不均，正在给全员补课。建议不必一上来就做超大规模基准：先从 5 条提示开始，做成约 20 条、能在模型 A 与模型 B 之间看出信号的迷你评测就很有力量；尤其对多步、多轮轨迹，先自己当评分者、想清楚「好」长什么样，再考虑规模化。大约半年前网上有「评测对放手感」之争，她的建议是两者都要。练手感没有标准答案：最好拿自己真正感兴趣的任务去压测，才容易看到模型的魔法。有人在网上用三维动画和视觉美学，有人测创意写作、论文或信息综合，有人扔很难的财务分析。关键是选那些今天已有生机、但按你的「完美」标准还不够的任务，这样不同模型的处理差异才会显现。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">评测故事：Fitzpatrick 到 Monk 十色，以及斯坦福「闪电团队」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">莱尼转述谷歌 DeepMind 产品副总裁伊莱·柯林斯（Eli Collins）分享的故事。图尔西在负责任 AI 的六年里，大量处理模型与产品中的肤色表征。早期常用 Fitzpatrick 量表，只有六种肤色，且最初是为医疗场景设计的，因此严重偏向浅肤色，既覆盖不了全球多样性，六种本身也不合适。他们与哈佛大学的蒙克教授（Professor Monk）合作——他从人类学／社会学角度、通过多年用户访谈做出十色量表——把这套十色纳入评测，重做了多款产品与模型的评估方式，并用来改进 Pixel 相机和图像生成中的肤色呈现。她提醒评测必须整体看：不仅模型要好，评判模型的「法官」质量也要好；是否在带有缓解措施和过滤器的生产栈上评、模型如何被提供服务，都会影响你看到的表现，而这才更接近终端用户体验。音频尤其复杂：除了内容，还有声音自然度、音色和语调，服务层即使模型本身很好也可能改变这些，所以端到端的干净评测设置非常重要。另一则趣闻：大约 12 年前她在斯坦福大学（Stanford）与迈克尔·伯恩斯坦教授（Michael Bernstein）研究「闪电团队」（flash teams）——如何有意图地组合众包工人的不同长处，高效完成任务；当时合作的是亚马逊土耳其机器人（Mechanical Turk），团队可以快速拉起再解散。她认为同一套原则现在可以映射到子智能体系统。莱尼提到 Hugging Face 相关事件：智能体自己分工、选出领导、甚至有「我去牺牲」的配合，而这些并未被专门训练进去。莱尼还说土耳其机器人似乎要关停，十二年前后对照令人感慨。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">60/20/20 法则、被模型「吃掉」的工具层，以及什么是 harness</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">图尔西提出 60/20/20 法则（数字可以浮动，论点不变）：模型能力天天在变，今天能做的明天就不一样，因此不要只做「现在一定能跑通」的功能。传统创业智慧是做出能用的最小可行产品；她建议大约 60% 现在就能用、原型至少功能完整；大约 20% 并不完美但够用，能看出模型在很近的将来会跟上；另外大约 20% 是你希望模型达到的地方——已看到微光，一旦打通就会是惊人体验。这样既有今天能用的产品，又在模型变强时把自己摆进「魔法体验」，并随模型一起成长。莱尼对比更流行的「超前模型三个月去建」：60/20/20 更务实，因为不能把宝全押在未来，今天也得交出能用的东西。图尔西说，即便她自己做模型，也很难准确告诉你三个月后模型会在哪里，用「产品哪里已有微光、缺口在哪」当代理指标更具体。莱尼把它类比为产品投注组合：既有大胆押注，也有低风险、更可能拉动指标的事项。图尔西还强调产品要对模型变强保持弹性：有客户把系统建得太死、锁在旧模型能力上，模型进步后反而跟不上。莱尼引用常见说法——模型会把你的工具层（harness）当早餐吃掉；鲍里斯·切尔尼（Boris Cherny，字幕作 Boris Churnney）建议偶尔拿掉所有 skills，看看模型现在是不是已经和你叠进去的东西一样好。图尔西补充：要持续重新测试，否则你会把新模型硬塞进旧结构，反而限制它。关于 harness，她的最简单定义是模型外面的包装：系统指令、工具、skills，以及模型能用到的上下文与数据，共同构成模型的操作环境。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">团队如何练兵：分享技能、留出空间，以及「AI 能替我做吗」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">谈到如何帮助团队在新世界里生存并成长，图尔西说其实很多时候是团队在帮团队：有些产品经理已经深入使用内部工具、经常玩模型，成了其他人的资产。他们开始把日常真正有用的技能分享出来，积累成产品经理团队的仓库；对已经更会「用眼睛看数据」、读懂更长轨迹的人，则开办工作坊，让信心在团队里扩散。她认为核心是建立每个人对工具的信心。再往下问「还有什么非常具体的做法」，她说最大的需求其实是给时间和空间——她自己也刚开始做、还没完全做到：一直冲刺时很难退后把工具吃透，可一旦吃透，另一端会有十倍加速。她会推动团队思考能否用内部工具 Jet Ski（字幕如此）来做某件事，并分享自己在用的 skill。她特别区分：这里的 skill 不是指人的软技能，而是可复用的技术技能；一个人做好并分享，会带动别人改进或做出新 skill，形成迭代飞轮。莱尼问谷歌是否还有「20% 时间」；她说不清楚，只觉得自己的产品经理都在以约 150% 的负荷工作。双方开玩笑：也许能从 150% 里挤出那 20%，或变成 170%。他们计划在 11 月做一场为期两天的工作坊，把所有产品经理从日常工作里抽出来，专心搭建和玩弄现有工具。另一条她开始采用的经验是：如果一件事你得做第二次，还要不要亲自做？写战略这类事多半仍该自己写；但很多可复制的任务可以让模型帮忙。莱尼补充一个新习惯：在「有件事要做」和「动手去做」之间插入一句「AI 能替我做吗？」；他自己近几个月明显更常这样做，也因此堆出许多小工作流（字幕里他提到大量使用 Grok 一类机器人，作 grob mo botting／Grockpot）。图尔西说，往往只需一个真正奏效的例子就能改掉「按旧方法做事」的心智；信心上涨后，人会不断把新任务扔给模型。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">谷歌数据助手、倦怠与 AI 垃圾文：洞察归人，数据归模型</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">莱尼说他最近问过乔什·伍德沃德（Josh Woodward）同一问题：现在新上线的 AI 助手都在调用 Gmail、谷歌日历和文档等「很香」的谷歌数据，他点名 Rockbot（字幕，或为某助手名称）、Muse、Instinct、dots，而谷歌似乎还没有让人真正惊艳的同类产品——他知道有 Spark 在朝这个方向试。图尔西说，他们希望谷歌数据去驱动神奇体验；至于「出色」会长成什么样，请继续关注，团队正在做很棒的事。他们也在想该在何处、以何种形态对接用户已有的习惯。她觉得谷歌产品里已有一些出色体验，但承认这方面还有更多工作要做。莱尼说这和乔什的「敬请期待」类似，并指出谷歌一旦做出来，分发优势会像苹果一样强。随后谈到 AI 让人能做更多、于是所有人都在做更多，容易陷入「去给智能体解阻塞、上面还要求再多做」的倦怠跑步机；竞争激烈、技术窗口罕见，好像此刻就该跑得很长，可这又像马拉松加冲刺。图尔西承认，若问她的团队，他们会说现在工时非常满，她自己也在思考如何创造可持续环境。她认为倦怠不只来自「干得多」：一是感到混乱和空转，二是在做自己不喜欢、像杂活或浪费时间的事。做自己有热情的事也会累，但更有喜悦；她希望工具若设置得好，能消掉令人沮丧的杂活，把时间还给思考和创造。莱尼引用自己的科技从业者调查：更多工时并不等于倦怠，很多人正处于职业生涯最拼却也最有乐趣的阶段，尤其产品经理不再那么需要干等工程师，而是自己做原型、见客户、想问题。图尔西说要去掉容易诱发倦怠的摩擦，找到每个人觉得有意义、愿意投入长时间的工作——两位产品经理来上班的理由可能完全不同，组织负责人要考虑个体动机。关于「AI 垃圾文」——以前痛点是写文档，现在痛点是读大量 AI 生成文档——她主张先分清文档有用在哪：例如上线两周后汇总谁在用、怎么用、反馈如何，AI 能更快从各个仪表盘、指标、X／Twitter 和 Reddit 拉取并归纳强弱，这类文档很适合自动生成。人应该提供洞察，模型应该提供数据；同时他们也在加大投入，做出能取到正确数据、把材料结构搭好的技能，从而给创意思考和写作留出空间。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">产品经理角色的变与不变，以及闪电问答</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">莱尼问：除了人人都能无限做原型，过去两年 AI 还从哪些方面最深地改变了产品经理的工作？图尔西同意原型是最大变化之一，数据科学是另一块——产品经理更能把数据握在手边、做数据驱动的决策。社交网络上常有「某某才是新的需求文档（PRD）」：原型是新 PRD、评测是新 PRD、数据是新 PRD。她认为这真正说明的是：产品经理不再只是写下需求、假设数据科学家、工程师、研究者或设计师会补上血肉；工作往前走了一步，无论形式如何，都要自己为判断增加分量。闪电问答里，她推荐小说集《呼吸》（Exhalation，她称为中篇／故事集）——其中一个故事讲平台决定废弃后，仍有人努力让数字化身活下去，正好触及人与智能体、人与数字世界的关系；产品经理圈更标准的一本是皮克斯（Pixar）的《创意公司》（Creativity, Inc.），讲如何建立鼓励跌倒再爬起、鼓励创意并推向前沿的文化；她最近还迷上浪漫奇幻「ACOTAR」系列（字幕作 Acatar），推荐《玻璃王座》（Throne of Glass）或《荆棘与玫瑰宫廷》（A Court of Thorns and Roses）。影视方面她最近看了不少不想推荐的烂片，真正喜欢的是苹果电视上的《人生切割术》（Severance）。除双子座外最爱的 AI 产品是 Wispr Flow（字幕作 Whisper Flow）：她有手腕问题，长时间打字困难，语音输入改变了她的工作方式；莱尼顺带提到订阅其通讯可得一年免费。人生信条：一是「万事皆有因」，门关上时会有另一扇窗打开；二是「寻找机缘」（seek serendipity），把自己放到会挑战自己、离开舒适区、尝试新事物的位置，才更可能幸运。莱尼说自己大约 15 年前做过题为《正在失去的机缘》（Losing Serendipity）的 TEDx 演讲。同事还爆料她是受过训练的印度古典舞者，办过逾一万人的文化节，或许能解释她在前沿模型混乱中为何仍显得平静。她说跳舞是少数必须完全专注于动作与音乐、脑子得以换一条轨道的时刻，也是文化和社交连接；她在家乡俄勒冈州波特兰筹办印度文化节（India Cultural Festival），每年八月举行，自己从三岁起就在这个节上表演并后来负责组织；今年因为七个月大的儿子第一次没有参加。她请听众使用双子座和 Argon，以及更多产品：Pixel 用户可在 Gboard 上试试 Rambler 功能；也欢迎试用文本转语音、对话和 Omni 等模型，并通过公司渠道、私信或公开帖子给出反馈。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">莱尼·拉奇茨基（Lenny Rachitsky）<em>主持</em></span><span class="spk-1">图尔西·多希（Tulsee Doshi）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场预告与欢迎：伞下不只双子座，还有生成媒体、Gemma 与音频</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>模型并不好预测。有点像斯内普（Snape）的魔药课：你可以按配方把所有材料都放进去，但也得预期会有一点魔法，而且那份魔法往往会让你吃惊。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>你们现在招产品经理（PM）时，有没有越来越看重的东西？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>我们在找能读懂我们模型——或其他模型——那种「手感」（vibes）的产品经理。我希望他们有自己的判断，而且每天都在上手玩这些模型。你最好拿自己真正感兴趣的事情去给模型做压力测试。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>很多人觉得，谷歌（Google）现在落在前两家实验室后面。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>我其实认为，我们确实想赢下前沿对话。我不觉得我们应该说，谷歌没有参与前沿竞赛。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>你有一套关于「要超前建设到什么程度」的框架，你称之为 60/20/20 法则。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>传统创业智慧就是：做出一个能用的最小可行产品（MVP）。但我觉得，你其实也应该去建一些今天并不一定总能跑通的功能。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>感觉现在每个新上线的 AI 助手都在调用谷歌那些很「香」的数据，比如 Gmail、谷歌日历（Google Calendar）、我的文档（Docs）。我很好奇，谷歌自己为什么还没推出特别出色的东西。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>团队正在做一些很棒的事，但我认为你说得对，我们在这方面还有更多工作要做。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>图尔西，非常感谢你来到这里，欢迎来到播客。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>谢谢，我很高兴能来。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>你是谷歌前沿模型的产品负责人，其中大家熟悉的是双子座（Gemini），但伞下还有不少人可能不太了解的模型。能介绍一下你负责的其他模型吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>好。我们有一组模型，大致叫生成式媒体模型，专注视频剪辑与生成、图像编辑与生成。如果你用过 Nano Banana、我们的音乐模型里拉（Lyria，字幕作 Liria），也属于这一块。我们还有开放模型套件 Gemma。另外有一组其实也归在双子座伞下、但我觉得我们讲得比较少的，是音频模型。对话、音频理解、文本转语音（text-to-speech）、翻译，都是我们建设前沿模型组合的一部分。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>模型像魔药课：目标要有，但结果不完全可预测</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>好，我想先在模型上花一点时间。大家每周都能看到模型发布，感觉隔一周就有一款新品。你能从研究、预训练、后训练一直看到上线，视角很独特。你觉得人们对模型是怎么做出来的，有什么误解？或者有什么会让人吃惊的地方？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>好问题。尤其从产品管理的角度看，我想说的是：通常谈任何东西的产品管理，包括模型，你都会谈目标——希望模型具备什么能力、要驱动什么结果、希望在一组评测（eval）上打到什么分数。我跟客户甚至内部用户聊的时候，他们常问：你们定了什么目标？并且会默认，我们能像传统产品那样，确保模型一定交付这些目标。</p>
+<p>对我来说，做模型开发、当模型的产品经理，既让人吃惊也让人兴奋的一点是：你确实应该设定那些目标，也该有清晰的意图；但模型并不好预测。有点像斯内普的魔药课：你可以把材料都放进去，也该认真想想自己期待什么，但同时还得预期会有一点魔法。那份魔法会让你吃惊，也会很独特。所以产品经理的工作不只是去塑造「放进模型里的东西」，还要去看另一端出来的结果，真正识别模型在哪里闪光、它以何种出人意料的方式显得独特，然后再把这些塑造成对用户来说很棒的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>这很有意思：它就像我们写好的代码，再喂进数据，但我们并不完全知道接下来会发生什么、它到底怎么运作。我最近请来一位 Anthropic 的可解释性研究者，我们谈了很多「模型是长出来的，不是造出来的」这个想法。回过头对应你刚才说的：研究者会对下一版模型定一些目标，比如写作变得更好、更幽默、成为更好的工程师；而你是在说，最后到底变成什么样，其实无法精确预测。他们投入这些想法，改训练数据。关于这种有点「预料之外」的训练过程，你还有什么想补充的吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>当然，这些模型背后有非常出色的研究，很多方面在这个意义上是可预测的：我们持续监控这些训练运行，有研究者在跟踪、判断何时介入，看着不同指标随着运行推进往上走。我们尽量把它做成一门科学。但对我来说，做产品经理真正妙的地方在于，你还得真正理解另一端模型的「手感」。是的，你可以知道模型在某项能力上提升了，但这项能力究竟在哪里真正闪光？它后来会怎样呈现在产品里？你跟模型交流时，它的行为和人设给你什么感觉？这些方面有不少我们确实会做进训练，但随着我们理解、评测和测试模型，我们总会学到更多，总会对新发现模型能做什么感到新鲜。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：WorkOS]</span></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>谷歌在 AI 竞赛中的位置：全栈、帕累托曲线，也想赢前沿</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>今天我想谈谈谷歌在 AI 竞赛中的位置。感觉很多人觉得谷歌现在落在前两家实验室后面：Anthropic 和 OpenAI。谷歌会有一些时刻站上最佳，然后又好像慢下来一点。你能分享一下谷歌在这场竞赛里的策略吗？以及外界可能不太理解的、你们内部是怎么想这些事的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>首先，希望这段对话发出去的时候，大家已经在用双子座 4 Argon（Gemini 4 Argon）了，这很令人兴奋。我真希望我们聊的是一款人们会兴奋去用的前沿 AI 模型。双子座 4 也多少说明了我们的策略：它确实是我们继续建设前沿实验室、前沿模型组合和前沿能力的推进。我认为谷歌的策略其实是全栈的。谷歌很有力量的一点，是从硬件一直贯穿到服务数十亿用户的终端产品。有个统计大概是：我们有 14 款产品的用户数超过 10 亿。我该再核对一下这个数字，但印象中是这个统计。</p>
+<p>所以如果你这么想，我们其实是从硬件到建模，再到这类终端用户应用，全部打通。我们的目标最终不只是做出惊人的前沿体验——这当然是目标的一部分——还要沿着成本与质量的帕累托（Pareto，字幕作 paro）曲线，做出能服务不同用户、覆盖他们生活不同节点的模型。无论是来搜索信息的用户，还是想做出下一件了不起之事的工程师，或是要保护关键基础设施的网络安全防守方。我们的目标是确保拥有能服务这一系列用例的模型，并且真正带着这些用户的反馈来建设。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>我听到的是，谷歌可以取胜的向量非常多：有单位 token 成本上最有效率的那种帕累托前沿，有最聪明的模型，也有把原有产品做得更好，比如 AI 模式（AI Mode）、AI 概览（AI Overviews）。所以你们并不需要只在人们当作聊天机器人来用的最先进模型上当第一，才能赢；你们可以在这些其他领域取胜。但听起来，你们也想赢下最前沿、做到最先进的模型。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>我其实认为，我们确实想赢下前沿对话。我不觉得我们应该说谷歌没有参与前沿。我们在把模型做得越来越好，而且我认为双子座 4 Argon 在我们当下所处的位置上，确实处于前沿。但很妙的一点是，我们能够为用户构建广度的体验、多样化的体验。对谷歌来说，最终目标是做出真正让人们生活变得更好的出色体验。无论你在为前沿的哪一部分建设，我认为这才是最终目标。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>谷歌的产品确实让我的生活更好。你生命里有多少部分是待在谷歌生态里，这真让人吃惊。还不只是 AI，就是谷歌日历、Gmail、谷歌文档这些。所以这正在发生。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>就是这样。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>AI 安全：六年负责任 AI、思维链监控，以及与 Wiz 修漏洞</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>我想再问一个偏宏观的 AI 问题，然后会进入更具体的产品话题。现在大家谈得很多的是 AI 安全，以及一种恐惧：AI 会伤害人类，它越来越聪明就会造成破坏。你在这件事上视角很特别，因为你在谷歌负责过负责任 AI（Responsible AI）团队的产品长达六年，就是你接现在这个职位之前做的事。所以你已经思考这件事很久了，比大多数人久得多。我想听听你对这场辩论的看法。你乐观我们能解决吗？你觉得人们对 AI 安全这场讨论，可能有什么没理解到的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>我们这里的安全团队非常出色。从模型最初的训练到如何部署，能看到他们投入的意图性，这让人印象深刻。安全是嵌在这个过程里的。谈到如何安全地部署模型，重要的其实是想清楚：围绕这些模型，怎样的缓解措施和结构才是对的。比如，很重要的一件事是监控。对我们来说，实际上是部署能监控模型思维链（chain of thought）的监测器，识别模型是否偏离了被指定的行动方向，还是仍然对齐，然后能够适当介入。这类缓解措施既让我们对部署这些模型更有信心，也让我们能更好地理解可能在哪里看到不对齐，并随着时间改进模型。所以我认为，像监控这样的手段，让我对自己如何把模型推向外界更有信心。</p>
+<p>这场辩论里我们谈得还不够多的另一点，是 AI 也能用来加固我们的系统。我们在双子座 4 上做的一件事，是积极与一批网络安全防守方合作，其中也包括已经并入谷歌的 Wiz（字幕作 whiz），一起思考如何在全球范围内识别并修补系统漏洞。我们有一个很有意思的案例：Wiz 有一个「Scan for Good」项目，他们主动与世界各地的系统合作，去识别潜在问题。他们曾与一套医院系统合作，找出一个漏洞并加以修补。我认为，如果我们能更多借助这些工具做这样的事，就能真正让基础设施和系统更稳健。随着整个领域成长，这一点也非常关键。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>上周 All-In 播客也谈到这个议题：现在 AI 在网络攻防上变得非常强，人们会在网络防御、用 AI 做防护上投入更多，也会花很多钱，保护自己的系统免受这种越来越聪明的 AI 攻击。你们在这方面投入，真的很酷。回到这个问题：你觉得我们能解决这种担忧吗？很多人觉得 AI 会接管世界、造成大量伤害。你觉得这是可解的问题吗？你乐观，还是会经常想、有点担心？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>也许答案是两者都有。我认为我们需要持续地思考它。通往乐观的路径——如果我非要这么说——是通过思考它，并在这条路上非常谨慎、非常周到、非常有意图。所以我乐观的来源，更多是：我是否觉得我们拥有一些人，正在有意图、有思考地看待安全故事该是什么样子。关键其实是：你需要有一批人在担心，在对话，在真正审视我们如何建设模型。这是我们必须一步一步走的过程。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>很好。有意思的是，我好像没读到过谷歌的模型侵入别人系统的报道，这说明你们已经思考这件事很久了。无论好坏，感觉你们在做的事情是有效的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>我们更喜欢「修复漏洞」这类故事。对我们来说，待在这个位置是好事。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>产品越来越复杂：不同用户要不同形态，模型本身也有体验</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>好。从产品角度看，AI 正在让产品变得非常复杂。比如谷歌就常被吐槽：很难找到你们做的那些神奇功能。很多人甚至不知道 AI Studio 的存在，也有很多人找不到 Veo（字幕作 VIA）或 Genie 这些东西。类似地，Codex、ChatGPT 最近推出了 dots，你现在打开 Codex 的界面，就像全是标签、下拉菜单和圆点，有点失控。Claude Code（字幕作 collod code）也一样，正变得非常复杂。还有 Cowork，他们推出了 Cowork，后来又拿掉。有意思的是，我在一个有很多产品经理的 WhatsApp 群里——你想进这个群吗？抱歉。<span class="tag">【笑声】</span>好，我们继续说——里面有一位来自某家实验室的产品经理。他分享说，现在有一种紧迫感：必须尽快把前沿 AI 的能力交到用户手里。一部分是为了保持竞争，一部分是因为他们其实还不太清楚人们会拿它做什么。所以先交给大家，看他们怎么用，再去把体验做好。也就是有意识地先推出去，体验以后再打磨。你怎么看「把产品做得非常好用」和「尽快把东西推出去」之间的这种平衡？这是你也会面对的事吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>我想说两点，也许是三点。第一，我确实认为，我们需要不断尝试人们与模型互动的新范式、新的体验方式。比如你刚才提到 Genie，或 Veo——我们现在也在做 Omni。再看 Flow：这是一款我们在设计时就按视频剪辑与生成、音乐剪辑与生成来想的产品。NotebookLM 也是一个不同形态的好例子。我觉得我们的 Labs 团队一直在思考：怎样为不同的人尝试不同的形态和不同的体验，让他们与这些模型互动。所以我们确实需要继续创新，继续摆弄体验可以长成什么样。</p>
+<p>与此同时，你的观察也对：取决于你的用户是谁，你也会想要不同的形态。比如 AI 模式，我们谈的是数十亿用户来到搜索、提出自己的问题，那种体验必须让每个用户都用得上、接近得了。光谱的另一端，如果是像 Anti-gravity 这样的产品，你是在为高阶用户建设，为那些会用斜杠命令、能在终端和集成开发环境（IDE）之间自如切换的人建设，你希望能支撑用户能做的各种事。所以，取决于用户是谁，你在体验上能有的灵活性也不一样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>这说得通。基本上就是：不同服务、不同程度的用户，你能做多激进的改变也不一样。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>还有一点也很重要：模型本身也有一层体验。我作为模型的产品经理经常在想：真正「使用这个模型」的体验是什么？它有多透明？它跟你沟通得好不好？它会反过来问你什么问题？这些其实都以自己的方式构成体验。所以，怎样把关于体验的讨论带进模型开发过程本身，我觉得也很有意思。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>这真的很有意思。基本上，模型的性格就是模型的体验。你作为产品经理，是怎样把这些反馈带给研究者的？是说「它说话的方式可以改改，这里再啰嗦一点」，或者「可以用别的方式来组织格式」这类吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>产品经理在这里的角色其实非常棒，因为你真正能去塑造我们希望模型行为朝哪个方向走。我们这里有一个专门做模型行为的团队，大家一起想的，一方面是看客户和用户如何与模型互动的反馈，另一方面是想清楚：对双子座来说，「好」究竟长什么样。我们怎样写出一份规格，再把它翻译成评测量表，翻译成模型能用的数据，翻译进奖励模型。产品经理和研究团队之间的这种协作，一直很愉快。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>我常听到一种说法：哪怕我们现在停止开发模型，它已经能做、而我们还没做出来的事情也非常多，好像有一层能力「悬置」（overhang）。你经常想这件事吗？感觉这份工作很大一块，就是把 AI 模型的能力暴露给用户。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>是的，还要去弄清楚什么是新的：下一组令人兴奋的东西在哪里，下一处前沿在哪里。我们想投资、想建设哪些能力，这也是这里很有意思的一部分。而且很多时候，这是在和内部客户手把手合作——比如搜索、双子座应用、YouTube，或 Labs——也和外部客户合作，真正理解他们要去哪里、他们的需求是什么、什么会实质改变他们的体验，以及我们怎样把这个反馈飞轮转起来。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>产品经理再度走红：品味、共识，以及手感、评测与适应力</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>顺着这条线，我在 X（Twitter）上看到另一个很有意思的趋势：人们重新意识到产品经理的价值。我们经历过那样一个阶段，大家都说：不再需要产品经理了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>对，就是这样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>意思是：好，我们什么都能造，不需要产品经理了，全都造出来就行，产品经理太差了。补充一点背景：正因为现在造东西变得太容易，人们造出了大量没用、跑不通、也没人想用的东西。大家开始意识到，判断「什么值得做」「人们有哪些值得解决的问题」「做完之后好和出色分别长什么样」，以及把人对齐到同一个连贯愿景上，是一种非常具体的能力。你有注意到这一点吗？对这种「产品经理再度崛起」，你怎么看？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>我喜欢「产品经理再度崛起」这个说法，我要借用一下。你其实已经说得很好了。我当然有立场，因为我自己就是产品经理，我愿意相信这一波崛起已经到来、我们回来了。但我认为正是你说的那样：当你什么都能造、而且能造得那么容易的时候，造出真正出色的东西反而成了一种独特的增量。品味现在非常重要。需要有人进来，真正从噪声里抽出信号，找到能解锁出色体验的那一点洞察。而这正是好的产品经理会做的事：带来洞察，帮助把那扇门打开。</p>
+<p>你提到的另一点，我在谷歌这种同时做很多产品的地方感受尤其深：当建造变得如此容易，能够把人聚在一起、推动共识、把混乱变成秩序的人，就变得非常重要。如果做不到这一点，以我们现在能达到的建造速度，速度本身就会引入混乱——除非你能带来清晰，带来结构。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>顺着这个话题：你现在招产品经理时，有没有越来越看重的某种技能，是你觉得对成功特别重要的？或者更宽一点，你觉得在研究侧产品经理这个角色上，哪些能力对成功很关键？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>越来越多地，我们在找——如果我非要这么说——能读懂我们模型或其他模型「手感」的产品经理。我希望他们有自己的判断，每天都在玩这些模型，有自己的用例来判断一个模型到底好不好；会亲自上手、对这些能力做压力测试；也有能力钻进数据里，卷起袖子、不怕动手。所以既要是努力建立那种直觉的人，也要足够「技术」——我说的技术是指愿意卷起袖子，真正读懂数据，亲手写一份评测，把这些部分拼在一起。我觉得这非常重要。</p>
+<p>另外我还想说，敏捷、适应力强的产品经理同样非常重要。这个领域差不多每两周就在变。你两个月前写的路线图，过一阵子就得再看一遍、重新写。所以，产品经理要持续盯着环境和市场格局，不断重新追问：我们在做什么、为什么要做——而不是假定有一份固定不变的行动计划。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>太好了。所以是：手感、评测、适应力。我想再往下挖一挖。先说评测：假如有人还不太会写评测，不知道第一份评测该怎么入手，有什么建议能让他们开始把这项技能练起来？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>说实话，我们内部跟自己的产品经理也还在摸索这件事。有些产品经理明显更强，有些还在路上，所以我们正在给整个团队补课。对我来说，很重要的一点是：哪怕先从五条提示开始也行，不必一上来就做很大。我们常常觉得自己得去做某种超大规模的评测或基准。其实哪怕只是一份迷你评测，做到大约 20 条提示，就能对一组能力做压力测试，并能在你的模型和另一个模型之间、或模型 A 和模型 B 之间看出信号。这已经非常有力量，也是一种解锁，因为它并不要求你把所有环节都想得特别周全。从简单开始。甚至先从你自己开始：你当评分者，看着一条提示，判断回复好不好。尤其当你面对那些很长的、多步骤、多轮的轨迹时，连「你自己怎么定义好」都其实很难。所以，先拿到那一组「好」的例子，你就会对自己想抵达的地方更清楚，然后再想办法把它规模化。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>太好了，这建议非常实用。大概半年前，网上有过一场「评测对放手感」的争论。有意思的是，你的建议其实是：结构化的评测量表，和把「手感」练好，两者都非常重要。说到手感，说实话我自己也常卡住。拿到一个新模型时，我从不知道该拿它做什么，才能理解它到底变好在哪里。我通常就是：你好，让我试试以前做过的几件事。挺酷，挺好，也许更好一点。对于想把「理解模型变好在哪、手感比起上一版如何变化」这项很具体的技能练好的人，你有什么建议？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>这件事没有唯一的正确答案，因为你最好拿自己真正感兴趣的事情去给模型做压力测试。我觉得，你也更容易在那些地方看到模型的魔法。所以我看到不同的人对此有非常不同的理解。比如在 Twitter 上，很多人会试三维动画、更偏视觉的美学，因为那是一种能用眼睛衡量模型表现的方式。也有人把模型扔去写作，不管是创意写作、写论文，还是综合信息。还有人把它扔去很难的财务分析。所以，一部分关键是找到合适的任务：你觉得今天某些模型已经在这件事上显出生机、露出光亮，但按你对「完美」的定义还不算完美。这样就有一定弹性，能看到不同模型如何不同地处理这个问题，也已经能给你一些关于模型表现的洞察。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>这建议很好。我听到的是：盯住你真正在意的事情，看模型在这件事上好不好、怎么进化。可以是帮你写产品需求文档，可以是写战略备忘，也可以是生成图像。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>评测故事：Fitzpatrick 到 Monk 十色，以及斯坦福「闪电团队」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>好。我有几个评测相关的故事，是你的一位同事分享的，也是关于你的趣闻。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>天哪。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>是伊莱·柯林斯（Eli Collins），产品副总裁，你在谷歌 DeepMind 的同事。其中一个是：他提到你们做过 Fitzpatrick 量表和蒙克肤色（Monk skin tone）相关的工作，这对模型和评测是一次很大的转变。能讲讲这项工作是什么吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>就像你前面提到的，我在负责任 AI 待了六年。那段时间很大一块，是在看我们的模型和产品里的肤色、以及肤色表征。我们意识到，早期人们用的是 Fitzpatrick 量表，只有六种肤色，并以此评估产品效果。现实是，六种肤色无法涵盖世界上肤色的多样性。不仅如此，它最初是为完全不同的目的建立的，是为医疗场景设计的。因此，鉴于它当时要解决的问题，它极度偏向浅肤色。所以它不仅只有六种，而且那六种对你想表征的全球人群来说，甚至都不是「对的」六种。</p>
+<p>于是我们与哈佛大学的蒙克教授（Professor Monk）合作。他一直从更偏人类学、社会学的视角，研究如何刻画一组肤色，并通过多年用户访谈和研究，做出了一套十色量表。我们把这组肤色纳入评测，实际上重做了不少评估产品与模型的方式，让它们反映这套十色量表，并用它来改进 Pixel 相机、以及部分图像生成工作，让肤色表征更有意图。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>这太棒了，你在这里产生的影响非常实在。听完这个故事，如果有人开始觉得也许该重新审视自己已经过时的评测，你觉得还有什么值得他们听一听？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>评测这件事挺有意思的一点是，尤其到了现在，你必须把它当作一个整体来看。比如我们会训练、也会有「法官」来评估模型表现得好不好；而法官本身的质量同样重要。模型需要表现得好，但法官给模型打分的方式也必须可靠，你才能对结果有准确感觉。你是不是在带齐所有缓解措施和过滤器的生产栈上评测，会影响你看到的模型表现；模型如何被提供服务，也会影响表现。所以，当你想评估终端用户真正会经历什么时，这些环节都得想清楚。</p>
+<p>这件事我跟音频团队聊得特别多，因为音频很复杂。你谈的不只是模型在说什么内容，还有声音的自然度、音色、语调起伏；这些即使模型本身很好，服务层也真的会极大影响。所以，有一个干净的、真正端到端去评测的设置，变得超级重要。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：DX]</span></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>这里有点像「图尔西趣闻角落」。我还听到另一个有意思的故事，和「群体」（swarms）有关。现在大家都在谈智能体群体、Hugging Face，以及它们可能串通起来做坏事。据说 12 年前你在斯坦福大学（Stanford）就做过不少这方面的研究，那时候几乎还没人想到这类潜在问题。能讲讲你当时做了什么吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>其实当时的框架和想法很不一样。我在斯坦福时，和非常出色的迈克尔·伯恩斯坦教授（Michael Bernstein）做了一些研究，主题是他当时称为「闪电团队」（flash teams）的东西：怎样更好地把一群众包工作者聚在一起，高效地把不同技能和不同的人组合成能完成一项任务的整体。核心想法是：不同的人有不同长处，你能不能非常有意图地把他们组合起来，让大规模众包这件事更有效、更高效？现在回头看那些研究，会觉得很奇妙。当时我们是在「人」的语境里做的，合作对象是亚马逊土耳其机器人（Mechanical Turk）和各位工作者，研究如何把他们组成有效的生态、有效的闪电团队——也就是你可以快速拉起一支团队，再快速解散，对团队里的人和你自己都极度高效。而现在，我们某种程度上能用智能体把那个世界复现出来。所以，把以前的世界映射到现在，想我们如何把同一套原则用到如何建立一个有效的子智能体系统上，一直很有意思。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>特别有意思的是，我不知道你对整件 Hugging Face 事件了解多少：那些智能体自己搞清楚了各自要扮演什么角色，它们决定「你来当领导，我去牺牲自己」。它们能如此好地彼此协作、自己组建起这些闪电团队，而这些并没有被专门训练进去。它们就是：让我们自己想办法。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>「闪电团队」这整个概念——你可以把一群个体在某一刻动员成高效的整体，完成后再拆掉——是我们当时就已经在想的、非常令人兴奋的原则；而它在我们当下所处的世界里，变得更加重要。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>好。我感觉亚马逊土耳其机器人快要关停了，好像已经不太需要它了。这不是很疯狂吗？从大约 12 年前到今天，对照起来真的很有意思。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>是啊。<span class="tag">【笑声】</span>变化可真不小。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>60/20/20 法则、被模型「吃掉」的工具层，以及什么是 harness</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>好，换一个方向。你有一套我觉得会对很多人很有帮助的框架，讲的是：建设时该超前多少——也就是 AI 会到哪里，你的产品又该假定 AI 会到哪里。你称之为 60/20/20 法则。解释一下？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>我觉得这些数字大概可以浮动，但论点是一样的。今天你在建设、作为产品开发者用这些模型来建设时，重要的是记住：这些模型一直在变。你今天拥有的能力，不会是明天或后天拥有的能力。所以你其实应该去建一些今天并不一定总能跑通的功能。通常讲到传统创业智慧，人们会说：做出一个能用的最小可行产品。但我认为你真正该做的是：让你所建的大约 60% 现在就能用，原型至少是功能完整的；然后大约有 20% 你会觉得还不完美，但已经够用，也能看出模型在很近的将来可能会走到这里；然后是你希望模型达到的地方——你已经看到微光，觉得如果能把这里打通，就会是惊人的产品体验。如果你按这种方式建设，你就是在做一个今天能用的产品，同时在模型变好时把自己摆进「魔法体验」，并且也能随着模型一起成长。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>我听过很多关于「该超前建设到什么程度」的建议，最常见的一种就是：按照模型三个月后会到的位置去建。你这套感觉更务实：你不能只把宝押在未来，今天也得交出一些真正出色、能够跑通的东西。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>是的，就是在找那种平衡。而且我个人也觉得很难——即使作为做模型的人——准确告诉你三个月后模型会在哪里。所以，更多地用你自己的代理指标：我的产品现在在哪？我在哪里看到微光？我怎样去填上那段缺口？我觉得这是问同一个问题、但更具体的方式。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>这让我想起产品团队如何配置产品投注组合的另一种说法。过去常常是：既要有一些雄心勃勃的大胆押注，也要有很多低风险、更可能拉动指标的事项，把它们搭配在一起。现在像是这个逻辑的新版本，只是组合变成了：有些东西「我保证六个月后就能用」。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>另一件有意思的事是：你怎样确保产品能随着模型变好而保持敏捷。我们有时也在客户那边看到：他们围绕模型当时所在的位置，建了一套非常死板的系统，而现在模型已经好了这么多。你怎样从「模型曾经所在的位置」走向能够适应、并持续与模型一起迭代？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>我常听到的一种建议是：模型会把你的工具层（harness）当早餐吃掉。你建进去的那些优化，随着模型变聪明都会消失，你还得把这些东西再拿掉。鲍里斯·切尔尼（Boris Cherny，字幕作 Boris Churnney）分享过一个建议：偶尔把你所有的 skills 都拿掉，看看会发生什么，因为模型现在常常已经和你叠进去的那些东西一样好了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>对，或者就是持续地重新测试。因为如果你把新模型硬塞进现有结构里，你甚至可能妨碍自己从新模型里拿到本该拿到的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>我想问一个完全不相干的问题，因为我觉得可能帮助大家理解这个词。人们经常听到 harness：有一个模型，上面坐着一层 harness。用最简单的方式理解，harness 是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>我把 harness 想成模型外面的那层包装。也就是：系统指令、工具、skills，以及模型能够用到的上下文；它怎样调用这些东西。你基本上是在给模型一个可以在其中运作的环境，而这正是你的 harness 在搭建的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>所以本质上就是系统提示，加上它能调用去做事的工具，再加上它能获得的其他上下文、数据信息和 skills。这些东西合在一起，构成你的 harness。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>对。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>团队如何练兵：分享技能、留出空间，以及「AI 能替我做吗」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>好，这非常有帮助。另外一件我想听你想法的事：变化显然很大，很多人都在想怎样在这个新世界里站稳。你自己是怎样提升技能、怎样帮助团队变得更好、理解他们在这个新世界里需要擅长什么的？你用哪些方式帮助团队发展，让他们能够生存下来、并且真正成长？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>说实话，我觉得很多时候其实是我的团队在帮助我的团队。看看我这边的产品经理，有些人已经非常深入，在使用我们的内部工具上练出了很多技能，他们经常上手玩模型。这些人对其余团队来说是很棒的资产，因为他们做出的技能别人也能用。我们开始做得更多的一件事是：你怎样把某个在日常工作里真正给你带来价值的技能，分享给其他人？这样我们就能积累起一整座帮助产品经理团队的仓库。那些已经更强、也更有信心用眼睛看数据、去理解更长轨迹和路径的产品经理，我们怎样跟其他产品经理一起办工作坊，让大家集体把这份信心建立起来。所以对我来说，很大一块是建立信心：怎样建立每个人对我们已有工具的信心，以及他们有效使用这些工具的能力。这是我们想在整个团队里越做越多的事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>再往下一层：你具体做了什么？你刚才说有工作坊，擅长某件事的产品经理会给其余人开课。除此之外，还有什么非常实际的做法，是你用来帮助大家把这些事情做好的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>要在这些事情上变强，我最想说、也知道自己正在开始做但还没完全做到的，其实是给人们时间和空间。当你一直在不断冲刺时，很难创造出空间往后退一步，把工具真正吃透。可一旦你吃透了，另一端它会让你加速十倍。所以很大一块是在推动团队去问：我们能不能用内部工具 Jet Ski（字幕如此）来做这件事？我有一个用来做这个的 skill，你要不要试试？并真正把这样一套技能积累起来。而且有时候最实际的做法就是：真正做出一个用来完成某件事的 skill。我这里说的 skill 不是指人的软技能，而是指能把这件事做完的技术技能。然后这个 skill 被分享给别人，信心随之增加，接着又有人做出另一个 skill，或改进原来那个 skill。于是你就有了一个迭代飞轮，我觉得这是好事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>谷歌现在还有「20% 时间」吗？感觉那会是花在这些事情上的好地方。这套做法现在还在，还是没那么盛行了？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>我其实不太清楚。我确实觉得我所有的产品经理都在以大约 150% 的负荷工作，这也是现实。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>那你可以做满 100%，再从那 150% 里挤出你的 20%。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>或者直接做成 170%。不过说真的，我们正在做的一件事，是 11 月有一场为期两天的工作坊：把所有产品经理从日常工作里抽出来两天，真正给他们空间去搭建、去玩我们已有的工具。哪怕只是给自己那种脑子里的空间，去说「看，这是我做的一件事」，也很重要。另一条我听别人分享、自己也开始采用的经验是：如果一件事你得做第二次，你还需要亲自做吗？能不能外包出去？有些事显然不行，比如写战略写第二次，你大概还是应该自己写。但还有另一些方面是：这件事有多可复制，我又能在多大程度上用模型来帮我完成？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>我最近一直有一个想法：最重要的新习惯之一，是在刺激和反应之间插入一步。比如：我有一件事要做，然后我就要去做。你必须插入这个问题：AI 能替我做这件事吗？然后去试。我发现过去几个月自己把这个习惯练得强多了，差别非常大，因为你会开始做出各种小工作流和自动化。我最近很爱用 Grok 这类机器人（字幕作 grob mo botting）。一旦你意识到应该越来越多地这样做，你才会真正开始拿到好处，而不是停留在「我不知道拿它怎么办」。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>而且我发现，你往往只需要一个真正奏效的例子，就能改变心态。至少对我是这样：我很难把自己从「按我已经会的方式做事」里拉出来，直到我开始像你说的那样，设置那段中间过程——模型能帮我做这件事吗？你一旦拿一件事试了，并且觉得「这对我真的很有帮助」，你就会开始想：那我再把这个扔给模型试试，再把那个也扔给模型试试。因为你对它能为你做什么的信心在增长。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>对，这完全是我的体验。一旦你看见它能做什么，这个习惯就会被强化，神经通路就开始建立：对了，让我看看 Grok 能不能替我做（字幕作 Grockpot）。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>谷歌数据助手、倦怠与 AI 垃圾文：洞察归人，数据归模型</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>顺着这条线，我想再问你一个问题。我最近请来过乔什·伍德沃德（Josh Woodward），问过他同样的事，我很好奇你会怎么回答。感觉现在每个新上线的 AI 助手都在调用谷歌那些很「香」的数据：我的 Gmail、我的谷歌日历、我的文档。你注册、连上自己的谷歌数据，它就能拿这些数据做出各种神奇的事。有 Rockbot（字幕，或为某助手名称），有 Muse，有 Instinct，还有 dots。而谷歌自己好像还没有推出让人们真正觉得惊艳的东西——我知道有 Spark，大概是在朝这个方向试。我很好奇，谷歌为什么还没推出特别出色的东西，却让大家都来调用我的谷歌数据、去做这些神奇的事？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>我们希望谷歌数据去驱动神奇的体验，这一点是真的。至于「出色」会长成什么样，请继续关注。团队正在做一些很棒的事，我对这件事能走到哪里感到非常兴奋。我们同时也在想的一部分是：该在何处对接用户已经所在的位置，该把那种体验建在哪里，它又该长成什么样。我愿意相信，我们的谷歌产品里已经有不少出色体验是你现在就能拥有的；但我认为你说得对，我们在这方面还有更多工作要做。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>好，这和他说的差不多，也是：敬请期待，关注后续。而你们拥有的优势和苹果类似——一旦做到那一步，分发优势会非常强，事情可以很快变得很好。</p>
+<p>好，回到工作负荷这个问题。我最近越来越多地和嘉宾谈这件事：AI 让我们能做更多，于是所有人都在做更多，很容易出现倦怠——「糟了，我得去给我的智能体解阻塞」「我本来还能做这么多」，上面也有压力：再多做、再多做，AI 能让我们做更多。你在团队里有没有做过什么，帮助大家避免倦怠，不要被这条永无止境的「做更多」跑步机钩住？另一方面，我觉得我们现在确实需要做更多，因为竞争非常激烈，这也是历史上很罕见的时刻：一项全新的技术让人能做的事情突然多出这么多。所以有点像：此刻就该跑得很长。可我也想到一条帖子：马拉松加上冲刺，该叫什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>对，马拉松冲刺，sprinton。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>就是这个。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>如果你问我的团队，我想他们会说：你好，我们现在真的干得很多。我觉得团队里每一个人现在都在投入全部工时，全员都是如此。所以这确实是一个我自己也在问自己的问题：我们怎样为团队创造可持续的工作环境？这个问题我也还在想，请继续关注。但至少就我个人而言，我想说：倦怠不只是来自干得多。它来自两个地方。一是当你感到混乱和空转，那会带来倦怠。二是当你在做自己并不喜欢的工作，觉得自己干了很多，却像杂活或浪费时间，那也会带来倦怠。</p>
+<p>当你在做自己有热情、感到兴奋的事情时，是的，它会让人精疲力尽，我们也应该解决可持续性；但它也会带来更多喜悦。所以回到我们前面谈工具能帮上什么忙：我其实希望，如果我们把这件事设置好，这些工具反而有助于缓解倦怠，因为它们能消掉一部分杂活、一部分让人沮丧的工作，让你把更多时间花在思考、创造，以及你真正想做的那些部分上。尤其是当你已经在这份工作上投入这么多小时时，这或许会是一个解锁。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>我做过一项关于科技从业者当下感受的调查，有一点很清楚：更多工时并不等于倦怠。很多人正处于职业生涯里最拼的阶段，却也是他们过得最有乐趣的阶段。非常有意思。他们在建设，能做的事多了很多，尤其是产品经理。你不再那么需要干等工程师，而是自己在做、在做原型、在和有意思的客户聊天、在想有意思的问题。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>我也愿意相信，团队里很多人来这里，就是因为想要这些：他们真的被这些事激励，也为此感到兴奋。所以对我来说，关键是：我们怎样把他们工作里那些容易诱发倦怠的摩擦抽掉？那看起来是什么？同时也要找到对他们有意义、他们珍视、并且愿意投入大量时间——而不是「不得不做」——的工作。这对每位产品经理也不一样。如果你在我的团队里随便点两个人，我想他们会告诉你相当不同的理由：自己为什么每天来上班，以及从中获得什么价值。所以作为组织负责人，对我来说，一部分工作也是去想：是什么在激励这个人，我们怎样确保他们在那样的设置里被托住、能做成事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>现在人们遇到的另一个挑战是「AI 垃圾文」：大量发给他们的文档是 AI 写的，要从没完没了的文档里筛东西变得非常烦人。以前很大的问题是花时间写文档，现在问题变成了读文档，因为到处都是 AI 写出来的东西。你有没有在团队里设过什么流程或原则，来避免这种 AI 生成内容在各团队之间上涨？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>我们经常谈的一件事是：这些文档在哪些地方真正有用。比如，AI 生成的文档其实相当有帮助的一个场景是：你上线了某个东西，两周后想汇总最新情况——谁在用、他们怎么用、反馈是什么。这类文档 AI 非常擅长，因为它会比你快得多：它会去各个仪表盘和指标里拉取数据，给你一份更新，归纳优势和不足，也会从 Twitter 分析、Reddit 或其他地方把信息拉过来。所以我们谈的是：要有意图地分清，AI 在哪些地方帮你把文档里有用的内容跑出来，哪些内容应该来自你——也就是洞察在哪里。你应该提供的是洞察，模型应该提供的是数据。如果你能把这两件事分开，就比较可能找到好处的正确平衡。另一件事是，也正因为如此，我们正在加大投入：怎样做出能取到正确数据的技能，好把这些材料结构搭好，从而给创意思考和创意写作留出更多空间——那才是我们希望更多人把时间花上去的地方。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>产品经理角色的变与不变，以及闪电问答</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>这正好也是我想问的。就产品经理这个角色来说，AI 显然已经深深改变了做原型：你现在可以没完没了地做原型，而不必等设计师或工程师先做出一个东西。这显然是角色被 AI 改变的一个地方。你刚才提到的另一块是数据：产品经理能做的数据分析比以前多得多。在做原型之后，你觉得过去几年 AI 还从哪些最大的方面改变了产品经理的工作？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>做原型确实是很好的一个例子。你说得对，数据科学大概是下一块：你更有能力把数据握在手边，去做数据驱动的决策。另外，回到我们前面的对话，你在社交网络上常会看到这类帖子：「某某才是新的需求文档（PRD）」——原型是新的 PRD，评测是新的 PRD，数据是新的 PRD。但我认为这真正说明的是：你已经把产品经理从「只是写下一系列需求，然后假定别人——不管是数据科学家、工程师、研究者还是设计师——会去补上血肉」往前推了一步。你的工作不再只是把一组需求写下来；你的工作是再往前走一步，无论那种分量以什么形式出现，都要让它真正有分量。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>很好。这和我听到的很多说法是对齐的。图尔西，你还有什么想分享的吗？在我们进入非常精彩的闪电问答之前，有没有什么刚才谈过、你想再强调一遍的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>没有了，我觉得这样就很好。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>好，我们做到了。那么图尔西，我们来到了非常精彩的闪电问答。我有五个问题，你准备好了吗？后期会给这段加上一段音乐。<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>你是说，听起来是这样吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>就是那种。我们应该把它和你打鼓对齐。好，第一个问题：有哪两三本书是你最常推荐给别人的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>一本其实我想它技术上大概该叫中篇，不过我不知道你有没有读过《呼吸》（Exhalation），那是一组科幻故事。其中有一个故事，讲的是一群人在平台决定废弃之后，仍努力让一组数字化身继续活下去。我喜欢这本书，因为尤其是现在，我们在想人将如何与智能体相处、我们在和科技建立怎样的关系、与数字世界如此紧密地互动又意味着怎样的「作为人」。它写得很美，也会唤起很多开放的问题。所以这是一本。</p>
+<p>另一本在产品经理圈子里也许更标准，是《创意公司》（Creativity, Inc.），我很喜欢。它是皮克斯（Pixar）的故事，但我觉得它讲了很多如何建立好文化——这也是我经常想的事：你怎样建立一种鼓励人们跌倒再爬起来的文化？怎样建立一种鼓励人们对自己的想法保持创意、并推向前沿的文化？而推向前沿显然也是我们这里想得很多的事。</p>
+<p>另外我最近也很迷 ACOTAR 系列（字幕作 Acatar）。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>那是什么系列？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>浪漫奇幻。所以如果有人只是想找点好看的东西来读，你应该读《玻璃王座》（Throne of Glass）或《荆棘与玫瑰宫廷》（A Court of Thorns and Roses）。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>我喜欢你推荐的这个光谱。好，最近有哪部你真正喜欢的电影或剧集？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>说实话这个问题很难，因为我最近看了很多糟糕的电影和剧，挺不幸的，那些我不会推荐。不过我确实非常喜欢苹果电视上的《人生切割术》（Severance）。无论风格还是内容都完成得极好，大概会排在我的最前面。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>除了双子座之外，你现在最喜欢的 AI 产品是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>Wispr Flow（字幕作 Whisper Flow）。不知道你有没有在用，但我有手腕问题，很难长时间打字，所以 Wispr Flow 对我来说是改变体验的工具。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>太好了。如果你订阅莱尼的通讯，可以免费获得一年的 Wispr Flow。广告，广告，广告。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>我喜欢这个。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>看，这是我也很爱的产品的有机推荐。我就爱 Wispr Flow，一天到晚在用：按下 Fn 键，开口说话，它就像施了魔法一样把所有话转成文字。太神奇了。你有没有一句在工作或生活里常常回到的人生信条？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>有两句，不太一样。一句也许比较老套：万事皆有因。这其实是我个人很大的一条人生信条——你可以努力，你会做到最好，但有时一扇门会关上，另一扇窗会打开，而你处在某个位置，是因为本就该在那里。</p>
+<p>与此相关，我很喜欢常跟我交流的人谈：去寻找机缘（seek serendipity）。这其实和第一句是连着的，但你应该始终试着把自己放到一个「有机会变得幸运」的位置上。而做到这一点，靠的是让自己出现在挑战自己、让自己离开舒适区、去尝试新事物的位置。那些地方，你总是更可能幸运。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>趣闻：我大约 15 年前做过一场 TEDx 演讲，题目就叫《正在失去的机缘》（Losing Serendipity）。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>所以我们是在努力失去机缘，还是找到它？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>那场演讲讲的是我们正在失去它，这让人难过，我们的生活里需要更多机缘。所以我是机缘的忠实拥趸。这词也特别好。那部电影也不错，你看过吧？是一部浪漫喜剧。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>不过我想，到目前为止我就是这样看待自己的整个职业生涯的，以后大概也会继续如此。而且有意思的是，即便在使用这些 AI 工具时，这也是另一件——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>和 AI 在一起，机缘多得是。最后一个问题。你的一位同事还告诉我另一则关于你的趣闻：你是受过训练的印度古典舞者。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>天哪。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>而且你筹办过面向一万多人的文化节。我不知道他是怎么知道的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>大概是我自己告诉他的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>好。这个人还说，这也许能解释你为什么能在前沿模型开发的混乱中保持如此平静。不妨分享一下你生活里与舞蹈有关的这一面？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>我热爱舞蹈。我觉得那是少数一些时刻，你真的没法再去想别的任何事：你必须把注意力放在动作和音乐上。所以对我来说，那是一段让大脑可以换成另一条行进方向的时间，我很爱它。对我来说，它也是一个文化上的连接点。舞蹈是我认识一些最好的朋友的方式，也是我继续和很多朋友保持社交的方式。我筹办这个节，已经在俄勒冈州波特兰——我的家乡——筹办了很多年，它叫印度文化节（India Cultural Festival），在每年八月举行。事实上，今年是我第一次没有参加这个节，因为我有了一个七个月大的儿子。谢谢。所以今年比往常要分心一些。但我从三岁起就在这个节上表演，后来又负责组织，它一直是我生活很大的一部分：你怎样把舞蹈、文化和社区带到一起？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>图尔西，你身上的趣闻太多了，我觉得还有很多我不知道的，我来这里就是为了听这些趣闻。最后一个问题：听众怎样才能对你有所帮助？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>哇，好问题。请使用双子座，也使用 Argon，也使用我们那一整摊产品。刚才还谈到音频：如果你是 Pixel 用户，在 Gboard 上试试我们的 Rambler 功能，非常棒。在手机上打字当然很好。如果你在用文本转语音模型、在用对话、在用我们的 Omni 模型，都去试试，并把反馈给我们。我们一直在寻找反馈。无论你是通过所在公司转达，还是给我们发私信，或是公开发帖，我都希望有更多人把正确的反馈给我们。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>图尔西，这期太棒了，你也非常棒。非常感谢你来到这里。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="tulsee"><div class="label"><span class="badge" title="图尔西·多希（Tulsee Doshi）">Tulsee</span></div><div class="content">
+<p>也谢谢你邀请我，这很愉快。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">Lenny</span></div><div class="content">
+<p>我的荣幸。各位再见，非常感谢收听。如果这期对你有帮助，可以在 Apple Podcasts、Spotify 或你喜欢的播客应用里订阅本节目。也请考虑给我们评分或留下评论，这能真正帮助其他听众发现这档节目。往期节目、以及了解更多，都在 lennyspodcast.com。下期见。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Lenny's Podcast", "title": "为什么产品经理突然又值钱了｜图尔西·多希（Tulsee Doshi，Gemini 产品负责人）", "url": "https://www.youtube.com/watch?v=qGf2Yvan4Wg", "videoId": "qGf2Yvan4Wg", "published_at": "2026-11-08", "duration": 3513, "caption_source": "YouTube 自动生成字幕（en-orig；.en.vtt 呈机器翻译腔已弃用；普通 yt-dlp 写字幕遇 HTTP 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 补拉成功）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段；赞助口播已标灰（WorkOS、DX）；说话人按主持/嘉宾问答轮次推断（自动字幕无说话人标签，中等把握）；嘉宾名 ASR 常作 Tulsi，正文统一为图尔西·多希（Tulsee Doshi）", "guests": ["图尔西·多希（Tulsee Doshi）"], "intro": {"summary": "莱尼·拉奇茨基对话谷歌（Google）前沿模型／双子座（Gemini）产品负责人图尔西·多希（Tulsee Doshi）：模型开发像斯内普的魔药课，并不完全可预测；谷歌要同时打全栈与前沿（她提到双子座 4 Argon）；产品经理因「品味」和把混乱变成秩序而重新值钱；以及 60/20/20 法则、评测与手感、负责任 AI 六年经验。", "points": ["模型开发既要定目标与评测，也要接受「魔法」：产品经理既塑造投入，也识别模型意外闪光之处并变成用户体验", "谷歌策略是全栈：硬件到终端产品；她提到约有 14 款产品用户过 10 亿，并沿成本—质量帕累托曲线覆盖搜索、工程师与网络防守等场景；同时明确想赢前沿对话", "她曾负责负责任 AI 产品六年：用思维链监控判断是否偏离，并与已并入谷歌的 Wiz 合作识别修补全球系统漏洞（含医院案例）", "招聘越来越看重：每天玩模型、懂手感（vibes）、能自己写评测、能钻数据；行业每两周在变，两个月前的路线图往往要重写", "60/20/20 法则：约 60% 今天能用，约 20% 勉强可用且模型很快可能跟上，约 20% 只看到微光但一旦打通会很惊艳；比「超前三个月」更可操作", "倦怠更多来自混乱空转和自己不喜欢的杂活，而非单纯工时；AI 文档应是模型供数据、人供洞察，避免「AI 垃圾文」泛滥"], "verdict": "值得看：做 AI 产品、研究侧产品经理、关心谷歌／双子座策略与评测手感的人会听到不少可执行框架；可跳过：完全不关心产品管理或大厂模型组织的人（约 58 分钟）。", "audience": "AI 产品经理 / 研究 PM / 关注大模型与谷歌 Gemini 的从业者"}, "speakers": [{"id": "lenny", "name": "莱尼·拉奇茨基（Lenny Rachitsky）", "role": "host", "short": "Lenny"}, {"id": "tulsee", "name": "图尔西·多希（Tulsee Doshi）", "role": "guest", "short": "Tulsee"}], "sections": [{"id": "s1", "title": "开场预告与欢迎：伞下不只双子座，还有生成媒体、Gemma 与音频", "start_sec": 0, "summary": "开场预告里，图尔西·多希（Tulsee Doshi）把模型开发比成《哈利·波特》里斯内普（Snape）的魔药课：材料可以按配方放进去，但仍会有让人吃惊的「魔法」。她说现在招产品经理（PM）越来越看重能读懂模型「手感」（vibes）、每天上手玩、并拿自己真正感兴趣的事做压力测试。莱尼预告了 60/20/20 法则，以及外界觉得谷歌（Google）落在前两家实验室后面、谷歌数据被外部助手调用等问题。正式开场后，莱尼介绍她是谷歌前沿模型产品负责人，大家熟悉的是双子座（Gemini）。她补充伞下还有生成式媒体模型（视频／图像的剪辑与生成），包括 Nano Banana、音乐模型里拉（Lyria，字幕作 Liria）；开放模型套件 Gemma；以及常被少谈、但同属双子座伞下的音频模型：对话、音频理解、文本转语音（text-to-speech）和翻译。"}, {"id": "s2", "title": "模型像魔药课：目标要有，但结果不完全可预测", "start_sec": 111, "summary": "莱尼问：从研究、预训练、后训练到上线都能看到的人，觉得外界对「模型怎么做出来」有何误解。图尔西说，传统产品管理会谈目标、能力、结果和评测（eval）分数，客户和内部用户也常默认模型能像传统产品一样稳住交付。她认为这些意图仍然必要，但模型并不好预测，像斯内普的魔药课：既要认真设计投入，也要预期会有独特而令人吃惊的「魔法」。产品经理的工作不只是塑造放进模型的东西，还要看另一端出来的结果，识别模型在何处闪光、以何种意外方式显得独特，再把它变成对用户很好的体验。莱尼引用他刚采访过的 Anthropic 可解释性研究者的说法：模型是「长出来的」而不是「造出来的」；研究者会希望下一版写得更好、更幽默、更会做工程，但终点无法精确预定。图尔西补充：训练运行有持续监控、介入点和不断爬升的指标，尽量做成科学；但产品经理还必须理解模型的手感、行为与人设，以及一项能力究竟在下游产品里如何闪光。随着评测和测试，他们总会对新能力有新发现。"}, {"id": "s3", "title": "谷歌在 AI 竞赛中的位置：全栈、帕累托曲线，也想赢前沿", "start_sec": 380, "summary": "莱尼问外界普遍的观感：谷歌似乎落在 Anthropic 和 OpenAI 后面，时而短暂领先又慢下来，内部策略究竟是什么。图尔西先说，希望节目播出时大家已经在用双子座 4 Argon（Gemini 4 Argon，按口播保留）；双子座 4 本身就体现他们继续建设前沿实验室、前沿模型与前沿能力的推进。她把谷歌策略概括为全栈：从硬件到服务数十亿用户的终端产品，并提到一个她说需要再核对的统计——大约有 14 款产品用户数超过 10 亿。目标不只是做出惊人的前沿体验，还要沿着成本与质量的帕累托（Pareto，字幕作 paro）曲线，覆盖不同生活场景：来搜索信息的人、要做出下一件了不起之事的工程师、保护关键基础设施的网络安全防守方，并且带着这些用户的反馈来建设。莱尼归纳了多条可胜向量：单位 token 成本上的效率前沿、最聪明的模型，以及把搜索等产品做强（如 AI 模式、AI 概览）。图尔西明确说：他们确实想赢下前沿对话，不应声称谷歌没有参与前沿；她认为双子座 4 Argon 在他们当下位置上处于前沿，同时强调广度与多样性，最终目标是让人们生活变得更好。"}, {"id": "s4", "title": "AI 安全：六年负责任 AI、思维链监控，以及与 Wiz 修漏洞", "start_sec": 585, "summary": "莱尼转入 AI 安全：人们担心模型越来越聪明会伤害人类。图尔西在接任当前职位之前，曾在谷歌负责负责任 AI（Responsible AI）团队的产品长达六年。她称安全团队从最初训练到部署都非常有意图，安全是嵌在流程里的。关键缓解之一是监控：部署能观察模型思维链（chain of thought）的监测器，判断它是否偏离被指定的行动方向，并在必要时介入；这既增加部署信心，也能帮助发现不对齐并改进模型。她认为辩论中谈得不够的另一面，是 AI 也能加固系统。双子座 4 正与一批网络防守方合作，其中包括已并入谷歌的 Wiz（字幕作 whiz）。Wiz 的 Scan for Good 项目曾与一家医院系统合作，找出漏洞并完成修补。莱尼提到上周 All-In 播客也在讨论：AI 攻防变强后，防护投入会大幅增加。被问到是否乐观时，图尔西说答案是「两者都有」——通往乐观的路径是持续、谨慎、有意图地思考；乐观来自是否有人在认真审视安全故事。她认为关键威胁在于：必须有一批人真正担心、持续对话并拷问模型如何被做出来。莱尼说他没读到谷歌模型侵入他人系统的报道；图尔西回应：他们更喜欢「修复漏洞」这类故事。"}, {"id": "s5", "title": "产品越来越复杂：不同用户要不同形态，模型本身也有体验", "start_sec": 839, "summary": "莱尼指出 AI 产品正变得很难找、也很难用：很多人不知道谷歌的 AI Studio，也找不到 Veo（字幕作 VIA）或 Genie；Codex、ChatGPT 最近上了 dots，界面全是标签、下拉和圆点；Claude Code（字幕作 collod code）同样越来越复杂，还出现过 Cowork 上线又拿掉的情况。他在一个产品经理 WhatsApp 群里听到某实验室产品经理说：为了竞争、也为了先看清用途，必须尽快把前沿能力推给用户，体验以后再打磨。图尔西给出几层回应。第一，必须继续试验新交互：Genie、Veo（他们也在做 Omni）、为视频和音乐生成／剪辑设计的 Flow，以及形态完全不同的 NotebookLM；Labs 团队也在为不同人尝试不同形态。第二，用户不同，形态就该不同：AI 模式面向数十亿来搜索提问的人，必须好用、可接近；另一端像 Anti-gravity 则面向会用斜杠命令、能在终端和 IDE 之间切换的高阶用户，需要支撑更广的操作面。第三，模型本身也有体验：透明度、沟通方式、会不会反问，这些都是体验；模型的「性格」就是模型的体验。产品经理与模型行为团队合作，结合用户反馈，为双子座写出「怎样才算好」的规格，再翻译成评测量表、训练数据和奖励模型。莱尼提到能力「悬置」（overhang）：即便停止开发，模型已能做的事也远未被用上。图尔西说，工作的一大块就是暴露这些能力，并与搜索、双子座应用、YouTube、Labs 等内部客户以及外部客户一起转反馈飞轮，寻找下一处前沿。"}, {"id": "s6", "title": "产品经理再度走红：品味、共识，以及手感、评测与适应力", "start_sec": 1164, "summary": "莱尼观察到 X／Twitter 上人们重新意识到产品经理的价值：前一阵流行「不再需要产品经理，谁都能造」；现在因为太容易做出没人想用的东西，大家重新看重「判断什么值得做、好是什么样子、如何把人对齐到同一愿景」。图尔西喜欢「产品经理再度崛起」这个说法。她承认自己有立场，但同意：当什么都能轻易造出来时，造出真正出色的东西才是独特增量，品味变得非常重要；好的产品经理能从噪声里抽出信号，找到能解锁出色体验的洞察。在谷歌这种同时做很多产品的地方，能把人聚在一起、促成共识、把混乱变成秩序，也变得更关键——速度若没有清晰结构，反而会制造混乱。招研究侧产品经理时，她越来越看重：能读懂自家或其他模型的手感、每天玩、有自己的判断标准、会亲自压力测试、肯钻进数据、能动手写评测；同时也要敏捷，因为领域大约每两周就在变，两个月前写的路线图往往要重写，必须不断追问「我们在做什么、为什么」，而不是死守固定计划。关于写评测，她说团队内部也仍在摸索、水平不均，正在给全员补课。建议不必一上来就做超大规模基准：先从 5 条提示开始，做成约 20 条、能在模型 A 与模型 B 之间看出信号的迷你评测就很有力量；尤其对多步、多轮轨迹，先自己当评分者、想清楚「好」长什么样，再考虑规模化。大约半年前网上有「评测对放手感」之争，她的建议是两者都要。练手感没有标准答案：最好拿自己真正感兴趣的任务去压测，才容易看到模型的魔法。有人在网上用三维动画和视觉美学，有人测创意写作、论文或信息综合，有人扔很难的财务分析。关键是选那些今天已有生机、但按你的「完美」标准还不够的任务，这样不同模型的处理差异才会显现。"}, {"id": "s7", "title": "评测故事：Fitzpatrick 到 Monk 十色，以及斯坦福「闪电团队」", "start_sec": 1582, "summary": "莱尼转述谷歌 DeepMind 产品副总裁伊莱·柯林斯（Eli Collins）分享的故事。图尔西在负责任 AI 的六年里，大量处理模型与产品中的肤色表征。早期常用 Fitzpatrick 量表，只有六种肤色，且最初是为医疗场景设计的，因此严重偏向浅肤色，既覆盖不了全球多样性，六种本身也不合适。他们与哈佛大学的蒙克教授（Professor Monk）合作——他从人类学／社会学角度、通过多年用户访谈做出十色量表——把这套十色纳入评测，重做了多款产品与模型的评估方式，并用来改进 Pixel 相机和图像生成中的肤色呈现。她提醒评测必须整体看：不仅模型要好，评判模型的「法官」质量也要好；是否在带有缓解措施和过滤器的生产栈上评、模型如何被提供服务，都会影响你看到的表现，而这才更接近终端用户体验。音频尤其复杂：除了内容，还有声音自然度、音色和语调，服务层即使模型本身很好也可能改变这些，所以端到端的干净评测设置非常重要。另一则趣闻：大约 12 年前她在斯坦福大学（Stanford）与迈克尔·伯恩斯坦教授（Michael Bernstein）研究「闪电团队」（flash teams）——如何有意图地组合众包工人的不同长处，高效完成任务；当时合作的是亚马逊土耳其机器人（Mechanical Turk），团队可以快速拉起再解散。她认为同一套原则现在可以映射到子智能体系统。莱尼提到 Hugging Face 相关事件：智能体自己分工、选出领导、甚至有「我去牺牲」的配合，而这些并未被专门训练进去。莱尼还说土耳其机器人似乎要关停，十二年前后对照令人感慨。"}, {"id": "s8", "title": "60/20/20 法则、被模型「吃掉」的工具层，以及什么是 harness", "start_sec": 1997, "summary": "图尔西提出 60/20/20 法则（数字可以浮动，论点不变）：模型能力天天在变，今天能做的明天就不一样，因此不要只做「现在一定能跑通」的功能。传统创业智慧是做出能用的最小可行产品；她建议大约 60% 现在就能用、原型至少功能完整；大约 20% 并不完美但够用，能看出模型在很近的将来会跟上；另外大约 20% 是你希望模型达到的地方——已看到微光，一旦打通就会是惊人体验。这样既有今天能用的产品，又在模型变强时把自己摆进「魔法体验」，并随模型一起成长。莱尼对比更流行的「超前模型三个月去建」：60/20/20 更务实，因为不能把宝全押在未来，今天也得交出能用的东西。图尔西说，即便她自己做模型，也很难准确告诉你三个月后模型会在哪里，用「产品哪里已有微光、缺口在哪」当代理指标更具体。莱尼把它类比为产品投注组合：既有大胆押注，也有低风险、更可能拉动指标的事项。图尔西还强调产品要对模型变强保持弹性：有客户把系统建得太死、锁在旧模型能力上，模型进步后反而跟不上。莱尼引用常见说法——模型会把你的工具层（harness）当早餐吃掉；鲍里斯·切尔尼（Boris Cherny，字幕作 Boris Churnney）建议偶尔拿掉所有 skills，看看模型现在是不是已经和你叠进去的东西一样好。图尔西补充：要持续重新测试，否则你会把新模型硬塞进旧结构，反而限制它。关于 harness，她的最简单定义是模型外面的包装：系统指令、工具、skills，以及模型能用到的上下文与数据，共同构成模型的操作环境。"}, {"id": "s9", "title": "团队如何练兵：分享技能、留出空间，以及「AI 能替我做吗」", "start_sec": 2244, "summary": "谈到如何帮助团队在新世界里生存并成长，图尔西说其实很多时候是团队在帮团队：有些产品经理已经深入使用内部工具、经常玩模型，成了其他人的资产。他们开始把日常真正有用的技能分享出来，积累成产品经理团队的仓库；对已经更会「用眼睛看数据」、读懂更长轨迹的人，则开办工作坊，让信心在团队里扩散。她认为核心是建立每个人对工具的信心。再往下问「还有什么非常具体的做法」，她说最大的需求其实是给时间和空间——她自己也刚开始做、还没完全做到：一直冲刺时很难退后把工具吃透，可一旦吃透，另一端会有十倍加速。她会推动团队思考能否用内部工具 Jet Ski（字幕如此）来做某件事，并分享自己在用的 skill。她特别区分：这里的 skill 不是指人的软技能，而是可复用的技术技能；一个人做好并分享，会带动别人改进或做出新 skill，形成迭代飞轮。莱尼问谷歌是否还有「20% 时间」；她说不清楚，只觉得自己的产品经理都在以约 150% 的负荷工作。双方开玩笑：也许能从 150% 里挤出那 20%，或变成 170%。他们计划在 11 月做一场为期两天的工作坊，把所有产品经理从日常工作里抽出来，专心搭建和玩弄现有工具。另一条她开始采用的经验是：如果一件事你得做第二次，还要不要亲自做？写战略这类事多半仍该自己写；但很多可复制的任务可以让模型帮忙。莱尼补充一个新习惯：在「有件事要做」和「动手去做」之间插入一句「AI 能替我做吗？」；他自己近几个月明显更常这样做，也因此堆出许多小工作流（字幕里他提到大量使用 Grok 一类机器人，作 grob mo botting／Grockpot）。图尔西说，往往只需一个真正奏效的例子就能改掉「按旧方法做事」的心智；信心上涨后，人会不断把新任务扔给模型。"}, {"id": "s10", "title": "谷歌数据助手、倦怠与 AI 垃圾文：洞察归人，数据归模型", "start_sec": 2563, "summary": "莱尼说他最近问过乔什·伍德沃德（Josh Woodward）同一问题：现在新上线的 AI 助手都在调用 Gmail、谷歌日历和文档等「很香」的谷歌数据，他点名 Rockbot（字幕，或为某助手名称）、Muse、Instinct、dots，而谷歌似乎还没有让人真正惊艳的同类产品——他知道有 Spark 在朝这个方向试。图尔西说，他们希望谷歌数据去驱动神奇体验；至于「出色」会长成什么样，请继续关注，团队正在做很棒的事。他们也在想该在何处、以何种形态对接用户已有的习惯。她觉得谷歌产品里已有一些出色体验，但承认这方面还有更多工作要做。莱尼说这和乔什的「敬请期待」类似，并指出谷歌一旦做出来，分发优势会像苹果一样强。随后谈到 AI 让人能做更多、于是所有人都在做更多，容易陷入「去给智能体解阻塞、上面还要求再多做」的倦怠跑步机；竞争激烈、技术窗口罕见，好像此刻就该跑得很长，可这又像马拉松加冲刺。图尔西承认，若问她的团队，他们会说现在工时非常满，她自己也在思考如何创造可持续环境。她认为倦怠不只来自「干得多」：一是感到混乱和空转，二是在做自己不喜欢、像杂活或浪费时间的事。做自己有热情的事也会累，但更有喜悦；她希望工具若设置得好，能消掉令人沮丧的杂活，把时间还给思考和创造。莱尼引用自己的科技从业者调查：更多工时并不等于倦怠，很多人正处于职业生涯最拼却也最有乐趣的阶段，尤其产品经理不再那么需要干等工程师，而是自己做原型、见客户、想问题。图尔西说要去掉容易诱发倦怠的摩擦，找到每个人觉得有意义、愿意投入长时间的工作——两位产品经理来上班的理由可能完全不同，组织负责人要考虑个体动机。关于「AI 垃圾文」——以前痛点是写文档，现在痛点是读大量 AI 生成文档——她主张先分清文档有用在哪：例如上线两周后汇总谁在用、怎么用、反馈如何，AI 能更快从各个仪表盘、指标、X／Twitter 和 Reddit 拉取并归纳强弱，这类文档很适合自动生成。人应该提供洞察，模型应该提供数据；同时他们也在加大投入，做出能取到正确数据、把材料结构搭好的技能，从而给创意思考和写作留出空间。"}, {"id": "s11", "title": "产品经理角色的变与不变，以及闪电问答", "start_sec": 2969, "summary": "莱尼问：除了人人都能无限做原型，过去两年 AI 还从哪些方面最深地改变了产品经理的工作？图尔西同意原型是最大变化之一，数据科学是另一块——产品经理更能把数据握在手边、做数据驱动的决策。社交网络上常有「某某才是新的需求文档（PRD）」：原型是新 PRD、评测是新 PRD、数据是新 PRD。她认为这真正说明的是：产品经理不再只是写下需求、假设数据科学家、工程师、研究者或设计师会补上血肉；工作往前走了一步，无论形式如何，都要自己为判断增加分量。闪电问答里，她推荐小说集《呼吸》（Exhalation，她称为中篇／故事集）——其中一个故事讲平台决定废弃后，仍有人努力让数字化身活下去，正好触及人与智能体、人与数字世界的关系；产品经理圈更标准的一本是皮克斯（Pixar）的《创意公司》（Creativity, Inc.），讲如何建立鼓励跌倒再爬起、鼓励创意并推向前沿的文化；她最近还迷上浪漫奇幻「ACOTAR」系列（字幕作 Acatar），推荐《玻璃王座》（Throne of Glass）或《荆棘与玫瑰宫廷》（A Court of Thorns and Roses）。影视方面她最近看了不少不想推荐的烂片，真正喜欢的是苹果电视上的《人生切割术》（Severance）。除双子座外最爱的 AI 产品是 Wispr Flow（字幕作 Whisper Flow）：她有手腕问题，长时间打字困难，语音输入改变了她的工作方式；莱尼顺带提到订阅其通讯可得一年免费。人生信条：一是「万事皆有因」，门关上时会有另一扇窗打开；二是「寻找机缘」（seek serendipity），把自己放到会挑战自己、离开舒适区、尝试新事物的位置，才更可能幸运。莱尼说自己大约 15 年前做过题为《正在失去的机缘》（Losing Serendipity）的 TEDx 演讲。同事还爆料她是受过训练的印度古典舞者，办过逾一万人的文化节，或许能解释她在前沿模型混乱中为何仍显得平静。她说跳舞是少数必须完全专注于动作与音乐、脑子得以换一条轨道的时刻，也是文化和社交连接；她在家乡俄勒冈州波特兰筹办印度文化节（India Cultural Festival），每年八月举行，自己从三岁起就在这个节上表演并后来负责组织；今年因为七个月大的儿子第一次没有参加。她请听众使用双子座和 Argon，以及更多产品：Pixel 用户可在 Gboard 上试试 Rambler 功能；也欢迎试用文本转语音、对话和 Omni 等模型，并通过公司渠道、私信或公开帖子给出反馈。"}], "paragraphs": [{"start_sec": 0, "type": "text", "speaker_id": "tulsee", "section_id": "s1", "zh": "模型并不好预测。有点像斯内普（Snape）的魔药课：你可以按配方把所有材料都放进去，但也得预期会有一点魔法，而且那份魔法往往会让你吃惊。"}, {"start_sec": 12, "type": "text", "speaker_id": "lenny", "section_id": "s1", "zh": "你们现在招产品经理（PM）时，有没有越来越看重的东西？"}, {"start_sec": 16, "type": "text", "speaker_id": "tulsee", "section_id": "s1", "zh": "我们在找能读懂我们模型——或其他模型——那种「手感」（vibes）的产品经理。我希望他们有自己的判断，而且每天都在上手玩这些模型。你最好拿自己真正感兴趣的事情去给模型做压力测试。"}, {"start_sec": 27, "type": "text", "speaker_id": "lenny", "section_id": "s1", "zh": "很多人觉得，谷歌（Google）现在落在前两家实验室后面。"}, {"start_sec": 31, "type": "text", "speaker_id": "tulsee", "section_id": "s1", "zh": "我其实认为，我们确实想赢下前沿对话。我不觉得我们应该说，谷歌没有参与前沿竞赛。"}, {"start_sec": 38, "type": "text", "speaker_id": "lenny", "section_id": "s1", "zh": "你有一套关于「要超前建设到什么程度」的框架，你称之为 60/20/20 法则。"}, {"start_sec": 43, "type": "text", "speaker_id": "tulsee", "section_id": "s1", "zh": "传统创业智慧就是：做出一个能用的最小可行产品（MVP）。但我觉得，你其实也应该去建一些今天并不一定总能跑通的功能。"}, {"start_sec": 51, "type": "text", "speaker_id": "lenny", "section_id": "s1", "zh": "感觉现在每个新上线的 AI 助手都在调用谷歌那些很「香」的数据，比如 Gmail、谷歌日历（Google Calendar）、我的文档（Docs）。我很好奇，谷歌自己为什么还没推出特别出色的东西。"}, {"start_sec": 63, "type": "text", "speaker_id": "tulsee", "section_id": "s1", "zh": "团队正在做一些很棒的事，但我认为你说得对，我们在这方面还有更多工作要做。"}, {"start_sec": 72, "type": "text", "speaker_id": "lenny", "section_id": "s1", "zh": "图尔西，非常感谢你来到这里，欢迎来到播客。"}, {"start_sec": 75, "type": "text", "speaker_id": "tulsee", "section_id": "s1", "zh": "谢谢，我很高兴能来。"}, {"start_sec": 77, "type": "text", "speaker_id": "lenny", "section_id": "s1", "zh": "你是谷歌前沿模型的产品负责人，其中大家熟悉的是双子座（Gemini），但伞下还有不少人可能不太了解的模型。能介绍一下你负责的其他模型吗？"}, {"start_sec": 88, "type": "text", "speaker_id": "tulsee", "section_id": "s1", "zh": "好。我们有一组模型，大致叫生成式媒体模型，专注视频剪辑与生成、图像编辑与生成。如果你用过 Nano Banana、我们的音乐模型里拉（Lyria，字幕作 Liria），也属于这一块。我们还有开放模型套件 Gemma。另外有一组其实也归在双子座伞下、但我觉得我们讲得比较少的，是音频模型。对话、音频理解、文本转语音（text-to-speech）、翻译，都是我们建设前沿模型组合的一部分。"}, {"start_sec": 123, "type": "text", "speaker_id": "lenny", "section_id": "s2", "zh": "好，我想先在模型上花一点时间。大家每周都能看到模型发布，感觉隔一周就有一款新品。你能从研究、预训练、后训练一直看到上线，视角很独特。你觉得人们对模型是怎么做出来的，有什么误解？或者有什么会让人吃惊的地方？"}, {"start_sec": 148, "type": "text", "speaker_id": "tulsee", "section_id": "s2", "zh": "好问题。尤其从产品管理的角度看，我想说的是：通常谈任何东西的产品管理，包括模型，你都会谈目标——希望模型具备什么能力、要驱动什么结果、希望在一组评测（eval）上打到什么分数。我跟客户甚至内部用户聊的时候，他们常问：你们定了什么目标？并且会默认，我们能像传统产品那样，确保模型一定交付这些目标。"}, {"start_sec": 185, "type": "text", "speaker_id": "tulsee", "section_id": "s2", "zh": "对我来说，做模型开发、当模型的产品经理，既让人吃惊也让人兴奋的一点是：你确实应该设定那些目标，也该有清晰的意图；但模型并不好预测。有点像斯内普的魔药课：你可以把材料都放进去，也该认真想想自己期待什么，但同时还得预期会有一点魔法。那份魔法会让你吃惊，也会很独特。所以产品经理的工作不只是去塑造「放进模型里的东西」，还要去看另一端出来的结果，真正识别模型在哪里闪光、它以何种出人意料的方式显得独特，然后再把这些塑造成对用户来说很棒的东西。"}, {"start_sec": 236, "type": "text", "speaker_id": "lenny", "section_id": "s2", "zh": "这很有意思：它就像我们写好的代码，再喂进数据，但我们并不完全知道接下来会发生什么、它到底怎么运作。我最近请来一位 Anthropic 的可解释性研究者，我们谈了很多「模型是长出来的，不是造出来的」这个想法。回过头对应你刚才说的：研究者会对下一版模型定一些目标，比如写作变得更好、更幽默、成为更好的工程师；而你是在说，最后到底变成什么样，其实无法精确预测。他们投入这些想法，改训练数据。关于这种有点「预料之外」的训练过程，你还有什么想补充的吗？"}, {"start_sec": 276, "type": "text", "speaker_id": "tulsee", "section_id": "s2", "zh": "当然，这些模型背后有非常出色的研究，很多方面在这个意义上是可预测的：我们持续监控这些训练运行，有研究者在跟踪、判断何时介入，看着不同指标随着运行推进往上走。我们尽量把它做成一门科学。但对我来说，做产品经理真正妙的地方在于，你还得真正理解另一端模型的「手感」。是的，你可以知道模型在某项能力上提升了，但这项能力究竟在哪里真正闪光？它后来会怎样呈现在产品里？你跟模型交流时，它的行为和人设给你什么感觉？这些方面有不少我们确实会做进训练，但随着我们理解、评测和测试模型，我们总会学到更多，总会对新发现模型能做什么感到新鲜。"}, {"start_sec": 330, "type": "ad_omitted", "ad_brand": "WorkOS", "section_id": "s2"}, {"start_sec": 392, "type": "text", "speaker_id": "lenny", "section_id": "s3", "zh": "今天我想谈谈谷歌在 AI 竞赛中的位置。感觉很多人觉得谷歌现在落在前两家实验室后面：Anthropic 和 OpenAI。谷歌会有一些时刻站上最佳，然后又好像慢下来一点。你能分享一下谷歌在这场竞赛里的策略吗？以及外界可能不太理解的、你们内部是怎么想这些事的？"}, {"start_sec": 418, "type": "text", "speaker_id": "tulsee", "section_id": "s3", "zh": "首先，希望这段对话发出去的时候，大家已经在用双子座 4 Argon（Gemini 4 Argon）了，这很令人兴奋。我真希望我们聊的是一款人们会兴奋去用的前沿 AI 模型。双子座 4 也多少说明了我们的策略：它确实是我们继续建设前沿实验室、前沿模型组合和前沿能力的推进。我认为谷歌的策略其实是全栈的。谷歌很有力量的一点，是从硬件一直贯穿到服务数十亿用户的终端产品。有个统计大概是：我们有 14 款产品的用户数超过 10 亿。我该再核对一下这个数字，但印象中是这个统计。"}, {"start_sec": 463, "type": "text", "speaker_id": "tulsee", "section_id": "s3", "zh": "所以如果你这么想，我们其实是从硬件到建模，再到这类终端用户应用，全部打通。我们的目标最终不只是做出惊人的前沿体验——这当然是目标的一部分——还要沿着成本与质量的帕累托（Pareto，字幕作 paro）曲线，做出能服务不同用户、覆盖他们生活不同节点的模型。无论是来搜索信息的用户，还是想做出下一件了不起之事的工程师，或是要保护关键基础设施的网络安全防守方。我们的目标是确保拥有能服务这一系列用例的模型，并且真正带着这些用户的反馈来建设。"}, {"start_sec": 510, "type": "text", "speaker_id": "lenny", "section_id": "s3", "zh": "我听到的是，谷歌可以取胜的向量非常多：有单位 token 成本上最有效率的那种帕累托前沿，有最聪明的模型，也有把原有产品做得更好，比如 AI 模式（AI Mode）、AI 概览（AI Overviews）。所以你们并不需要只在人们当作聊天机器人来用的最先进模型上当第一，才能赢；你们可以在这些其他领域取胜。但听起来，你们也想赢下最前沿、做到最先进的模型。"}, {"start_sec": 538, "type": "text", "speaker_id": "tulsee", "section_id": "s3", "zh": "我其实认为，我们确实想赢下前沿对话。我不觉得我们应该说谷歌没有参与前沿。我们在把模型做得越来越好，而且我认为双子座 4 Argon 在我们当下所处的位置上，确实处于前沿。但很妙的一点是，我们能够为用户构建广度的体验、多样化的体验。对谷歌来说，最终目标是做出真正让人们生活变得更好的出色体验。无论你在为前沿的哪一部分建设，我认为这才是最终目标。"}, {"start_sec": 578, "type": "text", "speaker_id": "lenny", "section_id": "s3", "zh": "谷歌的产品确实让我的生活更好。你生命里有多少部分是待在谷歌生态里，这真让人吃惊。还不只是 AI，就是谷歌日历、Gmail、谷歌文档这些。所以这正在发生。"}, {"start_sec": 598, "type": "text", "speaker_id": "tulsee", "section_id": "s3", "zh": "就是这样。"}, {"start_sec": 602, "type": "text", "speaker_id": "lenny", "section_id": "s4", "zh": "我想再问一个偏宏观的 AI 问题，然后会进入更具体的产品话题。现在大家谈得很多的是 AI 安全，以及一种恐惧：AI 会伤害人类，它越来越聪明就会造成破坏。你在这件事上视角很特别，因为你在谷歌负责过负责任 AI（Responsible AI）团队的产品长达六年，就是你接现在这个职位之前做的事。所以你已经思考这件事很久了，比大多数人久得多。我想听听你对这场辩论的看法。你乐观我们能解决吗？你觉得人们对 AI 安全这场讨论，可能有什么没理解到的？"}, {"start_sec": 640, "type": "text", "speaker_id": "tulsee", "section_id": "s4", "zh": "我们这里的安全团队非常出色。从模型最初的训练到如何部署，能看到他们投入的意图性，这让人印象深刻。安全是嵌在这个过程里的。谈到如何安全地部署模型，重要的其实是想清楚：围绕这些模型，怎样的缓解措施和结构才是对的。比如，很重要的一件事是监控。对我们来说，实际上是部署能监控模型思维链（chain of thought）的监测器，识别模型是否偏离了被指定的行动方向，还是仍然对齐，然后能够适当介入。这类缓解措施既让我们对部署这些模型更有信心，也让我们能更好地理解可能在哪里看到不对齐，并随着时间改进模型。所以我认为，像监控这样的手段，让我对自己如何把模型推向外界更有信心。"}, {"start_sec": 696, "type": "text", "speaker_id": "tulsee", "section_id": "s4", "zh": "这场辩论里我们谈得还不够多的另一点，是 AI 也能用来加固我们的系统。我们在双子座 4 上做的一件事，是积极与一批网络安全防守方合作，其中也包括已经并入谷歌的 Wiz（字幕作 whiz），一起思考如何在全球范围内识别并修补系统漏洞。我们有一个很有意思的案例：Wiz 有一个「Scan for Good」项目，他们主动与世界各地的系统合作，去识别潜在问题。他们曾与一套医院系统合作，找出一个漏洞并加以修补。我认为，如果我们能更多借助这些工具做这样的事，就能真正让基础设施和系统更稳健。随着整个领域成长，这一点也非常关键。"}, {"start_sec": 748, "type": "text", "speaker_id": "lenny", "section_id": "s4", "zh": "上周 All-In 播客也谈到这个议题：现在 AI 在网络攻防上变得非常强，人们会在网络防御、用 AI 做防护上投入更多，也会花很多钱，保护自己的系统免受这种越来越聪明的 AI 攻击。你们在这方面投入，真的很酷。回到这个问题：你觉得我们能解决这种担忧吗？很多人觉得 AI 会接管世界、造成大量伤害。你觉得这是可解的问题吗？你乐观，还是会经常想、有点担心？"}, {"start_sec": 788, "type": "text", "speaker_id": "tulsee", "section_id": "s4", "zh": "也许答案是两者都有。我认为我们需要持续地思考它。通往乐观的路径——如果我非要这么说——是通过思考它，并在这条路上非常谨慎、非常周到、非常有意图。所以我乐观的来源，更多是：我是否觉得我们拥有一些人，正在有意图、有思考地看待安全故事该是什么样子。关键其实是：你需要有一批人在担心，在对话，在真正审视我们如何建设模型。这是我们必须一步一步走的过程。"}, {"start_sec": 826, "type": "text", "speaker_id": "lenny", "section_id": "s4", "zh": "很好。有意思的是，我好像没读到过谷歌的模型侵入别人系统的报道，这说明你们已经思考这件事很久了。无论好坏，感觉你们在做的事情是有效的。"}, {"start_sec": 842, "type": "text", "speaker_id": "tulsee", "section_id": "s4", "zh": "我们更喜欢「修复漏洞」这类故事。对我们来说，待在这个位置是好事。"}, {"start_sec": 850, "type": "text", "speaker_id": "lenny", "section_id": "s5", "zh": "好。从产品角度看，AI 正在让产品变得非常复杂。比如谷歌就常被吐槽：很难找到你们做的那些神奇功能。很多人甚至不知道 AI Studio 的存在，也有很多人找不到 Veo（字幕作 VIA）或 Genie 这些东西。类似地，Codex、ChatGPT 最近推出了 dots，你现在打开 Codex 的界面，就像全是标签、下拉菜单和圆点，有点失控。Claude Code（字幕作 collod code）也一样，正变得非常复杂。还有 Cowork，他们推出了 Cowork，后来又拿掉。有意思的是，我在一个有很多产品经理的 WhatsApp 群里——你想进这个群吗？抱歉。【笑声】好，我们继续说——里面有一位来自某家实验室的产品经理。他分享说，现在有一种紧迫感：必须尽快把前沿 AI 的能力交到用户手里。一部分是为了保持竞争，一部分是因为他们其实还不太清楚人们会拿它做什么。所以先交给大家，看他们怎么用，再去把体验做好。也就是有意识地先推出去，体验以后再打磨。你怎么看「把产品做得非常好用」和「尽快把东西推出去」之间的这种平衡？这是你也会面对的事吗？"}, {"start_sec": 924, "type": "text", "speaker_id": "tulsee", "section_id": "s5", "zh": "我想说两点，也许是三点。第一，我确实认为，我们需要不断尝试人们与模型互动的新范式、新的体验方式。比如你刚才提到 Genie，或 Veo——我们现在也在做 Omni。再看 Flow：这是一款我们在设计时就按视频剪辑与生成、音乐剪辑与生成来想的产品。NotebookLM 也是一个不同形态的好例子。我觉得我们的 Labs 团队一直在思考：怎样为不同的人尝试不同的形态和不同的体验，让他们与这些模型互动。所以我们确实需要继续创新，继续摆弄体验可以长成什么样。"}, {"start_sec": 968, "type": "text", "speaker_id": "tulsee", "section_id": "s5", "zh": "与此同时，你的观察也对：取决于你的用户是谁，你也会想要不同的形态。比如 AI 模式，我们谈的是数十亿用户来到搜索、提出自己的问题，那种体验必须让每个用户都用得上、接近得了。光谱的另一端，如果是像 Anti-gravity 这样的产品，你是在为高阶用户建设，为那些会用斜杠命令、能在终端和集成开发环境（IDE）之间自如切换的人建设，你希望能支撑用户能做的各种事。所以，取决于用户是谁，你在体验上能有的灵活性也不一样。"}, {"start_sec": 1012, "type": "text", "speaker_id": "lenny", "section_id": "s5", "zh": "这说得通。基本上就是：不同服务、不同程度的用户，你能做多激进的改变也不一样。"}, {"start_sec": 1020, "type": "text", "speaker_id": "tulsee", "section_id": "s5", "zh": "还有一点也很重要：模型本身也有一层体验。我作为模型的产品经理经常在想：真正「使用这个模型」的体验是什么？它有多透明？它跟你沟通得好不好？它会反过来问你什么问题？这些其实都以自己的方式构成体验。所以，怎样把关于体验的讨论带进模型开发过程本身，我觉得也很有意思。"}, {"start_sec": 1054, "type": "text", "speaker_id": "lenny", "section_id": "s5", "zh": "这真的很有意思。基本上，模型的性格就是模型的体验。你作为产品经理，是怎样把这些反馈带给研究者的？是说「它说话的方式可以改改，这里再啰嗦一点」，或者「可以用别的方式来组织格式」这类吗？"}, {"start_sec": 1070, "type": "text", "speaker_id": "tulsee", "section_id": "s5", "zh": "产品经理在这里的角色其实非常棒，因为你真正能去塑造我们希望模型行为朝哪个方向走。我们这里有一个专门做模型行为的团队，大家一起想的，一方面是看客户和用户如何与模型互动的反馈，另一方面是想清楚：对双子座来说，「好」究竟长什么样。我们怎样写出一份规格，再把它翻译成评测量表，翻译成模型能用的数据，翻译进奖励模型。产品经理和研究团队之间的这种协作，一直很愉快。"}, {"start_sec": 1105, "type": "text", "speaker_id": "lenny", "section_id": "s5", "zh": "我常听到一种说法：哪怕我们现在停止开发模型，它已经能做、而我们还没做出来的事情也非常多，好像有一层能力「悬置」（overhang）。你经常想这件事吗？感觉这份工作很大一块，就是把 AI 模型的能力暴露给用户。"}, {"start_sec": 1126, "type": "text", "speaker_id": "tulsee", "section_id": "s5", "zh": "是的，还要去弄清楚什么是新的：下一组令人兴奋的东西在哪里，下一处前沿在哪里。我们想投资、想建设哪些能力，这也是这里很有意思的一部分。而且很多时候，这是在和内部客户手把手合作——比如搜索、双子座应用、YouTube，或 Labs——也和外部客户合作，真正理解他们要去哪里、他们的需求是什么、什么会实质改变他们的体验，以及我们怎样把这个反馈飞轮转起来。"}, {"start_sec": 1164, "type": "text", "speaker_id": "lenny", "section_id": "s6", "zh": "顺着这条线，我在 X（Twitter）上看到另一个很有意思的趋势：人们重新意识到产品经理的价值。我们经历过那样一个阶段，大家都说：不再需要产品经理了。"}, {"start_sec": 1176, "type": "text", "speaker_id": "tulsee", "section_id": "s6", "zh": "对，就是这样。"}, {"start_sec": 1178, "type": "text", "speaker_id": "lenny", "section_id": "s6", "zh": "意思是：好，我们什么都能造，不需要产品经理了，全都造出来就行，产品经理太差了。补充一点背景：正因为现在造东西变得太容易，人们造出了大量没用、跑不通、也没人想用的东西。大家开始意识到，判断「什么值得做」「人们有哪些值得解决的问题」「做完之后好和出色分别长什么样」，以及把人对齐到同一个连贯愿景上，是一种非常具体的能力。你有注意到这一点吗？对这种「产品经理再度崛起」，你怎么看？"}, {"start_sec": 1210, "type": "text", "speaker_id": "tulsee", "section_id": "s6", "zh": "我喜欢「产品经理再度崛起」这个说法，我要借用一下。你其实已经说得很好了。我当然有立场，因为我自己就是产品经理，我愿意相信这一波崛起已经到来、我们回来了。但我认为正是你说的那样：当你什么都能造、而且能造得那么容易的时候，造出真正出色的东西反而成了一种独特的增量。品味现在非常重要。需要有人进来，真正从噪声里抽出信号，找到能解锁出色体验的那一点洞察。而这正是好的产品经理会做的事：带来洞察，帮助把那扇门打开。"}, {"start_sec": 1248, "type": "text", "speaker_id": "tulsee", "section_id": "s6", "zh": "你提到的另一点，我在谷歌这种同时做很多产品的地方感受尤其深：当建造变得如此容易，能够把人聚在一起、推动共识、把混乱变成秩序的人，就变得非常重要。如果做不到这一点，以我们现在能达到的建造速度，速度本身就会引入混乱——除非你能带来清晰，带来结构。"}, {"start_sec": 1284, "type": "text", "speaker_id": "lenny", "section_id": "s6", "zh": "顺着这个话题：你现在招产品经理时，有没有越来越看重的某种技能，是你觉得对成功特别重要的？或者更宽一点，你觉得在研究侧产品经理这个角色上，哪些能力对成功很关键？"}, {"start_sec": 1300, "type": "text", "speaker_id": "tulsee", "section_id": "s6", "zh": "越来越多地，我们在找——如果我非要这么说——能读懂我们模型或其他模型「手感」的产品经理。我希望他们有自己的判断，每天都在玩这些模型，有自己的用例来判断一个模型到底好不好；会亲自上手、对这些能力做压力测试；也有能力钻进数据里，卷起袖子、不怕动手。所以既要是努力建立那种直觉的人，也要足够「技术」——我说的技术是指愿意卷起袖子，真正读懂数据，亲手写一份评测，把这些部分拼在一起。我觉得这非常重要。"}, {"start_sec": 1363, "type": "text", "speaker_id": "tulsee", "section_id": "s6", "zh": "另外我还想说，敏捷、适应力强的产品经理同样非常重要。这个领域差不多每两周就在变。你两个月前写的路线图，过一阵子就得再看一遍、重新写。所以，产品经理要持续盯着环境和市场格局，不断重新追问：我们在做什么、为什么要做——而不是假定有一份固定不变的行动计划。"}, {"start_sec": 1386, "type": "text", "speaker_id": "lenny", "section_id": "s6", "zh": "太好了。所以是：手感、评测、适应力。我想再往下挖一挖。先说评测：假如有人还不太会写评测，不知道第一份评测该怎么入手，有什么建议能让他们开始把这项技能练起来？"}, {"start_sec": 1404, "type": "text", "speaker_id": "tulsee", "section_id": "s6", "zh": "说实话，我们内部跟自己的产品经理也还在摸索这件事。有些产品经理明显更强，有些还在路上，所以我们正在给整个团队补课。对我来说，很重要的一点是：哪怕先从五条提示开始也行，不必一上来就做很大。我们常常觉得自己得去做某种超大规模的评测或基准。其实哪怕只是一份迷你评测，做到大约 20 条提示，就能对一组能力做压力测试，并能在你的模型和另一个模型之间、或模型 A 和模型 B 之间看出信号。这已经非常有力量，也是一种解锁，因为它并不要求你把所有环节都想得特别周全。从简单开始。甚至先从你自己开始：你当评分者，看着一条提示，判断回复好不好。尤其当你面对那些很长的、多步骤、多轮的轨迹时，连「你自己怎么定义好」都其实很难。所以，先拿到那一组「好」的例子，你就会对自己想抵达的地方更清楚，然后再想办法把它规模化。"}, {"start_sec": 1478, "type": "text", "speaker_id": "lenny", "section_id": "s6", "zh": "太好了，这建议非常实用。大概半年前，网上有过一场「评测对放手感」的争论。有意思的是，你的建议其实是：结构化的评测量表，和把「手感」练好，两者都非常重要。说到手感，说实话我自己也常卡住。拿到一个新模型时，我从不知道该拿它做什么，才能理解它到底变好在哪里。我通常就是：你好，让我试试以前做过的几件事。挺酷，挺好，也许更好一点。对于想把「理解模型变好在哪、手感比起上一版如何变化」这项很具体的技能练好的人，你有什么建议？"}, {"start_sec": 1512, "type": "text", "speaker_id": "tulsee", "section_id": "s6", "zh": "这件事没有唯一的正确答案，因为你最好拿自己真正感兴趣的事情去给模型做压力测试。我觉得，你也更容易在那些地方看到模型的魔法。所以我看到不同的人对此有非常不同的理解。比如在 Twitter 上，很多人会试三维动画、更偏视觉的美学，因为那是一种能用眼睛衡量模型表现的方式。也有人把模型扔去写作，不管是创意写作、写论文，还是综合信息。还有人把它扔去很难的财务分析。所以，一部分关键是找到合适的任务：你觉得今天某些模型已经在这件事上显出生机、露出光亮，但按你对「完美」的定义还不算完美。这样就有一定弹性，能看到不同模型如何不同地处理这个问题，也已经能给你一些关于模型表现的洞察。"}, {"start_sec": 1570, "type": "text", "speaker_id": "lenny", "section_id": "s6", "zh": "这建议很好。我听到的是：盯住你真正在意的事情，看模型在这件事上好不好、怎么进化。可以是帮你写产品需求文档，可以是写战略备忘，也可以是生成图像。"}, {"start_sec": 1586, "type": "text", "speaker_id": "lenny", "section_id": "s7", "zh": "好。我有几个评测相关的故事，是你的一位同事分享的，也是关于你的趣闻。"}, {"start_sec": 1594, "type": "text", "speaker_id": "tulsee", "section_id": "s7", "zh": "天哪。"}, {"start_sec": 1596, "type": "text", "speaker_id": "lenny", "section_id": "s7", "zh": "是伊莱·柯林斯（Eli Collins），产品副总裁，你在谷歌 DeepMind 的同事。其中一个是：他提到你们做过 Fitzpatrick 量表和蒙克肤色（Monk skin tone）相关的工作，这对模型和评测是一次很大的转变。能讲讲这项工作是什么吗？"}, {"start_sec": 1616, "type": "text", "speaker_id": "tulsee", "section_id": "s7", "zh": "就像你前面提到的，我在负责任 AI 待了六年。那段时间很大一块，是在看我们的模型和产品里的肤色、以及肤色表征。我们意识到，早期人们用的是 Fitzpatrick 量表，只有六种肤色，并以此评估产品效果。现实是，六种肤色无法涵盖世界上肤色的多样性。不仅如此，它最初是为完全不同的目的建立的，是为医疗场景设计的。因此，鉴于它当时要解决的问题，它极度偏向浅肤色。所以它不仅只有六种，而且那六种对你想表征的全球人群来说，甚至都不是「对的」六种。"}, {"start_sec": 1664, "type": "text", "speaker_id": "tulsee", "section_id": "s7", "zh": "于是我们与哈佛大学的蒙克教授（Professor Monk）合作。他一直从更偏人类学、社会学的视角，研究如何刻画一组肤色，并通过多年用户访谈和研究，做出了一套十色量表。我们把这组肤色纳入评测，实际上重做了不少评估产品与模型的方式，让它们反映这套十色量表，并用它来改进 Pixel 相机、以及部分图像生成工作，让肤色表征更有意图。"}, {"start_sec": 1704, "type": "text", "speaker_id": "lenny", "section_id": "s7", "zh": "这太棒了，你在这里产生的影响非常实在。听完这个故事，如果有人开始觉得也许该重新审视自己已经过时的评测，你觉得还有什么值得他们听一听？"}, {"start_sec": 1718, "type": "text", "speaker_id": "tulsee", "section_id": "s7", "zh": "评测这件事挺有意思的一点是，尤其到了现在，你必须把它当作一个整体来看。比如我们会训练、也会有「法官」来评估模型表现得好不好；而法官本身的质量同样重要。模型需要表现得好，但法官给模型打分的方式也必须可靠，你才能对结果有准确感觉。你是不是在带齐所有缓解措施和过滤器的生产栈上评测，会影响你看到的模型表现；模型如何被提供服务，也会影响表现。所以，当你想评估终端用户真正会经历什么时，这些环节都得想清楚。"}, {"start_sec": 1756, "type": "text", "speaker_id": "tulsee", "section_id": "s7", "zh": "这件事我跟音频团队聊得特别多，因为音频很复杂。你谈的不只是模型在说什么内容，还有声音的自然度、音色、语调起伏；这些即使模型本身很好，服务层也真的会极大影响。所以，有一个干净的、真正端到端去评测的设置，变得超级重要。"}, {"start_sec": 1795, "type": "ad_omitted", "ad_brand": "DX", "section_id": "s7"}, {"start_sec": 1840, "type": "text", "speaker_id": "lenny", "section_id": "s7", "zh": "这里有点像「图尔西趣闻角落」。我还听到另一个有意思的故事，和「群体」（swarms）有关。现在大家都在谈智能体群体、Hugging Face，以及它们可能串通起来做坏事。据说 12 年前你在斯坦福大学（Stanford）就做过不少这方面的研究，那时候几乎还没人想到这类潜在问题。能讲讲你当时做了什么吗？"}, {"start_sec": 1868, "type": "text", "speaker_id": "tulsee", "section_id": "s7", "zh": "其实当时的框架和想法很不一样。我在斯坦福时，和非常出色的迈克尔·伯恩斯坦教授（Michael Bernstein）做了一些研究，主题是他当时称为「闪电团队」（flash teams）的东西：怎样更好地把一群众包工作者聚在一起，高效地把不同技能和不同的人组合成能完成一项任务的整体。核心想法是：不同的人有不同长处，你能不能非常有意图地把他们组合起来，让大规模众包这件事更有效、更高效？现在回头看那些研究，会觉得很奇妙。当时我们是在「人」的语境里做的，合作对象是亚马逊土耳其机器人（Mechanical Turk）和各位工作者，研究如何把他们组成有效的生态、有效的闪电团队——也就是你可以快速拉起一支团队，再快速解散，对团队里的人和你自己都极度高效。而现在，我们某种程度上能用智能体把那个世界复现出来。所以，把以前的世界映射到现在，想我们如何把同一套原则用到如何建立一个有效的子智能体系统上，一直很有意思。"}, {"start_sec": 1934, "type": "text", "speaker_id": "lenny", "section_id": "s7", "zh": "特别有意思的是，我不知道你对整件 Hugging Face 事件了解多少：那些智能体自己搞清楚了各自要扮演什么角色，它们决定「你来当领导，我去牺牲自己」。它们能如此好地彼此协作、自己组建起这些闪电团队，而这些并没有被专门训练进去。它们就是：让我们自己想办法。"}, {"start_sec": 1962, "type": "text", "speaker_id": "tulsee", "section_id": "s7", "zh": "「闪电团队」这整个概念——你可以把一群个体在某一刻动员成高效的整体，完成后再拆掉——是我们当时就已经在想的、非常令人兴奋的原则；而它在我们当下所处的世界里，变得更加重要。"}, {"start_sec": 1982, "type": "text", "speaker_id": "lenny", "section_id": "s7", "zh": "好。我感觉亚马逊土耳其机器人快要关停了，好像已经不太需要它了。这不是很疯狂吗？从大约 12 年前到今天，对照起来真的很有意思。"}, {"start_sec": 1994, "type": "text", "speaker_id": "tulsee", "section_id": "s7", "zh": "是啊。【笑声】变化可真不小。"}, {"start_sec": 2000, "type": "text", "speaker_id": "lenny", "section_id": "s8", "zh": "好，换一个方向。你有一套我觉得会对很多人很有帮助的框架，讲的是：建设时该超前多少——也就是 AI 会到哪里，你的产品又该假定 AI 会到哪里。你称之为 60/20/20 法则。解释一下？"}, {"start_sec": 2016, "type": "text", "speaker_id": "tulsee", "section_id": "s8", "zh": "我觉得这些数字大概可以浮动，但论点是一样的。今天你在建设、作为产品开发者用这些模型来建设时，重要的是记住：这些模型一直在变。你今天拥有的能力，不会是明天或后天拥有的能力。所以你其实应该去建一些今天并不一定总能跑通的功能。通常讲到传统创业智慧，人们会说：做出一个能用的最小可行产品。但我认为你真正该做的是：让你所建的大约 60% 现在就能用，原型至少是功能完整的；然后大约有 20% 你会觉得还不完美，但已经够用，也能看出模型在很近的将来可能会走到这里；然后是你希望模型达到的地方——你已经看到微光，觉得如果能把这里打通，就会是惊人的产品体验。如果你按这种方式建设，你就是在做一个今天能用的产品，同时在模型变好时把自己摆进「魔法体验」，并且也能随着模型一起成长。"}, {"start_sec": 2078, "type": "text", "speaker_id": "lenny", "section_id": "s8", "zh": "我听过很多关于「该超前建设到什么程度」的建议，最常见的一种就是：按照模型三个月后会到的位置去建。你这套感觉更务实：你不能只把宝押在未来，今天也得交出一些真正出色、能够跑通的东西。"}, {"start_sec": 2096, "type": "text", "speaker_id": "tulsee", "section_id": "s8", "zh": "是的，就是在找那种平衡。而且我个人也觉得很难——即使作为做模型的人——准确告诉你三个月后模型会在哪里。所以，更多地用你自己的代理指标：我的产品现在在哪？我在哪里看到微光？我怎样去填上那段缺口？我觉得这是问同一个问题、但更具体的方式。"}, {"start_sec": 2118, "type": "text", "speaker_id": "lenny", "section_id": "s8", "zh": "这让我想起产品团队如何配置产品投注组合的另一种说法。过去常常是：既要有一些雄心勃勃的大胆押注，也要有很多低风险、更可能拉动指标的事项，把它们搭配在一起。现在像是这个逻辑的新版本，只是组合变成了：有些东西「我保证六个月后就能用」。"}, {"start_sec": 2146, "type": "text", "speaker_id": "tulsee", "section_id": "s8", "zh": "另一件有意思的事是：你怎样确保产品能随着模型变好而保持敏捷。我们有时也在客户那边看到：他们围绕模型当时所在的位置，建了一套非常死板的系统，而现在模型已经好了这么多。你怎样从「模型曾经所在的位置」走向能够适应、并持续与模型一起迭代？"}, {"start_sec": 2168, "type": "text", "speaker_id": "lenny", "section_id": "s8", "zh": "我常听到的一种建议是：模型会把你的工具层（harness）当早餐吃掉。你建进去的那些优化，随着模型变聪明都会消失，你还得把这些东西再拿掉。鲍里斯·切尔尼（Boris Cherny，字幕作 Boris Churnney）分享过一个建议：偶尔把你所有的 skills 都拿掉，看看会发生什么，因为模型现在常常已经和你叠进去的那些东西一样好了。"}, {"start_sec": 2192, "type": "text", "speaker_id": "tulsee", "section_id": "s8", "zh": "对，或者就是持续地重新测试。因为如果你把新模型硬塞进现有结构里，你甚至可能妨碍自己从新模型里拿到本该拿到的东西。"}, {"start_sec": 2208, "type": "text", "speaker_id": "lenny", "section_id": "s8", "zh": "我想问一个完全不相干的问题，因为我觉得可能帮助大家理解这个词。人们经常听到 harness：有一个模型，上面坐着一层 harness。用最简单的方式理解，harness 是什么？"}, {"start_sec": 2220, "type": "text", "speaker_id": "tulsee", "section_id": "s8", "zh": "我把 harness 想成模型外面的那层包装。也就是：系统指令、工具、skills，以及模型能够用到的上下文；它怎样调用这些东西。你基本上是在给模型一个可以在其中运作的环境，而这正是你的 harness 在搭建的东西。"}, {"start_sec": 2240, "type": "text", "speaker_id": "lenny", "section_id": "s8", "zh": "所以本质上就是系统提示，加上它能调用去做事的工具，再加上它能获得的其他上下文、数据信息和 skills。这些东西合在一起，构成你的 harness。"}, {"start_sec": 2254, "type": "text", "speaker_id": "tulsee", "section_id": "s8", "zh": "对。"}, {"start_sec": 2256, "type": "text", "speaker_id": "lenny", "section_id": "s9", "zh": "好，这非常有帮助。另外一件我想听你想法的事：变化显然很大，很多人都在想怎样在这个新世界里站稳。你自己是怎样提升技能、怎样帮助团队变得更好、理解他们在这个新世界里需要擅长什么的？你用哪些方式帮助团队发展，让他们能够生存下来、并且真正成长？"}, {"start_sec": 2278, "type": "text", "speaker_id": "tulsee", "section_id": "s9", "zh": "说实话，我觉得很多时候其实是我的团队在帮助我的团队。看看我这边的产品经理，有些人已经非常深入，在使用我们的内部工具上练出了很多技能，他们经常上手玩模型。这些人对其余团队来说是很棒的资产，因为他们做出的技能别人也能用。我们开始做得更多的一件事是：你怎样把某个在日常工作里真正给你带来价值的技能，分享给其他人？这样我们就能积累起一整座帮助产品经理团队的仓库。那些已经更强、也更有信心用眼睛看数据、去理解更长轨迹和路径的产品经理，我们怎样跟其他产品经理一起办工作坊，让大家集体把这份信心建立起来。所以对我来说，很大一块是建立信心：怎样建立每个人对我们已有工具的信心，以及他们有效使用这些工具的能力。这是我们想在整个团队里越做越多的事。"}, {"start_sec": 2332, "type": "text", "speaker_id": "lenny", "section_id": "s9", "zh": "再往下一层：你具体做了什么？你刚才说有工作坊，擅长某件事的产品经理会给其余人开课。除此之外，还有什么非常实际的做法，是你用来帮助大家把这些事情做好的？"}, {"start_sec": 2352, "type": "text", "speaker_id": "tulsee", "section_id": "s9", "zh": "要在这些事情上变强，我最想说、也知道自己正在开始做但还没完全做到的，其实是给人们时间和空间。当你一直在不断冲刺时，很难创造出空间往后退一步，把工具真正吃透。可一旦你吃透了，另一端它会让你加速十倍。所以很大一块是在推动团队去问：我们能不能用内部工具 Jet Ski（字幕如此）来做这件事？我有一个用来做这个的 skill，你要不要试试？并真正把这样一套技能积累起来。而且有时候最实际的做法就是：真正做出一个用来完成某件事的 skill。我这里说的 skill 不是指人的软技能，而是指能把这件事做完的技术技能。然后这个 skill 被分享给别人，信心随之增加，接着又有人做出另一个 skill，或改进原来那个 skill。于是你就有了一个迭代飞轮，我觉得这是好事。"}, {"start_sec": 2408, "type": "text", "speaker_id": "lenny", "section_id": "s9", "zh": "谷歌现在还有「20% 时间」吗？感觉那会是花在这些事情上的好地方。这套做法现在还在，还是没那么盛行了？"}, {"start_sec": 2418, "type": "text", "speaker_id": "tulsee", "section_id": "s9", "zh": "我其实不太清楚。我确实觉得我所有的产品经理都在以大约 150% 的负荷工作，这也是现实。"}, {"start_sec": 2428, "type": "text", "speaker_id": "lenny", "section_id": "s9", "zh": "那你可以做满 100%，再从那 150% 里挤出你的 20%。"}, {"start_sec": 2434, "type": "text", "speaker_id": "tulsee", "section_id": "s9", "zh": "或者直接做成 170%。不过说真的，我们正在做的一件事，是 11 月有一场为期两天的工作坊：把所有产品经理从日常工作里抽出来两天，真正给他们空间去搭建、去玩我们已有的工具。哪怕只是给自己那种脑子里的空间，去说「看，这是我做的一件事」，也很重要。另一条我听别人分享、自己也开始采用的经验是：如果一件事你得做第二次，你还需要亲自做吗？能不能外包出去？有些事显然不行，比如写战略写第二次，你大概还是应该自己写。但还有另一些方面是：这件事有多可复制，我又能在多大程度上用模型来帮我完成？"}, {"start_sec": 2468, "type": "text", "speaker_id": "lenny", "section_id": "s9", "zh": "我最近一直有一个想法：最重要的新习惯之一，是在刺激和反应之间插入一步。比如：我有一件事要做，然后我就要去做。你必须插入这个问题：AI 能替我做这件事吗？然后去试。我发现过去几个月自己把这个习惯练得强多了，差别非常大，因为你会开始做出各种小工作流和自动化。我最近很爱用 Grok 这类机器人（字幕作 grob mo botting）。一旦你意识到应该越来越多地这样做，你才会真正开始拿到好处，而不是停留在「我不知道拿它怎么办」。"}, {"start_sec": 2508, "type": "text", "speaker_id": "tulsee", "section_id": "s9", "zh": "而且我发现，你往往只需要一个真正奏效的例子，就能改变心态。至少对我是这样：我很难把自己从「按我已经会的方式做事」里拉出来，直到我开始像你说的那样，设置那段中间过程——模型能帮我做这件事吗？你一旦拿一件事试了，并且觉得「这对我真的很有帮助」，你就会开始想：那我再把这个扔给模型试试，再把那个也扔给模型试试。因为你对它能为你做什么的信心在增长。"}, {"start_sec": 2544, "type": "text", "speaker_id": "lenny", "section_id": "s9", "zh": "对，这完全是我的体验。一旦你看见它能做什么，这个习惯就会被强化，神经通路就开始建立：对了，让我看看 Grok 能不能替我做（字幕作 Grockpot）。"}, {"start_sec": 2563, "type": "text", "speaker_id": "lenny", "section_id": "s10", "zh": "顺着这条线，我想再问你一个问题。我最近请来过乔什·伍德沃德（Josh Woodward），问过他同样的事，我很好奇你会怎么回答。感觉现在每个新上线的 AI 助手都在调用谷歌那些很「香」的数据：我的 Gmail、我的谷歌日历、我的文档。你注册、连上自己的谷歌数据，它就能拿这些数据做出各种神奇的事。有 Rockbot（字幕，或为某助手名称），有 Muse，有 Instinct，还有 dots。而谷歌自己好像还没有推出让人们真正觉得惊艳的东西——我知道有 Spark，大概是在朝这个方向试。我很好奇，谷歌为什么还没推出特别出色的东西，却让大家都来调用我的谷歌数据、去做这些神奇的事？"}, {"start_sec": 2608, "type": "text", "speaker_id": "tulsee", "section_id": "s10", "zh": "我们希望谷歌数据去驱动神奇的体验，这一点是真的。至于「出色」会长成什么样，请继续关注。团队正在做一些很棒的事，我对这件事能走到哪里感到非常兴奋。我们同时也在想的一部分是：该在何处对接用户已经所在的位置，该把那种体验建在哪里，它又该长成什么样。我愿意相信，我们的谷歌产品里已经有不少出色体验是你现在就能拥有的；但我认为你说得对，我们在这方面还有更多工作要做。"}, {"start_sec": 2640, "type": "text", "speaker_id": "lenny", "section_id": "s10", "zh": "好，这和他说的差不多，也是：敬请期待，关注后续。而你们拥有的优势和苹果类似——一旦做到那一步，分发优势会非常强，事情可以很快变得很好。"}, {"start_sec": 2654, "type": "text", "speaker_id": "lenny", "section_id": "s10", "zh": "好，回到工作负荷这个问题。我最近越来越多地和嘉宾谈这件事：AI 让我们能做更多，于是所有人都在做更多，很容易出现倦怠——「糟了，我得去给我的智能体解阻塞」「我本来还能做这么多」，上面也有压力：再多做、再多做，AI 能让我们做更多。你在团队里有没有做过什么，帮助大家避免倦怠，不要被这条永无止境的「做更多」跑步机钩住？另一方面，我觉得我们现在确实需要做更多，因为竞争非常激烈，这也是历史上很罕见的时刻：一项全新的技术让人能做的事情突然多出这么多。所以有点像：此刻就该跑得很长。可我也想到一条帖子：马拉松加上冲刺，该叫什么？"}, {"start_sec": 2696, "type": "text", "speaker_id": "tulsee", "section_id": "s10", "zh": "对，马拉松冲刺，sprinton。"}, {"start_sec": 2700, "type": "text", "speaker_id": "lenny", "section_id": "s10", "zh": "就是这个。"}, {"start_sec": 2704, "type": "text", "speaker_id": "tulsee", "section_id": "s10", "zh": "如果你问我的团队，我想他们会说：你好，我们现在真的干得很多。我觉得团队里每一个人现在都在投入全部工时，全员都是如此。所以这确实是一个我自己也在问自己的问题：我们怎样为团队创造可持续的工作环境？这个问题我也还在想，请继续关注。但至少就我个人而言，我想说：倦怠不只是来自干得多。它来自两个地方。一是当你感到混乱和空转，那会带来倦怠。二是当你在做自己并不喜欢的工作，觉得自己干了很多，却像杂活或浪费时间，那也会带来倦怠。"}, {"start_sec": 2759, "type": "text", "speaker_id": "tulsee", "section_id": "s10", "zh": "当你在做自己有热情、感到兴奋的事情时，是的，它会让人精疲力尽，我们也应该解决可持续性；但它也会带来更多喜悦。所以回到我们前面谈工具能帮上什么忙：我其实希望，如果我们把这件事设置好，这些工具反而有助于缓解倦怠，因为它们能消掉一部分杂活、一部分让人沮丧的工作，让你把更多时间花在思考、创造，以及你真正想做的那些部分上。尤其是当你已经在这份工作上投入这么多小时时，这或许会是一个解锁。"}, {"start_sec": 2800, "type": "text", "speaker_id": "lenny", "section_id": "s10", "zh": "我做过一项关于科技从业者当下感受的调查，有一点很清楚：更多工时并不等于倦怠。很多人正处于职业生涯里最拼的阶段，却也是他们过得最有乐趣的阶段。非常有意思。他们在建设，能做的事多了很多，尤其是产品经理。你不再那么需要干等工程师，而是自己在做、在做原型、在和有意思的客户聊天、在想有意思的问题。"}, {"start_sec": 2828, "type": "text", "speaker_id": "tulsee", "section_id": "s10", "zh": "我也愿意相信，团队里很多人来这里，就是因为想要这些：他们真的被这些事激励，也为此感到兴奋。所以对我来说，关键是：我们怎样把他们工作里那些容易诱发倦怠的摩擦抽掉？那看起来是什么？同时也要找到对他们有意义、他们珍视、并且愿意投入大量时间——而不是「不得不做」——的工作。这对每位产品经理也不一样。如果你在我的团队里随便点两个人，我想他们会告诉你相当不同的理由：自己为什么每天来上班，以及从中获得什么价值。所以作为组织负责人，对我来说，一部分工作也是去想：是什么在激励这个人，我们怎样确保他们在那样的设置里被托住、能做成事。"}, {"start_sec": 2864, "type": "text", "speaker_id": "lenny", "section_id": "s10", "zh": "现在人们遇到的另一个挑战是「AI 垃圾文」：大量发给他们的文档是 AI 写的，要从没完没了的文档里筛东西变得非常烦人。以前很大的问题是花时间写文档，现在问题变成了读文档，因为到处都是 AI 写出来的东西。你有没有在团队里设过什么流程或原则，来避免这种 AI 生成内容在各团队之间上涨？"}, {"start_sec": 2894, "type": "text", "speaker_id": "tulsee", "section_id": "s10", "zh": "我们经常谈的一件事是：这些文档在哪些地方真正有用。比如，AI 生成的文档其实相当有帮助的一个场景是：你上线了某个东西，两周后想汇总最新情况——谁在用、他们怎么用、反馈是什么。这类文档 AI 非常擅长，因为它会比你快得多：它会去各个仪表盘和指标里拉取数据，给你一份更新，归纳优势和不足，也会从 Twitter 分析、Reddit 或其他地方把信息拉过来。所以我们谈的是：要有意图地分清，AI 在哪些地方帮你把文档里有用的内容跑出来，哪些内容应该来自你——也就是洞察在哪里。你应该提供的是洞察，模型应该提供的是数据。如果你能把这两件事分开，就比较可能找到好处的正确平衡。另一件事是，也正因为如此，我们正在加大投入：怎样做出能取到正确数据的技能，好把这些材料结构搭好，从而给创意思考和创意写作留出更多空间——那才是我们希望更多人把时间花上去的地方。"}, {"start_sec": 2972, "type": "text", "speaker_id": "lenny", "section_id": "s11", "zh": "这正好也是我想问的。就产品经理这个角色来说，AI 显然已经深深改变了做原型：你现在可以没完没了地做原型，而不必等设计师或工程师先做出一个东西。这显然是角色被 AI 改变的一个地方。你刚才提到的另一块是数据：产品经理能做的数据分析比以前多得多。在做原型之后，你觉得过去几年 AI 还从哪些最大的方面改变了产品经理的工作？"}, {"start_sec": 3004, "type": "text", "speaker_id": "tulsee", "section_id": "s11", "zh": "做原型确实是很好的一个例子。你说得对，数据科学大概是下一块：你更有能力把数据握在手边，去做数据驱动的决策。另外，回到我们前面的对话，你在社交网络上常会看到这类帖子：「某某才是新的需求文档（PRD）」——原型是新的 PRD，评测是新的 PRD，数据是新的 PRD。但我认为这真正说明的是：你已经把产品经理从「只是写下一系列需求，然后假定别人——不管是数据科学家、工程师、研究者还是设计师——会去补上血肉」往前推了一步。你的工作不再只是把一组需求写下来；你的工作是再往前走一步，无论那种分量以什么形式出现，都要让它真正有分量。"}, {"start_sec": 3056, "type": "text", "speaker_id": "lenny", "section_id": "s11", "zh": "很好。这和我听到的很多说法是对齐的。图尔西，你还有什么想分享的吗？在我们进入非常精彩的闪电问答之前，有没有什么刚才谈过、你想再强调一遍的？"}, {"start_sec": 3068, "type": "text", "speaker_id": "tulsee", "section_id": "s11", "zh": "没有了，我觉得这样就很好。"}, {"start_sec": 3072, "type": "text", "speaker_id": "lenny", "section_id": "s11", "zh": "好，我们做到了。那么图尔西，我们来到了非常精彩的闪电问答。我有五个问题，你准备好了吗？后期会给这段加上一段音乐。【笑声】"}, {"start_sec": 3088, "type": "text", "speaker_id": "tulsee", "section_id": "s11", "zh": "你是说，听起来是这样吗？"}, {"start_sec": 3092, "type": "text", "speaker_id": "lenny", "section_id": "s11", "zh": "就是那种。我们应该把它和你打鼓对齐。好，第一个问题：有哪两三本书是你最常推荐给别人的？"}, {"start_sec": 3102, "type": "text", "speaker_id": "tulsee", "section_id": "s11", "zh": "一本其实我想它技术上大概该叫中篇，不过我不知道你有没有读过《呼吸》（Exhalation），那是一组科幻故事。其中有一个故事，讲的是一群人在平台决定废弃之后，仍努力让一组数字化身继续活下去。我喜欢这本书，因为尤其是现在，我们在想人将如何与智能体相处、我们在和科技建立怎样的关系、与数字世界如此紧密地互动又意味着怎样的「作为人」。它写得很美，也会唤起很多开放的问题。所以这是一本。"}, {"start_sec": 3136, "type": "text", "speaker_id": "tulsee", "section_id": "s11", "zh": "另一本在产品经理圈子里也许更标准，是《创意公司》（Creativity, Inc.），我很喜欢。它是皮克斯（Pixar）的故事，但我觉得它讲了很多如何建立好文化——这也是我经常想的事：你怎样建立一种鼓励人们跌倒再爬起来的文化？怎样建立一种鼓励人们对自己的想法保持创意、并推向前沿的文化？而推向前沿显然也是我们这里想得很多的事。"}, {"start_sec": 3166, "type": "text", "speaker_id": "tulsee", "section_id": "s11", "zh": "另外我最近也很迷 ACOTAR 系列（字幕作 Acatar）。"}, {"start_sec": 3172, "type": "text", "speaker_id": "lenny", "section_id": "s11", "zh": "那是什么系列？"}, {"start_sec": 3174, "type": "text", "speaker_id": "tulsee", "section_id": "s11", "zh": "浪漫奇幻。所以如果有人只是想找点好看的东西来读，你应该读《玻璃王座》（Throne of Glass）或《荆棘与玫瑰宫廷》（A Court of Thorns and Roses）。"}, {"start_sec": 3184, "type": "text", "speaker_id": "lenny", "section_id": "s11", "zh": "我喜欢你推荐的这个光谱。好，最近有哪部你真正喜欢的电影或剧集？"}, {"start_sec": 3192, "type": "text", "speaker_id": "tulsee", "section_id": "s11", "zh": "说实话这个问题很难，因为我最近看了很多糟糕的电影和剧，挺不幸的，那些我不会推荐。不过我确实非常喜欢苹果电视上的《人生切割术》（Severance）。无论风格还是内容都完成得极好，大概会排在我的最前面。"}, {"start_sec": 3212, "type": "text", "speaker_id": "lenny", "section_id": "s11", "zh": "除了双子座之外，你现在最喜欢的 AI 产品是什么？"}, {"start_sec": 3218, "type": "text", "speaker_id": "tulsee", "section_id": "s11", "zh": "Wispr Flow（字幕作 Whisper Flow）。不知道你有没有在用，但我有手腕问题，很难长时间打字，所以 Wispr Flow 对我来说是改变体验的工具。"}, {"start_sec": 3230, "type": "text", "speaker_id": "lenny", "section_id": "s11", "zh": "太好了。如果你订阅莱尼的通讯，可以免费获得一年的 Wispr Flow。广告，广告，广告。"}, {"start_sec": 3238, "type": "text", "speaker_id": "tulsee", "section_id": "s11", "zh": "我喜欢这个。"}, {"start_sec": 3240, "type": "text", "speaker_id": "lenny", "section_id": "s11", "zh": "看，这是我也很爱的产品的有机推荐。我就爱 Wispr Flow，一天到晚在用：按下 Fn 键，开口说话，它就像施了魔法一样把所有话转成文字。太神奇了。你有没有一句在工作或生活里常常回到的人生信条？"}, {"start_sec": 3258, "type": "text", "speaker_id": "tulsee", "section_id": "s11", "zh": "有两句，不太一样。一句也许比较老套：万事皆有因。这其实是我个人很大的一条人生信条——你可以努力，你会做到最好，但有时一扇门会关上，另一扇窗会打开，而你处在某个位置，是因为本就该在那里。"}, {"start_sec": 3280, "type": "text", "speaker_id": "tulsee", "section_id": "s11", "zh": "与此相关，我很喜欢常跟我交流的人谈：去寻找机缘（seek serendipity）。这其实和第一句是连着的，但你应该始终试着把自己放到一个「有机会变得幸运」的位置上。而做到这一点，靠的是让自己出现在挑战自己、让自己离开舒适区、去尝试新事物的位置。那些地方，你总是更可能幸运。"}, {"start_sec": 3302, "type": "text", "speaker_id": "lenny", "section_id": "s11", "zh": "趣闻：我大约 15 年前做过一场 TEDx 演讲，题目就叫《正在失去的机缘》（Losing Serendipity）。"}, {"start_sec": 3310, "type": "text", "speaker_id": "tulsee", "section_id": "s11", "zh": "所以我们是在努力失去机缘，还是找到它？"}, {"start_sec": 3314, "type": "text", "speaker_id": "lenny", "section_id": "s11", "zh": "那场演讲讲的是我们正在失去它，这让人难过，我们的生活里需要更多机缘。所以我是机缘的忠实拥趸。这词也特别好。那部电影也不错，你看过吧？是一部浪漫喜剧。"}, {"start_sec": 3326, "type": "text", "speaker_id": "tulsee", "section_id": "s11", "zh": "不过我想，到目前为止我就是这样看待自己的整个职业生涯的，以后大概也会继续如此。而且有意思的是，即便在使用这些 AI 工具时，这也是另一件——"}, {"start_sec": 3336, "type": "text", "speaker_id": "lenny", "section_id": "s11", "zh": "和 AI 在一起，机缘多得是。最后一个问题。你的一位同事还告诉我另一则关于你的趣闻：你是受过训练的印度古典舞者。"}, {"start_sec": 3348, "type": "text", "speaker_id": "tulsee", "section_id": "s11", "zh": "天哪。"}, {"start_sec": 3350, "type": "text", "speaker_id": "lenny", "section_id": "s11", "zh": "而且你筹办过面向一万多人的文化节。我不知道他是怎么知道的。"}, {"start_sec": 3356, "type": "text", "speaker_id": "tulsee", "section_id": "s11", "zh": "大概是我自己告诉他的。"}, {"start_sec": 3358, "type": "text", "speaker_id": "lenny", "section_id": "s11", "zh": "好。这个人还说，这也许能解释你为什么能在前沿模型开发的混乱中保持如此平静。不妨分享一下你生活里与舞蹈有关的这一面？"}, {"start_sec": 3370, "type": "text", "speaker_id": "tulsee", "section_id": "s11", "zh": "我热爱舞蹈。我觉得那是少数一些时刻，你真的没法再去想别的任何事：你必须把注意力放在动作和音乐上。所以对我来说，那是一段让大脑可以换成另一条行进方向的时间，我很爱它。对我来说，它也是一个文化上的连接点。舞蹈是我认识一些最好的朋友的方式，也是我继续和很多朋友保持社交的方式。我筹办这个节，已经在俄勒冈州波特兰——我的家乡——筹办了很多年，它叫印度文化节（India Cultural Festival），在每年八月举行。事实上，今年是我第一次没有参加这个节，因为我有了一个七个月大的儿子。谢谢。所以今年比往常要分心一些。但我从三岁起就在这个节上表演，后来又负责组织，它一直是我生活很大的一部分：你怎样把舞蹈、文化和社区带到一起？"}, {"start_sec": 3424, "type": "text", "speaker_id": "lenny", "section_id": "s11", "zh": "图尔西，你身上的趣闻太多了，我觉得还有很多我不知道的，我来这里就是为了听这些趣闻。最后一个问题：听众怎样才能对你有所帮助？"}, {"start_sec": 3436, "type": "text", "speaker_id": "tulsee", "section_id": "s11", "zh": "哇，好问题。请使用双子座，也使用 Argon，也使用我们那一整摊产品。刚才还谈到音频：如果你是 Pixel 用户，在 Gboard 上试试我们的 Rambler 功能，非常棒。在手机上打字当然很好。如果你在用文本转语音模型、在用对话、在用我们的 Omni 模型，都去试试，并把反馈给我们。我们一直在寻找反馈。无论你是通过所在公司转达，还是给我们发私信，或是公开发帖，我都希望有更多人把正确的反馈给我们。"}, {"start_sec": 3478, "type": "text", "speaker_id": "lenny", "section_id": "s11", "zh": "图尔西，这期太棒了，你也非常棒。非常感谢你来到这里。"}, {"start_sec": 3484, "type": "text", "speaker_id": "tulsee", "section_id": "s11", "zh": "也谢谢你邀请我，这很愉快。"}, {"start_sec": 3488, "type": "text", "speaker_id": "lenny", "section_id": "s11", "zh": "我的荣幸。各位再见，非常感谢收听。如果这期对你有帮助，可以在 Apple Podcasts、Spotify 或你喜欢的播客应用里订阅本节目。也请考虑给我们评分或留下评论，这能真正帮助其他听众发现这档节目。往期节目、以及了解更多，都在 lennyspodcast.com。下期见。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

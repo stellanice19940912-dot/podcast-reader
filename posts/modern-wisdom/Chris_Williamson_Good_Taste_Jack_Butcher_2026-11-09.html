@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>如何培养好品味（当下第一技能）｜杰克·布彻（Jack Butcher）</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="chris">克里斯·威廉姆森（Chris Williamson）</option><option value="jack">杰克·布彻（Jack Butcher）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Chris Williamson</span><span class="pill">2026-11-08</span></div>
+<h1>如何培养好品味（当下第一技能）｜杰克·布彻（Jack Butcher）</h1>
+<p class="sub">嘉宾：杰克·布彻（Jack Butcher） · 约 13 分钟（758 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=pFscaR3gkfU" target="_blank" rel="noopener">https://www.youtube.com/watch?v=pFscaR3gkfU</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Chris Williamson</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-08</dd></div><div class="meta-row"><dt>时长</dt><dd>约 13 分钟（758 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig 与 .en 内容完全相同，重叠滚动轴，属自动转写；普通 yt-dlp 一次成功，未用 cookies）；caption_source=yt-dlp-auto；subtitle_type=auto-generated；中文为全文翻译并按话题分段；本片为《现代智慧》（Modern Wisdom）第 1168 期 Rabbit Hole #6 的品味／slop 选段，片中点名杰克；全期嘉宾还有尚恩·普里（Shaan Puri）、乔治·麦克（George Mack），字幕无说话人标签，无法稳定区分的轮次不编造归属，主要按克里斯主持与点名杰克的对谈标注；片中播放的 Gossip Goblin 与《美国精神病》腌黄瓜戏仿标为【短片对白】；片尾订阅提醒保留为主持人正文；Function Health 标为 ad_omitted</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>pFscaR3gkfU</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>克里斯·威廉姆森（Chris Williamson）与设计师、企业家杰克·布彻（Jack Butcher）讨论 2026 年被用滥的两个词：「品味（taste）」和「泔水内容（slop）」。他们从乔治·奥威尔（George Orwell）对空洞套话的批评讲起，介绍比利·奥本海默（Billy Oppenheimer）的「我喜欢我所喜欢的东西的什么」练习、艾拉·格拉斯（Ira Glass）的「品味差距」，以及用大量交付来闭合差距；杰克把品味定义为分辨好坏的能力，把 slop 理解为外包品味、缺少意图。两人还聊到爆红的约翰·马克（John Mark）人工智能影子拳击视频、科普频道提前声明「人类制作」，以及把「低投入」做到好莱坞级工艺的 Gossip Goblin（爱岛风格人工智能短片），并一起看了戏仿《美国精神病》（American Psycho）名片场的腌黄瓜短片。片尾是订阅提醒和 Function Health 广告。</p>
+<h3>核心要点</h3><ul><li>品味和 slop 常被当成地位词随便扔：说「2026 年真正重要的是品味，你们这些没品味的」就能显得高人一等；slop 则像电荷较弱的「种族主义／性别歧视」标签，可以在办公室里乱扔却没人能定义</li><li>克里斯引用乔治·奥威尔《政治与英语》：作家可以往文章里塞「说到底（at the end of the day）」这类套话来示意「我觉得你们会喜欢」，显得聪明却毫无深度</li><li>练习来自朋友比利·奥本海默：看到喜欢的东西就存进手机，并向自己解释为什么喜欢（「我喜欢我所喜欢的东西的什么」）；克里斯还做了镜像版「我讨厌我所讨厌的东西的什么」，形成一份可翻看的素材库（swipe file）</li><li>他们朗读艾拉·格拉斯的「品味差距」：创意工作入行是因为品味好，但头几年作品配不上品味，许多人因此放弃；唯一办法是上量——给自己截止日期，比如每周完成一个故事，靠作品量让作品追上野心</li><li>有人把拖延的更大危害说成：它阻止你以足够的数量交付，从而无法搞清什么有效；宁可高确信而错，也不要低确信而对；「我宁可当白痴，也不要当懦夫」——从不发布，或只在确定会成功时才发布，样本集太小，学不到东西</li><li>杰克的短定义：品味是分辨好与不好的能力；人们说 slop，多半指产出缺少意图、把品味外包出去、交出一部分能动性；「没经过品味做出来的就是 slop」。克里斯追问：要说 slop，请解释为什么</li><li>约翰·马克那段影子拳击／小舞蹈视频先靠「气场」让全网着迷，直到人们发现是人工智能；科普频道（字幕作 Hoog 或 Fun）会在片头声明「信息由人类完成」，因为成品差距已经难看出来，只能提前出示工作量证明</li><li>Gossip Goblin 在 Instagram 上做爱岛风格人工智能影片：不会被误认成真人拍摄，但工艺被形容为能跟好莱坞制作公司比；把通常被视为低投入的 slop 推到极限。罗里（Rory，口中转述，未到场）曾用「马力」需要旧单位来描述新速度作类比：人工智能行业也需要自己的「马力」或预测市场式指标，而不是谁也看不懂的评测；另聊到有人想把人工智能叫「至高智能（supreme intelligence）」或 ASI，但 ASI 已是让人担忧的「人工智能超级智能（artificial super intelligence）」缩写</li><li>他们一起看戏仿《美国精神病》名片场的腌黄瓜短片：莳萝、芥菜籽卤、半酸大蒜卤、桶渍整粒胡椒；「看看保罗·艾伦（Paul Allen）的腌黄瓜」——微妙的橄榄色、有品味的厚度、小凸起——帕特里克（Patrick）出汗了。片尾订阅提醒后是 Function Health 广告：160 多项检测对比常规体检约 20 项，一年两次、365 美元／年（约一天 1 美元），当时可减 25 美元至 340 美元，链接 functionhealth.com/modernwisdom</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：关心人工智能时代的品味、创作练习、或想听清楚 slop 到底在骂什么的人，约 12 分半，有可立刻做的练习和具体例子。可跳过：只想听完整第 1168 期长访谈、或对短片段里的迷因／恶搞短片不感兴趣的人；片尾有体检广告。</p>
+<h3>适合人群</h3><p>创作者、设计师、关注人工智能内容质量与「品味」讨论的听众</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">「品味」和「泔水内容」成了可以乱扔的地位词</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯开场说，现在有两个词被不停扔来扔去：品味（taste）和泔水内容（slop）。他着迷的是，围绕这两个词的真正讨论少得可怜。品味尤其可以被当作地位信号：你只要说「2026 年真正重要的是品味，你们这些没品味的农民可没有」，就显得自己高人一等。slop 则像它的反面——现在有人可以完全不定义自己为什么觉得那是 slop，就把这个词甩出去。他觉得这有点像电荷较弱的「种族主义」或「性别歧视」：可以在办公室里随随便便、胡乱甩来甩去，却没人确切知道它指什么。他提到乔治·奥威尔（George Orwell）的文章《政治与英语》（Politics and the English Language）：作为写作者，你可以把「说到底（at the end of the day）」这类新套话往文章里一塞，示意「我觉得人们会喜欢这个」，让自己显得聪明，但底下没有任何深度。说到这里，他转向在场的杰克：在他看来，杰克就是那种会被别人形容为「有品味」的人。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">练出品位这块肌肉：比利·奥本海默的素材练习</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯关心的是：这块肌肉到底怎么练出来？他从朋友比利·奥本海默（Billy Oppenheimer）那里学到一个非常简单的练习，叫做「我喜欢我所喜欢的东西的什么」（what I like about what I like）：每当看到自己喜欢的东西，就先存进手机，然后试着向自己解释为什么喜欢。杰克应了一声。克里斯自己又做了一个镜像版：「我讨厌我所讨厌的东西的什么」——看到不喜欢的东西，同样先捕捉、写下来。这样你还会留下一份可以翻看的素材库（swipe file）。他再次强调，眼下所有人都在用这两个词，却没有人给出定义。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">艾拉·格拉斯的「品味差距」：靠作品量去闭合它</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">有人提起艾拉·格拉斯（Ira Glass）那段常被称作「品味差距」（taste gap）的话：有品味，几乎注定会对自己的产出不满意。他们找到并朗读了这段话。格拉斯说，没人把这件事告诉新手，他希望当初有人告诉自己：所有做创意工作的人入行，都是因为自己有好品味，但中间隔着一条鸿沟。头几年你做出来的东西就是不够好——它在努力变好，有潜力，但还不是；而把你带进这行的那份品味依然很毒、很准，正是这份品味让你对自己的作品失望。很多人永远过不了这阶段，他们放弃了。格拉斯认识的、做出有意思的创意作品的人，大多熬过了好几年这种状态：知道自己的作品还缺少那种想要的特别东西。如果你刚起步，或仍停在这个阶段，要知道这很正常；最重要的是做大量作品，给自己定截止日期，比如每周完成一个故事。只有靠作品量，你才能闭合这条差距，让作品配得上野心。他自己花了比见过的任何人都长的时间才搞懂这件事。这会需要一阵，花一阵很正常，你得一路打过去。念完后现场是一声「该死，漂亮」和笑声。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">交付的数量、高确信，以及品味与 slop 的短定义</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">话题转到「先发出去」（ship it）。克里斯记不清原话出自沙恩·帕里什（Shane Parrish）还是蒂亚戈·福特（Tiago Forte）：拖延不仅不好，因为它让你不做事情；它尤其不好，是因为它阻止你以足够的数量交付作品，从而无法搞清什么真的有效。他提到对方那句主张：宁可高确信而错，也不要低确信而对。对方接话说，宁可当白痴，也不要当懦夫。因为如果你从不把东西发出来，或只在确定会成功时才发布，你其实没学到多少——真正学到很多，意味着你有一个大样本集，向外扔出过很多东西。至少对杰克自己来说，最短的定义是：品味是分辨好与不好的能力。他把关于 slop 的评论配对起来：人们说 slop 时，多半是在说你把品味外包出去了；产出里缺少意图。很多人觉得，一旦使用强大的工具，你就交出了一部分能动性。没经过品味做出来的，就是 slop。这些系统的训练方式会留下教科书式的小痕迹（他提到类似 Claude 的「爪印」）：如果你没有用一定的意图去引导，那些痕迹每次都会出现。他的下一层反驳是：没关系，看见 slop 就说 slop 也可以，但那就是 slop，他就把它叫 slop。若有人还要把 slop 说成「也不原创」，克里斯打断：你要说 slop，就告诉我为什么，解释清楚。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">约翰·马克的气场，以及「人类制作」的工作量证明</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯问对方清单上现在都写了些什么（「我为什么不喜欢我所不喜欢的」一类）。对方说等一下，先调出来。他们转到一个被看成「低投入」却让全网困惑的例子：那个约翰·马克（John Mark）的人——第一支影子拳击、带着一点小舞蹈的视频，非常惊人，所有人都被他的「气场（aura）」迷住，直到发现这是人工智能。于是同样的东西，在你得知制作方式之后，评价就变了。有人提到，如果你去看 Hoog 或 Fun（字幕听写，大型科普／纪录片类 YouTube 频道）这类频道，会喜欢他们的纪录片；他们会在最开头放免责声明：我们所有的信息都由人类完成。因为就成品、就「完工的文章」而言，差距已经很难分辨，所以必须提前出示工作量证明：即使你看不出来，也要证明我们投入了大量精力。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">Gossip Goblin：把通常被视为 slop 的东西做到好莱坞级</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">有人问有没有把 Gossip Goblin 那个爱岛（Love Island）相关的东西发出去；对方说没有，让他讲，并请他在 Instagram 上找。这是人工智能影片，你不会误以为它不是人工智能拍的，但工艺水平被形容为绝对难以置信：他们把人们通常看成低投入、当成 slop 的东西，推到了极限；制作上投入的精力，会让你联想到任何一类好莱坞制作公司。现场播放了短片对白：英式俚语里的「birds（姑娘）」、恋人潟湖（Lovers&#x27; Lagoon）、新摇篮（Neo Cradle）里最会调情、最凶的单身者们「打架、上床、找爱」；男生说发际线晃了、角落（corners）垮了、gooning 很严重，但已经锁定状态，要从只卷外貌（maxing）转向「碾压（mogging）」；自称绅士，把每个姑娘当公主、把她父亲当绝对的国王；女生说自己是这里最正的，这只是数学；又有人说只要对方拉椅开门，「下面就开了花」，已经在想孩子的名字。看完后他们笑着说，除了其中某一个，这种东西的强项是把刻板印象蒸馏成原型——每一个都是现实中存在的原型。结论是：这件事通常是低投入的，但你用高投入的方式去做，所以愿意给它认可。不过他们也同意，短期内社会对人工智能仍有大量生理不适感（ick），无论你做得有多好，大概都很难完全摆脱；会一直存在类似「新的有机、散养、手工」的标签，本质就是「人类制作」，将来会冒出专门的词来指这件事。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">人工智能需要自己的「马力」，以及 ASI 这个糟糕缩写</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">有人转述罗里（Rory，未到场）的说法：马力（horsepower）这个词出现，是因为人们需要描述某种速度，又只能用旧事物的单位来表达，所以才需要马力。他们认为人工智能行业也需要自己的「马力」版本，需要类似预测市场那样的东西，因为现有评测（evals）太复杂，没人真正知道谁好多少。对方打趣说：那就弄个智商一样的数字，我们 99、他们 98，叫「至高智能（supreme intelligence）」。他们还聊到一则特朗普相关的民调／品牌重塑：有人想另起名字，其中一个是 Beam，另一个记不清；他想叫它 ASI，但问题是 ASI 已经指「人工智能超级智能（artificial super intelligence）」——也就是所有人担心的那个东西。它不是 super，而是 supreme，后来又像是 superior 之类，大概有三个和「人工智能（artificial）」搭配的词。大家觉得最大的问题就是「artificial（人造的）」这个词本身，品牌上并不理想；对方也承认那人懂品牌，只是这次没走好。克里斯问清单怎样了，对方说东西打不开，让大家先不用等他。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">戏仿《美国精神病》：用腌黄瓜比较「品味」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">他们把话题落到一起看的短片上（不是 Instagram 上的那条「新腌黄瓜」）。短片戏仿《美国精神病》（American Psycho）里比较名片的名场面，改成比较腌黄瓜：昨天从熟食店拿的，成色很好，是莳萝（dill），卤汁里有芥菜籽（mustard seed）。对方说那算不了什么，自己这款是大蒜卤的半酸黄瓜（half sour with garlic brine）。又有人惊叹：像你这种傻瓜怎么会这么有品味？不敢相信布赖斯（Bryce）居然更喜欢范·帕滕（Van Patten）的黄瓜而不是我的。且慢，还有桶渍（barrel cured）、整粒胡椒、格外脆。最后是「让我们看看保罗·艾伦（Paul Allen）的腌黄瓜」：微妙的橄榄色、有品味的厚度，天哪，上面甚至有小凸起。有人问：怎么了，帕特里克（Patrick）？你在出汗。现场的反应是：太过了，已经非常接近结束（游戏／玩笑被玩到尽头）。这段用消费品细节当作品味表演，正好回扣全片对「品味」被展示、被比较、被用来压人的讨论。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">订阅提醒，以及 Function Health 赞助口播</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯插播一条频道说明：很多人反映即使用户已经点过订阅，YouTube 仍会把他们从频道退订，所以请往下看一眼订阅按钮是否还亮着。订阅可以比别人更早看到节目，也支持他和这档节目，帮他请来更大牌的嘉宾，并让他很高兴，请帮忙点一下。随后进入 Function Health 广告：训练规律、吃得还行、自我感觉不错，但只是在「凭感觉」行事；多数人完全不知道身体内部在发生什么。Function 提供 160 多项进阶检测，覆盖激素、心脏、肾功能，甚至能发现与 50 多种癌症相关的早期信号；普通年度体检可能只测约 20 项指标，Function 超过 160 项。每年检测两次，结果集中在一个简单仪表盘里，便于追踪趋势。这种检测通常要花几千美元，Function 为每年 365 美元，相当于一天 1 美元；当时还可减 25 美元，降到 340 美元，链接在简介或 functionhealth.com/modernwisdom。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">克里斯·威廉姆森（Chris Williamson）<em>主持</em></span><span class="spk-1">杰克·布彻（Jack Butcher）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>「品味」和「泔水内容」成了可以乱扔的地位词</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>有两个词现在被不停地扔来扔去：品味（taste），还有泔水内容（slop）。我很着迷这两个词，也着迷于围绕它们的讨论少得可怜。</p>
+<p>品味尤其如此——你只要开口说「2026 年真正重要的是品味，你们这些没品味的可没有」，就能显得自己地位很高。</p>
+<p>slop 像是它的反面：现在有人可以完全不定义自己为什么觉得那是 slop，就把这个词甩出去。电荷没那么强，但有点像「种族主义」或「性别歧视」这类词——你可以在办公室里随随便便、胡乱甩来甩去，却没人确切知道它到底指什么。</p>
+<p>乔治·奥威尔（George Orwell）有一篇很好的文章，叫《政治与英语》（Politics and the English Language）。他谈到，作为写作者，你可以把「说到底（at the end of the day）」这类新套话往里一塞，示意「我觉得人们会喜欢这个」，让自己显得聪明，但底下没有任何深度。</p>
+<p>我之所以着迷，也因为杰克，你就是那种会被别人形容为「有品味」的人。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>练出品位这块肌肉：比利·奥本海默的素材练习</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>但我一直想搞清楚：这块肌肉到底怎么练出来？我从朋友比利那里学到一个非常简单的练习。比利·奥本海默（Billy Oppenheimer）。他有一套做法，叫「我喜欢我所喜欢的东西的什么」：每当看到自己喜欢的东西，就先存进手机，然后试着向自己解释为什么喜欢。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jack"><div class="label"><span class="badge" title="杰克·布彻（Jack Butcher）">Jack</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>然后我又做了一个「我讨厌我所讨厌的东西的什么」：看到不喜欢的东西，我就先捕捉下来、写下来。这样你还会留下一份可以翻看的素材库。</p>
+<p>我就是对眼下这两个词特别着迷：所有人都在用，却没有人定义它们。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jack"><div class="label"><span class="badge" title="杰克·布彻（Jack Butcher）">Jack</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>艾拉·格拉斯的「品味差距」：靠作品量去闭合它</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>你能不能找一段艾拉·格拉斯（Ira Glass）的话？就是那种，一搜艾拉·格拉斯和品味，应该能看到「品味差距（taste gap）」。品味差距差不多用一段话就能说明：所谓有品味，意味着你总会对自己的产出不满意。</p>
+<p>这段话来自美国作者艾拉·格拉斯。「没人把这件事告诉新手。我希望当初有人告诉我。所有做创意工作的人走进这行，都是因为我们有好品味。但中间隔着一条鸿沟。头几年你做出来的东西，就是不够好。它在努力变好，有潜力，但还不是。而你的品味——把你带进这局游戏的那东西——依然很毒、很准。正是你的品味，让你对自己的作品失望。很多人永远过不了这阶段。他们放弃了。」</p>
+<p>「我认识的、做出有意思的创意作品的人，大多熬过了好几年这种状态。我们知道自己的作品还缺少那种我们想要的特别东西。我们都经过这一段。如果你刚起步，或仍停在这个阶段，你得知道这很正常；你能做的最重要的事，就是做大量作品。给自己定一个截止日期，让自己每周完成一个故事。只有靠作品量，你才能闭合这条差距，让作品配得上你的野心。我花了比见过的任何人都长的时间才搞懂这件事。这会需要一阵。花一阵很正常。你得一路打过去。」</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jack"><div class="label"><span class="badge" title="杰克·布彻（Jack Butcher）">Jack</span></div><div class="content">
+<p>该死。漂亮。<span class="tag">【笑声】</span></p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>交付的数量、高确信，以及品味与 slop 的短定义</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>这里就有「先发出去」。原话我记不清了，也许是沙恩·帕里什（Shane Parrish），也许是蒂亚戈·福特（Tiago Forte）：拖延不好，因为它让你不做事情；它尤其不好，是因为它阻止你以足够的数量交付作品，从而无法搞清什么真的有效。</p>
+<p>有点像你那句：我宁可高确信而错，也不要低确信而对。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jack"><div class="label"><span class="badge" title="杰克·布彻（Jack Butcher）">Jack</span></div><div class="content">
+<p>我宁可当白痴，也不要当懦夫。对，对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>因为如果你从不把东西发出来，或只在确定会成功时才发布，你其实没学到多少。真正学到很多，意味着：好，我有一个大样本集，我往外扔过很多东西。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jack"><div class="label"><span class="badge" title="杰克·布彻（Jack Butcher）">Jack</span></div><div class="content">
+<p>至少对我自己来说，最短的说法是：品味就是分辨好与不好的能力。对。而且我会把关于 slop 的那句评论配对起来——基本上，你是在外包品味。我觉得人们用 slop 这个词时，想指的就是这个：产出里缺少意图。很多人觉得，一旦使用那种强大得不可思议的工具，你就交出了一部分能动性。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>没经过品味做出来的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jack"><div class="label"><span class="badge" title="杰克·布彻（Jack Butcher）">Jack</span></div><div class="content">
+<p>slop 就是没经过品味做出来的。而且这些东西的训练方式会留下教科书式的小痕迹，有点像克劳德（Claude）身上那种「爪印」：如果你没有用一定的意图去引导，那些痕迹每次都会出现。</p>
+<p>我下一层的反驳是：没关系。看见 slop 就说 slop，也可以；但那就是 slop。所以我就把 slop 叫 slop。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>所以如果你还要把 slop 说成「也不原创」——你要说 slop，就告诉我为什么。解释一下。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>约翰·马克的气场，以及「人类制作」的工作量证明</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>你清单上现在都有什么？你说过你有一份「我为什么不喜欢我所不喜欢的」之类的单子。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jack"><div class="label"><span class="badge" title="杰克·布彻（Jack Butcher）">Jack</span></div><div class="content">
+<p>我调出来。等一下。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>有意思的是，这种东西会被看成低投入，因为那个约翰·马克（John Mark）把互联网玩崩了。他第一支影子拳击的视频，还有一点小舞蹈，非常惊人。<span class="tag">【笑声】</span>但所有人都完全摸不着头脑：这人气场也太强了。直到你发现那是人工智能。所以，同样的东西——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jack"><div class="label"><span class="badge" title="杰克·布彻（Jack Butcher）">Jack</span></div><div class="content">
+<p>一旦你得知真相。我是说，如果你去看 Hoog 或 Fun（字幕听写）这类大型科普讲解 YouTube 频道，我很喜欢他们的纪录片，觉得做得很好。他们会在最开头放一条声明：我们所有的信息都由人类完成。因为他们必须提前展示投入，成品——也就是完工的那篇文章——之间的差距，对我们来说已经很难判断。所以我必须说：即使你看不出来，工作量证明也在那里，表明我们花了大量精力去做这件事。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>Gossip Goblin：把通常被视为 slop 的东西做到好莱坞级</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>我有没有把 Gossip Goblin 那个东西发给你？就是爱岛（Love Island）那个？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jack"><div class="label"><span class="badge" title="杰克·布彻（Jack Butcher）">Jack</span></div><div class="content">
+<p>没有，你讲。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>你能在 Instagram 上找一下 Gossip Goblin 吗？<span class="tag">【笑声】</span>就是这个名字。这是人工智能影片，你不会把它误认成不是人工智能拍的，但工艺水平绝对难以置信。他们把人们通常看成低投入、当成 slop 的东西，推到了极限。我得说，他们在制作上投入的精力，会让你联想到任何一类好莱坞制作公司。这些成品里你会看到——</p>
+<p><span class="tag">【短片对白】</span>「亲爱的，你喜欢什么样的姑娘？喜欢她们性感的那种吗？」「我啊，什么样都喜欢。我爱所有姑娘，但如果非要选，我喜欢漂亮的、看起来很性感的那种。」<span class="tag">【音乐】</span>「噢，你是说我很正点。你真甜。」「方尼（Fonzie），你这讨厌的贱人。你怎么能这样？戈博（Gobo）是我的人。」「欢迎来到恋人潟湖（Lovers&#x27; Lagoon）。欢迎。这里，新摇篮（Neo Cradle）最会调情、最凶的单身者们将打架、上床、寻找爱情。来吧，把手从裤子里拿出来，<span class="tag">【音乐】</span>我们去见见这季的人。」</p>
+<p><span class="tag">【短片对白】</span>「实话说，今年挺难熬的。我发际线晃了，脸的边角也垮了，那种沉迷（gooning）变得很严重，<span class="tag">【音乐】</span>真的很严重。但我现在锁定状态了，准备不再只是卷外貌（maxing），而要开始碾压（mogging），兄弟。我是个体面绅士。<span class="tag">【音乐】</span>我把每个姑娘都当公主，把她父亲当绝对的国王。礼貌不花钱，亲爱的。」「就算说我自以为是，<span class="tag">【音乐】</span>我也是这里最正点的那个，不是吗？这只是数学，对吧？我也不知道。<span class="tag">【笑声】</span>不过别墅是挺不错的，对吧？我是个浪漫的人。只要有人给我拉椅子、开门——」</p>
+<p><span class="tag">【短片对白】</span>「一下子，我下面就开了花，<span class="tag">【音乐】</span>已经在想我们孩子的名字了，懂吗？」</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jack"><div class="label"><span class="badge" title="杰克·布彻（Jack Butcher）">Jack</span></div><div class="content">
+<p>疯狂的是，这种东西的「类型感」非常强。<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>除了他。我正要说——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jack"><div class="label"><span class="badge" title="杰克·布彻（Jack Butcher）">Jack</span></div><div class="content">
+<p>我正要说，这是把刻板印象蒸馏出来的能力。英式的那些刻板印象——其中每一个都是现实里存在的原型。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>不过我也说不好，人们以后会不会开口就说「这是人工智能」？这件事通常是低投入的，但你用高投入的方式去做，所以我愿意给你认可。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jack"><div class="label"><span class="badge" title="杰克·布彻（Jack Butcher）">Jack</span></div><div class="content">
+<p>我觉得大家对人工智能总体上有太多生理不适感，短期内无论你做得有多好，大概都很难完全摆脱。对，我同意。以后会一直有类似「新的有机」或「散养」的说法，也就是「手工的」，你知道，本质上就是人类制作的。将来会冒出一个专门的词来指这件事。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>人工智能需要自己的「马力」，以及 ASI 这个糟糕缩写</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>罗里（Rory）好像讲过，马力（horsepower）之所以成为词，是因为他们需要描述某种速度，又只能用旧事物的单位来表达。人们需要马力这种单位。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jack"><div class="label"><span class="badge" title="杰克·布彻（Jack Butcher）">Jack</span></div><div class="content">
+<p>我觉得人工智能行业也需要自己的「马力」版本。它需要——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>它需要自己的预测市场。对，对。因为这些评测也很复杂，没人知道到底谁比谁好多少、好在哪里。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jack"><div class="label"><span class="badge" title="杰克·布彻（Jack Butcher）">Jack</span></div><div class="content">
+<p>那就弄成一种智商，对吧？他们得想出一个数字：我们是 99，他们是 98，你知道的。至高智能（supreme intelligence）。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>你看到那个民调了吗？哦，特朗普那个民调。对，品牌重塑。哦对，他在试。他是在试，但我不确定——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jack"><div class="label"><span class="badge" title="杰克·布彻（Jack Butcher）">Jack</span></div><div class="content">
+<p>他走在前面。他懂字体。哦对，他当时想另起一个名字，叫至高智能。其中一个是 Beam，另一个我记不清了。他想叫它 ASI，但问题是 ASI 的意思是人工智能超级智能（artificial super intelligence），也就是所有人担心的那个东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>它不是 super，是 supreme，后来又像是 superior 之类的，我忘了，大概有三个和「artificial」搭配的词。我觉得最大的问题就是「artificial（人造的）」这个词。对，这也说得通。这品牌并不理想。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jack"><div class="label"><span class="badge" title="杰克·布彻（Jack Butcher）">Jack</span></div><div class="content">
+<p>他懂品牌，是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>有意思。你的清单呢？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jack"><div class="label"><span class="badge" title="杰克·布彻（Jack Butcher）">Jack</span></div><div class="content">
+<p>我这边打不开。你们先继续，不用等我。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>戏仿《美国精神病》：用腌黄瓜比较「品味」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>机器智能也是我听过的另一个叫法，不过它同样带着「我们会被取代」的味道。这是什么？这儿有一条——不是那种 Instagram。新的腌黄瓜。你觉得怎么样？</p>
+<p><span class="tag">【短片对白】</span>「喔呵。非常好。你看这个。昨天从熟食店拿的。成色不错。这是莳萝（dill）。卤汁里有一种叫芥菜籽（mustard seed）的东西。」「很酷，贝特曼（Bateman），但那算不了什么。看这个。」「这真的很好。大蒜卤的半酸黄瓜（half sour）。你觉得呢？」</p>
+<p><span class="tag">【短片对白】</span>「不错。」「天哪。这真的太棒了。像你这种傻瓜怎么会这么有品味？我不敢相信布赖斯（Bryce）居然更喜欢范·帕滕（Van Patten）的腌黄瓜，而不是我的。」「等一下。你还没看过这个。桶渍（barrel cured）。整粒胡椒。格外脆。」「Impressive。非常好。」</p>
+<p><span class="tag">【短片对白】</span>「让我们看看保罗·艾伦（Paul Allen）的腌黄瓜。」</p>
+<p><span class="tag">【短片对白】</span>「我想知道他们是怎么把黄瓜收进去的。你看那微妙的橄榄色。它那有品味的厚度。天哪。上面甚至有小凸起。」「怎么了，帕特里克（Patrick）？你在出汗。」</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="jack"><div class="label"><span class="badge" title="杰克·布彻（Jack Butcher）">Jack</span></div><div class="content">
+<p>天哪。是的。这太过了。已经非常接近结束了。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>订阅提醒，以及 Function Health 赞助口播</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>插一句：很多人告诉我们，即使用户已经点过订阅，YouTube 还是会把他们从频道退订。所以请往下看一眼，确认订阅按钮是按着的。订阅了就能比别人更早看到节目，也是在支持我和这档节目，帮我请来更大牌的嘉宾，并且会让我很高兴。去帮我点一下。谢谢。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Function Health]</span></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Chris Williamson", "title": "如何培养好品味（当下第一技能）｜杰克·布彻（Jack Butcher）", "url": "https://www.youtube.com/watch?v=pFscaR3gkfU", "videoId": "pFscaR3gkfU", "published_at": "2026-11-08", "duration": 758, "caption_source": "YouTube 自动生成字幕（en-orig 与 .en 内容完全相同，重叠滚动轴，属自动转写；普通 yt-dlp 一次成功，未用 cookies）；caption_source=yt-dlp-auto；subtitle_type=auto-generated；中文为全文翻译并按话题分段；本片为《现代智慧》（Modern Wisdom）第 1168 期 Rabbit Hole #6 的品味／slop 选段，片中点名杰克；全期嘉宾还有尚恩·普里（Shaan Puri）、乔治·麦克（George Mack），字幕无说话人标签，无法稳定区分的轮次不编造归属，主要按克里斯主持与点名杰克的对谈标注；片中播放的 Gossip Goblin 与《美国精神病》腌黄瓜戏仿标为【短片对白】；片尾订阅提醒保留为主持人正文；Function Health 标为 ad_omitted", "guests": ["杰克·布彻（Jack Butcher）"], "intro": {"summary": "克里斯·威廉姆森（Chris Williamson）与设计师、企业家杰克·布彻（Jack Butcher）讨论 2026 年被用滥的两个词：「品味（taste）」和「泔水内容（slop）」。他们从乔治·奥威尔（George Orwell）对空洞套话的批评讲起，介绍比利·奥本海默（Billy Oppenheimer）的「我喜欢我所喜欢的东西的什么」练习、艾拉·格拉斯（Ira Glass）的「品味差距」，以及用大量交付来闭合差距；杰克把品味定义为分辨好坏的能力，把 slop 理解为外包品味、缺少意图。两人还聊到爆红的约翰·马克（John Mark）人工智能影子拳击视频、科普频道提前声明「人类制作」，以及把「低投入」做到好莱坞级工艺的 Gossip Goblin（爱岛风格人工智能短片），并一起看了戏仿《美国精神病》（American Psycho）名片场的腌黄瓜短片。片尾是订阅提醒和 Function Health 广告。", "points": ["品味和 slop 常被当成地位词随便扔：说「2026 年真正重要的是品味，你们这些没品味的」就能显得高人一等；slop 则像电荷较弱的「种族主义／性别歧视」标签，可以在办公室里乱扔却没人能定义", "克里斯引用乔治·奥威尔《政治与英语》：作家可以往文章里塞「说到底（at the end of the day）」这类套话来示意「我觉得你们会喜欢」，显得聪明却毫无深度", "练习来自朋友比利·奥本海默：看到喜欢的东西就存进手机，并向自己解释为什么喜欢（「我喜欢我所喜欢的东西的什么」）；克里斯还做了镜像版「我讨厌我所讨厌的东西的什么」，形成一份可翻看的素材库（swipe file）", "他们朗读艾拉·格拉斯的「品味差距」：创意工作入行是因为品味好，但头几年作品配不上品味，许多人因此放弃；唯一办法是上量——给自己截止日期，比如每周完成一个故事，靠作品量让作品追上野心", "有人把拖延的更大危害说成：它阻止你以足够的数量交付，从而无法搞清什么有效；宁可高确信而错，也不要低确信而对；「我宁可当白痴，也不要当懦夫」——从不发布，或只在确定会成功时才发布，样本集太小，学不到东西", "杰克的短定义：品味是分辨好与不好的能力；人们说 slop，多半指产出缺少意图、把品味外包出去、交出一部分能动性；「没经过品味做出来的就是 slop」。克里斯追问：要说 slop，请解释为什么", "约翰·马克那段影子拳击／小舞蹈视频先靠「气场」让全网着迷，直到人们发现是人工智能；科普频道（字幕作 Hoog 或 Fun）会在片头声明「信息由人类完成」，因为成品差距已经难看出来，只能提前出示工作量证明", "Gossip Goblin 在 Instagram 上做爱岛风格人工智能影片：不会被误认成真人拍摄，但工艺被形容为能跟好莱坞制作公司比；把通常被视为低投入的 slop 推到极限。罗里（Rory，口中转述，未到场）曾用「马力」需要旧单位来描述新速度作类比：人工智能行业也需要自己的「马力」或预测市场式指标，而不是谁也看不懂的评测；另聊到有人想把人工智能叫「至高智能（supreme intelligence）」或 ASI，但 ASI 已是让人担忧的「人工智能超级智能（artificial super intelligence）」缩写", "他们一起看戏仿《美国精神病》名片场的腌黄瓜短片：莳萝、芥菜籽卤、半酸大蒜卤、桶渍整粒胡椒；「看看保罗·艾伦（Paul Allen）的腌黄瓜」——微妙的橄榄色、有品味的厚度、小凸起——帕特里克（Patrick）出汗了。片尾订阅提醒后是 Function Health 广告：160 多项检测对比常规体检约 20 项，一年两次、365 美元／年（约一天 1 美元），当时可减 25 美元至 340 美元，链接 functionhealth.com/modernwisdom"], "verdict": "值得看：关心人工智能时代的品味、创作练习、或想听清楚 slop 到底在骂什么的人，约 12 分半，有可立刻做的练习和具体例子。可跳过：只想听完整第 1168 期长访谈、或对短片段里的迷因／恶搞短片不感兴趣的人；片尾有体检广告。", "audience": "创作者、设计师、关注人工智能内容质量与「品味」讨论的听众"}, "speakers": [{"id": "chris", "name": "克里斯·威廉姆森（Chris Williamson）", "role": "host", "short": "Chris"}, {"id": "jack", "name": "杰克·布彻（Jack Butcher）", "role": "guest", "short": "Jack"}], "sections": [{"id": "s1", "title": "「品味」和「泔水内容」成了可以乱扔的地位词", "start_sec": 0, "summary": "克里斯开场说，现在有两个词被不停扔来扔去：品味（taste）和泔水内容（slop）。他着迷的是，围绕这两个词的真正讨论少得可怜。品味尤其可以被当作地位信号：你只要说「2026 年真正重要的是品味，你们这些没品味的农民可没有」，就显得自己高人一等。slop 则像它的反面——现在有人可以完全不定义自己为什么觉得那是 slop，就把这个词甩出去。他觉得这有点像电荷较弱的「种族主义」或「性别歧视」：可以在办公室里随随便便、胡乱甩来甩去，却没人确切知道它指什么。他提到乔治·奥威尔（George Orwell）的文章《政治与英语》（Politics and the English Language）：作为写作者，你可以把「说到底（at the end of the day）」这类新套话往文章里一塞，示意「我觉得人们会喜欢这个」，让自己显得聪明，但底下没有任何深度。说到这里，他转向在场的杰克：在他看来，杰克就是那种会被别人形容为「有品味」的人。"}, {"id": "s2", "title": "练出品位这块肌肉：比利·奥本海默的素材练习", "start_sec": 65, "summary": "克里斯关心的是：这块肌肉到底怎么练出来？他从朋友比利·奥本海默（Billy Oppenheimer）那里学到一个非常简单的练习，叫做「我喜欢我所喜欢的东西的什么」（what I like about what I like）：每当看到自己喜欢的东西，就先存进手机，然后试着向自己解释为什么喜欢。杰克应了一声。克里斯自己又做了一个镜像版：「我讨厌我所讨厌的东西的什么」——看到不喜欢的东西，同样先捕捉、写下来。这样你还会留下一份可以翻看的素材库（swipe file）。他再次强调，眼下所有人都在用这两个词，却没有人给出定义。"}, {"id": "s3", "title": "艾拉·格拉斯的「品味差距」：靠作品量去闭合它", "start_sec": 100, "summary": "有人提起艾拉·格拉斯（Ira Glass）那段常被称作「品味差距」（taste gap）的话：有品味，几乎注定会对自己的产出不满意。他们找到并朗读了这段话。格拉斯说，没人把这件事告诉新手，他希望当初有人告诉自己：所有做创意工作的人入行，都是因为自己有好品味，但中间隔着一条鸿沟。头几年你做出来的东西就是不够好——它在努力变好，有潜力，但还不是；而把你带进这行的那份品味依然很毒、很准，正是这份品味让你对自己的作品失望。很多人永远过不了这阶段，他们放弃了。格拉斯认识的、做出有意思的创意作品的人，大多熬过了好几年这种状态：知道自己的作品还缺少那种想要的特别东西。如果你刚起步，或仍停在这个阶段，要知道这很正常；最重要的是做大量作品，给自己定截止日期，比如每周完成一个故事。只有靠作品量，你才能闭合这条差距，让作品配得上野心。他自己花了比见过的任何人都长的时间才搞懂这件事。这会需要一阵，花一阵很正常，你得一路打过去。念完后现场是一声「该死，漂亮」和笑声。"}, {"id": "s4", "title": "交付的数量、高确信，以及品味与 slop 的短定义", "start_sec": 185, "summary": "话题转到「先发出去」（ship it）。克里斯记不清原话出自沙恩·帕里什（Shane Parrish）还是蒂亚戈·福特（Tiago Forte）：拖延不仅不好，因为它让你不做事情；它尤其不好，是因为它阻止你以足够的数量交付作品，从而无法搞清什么真的有效。他提到对方那句主张：宁可高确信而错，也不要低确信而对。对方接话说，宁可当白痴，也不要当懦夫。因为如果你从不把东西发出来，或只在确定会成功时才发布，你其实没学到多少——真正学到很多，意味着你有一个大样本集，向外扔出过很多东西。至少对杰克自己来说，最短的定义是：品味是分辨好与不好的能力。他把关于 slop 的评论配对起来：人们说 slop 时，多半是在说你把品味外包出去了；产出里缺少意图。很多人觉得，一旦使用强大的工具，你就交出了一部分能动性。没经过品味做出来的，就是 slop。这些系统的训练方式会留下教科书式的小痕迹（他提到类似 Claude 的「爪印」）：如果你没有用一定的意图去引导，那些痕迹每次都会出现。他的下一层反驳是：没关系，看见 slop 就说 slop 也可以，但那就是 slop，他就把它叫 slop。若有人还要把 slop 说成「也不原创」，克里斯打断：你要说 slop，就告诉我为什么，解释清楚。"}, {"id": "s5", "title": "约翰·马克的气场，以及「人类制作」的工作量证明", "start_sec": 280, "summary": "克里斯问对方清单上现在都写了些什么（「我为什么不喜欢我所不喜欢的」一类）。对方说等一下，先调出来。他们转到一个被看成「低投入」却让全网困惑的例子：那个约翰·马克（John Mark）的人——第一支影子拳击、带着一点小舞蹈的视频，非常惊人，所有人都被他的「气场（aura）」迷住，直到发现这是人工智能。于是同样的东西，在你得知制作方式之后，评价就变了。有人提到，如果你去看 Hoog 或 Fun（字幕听写，大型科普／纪录片类 YouTube 频道）这类频道，会喜欢他们的纪录片；他们会在最开头放免责声明：我们所有的信息都由人类完成。因为就成品、就「完工的文章」而言，差距已经很难分辨，所以必须提前出示工作量证明：即使你看不出来，也要证明我们投入了大量精力。"}, {"id": "s6", "title": "Gossip Goblin：把通常被视为 slop 的东西做到好莱坞级", "start_sec": 351, "summary": "有人问有没有把 Gossip Goblin 那个爱岛（Love Island）相关的东西发出去；对方说没有，让他讲，并请他在 Instagram 上找。这是人工智能影片，你不会误以为它不是人工智能拍的，但工艺水平被形容为绝对难以置信：他们把人们通常看成低投入、当成 slop 的东西，推到了极限；制作上投入的精力，会让你联想到任何一类好莱坞制作公司。现场播放了短片对白：英式俚语里的「birds（姑娘）」、恋人潟湖（Lovers' Lagoon）、新摇篮（Neo Cradle）里最会调情、最凶的单身者们「打架、上床、找爱」；男生说发际线晃了、角落（corners）垮了、gooning 很严重，但已经锁定状态，要从只卷外貌（maxing）转向「碾压（mogging）」；自称绅士，把每个姑娘当公主、把她父亲当绝对的国王；女生说自己是这里最正的，这只是数学；又有人说只要对方拉椅开门，「下面就开了花」，已经在想孩子的名字。看完后他们笑着说，除了其中某一个，这种东西的强项是把刻板印象蒸馏成原型——每一个都是现实中存在的原型。结论是：这件事通常是低投入的，但你用高投入的方式去做，所以愿意给它认可。不过他们也同意，短期内社会对人工智能仍有大量生理不适感（ick），无论你做得有多好，大概都很难完全摆脱；会一直存在类似「新的有机、散养、手工」的标签，本质就是「人类制作」，将来会冒出专门的词来指这件事。"}, {"id": "s7", "title": "人工智能需要自己的「马力」，以及 ASI 这个糟糕缩写", "start_sec": 491, "summary": "有人转述罗里（Rory，未到场）的说法：马力（horsepower）这个词出现，是因为人们需要描述某种速度，又只能用旧事物的单位来表达，所以才需要马力。他们认为人工智能行业也需要自己的「马力」版本，需要类似预测市场那样的东西，因为现有评测（evals）太复杂，没人真正知道谁好多少。对方打趣说：那就弄个智商一样的数字，我们 99、他们 98，叫「至高智能（supreme intelligence）」。他们还聊到一则特朗普相关的民调／品牌重塑：有人想另起名字，其中一个是 Beam，另一个记不清；他想叫它 ASI，但问题是 ASI 已经指「人工智能超级智能（artificial super intelligence）」——也就是所有人担心的那个东西。它不是 super，而是 supreme，后来又像是 superior 之类，大概有三个和「人工智能（artificial）」搭配的词。大家觉得最大的问题就是「artificial（人造的）」这个词本身，品牌上并不理想；对方也承认那人懂品牌，只是这次没走好。克里斯问清单怎样了，对方说东西打不开，让大家先不用等他。"}, {"id": "s8", "title": "戏仿《美国精神病》：用腌黄瓜比较「品味」", "start_sec": 571, "summary": "他们把话题落到一起看的短片上（不是 Instagram 上的那条「新腌黄瓜」）。短片戏仿《美国精神病》（American Psycho）里比较名片的名场面，改成比较腌黄瓜：昨天从熟食店拿的，成色很好，是莳萝（dill），卤汁里有芥菜籽（mustard seed）。对方说那算不了什么，自己这款是大蒜卤的半酸黄瓜（half sour with garlic brine）。又有人惊叹：像你这种傻瓜怎么会这么有品味？不敢相信布赖斯（Bryce）居然更喜欢范·帕滕（Van Patten）的黄瓜而不是我的。且慢，还有桶渍（barrel cured）、整粒胡椒、格外脆。最后是「让我们看看保罗·艾伦（Paul Allen）的腌黄瓜」：微妙的橄榄色、有品味的厚度，天哪，上面甚至有小凸起。有人问：怎么了，帕特里克（Patrick）？你在出汗。现场的反应是：太过了，已经非常接近结束（游戏／玩笑被玩到尽头）。这段用消费品细节当作品味表演，正好回扣全片对「品味」被展示、被比较、被用来压人的讨论。"}, {"id": "s9", "title": "订阅提醒，以及 Function Health 赞助口播", "start_sec": 647, "summary": "克里斯插播一条频道说明：很多人反映即使用户已经点过订阅，YouTube 仍会把他们从频道退订，所以请往下看一眼订阅按钮是否还亮着。订阅可以比别人更早看到节目，也支持他和这档节目，帮他请来更大牌的嘉宾，并让他很高兴，请帮忙点一下。随后进入 Function Health 广告：训练规律、吃得还行、自我感觉不错，但只是在「凭感觉」行事；多数人完全不知道身体内部在发生什么。Function 提供 160 多项进阶检测，覆盖激素、心脏、肾功能，甚至能发现与 50 多种癌症相关的早期信号；普通年度体检可能只测约 20 项指标，Function 超过 160 项。每年检测两次，结果集中在一个简单仪表盘里，便于追踪趋势。这种检测通常要花几千美元，Function 为每年 365 美元，相当于一天 1 美元；当时还可减 25 美元，降到 340 美元，链接在简介或 functionhealth.com/modernwisdom。"}], "paragraphs": [{"start_sec": 0, "section_id": "s1", "type": "text", "zh": "有两个词现在被不停地扔来扔去：品味（taste），还有泔水内容（slop）。我很着迷这两个词，也着迷于围绕它们的讨论少得可怜。", "speaker_id": "chris"}, {"start_sec": 8, "section_id": "s1", "type": "text", "zh": "品味尤其如此——你只要开口说「2026 年真正重要的是品味，你们这些没品味的可没有」，就能显得自己地位很高。", "speaker_id": "chris"}, {"start_sec": 20, "section_id": "s1", "type": "text", "zh": "slop 像是它的反面：现在有人可以完全不定义自己为什么觉得那是 slop，就把这个词甩出去。电荷没那么强，但有点像「种族主义」或「性别歧视」这类词——你可以在办公室里随随便便、胡乱甩来甩去，却没人确切知道它到底指什么。", "speaker_id": "chris"}, {"start_sec": 45, "section_id": "s1", "type": "text", "zh": "乔治·奥威尔（George Orwell）有一篇很好的文章，叫《政治与英语》（Politics and the English Language）。他谈到，作为写作者，你可以把「说到底（at the end of the day）」这类新套话往里一塞，示意「我觉得人们会喜欢这个」，让自己显得聪明，但底下没有任何深度。", "speaker_id": "chris"}, {"start_sec": 62, "section_id": "s1", "type": "text", "zh": "我之所以着迷，也因为杰克，你就是那种会被别人形容为「有品味」的人。", "speaker_id": "chris"}, {"start_sec": 65, "section_id": "s2", "type": "text", "zh": "但我一直想搞清楚：这块肌肉到底怎么练出来？我从朋友比利那里学到一个非常简单的练习。比利·奥本海默（Billy Oppenheimer）。他有一套做法，叫「我喜欢我所喜欢的东西的什么」：每当看到自己喜欢的东西，就先存进手机，然后试着向自己解释为什么喜欢。", "speaker_id": "chris"}, {"start_sec": 88, "section_id": "s2", "type": "text", "zh": "嗯。", "speaker_id": "jack"}, {"start_sec": 90, "section_id": "s2", "type": "text", "zh": "然后我又做了一个「我讨厌我所讨厌的东西的什么」：看到不喜欢的东西，我就先捕捉下来、写下来。这样你还会留下一份可以翻看的素材库。", "speaker_id": "chris"}, {"start_sec": 100, "section_id": "s2", "type": "text", "zh": "我就是对眼下这两个词特别着迷：所有人都在用，却没有人定义它们。", "speaker_id": "chris"}, {"start_sec": 110, "section_id": "s2", "type": "text", "zh": "嗯。", "speaker_id": "jack"}, {"start_sec": 112, "section_id": "s3", "type": "text", "zh": "你能不能找一段艾拉·格拉斯（Ira Glass）的话？就是那种，一搜艾拉·格拉斯和品味，应该能看到「品味差距（taste gap）」。品味差距差不多用一段话就能说明：所谓有品味，意味着你总会对自己的产出不满意。", "speaker_id": "chris"}, {"start_sec": 129, "section_id": "s3", "type": "text", "zh": "这段话来自美国作者艾拉·格拉斯。「没人把这件事告诉新手。我希望当初有人告诉我。所有做创意工作的人走进这行，都是因为我们有好品味。但中间隔着一条鸿沟。头几年你做出来的东西，就是不够好。它在努力变好，有潜力，但还不是。而你的品味——把你带进这局游戏的那东西——依然很毒、很准。正是你的品味，让你对自己的作品失望。很多人永远过不了这阶段。他们放弃了。」", "speaker_id": "chris"}, {"start_sec": 154, "section_id": "s3", "type": "text", "zh": "「我认识的、做出有意思的创意作品的人，大多熬过了好几年这种状态。我们知道自己的作品还缺少那种我们想要的特别东西。我们都经过这一段。如果你刚起步，或仍停在这个阶段，你得知道这很正常；你能做的最重要的事，就是做大量作品。给自己定一个截止日期，让自己每周完成一个故事。只有靠作品量，你才能闭合这条差距，让作品配得上你的野心。我花了比见过的任何人都长的时间才搞懂这件事。这会需要一阵。花一阵很正常。你得一路打过去。」", "speaker_id": "chris"}, {"start_sec": 184, "section_id": "s3", "type": "text", "zh": "该死。漂亮。【笑声】", "speaker_id": "jack"}, {"start_sec": 185, "section_id": "s4", "type": "text", "zh": "这里就有「先发出去」。原话我记不清了，也许是沙恩·帕里什（Shane Parrish），也许是蒂亚戈·福特（Tiago Forte）：拖延不好，因为它让你不做事情；它尤其不好，是因为它阻止你以足够的数量交付作品，从而无法搞清什么真的有效。", "speaker_id": "chris"}, {"start_sec": 205, "section_id": "s4", "type": "text", "zh": "有点像你那句：我宁可高确信而错，也不要低确信而对。", "speaker_id": "chris"}, {"start_sec": 210, "section_id": "s4", "type": "text", "zh": "我宁可当白痴，也不要当懦夫。对，对。", "speaker_id": "jack"}, {"start_sec": 214, "section_id": "s4", "type": "text", "zh": "因为如果你从不把东西发出来，或只在确定会成功时才发布，你其实没学到多少。真正学到很多，意味着：好，我有一个大样本集，我往外扔过很多东西。", "speaker_id": "chris"}, {"start_sec": 228, "section_id": "s4", "type": "text", "zh": "至少对我自己来说，最短的说法是：品味就是分辨好与不好的能力。对。而且我会把关于 slop 的那句评论配对起来——基本上，你是在外包品味。我觉得人们用 slop 这个词时，想指的就是这个：产出里缺少意图。很多人觉得，一旦使用那种强大得不可思议的工具，你就交出了一部分能动性。", "speaker_id": "jack"}, {"start_sec": 258, "section_id": "s4", "type": "text", "zh": "没经过品味做出来的。", "speaker_id": "chris"}, {"start_sec": 260, "section_id": "s4", "type": "text", "zh": "slop 就是没经过品味做出来的。而且这些东西的训练方式会留下教科书式的小痕迹，有点像克劳德（Claude）身上那种「爪印」：如果你没有用一定的意图去引导，那些痕迹每次都会出现。", "speaker_id": "jack"}, {"start_sec": 272, "section_id": "s4", "type": "text", "zh": "我下一层的反驳是：没关系。看见 slop 就说 slop，也可以；但那就是 slop。所以我就把 slop 叫 slop。", "speaker_id": "jack"}, {"start_sec": 278, "section_id": "s4", "type": "text", "zh": "所以如果你还要把 slop 说成「也不原创」——你要说 slop，就告诉我为什么。解释一下。", "speaker_id": "chris"}, {"start_sec": 286, "section_id": "s5", "type": "text", "zh": "你清单上现在都有什么？你说过你有一份「我为什么不喜欢我所不喜欢的」之类的单子。", "speaker_id": "chris"}, {"start_sec": 294, "section_id": "s5", "type": "text", "zh": "我调出来。等一下。", "speaker_id": "jack"}, {"start_sec": 296, "section_id": "s5", "type": "text", "zh": "有意思的是，这种东西会被看成低投入，因为那个约翰·马克（John Mark）把互联网玩崩了。他第一支影子拳击的视频，还有一点小舞蹈，非常惊人。【笑声】但所有人都完全摸不着头脑：这人气场也太强了。直到你发现那是人工智能。所以，同样的东西——", "speaker_id": "chris"}, {"start_sec": 317, "section_id": "s5", "type": "text", "zh": "一旦你得知真相。我是说，如果你去看 Hoog 或 Fun（字幕听写）这类大型科普讲解 YouTube 频道，我很喜欢他们的纪录片，觉得做得很好。他们会在最开头放一条声明：我们所有的信息都由人类完成。因为他们必须提前展示投入，成品——也就是完工的那篇文章——之间的差距，对我们来说已经很难判断。所以我必须说：即使你看不出来，工作量证明也在那里，表明我们花了大量精力去做这件事。", "speaker_id": "jack"}, {"start_sec": 351, "section_id": "s6", "type": "text", "zh": "我有没有把 Gossip Goblin 那个东西发给你？就是爱岛（Love Island）那个？", "speaker_id": "chris"}, {"start_sec": 356, "section_id": "s6", "type": "text", "zh": "没有，你讲。", "speaker_id": "jack"}, {"start_sec": 358, "section_id": "s6", "type": "text", "zh": "你能在 Instagram 上找一下 Gossip Goblin 吗？【笑声】就是这个名字。这是人工智能影片，你不会把它误认成不是人工智能拍的，但工艺水平绝对难以置信。他们把人们通常看成低投入、当成 slop 的东西，推到了极限。我得说，他们在制作上投入的精力，会让你联想到任何一类好莱坞制作公司。这些成品里你会看到——", "speaker_id": "chris"}, {"start_sec": 386, "section_id": "s6", "type": "text", "zh": "【短片对白】「亲爱的，你喜欢什么样的姑娘？喜欢她们性感的那种吗？」「我啊，什么样都喜欢。我爱所有姑娘，但如果非要选，我喜欢漂亮的、看起来很性感的那种。」【音乐】「噢，你是说我很正点。你真甜。」「方尼（Fonzie），你这讨厌的贱人。你怎么能这样？戈博（Gobo）是我的人。」「欢迎来到恋人潟湖（Lovers' Lagoon）。欢迎。这里，新摇篮（Neo Cradle）最会调情、最凶的单身者们将打架、上床、寻找爱情。来吧，把手从裤子里拿出来，【音乐】我们去见见这季的人。」", "speaker_id": "chris"}, {"start_sec": 419, "section_id": "s6", "type": "text", "zh": "【短片对白】「实话说，今年挺难熬的。我发际线晃了，脸的边角也垮了，那种沉迷（gooning）变得很严重，【音乐】真的很严重。但我现在锁定状态了，准备不再只是卷外貌（maxing），而要开始碾压（mogging），兄弟。我是个体面绅士。【音乐】我把每个姑娘都当公主，把她父亲当绝对的国王。礼貌不花钱，亲爱的。」「就算说我自以为是，【音乐】我也是这里最正点的那个，不是吗？这只是数学，对吧？我也不知道。【笑声】不过别墅是挺不错的，对吧？我是个浪漫的人。只要有人给我拉椅子、开门——」", "speaker_id": "chris"}, {"start_sec": 455, "section_id": "s6", "type": "text", "zh": "【短片对白】「一下子，我下面就开了花，【音乐】已经在想我们孩子的名字了，懂吗？」", "speaker_id": "chris"}, {"start_sec": 462, "section_id": "s6", "type": "text", "zh": "疯狂的是，这种东西的「类型感」非常强。【笑声】", "speaker_id": "jack"}, {"start_sec": 468, "section_id": "s6", "type": "text", "zh": "除了他。我正要说——", "speaker_id": "chris"}, {"start_sec": 470, "section_id": "s6", "type": "text", "zh": "我正要说，这是把刻板印象蒸馏出来的能力。英式的那些刻板印象——其中每一个都是现实里存在的原型。", "speaker_id": "jack"}, {"start_sec": 480, "section_id": "s6", "type": "text", "zh": "不过我也说不好，人们以后会不会开口就说「这是人工智能」？这件事通常是低投入的，但你用高投入的方式去做，所以我愿意给你认可。", "speaker_id": "chris"}, {"start_sec": 491, "section_id": "s6", "type": "text", "zh": "我觉得大家对人工智能总体上有太多生理不适感，短期内无论你做得有多好，大概都很难完全摆脱。对，我同意。以后会一直有类似「新的有机」或「散养」的说法，也就是「手工的」，你知道，本质上就是人类制作的。将来会冒出一个专门的词来指这件事。", "speaker_id": "jack"}, {"start_sec": 508, "section_id": "s7", "type": "text", "zh": "罗里（Rory）好像讲过，马力（horsepower）之所以成为词，是因为他们需要描述某种速度，又只能用旧事物的单位来表达。人们需要马力这种单位。", "speaker_id": "chris"}, {"start_sec": 517, "section_id": "s7", "type": "text", "zh": "我觉得人工智能行业也需要自己的「马力」版本。它需要——", "speaker_id": "jack"}, {"start_sec": 522, "section_id": "s7", "type": "text", "zh": "它需要自己的预测市场。对，对。因为这些评测也很复杂，没人知道到底谁比谁好多少、好在哪里。", "speaker_id": "chris"}, {"start_sec": 530, "section_id": "s7", "type": "text", "zh": "那就弄成一种智商，对吧？他们得想出一个数字：我们是 99，他们是 98，你知道的。至高智能（supreme intelligence）。", "speaker_id": "jack"}, {"start_sec": 538, "section_id": "s7", "type": "text", "zh": "你看到那个民调了吗？哦，特朗普那个民调。对，品牌重塑。哦对，他在试。他是在试，但我不确定——", "speaker_id": "chris"}, {"start_sec": 546, "section_id": "s7", "type": "text", "zh": "他走在前面。他懂字体。哦对，他当时想另起一个名字，叫至高智能。其中一个是 Beam，另一个我记不清了。他想叫它 ASI，但问题是 ASI 的意思是人工智能超级智能（artificial super intelligence），也就是所有人担心的那个东西。", "speaker_id": "jack"}, {"start_sec": 560, "section_id": "s7", "type": "text", "zh": "它不是 super，是 supreme，后来又像是 superior 之类的，我忘了，大概有三个和「artificial」搭配的词。我觉得最大的问题就是「artificial（人造的）」这个词。对，这也说得通。这品牌并不理想。", "speaker_id": "chris"}, {"start_sec": 568, "section_id": "s7", "type": "text", "zh": "他懂品牌，是的。", "speaker_id": "jack"}, {"start_sec": 570, "section_id": "s7", "type": "text", "zh": "有意思。你的清单呢？", "speaker_id": "chris"}, {"start_sec": 572, "section_id": "s7", "type": "text", "zh": "我这边打不开。你们先继续，不用等我。", "speaker_id": "jack"}, {"start_sec": 575, "section_id": "s8", "type": "text", "zh": "机器智能也是我听过的另一个叫法，不过它同样带着「我们会被取代」的味道。这是什么？这儿有一条——不是那种 Instagram。新的腌黄瓜。你觉得怎么样？", "speaker_id": "chris"}, {"start_sec": 585, "section_id": "s8", "type": "text", "zh": "【短片对白】「喔呵。非常好。你看这个。昨天从熟食店拿的。成色不错。这是莳萝（dill）。卤汁里有一种叫芥菜籽（mustard seed）的东西。」「很酷，贝特曼（Bateman），但那算不了什么。看这个。」「这真的很好。大蒜卤的半酸黄瓜（half sour）。你觉得呢？」", "speaker_id": "chris"}, {"start_sec": 611, "section_id": "s8", "type": "text", "zh": "【短片对白】「不错。」「天哪。这真的太棒了。像你这种傻瓜怎么会这么有品味？我不敢相信布赖斯（Bryce）居然更喜欢范·帕滕（Van Patten）的腌黄瓜，而不是我的。」「等一下。你还没看过这个。桶渍（barrel cured）。整粒胡椒。格外脆。」「Impressive。非常好。」", "speaker_id": "chris"}, {"start_sec": 640, "section_id": "s8", "type": "text", "zh": "【短片对白】「让我们看看保罗·艾伦（Paul Allen）的腌黄瓜。」", "speaker_id": "chris"}, {"start_sec": 647, "section_id": "s8", "type": "text", "zh": "【短片对白】「我想知道他们是怎么把黄瓜收进去的。你看那微妙的橄榄色。它那有品味的厚度。天哪。上面甚至有小凸起。」「怎么了，帕特里克（Patrick）？你在出汗。」", "speaker_id": "chris"}, {"start_sec": 665, "section_id": "s8", "type": "text", "zh": "天哪。是的。这太过了。已经非常接近结束了。", "speaker_id": "jack"}, {"start_sec": 683, "section_id": "s9", "type": "text", "zh": "插一句：很多人告诉我们，即使用户已经点过订阅，YouTube 还是会把他们从频道退订。所以请往下看一眼，确认订阅按钮是按着的。订阅了就能比别人更早看到节目，也是在支持我和这档节目，帮我请来更大牌的嘉宾，并且会让我很高兴。去帮我点一下。谢谢。", "speaker_id": "chris"}, {"start_sec": 700, "section_id": "s9", "type": "ad_omitted", "zh": "", "ad_brand": "Function Health"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

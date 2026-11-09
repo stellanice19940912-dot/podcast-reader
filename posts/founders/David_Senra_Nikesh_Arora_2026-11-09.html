@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>怎样拿下交易、把公司做到约2500亿美元｜尼基什·阿罗拉（Nikesh Arora，帕洛阿尔托网络）</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="david">大卫·森拉（David Senra）</option><option value="nikesh">尼基什·阿罗拉（Nikesh Arora）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">David Senra</span><span class="pill">2026-11-08</span></div>
+<h1>怎样拿下交易、把公司做到约2500亿美元｜尼基什·阿罗拉（Nikesh Arora，帕洛阿尔托网络）</h1>
+<p class="sub">嘉宾：尼基什·阿罗拉（Nikesh Arora） · 约 62 分钟（3750 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=BKz2Dy-mKEM" target="_blank" rel="noopener">https://www.youtube.com/watch?v=BKz2Dy-mKEM</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>David Senra</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-08</dd></div><div class="meta-row"><dt>时长</dt><dd>约 62 分钟（3750 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig 与 .en.vtt 哈希相同；普通 yt-dlp 写字幕成功，无需 cookies）；caption_source=yt-dlp-normal；中文为全文翻译并按话题分段；赞助口播已标灰（Ramp Router、Deel、WorkOS、AppLovin）；原始 VTT 含 &gt;&gt; 说话人切换标记，说话人按主持/嘉宾问答与这些标记推断（自动字幕偶有轮次粘连，中等把握）；ASR 将 Aporeto 听成 Aprimo、TBPN 听成 TPBN，正文已按语境纠正</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>BKz2Dy-mKEM</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>大卫·森拉（David Senra）对话帕洛阿尔托网络（Palo Alto Networks）首席执行官尼基什·阿罗拉（Nikesh Arora）：从阿里·伊曼纽尔（Ari Emanuel）新书里的天使投资圈、差点投进Oculus，讲到他把一家防火墙公司做成70多款产品、市值从约180亿美元走向原定「100亿以上」并被节目标成约2500亿美元量级的路径——摊薄获客成本、承认好产品要4到7年、用并购补管线；以及只买第一、第二名、签约前30天对齐产品路线图、买的是团队不是法律实体。后半段谈AI让攻击面扩大、虚拟补丁、印度式「尽力而后交给命运」，以及女儿艾莎（Aisha）从Brex市场部走到自己的基金。</p>
+<h3>核心要点</h3><ul><li>他在欧洲认识银湖资本（Silver Lake）的埃贡·杜尔班（Egon Durban），个人出资天使投资约15年；与马克·安德森（Marc Andreessen）从国际消费电子展（CES）晚宴跟到Oculus，文件还没来就卖给了脸书（Facebook）</li><li>加入帕洛阿尔托时公司市值约180亿美元、几乎只有防火墙；他的原初目标是走到100亿美元以上：企业最大开支是获客，只卖一件东西很难做大，必须靠客户信任卖更多相邻产品</li><li>好技术产品通常要4到7年；他因此研究并购成败，结论包括：别让内部输家接管被收购的赢家、要买第一名而不是指望把第二第三名擦亮、把创始人放上该业务的王座</li><li>具体做法：不让银行家夹在中间，创始人必须在约30天内共同写出产品路线图才签最终条款；迄今没有创始人因此退出，他们自己退出过两次；买的是团队，并希望创始人再锁定3到4年</li><li>AI把知识民主化变成智力民主化，也让攻击面扩大（他举例脸书约36.5亿日活）；网络安全被他拆成拦在边界、内部卫生、以及破防后多快发现并赶出去；他们在做虚拟补丁，端点一年约25美元看流量，他认为纯用大模型按token计费做不到这个价</li><li>压力哲学是近五年才明确的：每天把能做的做到尽，其余交给命运；一生最焦虑的是在女儿婚礼上致辞——女儿艾莎曾在Brex做市场，后与比尔·马里斯（Bill Maris）的Section 32共事，并开始自己的基金</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：关心企业软件并购、网络安全与创始人整合、或想听谷歌欧洲时期销售故事的人；可跳过：只想听短平快新闻、对交易机制不感兴趣的人（约62分钟）。</p>
+<h3>适合人群</h3><p>企业软件 / 网络安全 / 并购与创始人 / 创业史听众</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">阿里新书里的天使圈：埃贡、马克，以及差点击中Oculus</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">大卫·森拉（David Senra）一上来就问尼基什·阿罗拉（Nikesh Arora）有没有读阿里·伊曼纽尔（Ari Emanuel）的新书；尼基什说没有，也不知道自己被写进去了。大卫转述书中说法：阿里经马克·安德森（Marc Andreessen）介绍认识埃贡·杜尔班（Egon Durban），马克告诉阿里，尼基什、字幕里的尼克·卡什（Nick Cash，身份未再核实）和埃贡有一个松散联合的天使投资圈子。尼基什回忆：埃贡刚到欧洲做银湖资本（Silver Lake）合伙人时，经共同朋友约他吃饭——当时他三十岁出头、负责谷歌（Google）欧洲。埃贡想找人了解当地科技圈、甚至想请他给银湖当顾问；尼基什起初很抗拒，觉得这种顾问就是两天封闭会加一堆演示文稿和免费咖啡。埃贡改口说：你觉得是好主意或坏主意都告诉我，投资决定我自己做，我们也可以只是玩得愉快。这段关系后来维持了大约15年。他用个人的钱做这些投资。一个插曲是：很少出门的马克去国际消费电子展（CES）办晚宴，他一起飞回来后写信问有没有能参与的酷公司，马克指向晚宴上发言的人——Oculus，也就是帕尔默·勒基（Palmer Luckey）和布伦丹·伊里布（Brendan Iribe）。尼基什在洛杉矶约看技术，却被带到一小时车程外的工业园，还赶上停电；灯回来后他们戴上简陋的虚拟现实装置，他觉得很酷，准备写支票。布伦丹说同一轮还有布莱克·克里科里安（Blake Krikorian）和维维·内沃（Vivi Nevo），能再挤进一个人，马克已经在公司里。他和埃贡谈妥后，对方先说文件在准备，却迟迟不发；埃贡也来追问。结果某一天醒来，Oculus已经卖给脸书（Facebook），他们还没来得及投进去。这群人后来在银湖收购威廉·莫里斯（William Morris）时，成了技术顾问委员会，成员包括马克和他。谈到给埃贡和阿里做顾问，尼基什说阿里的风格就是15分钟电话；大卫立刻接上自己那集采访，并指出阿里的书名叫《打电话》（Rolling the Calls）——阿里现在也这样对他：助理说「请等阿里」，通话大约25秒，没有再见。尼基什却讲了例外：他离开软银（SoftBank）后阿里约他见面，助理按15分钟习惯只排了半小时送机，结果那是他唯一一次和阿里谈了一个半小时。结论是：事情真的对你重要时，阿里肯花时间，他是有「灵魂」的；但大多数时候他很交易导向，只想把事办完。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">在同一家公司里不断换题：从谷歌十年到帕洛阿尔托八年</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">插播Ramp的Router与Deel赞助后，大卫回到刚才的闲聊：有些人像有注意力缺陷多动，念头来了做一会儿又跳走；尼基什却能在一份工作上待很久——谷歌十年，帕洛阿尔托网络（Palo Alto Networks）呢？答案是八年。大卫说自己喜欢长时间盯一件事，问他如何工作。尼基什的反驳是：即便人在同一家公司，脑子面对的问题可以完全不同。他在谷歌时员工大约从2000人涨到6万人，收入从约20亿美元涨到约620亿美元，业务从搜索到YouTube、到DoubleClick，还在不断买公司、想新事情。关键不是某一刻你在做什么，而是脑子能被挑战多少、能同时卷进多少不同问题；只要平台够大，你就可以在同一空间里换题求解。八年前他加入时，帕洛阿尔托还是一家防火墙公司；今天他们有70多款产品，覆盖网络安全的方方面面，并在全力转向人工智能。大卫刚采访过Revolut的尼克（Nick），对方说绝不可能只靠一个产品过日子，同时跑大约20个实验，已在大约30到40个国家、想做到100个。大卫问：他被招去当首席执行官时，公司是不是本质上只有一个产品？尼基什承认：是的，就是防火墙。大卫追问这八年的扩张是上任时就有的计划，还是走着走着才形成的；尼基什说他来的时候就有计划。大卫还提起一句很好笑的话：他曾觉得「网络安全是两个词」。尼基什说面试时自己谈得更多的是高管安保，后来发现那是很小的市场，而且偏消费者、需要大量营销和研发，他不想卷进去。他是带着企业框架、而不是网络安全框架进来的：去看当时最大的企业公司，比如思科（Cisco）或Salesforce，市值是千亿美元量级，而他们只有约180亿美元。他当时的原初预期是：怎样从180亿走到100亿以上。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">摊薄获客、承认产品要4到7年，以及用并购补管线</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">接着他拆企业损益表：多数公司把大约15%到18%花在产品研发上，行政管理大约6%到10%，营业利润率和毛利率之间的整段差距主要是销售、营销和客户支持。如果能把通常占成本约60%、落在销售营销和客支里的部分压到20%，就可以做成约40%营业利润率的生意。最大开支是获客。如果只有一个低收入产品、对每个客户只能卖一件东西，很难做大；微软企业业务或Salesforce这类公司，都是对同一客户卖很多东西。所以帕洛阿尔托要变大，就得找到客户愿意信任、愿意继续向他们买的相邻业务，服务全球前约1万名客户并提高单客贡献。前提是产品得管用、得是同类最佳——在网络安全里没人想买第二好的。另一半洞察至今仍成立：做出一个真正好的技术产品通常要4到7年，优步（Uber）、YouTube、脸书、谷歌搜索都是如此，企业软件也不例外。他刚加入时管线并不厚，若全靠自建，得到4到7年以后才有真正的产品，所以必须去收购。但历史上充满糟糕的并购，企业或消费领域都一样，公司经常把买来的东西毁掉。于是他把接下来一段时间用来研究：怎样的收购是好的，怎样的是坏的。大卫问他怎么学。尼基什说就是回看模式：某公司买了多少家、哪些成了、哪些没成，失败是市场没出现、主意本身糟糕、执行差，还是领导力差。他总结出大约七个失败原因，试图多控制其中五个变量，把风险收成两件：选错了方向，或买对了公司但市场没走那边。他们就有过后者。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">阿波雷托式止损：别自己造，把赢家创始人放上王座</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">大卫问那家公司是谁、付了多少钱。尼基什说公司叫阿波雷托（Aporeto，自动字幕作 Aprimo）：他们以为世界会走向基于IP的分段，但后来没走那边。买了之后，一旦判定方向不对就迅速止损，像投资组合、像边际风投、也像制药公司把药物做到某一期就收手。他在谷歌时也听过「我们去把Netflix买下来」之类的话，他的反应是：我们有YouTube，技术上把面向消费者的视频服务能力扩展到专业内容，给1000万美元和20名工程师就能解决——结果从来不是那样。到了帕洛阿尔托，工程师团队也会说「不用买，我们能造」。可一旦决定自建，会碰到几重问题：你看见正在成功的那些人已经领先大约一年半，有50到75人的能运转团队；等你招齐人、理顺内部、做出第一版，对方又会再超前大约两年。大卫问其他首席执行官是否因为自我、觉得「我能造」才犯这个错。尼基什不认为有人早上起来打算犯错，他们多半也找对了目标公司；并购失败往往是执行。常见做法是：你很忙，买下一家公司就交给内部「管这个主题」的人——比如内部做了五年视频流的人，去接管买来的视频流公司。大卫补了一句：而你反而把该公司的创始人放上去。尼基什说：等一下，这个人带着你所有资源和金钱却被一个住破仓库、靠风投、靠血汗泪做出产品市场契合的人揍了，凭什么让赢家去给这个「帝国里的输家」打工？他会反过来：让这位创始人成为该业务负责人，其他人向他学习、为他工作。这有时会让原先组织里的人不好受，他们甚至想走。但尼基什认为没关系：被授权去赢、又握有资源却没赢下来的人，不能再用一项珍贵资产当奖赏，冒着把资产毁掉的风险。另一种失败模式是创始人觉得「我的创新是天才，别人的是运气」，于是去买第二、第三名，指望擦亮了再击败第一名——这从来行不通。他要买第一名。若看多数市场，第一名和第二名拿走该品类不成比例的利润。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">只买第一第二名，以及签约前30天共同写出产品路线图</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">大卫笑说这正是开录前他想套出来的话，约定稍后再展开。尼基什继续：第三名有时能接近，但成不了气候；长期赢就要做第一或第二，否则就有麻烦。若你去买第二或第三名，第一名仍在；大企业又很难控制每个变量，财务、人事都会跑来说「我是来帮忙的」，母公司一拥而上，被买下的团队反而失速。所以买第一名时，必须想法子保住势头。大卫问他是不是没有专门的并购团队、听说有人觉得这事「快把他逼疯了」。尼基什说有一批很能干的人跟他一起做，他并非单打独斗，但每笔收购最后他都会介入。两人比较第一和第二：外面看也许差不多，靠近了会看见什么？尼基什承认差距有时很小，他们也买过错认的第一名，结果第二名绕过去变成第一，因为执行砸了；他们买过大约35家公司，不是每笔都按计划走。通常两者都有产品市场契合，只是四年后成品的主推力可能下在不同部位，早期各自只有大约30或40个客户时很难判断谁的主需求才是客户真正要先打通的。这既是战略、执行、契合，也是商业模式问题，未来两三年很难外推。还要问：谁更可能成功，谁更与我们的产品方向对齐。他早期买的第一或第二家公司，买完后花了大约6个月争论产品方向——创始人觉得「我带着这个愿景创办公司」，即便已经把公司卖了。大卫问：那你以为钱是干什么的？尼基什后来想通了：卖了就不能只建自己原来想建的东西，但他也曾怕因此「搞砸一位创始人」。于是改了模式：谈妥交易后他坚持和创始人一起读协议，不让银行家夹在中间，因为你们要共事大约四年。一旦原则上同意，财务和法律去走文件，创始人的任务是在30天内和他以及产品团队一起设计「共同的房子」；他甚至不签最终条款清单，直到创始人在联合产品路线图上签字——如果你不想建我想建的东西，这笔交易就不该做。大卫觉得创始人天生想要自主、也觉得自己是对的。尼基什的观察是：当30天后有一张大支票悬在那里，创始人突然变得比钱已经到手之后好对齐得多，白天黑夜之别；他们随时可以拉伞绳退出。有多少人在那一阶段退出过？没有创始人退出，他们自己退出过两次：一次是感觉对方只是为了成交在配合、产品难以持续对齐；另一次是30天里越挖越深，发现实质不如早期尽职调查感觉的那么强，架构也难合并。创始人通常会留下来吗？有些会。他们买的是团队、愿景和执行，创始人如果说「我要走」，他们就不买，因为那等于你也可能把公司做死。两三个联合创始人里，做商务拓展或市场的那位可能会淡出，因为大公司这些职能更强；产品和工程的人几乎不会淡出，那才是他们要买的。许多创始人仍在帕洛阿尔托；有人留下继续做，有人大约三年后创业瘾又犯了选择离开。他们买公司时会把创始人再锁定3年，理想是4年：这些产品公司往往买在第2到第4年，后面通常还有2到3年产品开发，需要创始团队把领先优势延续下去。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">创始人意志、网球心智差距，以及霍克·谭的「征服者」对照</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">插播WorkOS赞助后，大卫回到第一名和第二名：靠近之后还会对什么感到意外？尼基什说大公司最难把握的是：有时第一名赢，靠的就是创始人的意志，那种「阿尔法杀手」。大卫要语境，并说自己看过很多他的采访、开录前对方还把这点淡化，可他相当确定对面坐着的就是这种人，也点过几位运作方式让他想起尼基什的创始人。尼基什把层次分开：你作为主体的领导人是一回事，团队里有这种人是一回事；若买下的创始人也这样，他们会砸玻璃，这可以，但必须学会和更大的机体共存。以帕洛阿尔托为例，创始人手下也许有8个人，但能撬动大约6000名一线人员——这些人不都糟糕，他们很出色。从小团队、以弱胜强走过来的创始人，容易觉得别人都蠢、挡路的都不够格；到了更大生态里必须换脑：这6000名销售是放大器，能把产品愿景卖出去。你从地下党变成了「强者的一部分」，这是必须盯住的风险。若他们不能调节自己的行为，就会把人惹恼、自己也受挫，他就会失去对方在产品上的领导力；所以第一、第二名还得看谁更适应这个环境。大卫个人很迷「第一和第二之间通常有缺口」。尼基什提醒：谁是第一、谁是第二本身是判断，两人可能用不同标准，各有大约30个客户、相近的经常性收入，并不显然。大卫提起一位顶尖网球选手的心理教练：世界前200里，第1到第3的差距可以忽略，第4到第200的差距，比第3和第4之间还小；表面名次接近，心里差很远。他着迷于这种从外面看起来差不多、深聊之后才明白为何领先者把下一名甩开的落差。尼基什同意：有时经常性收入差一倍，第一名很好判定；起点相近时，就取决于哪位创始人能把事带到成功，也取决于他们愿不愿意卖。大卫说开录前聊到的那些人，多少钱都不卖。尼基什认为「我愿意卖」本身也是信号。大卫问他有没有和霍克·谭（Hock Tan）聊过——对方做很多并购。尼基什说霍克做得非常不同。大卫回忆两人曾一起在戴尔（Dell）家里，听到霍克建议一位更年轻的创始人：收购第一天就要让被收购公司知道，你是征服者，他们是被征服者；大卫还邀霍克做播客，霍克说妻子禁止，怕他被「取消」。尼基什的哲学相反：开始谈判时就要提醒团队，这些人将成为同事，不能失礼。大卫问哪种对。尼基什说自己没法像霍克那样想，因为他已经决定：这个人进来就是你的同事、甚至是你的上级之一。他不能赢，除非周围大约20个人也觉得自己在赢；要让他们相信这一点，就得让他们觉得自己是一等公民、是团队的一部分，他们的赢既属于自己，也属于他。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">买早了的云安全、并购不是战略，以及伦敦板球队拍了29轮</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">有没有买得太早的？尼基什举例：他进门时公司刚买下Evident.io，后来他们又买了同一赛道的RedLock——前者只在亚马逊云上能用，后者覆盖三大云。他怀疑早买的那家（前任买的）买得太早，然后他们买了走得更远的第二家。买得太早往往是价格、阶段和信念三者的匹配：若确信这会是未来的大空间，你需要脚印，可以自建团队，也可以买；还要看对方在这个空间待了多久、会贵到什么程度。眼下最能代表这种风险：同样一家公司，今天的融资估值他常常看不懂，可能和两年前的融资环境相比贵了三到四倍，阶段却差不多早。那怎么办？该买还是买，如果它符合战略。并购本身不是战略，只是验证、放大或执行战略的机制；总有人问他「你的并购战略是什么」，他没有。他买公司，是因为相信必须在某个品类赢，而自己的团队此刻还没到想要的位置，于是去找已经想明白、人也对的另一支团队。如果某样东西值200、别人开到800，他的工作是把这份200的资产变成对他们而言5到10的价值。大卫让他解释「值200却值800」。尼基什说：作为一家大约300（按上下文应指约3000亿美元量级）的公司，他应当去买那些他相信未来5到10年能变成5到10（亿级贡献）的东西。大卫联想到阿里书里最难忘的段落之一：他们买WME/IMG时，报价大约从1.8或1.9走到2.2，中间可能差了约4亿美元，埃贡进来说「你永远不会记得这4亿」——你记得的是把交易搞砸，而不是多付的钱；交易最终成交，也远比那笔差价更值钱。尼基什接话说，他和埃贡后来在伦敦一起买了一支板球队，两人是平等所有者。大卫原以为是和德韦什（Devesh，字幕）一起买的。尼基什说不：他正要去打AT&amp;T高尔夫，埃贡早上6点打电话问拍卖怎样了——因为伦敦时差——他说上一场拍了两轮，他们已经到第24轮。埃贡说：我知道你想买便宜的，那是教养；可这是体育，欢迎来到体育，别停，我还在电话这头给你精神勇气。后来大约拍到29轮。埃贡的逻辑是：最坏也不过是多付一半？无所谓，因为这支队伍要么大成功，要么失败。大卫说「他也这样对你了」。尼基什笑称自己在另一边还想要小聪明，埃贡提醒：你职业生活里这么说，个人生活也想想。早上7点他在练习场碰到埃贡，对方问：我们现在拥有这支队伍了吗？拥有了。大卫又抛出一句听过的概括：你不是在买公司，你是在买创始人。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">买的是团队；辛格尔顿会否停止并购；AI在民主化智力</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">尼基什修正：你买的是团队，是他们的视角、战略和执行。公司只是把团队放进法律实体、保护知识产权、最终变成走向市场能力的构造。人的第一本能不是「我要开一家公司」，而是「我要去建造一样了不起的东西」，你称自己为建造者，找志同道合的人分享愿景，用魅力让人上车；每招下一个人，你都在用眼神确认战略，对方也必须买账。你在打磨边缘、对齐战略，然后说：现在我们同意建这个，进入曲速去造这艘船，才能抢在所有人前面。这些公司往往只有一个行政人员兼人事、财务、设施和咖啡。你真正测试的是：这支团队是否比外面其他团队更能执行？他们可能一起磨合了一年半，天天在场上，住在同一屋檐下，一周工作80小时；你却想靠公司人事流程、四轮面试招一批企业员工去赢他们——那你永远赢不了，他们已经太超前。大卫提起亨利·辛格尔顿（Henry Singleton）：1960年代掌管特利丹（Teledyne）的「原型巴菲特」。沃伦·巴菲特（Warren Buffett）和查理·芒格（Charlie Munger）不断提到他，芒格说他是自己见过最聪明的人，巴菲特觉得美国商学院学生不研究他是犯罪；大卫一度以为伯克希尔的许多做法是巴菲特原创，其实很多学自辛格尔顿。辛格尔顿也曾靠并购扩张，做过大约135笔、一度拥有约130家公司，其中129家盈利；但后来他改了策略，大约15年没再买下一家。帕洛阿尔托有没有可能停止并购？尼基什说有可能。并购对他们不是生存级战略，而是最大化业务价值和客户结果的方式。若到了某一时刻，客户的边际价值来自确保他们已经买的东西真正能用，也许就会把重心放在那里，没有必须继续买的铁律。人工智能有没有改变他对并购的想法？有。他认为这是我们有生之年见过、也可能是有史以来最颠覆的技术。他在谷歌时是把知识或信息民主化，现在则是把智力民主化：每个人口袋里都有一样会越来越聪明的东西。他相当确定大约两年后，人工智能会可靠到让你像信任该领域专家一样信任它——营养师、物理治疗师、私教都可能被手机里的建议追上。你还能调节要多大的智力、要偏前沿冒险还是主流稳妥。组织今天按专长拆成文档、测试、编码、产品、界面等大约八个团队才拼出产品，只因为没人能样样精通；若一个人能借助能完成约90%工作的助手掌握这八门手艺，公司被创造的方式和组织形态，五年后都会根本不同。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">互联越多网络安全越值钱，以及谷歌欧洲那个「不知道量也不知道价」的销售</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">插播AppLovin赞助后，大卫问：人工智能会让网络安全公司更值钱吗？尼基什认为更是如此——更多技术、更多互联，会让网络安全更值钱。大约25年前几乎没有网络安全，因为没有这种连通：你登录大型机，它是安全的。现在大卫可以从这里登进自己的银行账户，这就成了攻击向量；能从各处登录的人越多，攻击面就越大。他当天早上看见脸书有大约36.5亿日活，也就是每天有36.5亿人进入其基础设施，每扇门都是潜在攻击面。再放到全球约80亿人、每人与数百个消费者应用互动，每天可能有万亿级在线交互通向某种企业基础设施。技术变得越多，你越需要新的安全能力；例如真正能防护人工智能的产品还不完整，因为人工智能本身太新。大卫觉得他像斯多葛：生意和生活都不该让你焦虑，每天尽力而为；又读到他若在印度、在印度教氛围里长大，会有很强的宿命感。尼基什解释：一个国家大约有18亿人，必须让他们明白你可以做到最好，最终仍有「上帝之手」或无法消除的不确定性来决定结果。你唯一能控制的是自己做什么；若这件事你真的做好了，就该睡得着，不能为所有不确定而忧虑——这种宿命感也让社会保持某种秩序。大卫说这话容易做起来难。尼基什承认人人都想控制结果、降低风险，但到某一点你得说「我已经尽力了」。这套能力年轻时没有，是近五年才找到的。大卫追问谷歌时期是否更焦虑。尼基什说谷歌是最好的生意，搜索业务一直在转。大卫仍觉得那是百年一遇的公司、他三十多岁就站在中心，压力会冲上头顶。尼基什说当时并不觉得「这会改变我的一生」：34岁，从未在同类公司工作过，每天醒来搜索更多、广告主也更多，那是执行问题。他加入时，有人在澳大利亚用美国信用卡向谷歌投广告，那是在欧洲买广告的唯一办法；奥地利做到大约1000万美元收入，却不收本地货币。他的工作变成消除摩擦、创造规模，而不必担心需求。他当时是谷歌欧洲销售负责人，客户问广告多少钱，他只能说取决于上一个人出了多少、你得出价更高；一天能吃下多少量？取决于有多少人搜索，因为只有搜索发生时才能展示广告。所以他既不控制价格也不控制量：价格由竞价者决定，量由搜索的人决定。法国下雨时收入往往会更高，因为人们待在家里搜索。他仍要和客户算投资回报：每次搜索对你值多少，转化成保险单或电商订单后你愿意为一条线索付多少，只要不超过你的出价就尽可能吃搜索。大卫说这很直白，并提到AppLovin创始人亚当·福鲁吉（Adam Foroughi）的类似说法：我卖的是收入，你给我一美元，我得还你更多。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">漏洞不能靠焦虑修好；女儿艾莎的基金，以及不给孩子施压</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">大卫想先放下谷歌：人工智能扩散之后，外面看起来他每天都会听到更疯狂的事，而且只会更狂。他刚在朋友约翰和乔迪（John and Jordy）的TBPN（字幕作 TPBN）节目里看到片段。尼基什接上：确实有一个PHP漏洞被发现，大约用在2250万个地方，此刻仍在被使用。大卫问：这种强度按说该是他职业生涯最紧张的阶段，为何外面看他并不允许自己被压垮？尼基什说他对此做不了「靠焦虑改变结果」的事。他们会去修，但压力本身不改变结局。这个漏洞他们大约前一天早上知道，团队检查自身有没有中招，找到了就拦截、找到补丁、先给自己打上，再问如何保护客户；团队通宵做出补丁，当天早上对方公布补丁时他们也公布，放到公共领域，并给任何有问题的客户打电话。他能做的就是这些。哲学被他说成一句话：每天早上醒来，尽自己所能做到最好，不留石头不翻，其余交给命运。这是真的吗？是。那一生最焦虑的时刻？在女儿婚礼上致辞。大卫问是不是刚开始做基金的那位女儿。是，她今年二月在印度结婚，名叫艾莎（Aisha）。她曾在Brex做市场。孩子多半不听父母的话，但他很幸运她偶尔会听进去再按自己的方式处理。她觉得市场部在公司里似乎不是最重要的职能，问该想些什么；他让她观察硅谷最兴奋的工作是跟创始人聊天、理解他们在做的事、对生意本身感到兴奋，那就会想到风险投资。她自己做了研究，先和比尔·马里斯（Bill Maris）在Section 32共事，结婚前后觉得该成立自己的基金，还问他愿不愿意当顾问——对父亲来说这是最好的礼物，她现在每天打一两次电话聊公司、聊想法。谈到自己的童年，驱动力基本是内在的：父母并不告诉他该做什么。他放学回家就写作业，妈妈很高兴，反而要追着妹妹问作业是什么；爸爸不知道他怎么进的大学，也不知道他怎么进了美国的商学院。他只跟父亲说需要2000美元，父亲说没有，问能不能给200，他就拿着200美元出现在这里，后来父亲又寄来2000美元贴一部分学费，如此而已。他也不给自己的孩子施压。时代不同、印度和美国的养育也不同；他还有两个11岁和10岁的小孩，比对待现年29岁的女儿时更深地介入他们的生活，因为更有意识地挤出时间——尽管孩子和妻子大概都会说永远不够。他脱口问自古以来出生过多少人，大卫记得曾读到超过1000亿。尼基什说：1000亿人都出生过，每个孩子按定义都有父母，可养育至今仍没被解决，变体太多，多数人都会搞错。他只希望孩子快乐、健康、平衡，使命就算完成，他们可以去做任何想做的事。大卫关心传记里的经典难题：我曾是穷人的儿子，现在我的孩子是富人的儿子，该怎么办？尼基什说：没什么可办的。你自己制造了这个区分；当你是穷人的儿子时，总有比你更穷的人，从他们的角度看你已是富人的儿子。危险的是不断提醒孩子「记住我从前很穷，你该更感恩」——对他们来说，他们就出生在这里。你得想办法让他们享受当下，同时学会渴望更多、保有驱动和成就欲。最难的就是让孩子有驱动、有野心、想有所成就。他儿子迷篮球，女儿想当体操运动员、非常能吃苦；只要他们早上醒来是高兴的、觉得自己尽力了，当球员还是评论员他都不在乎。大卫举山姆·沃尔顿（Sam Walton）在自知时日无多时写的自传：他知道自己相当「过分好动」，但不把压力加给孩子，为什么要他们像我一样？尼基什补充：孩子看行为比你以为的多；他们会想学你的某些部分，也会决定永远不学另一些，都没关系。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">网络安全三块与虚拟补丁，以及哈利劝他上X</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">大卫想起今年早些时候上过节目的托比·吕特克（Toby Lutke），约两周后还要再录：托比的观点是，由于人工智能，2026年回头看会像每个行业都被重新摆上牌桌。他觉得尼基什这笔生意被改变的程度，可能是所有嘉宾里最深的。尼基什要求拆开看。他仍把网络安全当成「两个词」：坏人试图进入你的基础设施并带走重要的东西。大约一半是把坏人拦在边界——对方若穿着连帽衫、拿着枪出现在门口，你知道该怎么拦；大约10%到20%是分析、把内部卫生做好；剩下大约20%到30%是：总有东西会穿过边界，你能多快发现、多快在他们造成伤害前赶出去。人工智能如何改变这一点？它能比世界上任何人更快找到边界上的洞，过去要几天，现在快得多，边界变得更多孔；但人工智能不会替你打补丁，你仍得在由成千上万供应商拼起来的信息技术栈里找到孔隙并补上，漏洞既存在于他们的软件，也存在于客户自己写的软件。像OpenAI的新模型、像GLM 5.3，都有极强的找漏洞能力，坏人还能廉价租用它们砸向你。当务之急是迅速打补丁。他们正在做一项叫虚拟补丁的服务：写特征、给整圈边界缠上绷带，先让人进不来，客户再慢慢补底层系统。他并说，自从Mitosis（口播原词，具体指代不十分确定）出现后，他们的业务反而上去了。端点侧他开玩笑「我住在你的笔记本电脑上」：一年收大约25美元，每天看大约150兆流量，确保没有坏东西进来；检查流量的边际成本对他是零，而人工智能按token收费，若在端点做他的工作，一天可能要500甚至5000美元，做不到一年25美元这个价。破防之后，人工智能能更快分析异常行为，但你仍需要套件、安全专长、数据摄入和基础设施。总而言之，他认为这笔生意没有被颠覆掉。大卫问他向谁学习人工智能前沿。尼基什说每周至少花四五个小时和各类人工智能创始人在一起——这些年轻人可能在OpenAI或谷歌待过，肯花时间用他能懂的话解释；他由此了解开源权重模型、训练、训练数据、守护智能体等。每个月他大概还和5到10家、也许15家网络安全创业公司聊，吸收他们怎么想，因为这在某种意义上是一门仍在形成的科学，没有真正的全能专家。人们得建立心智模型才能做产品、才能在这个品类赢。数据标注从前几乎不是概念，自动驾驶把它推到前台，现在又变成强化学习、仿真和试图模拟数据来训练的神经网络。他没法吸收一切，只能大量待在对话里：花很多时间看X（Twitter）、和人谈、读东西，才能半懂半接地看见另一边。大卫问他为何开始在X上出现。尼基什说他曾吐槽一位同行播客——大卫猜是哈利（Harry，按语境应为哈利·斯特宾斯（Harry Stebbings）一类）——觉得对方不断把大家请来，是在用他们当道具给自己做品牌。对方回击：那是你的问题，你有权建立自己的品牌，只是你没有；你在播客里有很多话要说，何必等我提问？于是建议他每天发推。大卫说自己几乎每天都在看、也很享受。尼基什现在频率降低了：说得太勤就容易说错话，他不想把它变成一份工作，只在有话要说时说，内容也是自己写的。有一次拿克劳德（Claude）改了语法，结果被人猛批；大卫也看到了那条。尼基什说以后只会自己改，再也不那样做了。大卫称赞他写得好，并说镜头后有人会在时间到点时给提示，这次提示来时他震惊于时间过得这么快——通常是好兆头。两人约定过几个月再做。收尾处大卫请听众订阅、留评价，并收听他的另一档节目《创始人》（Founders）：近十年来他偏执地读了400多本历史上最伟大企业家的传记，寻找能用在工作里的想法；这个节目里的多数嘉宾，最初都是通过《创始人》找到他的。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">大卫·森拉（David Senra）<em>主持</em></span><span class="spk-1">尼基什·阿罗拉（Nikesh Arora）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>阿里新书里的天使圈：埃贡、马克，以及差点击中Oculus</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>你读过阿里·伊曼纽尔（Ari Emanuel）的新书吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>没有。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>不过你听说过自己被写进去了吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>没有，我并不知道。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>好。他写自己认识埃贡·杜尔班（Egon Durban）的经过：经人介绍给马克·安德森（Marc Andreessen），马克告诉阿里，他、尼克·卡什（Nick Cash，字幕如此）和埃贡有一个大致联合在一起的天使投资圈子。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>跟我讲讲那是怎么回事。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>我认识埃贡，是他刚到欧洲的时候。他是银湖资本（Silver Lake）在那边的合伙人，经共同朋友传话说：听着，我想跟一些人来往，了解这边的科技圈，也看看你能不能给银湖当顾问。我当时三十岁出头，负责谷歌（Google）欧洲。我们吃了午饭。我问他：你为什么对这次谈话这么犹豫？我说，我试过做这种事。他们其实不太想要建议，却让你去参加两天封闭会，给你看一大堆东西。我这辈子最不需要的就是更多演示文稿和免费咖啡。他说：你知道吗，这倒说到我心里了。我会给你打电话；你告诉我这是好主意，我会独立判断是不是好主意，因为决定得我来做。你告诉我这是坏主意，我同样会想一想。但别担心，在该投什么、不该投什么这件事上，你并没有那么大的增量。那我们能不能玩得愉快？后来我这样做了大约15年。我就是在埃贡还在欧洲时认识他的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>你投的就是自己的个人的钱？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>当然。不过有一件很好笑的事。有一次我和马克·安德森一起从国际消费电子展（CES）飞回来，因为马克很少出门，可一旦出门他就会去消费电子展，并办一场晚宴。他请我去了，我也在那边讲了一点。飞回来后我给他写信：嘿马克，你手头有没有正在做、我也能放一点钱进去的酷公司？他说：晚宴上发言的那个人。我说：对。他回：Oculus。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>帕尔默·勒基（Palmer Luckey）？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>是的。公平地说，还有布伦丹。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>当然是布伦丹·伊里布（Brendan Iribe）和帕尔默·勒基。太好了。他们给了我一个号码。我给布伦丹发短信：嘿，我们在晚宴上见过，我很想投一笔。他说：很好，但你得来看看，这些东西真的很酷。我说行。我人在洛杉矶，就问能不能看看技术。当时我和妻子在一起。他打电话来说：可以，但你得开车出城大约一小时，我们在一个工业园。我叫了车过去。灯却灭了。他说这不行。于是我们在那儿等灯回来。进去之后，他把这套装置戴到我们脸上，有一点点虚拟现实的感觉。我说：这真的很酷，非常酷。接下来会怎样？他说会很酷，因为可视化的承诺、游戏的承诺，诸如此类。我说：太好了，我能写支票吗？他说当然。他说：还有布莱克·克里科里安（Blake Krikorian）和维维·内沃（Vivi Nevo），我还能再挤进一个人。什么？你打算让我们一起做？而马克已经在公司里了。</p>
+<p>于是我说好。我和埃贡谈妥了这笔交易。对方说文件在准备，先给我发了邮件，然后就不再回。埃贡问：怎么回事？我们怎么还没消息？我又写信，对方说文件马上就到。没有文件。然后轰的一下，你某天早上醒来，发现公司刚被卖给了脸书（Facebook）。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>在你们还没来得及投进去之前。<span class="tag">【笑声】</span>好吧。那么阿里写到的这个圈子——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>后来银湖收购威廉·莫里斯（William Morris）时，我们成了他们的技术顾问委员会。马克和我。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>好，这个我甚至都不知道。那你们当时给人家出什么主意？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>每当我们有技术上的问题。围绕埃贡和阿里的顾问方式非常直白。阿里会打那个15分钟电话。你可以把阿里——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>15分钟？现在我采访过他了。他那本书就叫《打电话》（Rolling the Calls）。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>现在他也这样对我。我会接到电话，对方说：「请等阿里·伊曼纽尔。」我心想：是你在给我打电话。然后大约25秒，也没有再见。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>对，不过有一点很有意思。我们有事要谈的时候也会那样，我理解那是一种缩写：他想把事情办成，他是一个肩负使命的人。可有一次我离开软银（SoftBank）之后，他联系我说：你现在在做什么？我说：没什么，我只是在想接下来做什么。他说：那你何不路过看看我，我们聊聊。我说好，我正好在洛杉矶，我过来。我助理问：阿里办公室说你们要吃午饭，我该把你的离开时间排在几点？我说：听着，大概15分钟，你排半小时，然后送我去机场、让我飞回去。那是我唯一一次和阿里谈了一个半小时。所以你能看出来，他当时是真的想弄清楚我接下来要做什么，也真的在那次谈话里投入了时间。所以他是有灵魂的。当事情对你真正重要时，他会花很多时间；但大多数时候，他其实很交易导向，只想把事情办完。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>在同一家公司里不断换题：从谷歌十年到帕洛阿尔托八年</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="marker-line"><span class="tag">[已省略广告：Ramp]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Deel]</span></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>我们刚才聊到一些共同认识或彼此知道的人，你说有些人跳来跳去：有了念头就做一会儿，然后几乎像有注意力缺陷多动。你怎么看你自己？因为你好像能在这些工作上待很久。你在谷歌待了十年。你在帕洛阿尔托网络（Palo Alto Networks）待了多久？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>八年。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>八年。我自己喜欢长时间盯一件事。你是怎么工作的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>好消息是，即便在帕洛阿尔托网络，或我在软银、在谷歌的时候，你人在一个地方，做的事其实非常多。我在谷歌时，员工大约从2000人涨到6万人，收入从大约20亿美元涨到大约620亿美元。那个阶段你从搜索走到YouTube、走到DoubleClick，还在买下大量公司、想各种各样的事。所以关键不在于某一刻你在做什么，而在于你的脑子能被挑战多少、你能卷进多少不同的问题。你可以从一个问题换到另一个问题，在同一空间里解决许多事；只要你把环境结构摆对。对帕洛阿尔托来说，机会足够大：我八年前加入时，我们还是一家防火墙公司；今天我们有70多款产品，处在网络安全的每个层面，也在全力转向人工智能，确保自己在这件事上转得足够狠。只要你面前的平台是对的，你总能让自己保持被挑战。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>我刚和数字银行 Revolut 的尼克（Nick）谈过，他的想法就是这样。他说绝不可能去管一家只有一个产品的公司，那会很无聊。他在任何时刻都同时跑大约20个实验。我记得他已经在大约30或40个国家，还想做到100个国家。你被招去当帕洛阿尔托网络首席执行官时，他们本质上只有一个产品，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>对，就是防火墙。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>好。过去八年发生的这次扩张，是你上任时就带着的计划，还是——当时的对话是怎样的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>我来的时候就有计划。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>你有一句很好笑的话，大意是：我还以为网络安全是两个词。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>对。说实话，我面试时谈得更多的是高管安保。我觉得那是个重要话题，后来才意识到那是一个很小的市场。我坐在那里讲我们每个人都需要安全，他们大概会说：不，那是消费者生意，你不要卷进去，那需要大量营销和大量研发。所以我带进来的更多是企业框架研究，而不是网络安全框架研究。我坐下来看：企业领域最大的公司有哪些？当时大概是思科（Cisco）或Salesforce。它们是千亿美元市值。我们是一家大约180亿美元市值的公司。我想的是：我怎样从180亿美元市值走到100亿以上？那是最初的预期。然后我说，如果你去看任何一家企业公司的损益表——</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>摊薄获客、承认产品要4到7年，以及用并购补管线</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>多数公司把大约15%到18%花在产品研发上，研发大致就停在那个区间。其余的行政管理大约是6%到10%。所以你的营业利润率和毛利率之间的全部差距，就是销售、营销和客户支持。如果你能找到办法，把通常占成本约60%、落在销售、营销和客支里的部分压到20%，你就可以做成大约40%营业利润率的生意。那就是我的洞察。那么，我怎样让销售和营销随时间被摊薄？你会发现，企业里最大的开支是获客，那是最贵的一块。所以如果你只有一个低收入产品，对每个客户只能卖一件东西，就很难做成大生意。你去看最大的那些生意，微软的企业业务，或Salesforce，或你能想到的最大公司，它们都对同一客户卖很多东西。那就是洞察。我想：帕洛阿尔托如果要做大，我们就得找到办法，对一个客户卖很多东西。你现在只有一样东西可卖。你去敲20扇门，花掉所有时间，15个人说对不起我不需要、我已经有了，你只剩下5个。可如果你敲门时身后有一辆卡车：你要这个吗？不要这个？要这个？要这个？世界就成了你的牡蛎，我还能给你什么？我会抓住这个洞察：我们需要找到与主业相邻、客户也愿意信任并继续向我们购买的业务，从而不断扩大我们能卖给客户的东西，去服务全球前大约1万名客户，并提高能从他们那里拿到的金额。你只有赢得他们的信任才能如此，只有你的东西真正管用才能如此，也只有它大致是同类最佳才能如此——因为在网络安全里，没有人想买第二好的产品，那很糟糕。所以你想买最好的，我们的需求就是必须成为最好的。</p>
+<p>这是洞察的一部分。另一部分至今仍成立：做出一个好的技术产品需要4到7年。不管你是谁、在哪、做什么。你回头看会说：嗯，这东西还没完全就绪，已经7年了；这东西看起来更接近就绪了。无论是优步（Uber）、YouTube、脸书还是谷歌搜索，都花了4到7年，有时更长，才做出让客户觉得兴奋、有意思的有用产品。企业领域也是如此。所以我有时会想：见鬼，我刚加入这家公司，你们没有很厚的产品管线，我要花4到7年才能做出真正的产品。那我怎么办？去收购它们。没错。但你必须小心，因为历史上到处都是糟糕的并购，公司在大多数情况下会把收购毁掉，企业或消费领域都一样。所以你得去搞清楚。于是我把接下来一段时间用来研究：怎样的收购是好的，怎样的收购是坏的？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>你当时在研究什么？你是怎么学的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>你回去看模式。某公司买了多少家？另一家买了多少？为什么有的成了，为什么有的没成？哪些成了？关键特征是什么？是市场失败吗？是坏主意、根本不该做吗？是执行差，还是领导力差？你去弄清楚，然后说：好，它们失败大概有这七个原因。我怎样把失败风险降到最低？办法是用不同方式控制其中五个变量，于是我只剩下两种风险。一种是我选错了方向：我买对了公司，可市场没出现。我们就有过这样一次。我们买下一家公司，以为市场会朝这个方向走，市场却没走那边。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>阿波雷托式止损：别自己造，把赢家创始人放上王座</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>那家公司叫什么？你们付了多少钱？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>公司叫阿波雷托（Aporeto，自动字幕作 Aprimo）。我们以为世界会走向基于IP的分段，但它从未走到那里。可我们买了它。一旦判定不会走那边，我们就迅速止损，然后继续往前。这有点像投资组合生意，像边际风投，也像产品开发。制药公司就是这样：它们试验一大堆药，做到某一期就说，收手，这不会成。你得做同样的事。我也待过这样的公司：有人说我们应该做这个、建这个、买这个。我说：不，我们不能买，我们可以自己建。我在谷歌时，有人说我们去把Netflix买下来。我说：不，我们有YouTube，我们可以做出同样的能力。视频服务平台已经在那儿了，把面向消费者的内容扩展到专业内容，技术上很容易。好，给我们1000万美元，给我们20名工程师，我们能解决。从来不是那样的。到了帕洛阿尔托我也遇到同样的事。如果我跟工程师团队说必须买这个，他们会说：不，我们能造。而一旦你去造，你会碰到两三个问题。第一，我们看见正在成功的那些人已经领先我们大约一年半，他们有一支50到75人、正在运转的团队。你想去招50名工程师。等你招到对的人、把事情理顺、开始建造、做出第一版，他们又会再超前两年。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>你觉得为什么这么多其他首席执行官会犯这个错？只是自我吗？觉得「不，我能造出来」。到底是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>我不认为那是自我。我不认为首席执行官们一早起来打算犯错。没有人站起来说：让我今天早上试着犯个错。他们相信自己在做的事是对的，而且他们多半也找对了那家公司。我认为并购失败往往是因为执行糟糕。你的倾向是：你太忙了，你在做很多事。你买下公司，然后说：很好，我有一个管这个主题的人。好，这个人做视频流，他或她过去五年一直在做视频流。我想买一家视频流公司，交给他或她。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>而你反而把该公司的创始人放上去。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>对。就像：等等，等等。这个人刚刚带着我们所有的资源、所有的钱，被那个拿了风投、住在破仓库里、把人招来、靠血汗和眼泪做出具备产品市场契合的东西的人揍了一顿。然后他或她应该去给这个帝国打工？那不会成功。他应该成为帝国的一部分。所以我反过来。我说：好，这个人做得非常好。这个人现在将成为视频流负责人。每个人都可以向他学习。你们可以为他工作。这有时会让那些后来得跟他一起工作的人不大舒服。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>原先组织里的人。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>当然。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>他们最后会想离开，诸如此类。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>可那没关系。他们才是被授权去赢的人，他们有资源，却没有赢下来。你不能奖励这种行为，把一项珍贵资产交给他们，再冒着他们毁掉这份资产的风险。这大概是一种失败模式。另一种失败模式是，人们总会说：「我的创新是我的天才，他们的只是纯运气。」意思是：我是创始人，我做出了很酷的东西。这些人不聪明。我去买第二名或第三名，把它转一转、擦亮，弄得像新的，然后去揍他们。那从来行不通。我要买第一名。你也谈过很多次。为什么第一名和第二名对你如此重要？如果你看多数市场，第一名和第二名最终会拿走该品类里不成比例的利润。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>只买第一第二名，以及签约前30天共同写出产品路线图</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>这正是开录前你想从我这儿套出来的话。<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>我们稍后再谈。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>好吧。这恰恰就是眼下正在发生的事。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>对。第一名和第二名最终会拿走不成比例的利润。第三名有时能接近，但成不了。所以如果你要去赢，长期看你想做第一和第二。如果你成不了第一和第二，你就有麻烦了。现在，如果你去买第二名或第三名，记住第一名仍然存在。更有可能的是，你会让自己买下的东西变慢，因为你仍是一家大企业，你无法控制每一个变量。会有财务的人过来说「我是来帮忙的」，会有人事的人过来说「我是来帮忙的」。某个可怜人说：兄弟，让我去把产品做出来。然后你就有一大群人涌出来说：我来自母舰，我来帮你。所以你必须想清楚，怎样为第一名保持势头。你没有——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>专门的并购团队，对吧？我在哪里读到过，有人说这事快把人逼疯了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>不，有一批人非常擅长他们做的事，他们和我一起工作。所以并不是我一个人在做，但最终每一笔收购都会有我介入。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>假设你想把产品延伸到这里。你同时看第一和第二。你能说出差别吗？从外面看，第二也许和第一很像。你再靠近、再深入时，通常会发现什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>有时第一和第二之间只有很小的差别。有时我们以为买到了第一名，结果第二名绕过我们变成了第一，因为我们把执行搞砸了。那种事也会发生。我们买了大约35家公司，不是每笔都按计划走。但通常这两者都有产品市场契合。你如果想产品开发，并设想四年后最终产品会长成什么样：第一名可能把这边当作主推力，第二名可能从另一部分作为主推力出发。它们看起来都在这个产品类别里获胜。可有时到后来才会显得：你其实应该从这边开始，因为那才是主要需求，客户希望这部分先真正好用，才会接受后半截。但在早期很难判断，那时它们大概都只有30或40个客户，刚好能证明产品市场契合。所以你会发现，这是战略问题，是执行问题，是产品市场契合问题，也是商业模式问题。这些都不完全一样，但很难推断它们在未来两三年会如何展开。所以你得退后看双方的位置，问：哪一个更可能成功？然后再加上：哪一个更可能与我们的产品方向对齐？我早期犯过一个错，买下的第一家或第二家公司，在我们买完之后花了大约6个月争论产品方向。我说：等等，这是个问题。这些创始人创办公司时，理所当然地想着「我是带着这个愿景创办的」。可他已经把公司卖了。那是我的愿景。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>等一下，你以为钱是干什么的？<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>就是这样。不，可对方会说：我把公司卖了，但我仍想建我原来想建的东西。我说：不是这样运作的。可我花了一些时间才意识到不是这样运作的。我一度觉得：天哪，我这样会把一位创始人搞砸。我只是当时不知道，也不能那样做，因为那样行不通。于是我们改了模式。现在我的做法是：我和创始人坐下来谈妥交易，并且坚持和创始人一起读这份交易。我不让银行家夹在中间，因为我想：你接下来四年要和我一起工作，你真的希望中间还有别人代表我们谈判，最后变成「可当时卖给我的不是这个」吗？我们应该把控制台握在自己手里。我们确实如此。原则上同意交易的那一刻，我就告诉创始人：听着，让财务的人、法律的人、律师们去弄所有文件。你现在的工作是坐下来，和我以及我的产品团队一起，设计我们共同的房子会长成什么样，我们有30天来做这件事。于是我们真的就产品方向来来回回。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>在收购还没交割之前。我们不签最终——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>我不签最终条款清单，直到创始人在联合产品路线图上签字。我想：如果你不想建我想建的东西，那我们就不该做这件事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>我以前从没听过这个想法。创始人天生会想要自主，也会觉得自己的答案是对的。那么，这些公司到底有多难找？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>当30天后有一张大支票悬在那里时，创始人突然变得比钱已经到手之后好对齐得多。这不可思议，简直是白天和黑夜。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>而且他们有权拉伞绳，他们不是非做不可。有多少人在那一阶段退出过？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>没有人退出。我们自己退出过两次。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>为什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>因为在这个过程里我们发觉，很难让产品保持持续对齐。我们也发觉，之后会很难管理创始团队，因为他们对想去的方向有非常强的意见。我们能感觉到，他们在配合，是因为知道必须配合才能把交易做完。我们只是觉得那不会是正确的结果。还有一次，在那30天里我们越挖越深、越推越紧，发觉实质并不如早期尽职调查时感觉的那么强。你挖得更深，开始看架构，还得把架构合并起来，然后你就得停下来。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>创始人通常会在之后待很久吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>有些会。我们做的另一件事是：你这样买东西时，买的是一支团队，买的是愿景，买的是执行。所以当创始人说「我要走」时，这会非常困难。我们不会买创始人说「我要走」的公司。如果你要走，你就该走，那也意味着如果你打算结束，你本来也可能把公司做死。所以你必须想留下来。通常会有两三个联合创始人，其中一个会松下来，因为他做的是商务拓展，而你也许并不需要商务拓展，你自己的商务拓展更强；另一个做走向市场，你也不需要。所以你会发现，创始人会按他们带进来的职能而淡出，但从来不会是产品或工程的人淡出，因为那正是我们要买的。我们仍然有许多创始人在帕洛阿尔托工作。有些人转成继续在帕洛阿尔托做事；有些人有创业瘾，大约三年后离开。我们买公司时总会做的另一件事，是把创始人再锁定3年，理想情况是4年。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>为什么这一点如此重要？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>我们要连续性。我们要从执行愿景的角度要连续性。因为他们已经做成了一些东西，而我说过，做出伟大产品需要4到7年。我们通常在这些产品公司成立2年、或2到4年时把它们买下来。我们认为后面还需要2到3年持续的产品开发。我们希望那种一致性，也需要创始人和创始团队继续驱动它。如果他们不在那里领导，中断就可能让我们失去领先。如果他们是该品类的第一名，我们希望他们继续朝那个方向执行。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>创始人意志、网球心智差距，以及霍克·谭的「征服者」对照</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="marker-line"><span class="tag">[已省略广告：WorkOS]</span></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>我想回到这个想法：你看第一名和第二名，然后靠得很近。还有什么会让你感到意外？从外面看它们可能很像，可你越往里挖，越能看见第一名为什么站在那个位置？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>有意思的是，作为一家更大的公司，最难把握的事情之一是：有时第一名之所以赢，靠的也是创始人纯粹的意志。有些创始人就是那种——你怎么称呼他们——阿尔法杀手，诸如此类。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>你在说什么？我们需要一点语境。</p>
+<p>我们碰见过几次，我也看过很多你的采访。我就是喜欢这种最少废话、到这儿来就是要赢的创始人。这正是我请你上节目的原因。开录前你还有点把这点淡化，我心想：不，我相当确定我知道对面坐着的是谁。我还点过几位运作方式让我想起你的创始人。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>作为这个主体的领导人是一回事，团队里有这样的人是另一回事。如果你收购一家公司，而创始人就像你描述的那样，他们会砸玻璃。这可以。但他们也必须找到办法，和更大的机体共存。因为你知道，在帕洛阿尔托这样的地方工作，如果你是创始人：我有大约6000人在一线，你有8个人。你得找到办法撬动这6000人。他们不都糟糕，他们非常出色。有时当你是创始人，你会带上这种视角：别人都蠢，我聪明，我要把这事做成。谁挡我的路，基本上就是在拖慢我，就是不够胜任。如果你想在更大的生态里生存并成功，你需要一次心理重置。你得能平衡地说：我懂了，我得到了6000名销售。我的工作是激励这6000人出去卖我的产品；他们若卖得出去，我想把这做成惊人产品的愿景就会实现，因为这6000人会成为我的放大器。有时习惯于小团队、习惯于当弱者的创始人意识不到：你已经从弱者变成了强者的一部分。这是必须盯住的唯一风险。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>但请把你现在说的和创始人的意志连起来。你是说，他们在较小公司里的成功，很大程度上建立在创始人的意志上。他们必须调节自己的行为，是这个意思吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>你必须确保他们能够调节自己的行为，并在你的环境里成功。如果他们不能调节行为、不能在这个环境里成功，那我就会失去他们在产品上的领导力，因为他们会把人惹恼，然后自己也会受挫。所以这就是我必须盯住的。有时第一和第二还得看适应性：谁会是更适合我们环境的那一个。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>我个人有点迷这个想法：第一和第二之间通常有一个缺口。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>是的，我第三次听到了。<span class="tag">【笑声】</span>不过继续。你可以再问一遍。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>不，这整档节目就是为我自己的教育服务的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>我能看出来。但请记住，第一和第二本身也是一种判断。你可能把A叫第一、把B叫第二，我可能把B叫第一、把A叫第二，因为我用来衡量的标准不同。并没有一套显然的标准能说明谁是第一、谁是第二。他们可能都有30个客户，经常性收入也差不多。哪一个才是第一和第二？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>你是网球迷吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>算是。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>我其实不太是，不过没关系。<span class="tag">【笑声】</span>我用一个网球类比。我有一次和一位顶尖网球选手的心理教练吃饭。他说的心理教练，是别人帮他们练挥拍，而他的对话全是关于脑子里在发生什么。他说了一件非常有意思的事：把前200名网球选手拿来，第1名到第3名的差距可以忽略；第4名到第200名的差距，比第4名和第3名之间还小。从外面看，哦，那人是第4，那人是第3或第2，缺口好像很小。他说，你再往深走、真正理解他们心里在发生什么时，缺口其实大得多。并不是第3和第4在身体上差那么多，而是心里差很多。我就是迷这种——从外面看起来差不多，可你花时间跟创始人待在一起之后会发现：哦，原来这个人把下一名竞争对手甩开那么远，原因在这里。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>正如你说的，标准会为自己辩护。有的公司属性很清楚，能让他们成为第一或第二：有人的经常性收入是另一个的两倍，我们懂了，他们更容易被当成第一。有时他们起点相似，或从同一个地方出发，只是切入角度不同。然后就变成：哪位创始人会把这件事带到成功。那你就进入了创始人和领导团队的心态。我们说法不同。我的说法是：一旦我们识别出第一和第二，我的工作就是去资助。记住，他们也必须愿意卖。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>开录前我们聊到的那些人，多少钱都不卖。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>没错。所以也有这一点。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>你必须从那个优势点重新分析：这些可能是阿尔法创始人，他们可能是赢家，可他们说「我愿意卖」，也是在向你发出信号。你跟霍克·谭（Hock Tan）聊过这个吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>我有没有和霍克·谭聊过卖公司？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>关于收购——他做很多并购。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>他做得非常不同。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>我知道，但你有没有跟他聊过？他的心态有点极端。我们当时一起——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>请教教我。好。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>好。我和你当时一起在戴尔（Dell）家里，我就是在那儿听到这个故事：他在给一位也在场的更年轻创始人提建议。他说，一定要确保在你收购的第一天，被收购的公司就知道：你是征服者，他们是被征服者。<span class="tag">【笑声】</span>然后我问他——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>就像完全不同的哲学。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>我知道你不一样。然后我问他：霍克，你为什么不做任何播客？你想来做我的节目吗？他说，哦不，我妻子禁止我做播客。我问为什么。他说，她说我会被取消。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>你看，我的说法正相反。我会告诉团队：当你开始和一家公司谈判时，记住他们将成为同事。不要失礼地对待他们。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>他显然是一个极端人物。我并没有把它理解成失礼，但——那么哪一种是对的？在你心里，谁是第一、谁是第二？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>我想也是。你没法像他那样想，因为你刚才已经说了：不，这个人进来了，现在他是你的同事。</p>
+<p>不，我的意思是我看得不一样。如果我周围的大约20个人不觉得自己也在赢，我就赢不了。而要让他们相信自己在赢，他们必须相信自己是一等公民，必须相信自己是团队的一部分，他们的赢既属于他们自己，也属于我。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>买早了的云安全、并购不是战略，以及伦敦板球队拍了29轮</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>有没有你买得太早的收购？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>我走进来时，我们刚买下一家叫伊维登特（Evident.io）的公司。那是我到任前帕洛阿尔托买的，后来我们又买了同一赛道上一家叫红锁（RedLock）的公司。差别是：一家只在亚马逊上能用，另一家在三大云上都能用。我怀疑早买的那家买得太早。那是前任买的，不过没关系：公司买得太早，然后我们又买了第二家，它在同一空间里，只是走得更远。所以有时你会买得太早。这就变成价格、阶段和信念的问题，你得把这三者匹配起来。我是否确信这会是未来的大空间？好，如果我确信这是未来的大空间，我需要在那个空间里有一个脚印。有时我可以拉起自己的团队去冲、去做成，也可以出去买一样东西。问题是：我若去买，他们在这个空间里待了多久，以及会贵到什么程度。我觉得眼下最能代表这种风险。今天公司拿到的融资估值，我常常看不懂。想象一下，如果我想今天去收购一家公司，同一家公司在两年前进不同的融资环境里，价格可能只有现在的三分之一或四分之一。它们大概同样早，但今天贵了三到四倍。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>那你怎么办？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>你还是买，如果它在战略上说得通。听着，并购不是战略。并购是一种机制，用来验证、放大或执行你的战略。人们总来问我：你的并购战略是什么？我没有。我买公司，是因为我相信必须在某个品类里赢，而我自己的团队此刻还没到我想要他们到达的位置。他们得去找另一支已经想明白、人也摆对的团队。所以你去买。如果某样东西值200，它值800，因为我的工作是把这份值200的资产，变成对我们而言值5到10的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>如果某样东西值200，它却值800。这是什么意思？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>作为一家大约300的公司，我应该去买那些我相信在未来5到10年里，对我们会值5到10的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>所以你不会去记住另外那5亿。这是埃贡·杜尔班。阿里·伊曼纽尔书里最难忘的段落之一，是他们在买WME/IMG。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>我想他们本来想付19亿或18亿，后来走到了22亿，大概这样。中间也许是阿里那边的人几乎要把交易搞砸。埃贡走进来，他经验比阿里丰富得多，说：你永远不会记得这4亿。</p>
+<p>他的意思是：这到底是不是我们想要的资产？你会记得把交易搞砸，但你不会记得那4亿。他们显然把交易做成了，而它对后来的价值远远超过那些。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>后来埃贡和我在伦敦一起买了一支板球队。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>我还以为你是和德韦什（Devesh，字幕）一起做的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>不。埃贡和我是平等的所有者。这是我们一起想出来的。他给我打电话时，我正要去打AT&amp;T高尔夫。他说：拍卖怎样了？那是早上6点，因为拍卖在伦敦。我说：上一场拍卖走了两轮。我们现在是第24轮。</p>
+<p>他说：我知道。你会想买便宜，因为你喜欢价值。那是教养。这是体育。欢迎来到体育。别停止出价。我还在电话这头，就是为了给你精神勇气。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>等一下，后来又走了多少轮？你们当时是24轮。你们得走到多少？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>我们大约走了29轮。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>他一说完你大概就想：不管了，我们要拿下这个。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>因为他像是在说：最坏我们会多付多少？一半？无所谓，因为这支队伍要么会非常成功，要么会失败。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>所以他也这样对你了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>对，可我自己也做过同样的事，只是在另一边还想要小聪明。<span class="tag">【笑声】</span>他只是提醒我：你在职业生活里这么说，也想想你的个人生活。后来我们就是那样做的。我早上7点在练习场看见他，他说：我们现在拥有这支队伍了吗？就那样，我们现在拥有这支队伍了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>它就那样发生了。所以对，他在这一点上是前后一致的。我以前听过另一种表述，想听听你同不同意这种概括：你不是在买公司，你是在买创始人。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>买的是团队；辛格尔顿会否停止并购；AI在民主化智力</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>你买的是团队。你买的是团队，买的是他们的视角，买的是他们的战略，买的是他们的执行。公司只是环绕这支团队的一种构造，让我们能被放进某个法律实体，保护知识产权，并最终把它变成走向市场的能力。可一家公司到底是什么？你有一个念头时，第一反应并不是「我要开一家公司」。第一反应是：我要去建造一样了不起的东西。你去建造时，称自己为建造者。你去找与你有共同愿景的人。然后你成了房间里最有魅力的人，因为你要说服别人登上你的故事，而故事是你先有的。通常是一两个人，或三个人。所以你什么都做。你是建造者，你在建造。你每招下一个人，都在验证战略：你看着对方的眼睛告诉他，我们要建的是这个。对方会兴奋。你招的是聪明人，他们也必须买账。所以你其实是在建一支团队，一支志同道合的人组成的团队。你在打磨边缘，对齐战略，走到那一步说：好，我们都同意要建这个。现在让我们进入曲速去造这艘船，因为你要抢在所有人前面完成。你做的就是这件事。公司只是一个小小的法律实体。你想想这些人：他们大概只有一个行政人员，兼做人事、财务、设施，还负责端咖啡。就是这样。公司是你用来组织的构造。可你真正买下的，是一支运转良好、内在连贯的团队。你测试的是这个：这支团队能不能比外面其他团队执行得更好？你这样想的时候会说：我要去和那支花了一年半时间聚到一起、一起训练的团队竞争。他们每天都在场上，住在同一屋檐下，一周工作80小时。然后你说：我要靠人事部门、靠四轮面试、靠内部流程招一批企业员工去赢他们。那就像——见鬼，你永远赢不了他们。他们已经太超前了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>听你说话时我脑子里冒出几件事。你有没有听说过一个叫亨利·辛格尔顿（Henry Singleton）的人？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>没有。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>好。亨利·辛格尔顿本质上像是原型巴菲特。他在1960年代左右掌管一家非常成功的集团，叫特利丹（Teledyne）。我找到他，是因为我若错过了谁，就会把所有写到他或由他写下的东西读一遍。而那些人都会告诉你他们研究过谁。沃伦·巴菲特（Warren Buffett）和查理·芒格（Charlie Munger）不断谈到这个叫亨利·辛格尔顿的人。芒格说，亨利·辛格尔顿是他见过的最聪明的人。巴菲特说，美国商学院学生不研究他是犯罪。他的回报高得荒唐。我一度以为巴菲特用在伯克希尔（Berkshire）上的许多想法是他自己的，其实他是从辛格尔顿的特利丹学来的。而他也像你一样靠收购成长。我应该记得更清楚，我刚做过一集关于他的节目：大约是135笔收购。他一度拥有大约130家公司，其中129家是盈利的。所以他买得非常好。可后来他改了策略，停止收购，大约又过了15年都没有再买下一家公司。我听你说话时就在想他。帕洛阿尔托网络有没有可能停止收购？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>有可能。我说过，这对我们并不是生存级的战略。它是一种最大化业务价值的方式，也是一种最大化客户结果的方式。到了某一时刻，如果你相信，能为客户增加的边际价值，来自确保我们所有的东西在客户那里真正能用，也许我们就会把重心放在那里。并没有一条硬性规则说我们必须继续收购。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>人工智能领域正在发生的事情，有没有改变你对收购的想法？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>有。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>能多说一点吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>这是我们有生之年见过的、也可能是有史以来最颠覆的技术。如果看它已经产生的影响，它正在从根本上改变每个人的工作方式。换一种说法：我在谷歌时，我们把知识或信息民主化了。这一次是在把智力民主化。我们每个人口袋里都有一样东西，它会随时间变得越来越聪明。于是我们获得了从前从未有过的智力。我相当确定，两年后人工智能会可靠到那种程度：你会像信任该领域的人类专家一样信任它。你去跟营养师聊，再去跟人工智能聊，然后说：你知道吗，我的营养师并不比我手机给我的营养建议更聪明。物理治疗师或私教也一样。于是你会突然发现，人工智能将拥有如此多的数据和如此多的口头知识，它将能够做决定。你可以对它说：给我偏前沿、带一点风险的建议，或给我主流的建议。你可以说：你想要多少智力，你想要这种智力有多大的差异化。这会成为现实。它将从根本上改变我们的工作方式，也必须如此。很多组织的结构，是把工作拆进一个个孤岛。即便产品开发过程，也被拆到大约八个不同的团队：做文档的、做测试的、写代码的、做产品的、做界面的。于是有八组不同的人合在一起才做出一个产品。这其实没道理。我们这样做，只是因为造成了一种专长分工，因为没人能在每件事上都极其出色。可如果你相信，你可以驾驭所有这些智力，让一个人掌握这八门手艺——因为他们有非常能干的助手，能替他们完成大约90%的工作——那就会从根本上改变我们把事情做成的方式、我们建造东西的方式、我们生活里做任何事的方式，以及公司被创立的方式。这会成为现实。我们今天所运转的公司形态、组织形态，五年后会根本不同。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>互联越多网络安全越值钱，以及谷歌欧洲那个「不知道量也不知道价」的销售</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="marker-line"><span class="tag">[已省略广告：AppLovin]</span></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>人工智能会让网络安全公司更值钱吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>会，我认为更是如此。更多的技术、更多的互联，会让网络安全公司更值钱。你看，大约25年前并不存在网络安全，因为没有连通性。你有一台大型机，你登录进去，它是安全的，没有问题。现在的问题是，大卫可以从这里登录自己的银行账户，这就成了一个攻击向量。能从各处登录进来的人越多，攻击面就越大。我今天早上看到，脸书有36.5亿日活用户。每天有36.5亿人进入他们的基础设施。进入其基础设施的每一扇门，都是一个潜在的网络攻击面。你把这件事放到全世界，我不知道，在我们这大约80亿人之间，我们必须与数百个消费者应用互动。每天一定有万亿级的在线交互，让你与某种企业基础设施互动。你做得越多，就越需要沿着所有这些向量做安全。技术变得越多，你就越需要围绕安全的更多能力。比方说，真正能防护人工智能的产品还不完整，因为人工智能本身太新。所以对，这对我们的生意有好处。你把东西连得越多，就越是如此。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>你更像那种斯多葛式的人。你看起来不会被压垮。我读到过类似的话：你说你的生意不会让你焦虑，这非常少见。你还说生活不该让你焦虑，你应该每天早上醒来，尽自己所能做到最好。然后记得，如果你大致在印度、在印度教氛围里长大，会有一种很强的宿命感。你所能做的就是尽力而为。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>好，这个我不太清楚。请解释一下。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>请解释你是怎样在这种宿命里长大的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>你得记得，这个国家大约有18亿人。你必须让他们都明白：他们可以做到最好，而最终会有一只上帝之手来决定最终发生什么；或者说，有一种不确定性的观念。你无法制造完全的确定性。有些事会发生在你身上，而你控制不了。你唯一能控制的，是你自己做什么。如果你把自己该做的事做得非常好，你就该睡得着。因为你不能从不确定性的角度，去为所有可能发生在你身上的事担忧。那就是宿命感。那也是让社会保持某种秩序的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>可你也明白，这话容易说，对很多人类来说非常难应用。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>这并不妨碍任何人去尝试。我们都试图控制周围能控制的每一个结果，都试图降低周围的风险，我们都这样做。但到了某一点，你得说：我已经尽力了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>你年轻时、职业生涯更早的阶段，就已经有这种能力了吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>没有。</p>
+<p>这是近五年才找到的。是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>你是说大约最近五年？那你在谷歌工作时，是高压、更焦虑的人吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>不。谷歌是最好的生意。搜索业务一直在转。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>可在我看来，也许我错了，你在那之前已经有很多成功，而那时候你是在一家百年一遇的公司里工作。你当时还年轻，三十多岁，对吧？那种压力可能会冲上头顶：这是一个可能一辈子只有一次的机会，这个机会会改变我的人生。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>你在那儿的时候，并不觉得是那样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>好，请再多讲一点。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>那感觉很正常。它只是让人觉得：哇，这是一艘正在工作的很棒的火箭。记住你才34岁，从未在任何一家同类公司工作过。你现在成了技术的注意力中心，每个人都在你周围搜索。每天早上醒来，搜索更多了；每天早上醒来，更多人想投广告。所以这是一个执行问题：我怎样才能跟上。我加入时，有人在澳大利亚用美国信用卡向谷歌花钱。那是你在欧洲能买到广告的唯一办法。你能想象吗？就像：非常抱歉，我收不了你的钱，你得给自己办一张美元的美国信用卡，然后再付给我。等等，让我来做这个。我看着，说：我们在奥地利做到了1000万美元，却不收本地货币。这到底是怎么发生的？</p>
+<p>那是一种不同的商业问题。你基本上是在说：让我看看我们能不能别挡路。所以你是在消除摩擦、创造规模，这对我是很好的学习。我说：好，这个我能做。我能消除摩擦、创造规模。我不必担心需求。我曾经开玩笑，去跟客户说：你来是做什么的？你做什么？我是谷歌欧洲的销售负责人。那是什么意思？我卖广告。好，多少钱？我说：我其实不知道。取决于上一个人出了多少。你得出价比那个更高。所以你不能告诉我这会花我多少钱？我说：不太能。取决于你愿意出多少。好，你一天能吃下多少？我不知道。取决于有多少人搜索，因为只有有人搜索时，我们才能展示广告。所以你既不知道量，也不知道价格？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>你这算哪门子销售？<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>你想想看。我在卖广告。我控制不了量，也控制不了价格。价格由竞价者控制，量由搜索的人控制。</p>
+<p>我可以告诉你，法国下雨的时候，我们往往收入更高，因为人们待在家里搜索。这挺好。所以你仍得去跟客户说：听着，它的运作方式是你算出投资回报。每一次搜索对你都值一些东西。如果我给你送去一次搜索，看你的转化率。如果你把它转化成一单保险，或一笔电商交易，算清楚你愿意为一条线索付多少。当线索变成转化，我们就和客户一起做投资回报的数学，让他们理解自己的最高出价应该是多少。然后再说：现在把钱都给我们，只要不超过你的出价，就尽可能吃下搜索。那就是我的工作。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>这相当直白。我和AppLovin的创始人亚当·福鲁吉（Adam Foroughi）是朋友，他也非常简单：我卖的是收入。如果他们给我一美元，我必须还他们更多。只要我能还他们更多，这就很好卖。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>漏洞不能靠焦虑修好；女儿艾莎的基金，以及不给孩子施压</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>我们一会儿再回到谷歌。我想先谈这个。从外面看，因为人工智能的扩散，好像——我记得你刚上过我朋友的节目，我跟TBPN的约翰和乔迪（John and Jordy，字幕作 TPBN）是朋友，我今天看到一段剪辑，里面好像有某种——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>对，发现了一个叫PHP的漏洞，大约用在2250万个地方，现在仍在被使用。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>对，所以我的意思是：你每天醒来都会听到更疯狂的事，未来只会更狂。而你似乎并不允许自己被它压垮。从外面看，这至少该是你整个职业生涯最紧张、压力最大的部分。我错在哪里？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>可我对此做不了什么。我们都得去把这件事弄清楚。我们会去修。但焦虑并不会改变结果。改变结果的，是我们动手、去做该做的事。你们今天早上才发现。我大约是昨天早上知道的。我们的团队去检查了所有东西，确保自己没有这个漏洞。我们找到了，拦住了它，找到了补丁，先给我们自己打上。然后说：怎样保护我们的客户？团队通宵工作，做出了补丁。今天早上对方公布补丁时，我们也公布了我们的补丁，放到公共领域。我们给任何有问题的客户打电话。我们把它解决掉。这就是我们能做的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>那你怎样描述这种哲学？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>我只是说：每天早上醒来，尽你所能做到最好，不留石头不翻，然后让命运做其余的事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>这是真的吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>是。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>好。那你一生中最有压力、最焦虑的时候是什么时候？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>我一生中最焦虑的时候？在我女儿的婚礼上致辞。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>是刚开始做基金的那位女儿吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>对，就是今年二月在印度结婚的那位女儿。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>她叫什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>艾莎（Aisha）。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>艾莎。恭喜。她以前在Brex做市场，然后——</p>
+<p>等一下，她以前在Brex做市场？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>是的。孩子多半不听父母的建议。可我很幸运，偶尔她会听进去一些，再按不同的方式处理。我问她：什么让你感到兴奋？她说：爸，当市场看起来并不是公司里最重要的职能时，待在市场部，我该想些什么？如果你环顾硅谷，最让人兴奋的工作，是那些能和创始人交谈、能理解他们在做什么、能对生意本身感到兴奋的人。要对生意感到兴奋，你就得想到风险投资。于是她想了想，自己做了研究，决定去工作。她和比尔·马里斯（Bill Maris）在 Section 32 基金共事，然后她今年要结婚，她说：我觉得我该成立自己的基金。我说：这听起来是个好主意，你应该做。于是她走完这些步骤，做了大量研究，想明白了，开始考虑谁会投资她。她还问：你愿意当我的顾问吗？对一位父亲来说，这是能得到的最好的东西。现在她每天给我打一两次电话。我们聊公司，聊她在想的事。这是一种福气，非常好。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>这太美了。你想起自己的童年时——我猜想，你那种要去成就的内在驱动，很大程度上是内生的。你从父母那里承受过很多压力吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>没有。我父母并不告诉我该做什么。我常常放学回家就写作业。我妈妈会因为我写完了而高兴，她反而要追着我妹妹，想搞清楚她的作业是什么。我把自己的事做完了。我爸爸不知道我是怎么进的大学，也不知道我进了美国的商学院。我只是去找他说：我需要2000美元。他说：我没有那么多。我问：能给我200吗？他说：行，我拿200。我就拿着200美元出现在这里。后来他又寄来2000美元，付一部分学费。如此而已。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>你也不给你的孩子施加任何压力？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>不。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>那作为父亲，你和你的父母对你，有多大不同？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>那是一个不同的时代。那时的养育是不同的。现在的养育也不同。在印度的养育不同，在美国的养育也不同。所以这些差异都会进来。我还有两个更小的孩子，11岁和10岁，所以我比对待29岁的女儿时，更深地介入他们的生活。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>为什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>因为有更多时间。我有意识地想挤出时间。我敢肯定我的孩子会说永远不够，我的妻子也会说不够，但我尽可能挤出时间。所以这是不同的。我不主张给孩子施压。孩子必须能够表达自己，去做他们相信最好的事。不过我看过一件挺奇怪的事。我不知道自人类开始以来出生过多少人。一定有数百亿吧？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>不，我记得我们很久以前读到过，好像超过1000亿。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>好，1000亿人出生过。这是一个众所周知的问题。每个孩子按定义都有父母。可直到现在，我们仍把养育当成一个难题在挣扎，因为养育的变体大概太多了，多数人都会搞错。所以我只希望我的孩子在生活里是快乐的。如果他们快乐，我的使命就完成了。因为我见过太多孩子并不快乐的情形，也不清楚事情是从哪里走偏的：不清楚是养育出了问题，是在基因里，还是在环境里。所以我只想确保我的孩子健康、快乐、平衡。如果我能做到这一点，他们可以去做任何想做的事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>我喜欢你刚才的框架：每个人都有过父母。养育是一件很老的事，它一直都在，而我们仍然没有把它弄明白。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>对，你给我看看终极的养育指南在哪里。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>我对这个特别感兴趣，因为我读的大多数传记里，这个人通常会从——当然也有人出生在富裕家庭并取得很多成就。可人类的大多数并不富裕，所以你读到的大多数人也不是。而他们几乎普遍会挣扎的一件事，基本上就是：我曾是穷人的儿子，现在我的孩子是富人的儿子，我该对此做些什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>没什么可做的。你自己制造了一个区分。当你是穷人的儿子时，总有比你穷得多的人。</p>
+<p>而从他们的角度看，你已经是富人的儿子。所以我认为，我们都被生进某种境况里。非常危险的是，拿着那种境况不断提醒自己的孩子：记住我从前很穷，你应该更感恩。事情就是这样发生的，尤其是那些曾经贫穷、如今来到今天位置的人，他们觉得必须不断提醒孩子：我们出生时可不是这样，我们从前要做这个、做那个。兄弟，放下吧。他们就出生在这里。想办法让他们能享受这些，同时确保他们学会如何渴望更多，如何保有驱动，如何去取得成就。你必须小心。所以我认为，如果你能找到办法，让孩子想要去成就、想要去建造、想要靠自己把事情做成，并且不只是把境况视为理所当然，那你就是有福的。养育里最难的部分，就是确保你的孩子有驱动、有野心、想要有所成就。我儿子迷篮球。很好，去吧，让他追随热情。我女儿想当体操运动员，她有非常强的职业道德，她很棒。他非常友善，喜欢和人在一起，对想了解的事情知道得很多。那都很好。如果我的孩子能有热情，能去追逐热情，能表现出野心和驱动，我并不在乎他成为篮球运动员还是篮球评论员，只要他每天早上醒来是高兴的，并且觉得自己已经尽力了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>我完全同意这个视角。在我读过的所有例子里，我喜欢山姆·沃尔顿（Sam Walton）在自传里说的话，那本书是他自知时日无多、全身都是癌症时写的。他说：我知道我是一个相当过分好动的人，这大概是本世纪最保守的表述。他说：我不给我的孩子施压。让他们去做。我为什么要他们像我一样？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>不过有一点很有意思：如果你做得对，孩子会看你的行为。他们看行为比你以为的要多。他们对我们是怎样的人、我们是谁的了解，可能远超我们所能理解的。有时他们会想像你一样做某些事。可如果你试图强迫他们像你一样做某些事，你永远到不了那儿。我能看出我的孩子会想像我一样做某些事，那很好，我很高兴他们想那样；我也确信，有时他们看着会说：我永远不想做我爸做的那件事。那也没关系。只要他们能分辨，我做的哪些部分他们喜欢做，哪些部分他们不喜欢做，他们就会没事。我对此没意见。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>网络安全三块与虚拟补丁，以及哈利劝他上X</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>我回想起上过这档节目的其他人，我就是觉得——是的，人工智能在改变每一笔生意。托比·吕特克（Toby Lutke）今年早些时候上过这档节目，大约两周后我还要再见他、再录一次。他的整套观点是：我们回头看2026年时会发现，因为人工智能，每个行业都被重新摆上牌桌。所以每笔生意都在某种程度上被改造，对吧？可我觉得，你的生意被改变的程度，可能是我请来的所有人里最深的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>不，不，让我们拆开来看。网络安全——因为我并不是从那里出来的。我告诉过你，八年前在我脑子里它是两个不同的词。所以我仍会那样对待它。它其实相当直白。网络安全就是：一个坏的行动者试图进入你的基础设施，并带走某种重要的东西。让我们把这当作前提。如果我知道它是坏的，我可以把它拦在边界。坏人出现在门口。我们知道他看起来很坏：他穿着连帽衫，拿着枪。这是坏的。我们知道怎样拦住他们。所以网络安全的大约一半，是把坏人、把坏东西拦在边界。好。大约10%到20%是分析，是他们进到你房子里之后，怎样把卫生做好，确保内部是扎实的。剩下的大约20%到30%是：如果有人进来了，我该怎么办？总会有东西穿过你的边界，进入你的基础设施。我能多快找到这个坏人？我能多快在他或她造成伤害之前，把他们从我的基础设施里赶出去？这就是网络安全的核心。好，人工智能如何影响这一点？先从你刚才说的漏洞说起。人工智能说：我能比世界上任何人更快找到你边界上的洞。过去找到它要花几天，今天快得多。我能找到进入你边界的洞。好，太好了，我的边界刚刚变得更多孔了。可人工智能并不会去给边界打补丁。我仍然得去查看基础设施，找到那些多孔的部分并把它们补上。我可能是一家软件公司，也可能是基础设施提供商，因为每个人的信息技术栈都由成千上万个供应商拼成。所以漏洞存在于我们的软件里，也存在于客户自己做的软件里。这就是第一步。这也是我们此刻正在看到的。像OpenAI那些新模型，像GLM 5.3，它们有极强的发现漏洞的能力，坏人可以廉价租用它们，把它们砸向你，找出你所有的漏洞。那么当务之急是什么？当务之急，是找到一种办法迅速把这些东西补上，让这些坏人拿不到。好，猜猜谁在建这项服务？我们在建一项叫虚拟补丁的服务。我们写特征，给整圈边界缠上绷带，我们知道洞在哪里，这些人就进不来。随着时间推移，我们的客户会把底层系统补上，他们就会没事。这大概是一个问题。好消息是，自从Mitosis（口播原词，具体指代不十分确定）出现后，我们的业务反而上去了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>这正是我的意思。这正是我想谈到的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>天哪，你能帮我打补丁吗？猜怎么着，能，我能帮你打补丁。我检查每个人的边界。所以你在某处有一台笔记本电脑。我就住在笔记本电脑上。我一年收你25美元，每天在你的笔记本电脑上看大约150兆流量，确保没有坏东西进来。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>你跟我说你在黑我的电话。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>我只是在开玩笑。<span class="tag">【笑声】</span>我也不会做那种事。总之，记住网络安全是两个词。所以由我来检查笔记本上的流量，边际成本是零。我不会因为流过更多流量而向你多收费。人工智能的设定，是每次你让流量穿过它，都按token向你收费。所以如果人工智能试图在端点做我的工作，一天可能要花你5000美元，或者你随便报个数，500美元一天。它以后也许会变成50美元一天。他们做不到我在每个端点25美元能做的事。你再回到内部：如果坏人进来了，会发生什么？是的，人工智能能帮你更快分析所有异常行为，但你仍然需要套件，仍然需要安全专长，需要数据摄入，需要基础设施。所以一句话：我们的生意并没有处于风险之中。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>对，从外面看，我原本也是这样假设的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>从外面假设首席执行官们在努力最大化自己的生意，一般来说是一条好规则。<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>对，可我们谈过：没有人想输，可每天仍有很多人在输。这正是我想谈到的。当你想了解人工智能的前沿时，你会去找谁？我想多了解人工智能时，该去找谁？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>有不同的人。我每周至少要花四五个小时，和各类人工智能创始人在一起。因为这些孩子很年轻，他们可能在OpenAI工作过，也可能在谷歌某处工作过。他们有这些公司。他们人很好，肯花时间陪我，试图用别的话说清楚他们在做什么。于是我了解了开源权重模型，了解了训练，了解了训练数据，了解了守护智能体。我到处走，和大量的人交谈。我每个月大概还和5到10家网络安全创业公司聊，也许15家。所以我试图吸收他们怎么想，因为从某种奇怪的意义上说，这是一门新的、仍在发展的科学，很难找到更好的词。并没有真正的专家。人们知道怎样做自己那一块。其他所有人都在试图想象这件事对周围一切的含义，并试图建立心智模型，以便做出产品、在这个品类里赢。从前并没有数据标注这种概念，直到自动驾驶的人必须去标注数据。现在这又变成了强化学习、仿真模型，以及试图模拟数据来训练人工智能的神经网络。所以你真的必须持续待在与大量的人的对话里，才能理解并吸收人们在谈的东西。你得花很多时间看Twitter，花很多时间和人谈，花很多时间读东西。你才能差不多半懂半接地理解这件事怎样走到另一边。我也没法吸收一切。我就是这样学的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>你刚刚又提到另一件我想问的事。你在X上的新存在，背后是什么？<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>我想我说过，我当时在吐槽你的一位同行播客。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>哈利？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>对。我当时在吐槽哈利：这对你很好。你不断把我们所有人请来，你在建立自己的品牌，而我们大家实际上都成了你品牌的道具。</p>
+<p>他说：那是你的问题，不是我的。我问：什么意思？他说：你有权建立自己的品牌，只要你想。你只是没有。我问：我该怎么做？他说：去X上告诉人们你在想什么。你在播客里有很多话要说。你何必等我来提问？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>这说得很有道理。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>于是他让我每天发推。我说：好。然后——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>我很享受你的帖子。我几乎每天都在看。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>不，现在频率更低了。听着——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>噢，你不能听那个，你真的很擅长这个。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>可如果你说得太勤，就只会更容易说错话，因为你几乎必须不去感受那种必须说话的压力。所以我喜欢那个建议：不要觉得必须一直说点什么。否则你会把它变成一份工作。我不想把它变成一份工作。我想在有话要说的时候再做。所以我想，我是在想说话的时候才说话。有人问我花多少时间，谁写的？其实是我自己写的。我该把它写在我的吉他上。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>很明显是你自己写的。拜托，大家——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>你知道，有一次我拿克劳德（Claude）一类的东西检查了一下，它做了一些语法修改，结果人们给了我好多——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>噢，我看到那一条了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>对，我看到了。你说得对，你说得对，你说得对。所以我的想法是：我自己改，我自己检查，我再也不会那样做了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>不，你真的很擅长这个。事实上，这台摄像机后面一直有个人，会在我们到达某个时间时给我提示。他刚刚给了提示，而我震惊于这次时间过得这么快。所以这通常是一个好——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>是个好兆头？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>是个好兆头，兄弟。我真的很感谢你做这件事。这太棒了。我们过几个月一定得再做一次。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="nikesh"><div class="label"><span class="badge" title="尼基什·阿罗拉（Nikesh Arora）">Nikesh</span></div><div class="content">
+<p>听起来不错。谢谢你的时间。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">David</span></div><div class="content">
+<p>希望你喜欢这一集。请记得在你收听的平台订阅并留下评价，也一定去听我的另一档播客《创始人》（Founders）。近十年来，我偏执地读了400多本历史上最伟大企业家的传记，寻找你能用在工作里的想法。你在这档节目里听到的多数嘉宾，最初都是通过《创始人》找到我的。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "David Senra", "title": "怎样拿下交易、把公司做到约2500亿美元｜尼基什·阿罗拉（Nikesh Arora，帕洛阿尔托网络）", "url": "https://www.youtube.com/watch?v=BKz2Dy-mKEM", "videoId": "BKz2Dy-mKEM", "published_at": "2026-11-08", "duration": 3750, "caption_source": "YouTube 自动生成字幕（en-orig 与 .en.vtt 哈希相同；普通 yt-dlp 写字幕成功，无需 cookies）；caption_source=yt-dlp-normal；中文为全文翻译并按话题分段；赞助口播已标灰（Ramp Router、Deel、WorkOS、AppLovin）；原始 VTT 含 \u003e\u003e 说话人切换标记，说话人按主持/嘉宾问答与这些标记推断（自动字幕偶有轮次粘连，中等把握）；ASR 将 Aporeto 听成 Aprimo、TBPN 听成 TPBN，正文已按语境纠正", "guests": ["尼基什·阿罗拉（Nikesh Arora）"], "intro": {"summary": "大卫·森拉（David Senra）对话帕洛阿尔托网络（Palo Alto Networks）首席执行官尼基什·阿罗拉（Nikesh Arora）：从阿里·伊曼纽尔（Ari Emanuel）新书里的天使投资圈、差点投进Oculus，讲到他把一家防火墙公司做成70多款产品、市值从约180亿美元走向原定「100亿以上」并被节目标成约2500亿美元量级的路径——摊薄获客成本、承认好产品要4到7年、用并购补管线；以及只买第一、第二名、签约前30天对齐产品路线图、买的是团队不是法律实体。后半段谈AI让攻击面扩大、虚拟补丁、印度式「尽力而后交给命运」，以及女儿艾莎（Aisha）从Brex市场部走到自己的基金。", "points": ["他在欧洲认识银湖资本（Silver Lake）的埃贡·杜尔班（Egon Durban），个人出资天使投资约15年；与马克·安德森（Marc Andreessen）从国际消费电子展（CES）晚宴跟到Oculus，文件还没来就卖给了脸书（Facebook）", "加入帕洛阿尔托时公司市值约180亿美元、几乎只有防火墙；他的原初目标是走到100亿美元以上：企业最大开支是获客，只卖一件东西很难做大，必须靠客户信任卖更多相邻产品", "好技术产品通常要4到7年；他因此研究并购成败，结论包括：别让内部输家接管被收购的赢家、要买第一名而不是指望把第二第三名擦亮、把创始人放上该业务的王座", "具体做法：不让银行家夹在中间，创始人必须在约30天内共同写出产品路线图才签最终条款；迄今没有创始人因此退出，他们自己退出过两次；买的是团队，并希望创始人再锁定3到4年", "AI把知识民主化变成智力民主化，也让攻击面扩大（他举例脸书约36.5亿日活）；网络安全被他拆成拦在边界、内部卫生、以及破防后多快发现并赶出去；他们在做虚拟补丁，端点一年约25美元看流量，他认为纯用大模型按token计费做不到这个价", "压力哲学是近五年才明确的：每天把能做的做到尽，其余交给命运；一生最焦虑的是在女儿婚礼上致辞——女儿艾莎曾在Brex做市场，后与比尔·马里斯（Bill Maris）的Section 32共事，并开始自己的基金"], "verdict": "值得看：关心企业软件并购、网络安全与创始人整合、或想听谷歌欧洲时期销售故事的人；可跳过：只想听短平快新闻、对交易机制不感兴趣的人（约62分钟）。", "audience": "企业软件 / 网络安全 / 并购与创始人 / 创业史听众"}, "speakers": [{"id": "david", "name": "大卫·森拉（David Senra）", "role": "host", "short": "David"}, {"id": "nikesh", "name": "尼基什·阿罗拉（Nikesh Arora）", "role": "guest", "short": "Nikesh"}], "sections": [{"id": "s1", "title": "阿里新书里的天使圈：埃贡、马克，以及差点击中Oculus", "start_sec": 4, "summary": "大卫·森拉（David Senra）一上来就问尼基什·阿罗拉（Nikesh Arora）有没有读阿里·伊曼纽尔（Ari Emanuel）的新书；尼基什说没有，也不知道自己被写进去了。大卫转述书中说法：阿里经马克·安德森（Marc Andreessen）介绍认识埃贡·杜尔班（Egon Durban），马克告诉阿里，尼基什、字幕里的尼克·卡什（Nick Cash，身份未再核实）和埃贡有一个松散联合的天使投资圈子。尼基什回忆：埃贡刚到欧洲做银湖资本（Silver Lake）合伙人时，经共同朋友约他吃饭——当时他三十岁出头、负责谷歌（Google）欧洲。埃贡想找人了解当地科技圈、甚至想请他给银湖当顾问；尼基什起初很抗拒，觉得这种顾问就是两天封闭会加一堆演示文稿和免费咖啡。埃贡改口说：你觉得是好主意或坏主意都告诉我，投资决定我自己做，我们也可以只是玩得愉快。这段关系后来维持了大约15年。他用个人的钱做这些投资。一个插曲是：很少出门的马克去国际消费电子展（CES）办晚宴，他一起飞回来后写信问有没有能参与的酷公司，马克指向晚宴上发言的人——Oculus，也就是帕尔默·勒基（Palmer Luckey）和布伦丹·伊里布（Brendan Iribe）。尼基什在洛杉矶约看技术，却被带到一小时车程外的工业园，还赶上停电；灯回来后他们戴上简陋的虚拟现实装置，他觉得很酷，准备写支票。布伦丹说同一轮还有布莱克·克里科里安（Blake Krikorian）和维维·内沃（Vivi Nevo），能再挤进一个人，马克已经在公司里。他和埃贡谈妥后，对方先说文件在准备，却迟迟不发；埃贡也来追问。结果某一天醒来，Oculus已经卖给脸书（Facebook），他们还没来得及投进去。这群人后来在银湖收购威廉·莫里斯（William Morris）时，成了技术顾问委员会，成员包括马克和他。谈到给埃贡和阿里做顾问，尼基什说阿里的风格就是15分钟电话；大卫立刻接上自己那集采访，并指出阿里的书名叫《打电话》（Rolling the Calls）——阿里现在也这样对他：助理说「请等阿里」，通话大约25秒，没有再见。尼基什却讲了例外：他离开软银（SoftBank）后阿里约他见面，助理按15分钟习惯只排了半小时送机，结果那是他唯一一次和阿里谈了一个半小时。结论是：事情真的对你重要时，阿里肯花时间，他是有「灵魂」的；但大多数时候他很交易导向，只想把事办完。"}, {"id": "s2", "title": "在同一家公司里不断换题：从谷歌十年到帕洛阿尔托八年", "start_sec": 445, "summary": "插播Ramp的Router与Deel赞助后，大卫回到刚才的闲聊：有些人像有注意力缺陷多动，念头来了做一会儿又跳走；尼基什却能在一份工作上待很久——谷歌十年，帕洛阿尔托网络（Palo Alto Networks）呢？答案是八年。大卫说自己喜欢长时间盯一件事，问他如何工作。尼基什的反驳是：即便人在同一家公司，脑子面对的问题可以完全不同。他在谷歌时员工大约从2000人涨到6万人，收入从约20亿美元涨到约620亿美元，业务从搜索到YouTube、到DoubleClick，还在不断买公司、想新事情。关键不是某一刻你在做什么，而是脑子能被挑战多少、能同时卷进多少不同问题；只要平台够大，你就可以在同一空间里换题求解。八年前他加入时，帕洛阿尔托还是一家防火墙公司；今天他们有70多款产品，覆盖网络安全的方方面面，并在全力转向人工智能。大卫刚采访过Revolut的尼克（Nick），对方说绝不可能只靠一个产品过日子，同时跑大约20个实验，已在大约30到40个国家、想做到100个。大卫问：他被招去当首席执行官时，公司是不是本质上只有一个产品？尼基什承认：是的，就是防火墙。大卫追问这八年的扩张是上任时就有的计划，还是走着走着才形成的；尼基什说他来的时候就有计划。大卫还提起一句很好笑的话：他曾觉得「网络安全是两个词」。尼基什说面试时自己谈得更多的是高管安保，后来发现那是很小的市场，而且偏消费者、需要大量营销和研发，他不想卷进去。他是带着企业框架、而不是网络安全框架进来的：去看当时最大的企业公司，比如思科（Cisco）或Salesforce，市值是千亿美元量级，而他们只有约180亿美元。他当时的原初预期是：怎样从180亿走到100亿以上。"}, {"id": "s3", "title": "摊薄获客、承认产品要4到7年，以及用并购补管线", "start_sec": 593, "summary": "接着他拆企业损益表：多数公司把大约15%到18%花在产品研发上，行政管理大约6%到10%，营业利润率和毛利率之间的整段差距主要是销售、营销和客户支持。如果能把通常占成本约60%、落在销售营销和客支里的部分压到20%，就可以做成约40%营业利润率的生意。最大开支是获客。如果只有一个低收入产品、对每个客户只能卖一件东西，很难做大；微软企业业务或Salesforce这类公司，都是对同一客户卖很多东西。所以帕洛阿尔托要变大，就得找到客户愿意信任、愿意继续向他们买的相邻业务，服务全球前约1万名客户并提高单客贡献。前提是产品得管用、得是同类最佳——在网络安全里没人想买第二好的。另一半洞察至今仍成立：做出一个真正好的技术产品通常要4到7年，优步（Uber）、YouTube、脸书、谷歌搜索都是如此，企业软件也不例外。他刚加入时管线并不厚，若全靠自建，得到4到7年以后才有真正的产品，所以必须去收购。但历史上充满糟糕的并购，企业或消费领域都一样，公司经常把买来的东西毁掉。于是他把接下来一段时间用来研究：怎样的收购是好的，怎样的是坏的。大卫问他怎么学。尼基什说就是回看模式：某公司买了多少家、哪些成了、哪些没成，失败是市场没出现、主意本身糟糕、执行差，还是领导力差。他总结出大约七个失败原因，试图多控制其中五个变量，把风险收成两件：选错了方向，或买对了公司但市场没走那边。他们就有过后者。"}, {"id": "s4", "title": "阿波雷托式止损：别自己造，把赢家创始人放上王座", "start_sec": 796, "summary": "大卫问那家公司是谁、付了多少钱。尼基什说公司叫阿波雷托（Aporeto，自动字幕作 Aprimo）：他们以为世界会走向基于IP的分段，但后来没走那边。买了之后，一旦判定方向不对就迅速止损，像投资组合、像边际风投、也像制药公司把药物做到某一期就收手。他在谷歌时也听过「我们去把Netflix买下来」之类的话，他的反应是：我们有YouTube，技术上把面向消费者的视频服务能力扩展到专业内容，给1000万美元和20名工程师就能解决——结果从来不是那样。到了帕洛阿尔托，工程师团队也会说「不用买，我们能造」。可一旦决定自建，会碰到几重问题：你看见正在成功的那些人已经领先大约一年半，有50到75人的能运转团队；等你招齐人、理顺内部、做出第一版，对方又会再超前大约两年。大卫问其他首席执行官是否因为自我、觉得「我能造」才犯这个错。尼基什不认为有人早上起来打算犯错，他们多半也找对了目标公司；并购失败往往是执行。常见做法是：你很忙，买下一家公司就交给内部「管这个主题」的人——比如内部做了五年视频流的人，去接管买来的视频流公司。大卫补了一句：而你反而把该公司的创始人放上去。尼基什说：等一下，这个人带着你所有资源和金钱却被一个住破仓库、靠风投、靠血汗泪做出产品市场契合的人揍了，凭什么让赢家去给这个「帝国里的输家」打工？他会反过来：让这位创始人成为该业务负责人，其他人向他学习、为他工作。这有时会让原先组织里的人不好受，他们甚至想走。但尼基什认为没关系：被授权去赢、又握有资源却没赢下来的人，不能再用一项珍贵资产当奖赏，冒着把资产毁掉的风险。另一种失败模式是创始人觉得「我的创新是天才，别人的是运气」，于是去买第二、第三名，指望擦亮了再击败第一名——这从来行不通。他要买第一名。若看多数市场，第一名和第二名拿走该品类不成比例的利润。"}, {"id": "s5", "title": "只买第一第二名，以及签约前30天共同写出产品路线图", "start_sec": 992, "summary": "大卫笑说这正是开录前他想套出来的话，约定稍后再展开。尼基什继续：第三名有时能接近，但成不了气候；长期赢就要做第一或第二，否则就有麻烦。若你去买第二或第三名，第一名仍在；大企业又很难控制每个变量，财务、人事都会跑来说「我是来帮忙的」，母公司一拥而上，被买下的团队反而失速。所以买第一名时，必须想法子保住势头。大卫问他是不是没有专门的并购团队、听说有人觉得这事「快把他逼疯了」。尼基什说有一批很能干的人跟他一起做，他并非单打独斗，但每笔收购最后他都会介入。两人比较第一和第二：外面看也许差不多，靠近了会看见什么？尼基什承认差距有时很小，他们也买过错认的第一名，结果第二名绕过去变成第一，因为执行砸了；他们买过大约35家公司，不是每笔都按计划走。通常两者都有产品市场契合，只是四年后成品的主推力可能下在不同部位，早期各自只有大约30或40个客户时很难判断谁的主需求才是客户真正要先打通的。这既是战略、执行、契合，也是商业模式问题，未来两三年很难外推。还要问：谁更可能成功，谁更与我们的产品方向对齐。他早期买的第一或第二家公司，买完后花了大约6个月争论产品方向——创始人觉得「我带着这个愿景创办公司」，即便已经把公司卖了。大卫问：那你以为钱是干什么的？尼基什后来想通了：卖了就不能只建自己原来想建的东西，但他也曾怕因此「搞砸一位创始人」。于是改了模式：谈妥交易后他坚持和创始人一起读协议，不让银行家夹在中间，因为你们要共事大约四年。一旦原则上同意，财务和法律去走文件，创始人的任务是在30天内和他以及产品团队一起设计「共同的房子」；他甚至不签最终条款清单，直到创始人在联合产品路线图上签字——如果你不想建我想建的东西，这笔交易就不该做。大卫觉得创始人天生想要自主、也觉得自己是对的。尼基什的观察是：当30天后有一张大支票悬在那里，创始人突然变得比钱已经到手之后好对齐得多，白天黑夜之别；他们随时可以拉伞绳退出。有多少人在那一阶段退出过？没有创始人退出，他们自己退出过两次：一次是感觉对方只是为了成交在配合、产品难以持续对齐；另一次是30天里越挖越深，发现实质不如早期尽职调查感觉的那么强，架构也难合并。创始人通常会留下来吗？有些会。他们买的是团队、愿景和执行，创始人如果说「我要走」，他们就不买，因为那等于你也可能把公司做死。两三个联合创始人里，做商务拓展或市场的那位可能会淡出，因为大公司这些职能更强；产品和工程的人几乎不会淡出，那才是他们要买的。许多创始人仍在帕洛阿尔托；有人留下继续做，有人大约三年后创业瘾又犯了选择离开。他们买公司时会把创始人再锁定3年，理想是4年：这些产品公司往往买在第2到第4年，后面通常还有2到3年产品开发，需要创始团队把领先优势延续下去。"}, {"id": "s6", "title": "创始人意志、网球心智差距，以及霍克·谭的「征服者」对照", "start_sec": 1443, "summary": "插播WorkOS赞助后，大卫回到第一名和第二名：靠近之后还会对什么感到意外？尼基什说大公司最难把握的是：有时第一名赢，靠的就是创始人的意志，那种「阿尔法杀手」。大卫要语境，并说自己看过很多他的采访、开录前对方还把这点淡化，可他相当确定对面坐着的就是这种人，也点过几位运作方式让他想起尼基什的创始人。尼基什把层次分开：你作为主体的领导人是一回事，团队里有这种人是一回事；若买下的创始人也这样，他们会砸玻璃，这可以，但必须学会和更大的机体共存。以帕洛阿尔托为例，创始人手下也许有8个人，但能撬动大约6000名一线人员——这些人不都糟糕，他们很出色。从小团队、以弱胜强走过来的创始人，容易觉得别人都蠢、挡路的都不够格；到了更大生态里必须换脑：这6000名销售是放大器，能把产品愿景卖出去。你从地下党变成了「强者的一部分」，这是必须盯住的风险。若他们不能调节自己的行为，就会把人惹恼、自己也受挫，他就会失去对方在产品上的领导力；所以第一、第二名还得看谁更适应这个环境。大卫个人很迷「第一和第二之间通常有缺口」。尼基什提醒：谁是第一、谁是第二本身是判断，两人可能用不同标准，各有大约30个客户、相近的经常性收入，并不显然。大卫提起一位顶尖网球选手的心理教练：世界前200里，第1到第3的差距可以忽略，第4到第200的差距，比第3和第4之间还小；表面名次接近，心里差很远。他着迷于这种从外面看起来差不多、深聊之后才明白为何领先者把下一名甩开的落差。尼基什同意：有时经常性收入差一倍，第一名很好判定；起点相近时，就取决于哪位创始人能把事带到成功，也取决于他们愿不愿意卖。大卫说开录前聊到的那些人，多少钱都不卖。尼基什认为「我愿意卖」本身也是信号。大卫问他有没有和霍克·谭（Hock Tan）聊过——对方做很多并购。尼基什说霍克做得非常不同。大卫回忆两人曾一起在戴尔（Dell）家里，听到霍克建议一位更年轻的创始人：收购第一天就要让被收购公司知道，你是征服者，他们是被征服者；大卫还邀霍克做播客，霍克说妻子禁止，怕他被「取消」。尼基什的哲学相反：开始谈判时就要提醒团队，这些人将成为同事，不能失礼。大卫问哪种对。尼基什说自己没法像霍克那样想，因为他已经决定：这个人进来就是你的同事、甚至是你的上级之一。他不能赢，除非周围大约20个人也觉得自己在赢；要让他们相信这一点，就得让他们觉得自己是一等公民、是团队的一部分，他们的赢既属于自己，也属于他。"}, {"id": "s7", "title": "买早了的云安全、并购不是战略，以及伦敦板球队拍了29轮", "start_sec": 1860, "summary": "有没有买得太早的？尼基什举例：他进门时公司刚买下Evident.io，后来他们又买了同一赛道的RedLock——前者只在亚马逊云上能用，后者覆盖三大云。他怀疑早买的那家（前任买的）买得太早，然后他们买了走得更远的第二家。买得太早往往是价格、阶段和信念三者的匹配：若确信这会是未来的大空间，你需要脚印，可以自建团队，也可以买；还要看对方在这个空间待了多久、会贵到什么程度。眼下最能代表这种风险：同样一家公司，今天的融资估值他常常看不懂，可能和两年前的融资环境相比贵了三到四倍，阶段却差不多早。那怎么办？该买还是买，如果它符合战略。并购本身不是战略，只是验证、放大或执行战略的机制；总有人问他「你的并购战略是什么」，他没有。他买公司，是因为相信必须在某个品类赢，而自己的团队此刻还没到想要的位置，于是去找已经想明白、人也对的另一支团队。如果某样东西值200、别人开到800，他的工作是把这份200的资产变成对他们而言5到10的价值。大卫让他解释「值200却值800」。尼基什说：作为一家大约300（按上下文应指约3000亿美元量级）的公司，他应当去买那些他相信未来5到10年能变成5到10（亿级贡献）的东西。大卫联想到阿里书里最难忘的段落之一：他们买WME/IMG时，报价大约从1.8或1.9走到2.2，中间可能差了约4亿美元，埃贡进来说「你永远不会记得这4亿」——你记得的是把交易搞砸，而不是多付的钱；交易最终成交，也远比那笔差价更值钱。尼基什接话说，他和埃贡后来在伦敦一起买了一支板球队，两人是平等所有者。大卫原以为是和德韦什（Devesh，字幕）一起买的。尼基什说不：他正要去打AT\u0026T高尔夫，埃贡早上6点打电话问拍卖怎样了——因为伦敦时差——他说上一场拍了两轮，他们已经到第24轮。埃贡说：我知道你想买便宜的，那是教养；可这是体育，欢迎来到体育，别停，我还在电话这头给你精神勇气。后来大约拍到29轮。埃贡的逻辑是：最坏也不过是多付一半？无所谓，因为这支队伍要么大成功，要么失败。大卫说「他也这样对你了」。尼基什笑称自己在另一边还想要小聪明，埃贡提醒：你职业生活里这么说，个人生活也想想。早上7点他在练习场碰到埃贡，对方问：我们现在拥有这支队伍了吗？拥有了。大卫又抛出一句听过的概括：你不是在买公司，你是在买创始人。"}, {"id": "s8", "title": "买的是团队；辛格尔顿会否停止并购；AI在民主化智力", "start_sec": 2093, "summary": "尼基什修正：你买的是团队，是他们的视角、战略和执行。公司只是把团队放进法律实体、保护知识产权、最终变成走向市场能力的构造。人的第一本能不是「我要开一家公司」，而是「我要去建造一样了不起的东西」，你称自己为建造者，找志同道合的人分享愿景，用魅力让人上车；每招下一个人，你都在用眼神确认战略，对方也必须买账。你在打磨边缘、对齐战略，然后说：现在我们同意建这个，进入曲速去造这艘船，才能抢在所有人前面。这些公司往往只有一个行政人员兼人事、财务、设施和咖啡。你真正测试的是：这支团队是否比外面其他团队更能执行？他们可能一起磨合了一年半，天天在场上，住在同一屋檐下，一周工作80小时；你却想靠公司人事流程、四轮面试招一批企业员工去赢他们——那你永远赢不了，他们已经太超前。大卫提起亨利·辛格尔顿（Henry Singleton）：1960年代掌管特利丹（Teledyne）的「原型巴菲特」。沃伦·巴菲特（Warren Buffett）和查理·芒格（Charlie Munger）不断提到他，芒格说他是自己见过最聪明的人，巴菲特觉得美国商学院学生不研究他是犯罪；大卫一度以为伯克希尔的许多做法是巴菲特原创，其实很多学自辛格尔顿。辛格尔顿也曾靠并购扩张，做过大约135笔、一度拥有约130家公司，其中129家盈利；但后来他改了策略，大约15年没再买下一家。帕洛阿尔托有没有可能停止并购？尼基什说有可能。并购对他们不是生存级战略，而是最大化业务价值和客户结果的方式。若到了某一时刻，客户的边际价值来自确保他们已经买的东西真正能用，也许就会把重心放在那里，没有必须继续买的铁律。人工智能有没有改变他对并购的想法？有。他认为这是我们有生之年见过、也可能是有史以来最颠覆的技术。他在谷歌时是把知识或信息民主化，现在则是把智力民主化：每个人口袋里都有一样会越来越聪明的东西。他相当确定大约两年后，人工智能会可靠到让你像信任该领域专家一样信任它——营养师、物理治疗师、私教都可能被手机里的建议追上。你还能调节要多大的智力、要偏前沿冒险还是主流稳妥。组织今天按专长拆成文档、测试、编码、产品、界面等大约八个团队才拼出产品，只因为没人能样样精通；若一个人能借助能完成约90%工作的助手掌握这八门手艺，公司被创造的方式和组织形态，五年后都会根本不同。"}, {"id": "s9", "title": "互联越多网络安全越值钱，以及谷歌欧洲那个「不知道量也不知道价」的销售", "start_sec": 2486, "summary": "插播AppLovin赞助后，大卫问：人工智能会让网络安全公司更值钱吗？尼基什认为更是如此——更多技术、更多互联，会让网络安全更值钱。大约25年前几乎没有网络安全，因为没有这种连通：你登录大型机，它是安全的。现在大卫可以从这里登进自己的银行账户，这就成了攻击向量；能从各处登录的人越多，攻击面就越大。他当天早上看见脸书有大约36.5亿日活，也就是每天有36.5亿人进入其基础设施，每扇门都是潜在攻击面。再放到全球约80亿人、每人与数百个消费者应用互动，每天可能有万亿级在线交互通向某种企业基础设施。技术变得越多，你越需要新的安全能力；例如真正能防护人工智能的产品还不完整，因为人工智能本身太新。大卫觉得他像斯多葛：生意和生活都不该让你焦虑，每天尽力而为；又读到他若在印度、在印度教氛围里长大，会有很强的宿命感。尼基什解释：一个国家大约有18亿人，必须让他们明白你可以做到最好，最终仍有「上帝之手」或无法消除的不确定性来决定结果。你唯一能控制的是自己做什么；若这件事你真的做好了，就该睡得着，不能为所有不确定而忧虑——这种宿命感也让社会保持某种秩序。大卫说这话容易做起来难。尼基什承认人人都想控制结果、降低风险，但到某一点你得说「我已经尽力了」。这套能力年轻时没有，是近五年才找到的。大卫追问谷歌时期是否更焦虑。尼基什说谷歌是最好的生意，搜索业务一直在转。大卫仍觉得那是百年一遇的公司、他三十多岁就站在中心，压力会冲上头顶。尼基什说当时并不觉得「这会改变我的一生」：34岁，从未在同类公司工作过，每天醒来搜索更多、广告主也更多，那是执行问题。他加入时，有人在澳大利亚用美国信用卡向谷歌投广告，那是在欧洲买广告的唯一办法；奥地利做到大约1000万美元收入，却不收本地货币。他的工作变成消除摩擦、创造规模，而不必担心需求。他当时是谷歌欧洲销售负责人，客户问广告多少钱，他只能说取决于上一个人出了多少、你得出价更高；一天能吃下多少量？取决于有多少人搜索，因为只有搜索发生时才能展示广告。所以他既不控制价格也不控制量：价格由竞价者决定，量由搜索的人决定。法国下雨时收入往往会更高，因为人们待在家里搜索。他仍要和客户算投资回报：每次搜索对你值多少，转化成保险单或电商订单后你愿意为一条线索付多少，只要不超过你的出价就尽可能吃搜索。大卫说这很直白，并提到AppLovin创始人亚当·福鲁吉（Adam Foroughi）的类似说法：我卖的是收入，你给我一美元，我得还你更多。"}, {"id": "s10", "title": "漏洞不能靠焦虑修好；女儿艾莎的基金，以及不给孩子施压", "start_sec": 2813, "summary": "大卫想先放下谷歌：人工智能扩散之后，外面看起来他每天都会听到更疯狂的事，而且只会更狂。他刚在朋友约翰和乔迪（John and Jordy）的TBPN（字幕作 TPBN）节目里看到片段。尼基什接上：确实有一个PHP漏洞被发现，大约用在2250万个地方，此刻仍在被使用。大卫问：这种强度按说该是他职业生涯最紧张的阶段，为何外面看他并不允许自己被压垮？尼基什说他对此做不了「靠焦虑改变结果」的事。他们会去修，但压力本身不改变结局。这个漏洞他们大约前一天早上知道，团队检查自身有没有中招，找到了就拦截、找到补丁、先给自己打上，再问如何保护客户；团队通宵做出补丁，当天早上对方公布补丁时他们也公布，放到公共领域，并给任何有问题的客户打电话。他能做的就是这些。哲学被他说成一句话：每天早上醒来，尽自己所能做到最好，不留石头不翻，其余交给命运。这是真的吗？是。那一生最焦虑的时刻？在女儿婚礼上致辞。大卫问是不是刚开始做基金的那位女儿。是，她今年二月在印度结婚，名叫艾莎（Aisha）。她曾在Brex做市场。孩子多半不听父母的话，但他很幸运她偶尔会听进去再按自己的方式处理。她觉得市场部在公司里似乎不是最重要的职能，问该想些什么；他让她观察硅谷最兴奋的工作是跟创始人聊天、理解他们在做的事、对生意本身感到兴奋，那就会想到风险投资。她自己做了研究，先和比尔·马里斯（Bill Maris）在Section 32共事，结婚前后觉得该成立自己的基金，还问他愿不愿意当顾问——对父亲来说这是最好的礼物，她现在每天打一两次电话聊公司、聊想法。谈到自己的童年，驱动力基本是内在的：父母并不告诉他该做什么。他放学回家就写作业，妈妈很高兴，反而要追着妹妹问作业是什么；爸爸不知道他怎么进的大学，也不知道他怎么进了美国的商学院。他只跟父亲说需要2000美元，父亲说没有，问能不能给200，他就拿着200美元出现在这里，后来父亲又寄来2000美元贴一部分学费，如此而已。他也不给自己的孩子施压。时代不同、印度和美国的养育也不同；他还有两个11岁和10岁的小孩，比对待现年29岁的女儿时更深地介入他们的生活，因为更有意识地挤出时间——尽管孩子和妻子大概都会说永远不够。他脱口问自古以来出生过多少人，大卫记得曾读到超过1000亿。尼基什说：1000亿人都出生过，每个孩子按定义都有父母，可养育至今仍没被解决，变体太多，多数人都会搞错。他只希望孩子快乐、健康、平衡，使命就算完成，他们可以去做任何想做的事。大卫关心传记里的经典难题：我曾是穷人的儿子，现在我的孩子是富人的儿子，该怎么办？尼基什说：没什么可办的。你自己制造了这个区分；当你是穷人的儿子时，总有比你更穷的人，从他们的角度看你已是富人的儿子。危险的是不断提醒孩子「记住我从前很穷，你该更感恩」——对他们来说，他们就出生在这里。你得想办法让他们享受当下，同时学会渴望更多、保有驱动和成就欲。最难的就是让孩子有驱动、有野心、想有所成就。他儿子迷篮球，女儿想当体操运动员、非常能吃苦；只要他们早上醒来是高兴的、觉得自己尽力了，当球员还是评论员他都不在乎。大卫举山姆·沃尔顿（Sam Walton）在自知时日无多时写的自传：他知道自己相当「过分好动」，但不把压力加给孩子，为什么要他们像我一样？尼基什补充：孩子看行为比你以为的多；他们会想学你的某些部分，也会决定永远不学另一些，都没关系。"}, {"id": "s11", "title": "网络安全三块与虚拟补丁，以及哈利劝他上X", "start_sec": 3287, "summary": "大卫想起今年早些时候上过节目的托比·吕特克（Toby Lutke），约两周后还要再录：托比的观点是，由于人工智能，2026年回头看会像每个行业都被重新摆上牌桌。他觉得尼基什这笔生意被改变的程度，可能是所有嘉宾里最深的。尼基什要求拆开看。他仍把网络安全当成「两个词」：坏人试图进入你的基础设施并带走重要的东西。大约一半是把坏人拦在边界——对方若穿着连帽衫、拿着枪出现在门口，你知道该怎么拦；大约10%到20%是分析、把内部卫生做好；剩下大约20%到30%是：总有东西会穿过边界，你能多快发现、多快在他们造成伤害前赶出去。人工智能如何改变这一点？它能比世界上任何人更快找到边界上的洞，过去要几天，现在快得多，边界变得更多孔；但人工智能不会替你打补丁，你仍得在由成千上万供应商拼起来的信息技术栈里找到孔隙并补上，漏洞既存在于他们的软件，也存在于客户自己写的软件。像OpenAI的新模型、像GLM 5.3，都有极强的找漏洞能力，坏人还能廉价租用它们砸向你。当务之急是迅速打补丁。他们正在做一项叫虚拟补丁的服务：写特征、给整圈边界缠上绷带，先让人进不来，客户再慢慢补底层系统。他并说，自从Mitosis（口播原词，具体指代不十分确定）出现后，他们的业务反而上去了。端点侧他开玩笑「我住在你的笔记本电脑上」：一年收大约25美元，每天看大约150兆流量，确保没有坏东西进来；检查流量的边际成本对他是零，而人工智能按token收费，若在端点做他的工作，一天可能要500甚至5000美元，做不到一年25美元这个价。破防之后，人工智能能更快分析异常行为，但你仍需要套件、安全专长、数据摄入和基础设施。总而言之，他认为这笔生意没有被颠覆掉。大卫问他向谁学习人工智能前沿。尼基什说每周至少花四五个小时和各类人工智能创始人在一起——这些年轻人可能在OpenAI或谷歌待过，肯花时间用他能懂的话解释；他由此了解开源权重模型、训练、训练数据、守护智能体等。每个月他大概还和5到10家、也许15家网络安全创业公司聊，吸收他们怎么想，因为这在某种意义上是一门仍在形成的科学，没有真正的全能专家。人们得建立心智模型才能做产品、才能在这个品类赢。数据标注从前几乎不是概念，自动驾驶把它推到前台，现在又变成强化学习、仿真和试图模拟数据来训练的神经网络。他没法吸收一切，只能大量待在对话里：花很多时间看X（Twitter）、和人谈、读东西，才能半懂半接地看见另一边。大卫问他为何开始在X上出现。尼基什说他曾吐槽一位同行播客——大卫猜是哈利（Harry，按语境应为哈利·斯特宾斯（Harry Stebbings）一类）——觉得对方不断把大家请来，是在用他们当道具给自己做品牌。对方回击：那是你的问题，你有权建立自己的品牌，只是你没有；你在播客里有很多话要说，何必等我提问？于是建议他每天发推。大卫说自己几乎每天都在看、也很享受。尼基什现在频率降低了：说得太勤就容易说错话，他不想把它变成一份工作，只在有话要说时说，内容也是自己写的。有一次拿克劳德（Claude）改了语法，结果被人猛批；大卫也看到了那条。尼基什说以后只会自己改，再也不那样做了。大卫称赞他写得好，并说镜头后有人会在时间到点时给提示，这次提示来时他震惊于时间过得这么快——通常是好兆头。两人约定过几个月再做。收尾处大卫请听众订阅、留评价，并收听他的另一档节目《创始人》（Founders）：近十年来他偏执地读了400多本历史上最伟大企业家的传记，寻找能用在工作里的想法；这个节目里的多数嘉宾，最初都是通过《创始人》找到他的。"}], "paragraphs": [{"start_sec": 4, "type": "text", "speaker_id": "david", "section_id": "s1", "zh": "你读过阿里·伊曼纽尔（Ari Emanuel）的新书吗？"}, {"start_sec": 5, "type": "text", "speaker_id": "nikesh", "section_id": "s1", "zh": "没有。"}, {"start_sec": 6, "type": "text", "speaker_id": "david", "section_id": "s1", "zh": "不过你听说过自己被写进去了吧？"}, {"start_sec": 8, "type": "text", "speaker_id": "nikesh", "section_id": "s1", "zh": "没有，我并不知道。"}, {"start_sec": 9, "type": "text", "speaker_id": "david", "section_id": "s1", "zh": "好。他写自己认识埃贡·杜尔班（Egon Durban）的经过：经人介绍给马克·安德森（Marc Andreessen），马克告诉阿里，他、尼克·卡什（Nick Cash，字幕如此）和埃贡有一个大致联合在一起的天使投资圈子。"}, {"start_sec": 21, "type": "text", "speaker_id": "nikesh", "section_id": "s1", "zh": "是的。"}, {"start_sec": 22, "type": "text", "speaker_id": "david", "section_id": "s1", "zh": "跟我讲讲那是怎么回事。"}, {"start_sec": 26, "type": "text", "speaker_id": "nikesh", "section_id": "s1", "zh": "我认识埃贡，是他刚到欧洲的时候。他是银湖资本（Silver Lake）在那边的合伙人，经共同朋友传话说：听着，我想跟一些人来往，了解这边的科技圈，也看看你能不能给银湖当顾问。我当时三十岁出头，负责谷歌（Google）欧洲。我们吃了午饭。我问他：你为什么对这次谈话这么犹豫？我说，我试过做这种事。他们其实不太想要建议，却让你去参加两天封闭会，给你看一大堆东西。我这辈子最不需要的就是更多演示文稿和免费咖啡。他说：你知道吗，这倒说到我心里了。我会给你打电话；你告诉我这是好主意，我会独立判断是不是好主意，因为决定得我来做。你告诉我这是坏主意，我同样会想一想。但别担心，在该投什么、不该投什么这件事上，你并没有那么大的增量。那我们能不能玩得愉快？后来我这样做了大约15年。我就是在埃贡还在欧洲时认识他的。"}, {"start_sec": 88, "type": "text", "speaker_id": "david", "section_id": "s1", "zh": "你投的就是自己的个人的钱？"}, {"start_sec": 90, "type": "text", "speaker_id": "nikesh", "section_id": "s1", "zh": "当然。不过有一件很好笑的事。有一次我和马克·安德森一起从国际消费电子展（CES）飞回来，因为马克很少出门，可一旦出门他就会去消费电子展，并办一场晚宴。他请我去了，我也在那边讲了一点。飞回来后我给他写信：嘿马克，你手头有没有正在做、我也能放一点钱进去的酷公司？他说：晚宴上发言的那个人。我说：对。他回：Oculus。"}, {"start_sec": 119, "type": "text", "speaker_id": "david", "section_id": "s1", "zh": "帕尔默·勒基（Palmer Luckey）？"}, {"start_sec": 121, "type": "text", "speaker_id": "nikesh", "section_id": "s1", "zh": "是的。公平地说，还有布伦丹。"}, {"start_sec": 122, "type": "text", "speaker_id": "david", "section_id": "s1", "zh": "好。"}, {"start_sec": 122, "type": "text", "speaker_id": "nikesh", "section_id": "s1", "zh": "当然是布伦丹·伊里布（Brendan Iribe）和帕尔默·勒基。太好了。他们给了我一个号码。我给布伦丹发短信：嘿，我们在晚宴上见过，我很想投一笔。他说：很好，但你得来看看，这些东西真的很酷。我说行。我人在洛杉矶，就问能不能看看技术。当时我和妻子在一起。他打电话来说：可以，但你得开车出城大约一小时，我们在一个工业园。我叫了车过去。灯却灭了。他说这不行。于是我们在那儿等灯回来。进去之后，他把这套装置戴到我们脸上，有一点点虚拟现实的感觉。我说：这真的很酷，非常酷。接下来会怎样？他说会很酷，因为可视化的承诺、游戏的承诺，诸如此类。我说：太好了，我能写支票吗？他说当然。他说：还有布莱克·克里科里安（Blake Krikorian）和维维·内沃（Vivi Nevo），我还能再挤进一个人。什么？你打算让我们一起做？而马克已经在公司里了。"}, {"start_sec": 186, "type": "text", "speaker_id": "nikesh", "section_id": "s1", "zh": "于是我说好。我和埃贡谈妥了这笔交易。对方说文件在准备，先给我发了邮件，然后就不再回。埃贡问：怎么回事？我们怎么还没消息？我又写信，对方说文件马上就到。没有文件。然后轰的一下，你某天早上醒来，发现公司刚被卖给了脸书（Facebook）。"}, {"start_sec": 210, "type": "text", "speaker_id": "david", "section_id": "s1", "zh": "在你们还没来得及投进去之前。【笑声】好吧。那么阿里写到的这个圈子——"}, {"start_sec": 214, "type": "text", "speaker_id": "nikesh", "section_id": "s1", "zh": "后来银湖收购威廉·莫里斯（William Morris）时，我们成了他们的技术顾问委员会。马克和我。"}, {"start_sec": 220, "type": "text", "speaker_id": "david", "section_id": "s1", "zh": "好，这个我甚至都不知道。那你们当时给人家出什么主意？"}, {"start_sec": 224, "type": "text", "speaker_id": "nikesh", "section_id": "s1", "zh": "每当我们有技术上的问题。围绕埃贡和阿里的顾问方式非常直白。阿里会打那个15分钟电话。你可以把阿里——"}, {"start_sec": 231, "type": "text", "speaker_id": "david", "section_id": "s1", "zh": "15分钟？现在我采访过他了。他那本书就叫《打电话》（Rolling the Calls）。"}, {"start_sec": 234, "type": "text", "speaker_id": "nikesh", "section_id": "s1", "zh": "对。"}, {"start_sec": 235, "type": "text", "speaker_id": "david", "section_id": "s1", "zh": "现在他也这样对我。我会接到电话，对方说：「请等阿里·伊曼纽尔。」我心想：是你在给我打电话。然后大约25秒，也没有再见。"}, {"start_sec": 245, "type": "text", "speaker_id": "nikesh", "section_id": "s1", "zh": "对，不过有一点很有意思。我们有事要谈的时候也会那样，我理解那是一种缩写：他想把事情办成，他是一个肩负使命的人。可有一次我离开软银（SoftBank）之后，他联系我说：你现在在做什么？我说：没什么，我只是在想接下来做什么。他说：那你何不路过看看我，我们聊聊。我说好，我正好在洛杉矶，我过来。我助理问：阿里办公室说你们要吃午饭，我该把你的离开时间排在几点？我说：听着，大概15分钟，你排半小时，然后送我去机场、让我飞回去。那是我唯一一次和阿里谈了一个半小时。所以你能看出来，他当时是真的想弄清楚我接下来要做什么，也真的在那次谈话里投入了时间。所以他是有灵魂的。当事情对你真正重要时，他会花很多时间；但大多数时候，他其实很交易导向，只想把事情办完。"}, {"start_sec": 299, "type": "ad_omitted", "ad_brand": "Ramp", "section_id": "s2"}, {"start_sec": 370, "type": "ad_omitted", "ad_brand": "Deel", "section_id": "s2"}, {"start_sec": 430, "type": "text", "speaker_id": "david", "section_id": "s2", "zh": "我们刚才聊到一些共同认识或彼此知道的人，你说有些人跳来跳去：有了念头就做一会儿，然后几乎像有注意力缺陷多动。你怎么看你自己？因为你好像能在这些工作上待很久。你在谷歌待了十年。你在帕洛阿尔托网络（Palo Alto Networks）待了多久？"}, {"start_sec": 445, "type": "text", "speaker_id": "nikesh", "section_id": "s2", "zh": "八年。"}, {"start_sec": 447, "type": "text", "speaker_id": "david", "section_id": "s2", "zh": "八年。我自己喜欢长时间盯一件事。你是怎么工作的？"}, {"start_sec": 452, "type": "text", "speaker_id": "nikesh", "section_id": "s2", "zh": "好消息是，即便在帕洛阿尔托网络，或我在软银、在谷歌的时候，你人在一个地方，做的事其实非常多。我在谷歌时，员工大约从2000人涨到6万人，收入从大约20亿美元涨到大约620亿美元。那个阶段你从搜索走到YouTube、走到DoubleClick，还在买下大量公司、想各种各样的事。所以关键不在于某一刻你在做什么，而在于你的脑子能被挑战多少、你能卷进多少不同的问题。你可以从一个问题换到另一个问题，在同一空间里解决许多事；只要你把环境结构摆对。对帕洛阿尔托来说，机会足够大：我八年前加入时，我们还是一家防火墙公司；今天我们有70多款产品，处在网络安全的每个层面，也在全力转向人工智能，确保自己在这件事上转得足够狠。只要你面前的平台是对的，你总能让自己保持被挑战。"}, {"start_sec": 514, "type": "text", "speaker_id": "david", "section_id": "s2", "zh": "我刚和数字银行 Revolut 的尼克（Nick）谈过，他的想法就是这样。他说绝不可能去管一家只有一个产品的公司，那会很无聊。他在任何时刻都同时跑大约20个实验。我记得他已经在大约30或40个国家，还想做到100个国家。你被招去当帕洛阿尔托网络首席执行官时，他们本质上只有一个产品，对吧？"}, {"start_sec": 532, "type": "text", "speaker_id": "nikesh", "section_id": "s2", "zh": "对，就是防火墙。"}, {"start_sec": 534, "type": "text", "speaker_id": "david", "section_id": "s2", "zh": "好。过去八年发生的这次扩张，是你上任时就带着的计划，还是——当时的对话是怎样的？"}, {"start_sec": 541, "type": "text", "speaker_id": "nikesh", "section_id": "s2", "zh": "我来的时候就有计划。"}, {"start_sec": 542, "type": "text", "speaker_id": "david", "section_id": "s2", "zh": "你有一句很好笑的话，大意是：我还以为网络安全是两个词。"}, {"start_sec": 545, "type": "text", "speaker_id": "nikesh", "section_id": "s2", "zh": "对。说实话，我面试时谈得更多的是高管安保。我觉得那是个重要话题，后来才意识到那是一个很小的市场。我坐在那里讲我们每个人都需要安全，他们大概会说：不，那是消费者生意，你不要卷进去，那需要大量营销和大量研发。所以我带进来的更多是企业框架研究，而不是网络安全框架研究。我坐下来看：企业领域最大的公司有哪些？当时大概是思科（Cisco）或Salesforce。它们是千亿美元市值。我们是一家大约180亿美元市值的公司。我想的是：我怎样从180亿美元市值走到100亿以上？那是最初的预期。然后我说，如果你去看任何一家企业公司的损益表——"}, {"start_sec": 593, "type": "text", "speaker_id": "nikesh", "section_id": "s3", "zh": "多数公司把大约15%到18%花在产品研发上，研发大致就停在那个区间。其余的行政管理大约是6%到10%。所以你的营业利润率和毛利率之间的全部差距，就是销售、营销和客户支持。如果你能找到办法，把通常占成本约60%、落在销售、营销和客支里的部分压到20%，你就可以做成大约40%营业利润率的生意。那就是我的洞察。那么，我怎样让销售和营销随时间被摊薄？你会发现，企业里最大的开支是获客，那是最贵的一块。所以如果你只有一个低收入产品，对每个客户只能卖一件东西，就很难做成大生意。你去看最大的那些生意，微软的企业业务，或Salesforce，或你能想到的最大公司，它们都对同一客户卖很多东西。那就是洞察。我想：帕洛阿尔托如果要做大，我们就得找到办法，对一个客户卖很多东西。你现在只有一样东西可卖。你去敲20扇门，花掉所有时间，15个人说对不起我不需要、我已经有了，你只剩下5个。可如果你敲门时身后有一辆卡车：你要这个吗？不要这个？要这个？要这个？世界就成了你的牡蛎，我还能给你什么？我会抓住这个洞察：我们需要找到与主业相邻、客户也愿意信任并继续向我们购买的业务，从而不断扩大我们能卖给客户的东西，去服务全球前大约1万名客户，并提高能从他们那里拿到的金额。你只有赢得他们的信任才能如此，只有你的东西真正管用才能如此，也只有它大致是同类最佳才能如此——因为在网络安全里，没有人想买第二好的产品，那很糟糕。所以你想买最好的，我们的需求就是必须成为最好的。"}, {"start_sec": 700, "type": "text", "speaker_id": "nikesh", "section_id": "s3", "zh": "这是洞察的一部分。另一部分至今仍成立：做出一个好的技术产品需要4到7年。不管你是谁、在哪、做什么。你回头看会说：嗯，这东西还没完全就绪，已经7年了；这东西看起来更接近就绪了。无论是优步（Uber）、YouTube、脸书还是谷歌搜索，都花了4到7年，有时更长，才做出让客户觉得兴奋、有意思的有用产品。企业领域也是如此。所以我有时会想：见鬼，我刚加入这家公司，你们没有很厚的产品管线，我要花4到7年才能做出真正的产品。那我怎么办？去收购它们。没错。但你必须小心，因为历史上到处都是糟糕的并购，公司在大多数情况下会把收购毁掉，企业或消费领域都一样。所以你得去搞清楚。于是我把接下来一段时间用来研究：怎样的收购是好的，怎样的收购是坏的？"}, {"start_sec": 757, "type": "text", "speaker_id": "david", "section_id": "s3", "zh": "你当时在研究什么？你是怎么学的？"}, {"start_sec": 760, "type": "text", "speaker_id": "nikesh", "section_id": "s3", "zh": "你回去看模式。某公司买了多少家？另一家买了多少？为什么有的成了，为什么有的没成？哪些成了？关键特征是什么？是市场失败吗？是坏主意、根本不该做吗？是执行差，还是领导力差？你去弄清楚，然后说：好，它们失败大概有这七个原因。我怎样把失败风险降到最低？办法是用不同方式控制其中五个变量，于是我只剩下两种风险。一种是我选错了方向：我买对了公司，可市场没出现。我们就有过这样一次。我们买下一家公司，以为市场会朝这个方向走，市场却没走那边。"}, {"start_sec": 796, "type": "text", "speaker_id": "david", "section_id": "s4", "zh": "那家公司叫什么？你们付了多少钱？"}, {"start_sec": 799, "type": "text", "speaker_id": "nikesh", "section_id": "s4", "zh": "公司叫阿波雷托（Aporeto，自动字幕作 Aprimo）。我们以为世界会走向基于IP的分段，但它从未走到那里。可我们买了它。一旦判定不会走那边，我们就迅速止损，然后继续往前。这有点像投资组合生意，像边际风投，也像产品开发。制药公司就是这样：它们试验一大堆药，做到某一期就说，收手，这不会成。你得做同样的事。我也待过这样的公司：有人说我们应该做这个、建这个、买这个。我说：不，我们不能买，我们可以自己建。我在谷歌时，有人说我们去把Netflix买下来。我说：不，我们有YouTube，我们可以做出同样的能力。视频服务平台已经在那儿了，把面向消费者的内容扩展到专业内容，技术上很容易。好，给我们1000万美元，给我们20名工程师，我们能解决。从来不是那样的。到了帕洛阿尔托我也遇到同样的事。如果我跟工程师团队说必须买这个，他们会说：不，我们能造。而一旦你去造，你会碰到两三个问题。第一，我们看见正在成功的那些人已经领先我们大约一年半，他们有一支50到75人、正在运转的团队。你想去招50名工程师。等你招到对的人、把事情理顺、开始建造、做出第一版，他们又会再超前两年。"}, {"start_sec": 875, "type": "text", "speaker_id": "david", "section_id": "s4", "zh": "你觉得为什么这么多其他首席执行官会犯这个错？只是自我吗？觉得「不，我能造出来」。到底是什么？"}, {"start_sec": 883, "type": "text", "speaker_id": "nikesh", "section_id": "s4", "zh": "我不认为那是自我。我不认为首席执行官们一早起来打算犯错。没有人站起来说：让我今天早上试着犯个错。他们相信自己在做的事是对的，而且他们多半也找对了那家公司。我认为并购失败往往是因为执行糟糕。你的倾向是：你太忙了，你在做很多事。你买下公司，然后说：很好，我有一个管这个主题的人。好，这个人做视频流，他或她过去五年一直在做视频流。我想买一家视频流公司，交给他或她。"}, {"start_sec": 911, "type": "text", "speaker_id": "david", "section_id": "s4", "zh": "而你反而把该公司的创始人放上去。"}, {"start_sec": 913, "type": "text", "speaker_id": "nikesh", "section_id": "s4", "zh": "对。就像：等等，等等。这个人刚刚带着我们所有的资源、所有的钱，被那个拿了风投、住在破仓库里、把人招来、靠血汗和眼泪做出具备产品市场契合的东西的人揍了一顿。然后他或她应该去给这个帝国打工？那不会成功。他应该成为帝国的一部分。所以我反过来。我说：好，这个人做得非常好。这个人现在将成为视频流负责人。每个人都可以向他学习。你们可以为他工作。这有时会让那些后来得跟他一起工作的人不大舒服。"}, {"start_sec": 944, "type": "text", "speaker_id": "david", "section_id": "s4", "zh": "原先组织里的人。"}, {"start_sec": 945, "type": "text", "speaker_id": "nikesh", "section_id": "s4", "zh": "当然。"}, {"start_sec": 946, "type": "text", "speaker_id": "david", "section_id": "s4", "zh": "他们最后会想离开，诸如此类。"}, {"start_sec": 947, "type": "text", "speaker_id": "nikesh", "section_id": "s4", "zh": "可那没关系。他们才是被授权去赢的人，他们有资源，却没有赢下来。你不能奖励这种行为，把一项珍贵资产交给他们，再冒着他们毁掉这份资产的风险。这大概是一种失败模式。另一种失败模式是，人们总会说：「我的创新是我的天才，他们的只是纯运气。」意思是：我是创始人，我做出了很酷的东西。这些人不聪明。我去买第二名或第三名，把它转一转、擦亮，弄得像新的，然后去揍他们。那从来行不通。我要买第一名。你也谈过很多次。为什么第一名和第二名对你如此重要？如果你看多数市场，第一名和第二名最终会拿走该品类里不成比例的利润。"}, {"start_sec": 992, "type": "text", "speaker_id": "david", "section_id": "s5", "zh": "这正是开录前你想从我这儿套出来的话。【笑声】"}, {"start_sec": 995, "type": "text", "speaker_id": "nikesh", "section_id": "s5", "zh": "我们稍后再谈。"}, {"start_sec": 996, "type": "text", "speaker_id": "david", "section_id": "s5", "zh": "好吧。这恰恰就是眼下正在发生的事。"}, {"start_sec": 998, "type": "text", "speaker_id": "nikesh", "section_id": "s5", "zh": "对。第一名和第二名最终会拿走不成比例的利润。第三名有时能接近，但成不了。所以如果你要去赢，长期看你想做第一和第二。如果你成不了第一和第二，你就有麻烦了。现在，如果你去买第二名或第三名，记住第一名仍然存在。更有可能的是，你会让自己买下的东西变慢，因为你仍是一家大企业，你无法控制每一个变量。会有财务的人过来说「我是来帮忙的」，会有人事的人过来说「我是来帮忙的」。某个可怜人说：兄弟，让我去把产品做出来。然后你就有一大群人涌出来说：我来自母舰，我来帮你。所以你必须想清楚，怎样为第一名保持势头。你没有——"}, {"start_sec": 1036, "type": "text", "speaker_id": "david", "section_id": "s5", "zh": "专门的并购团队，对吧？我在哪里读到过，有人说这事快把人逼疯了。"}, {"start_sec": 1040, "type": "text", "speaker_id": "nikesh", "section_id": "s5", "zh": "不，有一批人非常擅长他们做的事，他们和我一起工作。所以并不是我一个人在做，但最终每一笔收购都会有我介入。"}, {"start_sec": 1050, "type": "text", "speaker_id": "david", "section_id": "s5", "zh": "假设你想把产品延伸到这里。你同时看第一和第二。你能说出差别吗？从外面看，第二也许和第一很像。你再靠近、再深入时，通常会发现什么？"}, {"start_sec": 1065, "type": "text", "speaker_id": "nikesh", "section_id": "s5", "zh": "有时第一和第二之间只有很小的差别。有时我们以为买到了第一名，结果第二名绕过我们变成了第一，因为我们把执行搞砸了。那种事也会发生。我们买了大约35家公司，不是每笔都按计划走。但通常这两者都有产品市场契合。你如果想产品开发，并设想四年后最终产品会长成什么样：第一名可能把这边当作主推力，第二名可能从另一部分作为主推力出发。它们看起来都在这个产品类别里获胜。可有时到后来才会显得：你其实应该从这边开始，因为那才是主要需求，客户希望这部分先真正好用，才会接受后半截。但在早期很难判断，那时它们大概都只有30或40个客户，刚好能证明产品市场契合。所以你会发现，这是战略问题，是执行问题，是产品市场契合问题，也是商业模式问题。这些都不完全一样，但很难推断它们在未来两三年会如何展开。所以你得退后看双方的位置，问：哪一个更可能成功？然后再加上：哪一个更可能与我们的产品方向对齐？我早期犯过一个错，买下的第一家或第二家公司，在我们买完之后花了大约6个月争论产品方向。我说：等等，这是个问题。这些创始人创办公司时，理所当然地想着「我是带着这个愿景创办的」。可他已经把公司卖了。那是我的愿景。"}, {"start_sec": 1157, "type": "text", "speaker_id": "david", "section_id": "s5", "zh": "等一下，你以为钱是干什么的？【笑声】"}, {"start_sec": 1159, "type": "text", "speaker_id": "nikesh", "section_id": "s5", "zh": "就是这样。不，可对方会说：我把公司卖了，但我仍想建我原来想建的东西。我说：不是这样运作的。可我花了一些时间才意识到不是这样运作的。我一度觉得：天哪，我这样会把一位创始人搞砸。我只是当时不知道，也不能那样做，因为那样行不通。于是我们改了模式。现在我的做法是：我和创始人坐下来谈妥交易，并且坚持和创始人一起读这份交易。我不让银行家夹在中间，因为我想：你接下来四年要和我一起工作，你真的希望中间还有别人代表我们谈判，最后变成「可当时卖给我的不是这个」吗？我们应该把控制台握在自己手里。我们确实如此。原则上同意交易的那一刻，我就告诉创始人：听着，让财务的人、法律的人、律师们去弄所有文件。你现在的工作是坐下来，和我以及我的产品团队一起，设计我们共同的房子会长成什么样，我们有30天来做这件事。于是我们真的就产品方向来来回回。"}, {"start_sec": 1207, "type": "text", "speaker_id": "david", "section_id": "s5", "zh": "在收购还没交割之前。我们不签最终——"}, {"start_sec": 1210, "type": "text", "speaker_id": "nikesh", "section_id": "s5", "zh": "我不签最终条款清单，直到创始人在联合产品路线图上签字。我想：如果你不想建我想建的东西，那我们就不该做这件事。"}, {"start_sec": 1222, "type": "text", "speaker_id": "david", "section_id": "s5", "zh": "我以前从没听过这个想法。创始人天生会想要自主，也会觉得自己的答案是对的。那么，这些公司到底有多难找？"}, {"start_sec": 1230, "type": "text", "speaker_id": "nikesh", "section_id": "s5", "zh": "当30天后有一张大支票悬在那里时，创始人突然变得比钱已经到手之后好对齐得多。这不可思议，简直是白天和黑夜。"}, {"start_sec": 1241, "type": "text", "speaker_id": "david", "section_id": "s5", "zh": "而且他们有权拉伞绳，他们不是非做不可。有多少人在那一阶段退出过？"}, {"start_sec": 1248, "type": "text", "speaker_id": "nikesh", "section_id": "s5", "zh": "没有人退出。我们自己退出过两次。"}, {"start_sec": 1250, "type": "text", "speaker_id": "david", "section_id": "s5", "zh": "为什么？"}, {"start_sec": 1253, "type": "text", "speaker_id": "nikesh", "section_id": "s5", "zh": "因为在这个过程里我们发觉，很难让产品保持持续对齐。我们也发觉，之后会很难管理创始团队，因为他们对想去的方向有非常强的意见。我们能感觉到，他们在配合，是因为知道必须配合才能把交易做完。我们只是觉得那不会是正确的结果。还有一次，在那30天里我们越挖越深、越推越紧，发觉实质并不如早期尽职调查时感觉的那么强。你挖得更深，开始看架构，还得把架构合并起来，然后你就得停下来。"}, {"start_sec": 1298, "type": "text", "speaker_id": "david", "section_id": "s5", "zh": "创始人通常会在之后待很久吗？"}, {"start_sec": 1300, "type": "text", "speaker_id": "nikesh", "section_id": "s5", "zh": "有些会。我们做的另一件事是：你这样买东西时，买的是一支团队，买的是愿景，买的是执行。所以当创始人说「我要走」时，这会非常困难。我们不会买创始人说「我要走」的公司。如果你要走，你就该走，那也意味着如果你打算结束，你本来也可能把公司做死。所以你必须想留下来。通常会有两三个联合创始人，其中一个会松下来，因为他做的是商务拓展，而你也许并不需要商务拓展，你自己的商务拓展更强；另一个做走向市场，你也不需要。所以你会发现，创始人会按他们带进来的职能而淡出，但从来不会是产品或工程的人淡出，因为那正是我们要买的。我们仍然有许多创始人在帕洛阿尔托工作。有些人转成继续在帕洛阿尔托做事；有些人有创业瘾，大约三年后离开。我们买公司时总会做的另一件事，是把创始人再锁定3年，理想情况是4年。"}, {"start_sec": 1350, "type": "text", "speaker_id": "david", "section_id": "s5", "zh": "为什么这一点如此重要？"}, {"start_sec": 1352, "type": "text", "speaker_id": "nikesh", "section_id": "s5", "zh": "我们要连续性。我们要从执行愿景的角度要连续性。因为他们已经做成了一些东西，而我说过，做出伟大产品需要4到7年。我们通常在这些产品公司成立2年、或2到4年时把它们买下来。我们认为后面还需要2到3年持续的产品开发。我们希望那种一致性，也需要创始人和创始团队继续驱动它。如果他们不在那里领导，中断就可能让我们失去领先。如果他们是该品类的第一名，我们希望他们继续朝那个方向执行。"}, {"start_sec": 1382, "type": "ad_omitted", "ad_brand": "WorkOS", "section_id": "s6"}, {"start_sec": 1443, "type": "text", "speaker_id": "david", "section_id": "s6", "zh": "我想回到这个想法：你看第一名和第二名，然后靠得很近。还有什么会让你感到意外？从外面看它们可能很像，可你越往里挖，越能看见第一名为什么站在那个位置？"}, {"start_sec": 1459, "type": "text", "speaker_id": "nikesh", "section_id": "s6", "zh": "有意思的是，作为一家更大的公司，最难把握的事情之一是：有时第一名之所以赢，靠的也是创始人纯粹的意志。有些创始人就是那种——你怎么称呼他们——阿尔法杀手，诸如此类。"}, {"start_sec": 1476, "type": "text", "speaker_id": "david", "section_id": "s6", "zh": "你在说什么？我们需要一点语境。"}, {"start_sec": 1481, "type": "text", "speaker_id": "david", "section_id": "s6", "zh": "我们碰见过几次，我也看过很多你的采访。我就是喜欢这种最少废话、到这儿来就是要赢的创始人。这正是我请你上节目的原因。开录前你还有点把这点淡化，我心想：不，我相当确定我知道对面坐着的是谁。我还点过几位运作方式让我想起你的创始人。"}, {"start_sec": 1513, "type": "text", "speaker_id": "nikesh", "section_id": "s6", "zh": "作为这个主体的领导人是一回事，团队里有这样的人是另一回事。如果你收购一家公司，而创始人就像你描述的那样，他们会砸玻璃。这可以。但他们也必须找到办法，和更大的机体共存。因为你知道，在帕洛阿尔托这样的地方工作，如果你是创始人：我有大约6000人在一线，你有8个人。你得找到办法撬动这6000人。他们不都糟糕，他们非常出色。有时当你是创始人，你会带上这种视角：别人都蠢，我聪明，我要把这事做成。谁挡我的路，基本上就是在拖慢我，就是不够胜任。如果你想在更大的生态里生存并成功，你需要一次心理重置。你得能平衡地说：我懂了，我得到了6000名销售。我的工作是激励这6000人出去卖我的产品；他们若卖得出去，我想把这做成惊人产品的愿景就会实现，因为这6000人会成为我的放大器。有时习惯于小团队、习惯于当弱者的创始人意识不到：你已经从弱者变成了强者的一部分。这是必须盯住的唯一风险。"}, {"start_sec": 1585, "type": "text", "speaker_id": "david", "section_id": "s6", "zh": "但请把你现在说的和创始人的意志连起来。你是说，他们在较小公司里的成功，很大程度上建立在创始人的意志上。他们必须调节自己的行为，是这个意思吗？"}, {"start_sec": 1598, "type": "text", "speaker_id": "nikesh", "section_id": "s6", "zh": "你必须确保他们能够调节自己的行为，并在你的环境里成功。如果他们不能调节行为、不能在这个环境里成功，那我就会失去他们在产品上的领导力，因为他们会把人惹恼，然后自己也会受挫。所以这就是我必须盯住的。有时第一和第二还得看适应性：谁会是更适合我们环境的那一个。"}, {"start_sec": 1622, "type": "text", "speaker_id": "david", "section_id": "s6", "zh": "我个人有点迷这个想法：第一和第二之间通常有一个缺口。"}, {"start_sec": 1627, "type": "text", "speaker_id": "nikesh", "section_id": "s6", "zh": "是的，我第三次听到了。【笑声】不过继续。你可以再问一遍。"}, {"start_sec": 1631, "type": "text", "speaker_id": "david", "section_id": "s6", "zh": "不，这整档节目就是为我自己的教育服务的。"}, {"start_sec": 1637, "type": "text", "speaker_id": "nikesh", "section_id": "s6", "zh": "我能看出来。但请记住，第一和第二本身也是一种判断。你可能把A叫第一、把B叫第二，我可能把B叫第一、把A叫第二，因为我用来衡量的标准不同。并没有一套显然的标准能说明谁是第一、谁是第二。他们可能都有30个客户，经常性收入也差不多。哪一个才是第一和第二？"}, {"start_sec": 1656, "type": "text", "speaker_id": "david", "section_id": "s6", "zh": "你是网球迷吗？"}, {"start_sec": 1656, "type": "text", "speaker_id": "nikesh", "section_id": "s6", "zh": "算是。"}, {"start_sec": 1657, "type": "text", "speaker_id": "david", "section_id": "s6", "zh": "我其实不太是，不过没关系。【笑声】我用一个网球类比。我有一次和一位顶尖网球选手的心理教练吃饭。他说的心理教练，是别人帮他们练挥拍，而他的对话全是关于脑子里在发生什么。他说了一件非常有意思的事：把前200名网球选手拿来，第1名到第3名的差距可以忽略；第4名到第200名的差距，比第4名和第3名之间还小。从外面看，哦，那人是第4，那人是第3或第2，缺口好像很小。他说，你再往深走、真正理解他们心里在发生什么时，缺口其实大得多。并不是第3和第4在身体上差那么多，而是心里差很多。我就是迷这种——从外面看起来差不多，可你花时间跟创始人待在一起之后会发现：哦，原来这个人把下一名竞争对手甩开那么远，原因在这里。"}, {"start_sec": 1726, "type": "text", "speaker_id": "nikesh", "section_id": "s6", "zh": "正如你说的，标准会为自己辩护。有的公司属性很清楚，能让他们成为第一或第二：有人的经常性收入是另一个的两倍，我们懂了，他们更容易被当成第一。有时他们起点相似，或从同一个地方出发，只是切入角度不同。然后就变成：哪位创始人会把这件事带到成功。那你就进入了创始人和领导团队的心态。我们说法不同。我的说法是：一旦我们识别出第一和第二，我的工作就是去资助。记住，他们也必须愿意卖。"}, {"start_sec": 1756, "type": "text", "speaker_id": "david", "section_id": "s6", "zh": "开录前我们聊到的那些人，多少钱都不卖。"}, {"start_sec": 1761, "type": "text", "speaker_id": "nikesh", "section_id": "s6", "zh": "没错。所以也有这一点。"}, {"start_sec": 1763, "type": "text", "speaker_id": "david", "section_id": "s6", "zh": "你必须从那个优势点重新分析：这些可能是阿尔法创始人，他们可能是赢家，可他们说「我愿意卖」，也是在向你发出信号。你跟霍克·谭（Hock Tan）聊过这个吗？"}, {"start_sec": 1774, "type": "text", "speaker_id": "nikesh", "section_id": "s6", "zh": "我有没有和霍克·谭聊过卖公司？"}, {"start_sec": 1775, "type": "text", "speaker_id": "david", "section_id": "s6", "zh": "关于收购——他做很多并购。"}, {"start_sec": 1777, "type": "text", "speaker_id": "nikesh", "section_id": "s6", "zh": "他做得非常不同。"}, {"start_sec": 1778, "type": "text", "speaker_id": "david", "section_id": "s6", "zh": "我知道，但你有没有跟他聊过？他的心态有点极端。我们当时一起——"}, {"start_sec": 1782, "type": "text", "speaker_id": "nikesh", "section_id": "s6", "zh": "请教教我。好。"}, {"start_sec": 1784, "type": "text", "speaker_id": "david", "section_id": "s6", "zh": "好。我和你当时一起在戴尔（Dell）家里，我就是在那儿听到这个故事：他在给一位也在场的更年轻创始人提建议。他说，一定要确保在你收购的第一天，被收购的公司就知道：你是征服者，他们是被征服者。【笑声】然后我问他——"}, {"start_sec": 1806, "type": "text", "speaker_id": "nikesh", "section_id": "s6", "zh": "就像完全不同的哲学。"}, {"start_sec": 1808, "type": "text", "speaker_id": "david", "section_id": "s6", "zh": "我知道你不一样。然后我问他：霍克，你为什么不做任何播客？你想来做我的节目吗？他说，哦不，我妻子禁止我做播客。我问为什么。他说，她说我会被取消。"}, {"start_sec": 1820, "type": "text", "speaker_id": "nikesh", "section_id": "s6", "zh": "你看，我的说法正相反。我会告诉团队：当你开始和一家公司谈判时，记住他们将成为同事。不要失礼地对待他们。"}, {"start_sec": 1828, "type": "text", "speaker_id": "david", "section_id": "s6", "zh": "他显然是一个极端人物。我并没有把它理解成失礼，但——那么哪一种是对的？在你心里，谁是第一、谁是第二？"}, {"start_sec": 1835, "type": "text", "speaker_id": "nikesh", "section_id": "s6", "zh": "我想也是。你没法像他那样想，因为你刚才已经说了：不，这个人进来了，现在他是你的同事。"}, {"start_sec": 1842, "type": "text", "speaker_id": "nikesh", "section_id": "s6", "zh": "不，我的意思是我看得不一样。如果我周围的大约20个人不觉得自己也在赢，我就赢不了。而要让他们相信自己在赢，他们必须相信自己是一等公民，必须相信自己是团队的一部分，他们的赢既属于他们自己，也属于我。"}, {"start_sec": 1860, "type": "text", "speaker_id": "david", "section_id": "s7", "zh": "有没有你买得太早的收购？"}, {"start_sec": 1862, "type": "text", "speaker_id": "nikesh", "section_id": "s7", "zh": "我走进来时，我们刚买下一家叫伊维登特（Evident.io）的公司。那是我到任前帕洛阿尔托买的，后来我们又买了同一赛道上一家叫红锁（RedLock）的公司。差别是：一家只在亚马逊上能用，另一家在三大云上都能用。我怀疑早买的那家买得太早。那是前任买的，不过没关系：公司买得太早，然后我们又买了第二家，它在同一空间里，只是走得更远。所以有时你会买得太早。这就变成价格、阶段和信念的问题，你得把这三者匹配起来。我是否确信这会是未来的大空间？好，如果我确信这是未来的大空间，我需要在那个空间里有一个脚印。有时我可以拉起自己的团队去冲、去做成，也可以出去买一样东西。问题是：我若去买，他们在这个空间里待了多久，以及会贵到什么程度。我觉得眼下最能代表这种风险。今天公司拿到的融资估值，我常常看不懂。想象一下，如果我想今天去收购一家公司，同一家公司在两年前进不同的融资环境里，价格可能只有现在的三分之一或四分之一。它们大概同样早，但今天贵了三到四倍。"}, {"start_sec": 1938, "type": "text", "speaker_id": "david", "section_id": "s7", "zh": "那你怎么办？"}, {"start_sec": 1939, "type": "text", "speaker_id": "nikesh", "section_id": "s7", "zh": "你还是买，如果它在战略上说得通。听着，并购不是战略。并购是一种机制，用来验证、放大或执行你的战略。人们总来问我：你的并购战略是什么？我没有。我买公司，是因为我相信必须在某个品类里赢，而我自己的团队此刻还没到我想要他们到达的位置。他们得去找另一支已经想明白、人也摆对的团队。所以你去买。如果某样东西值200，它值800，因为我的工作是把这份值200的资产，变成对我们而言值5到10的东西。"}, {"start_sec": 1975, "type": "text", "speaker_id": "david", "section_id": "s7", "zh": "如果某样东西值200，它却值800。这是什么意思？"}, {"start_sec": 1979, "type": "text", "speaker_id": "nikesh", "section_id": "s7", "zh": "作为一家大约300的公司，我应该去买那些我相信在未来5到10年里，对我们会值5到10的东西。"}, {"start_sec": 1983, "type": "text", "speaker_id": "david", "section_id": "s7", "zh": "所以你不会去记住另外那5亿。这是埃贡·杜尔班。阿里·伊曼纽尔书里最难忘的段落之一，是他们在买WME/IMG。"}, {"start_sec": 1993, "type": "text", "speaker_id": "nikesh", "section_id": "s7", "zh": "对。"}, {"start_sec": 1997, "type": "text", "speaker_id": "david", "section_id": "s7", "zh": "我想他们本来想付19亿或18亿，后来走到了22亿，大概这样。中间也许是阿里那边的人几乎要把交易搞砸。埃贡走进来，他经验比阿里丰富得多，说：你永远不会记得这4亿。"}, {"start_sec": 2009, "type": "text", "speaker_id": "david", "section_id": "s7", "zh": "他的意思是：这到底是不是我们想要的资产？你会记得把交易搞砸，但你不会记得那4亿。他们显然把交易做成了，而它对后来的价值远远超过那些。"}, {"start_sec": 2020, "type": "text", "speaker_id": "nikesh", "section_id": "s7", "zh": "后来埃贡和我在伦敦一起买了一支板球队。"}, {"start_sec": 2023, "type": "text", "speaker_id": "david", "section_id": "s7", "zh": "我还以为你是和德韦什（Devesh，字幕）一起做的。"}, {"start_sec": 2025, "type": "text", "speaker_id": "nikesh", "section_id": "s7", "zh": "不。埃贡和我是平等的所有者。这是我们一起想出来的。他给我打电话时，我正要去打AT\u0026T高尔夫。他说：拍卖怎样了？那是早上6点，因为拍卖在伦敦。我说：上一场拍卖走了两轮。我们现在是第24轮。"}, {"start_sec": 2041, "type": "text", "speaker_id": "nikesh", "section_id": "s7", "zh": "他说：我知道。你会想买便宜，因为你喜欢价值。那是教养。这是体育。欢迎来到体育。别停止出价。我还在电话这头，就是为了给你精神勇气。"}, {"start_sec": 2053, "type": "text", "speaker_id": "david", "section_id": "s7", "zh": "等一下，后来又走了多少轮？你们当时是24轮。你们得走到多少？"}, {"start_sec": 2056, "type": "text", "speaker_id": "nikesh", "section_id": "s7", "zh": "我们大约走了29轮。"}, {"start_sec": 2057, "type": "text", "speaker_id": "david", "section_id": "s7", "zh": "他一说完你大概就想：不管了，我们要拿下这个。"}, {"start_sec": 2059, "type": "text", "speaker_id": "nikesh", "section_id": "s7", "zh": "因为他像是在说：最坏我们会多付多少？一半？无所谓，因为这支队伍要么会非常成功，要么会失败。"}, {"start_sec": 2065, "type": "text", "speaker_id": "david", "section_id": "s7", "zh": "所以他也这样对你了。"}, {"start_sec": 2067, "type": "text", "speaker_id": "nikesh", "section_id": "s7", "zh": "对，可我自己也做过同样的事，只是在另一边还想要小聪明。【笑声】他只是提醒我：你在职业生活里这么说，也想想你的个人生活。后来我们就是那样做的。我早上7点在练习场看见他，他说：我们现在拥有这支队伍了吗？就那样，我们现在拥有这支队伍了。"}, {"start_sec": 2082, "type": "text", "speaker_id": "david", "section_id": "s7", "zh": "它就那样发生了。所以对，他在这一点上是前后一致的。我以前听过另一种表述，想听听你同不同意这种概括：你不是在买公司，你是在买创始人。"}, {"start_sec": 2093, "type": "text", "speaker_id": "nikesh", "section_id": "s8", "zh": "你买的是团队。你买的是团队，买的是他们的视角，买的是他们的战略，买的是他们的执行。公司只是环绕这支团队的一种构造，让我们能被放进某个法律实体，保护知识产权，并最终把它变成走向市场的能力。可一家公司到底是什么？你有一个念头时，第一反应并不是「我要开一家公司」。第一反应是：我要去建造一样了不起的东西。你去建造时，称自己为建造者。你去找与你有共同愿景的人。然后你成了房间里最有魅力的人，因为你要说服别人登上你的故事，而故事是你先有的。通常是一两个人，或三个人。所以你什么都做。你是建造者，你在建造。你每招下一个人，都在验证战略：你看着对方的眼睛告诉他，我们要建的是这个。对方会兴奋。你招的是聪明人，他们也必须买账。所以你其实是在建一支团队，一支志同道合的人组成的团队。你在打磨边缘，对齐战略，走到那一步说：好，我们都同意要建这个。现在让我们进入曲速去造这艘船，因为你要抢在所有人前面完成。你做的就是这件事。公司只是一个小小的法律实体。你想想这些人：他们大概只有一个行政人员，兼做人事、财务、设施，还负责端咖啡。就是这样。公司是你用来组织的构造。可你真正买下的，是一支运转良好、内在连贯的团队。你测试的是这个：这支团队能不能比外面其他团队执行得更好？你这样想的时候会说：我要去和那支花了一年半时间聚到一起、一起训练的团队竞争。他们每天都在场上，住在同一屋檐下，一周工作80小时。然后你说：我要靠人事部门、靠四轮面试、靠内部流程招一批企业员工去赢他们。那就像——见鬼，你永远赢不了他们。他们已经太超前了。"}, {"start_sec": 2197, "type": "text", "speaker_id": "david", "section_id": "s8", "zh": "听你说话时我脑子里冒出几件事。你有没有听说过一个叫亨利·辛格尔顿（Henry Singleton）的人？"}, {"start_sec": 2201, "type": "text", "speaker_id": "nikesh", "section_id": "s8", "zh": "没有。"}, {"start_sec": 2203, "type": "text", "speaker_id": "david", "section_id": "s8", "zh": "好。亨利·辛格尔顿本质上像是原型巴菲特。他在1960年代左右掌管一家非常成功的集团，叫特利丹（Teledyne）。我找到他，是因为我若错过了谁，就会把所有写到他或由他写下的东西读一遍。而那些人都会告诉你他们研究过谁。沃伦·巴菲特（Warren Buffett）和查理·芒格（Charlie Munger）不断谈到这个叫亨利·辛格尔顿的人。芒格说，亨利·辛格尔顿是他见过的最聪明的人。巴菲特说，美国商学院学生不研究他是犯罪。他的回报高得荒唐。我一度以为巴菲特用在伯克希尔（Berkshire）上的许多想法是他自己的，其实他是从辛格尔顿的特利丹学来的。而他也像你一样靠收购成长。我应该记得更清楚，我刚做过一集关于他的节目：大约是135笔收购。他一度拥有大约130家公司，其中129家是盈利的。所以他买得非常好。可后来他改了策略，停止收购，大约又过了15年都没有再买下一家公司。我听你说话时就在想他。帕洛阿尔托网络有没有可能停止收购？"}, {"start_sec": 2268, "type": "text", "speaker_id": "nikesh", "section_id": "s8", "zh": "有可能。我说过，这对我们并不是生存级的战略。它是一种最大化业务价值的方式，也是一种最大化客户结果的方式。到了某一时刻，如果你相信，能为客户增加的边际价值，来自确保我们所有的东西在客户那里真正能用，也许我们就会把重心放在那里。并没有一条硬性规则说我们必须继续收购。"}, {"start_sec": 2294, "type": "text", "speaker_id": "david", "section_id": "s8", "zh": "人工智能领域正在发生的事情，有没有改变你对收购的想法？"}, {"start_sec": 2295, "type": "text", "speaker_id": "nikesh", "section_id": "s8", "zh": "有。"}, {"start_sec": 2298, "type": "text", "speaker_id": "david", "section_id": "s8", "zh": "能多说一点吗？"}, {"start_sec": 2299, "type": "text", "speaker_id": "nikesh", "section_id": "s8", "zh": "这是我们有生之年见过的、也可能是有史以来最颠覆的技术。如果看它已经产生的影响，它正在从根本上改变每个人的工作方式。换一种说法：我在谷歌时，我们把知识或信息民主化了。这一次是在把智力民主化。我们每个人口袋里都有一样东西，它会随时间变得越来越聪明。于是我们获得了从前从未有过的智力。我相当确定，两年后人工智能会可靠到那种程度：你会像信任该领域的人类专家一样信任它。你去跟营养师聊，再去跟人工智能聊，然后说：你知道吗，我的营养师并不比我手机给我的营养建议更聪明。物理治疗师或私教也一样。于是你会突然发现，人工智能将拥有如此多的数据和如此多的口头知识，它将能够做决定。你可以对它说：给我偏前沿、带一点风险的建议，或给我主流的建议。你可以说：你想要多少智力，你想要这种智力有多大的差异化。这会成为现实。它将从根本上改变我们的工作方式，也必须如此。很多组织的结构，是把工作拆进一个个孤岛。即便产品开发过程，也被拆到大约八个不同的团队：做文档的、做测试的、写代码的、做产品的、做界面的。于是有八组不同的人合在一起才做出一个产品。这其实没道理。我们这样做，只是因为造成了一种专长分工，因为没人能在每件事上都极其出色。可如果你相信，你可以驾驭所有这些智力，让一个人掌握这八门手艺——因为他们有非常能干的助手，能替他们完成大约90%的工作——那就会从根本上改变我们把事情做成的方式、我们建造东西的方式、我们生活里做任何事的方式，以及公司被创立的方式。这会成为现实。我们今天所运转的公司形态、组织形态，五年后会根本不同。"}, {"start_sec": 2421, "type": "ad_omitted", "ad_brand": "AppLovin", "section_id": "s9"}, {"start_sec": 2486, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "人工智能会让网络安全公司更值钱吗？"}, {"start_sec": 2490, "type": "text", "speaker_id": "nikesh", "section_id": "s9", "zh": "会，我认为更是如此。更多的技术、更多的互联，会让网络安全公司更值钱。你看，大约25年前并不存在网络安全，因为没有连通性。你有一台大型机，你登录进去，它是安全的，没有问题。现在的问题是，大卫可以从这里登录自己的银行账户，这就成了一个攻击向量。能从各处登录进来的人越多，攻击面就越大。我今天早上看到，脸书有36.5亿日活用户。每天有36.5亿人进入他们的基础设施。进入其基础设施的每一扇门，都是一个潜在的网络攻击面。你把这件事放到全世界，我不知道，在我们这大约80亿人之间，我们必须与数百个消费者应用互动。每天一定有万亿级的在线交互，让你与某种企业基础设施互动。你做得越多，就越需要沿着所有这些向量做安全。技术变得越多，你就越需要围绕安全的更多能力。比方说，真正能防护人工智能的产品还不完整，因为人工智能本身太新。所以对，这对我们的生意有好处。你把东西连得越多，就越是如此。"}, {"start_sec": 2554, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "你更像那种斯多葛式的人。你看起来不会被压垮。我读到过类似的话：你说你的生意不会让你焦虑，这非常少见。你还说生活不该让你焦虑，你应该每天早上醒来，尽自己所能做到最好。然后记得，如果你大致在印度、在印度教氛围里长大，会有一种很强的宿命感。你所能做的就是尽力而为。"}, {"start_sec": 2576, "type": "text", "speaker_id": "nikesh", "section_id": "s9", "zh": "好，这个我不太清楚。请解释一下。"}, {"start_sec": 2578, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "请解释你是怎样在这种宿命里长大的。"}, {"start_sec": 2581, "type": "text", "speaker_id": "nikesh", "section_id": "s9", "zh": "你得记得，这个国家大约有18亿人。你必须让他们都明白：他们可以做到最好，而最终会有一只上帝之手来决定最终发生什么；或者说，有一种不确定性的观念。你无法制造完全的确定性。有些事会发生在你身上，而你控制不了。你唯一能控制的，是你自己做什么。如果你把自己该做的事做得非常好，你就该睡得着。因为你不能从不确定性的角度，去为所有可能发生在你身上的事担忧。那就是宿命感。那也是让社会保持某种秩序的东西。"}, {"start_sec": 2608, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "可你也明白，这话容易说，对很多人类来说非常难应用。"}, {"start_sec": 2613, "type": "text", "speaker_id": "nikesh", "section_id": "s9", "zh": "这并不妨碍任何人去尝试。我们都试图控制周围能控制的每一个结果，都试图降低周围的风险，我们都这样做。但到了某一点，你得说：我已经尽力了。"}, {"start_sec": 2623, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "你年轻时、职业生涯更早的阶段，就已经有这种能力了吗？"}, {"start_sec": 2627, "type": "text", "speaker_id": "nikesh", "section_id": "s9", "zh": "没有。"}, {"start_sec": 2631, "type": "text", "speaker_id": "nikesh", "section_id": "s9", "zh": "这是近五年才找到的。是的。"}, {"start_sec": 2633, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "你是说大约最近五年？那你在谷歌工作时，是高压、更焦虑的人吗？"}, {"start_sec": 2642, "type": "text", "speaker_id": "nikesh", "section_id": "s9", "zh": "不。谷歌是最好的生意。搜索业务一直在转。"}, {"start_sec": 2645, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "可在我看来，也许我错了，你在那之前已经有很多成功，而那时候你是在一家百年一遇的公司里工作。你当时还年轻，三十多岁，对吧？那种压力可能会冲上头顶：这是一个可能一辈子只有一次的机会，这个机会会改变我的人生。"}, {"start_sec": 2668, "type": "text", "speaker_id": "nikesh", "section_id": "s9", "zh": "你在那儿的时候，并不觉得是那样。"}, {"start_sec": 2669, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "好，请再多讲一点。"}, {"start_sec": 2671, "type": "text", "speaker_id": "nikesh", "section_id": "s9", "zh": "那感觉很正常。它只是让人觉得：哇，这是一艘正在工作的很棒的火箭。记住你才34岁，从未在任何一家同类公司工作过。你现在成了技术的注意力中心，每个人都在你周围搜索。每天早上醒来，搜索更多了；每天早上醒来，更多人想投广告。所以这是一个执行问题：我怎样才能跟上。我加入时，有人在澳大利亚用美国信用卡向谷歌花钱。那是你在欧洲能买到广告的唯一办法。你能想象吗？就像：非常抱歉，我收不了你的钱，你得给自己办一张美元的美国信用卡，然后再付给我。等等，让我来做这个。我看着，说：我们在奥地利做到了1000万美元，却不收本地货币。这到底是怎么发生的？"}, {"start_sec": 2711, "type": "text", "speaker_id": "nikesh", "section_id": "s9", "zh": "那是一种不同的商业问题。你基本上是在说：让我看看我们能不能别挡路。所以你是在消除摩擦、创造规模，这对我是很好的学习。我说：好，这个我能做。我能消除摩擦、创造规模。我不必担心需求。我曾经开玩笑，去跟客户说：你来是做什么的？你做什么？我是谷歌欧洲的销售负责人。那是什么意思？我卖广告。好，多少钱？我说：我其实不知道。取决于上一个人出了多少。你得出价比那个更高。所以你不能告诉我这会花我多少钱？我说：不太能。取决于你愿意出多少。好，你一天能吃下多少？我不知道。取决于有多少人搜索，因为只有有人搜索时，我们才能展示广告。所以你既不知道量，也不知道价格？"}, {"start_sec": 2756, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "你这算哪门子销售？【笑声】"}, {"start_sec": 2757, "type": "text", "speaker_id": "nikesh", "section_id": "s9", "zh": "你想想看。我在卖广告。我控制不了量，也控制不了价格。价格由竞价者控制，量由搜索的人控制。"}, {"start_sec": 2767, "type": "text", "speaker_id": "nikesh", "section_id": "s9", "zh": "我可以告诉你，法国下雨的时候，我们往往收入更高，因为人们待在家里搜索。这挺好。所以你仍得去跟客户说：听着，它的运作方式是你算出投资回报。每一次搜索对你都值一些东西。如果我给你送去一次搜索，看你的转化率。如果你把它转化成一单保险，或一笔电商交易，算清楚你愿意为一条线索付多少。当线索变成转化，我们就和客户一起做投资回报的数学，让他们理解自己的最高出价应该是多少。然后再说：现在把钱都给我们，只要不超过你的出价，就尽可能吃下搜索。那就是我的工作。"}, {"start_sec": 2801, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "这相当直白。我和AppLovin的创始人亚当·福鲁吉（Adam Foroughi）是朋友，他也非常简单：我卖的是收入。如果他们给我一美元，我必须还他们更多。只要我能还他们更多，这就很好卖。"}, {"start_sec": 2813, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "我们一会儿再回到谷歌。我想先谈这个。从外面看，因为人工智能的扩散，好像——我记得你刚上过我朋友的节目，我跟TBPN的约翰和乔迪（John and Jordy，字幕作 TPBN）是朋友，我今天看到一段剪辑，里面好像有某种——"}, {"start_sec": 2829, "type": "text", "speaker_id": "nikesh", "section_id": "s10", "zh": "对，发现了一个叫PHP的漏洞，大约用在2250万个地方，现在仍在被使用。"}, {"start_sec": 2834, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "对，所以我的意思是：你每天醒来都会听到更疯狂的事，未来只会更狂。而你似乎并不允许自己被它压垮。从外面看，这至少该是你整个职业生涯最紧张、压力最大的部分。我错在哪里？"}, {"start_sec": 2850, "type": "text", "speaker_id": "nikesh", "section_id": "s10", "zh": "可我对此做不了什么。我们都得去把这件事弄清楚。我们会去修。但焦虑并不会改变结果。改变结果的，是我们动手、去做该做的事。你们今天早上才发现。我大约是昨天早上知道的。我们的团队去检查了所有东西，确保自己没有这个漏洞。我们找到了，拦住了它，找到了补丁，先给我们自己打上。然后说：怎样保护我们的客户？团队通宵工作，做出了补丁。今天早上对方公布补丁时，我们也公布了我们的补丁，放到公共领域。我们给任何有问题的客户打电话。我们把它解决掉。这就是我们能做的。"}, {"start_sec": 2889, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "那你怎样描述这种哲学？"}, {"start_sec": 2892, "type": "text", "speaker_id": "nikesh", "section_id": "s10", "zh": "我只是说：每天早上醒来，尽你所能做到最好，不留石头不翻，然后让命运做其余的事。"}, {"start_sec": 2898, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "这是真的吗？"}, {"start_sec": 2898, "type": "text", "speaker_id": "nikesh", "section_id": "s10", "zh": "是。"}, {"start_sec": 2901, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "好。那你一生中最有压力、最焦虑的时候是什么时候？"}, {"start_sec": 2906, "type": "text", "speaker_id": "nikesh", "section_id": "s10", "zh": "我一生中最焦虑的时候？在我女儿的婚礼上致辞。"}, {"start_sec": 2910, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "是刚开始做基金的那位女儿吗？"}, {"start_sec": 2912, "type": "text", "speaker_id": "nikesh", "section_id": "s10", "zh": "对，就是今年二月在印度结婚的那位女儿。"}, {"start_sec": 2914, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "她叫什么？"}, {"start_sec": 2914, "type": "text", "speaker_id": "nikesh", "section_id": "s10", "zh": "艾莎（Aisha）。"}, {"start_sec": 2914, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "艾莎。恭喜。她以前在Brex做市场，然后——"}, {"start_sec": 2919, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "等一下，她以前在Brex做市场？"}, {"start_sec": 2922, "type": "text", "speaker_id": "nikesh", "section_id": "s10", "zh": "是的。孩子多半不听父母的建议。可我很幸运，偶尔她会听进去一些，再按不同的方式处理。我问她：什么让你感到兴奋？她说：爸，当市场看起来并不是公司里最重要的职能时，待在市场部，我该想些什么？如果你环顾硅谷，最让人兴奋的工作，是那些能和创始人交谈、能理解他们在做什么、能对生意本身感到兴奋的人。要对生意感到兴奋，你就得想到风险投资。于是她想了想，自己做了研究，决定去工作。她和比尔·马里斯（Bill Maris）在 Section 32 基金共事，然后她今年要结婚，她说：我觉得我该成立自己的基金。我说：这听起来是个好主意，你应该做。于是她走完这些步骤，做了大量研究，想明白了，开始考虑谁会投资她。她还问：你愿意当我的顾问吗？对一位父亲来说，这是能得到的最好的东西。现在她每天给我打一两次电话。我们聊公司，聊她在想的事。这是一种福气，非常好。"}, {"start_sec": 2985, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "这太美了。你想起自己的童年时——我猜想，你那种要去成就的内在驱动，很大程度上是内生的。你从父母那里承受过很多压力吗？"}, {"start_sec": 2991, "type": "text", "speaker_id": "nikesh", "section_id": "s10", "zh": "没有。我父母并不告诉我该做什么。我常常放学回家就写作业。我妈妈会因为我写完了而高兴，她反而要追着我妹妹，想搞清楚她的作业是什么。我把自己的事做完了。我爸爸不知道我是怎么进的大学，也不知道我进了美国的商学院。我只是去找他说：我需要2000美元。他说：我没有那么多。我问：能给我200吗？他说：行，我拿200。我就拿着200美元出现在这里。后来他又寄来2000美元，付一部分学费。如此而已。"}, {"start_sec": 3023, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "你也不给你的孩子施加任何压力？"}, {"start_sec": 3023, "type": "text", "speaker_id": "nikesh", "section_id": "s10", "zh": "不。"}, {"start_sec": 3027, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "那作为父亲，你和你的父母对你，有多大不同？"}, {"start_sec": 3031, "type": "text", "speaker_id": "nikesh", "section_id": "s10", "zh": "那是一个不同的时代。那时的养育是不同的。现在的养育也不同。在印度的养育不同，在美国的养育也不同。所以这些差异都会进来。我还有两个更小的孩子，11岁和10岁，所以我比对待29岁的女儿时，更深地介入他们的生活。"}, {"start_sec": 3045, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "为什么？"}, {"start_sec": 3048, "type": "text", "speaker_id": "nikesh", "section_id": "s10", "zh": "因为有更多时间。我有意识地想挤出时间。我敢肯定我的孩子会说永远不够，我的妻子也会说不够，但我尽可能挤出时间。所以这是不同的。我不主张给孩子施压。孩子必须能够表达自己，去做他们相信最好的事。不过我看过一件挺奇怪的事。我不知道自人类开始以来出生过多少人。一定有数百亿吧？"}, {"start_sec": 3072, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "不，我记得我们很久以前读到过，好像超过1000亿。"}, {"start_sec": 3076, "type": "text", "speaker_id": "nikesh", "section_id": "s10", "zh": "好，1000亿人出生过。这是一个众所周知的问题。每个孩子按定义都有父母。可直到现在，我们仍把养育当成一个难题在挣扎，因为养育的变体大概太多了，多数人都会搞错。所以我只希望我的孩子在生活里是快乐的。如果他们快乐，我的使命就完成了。因为我见过太多孩子并不快乐的情形，也不清楚事情是从哪里走偏的：不清楚是养育出了问题，是在基因里，还是在环境里。所以我只想确保我的孩子健康、快乐、平衡。如果我能做到这一点，他们可以去做任何想做的事。"}, {"start_sec": 3110, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "我喜欢你刚才的框架：每个人都有过父母。养育是一件很老的事，它一直都在，而我们仍然没有把它弄明白。"}, {"start_sec": 3117, "type": "text", "speaker_id": "nikesh", "section_id": "s10", "zh": "对，你给我看看终极的养育指南在哪里。"}, {"start_sec": 3119, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "我对这个特别感兴趣，因为我读的大多数传记里，这个人通常会从——当然也有人出生在富裕家庭并取得很多成就。可人类的大多数并不富裕，所以你读到的大多数人也不是。而他们几乎普遍会挣扎的一件事，基本上就是：我曾是穷人的儿子，现在我的孩子是富人的儿子，我该对此做些什么？"}, {"start_sec": 3140, "type": "text", "speaker_id": "nikesh", "section_id": "s10", "zh": "没什么可做的。你自己制造了一个区分。当你是穷人的儿子时，总有比你穷得多的人。"}, {"start_sec": 3150, "type": "text", "speaker_id": "nikesh", "section_id": "s10", "zh": "而从他们的角度看，你已经是富人的儿子。所以我认为，我们都被生进某种境况里。非常危险的是，拿着那种境况不断提醒自己的孩子：记住我从前很穷，你应该更感恩。事情就是这样发生的，尤其是那些曾经贫穷、如今来到今天位置的人，他们觉得必须不断提醒孩子：我们出生时可不是这样，我们从前要做这个、做那个。兄弟，放下吧。他们就出生在这里。想办法让他们能享受这些，同时确保他们学会如何渴望更多，如何保有驱动，如何去取得成就。你必须小心。所以我认为，如果你能找到办法，让孩子想要去成就、想要去建造、想要靠自己把事情做成，并且不只是把境况视为理所当然，那你就是有福的。养育里最难的部分，就是确保你的孩子有驱动、有野心、想要有所成就。我儿子迷篮球。很好，去吧，让他追随热情。我女儿想当体操运动员，她有非常强的职业道德，她很棒。他非常友善，喜欢和人在一起，对想了解的事情知道得很多。那都很好。如果我的孩子能有热情，能去追逐热情，能表现出野心和驱动，我并不在乎他成为篮球运动员还是篮球评论员，只要他每天早上醒来是高兴的，并且觉得自己已经尽力了。"}, {"start_sec": 3232, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "我完全同意这个视角。在我读过的所有例子里，我喜欢山姆·沃尔顿（Sam Walton）在自传里说的话，那本书是他自知时日无多、全身都是癌症时写的。他说：我知道我是一个相当过分好动的人，这大概是本世纪最保守的表述。他说：我不给我的孩子施压。让他们去做。我为什么要他们像我一样？"}, {"start_sec": 3252, "type": "text", "speaker_id": "nikesh", "section_id": "s10", "zh": "不过有一点很有意思：如果你做得对，孩子会看你的行为。他们看行为比你以为的要多。他们对我们是怎样的人、我们是谁的了解，可能远超我们所能理解的。有时他们会想像你一样做某些事。可如果你试图强迫他们像你一样做某些事，你永远到不了那儿。我能看出我的孩子会想像我一样做某些事，那很好，我很高兴他们想那样；我也确信，有时他们看着会说：我永远不想做我爸做的那件事。那也没关系。只要他们能分辨，我做的哪些部分他们喜欢做，哪些部分他们不喜欢做，他们就会没事。我对此没意见。"}, {"start_sec": 3287, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "我回想起上过这档节目的其他人，我就是觉得——是的，人工智能在改变每一笔生意。托比·吕特克（Toby Lutke）今年早些时候上过这档节目，大约两周后我还要再见他、再录一次。他的整套观点是：我们回头看2026年时会发现，因为人工智能，每个行业都被重新摆上牌桌。所以每笔生意都在某种程度上被改造，对吧？可我觉得，你的生意被改变的程度，可能是我请来的所有人里最深的。"}, {"start_sec": 3311, "type": "text", "speaker_id": "nikesh", "section_id": "s11", "zh": "不，不，让我们拆开来看。网络安全——因为我并不是从那里出来的。我告诉过你，八年前在我脑子里它是两个不同的词。所以我仍会那样对待它。它其实相当直白。网络安全就是：一个坏的行动者试图进入你的基础设施，并带走某种重要的东西。让我们把这当作前提。如果我知道它是坏的，我可以把它拦在边界。坏人出现在门口。我们知道他看起来很坏：他穿着连帽衫，拿着枪。这是坏的。我们知道怎样拦住他们。所以网络安全的大约一半，是把坏人、把坏东西拦在边界。好。大约10%到20%是分析，是他们进到你房子里之后，怎样把卫生做好，确保内部是扎实的。剩下的大约20%到30%是：如果有人进来了，我该怎么办？总会有东西穿过你的边界，进入你的基础设施。我能多快找到这个坏人？我能多快在他或她造成伤害之前，把他们从我的基础设施里赶出去？这就是网络安全的核心。好，人工智能如何影响这一点？先从你刚才说的漏洞说起。人工智能说：我能比世界上任何人更快找到你边界上的洞。过去找到它要花几天，今天快得多。我能找到进入你边界的洞。好，太好了，我的边界刚刚变得更多孔了。可人工智能并不会去给边界打补丁。我仍然得去查看基础设施，找到那些多孔的部分并把它们补上。我可能是一家软件公司，也可能是基础设施提供商，因为每个人的信息技术栈都由成千上万个供应商拼成。所以漏洞存在于我们的软件里，也存在于客户自己做的软件里。这就是第一步。这也是我们此刻正在看到的。像OpenAI那些新模型，像GLM 5.3，它们有极强的发现漏洞的能力，坏人可以廉价租用它们，把它们砸向你，找出你所有的漏洞。那么当务之急是什么？当务之急，是找到一种办法迅速把这些东西补上，让这些坏人拿不到。好，猜猜谁在建这项服务？我们在建一项叫虚拟补丁的服务。我们写特征，给整圈边界缠上绷带，我们知道洞在哪里，这些人就进不来。随着时间推移，我们的客户会把底层系统补上，他们就会没事。这大概是一个问题。好消息是，自从Mitosis（口播原词，具体指代不十分确定）出现后，我们的业务反而上去了。"}, {"start_sec": 3448, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "这正是我的意思。这正是我想谈到的。"}, {"start_sec": 3451, "type": "text", "speaker_id": "nikesh", "section_id": "s11", "zh": "天哪，你能帮我打补丁吗？猜怎么着，能，我能帮你打补丁。我检查每个人的边界。所以你在某处有一台笔记本电脑。我就住在笔记本电脑上。我一年收你25美元，每天在你的笔记本电脑上看大约150兆流量，确保没有坏东西进来。"}, {"start_sec": 3467, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "你跟我说你在黑我的电话。"}, {"start_sec": 3469, "type": "text", "speaker_id": "nikesh", "section_id": "s11", "zh": "我只是在开玩笑。【笑声】我也不会做那种事。总之，记住网络安全是两个词。所以由我来检查笔记本上的流量，边际成本是零。我不会因为流过更多流量而向你多收费。人工智能的设定，是每次你让流量穿过它，都按token向你收费。所以如果人工智能试图在端点做我的工作，一天可能要花你5000美元，或者你随便报个数，500美元一天。它以后也许会变成50美元一天。他们做不到我在每个端点25美元能做的事。你再回到内部：如果坏人进来了，会发生什么？是的，人工智能能帮你更快分析所有异常行为，但你仍然需要套件，仍然需要安全专长，需要数据摄入，需要基础设施。所以一句话：我们的生意并没有处于风险之中。"}, {"start_sec": 3519, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "对，从外面看，我原本也是这样假设的。"}, {"start_sec": 3523, "type": "text", "speaker_id": "nikesh", "section_id": "s11", "zh": "从外面假设首席执行官们在努力最大化自己的生意，一般来说是一条好规则。【笑声】"}, {"start_sec": 3527, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "对，可我们谈过：没有人想输，可每天仍有很多人在输。这正是我想谈到的。当你想了解人工智能的前沿时，你会去找谁？我想多了解人工智能时，该去找谁？"}, {"start_sec": 3538, "type": "text", "speaker_id": "nikesh", "section_id": "s11", "zh": "有不同的人。我每周至少要花四五个小时，和各类人工智能创始人在一起。因为这些孩子很年轻，他们可能在OpenAI工作过，也可能在谷歌某处工作过。他们有这些公司。他们人很好，肯花时间陪我，试图用别的话说清楚他们在做什么。于是我了解了开源权重模型，了解了训练，了解了训练数据，了解了守护智能体。我到处走，和大量的人交谈。我每个月大概还和5到10家网络安全创业公司聊，也许15家。所以我试图吸收他们怎么想，因为从某种奇怪的意义上说，这是一门新的、仍在发展的科学，很难找到更好的词。并没有真正的专家。人们知道怎样做自己那一块。其他所有人都在试图想象这件事对周围一切的含义，并试图建立心智模型，以便做出产品、在这个品类里赢。从前并没有数据标注这种概念，直到自动驾驶的人必须去标注数据。现在这又变成了强化学习、仿真模型，以及试图模拟数据来训练人工智能的神经网络。所以你真的必须持续待在与大量的人的对话里，才能理解并吸收人们在谈的东西。你得花很多时间看Twitter，花很多时间和人谈，花很多时间读东西。你才能差不多半懂半接地理解这件事怎样走到另一边。我也没法吸收一切。我就是这样学的。"}, {"start_sec": 3625, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "你刚刚又提到另一件我想问的事。你在X上的新存在，背后是什么？【笑声】"}, {"start_sec": 3630, "type": "text", "speaker_id": "nikesh", "section_id": "s11", "zh": "我想我说过，我当时在吐槽你的一位同行播客。"}, {"start_sec": 3636, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "哈利？"}, {"start_sec": 3639, "type": "text", "speaker_id": "nikesh", "section_id": "s11", "zh": "对。我当时在吐槽哈利：这对你很好。你不断把我们所有人请来，你在建立自己的品牌，而我们大家实际上都成了你品牌的道具。"}, {"start_sec": 3647, "type": "text", "speaker_id": "nikesh", "section_id": "s11", "zh": "他说：那是你的问题，不是我的。我问：什么意思？他说：你有权建立自己的品牌，只要你想。你只是没有。我问：我该怎么做？他说：去X上告诉人们你在想什么。你在播客里有很多话要说。你何必等我来提问？"}, {"start_sec": 3660, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "这说得很有道理。"}, {"start_sec": 3663, "type": "text", "speaker_id": "nikesh", "section_id": "s11", "zh": "于是他让我每天发推。我说：好。然后——"}, {"start_sec": 3666, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "我很享受你的帖子。我几乎每天都在看。"}, {"start_sec": 3669, "type": "text", "speaker_id": "nikesh", "section_id": "s11", "zh": "不，现在频率更低了。听着——"}, {"start_sec": 3672, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "噢，你不能听那个，你真的很擅长这个。"}, {"start_sec": 3674, "type": "text", "speaker_id": "nikesh", "section_id": "s11", "zh": "可如果你说得太勤，就只会更容易说错话，因为你几乎必须不去感受那种必须说话的压力。所以我喜欢那个建议：不要觉得必须一直说点什么。否则你会把它变成一份工作。我不想把它变成一份工作。我想在有话要说的时候再做。所以我想，我是在想说话的时候才说话。有人问我花多少时间，谁写的？其实是我自己写的。我该把它写在我的吉他上。"}, {"start_sec": 3695, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "很明显是你自己写的。拜托，大家——"}, {"start_sec": 3698, "type": "text", "speaker_id": "nikesh", "section_id": "s11", "zh": "你知道，有一次我拿克劳德（Claude）一类的东西检查了一下，它做了一些语法修改，结果人们给了我好多——"}, {"start_sec": 3704, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "噢，我看到那一条了。"}, {"start_sec": 3704, "type": "text", "speaker_id": "nikesh", "section_id": "s11", "zh": "对，我看到了。你说得对，你说得对，你说得对。所以我的想法是：我自己改，我自己检查，我再也不会那样做了。"}, {"start_sec": 3710, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "不，你真的很擅长这个。事实上，这台摄像机后面一直有个人，会在我们到达某个时间时给我提示。他刚刚给了提示，而我震惊于这次时间过得这么快。所以这通常是一个好——"}, {"start_sec": 3720, "type": "text", "speaker_id": "nikesh", "section_id": "s11", "zh": "是个好兆头？"}, {"start_sec": 3721, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "是个好兆头，兄弟。我真的很感谢你做这件事。这太棒了。我们过几个月一定得再做一次。"}, {"start_sec": 3726, "type": "text", "speaker_id": "nikesh", "section_id": "s11", "zh": "听起来不错。谢谢你的时间。"}, {"start_sec": 3727, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "希望你喜欢这一集。请记得在你收听的平台订阅并留下评价，也一定去听我的另一档播客《创始人》（Founders）。近十年来，我偏执地读了400多本历史上最伟大企业家的传记，寻找你能用在工作里的想法。你在这档节目里听到的多数嘉宾，最初都是通过《创始人》找到我的。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

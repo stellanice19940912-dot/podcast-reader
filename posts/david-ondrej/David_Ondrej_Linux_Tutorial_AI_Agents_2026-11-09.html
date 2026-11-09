@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>给 AI 智能体的终极 Linux 教程（2027 年前先看完）</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="david">大卫·翁德雷（David Ondrej）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">David Ondrej</span><span class="pill">2026-11-07</span></div>
+<h1>给 AI 智能体的终极 Linux 教程（2027 年前先看完）</h1>
+<p class="sub">约 25 分钟（1528 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=us6SRuWuqWc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=us6SRuWuqWc</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>David Ondrej</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-07</dd></div><div class="meta-row"><dt>时长</dt><dd>约 25 分钟（1528 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 页面「显示转录稿／内容转文字」（browser-cdp；非 cookies、非官方可下载字幕轨）；普通 yt-dlp 写字幕遇 HTTP 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 遇 bot-check／登录墙失败后，浏览器打开 YouTube 使用 Show transcript（内容转文字）成功；caption_source=browser-cdp；中文为全文翻译并按话题分段；赞助／自我推广口播已标灰（招聘（华沙团队）、Hostinger）；独白教程，说话人为主持人大卫·翁德雷（David Ondrej），未编造嘉宾</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>us6SRuWuqWc</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>大卫·翁德雷（David Ondrej）讲解 AI 时代的 Linux：它运行着全球前 500 台超级计算机和最大数据中心的 100%、驱动几乎每一个云端智能体，也正在成为更多人的主力个人系统。他说明如何用一台 Linux VPS，加上前沿模型（现场是 Claude Code 搭配 Opus 5.5）自托管整家公司，省下 Vercel、Netlify、Railway、Datadog 等订阅，并用智能体循环在几分钟内修补高危漏洞。服务器他推 Ubuntu，个人电脑他推 Omarchy；现场用自己做的 Cloudroom 在约 3 分 30 秒内做出按摩预约全栈应用，并演示 15 个子智能体并行。</p>
+<h3>核心要点</h3><ul><li>Linux 生于 1991 年，却正创纪录地被采用：全球前 500 大数据中心／超算 100% 跑 Linux，每部安卓（Android）手机使用 Linux 内核；网站托管超过 63%；桌面份额约 6%（Windows 77%、macOS 16%）但增长最快</li><li>智能体最擅长文本，而 Linux「一切皆文本文件」；只要能控制外壳（shell）、运行 bash，像 Pi 这种只需四个工具的智能体就能做几乎任何事。莱纳斯·托瓦兹（Linus Torvalds）今年 7 月也说 AI 明显有用，并用来查找内核问题</li><li>一台 VPS 可替换前端 Vercel／Netlify（轻易每月 20 美元以上）、后端 Railway／Render、自动化 Zapier／Make.com（20–30 美元）、监控 0–30 美元，以及他曾面临的每月 230 美元产品数据分析——他让智能体自托管 ClickHouse 后立刻省下这笔钱。托管商修补 CVSS 9.8–10.0 的高危漏洞常要 1–2 天，自己的智能体循环可在 5 分钟内打补丁</li><li>示范用 Claude Code + Opus 5.5（他称强过约 99.99% 的程序员）为 VPS 配置 SSH 密钥并做安全加固：两分半钟后系统更新完毕，防火墙只放行 SSH 和 Web，关闭密码登录并加上暴力破解防护</li><li>发行版上，服务器默认 Ubuntu（Canonical 称超 60% 云主机；最新稳定版 26.04，LTS 五年免费安全更新；英伟达 DGX Spark 跑 Ubuntu，他有四台，26.04 内置 CUDA；sudo 等核心工具已用 Rust 重写）。个人电脑首选 Omarchy（DHH 基于 Arch + Hyprland；GitHub 超 4.6 万星；已支持 M1／M2／M3 Max，M4／M5／M6 即将到来；37signals 正把开发者从 MacBook 迁过去）。他预测苹果若 1–3 年不开放 iOS／macOS，重度用户会转向 Linux</li><li>现场让已有 VPS 权限的 Opus 5.5 用 Deep API 抓取最新一批 Y Combinator 在投项目，自选「按摩预约」做 MVP（前端／后端／数据库／ClickHouse 分析分离），约 3 分 30 秒构建并部署；随后用 designs 技能出四版设计，两条提示后他说比世上 99% 的按摩店官网更好看。又拉起 15 个 Haiku 5.5 子智能体在云端 Linux 沙箱做营销／SEO 研究，并可用英语切换到 Codex。他做的 Cloudroom 开源免费，独立智能体数即将超过 20 万，宣称是唯一在免费套餐提供云端智能体、且支持任意编排（harness）的应用（并提到 Conductor 被 Meta 收购后关闭云端）</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：想用智能体在 Linux VPS 上自托管项目、比较 Ubuntu 与 Omarchy、或看 Cloudroom／Claude Code 实操的人（约 25 分钟，含 Hostinger 赞助与招聘口播）；可跳过：完全不碰服务器或智能体工作流的人。</p>
+<h3>适合人群</h3><p>想用 AI 智能体部署／自托管的开发者、独立开发者和创业者</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场：Linux 的十年，以及它为何已经无处不在</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">大卫·翁德雷（David Ondrej）称这是面向 AI 时代的终极 Linux 教程：我们刚刚进入「Linux 的十年」，它既在成为更多人的主力个人操作系统，也驱动着几乎每一个云端智能体。尽管诞生于 1991 年，人们仍在创纪录地转向 Linux。本期会讲清 Linux 是什么、最适合智能体的发行版，以及如何用一台 Linux VPS（虚拟专用服务器）运行并托管整家公司以节省开支；他强调不必先成为技术专家，能听懂英语就能跟上。Linux 之所以重要，是因为它运行着全球前 500 大数据中心和超级计算机的 100%——也就是全部——而且每部安卓（Android）手机都运行在 Linux 内核上。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">Linux 的核心：内核、外壳，以及「一切皆文本」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">大多数云服务器同样跑 Linux，因此智能体一旦「分到一台电脑」，几乎总是 Linux；这也是它们最熟悉、最好控制的操作系统。内核是核心，负责运行每个程序并直接与硬件对话；外壳（shell）则是输入 ls、cd、pwd 等命令的界面。另一个关键范式是「一切皆文本文件」，智能体用文本就能操控整台机器。所以像 Pi 这样的智能体只需要四个工具，不必堆到 20、30、40 个：只要能控制 shell、运行 bash，就几乎什么都能做。Linux 的创造者莱纳斯·托瓦兹（Linus Torvalds）今年 7 月对开发者说，AI 显然有用；这位史上最伟大的程序员之一正用 AI 查找内核问题并参与开发。大卫的结论是：连莱纳斯都在用 AI 写代码，你大概也应该。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">和 Windows、macOS 对比：免费、开源、最好改</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">三大系统的出身不同：Windows 由微软（Microsoft）打造、需要许可证；macOS 由苹果（Apple）打造、只随苹果设备提供；Linux 是莱纳斯创立、由所有人共同开发的开源项目，也是史上最成功的开源项目之一，免费且可在任何设备上运行。当前桌面用户份额大约是 Windows 77%、macOS 16%、Linux 6%，但这 6% 正以前所未有的速度增长，也得益于后面会讲的 Omarchy。网站一侧则有超过 63% 运行并托管在 Linux 上。三者里唯一切开源。他的总结是：免费、开源、最好配置也最好改，因此特别适合 AI 智能体。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">智能体为何偏爱 Linux：用英语部署，模型越强理由越强</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">智能体喜欢 Linux，因为设置、配置、日志和工具都是纯文本，而大语言模型（LLM）最擅长的就是文本。所以云端智能体、Codex、Claude、Cursor、Cloudroom 都跑在 Linux 上。过去日常使用 Linux 需要会基本命令、相当懂技术；现在不必了。大卫自称对 Linux 懂得很少，却因为可以用英语对智能体说话、由它决定下一步，而每天都在用、并且用得越来越多。二阶后果是：模型越聪明，Linux 就越强，改用它的理由也越强。有了 Opus 5.5 和 GPT 6.1 Soul，能做的事情一下子被打开——你可以在 Linux 上部署一切，并避开定价过高的平台。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">安全与省钱：用一台 VPS 替换订阅，五分钟内打补丁</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">对智能体说「部署到我的 Linux 服务器」，只要有一台 VPS，它就能代劳，从而替换掉大量订阅。前端的 Vercel、Netlify 轻易每月 20 美元以上；后端则是 Railway、Render——他特别指出 Railway 最近因鲁莽操作出现过很严重的安全问题。从前人们把安全托付给托管公司；今天若处于 AI 前沿、拥有云端智能体和智能体循环，反而能保护得更好：这些公司修补 CVSS 评分为 9.8、9.9、10.0 的高危漏洞通常要一两天，而一个智能体循环能在不到 5 分钟内发现并打上补丁。自动化方面，Zapier、Make.com 轻易每月 20 到 30 美元；分析工具如 Datadog，他最近看到自己和业务的产品数据开支预计每月 230 美元，于是让智能体在 VPS 上自托管 ClickHouse，这笔钱当场省下。可用性监控大约每月 0 到 30 美元，同样能被一台 VPS 取代。自己的 VPS 上你完全做主，安全问题按分钟而不是按周修复；前端、后端、自动化和 cron 定时任务，在活跃用户到好几万之前，一台 Linux VPS 就能轻松扛住。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">把 VPS 交给智能体：用英语配好 SSH 并连上机器</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">买下 VPS 之后，第二步是在面板里做基本设置：操作系统可以随时更改或重置。关键是把 Claude Code 或 Codex 这类强力编程智能体拿到 root 权限，后面的事它们基本都能代劳。大卫切到自己做的 Cloudroom，用 Claude Code 搭配 Opus 5.5，只说「帮我把 VPS 设好」，并附上一张控制面板截图，要求用 SSH 密钥获得 root 权限并列出所有必要步骤。他强调本期最重要的教训：这些智能体的训练语料里几乎有无穷无尽的 Linux 命令和文档，网上例子多到都被收了进去，所以用英语问，它们就能准确告诉你怎么做。它生成了 SSH 密钥（他在画面上打了码）；他把密钥粘到面板的「设置 → SSH 密钥」并保存，再把概览页里的 IP 地址补上——他承认是自己忘了给 IP，而且因为他刚重置过这台机器，智能体一度以为已经连过。随后 Claude Code 便连上了 VPS，可以开始加固和后续配置。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">两分半钟完成加固：更新、防火墙、关掉密码登录</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">Cloudroom 甚至预测到下一条提示就是「开始做安全加固」。大卫并不清楚它会做的每一件事，但认为 Opus 5.5 作为开发者强过大约 99.99% 的程序员，因此选择信任它。若使用 Anthropic 或 OpenAI 的最新模型，就可以把一切委托出去，并因为这些模型在软件开发上已是超人水平而获得安全感。两分半钟后，VPS 已加固完毕：系统全部更新，防火墙只放行 SSH 和 Web 流量，关闭了密码登录并加上暴力破解防护。从前这需要雇一名 DevOps 或真正懂 Linux 的人；现在对 Opus 5.5 说一两句提示即可。他预告后面会用同样的方式部署全栈应用——前端、后端和产品分析都可以放在 VPS 上——然后转入发行版该怎么选。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">怎么选发行版：服务器默认 Ubuntu，26.04 还内置 CUDA</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">发行版是在同一套 Linux 内核上打包工具、应用和桌面后的不同风味，常见的有 Ubuntu、Fedora、Arch、Omarchy、Red Hat 等。Ubuntu 基于 Debian，最适合服务器、云和 AI 智能体；Debian 是「原版」，以扎实的服务器著称；Fedora 基于 Red Hat，走最新稳定技术；Arch 独立演进，适合自己动手、永远跟上最新并高度定制；Omarchy 基于 Arch，桌面好看、友好且为智能体而造，DHH 想让人更容易从 Windows 或 macOS 迁过来；Alpine 适合很小的 Docker 容器；Linux Mint 基于 Ubuntu，面向离开 Windows 的人。服务器上 Ubuntu 是默认选择：由 Canonical 打造，他们称云上份额超过 60%（自家数据，但大卫觉得可信），这指的是所有云托管而不只是云端智能体。最新稳定版是 26.04，LTS（长期支持）提供五年免费安全更新——他猜这个缩写是某种「终身支持」——智能体也非常熟悉它，所以他自己所有 VPS 都用 Ubuntu。英伟达（NVIDIA）的 AI 机器如 DGX Spark 跑的就是 Ubuntu，他为本地 AI 配了四台；26.04 还内置 CUDA，对优化推理很关键。sudo 等核心工具已用 Rust 重写，更快、更省内存和磁盘，也因为内存安全而更少漏洞。Ubuntu 适合 VPS、持续集成（CI）、Docker 和 GPU 机器，从笔记本到云是同一套系统，选它很难走错。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">Omarchy：为智能体而造的桌面，以及苹果只剩一到三年？</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">眼下传播最快的发行版是 Omarchy（有人读成另一种发音，他觉得不好听，还拿 Hermes 智能体的读法打比方）。这是 Ruby on Rails 创造者 DHH 目前的主线：Arch 加上 Hyprland，开箱即美观，观点鲜明并把常用工具预装好，避免过去装完 Linux 还要花 10 小时配置的痛点。它为智能体时代而造：你可以让 AI 改任何东西，这在 Windows 和 macOS 上做不到。大卫预测苹果大概还有 1 到 3 年：若不让 iPhone、MacBook、Mac Studio 更好配置、不给更多 iOS 和 macOS 的权限，人们就会转向 Linux 或 Omarchy——谁也不想再在设置里一项一项手动点。他刚演示过：在 Cloudroom 里只跟 Claude Code 编排中的前沿模型说话，不拨任何开关，就能完成加固、更新、锁定和启用防火墙。能用语音让智能体改电脑上的任何东西，这个价值太大；若苹果和微软在一到三年内不开放，很多重度用户就会离开。Omarchy 在 GitHub 已超过 4.6 万星，每天都有开发，有数百名贡献者和多位科技亿万富翁赞助；以 2026 年的增速（不是历史装机量）看，这是他心目中当下最热的发行版，也是个人电脑的第一选择。它已能装在 M1、M2 和 M3 Max 上，里面是 Linux 与 Hyprland：窗口自行平铺，全键盘驱动，每项设置都是文本文件，因此 Claude Code、Codex、Hermes 都能只靠你开口就改整个操作系统。这最适合开发者笔记本；DHH 的公司 37signals 正把开发者从 MacBook 迁过去。苹果硬件仍是世界顶尖，但若软件不开放，人们会因智能体变强而弃用苹果软件。DHH 已宣布即将支持 M4、M5 和 M6，无论哪一代苹果硬件都会被覆盖。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">现场做应用：抓 YC 点子、按摩预约 MVP，以及自托管 ClickHouse</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">他切回 Cloudroom，用 Claude Code 配 Opus 5.5 做应用，并强调主线工作请用 OpenAI 或 Anthropic 最新最大的前沿模型，小模型留给以后的简单任务。智能体已有 VPS 权限：他要求做一款新生意的全栈 Web 应用，并在这台 VPS 上自托管 ClickHouse 做产品追踪；选定点子前，先用 Deep API 抓取最新一批 Y Combinator正在投的项目。就算没有点子，也可以用 Deep API 去做抓取和研究。只用 Codex 的人可以用 GPT 6.1 Soul，但他直言眼下 GPT 系列还不如 Claude 系列；也许 OpenAI 很快会发布 6.2 Astra 或 6.2 Soul，现在最强的仍是 Opus 5.5。活跃用户到好几万之后单台 VPS 可能不够，但起步做 MVP 和大多数项目都可以，而且一台机器能同时放多个网站和多套软件；KVM2 套餐比很多人以为的更强，不必再向 Vercel、Netlify、Railway、Render 付钱。研究回来后他要一份适合快速全栈原型的前五名（带数据库和 ClickHouse），并说这些创业公司一个下午就能重做，护城河是速度、心态和行动快慢。模型给出的方向包括牙科预约、保险报价、食品储藏室追踪、员工辅导等，他觉得都不算特别革命，于是改成同时面向顾客和店主的按摩预约应用：越简单越好，全部部署在这台 VPS，前端、后端、数据库和 ClickHouse 分析要分开。他批评许多产品只是套在 ClickHouse 外面、每月收好几百美元的壳；有了大语言模型，无论买衣服、买车还是选软件，都更容易选到最好、性价比最高的服务，咨询前沿模型能大大降低错误决策的概率。一台 VPS 还可以跑 n8n、Make.com 类自动化，甚至重做自己的 Manus 或 Instant。他自己每个月跑的 VPS 都比上个月多；再往上可以部署 Tailscale，让智能体统一管理多台机器，有兴趣的人可以在评论区留言。他用来同时调用 Claude Code、Codex、Pi、Hermes、Cursor、OpenCode、FX 且覆盖本地与云端的应用，正是自己做的开源免费软件 Cloudroom。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">Cloudroom 与进阶工作流：3 分 30 秒上线，15 个子智能体并行</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">他认为 Cloudroom 是世上最好的 ADE（AI 开发环境），独立智能体数即将超过 20 万，也是唯一能把任意编排当作云端智能体来跑的应用。Conductor 被 Meta 收购并关闭云端之后，他更确信 Cloudroom 是最佳选择，而且他们是唯一在免费套餐里提供云端智能体的。用户可把已有模型、编排和订阅集中到 cloudroom.dev，他呼吁在 GitHub 上给项目加星。现场智能体在 3 分 30 秒内不但配置并部署了 VPS，还把应用做了出来；他让它在 Brave 浏览器的新标签页打开。当时是中等推理力度，应用拆成四个独立服务，整套跑在自己的技术栈上。他认为这对软件构建和托管是革命性的，现有部署平台将不得不适应。他一度发错了另一块屏幕的截图，但前沿模型仍理解了「重新设计前端、更定制独特」的意图；在 Cloudroom 里他会调用 designs 技能，要求看四种落地页方案，技能可以打标签并在聊天里内联展示。Codex、Claude Desktop、Cursor 里常见的子智能体这里都有：他新开线程，让它拉起 15 个 Haiku 5.5 子智能体去分析当下有效的营销与 SEO 策略——营销、销售、研究都可以，不必限于写代码。每一个都在云端独立的 Linux 沙箱里跑，不占用他的电脑，所以即使同时开 15 个 Claude Code 实例并用 OBS 录像也不会卡，断网或合上电脑也会做完。Linux 既在驱动 Cloudroom，也在驱动这台 VPS。他用英语让主智能体（Claude Code）把这 15 个子智能体（Haiku）全部停止、归档并改成 Codex，展示可以用不同模型分别充当编排者和工人。设计一侧被调到高推理力度，仍在出图；他们已经加上分析并自托管 ClickHouse。他批评许多产品靠信息差和摩擦加价，认为一切都会被从零重新发明；买东西、选托管、试用软件前都可以先问智能体有没有更好的开源替代——很多部署平台并不是开源的。两条提示之后，他认为新设计比全世界 99% 的按摩店都好看，而整家业务都托管在同一台 VPS 上。片尾他说 Linux 未来会更流行，甚至有可能成为桌面端最流行的操作系统，并祝观众有充实、高效的一周。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">大卫·翁德雷（David Ondrej）<em>主持</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场：Linux 的十年，以及它为何已经无处不在</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">David</span></div><div class="content">
+<p>我是大卫·翁德雷（David Ondrej）。这是一堂面向 AI 时代的终极 Linux 教程。我们刚刚进入 Linux 的十年：它正在两头铺开，既成为越来越多人的主力个人操作系统，也驱动着几乎每一个云端智能体。尽管它诞生于 1991 年，人们仍在创纪录地转向 Linux。这期视频里，我会讲清 Linux 是什么、最适合智能体的 Linux 发行版是什么，以及你怎样用一台 Linux VPS（虚拟专用服务器）运行并托管整家公司——这会帮你省下不少钱。</p>
+<p>另外，你不必先成为技术专家也能跟上。只要能听懂英语，你就可以做到这些。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：招聘（华沙团队）]</span></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">David</span></div><div class="content">
+<p>那么，Linux 为什么真的重要？目前，它运行着全球前 500 大数据中心和超级计算机的 100%，也就是全部。而且每一部安卓（Android）手机都运行在 Linux 内核上。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>Linux 的核心：内核、外壳，以及「一切皆文本」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">David</span></div><div class="content">
+<p>大多数云服务器也是如此。这意味着：当你的 AI 智能体分到一台电脑时，那几乎总是 Linux。智能体最熟悉、也最好控制的操作系统，就是 Linux。</p>
+<p>Linux 的工作方式可以很快说清。首先是内核（kernel），相当于 Linux 的核心：它运行每一个程序，并直接与硬件对话。然后是外壳（shell），也就是你输入命令的那一层界面，比如 ls、cd、pwd，都是你熟悉的那些命令。</p>
+<p>另一个重要范式是：一切皆文本文件。所以智能体用文本就能把整台机器跑起来。正因为如此，像 Pi 这种智能体只需要四个工具，不必堆到 20、30、40 个不同工具——只要它能控制 shell、运行 bash，就几乎什么都能做。</p>
+<p>对了，Linux 的创造者本人莱纳斯·托瓦兹（Linus Torvalds）今年 7 月早些时候对开发者说，AI 显然是有用的。莱纳斯是史上最伟大的程序员之一，他正积极用 AI 查找 Linux 内核里的问题，并参与开发。所以，如果连莱纳斯都在用 AI 写代码，你大概也应该这么做。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>和 Windows、macOS 对比：免费、开源、最好改</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">David</span></div><div class="content">
+<p>接下来把 Linux 和 Windows、macOS 放在一起看。Windows 显然是微软（Microsoft）做的，macOS 是苹果（Apple）做的，而 Linux 是开源项目：由莱纳斯创立，却由所有人共同开发。它是史上规模最大、最广为人知、也最成功的开源项目之一。</p>
+<p>价格也很清楚：Windows 需要买许可证；Mac 只随苹果设备提供；Linux 则是免费的，任何人都可以把它跑在任何设备上。</p>
+<p>目前的桌面用户份额大约是：Windows 77%，macOS 16%，Linux 6%。但这 6% 正以前所未有的速度增长，也得益于像 Omarchy 这样的项目——后面视频里还会细讲。网站这一侧则不同：超过 63% 的网站运行在 Linux 上，也托管在 Linux 上。</p>
+<p>三者之中，也唯有 Linux 是开源的。所以总结一下：它免费，它开源，它也是其中最好配置、最好更改的——这对 AI 智能体显然非常有利。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>智能体为何偏爱 Linux：用英语部署，模型越强理由越强</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">David</span></div><div class="content">
+<p>正如我已经说过的，智能体就是喜欢 Linux，因为在 Linux 里一切都是纯文本：设置、配置、日志、工具，而 AI 最擅长的就是文本，也就是大语言模型（LLM）。正因为如此，云端智能体、Codex、Claude、Cursor、Cloudroom 都跑在 Linux 上。</p>
+<p>但你不必先会 Linux 才能用它，这才是妙处。过去，你得会那些基本命令，也得相当懂技术，才能把 Linux 当作日常系统来用。</p>
+<p>今天完全不是这样。我自己对 Linux 懂得很少，却每天都在用，而且因为智能体而用得越来越多——你只要用英语跟智能体说话，它已经知道该做什么。</p>
+<p>这件事的美妙之处，也是它的二阶后果：模型越聪明，Linux 就越强，改用 Linux 的理由也越强。现在我们有了 Opus 5.5、GPT 6.1 Soul，能做的事情一下子被打开了。你可以在 Linux 上部署一切，避开那些定价过高的平台。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>安全与省钱：用一台 VPS 替换订阅，五分钟内打补丁</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">David</span></div><div class="content">
+<p>你只要跟智能体说「把它部署到我的 Linux 服务器上」，而你又有一台 VPS，它就能把这些都代劳。这会替换掉你本来不得不支付的许多开支和订阅。前端这边，Vercel、Netlify 轻易每个月就要 20 美元以上；后端则是 Railway、Render。安全问题就更不用说了——我等下会放到屏幕上：Railway 最近出过非常严重的安全问题，主要来自鲁莽的操作。</p>
+<p>如果你自己也有 VPS，并且把一切都自托管，你就可以设一个智能体循环，在几分钟内自动打上这些补丁——很多公司不会这么做。从前的情况是：你把东西托管到这些公司，以为他们会把一切打理妥贴，你也就安全了。</p>
+<p>今天，如果你站在 AI 的前沿，会用 AI，手里有云端智能体和智能体循环，你实际上能比把前后端懒洋洋地部署到这些公司上，保护得更好。</p>
+<p>因为遇到 CVSS 评分达到 9.8、9.9、10.0 这类高危漏洞时，他们通常要花一两天来打补丁。而如果你足够投入，只设一个智能体循环，就能在不到 5 分钟内发现并修补这些漏洞。</p>
+<p>另一件你可以甩掉的，是自动化方面的开支，比如 Zapier、Make.com，这些轻易每个月也要 20、30 美元。分析还有 Datadog 和其他产品。我最近就在用其中一家，自己和公司的产品数据预计每月开支是 230 美元——差不多只是产品数据这一项。我刚意识到这一点，就觉得不行。</p>
+<p>于是我只是让智能体在我的一台 VPS 上自托管 ClickHouse，立刻就去掉了这 230 美元的开支。还有可用性监控，大概每月 0 到 30 美元，同样能被一台 VPS 取代。</p>
+<p>有了自己的 VPS，你完全做主。任何安全问题你都可以按分钟而不是按周修复，部署方式也由你决定。你只要跟智能体说话，它就能把一切都托管到同一台 VPS 上。而且它能扛住的流量，比你以为的要多：无论是前端、后端、自动化还是 cron 定时任务，在活跃用户到好几万之前，一台 Linux VPS 都能轻松搞定。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>把 VPS 交给智能体：用英语配好 SSH 并连上机器</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="marker-line"><span class="tag">[已省略广告：Hostinger]</span></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">David</span></div><div class="content">
+<p>第一步是买下 VPS。买好之后，第二步是在面板里做基本设置。先选操作系统：如果刚才选错了，或者你有一台旧的 VPS 想重置，都可以在「操作系统与面板」这里很轻松地改掉。接下来要给智能体访问权限。这件事开始变得有意思：一旦你把像 Claude Code 或 Codex 这样的强力编程智能体拿到 VPS 的 root 权限，后面的一切它们基本上都能帮你设好。</p>
+<p>我来示范一下。我切到 Cloudroom，使用 Claude Code 搭配 Opus 5.5，然后只对它说：「帮我把 VPS 设好。」就这一句。我把控制面板的截图附上——就是刚才那个画面原封不动截下来贴进去。接下来这些步骤不必你自己做，我们让 Claude Code 来做。我对它说：用 SSH 密钥，好让你拿到 root 权限；把完成这件事所需的全部步骤都给我。你只要用英语跟智能体说话。</p>
+<p>这就是我希望你从这期视频里带走的最主要教训。Linux 之所以强大，是因为所有这些智能体的训练语料里几乎有无穷无尽的 Linux 数据：网上有太多 Linux 命令和文档的例子，它们全都被收进了这些智能体的训练数据。所以你可以像这样用英语跟它们说话，它们就能准确告诉你该做什么。它把 SSH 密钥给了我——我会在画面上打码——还有步骤。我复制下来，一键就好。</p>
+<p>回到控制面板，我们要去设置里的 SSH 密钥：打开设置，进入 SSH 密钥，添加密钥，然后把内容粘贴进去。差不多就是这样，点右下角保存，SSH 密钥就存好了。现在我可以告诉智能体「搞定了」，Claude Code 就会连上这台 VPS，开始做安全加固，并把需要的东西都设好。对了，它还缺 IP，这是我的疏忽：到概览页复制 IP 地址交给它。好了，连上了。它刚才其实想多了；因为我刚刚重置过这台 VPS，所以它一度以为自己「已经连过」。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>两分半钟完成加固：更新、防火墙、关掉密码登录</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">David</span></div><div class="content">
+<p>现在已经连上了。我只要说「开始做安全加固」。事实上，Cloudroom 已经把这句预测成我的下一条提示，所以我就直接用了。我甚至并不清楚它接下来会做的每一件事，我只知道 Opus 5.5 作为开发者比外面几乎所有人都强，大概强过 99.99% 的程序员，所以我选择信任它去加固这台 VPS。</p>
+<p>如果你用的是 Anthropic 或 OpenAI 的最新模型，就能用这样的速度推进：基本上把一切都委托给那个 AI 智能体。它也会是安全的，因为这些模型在软件开发上已经是超人水平。</p>
+<p>两分半钟后，VPS 已经加固完毕：更新做完了，一切都是最新的；防火墙只放行 SSH 和 Web 流量；密码登录被关掉；还加上了暴力破解防护。从前你得雇一名 DevOps，或找一个真正懂 Linux 的人。现在你对 Opus 5.5 说一两句提示，它就能替你做完。后面我还会用完全同样的方式，向你演示如何部署一款全栈应用——前端、后端、产品分析，凡是你想得到的，都可以托管在一台 VPS 上。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>怎么选发行版：服务器默认 Ubuntu，26.04 还内置 CUDA</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">David</span></div><div class="content">
+<p>我们把访问权限给了智能体，把 SSH 密钥给了它，也把机器锁好了。现在来谈 Linux 发行版和命令：什么是发行版，主流发行版之间怎么比较，Ubuntu 和 Omarchy 该怎么选，以及你真正应该会、也应该知道的那 10 条命令。</p>
+<p>首先，什么是 Linux 发行版？Linux 本身只是核心，也就是 Linux 内核。发行版再在这之上打包工具、应用和桌面，把所有东西捆在一起。所以内核是同一套，风味和适配却各不相同。你有 Ubuntu、Fedora、Arch、Omarchy、Red Hat，还有很多。我们把几个大的过一遍。</p>
+<p>Ubuntu 基于 Debian，最适合服务器、云和 AI 智能体。然后是 Debian，也就是「原版」，以非常扎实的服务器著称。</p>
+<p>Fedora 基于 Red Hat，走的是最新的稳定技术。Arch 以自己为基础，不依附别的系统，最适合自己动手、永远跟上最新，并且有很高的可定制性。Omarchy 基于 Arch Linux，桌面很好看，也很友好，而且真正为智能体而造——这是重点。DHH 正在用 Omarchy 做的事，后面我还有几页幻灯片：他想让 Linux 更好上手，也尽量可配置，好让人们能轻松从 Windows 或 macOS 迁过来。</p>
+<p>然后是 Alpine，同样是独立体系，最适合很小的 Docker 容器。还有基于 Ubuntu 的 Linux Mint，面向正在离开 Windows 的人。</p>
+<p>你真正需要搞懂的两个，是 Ubuntu 和 Omarchy。服务器上，Ubuntu 绝对是默认选择。它由 Canonical 打造，是云上号称第一的 Linux，他们说份额超过 60%。当然这是他们自己的数据，但我觉得可信。所以，超过 60% 的云——不只是云端智能体，而是任何云托管——都在运行 Ubuntu。</p>
+<p>最新稳定版是 26.04；LTS（长期支持）则提供五年免费安全更新。我猜这个缩写大概是某种「终身支持」。这意味着大多数指南和 AI 的回答都会默认它，Ubuntu 也非常被 AI 智能体所熟悉。所以我自己所有的 VPS 都在用 Ubuntu。</p>
+<p>它还能赢在哪里？很妙的一点是：英伟达（NVIDIA）的 AI 机器，比如 DGX Spark，跑的就是 Ubuntu。我个人的本地 AI 配置里就有四台 DGX Spark；26.04 还内置了 CUDA，这对优化推理显然非常关键。</p>
+<p>像 sudo 这样的核心工具已经用 Rust 重写，所以更快，也更省内存、更占更少磁盘，安全漏洞也更少——因为 Rust 是一门内存安全的语言。因此 Ubuntu 最适合你的 VPS、持续集成（CI）、Docker 和 GPU 机器。从笔记本到云都是同一套系统，选 Ubuntu 很难走错。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>Omarchy：为智能体而造的桌面，以及苹果只剩一到三年？</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">David</span></div><div class="content">
+<p>最近突然走红、传播最快的 Linux 发行版，则是 Omarchy。有人把它读成另一种发音，我觉得不好听——好比有人把 Hermes 智能体的名字读成我并不喜欢的那个音。我并不在乎主流的官方读法，就是觉得 Omarchy 这样读好听得多。</p>
+<p>DHH 是 Ruby on Rails 的创造者，而这基本上就是他眼下的主线：他自己对 Linux 的一套理解。Arch 加上 Hyprland，开箱即美观，观点很鲜明，把你需要的许多工具预装好，这样你就不必做那么多配置。</p>
+<p>顺便说一句，那曾是 Linux 最糟的部分之一：你把 Linux 下载到电脑上，然后还得花 10 个小时去设置。很多人不想干这个，而 Omarchy 差不多就是这个问题的答案。它为智能体时代而造：你可以让 AI 去改任何东西，这在 Windows 上做不到，在 macOS 上也做不到。</p>
+<p>另外，我自己的预测是：苹果大概还有大约 1 到 3 年时间把这件事想明白。如果他们不让 iPhone、MacBook 以及所有的 Mac Studio 更好配置，基本上也就是不给我们更多访问 iOS 和 macOS 的权限，人们就会转向 Linux，转向 Omarchy 或其他发行版。谁还想在设置里一项一项手动改东西？</p>
+<p>我刚才已经用那台 VPS 示范过了：我可以再次进入 Cloudroom。所有这些都不是我自己拨过一个开关、自己改过一项设置，而只是我在 Claude Code 编排里跟一个前沿模型说话，它就能完成一切——加固 VPS、更新系统、把机器锁好、启用防火墙。</p>
+<p>在 macOS 和 Windows 上，你做不到这些，除非钻进设置、点无数按钮，还得先搞懂那个界面。如果能用 AI 智能体控制一切，这是巨大的增值。所以人们才会去用 Instant，并用 Grok 这类机器人处理各种任务——图的就是方便：手机上有一个能做任何事的智能体，这很省事。</p>
+<p>问题在于，iOS、macOS 和 Windows 都锁得很死。如果它们在接下来的一年、两年、顶多三年里不开放，很多重度用户就会换掉，因为能用语音提示让智能体改电脑上的任何东西，这个价值实在太大了。顺便说一句，这是我对未来一个很容易做出的预测。</p>
+<p>截至今天，它在 GitHub 上已经超过 4.6 万星。我可以把仓库拉出来：就是它。我顺手给它点了星。这是个很好的项目，而且几乎每天都在开发，有数百名贡献者。多位科技亿万富翁也在赞助它，所以它得到了一些科技领域最聪明的人的支持。</p>
+<p>以 2026 年的增长速度来看——不是装机量，因为其他发行版已经存在很多年——这大概是当下最热的 Linux 发行版。所以，如果你打算把 Linux 用在自己的个人电脑上，这会是我今天的第一选择。</p>
+<p>而且现在它也能安装在 M1、M2 和 M3 Max 上，你完全可以让自己的 MacBook 以 Omarchy 作为操作系统。Omarchy 里是 Linux 和 Hyprland：窗口会自己完成平铺和样式，全部用键盘驱动，每一项设置都是文本文件。</p>
+<p>所以 Claude Code、Codex、Hermes 都能只靠你开口，就重新定样式、更新整个操作系统。这最适合开发者笔记本。DHH 的公司 37signals 正在把开发者从 MacBook 迁到它上面。</p>
+<p>再说一次，苹果的硬件非常出色，他们在硬件上仍是全世界最好的。但如果他们不让我们改软件，不给我们更多权限，人们就会因为 AI 智能体越来越强而不再用苹果的软件。实际上，DHH 已经宣布即将支持 M4、M5 和 M6，所以无论你手上是哪一代苹果硬件，都会被 Omarchy 支持。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>现场做应用：抓 YC 点子、按摩预约 MVP，以及自托管 ClickHouse</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">David</span></div><div class="content">
+<p>现在让我演示怎样真正把应用做出来。我再次切到 Cloudroom，仍然是 Claude Code 搭配 Opus 5.5。这一点我必须强调：请用前沿模型。不管是 OpenAI 还是 Anthropic，最新、最大的那一档，就用那个。后面你可以再优化，简单任务用小模型；但主线工作、把环境搭起来，请用前沿模型，一切会轻松得多。</p>
+<p>现在我们可以直接跟它说话。它已经有 VPS 权限了，所以我可以说：我们来为一门新生意做一款全栈 Web 应用，并加上正经的产品追踪——也就是在这台 VPS 上自托管 ClickHouse。</p>
+<p>在选定点子之前，我先希望你用 Deep API 去抓取最新一批 Y Combinator项目，给我一份他们正在投的想法清单。就算你自己没有点子，也可以用 Deep API 去抓取和研究任何东西，这也会让你的智能体强很多。</p>
+<p>趁它在跑，第一步其实就是用英语告诉 Opus 5.5 你想要什么。如果你只用 Codex，那可以用 GPT 6.1 Soul。</p>
+<p>它没那么好，我跟你说实话。眼下 GPT 系列还不如 Claude 系列。也许 OpenAI 很快会发布 6.2 Astra，或者 6.2 Soul，到时再看。但现在最强的是 Opus 5.5。</p>
+<p>无论你想做什么应用，一旦有了好几万活跃用户，单台 VPS 大概就不够了。但我要说的是：起步做 MVP，做大多数项目，都可以托管在一台 VPS 上。不仅如此，你还可以在同一台 VPS 上同时放很多不同的东西——多个网站、多套软件。</p>
+<p>一台 Linux 机器，配上 KVM2 套餐，比很多人以为的要强得多。所以你不必再向 Vercel、Netlify、Railway、Render 付钱。服务器是你的，你只用智能体控制它，并按自己的需求去配置。</p>
+<p>来看看它研究出了什么。这些里面，哪些最适合现在做一版又快又糙的全栈原型？要带数据库，也要带产品追踪和 ClickHouse。先给我这份清单里的前五个选择。另外，这些创业公司你其实一个下午就能重做一遍。护城河就是速度：如果有人还在谈别的，真正的护城河是心态、态度，以及你能多快行动。</p>
+<p>五个方向包括：牙科预约应用、保险报价、食品储藏室追踪、员工辅导应用等。我先得说，我不知道 Y Combinator 为什么在投这些，看起来都没有特别革命性。我改一个接近的点子：做按摩预约应用，同时面向顾客和店主。</p>
+<p>就把它做成一个简单的 MVP，别想太复杂，越简单越好。并确保一切都部署、托管在这台 VPS 上：前端、后端、数据库，以及基于 ClickHouse 的产品分析，要正确分开。</p>
+<p>很疯狂的是，好多产品其实只是套在 ClickHouse 外面的一层皮，除了收集你的数据再每月收你好几百美元，没做什么别的。有了大语言模型和智能体，反而更容易直接去选最好的服务：哪个性价比最高、产品最好，你就能比没有 AI 时做出明智得多的选择。这件事无论你是在买衣服、买新车，还是在决定用哪个平台、哪套软件，都适用。</p>
+<p>咨询前沿智能体和前沿模型，能大大降低你做错误决定的概率。一台 VPS 上你可以跑很多不同的东西：自动化、你的 n8n 工作流、Make.com 类自动化；你也可以在 VPS 上重做自己的 Manus 或 Instant，也许我以后会单独做一期。单台 VPS 就能轻松扛下这些。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Hostinger]</span></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">David</span></div><div class="content">
+<p>我想说的是：过去一年到今年都是如此，每过一个月，我跑的 VPS 都比上个月多，服务器在为我做越来越多不同的事。也许我也可以再做一期这个主题：你完全可以在这些机器上部署 Tailscale，让智能体以很方便的方式一起管理它们。这是再往上的一级。有兴趣的话在评论区留言，我也许会做这期视频。</p>
+<p>顺带一提，如果你在好奇我此刻用来同时调用 Claude Code、Codex、Pi、Hermes、Cursor、OpenCode、FX 这些不同编排，而且本地和云端都能用的应用——这个应用叫 Cloudroom，是我自己做的，开源且免费。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>Cloudroom 与进阶工作流：3 分 30 秒上线，15 个子智能体并行</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">David</span></div><div class="content">
+<p>我认为它是世上最好的 ADE（AI 开发环境）。事实上，Cloudroom 上的独立智能体数量即将超过 20 万；它也是世上唯一支持把任意编排当作云端智能体来跑的应用。在 Conductor 被 Meta 收购、并且对方要关掉云端之后，我非常有信心：Cloudroom 是云端智能体的最佳选择。它内置了云端智能体支持，而且我们是世上唯一在免费套餐里提供云端智能体的。</p>
+<p>如果你想继续用自己最新的模型、最喜欢的编排，以及已经付过钱的订阅，可以在 Cloudroom 里统一使用这些推理和 token，一个地方同时支持本地和云端智能体。地址是 cloudroom.dev，我也会把链接放在视频下方。如果喜欢这个项目，请在 GitHub 上给它一颗星，我会非常感谢。</p>
+<p>来看看我们的智能体做完没有。做完了。哇，3 分 30 秒，伙计们，3 分 30 秒：它不但部署并配置好了 VPS，连应用也做出来了。那就让它在我的 Brave 浏览器里用新标签页打开。</p>
+<p>你真的可以对智能体说这样的话，它就会去打开。看，出来了。非常简单。这次我开的是中等推理力度，所以我可以再给它一张截图，让它把前端重新设计得更定制、更独特，做到最好、更有辨识度。你完全可以这样要求，然后再部署。</p>
+<p>我们这个应用实际上拆成了多少个不同的服务？四个独立部分，整套东西部署在我们自己的技术栈上。伙计们，这在软件构建和托管上是彻底革命性的。所有这些部署平台都将不得不去适应。前沿编程智能体，加上 Linux，再加上一台 VPS，能做到的事情非常夸张。</p>
+<p>现在我让它重新设计。等一下，我发错了截图，发成了另一块屏幕的画面；但因为它是前沿模型，还是听懂了我的意思。另外，我在 Cloudroom 里做设计时，通常会说：给我看落地页可能的四种设计，调用 designs 这个技能。</p>
+<p>你可以给技能打标签。刚才那条是我语音输入的，我删掉重来。你只要写 designs，给任何技能打上标签，智能体就会在聊天里内联展示给你。Codex、Claude Desktop、Cursor 里你已经熟悉的功能，这里都有，包括子智能体。</p>
+<p>我新开一个线程，很快示范一下：拉起 15 个不同的子智能体，每个都用 Haiku 5.5，去分析当下正在起作用的不同营销策略，比如 SEO。不必是软件开发，营销、销售、研究都行——你用 AI 智能体在做的任何事，都可以单独拉起子智能体。</p>
+<p>每一个都在云端运行。你看左边图标上有「云端智能体」，意思是它跑在自己的 Linux 沙箱里，不在我的电脑上。我让它拉起 15 个子智能体，它会很快在自己下面再拉起一批，而且每一个子智能体也跑在隔离的 Linux 沙箱里。Linux 真的非常强：它在驱动 Cloudroom，也在驱动这台 VPS。看，它们正在被拉起。</p>
+<p>正常情况下，我同时跑 15 个 Claude Code 实例，还在用 OBS 录像，电脑就会开始卡。但现在完全不卡，因为这些都跑在云端。就算我断网，就算我合上电脑，它们也会做完。</p>
+<p>我还可以接着告诉它：现在把它们全部停掉，归档，然后改成用 Codex。非常简单的英语。这些在 Cloudroom 里都做得到：你可以让它切换编排。主智能体是 Claude Code，下面这些是 Haiku。</p>
+<p>我刚让它归档，它就把它们全部归档了，接着会用另一种编排重新拉起。所以你可以用一个智能体当经理或编排者，用另一个当工人。现在它正把它们重新拉起——字幕里听成了 Terra，而我刚才吩咐的是改成 Codex——每一个都在自己的隔离沙箱里，并且并行运行。</p>
+<p>我再让它全部停掉，转头去看设计这一侧做完没有。还没有，它还在设计。我把它调成了高推理力度，所以说得通。我们加上了分析，也在自托管 ClickHouse。</p>
+<p>很多人会把你不懂的东西加价卖给你，好多产品是建立在摩擦上，而不是在做最好的产品，这一点真的很荒唐。所以我真心觉得，一切都会被从零重新发明。你可以直接跟智能体说：我在考虑买 X，考虑把软件托管在 X，考虑试用某个软件——我该不该用？它是干什么的？是不是最好、最便宜？有没有更好的、而且是开源的替代？很多部署平台并不是开源的。</p>
+<p>再看现在的设计：天哪，好多了，真的好多了。我刷新一下。你看，实际上就两条提示：第一条比较基础，现在这条才像样。这比西方世界、甚至全世界 99% 的按摩店都好看。你真的可以去自己城里任何一家按摩店看看，设计多半不如这个。太不可思议了。而且我必须再重复一遍：这一切都托管在同一台 VPS 上。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Hostinger]</span></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">David</span></div><div class="content">
+<p>希望你喜欢这期关于 Linux 的视频。我认为它未来会更流行，甚至有可能成为桌面端最流行的操作系统。希望它对你有价值，祝你有充实、高效的一周。再见。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "David Ondrej", "title": "给 AI 智能体的终极 Linux 教程（2027 年前先看完）", "url": "https://www.youtube.com/watch?v=us6SRuWuqWc", "videoId": "us6SRuWuqWc", "published_at": "2026-11-07", "duration": 1528, "caption_source": "YouTube 页面「显示转录稿／内容转文字」（browser-cdp；非 cookies、非官方可下载字幕轨）；普通 yt-dlp 写字幕遇 HTTP 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 遇 bot-check／登录墙失败后，浏览器打开 YouTube 使用 Show transcript（内容转文字）成功；caption_source=browser-cdp；中文为全文翻译并按话题分段；赞助／自我推广口播已标灰（招聘（华沙团队）、Hostinger）；独白教程，说话人为主持人大卫·翁德雷（David Ondrej），未编造嘉宾", "guests": [], "intro": {"summary": "大卫·翁德雷（David Ondrej）讲解 AI 时代的 Linux：它运行着全球前 500 台超级计算机和最大数据中心的 100%、驱动几乎每一个云端智能体，也正在成为更多人的主力个人系统。他说明如何用一台 Linux VPS，加上前沿模型（现场是 Claude Code 搭配 Opus 5.5）自托管整家公司，省下 Vercel、Netlify、Railway、Datadog 等订阅，并用智能体循环在几分钟内修补高危漏洞。服务器他推 Ubuntu，个人电脑他推 Omarchy；现场用自己做的 Cloudroom 在约 3 分 30 秒内做出按摩预约全栈应用，并演示 15 个子智能体并行。", "points": ["Linux 生于 1991 年，却正创纪录地被采用：全球前 500 大数据中心／超算 100% 跑 Linux，每部安卓（Android）手机使用 Linux 内核；网站托管超过 63%；桌面份额约 6%（Windows 77%、macOS 16%）但增长最快", "智能体最擅长文本，而 Linux「一切皆文本文件」；只要能控制外壳（shell）、运行 bash，像 Pi 这种只需四个工具的智能体就能做几乎任何事。莱纳斯·托瓦兹（Linus Torvalds）今年 7 月也说 AI 明显有用，并用来查找内核问题", "一台 VPS 可替换前端 Vercel／Netlify（轻易每月 20 美元以上）、后端 Railway／Render、自动化 Zapier／Make.com（20–30 美元）、监控 0–30 美元，以及他曾面临的每月 230 美元产品数据分析——他让智能体自托管 ClickHouse 后立刻省下这笔钱。托管商修补 CVSS 9.8–10.0 的高危漏洞常要 1–2 天，自己的智能体循环可在 5 分钟内打补丁", "示范用 Claude Code + Opus 5.5（他称强过约 99.99% 的程序员）为 VPS 配置 SSH 密钥并做安全加固：两分半钟后系统更新完毕，防火墙只放行 SSH 和 Web，关闭密码登录并加上暴力破解防护", "发行版上，服务器默认 Ubuntu（Canonical 称超 60% 云主机；最新稳定版 26.04，LTS 五年免费安全更新；英伟达 DGX Spark 跑 Ubuntu，他有四台，26.04 内置 CUDA；sudo 等核心工具已用 Rust 重写）。个人电脑首选 Omarchy（DHH 基于 Arch + Hyprland；GitHub 超 4.6 万星；已支持 M1／M2／M3 Max，M4／M5／M6 即将到来；37signals 正把开发者从 MacBook 迁过去）。他预测苹果若 1–3 年不开放 iOS／macOS，重度用户会转向 Linux", "现场让已有 VPS 权限的 Opus 5.5 用 Deep API 抓取最新一批 Y Combinator 在投项目，自选「按摩预约」做 MVP（前端／后端／数据库／ClickHouse 分析分离），约 3 分 30 秒构建并部署；随后用 designs 技能出四版设计，两条提示后他说比世上 99% 的按摩店官网更好看。又拉起 15 个 Haiku 5.5 子智能体在云端 Linux 沙箱做营销／SEO 研究，并可用英语切换到 Codex。他做的 Cloudroom 开源免费，独立智能体数即将超过 20 万，宣称是唯一在免费套餐提供云端智能体、且支持任意编排（harness）的应用（并提到 Conductor 被 Meta 收购后关闭云端）"], "verdict": "值得看：想用智能体在 Linux VPS 上自托管项目、比较 Ubuntu 与 Omarchy、或看 Cloudroom／Claude Code 实操的人（约 25 分钟，含 Hostinger 赞助与招聘口播）；可跳过：完全不碰服务器或智能体工作流的人。", "audience": "想用 AI 智能体部署／自托管的开发者、独立开发者和创业者"}, "speakers": [{"id": "david", "name": "大卫·翁德雷（David Ondrej）", "role": "host", "short": "David"}], "sections": [{"id": "s1", "title": "开场：Linux 的十年，以及它为何已经无处不在", "start_sec": 0, "summary": "大卫·翁德雷（David Ondrej）称这是面向 AI 时代的终极 Linux 教程：我们刚刚进入「Linux 的十年」，它既在成为更多人的主力个人操作系统，也驱动着几乎每一个云端智能体。尽管诞生于 1991 年，人们仍在创纪录地转向 Linux。本期会讲清 Linux 是什么、最适合智能体的发行版，以及如何用一台 Linux VPS（虚拟专用服务器）运行并托管整家公司以节省开支；他强调不必先成为技术专家，能听懂英语就能跟上。Linux 之所以重要，是因为它运行着全球前 500 大数据中心和超级计算机的 100%——也就是全部——而且每部安卓（Android）手机都运行在 Linux 内核上。"}, {"id": "s2", "title": "Linux 的核心：内核、外壳，以及「一切皆文本」", "start_sec": 56, "summary": "大多数云服务器同样跑 Linux，因此智能体一旦「分到一台电脑」，几乎总是 Linux；这也是它们最熟悉、最好控制的操作系统。内核是核心，负责运行每个程序并直接与硬件对话；外壳（shell）则是输入 ls、cd、pwd 等命令的界面。另一个关键范式是「一切皆文本文件」，智能体用文本就能操控整台机器。所以像 Pi 这样的智能体只需要四个工具，不必堆到 20、30、40 个：只要能控制 shell、运行 bash，就几乎什么都能做。Linux 的创造者莱纳斯·托瓦兹（Linus Torvalds）今年 7 月对开发者说，AI 显然有用；这位史上最伟大的程序员之一正用 AI 查找内核问题并参与开发。大卫的结论是：连莱纳斯都在用 AI 写代码，你大概也应该。"}, {"id": "s3", "title": "和 Windows、macOS 对比：免费、开源、最好改", "start_sec": 104, "summary": "三大系统的出身不同：Windows 由微软（Microsoft）打造、需要许可证；macOS 由苹果（Apple）打造、只随苹果设备提供；Linux 是莱纳斯创立、由所有人共同开发的开源项目，也是史上最成功的开源项目之一，免费且可在任何设备上运行。当前桌面用户份额大约是 Windows 77%、macOS 16%、Linux 6%，但这 6% 正以前所未有的速度增长，也得益于后面会讲的 Omarchy。网站一侧则有超过 63% 运行并托管在 Linux 上。三者里唯一切开源。他的总结是：免费、开源、最好配置也最好改，因此特别适合 AI 智能体。"}, {"id": "s4", "title": "智能体为何偏爱 Linux：用英语部署，模型越强理由越强", "start_sec": 156, "summary": "智能体喜欢 Linux，因为设置、配置、日志和工具都是纯文本，而大语言模型（LLM）最擅长的就是文本。所以云端智能体、Codex、Claude、Cursor、Cloudroom 都跑在 Linux 上。过去日常使用 Linux 需要会基本命令、相当懂技术；现在不必了。大卫自称对 Linux 懂得很少，却因为可以用英语对智能体说话、由它决定下一步，而每天都在用、并且用得越来越多。二阶后果是：模型越聪明，Linux 就越强，改用它的理由也越强。有了 Opus 5.5 和 GPT 6.1 Soul，能做的事情一下子被打开——你可以在 Linux 上部署一切，并避开定价过高的平台。"}, {"id": "s5", "title": "安全与省钱：用一台 VPS 替换订阅，五分钟内打补丁", "start_sec": 211, "summary": "对智能体说「部署到我的 Linux 服务器」，只要有一台 VPS，它就能代劳，从而替换掉大量订阅。前端的 Vercel、Netlify 轻易每月 20 美元以上；后端则是 Railway、Render——他特别指出 Railway 最近因鲁莽操作出现过很严重的安全问题。从前人们把安全托付给托管公司；今天若处于 AI 前沿、拥有云端智能体和智能体循环，反而能保护得更好：这些公司修补 CVSS 评分为 9.8、9.9、10.0 的高危漏洞通常要一两天，而一个智能体循环能在不到 5 分钟内发现并打上补丁。自动化方面，Zapier、Make.com 轻易每月 20 到 30 美元；分析工具如 Datadog，他最近看到自己和业务的产品数据开支预计每月 230 美元，于是让智能体在 VPS 上自托管 ClickHouse，这笔钱当场省下。可用性监控大约每月 0 到 30 美元，同样能被一台 VPS 取代。自己的 VPS 上你完全做主，安全问题按分钟而不是按周修复；前端、后端、自动化和 cron 定时任务，在活跃用户到好几万之前，一台 Linux VPS 就能轻松扛住。"}, {"id": "s6", "title": "把 VPS 交给智能体：用英语配好 SSH 并连上机器", "start_sec": 322, "summary": "买下 VPS 之后，第二步是在面板里做基本设置：操作系统可以随时更改或重置。关键是把 Claude Code 或 Codex 这类强力编程智能体拿到 root 权限，后面的事它们基本都能代劳。大卫切到自己做的 Cloudroom，用 Claude Code 搭配 Opus 5.5，只说「帮我把 VPS 设好」，并附上一张控制面板截图，要求用 SSH 密钥获得 root 权限并列出所有必要步骤。他强调本期最重要的教训：这些智能体的训练语料里几乎有无穷无尽的 Linux 命令和文档，网上例子多到都被收了进去，所以用英语问，它们就能准确告诉你怎么做。它生成了 SSH 密钥（他在画面上打了码）；他把密钥粘到面板的「设置 → SSH 密钥」并保存，再把概览页里的 IP 地址补上——他承认是自己忘了给 IP，而且因为他刚重置过这台机器，智能体一度以为已经连过。随后 Claude Code 便连上了 VPS，可以开始加固和后续配置。"}, {"id": "s7", "title": "两分半钟完成加固：更新、防火墙、关掉密码登录", "start_sec": 515, "summary": "Cloudroom 甚至预测到下一条提示就是「开始做安全加固」。大卫并不清楚它会做的每一件事，但认为 Opus 5.5 作为开发者强过大约 99.99% 的程序员，因此选择信任它。若使用 Anthropic 或 OpenAI 的最新模型，就可以把一切委托出去，并因为这些模型在软件开发上已是超人水平而获得安全感。两分半钟后，VPS 已加固完毕：系统全部更新，防火墙只放行 SSH 和 Web 流量，关闭了密码登录并加上暴力破解防护。从前这需要雇一名 DevOps 或真正懂 Linux 的人；现在对 Opus 5.5 说一两句提示即可。他预告后面会用同样的方式部署全栈应用——前端、后端和产品分析都可以放在 VPS 上——然后转入发行版该怎么选。"}, {"id": "s8", "title": "怎么选发行版：服务器默认 Ubuntu，26.04 还内置 CUDA", "start_sec": 546, "summary": "发行版是在同一套 Linux 内核上打包工具、应用和桌面后的不同风味，常见的有 Ubuntu、Fedora、Arch、Omarchy、Red Hat 等。Ubuntu 基于 Debian，最适合服务器、云和 AI 智能体；Debian 是「原版」，以扎实的服务器著称；Fedora 基于 Red Hat，走最新稳定技术；Arch 独立演进，适合自己动手、永远跟上最新并高度定制；Omarchy 基于 Arch，桌面好看、友好且为智能体而造，DHH 想让人更容易从 Windows 或 macOS 迁过来；Alpine 适合很小的 Docker 容器；Linux Mint 基于 Ubuntu，面向离开 Windows 的人。服务器上 Ubuntu 是默认选择：由 Canonical 打造，他们称云上份额超过 60%（自家数据，但大卫觉得可信），这指的是所有云托管而不只是云端智能体。最新稳定版是 26.04，LTS（长期支持）提供五年免费安全更新——他猜这个缩写是某种「终身支持」——智能体也非常熟悉它，所以他自己所有 VPS 都用 Ubuntu。英伟达（NVIDIA）的 AI 机器如 DGX Spark 跑的就是 Ubuntu，他为本地 AI 配了四台；26.04 还内置 CUDA，对优化推理很关键。sudo 等核心工具已用 Rust 重写，更快、更省内存和磁盘，也因为内存安全而更少漏洞。Ubuntu 适合 VPS、持续集成（CI）、Docker 和 GPU 机器，从笔记本到云是同一套系统，选它很难走错。"}, {"id": "s9", "title": "Omarchy：为智能体而造的桌面，以及苹果只剩一到三年？", "start_sec": 702, "summary": "眼下传播最快的发行版是 Omarchy（有人读成另一种发音，他觉得不好听，还拿 Hermes 智能体的读法打比方）。这是 Ruby on Rails 创造者 DHH 目前的主线：Arch 加上 Hyprland，开箱即美观，观点鲜明并把常用工具预装好，避免过去装完 Linux 还要花 10 小时配置的痛点。它为智能体时代而造：你可以让 AI 改任何东西，这在 Windows 和 macOS 上做不到。大卫预测苹果大概还有 1 到 3 年：若不让 iPhone、MacBook、Mac Studio 更好配置、不给更多 iOS 和 macOS 的权限，人们就会转向 Linux 或 Omarchy——谁也不想再在设置里一项一项手动点。他刚演示过：在 Cloudroom 里只跟 Claude Code 编排中的前沿模型说话，不拨任何开关，就能完成加固、更新、锁定和启用防火墙。能用语音让智能体改电脑上的任何东西，这个价值太大；若苹果和微软在一到三年内不开放，很多重度用户就会离开。Omarchy 在 GitHub 已超过 4.6 万星，每天都有开发，有数百名贡献者和多位科技亿万富翁赞助；以 2026 年的增速（不是历史装机量）看，这是他心目中当下最热的发行版，也是个人电脑的第一选择。它已能装在 M1、M2 和 M3 Max 上，里面是 Linux 与 Hyprland：窗口自行平铺，全键盘驱动，每项设置都是文本文件，因此 Claude Code、Codex、Hermes 都能只靠你开口就改整个操作系统。这最适合开发者笔记本；DHH 的公司 37signals 正把开发者从 MacBook 迁过去。苹果硬件仍是世界顶尖，但若软件不开放，人们会因智能体变强而弃用苹果软件。DHH 已宣布即将支持 M4、M5 和 M6，无论哪一代苹果硬件都会被覆盖。"}, {"id": "s10", "title": "现场做应用：抓 YC 点子、按摩预约 MVP，以及自托管 ClickHouse", "start_sec": 912, "summary": "他切回 Cloudroom，用 Claude Code 配 Opus 5.5 做应用，并强调主线工作请用 OpenAI 或 Anthropic 最新最大的前沿模型，小模型留给以后的简单任务。智能体已有 VPS 权限：他要求做一款新生意的全栈 Web 应用，并在这台 VPS 上自托管 ClickHouse 做产品追踪；选定点子前，先用 Deep API 抓取最新一批 Y Combinator正在投的项目。就算没有点子，也可以用 Deep API 去做抓取和研究。只用 Codex 的人可以用 GPT 6.1 Soul，但他直言眼下 GPT 系列还不如 Claude 系列；也许 OpenAI 很快会发布 6.2 Astra 或 6.2 Soul，现在最强的仍是 Opus 5.5。活跃用户到好几万之后单台 VPS 可能不够，但起步做 MVP 和大多数项目都可以，而且一台机器能同时放多个网站和多套软件；KVM2 套餐比很多人以为的更强，不必再向 Vercel、Netlify、Railway、Render 付钱。研究回来后他要一份适合快速全栈原型的前五名（带数据库和 ClickHouse），并说这些创业公司一个下午就能重做，护城河是速度、心态和行动快慢。模型给出的方向包括牙科预约、保险报价、食品储藏室追踪、员工辅导等，他觉得都不算特别革命，于是改成同时面向顾客和店主的按摩预约应用：越简单越好，全部部署在这台 VPS，前端、后端、数据库和 ClickHouse 分析要分开。他批评许多产品只是套在 ClickHouse 外面、每月收好几百美元的壳；有了大语言模型，无论买衣服、买车还是选软件，都更容易选到最好、性价比最高的服务，咨询前沿模型能大大降低错误决策的概率。一台 VPS 还可以跑 n8n、Make.com 类自动化，甚至重做自己的 Manus 或 Instant。他自己每个月跑的 VPS 都比上个月多；再往上可以部署 Tailscale，让智能体统一管理多台机器，有兴趣的人可以在评论区留言。他用来同时调用 Claude Code、Codex、Pi、Hermes、Cursor、OpenCode、FX 且覆盖本地与云端的应用，正是自己做的开源免费软件 Cloudroom。"}, {"id": "s11", "title": "Cloudroom 与进阶工作流：3 分 30 秒上线，15 个子智能体并行", "start_sec": 1174, "summary": "他认为 Cloudroom 是世上最好的 ADE（AI 开发环境），独立智能体数即将超过 20 万，也是唯一能把任意编排当作云端智能体来跑的应用。Conductor 被 Meta 收购并关闭云端之后，他更确信 Cloudroom 是最佳选择，而且他们是唯一在免费套餐里提供云端智能体的。用户可把已有模型、编排和订阅集中到 cloudroom.dev，他呼吁在 GitHub 上给项目加星。现场智能体在 3 分 30 秒内不但配置并部署了 VPS，还把应用做了出来；他让它在 Brave 浏览器的新标签页打开。当时是中等推理力度，应用拆成四个独立服务，整套跑在自己的技术栈上。他认为这对软件构建和托管是革命性的，现有部署平台将不得不适应。他一度发错了另一块屏幕的截图，但前沿模型仍理解了「重新设计前端、更定制独特」的意图；在 Cloudroom 里他会调用 designs 技能，要求看四种落地页方案，技能可以打标签并在聊天里内联展示。Codex、Claude Desktop、Cursor 里常见的子智能体这里都有：他新开线程，让它拉起 15 个 Haiku 5.5 子智能体去分析当下有效的营销与 SEO 策略——营销、销售、研究都可以，不必限于写代码。每一个都在云端独立的 Linux 沙箱里跑，不占用他的电脑，所以即使同时开 15 个 Claude Code 实例并用 OBS 录像也不会卡，断网或合上电脑也会做完。Linux 既在驱动 Cloudroom，也在驱动这台 VPS。他用英语让主智能体（Claude Code）把这 15 个子智能体（Haiku）全部停止、归档并改成 Codex，展示可以用不同模型分别充当编排者和工人。设计一侧被调到高推理力度，仍在出图；他们已经加上分析并自托管 ClickHouse。他批评许多产品靠信息差和摩擦加价，认为一切都会被从零重新发明；买东西、选托管、试用软件前都可以先问智能体有没有更好的开源替代——很多部署平台并不是开源的。两条提示之后，他认为新设计比全世界 99% 的按摩店都好看，而整家业务都托管在同一台 VPS 上。片尾他说 Linux 未来会更流行，甚至有可能成为桌面端最流行的操作系统，并祝观众有充实、高效的一周。"}], "paragraphs": [{"start_sec": 0, "type": "text", "speaker_id": "david", "section_id": "s1", "zh": "我是大卫·翁德雷（David Ondrej）。这是一堂面向 AI 时代的终极 Linux 教程。我们刚刚进入 Linux 的十年：它正在两头铺开，既成为越来越多人的主力个人操作系统，也驱动着几乎每一个云端智能体。尽管它诞生于 1991 年，人们仍在创纪录地转向 Linux。这期视频里，我会讲清 Linux 是什么、最适合智能体的 Linux 发行版是什么，以及你怎样用一台 Linux VPS（虚拟专用服务器）运行并托管整家公司——这会帮你省下不少钱。"}, {"start_sec": 29, "type": "text", "speaker_id": "david", "section_id": "s1", "zh": "另外，你不必先成为技术专家也能跟上。只要能听懂英语，你就可以做到这些。"}, {"start_sec": 33, "type": "ad_omitted", "ad_brand": "招聘（华沙团队）", "section_id": "s1"}, {"start_sec": 47, "type": "text", "speaker_id": "david", "section_id": "s1", "zh": "那么，Linux 为什么真的重要？目前，它运行着全球前 500 大数据中心和超级计算机的 100%，也就是全部。而且每一部安卓（Android）手机都运行在 Linux 内核上。"}, {"start_sec": 56, "type": "text", "speaker_id": "david", "section_id": "s2", "zh": "大多数云服务器也是如此。这意味着：当你的 AI 智能体分到一台电脑时，那几乎总是 Linux。智能体最熟悉、也最好控制的操作系统，就是 Linux。"}, {"start_sec": 63, "type": "text", "speaker_id": "david", "section_id": "s2", "zh": "Linux 的工作方式可以很快说清。首先是内核（kernel），相当于 Linux 的核心：它运行每一个程序，并直接与硬件对话。然后是外壳（shell），也就是你输入命令的那一层界面，比如 ls、cd、pwd，都是你熟悉的那些命令。"}, {"start_sec": 80, "type": "text", "speaker_id": "david", "section_id": "s2", "zh": "另一个重要范式是：一切皆文本文件。所以智能体用文本就能把整台机器跑起来。正因为如此，像 Pi 这种智能体只需要四个工具，不必堆到 20、30、40 个不同工具——只要它能控制 shell、运行 bash，就几乎什么都能做。"}, {"start_sec": 88, "type": "text", "speaker_id": "david", "section_id": "s2", "zh": "对了，Linux 的创造者本人莱纳斯·托瓦兹（Linus Torvalds）今年 7 月早些时候对开发者说，AI 显然是有用的。莱纳斯是史上最伟大的程序员之一，他正积极用 AI 查找 Linux 内核里的问题，并参与开发。所以，如果连莱纳斯都在用 AI 写代码，你大概也应该这么做。"}, {"start_sec": 104, "type": "text", "speaker_id": "david", "section_id": "s3", "zh": "接下来把 Linux 和 Windows、macOS 放在一起看。Windows 显然是微软（Microsoft）做的，macOS 是苹果（Apple）做的，而 Linux 是开源项目：由莱纳斯创立，却由所有人共同开发。它是史上规模最大、最广为人知、也最成功的开源项目之一。"}, {"start_sec": 119, "type": "text", "speaker_id": "david", "section_id": "s3", "zh": "价格也很清楚：Windows 需要买许可证；Mac 只随苹果设备提供；Linux 则是免费的，任何人都可以把它跑在任何设备上。"}, {"start_sec": 126, "type": "text", "speaker_id": "david", "section_id": "s3", "zh": "目前的桌面用户份额大约是：Windows 77%，macOS 16%，Linux 6%。但这 6% 正以前所未有的速度增长，也得益于像 Omarchy 这样的项目——后面视频里还会细讲。网站这一侧则不同：超过 63% 的网站运行在 Linux 上，也托管在 Linux 上。"}, {"start_sec": 148, "type": "text", "speaker_id": "david", "section_id": "s3", "zh": "三者之中，也唯有 Linux 是开源的。所以总结一下：它免费，它开源，它也是其中最好配置、最好更改的——这对 AI 智能体显然非常有利。"}, {"start_sec": 156, "type": "text", "speaker_id": "david", "section_id": "s4", "zh": "正如我已经说过的，智能体就是喜欢 Linux，因为在 Linux 里一切都是纯文本：设置、配置、日志、工具，而 AI 最擅长的就是文本，也就是大语言模型（LLM）。正因为如此，云端智能体、Codex、Claude、Cursor、Cloudroom 都跑在 Linux 上。"}, {"start_sec": 170, "type": "text", "speaker_id": "david", "section_id": "s4", "zh": "但你不必先会 Linux 才能用它，这才是妙处。过去，你得会那些基本命令，也得相当懂技术，才能把 Linux 当作日常系统来用。"}, {"start_sec": 181, "type": "text", "speaker_id": "david", "section_id": "s4", "zh": "今天完全不是这样。我自己对 Linux 懂得很少，却每天都在用，而且因为智能体而用得越来越多——你只要用英语跟智能体说话，它已经知道该做什么。"}, {"start_sec": 195, "type": "text", "speaker_id": "david", "section_id": "s4", "zh": "这件事的美妙之处，也是它的二阶后果：模型越聪明，Linux 就越强，改用 Linux 的理由也越强。现在我们有了 Opus 5.5、GPT 6.1 Soul，能做的事情一下子被打开了。你可以在 Linux 上部署一切，避开那些定价过高的平台。"}, {"start_sec": 211, "type": "text", "speaker_id": "david", "section_id": "s5", "zh": "你只要跟智能体说「把它部署到我的 Linux 服务器上」，而你又有一台 VPS，它就能把这些都代劳。这会替换掉你本来不得不支付的许多开支和订阅。前端这边，Vercel、Netlify 轻易每个月就要 20 美元以上；后端则是 Railway、Render。安全问题就更不用说了——我等下会放到屏幕上：Railway 最近出过非常严重的安全问题，主要来自鲁莽的操作。"}, {"start_sec": 237, "type": "text", "speaker_id": "david", "section_id": "s5", "zh": "如果你自己也有 VPS，并且把一切都自托管，你就可以设一个智能体循环，在几分钟内自动打上这些补丁——很多公司不会这么做。从前的情况是：你把东西托管到这些公司，以为他们会把一切打理妥贴，你也就安全了。"}, {"start_sec": 248, "type": "text", "speaker_id": "david", "section_id": "s5", "zh": "今天，如果你站在 AI 的前沿，会用 AI，手里有云端智能体和智能体循环，你实际上能比把前后端懒洋洋地部署到这些公司上，保护得更好。"}, {"start_sec": 260, "type": "text", "speaker_id": "david", "section_id": "s5", "zh": "因为遇到 CVSS 评分达到 9.8、9.9、10.0 这类高危漏洞时，他们通常要花一两天来打补丁。而如果你足够投入，只设一个智能体循环，就能在不到 5 分钟内发现并修补这些漏洞。"}, {"start_sec": 272, "type": "text", "speaker_id": "david", "section_id": "s5", "zh": "另一件你可以甩掉的，是自动化方面的开支，比如 Zapier、Make.com，这些轻易每个月也要 20、30 美元。分析还有 Datadog 和其他产品。我最近就在用其中一家，自己和公司的产品数据预计每月开支是 230 美元——差不多只是产品数据这一项。我刚意识到这一点，就觉得不行。"}, {"start_sec": 291, "type": "text", "speaker_id": "david", "section_id": "s5", "zh": "于是我只是让智能体在我的一台 VPS 上自托管 ClickHouse，立刻就去掉了这 230 美元的开支。还有可用性监控，大概每月 0 到 30 美元，同样能被一台 VPS 取代。"}, {"start_sec": 300, "type": "text", "speaker_id": "david", "section_id": "s5", "zh": "有了自己的 VPS，你完全做主。任何安全问题你都可以按分钟而不是按周修复，部署方式也由你决定。你只要跟智能体说话，它就能把一切都托管到同一台 VPS 上。而且它能扛住的流量，比你以为的要多：无论是前端、后端、自动化还是 cron 定时任务，在活跃用户到好几万之前，一台 Linux VPS 都能轻松搞定。"}, {"start_sec": 322, "type": "ad_omitted", "ad_brand": "Hostinger", "section_id": "s6"}, {"start_sec": 385, "type": "text", "speaker_id": "david", "section_id": "s6", "zh": "第一步是买下 VPS。买好之后，第二步是在面板里做基本设置。先选操作系统：如果刚才选错了，或者你有一台旧的 VPS 想重置，都可以在「操作系统与面板」这里很轻松地改掉。接下来要给智能体访问权限。这件事开始变得有意思：一旦你把像 Claude Code 或 Codex 这样的强力编程智能体拿到 VPS 的 root 权限，后面的一切它们基本上都能帮你设好。"}, {"start_sec": 417, "type": "text", "speaker_id": "david", "section_id": "s6", "zh": "我来示范一下。我切到 Cloudroom，使用 Claude Code 搭配 Opus 5.5，然后只对它说：「帮我把 VPS 设好。」就这一句。我把控制面板的截图附上——就是刚才那个画面原封不动截下来贴进去。接下来这些步骤不必你自己做，我们让 Claude Code 来做。我对它说：用 SSH 密钥，好让你拿到 root 权限；把完成这件事所需的全部步骤都给我。你只要用英语跟智能体说话。"}, {"start_sec": 446, "type": "text", "speaker_id": "david", "section_id": "s6", "zh": "这就是我希望你从这期视频里带走的最主要教训。Linux 之所以强大，是因为所有这些智能体的训练语料里几乎有无穷无尽的 Linux 数据：网上有太多 Linux 命令和文档的例子，它们全都被收进了这些智能体的训练数据。所以你可以像这样用英语跟它们说话，它们就能准确告诉你该做什么。它把 SSH 密钥给了我——我会在画面上打码——还有步骤。我复制下来，一键就好。"}, {"start_sec": 473, "type": "text", "speaker_id": "david", "section_id": "s6", "zh": "回到控制面板，我们要去设置里的 SSH 密钥：打开设置，进入 SSH 密钥，添加密钥，然后把内容粘贴进去。差不多就是这样，点右下角保存，SSH 密钥就存好了。现在我可以告诉智能体「搞定了」，Claude Code 就会连上这台 VPS，开始做安全加固，并把需要的东西都设好。对了，它还缺 IP，这是我的疏忽：到概览页复制 IP 地址交给它。好了，连上了。它刚才其实想多了；因为我刚刚重置过这台 VPS，所以它一度以为自己「已经连过」。"}, {"start_sec": 515, "type": "text", "speaker_id": "david", "section_id": "s7", "zh": "现在已经连上了。我只要说「开始做安全加固」。事实上，Cloudroom 已经把这句预测成我的下一条提示，所以我就直接用了。我甚至并不清楚它接下来会做的每一件事，我只知道 Opus 5.5 作为开发者比外面几乎所有人都强，大概强过 99.99% 的程序员，所以我选择信任它去加固这台 VPS。"}, {"start_sec": 530, "type": "text", "speaker_id": "david", "section_id": "s7", "zh": "如果你用的是 Anthropic 或 OpenAI 的最新模型，就能用这样的速度推进：基本上把一切都委托给那个 AI 智能体。它也会是安全的，因为这些模型在软件开发上已经是超人水平。"}, {"start_sec": 546, "type": "text", "speaker_id": "david", "section_id": "s7", "zh": "两分半钟后，VPS 已经加固完毕：更新做完了，一切都是最新的；防火墙只放行 SSH 和 Web 流量；密码登录被关掉；还加上了暴力破解防护。从前你得雇一名 DevOps，或找一个真正懂 Linux 的人。现在你对 Opus 5.5 说一两句提示，它就能替你做完。后面我还会用完全同样的方式，向你演示如何部署一款全栈应用——前端、后端、产品分析，凡是你想得到的，都可以托管在一台 VPS 上。"}, {"start_sec": 570, "type": "text", "speaker_id": "david", "section_id": "s8", "zh": "我们把访问权限给了智能体，把 SSH 密钥给了它，也把机器锁好了。现在来谈 Linux 发行版和命令：什么是发行版，主流发行版之间怎么比较，Ubuntu 和 Omarchy 该怎么选，以及你真正应该会、也应该知道的那 10 条命令。"}, {"start_sec": 579, "type": "text", "speaker_id": "david", "section_id": "s8", "zh": "首先，什么是 Linux 发行版？Linux 本身只是核心，也就是 Linux 内核。发行版再在这之上打包工具、应用和桌面，把所有东西捆在一起。所以内核是同一套，风味和适配却各不相同。你有 Ubuntu、Fedora、Arch、Omarchy、Red Hat，还有很多。我们把几个大的过一遍。"}, {"start_sec": 600, "type": "text", "speaker_id": "david", "section_id": "s8", "zh": "Ubuntu 基于 Debian，最适合服务器、云和 AI 智能体。然后是 Debian，也就是「原版」，以非常扎实的服务器著称。"}, {"start_sec": 610, "type": "text", "speaker_id": "david", "section_id": "s8", "zh": "Fedora 基于 Red Hat，走的是最新的稳定技术。Arch 以自己为基础，不依附别的系统，最适合自己动手、永远跟上最新，并且有很高的可定制性。Omarchy 基于 Arch Linux，桌面很好看，也很友好，而且真正为智能体而造——这是重点。DHH 正在用 Omarchy 做的事，后面我还有几页幻灯片：他想让 Linux 更好上手，也尽量可配置，好让人们能轻松从 Windows 或 macOS 迁过来。"}, {"start_sec": 635, "type": "text", "speaker_id": "david", "section_id": "s8", "zh": "然后是 Alpine，同样是独立体系，最适合很小的 Docker 容器。还有基于 Ubuntu 的 Linux Mint，面向正在离开 Windows 的人。"}, {"start_sec": 642, "type": "text", "speaker_id": "david", "section_id": "s8", "zh": "你真正需要搞懂的两个，是 Ubuntu 和 Omarchy。服务器上，Ubuntu 绝对是默认选择。它由 Canonical 打造，是云上号称第一的 Linux，他们说份额超过 60%。当然这是他们自己的数据，但我觉得可信。所以，超过 60% 的云——不只是云端智能体，而是任何云托管——都在运行 Ubuntu。"}, {"start_sec": 662, "type": "text", "speaker_id": "david", "section_id": "s8", "zh": "最新稳定版是 26.04；LTS（长期支持）则提供五年免费安全更新。我猜这个缩写大概是某种「终身支持」。这意味着大多数指南和 AI 的回答都会默认它，Ubuntu 也非常被 AI 智能体所熟悉。所以我自己所有的 VPS 都在用 Ubuntu。"}, {"start_sec": 669, "type": "text", "speaker_id": "david", "section_id": "s8", "zh": "它还能赢在哪里？很妙的一点是：英伟达（NVIDIA）的 AI 机器，比如 DGX Spark，跑的就是 Ubuntu。我个人的本地 AI 配置里就有四台 DGX Spark；26.04 还内置了 CUDA，这对优化推理显然非常关键。"}, {"start_sec": 690, "type": "text", "speaker_id": "david", "section_id": "s8", "zh": "像 sudo 这样的核心工具已经用 Rust 重写，所以更快，也更省内存、更占更少磁盘，安全漏洞也更少——因为 Rust 是一门内存安全的语言。因此 Ubuntu 最适合你的 VPS、持续集成（CI）、Docker 和 GPU 机器。从笔记本到云都是同一套系统，选 Ubuntu 很难走错。"}, {"start_sec": 702, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "最近突然走红、传播最快的 Linux 发行版，则是 Omarchy。有人把它读成另一种发音，我觉得不好听——好比有人把 Hermes 智能体的名字读成我并不喜欢的那个音。我并不在乎主流的官方读法，就是觉得 Omarchy 这样读好听得多。"}, {"start_sec": 722, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "DHH 是 Ruby on Rails 的创造者，而这基本上就是他眼下的主线：他自己对 Linux 的一套理解。Arch 加上 Hyprland，开箱即美观，观点很鲜明，把你需要的许多工具预装好，这样你就不必做那么多配置。"}, {"start_sec": 740, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "顺便说一句，那曾是 Linux 最糟的部分之一：你把 Linux 下载到电脑上，然后还得花 10 个小时去设置。很多人不想干这个，而 Omarchy 差不多就是这个问题的答案。它为智能体时代而造：你可以让 AI 去改任何东西，这在 Windows 上做不到，在 macOS 上也做不到。"}, {"start_sec": 758, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "另外，我自己的预测是：苹果大概还有大约 1 到 3 年时间把这件事想明白。如果他们不让 iPhone、MacBook 以及所有的 Mac Studio 更好配置，基本上也就是不给我们更多访问 iOS 和 macOS 的权限，人们就会转向 Linux，转向 Omarchy 或其他发行版。谁还想在设置里一项一项手动改东西？"}, {"start_sec": 764, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "我刚才已经用那台 VPS 示范过了：我可以再次进入 Cloudroom。所有这些都不是我自己拨过一个开关、自己改过一项设置，而只是我在 Claude Code 编排里跟一个前沿模型说话，它就能完成一切——加固 VPS、更新系统、把机器锁好、启用防火墙。"}, {"start_sec": 795, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "在 macOS 和 Windows 上，你做不到这些，除非钻进设置、点无数按钮，还得先搞懂那个界面。如果能用 AI 智能体控制一切，这是巨大的增值。所以人们才会去用 Instant，并用 Grok 这类机器人处理各种任务——图的就是方便：手机上有一个能做任何事的智能体，这很省事。"}, {"start_sec": 812, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "问题在于，iOS、macOS 和 Windows 都锁得很死。如果它们在接下来的一年、两年、顶多三年里不开放，很多重度用户就会换掉，因为能用语音提示让智能体改电脑上的任何东西，这个价值实在太大了。顺便说一句，这是我对未来一个很容易做出的预测。"}, {"start_sec": 820, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "截至今天，它在 GitHub 上已经超过 4.6 万星。我可以把仓库拉出来：就是它。我顺手给它点了星。这是个很好的项目，而且几乎每天都在开发，有数百名贡献者。多位科技亿万富翁也在赞助它，所以它得到了一些科技领域最聪明的人的支持。"}, {"start_sec": 845, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "以 2026 年的增长速度来看——不是装机量，因为其他发行版已经存在很多年——这大概是当下最热的 Linux 发行版。所以，如果你打算把 Linux 用在自己的个人电脑上，这会是我今天的第一选择。"}, {"start_sec": 858, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "而且现在它也能安装在 M1、M2 和 M3 Max 上，你完全可以让自己的 MacBook 以 Omarchy 作为操作系统。Omarchy 里是 Linux 和 Hyprland：窗口会自己完成平铺和样式，全部用键盘驱动，每一项设置都是文本文件。"}, {"start_sec": 876, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "所以 Claude Code、Codex、Hermes 都能只靠你开口，就重新定样式、更新整个操作系统。这最适合开发者笔记本。DHH 的公司 37signals 正在把开发者从 MacBook 迁到它上面。"}, {"start_sec": 888, "type": "text", "speaker_id": "david", "section_id": "s9", "zh": "再说一次，苹果的硬件非常出色，他们在硬件上仍是全世界最好的。但如果他们不让我们改软件，不给我们更多权限，人们就会因为 AI 智能体越来越强而不再用苹果的软件。实际上，DHH 已经宣布即将支持 M4、M5 和 M6，所以无论你手上是哪一代苹果硬件，都会被 Omarchy 支持。"}, {"start_sec": 912, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "现在让我演示怎样真正把应用做出来。我再次切到 Cloudroom，仍然是 Claude Code 搭配 Opus 5.5。这一点我必须强调：请用前沿模型。不管是 OpenAI 还是 Anthropic，最新、最大的那一档，就用那个。后面你可以再优化，简单任务用小模型；但主线工作、把环境搭起来，请用前沿模型，一切会轻松得多。"}, {"start_sec": 938, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "现在我们可以直接跟它说话。它已经有 VPS 权限了，所以我可以说：我们来为一门新生意做一款全栈 Web 应用，并加上正经的产品追踪——也就是在这台 VPS 上自托管 ClickHouse。"}, {"start_sec": 945, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "在选定点子之前，我先希望你用 Deep API 去抓取最新一批 Y Combinator项目，给我一份他们正在投的想法清单。就算你自己没有点子，也可以用 Deep API 去抓取和研究任何东西，这也会让你的智能体强很多。"}, {"start_sec": 968, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "趁它在跑，第一步其实就是用英语告诉 Opus 5.5 你想要什么。如果你只用 Codex，那可以用 GPT 6.1 Soul。"}, {"start_sec": 977, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "它没那么好，我跟你说实话。眼下 GPT 系列还不如 Claude 系列。也许 OpenAI 很快会发布 6.2 Astra，或者 6.2 Soul，到时再看。但现在最强的是 Opus 5.5。"}, {"start_sec": 990, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "无论你想做什么应用，一旦有了好几万活跃用户，单台 VPS 大概就不够了。但我要说的是：起步做 MVP，做大多数项目，都可以托管在一台 VPS 上。不仅如此，你还可以在同一台 VPS 上同时放很多不同的东西——多个网站、多套软件。"}, {"start_sec": 1010, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "一台 Linux 机器，配上 KVM2 套餐，比很多人以为的要强得多。所以你不必再向 Vercel、Netlify、Railway、Render 付钱。服务器是你的，你只用智能体控制它，并按自己的需求去配置。"}, {"start_sec": 1022, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "来看看它研究出了什么。这些里面，哪些最适合现在做一版又快又糙的全栈原型？要带数据库，也要带产品追踪和 ClickHouse。先给我这份清单里的前五个选择。另外，这些创业公司你其实一个下午就能重做一遍。护城河就是速度：如果有人还在谈别的，真正的护城河是心态、态度，以及你能多快行动。"}, {"start_sec": 1048, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "五个方向包括：牙科预约应用、保险报价、食品储藏室追踪、员工辅导应用等。我先得说，我不知道 Y Combinator 为什么在投这些，看起来都没有特别革命性。我改一个接近的点子：做按摩预约应用，同时面向顾客和店主。"}, {"start_sec": 1065, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "就把它做成一个简单的 MVP，别想太复杂，越简单越好。并确保一切都部署、托管在这台 VPS 上：前端、后端、数据库，以及基于 ClickHouse 的产品分析，要正确分开。"}, {"start_sec": 1078, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "很疯狂的是，好多产品其实只是套在 ClickHouse 外面的一层皮，除了收集你的数据再每月收你好几百美元，没做什么别的。有了大语言模型和智能体，反而更容易直接去选最好的服务：哪个性价比最高、产品最好，你就能比没有 AI 时做出明智得多的选择。这件事无论你是在买衣服、买新车，还是在决定用哪个平台、哪套软件，都适用。"}, {"start_sec": 1112, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "咨询前沿智能体和前沿模型，能大大降低你做错误决定的概率。一台 VPS 上你可以跑很多不同的东西：自动化、你的 n8n 工作流、Make.com 类自动化；你也可以在 VPS 上重做自己的 Manus 或 Instant，也许我以后会单独做一期。单台 VPS 就能轻松扛下这些。"}, {"start_sec": 1135, "type": "ad_omitted", "ad_brand": "Hostinger", "section_id": "s10"}, {"start_sec": 1143, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "我想说的是：过去一年到今年都是如此，每过一个月，我跑的 VPS 都比上个月多，服务器在为我做越来越多不同的事。也许我也可以再做一期这个主题：你完全可以在这些机器上部署 Tailscale，让智能体以很方便的方式一起管理它们。这是再往上的一级。有兴趣的话在评论区留言，我也许会做这期视频。"}, {"start_sec": 1160, "type": "text", "speaker_id": "david", "section_id": "s10", "zh": "顺带一提，如果你在好奇我此刻用来同时调用 Claude Code、Codex、Pi、Hermes、Cursor、OpenCode、FX 这些不同编排，而且本地和云端都能用的应用——这个应用叫 Cloudroom，是我自己做的，开源且免费。"}, {"start_sec": 1174, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "我认为它是世上最好的 ADE（AI 开发环境）。事实上，Cloudroom 上的独立智能体数量即将超过 20 万；它也是世上唯一支持把任意编排当作云端智能体来跑的应用。在 Conductor 被 Meta 收购、并且对方要关掉云端之后，我非常有信心：Cloudroom 是云端智能体的最佳选择。它内置了云端智能体支持，而且我们是世上唯一在免费套餐里提供云端智能体的。"}, {"start_sec": 1205, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "如果你想继续用自己最新的模型、最喜欢的编排，以及已经付过钱的订阅，可以在 Cloudroom 里统一使用这些推理和 token，一个地方同时支持本地和云端智能体。地址是 cloudroom.dev，我也会把链接放在视频下方。如果喜欢这个项目，请在 GitHub 上给它一颗星，我会非常感谢。"}, {"start_sec": 1220, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "来看看我们的智能体做完没有。做完了。哇，3 分 30 秒，伙计们，3 分 30 秒：它不但部署并配置好了 VPS，连应用也做出来了。那就让它在我的 Brave 浏览器里用新标签页打开。"}, {"start_sec": 1238, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "你真的可以对智能体说这样的话，它就会去打开。看，出来了。非常简单。这次我开的是中等推理力度，所以我可以再给它一张截图，让它把前端重新设计得更定制、更独特，做到最好、更有辨识度。你完全可以这样要求，然后再部署。"}, {"start_sec": 1255, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "我们这个应用实际上拆成了多少个不同的服务？四个独立部分，整套东西部署在我们自己的技术栈上。伙计们，这在软件构建和托管上是彻底革命性的。所有这些部署平台都将不得不去适应。前沿编程智能体，加上 Linux，再加上一台 VPS，能做到的事情非常夸张。"}, {"start_sec": 1276, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "现在我让它重新设计。等一下，我发错了截图，发成了另一块屏幕的画面；但因为它是前沿模型，还是听懂了我的意思。另外，我在 Cloudroom 里做设计时，通常会说：给我看落地页可能的四种设计，调用 designs 这个技能。"}, {"start_sec": 1301, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "你可以给技能打标签。刚才那条是我语音输入的，我删掉重来。你只要写 designs，给任何技能打上标签，智能体就会在聊天里内联展示给你。Codex、Claude Desktop、Cursor 里你已经熟悉的功能，这里都有，包括子智能体。"}, {"start_sec": 1320, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "我新开一个线程，很快示范一下：拉起 15 个不同的子智能体，每个都用 Haiku 5.5，去分析当下正在起作用的不同营销策略，比如 SEO。不必是软件开发，营销、销售、研究都行——你用 AI 智能体在做的任何事，都可以单独拉起子智能体。"}, {"start_sec": 1334, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "每一个都在云端运行。你看左边图标上有「云端智能体」，意思是它跑在自己的 Linux 沙箱里，不在我的电脑上。我让它拉起 15 个子智能体，它会很快在自己下面再拉起一批，而且每一个子智能体也跑在隔离的 Linux 沙箱里。Linux 真的非常强：它在驱动 Cloudroom，也在驱动这台 VPS。看，它们正在被拉起。"}, {"start_sec": 1362, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "正常情况下，我同时跑 15 个 Claude Code 实例，还在用 OBS 录像，电脑就会开始卡。但现在完全不卡，因为这些都跑在云端。就算我断网，就算我合上电脑，它们也会做完。"}, {"start_sec": 1375, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "我还可以接着告诉它：现在把它们全部停掉，归档，然后改成用 Codex。非常简单的英语。这些在 Cloudroom 里都做得到：你可以让它切换编排。主智能体是 Claude Code，下面这些是 Haiku。"}, {"start_sec": 1394, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "我刚让它归档，它就把它们全部归档了，接着会用另一种编排重新拉起。所以你可以用一个智能体当经理或编排者，用另一个当工人。现在它正把它们重新拉起——字幕里听成了 Terra，而我刚才吩咐的是改成 Codex——每一个都在自己的隔离沙箱里，并且并行运行。"}, {"start_sec": 1415, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "我再让它全部停掉，转头去看设计这一侧做完没有。还没有，它还在设计。我把它调成了高推理力度，所以说得通。我们加上了分析，也在自托管 ClickHouse。"}, {"start_sec": 1427, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "很多人会把你不懂的东西加价卖给你，好多产品是建立在摩擦上，而不是在做最好的产品，这一点真的很荒唐。所以我真心觉得，一切都会被从零重新发明。你可以直接跟智能体说：我在考虑买 X，考虑把软件托管在 X，考虑试用某个软件——我该不该用？它是干什么的？是不是最好、最便宜？有没有更好的、而且是开源的替代？很多部署平台并不是开源的。"}, {"start_sec": 1451, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "再看现在的设计：天哪，好多了，真的好多了。我刷新一下。你看，实际上就两条提示：第一条比较基础，现在这条才像样。这比西方世界、甚至全世界 99% 的按摩店都好看。你真的可以去自己城里任何一家按摩店看看，设计多半不如这个。太不可思议了。而且我必须再重复一遍：这一切都托管在同一台 VPS 上。"}, {"start_sec": 1480, "type": "ad_omitted", "ad_brand": "Hostinger", "section_id": "s11"}, {"start_sec": 1509, "type": "text", "speaker_id": "david", "section_id": "s11", "zh": "希望你喜欢这期关于 Linux 的视频。我认为它未来会更流行，甚至有可能成为桌面端最流行的操作系统。希望它对你有价值，祝你有充实、高效的一周。再见。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
