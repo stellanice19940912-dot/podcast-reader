@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>女性在向左走，男性没有跟上</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="chris">克里斯·威廉姆森（Chris Williamson）</option><option value="daniel">丹尼尔·考克斯（Daniel Cox）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Chris Williamson</span><span class="pill">2026-11-06</span></div>
+<h1>女性在向左走，男性没有跟上</h1>
+<p class="sub">嘉宾：丹尼尔·考克斯（Daniel Cox） · 约 11 分钟（664 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=bRERpUGzwzU" target="_blank" rel="noopener">https://www.youtube.com/watch?v=bRERpUGzwzU</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Chris Williamson</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-06</dd></div><div class="meta-row"><dt>时长</dt><dd>约 11 分钟（664 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；普通 yt-dlp 遇 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 补拉成功）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段；说话人按对话轮次启发式标注（克里斯主持 / 丹尼尔·考克斯）；片尾 Timeline 赞助标为 ad_omitted</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>bRERpUGzwzU</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>克里斯·威廉姆森与丹尼尔·考克斯谈年轻男女意识形态鸿沟：盖洛普等显示女性大幅左倾、男性大体原地；民主党官网代表名单与特朗普形象如何把两边推向互不信任。</p>
+<h3>核心要点</h3><ul><li>约 2016 起年轻男女意识形态分岔；Z 世代女权认同性别差约 15 点</li><li>主因是女性左移而非男性极右；罗诉韦德案后堕胎态度剧变</li><li>民主党官网约 17 群体名单刻意不见男性，加剧疏离</li><li>约 1/3–4/10 年轻男性两党都不信；信息过载催生虚无</li><li>党派女性化+大学学历女性约占 1/3，塑造议程优先级</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">短切片信息密度高，适合补背景；要完整论证需回听原长访谈</p>
+<h3>适合人群</h3><p>关心性别政治极化、美选与年轻选民的听众</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">政治有多重要：盖洛普里年轻男女的意识形态断裂</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">丹尼尔·考克斯（Daniel Cox，民意/政治社会学背景）强调政治极重要：约 2022 年起回看盖洛普（Gallup）等数据，发现约 2016 年起年轻男女意识形态急剧分岔——年轻女性显著更自由派。团队随后扩到女性主义认同等指标，在多项调查中看到同一持久鸿沟。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">女性主义认同：婴儿潮到 Z 世代的性别差</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">政治与文化多项指标都显示缺口。以“你是否女性主义者”为例：婴儿潮男女约在高 30%/低 40%，相差约五个百分点；X 世代、千禧一代更高但性别差仍不大；到 Z 世代差约 15 点——多数 Z 世代女性自称女权，Z 世代男性约四成。Z 世代男性与千禧男性接近，抬升主要来自女性。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">不是男性极右：女性大幅左倾约 23–30 点</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯引用网上走红的约 50 年左右翼曲线：男女曾多次几乎持平，近年突然拉开约 23–26–30 点。核心读法：并非年轻男性大幅右转，而是女性变得激进左倾、男性相对平坦。罗诉韦德案（Roe）被推翻后，年轻女性堕胎态度剧变；90 年代民主党谈堕胎更有道德灰度，2020 年代话语更绝对。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">领袖把性别对立做成零和；民主党文化转向</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">政治领袖通过明显站队加剧性别裂痕：议题被框成零和、无法妥协。民主党过去重阶级与经济，现更偏文化议题。考克斯举例约 2023 年民主党官网“我们代表谁”列出约 17 类群体（退伍军人、移民、黑人等），却刻意不见“男性/女性”作为整体——尤其男性缺席，被解读为有意为之。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">特朗普与年轻女性：两边都觉得没有容身之处</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">许多年轻女性认为特朗普对其处境缺乏同情（不忠、色情明星、性侵指控等叙事）；年轻男性则感到民主党不为其发声。结果是双方都觉得在对方阵营无位置。部分年轻男性一度视特朗普为“体制外的人”，但约三分之一至近四成年轻男性表示两党都不信任——信息过载制造虚无，确定性被当成专业性代理。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">共和党绑死特朗普 vs 民主党对男性的乌龙球</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯指出：共和党已无法换掉特朗普，年轻女性/少数群体在特朗普党感到不受欢迎时几乎无解；民主党对男性的忽视则像“自己捅的乌龙球”。即便换哈里斯/拜登等候选人，男性跟随黑人女性或有摩擦，但远不如女性跟随特朗普困难；官网 17 群体名单仍漏掉男性，等于主动放弃一大块。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">服务业就业与工薪阶层：左翼叙事漏掉谁</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">近年就业增长多在服务业与医疗，女性占比更高；若左翼自我定位是为边缘与挣扎者发声，却漏掉跨种族/宗教的工薪阶层男性，就与其存在理由冲突。考克斯认为这对本可轻松覆盖该群体的民主党尤其尴尬。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">党派人口结构：六成女性与大学学历女性占比</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">过去约二十年民主党组成巨变：自认民主党人约 60% 女性、40% 男性长期如此，且更教育化。约三分之一民主党人是受过大学教育的女性，其在堕胎、生殖健康、气候、跨性别等议题上观点与其他群体差异大，党内观点多样性收缩；竞选与幕僚亦不成比例来自该群体，塑造议程优先级。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">片尾：订阅提醒与 Timeline 赞助</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯提醒检查订阅按钮（YouTube 常误退订），并口播 Timeline 线粒体补剂：临床称约 16 周线粒体更新升超 40%，现起售约 99 美元、另有 20% 折扣码 modernwisdom。该段按规则标为广告省略。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">克里斯·威廉姆森（Chris Williamson）<em>主持</em></span><span class="spk-1">丹尼尔·考克斯（Daniel Cox）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>政治有多重要：盖洛普里年轻男女的意识形态断裂</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="daniel"><div class="label"><span class="badge" title="丹尼尔·考克斯（Daniel Cox）">Daniel</span></div><div class="content">
+<p>政治在这里的作用是什么？它有多重要？现在，我认为它非常重要。我是在从事这项研究的过程中慢慢意识到的，我的背景是政治学，然后在过去七八年中，我转向了更多社会学方面的课题。然后在大约2022年，我开始观察一些盖洛普（Gallup）的数据，并注意到大约在2016年，年轻男性和女性的意识形态之间出现了巨大的分歧。年轻女性的立场变得比年轻男性自由得多。因此，我们开始在这个领域做更多的研究，研究了女性主义身份等方面。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>女性主义认同：婴儿潮到 Z 世代的性别差</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="daniel"><div class="label"><span class="badge" title="丹尼尔·考克斯（Daniel Cox）">Daniel</span></div><div class="content">
+<p>所以我们看到在所有这些不同的衡量标准上，无论是政治还是文化，这种持久的差距在所有这些不同的调查中都很明显。比如说，女性主义身份方面，男性和女性在各代人中差距很小，对吧？所以在女性主义身份方面，你是否认同自己是女性主义者，对吧？婴儿潮一代，我认为他们都在大约30多岁到40岁出头之间，差距在五个百分点内。类似的情况在X世代和千禧一代，他们的比例更高。但再说一次，性别差距并不明显。到了Z世代，大约有15个百分点的差距。大多数Z世代女性是女性主义者，大约占Z世代的40%</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>不是男性极右：女性大幅左倾约 23–30 点</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>男人。等一下。所以更多的Z世代男性和千禧一代男性差不多。但Z世代女性高得多。对吧。我的意思是，这就是我看到的统计数据。大约6个月到一年前，网上流传着一张著名的图表，显示了过去大约50年间男性和女性的右翼与左翼倾向的变化，有些波动。几次非常接近，几乎平分秋色。然后突然上升。现在差距为23、26、30点。但似乎，你可以告诉我我错不错，似乎女性变得非常左倾，而男性相对保持不变。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="daniel"><div class="label"><span class="badge" title="丹尼尔·考克斯（Daniel Cox）">Daniel</span></div><div class="content">
+<p>平的。是的。一个重要的结论是，我们看到的并不是年轻男性向极右大幅度移动，而是女性变得更加自由。我谈到过，尤其是在罗诉韦德案（Roe）被推翻之后，年轻女性对堕胎的态度发生了巨大的变化。以前人们在这个问题上更有细微差别。堕胎的道德问题在那一代人中，以及在当选的民主党人中，也是一个更复杂的问题，对吧？在90年代，你谈论堕胎问题的方式与2020年代非常不同。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>领袖把性别对立做成零和；民主党文化转向</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="daniel"><div class="label"><span class="badge" title="丹尼尔·考克斯（Daniel Cox）">Daniel</span></div><div class="content">
+<p>我认为发生的一件事情是，你在政治领导层中看到这种情况，对吧？所以人们，领导者们，通过简单地似乎偏向某一方来使性别分裂变得更严重。比如说，是的，就像那种你必须有输赢局面，你无法在这里找到共同点，你无法妥协，如果一方上升，另一方就会下降。这一直是民主政治的一个标志，民主政治过去非常关注阶级问题和经济问题，但已经相当戏剧性地转向更多讨论文化问题。但我给你举一个例子。</p>
+<p>我看到的，我认为这在某种程度上加剧了这种情况，我注意到我认为大概是在2023年左右，查看民主党的网站，对吧？所以选举民主党人，你会看到“我们代表谁”的标签，对吧？有一个大约17个不同群体的列表，比如哦，我们代表退伍军人和移民，还有我们，美国人，黑人。是的。是的。女性和男性在这个列表中明显缺席，这在我看来很疯狂，而且我只能得出结论，这是有意为之，对吧？这个党并没有为这个群体倡导。然后你就有特朗普，一个非常明确的人，他</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>特朗普与年轻女性：两边都觉得没有容身之处</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="daniel"><div class="label"><span class="badge" title="丹尼尔·考克斯（Daniel Cox）">Daniel</span></div><div class="content">
+<p>似乎并不太同情很多年轻女性的立场，对吧？可以说是稍微缓和一点。于是他们在特朗普身上再次看到了这样一个人：对每一个与他结过婚的人都不忠，和色情明星有过性关系，还有所有这些所谓的性侵指控等等。所以你就有了这样一种情况，双方都觉得对方阵营没有自己的位置。所以你可以看到这个非常强烈的情况，你觉得他们会投票给谁，对吧？对于年轻男性也是一样。</p>
+<p>尤其是，有一种感觉，即使是共和党人也不是真的像他们——他们曾经一度认为特朗普是他们的人，因为他不是破碎政治体系的一部分。他在某种程度上存在于体系之外，对吧？而且如果我不信任现有体制，是的，我可以信任他。但当谈到共和党和民主党时，比如现在大约有三分之一的年轻男性，或者实际上接近四成的人表示他们都不信任任何一党。我认为不幸的是，这是信息过载的副产品之一。用不断冲击你、给你相互矛盾的观点的方式，其目的不是为了</p>
+<p>说服你接受某一个特定的观点。目的是让你完全虚无，举起双手说我不知道。因为这是你最终会达到的最容易被影响的状态，当你达到那个地步，就像有人走过来告诉你一样。这也是为什么确定性被用作专业知识的代理：如果你坚定地说一件事，而不是说‘那里有一些不一致’或者‘他稍微加了个条件’之类的。这就像一旦你看到这个公式，就无法再看不见。人们对将要发生的事情感到困惑和不确定。有人走过来听起来很确定，对吧？我就跟随他们。他 他 他们 他</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>共和党绑死特朗普 vs 民主党对男性的乌龙球</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>她得到了答案。为此真是太棒了。但我的意思是，我完全理解你的意思。就像他们显然会投票给谁一样？特朗普与民主党之间的情况有点疯狂，原因是特朗普就是候选人，共和党不可能选择其他人。所以他们不得不接受他。所以如果年轻女性、许多女性、少数群体等在即将到来的特朗普最后任期的党派中感觉不到被看见或受到欢迎，那是无法改变的，对吧？民主党对男性缺乏关注感觉就像是一种自投罗网。我正要用这个词。是的，这就是你自找的。</p>
+<p>并没有像卡玛拉·哈里斯（Kamala Harris）或乔·拜登（Joe Biden）这样的一些候选人，或者无论是谁要参选的。不是吗？他们并没有那么有毒以至于不行。是的，当然。某些男性群体会觉得跟随一位黑人女性有点困难吗？也许吧。不管怎么说。但不会像女性跟随唐纳德·特朗普那样困难。是的。所以事实上，他们不在我们在这里支持的17个群体名单上，就像我的意思是，还剩下谁？比如你工作过的人，我的意思是，在那种时候，比如说工人阶级的人真的很挣扎，工人阶级男性的遭遇，我认为甚至比工人阶级女性还要多。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>服务业就业与工薪阶层：左翼叙事漏掉谁</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="daniel"><div class="label"><span class="badge" title="丹尼尔·考克斯（Daniel Cox）">Daniel</span></div><div class="content">
+<p>在过去的几年里，由于就业增长主要集中在服务业和医疗保健领域，女性在这些社区中比男性占优势。所以，比如说，如果你是在争取权利的人群中成长起来的，应该很容易吧？你的存在理由是为边缘化的人、为挣扎的人发声，但并不是为这些人发声。工薪阶层的人似乎是跨越种族、阶级、宗教的，这是另一件事，它是一种可以让每个人都满意的统一群体。让我困惑的是，这一点还没有被采纳。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>党派人口结构：六成女性与大学学历女性占比</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="daniel"><div class="label"><span class="badge" title="丹尼尔·考克斯（Daniel Cox）">Daniel</span></div><div class="content">
+<p>可能相对容易做到的民主党人。你为什么认为他们想要这个案子？所以在过去的20年里发生的一件事是，民主党的组成发生了巨大的变化。对吧。所以民主党人在过去至少20年里女性多于男性。自我认同为民主党人的人，大约60%是女性，40%是男性。这一直都是事实。人们指出，该党变得更加有教育背景。因此，大学毕业生从大约在共和党和民主党之间大致平均分布，转向更多倾向民主党。但我认为事情发生变化的其中一个原因是</p>
+<p>受过大学教育的女性在某种程度上扩大了民主党的队伍。每三名民主党人中就有一名是受过大学教育的女性，她们在政策上的观点与许多其他群体非常不同，比如关于堕胎、生殖健康、气候变化和跨性别问题。再说一次，民主党内部的观点多样性不像过去那样大，对吧？而且，还有谁在负责竞选活动，谁在提供人员支持。再次强调，这在民主党中占比不成比例，许多这些非常重要的角色都是受过大学教育的女性。简短说明一下，</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>片尾：订阅提醒与 Timeline 赞助</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">Chris</span></div><div class="content">
+<p>很多人告诉我们，即使他们已经按了订阅按钮，YouTube 仍然会取消他们对频道的订阅。所以，只需检查下面，看看订阅按钮是否已经按下。你可以比其他人更早看到节目内容。如果你按了，这不仅支持我和节目，还能帮助我带来更大更好的嘉宾，这让我非常高兴。所以，去点击一下吧。我感谢你</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Timeline]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Timeline]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Timeline]</span></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Chris Williamson", "title": "女性在向左走，男性没有跟上", "url": "https://www.youtube.com/watch?v=bRERpUGzwzU", "videoId": "bRERpUGzwzU", "published_at": "2026-11-06", "duration": 664, "caption_source": "YouTube 自动生成字幕（en-orig；普通 yt-dlp 遇 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 补拉成功）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段；说话人按对话轮次启发式标注（克里斯主持 / 丹尼尔·考克斯）；片尾 Timeline 赞助标为 ad_omitted", "guests": ["丹尼尔·考克斯（Daniel Cox）"], "intro": {"summary": "克里斯·威廉姆森与丹尼尔·考克斯谈年轻男女意识形态鸿沟：盖洛普等显示女性大幅左倾、男性大体原地；民主党官网代表名单与特朗普形象如何把两边推向互不信任。", "points": ["约 2016 起年轻男女意识形态分岔；Z 世代女权认同性别差约 15 点", "主因是女性左移而非男性极右；罗诉韦德案后堕胎态度剧变", "民主党官网约 17 群体名单刻意不见男性，加剧疏离", "约 1/3–4/10 年轻男性两党都不信；信息过载催生虚无", "党派女性化+大学学历女性约占 1/3，塑造议程优先级"], "verdict": "短切片信息密度高，适合补背景；要完整论证需回听原长访谈", "audience": "关心性别政治极化、美选与年轻选民的听众"}, "speakers": [{"id": "chris", "name": "克里斯·威廉姆森（Chris Williamson）", "role": "host", "short": "Chris"}, {"id": "daniel", "name": "丹尼尔·考克斯（Daniel Cox）", "role": "guest", "short": "Daniel"}], "sections": [{"id": "s1", "title": "政治有多重要：盖洛普里年轻男女的意识形态断裂", "start_sec": 0, "summary": "丹尼尔·考克斯（Daniel Cox，民意/政治社会学背景）强调政治极重要：约 2022 年起回看盖洛普（Gallup）等数据，发现约 2016 年起年轻男女意识形态急剧分岔——年轻女性显著更自由派。团队随后扩到女性主义认同等指标，在多项调查中看到同一持久鸿沟。"}, {"id": "s2", "title": "女性主义认同：婴儿潮到 Z 世代的性别差", "start_sec": 39, "summary": "政治与文化多项指标都显示缺口。以“你是否女性主义者”为例：婴儿潮男女约在高 30%/低 40%，相差约五个百分点；X 世代、千禧一代更高但性别差仍不大；到 Z 世代差约 15 点——多数 Z 世代女性自称女权，Z 世代男性约四成。Z 世代男性与千禧男性接近，抬升主要来自女性。"}, {"id": "s3", "title": "不是男性极右：女性大幅左倾约 23–30 点", "start_sec": 80, "summary": "克里斯引用网上走红的约 50 年左右翼曲线：男女曾多次几乎持平，近年突然拉开约 23–26–30 点。核心读法：并非年轻男性大幅右转，而是女性变得激进左倾、男性相对平坦。罗诉韦德案（Roe）被推翻后，年轻女性堕胎态度剧变；90 年代民主党谈堕胎更有道德灰度，2020 年代话语更绝对。"}, {"id": "s4", "title": "领袖把性别对立做成零和；民主党文化转向", "start_sec": 167, "summary": "政治领袖通过明显站队加剧性别裂痕：议题被框成零和、无法妥协。民主党过去重阶级与经济，现更偏文化议题。考克斯举例约 2023 年民主党官网“我们代表谁”列出约 17 类群体（退伍军人、移民、黑人等），却刻意不见“男性/女性”作为整体——尤其男性缺席，被解读为有意为之。"}, {"id": "s5", "title": "特朗普与年轻女性：两边都觉得没有容身之处", "start_sec": 254, "summary": "许多年轻女性认为特朗普对其处境缺乏同情（不忠、色情明星、性侵指控等叙事）；年轻男性则感到民主党不为其发声。结果是双方都觉得在对方阵营无位置。部分年轻男性一度视特朗普为“体制外的人”，但约三分之一至近四成年轻男性表示两党都不信任——信息过载制造虚无，确定性被当成专业性代理。"}, {"id": "s6", "title": "共和党绑死特朗普 vs 民主党对男性的乌龙球", "start_sec": 378, "summary": "克里斯指出：共和党已无法换掉特朗普，年轻女性/少数群体在特朗普党感到不受欢迎时几乎无解；民主党对男性的忽视则像“自己捅的乌龙球”。即便换哈里斯/拜登等候选人，男性跟随黑人女性或有摩擦，但远不如女性跟随特朗普困难；官网 17 群体名单仍漏掉男性，等于主动放弃一大块。"}, {"id": "s7", "title": "服务业就业与工薪阶层：左翼叙事漏掉谁", "start_sec": 459, "summary": "近年就业增长多在服务业与医疗，女性占比更高；若左翼自我定位是为边缘与挣扎者发声，却漏掉跨种族/宗教的工薪阶层男性，就与其存在理由冲突。考克斯认为这对本可轻松覆盖该群体的民主党尤其尴尬。"}, {"id": "s8", "title": "党派人口结构：六成女性与大学学历女性占比", "start_sec": 502, "summary": "过去约二十年民主党组成巨变：自认民主党人约 60% 女性、40% 男性长期如此，且更教育化。约三分之一民主党人是受过大学教育的女性，其在堕胎、生殖健康、气候、跨性别等议题上观点与其他群体差异大，党内观点多样性收缩；竞选与幕僚亦不成比例来自该群体，塑造议程优先级。"}, {"id": "s9", "title": "片尾：订阅提醒与 Timeline 赞助", "start_sec": 577, "summary": "克里斯提醒检查订阅按钮（YouTube 常误退订），并口播 Timeline 线粒体补剂：临床称约 16 周线粒体更新升超 40%，现起售约 99 美元、另有 20% 折扣码 modernwisdom。该段按规则标为广告省略。"}], "paragraphs": [{"start_sec": 0, "type": "text", "zh": "政治在这里的作用是什么？它有多重要？现在，我认为它非常重要。我是在从事这项研究的过程中慢慢意识到的，我的背景是政治学，然后在过去七八年中，我转向了更多社会学方面的课题。然后在大约2022年，我开始观察一些盖洛普（Gallup）的数据，并注意到大约在2016年，年轻男性和女性的意识形态之间出现了巨大的分歧。年轻女性的立场变得比年轻男性自由得多。因此，我们开始在这个领域做更多的研究，研究了女性主义身份等方面。", "speaker_id": "daniel", "section_id": "s1"}, {"start_sec": 39, "type": "text", "zh": "所以我们看到在所有这些不同的衡量标准上，无论是政治还是文化，这种持久的差距在所有这些不同的调查中都很明显。比如说，女性主义身份方面，男性和女性在各代人中差距很小，对吧？所以在女性主义身份方面，你是否认同自己是女性主义者，对吧？婴儿潮一代，我认为他们都在大约30多岁到40岁出头之间，差距在五个百分点内。类似的情况在X世代和千禧一代，他们的比例更高。但再说一次，性别差距并不明显。到了Z世代，大约有15个百分点的差距。大多数Z世代女性是女性主义者，大约占Z世代的40%", "speaker_id": "daniel", "section_id": "s2"}, {"start_sec": 80, "type": "text", "zh": "男人。等一下。所以更多的Z世代男性和千禧一代男性差不多。但Z世代女性高得多。对吧。我的意思是，这就是我看到的统计数据。大约6个月到一年前，网上流传着一张著名的图表，显示了过去大约50年间男性和女性的右翼与左翼倾向的变化，有些波动。几次非常接近，几乎平分秋色。然后突然上升。现在差距为23、26、30点。但似乎，你可以告诉我我错不错，似乎女性变得非常左倾，而男性相对保持不变。", "speaker_id": "chris", "section_id": "s3"}, {"start_sec": 125, "type": "text", "zh": "平的。是的。一个重要的结论是，我们看到的并不是年轻男性向极右大幅度移动，而是女性变得更加自由。我谈到过，尤其是在罗诉韦德案（Roe）被推翻之后，年轻女性对堕胎的态度发生了巨大的变化。以前人们在这个问题上更有细微差别。堕胎的道德问题在那一代人中，以及在当选的民主党人中，也是一个更复杂的问题，对吧？在90年代，你谈论堕胎问题的方式与2020年代非常不同。", "speaker_id": "daniel", "section_id": "s3"}, {"start_sec": 167, "type": "text", "zh": "我认为发生的一件事情是，你在政治领导层中看到这种情况，对吧？所以人们，领导者们，通过简单地似乎偏向某一方来使性别分裂变得更严重。比如说，是的，就像那种你必须有输赢局面，你无法在这里找到共同点，你无法妥协，如果一方上升，另一方就会下降。这一直是民主政治的一个标志，民主政治过去非常关注阶级问题和经济问题，但已经相当戏剧性地转向更多讨论文化问题。但我给你举一个例子。", "speaker_id": "daniel", "section_id": "s4"}, {"start_sec": 209, "type": "text", "zh": "我看到的，我认为这在某种程度上加剧了这种情况，我注意到我认为大概是在2023年左右，查看民主党的网站，对吧？所以选举民主党人，你会看到“我们代表谁”的标签，对吧？有一个大约17个不同群体的列表，比如哦，我们代表退伍军人和移民，还有我们，美国人，黑人。是的。是的。女性和男性在这个列表中明显缺席，这在我看来很疯狂，而且我只能得出结论，这是有意为之，对吧？这个党并没有为这个群体倡导。然后你就有特朗普，一个非常明确的人，他", "speaker_id": "daniel", "section_id": "s4"}, {"start_sec": 254, "type": "text", "zh": "似乎并不太同情很多年轻女性的立场，对吧？可以说是稍微缓和一点。于是他们在特朗普身上再次看到了这样一个人：对每一个与他结过婚的人都不忠，和色情明星有过性关系，还有所有这些所谓的性侵指控等等。所以你就有了这样一种情况，双方都觉得对方阵营没有自己的位置。所以你可以看到这个非常强烈的情况，你觉得他们会投票给谁，对吧？对于年轻男性也是一样。", "speaker_id": "daniel", "section_id": "s5"}, {"start_sec": 294, "type": "text", "zh": "尤其是，有一种感觉，即使是共和党人也不是真的像他们——他们曾经一度认为特朗普是他们的人，因为他不是破碎政治体系的一部分。他在某种程度上存在于体系之外，对吧？而且如果我不信任现有体制，是的，我可以信任他。但当谈到共和党和民主党时，比如现在大约有三分之一的年轻男性，或者实际上接近四成的人表示他们都不信任任何一党。我认为不幸的是，这是信息过载的副产品之一。用不断冲击你、给你相互矛盾的观点的方式，其目的不是为了", "speaker_id": "daniel", "section_id": "s5"}, {"start_sec": 337, "type": "text", "zh": "说服你接受某一个特定的观点。目的是让你完全虚无，举起双手说我不知道。因为这是你最终会达到的最容易被影响的状态，当你达到那个地步，就像有人走过来告诉你一样。这也是为什么确定性被用作专业知识的代理：如果你坚定地说一件事，而不是说‘那里有一些不一致’或者‘他稍微加了个条件’之类的。这就像一旦你看到这个公式，就无法再看不见。人们对将要发生的事情感到困惑和不确定。有人走过来听起来很确定，对吧？我就跟随他们。他 他 他们 他", "speaker_id": "daniel", "section_id": "s5"}, {"start_sec": 378, "type": "text", "zh": "她得到了答案。为此真是太棒了。但我的意思是，我完全理解你的意思。就像他们显然会投票给谁一样？特朗普与民主党之间的情况有点疯狂，原因是特朗普就是候选人，共和党不可能选择其他人。所以他们不得不接受他。所以如果年轻女性、许多女性、少数群体等在即将到来的特朗普最后任期的党派中感觉不到被看见或受到欢迎，那是无法改变的，对吧？民主党对男性缺乏关注感觉就像是一种自投罗网。我正要用这个词。是的，这就是你自找的。", "speaker_id": "chris", "section_id": "s6"}, {"start_sec": 419, "type": "text", "zh": "并没有像卡玛拉·哈里斯（Kamala Harris）或乔·拜登（Joe Biden）这样的一些候选人，或者无论是谁要参选的。不是吗？他们并没有那么有毒以至于不行。是的，当然。某些男性群体会觉得跟随一位黑人女性有点困难吗？也许吧。不管怎么说。但不会像女性跟随唐纳德·特朗普那样困难。是的。所以事实上，他们不在我们在这里支持的17个群体名单上，就像我的意思是，还剩下谁？比如你工作过的人，我的意思是，在那种时候，比如说工人阶级的人真的很挣扎，工人阶级男性的遭遇，我认为甚至比工人阶级女性还要多。", "speaker_id": "chris", "section_id": "s6"}, {"start_sec": 459, "type": "text", "zh": "在过去的几年里，由于就业增长主要集中在服务业和医疗保健领域，女性在这些社区中比男性占优势。所以，比如说，如果你是在争取权利的人群中成长起来的，应该很容易吧？你的存在理由是为边缘化的人、为挣扎的人发声，但并不是为这些人发声。工薪阶层的人似乎是跨越种族、阶级、宗教的，这是另一件事，它是一种可以让每个人都满意的统一群体。让我困惑的是，这一点还没有被采纳。", "speaker_id": "daniel", "section_id": "s7"}, {"start_sec": 502, "type": "text", "zh": "可能相对容易做到的民主党人。你为什么认为他们想要这个案子？所以在过去的20年里发生的一件事是，民主党的组成发生了巨大的变化。对吧。所以民主党人在过去至少20年里女性多于男性。自我认同为民主党人的人，大约60%是女性，40%是男性。这一直都是事实。人们指出，该党变得更加有教育背景。因此，大学毕业生从大约在共和党和民主党之间大致平均分布，转向更多倾向民主党。但我认为事情发生变化的其中一个原因是", "speaker_id": "daniel", "section_id": "s8"}, {"start_sec": 538, "type": "text", "zh": "受过大学教育的女性在某种程度上扩大了民主党的队伍。每三名民主党人中就有一名是受过大学教育的女性，她们在政策上的观点与许多其他群体非常不同，比如关于堕胎、生殖健康、气候变化和跨性别问题。再说一次，民主党内部的观点多样性不像过去那样大，对吧？而且，还有谁在负责竞选活动，谁在提供人员支持。再次强调，这在民主党中占比不成比例，许多这些非常重要的角色都是受过大学教育的女性。简短说明一下，", "speaker_id": "daniel", "section_id": "s8"}, {"start_sec": 577, "type": "text", "zh": "很多人告诉我们，即使他们已经按了订阅按钮，YouTube 仍然会取消他们对频道的订阅。所以，只需检查下面，看看订阅按钮是否已经按下。你可以比其他人更早看到节目内容。如果你按了，这不仅支持我和节目，还能帮助我带来更大更好的嘉宾，这让我非常高兴。所以，去点击一下吧。我感谢你", "speaker_id": "chris", "section_id": "s9"}, {"start_sec": 577.5, "type": "ad_omitted", "ad_brand": "Timeline", "section_id": "s9"}, {"start_sec": 608, "type": "ad_omitted", "ad_brand": "Timeline", "section_id": "s9"}, {"start_sec": 643, "type": "ad_omitted", "ad_brand": "Timeline", "section_id": "s9"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

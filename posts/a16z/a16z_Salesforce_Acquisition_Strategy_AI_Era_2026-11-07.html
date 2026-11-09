@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>AI 时代 Salesforce 的收购战略内幕</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="alex">亚历克斯·伊默曼（Alex Immerman）</option><option value="john">约翰·索莫尔贾伊（John Somorjai）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">a16z</span><span class="pill">2026-11-06</span></div>
+<h1>AI 时代 Salesforce 的收购战略内幕</h1>
+<p class="sub">嘉宾：John Somorjai、Alex Immerman · 约 49 分钟（2919 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=y4BdOtm40SA" target="_blank" rel="noopener">https://www.youtube.com/watch?v=y4BdOtm40SA</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>a16z</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-06</dd></div><div class="meta-row"><dt>时长</dt><dd>约 49 分钟（2919 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 官方字幕（普通 yt-dlp 遇 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 补拉成功）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>y4BdOtm40SA</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>a16z GP 亚历克斯·伊默曼对话 Salesforce 公司发展高管约翰·索莫尔贾伊：近千亿美元收购逻辑、无头平台与结果定价、自建 vs 外购、Slack 作为代理界面，以及尽职调查死因与家族故事。</p>
+<h3>核心要点</h3><ul><li>任期内收购近千亿；平台无头，Slack/多界面进入；警告创业公司估值清算。</li><li>自建 vs 外购看三年人马与速度；Finn 等因「自建不够快」买入并引入创始人冲击力。</li><li>Slack 成为 AI 代理对话界面的价值超出 2020 年收购预期。</li><li>Ventures 扩展到前沿 AI/机器人；交易常死于数据混乱与安全漏洞。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">企业软件并购与 AI 产品战略密度高，创始人/CVC 从业者值得听。</p>
+<h3>适合人群</h3><p>关注企业软件并购、Salesforce 生态与 AI 应用的创业者与投资人。</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场：Salesforce 平台与收购基石</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">开场点出 Salesforce 云服务估值近 110 亿美元、根基在收购；平台是企业应用的可靠底座，可经 Slack 或其它界面交互。软件更易构建的时代，什么才值得买？约翰警告将有估值清算——许多公司估值不可持续。风险投资业务已投 750+ 家公司；任期内收购近千亿美元。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">与贝尼奥夫共事：远见、新手心态与投资反馈环</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">Dreamforce 上马克拥抱黄仁勋、Bret Taylor、Sam 等——约翰补充「远见」：马克能看见行业方向，有机创新与无机收购并重。风险业务发展团队每年见成千上万家公司，把热度与技术趋势反馈回公司决策。大愿景与财务纪律之间靠内部张力与流程平衡；有时需否决过大想法。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">买什么：无头架构、结果导向定价与劳动力替代</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">Salesforce 定位为客户可用技术以新方式触达客户的场所；核心是坚实平台，无头（headless）设计让你经 Slack、界面等多种入口互动。越来越多产品将按结果交付；销售漏斗中线索甄别、跟进、成交大量预算花在人力上，AI 有望改写成本结构。Finn 等是结果定价/客服自动化的早期先锋。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">合作、出售还是被投：创业者时机与整合以人为本</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">收购结构含独立软件供应商（ISV）伙伴，有时 Salesforce Ventures 也投资伙伴。创业者须判断：是否此刻出售、把技术带到 1.5 万销售代表面前。整合团队关键抓手是人——帮被收购团队适应、学会体系如何运转。行业 dig 与具体用例常来自前线反馈。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">自建 vs 外购：Listen Labs、Finn 与三年人马</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">决策框架看：未来三年能否自建、是否有人能做成、自建是否比外购快（有时 6–9 个月就能落地则倾向自建）。Finn：Service Cloud 资产近 110 亿但仍买 Finn——「我们没法够快自建」；与创始人 Owen 关系深，他回归 Intercom→Finn 路径能「震醒」大组织。Listen Labs 等亦属加速能力型收购。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">Slack：代理时代的完美对话界面</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">收购 Slack 的核心理由今天更强：它是 AI/智能体的理想对话界面；2020 年收购时尚未预见代理浪潮，但上下文打通后 Slack bot 可给出更相关答案。传言马克与斯图尔特只谈一小时不实，实际沟通更多；两位 CEO 在夏威夷会面建立信任与一致性。企业家从优质收购方能得到的优势包括这类高层对齐。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">Salesforce Ventures：从生态伙伴到前沿 AI/机器人</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">Ventures 曾更偏生态紧密伙伴，今天投资更广：Anthropic、Mistral、机器人与前沿公司等；网络安全多轮到 IPO 亦因看清产业重要性。约翰个人时间拆成找新公司与投后服务；愿更贴近技术走向。对挑战 Salesforce 的新 AI CRM（如 Lightfield 等）感到好奇为何此时仍密集出现——中小企业上手快但是更深的市场切入。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">估值清算、买家宇宙与什么会杀死交易</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">买方宇宙其实很小；顶级 1% 公司与 Wiz、Cursor 级并购叙事并存，也有人喊出万亿估值、对比 SpaceX。创业者须想清楚合适估值与建业路径。尽职调查常见死因：财务/客户合同数据混乱、准备不足显得「拿不到数」；安全问题（源码、甚至 CEO 电脑与员工信息）可拖到其它项修完再关账。务须「家里整齐」。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">尾声：化学家父亲、费米奖与塑造</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">以约翰父亲作结：大屠杀幸存者、逃离欧洲、在伯克利成就学术生涯，2023 年费米奖颁奖有母子同框照片。父亲本希望他成为化学家；其思维方式与今日和 AI 研究者的对话有相似处——好奇、严谨、长期主义。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">亚历克斯·伊默曼（Alex Immerman）<em>主持</em></span><span class="spk-1">约翰·索莫尔贾伊（John Somorjai）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场：Salesforce 平台与收购基石</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="john"><div class="label"><span class="badge" title="约翰·索莫尔贾伊（John Somorjai）">索莫尔贾伊</span></div><div class="content">
+<p>我们创建了一个令人难以置信的云服务业务。它的估值现在接近 110 亿美元，而它的基础是收购。你今天会如何描述 Salesforce 作为一个平台？本质上，它是为所有企业应用提供可靠的基础。你可以通过 Slack 与它互动。你也可以通过 Salesforce 与它互动。软件开发现在比以往任何时候都更快、更容易。在这个软件时代，什么实际上值得购买？将会有一次清算。许多这些公司的估值是不可持续的。它们将无法发展。我们已经投资了 750 多家公司。我们</p>
+<p>收购了29家。所以这仍然是相对较少的公司数量，但我认为如果我们看到一些真正令人兴奋的东西，我们会想留在那家公司。如果你今天要创办一家公司，并且准备正面挑战Salesforce，你认为哪些机会是合适的？约翰，很高兴今天能和你在一起。谢谢你邀请我。很高兴来到这里。你在Salesforce工作已经超过20年了。马克·贝尼奥夫（Marc Benioff）是云软件领域的拉什莫尔山级人物。他引领了从本地部署到云环境的过渡。他是一个了不起的营销人员。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>与贝尼奥夫共事：远见、新手心态与投资反馈环</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·伊默曼（Alex Immerman）">伊默曼</span></div><div class="content">
+<p>今年在Dreamforce上，他拥抱了Jensen、Bret Taylor和Sam。Sam。我很好奇，你和他有很长时间的合作经历。和他一起工作是什么感觉？我还会加上“有远见”这个词。Mark非常有远见，我认为他真的能看到行业的发展方向。这也是他帮助公司转型的方式。当他考虑业务发展时，他既考虑有机创新，也考虑无机创新。而这实际上成为了我们公司发展的关键，将这两个方面结合起来。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="john"><div class="label"><span class="badge" title="约翰·索莫尔贾伊（John Somorjai）">索莫尔贾伊</span></div><div class="content">
+<p>因此，收购在其中扮演了重要角色，当马克看到世界朝某个方向发展时，他会指引我和我的团队去寻找该类别中最值得购买的资产，并不断产生这些想法。我想说，马克的另一个独特之处是他的好奇心以及他如何不断从初学者的角度思考问题。所以他要求我们这样做，我认为这确实帮助我们为Salesforce找到了一些很棒的公司，以及一些非常出色的企业家。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·伊默曼（Alex Immerman）">伊默曼</span></div><div class="content">
+<p>考虑到这一点，我真的很喜欢新手和好奇心的想法。你如何将收购和投资理念结合起来呢？我认为Salesforce一直以来的一个标志性特征是，我们非常认真地倾听客户的意见，所以我们会收到大量关于客户希望从我们这里购买什么的反馈。他们觉得我们的产品缺少什么？有哪些不足之处？我们会考虑这些，并与我们的产品开发团队合作，真正识别最佳机会。这当然也适用于收购方面。在投资方面,</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="john"><div class="label"><span class="badge" title="约翰·索莫尔贾伊（John Somorjai）">索莫尔贾伊</span></div><div class="content">
+<p>我的风险业务发展团队每年会与成千上万的公司会面，我认为我们对哪些地方有吸引力、兴趣在哪里、哪些技术领域发展最快都有非常好的了解。我们可以将所有这些反馈和知识回馈到公司中，我认为这可以帮助我们做出更好的决策。你提到马克是一个伟大的远见者，当然他确实如此。你和你的团队如何看待马克宏大愿景与战略和财务纪律之间的平衡？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·伊默曼（Alex Immerman）">伊默曼</span></div><div class="content">
+<p>可能有些时候你不得不拒绝马克的宏大想法。我很好奇这一切是如何结合在一起的。因此，我们有一个内部结构可以遵循，并且我们在遵循它方面非常有纪律性，我们会关注三个要素。首先——战略是否一致，它能为客户带来什么样的成功？第二个问题：我们能加快业务进展吗？它是否适合我们的技术栈？团队是否会是一个良好的文化契合？我们是否认为那里的人才是适合在Salesforce工作的人员？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="john"><div class="label"><span class="badge" title="约翰·索莫尔贾伊（John Somorjai）">索莫尔贾伊</span></div><div class="content">
+<p>然后第三部分，可能是我们这个时代最具挑战性的，是我们如何为股东和客户提供价值？价值增长的条件是什么？价值？估算是否合理？最后一点可能是现在最困难的，因为一切都很昂贵……我们生活在一个独特的时代，稍后我们应该花些时间来讨论它。也许我们先退一步，Salesforce 今天真的是一家非常大的公司。你们现在远不止是一个 CRM……。你会如何描述 Salesforce 作为一个平台？</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>买什么：无头架构、结果导向定价与劳动力替代</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="john"><div class="label"><span class="badge" title="约翰·索莫尔贾伊（John Somorjai）">索莫尔贾伊</span></div><div class="content">
+<p>今天？我认为它一直是一个让客户能够购买技术以帮助他们以新方式与客户互动的地方。这从一开始就是基本的。但我们是这样看的：在我们平台的核心是一个坚实的基础，可以支持你所有的企业应用程序。你可以通过不同的界面与之互动，例如通过……这就是为什么我们把Salesforce设计为无头架构。你可以通过Slack、Salesforce以及其他平台与它互动。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·伊默曼（Alex Immerman）">伊默曼</span></div><div class="content">
+<p>我认为这取决于公司想把它做得多广泛，这是一个你真的可以带来很多企业价值的地方。绝对是的。我是说，看到你们引领向无头系统的过渡一定非常酷。我很好奇，当我们都进入这个充满勇气的新人工智能世界，并出现新的界面时。你提到了云，显然还有 Chat GPT。如今有很多这样的系统。你可以通过它们访问 Salesforce。也许你相当一部分客户希望减少工作岗位。</p>
+<p>未来，因为他们今天可以利用人工智能做比以前更多的工作。我很好奇，鉴于这种转变，你如何评估 Salesforce 在这个新世界中的能力？首先，我的意思是我们对产品有不同的定价方式。但最重要的是，使用量是我们定价的一个重要部分。我们的许多产品都是基于使用量的。例如，Mulesoft 一直都是基于使用量的……所以我想说，我们尝试做的是……首先，我们努力为客户提供价值</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="john"><div class="label"><span class="badge" title="约翰·索莫尔贾伊（John Somorjai）">索莫尔贾伊</span></div><div class="content">
+<p>真正重视并希望继续为之付费。无论他们是为每个工作场所付费还是按使用付费，都无所谓……但我认为最重要的是确保他们满意、成功，并且会回来。这也是科技行业发展方向的关键点之一——更倾向于基于结果的定价，即为解决方案付费。Fin就是一个很好的例子，做得非常好。而不是仅仅为一个地方付费。我认为这绝对是我们真正支持的一个趋势，而且，</p>
+<p>我们越来越多的产品将以这种方式交付。是的，Fin确实是以结果为导向定价的早期先驱之一，更确切地说是以解决方案为导向的定价。顺便说一下，他们之所以能够做到这一点，是因为评估时间非常快。所以，Fin，你平均只需16天就可以开始使用……你会立即开始看到代理接手处理越来越多本来可以由人工处理的电话。因此，我们决定，“好吧，为什么不在内部测试Fin，看看它对Salesforce有什么作用呢？”结果，我们发现我们实际上已经推出了它。</p>
+<p>在14天内。在我们的网站 help.salesforce.com 上，它目前处理超过40%的流量。噢噢。噢噢。它提供65%的解决方案而无需联系人工。所以，这是一个非常快速的估值时间，这也是优秀收购的一个标志。是的，特别是在公司销售方面，在你以 Fin 为例的情况下，你占用了工资预算的更大一部分，可能是客户支持，也有一点销售……是的，在总体 Salesforce 的背景下，可能是我的 AI 团队正在进行潜在客户获取。</p>
+<p>潜在客户资格审查、跟进、交易成交。因此，因为你在人工上的预算投入更多，当然，你的客户可能比以前支付给你的费用更多，但他们的总销售成本已经下降……绝对如此。而合格的潜在客户可能就是你刚才所说的一个很好的例子。所以，这可以取代你的销售代表组织，本质上接收所有通过网站流量的问题，并由你的Piper客服人员进行回答。这是一种非常相似的人工体验，你会与一个非常真实的人交流</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·伊默曼（Alex Immerman）">伊默曼</span></div><div class="content">
+<p>头像，他们可以解释产品的功能，并自动为你们安排会议，无需人工接触……这很有道理。我的意思是，我们只是刚刚开始涉及你们的一些收购。你们有着悠久的收购历史。我认为在你们任期内的收购总额几乎达到一千亿美元，其中去年就有12起，真的令人惊讶。如果你把并购作为战略来看，有像Slack和缪尔软件（MuleSoft） Informatica这样的大收购。然后，你们最近还联系了</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>合作、出售还是被投：创业者时机与整合以人为本</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·伊默曼（Alex Immerman）">伊默曼</span></div><div class="content">
+<p>使用人工智能的公司。你提到了 Fin，Listen Labs 是另一个。你提到的收购结构，例如，财务是第三个组成部分，第二个是战略，然后，第一个是你的客户在要求什么？还有，我们如何加快它们的发展？通过我们的分销来加速增长。我的意思是，记住，我们有 15,000 名销售代表。所以如果你能将这些收购中的一个与此连接起来，在 Listen 的案例中，只需几个销售代表，你就能突然让整个销售团队都能使用它，从而扩大业务。因此，或许可以想象现在我正在</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="john"><div class="label"><span class="badge" title="约翰·索莫尔贾伊（John Somorjai）">索莫尔贾伊</span></div><div class="content">
+<p>桌子的另一边，我，我在阿尔弗雷德，在Listen Labs。我是一位非常有雄心的人工智能创始人。有人找我洽谈，我会花时间与Salesforce合作。听起来通过你们1.5万名销售代表与你们的渠道合作来推广我，非常棒。我会对此感到高兴。我如何看待与Salesforce合作与出售Salesforce之间的关系呢？我认为我们以非常开放的态度处理合作关系，所以我们现在可能有超过8,000个合作伙伴与我们合作。这些是</p>
+<p>独立软件供应商（ISV）合作伙伴。有时我们也会投资合作伙伴，这也是Salesforce Ventures的职能之一。但我们希望拥有一个开放的生态系统，向客户提供尽可能多的解决方案，由他们做出决定。他们可以购买合作伙伴的解决方案，也可以购买Salesforce的解决方案，但我认为我们公司的标志性特色是提供尽可能广泛的生态系统，因为你希望提供尽可能多的选择。所以，确实有与我们合作的方式。我们有几种类型的附属计划，以及一个出色的组织来处理这些事务。</p>
+<p>所以，也许当我思考这个问题时，我是一个人工智能公司的有抱负的创始人，而我的客户是 Salesforce，为什么这对我来说是一个更有抱负的选择呢？好吧，想象一下，如果你必须自己建立这个分销渠道，需要花多少时间来招聘代表、提升他们的技能、使他们能够工作并提高生产力。在大规模上建立这一点需要非常非常长的时间。顺便说一下，这还应该针对小型企业、中型企业和大型企业进行。哦，你还必须在全球范围内做到这一点……这是一项艰难，非常艰难的任务。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·伊默曼（Alex Immerman）">伊默曼</span></div><div class="content">
+<p>任何人，我认为企业家必须做出这个决定：现在是否是出售并将我的技术交给已经拥有它的公司正确的时机，还是我可以继续独立运营，尝试自己建立它，并继续融资，不断稀释自己的股份？而且，这只是多年的努力，而不是尽可能广泛和快速地将你的技术带给客户。这是你需要做出的决定……正确地做出决定。而且，当你试图将这些人融入你的文化时，</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="john"><div class="label"><span class="badge" title="约翰·索莫尔贾伊（John Somorjai）">索莫尔贾伊</span></div><div class="content">
+<p>他们带来了一种特定的企业家精神，以及他们自己的方法，我们很喜欢。是的。那么你如何看待吸引他们并妥善整合他们，以便这种精神能够继续传播和繁荣，成为更大平台的一部分呢？我认为这是我们所做的事情中最有趣的方面之一。当我们收购一家公司时，我们引入这种卓越的人才来帮助公司转型，在很多方面也让我们焕然一新，并确保我们将这种企业家精神带入公司，并考虑新的做事方式。</p>
+<p>整合团队的关键关注点是人员，确保他们能够成功适应，学习Salesforce的一切运作方式，并在公司内部发展他们的职业生涯。我们有许多许多这样的故事，有些人加入我们，将他们的公司出售给我们后，成为了我们的产品总监。这种情况已经发生过四次。还有一些人承担了我们销售组织或其他领导职位的重要角色。所以我认为，我认为这是我们发展公司过程中一个重要的部分，即引进新的人才。</p>
+<p>是的，你们有80,000名员工。我可以想象你们是如何收购这些公司的，它们确实帮助甚至刺激了某些领域。有没有一个例子，是你们收购的公司中，你会指出对组织文化产生了重大影响的？我会说，有一个闪现在我脑海中的例子是David Schmeier的公司Velocity。所以，我们在Salesforce并没有特别的行业重点，但有很多重要的垂直行业，它们是整个软件行业增长的关键组成部分，而现在我们实际上有13个垂直行业。</p>
+<p>而这一切实际上都是对行业的关注，对从这次收购中出现的特定行业使用案例的关注。因此，David 加入了我们，他带来了速度，他带来了六个垂直领域。我们又增加了另外七个领域，他成为了产品总监，现在是战略总监。我认为他确实帮助我们以一种我们以前从未想过的方式考虑向这些行业垂直领域销售。这非常有趣，多年来，Salesforce 的一个显著特点是，你们建立了关注垂直领域的大公司，比如 Viva 和</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·伊默曼（Alex Immerman）">伊默曼</span></div><div class="content">
+<p>诸如此类。Veeva 可能是最好的例子，这也是我们在风险投资项目中的早期投资之一，他们完全基于金融服务建立了一家令人难以置信的公司。今天，当你思考构建与购买的意义时，你可能会更常被告知我们可以直接构建，因为软件开发比以往任何时候都更快、更经济。因此，你工作的一部分应该是弄清楚什么时候这种说法实际上是真的。我想知道在这个时代，哪些软件实际上值得购买。当我们考虑是否通过合作伙伴来构建时，我的意思是我们会与产品开发团队做大量分析，来确定他们的路线图应该是什么样的。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>自建 vs 外购：Listen Labs、Finn 与三年人马</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="john"><div class="label"><span class="badge" title="约翰·索莫尔贾伊（John Somorjai）">索莫尔贾伊</span></div><div class="content">
+<p>接下来的三年，他们真的有人可以做到吗？他们真的有人可以做到吗？</p>
+<p>他们想要创造的东西能创造出来吗？创造吗？例如，他们是否拥有内部专业知识？他们能轻松地出去招聘到这些人才吗？你也知道，现在招聘，例如人工智能工程师，是多么困难，非常非常困难。因此，在许多情况下，如果你能找到合适的公司，通过收购确实可以加快开发过程。如果你能快速整合也是如此。这也是需要考虑的因素之一，因为一次典型的收购，从构想到实际整合完成，可能需要很长时间。</p>
+<p>从6到9个月。那么你自己能更快地实现一些东西吗？更快吗？所以，这些就是我们进行计算并尝试考虑的类型。但当合适的资源出现时，你真的会明白。你可能会有某种感觉。当Alfred和Florian来见Mark并向我们展示ListenLabs时，就发生了这样的情况。我的意思是，他们简直太棒了。我认为我们认为不仅技术出色，而且界面非常简单。它非常简单，以至于我的团队无需任何设置就开始使用它。十分钟内，我们就进行了调查。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·伊默曼（Alex Immerman）">伊默曼</span></div><div class="content">
+<p>然后开始了。这简直是不可能的。这就是你检查 ListenLabs 的方式吗？这是我们所做工作的一部分。ListenLabs 调查？实际上，是为他们的客户做的。而且，它非常有效。不过顺便说一下，我们的审核流程相当严格。还有，客户因素，以及我们收到的客户反馈，是评估产品好坏最重要的方式之一。这些客户是否可能续约？我们是满意的 ListenLabs 客户，也将其作为验证工具使用。</p>
+<p>，非常酷。也许在那方面，例如，加速能力，你之前提到的另一个收购是Fin。你们在客户支持方面已经做了很长时间……也许谈谈Fin给你们带来的机会，以及这次收购的历史。是的，我认为这回到我们之前谈到的，关于Mark专注于初学者心态的理念。因此，我们创建了一个令人难以置信的Service Cloud业务。他的资产现在接近110亿美元。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="john"><div class="label"><span class="badge" title="约翰·索莫尔贾伊（John Somorjai）">索莫尔贾伊</span></div><div class="content">
+<p>而且，这个业务的基础是我们在2008年收购的一家公司，名为Instranet，那是Alex Deion的公司。另一位后来成为我们首席产品官的人。他非常出色。他很了不起。他是，如你所知，法国最著名的企业家之一。而且，我认为，很明显，这整个向本地AI应用的转变，以及它们如何根据结果进行评估，以及评估实施、上线和让客户满意的速度的时间都非常快，对我们来说非常清晰。</p>
+<p>这不是我们能快速度建造的东西。所以，我们与欧文有着很好的关系，我们认识他多年。我们在爱尔兰见了他的人工智能团队，真是非常出色。绝对出色。一些最优秀的人工智能人才实际上就在爱尔兰都柏林。我们意识到，“哇，这可能会加速我们在服务云上所做的事情。”最后，我们能够收购这家公司，正如我之前所说，这对我们来说确实是一笔相当有价值的收购。</p>
+<p>是的，我的意思是，从公司的复兴角度来看，这也是一个令人惊叹的故事。从从 Intercom 转向 Fin，再到他作为创始人的回归，他对公司有很大的影响力。他，Owen，是一个声音很响亮的人，他直言不讳，他真的，他真的试图激励我们，这也是引入这些人的另一个优势。令人惊讶。令人惊讶。另一款我每天都在使用的产品，当然你也会使用，是 Slack。我很想知道，如果你能倒回时间，例如，你当时收购 Slack 的理由是什么。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>Slack：代理时代的完美对话界面</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·伊默曼（Alex Immerman）">伊默曼</span></div><div class="content">
+<p>Slack 今天在人工智能中的作用非常重要，与你当时可能预期的不同。我很想知道你这些年来对 Slack 的看法是如何演变的。我认为我们收购 Slack 的核心理由今天依然适用，但它的影响比我们想象的还要大，因为它是 AI 的完美对话界面。而当我们在 2020 年考虑这点时，我们收购了这家公司。所以，现在有传言说马克在收购前只和斯图尔特见了一个小时。我不知道这是否常见，但实际上花的时间要多得多。绝对的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="john"><div class="label"><span class="badge" title="约翰·索莫尔贾伊（John Somorjai）">索莫尔贾伊</span></div><div class="content">
+<p>当然。我认为我们，不，应该说我们非常仔细地审视过它。我们使用了 Slack。它显然是用户中非常受欢迎的产品，同时也是一个需要更多分发的东西。他只是输给了 Teams，他们陷入了困境。我不知道你是否还记得，2020 年有一个糟糕的季度；它的股价下跌了，这引发了很多讨论：“我们如何将这两家公司结合起来，把 Slack 变成它真正应该成为的东西，即一个面向所有人的用户界面和一个人们进行协作的工具。”</p>
+<p>应用程序可以协同工作吗？现在有了代理。现在有了代理，是的。我们之前并不了解代理，这是之后才出现的，但你可以看到它是完美的界面。我们也知道，这将是我们所有产品的界面。所以现在你可以通过Slack访问所有Salesforce产品。这始终是我们一开始的关键战略理由之一。从那以后，Slack的收入几乎是我们收购公司时的三倍。这也是我们增长最快的产品，所以它正在流行起来。</p>
+<p>如今像野火一样流行，因为它对代理来说非常完美。这很有道理。我认为在现代社会，Slack 是一种非正式的组织结构。就好像它知道谁向谁汇报，人与人之间如何交流。它掌握了决策是如何做出的整个背景……这就是为什么它是 AI 非常重要的语料库。是的。是的。但正如你提到的，它是一个界面产品。而且由于其他产品更多是无头的，它可以成为一个中央的、、决策平台的中央存储库。</p>
+<p>绝对是的。因为它拥有你所有工作的全部上下文，如果你使用 Slack 机器人，你可能会在界面中直接收到 AI 给出的最丰富的回复。所以这简直再简单不过了，我们很高兴能够收购这家公司，自从我们拥有它已经大约五年多一点，我觉得它确实改变了 Salesforce，令人惊讶。我可能刚刚提到过，对吧？正如你所说，这五年多的时间里，它几乎增长了三倍。这真是在大规模上的强劲增长。那么这个，历史，这种整合呢？什么</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·伊默曼（Alex Immerman）">伊默曼</span></div><div class="content">
+<p>与这个相比，其他收购，为什么会进行得如此顺利？是的，我认为，一开始并不清楚它会进行得如此顺利，特别是当我们在疫情期间购买这个公司时。对的，对的。基本上，我们通过Slack谈判交易，完成所有尽职调查，甚至没有进行很多面对面的会议就买下了公司。然后，整合花了一段时间才真正起步，但一旦起步，就顺利进行了。我认为，这再次表明，这是一项非常棒的技术，但缺乏扩散。我认为这也说明了这个观点。</p>
+<p>我当时在 ListenLabs 工作。就像，一个企业家可以从一个优秀的收购伙伴那里获得的优势。这样的人际会面在夏威夷发生了多少次？没有。其实是晚得多的时候。那在 COVID 期间不是很常见吗？不是。不是的，当时不是。我是说，当时去夏威夷旅行也有很多限制。当然。但我会说，现在夏威夷非常有用。所以，我会想到 Braze，例如，我们最近宣布的收购。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="john"><div class="label"><span class="badge" title="约翰·索莫尔贾伊（John Somorjai）">索莫尔贾伊</span></div><div class="content">
+<p>我认为两位首席执行官在夏威夷的会面对于启动这个过程、建立友谊以及看到一致性非常关键，而且夏威夷本身就是一个神奇的地方。一切美好的事物都始于夏威夷。所以我们花了很多时间讨论、收购公司、与公司合作。你还有第三个选择，那就是投资公司，允许它们独立运营。我以前认为 Salesforce Ventures 是与你的生态系统合作的伙伴关系，你的紧密合作伙伴。今天，似乎更像是你在进行投资。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>Salesforce Ventures：从生态伙伴到前沿 AI/机器人</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="john"><div class="label"><span class="badge" title="约翰·索莫尔贾伊（John Somorjai）">索莫尔贾伊</span></div><div class="content">
+<p>更加自由，更加广泛。当然，Anthropic、Mistral、亲密的公司合作伙伴、Fall、Base Power似乎有点更偏离战略契合。听到战略多年来是如何发展的很有趣。很好，这是一个很好的问题，因为发展的确发生了，这是肯定的。但是，如果你仔细想，销售管道一直都是一样的，那就是我们如何确保找到能够为企业今天或未来提供价值的公司。所以，它开始于</p>
+<p>2009年，我们投资了像DocuSign、nCino这样的公司，它们是我们生态系统的一部分，并且必须与我们的软件紧密契合。Twilio也是早期的投资之一。这很有道理。我们与它们进行了整合，密切合作。我们还在服务领域进行了大量投资，以建立该地区整个服务合作伙伴生态系统。他们取得了很大成功。然后，我们承担了更多风险，进入行业发展的新领域，比如Snowflake。这非常非常重要。</p>
+<p>我们所进行的投资。几轮之后，然后是一次首次公开募股（IPO）轮次。我们还投资了网络安全，因为我们明白这将成为行业的一个巨大问题，我们需要掌握最新动态。所以Wiz是我们的投资之一。然后，当人工智能成为下一波行业趋势时，我们希望在最佳公司中进行非常大规模的投资。我们在2023年初创建了一个十亿美元的人工智能基金，但除了Anthropic之外，我们还投资了</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·伊默曼（Alex Immerman）">伊默曼</span></div><div class="content">
+<p>Mistral 和 Cohere 是几家更多处于基础设施层面的公司。我们在语音方面投资了 11 Labs，在视频方面投资了 Runway。现在我们也在涉足物理人工智能，我认为这是一个非常新颖、有趣且令人兴奋的领域。而且，非常明显，你可以看到，随着机器人在灵活性和机动性方面的进步，这将会是行业的一个巨大未来，所以我们希望参与其中。这很合乎逻辑。我的意思是，非常广泛的任务范围，看起来几乎涵盖了所有有相关技术的领域。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="john"><div class="label"><span class="badge" title="约翰·索莫尔贾伊（John Somorjai）">索莫尔贾伊</span></div><div class="content">
+<p>整个行业的增长。你个人的时间是如何安排的？我把时间分为寻找新的收购公司、与整合团队合作并确保收购成功，以及风险投资项目。所以我的时间非常分散。正如我告诉你的，我现在比以往任何时候都要忙，但我认为这在某种程度上也表明了行业发展的速度和当今技术创新的速度。你只需要更快地行动，而无论你多么快，仍然不够快。</p>
+<p>从风险投资的角度来看，你现在对这些领域中发生的事情最感兴趣的是什么？我认为机器人公司非常令人着迷。我真的很喜欢。我们投资了类人机器人领域的人工智能。我们投资了物理智能，Dyna Robotics，Skilled，以及其他一些公司。我们还有Zipline，比如，它进行无人机配送。所以我们在与许多这些公司合作时承担风险。是的，我们也在一些新的领域开展工作，而不仅仅是</p>
+<p>与软件相关，但很明显它们将对行业非常重要。我很喜欢。我还想说，我们在世界各地都有投资，并且看到一些非常有趣的公司，例如在日本。日本。我们投资了一家名为Mujin的机器人公司，它在物流和日本市场非常大。我们在欧洲、以色列以及亚洲和澳大利亚的其他地区也有许多公司的投资。例如。因此，我认为观察技术全球化是非常</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·伊默曼（Alex Immerman）">伊默曼</span></div><div class="content">
+<p>有趣的观点。关于机器人学，我同意。我们真的开始看到机器人学中规模法则的初步迹象，这真的很令人兴奋。然后，这些公司中的一些在市场进入方面采取了稍微垂直化的策略。因此，我们开始看到收入开始增长，这真的很令人兴奋。当你考虑你的投资范围时，你有多频繁会看某些公司并想，‘嘿，有可能有一天他们能与Salesforce竞争。’你会投资 một 家可能达到这种位置的公司吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="john"><div class="label"><span class="badge" title="约翰·索莫尔贾伊（John Somorjai）">索莫尔贾伊</span></div><div class="content">
+<p>我认为我们实际上可能确实应该这样做……接近技术发展方向是件好事。也许这家公司有一天会成为收购目标。所以，给你一些数字参考，我们已经投资了超过750家公司。我们收购了29家。所以，仍然是一个相对较少的数量，但我认为如果我们看到一些真正令人兴奋的东西，可能将来会成为收购目标，也可能不是，也可能只是一个很好的合作伙伴。我们希望与这家公司保持紧密联系。是的，你提到这750家公司中有相当一部分在从事的行业是……</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·伊默曼（Alex Immerman）">伊默曼</span></div><div class="content">
+<p>你不会称核心战略……例如，对我来说，机器人技术今天似乎不是Salesforce发展的下一步。但我们想与他们合作。你想与他们协作。他们如何评估与Salesforce Ventures合作的价值主张？我认为最大的价值可能是我们如何帮助他们接触客户。而且，我们拥有最广泛的希望购买技术的企业客户范围。这就是为什么我们帮助我们的投资组合公司接触这些客户。我认为我们还提供了很多实质性的建议，从运营方面开始</p>
+<p>关于如何在这个特定行业建立业务的视角。并且，考虑到这么多故事，我们真的可以帮助这些创业者发展他们的业务。如果你今天要创办一家公司，并且它将直接挑战Salesforce，你认为有哪些机会是合适的呢？我想说的是，我不知道为什么在这个时候新的CRM公司还会不断涌现。只是好奇……你为什么会这样认为？目前有很多基于AI的CRM系统，比如Lightfield、Monica。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="john"><div class="label"><span class="badge" title="约翰·索莫尔贾伊（John Somorjai）">索莫尔贾伊</span></div><div class="content">
+<p>你的观点很有趣。我只是觉得这非常困难……首先，现在有这么多很棒的CRM技术。而且我们也在不断改进我们的产品。在这个行业里创造一些特别的东西，尤其是专业化和小众化的东西，真的很难。所以我还没有……我还没有看到有什么新东西能够在这个领域发展成为一个数十亿美元的大公司。是我的意思是，也许在低于你们传统市场的地方会有机会……我知道你也</p>
+<p>在中小型企业中，但是，在快速启动和运行方面，这是一个更深的市场渗透。是的。可能会有，可能会有很多这样的公司，但它仍然是一个小市场，这是一个小领域，我们像做风险投资那样处理它，因为我们只投资大的机会。我认为大多数风险投资家也是这么看的，所以他们只是投资一些小的利基机会，这些机会可能与现有的公司在做的事情略有不同。我只是无法理解。说得对。一个平行的例子可能是，Stripe从小公司起步，并且能够随着时间的推移与许多公司共同成长，我想象</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·伊默曼（Alex Immerman）">伊默曼</span></div><div class="content">
+<p>这些初创公司可能有类似的愿望……我只是觉得它们太多了。它们太多了。投入它们的资金太多了，我认为风险投资界需要专注于真正新的、重要的、以前未被开发的领域……如果你考虑整个风险投资界，我们正处在一个独特的独特融资时刻。我很好奇你对这个怎么看，你现在如何理解评级。我认为现在有很多不负责任的行为。我认为，评级肯定太高了。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>估值清算、买家宇宙与什么会杀死交易</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="john"><div class="label"><span class="badge" title="约翰·索莫尔贾伊（John Somorjai）">索莫尔贾伊</span></div><div class="content">
+<p>但是，买家的范围也非常小。当你考虑投资时，你需要考虑退出的选项，而并不是每家公司都会上市。事实上，很少有公司上市。可能只有1%或更少。因此，退出的能力至关重要。你要考虑谁可能会买它。一旦你超过大约100亿美元，买家的范围就非常小。然而，你会看到那么多价值数十亿美元的巨大公司，最终都会面临清算。</p>
+<p>我不知道具体什么时候，但这是不可避免的，因为很多这些公司的估值是无法持续的，它们无法维持这样的估值，也无法发展到匹配这个估值的规模，而且，我认为，这对他们的员工来说也会很糟糕。这就是为什么我说这有点不负责任。不幸的是，你尝试与企业家进行这种对话时，他们通常只想得到尽可能高的估值，但那通常不是最好的解决方案。你认为其中很大一部分是权力法则思维的结果吗，例如，Anthropic 可能会…</p>
+<p>得出超过一万亿的估值。我们可以这么说。显然，SpaceX 的估值达到两万亿。这些公司发展到这样的估值，特别是在 Anthropic 和 OpenAI 的情况下，是在相对较短的时间内实现的。对吧。这些公司是由几代人拥有的，而且非常非常罕见。当你发现这样一家公司时，真是难以置信，这也是我们在 Anthropic 投资六轮的原因。从与 Dario 和 Daniela 的第一次见面起，就清楚地看出他们是特别的人。他们是我们遇到过的一些最聪明的头脑，而且他们将创造一些宏伟的东西。所以从这个角度来看，这是合理的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·伊默曼（Alex Immerman）">伊默曼</span></div><div class="content">
+<p>继续投资。但是像那样的公司很少，我看到很多平庸的企业家和他们的想法，这些想法没有成为这些跨世代的公司，他们的估值不必超过100亿美元，但他们仍然能达成目标。因此，我觉得现在需要更多的纪律。我同意在生态系统的某些部分这种情况确实存在。我部分乐观的原因在于，十年前顶尖1%的公司的表现与现在的表现非常不同。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="john"><div class="label"><span class="badge" title="约翰·索莫尔贾伊（John Somorjai）">索莫尔贾伊</span></div><div class="content">
+<p>今天是公司中的前1%。即使在并购领域，你之前提到了Wiz、Cursor。所以有一些更大的成果为整个生态系统带来了盈利。当然，我是个乐观主义者。如果我不是乐观主义者，我就无法做好我的工作。但你要知道，我每年会看到成千上万的公司失败，因为它们都会来找我们，试图被收购。所以我们看到了那部分行业，你在媒体上是看不到的。媒体不喜欢报道这些故事。因此，当企业家考虑筹集资金时，这是一个重要的事实。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·伊默曼（Alex Immerman）">伊默曼</span></div><div class="content">
+<p>正确的估值是多少，建立这个业务的合适方式是什么，他们必须考虑这些。你曾参与过一些最大的企业软件交易……有时这些交易会失败，无法达成。是什么导致交易失败？我认为在审查过程中，首先，非常重要的是要做好准备并保持组织有序，这样数据传入时就不会显得你在获取数据上有困难。我认为我们发现的一件事是客户公司</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="john"><div class="label"><span class="badge" title="约翰·索莫尔贾伊（John Somorjai）">索莫尔贾伊</span></div><div class="content">
+<p>通常他们对自己的财务没有清晰的控制，或者没有客户合同的数据。他们并不真正理解什么是客户流失。我认为现在很多创始人犯的一个错误是，他们只关注一个指标，即平均年化回报率（ARR）。ARR是一个很好的指标，但它掩盖了……而且真正重要的是要考虑什么是客户流失，理解客户流失的原因，并采取措施应对它。因为当你遇到一家客户流失率很高的公司时，这通常意味着存在</p>
+<p>不仅有很多不满的客户，而且可能还存在一些产品质量问题。所以，这是我们关注的主要警示信号之一。我认为另一个领域是你如何管理数据的隐私？你如何管理安全？安全是唯一一个功能，在我们所有的审核过程中有14个功能，而安全是唯一可以提出警告并说，“我正在放弃这笔交易”的功能。所以如果你构建的技术堆栈易于受到黑客攻击，这对我们来说将是一个真正的问题。</p>
+<p>因为你还想做的是准备好，将你的技术栈组合在一起，看看会发生什么，然后再开始测试，因为我们将进行自己的渗透测试并找到问题。你肯定也想在我们之前找到漏洞。但是，当一家公司完全安全，所有数据可用，技术安全时，流程会顺利得多，审查过程可以非常快速，我们可以迅速而毫不痛苦地完成它。但当情况并非如此时，你就会意识到交易可能会遇到问题。</p>
+<p>失败。有没有一个交易在最后一步没有完成的例子？你不能……当然你不能说出名字，但也许这是你或创始人的一个令人痛心的故事。我认为通常不会发生在最后一步，但它会发生，在合同条款达成一致、价格和交易的基本条款达成一致之后，接着你开始深入审查过程。我们遇到过的问题，例如，当我们进行验证测试时，我们不仅能够</p>
+<p>访问他们所有的源代码，甚至进入CEO的笔记本电脑并获取有关他员工的信息。现在，所有这些都已经被分享，你分享了吗？当然。我们总是分享我们发现的内容，并尝试帮助他们解决问题，但情况非常糟糕，甚至是我们见过的一些最糟糕的情况，已经无法修复。顺便说一下，我们还有其他可以修复的安全事件，你可以识别哪些问题是P0、P1、P2问题，并将其设为关闭的条件，或者可能甚至是签署的条件——在这些问题未解决之前我们不会签署，我们不会签署。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>尾声：化学家父亲、费米奖与塑造</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·伊默曼（Alex Immerman）">伊默曼</span></div><div class="content">
+<p>直到这些其他问题解决之前先关闭。所以这一切取决于情况有多严重，但在你经历这些过程时，你应该让家里保持秩序。讲得通。网上有一张你和你母亲在2023年费米奖颁奖典礼上为你父亲颁奖的惊人照片。你的父亲是一个非凡的人。他，幸存了大屠杀，逃离欧洲。我，来到这里，在伯克利有了令人难以置信的学术生涯。我想以讲述你与父亲一起成长的经历作为结尾，你父亲的经历</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="john"><div class="label"><span class="badge" title="约翰·索莫尔贾伊（John Somorjai）">索莫尔贾伊</span></div><div class="content">
+<p>想过你的职业生涯，他是如何塑造你的。我的父亲希望我成为一名化学家，为了明确说明。他，创立了一个和那相当接近的化学分支。你可以争辩说，我们所做的并购工作中有很多化学元素。但没错，他创立了一个叫做表面化学的化学分支，他还花了很多时间研究催化并获得了许多奖项。当他获得国家科学奖章时，我们还参观了白宫。能和这样的人一起成长，并见到他的同事，真是太不可思议了，而且</p>
+<p>然后请世界上一些最令人难以置信的头脑到我们家吃晚饭。我的妈妈喜欢举办这些令人难以置信的晚宴，这就是我成长时的生活。那是一种真正鼓励你保持好奇心并思考未来的生活，这也是我成长的一部分，我认为这真的塑造了今天的我。是的，我是说，这确实与你所做的事情有很多相似之处，而且，也许那些与化学家的晚宴和谈话产生了一些影响</p>
+<p>与现代人工智能研究人员的对话有相似之处。没错，而且，我也有一个非常喜欢一直教人的父亲，他会在餐桌上教我，在车上教我。他开车送我上学时也教我，所以我不断被信息和知识包围。他是一个很了不起的人。太棒了。非常感谢你今天花时间与我们交流，真的很有趣。是的，谢谢你，Alex。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "a16z", "title": "AI 时代 Salesforce 的收购战略内幕", "url": "https://www.youtube.com/watch?v=y4BdOtm40SA", "videoId": "y4BdOtm40SA", "published_at": "2026-11-06", "duration": 2919, "caption_source": "YouTube 官方字幕（普通 yt-dlp 遇 429，同批 chrome:/home/box/chrome-profile/Fork-3 cookies 补拉成功）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段", "guests": ["John Somorjai", "Alex Immerman"], "intro": {"summary": "a16z GP 亚历克斯·伊默曼对话 Salesforce 公司发展高管约翰·索莫尔贾伊：近千亿美元收购逻辑、无头平台与结果定价、自建 vs 外购、Slack 作为代理界面，以及尽职调查死因与家族故事。", "points": ["任期内收购近千亿；平台无头，Slack/多界面进入；警告创业公司估值清算。", "自建 vs 外购看三年人马与速度；Finn 等因「自建不够快」买入并引入创始人冲击力。", "Slack 成为 AI 代理对话界面的价值超出 2020 年收购预期。", "Ventures 扩展到前沿 AI/机器人；交易常死于数据混乱与安全漏洞。"], "verdict": "企业软件并购与 AI 产品战略密度高，创始人/CVC 从业者值得听。", "audience": "关注企业软件并购、Salesforce 生态与 AI 应用的创业者与投资人。"}, "speakers": [{"id": "alex", "name": "亚历克斯·伊默曼（Alex Immerman）", "role": "host", "short": "伊默曼"}, {"id": "john", "name": "约翰·索莫尔贾伊（John Somorjai）", "role": "guest", "short": "索莫尔贾伊"}], "sections": [{"id": "s1", "title": "开场：Salesforce 平台与收购基石", "start_sec": 0, "summary": "开场点出 Salesforce 云服务估值近 110 亿美元、根基在收购；平台是企业应用的可靠底座，可经 Slack 或其它界面交互。软件更易构建的时代，什么才值得买？约翰警告将有估值清算——许多公司估值不可持续。风险投资业务已投 750+ 家公司；任期内收购近千亿美元。"}, {"id": "s2", "title": "与贝尼奥夫共事：远见、新手心态与投资反馈环", "start_sec": 82, "summary": "Dreamforce 上马克拥抱黄仁勋、Bret Taylor、Sam 等——约翰补充「远见」：马克能看见行业方向，有机创新与无机收购并重。风险业务发展团队每年见成千上万家公司，把热度与技术趋势反馈回公司决策。大愿景与财务纪律之间靠内部张力与流程平衡；有时需否决过大想法。"}, {"id": "s3", "title": "买什么：无头架构、结果导向定价与劳动力替代", "start_sec": 329, "summary": "Salesforce 定位为客户可用技术以新方式触达客户的场所；核心是坚实平台，无头（headless）设计让你经 Slack、界面等多种入口互动。越来越多产品将按结果交付；销售漏斗中线索甄别、跟进、成交大量预算花在人力上，AI 有望改写成本结构。Finn 等是结果定价/客服自动化的早期先锋。"}, {"id": "s4", "title": "合作、出售还是被投：创业者时机与整合以人为本", "start_sec": 660, "summary": "收购结构含独立软件供应商（ISV）伙伴，有时 Salesforce Ventures 也投资伙伴。创业者须判断：是否此刻出售、把技术带到 1.5 万销售代表面前。整合团队关键抓手是人——帮被收购团队适应、学会体系如何运转。行业 dig 与具体用例常来自前线反馈。"}, {"id": "s5", "title": "自建 vs 外购：Listen Labs、Finn 与三年人马", "start_sec": 1058, "summary": "决策框架看：未来三年能否自建、是否有人能做成、自建是否比外购快（有时 6–9 个月就能落地则倾向自建）。Finn：Service Cloud 资产近 110 亿但仍买 Finn——「我们没法够快自建」；与创始人 Owen 关系深，他回归 Intercom→Finn 路径能「震醒」大组织。Listen Labs 等亦属加速能力型收购。"}, {"id": "s6", "title": "Slack：代理时代的完美对话界面", "start_sec": 1391, "summary": "收购 Slack 的核心理由今天更强：它是 AI/智能体的理想对话界面；2020 年收购时尚未预见代理浪潮，但上下文打通后 Slack bot 可给出更相关答案。传言马克与斯图尔特只谈一小时不实，实际沟通更多；两位 CEO 在夏威夷会面建立信任与一致性。企业家从优质收购方能得到的优势包括这类高层对齐。"}, {"id": "s7", "title": "Salesforce Ventures：从生态伙伴到前沿 AI/机器人", "start_sec": 1725, "summary": "Ventures 曾更偏生态紧密伙伴，今天投资更广：Anthropic、Mistral、机器人与前沿公司等；网络安全多轮到 IPO 亦因看清产业重要性。约翰个人时间拆成找新公司与投后服务；愿更贴近技术走向。对挑战 Salesforce 的新 AI CRM（如 Lightfield 等）感到好奇为何此时仍密集出现——中小企业上手快但是更深的市场切入。"}, {"id": "s8", "title": "估值清算、买家宇宙与什么会杀死交易", "start_sec": 2298, "summary": "买方宇宙其实很小；顶级 1% 公司与 Wiz、Cursor 级并购叙事并存，也有人喊出万亿估值、对比 SpaceX。创业者须想清楚合适估值与建业路径。尽职调查常见死因：财务/客户合同数据混乱、准备不足显得「拿不到数」；安全问题（源码、甚至 CEO 电脑与员工信息）可拖到其它项修完再关账。务须「家里整齐」。"}, {"id": "s9", "title": "尾声：化学家父亲、费米奖与塑造", "start_sec": 2750, "summary": "以约翰父亲作结：大屠杀幸存者、逃离欧洲、在伯克利成就学术生涯，2023 年费米奖颁奖有母子同框照片。父亲本希望他成为化学家；其思维方式与今日和 AI 研究者的对话有相似处——好奇、严谨、长期主义。"}], "paragraphs": [{"start_sec": 0, "type": "text", "zh": "我们创建了一个令人难以置信的云服务业务。它的估值现在接近 110 亿美元，而它的基础是收购。你今天会如何描述 Salesforce 作为一个平台？本质上，它是为所有企业应用提供可靠的基础。你可以通过 Slack 与它互动。你也可以通过 Salesforce 与它互动。软件开发现在比以往任何时候都更快、更容易。在这个软件时代，什么实际上值得购买？将会有一次清算。许多这些公司的估值是不可持续的。它们将无法发展。我们已经投资了 750 多家公司。我们", "speaker_id": "john", "section_id": "s1"}, {"start_sec": 39, "type": "text", "zh": "收购了29家。所以这仍然是相对较少的公司数量，但我认为如果我们看到一些真正令人兴奋的东西，我们会想留在那家公司。如果你今天要创办一家公司，并且准备正面挑战Salesforce，你认为哪些机会是合适的？约翰，很高兴今天能和你在一起。谢谢你邀请我。很高兴来到这里。你在Salesforce工作已经超过20年了。马克·贝尼奥夫（Marc Benioff）是云软件领域的拉什莫尔山级人物。他引领了从本地部署到云环境的过渡。他是一个了不起的营销人员。", "speaker_id": "john", "section_id": "s1"}, {"start_sec": 82, "type": "text", "zh": "今年在Dreamforce上，他拥抱了Jensen、Bret Taylor和Sam。Sam。我很好奇，你和他有很长时间的合作经历。和他一起工作是什么感觉？我还会加上“有远见”这个词。Mark非常有远见，我认为他真的能看到行业的发展方向。这也是他帮助公司转型的方式。当他考虑业务发展时，他既考虑有机创新，也考虑无机创新。而这实际上成为了我们公司发展的关键，将这两个方面结合起来。", "speaker_id": "alex", "section_id": "s2"}, {"start_sec": 125, "type": "text", "zh": "因此，收购在其中扮演了重要角色，当马克看到世界朝某个方向发展时，他会指引我和我的团队去寻找该类别中最值得购买的资产，并不断产生这些想法。我想说，马克的另一个独特之处是他的好奇心以及他如何不断从初学者的角度思考问题。所以他要求我们这样做，我认为这确实帮助我们为Salesforce找到了一些很棒的公司，以及一些非常出色的企业家。", "speaker_id": "john", "section_id": "s2"}, {"start_sec": 166, "type": "text", "zh": "考虑到这一点，我真的很喜欢新手和好奇心的想法。你如何将收购和投资理念结合起来呢？我认为Salesforce一直以来的一个标志性特征是，我们非常认真地倾听客户的意见，所以我们会收到大量关于客户希望从我们这里购买什么的反馈。他们觉得我们的产品缺少什么？有哪些不足之处？我们会考虑这些，并与我们的产品开发团队合作，真正识别最佳机会。这当然也适用于收购方面。在投资方面,", "speaker_id": "alex", "section_id": "s2"}, {"start_sec": 206, "type": "text", "zh": "我的风险业务发展团队每年会与成千上万的公司会面，我认为我们对哪些地方有吸引力、兴趣在哪里、哪些技术领域发展最快都有非常好的了解。我们可以将所有这些反馈和知识回馈到公司中，我认为这可以帮助我们做出更好的决策。你提到马克是一个伟大的远见者，当然他确实如此。你和你的团队如何看待马克宏大愿景与战略和财务纪律之间的平衡？", "speaker_id": "john", "section_id": "s2"}, {"start_sec": 246, "type": "text", "zh": "可能有些时候你不得不拒绝马克的宏大想法。我很好奇这一切是如何结合在一起的。因此，我们有一个内部结构可以遵循，并且我们在遵循它方面非常有纪律性，我们会关注三个要素。首先——战略是否一致，它能为客户带来什么样的成功？第二个问题：我们能加快业务进展吗？它是否适合我们的技术栈？团队是否会是一个良好的文化契合？我们是否认为那里的人才是适合在Salesforce工作的人员？", "speaker_id": "alex", "section_id": "s2"}, {"start_sec": 289, "type": "text", "zh": "然后第三部分，可能是我们这个时代最具挑战性的，是我们如何为股东和客户提供价值？价值增长的条件是什么？价值？估算是否合理？最后一点可能是现在最困难的，因为一切都很昂贵……我们生活在一个独特的时代，稍后我们应该花些时间来讨论它。也许我们先退一步，Salesforce 今天真的是一家非常大的公司。你们现在远不止是一个 CRM……。你会如何描述 Salesforce 作为一个平台？", "speaker_id": "john", "section_id": "s2"}, {"start_sec": 329, "type": "text", "zh": "今天？我认为它一直是一个让客户能够购买技术以帮助他们以新方式与客户互动的地方。这从一开始就是基本的。但我们是这样看的：在我们平台的核心是一个坚实的基础，可以支持你所有的企业应用程序。你可以通过不同的界面与之互动，例如通过……这就是为什么我们把Salesforce设计为无头架构。你可以通过Slack、Salesforce以及其他平台与它互动。", "speaker_id": "john", "section_id": "s3"}, {"start_sec": 370, "type": "text", "zh": "我认为这取决于公司想把它做得多广泛，这是一个你真的可以带来很多企业价值的地方。绝对是的。我是说，看到你们引领向无头系统的过渡一定非常酷。我很好奇，当我们都进入这个充满勇气的新人工智能世界，并出现新的界面时。你提到了云，显然还有 Chat GPT。如今有很多这样的系统。你可以通过它们访问 Salesforce。也许你相当一部分客户希望减少工作岗位。", "speaker_id": "alex", "section_id": "s3"}, {"start_sec": 411, "type": "text", "zh": "未来，因为他们今天可以利用人工智能做比以前更多的工作。我很好奇，鉴于这种转变，你如何评估 Salesforce 在这个新世界中的能力？首先，我的意思是我们对产品有不同的定价方式。但最重要的是，使用量是我们定价的一个重要部分。我们的许多产品都是基于使用量的。例如，Mulesoft 一直都是基于使用量的……所以我想说，我们尝试做的是……首先，我们努力为客户提供价值", "speaker_id": "alex", "section_id": "s3"}, {"start_sec": 453, "type": "text", "zh": "真正重视并希望继续为之付费。无论他们是为每个工作场所付费还是按使用付费，都无所谓……但我认为最重要的是确保他们满意、成功，并且会回来。这也是科技行业发展方向的关键点之一——更倾向于基于结果的定价，即为解决方案付费。Fin就是一个很好的例子，做得非常好。而不是仅仅为一个地方付费。我认为这绝对是我们真正支持的一个趋势，而且，", "speaker_id": "john", "section_id": "s3"}, {"start_sec": 493, "type": "text", "zh": "我们越来越多的产品将以这种方式交付。是的，Fin确实是以结果为导向定价的早期先驱之一，更确切地说是以解决方案为导向的定价。顺便说一下，他们之所以能够做到这一点，是因为评估时间非常快。所以，Fin，你平均只需16天就可以开始使用……你会立即开始看到代理接手处理越来越多本来可以由人工处理的电话。因此，我们决定，“好吧，为什么不在内部测试Fin，看看它对Salesforce有什么作用呢？”结果，我们发现我们实际上已经推出了它。", "speaker_id": "john", "section_id": "s3"}, {"start_sec": 535, "type": "text", "zh": "在14天内。在我们的网站 help.salesforce.com 上，它目前处理超过40%的流量。噢噢。噢噢。它提供65%的解决方案而无需联系人工。所以，这是一个非常快速的估值时间，这也是优秀收购的一个标志。是的，特别是在公司销售方面，在你以 Fin 为例的情况下，你占用了工资预算的更大一部分，可能是客户支持，也有一点销售……是的，在总体 Salesforce 的背景下，可能是我的 AI 团队正在进行潜在客户获取。", "speaker_id": "john", "section_id": "s3"}, {"start_sec": 576, "type": "text", "zh": "潜在客户资格审查、跟进、交易成交。因此，因为你在人工上的预算投入更多，当然，你的客户可能比以前支付给你的费用更多，但他们的总销售成本已经下降……绝对如此。而合格的潜在客户可能就是你刚才所说的一个很好的例子。所以，这可以取代你的销售代表组织，本质上接收所有通过网站流量的问题，并由你的Piper客服人员进行回答。这是一种非常相似的人工体验，你会与一个非常真实的人交流", "speaker_id": "john", "section_id": "s3"}, {"start_sec": 620, "type": "text", "zh": "头像，他们可以解释产品的功能，并自动为你们安排会议，无需人工接触……这很有道理。我的意思是，我们只是刚刚开始涉及你们的一些收购。你们有着悠久的收购历史。我认为在你们任期内的收购总额几乎达到一千亿美元，其中去年就有12起，真的令人惊讶。如果你把并购作为战略来看，有像Slack和缪尔软件（MuleSoft） Informatica这样的大收购。然后，你们最近还联系了", "speaker_id": "alex", "section_id": "s3"}, {"start_sec": 660, "type": "text", "zh": "使用人工智能的公司。你提到了 Fin，Listen Labs 是另一个。你提到的收购结构，例如，财务是第三个组成部分，第二个是战略，然后，第一个是你的客户在要求什么？还有，我们如何加快它们的发展？通过我们的分销来加速增长。我的意思是，记住，我们有 15,000 名销售代表。所以如果你能将这些收购中的一个与此连接起来，在 Listen 的案例中，只需几个销售代表，你就能突然让整个销售团队都能使用它，从而扩大业务。因此，或许可以想象现在我正在", "speaker_id": "alex", "section_id": "s4"}, {"start_sec": 702, "type": "text", "zh": "桌子的另一边，我，我在阿尔弗雷德，在Listen Labs。我是一位非常有雄心的人工智能创始人。有人找我洽谈，我会花时间与Salesforce合作。听起来通过你们1.5万名销售代表与你们的渠道合作来推广我，非常棒。我会对此感到高兴。我如何看待与Salesforce合作与出售Salesforce之间的关系呢？我认为我们以非常开放的态度处理合作关系，所以我们现在可能有超过8,000个合作伙伴与我们合作。这些是", "speaker_id": "john", "section_id": "s4"}, {"start_sec": 744, "type": "text", "zh": "独立软件供应商（ISV）合作伙伴。有时我们也会投资合作伙伴，这也是Salesforce Ventures的职能之一。但我们希望拥有一个开放的生态系统，向客户提供尽可能多的解决方案，由他们做出决定。他们可以购买合作伙伴的解决方案，也可以购买Salesforce的解决方案，但我认为我们公司的标志性特色是提供尽可能广泛的生态系统，因为你希望提供尽可能多的选择。所以，确实有与我们合作的方式。我们有几种类型的附属计划，以及一个出色的组织来处理这些事务。", "speaker_id": "john", "section_id": "s4"}, {"start_sec": 788, "type": "text", "zh": "所以，也许当我思考这个问题时，我是一个人工智能公司的有抱负的创始人，而我的客户是 Salesforce，为什么这对我来说是一个更有抱负的选择呢？好吧，想象一下，如果你必须自己建立这个分销渠道，需要花多少时间来招聘代表、提升他们的技能、使他们能够工作并提高生产力。在大规模上建立这一点需要非常非常长的时间。顺便说一下，这还应该针对小型企业、中型企业和大型企业进行。哦，你还必须在全球范围内做到这一点……这是一项艰难，非常艰难的任务。", "speaker_id": "john", "section_id": "s4"}, {"start_sec": 828, "type": "text", "zh": "任何人，我认为企业家必须做出这个决定：现在是否是出售并将我的技术交给已经拥有它的公司正确的时机，还是我可以继续独立运营，尝试自己建立它，并继续融资，不断稀释自己的股份？而且，这只是多年的努力，而不是尽可能广泛和快速地将你的技术带给客户。这是你需要做出的决定……正确地做出决定。而且，当你试图将这些人融入你的文化时，", "speaker_id": "alex", "section_id": "s4"}, {"start_sec": 870, "type": "text", "zh": "他们带来了一种特定的企业家精神，以及他们自己的方法，我们很喜欢。是的。那么你如何看待吸引他们并妥善整合他们，以便这种精神能够继续传播和繁荣，成为更大平台的一部分呢？我认为这是我们所做的事情中最有趣的方面之一。当我们收购一家公司时，我们引入这种卓越的人才来帮助公司转型，在很多方面也让我们焕然一新，并确保我们将这种企业家精神带入公司，并考虑新的做事方式。", "speaker_id": "john", "section_id": "s4"}, {"start_sec": 912, "type": "text", "zh": "整合团队的关键关注点是人员，确保他们能够成功适应，学习Salesforce的一切运作方式，并在公司内部发展他们的职业生涯。我们有许多许多这样的故事，有些人加入我们，将他们的公司出售给我们后，成为了我们的产品总监。这种情况已经发生过四次。还有一些人承担了我们销售组织或其他领导职位的重要角色。所以我认为，我认为这是我们发展公司过程中一个重要的部分，即引进新的人才。", "speaker_id": "john", "section_id": "s4"}, {"start_sec": 953, "type": "text", "zh": "是的，你们有80,000名员工。我可以想象你们是如何收购这些公司的，它们确实帮助甚至刺激了某些领域。有没有一个例子，是你们收购的公司中，你会指出对组织文化产生了重大影响的？我会说，有一个闪现在我脑海中的例子是David Schmeier的公司Velocity。所以，我们在Salesforce并没有特别的行业重点，但有很多重要的垂直行业，它们是整个软件行业增长的关键组成部分，而现在我们实际上有13个垂直行业。", "speaker_id": "john", "section_id": "s4"}, {"start_sec": 993, "type": "text", "zh": "而这一切实际上都是对行业的关注，对从这次收购中出现的特定行业使用案例的关注。因此，David 加入了我们，他带来了速度，他带来了六个垂直领域。我们又增加了另外七个领域，他成为了产品总监，现在是战略总监。我认为他确实帮助我们以一种我们以前从未想过的方式考虑向这些行业垂直领域销售。这非常有趣，多年来，Salesforce 的一个显著特点是，你们建立了关注垂直领域的大公司，比如 Viva 和", "speaker_id": "john", "section_id": "s4"}, {"start_sec": 1034, "type": "text", "zh": "诸如此类。Veeva 可能是最好的例子，这也是我们在风险投资项目中的早期投资之一，他们完全基于金融服务建立了一家令人难以置信的公司。今天，当你思考构建与购买的意义时，你可能会更常被告知我们可以直接构建，因为软件开发比以往任何时候都更快、更经济。因此，你工作的一部分应该是弄清楚什么时候这种说法实际上是真的。我想知道在这个时代，哪些软件实际上值得购买。当我们考虑是否通过合作伙伴来构建时，我的意思是我们会与产品开发团队做大量分析，来确定他们的路线图应该是什么样的。", "speaker_id": "alex", "section_id": "s4"}, {"start_sec": 1058, "type": "text", "zh": "接下来的三年，他们真的有人可以做到吗？他们真的有人可以做到吗？", "speaker_id": "john", "section_id": "s5"}, {"start_sec": 1102, "type": "text", "zh": "他们想要创造的东西能创造出来吗？创造吗？例如，他们是否拥有内部专业知识？他们能轻松地出去招聘到这些人才吗？你也知道，现在招聘，例如人工智能工程师，是多么困难，非常非常困难。因此，在许多情况下，如果你能找到合适的公司，通过收购确实可以加快开发过程。如果你能快速整合也是如此。这也是需要考虑的因素之一，因为一次典型的收购，从构想到实际整合完成，可能需要很长时间。", "speaker_id": "john", "section_id": "s5"}, {"start_sec": 1143, "type": "text", "zh": "从6到9个月。那么你自己能更快地实现一些东西吗？更快吗？所以，这些就是我们进行计算并尝试考虑的类型。但当合适的资源出现时，你真的会明白。你可能会有某种感觉。当Alfred和Florian来见Mark并向我们展示ListenLabs时，就发生了这样的情况。我的意思是，他们简直太棒了。我认为我们认为不仅技术出色，而且界面非常简单。它非常简单，以至于我的团队无需任何设置就开始使用它。十分钟内，我们就进行了调查。", "speaker_id": "john", "section_id": "s5"}, {"start_sec": 1185, "type": "text", "zh": "然后开始了。这简直是不可能的。这就是你检查 ListenLabs 的方式吗？这是我们所做工作的一部分。ListenLabs 调查？实际上，是为他们的客户做的。而且，它非常有效。不过顺便说一下，我们的审核流程相当严格。还有，客户因素，以及我们收到的客户反馈，是评估产品好坏最重要的方式之一。这些客户是否可能续约？我们是满意的 ListenLabs 客户，也将其作为验证工具使用。", "speaker_id": "alex", "section_id": "s5"}, {"start_sec": 1225, "type": "text", "zh": "，非常酷。也许在那方面，例如，加速能力，你之前提到的另一个收购是Fin。你们在客户支持方面已经做了很长时间……也许谈谈Fin给你们带来的机会，以及这次收购的历史。是的，我认为这回到我们之前谈到的，关于Mark专注于初学者心态的理念。因此，我们创建了一个令人难以置信的Service Cloud业务。他的资产现在接近110亿美元。", "speaker_id": "alex", "section_id": "s5"}, {"start_sec": 1266, "type": "text", "zh": "而且，这个业务的基础是我们在2008年收购的一家公司，名为Instranet，那是Alex Deion的公司。另一位后来成为我们首席产品官的人。他非常出色。他很了不起。他是，如你所知，法国最著名的企业家之一。而且，我认为，很明显，这整个向本地AI应用的转变，以及它们如何根据结果进行评估，以及评估实施、上线和让客户满意的速度的时间都非常快，对我们来说非常清晰。", "speaker_id": "john", "section_id": "s5"}, {"start_sec": 1307, "type": "text", "zh": "这不是我们能快速度建造的东西。所以，我们与欧文有着很好的关系，我们认识他多年。我们在爱尔兰见了他的人工智能团队，真是非常出色。绝对出色。一些最优秀的人工智能人才实际上就在爱尔兰都柏林。我们意识到，“哇，这可能会加速我们在服务云上所做的事情。”最后，我们能够收购这家公司，正如我之前所说，这对我们来说确实是一笔相当有价值的收购。", "speaker_id": "john", "section_id": "s5"}, {"start_sec": 1348, "type": "text", "zh": "是的，我的意思是，从公司的复兴角度来看，这也是一个令人惊叹的故事。从从 Intercom 转向 Fin，再到他作为创始人的回归，他对公司有很大的影响力。他，Owen，是一个声音很响亮的人，他直言不讳，他真的，他真的试图激励我们，这也是引入这些人的另一个优势。令人惊讶。令人惊讶。另一款我每天都在使用的产品，当然你也会使用，是 Slack。我很想知道，如果你能倒回时间，例如，你当时收购 Slack 的理由是什么。", "speaker_id": "john", "section_id": "s5"}, {"start_sec": 1391, "type": "text", "zh": "Slack 今天在人工智能中的作用非常重要，与你当时可能预期的不同。我很想知道你这些年来对 Slack 的看法是如何演变的。我认为我们收购 Slack 的核心理由今天依然适用，但它的影响比我们想象的还要大，因为它是 AI 的完美对话界面。而当我们在 2020 年考虑这点时，我们收购了这家公司。所以，现在有传言说马克在收购前只和斯图尔特见了一个小时。我不知道这是否常见，但实际上花的时间要多得多。绝对的。", "speaker_id": "alex", "section_id": "s6"}, {"start_sec": 1432, "type": "text", "zh": "当然。我认为我们，不，应该说我们非常仔细地审视过它。我们使用了 Slack。它显然是用户中非常受欢迎的产品，同时也是一个需要更多分发的东西。他只是输给了 Teams，他们陷入了困境。我不知道你是否还记得，2020 年有一个糟糕的季度；它的股价下跌了，这引发了很多讨论：“我们如何将这两家公司结合起来，把 Slack 变成它真正应该成为的东西，即一个面向所有人的用户界面和一个人们进行协作的工具。”", "speaker_id": "john", "section_id": "s6"}, {"start_sec": 1473, "type": "text", "zh": "应用程序可以协同工作吗？现在有了代理。现在有了代理，是的。我们之前并不了解代理，这是之后才出现的，但你可以看到它是完美的界面。我们也知道，这将是我们所有产品的界面。所以现在你可以通过Slack访问所有Salesforce产品。这始终是我们一开始的关键战略理由之一。从那以后，Slack的收入几乎是我们收购公司时的三倍。这也是我们增长最快的产品，所以它正在流行起来。", "speaker_id": "john", "section_id": "s6"}, {"start_sec": 1516, "type": "text", "zh": "如今像野火一样流行，因为它对代理来说非常完美。这很有道理。我认为在现代社会，Slack 是一种非正式的组织结构。就好像它知道谁向谁汇报，人与人之间如何交流。它掌握了决策是如何做出的整个背景……这就是为什么它是 AI 非常重要的语料库。是的。是的。但正如你提到的，它是一个界面产品。而且由于其他产品更多是无头的，它可以成为一个中央的、、决策平台的中央存储库。", "speaker_id": "john", "section_id": "s6"}, {"start_sec": 1556, "type": "text", "zh": "绝对是的。因为它拥有你所有工作的全部上下文，如果你使用 Slack 机器人，你可能会在界面中直接收到 AI 给出的最丰富的回复。所以这简直再简单不过了，我们很高兴能够收购这家公司，自从我们拥有它已经大约五年多一点，我觉得它确实改变了 Salesforce，令人惊讶。我可能刚刚提到过，对吧？正如你所说，这五年多的时间里，它几乎增长了三倍。这真是在大规模上的强劲增长。那么这个，历史，这种整合呢？什么", "speaker_id": "john", "section_id": "s6"}, {"start_sec": 1599, "type": "text", "zh": "与这个相比，其他收购，为什么会进行得如此顺利？是的，我认为，一开始并不清楚它会进行得如此顺利，特别是当我们在疫情期间购买这个公司时。对的，对的。基本上，我们通过Slack谈判交易，完成所有尽职调查，甚至没有进行很多面对面的会议就买下了公司。然后，整合花了一段时间才真正起步，但一旦起步，就顺利进行了。我认为，这再次表明，这是一项非常棒的技术，但缺乏扩散。我认为这也说明了这个观点。", "speaker_id": "alex", "section_id": "s6"}, {"start_sec": 1642, "type": "text", "zh": "我当时在 ListenLabs 工作。就像，一个企业家可以从一个优秀的收购伙伴那里获得的优势。这样的人际会面在夏威夷发生了多少次？没有。其实是晚得多的时候。那在 COVID 期间不是很常见吗？不是。不是的，当时不是。我是说，当时去夏威夷旅行也有很多限制。当然。但我会说，现在夏威夷非常有用。所以，我会想到 Braze，例如，我们最近宣布的收购。", "speaker_id": "alex", "section_id": "s6"}, {"start_sec": 1683, "type": "text", "zh": "我认为两位首席执行官在夏威夷的会面对于启动这个过程、建立友谊以及看到一致性非常关键，而且夏威夷本身就是一个神奇的地方。一切美好的事物都始于夏威夷。所以我们花了很多时间讨论、收购公司、与公司合作。你还有第三个选择，那就是投资公司，允许它们独立运营。我以前认为 Salesforce Ventures 是与你的生态系统合作的伙伴关系，你的紧密合作伙伴。今天，似乎更像是你在进行投资。", "speaker_id": "john", "section_id": "s6"}, {"start_sec": 1725, "type": "text", "zh": "更加自由，更加广泛。当然，Anthropic、Mistral、亲密的公司合作伙伴、Fall、Base Power似乎有点更偏离战略契合。听到战略多年来是如何发展的很有趣。很好，这是一个很好的问题，因为发展的确发生了，这是肯定的。但是，如果你仔细想，销售管道一直都是一样的，那就是我们如何确保找到能够为企业今天或未来提供价值的公司。所以，它开始于", "speaker_id": "john", "section_id": "s7"}, {"start_sec": 1765, "type": "text", "zh": "2009年，我们投资了像DocuSign、nCino这样的公司，它们是我们生态系统的一部分，并且必须与我们的软件紧密契合。Twilio也是早期的投资之一。这很有道理。我们与它们进行了整合，密切合作。我们还在服务领域进行了大量投资，以建立该地区整个服务合作伙伴生态系统。他们取得了很大成功。然后，我们承担了更多风险，进入行业发展的新领域，比如Snowflake。这非常非常重要。", "speaker_id": "john", "section_id": "s7"}, {"start_sec": 1806, "type": "text", "zh": "我们所进行的投资。几轮之后，然后是一次首次公开募股（IPO）轮次。我们还投资了网络安全，因为我们明白这将成为行业的一个巨大问题，我们需要掌握最新动态。所以Wiz是我们的投资之一。然后，当人工智能成为下一波行业趋势时，我们希望在最佳公司中进行非常大规模的投资。我们在2023年初创建了一个十亿美元的人工智能基金，但除了Anthropic之外，我们还投资了", "speaker_id": "john", "section_id": "s7"}, {"start_sec": 1846, "type": "text", "zh": "Mistral 和 Cohere 是几家更多处于基础设施层面的公司。我们在语音方面投资了 11 Labs，在视频方面投资了 Runway。现在我们也在涉足物理人工智能，我认为这是一个非常新颖、有趣且令人兴奋的领域。而且，非常明显，你可以看到，随着机器人在灵活性和机动性方面的进步，这将会是行业的一个巨大未来，所以我们希望参与其中。这很合乎逻辑。我的意思是，非常广泛的任务范围，看起来几乎涵盖了所有有相关技术的领域。", "speaker_id": "alex", "section_id": "s7"}, {"start_sec": 1888, "type": "text", "zh": "整个行业的增长。你个人的时间是如何安排的？我把时间分为寻找新的收购公司、与整合团队合作并确保收购成功，以及风险投资项目。所以我的时间非常分散。正如我告诉你的，我现在比以往任何时候都要忙，但我认为这在某种程度上也表明了行业发展的速度和当今技术创新的速度。你只需要更快地行动，而无论你多么快，仍然不够快。", "speaker_id": "john", "section_id": "s7"}, {"start_sec": 1928, "type": "text", "zh": "从风险投资的角度来看，你现在对这些领域中发生的事情最感兴趣的是什么？我认为机器人公司非常令人着迷。我真的很喜欢。我们投资了类人机器人领域的人工智能。我们投资了物理智能，Dyna Robotics，Skilled，以及其他一些公司。我们还有Zipline，比如，它进行无人机配送。所以我们在与许多这些公司合作时承担风险。是的，我们也在一些新的领域开展工作，而不仅仅是", "speaker_id": "john", "section_id": "s7"}, {"start_sec": 1968, "type": "text", "zh": "与软件相关，但很明显它们将对行业非常重要。我很喜欢。我还想说，我们在世界各地都有投资，并且看到一些非常有趣的公司，例如在日本。日本。我们投资了一家名为Mujin的机器人公司，它在物流和日本市场非常大。我们在欧洲、以色列以及亚洲和澳大利亚的其他地区也有许多公司的投资。例如。因此，我认为观察技术全球化是非常", "speaker_id": "john", "section_id": "s7"}, {"start_sec": 2010, "type": "text", "zh": "有趣的观点。关于机器人学，我同意。我们真的开始看到机器人学中规模法则的初步迹象，这真的很令人兴奋。然后，这些公司中的一些在市场进入方面采取了稍微垂直化的策略。因此，我们开始看到收入开始增长，这真的很令人兴奋。当你考虑你的投资范围时，你有多频繁会看某些公司并想，‘嘿，有可能有一天他们能与Salesforce竞争。’你会投资 một 家可能达到这种位置的公司吗？", "speaker_id": "alex", "section_id": "s7"}, {"start_sec": 2051, "type": "text", "zh": "我认为我们实际上可能确实应该这样做……接近技术发展方向是件好事。也许这家公司有一天会成为收购目标。所以，给你一些数字参考，我们已经投资了超过750家公司。我们收购了29家。所以，仍然是一个相对较少的数量，但我认为如果我们看到一些真正令人兴奋的东西，可能将来会成为收购目标，也可能不是，也可能只是一个很好的合作伙伴。我们希望与这家公司保持紧密联系。是的，你提到这750家公司中有相当一部分在从事的行业是……", "speaker_id": "john", "section_id": "s7"}, {"start_sec": 2093, "type": "text", "zh": "你不会称核心战略……例如，对我来说，机器人技术今天似乎不是Salesforce发展的下一步。但我们想与他们合作。你想与他们协作。他们如何评估与Salesforce Ventures合作的价值主张？我认为最大的价值可能是我们如何帮助他们接触客户。而且，我们拥有最广泛的希望购买技术的企业客户范围。这就是为什么我们帮助我们的投资组合公司接触这些客户。我认为我们还提供了很多实质性的建议，从运营方面开始", "speaker_id": "alex", "section_id": "s7"}, {"start_sec": 2134, "type": "text", "zh": "关于如何在这个特定行业建立业务的视角。并且，考虑到这么多故事，我们真的可以帮助这些创业者发展他们的业务。如果你今天要创办一家公司，并且它将直接挑战Salesforce，你认为有哪些机会是合适的呢？我想说的是，我不知道为什么在这个时候新的CRM公司还会不断涌现。只是好奇……你为什么会这样认为？目前有很多基于AI的CRM系统，比如Lightfield、Monica。", "speaker_id": "alex", "section_id": "s7"}, {"start_sec": 2174, "type": "text", "zh": "你的观点很有趣。我只是觉得这非常困难……首先，现在有这么多很棒的CRM技术。而且我们也在不断改进我们的产品。在这个行业里创造一些特别的东西，尤其是专业化和小众化的东西，真的很难。所以我还没有……我还没有看到有什么新东西能够在这个领域发展成为一个数十亿美元的大公司。是我的意思是，也许在低于你们传统市场的地方会有机会……我知道你也", "speaker_id": "john", "section_id": "s7"}, {"start_sec": 2215, "type": "text", "zh": "在中小型企业中，但是，在快速启动和运行方面，这是一个更深的市场渗透。是的。可能会有，可能会有很多这样的公司，但它仍然是一个小市场，这是一个小领域，我们像做风险投资那样处理它，因为我们只投资大的机会。我认为大多数风险投资家也是这么看的，所以他们只是投资一些小的利基机会，这些机会可能与现有的公司在做的事情略有不同。我只是无法理解。说得对。一个平行的例子可能是，Stripe从小公司起步，并且能够随着时间的推移与许多公司共同成长，我想象", "speaker_id": "john", "section_id": "s7"}, {"start_sec": 2256, "type": "text", "zh": "这些初创公司可能有类似的愿望……我只是觉得它们太多了。它们太多了。投入它们的资金太多了，我认为风险投资界需要专注于真正新的、重要的、以前未被开发的领域……如果你考虑整个风险投资界，我们正处在一个独特的独特融资时刻。我很好奇你对这个怎么看，你现在如何理解评级。我认为现在有很多不负责任的行为。我认为，评级肯定太高了。", "speaker_id": "alex", "section_id": "s7"}, {"start_sec": 2298, "type": "text", "zh": "但是，买家的范围也非常小。当你考虑投资时，你需要考虑退出的选项，而并不是每家公司都会上市。事实上，很少有公司上市。可能只有1%或更少。因此，退出的能力至关重要。你要考虑谁可能会买它。一旦你超过大约100亿美元，买家的范围就非常小。然而，你会看到那么多价值数十亿美元的巨大公司，最终都会面临清算。", "speaker_id": "john", "section_id": "s8"}, {"start_sec": 2340, "type": "text", "zh": "我不知道具体什么时候，但这是不可避免的，因为很多这些公司的估值是无法持续的，它们无法维持这样的估值，也无法发展到匹配这个估值的规模，而且，我认为，这对他们的员工来说也会很糟糕。这就是为什么我说这有点不负责任。不幸的是，你尝试与企业家进行这种对话时，他们通常只想得到尽可能高的估值，但那通常不是最好的解决方案。你认为其中很大一部分是权力法则思维的结果吗，例如，Anthropic 可能会…", "speaker_id": "john", "section_id": "s8"}, {"start_sec": 2380, "type": "text", "zh": "得出超过一万亿的估值。我们可以这么说。显然，SpaceX 的估值达到两万亿。这些公司发展到这样的估值，特别是在 Anthropic 和 OpenAI 的情况下，是在相对较短的时间内实现的。对吧。这些公司是由几代人拥有的，而且非常非常罕见。当你发现这样一家公司时，真是难以置信，这也是我们在 Anthropic 投资六轮的原因。从与 Dario 和 Daniela 的第一次见面起，就清楚地看出他们是特别的人。他们是我们遇到过的一些最聪明的头脑，而且他们将创造一些宏伟的东西。所以从这个角度来看，这是合理的。", "speaker_id": "john", "section_id": "s8"}, {"start_sec": 2420, "type": "text", "zh": "继续投资。但是像那样的公司很少，我看到很多平庸的企业家和他们的想法，这些想法没有成为这些跨世代的公司，他们的估值不必超过100亿美元，但他们仍然能达成目标。因此，我觉得现在需要更多的纪律。我同意在生态系统的某些部分这种情况确实存在。我部分乐观的原因在于，十年前顶尖1%的公司的表现与现在的表现非常不同。", "speaker_id": "alex", "section_id": "s8"}, {"start_sec": 2461, "type": "text", "zh": "今天是公司中的前1%。即使在并购领域，你之前提到了Wiz、Cursor。所以有一些更大的成果为整个生态系统带来了盈利。当然，我是个乐观主义者。如果我不是乐观主义者，我就无法做好我的工作。但你要知道，我每年会看到成千上万的公司失败，因为它们都会来找我们，试图被收购。所以我们看到了那部分行业，你在媒体上是看不到的。媒体不喜欢报道这些故事。因此，当企业家考虑筹集资金时，这是一个重要的事实。", "speaker_id": "john", "section_id": "s8"}, {"start_sec": 2502, "type": "text", "zh": "正确的估值是多少，建立这个业务的合适方式是什么，他们必须考虑这些。你曾参与过一些最大的企业软件交易……有时这些交易会失败，无法达成。是什么导致交易失败？我认为在审查过程中，首先，非常重要的是要做好准备并保持组织有序，这样数据传入时就不会显得你在获取数据上有困难。我认为我们发现的一件事是客户公司", "speaker_id": "alex", "section_id": "s8"}, {"start_sec": 2545, "type": "text", "zh": "通常他们对自己的财务没有清晰的控制，或者没有客户合同的数据。他们并不真正理解什么是客户流失。我认为现在很多创始人犯的一个错误是，他们只关注一个指标，即平均年化回报率（ARR）。ARR是一个很好的指标，但它掩盖了……而且真正重要的是要考虑什么是客户流失，理解客户流失的原因，并采取措施应对它。因为当你遇到一家客户流失率很高的公司时，这通常意味着存在", "speaker_id": "john", "section_id": "s8"}, {"start_sec": 2586, "type": "text", "zh": "不仅有很多不满的客户，而且可能还存在一些产品质量问题。所以，这是我们关注的主要警示信号之一。我认为另一个领域是你如何管理数据的隐私？你如何管理安全？安全是唯一一个功能，在我们所有的审核过程中有14个功能，而安全是唯一可以提出警告并说，“我正在放弃这笔交易”的功能。所以如果你构建的技术堆栈易于受到黑客攻击，这对我们来说将是一个真正的问题。", "speaker_id": "john", "section_id": "s8"}, {"start_sec": 2626, "type": "text", "zh": "因为你还想做的是准备好，将你的技术栈组合在一起，看看会发生什么，然后再开始测试，因为我们将进行自己的渗透测试并找到问题。你肯定也想在我们之前找到漏洞。但是，当一家公司完全安全，所有数据可用，技术安全时，流程会顺利得多，审查过程可以非常快速，我们可以迅速而毫不痛苦地完成它。但当情况并非如此时，你就会意识到交易可能会遇到问题。", "speaker_id": "john", "section_id": "s8"}, {"start_sec": 2667, "type": "text", "zh": "失败。有没有一个交易在最后一步没有完成的例子？你不能……当然你不能说出名字，但也许这是你或创始人的一个令人痛心的故事。我认为通常不会发生在最后一步，但它会发生，在合同条款达成一致、价格和交易的基本条款达成一致之后，接着你开始深入审查过程。我们遇到过的问题，例如，当我们进行验证测试时，我们不仅能够", "speaker_id": "john", "section_id": "s8"}, {"start_sec": 2708, "type": "text", "zh": "访问他们所有的源代码，甚至进入CEO的笔记本电脑并获取有关他员工的信息。现在，所有这些都已经被分享，你分享了吗？当然。我们总是分享我们发现的内容，并尝试帮助他们解决问题，但情况非常糟糕，甚至是我们见过的一些最糟糕的情况，已经无法修复。顺便说一下，我们还有其他可以修复的安全事件，你可以识别哪些问题是P0、P1、P2问题，并将其设为关闭的条件，或者可能甚至是签署的条件——在这些问题未解决之前我们不会签署，我们不会签署。", "speaker_id": "john", "section_id": "s8"}, {"start_sec": 2750, "type": "text", "zh": "直到这些其他问题解决之前先关闭。所以这一切取决于情况有多严重，但在你经历这些过程时，你应该让家里保持秩序。讲得通。网上有一张你和你母亲在2023年费米奖颁奖典礼上为你父亲颁奖的惊人照片。你的父亲是一个非凡的人。他，幸存了大屠杀，逃离欧洲。我，来到这里，在伯克利有了令人难以置信的学术生涯。我想以讲述你与父亲一起成长的经历作为结尾，你父亲的经历", "speaker_id": "alex", "section_id": "s9"}, {"start_sec": 2794, "type": "text", "zh": "想过你的职业生涯，他是如何塑造你的。我的父亲希望我成为一名化学家，为了明确说明。他，创立了一个和那相当接近的化学分支。你可以争辩说，我们所做的并购工作中有很多化学元素。但没错，他创立了一个叫做表面化学的化学分支，他还花了很多时间研究催化并获得了许多奖项。当他获得国家科学奖章时，我们还参观了白宫。能和这样的人一起成长，并见到他的同事，真是太不可思议了，而且", "speaker_id": "john", "section_id": "s9"}, {"start_sec": 2834, "type": "text", "zh": "然后请世界上一些最令人难以置信的头脑到我们家吃晚饭。我的妈妈喜欢举办这些令人难以置信的晚宴，这就是我成长时的生活。那是一种真正鼓励你保持好奇心并思考未来的生活，这也是我成长的一部分，我认为这真的塑造了今天的我。是的，我是说，这确实与你所做的事情有很多相似之处，而且，也许那些与化学家的晚宴和谈话产生了一些影响", "speaker_id": "john", "section_id": "s9"}, {"start_sec": 2875, "type": "text", "zh": "与现代人工智能研究人员的对话有相似之处。没错，而且，我也有一个非常喜欢一直教人的父亲，他会在餐桌上教我，在车上教我。他开车送我上学时也教我，所以我不断被信息和知识包围。他是一个很了不起的人。太棒了。非常感谢你今天花时间与我们交流，真的很有趣。是的，谢谢你，Alex。", "speaker_id": "john", "section_id": "s9"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>第8周胜利启示、外接手深度表、迎战指挥官队等｜Between the Horns</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-2{--c:#4c8c5a;--cbg:#29392a;--cbgl:#eaf1eb}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="camryn">卡姆琳·欧文（Camryn Irwin）</option><option value="farr">德马科·法尔（D&#x27;Marco Farr）</option><option value="mjd">莫里斯·琼斯-德鲁（Maurice Jones-Drew）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Los Angeles Rams</span><span class="pill">2026-11-05</span></div>
+<h1>第8周胜利启示、外接手深度表、迎战指挥官队等｜Between the Horns</h1>
+<p class="sub">嘉宾：Camryn Irwin、D&#x27;Marco Farr、Maurice Jones-Drew · 约 47 分钟（2831 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=ZGndJRUsspM" target="_blank" rel="noopener">https://www.youtube.com/watch?v=ZGndJRUsspM</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Los Angeles Rams</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-05</dd></div><div class="meta-row"><dt>时长</dt><dd>约 47 分钟（2831 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；普通 yt-dlp；.en 与 en-orig 内容相同）；caption_source=yt-dlp-auto；中文为全文翻译并按话题分段；开场/收尾丰田经销商口播已标灰</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>ZGndJRUsspM</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>Between the Horns：欧文、法尔与琼斯-德鲁复盘公羊第8周击败闪电队，深谈沃森报销后的后场、唐纳德升温、跑传节奏、外接手深度，并侦察指挥官队与杰登·丹尼尔斯。</p>
+<h3>核心要点</h3><ul><li>沃森肩部手术赛季报销；华莱士/Forbes 顶上但硬朗贴身有落差。</li><li>唐纳德近阶段状态被低估；防守韧性成队内身份关键词。</li><li>上半场冲球偏少或与集合节奏有关；13 人员可制造线卫疲劳与空档。</li><li>外接手深度使「二号」难以被单点限制；下周关注丹尼尔斯与 Frankie Luvu。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">球评密度高、有伤病与战术细节，球迷值得听；三人闲聊字幕嘈杂处已理顺专名。</p>
+<h3>适合人群</h3><p>公羊球迷、关注第9周对指挥官队的观众。</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场：SoFi 击败闪电队，重回 .500</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">卡姆琳·欧文顶替外出报道大学橄榄球的 JB Long，与德马科·法尔、莫里斯·琼斯-德鲁复盘公羊在 SoFi 战胜闪电队、战绩回到五成。几人强调 NFL「难看也要赢」：防守顶住压力、下半场调整后打开跑传，普卡在某些局面前置拉开跑球；面对不同边路压力（对比上周马克斯·克罗斯比）需周周解题。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">杰伦·沃森肩部手术赛季报销</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">沃森需肩部手术赛季报销，后场双重保险（他与 Trent McDuffie）刚成形即破局。法尔/MJD 指出损失在于强硬贴身与臂展：Josh Wallace 出场多、可顶上，但「头盔抓痕」式的硬朗不如两人；华莱士总回合已能与 McDuffie 持平，却常吃有争议的干扰/判罚。Emmanuel Forbes 等亦有机会证明。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">防守身份、盯人争论与亚伦·唐纳德升温</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">讨论紧盯人盯防能否因唐纳德持续施压、迈尔斯即将回归而更敢打；对机动四分卫（展望杰登·丹尼尔斯）意见不完全一致。几人认为唐纳德近六周像「重新练完一个训练营」，贡献被低估；Quentin Lake 被引为韧性代表——队内身份感更多来自防守调动中的硬抗。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">关键球员：线卫、跑防与「背水一战」气质</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">对阵擅跑对手需线卫快速下坡；Omar Speights 近两场 NFL 评分靠前，从特勤组打到首发的路径获赞。沟通与领导力：有人伤缺时他人获得指挥机会，防守整体仍稳。回忆「必须为彼此拼命」的队会时刻——McDuffie 从第一天起就是这股劲，带动跑动中的关键拼抢。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">跑球节奏、半场仅五次冲球与短传</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">上半场冲球约五次、约 13 码——可能因集合叫最佳战术导致对方也集合选最优跑防；当对方前七人优先停跑而非狂压四分卫时，短传更有价值。改变节奏可避免「第三次长码」；讨论 13 人员与疲劳：连续多档 13 人员让线卫身心俱疲，再配动作传球易形成空档。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">外接手深度：普卡之外人人可成二号</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">Whittington、Higbee、Parkinson 等都能在关键时刻冒头——几乎任何人可当「二号」，使对手难单点盯防普卡。赞普卡「不为明天忧、为今日每寸地盘」的心态与场上全面性（穿衣风格另说）。特勤组与场位：开球/弃踢回攻创造短场比深场开球更利于得分效率。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">侦察指挥官队：丹尼尔斯、Luvu 与草地天气</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">展望华盛顿：杰登·丹尼尔斯多面威胁；Frankie Luvu 被形容为到处捡松球的「罗汉·马利/ Buddha Baker Light」，需限制其活动并盯住关键线卫。认为若能像打闪电队一样坚持跑球，在草皮且可能降雨时应更依赖七人核心；让普卡等边路施压角卫、制造眼神违规。收尾预告公羊对指挥官队 Fox 下午 1 点开球。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">卡姆琳·欧文（Camryn Irwin）<em>主持</em></span><span class="spk-1">德马科·法尔（D&#x27;Marco Farr）<em>嘉宾</em></span><span class="spk-2">莫里斯·琼斯-德鲁（Maurice Jones-Drew）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场：SoFi 击败闪电队，重回 .500</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p><span class="tag">【音乐】</span> 欢迎收听由南加州丰田经销商呈现的《Between the Horns》。我不是 JB Long。我是 卡姆琳·欧文（Camryn Irwin），与我的好朋友 莫里斯·琼斯-德鲁（Maurice Jones-Drew） 和 德马科·法尔（D&#x27;Marco Farr） 一起。好了，伙计们。刚刚取得胜利。 <span class="tag">【笑声】</span>？我很高兴能顶替 JB Long，他出去报道一些大学橄榄球比赛。非常激动能和你们一起坐在这里。 是的，先生。我也是。刚刚战胜了闪电队（Chargers），公羊队终于重回正轨，现在找回了 500 的胜率。让我们先谈谈在 SoFi 赢球的最初反应。很高兴再次站稳脚跟，对吧？很高兴回到队友们中间，我想。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>可以说我们还在追赶中。两周内，对阵突袭者队、闪电队。我们谈过了。你必须处理好自己的事情。我觉得你已经做到了。可能没有大家希望的那么漂亮，但谁在乎呢？这是NFL，一切都是为了赢。所以，这是一次艰苦的胜利。要给闪电队很多赞誉。我知道老话说，你的战绩就是你的实力象征，但在NFL里，每个人都有擅长的方面。那是一次非常好的防守。你们顶住压力，坚持到最后，打穿对方防线，进入端区，拿到足够的分数赢得比赛。所以，这是公羊队的一场伟大胜利，接下来进入下一周。不是，</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>我完全同意。我觉得每支队伍都会给你不同的挑战。显然，突袭者队有马克斯·克罗斯比，你必须应对那个挑战，对吧？而且我觉得公羊队在处理这方面做得非常出色。这周有点不同，因为你有两个边路冲锋手，中间还有更高大的球员。这支防守队伍非常以保持比赛竞争力为荣，他们在上半场做到了这一点。但我认为肖恩和他的教练组做了很好的调整。你也提到了，让普卡在某些情况下领先，这真正打开了跑动进攻。同样，就像每一周一样，你只是试图解决这个难题，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>有时候你可以在开球的第一节就解决问题。有时候需要半场。有时候要到第四节，但你一直在努力解决问题。所以，干得好。我觉得马修·斯塔福德在下半场表现得非常出色。我觉得公羊队在决定不使用停表进攻时真的打开了一些机会，即便他们必须这么做，因为那种情况就像是两分钟的紧迫局面。但有时候，当你在缓慢前进时，加快节奏会让你进入节奏，并让你看清简单的防守布置，更容易传球。好，我们将深入分析下半场的表现，特别是随着节目进行，进攻效率。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>杰伦·沃森肩部手术赛季报销</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p>但对洛杉矶公羊队的伤病健康报告又是一个打击。杰伦·沃森现在整个赛季都将缺阵，需要接受肩部手术。这对球队的防守二线来说真是一个巨大的损失。大家觉得影响会有多大，我们接下来该怎么看呢？我跟你们说过我的绰号，对吧？致命武器。马丁·里格斯的肩膀脱臼，你一拉回去，他就继续上场。巨大的损失。你刚刚让他们俩回到场上，麦克达菲和沃森同时出场，这样你本可以形成那种你以为能做到的严密防守。可惜他要缺席。乔什·华莱士已经出场很久了，所以他们……</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>对他有很大的信任。我会说最大的区别是头盔上的抓痕少了很多，因为那两名后卫打得很强硬。乔什·华莱士是个能打的球员，但他不像那另外两个那么强硬。所以在这方面会有所损失。但没错，这是一个很大的损失。不过你有能够立即顶替他位置的球员。是的，这是一个巨大的损失。我认为他的臂展、身体对抗能力和智慧，你提到的不仅是在跑动进攻中，也是对抗更大身材接球手时，他都是关键人物。当你想打人盯人时，他就是那种轻松应对的球员：你拿到更高大的球员，就可以用身体对抗他。如果是迈克</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>埃文斯或者一个外接员，不管是谁可能是麦克布莱，就像你要盯着他。布罗克·鲍尔斯在某些情况下会出场。所以，没有那个大个子，我觉得奎因顿·莱克可能在某些情况下不得不承担那个角色，这也没关系。但确实有点糟糕，因为，我觉得公羊队在防守上开始有点成型了，然后迈尔斯·加勒特这周回来了，对吧？所以，你会想，‘哦，又来了。’所以，这很糟糕，但这就是NFL，而我对NFL知道的一件事就是下一个人要上场，对吧？我以前说过，但在NFL机会是被给予的，而不是赢来的，对吧？而</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p>这是乔什·华莱士走出去赚钱的机会。是的。没有左臂的《合体战士》。你已经几乎到了。那就是问题所在。我看到他是怎么受伤的，当你受撞击、瘀伤和受伤时，它正好打在他正确的位置。只是位置对他来说不对，他也无能为力。所以，你必须克服它。就像你说的，每个人都有机会站出来代替他。因此，乔什·华莱士和伊曼纽尔·福布斯，有几个数据可以给公羊队球迷信心。目前，两人在四分卫的覆盖评分中都位列前12。</p>
+<p>从情境角度来看，华莱士，他出场很多，非常多。他在第四周时顶替了全部的防守回合。他也在第六和第七周替了麦克达菲的位置。就总出场次数而言，他和麦克达菲正好势均力敌。是的，我得说，他受到的判罚最不公平。他确实是。我们需要在他周围烧一点鼠尾草来净化他，因为似乎每次他盯防某人，要么就是被抓住然后算作干扰传球，要么就是被撞翻然后又被判罚。你到底想怎么办呢？没关系，每个人都会经历这些。是的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>如果你再失去一个人。McDuffy 是那种喜欢用身体冲撞的人。所以他不仅仅是一个角卫。他是我所谓的 DB，有点像 Jaylen Ramsey。一样的。他进去，会把鼻子插进对方阵型。如果因为某种原因你再失去一个人，你们又回到 Wallace 和 Forbes，那就是完全不同的防守。是的。和你想要的防守完全不同。所以这是 Chris Schul 必须经历的一个调整。让我问你一个问题。既然 Watson 显然不在，你现在会让 McDuffy 纯粹在外侧防守，而 Quinton Lake 负责内侧吗？因为那个内侧的尼克位置其实就是一个线卫。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>我会为麦克达菲那样做，为了救他自己，因为他永远不会拒绝。你看过他对阵充电者队时的表现。所以，我的意思是，他会是你最好的覆盖球员。所以，我会尝试保护，我会说更多是为了Q·莱克。Q·莱克更像是我的多面手类型的球员，因为沃森不在那儿。所以，如果我不能让沃森盯防鲍尔斯，那么Q·莱克就是下一个选择。那么，你认为即便是在防线上，考虑到现在坐在他们身后的球员，克里斯·舒拉在战术调用和进攻积极性上也会受到影响吗？问题是这样的。我会说，请继续。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>数学上有一个问题。我们不知道迈尔斯·加勒特会给你什么。所以，他可能会弥补你在后端缺失的东西。你明白我的意思吗？所以，你必须玩这个游戏。我总是会这么说，我经常被问到这个问题，尤其是在现代NFL比赛中。如何冲击那些灵活跑动的四分卫？我会说让他证明自己。我永远不会告诉我的队员们先硬拼。如果他跑出来了，我们会调整。这就是我们的分歧。但我同意。我听懂你的意思。我认为如果迈尔斯·加勒特回归，并且他还是我们在克利夫兰看到的那个球员中的某种程度上的那个球员,</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>防守身份、盯人争论与亚伦·唐纳德升温</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p>那么我认为那是不一样的，你仍然可以打紧盯人盯防，因为球必须很快出手，考虑到Aaron在过去几周的发展情况，对吧？所以现在Aaron有点找回感觉了，回到他过去的状态，现在你又让Miles回归，所以我仍然想看到紧盯防守。当你谈论机动型四分卫时，我知道我们要谈的是Daniels，Jaden Daniels，但我相信，你会喜欢这个的，你会喜欢的，因为这是你的位置。我希望如此。我相信外侧球员，你必须限制住，对吧？你必须保持口袋在那里。但是，但是这个</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p><span class="tag">【笑声】</span> 事情是这样的，让挡拆穿透。让挡拆穿透并完成工作。让我来，吧，你那边有迈尔斯·加勒特，对吧？我要告诉他做的最后一件事就是防守和等待。谁说他必须在外线打？他可以打三角位置。我只会说我会根据他调整。让迈尔斯·加勒特发挥他的作用。有几种不同的冲传方式。你可以用四个冲，你可以带五个，你可以带比他们能防的更多，或者你可以安排一个位置。记得我们尝试过吗？我们在对阵乔什·艾伦时就尝试过，他用四人冲传。当时谁不在场？这就是你拥有迈尔斯的意义。我</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>我不会叫他硬吞下去。去做你该做的事。我不是说我会叫迈尔斯硬吞下去。但我会说的是，你会在合同年的时候看到他的表现，因为我之所以这么说，是因为如果我从内部施加初始压力，而他被逼得失控，BY 和乔赛亚·斯图尔特有速度能够完成擒杀。是的，也许你不……我理解这都是合同年的事情，但如果我们找到方法压迫他，那就完了，我们知道他一旦开始填满（进攻）会做什么，然后最终在第三和第四节放手让他发挥。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p>他不是，他以前被解雇过，但就像我说的，我会让他证明自己，所以我会让那些正在赢的我的人继续赢，而我会调整其他人。你要说的，我们就同意不同意<span class="tag">【笑声】</span>吧，因为我每天都会在对抗移动四分卫的事情上坚持我的立场。我本来想说希望我们的演播室里有一些拳击手套。不，这太棒了，绝对喜欢它。但你们提到了阿隆·唐纳德，我觉得也许他没有得到足够的认可。几乎感觉他在过去六周里一直在通过洛杉矶公羊队的训练营。你怎么看他继续提升自己的比赛水平？</p>
+<p>我一直对人们说这个。他从沙发上起来做到这么好，真是令人惊讶。我会说他的表现一直是稳固的B级，这很棒。这简直是顶尖水平。至于组织进攻，他也在逐步达到那个水平。当你说像以前的阿隆·唐纳德时，我笑了，因为我脑海中浮现的画面是他错过了那个掉球。那就是——那就是<span class="tag">【笑声】</span>年龄象征。那是沙发上的时代。但过去，那是单手抢球。他直接冲向达阵。但现在开始慢慢复苏。你开始看到他在场上闪现、突破、创造机会。有时他甚至会自由发挥，但他就是能做到。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>以聪明的方式组织进攻。所以，他正在恢复他过去的组织进攻的状态。现在，当超人回归吸引注意力时，这应该会稍微增加一些。所以，迫不及待想看到他们两人在场上的表现。我得说，对于抢球回收，我能理解。这是因为你不习惯的情况，我觉得有些事情，当你刚从沙发上站起来时，就会出现，你会像，“哦，我弯得够多来拿球了吗？”是的，你就像<span class="tag">【笑声】</span>像，“”。就像差半英寸一样。他会想，“我本应该搞得更多一点。”我能理解。但我只是觉得他的一些进攻动作太巧妙了。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>拦截和抢断造成失误，或者就像你说的那些闪光时刻，当那些东西闪现时，你开始看到那些闪光，并且它们开始变得越来越稳定，对我来说，那就像哦，好的，他正在进步。就像我保证下一次如果那里有球，他会用双手抢到那个球<span class="tag">【笑声】</span>看McVeyy的反应，大家都说我们需要球，但当他们和他说话时，他们会说，嘿，干得好，只要试着抓住它，我跟他说，是的，我们必须积极主动。去拿你的第一个达阵吧，去做你自己的事情。但我认为，再次强调</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>就像他，你只是看到他越来越好。那种弯腰去抢球，真的就像——好吧，我只要，我已经习惯了。是的，会发生这种事。我想他会没事的。话说回来，可惜的是，那是贝利的一个精彩擒杀。天我希望你能在那个时候回放一下，这样我们就可以突出那次精彩的擒杀。是的，非常精彩。我赛后有机会跟昆顿·莱克聊了一下，他跟我说了一些事。不仅说了关于阿隆·唐纳德试图抢回球的事情，说他膝盖老化，这周会一直找他麻烦，还顺便提到他…</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p>感觉这支球队已经找到了自己的身份。我想我要问你一个问题，所以才会有那阵倒吸一口气的反应，你觉得这可能更多是在防守方面吗，尤其是考虑到这支防守队不得不进行大量调动，而我们并没有完整的全员阵容？身份，他们找到了自己的身份。你觉得那会是什么？你觉得呢？你是指防守方面的韧性，还是整体防守？至少是在防守方面。——这是Quinton Lake的评论。非常有韧性。我认为他们在对阵闪电队（闪电队（Chargers））时敢于近身肉搏并最终获胜，这一点非常重要。去费城赢得那场比赛也很关键。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>巨大。一切都很艰难，但你没有放开绳子，你还拉出了一些，尤其是过去两周。所以，我会说是有韧性的。进攻有时很具爆发力，防守不错，可以让你无法进达达阵区。特勤组还在努力达到那个水平。所以，他们已经能够克服很多困难，甚至是他们自己的错误。如果他们能够摆脱自己的障碍，那么我们就会发现这支球队真正的实力。我要说这个。我认为这支球队，如果你回到第一周，实际上他们几乎每场比赛都只差一记关键进球就能赢得比赛。我感觉就是，如果你说第一周的话</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>现在是第四次尝试得分，在一码线。你不明白。他们走了99码。现在，如果你在第四次尝试得分时成功，突然间你就领先了。我想说，你会变得不同。这是完全不同的比赛，你在赢，然后一切都会改变。所以，就像你看看每一次失利，其实就是一场比赛中的一个球，你可以说，“哦，那发生了。”或者，“哦，这发生了。”或者，“哦，那发生了。”而实际上，你会觉得，“好吧，我觉得他们开始意识到，我们真的离胜利就这么近。”然后，在过去的几周里，他们在进攻上组合出了更好的方式，更加...</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p>在跑动进攻上很固执。谈到了赢得那些获胜的比赛 23-17、23-14。明白吗，就像，让我们的防守，让我们的跑动进攻，让我们的防守压制对手，对吧？确保我们在特勤组方面稳健。我们需要表现出色，但特勤组要稳健。你开始可以看到这一点，这很有趣，因为每年大约在这个时候，公羊队开始变热。不知道为什么，大约十月底到十一月初，他们开始变热。几年前，在库珀·库普之前，他们就开始了那波连胜。还记得库珀·库普本来要被交易吗？我们当时对阵明尼苏达维京人，他们</p>
+<p>赢了那场比赛，然后就像，走吧。我感觉这就是他们现在的状态。当其他人在NFC进行交易以提升实力时，我们的人又回来了，这大概就是我认为Quinton Lake想表达的：你开始发现你自己是谁。你开始了解你自己，并且开始变得更好。说到你的观点，23赛季以3胜5负开始，24赛季以4胜4负开始，两年都显然进入了季后赛。我很想再多谈谈Quinton Lake连续第二场比赛戴绿点灯。加油，Bruins。我本来想说，你会在这个节目里谈到加油Bruins，但</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>他一次又一次地持续提升。我甚至无法想象在防守后场指挥防守时，他覆盖的码数有多少。——。在每一次开球前，他在心理负担方面承受了多少压力，而他又是如何控制这些压力的呢？我问过他，这压力很大。他要做的事情很多。但你看，我说过，这是成为那么优秀、成为那样领导者的代价。他们会对你有很高的期望。所以，要增加你的心肺耐力。我在比赛后见过他。他看起来很疲惫。这是应该的。这与聆听战术指令然后回去稍有不同</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>排队并做好你的工作。现在，你必须确保每个人都在正确的位置上。你得扮演四分卫的角色。事情就是这样，但他能应付，而且他正变得更加擅长制造机会，因为他得到了机会。他们仍然在追他。我敢打赌，这周将是他第一次拿到擒杀，因为你提到如何控制这些人，不能靠一个笨拙的人或像我这样的人。必须是一个在运动能力上与你所看到的相等的人。所以，我打赌像Q Lake、Cam Curl这样的人会朝四分卫施压，并且他们这周会有擒杀。但也不意外。实际上，这让线卫更容易自由行动。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>锤子。是的，我，我更喜欢那个。所以Q，这是他的角色，而且他已经接受了它。你的名字是Q队长，对吧？所以你必须扮演那个角色。我认为这对他来说是一个大步，因为他们正在使用的新防守，会派出七个后卫，六个后卫和一个线卫，对吧？所以你本来就在那个线卫的位置上打镍卫防守，而且你能够快速地进行比赛，而且你几乎在每一个阵容中都在场。所以他总是在场上。是的。而且我也认为这减轻了很多负担给一线球员，对吧？就像你说的，他有点受伤，这让他可以自由比赛，也让奥马尔·斯佩茨可以</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p>免费玩。你只需要喊出强右，强左。你已经固定好了，你准备好出发了。还有人会为你处理其他所有事情。再说一次，他是一个很棒的沟通者。我认为这就是另一部分原因，并不一定意味着Lamman不是。我认为他仍然是一个很棒的沟通者，但当他受伤时，这给了他一个机会去做这些。而防守一直表现得很好。我只是直说。尽管人们想讨论那场突袭者的比赛，让我们看看，突袭者平均每场得分大约30分、28分，而你出去完成了你的任务。所以就是这样</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>通过施加更多压力，让其他人能够更快地发挥，这并不是说兰德曼不能帮忙。他在场上。他在讲话。他在沟通。他在提供帮助。只是Q将会运作，他会是场边到场上的沟通者。不过，我只想说这个，让我也稍微加入一点讨论，但不会这么极端。我也希望看到兰德曼更多的表现。是的，你看到奥马尔·斯佩茨的爆发了吗？我是说，他在场上猛击对手，这正是你希望看到的两名线卫的表现。所以，我理解，从脑震荡康复协议出来，你是在逐渐适应。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>关键球员：线卫、跑防与「背水一战」气质</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>但是这一周，对阵这支能够跑球的橄榄球队，这两个人都需要迅速下坡冲刺。在过去两场比赛中，Omar Speights 目前是 NFL 评分第二高的线卫。这一点一点也不令人惊讶。根本不意外。你还记得他在特别队的第一场比赛吗？砰。是的。我当时就想，签下他吧。<span class="tag">【笑声】</span>这家伙是谁然后他从特别队的球员逐步成长为首发线卫，他必须明白，再回到那场对阵 RAIDERS 的比赛，你的任务是感受跑球并保持身体对抗。你应该是这支队伍的铁锤。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p>防守。你是那个体能型的人。你下去然后去撞击，他一直在那样做。再说一次，我认为这归结于找到你自己的定位，对吧？你需要时间去弄清楚自己在防守和进攻中的位置，以及你的角色可能是什么。比如你的工作就是锤子。那就是他一直在做的事。那个人是谁？是跑卫汉普顿吗？那个一直在撞击的人，对吧？唯一让他冷静下来的就是奥马尔·斯派斯，而且还发生了三四次。他就是锤子。他让我联想到《火线》的那个角色。他是力量派。你赛后去采访他时，他会说，“你在跟我说什么？”</p>
+<p>“为了？”你明白我的意思吗？我……我来这里是为了打人。就是这样，执法者马上就来了。我喜欢那样。他是个安静的刺客。如果你能让内特·兰德曼以同样的强度去打球，我是说，拼尽全力，那就是你们防守起飞的时候。你们提到了昆顿·莱克，11次成功防守传球。他目前在这方面领先整个NFL。特伦特·麦克达菲紧随其后，总共10次。你考虑一下特伦特·麦克达菲的加入，你会想象这会有影响力，但我不知道我们是否已经足够表扬了他在覆盖方面所做的事情和我们所看到的覆盖范围。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>你们在直播或者某个中场休息的时候说了这句话，我当时就像被一吨砖砸中一样。 他一直是你们最好的防守球员。 是的。 我必须停一下，仔细想想，因为亚伦还在场上。 你会想到迈尔斯，也会想到其他一些人，你说得对，他确实是场上影响力最大的球员，不论跑动还是传球。他能封堵对侧挡拆，他会冲上去对抗进攻线球员。你看到他对奥尔特干的事了吗？他把奥尔特横着转了。你可在角卫身上看不到这种画面。 所以，是的，他确实是最具影响力的球员。我唯一担心的是他经常用身体硬碰硬。那是他的一个小问题。但除此之外，是的，他一直都是。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>你们最好的球员。我我认为两者都是，我认为那也是沃森受伤对这支防守队如此致命的原因，因为他们俩打法相同，并且相互支撑，对吧？而且你完全正确。在这一切发生的情况下，他一直是跑动和传球游戏中最稳定的组成部分之一。我的意思是，那次铲球让他伤到背部，因为奥马尔和汉普顿把膝盖顶在他的背上。我从没见过角卫……我的意思是我曾经对阵特洛伊·帕拉马洛，他偶尔会这样做，但没有角卫会为了完成动作而那样扑过去。但。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>不过这还告诉我什么呢？这让我想起了公羊队，那时候我仍然认为他们是背水一战，对吧？我仍然觉得你在拼搏，在努力把自己拉出困境，但曾经有一段时间，他们必须召开那种会议，就像，嘿，如果我们不解决问题，这可能就是我们的终点，我们必须为彼此付出一切。Trent McDuffie 从第一天起就一直在这样做，对吧？然后，当你开始看到队员们投入并在跑动中作出关键动作时，这种精神就激励了整个团队。是的，帕金森让人联想到这一点，确保他能在之前完成擒抱。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p>到了那里。是的。是的。这就是为什么我说他必须在外面玩。不要再进来了。不要<span class="tag">【笑声】</span>进来。这里又吵又危险。待在外面那边，在DB下路的地方。是的，没错。好吧，虽然我们谈防守很有趣，但现在该转向进攻了。对阵闪电队开局有点慢。说得好。我的意思是，拜托，你是持球人。我们是。我只是想确认。他几周前忘记了跑动进攻。所以我喜欢平衡。我喜欢平衡。<span class="tag">【笑声】</span>我是，我是，如果我是战术指挥员，伙计们，我是</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>我是个爆炸型的人，伙计。我想制造炸药。我在外面需要速度。是的，你得跑一跑球。我需要夺得领先。我是那种进攻协调员，如果你想阻止跑动，我们就要尝试进攻，对吧？如果你不想阻止跑动，那么我就会跑一百次。这就是我想做的。但我认为几周前你和JB说得对，你们说是时候让公羊队在跑动比赛中展现身体对抗和力量。他们已经做到了，而我喜欢的是Kyrie和Blake Horm，你可以看到竞争。哦，是的，每一系列比赛都是如此。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>两者都有竞争和鼓励。它们都是支持。毫无疑问。毫无疑问。我有时候，那种鼓励有时候会让人觉得，好吧，冷静点，兄弟。我正试着做我的事。但我喜欢的是，他们不会因此减少动力。你注意到了吗？比如有人跑了一大段路然后被铲倒了，通常你会觉得你最好忍住。对。 <span class="tag">【笑声】</span>但我认为这正是对公羊队有利的地方，因为你又在跑动中看到了他们最好的状态，而且他们都对进攻线、跑动计划有很好的感觉，他们两个都在跑动。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p>真的很难。他们在突破擒抱。你在第一档就能获得四到五码，这很重要。我只是认为闪电队，我们在赛前谈过这个。他们的防线，他们的防守总体来说，在防跑方面真的很强。一开始他们花了一点时间才进入状态，但一旦跑动突破，其他一切就都打开了。是的。我认为这就是我之前认为的情况，公羊队在赛季初想成为一个先传球后跑动的队伍，而现在他们正在变成一个先跑动后传球的队伍。那条防线今天对公羊队发挥得很好。恕我直言，我认为</p>
+<p>每个人开始或参与比赛的人都做出了贡献，而你们即将在华盛顿面对的这条防线没有那么强。所以，我认为跑动进攻会很重要，但我喜欢这种竞争。他踢脚跟了吗？是那种小动作吗？多萝西，多萝西踢脚跟了吗？多萝西踢了，但我是说像回家的那种。对，不是那样。他蹦起来了。我觉得那更像一个小妖精。小妖精。你试过吗？哦，他是圣母大学的。我想那样会让整个过程失去乐趣<span class="tag">【笑声】</span>就在那。这样就好了。把自己从中抽身。但这很酷。然后看着他</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>从旁观者的角度去做，对吧？所以他得分了，大家都很开心。第一个上场的人是布莱克·科尔姆。迫不及待想和他击掌。然后当布莱克得分时，第一个上场的人是凯伦。事情本来就应该这样进行。我们在竞争，但我们有相同的目标。我们都想赢。但如果你把自己从这种动力中排除出去，我就会得分。哦，<span class="tag">【笑声】</span>是的。是的，我真的靠弗雷德·泰勒在五码线被擒杀或者累的时候，然后我轻松跑进去，顺便拿下几个达阵赚了数百万美元。但我也相信这跟自信心有关。竞争会培养自信。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>两者都能做到，你看到他们就像布雷克·科鲁姆的冲刺，他突破防守时就像在空中加速一样，字面意义上是跳过防守并且能够制造进攻机会。基伦突破防守的能力，以及他整个赛季以来所做的事情，接球和各种不同的动作。他们就像我说的，他们两个都在高水平发挥，我很喜欢看到这支进攻通过他们展开，因为你看到大块头的进攻线球员移开对手。球员们正在离开球线，一旦他们停下……我确实问过，当使用13人阵型时，从防守角度看要阻止他们有多难，因为它……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>制造了这么多额外的空隙。所以唯一会毁掉它的就是穿透力，而他们允许了太多的穿透力。一旦他们被压平，跑动战术就展开了。还有一件事作为编辑意见。你以前在职业联赛中得过分。除非是传给你，否则你不可以扣地球（spike the football），对吗？除非我把球交给你并说，“帮我扣一下这个球”。你不能捡起一个死球并扣球，当你和这个回合没有任何关系时。为什么不可以？我只是说那是能量。那只是，那就是你不能那样做。不，那，你看，那是防守球员的行为，因为你对我不满。我过去常告诉我的进攻线，‘做’</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p>随你想做什么。我会在这边跳舞。你随便做你的事。接球手们，随你们。我会在这边跳舞。那个得分的家伙在这边，他的挡人队友在这边。还有那个从替补上场的接球手扣了球，这是他的第一次，肯定是他的第一次。不是，不是，是的，是的，那是未成文的规则。所以我确实想稍微回到上半场的跑动进攻，因为在转播中你和JB有点讨论过，你说，我们尝试过跑球，他说我们总共才跑了五次球。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>跑球节奏、半场仅五次冲球与短传</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>上半场。是的。上半场总共五次冲球。我记得大约是13码左右。所以，我想说的是，这可能是节奏问题，对吧？如果我们尝试集合队形然后叫出最佳战术，那意味着他们也会集合队形并根据当前的挡卫和码数选择他们的最佳战术。而且，他们表现得很好，这不是问题所在。所以有时候如果你能改变节奏，再说一次，如果一支球队——他们并不是特别压上线，而是以他们前七人的跑动防守为主，这意味着他们的球员并不是真的想冲向四分卫，而是优先阻止跑动，那么这时我们的短传就派上用场了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>比赛必须开始发挥作用。然后他们就在做那件事，而指控就在那上面。他们就在那上面跳。所以就像，‘好吧，我明白你想做什么。’现在就像，‘好吧，我们需要想办法，要么创造节奏，要么通过改变一切来创造爆炸性的机会，实际上他们就去了上半场。’是的。他们去，他们去，不，不，要集会，就像一个球员在球上，他们沟通不好，大动作就发生了。而且很多时候，当你的进攻陷入困境时，这just again就是这样。我记得我在大学的时候，Tom Cable的时候，我们做过这个。我们那天状态不好。我们在</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p>斯坦福。我记得我们可能落后了大约21分左右。他当时说，‘哦，你们看起来今天想要无停顿进攻，所以先把你们的心肺训练上去。’然后我们从第三节一直打到加时都是无停顿进攻。最终我们成功逆转赢了那场比赛。但这改变了比赛的势头，因为我们掌控了球权并快速移动。你没有时间去思考，你只是反应和完成动作。你在沟通，你在行动。你在公羊队（Rams）也能看到这一点。你看到，当你不妨碍自己时，你可以加快节奏。你仍然会出现假起步，对，你仍然在遇到问题。</p>
+<p>快速传球的霰弹枪。所以，你必须做很多事情。比如，我们想快速攻防，但我们做不到。一旦你在进攻上开始安定下来并找到节奏，你就可以开始加快速度。我完全同意你。一旦你限制住防守，让他们一直在场上，你会消耗他们的体力，尤其是有斯塔福德的话。但如果你因为犯规而不断倒退，或者球还在地上他还没来得及抬头就已经在看下方，那就不好。所以，对任何教练来说，说“我觉得我们准备好加快节奏了”都是很难的。但一旦你找到节奏并改变节奏，防守就像你说的，你的舌头都会伸出来一样累。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>我…我……太 funny 了，因为我记得我们刚开始一起工作的时候，Jared 在这里，他们经常进行这个混乱的集合，他们会上场，然后他会……然后他会等 Sean 的指令，然后他会有点……我以前也会那样做很多。我会……比如一场比赛的第二次进攻，我会改变节奏，只是为了看看你们是否在练习这个，对吧？我明白。Matthew Stafford 是一个聪明的脑子，他踢过很多比赛，但有时候只要上阵在集合里，他就不必思考，可以直接去比赛。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>再说一次，这也可能有帮助，因为当你在集合时叫两三个战术，然后，好像是在第二次进攻，对吧？现在我坐在这里想，‘好吧。’然后你提示它，你想，‘好吧，我得去做这个。’我忘了现在是第几次进攻。我以前经常这样做。我以前只是盯着球看，就像，‘对。’你明白我的意思吗？而盯防者不能盯着球看，因为他必须看有人从外侧出来的近端锋。你不能总是把第二次和一次的机会变成第三次和六次，否则情况就会改变，现在就变成投球手计数了。你懂我的意思吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>我想做事情，但你必须先让自己不成为阻碍。我同意。我们再多谈谈13人组攻防阵型。你之前提过。我们只是需要一些大个子，对吧？进攻线。甚至昆贝里（Quenberry）一度被认为可以上阵，只是为了找到一些在跑动战术中的掩护。科比·帕金森（Kobe Parkinson）因肋骨受伤缺阵。肖恩·麦克维（Shawn McVey）继续尝试创新。他们本周怎样在对阵指挥官队时搞创新？你是说他列为缺阵的唯一原因就是这个吗？他还有很多伤病。13人组阵型很棒，尤其是当你有迷惑、跑传选择时。这三个人都是</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p>他们很大，而且他们也可以出去接球。当你把Quz放进去时，他是一个近端锋，但他是一个挡卫。他不会出去接球。即使他接了，他也最好接住，对吧，大块头。说真的。<span class="tag">【笑声】</span>但我的意思是，这就是13号的特点。部分原因是你给防守方提供了如此宽阔的防守面，每个人都必须是一个擒抱者。另一件事是他们也可以接球。所以你必须有完整的近端锋阵容。Ter回归巨大。我希望你很快能让Parkinson回来。Davis Allen也是一样。所以你有那个优势，可以让防守方有点猜不透。但在那些加大阵容的情况下，我……</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>如果你再次提出这个大问题，我不会感到惊讶，好像是在反复强调。13号球员仍然会是进攻中重要的一部分。如果在某个时候他们恢复健康，只是作为诱饵，你会看到那些紧端锋同样的表现。我也要说，橄榄球是真正的橄榄球快要开始了。你很快就得开始打真正的橄榄球了。那时天气会变冷，对吧？球员们已经进行了一会儿擒抱，我有点酸痛，老实说我不想总是对抗这个大号紧端锋，然后还得擒抱他，这就是让比赛变得难的原因。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>正如你所说的，13人阵型很难防守，不仅空档更多，场上身体更高大，所以现在我是一个安全卫，必须去擒抱T·费格、科比·帕克森或希格比，是的，我得去擒抱他们。所以你就是在玩体力比拼的游戏，谁愿意做这些事？再加上我们还要跑球，然后我可以进行假动作传球，四分卫可以完成这些传球。我认为13人阵型的作用就是这样。不过更重要的是，当T·费格回归时，他是一个外接手。我正准备深入说这个问题。是的，他是一个66、65号的外接手。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p>接球手可以跑线路，还能做很多很棒的事情。如果你有普卡·纳库亚（Puka Nacua）作为外接手，现在你有一个人数对位的问题。所以这确实会在战术上为防守造成很多问题，同时也会在心理上造成影响。因为现在如果我是线卫，第三节，你使用的是13阵型，连续14、15次进攻。你跑Blake Corum，你跑Kyren，然后再做动作传球，而那个人完全空档。这就像，我一直在盯这个家伙一样。我是说，然后，疲劳就开始在这一年中的这个时候显现出来。</p>
+<p>我，再说一次，这只是从跑锋的角度来看。但我过去经常能冲刺几百码，我想Kiren也有几次这样，从大约十一月到赛季结束。他几乎能冲到一千码，因为人们不想擒抱他，天冷，没人想这么做。所以这有点，再回到Quint Lake所说的，我们开始找到自己的身份。这也发生在天气开始变化的情况下，而且，他们的健康状况开始好转，他们开始打非常好的互补性橄榄球。那么，除了普卡·纳库亚（Puka Nacua）a之外呢？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>接收方的立场？你觉得我们得到的够多吗？有明确的二号人物吗？我们有二号人物吗？我以为你……我以为你可能从普卡那里得到了足够的球。除了普卡之外。哦，普卡，好吧。因为对我来说，特伦斯·弗格森回来是一个大问号。我认为22号应该接住那个飞出他手的深球，下一个球也是一样，这是一个我从柯特·沃纳还在打四分卫时就听过的规则。你骗不了四分卫。马修·斯塔福德也是一样。当他完成他的进攻步骤时，又回到了</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>惠廷顿和温顿他离开了原地，对吧？我的意思是那就是信任。现在我不能再信任你了。现在我要多给普卡一些球。所以没关系。是的。我会说你还有另一周，而特伦斯·弗格森回归将会非常重要。那将会是另一个目标，但我不会放弃接球手。你仍然需要发展那些联系，因为在赛季后期对抗更强的球队时，你会需要他们。不是的。而且我认为坎特·芒菲尔德利用给他的机会做得非常出色。我认为22号奥特韦尔，他的角色真的就是能够在纵向上拉开防守，对吧，和和和</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>创造空间，他在这方面做得非常棒。但二号接球手可以是任何人。如果你仔细想想，可能有好几个人。可以是任何一个近端锋，可以是任何一个接球手，也可以是在短传接球的跑卫。我的意思是，仅仅因为普卡·纳库亚（Puka Nacua）a做了很多事情，这非常棒。你看，他在这个比赛中是个特殊存在，这么大还这么快，有突破防守的能力，对屏幕传球的视野，所有这些都很棒。但任何其他人都可以在任何一天成为二号接球手，不是吗？不仅是Devonte Adams，希望他回归后能继续他之前的表现，Kate Mumfield也能做到，Tutu Atwell也可以有机会。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>外接手深度：普卡之外人人可成二号</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p>一个比赛中他表现出色。惠廷顿（Whittington） 可能有一场比赛在关键时刻表现出色，然后你可以去 Kobe。Parkinson 一直是二号球员，对吧？Tyler Higgby 突然间抓住了像对阵丹佛野马队的选择路线，几乎任何人都可以成为二号球员。我认为这就是这支球队如此危险的原因，你真的无法专注于某一个人，你可以专注于 Puka，但你不知道比赛过程中另一个人会是谁，因为他们会找到空位的球员，而 Stafford 会把球传给空位的球员。这很有趣，这几乎让我想起超级碗的征程，在超级碗本身，突然间</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>你会看到一些在那场对决中被叫名字的球员，你以前没见过。是谁接到了那个近端锋的球？霍普金斯，对吧？霍普金斯。哦，是的。我觉得那可能也是他唯一的一次接球。但这只是让我想起，我们还不知道在二线防守的产出方面会发生什么。更多关于普卡·纳库亚的情况。你们有机会看到那张图片吗？我知道我们显然是在实时观看，但洛杉矶公羊分享的那张图片，究竟需要多少人来真正将普卡·纳库亚摔倒？而且他有六个人试图拖住他。不，这很合理。他从来没有放弃。听我这么说</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>人们总是担心Puka和他的长期健康。我像对待兰博一样对待他。你不是给他贴创可贴，而是给他更多的子弹。这才是他需要的。他正在外面拼搏。所以如果他在受到攻击，那是两回事。如果他在外面受攻击并被击中，我才会担心。Puka正在追捕那些人，这毫无疑问。Hookah像你对待比赛一样对待比赛。他在那里施加惩罚，挑战整个团队。支持他。这对我来说就是这个团队的核心和灵魂，那就是他在开阔场地上拼尽全力的程度。他也是你最大的持球手，想想这个。我甚至可以投一个</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p>贴近他，现在我有一个角卫在阻挡他。我可以给他传一个挡拆球。现在他在跑。我的意思是，他接到的那个挡拆球，他达阵了。他用硬臂挡开了坦克并进入了端区。对我来说，你要喂球给他，如果他们允许你喂球，那就是他们的责任。如果他们想要阻止他，我们会找到办法把球传给他。如果是飞掠跑（fly sweep），我们会让他们领先并击打线卫。就像我在节目中说的，这可以追溯到罗伯特·伍兹和库珀·库普的年代，当时的接球手非常无私。他们会不停地去阻挡线卫。所以</p>
+<p>看过了，但他正在撞人。用那个。是的，绝对的。他得分的那个挡拆，定格那个画面。回去再看一遍。看看防守快艇队中唯一接触到他的人是谁——是中锋。是的，在他到达端区前五码。他们人数占优，一个顶一个，非常棒的跑动，非常好的时机，一切都很好。所以，我会让他们每场比赛四五次阻止他，仅仅为了看看你是否想要擒抱他。是的。因为就像你说的，当天冷的时候，就会出现商业决策。是的，我几乎把他想象成这支队伍的轻烃油。哦，找他。让进攻的其他人接上他。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>我也喜欢他的心态，因为，再看看，他并不为明天担忧。明天的事明天再说。我现在尝试做一切能做的事，为今天争取每一寸土地。这就是你会喜欢的地方。因为你会看到其他球员会想，‘哦，我要出界，我要尝试’，但是听着，那不会帮助我们赢得比赛。我们需要为每一寸土地而战，而这正是他所做的。我喜欢Puka的一切，除了他的穿衣风格，因为我无法驾驭他穿的那些衣服。我本来想说，你只是跟不上，因为他有很棒的风格。哦，是的，我不是造型师，我没有勇气穿那样的衣服。不过这很酷，他可以做到。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>搞定它。嘿。是的。不，他确实有一些传球手段。另一个关注点是特勤组。感觉我们总是在谈论它，而这次有所改善。有一点积极的迹象。哦，正在改善。听着，是那样吗？是的，我们现在就是在这一步。我会说球在40码线两次，我们正在变得更好，这比把球给他在50码线接回或者在另一边40码要好。我再次想想这个。当闪电队在40码线上拿到球时，他们把球踢远了。只有100码。是的，我知道。所以60码。所以这个，我再次知道JB在教练节目里谈过，他和肖恩聊过，我们在他们的时候也讨论过。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>像你们的防守好得可以直接把球交给突袭者在35码线，然后迫使对方队伍跑65码，而大多数队伍做不到一样在玩突袭者的游戏。所以，是的，是的，我明白。我知道你在想要更多产出，你也看到了卡迪一开始的精彩踢球，但即使当他两次踢失时，他们也只是弃踢而已，那里没有什么动作，对吧？所以对我来说，你必须明白你们球队的优势在哪里。你们的钱，大部分都是用在防守上了，对吧？我们曾以为以前用在进攻上的钱，现在大部分都在防守上了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p>通过交易和你添加的一些补充。这样就允许防守队完成他们应该做的事情。但在40码线时，我明白你的意思，他正在接近。而他确实准确投到落点的那些球，非常棒，非常难防，其中一个甚至掉了，需要捡回去。他们很难防，我明白你的意思。但只是你在40码线上两次把球交给他，我们说这是进步。好的，我明白你的意思，你也对。但在某个时候，当你真正完全接近零，不再需要不断从不利的场地位置中自我挖掘时，让我们看看会发生什么，因为</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>当你看那场比赛的时候，我想那场比赛基本上是朝着公羊队的方向发展的。你得分，你踢球，然后你把球交给他们在40码线。然后当你再次拿回球时，你从九码线开始。这就是你失去了场地位置。我明白你的意思。我同意你的看法。我也认为，你必须理解，这是Cardi第一次回来做这种类型的踢球。他会犯错。那不是错误，只是稍微差一码，对吧？而且，这毕竟是英寸之差的比赛，所以这种情况会发生。但我认为他会在这方面变得更好。随着他变得更好，就像我说的，一切都是关于不断进步。我认为很多人我们你</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>你早就说过，就像你一开始说的，一切都是关于胜利的，这是真的。你需要找到获胜的方法，但你也需要每周都在进步，因为如果你没有进步，别人就会进步，而你则在退步。所以，如果在40码线接到球比70码开球回攻更好，对吧？在40码线接到球更好，因为再说了，特勤组比赛全是关于能量和活力的。我看指挥官队（Commanders）对Eagles的比赛时，看到Luke McAffrey有一次大回攻，他在Eagles边线拍打胸膛。观众席上每个人都在尖叫，而Eagles的球员们只是低着头。你可以</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p>看到它确实让他们付出了代价。我宁愿我们在那另一边，对吧？我宁愿我们要么什么都没有，球在40码线上，就像它本来的样子，或者你在15码线被擒抱，而不是有大的回攻。也许这只是我脑子里的一些书呆子般的运动科学想法，但我也在想，那些刁钻踢球的误差容忍度更小，因为这几乎就像投篮球一样。当你改变投篮弧线时，突然之间想把球投进篮筐就需要不同的方法。所以，我不知道。这是付费联赛。他们期望你能命中那个落点。</p>
+<p>每个其他的，每个其他的踢球手都是如此，我完全理解这一点。但这确实给你带来不同的感觉。你不能丢球，我也不能从缝隙中被击倒。我的意思是，这是……这是你的工作。这就是你必须做的。好吧，伙计们，关于特勤队的事情就说到这里，减去一件事。Alex Bachmann 被调到练习队。这意味着我们得找到回球手。你们在想谁？我要说谁。你在想谁？太好了。他悄声说出来。你为什么悄声说？因为我喜欢他。把他重新派上场。不是什么秘密，把他再派上场，让他发挥爆发力。我的意思是，再说一次，你有一个速度极快、视野出色的球员。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>我的意思是，我知道凯伦之前接过弃踢球，但对我来说，我想让每件事都发挥最大的作用。如果二号球员要上场并积极参与，那么我需要你做的不仅仅是，跑几条线路，然后进进出出。我需要你在特殊队伍上也能有所影响和帮助。我敢打赌你会根据情况分配工作，会有二号球员和凯伦。如果你只想要一个公平接球的情况，对方会接到球然后交给马修·斯塔福德，那就让凯伦上场。如果你需要一次回传或者需要速度，那就让图图上场。所以，根据现场情况，你会看到他们中的一个或两个在场上出现。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>关于Tutu的一点是，这家伙速度很快，但我的意思是他体型不大，你也看过他上次尝试的时候，那场景把我们所有人都吓坏了，对吧？确实。我记得休斯顿。太糟糕了。是。但是，我是说，跟我对Cardi说的同样道理，那是你的职责。如果这是这支球队需要你做的事情，那么你必须履行那个角色。但我会说他们可以分担这项工作，并且要聪明一些。我同意你的看法。我认为如果他们被逼到后面并且要传出去，你可以让22上场，因为他可以为你创造一些空间。我也认为Kiren也有能力做到这一点，对吧？所以。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>侦察指挥官队：丹尼尔斯、Luvu 与草地天气</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>我只是觉得，那里的公羊队正在尝试找出如何最大化每个人在场上的机会，对吧？如果是Ky的话，比如说，如果我试图让你获得更多机会，这种情况发生在我身上，比如，“嘿，我们想让你有更多机会。我们能在回攻比赛中把球传给你吗？”对吧？把球交到你手中。如果是二档出局，好吧，我们正试图让你获得更多机会，而不是传球给你。我们会让你做一些开球和弃踢，然后你用你的速度和视野帮我们创造一些好的场上位置，或者可能回攻得分。让我们翻开新的一页。指挥官队，这个周末，贾登·丹尼尔斯将展示几个方面。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p>挑战。你会说在面对他时必须注意的前两大挑战是什么？四分卫限制是第一。他们会跑动来保护他，然后让他在假动作中投球、移动护卫口等等。所以，就像对阵突袭者和电光队时一样的强度，同样的细节关注，阻止跑动。把这种状态带到指挥官队。防守的每个人都在摆脱挡位和制造机会方面做得非常出色。但是当MC丹尼尔斯开始移动时，情况就会改变。所以，我们讨论过。我不会告诉我的球员慢下来，除非他用跑动证明自己能打败我，但如果你开始慢下来，我……</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>我会想象这个，我会想象克里斯·舒莱特会有几种不同的方案，其中包括派快速球员去追他。所以我会关注像卡姆·柯尔、Q·莱克这样的人，我们之前提到过，本周在进攻线后面做出动作，而不是走相反的方式。所以，阻挡跑动，第一；遏制丹尼尔斯，第二；然后把球送出去。把球送出去，抓住机会，并且制造一些抢断。为你的进攻创造优势和有利的场地位置，看看他们是否能把球推进。如果你能在三个阶段都尽最大能力去打，这也不是不可能的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>可以让这对你来说变得很容易，然后把这件事解决掉，接着做下一件事。不过阻止跑动、给丹尼尔斯施加压力，这是头等大事。是的，我认为如果你从头到尾看这份名单，公羊队的阵容更好，对吧？但我认为最重要的是公羊队在争球线上的表现更好。我觉得，如果你是肖恩，如果你是克里斯·舒拉，你会想，“好吧，我应该担心谁？”他们有一个能跑动的近端锋。所以，Q，你一直是近端锋方面的专家吧。是的，你必须阻止他。斯特凡·迪格斯仍然还有一些能力，他们还有一些年轻球员</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p>那些能够得到空档的家伙，但是在前线上，你应该能够赢，对吧？而且，我，我不会，我我总是谈论四分卫受控，但我想说的是不要急着冲过四分卫，对吧？我知道这比说起来容易做起来难，但尽量不要冲过他，因为一旦他看到有通道，他就会提前起跑。在这场比赛中，因为他知道他们在外线受限，对吧？他们有一些年轻的球员，有一些他们正在努力改进的地方。如果你真的看那场老鹰队的比赛，他们在迫使他在口袋内传球方面做得非常好，那场比赛一直很接近，直到</p>
+<p>他们开始像老鹰队在进攻时那样造成球权失误。然后在另一边攻防，我在带球跑，就像我们一样，我仍然认为普卡·纳库亚（Puka Nacua）比他们的防守后卫更强，但我要迫使你们，就像桑尼·斯泰尔斯，我要迫使你们出现眼神违例。你们得有关键判断，知道发生了什么。我们会拉人、猛撞，做任何必要的事情来攻击你们。我不希望他们在第三挡时闪电突击，因为那是他最擅长的地方——对线卫闪电突击，或者线卫对跑卫闪电突击，他们已经通过这种方式施加了很多压力。所以，</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>对我来说，我不知道这场比赛会如何开始。我知道前几场比赛都是连续三次传球。但我会尝试尽量减少，比如在一开始就做一次掩护，也许让他们思考一下。他们有一个表现不错的新秀线卫。试着让他多思考，多沟通。而且他们前线不太好。他们的两名主力不在场，Kinlaw 和 Payne 都缺阵。所以，他们现在中线只剩下第三、第四号球员。所以，我不会让 Styles 有眼线错误。我会直接冲他。绝对直线攻击。另一个需要注意的家伙是……</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="mjd"><div class="label"><span class="badge" title="莫里斯·琼斯-德鲁（Maurice Jones-Drew）">MJD</span></div><div class="content">
+<p>Louvu？Frankie Luvu，那是华盛顿州的Washington State。是的，伙计。如果有一个松散的球，他会捡起来。他是NFL的罗汉·马利。他所做的就是像Buddha Baker Light一样到处跑，对吗？他在场上无处不在。所以要想办法限制他，并且有人盯住Styles，同时运行跑球。绝对的。我认为你应该能够对这支球队跑球。如果你能设法坚持下去并击败闪电队（Chargers），你就能拿下他们。绝对的。我也要说，因为这是草地。我知道周四和周五可能会下雨。你得有那七个核心球员。会下雨的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="farr"><div class="label"><span class="badge" title="德马科·法尔（D&#x27;Marco Farr）">法尔</span></div><div class="content">
+<p>没错，不是说我们到时候会下雨，而是现在正在下雨。我没穿这些鞋子就下雨了。我本来想说，新鞋真的很干净。应该是……应该是湿滑的星期五。现在应该是间歇性下雨，而今天是星期四，明天应该也是下雨。所以七个钉子上去吧。让我们把这个弄满，然后有很好的抓地力，这样就能把事情推起来。你说到跑球。我是说，指挥官的冲防比较稳固。他们目前在NFL排名第12，平均每场只让对手跑不到99码的地面码数。所以，我不知道。就从这开始，看看我们能得到什么。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="camryn"><div class="label"><span class="badge" title="卡姆琳·欧文（Camryn Irwin）">欧文</span></div><div class="content">
+<p>之后。绝对的。我喜欢它。然后让斯塔福德做他自己，然后让我们看看那里的魔力。哦，是的。是。我只希望你不要花太长时间让他热身并启动，但如果你留在场上会有帮助。两队在第一节共有六次控球。是的。六次。我是说，留在场上，让他热身，进入节奏，然后以你完成上一场比赛的方式开始比赛。我也会告诉你这一点，我会尝试在传球游戏中攻击桑尼·斯泰尔斯。我认为让他参与传球游戏，你会有优势。</p>
+<p>然后我也认为，再次让Puka和Noola站在那些边角位置将会非常重要。好了，进攻Sandy Styles。大家先在这里听到的就是这个消息。这真是非常有趣。谢谢你们让我代替JB主持。当然，JB，也谢谢你让我坐在你的座位上暂时主持一下。好了，Rams指挥官将在下午1点整在Fox频道开球。这是由你们南加州Toyota经销商呈现的《Between the Horns》。<span class="tag">【音乐】</span></p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Los Angeles Rams", "title": "第8周胜利启示、外接手深度表、迎战指挥官队等｜Between the Horns", "url": "https://www.youtube.com/watch?v=ZGndJRUsspM", "videoId": "ZGndJRUsspM", "published_at": "2026-11-05", "duration": 2831, "caption_source": "YouTube 自动生成字幕（en-orig；普通 yt-dlp；.en 与 en-orig 内容相同）；caption_source=yt-dlp-auto；中文为全文翻译并按话题分段；开场/收尾丰田经销商口播已标灰", "guests": ["Camryn Irwin", "D'Marco Farr", "Maurice Jones-Drew"], "intro": {"summary": "Between the Horns：欧文、法尔与琼斯-德鲁复盘公羊第8周击败闪电队，深谈沃森报销后的后场、唐纳德升温、跑传节奏、外接手深度，并侦察指挥官队与杰登·丹尼尔斯。", "points": ["沃森肩部手术赛季报销；华莱士/Forbes 顶上但硬朗贴身有落差。", "唐纳德近阶段状态被低估；防守韧性成队内身份关键词。", "上半场冲球偏少或与集合节奏有关；13 人员可制造线卫疲劳与空档。", "外接手深度使「二号」难以被单点限制；下周关注丹尼尔斯与 Frankie Luvu。"], "verdict": "球评密度高、有伤病与战术细节，球迷值得听；三人闲聊字幕嘈杂处已理顺专名。", "audience": "公羊球迷、关注第9周对指挥官队的观众。"}, "speakers": [{"id": "camryn", "name": "卡姆琳·欧文（Camryn Irwin）", "role": "host", "short": "欧文"}, {"id": "farr", "name": "德马科·法尔（D'Marco Farr）", "role": "guest", "short": "法尔"}, {"id": "mjd", "name": "莫里斯·琼斯-德鲁（Maurice Jones-Drew）", "role": "guest", "short": "MJD"}], "sections": [{"id": "s1", "title": "开场：SoFi 击败闪电队，重回 .500", "start_sec": 6, "summary": "卡姆琳·欧文顶替外出报道大学橄榄球的 JB Long，与德马科·法尔、莫里斯·琼斯-德鲁复盘公羊在 SoFi 战胜闪电队、战绩回到五成。几人强调 NFL「难看也要赢」：防守顶住压力、下半场调整后打开跑传，普卡在某些局面前置拉开跑球；面对不同边路压力（对比上周马克斯·克罗斯比）需周周解题。"}, {"id": "s2", "title": "杰伦·沃森肩部手术赛季报销", "start_sec": 143, "summary": "沃森需肩部手术赛季报销，后场双重保险（他与 Trent McDuffie）刚成形即破局。法尔/MJD 指出损失在于强硬贴身与臂展：Josh Wallace 出场多、可顶上，但「头盔抓痕」式的硬朗不如两人；华莱士总回合已能与 McDuffie 持平，却常吃有争议的干扰/判罚。Emmanuel Forbes 等亦有机会证明。"}, {"id": "s3", "title": "防守身份、盯人争论与亚伦·唐纳德升温", "start_sec": 414, "summary": "讨论紧盯人盯防能否因唐纳德持续施压、迈尔斯即将回归而更敢打；对机动四分卫（展望杰登·丹尼尔斯）意见不完全一致。几人认为唐纳德近六周像「重新练完一个训练营」，贡献被低估；Quentin Lake 被引为韧性代表——队内身份感更多来自防守调动中的硬抗。"}, {"id": "s4", "title": "关键球员：线卫、跑防与「背水一战」气质", "start_sec": 1004, "summary": "对阵擅跑对手需线卫快速下坡；Omar Speights 近两场 NFL 评分靠前，从特勤组打到首发的路径获赞。沟通与领导力：有人伤缺时他人获得指挥机会，防守整体仍稳。回忆「必须为彼此拼命」的队会时刻——McDuffie 从第一天起就是这股劲，带动跑动中的关键拼抢。"}, {"id": "s5", "title": "跑球节奏、半场仅五次冲球与短传", "start_sec": 1475, "summary": "上半场冲球约五次、约 13 码——可能因集合叫最佳战术导致对方也集合选最优跑防；当对方前七人优先停跑而非狂压四分卫时，短传更有价值。改变节奏可避免「第三次长码」；讨论 13 人员与疲劳：连续多档 13 人员让线卫身心俱疲，再配动作传球易形成空档。"}, {"id": "s6", "title": "外接手深度：普卡之外人人可成二号", "start_sec": 1967, "summary": "Whittington、Higbee、Parkinson 等都能在关键时刻冒头——几乎任何人可当「二号」，使对手难单点盯防普卡。赞普卡「不为明天忧、为今日每寸地盘」的心态与场上全面性（穿衣风格另说）。特勤组与场位：开球/弃踢回攻创造短场比深场开球更利于得分效率。"}, {"id": "s7", "title": "侦察指挥官队：丹尼尔斯、Luvu 与草地天气", "start_sec": 2468, "summary": "展望华盛顿：杰登·丹尼尔斯多面威胁；Frankie Luvu 被形容为到处捡松球的「罗汉·马利/ Buddha Baker Light」，需限制其活动并盯住关键线卫。认为若能像打闪电队一样坚持跑球，在草皮且可能降雨时应更依赖七人核心；让普卡等边路施压角卫、制造眼神违规。收尾预告公羊对指挥官队 Fox 下午 1 点开球。"}], "paragraphs": [{"start_sec": 6, "type": "text", "zh": "【音乐】 欢迎收听由南加州丰田经销商呈现的《Between the Horns》。我不是 JB Long。我是 卡姆琳·欧文（Camryn Irwin），与我的好朋友 莫里斯·琼斯-德鲁（Maurice Jones-Drew） 和 德马科·法尔（D'Marco Farr） 一起。好了，伙计们。刚刚取得胜利。 【笑声】？我很高兴能顶替 JB Long，他出去报道一些大学橄榄球比赛。非常激动能和你们一起坐在这里。 是的，先生。我也是。刚刚战胜了闪电队（Chargers），公羊队终于重回正轨，现在找回了 500 的胜率。让我们先谈谈在 SoFi 赢球的最初反应。很高兴再次站稳脚跟，对吧？很高兴回到队友们中间，我想。", "speaker_id": "camryn", "section_id": "s1"}, {"start_sec": 44, "type": "text", "zh": "可以说我们还在追赶中。两周内，对阵突袭者队、闪电队。我们谈过了。你必须处理好自己的事情。我觉得你已经做到了。可能没有大家希望的那么漂亮，但谁在乎呢？这是NFL，一切都是为了赢。所以，这是一次艰苦的胜利。要给闪电队很多赞誉。我知道老话说，你的战绩就是你的实力象征，但在NFL里，每个人都有擅长的方面。那是一次非常好的防守。你们顶住压力，坚持到最后，打穿对方防线，进入端区，拿到足够的分数赢得比赛。所以，这是公羊队的一场伟大胜利，接下来进入下一周。不是，", "speaker_id": "farr", "section_id": "s1"}, {"start_sec": 78, "type": "text", "zh": "我完全同意。我觉得每支队伍都会给你不同的挑战。显然，突袭者队有马克斯·克罗斯比，你必须应对那个挑战，对吧？而且我觉得公羊队在处理这方面做得非常出色。这周有点不同，因为你有两个边路冲锋手，中间还有更高大的球员。这支防守队伍非常以保持比赛竞争力为荣，他们在上半场做到了这一点。但我认为肖恩和他的教练组做了很好的调整。你也提到了，让普卡在某些情况下领先，这真正打开了跑动进攻。同样，就像每一周一样，你只是试图解决这个难题，对吧？", "speaker_id": "mjd", "section_id": "s1"}, {"start_sec": 110, "type": "text", "zh": "有时候你可以在开球的第一节就解决问题。有时候需要半场。有时候要到第四节，但你一直在努力解决问题。所以，干得好。我觉得马修·斯塔福德在下半场表现得非常出色。我觉得公羊队在决定不使用停表进攻时真的打开了一些机会，即便他们必须这么做，因为那种情况就像是两分钟的紧迫局面。但有时候，当你在缓慢前进时，加快节奏会让你进入节奏，并让你看清简单的防守布置，更容易传球。好，我们将深入分析下半场的表现，特别是随着节目进行，进攻效率。", "speaker_id": "farr", "section_id": "s1"}, {"start_sec": 143, "type": "text", "zh": "但对洛杉矶公羊队的伤病健康报告又是一个打击。杰伦·沃森现在整个赛季都将缺阵，需要接受肩部手术。这对球队的防守二线来说真是一个巨大的损失。大家觉得影响会有多大，我们接下来该怎么看呢？我跟你们说过我的绰号，对吧？致命武器。马丁·里格斯的肩膀脱臼，你一拉回去，他就继续上场。巨大的损失。你刚刚让他们俩回到场上，麦克达菲和沃森同时出场，这样你本可以形成那种你以为能做到的严密防守。可惜他要缺席。乔什·华莱士已经出场很久了，所以他们……", "speaker_id": "camryn", "section_id": "s2"}, {"start_sec": 181, "type": "text", "zh": "对他有很大的信任。我会说最大的区别是头盔上的抓痕少了很多，因为那两名后卫打得很强硬。乔什·华莱士是个能打的球员，但他不像那另外两个那么强硬。所以在这方面会有所损失。但没错，这是一个很大的损失。不过你有能够立即顶替他位置的球员。是的，这是一个巨大的损失。我认为他的臂展、身体对抗能力和智慧，你提到的不仅是在跑动进攻中，也是对抗更大身材接球手时，他都是关键人物。当你想打人盯人时，他就是那种轻松应对的球员：你拿到更高大的球员，就可以用身体对抗他。如果是迈克", "speaker_id": "mjd", "section_id": "s2"}, {"start_sec": 213, "type": "text", "zh": "埃文斯或者一个外接员，不管是谁可能是麦克布莱，就像你要盯着他。布罗克·鲍尔斯在某些情况下会出场。所以，没有那个大个子，我觉得奎因顿·莱克可能在某些情况下不得不承担那个角色，这也没关系。但确实有点糟糕，因为，我觉得公羊队在防守上开始有点成型了，然后迈尔斯·加勒特这周回来了，对吧？所以，你会想，‘哦，又来了。’所以，这很糟糕，但这就是NFL，而我对NFL知道的一件事就是下一个人要上场，对吧？我以前说过，但在NFL机会是被给予的，而不是赢来的，对吧？而", "speaker_id": "farr", "section_id": "s2"}, {"start_sec": 246, "type": "text", "zh": "这是乔什·华莱士走出去赚钱的机会。是的。没有左臂的《合体战士》。你已经几乎到了。那就是问题所在。我看到他是怎么受伤的，当你受撞击、瘀伤和受伤时，它正好打在他正确的位置。只是位置对他来说不对，他也无能为力。所以，你必须克服它。就像你说的，每个人都有机会站出来代替他。因此，乔什·华莱士和伊曼纽尔·福布斯，有几个数据可以给公羊队球迷信心。目前，两人在四分卫的覆盖评分中都位列前12。", "speaker_id": "camryn", "section_id": "s2"}, {"start_sec": 279, "type": "text", "zh": "从情境角度来看，华莱士，他出场很多，非常多。他在第四周时顶替了全部的防守回合。他也在第六和第七周替了麦克达菲的位置。就总出场次数而言，他和麦克达菲正好势均力敌。是的，我得说，他受到的判罚最不公平。他确实是。我们需要在他周围烧一点鼠尾草来净化他，因为似乎每次他盯防某人，要么就是被抓住然后算作干扰传球，要么就是被撞翻然后又被判罚。你到底想怎么办呢？没关系，每个人都会经历这些。是的。", "speaker_id": "camryn", "section_id": "s2"}, {"start_sec": 314, "type": "text", "zh": "如果你再失去一个人。McDuffy 是那种喜欢用身体冲撞的人。所以他不仅仅是一个角卫。他是我所谓的 DB，有点像 Jaylen Ramsey。一样的。他进去，会把鼻子插进对方阵型。如果因为某种原因你再失去一个人，你们又回到 Wallace 和 Forbes，那就是完全不同的防守。是的。和你想要的防守完全不同。所以这是 Chris Schul 必须经历的一个调整。让我问你一个问题。既然 Watson 显然不在，你现在会让 McDuffy 纯粹在外侧防守，而 Quinton Lake 负责内侧吗？因为那个内侧的尼克位置其实就是一个线卫。", "speaker_id": "farr", "section_id": "s2"}, {"start_sec": 348, "type": "text", "zh": "我会为麦克达菲那样做，为了救他自己，因为他永远不会拒绝。你看过他对阵充电者队时的表现。所以，我的意思是，他会是你最好的覆盖球员。所以，我会尝试保护，我会说更多是为了Q·莱克。Q·莱克更像是我的多面手类型的球员，因为沃森不在那儿。所以，如果我不能让沃森盯防鲍尔斯，那么Q·莱克就是下一个选择。那么，你认为即便是在防线上，考虑到现在坐在他们身后的球员，克里斯·舒拉在战术调用和进攻积极性上也会受到影响吗？问题是这样的。我会说，请继续。", "speaker_id": "mjd", "section_id": "s2"}, {"start_sec": 380, "type": "text", "zh": "数学上有一个问题。我们不知道迈尔斯·加勒特会给你什么。所以，他可能会弥补你在后端缺失的东西。你明白我的意思吗？所以，你必须玩这个游戏。我总是会这么说，我经常被问到这个问题，尤其是在现代NFL比赛中。如何冲击那些灵活跑动的四分卫？我会说让他证明自己。我永远不会告诉我的队员们先硬拼。如果他跑出来了，我们会调整。这就是我们的分歧。但我同意。我听懂你的意思。我认为如果迈尔斯·加勒特回归，并且他还是我们在克利夫兰看到的那个球员中的某种程度上的那个球员,", "speaker_id": "farr", "section_id": "s2"}, {"start_sec": 414, "type": "text", "zh": "那么我认为那是不一样的，你仍然可以打紧盯人盯防，因为球必须很快出手，考虑到Aaron在过去几周的发展情况，对吧？所以现在Aaron有点找回感觉了，回到他过去的状态，现在你又让Miles回归，所以我仍然想看到紧盯防守。当你谈论机动型四分卫时，我知道我们要谈的是Daniels，Jaden Daniels，但我相信，你会喜欢这个的，你会喜欢的，因为这是你的位置。我希望如此。我相信外侧球员，你必须限制住，对吧？你必须保持口袋在那里。但是，但是这个", "speaker_id": "camryn", "section_id": "s3"}, {"start_sec": 444, "type": "text", "zh": "【笑声】 事情是这样的，让挡拆穿透。让挡拆穿透并完成工作。让我来，吧，你那边有迈尔斯·加勒特，对吧？我要告诉他做的最后一件事就是防守和等待。谁说他必须在外线打？他可以打三角位置。我只会说我会根据他调整。让迈尔斯·加勒特发挥他的作用。有几种不同的冲传方式。你可以用四个冲，你可以带五个，你可以带比他们能防的更多，或者你可以安排一个位置。记得我们尝试过吗？我们在对阵乔什·艾伦时就尝试过，他用四人冲传。当时谁不在场？这就是你拥有迈尔斯的意义。我", "speaker_id": "mjd", "section_id": "s3"}, {"start_sec": 478, "type": "text", "zh": "我不会叫他硬吞下去。去做你该做的事。我不是说我会叫迈尔斯硬吞下去。但我会说的是，你会在合同年的时候看到他的表现，因为我之所以这么说，是因为如果我从内部施加初始压力，而他被逼得失控，BY 和乔赛亚·斯图尔特有速度能够完成擒杀。是的，也许你不……我理解这都是合同年的事情，但如果我们找到方法压迫他，那就完了，我们知道他一旦开始填满（进攻）会做什么，然后最终在第三和第四节放手让他发挥。", "speaker_id": "farr", "section_id": "s3"}, {"start_sec": 507, "type": "text", "zh": "他不是，他以前被解雇过，但就像我说的，我会让他证明自己，所以我会让那些正在赢的我的人继续赢，而我会调整其他人。你要说的，我们就同意不同意【笑声】吧，因为我每天都会在对抗移动四分卫的事情上坚持我的立场。我本来想说希望我们的演播室里有一些拳击手套。不，这太棒了，绝对喜欢它。但你们提到了阿隆·唐纳德，我觉得也许他没有得到足够的认可。几乎感觉他在过去六周里一直在通过洛杉矶公羊队的训练营。你怎么看他继续提升自己的比赛水平？", "speaker_id": "camryn", "section_id": "s3"}, {"start_sec": 539, "type": "text", "zh": "我一直对人们说这个。他从沙发上起来做到这么好，真是令人惊讶。我会说他的表现一直是稳固的B级，这很棒。这简直是顶尖水平。至于组织进攻，他也在逐步达到那个水平。当你说像以前的阿隆·唐纳德时，我笑了，因为我脑海中浮现的画面是他错过了那个掉球。那就是——那就是【笑声】年龄象征。那是沙发上的时代。但过去，那是单手抢球。他直接冲向达阵。但现在开始慢慢复苏。你开始看到他在场上闪现、突破、创造机会。有时他甚至会自由发挥，但他就是能做到。", "speaker_id": "camryn", "section_id": "s3"}, {"start_sec": 574, "type": "text", "zh": "以聪明的方式组织进攻。所以，他正在恢复他过去的组织进攻的状态。现在，当超人回归吸引注意力时，这应该会稍微增加一些。所以，迫不及待想看到他们两人在场上的表现。我得说，对于抢球回收，我能理解。这是因为你不习惯的情况，我觉得有些事情，当你刚从沙发上站起来时，就会出现，你会像，“哦，我弯得够多来拿球了吗？”是的，你就像【笑声】像，“”。就像差半英寸一样。他会想，“我本应该搞得更多一点。”我能理解。但我只是觉得他的一些进攻动作太巧妙了。", "speaker_id": "farr", "section_id": "s3"}, {"start_sec": 609, "type": "text", "zh": "拦截和抢断造成失误，或者就像你说的那些闪光时刻，当那些东西闪现时，你开始看到那些闪光，并且它们开始变得越来越稳定，对我来说，那就像哦，好的，他正在进步。就像我保证下一次如果那里有球，他会用双手抢到那个球【笑声】看McVeyy的反应，大家都说我们需要球，但当他们和他说话时，他们会说，嘿，干得好，只要试着抓住它，我跟他说，是的，我们必须积极主动。去拿你的第一个达阵吧，去做你自己的事情。但我认为，再次强调", "speaker_id": "mjd", "section_id": "s3"}, {"start_sec": 641, "type": "text", "zh": "就像他，你只是看到他越来越好。那种弯腰去抢球，真的就像——好吧，我只要，我已经习惯了。是的，会发生这种事。我想他会没事的。话说回来，可惜的是，那是贝利的一个精彩擒杀。天我希望你能在那个时候回放一下，这样我们就可以突出那次精彩的擒杀。是的，非常精彩。我赛后有机会跟昆顿·莱克聊了一下，他跟我说了一些事。不仅说了关于阿隆·唐纳德试图抢回球的事情，说他膝盖老化，这周会一直找他麻烦，还顺便提到他…", "speaker_id": "farr", "section_id": "s3"}, {"start_sec": 673, "type": "text", "zh": "感觉这支球队已经找到了自己的身份。我想我要问你一个问题，所以才会有那阵倒吸一口气的反应，你觉得这可能更多是在防守方面吗，尤其是考虑到这支防守队不得不进行大量调动，而我们并没有完整的全员阵容？身份，他们找到了自己的身份。你觉得那会是什么？你觉得呢？你是指防守方面的韧性，还是整体防守？至少是在防守方面。——这是Quinton Lake的评论。非常有韧性。我认为他们在对阵闪电队（闪电队（Chargers））时敢于近身肉搏并最终获胜，这一点非常重要。去费城赢得那场比赛也很关键。", "speaker_id": "camryn", "section_id": "s3"}, {"start_sec": 706, "type": "text", "zh": "巨大。一切都很艰难，但你没有放开绳子，你还拉出了一些，尤其是过去两周。所以，我会说是有韧性的。进攻有时很具爆发力，防守不错，可以让你无法进达达阵区。特勤组还在努力达到那个水平。所以，他们已经能够克服很多困难，甚至是他们自己的错误。如果他们能够摆脱自己的障碍，那么我们就会发现这支球队真正的实力。我要说这个。我认为这支球队，如果你回到第一周，实际上他们几乎每场比赛都只差一记关键进球就能赢得比赛。我感觉就是，如果你说第一周的话", "speaker_id": "mjd", "section_id": "s3"}, {"start_sec": 743, "type": "text", "zh": "现在是第四次尝试得分，在一码线。你不明白。他们走了99码。现在，如果你在第四次尝试得分时成功，突然间你就领先了。我想说，你会变得不同。这是完全不同的比赛，你在赢，然后一切都会改变。所以，就像你看看每一次失利，其实就是一场比赛中的一个球，你可以说，“哦，那发生了。”或者，“哦，这发生了。”或者，“哦，那发生了。”而实际上，你会觉得，“好吧，我觉得他们开始意识到，我们真的离胜利就这么近。”然后，在过去的几周里，他们在进攻上组合出了更好的方式，更加...", "speaker_id": "farr", "section_id": "s3"}, {"start_sec": 773, "type": "text", "zh": "在跑动进攻上很固执。谈到了赢得那些获胜的比赛 23-17、23-14。明白吗，就像，让我们的防守，让我们的跑动进攻，让我们的防守压制对手，对吧？确保我们在特勤组方面稳健。我们需要表现出色，但特勤组要稳健。你开始可以看到这一点，这很有趣，因为每年大约在这个时候，公羊队开始变热。不知道为什么，大约十月底到十一月初，他们开始变热。几年前，在库珀·库普之前，他们就开始了那波连胜。还记得库珀·库普本来要被交易吗？我们当时对阵明尼苏达维京人，他们", "speaker_id": "camryn", "section_id": "s3"}, {"start_sec": 808, "type": "text", "zh": "赢了那场比赛，然后就像，走吧。我感觉这就是他们现在的状态。当其他人在NFC进行交易以提升实力时，我们的人又回来了，这大概就是我认为Quinton Lake想表达的：你开始发现你自己是谁。你开始了解你自己，并且开始变得更好。说到你的观点，23赛季以3胜5负开始，24赛季以4胜4负开始，两年都显然进入了季后赛。我很想再多谈谈Quinton Lake连续第二场比赛戴绿点灯。加油，Bruins。我本来想说，你会在这个节目里谈到加油Bruins，但", "speaker_id": "camryn", "section_id": "s3"}, {"start_sec": 844, "type": "text", "zh": "他一次又一次地持续提升。我甚至无法想象在防守后场指挥防守时，他覆盖的码数有多少。——。在每一次开球前，他在心理负担方面承受了多少压力，而他又是如何控制这些压力的呢？我问过他，这压力很大。他要做的事情很多。但你看，我说过，这是成为那么优秀、成为那样领导者的代价。他们会对你有很高的期望。所以，要增加你的心肺耐力。我在比赛后见过他。他看起来很疲惫。这是应该的。这与聆听战术指令然后回去稍有不同", "speaker_id": "farr", "section_id": "s3"}, {"start_sec": 877, "type": "text", "zh": "排队并做好你的工作。现在，你必须确保每个人都在正确的位置上。你得扮演四分卫的角色。事情就是这样，但他能应付，而且他正变得更加擅长制造机会，因为他得到了机会。他们仍然在追他。我敢打赌，这周将是他第一次拿到擒杀，因为你提到如何控制这些人，不能靠一个笨拙的人或像我这样的人。必须是一个在运动能力上与你所看到的相等的人。所以，我打赌像Q Lake、Cam Curl这样的人会朝四分卫施压，并且他们这周会有擒杀。但也不意外。实际上，这让线卫更容易自由行动。", "speaker_id": "mjd", "section_id": "s3"}, {"start_sec": 912, "type": "text", "zh": "锤子。是的，我，我更喜欢那个。所以Q，这是他的角色，而且他已经接受了它。你的名字是Q队长，对吧？所以你必须扮演那个角色。我认为这对他来说是一个大步，因为他们正在使用的新防守，会派出七个后卫，六个后卫和一个线卫，对吧？所以你本来就在那个线卫的位置上打镍卫防守，而且你能够快速地进行比赛，而且你几乎在每一个阵容中都在场。所以他总是在场上。是的。而且我也认为这减轻了很多负担给一线球员，对吧？就像你说的，他有点受伤，这让他可以自由比赛，也让奥马尔·斯佩茨可以", "speaker_id": "farr", "section_id": "s3"}, {"start_sec": 942, "type": "text", "zh": "免费玩。你只需要喊出强右，强左。你已经固定好了，你准备好出发了。还有人会为你处理其他所有事情。再说一次，他是一个很棒的沟通者。我认为这就是另一部分原因，并不一定意味着Lamman不是。我认为他仍然是一个很棒的沟通者，但当他受伤时，这给了他一个机会去做这些。而防守一直表现得很好。我只是直说。尽管人们想讨论那场突袭者的比赛，让我们看看，突袭者平均每场得分大约30分、28分，而你出去完成了你的任务。所以就是这样", "speaker_id": "camryn", "section_id": "s3"}, {"start_sec": 973, "type": "text", "zh": "通过施加更多压力，让其他人能够更快地发挥，这并不是说兰德曼不能帮忙。他在场上。他在讲话。他在沟通。他在提供帮助。只是Q将会运作，他会是场边到场上的沟通者。不过，我只想说这个，让我也稍微加入一点讨论，但不会这么极端。我也希望看到兰德曼更多的表现。是的，你看到奥马尔·斯佩茨的爆发了吗？我是说，他在场上猛击对手，这正是你希望看到的两名线卫的表现。所以，我理解，从脑震荡康复协议出来，你是在逐渐适应。", "speaker_id": "mjd", "section_id": "s3"}, {"start_sec": 1004, "type": "text", "zh": "但是这一周，对阵这支能够跑球的橄榄球队，这两个人都需要迅速下坡冲刺。在过去两场比赛中，Omar Speights 目前是 NFL 评分第二高的线卫。这一点一点也不令人惊讶。根本不意外。你还记得他在特别队的第一场比赛吗？砰。是的。我当时就想，签下他吧。【笑声】这家伙是谁然后他从特别队的球员逐步成长为首发线卫，他必须明白，再回到那场对阵 RAIDERS 的比赛，你的任务是感受跑球并保持身体对抗。你应该是这支队伍的铁锤。", "speaker_id": "farr", "section_id": "s4"}, {"start_sec": 1038, "type": "text", "zh": "防守。你是那个体能型的人。你下去然后去撞击，他一直在那样做。再说一次，我认为这归结于找到你自己的定位，对吧？你需要时间去弄清楚自己在防守和进攻中的位置，以及你的角色可能是什么。比如你的工作就是锤子。那就是他一直在做的事。那个人是谁？是跑卫汉普顿吗？那个一直在撞击的人，对吧？唯一让他冷静下来的就是奥马尔·斯派斯，而且还发生了三四次。他就是锤子。他让我联想到《火线》的那个角色。他是力量派。你赛后去采访他时，他会说，“你在跟我说什么？”", "speaker_id": "camryn", "section_id": "s4"}, {"start_sec": 1069, "type": "text", "zh": "“为了？”你明白我的意思吗？我……我来这里是为了打人。就是这样，执法者马上就来了。我喜欢那样。他是个安静的刺客。如果你能让内特·兰德曼以同样的强度去打球，我是说，拼尽全力，那就是你们防守起飞的时候。你们提到了昆顿·莱克，11次成功防守传球。他目前在这方面领先整个NFL。特伦特·麦克达菲紧随其后，总共10次。你考虑一下特伦特·麦克达菲的加入，你会想象这会有影响力，但我不知道我们是否已经足够表扬了他在覆盖方面所做的事情和我们所看到的覆盖范围。", "speaker_id": "camryn", "section_id": "s4"}, {"start_sec": 1106, "type": "text", "zh": "你们在直播或者某个中场休息的时候说了这句话，我当时就像被一吨砖砸中一样。 他一直是你们最好的防守球员。 是的。 我必须停一下，仔细想想，因为亚伦还在场上。 你会想到迈尔斯，也会想到其他一些人，你说得对，他确实是场上影响力最大的球员，不论跑动还是传球。他能封堵对侧挡拆，他会冲上去对抗进攻线球员。你看到他对奥尔特干的事了吗？他把奥尔特横着转了。你可在角卫身上看不到这种画面。 所以，是的，他确实是最具影响力的球员。我唯一担心的是他经常用身体硬碰硬。那是他的一个小问题。但除此之外，是的，他一直都是。", "speaker_id": "farr", "section_id": "s4"}, {"start_sec": 1142, "type": "text", "zh": "你们最好的球员。我我认为两者都是，我认为那也是沃森受伤对这支防守队如此致命的原因，因为他们俩打法相同，并且相互支撑，对吧？而且你完全正确。在这一切发生的情况下，他一直是跑动和传球游戏中最稳定的组成部分之一。我的意思是，那次铲球让他伤到背部，因为奥马尔和汉普顿把膝盖顶在他的背上。我从没见过角卫……我的意思是我曾经对阵特洛伊·帕拉马洛，他偶尔会这样做，但没有角卫会为了完成动作而那样扑过去。但。", "speaker_id": "mjd", "section_id": "s4"}, {"start_sec": 1176, "type": "text", "zh": "不过这还告诉我什么呢？这让我想起了公羊队，那时候我仍然认为他们是背水一战，对吧？我仍然觉得你在拼搏，在努力把自己拉出困境，但曾经有一段时间，他们必须召开那种会议，就像，嘿，如果我们不解决问题，这可能就是我们的终点，我们必须为彼此付出一切。Trent McDuffie 从第一天起就一直在这样做，对吧？然后，当你开始看到队员们投入并在跑动中作出关键动作时，这种精神就激励了整个团队。是的，帕金森让人联想到这一点，确保他能在之前完成擒抱。", "speaker_id": "farr", "section_id": "s4"}, {"start_sec": 1204, "type": "text", "zh": "到了那里。是的。是的。这就是为什么我说他必须在外面玩。不要再进来了。不要【笑声】进来。这里又吵又危险。待在外面那边，在DB下路的地方。是的，没错。好吧，虽然我们谈防守很有趣，但现在该转向进攻了。对阵闪电队开局有点慢。说得好。我的意思是，拜托，你是持球人。我们是。我只是想确认。他几周前忘记了跑动进攻。所以我喜欢平衡。我喜欢平衡。【笑声】我是，我是，如果我是战术指挥员，伙计们，我是", "speaker_id": "camryn", "section_id": "s4"}, {"start_sec": 1233, "type": "text", "zh": "我是个爆炸型的人，伙计。我想制造炸药。我在外面需要速度。是的，你得跑一跑球。我需要夺得领先。我是那种进攻协调员，如果你想阻止跑动，我们就要尝试进攻，对吧？如果你不想阻止跑动，那么我就会跑一百次。这就是我想做的。但我认为几周前你和JB说得对，你们说是时候让公羊队在跑动比赛中展现身体对抗和力量。他们已经做到了，而我喜欢的是Kyrie和Blake Horm，你可以看到竞争。哦，是的，每一系列比赛都是如此。", "speaker_id": "mjd", "section_id": "s4"}, {"start_sec": 1264, "type": "text", "zh": "两者都有竞争和鼓励。它们都是支持。毫无疑问。毫无疑问。我有时候，那种鼓励有时候会让人觉得，好吧，冷静点，兄弟。我正试着做我的事。但我喜欢的是，他们不会因此减少动力。你注意到了吗？比如有人跑了一大段路然后被铲倒了，通常你会觉得你最好忍住。对。 【笑声】但我认为这正是对公羊队有利的地方，因为你又在跑动中看到了他们最好的状态，而且他们都对进攻线、跑动计划有很好的感觉，他们两个都在跑动。", "speaker_id": "farr", "section_id": "s4"}, {"start_sec": 1296, "type": "text", "zh": "真的很难。他们在突破擒抱。你在第一档就能获得四到五码，这很重要。我只是认为闪电队，我们在赛前谈过这个。他们的防线，他们的防守总体来说，在防跑方面真的很强。一开始他们花了一点时间才进入状态，但一旦跑动突破，其他一切就都打开了。是的。我认为这就是我之前认为的情况，公羊队在赛季初想成为一个先传球后跑动的队伍，而现在他们正在变成一个先跑动后传球的队伍。那条防线今天对公羊队发挥得很好。恕我直言，我认为", "speaker_id": "camryn", "section_id": "s4"}, {"start_sec": 1325, "type": "text", "zh": "每个人开始或参与比赛的人都做出了贡献，而你们即将在华盛顿面对的这条防线没有那么强。所以，我认为跑动进攻会很重要，但我喜欢这种竞争。他踢脚跟了吗？是那种小动作吗？多萝西，多萝西踢脚跟了吗？多萝西踢了，但我是说像回家的那种。对，不是那样。他蹦起来了。我觉得那更像一个小妖精。小妖精。你试过吗？哦，他是圣母大学的。我想那样会让整个过程失去乐趣【笑声】就在那。这样就好了。把自己从中抽身。但这很酷。然后看着他", "speaker_id": "camryn", "section_id": "s4"}, {"start_sec": 1361, "type": "text", "zh": "从旁观者的角度去做，对吧？所以他得分了，大家都很开心。第一个上场的人是布莱克·科尔姆。迫不及待想和他击掌。然后当布莱克得分时，第一个上场的人是凯伦。事情本来就应该这样进行。我们在竞争，但我们有相同的目标。我们都想赢。但如果你把自己从这种动力中排除出去，我就会得分。哦，【笑声】是的。是的，我真的靠弗雷德·泰勒在五码线被擒杀或者累的时候，然后我轻松跑进去，顺便拿下几个达阵赚了数百万美元。但我也相信这跟自信心有关。竞争会培养自信。", "speaker_id": "farr", "section_id": "s4"}, {"start_sec": 1396, "type": "text", "zh": "两者都能做到，你看到他们就像布雷克·科鲁姆的冲刺，他突破防守时就像在空中加速一样，字面意义上是跳过防守并且能够制造进攻机会。基伦突破防守的能力，以及他整个赛季以来所做的事情，接球和各种不同的动作。他们就像我说的，他们两个都在高水平发挥，我很喜欢看到这支进攻通过他们展开，因为你看到大块头的进攻线球员移开对手。球员们正在离开球线，一旦他们停下……我确实问过，当使用13人阵型时，从防守角度看要阻止他们有多难，因为它……", "speaker_id": "mjd", "section_id": "s4"}, {"start_sec": 1426, "type": "text", "zh": "制造了这么多额外的空隙。所以唯一会毁掉它的就是穿透力，而他们允许了太多的穿透力。一旦他们被压平，跑动战术就展开了。还有一件事作为编辑意见。你以前在职业联赛中得过分。除非是传给你，否则你不可以扣地球（spike the football），对吗？除非我把球交给你并说，“帮我扣一下这个球”。你不能捡起一个死球并扣球，当你和这个回合没有任何关系时。为什么不可以？我只是说那是能量。那只是，那就是你不能那样做。不，那，你看，那是防守球员的行为，因为你对我不满。我过去常告诉我的进攻线，‘做’", "speaker_id": "farr", "section_id": "s4"}, {"start_sec": 1458, "type": "text", "zh": "随你想做什么。我会在这边跳舞。你随便做你的事。接球手们，随你们。我会在这边跳舞。那个得分的家伙在这边，他的挡人队友在这边。还有那个从替补上场的接球手扣了球，这是他的第一次，肯定是他的第一次。不是，不是，是的，是的，那是未成文的规则。所以我确实想稍微回到上半场的跑动进攻，因为在转播中你和JB有点讨论过，你说，我们尝试过跑球，他说我们总共才跑了五次球。", "speaker_id": "camryn", "section_id": "s4"}, {"start_sec": 1488, "type": "text", "zh": "上半场。是的。上半场总共五次冲球。我记得大约是13码左右。所以，我想说的是，这可能是节奏问题，对吧？如果我们尝试集合队形然后叫出最佳战术，那意味着他们也会集合队形并根据当前的挡卫和码数选择他们的最佳战术。而且，他们表现得很好，这不是问题所在。所以有时候如果你能改变节奏，再说一次，如果一支球队——他们并不是特别压上线，而是以他们前七人的跑动防守为主，这意味着他们的球员并不是真的想冲向四分卫，而是优先阻止跑动，那么这时我们的短传就派上用场了。", "speaker_id": "mjd", "section_id": "s5"}, {"start_sec": 1522, "type": "text", "zh": "比赛必须开始发挥作用。然后他们就在做那件事，而指控就在那上面。他们就在那上面跳。所以就像，‘好吧，我明白你想做什么。’现在就像，‘好吧，我们需要想办法，要么创造节奏，要么通过改变一切来创造爆炸性的机会，实际上他们就去了上半场。’是的。他们去，他们去，不，不，要集会，就像一个球员在球上，他们沟通不好，大动作就发生了。而且很多时候，当你的进攻陷入困境时，这just again就是这样。我记得我在大学的时候，Tom Cable的时候，我们做过这个。我们那天状态不好。我们在", "speaker_id": "farr", "section_id": "s5"}, {"start_sec": 1553, "type": "text", "zh": "斯坦福。我记得我们可能落后了大约21分左右。他当时说，‘哦，你们看起来今天想要无停顿进攻，所以先把你们的心肺训练上去。’然后我们从第三节一直打到加时都是无停顿进攻。最终我们成功逆转赢了那场比赛。但这改变了比赛的势头，因为我们掌控了球权并快速移动。你没有时间去思考，你只是反应和完成动作。你在沟通，你在行动。你在公羊队（Rams）也能看到这一点。你看到，当你不妨碍自己时，你可以加快节奏。你仍然会出现假起步，对，你仍然在遇到问题。", "speaker_id": "camryn", "section_id": "s5"}, {"start_sec": 1582, "type": "text", "zh": "快速传球的霰弹枪。所以，你必须做很多事情。比如，我们想快速攻防，但我们做不到。一旦你在进攻上开始安定下来并找到节奏，你就可以开始加快速度。我完全同意你。一旦你限制住防守，让他们一直在场上，你会消耗他们的体力，尤其是有斯塔福德的话。但如果你因为犯规而不断倒退，或者球还在地上他还没来得及抬头就已经在看下方，那就不好。所以，对任何教练来说，说“我觉得我们准备好加快节奏了”都是很难的。但一旦你找到节奏并改变节奏，防守就像你说的，你的舌头都会伸出来一样累。", "speaker_id": "camryn", "section_id": "s5"}, {"start_sec": 1614, "type": "text", "zh": "我…我……太 funny 了，因为我记得我们刚开始一起工作的时候，Jared 在这里，他们经常进行这个混乱的集合，他们会上场，然后他会……然后他会等 Sean 的指令，然后他会有点……我以前也会那样做很多。我会……比如一场比赛的第二次进攻，我会改变节奏，只是为了看看你们是否在练习这个，对吧？我明白。Matthew Stafford 是一个聪明的脑子，他踢过很多比赛，但有时候只要上阵在集合里，他就不必思考，可以直接去比赛。", "speaker_id": "farr", "section_id": "s5"}, {"start_sec": 1643, "type": "text", "zh": "再说一次，这也可能有帮助，因为当你在集合时叫两三个战术，然后，好像是在第二次进攻，对吧？现在我坐在这里想，‘好吧。’然后你提示它，你想，‘好吧，我得去做这个。’我忘了现在是第几次进攻。我以前经常这样做。我以前只是盯着球看，就像，‘对。’你明白我的意思吗？而盯防者不能盯着球看，因为他必须看有人从外侧出来的近端锋。你不能总是把第二次和一次的机会变成第三次和六次，否则情况就会改变，现在就变成投球手计数了。你懂我的意思吗？", "speaker_id": "mjd", "section_id": "s5"}, {"start_sec": 1672, "type": "text", "zh": "我想做事情，但你必须先让自己不成为阻碍。我同意。我们再多谈谈13人组攻防阵型。你之前提过。我们只是需要一些大个子，对吧？进攻线。甚至昆贝里（Quenberry）一度被认为可以上阵，只是为了找到一些在跑动战术中的掩护。科比·帕金森（Kobe Parkinson）因肋骨受伤缺阵。肖恩·麦克维（Shawn McVey）继续尝试创新。他们本周怎样在对阵指挥官队时搞创新？你是说他列为缺阵的唯一原因就是这个吗？他还有很多伤病。13人组阵型很棒，尤其是当你有迷惑、跑传选择时。这三个人都是", "speaker_id": "farr", "section_id": "s5"}, {"start_sec": 1709, "type": "text", "zh": "他们很大，而且他们也可以出去接球。当你把Quz放进去时，他是一个近端锋，但他是一个挡卫。他不会出去接球。即使他接了，他也最好接住，对吧，大块头。说真的。【笑声】但我的意思是，这就是13号的特点。部分原因是你给防守方提供了如此宽阔的防守面，每个人都必须是一个擒抱者。另一件事是他们也可以接球。所以你必须有完整的近端锋阵容。Ter回归巨大。我希望你很快能让Parkinson回来。Davis Allen也是一样。所以你有那个优势，可以让防守方有点猜不透。但在那些加大阵容的情况下，我……", "speaker_id": "camryn", "section_id": "s5"}, {"start_sec": 1743, "type": "text", "zh": "如果你再次提出这个大问题，我不会感到惊讶，好像是在反复强调。13号球员仍然会是进攻中重要的一部分。如果在某个时候他们恢复健康，只是作为诱饵，你会看到那些紧端锋同样的表现。我也要说，橄榄球是真正的橄榄球快要开始了。你很快就得开始打真正的橄榄球了。那时天气会变冷，对吧？球员们已经进行了一会儿擒抱，我有点酸痛，老实说我不想总是对抗这个大号紧端锋，然后还得擒抱他，这就是让比赛变得难的原因。", "speaker_id": "mjd", "section_id": "s5"}, {"start_sec": 1777, "type": "text", "zh": "正如你所说的，13人阵型很难防守，不仅空档更多，场上身体更高大，所以现在我是一个安全卫，必须去擒抱T·费格、科比·帕克森或希格比，是的，我得去擒抱他们。所以你就是在玩体力比拼的游戏，谁愿意做这些事？再加上我们还要跑球，然后我可以进行假动作传球，四分卫可以完成这些传球。我认为13人阵型的作用就是这样。不过更重要的是，当T·费格回归时，他是一个外接手。我正准备深入说这个问题。是的，他是一个66、65号的外接手。", "speaker_id": "farr", "section_id": "s5"}, {"start_sec": 1807, "type": "text", "zh": "接球手可以跑线路，还能做很多很棒的事情。如果你有普卡·纳库亚（Puka Nacua）作为外接手，现在你有一个人数对位的问题。所以这确实会在战术上为防守造成很多问题，同时也会在心理上造成影响。因为现在如果我是线卫，第三节，你使用的是13阵型，连续14、15次进攻。你跑Blake Corum，你跑Kyren，然后再做动作传球，而那个人完全空档。这就像，我一直在盯这个家伙一样。我是说，然后，疲劳就开始在这一年中的这个时候显现出来。", "speaker_id": "camryn", "section_id": "s5"}, {"start_sec": 1838, "type": "text", "zh": "我，再说一次，这只是从跑锋的角度来看。但我过去经常能冲刺几百码，我想Kiren也有几次这样，从大约十一月到赛季结束。他几乎能冲到一千码，因为人们不想擒抱他，天冷，没人想这么做。所以这有点，再回到Quint Lake所说的，我们开始找到自己的身份。这也发生在天气开始变化的情况下，而且，他们的健康状况开始好转，他们开始打非常好的互补性橄榄球。那么，除了普卡·纳库亚（Puka Nacua）a之外呢？", "speaker_id": "camryn", "section_id": "s5"}, {"start_sec": 1867, "type": "text", "zh": "接收方的立场？你觉得我们得到的够多吗？有明确的二号人物吗？我们有二号人物吗？我以为你……我以为你可能从普卡那里得到了足够的球。除了普卡之外。哦，普卡，好吧。因为对我来说，特伦斯·弗格森回来是一个大问号。我认为22号应该接住那个飞出他手的深球，下一个球也是一样，这是一个我从柯特·沃纳还在打四分卫时就听过的规则。你骗不了四分卫。马修·斯塔福德也是一样。当他完成他的进攻步骤时，又回到了", "speaker_id": "farr", "section_id": "s5"}, {"start_sec": 1900, "type": "text", "zh": "惠廷顿和温顿他离开了原地，对吧？我的意思是那就是信任。现在我不能再信任你了。现在我要多给普卡一些球。所以没关系。是的。我会说你还有另一周，而特伦斯·弗格森回归将会非常重要。那将会是另一个目标，但我不会放弃接球手。你仍然需要发展那些联系，因为在赛季后期对抗更强的球队时，你会需要他们。不是的。而且我认为坎特·芒菲尔德利用给他的机会做得非常出色。我认为22号奥特韦尔，他的角色真的就是能够在纵向上拉开防守，对吧，和和和", "speaker_id": "mjd", "section_id": "s5"}, {"start_sec": 1933, "type": "text", "zh": "创造空间，他在这方面做得非常棒。但二号接球手可以是任何人。如果你仔细想想，可能有好几个人。可以是任何一个近端锋，可以是任何一个接球手，也可以是在短传接球的跑卫。我的意思是，仅仅因为普卡·纳库亚（Puka Nacua）a做了很多事情，这非常棒。你看，他在这个比赛中是个特殊存在，这么大还这么快，有突破防守的能力，对屏幕传球的视野，所有这些都很棒。但任何其他人都可以在任何一天成为二号接球手，不是吗？不仅是Devonte Adams，希望他回归后能继续他之前的表现，Kate Mumfield也能做到，Tutu Atwell也可以有机会。", "speaker_id": "farr", "section_id": "s5"}, {"start_sec": 1967, "type": "text", "zh": "一个比赛中他表现出色。惠廷顿（Whittington） 可能有一场比赛在关键时刻表现出色，然后你可以去 Kobe。Parkinson 一直是二号球员，对吧？Tyler Higgby 突然间抓住了像对阵丹佛野马队的选择路线，几乎任何人都可以成为二号球员。我认为这就是这支球队如此危险的原因，你真的无法专注于某一个人，你可以专注于 Puka，但你不知道比赛过程中另一个人会是谁，因为他们会找到空位的球员，而 Stafford 会把球传给空位的球员。这很有趣，这几乎让我想起超级碗的征程，在超级碗本身，突然间", "speaker_id": "camryn", "section_id": "s6"}, {"start_sec": 1998, "type": "text", "zh": "你会看到一些在那场对决中被叫名字的球员，你以前没见过。是谁接到了那个近端锋的球？霍普金斯，对吧？霍普金斯。哦，是的。我觉得那可能也是他唯一的一次接球。但这只是让我想起，我们还不知道在二线防守的产出方面会发生什么。更多关于普卡·纳库亚的情况。你们有机会看到那张图片吗？我知道我们显然是在实时观看，但洛杉矶公羊分享的那张图片，究竟需要多少人来真正将普卡·纳库亚摔倒？而且他有六个人试图拖住他。不，这很合理。他从来没有放弃。听我这么说", "speaker_id": "mjd", "section_id": "s6"}, {"start_sec": 2031, "type": "text", "zh": "人们总是担心Puka和他的长期健康。我像对待兰博一样对待他。你不是给他贴创可贴，而是给他更多的子弹。这才是他需要的。他正在外面拼搏。所以如果他在受到攻击，那是两回事。如果他在外面受攻击并被击中，我才会担心。Puka正在追捕那些人，这毫无疑问。Hookah像你对待比赛一样对待比赛。他在那里施加惩罚，挑战整个团队。支持他。这对我来说就是这个团队的核心和灵魂，那就是他在开阔场地上拼尽全力的程度。他也是你最大的持球手，想想这个。我甚至可以投一个", "speaker_id": "farr", "section_id": "s6"}, {"start_sec": 2063, "type": "text", "zh": "贴近他，现在我有一个角卫在阻挡他。我可以给他传一个挡拆球。现在他在跑。我的意思是，他接到的那个挡拆球，他达阵了。他用硬臂挡开了坦克并进入了端区。对我来说，你要喂球给他，如果他们允许你喂球，那就是他们的责任。如果他们想要阻止他，我们会找到办法把球传给他。如果是飞掠跑（fly sweep），我们会让他们领先并击打线卫。就像我在节目中说的，这可以追溯到罗伯特·伍兹和库珀·库普的年代，当时的接球手非常无私。他们会不停地去阻挡线卫。所以", "speaker_id": "camryn", "section_id": "s6"}, {"start_sec": 2098, "type": "text", "zh": "看过了，但他正在撞人。用那个。是的，绝对的。他得分的那个挡拆，定格那个画面。回去再看一遍。看看防守快艇队中唯一接触到他的人是谁——是中锋。是的，在他到达端区前五码。他们人数占优，一个顶一个，非常棒的跑动，非常好的时机，一切都很好。所以，我会让他们每场比赛四五次阻止他，仅仅为了看看你是否想要擒抱他。是的。因为就像你说的，当天冷的时候，就会出现商业决策。是的，我几乎把他想象成这支队伍的轻烃油。哦，找他。让进攻的其他人接上他。", "speaker_id": "camryn", "section_id": "s6"}, {"start_sec": 2131, "type": "text", "zh": "我也喜欢他的心态，因为，再看看，他并不为明天担忧。明天的事明天再说。我现在尝试做一切能做的事，为今天争取每一寸土地。这就是你会喜欢的地方。因为你会看到其他球员会想，‘哦，我要出界，我要尝试’，但是听着，那不会帮助我们赢得比赛。我们需要为每一寸土地而战，而这正是他所做的。我喜欢Puka的一切，除了他的穿衣风格，因为我无法驾驭他穿的那些衣服。我本来想说，你只是跟不上，因为他有很棒的风格。哦，是的，我不是造型师，我没有勇气穿那样的衣服。不过这很酷，他可以做到。", "speaker_id": "farr", "section_id": "s6"}, {"start_sec": 2164, "type": "text", "zh": "搞定它。嘿。是的。不，他确实有一些传球手段。另一个关注点是特勤组。感觉我们总是在谈论它，而这次有所改善。有一点积极的迹象。哦，正在改善。听着，是那样吗？是的，我们现在就是在这一步。我会说球在40码线两次，我们正在变得更好，这比把球给他在50码线接回或者在另一边40码要好。我再次想想这个。当闪电队在40码线上拿到球时，他们把球踢远了。只有100码。是的，我知道。所以60码。所以这个，我再次知道JB在教练节目里谈过，他和肖恩聊过，我们在他们的时候也讨论过。", "speaker_id": "mjd", "section_id": "s6"}, {"start_sec": 2202, "type": "text", "zh": "像你们的防守好得可以直接把球交给突袭者在35码线，然后迫使对方队伍跑65码，而大多数队伍做不到一样在玩突袭者的游戏。所以，是的，是的，我明白。我知道你在想要更多产出，你也看到了卡迪一开始的精彩踢球，但即使当他两次踢失时，他们也只是弃踢而已，那里没有什么动作，对吧？所以对我来说，你必须明白你们球队的优势在哪里。你们的钱，大部分都是用在防守上了，对吧？我们曾以为以前用在进攻上的钱，现在大部分都在防守上了。", "speaker_id": "farr", "section_id": "s6"}, {"start_sec": 2234, "type": "text", "zh": "通过交易和你添加的一些补充。这样就允许防守队完成他们应该做的事情。但在40码线时，我明白你的意思，他正在接近。而他确实准确投到落点的那些球，非常棒，非常难防，其中一个甚至掉了，需要捡回去。他们很难防，我明白你的意思。但只是你在40码线上两次把球交给他，我们说这是进步。好的，我明白你的意思，你也对。但在某个时候，当你真正完全接近零，不再需要不断从不利的场地位置中自我挖掘时，让我们看看会发生什么，因为", "speaker_id": "camryn", "section_id": "s6"}, {"start_sec": 2267, "type": "text", "zh": "当你看那场比赛的时候，我想那场比赛基本上是朝着公羊队的方向发展的。你得分，你踢球，然后你把球交给他们在40码线。然后当你再次拿回球时，你从九码线开始。这就是你失去了场地位置。我明白你的意思。我同意你的看法。我也认为，你必须理解，这是Cardi第一次回来做这种类型的踢球。他会犯错。那不是错误，只是稍微差一码，对吧？而且，这毕竟是英寸之差的比赛，所以这种情况会发生。但我认为他会在这方面变得更好。随着他变得更好，就像我说的，一切都是关于不断进步。我认为很多人我们你", "speaker_id": "mjd", "section_id": "s6"}, {"start_sec": 2301, "type": "text", "zh": "你早就说过，就像你一开始说的，一切都是关于胜利的，这是真的。你需要找到获胜的方法，但你也需要每周都在进步，因为如果你没有进步，别人就会进步，而你则在退步。所以，如果在40码线接到球比70码开球回攻更好，对吧？在40码线接到球更好，因为再说了，特勤组比赛全是关于能量和活力的。我看指挥官队（Commanders）对Eagles的比赛时，看到Luke McAffrey有一次大回攻，他在Eagles边线拍打胸膛。观众席上每个人都在尖叫，而Eagles的球员们只是低着头。你可以", "speaker_id": "farr", "section_id": "s6"}, {"start_sec": 2336, "type": "text", "zh": "看到它确实让他们付出了代价。我宁愿我们在那另一边，对吧？我宁愿我们要么什么都没有，球在40码线上，就像它本来的样子，或者你在15码线被擒抱，而不是有大的回攻。也许这只是我脑子里的一些书呆子般的运动科学想法，但我也在想，那些刁钻踢球的误差容忍度更小，因为这几乎就像投篮球一样。当你改变投篮弧线时，突然之间想把球投进篮筐就需要不同的方法。所以，我不知道。这是付费联赛。他们期望你能命中那个落点。", "speaker_id": "camryn", "section_id": "s6"}, {"start_sec": 2364, "type": "text", "zh": "每个其他的，每个其他的踢球手都是如此，我完全理解这一点。但这确实给你带来不同的感觉。你不能丢球，我也不能从缝隙中被击倒。我的意思是，这是……这是你的工作。这就是你必须做的。好吧，伙计们，关于特勤队的事情就说到这里，减去一件事。Alex Bachmann 被调到练习队。这意味着我们得找到回球手。你们在想谁？我要说谁。你在想谁？太好了。他悄声说出来。你为什么悄声说？因为我喜欢他。把他重新派上场。不是什么秘密，把他再派上场，让他发挥爆发力。我的意思是，再说一次，你有一个速度极快、视野出色的球员。", "speaker_id": "camryn", "section_id": "s6"}, {"start_sec": 2400, "type": "text", "zh": "我的意思是，我知道凯伦之前接过弃踢球，但对我来说，我想让每件事都发挥最大的作用。如果二号球员要上场并积极参与，那么我需要你做的不仅仅是，跑几条线路，然后进进出出。我需要你在特殊队伍上也能有所影响和帮助。我敢打赌你会根据情况分配工作，会有二号球员和凯伦。如果你只想要一个公平接球的情况，对方会接到球然后交给马修·斯塔福德，那就让凯伦上场。如果你需要一次回传或者需要速度，那就让图图上场。所以，根据现场情况，你会看到他们中的一个或两个在场上出现。", "speaker_id": "farr", "section_id": "s6"}, {"start_sec": 2435, "type": "text", "zh": "关于Tutu的一点是，这家伙速度很快，但我的意思是他体型不大，你也看过他上次尝试的时候，那场景把我们所有人都吓坏了，对吧？确实。我记得休斯顿。太糟糕了。是。但是，我是说，跟我对Cardi说的同样道理，那是你的职责。如果这是这支球队需要你做的事情，那么你必须履行那个角色。但我会说他们可以分担这项工作，并且要聪明一些。我同意你的看法。我认为如果他们被逼到后面并且要传出去，你可以让22上场，因为他可以为你创造一些空间。我也认为Kiren也有能力做到这一点，对吧？所以。", "speaker_id": "mjd", "section_id": "s6"}, {"start_sec": 2468, "type": "text", "zh": "我只是觉得，那里的公羊队正在尝试找出如何最大化每个人在场上的机会，对吧？如果是Ky的话，比如说，如果我试图让你获得更多机会，这种情况发生在我身上，比如，“嘿，我们想让你有更多机会。我们能在回攻比赛中把球传给你吗？”对吧？把球交到你手中。如果是二档出局，好吧，我们正试图让你获得更多机会，而不是传球给你。我们会让你做一些开球和弃踢，然后你用你的速度和视野帮我们创造一些好的场上位置，或者可能回攻得分。让我们翻开新的一页。指挥官队，这个周末，贾登·丹尼尔斯将展示几个方面。", "speaker_id": "farr", "section_id": "s7"}, {"start_sec": 2498, "type": "text", "zh": "挑战。你会说在面对他时必须注意的前两大挑战是什么？四分卫限制是第一。他们会跑动来保护他，然后让他在假动作中投球、移动护卫口等等。所以，就像对阵突袭者和电光队时一样的强度，同样的细节关注，阻止跑动。把这种状态带到指挥官队。防守的每个人都在摆脱挡位和制造机会方面做得非常出色。但是当MC丹尼尔斯开始移动时，情况就会改变。所以，我们讨论过。我不会告诉我的球员慢下来，除非他用跑动证明自己能打败我，但如果你开始慢下来，我……", "speaker_id": "camryn", "section_id": "s7"}, {"start_sec": 2532, "type": "text", "zh": "我会想象这个，我会想象克里斯·舒莱特会有几种不同的方案，其中包括派快速球员去追他。所以我会关注像卡姆·柯尔、Q·莱克这样的人，我们之前提到过，本周在进攻线后面做出动作，而不是走相反的方式。所以，阻挡跑动，第一；遏制丹尼尔斯，第二；然后把球送出去。把球送出去，抓住机会，并且制造一些抢断。为你的进攻创造优势和有利的场地位置，看看他们是否能把球推进。如果你能在三个阶段都尽最大能力去打，这也不是不可能的。", "speaker_id": "mjd", "section_id": "s7"}, {"start_sec": 2566, "type": "text", "zh": "可以让这对你来说变得很容易，然后把这件事解决掉，接着做下一件事。不过阻止跑动、给丹尼尔斯施加压力，这是头等大事。是的，我认为如果你从头到尾看这份名单，公羊队的阵容更好，对吧？但我认为最重要的是公羊队在争球线上的表现更好。我觉得，如果你是肖恩，如果你是克里斯·舒拉，你会想，“好吧，我应该担心谁？”他们有一个能跑动的近端锋。所以，Q，你一直是近端锋方面的专家吧。是的，你必须阻止他。斯特凡·迪格斯仍然还有一些能力，他们还有一些年轻球员", "speaker_id": "farr", "section_id": "s7"}, {"start_sec": 2599, "type": "text", "zh": "那些能够得到空档的家伙，但是在前线上，你应该能够赢，对吧？而且，我，我不会，我我总是谈论四分卫受控，但我想说的是不要急着冲过四分卫，对吧？我知道这比说起来容易做起来难，但尽量不要冲过他，因为一旦他看到有通道，他就会提前起跑。在这场比赛中，因为他知道他们在外线受限，对吧？他们有一些年轻的球员，有一些他们正在努力改进的地方。如果你真的看那场老鹰队的比赛，他们在迫使他在口袋内传球方面做得非常好，那场比赛一直很接近，直到", "speaker_id": "camryn", "section_id": "s7"}, {"start_sec": 2628, "type": "text", "zh": "他们开始像老鹰队在进攻时那样造成球权失误。然后在另一边攻防，我在带球跑，就像我们一样，我仍然认为普卡·纳库亚（Puka Nacua）比他们的防守后卫更强，但我要迫使你们，就像桑尼·斯泰尔斯，我要迫使你们出现眼神违例。你们得有关键判断，知道发生了什么。我们会拉人、猛撞，做任何必要的事情来攻击你们。我不希望他们在第三挡时闪电突击，因为那是他最擅长的地方——对线卫闪电突击，或者线卫对跑卫闪电突击，他们已经通过这种方式施加了很多压力。所以，", "speaker_id": "camryn", "section_id": "s7"}, {"start_sec": 2661, "type": "text", "zh": "对我来说，我不知道这场比赛会如何开始。我知道前几场比赛都是连续三次传球。但我会尝试尽量减少，比如在一开始就做一次掩护，也许让他们思考一下。他们有一个表现不错的新秀线卫。试着让他多思考，多沟通。而且他们前线不太好。他们的两名主力不在场，Kinlaw 和 Payne 都缺阵。所以，他们现在中线只剩下第三、第四号球员。所以，我不会让 Styles 有眼线错误。我会直接冲他。绝对直线攻击。另一个需要注意的家伙是……", "speaker_id": "farr", "section_id": "s7"}, {"start_sec": 2691, "type": "text", "zh": "Louvu？Frankie Luvu，那是华盛顿州的Washington State。是的，伙计。如果有一个松散的球，他会捡起来。他是NFL的罗汉·马利。他所做的就是像Buddha Baker Light一样到处跑，对吗？他在场上无处不在。所以要想办法限制他，并且有人盯住Styles，同时运行跑球。绝对的。我认为你应该能够对这支球队跑球。如果你能设法坚持下去并击败闪电队（Chargers），你就能拿下他们。绝对的。我也要说，因为这是草地。我知道周四和周五可能会下雨。你得有那七个核心球员。会下雨的。", "speaker_id": "mjd", "section_id": "s7"}, {"start_sec": 2730, "type": "text", "zh": "没错，不是说我们到时候会下雨，而是现在正在下雨。我没穿这些鞋子就下雨了。我本来想说，新鞋真的很干净。应该是……应该是湿滑的星期五。现在应该是间歇性下雨，而今天是星期四，明天应该也是下雨。所以七个钉子上去吧。让我们把这个弄满，然后有很好的抓地力，这样就能把事情推起来。你说到跑球。我是说，指挥官的冲防比较稳固。他们目前在NFL排名第12，平均每场只让对手跑不到99码的地面码数。所以，我不知道。就从这开始，看看我们能得到什么。", "speaker_id": "farr", "section_id": "s7"}, {"start_sec": 2764, "type": "text", "zh": "之后。绝对的。我喜欢它。然后让斯塔福德做他自己，然后让我们看看那里的魔力。哦，是的。是。我只希望你不要花太长时间让他热身并启动，但如果你留在场上会有帮助。两队在第一节共有六次控球。是的。六次。我是说，留在场上，让他热身，进入节奏，然后以你完成上一场比赛的方式开始比赛。我也会告诉你这一点，我会尝试在传球游戏中攻击桑尼·斯泰尔斯。我认为让他参与传球游戏，你会有优势。", "speaker_id": "camryn", "section_id": "s7"}, {"start_sec": 2799, "type": "text", "zh": "然后我也认为，再次让Puka和Noola站在那些边角位置将会非常重要。好了，进攻Sandy Styles。大家先在这里听到的就是这个消息。这真是非常有趣。谢谢你们让我代替JB主持。当然，JB，也谢谢你让我坐在你的座位上暂时主持一下。好了，Rams指挥官将在下午1点整在Fox频道开球。这是由你们南加州Toyota经销商呈现的《Between the Horns》。【音乐】", "speaker_id": "camryn", "section_id": "s7"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

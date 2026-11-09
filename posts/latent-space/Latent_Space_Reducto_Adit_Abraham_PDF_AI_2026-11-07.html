@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>和 Reducto CEO 一起做饭：为什么 PDF 仍会搞垮 AI——Adit Abraham</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="allen">艾伦·帕克（Allen Park）</option><option value="adit">阿迪特·亚伯拉罕（Adit Abraham）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Latent Space</span><span class="pill">2026-11-06</span></div>
+<h1>和 Reducto CEO 一起做饭：为什么 PDF 仍会搞垮 AI——Adit Abraham</h1>
+<p class="sub">嘉宾：阿迪特·亚伯拉罕（Adit Abraham） · 约 51 分钟（3037 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=KgqWyVVH4Oc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=KgqWyVVH4Oc</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Latent Space</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-06</dd></div><div class="meta-row"><dt>时长</dt><dd>约 51 分钟（3037 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；普通 yt-dlp 遇 429，同批 chrome cookies 补拉成功）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段；说话人按主持/嘉宾轮次启发式标注</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>KgqWyVVH4Oc</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>艾伦·帕克与 Reducto CEO 阿迪特·亚伯拉罕边做牛排三明治边拆解：为何 PDF 仍让前沿模型漏读，R1 与自研解析层如何在生产中抓住失败，以及从读到编辑文档的护城河。</p>
+<h3>核心要点</h3><ul><li>YC 从长期记忆等枢轴到文档解析，承接 OCR→IDP→VLM/智能体史</li><li>生产失败常是整段信息未读入，而非分数略低</li><li>R1 锚定“最准一层”，并推进可编辑 PDF</li><li>招聘极客型人才：PDF 画框与双轨现场面</li><li>防御性来自失败闭环与结构解析，而非只卷嵌入 RAG</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：烹饪节目形式下仍有扎实的文档 AI 产品与工程细节</p>
+<h3>适合人群</h3><p>做 RAG/文档智能、企业数据平台的工程师与创始人</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场：用叉子煎牛排与回应质疑</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">艾伦·帕克主持 Latent Space 烹饪节目，请来 Reducto 联合创始人兼 CEO 阿迪特·亚伯拉罕。开场玩笑：用叉子煎牛排、若亚瑟（Arthur）在看会尴尬；并回应此前牛排照片被 ratio 的网络质疑，今日边做牛排+chimichurri+布拉塔/烤桃三明治边谈文档 AI。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">YC 转型：从开发者魔法工具到文档解析</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">回顾 YC 时期尚未锁定具体方向，只有“给开发者做魔法工具”的泛想法，曾做过长期记忆等尝试后枢轴到文档。行业史：OCR→智能文档处理（IDP）→视觉语言模型与智能体；阿迪特遇到“做 PDF 比他年纪还大”的业内老人，说明问题积淀极深。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">为何 PDF 仍搞垮 AI：保真度与漏读</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">企业文档要求接近人类级阅读保真度；表格漏行、版式歧义会在下游抽取层造成“信息根本没读到”的静默失败。前沿模型仍会在长文档上漏行；Reducto 强调在生产中抓住失败模式，而不是只看 benchmark 均值。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">自研模型与 R1：不做供应商附庸</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">团队使命是成为客户眼里“结果最稳”的一层，不强迫客户纠结自建还是他厂模型。R1 是重要跃迁：目标锚定“你试过的最准方案”，月处理量已略超（口述量级）大规模文档；从“读页面上有什么”到处理歧义、编辑/回写 PDF 是下一阶段。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">行业失败模式：医疗笔迹等到共用原语</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">关心能否预知失败模式——例如医疗场景口称重视笔迹却未真正覆盖。跨行业学习可沉淀到同一套原语（解析、分类、编辑）；水平产品思路类似 Rippling：多产品共享底座。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">工程文化与招聘：两小时做完双轨现场面</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">不强制工程师用 Claude Code 等工具，但自然渗透。讲述一位候选人两小时内完成标准软件工程 onsite，同事 Ronic 紧张加开机器学习工程卷——招人标准是能在 PDF 上画框无数小时仍兴奋的偏执型人才；有人几乎能背出个别 PDF 页。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">防御性：数据飞轮、竞品速度与编辑能力</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">在人人狂奔刷性能、又未必能吃到全部客户数据训练的情况下，差异化靠生产失败案例闭环、行业原语深度，以及从“读”到可靠“编辑”PDF 的产品完整度。客户互动与准确率提升形成飞轮，比单点模型分数更重要。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">RAG 之外：结构解析 vs 传统切块嵌入</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">许多人把 RAG 等同于切块+余弦相似度；文档场景更需要版面结构与表格对齐。联合创始人分工：产品重叠，对方偏工程推进。团队仍产能受限——“好问题”。人类每年在文档本地化上花费巨资（如美企对中东伙伴译阿语仍很手工作坊），结构化解析是自动化前提。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">招聘 Leang、企业数据散落与收尾隐喻</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">新招强援 Leang；企业数据散落各处、启发式路径混乱。组装三明治收尾：牛排隐喻 Reducto——要对“相关文档”给出可检验评论/抽取；节目在味觉成功与技术使命的双关中结束。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">艾伦·帕克（Allen Park）<em>主持</em></span><span class="spk-1">阿迪特·亚伯拉罕（Adit Abraham）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场：用叉子煎牛排与回应质疑</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="allen"><div class="label"><span class="badge" title="艾伦·帕克（Allen Park）">帕克</span></div><div class="content">
+<p>我以前从未用叉子煎过牛排。如果亚瑟正在看这个视频，对不起，把你置于尴尬境地。嘿，我们可以回应一下批评者吗？大家好，欢迎来到Latent Space烹饪节目，我们邀请创始人和研究人员来烹饪。今天我们有一位非常特别的嘉宾，Reducto的联合创始人兼CEO Adit。欢迎你，Adit。嘿，谢谢邀请我。是的，当然。实际上我们是通过Adele联系上的，因为一条推文走红了，对吧？你能……我觉得那块牛排看起来非常棒，我觉得不可思议，但有人在你下面留言批评，这是真的吗？是的。有一些指控被提出了。</p>
+<p>这是我们今天要处理的。好的。是的，我们今天会兑现，然后开始。所以今天我们有牛排，也有樱桃汁要做，所以，是的，我们可以开始。你想把欧芹递给我，我们可以开始切吗？是的。在开始之前，我也有点好奇。你最初是带着一家公司叫 Remember All 加入 YC 的。那对吗？直到今天，你的公司叫 Reduct。所以我想知道，这跟《哈利·波特》有没有什么联系？我们经常被问到这个。好的。是的。这里的故事是，我们知道我们一进 YC 的那天就会从 Remember All 转型，我们告诉 Diana：“嘿，我们觉得这不是我们要继续追求的方向。”</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>YC 转型：从开发者魔法工具到文档解析</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="adit"><div class="label"><span class="badge" title="阿迪特·亚伯拉罕（Adit Abraham）">阿迪特</span></div><div class="content">
+<p>而我们当时并不知道具体会转向什么方向。大致的想法是我们会为开发者制作一些神奇的工具，然后我们在一个群聊里做了一个投票，列出了名字和每个名字可用的域名，其中有些名字很糟糕。不过，是的，我想，从那时到现在变化很大。当时是长远记忆（long horizon memory），或者只是为代理人的记忆，然后今天你们在做文档解析或处理。是的，我想为了给观众提供背景，你想要提供一些核心问题的更详细分析吗？</p>
+<p>问题，甚至可能还有一些历史，从OCR到IDP，现在是VLNs和智能体的发展历程。是的，我的意思是，有几十年的公司一直在从事PDF处理。我遇到过一个人，他处理PDF的时间比我活得还久。真的，他参与过最早的打印机驱动程序来打印PDF文档。不过，人们处理文档的背景显然非常不同，因为这些只是很多人会用来整理信息的通用格式。而且这是一个统一的数据集合，人们会在企业内部使用。所以，如果你打算让模型完成大量人类工作，它</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>为何 PDF 仍搞垮 AI：保真度与漏读</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="adit"><div class="label"><span class="badge" title="阿迪特·亚伯拉罕（Adit Abraham）">阿迪特</span></div><div class="content">
+<p>当你在阅读它时，拥有人类水平的精确性变得非常重要。而且棘手的地方是，我曾和一个从事打印机驱动程序的人提到过这个问题。PDF作为一种文件格式的最初背景是为了让打印机能够忠实于原稿，对吧？所以它并不是围绕着“代理会去阅读它”这样的情况设计的。因此，我们就深入探讨了如何以人类的方式阅读这些文档的问题，这是一个非常困难的视觉问题。是的。我们常常将其比作自动驾驶汽车研究，而在这方面，已经有了车道</p>
+<p>在汽车上提供长期的助手，这是一个完全不同的事情，说你的Whimo将完全实现端到端自主驾驶。这就是我们希望通过Reducto达到的水平。明白了。好的，这很有意义。我猜你们也是一个代理平台。我想知道，这通常除了可以与许多代理交互之外，还包括什么？你们是否还希望它成为一个水平平台，不仅涵盖处理和解析，还包括编辑，以及提供一个客户端可以使用的node工作室？是的，可以这样理解，任何模型与文档或非结构化文件的一切交互，我们都希望Reducto能够实现。</p>
+<p>这种交互发生的最佳方式。明白了。这意味着像解析一样阅读文档，对信息进行分类，进行编辑。人类的很多工作就是从文档中读取信息并写入文档。是的，这将处理从提取数据、与其他文档对账到获取所需最终输出的一切。明白了。你们会考虑路由吗，因为我在网站上看到 Redu 的底层有 12 个以上的模型，那么在不同任务和文件中，选择便宜的模型和更贵的模型的决策框架是什么。所以这很棘手</p>
+<p>这里的问题是，它很多最终都是长尾问题，对吧？所以你会看到很多页面看起来只是文字，然后偶尔会有一个非常复杂的表格，而你根本不知道具体哪一页有那个，或者其他类似情况。是的。所以我们一开始的想法是，好吧，我们先用很多较小的传统计算机视觉模型作为基础，然后用较大的模型来处理真正困难的任务。不过随着时间的推移，我们已经能够在模型架构方面采用一种相当有趣的方法。我们将在周一宣布我们的新内部模型，我们称它为 R1。</p>
+<p>它将能够实现端到端的处理。所以不仅包括布局捕捉等组件，还包括你希望确保尽可能接近100%的最后一公里修正。明白了。好的。那很棒。我们现在大概可以加上欧芹。我觉得可以先切得相对碎一点，然后再加入其他元素。但对，你提到的新模型，我想了解一下，你在决定是自有智能还是租用时的框架，甚至是心智模型是什么？因为去年，即使那只是一个测试，你也有 ROM OCR，它是建立在 Quen VLM 之上的。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>自研模型与 R1：不做供应商附庸</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="adit"><div class="label"><span class="badge" title="阿迪特·亚伯拉罕（Adit Abraham）">阿迪特</span></div><div class="content">
+<p>有新的出来了，似乎你可能专注于那个，而不是依赖供应商。是的。所以我们的团队的理念或使命是，无论如何我们都想成为最优秀的提供者——我们的客户不会去考虑使用自建模型还是其他模型，他们只想要惊人的结果。是的。所以我们不想去考虑这是自建的还是不是。随着时间的推移，自然而然发生的事情是，我们非常关心精确度、成本和延迟这类前沿问题。是的。而且我们不断发现，如果你关注的是某个特定类型的任务，在该任务上进行后训练的模型在这三个维度上表现得更好。</p>
+<p>是的。所以我们的技术堆栈随着时间的推移越来越倾向于内部开发。虽然仍然有一些真正横向的任务，在这些任务上使用Frontier的基础模型是有意义的，但目前这类情况的范围有限。很好。好的，那么接下来，你想切桃子吗？这样我们可以烤一些，我还能帮忙。你想用这个新的切板吗？是的，谢谢。然后我就拿这个，这样我就可以用了。你说在做饭的时候聊天会分心不是开玩笑的。是的。是的。你们最近推出了深度提取，并有基准显示harness的表现优于很多基础模型。是的。我想问，你怎么看待人们来...</p>
+<p>你会说，“我为什么不能等这些基础模型达到所需的性能水平，而不需要这个辅助工具，只用那个就可以，而不是来找你们呢？”我认为新产品发布中最有趣的一个现象是，我不知道你是否有机会读过博客，我们发现了一个非常奇怪的精确度和召回率之间的权衡。所以，当你设定无限推理时间时，很多这些专门的文档处理平台比前沿模型还要差。但前沿模型的失败模式出现在召回率上。所以它们会默默地丢掉一些缺失上下文的行，就是那种情况。是的。</p>
+<p>如果你在考虑你的抽取层完全丢失信息，那就是一种你在生产中根本找不到的损失模式，对吧？你根本不知道最初没有提取到什么。这些就是需要通过一个机制来确保并审核结果变得非常非常重要的事情的类型。是的。我认为这不是非此即彼的问题，比如有些任务前沿模型表现很棒。但如果你在寻找任务的最有效工具，你可能应该根据你正在做的任务进行专业化。是的，明白了。我猜也是这样。</p>
+<p>即使是在公告发布时，你也和 Micro One 一起创建了基准。是的，是的。我想问你，你如何看待评估基准与性能的关系，甚至像基准测试中出现的参差不齐的性能相比于实际任务的担忧。所以我们显然在内部做了很多基准测试，但让我沮丧的是，基准测试大多已经变成了营销材料。每个人在自己的基准测试上都是第一名，所以信息很快就变得非常非常杂乱。因此，我们与 Micro One 合作的原因只是我们想要一个明确的界限。</p>
+<p>reducto 并没有选择文档。Redduck 并没有设定真实标准。产品并没有以任何方式操控结果。只是为了有一个独立的基准。即使这样，显然也不是完美的。我认为归根结底，最重要的是人们在自己的文档上尝试这些东西。是的，但至少它为人们提供了一个方向感，让他们开始考虑这些事情，这就是我们关心的全部。明白了。我想结合你们最近的 R1 发布，这是否意味着你们的做法会有变化？你们有什么有趣的东西吗？</p>
+<p>在工作过程中发现的吗？我认为 R1 对我们来说是一个非常大的进步，因为有一段时间我们一直有这样的锚点：简化方法将是你尝试过的最准确的东西，对吧？尤其是当我们开始处理更大规模的工作时，比如今天，Reducto 每个月处理略超过十亿页文档。而这个数字变化得非常快。是的，进行这种前沿的讨论，让这个工具能够适用于各种不同的使用场景，变得非常重要。我之所以非常喜欢 R1，是因为它不仅在准确性方面有所提升，它还将真正简化我们的定价和工作方式。</p>
+<p>让我们的客户能够在生产中采用该产品。所以有一段时间，如果你开启 AI 功能之类的，我们会有这些倍增器。是的，那些都要取消了。我们的方法只是你把文档发给我们，它的成本会低于我们基础模型的每页成本，但准确率比我们最准确的模型还高。哇，好的。是的，所以价格肯定要好得多，远远好于以前的价格。比我们以前的价格便宜好多倍。明白了。哇，如果你在像你们很多客户那样的规模上使用 Redducto，那真是相当让人兴奋。完全正确。是的。对了，你刚才提到……</p>
+<p>你有很多客户在那些容错率非常低的行业。我有点好奇，你是如何思考评估甚至设定系统或绩效指标的呢？比如说，即使是99%的准确率，如果在企业真正需要的少数用例中失败，可能仍然不够，比如在医疗保健或容错率很低的行业中。是的，就像非对称用例。你是如何考虑评估和应对这种情况的呢？所以首要问题是，理想情况下，我们的初次尝试应该尽可能准确，这显然也是我们大量精力所在。但第二点是，从来没有...</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>行业失败模式：医疗笔迹等到共用原语</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="adit"><div class="label"><span class="badge" title="阿迪特·亚伯拉罕（Adit Abraham）">阿迪特</span></div><div class="content">
+<p>将会为真正完美划出一条线。即使你在阅读页面内容方面变得非常非常擅长，也可能会有歧义或类似的问题。因此，可追溯性变得非常重要。例如，要能够知道某个信息是从哪里提取的，能够确切地说出人类在审核时应该看什么。同时，还有像准确的置信评分这样的功能，这样他们就知道什么时候应该查看某个内容。如果你要处理像医疗文档工作流程这样的事情，这就变得非常非常重要。是的，因此在内部进行基准测试时，我们不仅仅衡量自身的提取准确性。我们还会说，在那些不完美的地方,</p>
+<p>我们能够多可靠地向人类报告这不是完美的呢？所有这些事情也真的很重要。好的。我想你也会跟踪所有最难处理的失败实例，然后把它们放入一个数据集，你可以运行它来确保在你的测试框架下没有回归。我们在这方面做了很多工作。好的。你能详细讲讲吗，比如你是否使用了特定的基础设施工具或框架，或者我之前应该问的？你希望我如何选择特征？这完全由你决定。如果你想按那样切片，那也可以。你想做得更细，我应该做细的垂直切片。好的，</p>
+<p>我们还有很多桃子，所以我们可以吃掉那些，然后用比较瘦的去烤，把它们放在你的三明治上。不过，是的，再回到你的框架或工具，或者你如何考虑捕捉这些失败案例，然后对它们进行基准测试。是的，有一件我们不太公开讨论的事情是，我们的机器学习团队花了很多时间进行持续评估。所以能够发现一些在生产中可能不完全错误但只是有缺陷的东西，这让我们能够开始理解哪些是真实世界用例中分布之外的。是的，这并不是关于单个数据点本身，而更多是关于</p>
+<p>失败模式的模式。比如我们非常关心能够在医疗保健中了解情况。是的，你可以说你关心手写，也许你会对你的手写表现进行基准测试。但你可能没有很多手写数据点是在倾斜的页面上，在那里有人在网格线之外乱涂乱画。而仅仅知道你在哪些方面不足，是你能够捕捉到你想要在下一次训练中包含的那类东西的第一步。你是否有行业特定的标准？因为我猜你说的医疗公司可能需要的东西，与律师事务所的需求可能会有所不同。但是</p>
+<p>比如律师事务所可能有更接近的相似性，医疗公司也可能有更接近的相似性。即使行业不同。是的，这是我们在早期经常讨论的一个话题，特别是因为构建一个垂直特定的文档处理平台要容易得多。是的，你在这里做的权衡是，我认为最终很多文档归结为非常相似的基本元素。人们往往把这当作理所当然。当你作为一个人看一页时，会做出很多基本判断，这些都是快速判断，对吧？比如每次在两个段落之间有空隙时，你会知道，好，这是一个新的语义。</p>
+<p>信息块。你不会有意识地感知到这一点，但这是直觉。是的。其他所有事情基本上也归结为类似的东西，比如你自然而然地理解表结构是如何关联两维信息的，以及所有这些东西。是的。我们所做的工作，确保我们能够应对混乱的表格和通过传真传来的医疗数据，这意味着我们在为金融客户提供可靠解决方案方面也自然更有优势。所以总体来说，这是一个更困难的任务。是的，我认为总体来说，这意味着我们可以在这些客户中处理最具挑战性的案例。</p>
+<p>明白了。所以你从不同行业学到的所有经验在某种程度上都会有重叠，因为你专注于相同的原理，就像……是的，基本上是把人类在看文档时的直觉构建到你的模型里。那就是目标。是的。显然也会有一些细微差别，比如如果你在法律行业，你可能会非常关注删除线和下划线之类的东西，而在医疗行业这些重要性可能会低一些，但拥有这种基础直觉对我们来说真的非常非常重要。是的，这很有道理。那么这也算是reducto的未来愿景吗？就是它不会被垂直化，而是会横向发展吗？</p>
+<p>并且通过这样，无论是哪种行业、任何公司都会有一个表现良好的，非常专业或非常通用的解决方案。是的。我们不希望出现这样的情况：对于像解析这样的客观任务，你可以非常清楚地在给定的页面上说，嘿，这正是页面上的内容。我们希望这是横向的，我们希望这是零样本的。对于那些有争议的问题，比如某个财务团队对某个指标有不同的定义，这些事情应该是可提示和可引导的，并且随着时间的推移不断改进。确实。好的，这很有道理。我想总体上关于Reducto，你是如何看待的呢？</p>
+<p>整个代理和LNS的热潮？这是你们进行了很多文化变革来适应并迫使你们的工程师使用编码代理，甚至在内部拥有很多工具，还是主要是你们试图将所有这些努力集中在客户会使用的产品上，或者两者兼而有之？是的，我的联合创始人非常年轻，这是他大学毕业后的第一份工作，所以我认为他碰巧是你会遇到的最原生的LM用户之一。你会给他发消息，就像是被一个ChatGPT发送的一样。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>工程文化与招聘：两小时做完双轨现场面</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="adit"><div class="label"><span class="badge" title="阿迪特·亚伯拉罕（Adit Abraham）">阿迪特</span></div><div class="content">
+<p>所以基于这个，我觉得他只是自然而然地去做，并不是我们在强制我们的工程师说你必须使用 Cloud Code 或其他什么。人们看到他和团队其他人所做的事情，自然会想去尝试。这一点非常自然。是的。对我来说最有趣的事情之一是，我们的销售团队现在大量使用 Devon。哇。人们会为潜在客户制作定制网站之类的东西。是的。这并不是一个自上而下的推动。我认为人们只是开始发现，嘿，我在 Google 幻灯片上花了很多时间，而事实证明 Cloud Design 可以让提案比你花时间做出的更好。是的。</p>
+<p>所以他们就会那样做，更像是展示潜在价值，而不仅仅是其他方面。我明白了。那么，是不是像通过以身作则，你的联合创始人经常使用它，然后你的员工就会想，“哇，我也应该试试，也许能提高效率？”是的，正是如此。另外我们从第一天起就允许现场使用大语言模型，或者一般的面试，而我们的现场面试实际上是整整一天的现场。所以，你会和团队一起度过8个小时。哇。是的，而且如果不正确使用大语言模型，这些问题实际上很难解决。我觉得本质上，最终能够通过的人</p>
+<p>现场。通常是那些知道如何有效使用编码工具的人。是的。我们还会看到一些极端的例子，比如我们团队里有一个人叫Arth。如果Arth在看这个视频，抱歉把你放在这种情境下。Arth在还是伯克利的学生时加入了我们。当时他大约20岁。哇。所以当GPT-3刚发布时，他是大一新生。是的。如果你看他编码，有点像在看一个兴奋过度的人，因为他同时处理的事情非常多。而关于他最疯狂的事，我记得我们给他…</p>
+<p>我们标准的软件工程现场测试。他居然在大约两个小时内完成了所有测试。哦，哇。所以Ronic在Slack上给我发私信，非常紧张，说：‘糟了，他会觉得很无聊。我们该怎么办？’于是我们也给他做了整个机器学习工程的现场测试。这就是我们希望确保加入团队的人。哇。是的，这是一次完美的招聘。我觉得他对工具非常熟练，而且行动速度很快。没错，很棒。好吧。你想试试一些chim chur吗？好的。我觉得一两个桃子应该就够了。如果你想用的话那边也有个勺子。是的，我们已经准备好了喷火装置。</p>
+<p>酷。不过我想在我们做这个的同时，我想更深入地谈谈招聘。所以你们众所周知的就是招聘非常慢，而且团队一直很精简。最初，你的最早的一个招聘。我觉得你的第一个雇员是Ephe，他在这个特定领域几乎是业内最出色的，甚至你其他的增长类招聘也非常专业，每个人都有自己的业务，包括Adele等人。所以我想现在从只有你和Ronic，到现在已经发展成一个扩展的团队，你会发现你的顶尖聘用人才中有哪些特质是反复出现的，即使是今天在招聘时你仍然会去寻找的？我们的第一文化价值是什么？</p>
+<p>最重要的文化价值是对你的技艺保持痴迷。我认为你可以把痴迷看作只是渴望，但我真正关注的是，如果你和任何真正痴迷于成为某件事高手的人交谈，比如厨师、运动员或者其他人，你总会发现他们在日常工作的方式上有一种严格要求。M像Yee就是一位令人难以置信的机器学习研究员，不仅仅因为他在我们所做的领域攻读了博士学位。他可能是最痴迷于检查数据的人之一。人们非常仔细地查看数据集</p>
+<p>密切地。可能就像把每一页PDF都记住了，像“哇，我不知道有人会花那么多时间在PDF上画框”。哇，这很重要。别盲目扩大规模。确切地说。是这真的非常重要，即使在某个时候，我们的数据标注员比全职员工还多。哇，但他仍然会亲自查看数据，非常投入。我觉得工程师需要对客户支持之类的事情非常执着。这不仅仅是关于炫目的功能发布，更是要确保在生产中解决长尾情况，所有这些事情。是的，我觉得那真的很难。</p>
+<p>强迫某人想要做某事的东西。就像如果他们把自己的工作看作是他们想要做到非常出色的事情。是的，他们自然有这种想要以那种方式提升的倾向。所以我们尝试选择具备这种倾向的人。好的。我想你是如何评估或者从潜在员工那里了解这一点的呢？你只是看他们的经验？他们过去做过的事情，还是在面试中有问题或流程让你能够判断他们对自己的专业是否痴迷，或者甚至在过去也是如此？我认为痴迷的人在工作中往往在许多不同的方面都有痴迷，有时可能会在他们的工作中表现出来。</p>
+<p>全职工作。也许有时候它会体现在兴趣爱好上。是的。我真的很喜欢问别人一些他们非常擅长的事情。当他们谈论那个事情时，你会看到他们的眼睛闪闪发光。这甚至可能是一个电子游戏，就像那些以这种方式痴迷的人一样，只要你把他们引导向正确的事情，比如正确的问题。是的，自然而然会转移过来。明白了。顺便说一下，有很多桃片。是的，我拿几片，我们也可以用喷枪烤一下。不，这很合理。我认为痴迷确实会延续，然后我们再聊。你想烤得多焦？随你喜欢。老实说，你可以</p>
+<p>把火把放进去。说实话，我以为它会计算。是。你想让我直接把它扔到平底锅里吗？是我们应该直接扔进去。我这里有点挣扎。我们会用脉冲炉。你想试试吗？所以，你只需要打开它。我对此感到非常兴奋。是的。所以，你只需要旋转它。噢。任何温度。是我看过创始人做牛排的视频，我租住公寓，但是如果我不租的话，我会买一个。是我觉得这台炉子非常非常好。它加热超级快。</p>
+<p>烧开水，这非常容易。是的。好的。从非常早期阶段开始，现在进入B轮融资，再次恭喜你。谢谢。从这么小的团队成长到现在的成长阶段，你有没有必须要放弃或改变的一些东西？是的。我认为公司里的问题数量，在假设一切顺利的情况下，其实从来不会减少。你只是随着时间的推移处理不同的问题。所以在第一天，我的工作大多就是眼下需要处理的各种琐事，比如个人交易或个人支持请求。</p>
+<p>显然，当你有更多人时，这种情况会有所变化。是要放手这件事很奇怪。我觉得作为创始人，很长一段时间，如果我不能随时在 Slack 上待命，我都会感到焦虑。因为那感觉就像如果我不看着，可能会出问题。是随着时间的推移，这种情况会减少。你会开始意识到公司在某种程度上有它自己的生命。但你仍然会花很多时间与顶级客户在一起。随着时间推移，你开始更多地处理与人相关的事务。我从没想过自己会成为那种写文化文件的创始人，但奇怪的是，你的工作很多时候开始围绕这些事情展开。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>防御性：数据飞轮、竞品速度与编辑能力</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="adit"><div class="label"><span class="badge" title="阿迪特·亚伯拉罕（Adit Abraham）">阿迪特</span></div><div class="content">
+<p>是但这一切都很有趣。我经常发现自己在工作的当前阶段特别菜，然后三个月后你就开始变得很擅长，然后你又开始做新的工作。是的，随着你的成长和业务的扩大，这一切不断演变。这个过程通常是一样的吗？因为我记得听你说过，在早期阶段，你会给一名工程师设定一个优先任务，为期一周。那可能直接与想要达成的目标相关。是的。现在团队已经扩大了，你还会尝试坚持那个一周完成一个优先任务的方式吗，还是更像大公司或科技公司那样？是的。</p>
+<p>我们仍然每周都会作为一个完整的团队见面一次。所以，比如工程团队应该对我们的重大交易有很好的了解，反之亦然。所有这些都没有改变。我确实认为我们的一些重要项目很难在一周内完成，因此有些事情的时间范围可能发生了变化，仍然有一些事情是那种，是当天的优先事项，而不仅仅是本周的优先事项。但我们确实尽量确保清楚了解我们真正关心的事情是什么。是的。我的思考方式也从每周更多地转向了像这样。</p>
+<p>每月优先事项和季度优先事项也是如此。明白了。好的。但它并不像大型科技公司那样——比如我们没有一套年度的目标（OKRs）来衡量或对照什么。是的，我们仍然试图像初创公司一样精简地运作。太好了，因为你会不断学习新的信息，对吧？今天市场变化如此之快，如果你不根据当前的情况进行调整，你就会落后。尤其是在这个人工智能和编码的时代，发展非常迅速。但然后转向更多的商业方面，我知道你们所在的领域有些拥挤，你们还有其他...</p>
+<p>竞争对手，每个人都尽可能快地提升性能。是的。那么，在这种情况下，你如何看待防御性呢？也就是说，你可能无法训练出所有客户的数据，因此性能可能无法随着数据量的增加而扩展，你如何在差异化中保持领先地位呢？是的。所以，我的意思是，就像我之前提到的，真正擅长持续评估最终成为我们考虑如何处理每月十亿页内容的关键部分，比如你如何围绕这个建立一个正向循环。我认为，我们的许多工作不仅仅是针对某一种布局类型或者……</p>
+<p>类似那样的任何东西。这是一种水平的本质，一个非常好的方面是我们的客户群越广，我们对各种问题的直觉也会越好。明白了。我最终认为竞争市场非常好，因为它非常基于能力。因此，为一些领先的 AI 原生初创公司服务，比如 Harvey，只意味着如果我们不继续做到最好，他们会自己去寻找最好的。是的，而我们的立场一直是，我们只需要迎接这个挑战。是的，有道理。所以你会说你可能首先是竞争性的，你想要获胜，而且是的，希望有一个公平的竞争环境。</p>
+<p>是的。太好了。这很有道理。我觉得特别是现在这种情况下，很多市场会非常拥挤，关键是你能否行动得够快并与之竞争。所以很高兴听到这个。我觉得比以往任何时候都更重要，现在更关注的是执行，而不是系统模式。是的，持续不断，没错，没错。太好了。好的，我觉得这些桃子看起来可以转到盘子里，然后你可以开始做这块牛排。有点回到之前我们谈到的关于Reducto未来的话题。该死，我能加点油吗？。嘿。关于Reducto的未来，你是否</p>
+<p>你自己可以考虑扮演一种类似涟漪的角色，你拥有很多不同的水平产品，并且有点像一个复合型的初创公司，提供很多服务，甚至可能接管文件存储或者你客户除了提取、解析、编辑之外的其他需求。是的，我们最关心的是与文档本身相关的实际操作。好的。所以我们考虑问题的方式不太关注文件存储之类的东西，对我们来说的问题总是，我们能否在这个任务上成为世界最佳。当你考虑诸如此类的事情时</p>
+<p>对文档的分类、解析和编辑方面，答案是肯定的。至少截至今天，对我们来说，仅仅存储数据并不是那么有趣。是的。我们只有在这些方向能够提升客户体验时，才会真正推动相关工作。明白。那么每当你接触到客户，我也听说他们通常会带来一套之前所有测试都失败的文档，但 somehow 它在 Reducto 上却能成功。你有趣的故事可以分享吗？大概是关于某些案例，或者你能说的任何时刻，当某件事发生时，它非常神奇？是的。我最喜欢的类型是那种just like的情况。</p>
+<p>客户演示循环是指当他们找到一个以前无法实现的用例时。最后他们就能够解决那个问题。比如他们开始引入一些原本被认为超出范围的东西。还有一些情况是我们发现解析的准确性最终会转化为人们没有考虑到的下游影响。比如我们的一个法律科技客户发现，当文档被Reducto解析后，客户与文档的互动次数增加了一倍。哇，比如他们会问更多的问题。这显然不是我们销售的功能，但他们发现答案质量提高了，引用的准确性也提高了。</p>
+<p>改进后的效果是整体客户更有可能参与。是的。这非常重要。这就是我们最终想要推动的那种事情，但也许它不会立即在电子邮件流程中体现出来。明白了。好的。是的，我想即使现在在你们团队中，Ronic，你们俩都上过麻省理工，对吧？然后你们是通过他当RA的课程或当TA认识的。是的，当他是大一新生的时候。是的。是的。你过去也说过，你对他的能力和才华印象深刻，然后一起工作。我想现在过去大约有两年的时间了。两年，我们快到三年了。三年。是的。</p>
+<p>是的。在整整三年的时间里，你们有没有过一些时刻，让你意识到你们真的很合拍，这些特质对联合创始人来说非常重要？或者有些时刻似乎不符合直觉，与他们通常给的创业建议相反？是的。我认为到目前为止，我最喜欢我们创始关系的一点是，我们至今从未真正发生过我会归类为争论的事情。好的，我们确实有过很多关于事情的讨论，也会讨论不同的观点，但我们在独立讨论问题时的互动非常非常好。</p>
+<p>优点以及喜欢解决争端。好吧。对我来说，老实说，除了彼此真心尊重外，这是最重要的事情。你认为他们带来了互补的技能组合之类的。但是创业真的很难，感觉你能和你的联合创始人一起经历起起落落而不感到怨恨非常重要。这很特别。我觉得在第一次见面时，很难强迫或预测这一点。是的。你和Ronic的技能互补吗？我会说是的。我在MIT完成了整个本科的计算机科学学业，但是</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>RAG 之外：结构解析 vs 传统切块嵌入</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="adit"><div class="label"><span class="badge" title="阿迪特·亚伯拉罕（Adit Abraham）">阿迪特</span></div><div class="content">
+<p>相比之下，我可能算不上技术型的。是的，比如我们通常会在产品上有所重叠。他只是在整个工程工作中领导很多工作。而且他在这方面通常会有很多强烈的意见。反之，在市场推广方面也是一样，由我负责。明白了。好的。但是两者都足够有技术性，所以他可以参与讨论，但我不会——我绝不会跟Ronic参加黑客马拉松。我认为他一生中可能从未输过黑客马拉松。哇，你们也一起参加过黑客马拉松，对吧？我们参加过。就是Anthropic那次，当Quad早期模型推出时，他们提供了早期访问。</p>
+<p>Quad。那实际上就是我们创始旅程开始的方式。是的，那时候就是 Redto 整个框架概念的起点，当时模型已经非常出色了。是的，但它们的上下文窗口限制非常糟糕，所以这就引出了长期记忆这个想法。是的，Reductive 后来的所有其他东西都是在这之后发展出来的。明白了。是的，时代确实变了，因为那时候 RAG 确实是一个很大的事情，而你们在处理器上还做了很多分块操作，对吗？现在窗口减少了，这方面就没那么多了。是的，我觉得分块可能不再是引起某人兴趣的主要因素，但很多问题最终还是检索问题。</p>
+<p>好的，无论你称它为抹布还是叫其他名字，很多产品仍然以某种形式进行搜索，然后在搜索结果之上进行某种形式的推理。我明白了。我个人认为，这从定义上来说有点像检索增强生成。是的，没错。你能详细说明一下这点吗，用“每个问题最终仍归结为搜索问题”的概念来解释。因为我知道，即使是编码方面，比如 ref 和文件搜索，也在 RAG 之后成为了下一个热点。我想问，对于文档解析处理，这个框架是否一样，还是你们会有所不同？有没有一些你可以分享的见解？当然可以。</p>
+<p>是的。我的意思是，很多时候当人们想到 RAG（检索增强生成）时，他们会想到更传统的方法：你把东西分块，进行嵌入，然后使用余弦相似度搜索来确定要传入模型上下文的内容。是的。人们对 RAG 有抵触情绪，原因通常是觉得“哦，我不是在构建聊天机器人”。我们的很多客户仍然会有一个文件系统供代理使用，代理会在文件系统中爬取，以找出相关的上下文，并在这个上下文上进行推理，整合多个文档的信息。是的。我想说的就是这个意思。</p>
+<p>过程，无论是由代理执行，还是在你的搜索产品中明显可见，都是你在搜索信息、拼凑上下文、综合信息，并最终采取某种行动。我明白了。好的。是的，这很有道理。这就像一个相当直观的过程。让我们看看，很好。好的，我觉得我的部分已经完成。我觉得你现在可以开始查看了，但对，现在我想更多地探讨人们如何找到你，以及你在寻找什么。我假设你在不同的岗位上招聘。据我了解，我们大概有40个岗位在招聘。</p>
+<p>这一点。好。你现在主要的瓶颈是什么？主要是销售，还是你还在试图找到很多研究人员？是全面的。因此我们在工程方面招聘很多人，比如基础设施问题对我们来说非常重要，尤其是在我们开始扩展的时候。我也想在之后洗手。是的，洗手的时候犯的错误。是的。所以我们在为我们的产品工程团队、机器学习岗位和平台岗位招聘。在销售团队方面，我们年初开始时只有一个客户经理和一些职位。哇。现在我们销售团队有30个人。哇。所以总体上招聘很多。是的。我预计这不会减缓。</p>
+<p>在短期内。就像我们作为一个团队仍然感到能力受限。明白了。是的，这也是一个不错的位置。我觉得这是成长的挑战，而不是你过去提到的因为无法坐下来解决问题而陷入转向困境的挑战。是的，这比处于刚刚开始成长的阶段要困难得多。所以，是的，我觉得应该会很好。是的。所以你可以转过来，然后我们可以洗一下。我以前从没用叉子煎过牛排。第一次尝试一切。太棒了。太好了。我们回来了。所以，我们的牛排已经准备好了，我们可以开始切了。你想切面包，我来切牛排吗？但我猜更多的是再次关于</p>
+<p>REDUCTO你们已经从公司可以来提取和解析文档的地方，转变为现在甚至还负责编辑，对吗？那么你们看到很多机会吗？或者转向承担整个用例吗？因为我猜从阅读到现在真正分析编辑和知识工作，可以涵盖很多用例。是的。我总体的看法是，我认为白领工作还没有达到类似四码的高度。我认为如果你想想很多白领工作，不仅仅是信息综合，比如人们从文档中提取信息，还有我们做的三明治有多大？</p>
+<p>可以大到你想要的程度。我们可以直接剪掉。是的。好的。它不仅仅是人们从文档中提取信息的问题，而且在很多这些流程的最后，你会写入电子表格或者写入 Word 文档，不管是什么，对吧？所以我们真的想确保我们不仅仅是在考虑最初的解析和抽取层面。我们希望模型能够尽可能可靠地修改合同。我们希望它们能够填写贷款申请，做任何人类必须做的事情，对吧？是的。这其中会出现一系列非常困难的问题。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>招聘 Leang、企业数据散落与收尾隐喻</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="adit"><div class="label"><span class="badge" title="阿迪特·亚伯拉罕（Adit Abraham）">阿迪特</span></div><div class="content">
+<p>要做的事情。那是一个很大的赌注。是的，就像我们之前谈论的事情之一，人类每年在文档本地化上花费数十亿美元。所以，如果你是一家美国企业，想要和中东的一家公司做生意，你可能会想把你的内容翻译成阿拉伯语，对吧？如果你现在考虑这个问题，它是非常手动的。模型在翻译方面很出色，是的。但将这些修改应用到文档上真的很难，因为你需要把一个用英文生成的文档改变布局。当你把它改成从右到左的语言时，你现在需要</p>
+<p>考虑一下，比如文本可能会延续到下一页。格式是不同的。没错。因此这里有一整套的问题，理想情况下我们可以为客户抽象掉。是的，我们还处于这个阶段的早期。我们不久前推出了一个表单编辑端点，差不多有六个月了。但我们有很多功能即将发布，我认为这会是一个子功能上的变化。明白了。不过这听起来像是一个完全不同的问题。听起来非常像计算机使用的情况，如果你在填写表单，确实有一些相似之处，这里肯定有很多工作更接近。</p>
+<p>在这里也进行代码生成。但我认为，从根本上说，非常非常擅长理解像视觉结构这样的东西，使我们也能够非常擅长像编辑应用这样的事情。明白了。好的。那么，你们是将这个问题整体看待，还是针对这些不同的问题有不同的团队，或者都是在同一个大框架下？我们其实并没有真正意义上划分不同的团队。也许这和我们之前讨论的有关工程团队的优先级结构有关。我们有一个机器学习团队，但在这个机器学习团队里，人们会处理各种不同的问题。</p>
+<p>他们绝对是专注于某些类型事情的人。我们刚刚聘请了一位非常棒的新员工。他的名字叫 Leang。你可能看到过，他因为开源办公代理在推特上非常火。哦，我想我见过这个。是的。确实很难聘请的人。他刚从新加坡搬过来，但他对这种编辑问题非常感兴趣，所以他在很多相关工作中都在带头。像这样个人问题的热情契合非常重要。那你如何找到那些对使命也同样有雄心的人呢？是更多的主动外联还是被动吸引？你是怎么筛选的呢？</p>
+<p>你们的人喜欢某种特定的方式吗？是的，所以他们非常以使命为驱动。我想这是你在招聘时考虑的一个很大因素吧。是的，我们有稳定的招聘状态。我们有内部招聘人员，也会与中介机构合作，这些都有。但是偶尔你会在推特上发现某个人异常痴迷于PDF，其频率比你预期的要高。是的，所以每当我们看到类似的情况时，这说明了很多关于这个人的事情——他们花时间随意地思考文档处理。是的，我们总会尝试联系他们。是的，这很有道理。是的，我想当你说你...</p>
+<p>还没有经历过云代码时刻。是的。你认为会有什么催化剂像寒武纪大爆发那样吗？是仅仅取决于看到用例的价值有多大，还是更多是一个扩散问题，比如在特定行业的传播，也许只是让编辑用例更多地被采用？是的。我认为模型智能就在那附近。很多前沿实验室显然是在思考模型解决其他问题之前先在代码生成上进行了爬坡。是的，我认为代码在很多情况下是一个可验证的问题，而且工程师最有可能采用。</p>
+<p>企业的数据确实有很大一部分分布在各种不同的地方，而且还有一些奇怪的经验法则，比如你跟一家大型金融机构谈论某些纸质流程是如何完成的，他们就会有机构性的知识，比如‘如果我在屏幕左下角看到这个，我就知道这是肯塔基的，然后我就会做X’。是的，这种情况很少会被清楚地写下来。所以我认为工具领域的人有大量工作要做，比如聚合这些上下文，帮助他们建立适当的知识库，为模型提供足够的上下文，使它们能够对这些数据进行推理。</p>
+<p>是的。但我不认为我们离那种情况发生的时刻很远。好吧，大规模。明白了。所以听起来更像是数据和上下文的碎片化似乎是问题，而不是模型在长远推理上表现得如此出色，以至于智能不再是最大的瓶颈。是的。那么在这种情况下，我们是否需要更集中的努力？因为我觉得，比如说，要整理来自不同来源的数据，比如俄亥俄州的那篇论文，他们有很多旧的文件系统，这不是软件能够解决的。是的，所以也许这并不是一个</p>
+<p>通过像文档处理的方法来处理这个问题是不难的，或者你有没有用不同的方式去考虑它？是的。我的意思是，最棒的地方是我们能够与各种不同领域的领先团队紧密合作。所以我们一直在与例如试图自动化 N10 纳税申报的 Basis 团队合作。我们还与像 Harvey 和 Lora 这样的公司紧密合作，他们在法律领域做着令人难以置信的工作。他们专注的一个好处是，他们开始在特定的情境下弄清楚从头到尾提供价值所需的条件。这非常棒。明白了。好的，这有道理。这是一小步。</p>
+<p>哦，好。很好。好的，我们可以组装一个，然后吃掉它，然后再叫它。好的。我想问一下，除了这次发布之外，你还有没有其他的里程碑或期待的事情？再次恭喜你，今年剩下的时间顺利。是的。总的来说，我们的模型变得好得多。你想要 Halo 吗？是的。你想和他们一起戴这个吗？当然。是的，我们的结构化抽取模型也有了巨大的改进。这不仅仅是准确性，我们在引用性能和模式遵循等方面也在变得更好，而且成本效率也大大提高。我们今天已经宣布了这个。</p>
+<p>从历史上看，一页结构化提取的成本通常超过4.5美分。而现在我们能够以一半的成本做到这一点，同时还提升了性能。哇，你还好吗？我哽咽了。是的。哇。这是一个很大的削减。是的。这些就是我们想要推动的方向。明白了。就像真的在各个方面推动Purto前沿。明白了。你之前还在谈论成本和性能。那么，这主要是关注成本，还是在保持之前性能水平的同时降低成本呢？其实，幸运的是，这甚至不是我们为了单纯降低成本而做的努力。</p>
+<p>我们只是发现，我们可以在只专注于性能本身的同时，每花一美元获得更好的智能。就像我们的主要产品Nordstar一样，它将永远是最精准的文档处理平台。还有像你说的那样不依赖特定模型。好的，完美。好的，太好了。好，你想投入多少？你想多加一些吗？我们应该做两层。好了，这里我们可以，你想让我移动到这边吗？也可以再加一些。很好。很好。好了，你感觉怎么样？很好。我在想，我忘了他的用户名，但我想确保我以一种合适的方式分层。</p>
+<p>是的，你不会再得到比例了。不，不是那个。这些也是很小的切块。所以，是的。应该很容易分开。很好。很好。它们看起来很棒。是的。放上酒吧。是的。你想放上酒吧吗？我来放老师的。好。哇，那很好。你是放在牛排上还是面包上？可能是牛排。好的。是的，然后我们就把它弄上去。是的。涂开。是的。哦，太好了。看起来太棒了。太棒了。是的。那就是PGs。</p>
+<p>好的。那么你想做Chimmy Cherry吗？当然。是。混合它然后直接放在上面。天哪。这些动作镜头会很疯狂。是看起来真冷。你也想放在上面吗？你可以把面包放在上面的动作镜头里。</p>
+<p>我们来吧。耶，很好。好的，完美。我们开动吧。哟，我们可以回应一下批评者吗？。是的。我觉得我们应该数一下你咬下去时取出的牛排片数量。据说会有三片。来吧。一。耶。轻松。好的，味道如何？棒极了。好。好的，我们干杯。哦，也有点辣。太好吃了。天哪。哇。牛排三明治绝不会错。是的，桃子。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="allen"><div class="label"><span class="badge" title="艾伦·帕克（Allen Park）">帕克</span></div><div class="content">
+<p>。伙计，这太棒了。我们干得很出色。谢谢你邀请我们过来。那么，这个……那么，这个三明治里的&#x27;reducto&#x27;比喻是什么？你想让我对相关文档发表评论吗？</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Latent Space", "title": "和 Reducto CEO 一起做饭：为什么 PDF 仍会搞垮 AI——Adit Abraham", "url": "https://www.youtube.com/watch?v=KgqWyVVH4Oc", "videoId": "KgqWyVVH4Oc", "published_at": "2026-11-06", "duration": 3037, "caption_source": "YouTube 自动生成字幕（en-orig；普通 yt-dlp 遇 429，同批 chrome cookies 补拉成功）；caption_source=yt-dlp-chrome-cookies；中文为全文翻译并按话题分段；说话人按主持/嘉宾轮次启发式标注", "guests": ["阿迪特·亚伯拉罕（Adit Abraham）"], "intro": {"summary": "艾伦·帕克与 Reducto CEO 阿迪特·亚伯拉罕边做牛排三明治边拆解：为何 PDF 仍让前沿模型漏读，R1 与自研解析层如何在生产中抓住失败，以及从读到编辑文档的护城河。", "points": ["YC 从长期记忆等枢轴到文档解析，承接 OCR→IDP→VLM/智能体史", "生产失败常是整段信息未读入，而非分数略低", "R1 锚定“最准一层”，并推进可编辑 PDF", "招聘极客型人才：PDF 画框与双轨现场面", "防御性来自失败闭环与结构解析，而非只卷嵌入 RAG"], "verdict": "值得看：烹饪节目形式下仍有扎实的文档 AI 产品与工程细节", "audience": "做 RAG/文档智能、企业数据平台的工程师与创始人"}, "speakers": [{"id": "allen", "name": "艾伦·帕克（Allen Park）", "role": "host", "short": "帕克"}, {"id": "adit", "name": "阿迪特·亚伯拉罕（Adit Abraham）", "role": "guest", "short": "阿迪特"}], "sections": [{"id": "s1", "title": "开场：用叉子煎牛排与回应质疑", "start_sec": 1, "summary": "艾伦·帕克主持 Latent Space 烹饪节目，请来 Reducto 联合创始人兼 CEO 阿迪特·亚伯拉罕。开场玩笑：用叉子煎牛排、若亚瑟（Arthur）在看会尴尬；并回应此前牛排照片被 ratio 的网络质疑，今日边做牛排+chimichurri+布拉塔/烤桃三明治边谈文档 AI。"}, {"id": "s2", "title": "YC 转型：从开发者魔法工具到文档解析", "start_sec": 83, "summary": "回顾 YC 时期尚未锁定具体方向，只有“给开发者做魔法工具”的泛想法，曾做过长期记忆等尝试后枢轴到文档。行业史：OCR→智能文档处理（IDP）→视觉语言模型与智能体；阿迪特遇到“做 PDF 比他年纪还大”的业内老人，说明问题积淀极深。"}, {"id": "s3", "title": "为何 PDF 仍搞垮 AI：保真度与漏读", "start_sec": 168, "summary": "企业文档要求接近人类级阅读保真度；表格漏行、版式歧义会在下游抽取层造成“信息根本没读到”的静默失败。前沿模型仍会在长文档上漏行；Reducto 强调在生产中抓住失败模式，而不是只看 benchmark 均值。"}, {"id": "s4", "title": "自研模型与 R1：不做供应商附庸", "start_sec": 347, "summary": "团队使命是成为客户眼里“结果最稳”的一层，不强迫客户纠结自建还是他厂模型。R1 是重要跃迁：目标锚定“你试过的最准方案”，月处理量已略超（口述量级）大规模文档；从“读页面上有什么”到处理歧义、编辑/回写 PDF 是下一阶段。"}, {"id": "s5", "title": "行业失败模式：医疗笔迹等到共用原语", "start_sec": 700, "summary": "关心能否预知失败模式——例如医疗场景口称重视笔迹却未真正覆盖。跨行业学习可沉淀到同一套原语（解析、分类、编辑）；水平产品思路类似 Rippling：多产品共享底座。"}, {"id": "s6", "title": "工程文化与招聘：两小时做完双轨现场面", "start_sec": 1055, "summary": "不强制工程师用 Claude Code 等工具，但自然渗透。讲述一位候选人两小时内完成标准软件工程 onsite，同事 Ronic 紧张加开机器学习工程卷——招人标准是能在 PDF 上画框无数小时仍兴奋的偏执型人才；有人几乎能背出个别 PDF 页。"}, {"id": "s7", "title": "防御性：数据飞轮、竞品速度与编辑能力", "start_sec": 1544, "summary": "在人人狂奔刷性能、又未必能吃到全部客户数据训练的情况下，差异化靠生产失败案例闭环、行业原语深度，以及从“读”到可靠“编辑”PDF 的产品完整度。客户互动与准确率提升形成飞轮，比单点模型分数更重要。"}, {"id": "s8", "title": "RAG 之外：结构解析 vs 传统切块嵌入", "start_sec": 2038, "summary": "许多人把 RAG 等同于切块+余弦相似度；文档场景更需要版面结构与表格对齐。联合创始人分工：产品重叠，对方偏工程推进。团队仍产能受限——“好问题”。人类每年在文档本地化上花费巨资（如美企对中东伙伴译阿语仍很手工作坊），结构化解析是自动化前提。"}, {"id": "s9", "title": "招聘 Leang、企业数据散落与收尾隐喻", "start_sec": 2410, "summary": "新招强援 Leang；企业数据散落各处、启发式路径混乱。组装三明治收尾：牛排隐喻 Reducto——要对“相关文档”给出可检验评论/抽取；节目在味觉成功与技术使命的双关中结束。"}], "paragraphs": [{"start_sec": 1, "type": "text", "zh": "我以前从未用叉子煎过牛排。如果亚瑟正在看这个视频，对不起，把你置于尴尬境地。嘿，我们可以回应一下批评者吗？大家好，欢迎来到Latent Space烹饪节目，我们邀请创始人和研究人员来烹饪。今天我们有一位非常特别的嘉宾，Reducto的联合创始人兼CEO Adit。欢迎你，Adit。嘿，谢谢邀请我。是的，当然。实际上我们是通过Adele联系上的，因为一条推文走红了，对吧？你能……我觉得那块牛排看起来非常棒，我觉得不可思议，但有人在你下面留言批评，这是真的吗？是的。有一些指控被提出了。", "speaker_id": "allen", "section_id": "s1"}, {"start_sec": 42, "type": "text", "zh": "这是我们今天要处理的。好的。是的，我们今天会兑现，然后开始。所以今天我们有牛排，也有樱桃汁要做，所以，是的，我们可以开始。你想把欧芹递给我，我们可以开始切吗？是的。在开始之前，我也有点好奇。你最初是带着一家公司叫 Remember All 加入 YC 的。那对吗？直到今天，你的公司叫 Reduct。所以我想知道，这跟《哈利·波特》有没有什么联系？我们经常被问到这个。好的。是的。这里的故事是，我们知道我们一进 YC 的那天就会从 Remember All 转型，我们告诉 Diana：“嘿，我们觉得这不是我们要继续追求的方向。”", "speaker_id": "allen", "section_id": "s1"}, {"start_sec": 83, "type": "text", "zh": "而我们当时并不知道具体会转向什么方向。大致的想法是我们会为开发者制作一些神奇的工具，然后我们在一个群聊里做了一个投票，列出了名字和每个名字可用的域名，其中有些名字很糟糕。不过，是的，我想，从那时到现在变化很大。当时是长远记忆（long horizon memory），或者只是为代理人的记忆，然后今天你们在做文档解析或处理。是的，我想为了给观众提供背景，你想要提供一些核心问题的更详细分析吗？", "speaker_id": "adit", "section_id": "s2"}, {"start_sec": 124, "type": "text", "zh": "问题，甚至可能还有一些历史，从OCR到IDP，现在是VLNs和智能体的发展历程。是的，我的意思是，有几十年的公司一直在从事PDF处理。我遇到过一个人，他处理PDF的时间比我活得还久。真的，他参与过最早的打印机驱动程序来打印PDF文档。不过，人们处理文档的背景显然非常不同，因为这些只是很多人会用来整理信息的通用格式。而且这是一个统一的数据集合，人们会在企业内部使用。所以，如果你打算让模型完成大量人类工作，它", "speaker_id": "adit", "section_id": "s2"}, {"start_sec": 168, "type": "text", "zh": "当你在阅读它时，拥有人类水平的精确性变得非常重要。而且棘手的地方是，我曾和一个从事打印机驱动程序的人提到过这个问题。PDF作为一种文件格式的最初背景是为了让打印机能够忠实于原稿，对吧？所以它并不是围绕着“代理会去阅读它”这样的情况设计的。因此，我们就深入探讨了如何以人类的方式阅读这些文档的问题，这是一个非常困难的视觉问题。是的。我们常常将其比作自动驾驶汽车研究，而在这方面，已经有了车道", "speaker_id": "adit", "section_id": "s3"}, {"start_sec": 203, "type": "text", "zh": "在汽车上提供长期的助手，这是一个完全不同的事情，说你的Whimo将完全实现端到端自主驾驶。这就是我们希望通过Reducto达到的水平。明白了。好的，这很有意义。我猜你们也是一个代理平台。我想知道，这通常除了可以与许多代理交互之外，还包括什么？你们是否还希望它成为一个水平平台，不仅涵盖处理和解析，还包括编辑，以及提供一个客户端可以使用的node工作室？是的，可以这样理解，任何模型与文档或非结构化文件的一切交互，我们都希望Reducto能够实现。", "speaker_id": "adit", "section_id": "s3"}, {"start_sec": 240, "type": "text", "zh": "这种交互发生的最佳方式。明白了。这意味着像解析一样阅读文档，对信息进行分类，进行编辑。人类的很多工作就是从文档中读取信息并写入文档。是的，这将处理从提取数据、与其他文档对账到获取所需最终输出的一切。明白了。你们会考虑路由吗，因为我在网站上看到 Redu 的底层有 12 个以上的模型，那么在不同任务和文件中，选择便宜的模型和更贵的模型的决策框架是什么。所以这很棘手", "speaker_id": "adit", "section_id": "s3"}, {"start_sec": 272, "type": "text", "zh": "这里的问题是，它很多最终都是长尾问题，对吧？所以你会看到很多页面看起来只是文字，然后偶尔会有一个非常复杂的表格，而你根本不知道具体哪一页有那个，或者其他类似情况。是的。所以我们一开始的想法是，好吧，我们先用很多较小的传统计算机视觉模型作为基础，然后用较大的模型来处理真正困难的任务。不过随着时间的推移，我们已经能够在模型架构方面采用一种相当有趣的方法。我们将在周一宣布我们的新内部模型，我们称它为 R1。", "speaker_id": "adit", "section_id": "s3"}, {"start_sec": 310, "type": "text", "zh": "它将能够实现端到端的处理。所以不仅包括布局捕捉等组件，还包括你希望确保尽可能接近100%的最后一公里修正。明白了。好的。那很棒。我们现在大概可以加上欧芹。我觉得可以先切得相对碎一点，然后再加入其他元素。但对，你提到的新模型，我想了解一下，你在决定是自有智能还是租用时的框架，甚至是心智模型是什么？因为去年，即使那只是一个测试，你也有 ROM OCR，它是建立在 Quen VLM 之上的。", "speaker_id": "adit", "section_id": "s3"}, {"start_sec": 347, "type": "text", "zh": "有新的出来了，似乎你可能专注于那个，而不是依赖供应商。是的。所以我们的团队的理念或使命是，无论如何我们都想成为最优秀的提供者——我们的客户不会去考虑使用自建模型还是其他模型，他们只想要惊人的结果。是的。所以我们不想去考虑这是自建的还是不是。随着时间的推移，自然而然发生的事情是，我们非常关心精确度、成本和延迟这类前沿问题。是的。而且我们不断发现，如果你关注的是某个特定类型的任务，在该任务上进行后训练的模型在这三个维度上表现得更好。", "speaker_id": "adit", "section_id": "s4"}, {"start_sec": 391, "type": "text", "zh": "是的。所以我们的技术堆栈随着时间的推移越来越倾向于内部开发。虽然仍然有一些真正横向的任务，在这些任务上使用Frontier的基础模型是有意义的，但目前这类情况的范围有限。很好。好的，那么接下来，你想切桃子吗？这样我们可以烤一些，我还能帮忙。你想用这个新的切板吗？是的，谢谢。然后我就拿这个，这样我就可以用了。你说在做饭的时候聊天会分心不是开玩笑的。是的。是的。你们最近推出了深度提取，并有基准显示harness的表现优于很多基础模型。是的。我想问，你怎么看待人们来...", "speaker_id": "adit", "section_id": "s4"}, {"start_sec": 428, "type": "text", "zh": "你会说，“我为什么不能等这些基础模型达到所需的性能水平，而不需要这个辅助工具，只用那个就可以，而不是来找你们呢？”我认为新产品发布中最有趣的一个现象是，我不知道你是否有机会读过博客，我们发现了一个非常奇怪的精确度和召回率之间的权衡。所以，当你设定无限推理时间时，很多这些专门的文档处理平台比前沿模型还要差。但前沿模型的失败模式出现在召回率上。所以它们会默默地丢掉一些缺失上下文的行，就是那种情况。是的。", "speaker_id": "adit", "section_id": "s4"}, {"start_sec": 467, "type": "text", "zh": "如果你在考虑你的抽取层完全丢失信息，那就是一种你在生产中根本找不到的损失模式，对吧？你根本不知道最初没有提取到什么。这些就是需要通过一个机制来确保并审核结果变得非常非常重要的事情的类型。是的。我认为这不是非此即彼的问题，比如有些任务前沿模型表现很棒。但如果你在寻找任务的最有效工具，你可能应该根据你正在做的任务进行专业化。是的，明白了。我猜也是这样。", "speaker_id": "adit", "section_id": "s4"}, {"start_sec": 501, "type": "text", "zh": "即使是在公告发布时，你也和 Micro One 一起创建了基准。是的，是的。我想问你，你如何看待评估基准与性能的关系，甚至像基准测试中出现的参差不齐的性能相比于实际任务的担忧。所以我们显然在内部做了很多基准测试，但让我沮丧的是，基准测试大多已经变成了营销材料。每个人在自己的基准测试上都是第一名，所以信息很快就变得非常非常杂乱。因此，我们与 Micro One 合作的原因只是我们想要一个明确的界限。", "speaker_id": "adit", "section_id": "s4"}, {"start_sec": 541, "type": "text", "zh": "reducto 并没有选择文档。Redduck 并没有设定真实标准。产品并没有以任何方式操控结果。只是为了有一个独立的基准。即使这样，显然也不是完美的。我认为归根结底，最重要的是人们在自己的文档上尝试这些东西。是的，但至少它为人们提供了一个方向感，让他们开始考虑这些事情，这就是我们关心的全部。明白了。我想结合你们最近的 R1 发布，这是否意味着你们的做法会有变化？你们有什么有趣的东西吗？", "speaker_id": "adit", "section_id": "s4"}, {"start_sec": 578, "type": "text", "zh": "在工作过程中发现的吗？我认为 R1 对我们来说是一个非常大的进步，因为有一段时间我们一直有这样的锚点：简化方法将是你尝试过的最准确的东西，对吧？尤其是当我们开始处理更大规模的工作时，比如今天，Reducto 每个月处理略超过十亿页文档。而这个数字变化得非常快。是的，进行这种前沿的讨论，让这个工具能够适用于各种不同的使用场景，变得非常重要。我之所以非常喜欢 R1，是因为它不仅在准确性方面有所提升，它还将真正简化我们的定价和工作方式。", "speaker_id": "adit", "section_id": "s4"}, {"start_sec": 622, "type": "text", "zh": "让我们的客户能够在生产中采用该产品。所以有一段时间，如果你开启 AI 功能之类的，我们会有这些倍增器。是的，那些都要取消了。我们的方法只是你把文档发给我们，它的成本会低于我们基础模型的每页成本，但准确率比我们最准确的模型还高。哇，好的。是的，所以价格肯定要好得多，远远好于以前的价格。比我们以前的价格便宜好多倍。明白了。哇，如果你在像你们很多客户那样的规模上使用 Redducto，那真是相当让人兴奋。完全正确。是的。对了，你刚才提到……", "speaker_id": "adit", "section_id": "s4"}, {"start_sec": 657, "type": "text", "zh": "你有很多客户在那些容错率非常低的行业。我有点好奇，你是如何思考评估甚至设定系统或绩效指标的呢？比如说，即使是99%的准确率，如果在企业真正需要的少数用例中失败，可能仍然不够，比如在医疗保健或容错率很低的行业中。是的，就像非对称用例。你是如何考虑评估和应对这种情况的呢？所以首要问题是，理想情况下，我们的初次尝试应该尽可能准确，这显然也是我们大量精力所在。但第二点是，从来没有...", "speaker_id": "adit", "section_id": "s4"}, {"start_sec": 700, "type": "text", "zh": "将会为真正完美划出一条线。即使你在阅读页面内容方面变得非常非常擅长，也可能会有歧义或类似的问题。因此，可追溯性变得非常重要。例如，要能够知道某个信息是从哪里提取的，能够确切地说出人类在审核时应该看什么。同时，还有像准确的置信评分这样的功能，这样他们就知道什么时候应该查看某个内容。如果你要处理像医疗文档工作流程这样的事情，这就变得非常非常重要。是的，因此在内部进行基准测试时，我们不仅仅衡量自身的提取准确性。我们还会说，在那些不完美的地方,", "speaker_id": "adit", "section_id": "s5"}, {"start_sec": 736, "type": "text", "zh": "我们能够多可靠地向人类报告这不是完美的呢？所有这些事情也真的很重要。好的。我想你也会跟踪所有最难处理的失败实例，然后把它们放入一个数据集，你可以运行它来确保在你的测试框架下没有回归。我们在这方面做了很多工作。好的。你能详细讲讲吗，比如你是否使用了特定的基础设施工具或框架，或者我之前应该问的？你希望我如何选择特征？这完全由你决定。如果你想按那样切片，那也可以。你想做得更细，我应该做细的垂直切片。好的，", "speaker_id": "adit", "section_id": "s5"}, {"start_sec": 770, "type": "text", "zh": "我们还有很多桃子，所以我们可以吃掉那些，然后用比较瘦的去烤，把它们放在你的三明治上。不过，是的，再回到你的框架或工具，或者你如何考虑捕捉这些失败案例，然后对它们进行基准测试。是的，有一件我们不太公开讨论的事情是，我们的机器学习团队花了很多时间进行持续评估。所以能够发现一些在生产中可能不完全错误但只是有缺陷的东西，这让我们能够开始理解哪些是真实世界用例中分布之外的。是的，这并不是关于单个数据点本身，而更多是关于", "speaker_id": "adit", "section_id": "s5"}, {"start_sec": 814, "type": "text", "zh": "失败模式的模式。比如我们非常关心能够在医疗保健中了解情况。是的，你可以说你关心手写，也许你会对你的手写表现进行基准测试。但你可能没有很多手写数据点是在倾斜的页面上，在那里有人在网格线之外乱涂乱画。而仅仅知道你在哪些方面不足，是你能够捕捉到你想要在下一次训练中包含的那类东西的第一步。你是否有行业特定的标准？因为我猜你说的医疗公司可能需要的东西，与律师事务所的需求可能会有所不同。但是", "speaker_id": "adit", "section_id": "s5"}, {"start_sec": 854, "type": "text", "zh": "比如律师事务所可能有更接近的相似性，医疗公司也可能有更接近的相似性。即使行业不同。是的，这是我们在早期经常讨论的一个话题，特别是因为构建一个垂直特定的文档处理平台要容易得多。是的，你在这里做的权衡是，我认为最终很多文档归结为非常相似的基本元素。人们往往把这当作理所当然。当你作为一个人看一页时，会做出很多基本判断，这些都是快速判断，对吧？比如每次在两个段落之间有空隙时，你会知道，好，这是一个新的语义。", "speaker_id": "adit", "section_id": "s5"}, {"start_sec": 894, "type": "text", "zh": "信息块。你不会有意识地感知到这一点，但这是直觉。是的。其他所有事情基本上也归结为类似的东西，比如你自然而然地理解表结构是如何关联两维信息的，以及所有这些东西。是的。我们所做的工作，确保我们能够应对混乱的表格和通过传真传来的医疗数据，这意味着我们在为金融客户提供可靠解决方案方面也自然更有优势。所以总体来说，这是一个更困难的任务。是的，我认为总体来说，这意味着我们可以在这些客户中处理最具挑战性的案例。", "speaker_id": "adit", "section_id": "s5"}, {"start_sec": 934, "type": "text", "zh": "明白了。所以你从不同行业学到的所有经验在某种程度上都会有重叠，因为你专注于相同的原理，就像……是的，基本上是把人类在看文档时的直觉构建到你的模型里。那就是目标。是的。显然也会有一些细微差别，比如如果你在法律行业，你可能会非常关注删除线和下划线之类的东西，而在医疗行业这些重要性可能会低一些，但拥有这种基础直觉对我们来说真的非常非常重要。是的，这很有道理。那么这也算是reducto的未来愿景吗？就是它不会被垂直化，而是会横向发展吗？", "speaker_id": "adit", "section_id": "s5"}, {"start_sec": 972, "type": "text", "zh": "并且通过这样，无论是哪种行业、任何公司都会有一个表现良好的，非常专业或非常通用的解决方案。是的。我们不希望出现这样的情况：对于像解析这样的客观任务，你可以非常清楚地在给定的页面上说，嘿，这正是页面上的内容。我们希望这是横向的，我们希望这是零样本的。对于那些有争议的问题，比如某个财务团队对某个指标有不同的定义，这些事情应该是可提示和可引导的，并且随着时间的推移不断改进。确实。好的，这很有道理。我想总体上关于Reducto，你是如何看待的呢？", "speaker_id": "adit", "section_id": "s5"}, {"start_sec": 1014, "type": "text", "zh": "整个代理和LNS的热潮？这是你们进行了很多文化变革来适应并迫使你们的工程师使用编码代理，甚至在内部拥有很多工具，还是主要是你们试图将所有这些努力集中在客户会使用的产品上，或者两者兼而有之？是的，我的联合创始人非常年轻，这是他大学毕业后的第一份工作，所以我认为他碰巧是你会遇到的最原生的LM用户之一。你会给他发消息，就像是被一个ChatGPT发送的一样。", "speaker_id": "adit", "section_id": "s5"}, {"start_sec": 1055, "type": "text", "zh": "所以基于这个，我觉得他只是自然而然地去做，并不是我们在强制我们的工程师说你必须使用 Cloud Code 或其他什么。人们看到他和团队其他人所做的事情，自然会想去尝试。这一点非常自然。是的。对我来说最有趣的事情之一是，我们的销售团队现在大量使用 Devon。哇。人们会为潜在客户制作定制网站之类的东西。是的。这并不是一个自上而下的推动。我认为人们只是开始发现，嘿，我在 Google 幻灯片上花了很多时间，而事实证明 Cloud Design 可以让提案比你花时间做出的更好。是的。", "speaker_id": "adit", "section_id": "s6"}, {"start_sec": 1093, "type": "text", "zh": "所以他们就会那样做，更像是展示潜在价值，而不仅仅是其他方面。我明白了。那么，是不是像通过以身作则，你的联合创始人经常使用它，然后你的员工就会想，“哇，我也应该试试，也许能提高效率？”是的，正是如此。另外我们从第一天起就允许现场使用大语言模型，或者一般的面试，而我们的现场面试实际上是整整一天的现场。所以，你会和团队一起度过8个小时。哇。是的，而且如果不正确使用大语言模型，这些问题实际上很难解决。我觉得本质上，最终能够通过的人", "speaker_id": "adit", "section_id": "s6"}, {"start_sec": 1135, "type": "text", "zh": "现场。通常是那些知道如何有效使用编码工具的人。是的。我们还会看到一些极端的例子，比如我们团队里有一个人叫Arth。如果Arth在看这个视频，抱歉把你放在这种情境下。Arth在还是伯克利的学生时加入了我们。当时他大约20岁。哇。所以当GPT-3刚发布时，他是大一新生。是的。如果你看他编码，有点像在看一个兴奋过度的人，因为他同时处理的事情非常多。而关于他最疯狂的事，我记得我们给他…", "speaker_id": "adit", "section_id": "s6"}, {"start_sec": 1179, "type": "text", "zh": "我们标准的软件工程现场测试。他居然在大约两个小时内完成了所有测试。哦，哇。所以Ronic在Slack上给我发私信，非常紧张，说：‘糟了，他会觉得很无聊。我们该怎么办？’于是我们也给他做了整个机器学习工程的现场测试。这就是我们希望确保加入团队的人。哇。是的，这是一次完美的招聘。我觉得他对工具非常熟练，而且行动速度很快。没错，很棒。好吧。你想试试一些chim chur吗？好的。我觉得一两个桃子应该就够了。如果你想用的话那边也有个勺子。是的，我们已经准备好了喷火装置。", "speaker_id": "adit", "section_id": "s6"}, {"start_sec": 1216, "type": "text", "zh": "酷。不过我想在我们做这个的同时，我想更深入地谈谈招聘。所以你们众所周知的就是招聘非常慢，而且团队一直很精简。最初，你的最早的一个招聘。我觉得你的第一个雇员是Ephe，他在这个特定领域几乎是业内最出色的，甚至你其他的增长类招聘也非常专业，每个人都有自己的业务，包括Adele等人。所以我想现在从只有你和Ronic，到现在已经发展成一个扩展的团队，你会发现你的顶尖聘用人才中有哪些特质是反复出现的，即使是今天在招聘时你仍然会去寻找的？我们的第一文化价值是什么？", "speaker_id": "adit", "section_id": "s6"}, {"start_sec": 1254, "type": "text", "zh": "最重要的文化价值是对你的技艺保持痴迷。我认为你可以把痴迷看作只是渴望，但我真正关注的是，如果你和任何真正痴迷于成为某件事高手的人交谈，比如厨师、运动员或者其他人，你总会发现他们在日常工作的方式上有一种严格要求。M像Yee就是一位令人难以置信的机器学习研究员，不仅仅因为他在我们所做的领域攻读了博士学位。他可能是最痴迷于检查数据的人之一。人们非常仔细地查看数据集", "speaker_id": "adit", "section_id": "s6"}, {"start_sec": 1296, "type": "text", "zh": "密切地。可能就像把每一页PDF都记住了，像“哇，我不知道有人会花那么多时间在PDF上画框”。哇，这很重要。别盲目扩大规模。确切地说。是这真的非常重要，即使在某个时候，我们的数据标注员比全职员工还多。哇，但他仍然会亲自查看数据，非常投入。我觉得工程师需要对客户支持之类的事情非常执着。这不仅仅是关于炫目的功能发布，更是要确保在生产中解决长尾情况，所有这些事情。是的，我觉得那真的很难。", "speaker_id": "adit", "section_id": "s6"}, {"start_sec": 1335, "type": "text", "zh": "强迫某人想要做某事的东西。就像如果他们把自己的工作看作是他们想要做到非常出色的事情。是的，他们自然有这种想要以那种方式提升的倾向。所以我们尝试选择具备这种倾向的人。好的。我想你是如何评估或者从潜在员工那里了解这一点的呢？你只是看他们的经验？他们过去做过的事情，还是在面试中有问题或流程让你能够判断他们对自己的专业是否痴迷，或者甚至在过去也是如此？我认为痴迷的人在工作中往往在许多不同的方面都有痴迷，有时可能会在他们的工作中表现出来。", "speaker_id": "adit", "section_id": "s6"}, {"start_sec": 1373, "type": "text", "zh": "全职工作。也许有时候它会体现在兴趣爱好上。是的。我真的很喜欢问别人一些他们非常擅长的事情。当他们谈论那个事情时，你会看到他们的眼睛闪闪发光。这甚至可能是一个电子游戏，就像那些以这种方式痴迷的人一样，只要你把他们引导向正确的事情，比如正确的问题。是的，自然而然会转移过来。明白了。顺便说一下，有很多桃片。是的，我拿几片，我们也可以用喷枪烤一下。不，这很合理。我认为痴迷确实会延续，然后我们再聊。你想烤得多焦？随你喜欢。老实说，你可以", "speaker_id": "adit", "section_id": "s6"}, {"start_sec": 1416, "type": "text", "zh": "把火把放进去。说实话，我以为它会计算。是。你想让我直接把它扔到平底锅里吗？是我们应该直接扔进去。我这里有点挣扎。我们会用脉冲炉。你想试试吗？所以，你只需要打开它。我对此感到非常兴奋。是的。所以，你只需要旋转它。噢。任何温度。是我看过创始人做牛排的视频，我租住公寓，但是如果我不租的话，我会买一个。是我觉得这台炉子非常非常好。它加热超级快。", "speaker_id": "adit", "section_id": "s6"}, {"start_sec": 1460, "type": "text", "zh": "烧开水，这非常容易。是的。好的。从非常早期阶段开始，现在进入B轮融资，再次恭喜你。谢谢。从这么小的团队成长到现在的成长阶段，你有没有必须要放弃或改变的一些东西？是的。我认为公司里的问题数量，在假设一切顺利的情况下，其实从来不会减少。你只是随着时间的推移处理不同的问题。所以在第一天，我的工作大多就是眼下需要处理的各种琐事，比如个人交易或个人支持请求。", "speaker_id": "adit", "section_id": "s6"}, {"start_sec": 1503, "type": "text", "zh": "显然，当你有更多人时，这种情况会有所变化。是要放手这件事很奇怪。我觉得作为创始人，很长一段时间，如果我不能随时在 Slack 上待命，我都会感到焦虑。因为那感觉就像如果我不看着，可能会出问题。是随着时间的推移，这种情况会减少。你会开始意识到公司在某种程度上有它自己的生命。但你仍然会花很多时间与顶级客户在一起。随着时间推移，你开始更多地处理与人相关的事务。我从没想过自己会成为那种写文化文件的创始人，但奇怪的是，你的工作很多时候开始围绕这些事情展开。", "speaker_id": "adit", "section_id": "s6"}, {"start_sec": 1544, "type": "text", "zh": "是但这一切都很有趣。我经常发现自己在工作的当前阶段特别菜，然后三个月后你就开始变得很擅长，然后你又开始做新的工作。是的，随着你的成长和业务的扩大，这一切不断演变。这个过程通常是一样的吗？因为我记得听你说过，在早期阶段，你会给一名工程师设定一个优先任务，为期一周。那可能直接与想要达成的目标相关。是的。现在团队已经扩大了，你还会尝试坚持那个一周完成一个优先任务的方式吗，还是更像大公司或科技公司那样？是的。", "speaker_id": "adit", "section_id": "s7"}, {"start_sec": 1581, "type": "text", "zh": "我们仍然每周都会作为一个完整的团队见面一次。所以，比如工程团队应该对我们的重大交易有很好的了解，反之亦然。所有这些都没有改变。我确实认为我们的一些重要项目很难在一周内完成，因此有些事情的时间范围可能发生了变化，仍然有一些事情是那种，是当天的优先事项，而不仅仅是本周的优先事项。但我们确实尽量确保清楚了解我们真正关心的事情是什么。是的。我的思考方式也从每周更多地转向了像这样。", "speaker_id": "adit", "section_id": "s7"}, {"start_sec": 1621, "type": "text", "zh": "每月优先事项和季度优先事项也是如此。明白了。好的。但它并不像大型科技公司那样——比如我们没有一套年度的目标（OKRs）来衡量或对照什么。是的，我们仍然试图像初创公司一样精简地运作。太好了，因为你会不断学习新的信息，对吧？今天市场变化如此之快，如果你不根据当前的情况进行调整，你就会落后。尤其是在这个人工智能和编码的时代，发展非常迅速。但然后转向更多的商业方面，我知道你们所在的领域有些拥挤，你们还有其他...", "speaker_id": "adit", "section_id": "s7"}, {"start_sec": 1663, "type": "text", "zh": "竞争对手，每个人都尽可能快地提升性能。是的。那么，在这种情况下，你如何看待防御性呢？也就是说，你可能无法训练出所有客户的数据，因此性能可能无法随着数据量的增加而扩展，你如何在差异化中保持领先地位呢？是的。所以，我的意思是，就像我之前提到的，真正擅长持续评估最终成为我们考虑如何处理每月十亿页内容的关键部分，比如你如何围绕这个建立一个正向循环。我认为，我们的许多工作不仅仅是针对某一种布局类型或者……", "speaker_id": "adit", "section_id": "s7"}, {"start_sec": 1705, "type": "text", "zh": "类似那样的任何东西。这是一种水平的本质，一个非常好的方面是我们的客户群越广，我们对各种问题的直觉也会越好。明白了。我最终认为竞争市场非常好，因为它非常基于能力。因此，为一些领先的 AI 原生初创公司服务，比如 Harvey，只意味着如果我们不继续做到最好，他们会自己去寻找最好的。是的，而我们的立场一直是，我们只需要迎接这个挑战。是的，有道理。所以你会说你可能首先是竞争性的，你想要获胜，而且是的，希望有一个公平的竞争环境。", "speaker_id": "adit", "section_id": "s7"}, {"start_sec": 1748, "type": "text", "zh": "是的。太好了。这很有道理。我觉得特别是现在这种情况下，很多市场会非常拥挤，关键是你能否行动得够快并与之竞争。所以很高兴听到这个。我觉得比以往任何时候都更重要，现在更关注的是执行，而不是系统模式。是的，持续不断，没错，没错。太好了。好的，我觉得这些桃子看起来可以转到盘子里，然后你可以开始做这块牛排。有点回到之前我们谈到的关于Reducto未来的话题。该死，我能加点油吗？。嘿。关于Reducto的未来，你是否", "speaker_id": "adit", "section_id": "s7"}, {"start_sec": 1790, "type": "text", "zh": "你自己可以考虑扮演一种类似涟漪的角色，你拥有很多不同的水平产品，并且有点像一个复合型的初创公司，提供很多服务，甚至可能接管文件存储或者你客户除了提取、解析、编辑之外的其他需求。是的，我们最关心的是与文档本身相关的实际操作。好的。所以我们考虑问题的方式不太关注文件存储之类的东西，对我们来说的问题总是，我们能否在这个任务上成为世界最佳。当你考虑诸如此类的事情时", "speaker_id": "adit", "section_id": "s7"}, {"start_sec": 1832, "type": "text", "zh": "对文档的分类、解析和编辑方面，答案是肯定的。至少截至今天，对我们来说，仅仅存储数据并不是那么有趣。是的。我们只有在这些方向能够提升客户体验时，才会真正推动相关工作。明白。那么每当你接触到客户，我也听说他们通常会带来一套之前所有测试都失败的文档，但 somehow 它在 Reducto 上却能成功。你有趣的故事可以分享吗？大概是关于某些案例，或者你能说的任何时刻，当某件事发生时，它非常神奇？是的。我最喜欢的类型是那种just like的情况。", "speaker_id": "adit", "section_id": "s7"}, {"start_sec": 1874, "type": "text", "zh": "客户演示循环是指当他们找到一个以前无法实现的用例时。最后他们就能够解决那个问题。比如他们开始引入一些原本被认为超出范围的东西。还有一些情况是我们发现解析的准确性最终会转化为人们没有考虑到的下游影响。比如我们的一个法律科技客户发现，当文档被Reducto解析后，客户与文档的互动次数增加了一倍。哇，比如他们会问更多的问题。这显然不是我们销售的功能，但他们发现答案质量提高了，引用的准确性也提高了。", "speaker_id": "adit", "section_id": "s7"}, {"start_sec": 1917, "type": "text", "zh": "改进后的效果是整体客户更有可能参与。是的。这非常重要。这就是我们最终想要推动的那种事情，但也许它不会立即在电子邮件流程中体现出来。明白了。好的。是的，我想即使现在在你们团队中，Ronic，你们俩都上过麻省理工，对吧？然后你们是通过他当RA的课程或当TA认识的。是的，当他是大一新生的时候。是的。是的。你过去也说过，你对他的能力和才华印象深刻，然后一起工作。我想现在过去大约有两年的时间了。两年，我们快到三年了。三年。是的。", "speaker_id": "adit", "section_id": "s7"}, {"start_sec": 1954, "type": "text", "zh": "是的。在整整三年的时间里，你们有没有过一些时刻，让你意识到你们真的很合拍，这些特质对联合创始人来说非常重要？或者有些时刻似乎不符合直觉，与他们通常给的创业建议相反？是的。我认为到目前为止，我最喜欢我们创始关系的一点是，我们至今从未真正发生过我会归类为争论的事情。好的，我们确实有过很多关于事情的讨论，也会讨论不同的观点，但我们在独立讨论问题时的互动非常非常好。", "speaker_id": "adit", "section_id": "s7"}, {"start_sec": 1997, "type": "text", "zh": "优点以及喜欢解决争端。好吧。对我来说，老实说，除了彼此真心尊重外，这是最重要的事情。你认为他们带来了互补的技能组合之类的。但是创业真的很难，感觉你能和你的联合创始人一起经历起起落落而不感到怨恨非常重要。这很特别。我觉得在第一次见面时，很难强迫或预测这一点。是的。你和Ronic的技能互补吗？我会说是的。我在MIT完成了整个本科的计算机科学学业，但是", "speaker_id": "adit", "section_id": "s7"}, {"start_sec": 2038, "type": "text", "zh": "相比之下，我可能算不上技术型的。是的，比如我们通常会在产品上有所重叠。他只是在整个工程工作中领导很多工作。而且他在这方面通常会有很多强烈的意见。反之，在市场推广方面也是一样，由我负责。明白了。好的。但是两者都足够有技术性，所以他可以参与讨论，但我不会——我绝不会跟Ronic参加黑客马拉松。我认为他一生中可能从未输过黑客马拉松。哇，你们也一起参加过黑客马拉松，对吧？我们参加过。就是Anthropic那次，当Quad早期模型推出时，他们提供了早期访问。", "speaker_id": "adit", "section_id": "s8"}, {"start_sec": 2081, "type": "text", "zh": "Quad。那实际上就是我们创始旅程开始的方式。是的，那时候就是 Redto 整个框架概念的起点，当时模型已经非常出色了。是的，但它们的上下文窗口限制非常糟糕，所以这就引出了长期记忆这个想法。是的，Reductive 后来的所有其他东西都是在这之后发展出来的。明白了。是的，时代确实变了，因为那时候 RAG 确实是一个很大的事情，而你们在处理器上还做了很多分块操作，对吗？现在窗口减少了，这方面就没那么多了。是的，我觉得分块可能不再是引起某人兴趣的主要因素，但很多问题最终还是检索问题。", "speaker_id": "adit", "section_id": "s8"}, {"start_sec": 2126, "type": "text", "zh": "好的，无论你称它为抹布还是叫其他名字，很多产品仍然以某种形式进行搜索，然后在搜索结果之上进行某种形式的推理。我明白了。我个人认为，这从定义上来说有点像检索增强生成。是的，没错。你能详细说明一下这点吗，用“每个问题最终仍归结为搜索问题”的概念来解释。因为我知道，即使是编码方面，比如 ref 和文件搜索，也在 RAG 之后成为了下一个热点。我想问，对于文档解析处理，这个框架是否一样，还是你们会有所不同？有没有一些你可以分享的见解？当然可以。", "speaker_id": "adit", "section_id": "s8"}, {"start_sec": 2162, "type": "text", "zh": "是的。我的意思是，很多时候当人们想到 RAG（检索增强生成）时，他们会想到更传统的方法：你把东西分块，进行嵌入，然后使用余弦相似度搜索来确定要传入模型上下文的内容。是的。人们对 RAG 有抵触情绪，原因通常是觉得“哦，我不是在构建聊天机器人”。我们的很多客户仍然会有一个文件系统供代理使用，代理会在文件系统中爬取，以找出相关的上下文，并在这个上下文上进行推理，整合多个文档的信息。是的。我想说的就是这个意思。", "speaker_id": "adit", "section_id": "s8"}, {"start_sec": 2204, "type": "text", "zh": "过程，无论是由代理执行，还是在你的搜索产品中明显可见，都是你在搜索信息、拼凑上下文、综合信息，并最终采取某种行动。我明白了。好的。是的，这很有道理。这就像一个相当直观的过程。让我们看看，很好。好的，我觉得我的部分已经完成。我觉得你现在可以开始查看了，但对，现在我想更多地探讨人们如何找到你，以及你在寻找什么。我假设你在不同的岗位上招聘。据我了解，我们大概有40个岗位在招聘。", "speaker_id": "adit", "section_id": "s8"}, {"start_sec": 2246, "type": "text", "zh": "这一点。好。你现在主要的瓶颈是什么？主要是销售，还是你还在试图找到很多研究人员？是全面的。因此我们在工程方面招聘很多人，比如基础设施问题对我们来说非常重要，尤其是在我们开始扩展的时候。我也想在之后洗手。是的，洗手的时候犯的错误。是的。所以我们在为我们的产品工程团队、机器学习岗位和平台岗位招聘。在销售团队方面，我们年初开始时只有一个客户经理和一些职位。哇。现在我们销售团队有30个人。哇。所以总体上招聘很多。是的。我预计这不会减缓。", "speaker_id": "adit", "section_id": "s8"}, {"start_sec": 2286, "type": "text", "zh": "在短期内。就像我们作为一个团队仍然感到能力受限。明白了。是的，这也是一个不错的位置。我觉得这是成长的挑战，而不是你过去提到的因为无法坐下来解决问题而陷入转向困境的挑战。是的，这比处于刚刚开始成长的阶段要困难得多。所以，是的，我觉得应该会很好。是的。所以你可以转过来，然后我们可以洗一下。我以前从没用叉子煎过牛排。第一次尝试一切。太棒了。太好了。我们回来了。所以，我们的牛排已经准备好了，我们可以开始切了。你想切面包，我来切牛排吗？但我猜更多的是再次关于", "speaker_id": "adit", "section_id": "s8"}, {"start_sec": 2328, "type": "text", "zh": "REDUCTO你们已经从公司可以来提取和解析文档的地方，转变为现在甚至还负责编辑，对吗？那么你们看到很多机会吗？或者转向承担整个用例吗？因为我猜从阅读到现在真正分析编辑和知识工作，可以涵盖很多用例。是的。我总体的看法是，我认为白领工作还没有达到类似四码的高度。我认为如果你想想很多白领工作，不仅仅是信息综合，比如人们从文档中提取信息，还有我们做的三明治有多大？", "speaker_id": "adit", "section_id": "s8"}, {"start_sec": 2370, "type": "text", "zh": "可以大到你想要的程度。我们可以直接剪掉。是的。好的。它不仅仅是人们从文档中提取信息的问题，而且在很多这些流程的最后，你会写入电子表格或者写入 Word 文档，不管是什么，对吧？所以我们真的想确保我们不仅仅是在考虑最初的解析和抽取层面。我们希望模型能够尽可能可靠地修改合同。我们希望它们能够填写贷款申请，做任何人类必须做的事情，对吧？是的。这其中会出现一系列非常困难的问题。", "speaker_id": "adit", "section_id": "s8"}, {"start_sec": 2410, "type": "text", "zh": "要做的事情。那是一个很大的赌注。是的，就像我们之前谈论的事情之一，人类每年在文档本地化上花费数十亿美元。所以，如果你是一家美国企业，想要和中东的一家公司做生意，你可能会想把你的内容翻译成阿拉伯语，对吧？如果你现在考虑这个问题，它是非常手动的。模型在翻译方面很出色，是的。但将这些修改应用到文档上真的很难，因为你需要把一个用英文生成的文档改变布局。当你把它改成从右到左的语言时，你现在需要", "speaker_id": "adit", "section_id": "s9"}, {"start_sec": 2450, "type": "text", "zh": "考虑一下，比如文本可能会延续到下一页。格式是不同的。没错。因此这里有一整套的问题，理想情况下我们可以为客户抽象掉。是的，我们还处于这个阶段的早期。我们不久前推出了一个表单编辑端点，差不多有六个月了。但我们有很多功能即将发布，我认为这会是一个子功能上的变化。明白了。不过这听起来像是一个完全不同的问题。听起来非常像计算机使用的情况，如果你在填写表单，确实有一些相似之处，这里肯定有很多工作更接近。", "speaker_id": "adit", "section_id": "s9"}, {"start_sec": 2485, "type": "text", "zh": "在这里也进行代码生成。但我认为，从根本上说，非常非常擅长理解像视觉结构这样的东西，使我们也能够非常擅长像编辑应用这样的事情。明白了。好的。那么，你们是将这个问题整体看待，还是针对这些不同的问题有不同的团队，或者都是在同一个大框架下？我们其实并没有真正意义上划分不同的团队。也许这和我们之前讨论的有关工程团队的优先级结构有关。我们有一个机器学习团队，但在这个机器学习团队里，人们会处理各种不同的问题。", "speaker_id": "adit", "section_id": "s9"}, {"start_sec": 2528, "type": "text", "zh": "他们绝对是专注于某些类型事情的人。我们刚刚聘请了一位非常棒的新员工。他的名字叫 Leang。你可能看到过，他因为开源办公代理在推特上非常火。哦，我想我见过这个。是的。确实很难聘请的人。他刚从新加坡搬过来，但他对这种编辑问题非常感兴趣，所以他在很多相关工作中都在带头。像这样个人问题的热情契合非常重要。那你如何找到那些对使命也同样有雄心的人呢？是更多的主动外联还是被动吸引？你是怎么筛选的呢？", "speaker_id": "adit", "section_id": "s9"}, {"start_sec": 2567, "type": "text", "zh": "你们的人喜欢某种特定的方式吗？是的，所以他们非常以使命为驱动。我想这是你在招聘时考虑的一个很大因素吧。是的，我们有稳定的招聘状态。我们有内部招聘人员，也会与中介机构合作，这些都有。但是偶尔你会在推特上发现某个人异常痴迷于PDF，其频率比你预期的要高。是的，所以每当我们看到类似的情况时，这说明了很多关于这个人的事情——他们花时间随意地思考文档处理。是的，我们总会尝试联系他们。是的，这很有道理。是的，我想当你说你...", "speaker_id": "adit", "section_id": "s9"}, {"start_sec": 2601, "type": "text", "zh": "还没有经历过云代码时刻。是的。你认为会有什么催化剂像寒武纪大爆发那样吗？是仅仅取决于看到用例的价值有多大，还是更多是一个扩散问题，比如在特定行业的传播，也许只是让编辑用例更多地被采用？是的。我认为模型智能就在那附近。很多前沿实验室显然是在思考模型解决其他问题之前先在代码生成上进行了爬坡。是的，我认为代码在很多情况下是一个可验证的问题，而且工程师最有可能采用。", "speaker_id": "adit", "section_id": "s9"}, {"start_sec": 2643, "type": "text", "zh": "企业的数据确实有很大一部分分布在各种不同的地方，而且还有一些奇怪的经验法则，比如你跟一家大型金融机构谈论某些纸质流程是如何完成的，他们就会有机构性的知识，比如‘如果我在屏幕左下角看到这个，我就知道这是肯塔基的，然后我就会做X’。是的，这种情况很少会被清楚地写下来。所以我认为工具领域的人有大量工作要做，比如聚合这些上下文，帮助他们建立适当的知识库，为模型提供足够的上下文，使它们能够对这些数据进行推理。", "speaker_id": "adit", "section_id": "s9"}, {"start_sec": 2681, "type": "text", "zh": "是的。但我不认为我们离那种情况发生的时刻很远。好吧，大规模。明白了。所以听起来更像是数据和上下文的碎片化似乎是问题，而不是模型在长远推理上表现得如此出色，以至于智能不再是最大的瓶颈。是的。那么在这种情况下，我们是否需要更集中的努力？因为我觉得，比如说，要整理来自不同来源的数据，比如俄亥俄州的那篇论文，他们有很多旧的文件系统，这不是软件能够解决的。是的，所以也许这并不是一个", "speaker_id": "adit", "section_id": "s9"}, {"start_sec": 2723, "type": "text", "zh": "通过像文档处理的方法来处理这个问题是不难的，或者你有没有用不同的方式去考虑它？是的。我的意思是，最棒的地方是我们能够与各种不同领域的领先团队紧密合作。所以我们一直在与例如试图自动化 N10 纳税申报的 Basis 团队合作。我们还与像 Harvey 和 Lora 这样的公司紧密合作，他们在法律领域做着令人难以置信的工作。他们专注的一个好处是，他们开始在特定的情境下弄清楚从头到尾提供价值所需的条件。这非常棒。明白了。好的，这有道理。这是一小步。", "speaker_id": "adit", "section_id": "s9"}, {"start_sec": 2764, "type": "text", "zh": "哦，好。很好。好的，我们可以组装一个，然后吃掉它，然后再叫它。好的。我想问一下，除了这次发布之外，你还有没有其他的里程碑或期待的事情？再次恭喜你，今年剩下的时间顺利。是的。总的来说，我们的模型变得好得多。你想要 Halo 吗？是的。你想和他们一起戴这个吗？当然。是的，我们的结构化抽取模型也有了巨大的改进。这不仅仅是准确性，我们在引用性能和模式遵循等方面也在变得更好，而且成本效率也大大提高。我们今天已经宣布了这个。", "speaker_id": "adit", "section_id": "s9"}, {"start_sec": 2808, "type": "text", "zh": "从历史上看，一页结构化提取的成本通常超过4.5美分。而现在我们能够以一半的成本做到这一点，同时还提升了性能。哇，你还好吗？我哽咽了。是的。哇。这是一个很大的削减。是的。这些就是我们想要推动的方向。明白了。就像真的在各个方面推动Purto前沿。明白了。你之前还在谈论成本和性能。那么，这主要是关注成本，还是在保持之前性能水平的同时降低成本呢？其实，幸运的是，这甚至不是我们为了单纯降低成本而做的努力。", "speaker_id": "adit", "section_id": "s9"}, {"start_sec": 2851, "type": "text", "zh": "我们只是发现，我们可以在只专注于性能本身的同时，每花一美元获得更好的智能。就像我们的主要产品Nordstar一样，它将永远是最精准的文档处理平台。还有像你说的那样不依赖特定模型。好的，完美。好的，太好了。好，你想投入多少？你想多加一些吗？我们应该做两层。好了，这里我们可以，你想让我移动到这边吗？也可以再加一些。很好。很好。好了，你感觉怎么样？很好。我在想，我忘了他的用户名，但我想确保我以一种合适的方式分层。", "speaker_id": "adit", "section_id": "s9"}, {"start_sec": 2896, "type": "text", "zh": "是的，你不会再得到比例了。不，不是那个。这些也是很小的切块。所以，是的。应该很容易分开。很好。很好。它们看起来很棒。是的。放上酒吧。是的。你想放上酒吧吗？我来放老师的。好。哇，那很好。你是放在牛排上还是面包上？可能是牛排。好的。是的，然后我们就把它弄上去。是的。涂开。是的。哦，太好了。看起来太棒了。太棒了。是的。那就是PGs。", "speaker_id": "adit", "section_id": "s9"}, {"start_sec": 2939, "type": "text", "zh": "好的。那么你想做Chimmy Cherry吗？当然。是。混合它然后直接放在上面。天哪。这些动作镜头会很疯狂。是看起来真冷。你也想放在上面吗？你可以把面包放在上面的动作镜头里。", "speaker_id": "adit", "section_id": "s9"}, {"start_sec": 2980, "type": "text", "zh": "我们来吧。耶，很好。好的，完美。我们开动吧。哟，我们可以回应一下批评者吗？。是的。我觉得我们应该数一下你咬下去时取出的牛排片数量。据说会有三片。来吧。一。耶。轻松。好的，味道如何？棒极了。好。好的，我们干杯。哦，也有点辣。太好吃了。天哪。哇。牛排三明治绝不会错。是的，桃子。", "speaker_id": "adit", "section_id": "s9"}, {"start_sec": 3022, "type": "text", "zh": "。伙计，这太棒了。我们干得很出色。谢谢你邀请我们过来。那么，这个……那么，这个三明治里的'reducto'比喻是什么？你想让我对相关文档发表评论吗？", "speaker_id": "allen", "section_id": "s9"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
