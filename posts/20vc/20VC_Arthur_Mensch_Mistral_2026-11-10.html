@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Mistral 首席执行官：为何 OpenAI 与 Anthropic 会来抢你的生意｜中国模型真的安全吗？</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="harry">哈里·斯泰宾斯（Harry Stebbings）</option><option value="arthur">阿瑟·门施（Arthur Mensch）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">20VC with Harry Stebbings</span><span class="pill">2026-11-09</span></div>
+<h1>Mistral 首席执行官：为何 OpenAI 与 Anthropic 会来抢你的生意｜中国模型真的安全吗？</h1>
+<p class="sub">嘉宾：阿瑟·门施（Arthur Mensch） · 约 50 分钟（3017 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=KotQbLX8pOw" target="_blank" rel="noopener">https://www.youtube.com/watch?v=KotQbLX8pOw</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>20VC with Harry Stebbings</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-09</dd></div><div class="meta-row"><dt>时长</dt><dd>约 50 分钟（3017 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；普通 yt-dlp 遇 HTTP 429 后，改用 yt-dlp android 客户端拉取成功）；caption_source=yt-dlp-auto；中文为全文翻译并按话题分段；说话人按主持/嘉宾轮次与部分 &gt;&gt; 换人标记启发式标注（自动字幕无稳定说话人标签，中等把握）。YouTube 字幕中未出现明显赞助口播，故未标 ad_omitted。</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>KotQbLX8pOw</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>哈里·斯泰宾斯（Harry Stebbings）对话 Mistral 联合创始人兼首席执行官阿瑟·门施（Arthur Mensch）：这家估值约210亿美元的欧洲前沿实验室，如何把「主权人工智能」说成企业刚需——不只是政治口号，而是贸易平衡、数据控制和成本掌控。阿瑟解释为何不能把核心流程交给两三家中心化厂商、中国开源权重模型的安全与供应风险，以及为何能源只占算力成本约10%、芯片和资本才是眼下真正的瓶颈。</p>
+<h3>核心要点</h3><ul><li>主权AI三要素：自有「模型工厂」、驻留客户租户的数据面、托管的 token 工厂；Mistral 约80%的 token 流量来自自有模型</li><li>中国开源模型因数据供应链不可完全验证，无法保证输出；国防与金融极不愿使用；当前威胁偏理论，但供应安全（美国约从5月起限制外输，中国也在考虑出口门槛）更被客户拿出来谈</li><li>若企业只能依赖两三家中心化厂商，对方会用企业数据训练更好系统并最终来抢客户的生意——他认为这已被定价进当前格局</li><li>能源约占算力总拥有成本的10%，芯片与资本成本才是大头；电力瓶颈约在2029–2030年；希望国家简化许可，并对租用数据中心、预留10–15年机位提供担保</li><li>收入约60%来自欧洲，其余在美国与亚太；聚焦制造、金融、国防和公共部门，合作对象包括阿斯麦（ASML）与空中客车（Airbus）；不计划自研芯片；用约18个月自建基础设施，token 在欧洲生成以规避美国域外法</li><li>前线部署工程师（FDE）先把企业流程定义清楚，再通过埃森哲（Accenture）、塔塔咨询服务公司（TCS）等集成商放大；未来增长还来自运行时、沙盒、CPU 与存储；不认为千亿美元训练指日可待，前面先有数据墙</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：关心欧洲主权AI、开源权重安全、企业部署以及算力/能源经济学的人；可跳过：只想听消费产品或模型跑分、对基础设施与政企销售无兴趣者（约50分钟）。</p>
+<h3>适合人群</h3><p>AI 创业与投资、企业技术负责人、政策与主权计算，以及制造、金融、国防数字化相关听众</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场：欧洲最后的希望与210亿美元的 Mistral</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">开场金句来自阿瑟·门施（Arthur Mensch）：主权人工智能会成为最重要的品类；能源成本归根结底并不是项目经济账里唯一要紧的事；眼下算力明显不够，推理市场的表现很像大宗商品市场，而且利润率仍然相当高。主持人哈里·斯泰宾斯（Harry Stebbings）介绍：这是欧洲建设前沿人工智能实验室「最后的希望」——Mistral 联合创始人兼首席执行官阿瑟，公司现在估值约210亿美元，正让欧洲在前沿模型竞赛中保持相关性。他预告这期阿瑟比以往更放开、更好笑，也说出了一些惊人判断。音乐之后正式开场，哈里称自己采访过不少美国同行，阿瑟是欧洲剩下的希望；阿瑟感谢邀请。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">把前沿AI留给美中，是欧洲的宏观经济问题</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里引用阿瑟日前的话：若把前沿人工智能留给美国和中国，欧洲将失去它在世界上仅剩的位置。阿瑟承认自己真心这么认为——这项技术堪比电力，且越来越多地落入出口管制，会成为经济增长的重要使能器；欧洲如果自己生产不了人工智能，就很难创造出它所需要的增长。哈里追问：Mistral 的成功在多大程度上依赖于美国的「过度伸张」？特朗普政府上台后，出现像 Anthropic 的 Fable 被禁这样的事件，引发许多关于主权必要性的问题；如果没有美国越界，主权供应商会不会反而受到威胁？阿瑟说这是结构性的，并不取决于谁在展示力量：企业或国家一旦把人工智能用于全部核心流程，就希望这笔开支发生在自己附近，否则会出现贸易失衡——大量现金从欧洲流向美国。不能在欧洲领土上生产人工智能、做研发，是宏观经济问题，不是「欧洲落后」或软实力叙事。他们2023年创建 Mistral 时就相信这是主权技术：无论在美国、欧洲还是亚洲，国家都需要掌握技术、贴近数据去定制系统、控制成本，并与真正懂如何构建人工智能系统的公司建立伙伴关系。主权议题早于2025年大选，2023年的判断后来被验证。谈到格陵兰（Greenland）时讨论变得情绪化，但本质上仍是经济问题而非政治问题，只因为这项技术太重要。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">主权三要素：模型工厂、客户数据面与 token 工厂</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里想到曾上节目的 Fireworks 的林乔（Lin）：企业需要拥有自己的模型，并紧贴自有数据来训练。这是否就是 Mistral 的演进方向？阿瑟给出他们定义的品类——给客户带去主权技术，需要三件事。第一，有保障的模型来源，也就是能自己训练模型的「模型工厂」：Mistral Large 目前在开源权重的智能体编程以及网络防御与网络安全上处于领先；他们持续投入数十亿美元训练，才能对客户说两年后模型还会更好。这是公司成立的原因，也是主要烧钱方向。第二，数据控制：一般不希望数据回流到人工智能供应商；他们在技术上确保运行智能体、定制模型的平台驻留在客户自己的租户里，制造企业尤其不愿让知识产权流回作为处理方的供应商。第三，光有前两样还不够，因为人工智能很耗能，企业规模化时很难自己采购到足够的图形处理器，所以还需要 token 生成服务，也就是「token 工厂」——数据留在客户基础设施里，token 在托管基础设施中以更低成本生产。公司因此做三件事：训练模型；把平台和数据面部署到客户租户；把高能耗部分托管起来，并为此自建基础设施。这三样是服务「主权工作者」的必要配方。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">中国开源模型安全吗：80%自有流量与供应安全</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里说专家意见打架：有人认为中国开源模型下载后本地运行就完全安全；也有人警告存在未知的提示注入和后门。阿瑟说 Mistral 的一项业务就是为开源模型做推理，既跑自己的也跑别人的。哈里追问为何跑别人的：客户要选择；有了基础设施，就希望提供尽可能多的选择来打满利用率、摊低成本——这有点像社区或大宗商品市场。不同领域可能选更小或更大的模型。但哈里说得对：模型是知识的压缩，如果不掌控数据供应链、不知道什么被喂进模型，就无法对输出做保证。因此他们服务自有模型时能给客户更多保证；服务第三方模型时，理论上无法排除模型在特定环境、特定上下文中被当作攻击向量，也难以事先测尽，只能在线监测。他认为今天这更多是理论上的威胁，但仍属于威胁模型。客户要求他们提供所有可得的开源权重模型，并帮助在受监控的安全方式下运行；许多客户仍更想用 Mistral 自己的模型，因为训练所用数据供应链经过验证。自有模型大约占 token 流量的80%，哈里觉得比预想高得多。他问美国的首席信息官是否真的不敢用中国开源模型：阿瑟说取决于行业对政府有多关键——他们在欧洲服务的国防客户绝不会用中国技术；金融作为关键基础设施也很抗拒；零售和部分制造业的顾虑则因所在地而异。业界普遍认为，开源权重模型若部署在他们这类受控基础设施上，唯一站得住的威胁是因供应链攻击而在某些领域「失控」或行为异常，而这一点目前非常理论化、今天基本上不是事实，但仍会被拿出来谈。客户更关心的往往是：六个月后还能不能拿到更新。模型已经强到可以用于相当高级的网络攻击，因而越来越被当作防务系统；美国约从某年5月起开始禁止它们向美国以外输出，中国也在研究对超过特定门槛的模型限制出口。这是两用技术，供应安全因此更重要——不仅是基础设施的供应安全，也包括模型知识产权的供应安全。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">封闭厂商扣住最好模型，终局是来抢客户的生意</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里问：OpenAI 与 Anthropic 扣住自己最好的模型，对社会是好是坏？这会不会就是这个行业固有的特征？阿瑟说好坏他不知道，但很清楚的是：如果没有人提供可主权部署、去中心化部署的方案，中心化人工智能供应商会拥有巨大杠杆。若所有公司只能依赖两三家中心化供应商，后者会用系统产生的数据去训练更好的系统，并最终去抢客户的生意——这就是终局，也是今天已被定价进去的东西。Mistral 要避免的，正是由少数供应商形成寡头、用企业数据训练出能把企业「中间化」掉的系统。这一点与客户高度一致。内部模型被用于某些研究，已经是权力与人工智能高度集中时可能发生之事的早期信号。幸运的是，做模型并没有那么复杂，关键是投入资本、以及拥有训练正确东西的团队；开源权重前沿正在追赶封闭前沿，在许多领域甚至已经超过。因此他不认为将来想做数学就非得去 OpenAI 工作——世界上有足够多的人也不希望出现那样的世界。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">能源只占一成：芯片、资本与国家能做的事</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里转向能源：欧洲能源体系不同于美国和中国；中国可以迁走三百万人去上能源设施，英国连个鸟窝都不愿挪。尽管是玩笑，但令人担忧。阿瑟首先指出：能源大约只占算力总拥有成本的10%，并不是最能优化的地方；占账单大头的是芯片成本和资本成本。能源会成为问题，且随着欧洲部署更多算力、撞上供给约束而越来越突出，但分布不均——法国有过剩电力、可以建产能，北欧也类似，英国和德国则不那么宽裕。未来两三年对 Mistral 的真正挑战，是尽快建设、用掉已经存在的过剩电力：筹资、扩建、组建建设团队。眼下电力不是瓶颈，大约到2029、2030年才会成为瓶颈；现在的问题是如何建在既有电力之上，并提前为那时每年部署数吉瓦人工智能产能做打算。他寄望法国庞大的欧洲压水堆核电项目以及太阳能方面的努力。这主要是协调问题：只要人工智能带来能源需求，新建核电站的商业理由就相当充分。哈里相信亚当·斯密（Adam Smith）的「看不见的手」，但建设周期是真的，所以2029–2030年就是挑战。阿瑟同意核电站建设比这更长、太阳能可以更快；国家必须既提供便利，又做比企业更长远的规划。关于买算力，他们学会了一套对接供需的工业流程，和软件完全不是一回事：供应链包括图形处理器、中央处理器、存储和电气部件，还要看供应商的供应商；要对多个需求桶做预测——既有作为理想客户画像的企业，也有想在更短时间里拿走更大块图形处理器的人工智能原生公司；微软等还会向他们要产能，反过来帮助为更多产能融资。他们学到：如果能在需求之前把产能备在前面，未来几年会很好卖。一个用例常常从以为需要8块图形处理器，规模化后变成需要1000块。今天只看欧洲所需，算力明显不够；或许有人会说美国建得有点多，但欧洲有很大空间去建设，并且有百分之百的信心这些产能会被消化。若资本完全不受约束，他们会建更多产能。国家可以做的、且他们公开倡导过的市场中性干预包括：简化许可，设立加速建设的专用场地，让地方与国家层面的利益相关方对齐——他认为法国和瑞典在这方面做得很好。财务上，国家对租赁数据中心、预留10年或15年机位提供担保，对资产负债表相对较小、但知道为谁而建、如何去建的公司非常有用。公共部门也是来自欧洲内外的重要客户，能形成承购，让公司建得更多；在供给约束时期，建得更多更快，也就能建得更便宜。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">主权不必到每个国家：六成收入在欧洲，也不做自研芯片</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里问主权要细到什么粒度：加拿大已有科希尔（Cohere），是否每个国家都需要自己的模型，还是以板块为单位？阿瑟认为，做出「相关」模型需要相当大的市场。Mistral 能做到，是因为他们不是按国家级运营——他们不是一家法国公司，而是服务欧洲、美国和亚洲。世界需要替代方案，但不会在每个国家层面都出现一家主权人工智能供应商和模型训练者，这不会发生。客户收入约60%来自欧洲，其余来自美国和亚太。哈里问欧洲客户是否主要用他们做自有模型的后训练工具套件：阿瑟说原因是多重的，他们帮客户做提升业务效率或加速研发的应用，垂直聚焦制造业、金融服务、国防，再加上公共部门。在制造业，他们通常和研发团队一起，帮阿斯麦（ASML）把机器做得更好、运营得更好，帮空中客车（Airbus）把飞机制得更好；既带来推理模型，也带来对世界有定量理解的物理模型。在金融，他们做理解市场的模型与工具套件，以及理解定量时间序列、用于预测的模型，以便快速搭出能创造价值的应用。这些公司都有主权策略，需要业务连续性保证和可负担性约束。哈里指出 OpenAI、Anthropic、深度求索（DeepSeek）都在进入应用层，也在进入芯片层：OpenAI 有 Jalapeño 芯片，Anthropic 有自研传闻，DeepSeek 在做自己的。会不会有 Mistral 芯片？阿瑟明确说没有这个计划。从工业视角他们是往「上游」走：从训练模型，到在自有基础设施上服务自己训练的模型。这一步大约花了18个月，现在相当成功，能对外提供图形处理器和 token；而且这些 token 是纯欧洲生成的，可以避开任何形式的美国域外法，这对客户非常重要。他们还在加码扩产。他们已经相当垂直整合：有云服务基础设施，并一直做到为客户构建业务应用。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">前线部署工程师、集成商伙伴与许可加消耗两条收入</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里确认：应用层是既给平台、也给客户做定制应用？阿瑟说人工智能让这成为可能，而落地是通过一支前线部署工程师队伍，但建立在共同原语之上：工作流管理、智能体管理、沙盒管理，以及对不同业务应用部署的可观测性——也就是为运行和构建人工智能智能体而改造的云服务。哈里问如何看待用 Mistral 自己的前线部署工程师，对比传统的伙伴生态。阿瑟说创业早期把这些人放在最前面非常有帮助：这让他们看清企业卡在哪里——从个人效率起步远远不够，聊天机器人几乎没有创造价值；他们和经理、业务单元负责人坐在一起，理解哪些核心流程要用人工智能自动化，并做出能管理状态、让智能体端到端运转流程的定制应用，也因此沉淀出「持久化流程执行」、有效编排智能体等原语。从去年起他们开始把工具扩散给埃森哲（Accenture）、塔塔咨询服务公司（TCS）这类擅长规模化的系统集成商：给对工具和培训，对方有更多人手。Mistral 的人亲自上手帮客户仍然需求很高、对双方都有用，但不能无限扩张到成千上万名前线部署工程师，所以现在通过伙伴放大，两种动作并存。哈里回忆两人第一次见面时阿瑟坐在公园长椅上只是聊聊生活，并问今天还没有、但五年后可能最重要的收入线是什么。阿瑟笑说「你当时没投，你该投的」。哈里说后悔极了，昨天还碰到让-夏尔（Jean-Charles），每次见面都会聊到阿瑟。阿瑟谈到现有两条收入线：一是部署平台、用于构建业务应用的真正许可收入；二是自建基础设施带来的消耗型收入。两者咬合很好——客户通常先为许可而来，随后发现图形处理器不够，他们再提供芯片或 token 服务。哈里追问三到五年后会不会有很大的推理业务和沙盒业务。阿瑟说，所有落在图形处理器上的部分还会继续增长；他们称为「附属服务」的部分也在增长，比如为强化学习、或在同一任务上部署大量智能体时轻松扩缩沙盒，这会进一步带他们购买更多中央处理器。他预期「运行时」一侧会增长：智能体执行任务、调用工具、编译并运行代码。过去同步对话任务只需要图形处理器来回答会话；一旦有托管智能体在后台做大量中央处理器密集任务，就需要更多中央处理器、更多沙盒，以及更多存储。中央处理器相关和数据相关，会成为增长中的业务线。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">向政府销售、推理双轨市场，以及新实验室如何活下来</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里问：卖给政府，有什么是几乎没人知道、但人人都该知道的？阿瑟说首先不存在一般意义上的「卖给政府」——各国政府非常不同。有的国家足够小，销售动作几乎像企业销售，部委里大家彼此认识；大国则更复杂。找到在何处创造价值、理解客户需要什么，复杂度大致随国家体量上升。谈到推理市场，阿瑟形容它很像大宗商品市场，而且眼下利润率相当高：如果有供给、并对特定模型有合适的服务质量，就能把 token 按需卖掉，因为有大量未承诺的客户需求。更成熟的客户则需要有保障的服务质量、服务等级协议以及预留的物理产能——他们因为有预测模型和供给，能够提供。于是市场分成两块：一块是按需、很像拼价格的大宗商品市场；一块是溢价市场，客户要延迟、生成速度和一定请求量的保证。客户把自己的需求形状说得越精确，定价可以越好，他们也越能把基础设施塑造成对的服务质量、对的价格。哈里问：已经冒出大约102家「新实验室」，每周还有新的 DeepMind 分拆，能活下来的差别在哪？阿瑟说他们2023年起步时自己就是新实验室，只是当时还不这么叫；招揽顶尖人才的「银弹」几乎都用在了研究员身上，一开始是一家研究公司。能规模化，靠的仍是第一支柱——交付模型——同时很早就聚焦能做大的企业市场。既要在研究上保持最高水准并持续把模型做强，又要真正理解客户问题。哈里追问欧洲真正有能力创办这类公司、且像他一样经历过的人有多少，也许一个扬·勒昆（Yann LeCun）已经算一个——是20个还是100个？阿瑟说欧洲既有创业人才也有研究人才，两者结合才让欧洲出现许多新实验室；但今天还在于能不能拿到算力。他认识的许多新实验室最大瓶颈就是获得图形处理器，他们因此在自有供给里为某些新实验室预留产能。如果创始人想做非常以研究为中心的事，最大问题就是以像样的价格获得算力。研究员招聘市场相当竞争；但只要使命、薪酬结构和事情本身对世界有意义，人就会加入。他感谢团队在过去三四个月的投入：Mistral 的开源权重模型牵引很强，在开源权重类别里的编程和网络防御上领跑。他们最近发布了技术报告——训练往往第一次不会成功，需要能纠偏，再花两个月把它做出来；本来预期发布，但需要稍晚一点。在资源稀缺的情况下，他非常感激团队的韧性。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">千亿训练尚早、AI股为何暴跌，以及为什么要聚焦企业</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里刚请微软的萨提亚·纳德拉（Satya Nadella）上过节目，对方谈到穆斯塔法·苏莱曼（Mustafa Suleyman）先前的判断：未来几年会看到一千亿美元规模的训练。这是夸张还是完全够得着？阿瑟说首先前面还有一堵数据墙：若想让模型在芯片设计、或他们正在做的工业工程工作流上非常强，就需要合适的训练环境，这需要技能和品味，不能像堆算力那样轻易扩展。大家今天撞上的瓶颈，其实是能不能采到足够多的高质量数据。算力也需要，他们正在部署更多算力；但走到一千亿美元的训练，他认为绝不是明天的事。哈里反问：既然大家都缺算力，为什么 Nebius 跌了约40%，CoreWeave 也跌了约40%？如果短缺如此明显，公开市场上的「人工智能交易」为什么在崩？阿瑟说市场当下如何反应他并不十分清楚。就 Mistral 自身而言，凭借收入承诺、承购承诺这类抵押物的质量，他们完全能为自有算力融资。他们是垂直整合的公司：建设算力是为了更高层的目的——服务企业、构建业务应用——锚定在客户的价值创造上，因此不必把公司杠杆加得极大。和任何工业扩建一样，借很多杠杆很诱人，而杠杆到某一点就会断裂。哈里问因为聚焦而没去做、事后却可能后悔的事是什么。阿瑟说他们没有深入消费市场，但对此非常庆幸；也没有进入芯片设计。消费市场非常拥挤，很难一边把企业服务做到最高水准，一边再去经营本质上会变成广告生意的消费产品。聚焦企业、并收窄到制造、金融、国防、公共部门这四条垂直，对公司至关重要——因为人工智能几乎什么都能做，必须有一个来自市场的聚焦：要做出最好的智能体工程工作流、最好的金融决策、最好的防务用途，以及与国家主权相关的一切。哈里问有了递归自我改进，难道还不需要聚焦？阿瑟说，用人工智能改进人工智能同样需要聚焦，因为资源有限，瓶颈确实是算力；而自我改进要求问题被良好定义。今天只要问题定义清楚，之后就可以沿着它往上爬。企业里的问题往往并不定义清楚。对经济增长真正的摩擦，不是解不了那些定义清楚的难题，而是很难解决目标含混、有人在环路里的模糊问题；这一部分无法单靠自我改进解决，只能靠模型被部署出去、与人互动。限制企业里人工智能用量爆发的，正是那些想上人工智能却无法铺好「攀爬路径」的定义不清的问题，所以才需要前线部署工程师去把问题定义得更好。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">欧洲的压力、GDP要的是生产，以及快问快答</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里直说：开头他开玩笑称阿瑟是欧洲最后的希望，并非纯粹戏剧化——阿瑟和其他立志成为「下一个 Mistral」的新实验室之间有很大鸿沟。团队有感受到压力吗？阿瑟说有，但圈里谁都有：必须在模型侧交付，因为那是进步最可见的一面，同时企业必须看到价值。他认为这是健康的压力，也是历史上非常重要的时刻：需要证明人工智能有用，让实际部署显示出这是一项正面的技术。唯一的办法是把主权人工智能作为品类推起来，让它创造经济增长和机会，让收益被好好分配。如果他们不成功，他不知道世界上会发生什么。哈里问：人工智能会让国内生产总值每年多增长超过2个百分点吗？阿瑟说这正是全部问题所在——你去解哪一种瓶颈，才能把那部分增长打出来。所以他们才对工业工程非常看好：要经济增长，需要的是更多生产，不是更多智力。你需要更好的工厂、更高效的物体、能用同样多的油飞得更久的更好的飞机、更高效更低碳的能源生产、更好的阿斯麦机器，以及更好的金融服务。如果把智能体闭环用于设计更安全的汽车，设计团队就能更快迭代，意味着可以卖得更多、卖得更便宜，产品也更安全。航空航天里，更好的飞机会在外面运行40年；如果飞得更快、更省油，就会创造增长。真正重要的是让人工智能产生物理世界的效果，而他们主要在制造业和金融服务里看到这种效果。快问快答中，阿瑟给出几个判断：这是一个正在碎片化的市场，主权人工智能会成为企业部署最重要的品类，业务连续性、成本和数据与知识产权控制将成为最要紧的事——许多企业这么看，部分竞争对手并不这么看。工作方式上，软件工程师已经改变，这种改变会扩展到所有有技术背景的人，而不只是最先受影响的软件工程师和数学家，他们都将操控人工智能智能体并获得巨大杠杆。关于上市，哈里说没法在欧洲、尤其没法在法国上市；阿瑟认为十年前的那些瓶颈今天不再成立，全球投资者对欧洲的私募和公开市场都有巨大兴趣，没有理由将来不在欧洲上市。展望未来5到10年，他最兴奋的是人工智能将如何在我们还缺乏理解的领域赋能基础研究：比如物理，可以把仿真跑到从未达到过的规模——他们收购的、专攻此道的埃米（Emmi）团队就在做这件事——并让智能体去操作这些仿真器。哈里收尾说，当初坐在长椅上不怎么说话的阿瑟和今天判若两人，他对阿瑟为欧洲所做的一切充满尊敬。阿瑟感谢夸奖，说还有很多要交付，但对已有进展相当满意；如果有人想加入这段旅程，请联系他。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">哈里·斯泰宾斯（Harry Stebbings）<em>主持</em></span><span class="spk-1">阿瑟·门施（Arthur Mensch）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场：欧洲最后的希望与210亿美元的 Mistral</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>主权人工智能会成为最重要的品类。能源成本归根结底并不是项目经济账里唯一要紧的事。这是欧洲建设前沿人工智能实验室最后的希望。猜对了，今天请来的是 Mistral 联合创始人兼首席执行官阿瑟·门施（Arthur Mensch）。</p>
+<p>它现在是一家估值约210亿美元的公司，正是它让欧洲在前沿模型竞赛中仍然相关。这是你从未见过的阿瑟：他放开了，很有趣，也说出了一些惊人的话。做这期节目非常开心，我迫不及待欢迎阿瑟来到节目中。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>很明显，算力是不够的。推理市场的表现非常像大宗商品市场，而且眼下利润率还相当高。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>准备好了。<span class="tag">【音乐】</span></p>
+<p>阿瑟，我太兴奋了。我采访过不少我们喜欢的美国同行。你是欧洲剩下的希望。虽然这话有压力，但非常感谢你今天来到这里。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>谢谢你邀请我，哈里。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>把前沿AI留给美中，是欧洲的宏观经济问题</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我做了一些功课。我自己说话也比较尖锐，阿瑟，但看来不只是我——你前几天说，如果把前沿人工智能留给美国和中国，欧洲会失去它在世界上仅剩的位置。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>我确实说过，也真心这么认为。这项技术太重要了，必须在全世界分布开来。我们谈论的是一项堪比电力的技术，而且它越来越多地落入出口管制。人工智能会成为经济增长的重要使能器；如果欧洲自己生产不了人工智能，就很难创造出它需要的增长。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我直接问。Mistral 的成功在多大程度上依赖于美国的过度伸张？有了特朗普政府，我们看到像 Anthropic 的 Fable 模型被禁这样的事，会引发很多问题，也会推高对主权的需求。如果没有美国的过度伸张，这会不会反而威胁到主权供应商？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>我会说这是结构性的，并不真正取决于某种行事方式或展示力量的方式，而更多取决于技术本身的性质。一旦企业或国家开始把人工智能用到全部核心流程里，你就会希望花在这些流程上的钱，实际发生在离你很近的地方。</p>
+<p>如果不是这样，你就会有贸易平衡问题：会有巨额现金从一个地方流到另一个地方，比如说从欧洲流向美国。所以，不能在欧洲领土上生产人工智能、做研发，是一个宏观经济问题。这和某种「欧洲正在落后」的说法、或某种软实力用法没有必然关系，它是结构性的。</p>
+<p>我不会说没有人把它变得有点情绪化。但我们2023年创建 Mistral 时，就带着这样的信念：这是一项主权技术。作为一个国家，无论你在美国、欧洲还是亚洲，你都需要掌握这项技术，需要能够定制系统、让它们紧贴你的数据运行，需要能够控制成本，也需要与真正懂如何构建人工智能系统的公司建立真正的伙伴关系。</p>
+<p>主权议题早于2025年的选举。所以我们2023年说的话后来被证明是对的。当我们开始谈到格陵兰（Greenland）时，讨论变得相当情绪化。但这主要是一个经济问题，不是真正的政治问题。只是因为这项技术太重要了。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>主权三要素：模型工厂、客户数据面与 token 工厂</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>听你这样讲，我想起曾上过节目的 Fireworks 的林乔（Lin），他也说过非常类似的话：企业需要拥有自己的模型，并紧贴自有数据来训练。你听我这么说会有什么感觉？公司的演进，是不是就是让企业拥有自己的模型、并使用自己的数据？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>我们定义的品类、以及企业选择与我们合作的原因，就是我们给他们带去主权技术。主权技术需要三件事。第一，你需要有保障的模型来源，也就是一家能够自己训练模型的公司。我们有这样的模型工厂。</p>
+<p>Mistral Large 目前实际上在开源权重模型的智能体编程上处于领先，在网络防御和网络安全上也是领先的。能够不断把模型做出改进，并且告诉客户「两年后你会得到更好的模型，因为我们一直在训练、并为此投入数十亿美元」，这对任何主权方案都至关重要。这正是 Mistral 被创立的原因，也是我们主要投入资金的地方。</p>
+<p>第二，你还需要对自己的数据有控制权。一般来说，你不希望这些数据回流到人工智能供应商那里。所以我们在技术层面确保：运行智能体的平台、以及用来定制模型的平台，实际驻留在客户自己的租户里。这一点非常重要。很多时候，和制造企业合作时，他们不希望自己的知识产权流回到作为处理方的你这里。</p>
+<p>但通常这还不够，因为人工智能非常耗能；一旦做到规模，你需要大量GPU（GPU），而企业自己很难采购到。你还需要 token 生成服务，也就是 token 工厂：数据留在你自己的基础设施里，token 则在托管基础设施中以更低成本生产。</p>
+<p>所以我们作为一家公司做三件事：训练模型；把平台和数据面部署到客户的租户上；然后把高能耗的部分托管起来。这也是我们一直在自建基础设施的原因。这三样，就是服务主权工作者所必需的配方。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>中国开源模型安全吗：80%自有流量与供应安全</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我先从第一点问。你说模型是有保障的。我请过世界上最好的一些专家，但他们说法不一样。有人说：中国的开源模型，你下载下来在本地运行，完全安全。下一周又有人说：你根本不知道里面有没有你不了解的提示注入，有没有后门，绝对不能确定它们是安全的。阿瑟，帮我理理这里。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>在 Mistral，我们的一项业务就是真正为开源模型做推理。我们跑自己的模型，但也跑别人的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>为什么还跑别人的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>因为客户要选择。当你拥有基础设施时，你希望提供尽可能多的选择，好把基础设施打满。这让我们开始服务越来越多的开源模型：在不同领域，你可能想选不同的模型，可能想选更小的，也可能想选更大的。选择越多，基础设施就能被用得越好，成本也就能越低。这在某种意义上是一个社区市场，你希望成本尽可能低。所以我们也会提供这些模型。</p>
+<p>但你说的是对的。模型是知识的压缩。如果你不掌控数据供应链，不知道什么被放进了模型，你就无法对输出做出任何保证。因此，当我们服务自己的模型时，能给客户比服务第三方模型时更多的保证——因为从理论上讲，你要确保模型在某种环境、某种上下文中会以某种方式表现。这一点既无法排除，也无法事先测尽。我们可以做在线监测，这也是我们在做的；但你不能排除它被当作一种攻击向量来使用。</p>
+<p>我认为这非常理论化，我不认为今天就是这种情况。可另一方面，这确实属于威胁模型。所以客户要求我们能够向他们提供所有可得的开源权重模型；我们也在帮助他们以更安全的方式来做，并监测正在发生的事情。但在很多情况下，他们其实非常希望使用我们自己的模型，因为我们能够告诉他们：数据供应链、我们用来训练的一切，都是我们事先验证过的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你们自己的模型和其他开源模型，token 流量大概各占多少？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>我估计大约80%来自我们自己的模型。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>哇。比我想象的高多了。那另外20%呢？人人都跟我说，美国的首席信息官绝不会使用中国开源模型，这种恐惧确实存在。你们有很棒的客户，他们害怕使用中国开源模型吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>这取决于他们所在的行业对政府有多关键。比如如果你和国防部门合作——我们在欧洲就有国防客户——他们绝不会使用中国技术。如果你在金融行业，同样因为它是关键基础设施，他们会非常抗拒。如果你在零售，或在制造业的某些领域，顾虑又会因所在地而不同。</p>
+<p>我认为有一种普遍共识：开源权重模型如果部署在我们这样的受控基础设施上，唯一站得住的威胁，是它们因为供应链攻击而在某些领域失控、做出怪异行为。大家也普遍认为，这一点非常理论化，今天肯定还不是事实。但它确实是对话的一部分。</p>
+<p>我要说，对话里同样重要的，还不只是「部署一个我并不完全理解的第三方模型是不是威胁」。大家真正在谈的是：从现在起六个月后，我还能不能拿到更新。因为模型已经变得非常强，已经能够被用于网络攻击，也可以被用在相当高级的用途上。后果就是，它们越来越被当作防务系统来对待。</p>
+<p>美国实际上已经在把它当作防务系统：大约从某年5月起，他们开始禁止这些模型向美国以外输出。如果你看中国今天在做什么，他们也在研究如何对超过特定门槛的模型限制出口。原因在于，这实际上是一种两用技术。和任何两用技术一样，供应安全因此更加重要。与我们合作的公司意识到，他们不仅需要基础设施一侧的供应安全，也需要模型知识产权一侧的供应安全。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>封闭厂商扣住最好模型，终局是来抢客户的生意</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>考虑到这一点，你觉得 OpenAI 和 Anthropic 扣住自己最好的模型，对社会是好是坏？这会不会就是这个行业将会普遍存在的固有特征？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>对社会是好是坏，我不知道。但很清楚的是：在一个没有供应商去支持中心化部署之外的主权部署的世界里，中心化的人工智能供应商会拥有巨大杠杆。如果我们最终生活在这样的世界——所有公司都需要依赖两三家中心化供应商——它们会利用这些系统产生的数据，去做出更好的系统，并去抢客户的生意。因为到头来，这就是终局。这相当清楚地就是今天已经被定价进去的东西。</p>
+<p>所以我们采取的路径，是确保我们不会生活在这样一个世界里：由少数人工智能供应商形成寡头，利用企业产生的全部数据，训练出更好的、能够把企业中间化掉的系统。在这一点上，我们与所有客户都非常一致，他们当然也不希望生活在那样的世界里。</p>
+<p>我会说，内部模型被用于某些研究，已经是一个早期信号，说明在人工智能领域出现大规模权力集中时可能发生什么。幸运的是，做模型并没有那么复杂，关键是部署资本，以及拥有一支在训练正确东西的合适团队。我们已经能够做到这一点。开源权重前沿正在追赶封闭前沿，在许多领域实际上已经超过。所以我不认为我们会走到那样一个世界：如果你想做数学，就必须去 OpenAI 工作。幸运的是，世界上有足够多的人也不希望这种事发生。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>能源只占一成：芯片、资本与国家能做的事</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你已经多次提到能源。在欧洲把人工智能做成功，一个核心前提是拥有能够驱动它的能源和基础设施。我们的能源体系与美国很不同，与中国也很不同。在中国，他们可以迁走三百万人去上某种能源设施；在英国，我们连个鸟窝都不愿意挪。尽管这是个玩笑，但还是挺令人担忧的。你怎么看能源供应这个挑战？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>首先要认识到，能源大约只占算力总拥有成本的10%。所以我们说的并不是最能做优化的那一块。能源成本归根结底并不是项目经济账里唯一要紧的事。真正要紧的是芯片成本，以及资本成本。这两项主导了物料清单。</p>
+<p>所以它会是一个问题，而且随着我们在欧洲部署更多算力，它会变成越来越大的问题，因为我们会撞上供给约束。当然这并不是均匀分布的。看法国，那里有过剩电力，可以建设产能；北欧也是这样。英国要少一些，德国也要少一些。但大家已经意识到，人工智能会继续推高能源消耗。</p>
+<p>我会说，未来两三年真正的较量和挑战，对 Mistral 来说，是尽快建设，把已经存在的过剩电力用起来。我们正在做的就是这件事：筹集资本，建设更多产能，组建团队把这些产能建出来。现在有过剩电力，它今天还不是瓶颈，大约到2029、2030年才会成为瓶颈。眼下的问题是：我们怎样建在既有电力之上。</p>
+<p>同时我们必须提前想。从2029、2030年开始，随着每年都有数吉瓦的产能被部署到人工智能上，我们确实需要把能源生产提上来。我们寄望的是，比如在法国有一个庞大的欧洲压水堆（EPR）核电项目，会生产出更多核能；太阳能一侧也有很大努力。所以我会说，它会成为一个问题，但主要是协调问题：只要人工智能端产生了能源需求，新建核电站的商业理由就相当充分。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>完全就是这样，我同意。我非常相信亚当·斯密（Adam Smith）那只看不见的手，但建设周期是真的，所以2029、2030年就是挑战。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>是的，核电站建设需要的时间比这更长，太阳能电站可以更快。我也相信那只看不见的手。国家必须全力以赴，既为建设提供便利，也要提前做规划。它们通常比企业有更长远的视野。所以我们花了一些时间，我本人也在花时间说明：能源需求将会增长，必须以某种方式被回应，它需要成为任何能源供应商商业计划的一部分。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我想一项一项来。你刚说芯片成本很重要。关于买算力、预测芯片需求，哪些是你现在才懂、当初并不知道的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>这是一套相当复杂的流程。我们学会了怎样运行这套流程来匹配供给和需求。这是复杂的工业流程，和软件完全不是一回事。你需要理解供应链里的时滞。供应链相当复杂：你有GPU，也有CPU（CPU），还有存储，还有电气部件。你还需要确保自己的供应商在他们自己的供应商那里没有问题。这一面是我们后来才学会的，而且相当复杂：你要管理资源，要做多种预测，要能够对多个需求桶做出预测。</p>
+<p>企业是我们主要的理想客户画像，但也有人工智能原生公司，它们可以拿走更大块的GPU，却希望占用时间更短。也有像微软这样的公司，常常向我们要产能，而我们可以用这些需求为更多产能融资。说到底，建设一座云，就是匹配供给和需求，就是提前管理供应链、给供应商可见性，并把这一切与财务匹配起来。你需要项目融资，需要真正懂信贷的人。把这样一项生意做起来，其实相当有意思。</p>
+<p>我们学到的是：如果你能够在需求之前把产能备在前面，你就会得到一样相当好卖的东西，而且未来几年都会是这样。所以我们很庆幸，我们提前预见到供给会很快耗尽，客户在自己的GPU上也会遇到供应链问题。因为现在我们有了这些芯片，就能够服务他们的需求。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>完全理解，这是芯片成本。资本成本是另一块。如果资源完全不受约束，你今天会做什么现在没有在做的事？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>我们会建设更多产能。建设产能的一个大瓶颈当然是资本。我们看得到需求，也知道客户正在耗尽算力。当我们接过他们的一些用例、帮助他们扩大规模时，他们会突然发现：自己需要的不是8块GPU，而是1000块，而且还只是一个用例。我们比客户更早看见这种需求，所以有相当高的把握，也因此愿意把股权投入进去建设产能。</p>
+<p>我们一直在做的，就是确保管理更多产能，哪怕是在需求之前先建出来。今天如果只看欧洲需要什么，很明显算力是不够的。你也许会说，美国可能建得有一点点多；但清楚的是，欧洲有很大空间去建设产能，而且你有百分之百的信心这些产能会被消化。这就是我们正在推进的事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你刚才说国家也有角色可以扮演。你希望法国或英国的政府，今天做哪些它们还没有在做的事？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>我们一直相当明确地谈过，它们可以用怎样市场中性的方式介入，只是为投资提供便利。第一件事当然是简化许可，并确保有一些专用场地可以加快推进，让地方和国家层面的所有利益相关方对齐。我会说，法国和瑞典在这件事上就做得很好。这主要是帮助把各方对齐，因为这些是物理资产，建在区域社区里，必须确保每个人都能从中受益。国家的帮助发生在这里。</p>
+<p>在财务层面，我们也公开说过：国家对租赁数据中心、比如预留10年或15年机位提供担保，对像我们这样资产负债表相对较小、但知道如何去建、为谁而建的公司非常有用。它们可以通过把一些担保放到桌面上，让建设能够提前、做得更大。当然，公共部门对我们来说也是重要客户，来自欧洲内外很多不同的国家。我们给他们带去价值，他们给公民带去价值，这会为像我们这样的公司创造承购，从而让我们能够建得更多。而如果你建得更多更快，你就能建得更便宜。在眼下这种供给约束的日子里，尤其如此。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>主权不必到每个国家：六成收入在欧洲，也不做自研芯片</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你刚才说你们也卖给国家。回到主权这一点：主权需要下沉到多细？我的意思是，我们显然已经有科希尔（Cohere）在加拿大，是每个国家都需要自己的模型吗？还是以板块为单位？我们该怎么理解主权的颗粒度？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>我认为被允许的颗粒度是这样的：你需要一个相当大的市场，才能做出相关的模型。今天 Mistral 能够做出相关模型，是因为我们不是在国家级上运营。我们不是一家法国公司，我们服务欧洲，服务美国，也服务亚洲。我们需要的是替代方案，但不会在每个国家层面都出现一家主权人工智能供应商和模型训练者。这不会发生。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>那你们的客户里，欧洲大概占多少？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>如果看我们的收入基数，大约是60%。其余来自美国和亚太。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>他们是用你们来给自己的模型做后训练工具套件（post-training harness）吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>欧洲客户出于多种原因使用我们，但我们帮他们构建应用：要么与提升业务效率有关，要么与加速研发有关。我们与制造企业合作，与金融服务合作，与国防企业合作，并且对这三类都有相当强的垂直化打法，第四块则是公共部门。</p>
+<p>和制造企业合作时，我们一般是和他们的研发团队在一起，帮助他们做出更好的产品。我们帮助阿斯麦（ASML）把机器做得更好、把机器运营得更好；我们帮助空中客车（Airbus）把飞机制得更好。我们带来推理模型，也带来物理模型，也就是对世界有定量理解的模型。</p>
+<p>在金融服务里，我们构建理解市场的模型和工具套件，也带来理解定量时间序列、用来做预测的模型。所以我们带来的是一套模型，能让客户快速构建出真正创造价值的应用。这就是我们服务他们的方式。回到你说的主权：这些公司都有主权策略。他们需要以一种具备业务连续性保证、也受可负担性约束的方式来部署这项技术。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我们看到 OpenAI、Anthropic、深度求索（DeepSeek）都在进入应用层，也在进入芯片层：OpenAI 有 Jalapeño 芯片，Anthropic 有自研的传闻，DeepSeek 在做自己的。我们会看到 Mistral 芯片吗？你怎么看垂直整合、拿下每一层的重要性？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>不，这不在计划里。我们已经沿着技术栈往下走了，或者从工业视角说，是往上游走：从训练模型，到在我们自己拥有的基础设施上服务我们训练出来的模型。这已经是相当大的一步。这一步大约花了18个月才搭建起来，现在相当成功，因为我们能够对外提供GPU，能够对外提供 token。</p>
+<p>而且我们有纯欧洲生成的 token，能够避开任何形式的美国域外法。这对我们的客户非常重要。所以这花了我们不少力气。我们还在加码，把这件事进一步做大规模，我想这会让我们忙上一段时间。我们已经相当垂直整合：我们有云服务基础设施，并且一直做到为客户构建业务应用。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>前线部署工程师、集成商伙伴与许可加消耗两条收入</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你提到了人工智能里的应用层。你们提供平台，也给客户做定制应用，是这样运作的吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>人工智能让你能够这样做。而落地是通过一支前线部署工程师（FDE）队伍来完成的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>是的，是前线部署工程师，但建立在共同原语之上：工作流管理、智能体管理、沙盒管理，以及对不同业务应用部署的可观测性。说到底，我们是在构建一套适应于运行和构建人工智能智能体的云服务。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你怎么看通过 Mistral 自己的前线部署工程师去做，对比我们传统上那种伙伴生态？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>在旅程的早期，把前线部署工程师放在最前面，对我们帮助非常大。因为它让我们准确理解企业卡在哪里。他们从个人效率起步，但那不够；聊天机器人并没有为他们创造任何价值。于是我们花时间和经理、业务单元负责人坐在一起，理解他们需要用人工智能去自动化的那些核心流程。</p>
+<p>我们以定制业务应用的方式来做：这些应用要管理状态，智能体要端到端地运转整个流程。这对我们理解该构建哪些原语非常有帮助。比如我们做出了持久化的流程执行，也理解了怎样才能非常有效地编排智能体。让这些前线部署工程师直接和客户坐在一起，超级有用。</p>
+<p>从去年开始，我们做的是把这些工具传播给一部分伙伴，比如埃森哲（Accenture）、塔塔咨询服务公司（TCS）这类系统集成商。他们非常擅长把事情做大规模；一旦你给他们对的工具、对的培训，他们就能帮助扩大，因为他们就是有更多人。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我想问：今天你还没有、但你觉得五年后会最重要的收入线是什么？听你刚才说话，我在想，你创业时未必能预见到这些不同的业务动作。我们第一次见面时——不知道你记不记得——你坐在公园长椅上，只是跟我聊聊生活。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>但让 Mistral 的人真正上手、和客户一起敲键盘，对客户仍然非常有用，需求也很高；对我们自己也很有用。这不是一件可以无限扩大的事，因为我们不可能拥有成千上万名前线部署工程师。所以现在我们通过伙伴来放大，两种动作并存。在许多客户账户里，我们仍然有前线部署工程师直接和客户一起工作，他们操盘项目、确保交付发生；同时我们和系统集成商携手，去做后续实施和维护这类事情。</p>
+<p>我记得。是的，你当时没投。你该投的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我后悔死了，真的后悔死了。我昨天还见到让-夏尔（Jean-Charles），每次见到他我们都会聊到你。这真是一个很厉害的提醒，让我想起自己错过了多少钱。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>那就抱歉了。现在说收入线：我们有两条。一条是部署平台、用来构建业务应用，这是真正的许可收入；另一条是我们自建的基础设施生意带来的消耗型收入。这两件事是手拉手的，因为客户通常先为许可动作而来，随后发现自己没有足够的GPU，我们再试图帮他们，提供GPU或 token 服务。所以这两件事结合得非常好。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你觉得三到五年后，你会有很大的推理业务吗？你会有沙盒业务吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>如果从这种颗粒度看，我会说GPU这一侧，也就是所有落在GPU上的东西，还会继续增长，因为需求极大。你还有我们所说的附属服务，比如运行沙盒，以及在运行强化学习算法、或在同一任务上部署许多智能体时，非常轻松地把沙盒扩上去再缩下来。这对我们是一块正在增长的生意，因为它来自客户的需求，反过来又带我们去采购更多CPU。</p>
+<p>所以我确实预期，我们所说的运行时这一侧会增长：智能体在那里执行任务、调用工具、编译代码并运行代码。很明显，当你还在做同步任务、只用GPU来回答对话时，你并不需要这些。一旦开始有托管智能体在后台运行，做大量CPU密集的任务，你就需要更多CPU，需要更多沙盒，也需要更多存储，因为它们会产生大量数据。可以说，与CPU相关的任务、与数据相关的任务，会成为我们增长中的业务线。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>向政府销售、推理双轨市场，以及新实验室如何活下来</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>业务很大一块是卖给政府。关于卖给政府，有什么是几乎没人知道、但人人都该知道的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>首先，不存在一般意义上的「卖给政府」这件事。所有政府都非常不同。有些政府足够小，看起来或多或少就像一次企业销售：比如在那些部委里大家彼此都认识的国家就是这样。更大国家的政府则要稍微复杂一些。所以，找到在何处创造价值、理解客户需要什么，复杂度我认为是随国家体量上升的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你能帮我讲讲推理市场吗？这是我过去完全不够了解的一块。我现在才知道、希望12个月前就知道的是：推理需求几乎是无穷的，深度令人吃惊。推理市场会怎样？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>推理市场的表现非常像大宗商品市场，而且眼下利润率还相当高。也就是说，如果你有供给，并且对某些种类的模型有合适的服务质量，你就可以按需把它们卖掉，因为有大量需求直接来自尚未做出承诺的客户。</p>
+<p>然后，对足够成熟的客户来说，他们需要有保障的服务质量，需要服务等级协议（SLA），也需要预留的物理产能。这是我们能够提供的，因为我们有正确的预测模型，也有正确的供给。所以你有这两件事：一块是按需，非常像拼价格的大宗商品市场；另一块是溢价一侧，客户实际上想要获得延迟上的保证、生成速度上的保证，以及针对一定请求量的保证。</p>
+<p>他们对自己需求的形状能够说得越精确，我们的定价就可以越好，我们也越能把自己的基础设施塑造成形，确保他们以对的价格获得对的服务质量。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>能再问你一下吗？我们有太多不同的新实验室（neo-lab）了，已经有大约102家被创办出来。每周都有又一个 DeepMind 分拆出现。能茁壮成长的新实验室和不能的，将会被什么区分开？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>首先，我们自己起步时就是一家新实验室。2023年还不这么叫，但实际上，你创办公司、要去招聘时，会有一些招揽最优秀人才的「银弹」；我们把所有银弹都用在了招聘研究员上，所以我们一开始就是一家研究公司。</p>
+<p>我认为，让我们能够扩大、并在更广的范围内运转起来的，仍然是第一支柱：交付模型。这也是这件事对我们来说相当成功的原因。我对即将到来的新版本也很兴奋，因为我们进展相当不错。真正成功的是，我们很早就聚焦到一个能够做大规模的市场上。我们选择了企业市场，它带着一定复杂性，因为企业客户要求很高，而他们本就应该如此；我们也调整了产品去满足这些要求。</p>
+<p>但我们既能够在研究层面做到最高水准，不断招聘并加大投入，把模型做得越来越强；又建立了以客户为中心的动作，真正理解客户的问题——正是这两点让我们能够扩大。这是每一家新实验室在开始构建自己的生意时都需要想清楚的事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>可欧洲真正有能力创办这类公司、并且像你一样经历过、看见过的人，到底有多少？也许一个扬·勒昆（Yann LeCun）已经算做过了。是20个，还是100个？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>我不是风险投资人，所以你大概比我更清楚。欧洲总体上有很多人才，既有创业人才，也有研究人才，而且这两者有相当好的结合。所以你才会在欧洲看到很多新实验室。</p>
+<p>难的不只是有才华，也不只是能够销售、并真正做成一桩生意。今天还在于能够获得算力。我认为，对我认识的许多新实验室来说，一个大瓶颈就是：要获得GPU、以便在某些垂直领域做出有意思的研究，非常困难，因为供给极度紧张。所以在我们拥有的供给里，我们会为某些新实验室预留一些产能，因为我们相信他们能成长，我们也可以和他们一起成长。但如果你今天是一名创始人，想做非常以研究为中心的事，你最大的问题就是以像样的价格获得算力。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你刚才提到了研究员。今天研究员招聘市场有多疯狂？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>我得说，相当有竞争。不过，如果你有对的使命，有对的薪酬结构，你做的事情对世界有意义，人就会加入你。我非常感激我们所有员工为把这件事做成所付出的投入。Mistral 开源权重模型的质量已经取得成功，今天牵引很强，并且在开源权重这个类别里，在编程和网络防御上领跑。这完全归功于这支团队的投入。</p>
+<p>也归功于韧性，因为在过去三四个月里，当你训练一个模型时——我们最近发布了技术报告——它往往第一次不会成功。所以你需要能够纠偏：好吧，你再花两个月把它真正做出来，而这会很痛苦。我们本来预期发布，但需要稍晚一点发布，这对每个人都会很难受。可所有人都必须全力以赴，去做对的事。我的意思是，在我们资源稀缺的情况下，我非常感激团队的韧性。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>千亿训练尚早、AI股为何暴跌，以及为什么要聚焦企业</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我刚刚请了微软（Microsoft）的萨提亚·纳德拉（Satya Nadella）上节目，他谈到穆斯塔法·苏莱曼（Mustafa Suleyman）先前的说法：未来几年我们会看到一千亿美元规模的训练。</p>
+<p>你觉得这有点夸张，还是完全够得着？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>我想先说，你前面其实会碰到一堵数据墙（data wall）。如果你想让模型在某些领域变得非常强，比如芯片设计，或者想像我们这样，让它在工业工程工作流上变得非常强，你确实需要有合适的环境去训练它们。这一部分需要技能和品味，不是一件你能像堆算力那样轻易扩大的事。</p>
+<p>所以我会说，我们今天都在撞上的瓶颈，实际上是能不能采到足够多的高质量数据。算力也是瓶颈，我们需要更多算力，也正在部署更多算力。但走到一千亿美元的训练，我认为绝不是明天的事。这一点很清楚。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>如果大家都那么缺算力，为什么 Nebius 跌了40%？为什么 CoreWeave 跌了40%？如果人人都算力短缺如此明显，为什么公开市场上的人工智能交易在往下裂？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>市场今天如何反应，对我来说有一点不清楚。我们看到的是，凭借我们拥有的抵押物质量——也就是收入承诺、承购承诺——我们完全能够为自己的算力融资。我们作为一家公司，是垂直整合地运营：我们建设算力，但是为了更高层的目的，为了服务企业，为了构建业务应用。</p>
+<p>所以我们锚定在客户的价值创造上，这意味着在融资层面，我们不必把公司杠杆加得极大。这让我们对接下来会发生的事更有信心。但和任何工业扩建一样，去加很多杠杆是很诱人的，而杠杆到某一点就会断裂。所以我们很高兴自己是垂直整合的，从业务应用的创造一路做到基础设施这一端。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>因为聚焦，有什么是你们没有去做、事后却会想：也许我们当初该做的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>我们没有深入消费市场，但我想我们非常庆幸自己没有这样做。我们也没有进入芯片设计。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>停一下。你为什么庆幸自己没有进入消费市场？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>我认为那是一个非常拥挤的市场。你很难一边把企业服务做到最高水准，一边再去经营一门本质上会变成广告生意的业务。所以那个决定——聚焦企业细分市场，以及聚焦我们选定的四条垂直：制造业、金融服务、国防、公共部门——对公司的聚焦非常关键。因为人工智能的问题在于，它几乎什么都能做。你需要一个聚焦的来源，而我们选择的来源来自市场。</p>
+<p>我们希望拥有那些最能服务智能体工程工作流的模型，最能服务金融决策的模型，最能服务于防务目的的模型，以及一切与国家主权相关的模型。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>有了递归自我改进（RSI），你还需要一个聚焦来源吗？那不是……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>用人工智能去改进人工智能模型，同样需要聚焦，因为你能花在问题上的资源终究有限。说到底，这里的瓶颈确实是算力。瓶颈还在于：凡是你做的、属于递归自我改进或只是自我改进的事情——这两个说法意思其实一样——都要求问题被良好定义。</p>
+<p>今天如果你有一个定义清楚的问题，人工智能随后可以沿着它往上爬。但在企业里，很多情况下问题并没有被良好定义。所以对经济增长真正的摩擦，并不是我们解不了那些定义清楚的难题，而是很难解决目标含混、有人在环路里的模糊问题。那一部分你没法单靠自我改进去解决，你只能靠模型被部署出去、与人互动。这正是我们聚焦的部分。</p>
+<p>当然，我们也在定义清楚的问题上，对自我改进闭环做大量投资。但限制企业里人工智能用量爆发的，我想就是那些你想部署人工智能、却没法铺好攀爬路径的问题，因为问题定义本身就不妥当。所以你需要花时间，这也是为什么会有前线部署工程师，为什么我们要有前线部署工程师：去努力把问题定义得更好。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>欧洲的压力、GDP要的是生产，以及快问快答</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>阿瑟，我得跟你直说。开头我开玩笑说你像是欧洲最后的希望。我不是说得那么戏剧化，但你和其他立志成为下一个 Mistral 的新实验室之间，确实有一道很大的鸿沟。你和团队有感受到这种压力吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>我们确实感受到一些压力，但这个领域里谁都是如此。它增长很快，变化很快。作为人工智能创业者，你必须在模型一侧交付，因为那是能显示你正在取得进步的一件事；但企业也需要看到价值，所以你还需要真正理解业务问题的人。这是相当不同的两类问题要去解决。</p>
+<p>所以我们确实有压力，但我认为这是非常健康的压力。这是一个非常重要的时刻，也是历史上非常重要的时刻。我们需要回应普遍舆论的预期。说到底，我们需要证明人工智能是有用的。我们正在做的那种部署、它在市场上激起的那种声响，必须让这项技术显现为一件正面的技术，我们必须展示它的正面性。</p>
+<p>而要做到这一点，唯一的办法就是把主权人工智能作为品类推广出去，确保它为所有人创造经济增长和机会，确保人工智能的收益被好好分配。当然这会带来一些压力，因为它并非注定如此。如果我们不成功，我不知道这个世界上接下来会发生什么。所以我们确实有角色要扮演。我认为我们承担的使命很重要。这是压力，但也相当令人兴奋。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>人工智能会让国内生产总值每年多增长超过2个百分点吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>这正是全部问题所在。你去解决哪一种瓶颈，才能真正把那部分国内生产总值打出来？这也是我们为什么对工业工程非常看好。说到底，如果你想要经济增长，你需要的是更多生产。你不需要更多智力，你需要更多生产。</p>
+<p>为了有更多生产，你需要更好的工厂，需要更高效的物体，需要能用同样多的油飞得更久的更好的飞机，需要更高效、更低碳的能源生产，需要更好的阿斯麦机器，也需要更好的金融服务。所以在工业和工程里，尤其如此：使用人工智能能让你把物体设计得更好。</p>
+<p>如果你把智能体闭环建立起来，比如去设计更安全的汽车，你的汽车设计团队就能快得多，产品迭代也会更快。这意味着你可以卖得更多，可以卖得更便宜，也意味着你在打造更安全的产品。在航空航天工业里，如果你设计出更好的飞机，它会在外面运行40年；如果它飞得更快、更省油，那就会创造经济增长。</p>
+<p>所以说到底，真正重要的是让人工智能产生物理世界的效果。而这种效果，我们主要在制造业和金融服务里找到。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我知道时间到了，我要和你做一轮快速问答。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>请吧。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你今天相信、但身边大多数人会不同意的是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>我想我们强烈相信，这是一个正在碎片化的市场，主权人工智能会成为企业部署人工智能最重要的品类。也就是说，当企业部署这项技术时，业务连续性、成本，以及对他们数据和知识产权的控制，会成为最要紧的事。所以这是我们非常强的一个信念，它被很多企业分享，也被市场相当大的一部分分享，当然不会被我们的一些竞争对手分享。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>有没有一个今天听起来极其狂野、但五年后会变得非常平常的预测，是关于我们的生活方式、工作方式的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>我认为，我们作为工程师的工作方式，对软件工程师来说已经改变了，对任何种类的工程师来说也将会彻底改变。所以我非常兴奋于这样一种路径：借助人工智能，以相当自主的方式设计出更好的产品。</p>
+<p>这并不关系到每一个人，但所有有技术背景的人——不只是最先受到影响的软件工程师，也不只是数学家——都将操控人工智能智能体，并因此获得巨大杠杆。这件事本身，就会成为劳动力市场实际运转方式的一次重大转变。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>上市这件事你怎么打算？总有一天你会想上市，可你没法在欧洲上市啊。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>完全可以在欧洲上市，因为——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>在法国上市？不行吧。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>十年前成立的那些事，我认为今天不再成立。来自世界各地的投资者有巨大兴趣投资欧洲，无论是私募股权一侧，还是公开市场一侧。所以曾经存在的那些瓶颈，已经不在了。</p>
+<p>我们在 Mistral 当然也在做准备：你要成为上市公司时，会有很多运营上的约束。我们也在推进、交付那些必须交付的商业里程碑。但我不认为这仍然是瓶颈。已经有非常成功的公司，其中一些作为利益相关方，首先就是在欧洲上市的。所以将来某个时点在欧洲上市，没有理由不去。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>最后一问。当你望向未来5年、7年、10年，你最兴奋、但没多少人想到的是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>我相当兴奋于人工智能将如何赋能基础研究，尤其是在我们还缺乏对世界理解的那些领域。比如在物理里，我们既能把人工智能仿真跑到从未达到过的规模——我们收购的、名叫埃米（Emmi）的团队就专攻于此——这将促成新的发现。</p>
+<p>所以，我们能够构建仿真器，并能让智能体去操作这些仿真器，从而更好地理解世界，这将极大推动我们对世界的理解。我自己来自数学和物理背景，所以对下一代研究者面前的机会感到相当兴奋。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你知道吗阿瑟，我怪你。我怪你当初坐在那张长椅上，完全不像现在这样说话。那时的阿瑟和今天的阿瑟，简直像是悖论一样的不同。看到你成为、也已经成长为这样的领导者，真的太惊人了。说真的，我对你、对你为欧洲所做的一切，有说不完的尊敬、钦佩和感谢。哇，太了不起了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="arthur"><div class="label"><span class="badge" title="阿瑟·门施（Arthur Mensch）">阿瑟</span></div><div class="content">
+<p>谢谢你的夸奖。我们还有很多事情需要交付，但对已经取得的进展相当满意。我认为使命很重要。所以，如果有正在观看的人想加入这段旅程，请一定联系我。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "20VC with Harry Stebbings", "title": "Mistral 首席执行官：为何 OpenAI 与 Anthropic 会来抢你的生意｜中国模型真的安全吗？", "url": "https://www.youtube.com/watch?v=KotQbLX8pOw", "videoId": "KotQbLX8pOw", "published_at": "2026-11-09", "duration": 3017, "caption_source": "YouTube 自动生成字幕（en-orig；普通 yt-dlp 遇 HTTP 429 后，改用 yt-dlp android 客户端拉取成功）；caption_source=yt-dlp-auto；中文为全文翻译并按话题分段；说话人按主持/嘉宾轮次与部分 \u003e\u003e 换人标记启发式标注（自动字幕无稳定说话人标签，中等把握）。YouTube 字幕中未出现明显赞助口播，故未标 ad_omitted。", "guests": ["阿瑟·门施（Arthur Mensch）"], "intro": {"summary": "哈里·斯泰宾斯（Harry Stebbings）对话 Mistral 联合创始人兼首席执行官阿瑟·门施（Arthur Mensch）：这家估值约210亿美元的欧洲前沿实验室，如何把「主权人工智能」说成企业刚需——不只是政治口号，而是贸易平衡、数据控制和成本掌控。阿瑟解释为何不能把核心流程交给两三家中心化厂商、中国开源权重模型的安全与供应风险，以及为何能源只占算力成本约10%、芯片和资本才是眼下真正的瓶颈。", "points": ["主权AI三要素：自有「模型工厂」、驻留客户租户的数据面、托管的 token 工厂；Mistral 约80%的 token 流量来自自有模型", "中国开源模型因数据供应链不可完全验证，无法保证输出；国防与金融极不愿使用；当前威胁偏理论，但供应安全（美国约从5月起限制外输，中国也在考虑出口门槛）更被客户拿出来谈", "若企业只能依赖两三家中心化厂商，对方会用企业数据训练更好系统并最终来抢客户的生意——他认为这已被定价进当前格局", "能源约占算力总拥有成本的10%，芯片与资本成本才是大头；电力瓶颈约在2029–2030年；希望国家简化许可，并对租用数据中心、预留10–15年机位提供担保", "收入约60%来自欧洲，其余在美国与亚太；聚焦制造、金融、国防和公共部门，合作对象包括阿斯麦（ASML）与空中客车（Airbus）；不计划自研芯片；用约18个月自建基础设施，token 在欧洲生成以规避美国域外法", "前线部署工程师（FDE）先把企业流程定义清楚，再通过埃森哲（Accenture）、塔塔咨询服务公司（TCS）等集成商放大；未来增长还来自运行时、沙盒、CPU 与存储；不认为千亿美元训练指日可待，前面先有数据墙"], "verdict": "值得看：关心欧洲主权AI、开源权重安全、企业部署以及算力/能源经济学的人；可跳过：只想听消费产品或模型跑分、对基础设施与政企销售无兴趣者（约50分钟）。", "audience": "AI 创业与投资、企业技术负责人、政策与主权计算，以及制造、金融、国防数字化相关听众"}, "speakers": [{"id": "harry", "name": "哈里·斯泰宾斯（Harry Stebbings）", "role": "host", "short": "哈里"}, {"id": "arthur", "name": "阿瑟·门施（Arthur Mensch）", "role": "guest", "short": "阿瑟"}], "sections": [{"id": "s1", "title": "开场：欧洲最后的希望与210亿美元的 Mistral", "start_sec": 0, "summary": "开场金句来自阿瑟·门施（Arthur Mensch）：主权人工智能会成为最重要的品类；能源成本归根结底并不是项目经济账里唯一要紧的事；眼下算力明显不够，推理市场的表现很像大宗商品市场，而且利润率仍然相当高。主持人哈里·斯泰宾斯（Harry Stebbings）介绍：这是欧洲建设前沿人工智能实验室「最后的希望」——Mistral 联合创始人兼首席执行官阿瑟，公司现在估值约210亿美元，正让欧洲在前沿模型竞赛中保持相关性。他预告这期阿瑟比以往更放开、更好笑，也说出了一些惊人判断。音乐之后正式开场，哈里称自己采访过不少美国同行，阿瑟是欧洲剩下的希望；阿瑟感谢邀请。"}, {"id": "s2", "title": "把前沿AI留给美中，是欧洲的宏观经济问题", "start_sec": 66, "summary": "哈里引用阿瑟日前的话：若把前沿人工智能留给美国和中国，欧洲将失去它在世界上仅剩的位置。阿瑟承认自己真心这么认为——这项技术堪比电力，且越来越多地落入出口管制，会成为经济增长的重要使能器；欧洲如果自己生产不了人工智能，就很难创造出它所需要的增长。哈里追问：Mistral 的成功在多大程度上依赖于美国的「过度伸张」？特朗普政府上台后，出现像 Anthropic 的 Fable 被禁这样的事件，引发许多关于主权必要性的问题；如果没有美国越界，主权供应商会不会反而受到威胁？阿瑟说这是结构性的，并不取决于谁在展示力量：企业或国家一旦把人工智能用于全部核心流程，就希望这笔开支发生在自己附近，否则会出现贸易失衡——大量现金从欧洲流向美国。不能在欧洲领土上生产人工智能、做研发，是宏观经济问题，不是「欧洲落后」或软实力叙事。他们2023年创建 Mistral 时就相信这是主权技术：无论在美国、欧洲还是亚洲，国家都需要掌握技术、贴近数据去定制系统、控制成本，并与真正懂如何构建人工智能系统的公司建立伙伴关系。主权议题早于2025年大选，2023年的判断后来被验证。谈到格陵兰（Greenland）时讨论变得情绪化，但本质上仍是经济问题而非政治问题，只因为这项技术太重要。"}, {"id": "s3", "title": "主权三要素：模型工厂、客户数据面与 token 工厂", "start_sec": 240, "summary": "哈里想到曾上节目的 Fireworks 的林乔（Lin）：企业需要拥有自己的模型，并紧贴自有数据来训练。这是否就是 Mistral 的演进方向？阿瑟给出他们定义的品类——给客户带去主权技术，需要三件事。第一，有保障的模型来源，也就是能自己训练模型的「模型工厂」：Mistral Large 目前在开源权重的智能体编程以及网络防御与网络安全上处于领先；他们持续投入数十亿美元训练，才能对客户说两年后模型还会更好。这是公司成立的原因，也是主要烧钱方向。第二，数据控制：一般不希望数据回流到人工智能供应商；他们在技术上确保运行智能体、定制模型的平台驻留在客户自己的租户里，制造企业尤其不愿让知识产权流回作为处理方的供应商。第三，光有前两样还不够，因为人工智能很耗能，企业规模化时很难自己采购到足够的图形处理器，所以还需要 token 生成服务，也就是「token 工厂」——数据留在客户基础设施里，token 在托管基础设施中以更低成本生产。公司因此做三件事：训练模型；把平台和数据面部署到客户租户；把高能耗部分托管起来，并为此自建基础设施。这三样是服务「主权工作者」的必要配方。"}, {"id": "s4", "title": "中国开源模型安全吗：80%自有流量与供应安全", "start_sec": 386, "summary": "哈里说专家意见打架：有人认为中国开源模型下载后本地运行就完全安全；也有人警告存在未知的提示注入和后门。阿瑟说 Mistral 的一项业务就是为开源模型做推理，既跑自己的也跑别人的。哈里追问为何跑别人的：客户要选择；有了基础设施，就希望提供尽可能多的选择来打满利用率、摊低成本——这有点像社区或大宗商品市场。不同领域可能选更小或更大的模型。但哈里说得对：模型是知识的压缩，如果不掌控数据供应链、不知道什么被喂进模型，就无法对输出做保证。因此他们服务自有模型时能给客户更多保证；服务第三方模型时，理论上无法排除模型在特定环境、特定上下文中被当作攻击向量，也难以事先测尽，只能在线监测。他认为今天这更多是理论上的威胁，但仍属于威胁模型。客户要求他们提供所有可得的开源权重模型，并帮助在受监控的安全方式下运行；许多客户仍更想用 Mistral 自己的模型，因为训练所用数据供应链经过验证。自有模型大约占 token 流量的80%，哈里觉得比预想高得多。他问美国的首席信息官是否真的不敢用中国开源模型：阿瑟说取决于行业对政府有多关键——他们在欧洲服务的国防客户绝不会用中国技术；金融作为关键基础设施也很抗拒；零售和部分制造业的顾虑则因所在地而异。业界普遍认为，开源权重模型若部署在他们这类受控基础设施上，唯一站得住的威胁是因供应链攻击而在某些领域「失控」或行为异常，而这一点目前非常理论化、今天基本上不是事实，但仍会被拿出来谈。客户更关心的往往是：六个月后还能不能拿到更新。模型已经强到可以用于相当高级的网络攻击，因而越来越被当作防务系统；美国约从某年5月起开始禁止它们向美国以外输出，中国也在研究对超过特定门槛的模型限制出口。这是两用技术，供应安全因此更重要——不仅是基础设施的供应安全，也包括模型知识产权的供应安全。"}, {"id": "s5", "title": "封闭厂商扣住最好模型，终局是来抢客户的生意", "start_sec": 680, "summary": "哈里问：OpenAI 与 Anthropic 扣住自己最好的模型，对社会是好是坏？这会不会就是这个行业固有的特征？阿瑟说好坏他不知道，但很清楚的是：如果没有人提供可主权部署、去中心化部署的方案，中心化人工智能供应商会拥有巨大杠杆。若所有公司只能依赖两三家中心化供应商，后者会用系统产生的数据去训练更好的系统，并最终去抢客户的生意——这就是终局，也是今天已被定价进去的东西。Mistral 要避免的，正是由少数供应商形成寡头、用企业数据训练出能把企业「中间化」掉的系统。这一点与客户高度一致。内部模型被用于某些研究，已经是权力与人工智能高度集中时可能发生之事的早期信号。幸运的是，做模型并没有那么复杂，关键是投入资本、以及拥有训练正确东西的团队；开源权重前沿正在追赶封闭前沿，在许多领域甚至已经超过。因此他不认为将来想做数学就非得去 OpenAI 工作——世界上有足够多的人也不希望出现那样的世界。"}, {"id": "s6", "title": "能源只占一成：芯片、资本与国家能做的事", "start_sec": 791, "summary": "哈里转向能源：欧洲能源体系不同于美国和中国；中国可以迁走三百万人去上能源设施，英国连个鸟窝都不愿挪。尽管是玩笑，但令人担忧。阿瑟首先指出：能源大约只占算力总拥有成本的10%，并不是最能优化的地方；占账单大头的是芯片成本和资本成本。能源会成为问题，且随着欧洲部署更多算力、撞上供给约束而越来越突出，但分布不均——法国有过剩电力、可以建产能，北欧也类似，英国和德国则不那么宽裕。未来两三年对 Mistral 的真正挑战，是尽快建设、用掉已经存在的过剩电力：筹资、扩建、组建建设团队。眼下电力不是瓶颈，大约到2029、2030年才会成为瓶颈；现在的问题是如何建在既有电力之上，并提前为那时每年部署数吉瓦人工智能产能做打算。他寄望法国庞大的欧洲压水堆核电项目以及太阳能方面的努力。这主要是协调问题：只要人工智能带来能源需求，新建核电站的商业理由就相当充分。哈里相信亚当·斯密（Adam Smith）的「看不见的手」，但建设周期是真的，所以2029–2030年就是挑战。阿瑟同意核电站建设比这更长、太阳能可以更快；国家必须既提供便利，又做比企业更长远的规划。关于买算力，他们学会了一套对接供需的工业流程，和软件完全不是一回事：供应链包括图形处理器、中央处理器、存储和电气部件，还要看供应商的供应商；要对多个需求桶做预测——既有作为理想客户画像的企业，也有想在更短时间里拿走更大块图形处理器的人工智能原生公司；微软等还会向他们要产能，反过来帮助为更多产能融资。他们学到：如果能在需求之前把产能备在前面，未来几年会很好卖。一个用例常常从以为需要8块图形处理器，规模化后变成需要1000块。今天只看欧洲所需，算力明显不够；或许有人会说美国建得有点多，但欧洲有很大空间去建设，并且有百分之百的信心这些产能会被消化。若资本完全不受约束，他们会建更多产能。国家可以做的、且他们公开倡导过的市场中性干预包括：简化许可，设立加速建设的专用场地，让地方与国家层面的利益相关方对齐——他认为法国和瑞典在这方面做得很好。财务上，国家对租赁数据中心、预留10年或15年机位提供担保，对资产负债表相对较小、但知道为谁而建、如何去建的公司非常有用。公共部门也是来自欧洲内外的重要客户，能形成承购，让公司建得更多；在供给约束时期，建得更多更快，也就能建得更便宜。"}, {"id": "s7", "title": "主权不必到每个国家：六成收入在欧洲，也不做自研芯片", "start_sec": 1316, "summary": "哈里问主权要细到什么粒度：加拿大已有科希尔（Cohere），是否每个国家都需要自己的模型，还是以板块为单位？阿瑟认为，做出「相关」模型需要相当大的市场。Mistral 能做到，是因为他们不是按国家级运营——他们不是一家法国公司，而是服务欧洲、美国和亚洲。世界需要替代方案，但不会在每个国家层面都出现一家主权人工智能供应商和模型训练者，这不会发生。客户收入约60%来自欧洲，其余来自美国和亚太。哈里问欧洲客户是否主要用他们做自有模型的后训练工具套件：阿瑟说原因是多重的，他们帮客户做提升业务效率或加速研发的应用，垂直聚焦制造业、金融服务、国防，再加上公共部门。在制造业，他们通常和研发团队一起，帮阿斯麦（ASML）把机器做得更好、运营得更好，帮空中客车（Airbus）把飞机制得更好；既带来推理模型，也带来对世界有定量理解的物理模型。在金融，他们做理解市场的模型与工具套件，以及理解定量时间序列、用于预测的模型，以便快速搭出能创造价值的应用。这些公司都有主权策略，需要业务连续性保证和可负担性约束。哈里指出 OpenAI、Anthropic、深度求索（DeepSeek）都在进入应用层，也在进入芯片层：OpenAI 有 Jalapeño 芯片，Anthropic 有自研传闻，DeepSeek 在做自己的。会不会有 Mistral 芯片？阿瑟明确说没有这个计划。从工业视角他们是往「上游」走：从训练模型，到在自有基础设施上服务自己训练的模型。这一步大约花了18个月，现在相当成功，能对外提供图形处理器和 token；而且这些 token 是纯欧洲生成的，可以避开任何形式的美国域外法，这对客户非常重要。他们还在加码扩产。他们已经相当垂直整合：有云服务基础设施，并一直做到为客户构建业务应用。"}, {"id": "s8", "title": "前线部署工程师、集成商伙伴与许可加消耗两条收入", "start_sec": 1544, "summary": "哈里确认：应用层是既给平台、也给客户做定制应用？阿瑟说人工智能让这成为可能，而落地是通过一支前线部署工程师队伍，但建立在共同原语之上：工作流管理、智能体管理、沙盒管理，以及对不同业务应用部署的可观测性——也就是为运行和构建人工智能智能体而改造的云服务。哈里问如何看待用 Mistral 自己的前线部署工程师，对比传统的伙伴生态。阿瑟说创业早期把这些人放在最前面非常有帮助：这让他们看清企业卡在哪里——从个人效率起步远远不够，聊天机器人几乎没有创造价值；他们和经理、业务单元负责人坐在一起，理解哪些核心流程要用人工智能自动化，并做出能管理状态、让智能体端到端运转流程的定制应用，也因此沉淀出「持久化流程执行」、有效编排智能体等原语。从去年起他们开始把工具扩散给埃森哲（Accenture）、塔塔咨询服务公司（TCS）这类擅长规模化的系统集成商：给对工具和培训，对方有更多人手。Mistral 的人亲自上手帮客户仍然需求很高、对双方都有用，但不能无限扩张到成千上万名前线部署工程师，所以现在通过伙伴放大，两种动作并存。哈里回忆两人第一次见面时阿瑟坐在公园长椅上只是聊聊生活，并问今天还没有、但五年后可能最重要的收入线是什么。阿瑟笑说「你当时没投，你该投的」。哈里说后悔极了，昨天还碰到让-夏尔（Jean-Charles），每次见面都会聊到阿瑟。阿瑟谈到现有两条收入线：一是部署平台、用于构建业务应用的真正许可收入；二是自建基础设施带来的消耗型收入。两者咬合很好——客户通常先为许可而来，随后发现图形处理器不够，他们再提供芯片或 token 服务。哈里追问三到五年后会不会有很大的推理业务和沙盒业务。阿瑟说，所有落在图形处理器上的部分还会继续增长；他们称为「附属服务」的部分也在增长，比如为强化学习、或在同一任务上部署大量智能体时轻松扩缩沙盒，这会进一步带他们购买更多中央处理器。他预期「运行时」一侧会增长：智能体执行任务、调用工具、编译并运行代码。过去同步对话任务只需要图形处理器来回答会话；一旦有托管智能体在后台做大量中央处理器密集任务，就需要更多中央处理器、更多沙盒，以及更多存储。中央处理器相关和数据相关，会成为增长中的业务线。"}, {"id": "s9", "title": "向政府销售、推理双轨市场，以及新实验室如何活下来", "start_sec": 1846, "summary": "哈里问：卖给政府，有什么是几乎没人知道、但人人都该知道的？阿瑟说首先不存在一般意义上的「卖给政府」——各国政府非常不同。有的国家足够小，销售动作几乎像企业销售，部委里大家彼此认识；大国则更复杂。找到在何处创造价值、理解客户需要什么，复杂度大致随国家体量上升。谈到推理市场，阿瑟形容它很像大宗商品市场，而且眼下利润率相当高：如果有供给、并对特定模型有合适的服务质量，就能把 token 按需卖掉，因为有大量未承诺的客户需求。更成熟的客户则需要有保障的服务质量、服务等级协议以及预留的物理产能——他们因为有预测模型和供给，能够提供。于是市场分成两块：一块是按需、很像拼价格的大宗商品市场；一块是溢价市场，客户要延迟、生成速度和一定请求量的保证。客户把自己的需求形状说得越精确，定价可以越好，他们也越能把基础设施塑造成对的服务质量、对的价格。哈里问：已经冒出大约102家「新实验室」，每周还有新的 DeepMind 分拆，能活下来的差别在哪？阿瑟说他们2023年起步时自己就是新实验室，只是当时还不这么叫；招揽顶尖人才的「银弹」几乎都用在了研究员身上，一开始是一家研究公司。能规模化，靠的仍是第一支柱——交付模型——同时很早就聚焦能做大的企业市场。既要在研究上保持最高水准并持续把模型做强，又要真正理解客户问题。哈里追问欧洲真正有能力创办这类公司、且像他一样经历过的人有多少，也许一个扬·勒昆（Yann LeCun）已经算一个——是20个还是100个？阿瑟说欧洲既有创业人才也有研究人才，两者结合才让欧洲出现许多新实验室；但今天还在于能不能拿到算力。他认识的许多新实验室最大瓶颈就是获得图形处理器，他们因此在自有供给里为某些新实验室预留产能。如果创始人想做非常以研究为中心的事，最大问题就是以像样的价格获得算力。研究员招聘市场相当竞争；但只要使命、薪酬结构和事情本身对世界有意义，人就会加入。他感谢团队在过去三四个月的投入：Mistral 的开源权重模型牵引很强，在开源权重类别里的编程和网络防御上领跑。他们最近发布了技术报告——训练往往第一次不会成功，需要能纠偏，再花两个月把它做出来；本来预期发布，但需要稍晚一点。在资源稀缺的情况下，他非常感激团队的韧性。"}, {"id": "s10", "title": "千亿训练尚早、AI股为何暴跌，以及为什么要聚焦企业", "start_sec": 2247, "summary": "哈里刚请微软的萨提亚·纳德拉（Satya Nadella）上过节目，对方谈到穆斯塔法·苏莱曼（Mustafa Suleyman）先前的判断：未来几年会看到一千亿美元规模的训练。这是夸张还是完全够得着？阿瑟说首先前面还有一堵数据墙：若想让模型在芯片设计、或他们正在做的工业工程工作流上非常强，就需要合适的训练环境，这需要技能和品味，不能像堆算力那样轻易扩展。大家今天撞上的瓶颈，其实是能不能采到足够多的高质量数据。算力也需要，他们正在部署更多算力；但走到一千亿美元的训练，他认为绝不是明天的事。哈里反问：既然大家都缺算力，为什么 Nebius 跌了约40%，CoreWeave 也跌了约40%？如果短缺如此明显，公开市场上的「人工智能交易」为什么在崩？阿瑟说市场当下如何反应他并不十分清楚。就 Mistral 自身而言，凭借收入承诺、承购承诺这类抵押物的质量，他们完全能为自有算力融资。他们是垂直整合的公司：建设算力是为了更高层的目的——服务企业、构建业务应用——锚定在客户的价值创造上，因此不必把公司杠杆加得极大。和任何工业扩建一样，借很多杠杆很诱人，而杠杆到某一点就会断裂。哈里问因为聚焦而没去做、事后却可能后悔的事是什么。阿瑟说他们没有深入消费市场，但对此非常庆幸；也没有进入芯片设计。消费市场非常拥挤，很难一边把企业服务做到最高水准，一边再去经营本质上会变成广告生意的消费产品。聚焦企业、并收窄到制造、金融、国防、公共部门这四条垂直，对公司至关重要——因为人工智能几乎什么都能做，必须有一个来自市场的聚焦：要做出最好的智能体工程工作流、最好的金融决策、最好的防务用途，以及与国家主权相关的一切。哈里问有了递归自我改进，难道还不需要聚焦？阿瑟说，用人工智能改进人工智能同样需要聚焦，因为资源有限，瓶颈确实是算力；而自我改进要求问题被良好定义。今天只要问题定义清楚，之后就可以沿着它往上爬。企业里的问题往往并不定义清楚。对经济增长真正的摩擦，不是解不了那些定义清楚的难题，而是很难解决目标含混、有人在环路里的模糊问题；这一部分无法单靠自我改进解决，只能靠模型被部署出去、与人互动。限制企业里人工智能用量爆发的，正是那些想上人工智能却无法铺好「攀爬路径」的定义不清的问题，所以才需要前线部署工程师去把问题定义得更好。"}, {"id": "s11", "title": "欧洲的压力、GDP要的是生产，以及快问快答", "start_sec": 2550, "summary": "哈里直说：开头他开玩笑称阿瑟是欧洲最后的希望，并非纯粹戏剧化——阿瑟和其他立志成为「下一个 Mistral」的新实验室之间有很大鸿沟。团队有感受到压力吗？阿瑟说有，但圈里谁都有：必须在模型侧交付，因为那是进步最可见的一面，同时企业必须看到价值。他认为这是健康的压力，也是历史上非常重要的时刻：需要证明人工智能有用，让实际部署显示出这是一项正面的技术。唯一的办法是把主权人工智能作为品类推起来，让它创造经济增长和机会，让收益被好好分配。如果他们不成功，他不知道世界上会发生什么。哈里问：人工智能会让国内生产总值每年多增长超过2个百分点吗？阿瑟说这正是全部问题所在——你去解哪一种瓶颈，才能把那部分增长打出来。所以他们才对工业工程非常看好：要经济增长，需要的是更多生产，不是更多智力。你需要更好的工厂、更高效的物体、能用同样多的油飞得更久的更好的飞机、更高效更低碳的能源生产、更好的阿斯麦机器，以及更好的金融服务。如果把智能体闭环用于设计更安全的汽车，设计团队就能更快迭代，意味着可以卖得更多、卖得更便宜，产品也更安全。航空航天里，更好的飞机会在外面运行40年；如果飞得更快、更省油，就会创造增长。真正重要的是让人工智能产生物理世界的效果，而他们主要在制造业和金融服务里看到这种效果。快问快答中，阿瑟给出几个判断：这是一个正在碎片化的市场，主权人工智能会成为企业部署最重要的品类，业务连续性、成本和数据与知识产权控制将成为最要紧的事——许多企业这么看，部分竞争对手并不这么看。工作方式上，软件工程师已经改变，这种改变会扩展到所有有技术背景的人，而不只是最先受影响的软件工程师和数学家，他们都将操控人工智能智能体并获得巨大杠杆。关于上市，哈里说没法在欧洲、尤其没法在法国上市；阿瑟认为十年前的那些瓶颈今天不再成立，全球投资者对欧洲的私募和公开市场都有巨大兴趣，没有理由将来不在欧洲上市。展望未来5到10年，他最兴奋的是人工智能将如何在我们还缺乏理解的领域赋能基础研究：比如物理，可以把仿真跑到从未达到过的规模——他们收购的、专攻此道的埃米（Emmi）团队就在做这件事——并让智能体去操作这些仿真器。哈里收尾说，当初坐在长椅上不怎么说话的阿瑟和今天判若两人，他对阿瑟为欧洲所做的一切充满尊敬。阿瑟感谢夸奖，说还有很多要交付，但对已有进展相当满意；如果有人想加入这段旅程，请联系他。"}], "paragraphs": [{"start_sec": 0, "type": "text", "zh": "主权人工智能会成为最重要的品类。能源成本归根结底并不是项目经济账里唯一要紧的事。这是欧洲建设前沿人工智能实验室最后的希望。猜对了，今天请来的是 Mistral 联合创始人兼首席执行官阿瑟·门施（Arthur Mensch）。", "speaker_id": "harry", "section_id": "s1"}, {"start_sec": 16, "type": "text", "zh": "它现在是一家估值约210亿美元的公司，正是它让欧洲在前沿模型竞赛中仍然相关。这是你从未见过的阿瑟：他放开了，很有趣，也说出了一些惊人的话。做这期节目非常开心，我迫不及待欢迎阿瑟来到节目中。", "speaker_id": "harry", "section_id": "s1"}, {"start_sec": 34, "type": "text", "zh": "很明显，算力是不够的。推理市场的表现非常像大宗商品市场，而且眼下利润率还相当高。", "speaker_id": "arthur", "section_id": "s1"}, {"start_sec": 42, "type": "text", "zh": "准备好了。【音乐】", "speaker_id": "harry", "section_id": "s1"}, {"start_sec": 54, "type": "text", "zh": "阿瑟，我太兴奋了。我采访过不少我们喜欢的美国同行。你是欧洲剩下的希望。虽然这话有压力，但非常感谢你今天来到这里。", "speaker_id": "harry", "section_id": "s1"}, {"start_sec": 63, "type": "text", "zh": "谢谢你邀请我，哈里。", "speaker_id": "arthur", "section_id": "s1"}, {"start_sec": 66, "type": "text", "zh": "我做了一些功课。我自己说话也比较尖锐，阿瑟，但看来不只是我——你前几天说，如果把前沿人工智能留给美国和中国，欧洲会失去它在世界上仅剩的位置。", "speaker_id": "harry", "section_id": "s2"}, {"start_sec": 84, "type": "text", "zh": "我确实说过，也真心这么认为。这项技术太重要了，必须在全世界分布开来。我们谈论的是一项堪比电力的技术，而且它越来越多地落入出口管制。人工智能会成为经济增长的重要使能器；如果欧洲自己生产不了人工智能，就很难创造出它需要的增长。", "speaker_id": "arthur", "section_id": "s2"}, {"start_sec": 114, "type": "text", "zh": "我直接问。Mistral 的成功在多大程度上依赖于美国的过度伸张？有了特朗普政府，我们看到像 Anthropic 的 Fable 模型被禁这样的事，会引发很多问题，也会推高对主权的需求。如果没有美国的过度伸张，这会不会反而威胁到主权供应商？", "speaker_id": "harry", "section_id": "s2"}, {"start_sec": 133, "type": "text", "zh": "我会说这是结构性的，并不真正取决于某种行事方式或展示力量的方式，而更多取决于技术本身的性质。一旦企业或国家开始把人工智能用到全部核心流程里，你就会希望花在这些流程上的钱，实际发生在离你很近的地方。", "speaker_id": "arthur", "section_id": "s2"}, {"start_sec": 160, "type": "text", "zh": "如果不是这样，你就会有贸易平衡问题：会有巨额现金从一个地方流到另一个地方，比如说从欧洲流向美国。所以，不能在欧洲领土上生产人工智能、做研发，是一个宏观经济问题。这和某种「欧洲正在落后」的说法、或某种软实力用法没有必然关系，它是结构性的。", "speaker_id": "arthur", "section_id": "s2"}, {"start_sec": 192, "type": "text", "zh": "我不会说没有人把它变得有点情绪化。但我们2023年创建 Mistral 时，就带着这样的信念：这是一项主权技术。作为一个国家，无论你在美国、欧洲还是亚洲，你都需要掌握这项技术，需要能够定制系统、让它们紧贴你的数据运行，需要能够控制成本，也需要与真正懂如何构建人工智能系统的公司建立真正的伙伴关系。", "speaker_id": "arthur", "section_id": "s2"}, {"start_sec": 228, "type": "text", "zh": "主权议题早于2025年的选举。所以我们2023年说的话后来被证明是对的。当我们开始谈到格陵兰（Greenland）时，讨论变得相当情绪化。但这主要是一个经济问题，不是真正的政治问题。只是因为这项技术太重要了。", "speaker_id": "arthur", "section_id": "s2"}, {"start_sec": 240, "type": "text", "zh": "听你这样讲，我想起曾上过节目的 Fireworks 的林乔（Lin），他也说过非常类似的话：企业需要拥有自己的模型，并紧贴自有数据来训练。你听我这么说会有什么感觉？公司的演进，是不是就是让企业拥有自己的模型、并使用自己的数据？", "speaker_id": "harry", "section_id": "s3"}, {"start_sec": 262, "type": "text", "zh": "我们定义的品类、以及企业选择与我们合作的原因，就是我们给他们带去主权技术。主权技术需要三件事。第一，你需要有保障的模型来源，也就是一家能够自己训练模型的公司。我们有这样的模型工厂。", "speaker_id": "arthur", "section_id": "s3"}, {"start_sec": 282, "type": "text", "zh": "Mistral Large 目前实际上在开源权重模型的智能体编程上处于领先，在网络防御和网络安全上也是领先的。能够不断把模型做出改进，并且告诉客户「两年后你会得到更好的模型，因为我们一直在训练、并为此投入数十亿美元」，这对任何主权方案都至关重要。这正是 Mistral 被创立的原因，也是我们主要投入资金的地方。", "speaker_id": "arthur", "section_id": "s3"}, {"start_sec": 318, "type": "text", "zh": "第二，你还需要对自己的数据有控制权。一般来说，你不希望这些数据回流到人工智能供应商那里。所以我们在技术层面确保：运行智能体的平台、以及用来定制模型的平台，实际驻留在客户自己的租户里。这一点非常重要。很多时候，和制造企业合作时，他们不希望自己的知识产权流回到作为处理方的你这里。", "speaker_id": "arthur", "section_id": "s3"}, {"start_sec": 352, "type": "text", "zh": "但通常这还不够，因为人工智能非常耗能；一旦做到规模，你需要大量GPU（GPU），而企业自己很难采购到。你还需要 token 生成服务，也就是 token 工厂：数据留在你自己的基础设施里，token 则在托管基础设施中以更低成本生产。", "speaker_id": "arthur", "section_id": "s3"}, {"start_sec": 374, "type": "text", "zh": "所以我们作为一家公司做三件事：训练模型；把平台和数据面部署到客户的租户上；然后把高能耗的部分托管起来。这也是我们一直在自建基础设施的原因。这三样，就是服务主权工作者所必需的配方。", "speaker_id": "arthur", "section_id": "s3"}, {"start_sec": 386, "type": "text", "zh": "我先从第一点问。你说模型是有保障的。我请过世界上最好的一些专家，但他们说法不一样。有人说：中国的开源模型，你下载下来在本地运行，完全安全。下一周又有人说：你根本不知道里面有没有你不了解的提示注入，有没有后门，绝对不能确定它们是安全的。阿瑟，帮我理理这里。", "speaker_id": "harry", "section_id": "s4"}, {"start_sec": 418, "type": "text", "zh": "在 Mistral，我们的一项业务就是真正为开源模型做推理。我们跑自己的模型，但也跑别人的。", "speaker_id": "arthur", "section_id": "s4"}, {"start_sec": 429, "type": "text", "zh": "为什么还跑别人的？", "speaker_id": "harry", "section_id": "s4"}, {"start_sec": 429.2, "type": "text", "zh": "因为客户要选择。当你拥有基础设施时，你希望提供尽可能多的选择，好把基础设施打满。这让我们开始服务越来越多的开源模型：在不同领域，你可能想选不同的模型，可能想选更小的，也可能想选更大的。选择越多，基础设施就能被用得越好，成本也就能越低。这在某种意义上是一个社区市场，你希望成本尽可能低。所以我们也会提供这些模型。", "speaker_id": "arthur", "section_id": "s4"}, {"start_sec": 468, "type": "text", "zh": "但你说的是对的。模型是知识的压缩。如果你不掌控数据供应链，不知道什么被放进了模型，你就无法对输出做出任何保证。因此，当我们服务自己的模型时，能给客户比服务第三方模型时更多的保证——因为从理论上讲，你要确保模型在某种环境、某种上下文中会以某种方式表现。这一点既无法排除，也无法事先测尽。我们可以做在线监测，这也是我们在做的；但你不能排除它被当作一种攻击向量来使用。", "speaker_id": "arthur", "section_id": "s4"}, {"start_sec": 518, "type": "text", "zh": "我认为这非常理论化，我不认为今天就是这种情况。可另一方面，这确实属于威胁模型。所以客户要求我们能够向他们提供所有可得的开源权重模型；我们也在帮助他们以更安全的方式来做，并监测正在发生的事情。但在很多情况下，他们其实非常希望使用我们自己的模型，因为我们能够告诉他们：数据供应链、我们用来训练的一切，都是我们事先验证过的。", "speaker_id": "arthur", "section_id": "s4"}, {"start_sec": 530, "type": "text", "zh": "你们自己的模型和其他开源模型，token 流量大概各占多少？", "speaker_id": "harry", "section_id": "s4"}, {"start_sec": 535, "type": "text", "zh": "我估计大约80%来自我们自己的模型。", "speaker_id": "arthur", "section_id": "s4"}, {"start_sec": 537, "type": "text", "zh": "哇。比我想象的高多了。那另外20%呢？人人都跟我说，美国的首席信息官绝不会使用中国开源模型，这种恐惧确实存在。你们有很棒的客户，他们害怕使用中国开源模型吗？", "speaker_id": "harry", "section_id": "s4"}, {"start_sec": 555, "type": "text", "zh": "这取决于他们所在的行业对政府有多关键。比如如果你和国防部门合作——我们在欧洲就有国防客户——他们绝不会使用中国技术。如果你在金融行业，同样因为它是关键基础设施，他们会非常抗拒。如果你在零售，或在制造业的某些领域，顾虑又会因所在地而不同。", "speaker_id": "arthur", "section_id": "s4"}, {"start_sec": 600, "type": "text", "zh": "我认为有一种普遍共识：开源权重模型如果部署在我们这样的受控基础设施上，唯一站得住的威胁，是它们因为供应链攻击而在某些领域失控、做出怪异行为。大家也普遍认为，这一点非常理论化，今天肯定还不是事实。但它确实是对话的一部分。", "speaker_id": "arthur", "section_id": "s4"}, {"start_sec": 638, "type": "text", "zh": "我要说，对话里同样重要的，还不只是「部署一个我并不完全理解的第三方模型是不是威胁」。大家真正在谈的是：从现在起六个月后，我还能不能拿到更新。因为模型已经变得非常强，已经能够被用于网络攻击，也可以被用在相当高级的用途上。后果就是，它们越来越被当作防务系统来对待。", "speaker_id": "arthur", "section_id": "s4"}, {"start_sec": 662, "type": "text", "zh": "美国实际上已经在把它当作防务系统：大约从某年5月起，他们开始禁止这些模型向美国以外输出。如果你看中国今天在做什么，他们也在研究如何对超过特定门槛的模型限制出口。原因在于，这实际上是一种两用技术。和任何两用技术一样，供应安全因此更加重要。与我们合作的公司意识到，他们不仅需要基础设施一侧的供应安全，也需要模型知识产权一侧的供应安全。", "speaker_id": "arthur", "section_id": "s4"}, {"start_sec": 680, "type": "text", "zh": "考虑到这一点，你觉得 OpenAI 和 Anthropic 扣住自己最好的模型，对社会是好是坏？这会不会就是这个行业将会普遍存在的固有特征？", "speaker_id": "harry", "section_id": "s5"}, {"start_sec": 698, "type": "text", "zh": "对社会是好是坏，我不知道。但很清楚的是：在一个没有供应商去支持中心化部署之外的主权部署的世界里，中心化的人工智能供应商会拥有巨大杠杆。如果我们最终生活在这样的世界——所有公司都需要依赖两三家中心化供应商——它们会利用这些系统产生的数据，去做出更好的系统，并去抢客户的生意。因为到头来，这就是终局。这相当清楚地就是今天已经被定价进去的东西。", "speaker_id": "arthur", "section_id": "s5"}, {"start_sec": 748, "type": "text", "zh": "所以我们采取的路径，是确保我们不会生活在这样一个世界里：由少数人工智能供应商形成寡头，利用企业产生的全部数据，训练出更好的、能够把企业中间化掉的系统。在这一点上，我们与所有客户都非常一致，他们当然也不希望生活在那样的世界里。", "speaker_id": "arthur", "section_id": "s5"}, {"start_sec": 776, "type": "text", "zh": "我会说，内部模型被用于某些研究，已经是一个早期信号，说明在人工智能领域出现大规模权力集中时可能发生什么。幸运的是，做模型并没有那么复杂，关键是部署资本，以及拥有一支在训练正确东西的合适团队。我们已经能够做到这一点。开源权重前沿正在追赶封闭前沿，在许多领域实际上已经超过。所以我不认为我们会走到那样一个世界：如果你想做数学，就必须去 OpenAI 工作。幸运的是，世界上有足够多的人也不希望这种事发生。", "speaker_id": "arthur", "section_id": "s5"}, {"start_sec": 791, "type": "text", "zh": "你已经多次提到能源。在欧洲把人工智能做成功，一个核心前提是拥有能够驱动它的能源和基础设施。我们的能源体系与美国很不同，与中国也很不同。在中国，他们可以迁走三百万人去上某种能源设施；在英国，我们连个鸟窝都不愿意挪。尽管这是个玩笑，但还是挺令人担忧的。你怎么看能源供应这个挑战？", "speaker_id": "harry", "section_id": "s6"}, {"start_sec": 821, "type": "text", "zh": "首先要认识到，能源大约只占算力总拥有成本的10%。所以我们说的并不是最能做优化的那一块。能源成本归根结底并不是项目经济账里唯一要紧的事。真正要紧的是芯片成本，以及资本成本。这两项主导了物料清单。", "speaker_id": "arthur", "section_id": "s6"}, {"start_sec": 852, "type": "text", "zh": "所以它会是一个问题，而且随着我们在欧洲部署更多算力，它会变成越来越大的问题，因为我们会撞上供给约束。当然这并不是均匀分布的。看法国，那里有过剩电力，可以建设产能；北欧也是这样。英国要少一些，德国也要少一些。但大家已经意识到，人工智能会继续推高能源消耗。", "speaker_id": "arthur", "section_id": "s6"}, {"start_sec": 888, "type": "text", "zh": "我会说，未来两三年真正的较量和挑战，对 Mistral 来说，是尽快建设，把已经存在的过剩电力用起来。我们正在做的就是这件事：筹集资本，建设更多产能，组建团队把这些产能建出来。现在有过剩电力，它今天还不是瓶颈，大约到2029、2030年才会成为瓶颈。眼下的问题是：我们怎样建在既有电力之上。", "speaker_id": "arthur", "section_id": "s6"}, {"start_sec": 924, "type": "text", "zh": "同时我们必须提前想。从2029、2030年开始，随着每年都有数吉瓦的产能被部署到人工智能上，我们确实需要把能源生产提上来。我们寄望的是，比如在法国有一个庞大的欧洲压水堆（EPR）核电项目，会生产出更多核能；太阳能一侧也有很大努力。所以我会说，它会成为一个问题，但主要是协调问题：只要人工智能端产生了能源需求，新建核电站的商业理由就相当充分。", "speaker_id": "arthur", "section_id": "s6"}, {"start_sec": 952, "type": "text", "zh": "完全就是这样，我同意。我非常相信亚当·斯密（Adam Smith）那只看不见的手，但建设周期是真的，所以2029、2030年就是挑战。", "speaker_id": "harry", "section_id": "s6"}, {"start_sec": 965, "type": "text", "zh": "是的，核电站建设需要的时间比这更长，太阳能电站可以更快。我也相信那只看不见的手。国家必须全力以赴，既为建设提供便利，也要提前做规划。它们通常比企业有更长远的视野。所以我们花了一些时间，我本人也在花时间说明：能源需求将会增长，必须以某种方式被回应，它需要成为任何能源供应商商业计划的一部分。", "speaker_id": "arthur", "section_id": "s6"}, {"start_sec": 1000, "type": "text", "zh": "我想一项一项来。你刚说芯片成本很重要。关于买算力、预测芯片需求，哪些是你现在才懂、当初并不知道的？", "speaker_id": "harry", "section_id": "s6"}, {"start_sec": 1015, "type": "text", "zh": "这是一套相当复杂的流程。我们学会了怎样运行这套流程来匹配供给和需求。这是复杂的工业流程，和软件完全不是一回事。你需要理解供应链里的时滞。供应链相当复杂：你有GPU，也有CPU（CPU），还有存储，还有电气部件。你还需要确保自己的供应商在他们自己的供应商那里没有问题。这一面是我们后来才学会的，而且相当复杂：你要管理资源，要做多种预测，要能够对多个需求桶做出预测。", "speaker_id": "arthur", "section_id": "s6"}, {"start_sec": 1068, "type": "text", "zh": "企业是我们主要的理想客户画像，但也有人工智能原生公司，它们可以拿走更大块的GPU，却希望占用时间更短。也有像微软这样的公司，常常向我们要产能，而我们可以用这些需求为更多产能融资。说到底，建设一座云，就是匹配供给和需求，就是提前管理供应链、给供应商可见性，并把这一切与财务匹配起来。你需要项目融资，需要真正懂信贷的人。把这样一项生意做起来，其实相当有意思。", "speaker_id": "arthur", "section_id": "s6"}, {"start_sec": 1110, "type": "text", "zh": "我们学到的是：如果你能够在需求之前把产能备在前面，你就会得到一样相当好卖的东西，而且未来几年都会是这样。所以我们很庆幸，我们提前预见到供给会很快耗尽，客户在自己的GPU上也会遇到供应链问题。因为现在我们有了这些芯片，就能够服务他们的需求。", "speaker_id": "arthur", "section_id": "s6"}, {"start_sec": 1127, "type": "text", "zh": "完全理解，这是芯片成本。资本成本是另一块。如果资源完全不受约束，你今天会做什么现在没有在做的事？", "speaker_id": "harry", "section_id": "s6"}, {"start_sec": 1137, "type": "text", "zh": "我们会建设更多产能。建设产能的一个大瓶颈当然是资本。我们看得到需求，也知道客户正在耗尽算力。当我们接过他们的一些用例、帮助他们扩大规模时，他们会突然发现：自己需要的不是8块GPU，而是1000块，而且还只是一个用例。我们比客户更早看见这种需求，所以有相当高的把握，也因此愿意把股权投入进去建设产能。", "speaker_id": "arthur", "section_id": "s6"}, {"start_sec": 1178, "type": "text", "zh": "我们一直在做的，就是确保管理更多产能，哪怕是在需求之前先建出来。今天如果只看欧洲需要什么，很明显算力是不够的。你也许会说，美国可能建得有一点点多；但清楚的是，欧洲有很大空间去建设产能，而且你有百分之百的信心这些产能会被消化。这就是我们正在推进的事。", "speaker_id": "arthur", "section_id": "s6"}, {"start_sec": 1213, "type": "text", "zh": "你刚才说国家也有角色可以扮演。你希望法国或英国的政府，今天做哪些它们还没有在做的事？", "speaker_id": "harry", "section_id": "s6"}, {"start_sec": 1213.5, "type": "text", "zh": "我们一直相当明确地谈过，它们可以用怎样市场中性的方式介入，只是为投资提供便利。第一件事当然是简化许可，并确保有一些专用场地可以加快推进，让地方和国家层面的所有利益相关方对齐。我会说，法国和瑞典在这件事上就做得很好。这主要是帮助把各方对齐，因为这些是物理资产，建在区域社区里，必须确保每个人都能从中受益。国家的帮助发生在这里。", "speaker_id": "arthur", "section_id": "s6"}, {"start_sec": 1270, "type": "text", "zh": "在财务层面，我们也公开说过：国家对租赁数据中心、比如预留10年或15年机位提供担保，对像我们这样资产负债表相对较小、但知道如何去建、为谁而建的公司非常有用。它们可以通过把一些担保放到桌面上，让建设能够提前、做得更大。当然，公共部门对我们来说也是重要客户，来自欧洲内外很多不同的国家。我们给他们带去价值，他们给公民带去价值，这会为像我们这样的公司创造承购，从而让我们能够建得更多。而如果你建得更多更快，你就能建得更便宜。在眼下这种供给约束的日子里，尤其如此。", "speaker_id": "arthur", "section_id": "s6"}, {"start_sec": 1316, "type": "text", "zh": "你刚才说你们也卖给国家。回到主权这一点：主权需要下沉到多细？我的意思是，我们显然已经有科希尔（Cohere）在加拿大，是每个国家都需要自己的模型吗？还是以板块为单位？我们该怎么理解主权的颗粒度？", "speaker_id": "harry", "section_id": "s7"}, {"start_sec": 1340, "type": "text", "zh": "我认为被允许的颗粒度是这样的：你需要一个相当大的市场，才能做出相关的模型。今天 Mistral 能够做出相关模型，是因为我们不是在国家级上运营。我们不是一家法国公司，我们服务欧洲，服务美国，也服务亚洲。我们需要的是替代方案，但不会在每个国家层面都出现一家主权人工智能供应商和模型训练者。这不会发生。", "speaker_id": "arthur", "section_id": "s7"}, {"start_sec": 1363, "type": "text", "zh": "那你们的客户里，欧洲大概占多少？", "speaker_id": "harry", "section_id": "s7"}, {"start_sec": 1368, "type": "text", "zh": "如果看我们的收入基数，大约是60%。其余来自美国和亚太。", "speaker_id": "arthur", "section_id": "s7"}, {"start_sec": 1373, "type": "text", "zh": "他们是用你们来给自己的模型做后训练工具套件（post-training harness）吗？", "speaker_id": "harry", "section_id": "s7"}, {"start_sec": 1378, "type": "text", "zh": "欧洲客户出于多种原因使用我们，但我们帮他们构建应用：要么与提升业务效率有关，要么与加速研发有关。我们与制造企业合作，与金融服务合作，与国防企业合作，并且对这三类都有相当强的垂直化打法，第四块则是公共部门。", "speaker_id": "arthur", "section_id": "s7"}, {"start_sec": 1408, "type": "text", "zh": "和制造企业合作时，我们一般是和他们的研发团队在一起，帮助他们做出更好的产品。我们帮助阿斯麦（ASML）把机器做得更好、把机器运营得更好；我们帮助空中客车（Airbus）把飞机制得更好。我们带来推理模型，也带来物理模型，也就是对世界有定量理解的模型。", "speaker_id": "arthur", "section_id": "s7"}, {"start_sec": 1434, "type": "text", "zh": "在金融服务里，我们构建理解市场的模型和工具套件，也带来理解定量时间序列、用来做预测的模型。所以我们带来的是一套模型，能让客户快速构建出真正创造价值的应用。这就是我们服务他们的方式。回到你说的主权：这些公司都有主权策略。他们需要以一种具备业务连续性保证、也受可负担性约束的方式来部署这项技术。", "speaker_id": "arthur", "section_id": "s7"}, {"start_sec": 1472, "type": "text", "zh": "我们看到 OpenAI、Anthropic、深度求索（DeepSeek）都在进入应用层，也在进入芯片层：OpenAI 有 Jalapeño 芯片，Anthropic 有自研的传闻，DeepSeek 在做自己的。我们会看到 Mistral 芯片吗？你怎么看垂直整合、拿下每一层的重要性？", "speaker_id": "harry", "section_id": "s7"}, {"start_sec": 1472.8, "type": "text", "zh": "不，这不在计划里。我们已经沿着技术栈往下走了，或者从工业视角说，是往上游走：从训练模型，到在我们自己拥有的基础设施上服务我们训练出来的模型。这已经是相当大的一步。这一步大约花了18个月才搭建起来，现在相当成功，因为我们能够对外提供GPU，能够对外提供 token。", "speaker_id": "arthur", "section_id": "s7"}, {"start_sec": 1508, "type": "text", "zh": "而且我们有纯欧洲生成的 token，能够避开任何形式的美国域外法。这对我们的客户非常重要。所以这花了我们不少力气。我们还在加码，把这件事进一步做大规模，我想这会让我们忙上一段时间。我们已经相当垂直整合：我们有云服务基础设施，并且一直做到为客户构建业务应用。", "speaker_id": "arthur", "section_id": "s7"}, {"start_sec": 1544, "type": "text", "zh": "你提到了人工智能里的应用层。你们提供平台，也给客户做定制应用，是这样运作的吗？", "speaker_id": "harry", "section_id": "s8"}, {"start_sec": 1554, "type": "text", "zh": "人工智能让你能够这样做。而落地是通过一支前线部署工程师（FDE）队伍来完成的。", "speaker_id": "arthur", "section_id": "s8"}, {"start_sec": 1564, "type": "text", "zh": "是的。", "speaker_id": "harry", "section_id": "s8"}, {"start_sec": 1566, "type": "text", "zh": "是的，是前线部署工程师，但建立在共同原语之上：工作流管理、智能体管理、沙盒管理，以及对不同业务应用部署的可观测性。说到底，我们是在构建一套适应于运行和构建人工智能智能体的云服务。", "speaker_id": "arthur", "section_id": "s8"}, {"start_sec": 1586, "type": "text", "zh": "你怎么看通过 Mistral 自己的前线部署工程师去做，对比我们传统上那种伙伴生态？", "speaker_id": "harry", "section_id": "s8"}, {"start_sec": 1590, "type": "text", "zh": "在旅程的早期，把前线部署工程师放在最前面，对我们帮助非常大。因为它让我们准确理解企业卡在哪里。他们从个人效率起步，但那不够；聊天机器人并没有为他们创造任何价值。于是我们花时间和经理、业务单元负责人坐在一起，理解他们需要用人工智能去自动化的那些核心流程。", "speaker_id": "arthur", "section_id": "s8"}, {"start_sec": 1628, "type": "text", "zh": "我们以定制业务应用的方式来做：这些应用要管理状态，智能体要端到端地运转整个流程。这对我们理解该构建哪些原语非常有帮助。比如我们做出了持久化的流程执行，也理解了怎样才能非常有效地编排智能体。让这些前线部署工程师直接和客户坐在一起，超级有用。", "speaker_id": "arthur", "section_id": "s8"}, {"start_sec": 1664, "type": "text", "zh": "从去年开始，我们做的是把这些工具传播给一部分伙伴，比如埃森哲（Accenture）、塔塔咨询服务公司（TCS）这类系统集成商。他们非常擅长把事情做大规模；一旦你给他们对的工具、对的培训，他们就能帮助扩大，因为他们就是有更多人。", "speaker_id": "arthur", "section_id": "s8"}, {"start_sec": 1690, "type": "text", "zh": "我想问：今天你还没有、但你觉得五年后会最重要的收入线是什么？听你刚才说话，我在想，你创业时未必能预见到这些不同的业务动作。我们第一次见面时——不知道你记不记得——你坐在公园长椅上，只是跟我聊聊生活。", "speaker_id": "harry", "section_id": "s8"}, {"start_sec": 1692, "type": "text", "zh": "但让 Mistral 的人真正上手、和客户一起敲键盘，对客户仍然非常有用，需求也很高；对我们自己也很有用。这不是一件可以无限扩大的事，因为我们不可能拥有成千上万名前线部署工程师。所以现在我们通过伙伴来放大，两种动作并存。在许多客户账户里，我们仍然有前线部署工程师直接和客户一起工作，他们操盘项目、确保交付发生；同时我们和系统集成商携手，去做后续实施和维护这类事情。", "speaker_id": "arthur", "section_id": "s8"}, {"start_sec": 1710, "type": "text", "zh": "我记得。是的，你当时没投。你该投的。", "speaker_id": "arthur", "section_id": "s8"}, {"start_sec": 1713, "type": "text", "zh": "我后悔死了，真的后悔死了。我昨天还见到让-夏尔（Jean-Charles），每次见到他我们都会聊到你。这真是一个很厉害的提醒，让我想起自己错过了多少钱。", "speaker_id": "harry", "section_id": "s8"}, {"start_sec": 1730, "type": "text", "zh": "那就抱歉了。现在说收入线：我们有两条。一条是部署平台、用来构建业务应用，这是真正的许可收入；另一条是我们自建的基础设施生意带来的消耗型收入。这两件事是手拉手的，因为客户通常先为许可动作而来，随后发现自己没有足够的GPU，我们再试图帮他们，提供GPU或 token 服务。所以这两件事结合得非常好。", "speaker_id": "arthur", "section_id": "s8"}, {"start_sec": 1765, "type": "text", "zh": "你觉得三到五年后，你会有很大的推理业务吗？你会有沙盒业务吗？", "speaker_id": "harry", "section_id": "s8"}, {"start_sec": 1772, "type": "text", "zh": "如果从这种颗粒度看，我会说GPU这一侧，也就是所有落在GPU上的东西，还会继续增长，因为需求极大。你还有我们所说的附属服务，比如运行沙盒，以及在运行强化学习算法、或在同一任务上部署许多智能体时，非常轻松地把沙盒扩上去再缩下来。这对我们是一块正在增长的生意，因为它来自客户的需求，反过来又带我们去采购更多CPU。", "speaker_id": "arthur", "section_id": "s8"}, {"start_sec": 1810, "type": "text", "zh": "所以我确实预期，我们所说的运行时这一侧会增长：智能体在那里执行任务、调用工具、编译代码并运行代码。很明显，当你还在做同步任务、只用GPU来回答对话时，你并不需要这些。一旦开始有托管智能体在后台运行，做大量CPU密集的任务，你就需要更多CPU，需要更多沙盒，也需要更多存储，因为它们会产生大量数据。可以说，与CPU相关的任务、与数据相关的任务，会成为我们增长中的业务线。", "speaker_id": "arthur", "section_id": "s8"}, {"start_sec": 1846, "type": "text", "zh": "业务很大一块是卖给政府。关于卖给政府，有什么是几乎没人知道、但人人都该知道的？", "speaker_id": "harry", "section_id": "s9"}, {"start_sec": 1852, "type": "text", "zh": "首先，不存在一般意义上的「卖给政府」这件事。所有政府都非常不同。有些政府足够小，看起来或多或少就像一次企业销售：比如在那些部委里大家彼此都认识的国家就是这样。更大国家的政府则要稍微复杂一些。所以，找到在何处创造价值、理解客户需要什么，复杂度我认为是随国家体量上升的。", "speaker_id": "arthur", "section_id": "s9"}, {"start_sec": 1887, "type": "text", "zh": "你能帮我讲讲推理市场吗？这是我过去完全不够了解的一块。我现在才知道、希望12个月前就知道的是：推理需求几乎是无穷的，深度令人吃惊。推理市场会怎样？", "speaker_id": "harry", "section_id": "s9"}, {"start_sec": 1908, "type": "text", "zh": "推理市场的表现非常像大宗商品市场，而且眼下利润率还相当高。也就是说，如果你有供给，并且对某些种类的模型有合适的服务质量，你就可以按需把它们卖掉，因为有大量需求直接来自尚未做出承诺的客户。", "speaker_id": "arthur", "section_id": "s9"}, {"start_sec": 1938, "type": "text", "zh": "然后，对足够成熟的客户来说，他们需要有保障的服务质量，需要服务等级协议（SLA），也需要预留的物理产能。这是我们能够提供的，因为我们有正确的预测模型，也有正确的供给。所以你有这两件事：一块是按需，非常像拼价格的大宗商品市场；另一块是溢价一侧，客户实际上想要获得延迟上的保证、生成速度上的保证，以及针对一定请求量的保证。", "speaker_id": "arthur", "section_id": "s9"}, {"start_sec": 1980, "type": "text", "zh": "他们对自己需求的形状能够说得越精确，我们的定价就可以越好，我们也越能把自己的基础设施塑造成形，确保他们以对的价格获得对的服务质量。", "speaker_id": "arthur", "section_id": "s9"}, {"start_sec": 1996, "type": "text", "zh": "能再问你一下吗？我们有太多不同的新实验室（neo-lab）了，已经有大约102家被创办出来。每周都有又一个 DeepMind 分拆出现。能茁壮成长的新实验室和不能的，将会被什么区分开？", "speaker_id": "harry", "section_id": "s9"}, {"start_sec": 2016, "type": "text", "zh": "首先，我们自己起步时就是一家新实验室。2023年还不这么叫，但实际上，你创办公司、要去招聘时，会有一些招揽最优秀人才的「银弹」；我们把所有银弹都用在了招聘研究员上，所以我们一开始就是一家研究公司。", "speaker_id": "arthur", "section_id": "s9"}, {"start_sec": 2048, "type": "text", "zh": "我认为，让我们能够扩大、并在更广的范围内运转起来的，仍然是第一支柱：交付模型。这也是这件事对我们来说相当成功的原因。我对即将到来的新版本也很兴奋，因为我们进展相当不错。真正成功的是，我们很早就聚焦到一个能够做大规模的市场上。我们选择了企业市场，它带着一定复杂性，因为企业客户要求很高，而他们本就应该如此；我们也调整了产品去满足这些要求。", "speaker_id": "arthur", "section_id": "s9"}, {"start_sec": 2092, "type": "text", "zh": "但我们既能够在研究层面做到最高水准，不断招聘并加大投入，把模型做得越来越强；又建立了以客户为中心的动作，真正理解客户的问题——正是这两点让我们能够扩大。这是每一家新实验室在开始构建自己的生意时都需要想清楚的事。", "speaker_id": "arthur", "section_id": "s9"}, {"start_sec": 2118, "type": "text", "zh": "可欧洲真正有能力创办这类公司、并且像你一样经历过、看见过的人，到底有多少？也许一个扬·勒昆（Yann LeCun）已经算做过了。是20个，还是100个？", "speaker_id": "harry", "section_id": "s9"}, {"start_sec": 2136, "type": "text", "zh": "我不是风险投资人，所以你大概比我更清楚。欧洲总体上有很多人才，既有创业人才，也有研究人才，而且这两者有相当好的结合。所以你才会在欧洲看到很多新实验室。", "speaker_id": "arthur", "section_id": "s9"}, {"start_sec": 2160, "type": "text", "zh": "难的不只是有才华，也不只是能够销售、并真正做成一桩生意。今天还在于能够获得算力。我认为，对我认识的许多新实验室来说，一个大瓶颈就是：要获得GPU、以便在某些垂直领域做出有意思的研究，非常困难，因为供给极度紧张。所以在我们拥有的供给里，我们会为某些新实验室预留一些产能，因为我们相信他们能成长，我们也可以和他们一起成长。但如果你今天是一名创始人，想做非常以研究为中心的事，你最大的问题就是以像样的价格获得算力。", "speaker_id": "arthur", "section_id": "s9"}, {"start_sec": 2161, "type": "text", "zh": "你刚才提到了研究员。今天研究员招聘市场有多疯狂？", "speaker_id": "harry", "section_id": "s9"}, {"start_sec": 2167, "type": "text", "zh": "我得说，相当有竞争。不过，如果你有对的使命，有对的薪酬结构，你做的事情对世界有意义，人就会加入你。我非常感激我们所有员工为把这件事做成所付出的投入。Mistral 开源权重模型的质量已经取得成功，今天牵引很强，并且在开源权重这个类别里，在编程和网络防御上领跑。这完全归功于这支团队的投入。", "speaker_id": "arthur", "section_id": "s9"}, {"start_sec": 2210, "type": "text", "zh": "也归功于韧性，因为在过去三四个月里，当你训练一个模型时——我们最近发布了技术报告——它往往第一次不会成功。所以你需要能够纠偏：好吧，你再花两个月把它真正做出来，而这会很痛苦。我们本来预期发布，但需要稍晚一点发布，这对每个人都会很难受。可所有人都必须全力以赴，去做对的事。我的意思是，在我们资源稀缺的情况下，我非常感激团队的韧性。", "speaker_id": "arthur", "section_id": "s9"}, {"start_sec": 2247, "type": "text", "zh": "我刚刚请了微软（Microsoft）的萨提亚·纳德拉（Satya Nadella）上节目，他谈到穆斯塔法·苏莱曼（Mustafa Suleyman）先前的说法：未来几年我们会看到一千亿美元规模的训练。", "speaker_id": "harry", "section_id": "s10"}, {"start_sec": 2253, "type": "text", "zh": "你觉得这有点夸张，还是完全够得着？", "speaker_id": "harry", "section_id": "s10"}, {"start_sec": 2253.5, "type": "text", "zh": "我想先说，你前面其实会碰到一堵数据墙（data wall）。如果你想让模型在某些领域变得非常强，比如芯片设计，或者想像我们这样，让它在工业工程工作流上变得非常强，你确实需要有合适的环境去训练它们。这一部分需要技能和品味，不是一件你能像堆算力那样轻易扩大的事。", "speaker_id": "arthur", "section_id": "s10"}, {"start_sec": 2288, "type": "text", "zh": "所以我会说，我们今天都在撞上的瓶颈，实际上是能不能采到足够多的高质量数据。算力也是瓶颈，我们需要更多算力，也正在部署更多算力。但走到一千亿美元的训练，我认为绝不是明天的事。这一点很清楚。", "speaker_id": "arthur", "section_id": "s10"}, {"start_sec": 2304, "type": "text", "zh": "如果大家都那么缺算力，为什么 Nebius 跌了40%？为什么 CoreWeave 跌了40%？如果人人都算力短缺如此明显，为什么公开市场上的人工智能交易在往下裂？", "speaker_id": "harry", "section_id": "s10"}, {"start_sec": 2320, "type": "text", "zh": "市场今天如何反应，对我来说有一点不清楚。我们看到的是，凭借我们拥有的抵押物质量——也就是收入承诺、承购承诺——我们完全能够为自己的算力融资。我们作为一家公司，是垂直整合地运营：我们建设算力，但是为了更高层的目的，为了服务企业，为了构建业务应用。", "speaker_id": "arthur", "section_id": "s10"}, {"start_sec": 2360, "type": "text", "zh": "所以我们锚定在客户的价值创造上，这意味着在融资层面，我们不必把公司杠杆加得极大。这让我们对接下来会发生的事更有信心。但和任何工业扩建一样，去加很多杠杆是很诱人的，而杠杆到某一点就会断裂。所以我们很高兴自己是垂直整合的，从业务应用的创造一路做到基础设施这一端。", "speaker_id": "arthur", "section_id": "s10"}, {"start_sec": 2388, "type": "text", "zh": "因为聚焦，有什么是你们没有去做、事后却会想：也许我们当初该做的？", "speaker_id": "harry", "section_id": "s10"}, {"start_sec": 2396, "type": "text", "zh": "我们没有深入消费市场，但我想我们非常庆幸自己没有这样做。我们也没有进入芯片设计。", "speaker_id": "arthur", "section_id": "s10"}, {"start_sec": 2405, "type": "text", "zh": "停一下。你为什么庆幸自己没有进入消费市场？", "speaker_id": "harry", "section_id": "s10"}, {"start_sec": 2412, "type": "text", "zh": "我认为那是一个非常拥挤的市场。你很难一边把企业服务做到最高水准，一边再去经营一门本质上会变成广告生意的业务。所以那个决定——聚焦企业细分市场，以及聚焦我们选定的四条垂直：制造业、金融服务、国防、公共部门——对公司的聚焦非常关键。因为人工智能的问题在于，它几乎什么都能做。你需要一个聚焦的来源，而我们选择的来源来自市场。", "speaker_id": "arthur", "section_id": "s10"}, {"start_sec": 2458, "type": "text", "zh": "我们希望拥有那些最能服务智能体工程工作流的模型，最能服务金融决策的模型，最能服务于防务目的的模型，以及一切与国家主权相关的模型。", "speaker_id": "arthur", "section_id": "s10"}, {"start_sec": 2460, "type": "text", "zh": "有了递归自我改进（RSI），你还需要一个聚焦来源吗？那不是……", "speaker_id": "harry", "section_id": "s10"}, {"start_sec": 2466, "type": "text", "zh": "用人工智能去改进人工智能模型，同样需要聚焦，因为你能花在问题上的资源终究有限。说到底，这里的瓶颈确实是算力。瓶颈还在于：凡是你做的、属于递归自我改进或只是自我改进的事情——这两个说法意思其实一样——都要求问题被良好定义。", "speaker_id": "arthur", "section_id": "s10"}, {"start_sec": 2500, "type": "text", "zh": "今天如果你有一个定义清楚的问题，人工智能随后可以沿着它往上爬。但在企业里，很多情况下问题并没有被良好定义。所以对经济增长真正的摩擦，并不是我们解不了那些定义清楚的难题，而是很难解决目标含混、有人在环路里的模糊问题。那一部分你没法单靠自我改进去解决，你只能靠模型被部署出去、与人互动。这正是我们聚焦的部分。", "speaker_id": "arthur", "section_id": "s10"}, {"start_sec": 2540, "type": "text", "zh": "当然，我们也在定义清楚的问题上，对自我改进闭环做大量投资。但限制企业里人工智能用量爆发的，我想就是那些你想部署人工智能、却没法铺好攀爬路径的问题，因为问题定义本身就不妥当。所以你需要花时间，这也是为什么会有前线部署工程师，为什么我们要有前线部署工程师：去努力把问题定义得更好。", "speaker_id": "arthur", "section_id": "s10"}, {"start_sec": 2550, "type": "text", "zh": "阿瑟，我得跟你直说。开头我开玩笑说你像是欧洲最后的希望。我不是说得那么戏剧化，但你和其他立志成为下一个 Mistral 的新实验室之间，确实有一道很大的鸿沟。你和团队有感受到这种压力吗？", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 2571, "type": "text", "zh": "我们确实感受到一些压力，但这个领域里谁都是如此。它增长很快，变化很快。作为人工智能创业者，你必须在模型一侧交付，因为那是能显示你正在取得进步的一件事；但企业也需要看到价值，所以你还需要真正理解业务问题的人。这是相当不同的两类问题要去解决。", "speaker_id": "arthur", "section_id": "s11"}, {"start_sec": 2608, "type": "text", "zh": "所以我们确实有压力，但我认为这是非常健康的压力。这是一个非常重要的时刻，也是历史上非常重要的时刻。我们需要回应普遍舆论的预期。说到底，我们需要证明人工智能是有用的。我们正在做的那种部署、它在市场上激起的那种声响，必须让这项技术显现为一件正面的技术，我们必须展示它的正面性。", "speaker_id": "arthur", "section_id": "s11"}, {"start_sec": 2644, "type": "text", "zh": "而要做到这一点，唯一的办法就是把主权人工智能作为品类推广出去，确保它为所有人创造经济增长和机会，确保人工智能的收益被好好分配。当然这会带来一些压力，因为它并非注定如此。如果我们不成功，我不知道这个世界上接下来会发生什么。所以我们确实有角色要扮演。我认为我们承担的使命很重要。这是压力，但也相当令人兴奋。", "speaker_id": "arthur", "section_id": "s11"}, {"start_sec": 2657, "type": "text", "zh": "人工智能会让国内生产总值每年多增长超过2个百分点吗？", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 2662, "type": "text", "zh": "这正是全部问题所在。你去解决哪一种瓶颈，才能真正把那部分国内生产总值打出来？这也是我们为什么对工业工程非常看好。说到底，如果你想要经济增长，你需要的是更多生产。你不需要更多智力，你需要更多生产。", "speaker_id": "arthur", "section_id": "s11"}, {"start_sec": 2688, "type": "text", "zh": "为了有更多生产，你需要更好的工厂，需要更高效的物体，需要能用同样多的油飞得更久的更好的飞机，需要更高效、更低碳的能源生产，需要更好的阿斯麦机器，也需要更好的金融服务。所以在工业和工程里，尤其如此：使用人工智能能让你把物体设计得更好。", "speaker_id": "arthur", "section_id": "s11"}, {"start_sec": 2720, "type": "text", "zh": "如果你把智能体闭环建立起来，比如去设计更安全的汽车，你的汽车设计团队就能快得多，产品迭代也会更快。这意味着你可以卖得更多，可以卖得更便宜，也意味着你在打造更安全的产品。在航空航天工业里，如果你设计出更好的飞机，它会在外面运行40年；如果它飞得更快、更省油，那就会创造经济增长。", "speaker_id": "arthur", "section_id": "s11"}, {"start_sec": 2750, "type": "text", "zh": "所以说到底，真正重要的是让人工智能产生物理世界的效果。而这种效果，我们主要在制造业和金融服务里找到。", "speaker_id": "arthur", "section_id": "s11"}, {"start_sec": 2750.9, "type": "text", "zh": "我知道时间到了，我要和你做一轮快速问答。", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 2755, "type": "text", "zh": "请吧。", "speaker_id": "arthur", "section_id": "s11"}, {"start_sec": 2758, "type": "text", "zh": "你今天相信、但身边大多数人会不同意的是什么？", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 2764, "type": "text", "zh": "我想我们强烈相信，这是一个正在碎片化的市场，主权人工智能会成为企业部署人工智能最重要的品类。也就是说，当企业部署这项技术时，业务连续性、成本，以及对他们数据和知识产权的控制，会成为最要紧的事。所以这是我们非常强的一个信念，它被很多企业分享，也被市场相当大的一部分分享，当然不会被我们的一些竞争对手分享。", "speaker_id": "arthur", "section_id": "s11"}, {"start_sec": 2795, "type": "text", "zh": "有没有一个今天听起来极其狂野、但五年后会变得非常平常的预测，是关于我们的生活方式、工作方式的？", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 2804, "type": "text", "zh": "我认为，我们作为工程师的工作方式，对软件工程师来说已经改变了，对任何种类的工程师来说也将会彻底改变。所以我非常兴奋于这样一种路径：借助人工智能，以相当自主的方式设计出更好的产品。", "speaker_id": "arthur", "section_id": "s11"}, {"start_sec": 2832, "type": "text", "zh": "这并不关系到每一个人，但所有有技术背景的人——不只是最先受到影响的软件工程师，也不只是数学家——都将操控人工智能智能体，并因此获得巨大杠杆。这件事本身，就会成为劳动力市场实际运转方式的一次重大转变。", "speaker_id": "arthur", "section_id": "s11"}, {"start_sec": 2848, "type": "text", "zh": "上市这件事你怎么打算？总有一天你会想上市，可你没法在欧洲上市啊。", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 2858, "type": "text", "zh": "完全可以在欧洲上市，因为——", "speaker_id": "arthur", "section_id": "s11"}, {"start_sec": 2861, "type": "text", "zh": "在法国上市？不行吧。", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 2861.5, "type": "text", "zh": "十年前成立的那些事，我认为今天不再成立。来自世界各地的投资者有巨大兴趣投资欧洲，无论是私募股权一侧，还是公开市场一侧。所以曾经存在的那些瓶颈，已经不在了。", "speaker_id": "arthur", "section_id": "s11"}, {"start_sec": 2888, "type": "text", "zh": "我们在 Mistral 当然也在做准备：你要成为上市公司时，会有很多运营上的约束。我们也在推进、交付那些必须交付的商业里程碑。但我不认为这仍然是瓶颈。已经有非常成功的公司，其中一些作为利益相关方，首先就是在欧洲上市的。所以将来某个时点在欧洲上市，没有理由不去。", "speaker_id": "arthur", "section_id": "s11"}, {"start_sec": 2911, "type": "text", "zh": "最后一问。当你望向未来5年、7年、10年，你最兴奋、但没多少人想到的是什么？", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 2924, "type": "text", "zh": "我相当兴奋于人工智能将如何赋能基础研究，尤其是在我们还缺乏对世界理解的那些领域。比如在物理里，我们既能把人工智能仿真跑到从未达到过的规模——我们收购的、名叫埃米（Emmi）的团队就专攻于此——这将促成新的发现。", "speaker_id": "arthur", "section_id": "s11"}, {"start_sec": 2960, "type": "text", "zh": "所以，我们能够构建仿真器，并能让智能体去操作这些仿真器，从而更好地理解世界，这将极大推动我们对世界的理解。我自己来自数学和物理背景，所以对下一代研究者面前的机会感到相当兴奋。", "speaker_id": "arthur", "section_id": "s11"}, {"start_sec": 2966, "type": "text", "zh": "你知道吗阿瑟，我怪你。我怪你当初坐在那张长椅上，完全不像现在这样说话。那时的阿瑟和今天的阿瑟，简直像是悖论一样的不同。看到你成为、也已经成长为这样的领导者，真的太惊人了。说真的，我对你、对你为欧洲所做的一切，有说不完的尊敬、钦佩和感谢。哇，太了不起了。", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 2989, "type": "text", "zh": "谢谢你的夸奖。我们还有很多事情需要交付，但对已经取得的进展相当满意。我认为使命很重要。所以，如果有正在观看的人想加入这段旅程，请一定联系我。", "speaker_id": "arthur", "section_id": "s11"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
