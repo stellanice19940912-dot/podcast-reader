@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>创业公司如何在 OpenAI 与 Anthropic 之外取胜｜HubSpot 达梅什·沙阿</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="joe">乔·施密特（Joe Schmidt）</option><option value="dharmesh">达梅什·沙阿（Dharmesh Shah）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">a16z</span><span class="pill">2026-11-10</span></div>
+<h1>创业公司如何在 OpenAI 与 Anthropic 之外取胜｜HubSpot 达梅什·沙阿</h1>
+<p class="sub">嘉宾：达梅什·沙阿（Dharmesh Shah） · 约 59 分钟（3546 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=s4lXP9IuHjk" target="_blank" rel="noopener">https://www.youtube.com/watch?v=s4lXP9IuHjk</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>a16z</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-10</dd></div><div class="meta-row"><dt>时长</dt><dd>约 59 分钟（3546 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；普通 yt-dlp 成功拉取；无官方字幕；曾对并行的 en 自动轨出现 HTTP 429，但所需 en-orig 已写入，未使用 cookies / browser-cdp）；caption_source=yt-dlp-auto；中文为全文翻译并按话题分段。</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>s4lXP9IuHjk</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>a16z 合伙人乔·施密特（Joe Schmidt）对话 HubSpot 联合创始人兼 CTO 达梅什·沙阿（Dharmesh Shah）：前沿实验室会沿「黄砖路」冲向应用层，但创业公司仍可在模型变成基础设施的地方，靠工作流、客户上下文和把整个问题一次解决来建立持久价值。</p>
+<h3>核心要点</h3><ul><li>达梅什把 ChatGPT 与 Claude Cowork 视为新的「操作系统」，界面只是手段，真正值钱的是正在发生的工作与客户上下文。</li><li>HubSpot 早期发现约 60% 的付费客户根本没用 CRM，于是把 CRM 做成「免费、不是高级免费（freemium）」，并用一体化套件解决碎片化带来的畏难。</li><li>判断实验室会不会抢你的市场，不能只看 ChatGPT「现在」会不会，而要看 OpenAI 这家公司会不会做，以及有没有监管或激励约束。</li><li>uSpot 是面向一人公司的 CRM：达梅什很早就用消费计价验证付费意愿；美国新注册公司 2025 年约 560 万家，到当年 8 月已逾 400 万，且逾 70% 预计两年内不会雇人。</li><li>他反驳「SaaS 末日」：AI 本身就是软件。当年互联网让营销变成软件可解的问题，今天 AI 同样会打开一整批新问题，总机会比以往更大。</li><li>闪电轮：他选 Dunkin&#x27;（但多年不喝咖啡）、Agent 购物里选 Instinct、若做动物想当大象；HubSpot 最波士顿的地方是几乎所有地方——务实、先为客户解决问题。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看。对想避开前沿实验室主航道、又想理解老牌 SaaS 如何为智能体重构底层原语的创始人很有信息量；不想听公司史和闪电轮的人，可从「黄砖路」和「ChatGPT 是新操作系统」两段切入。</p>
+<h3>适合人群</h3><p>AI 应用层创始人、SaaS/CRM 从业者、关注一人公司与消费计价的产品负责人。</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场：新操作系统与黄砖路之外的空间</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">预告里先抛出论点：ChatGPT 和 Claude Cowork 实际上成了新的操作系统；在前沿 AI 实验室狂奔的主航道之外，仍有大量软件可做。值钱的不是界面，而是正在发生的工作，界面只是手段。HubSpot 当年把营销应用做成一整套，是因为客户被碎片化吓住了，必须在一个产品里把问题一次解决。乔·施密特（Joe Schmidt）随后正式介绍嘉宾：HubSpot 联合创始人兼 CTO 达梅什·沙阿（Dharmesh Shah）。对话缘起于他在 X 上就乔的「黄砖路」（Yellow Brick Road）文章展开的讨论——实验室会沿那条路冲向应用，但别处仍有空间。HubSpot 此后已推出面向一人公司的 CRM 产品 uSpot，并围绕智能体重建自身平台。乔笑称达梅什已经是勒布朗、麦当娜那种「单名」人物，并请他给当前市场做个体感检查。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">最好也是最坏的时代：抽象层跃升，建造者最好的窗口</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">达梅什用「最好的时代，也是最坏的时代」来形容当下：能量和兴奋感十足，本该惠及企业，但很多人仍觉得 intimidated。他觉得自己对同一批客户重新燃起了使命感，并说这是他造东西以来最好玩的一段。乔同意：外界观感偏负面，但「几乎所有事情都在运转」。达梅什给出偏极客的解释：软件的本质，就是把你要解决的问题变得更容易；底层抽象曾很难，后来逐步变容易，中间还有几次非线性跃升。他们提到 type-safe 那边发布的 dev 模型（自动字幕如此；他强调这不是 transformer，而是开发的另一维度），等于给建造者工具箱再添一层。因为抽象层更高，AI 让迭代快得多，过去可能要很久才能学到的教训现在可以更快验证。所以现在永远适合创业，尤其适合高能动性的人：做产品更容易了，但真正难的是把注意力收窄，提高「活下来并学会」的概率。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">怎么挑创业想法：别拿人口普查做乘法，先收窄再学</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">达梅什说自己做了很久创业，仍自认是 startup 人。他反对那种把美国人口普查数据里的系数相乘、就吐出一个「最佳创意」的做法——乔立刻接话：他见过太多次「美国有 1.8 万家律师事务所」这类文件。达梅什认为，真正做出来的东西常常和最初概念只剩一点「基因」相似。AI 让迭代更快，但仍然很难的是聚焦：收窄口径会提高闯过早期、完成学习的几率。他甚至在 HubSpot Next（公司创新臂）里探索新想法时，也还在跟这个教训较劲。乔追问：这是不是高能动性者最好的时刻？达梅什说是，因为造东西更容易了，但如果你开口径太大，学习速度反而跟不上。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">从「律师所产品」到 HubSpot：在企业与消费之间押注 SMB</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">乔提到，HubSpot 似乎经历过某种法律/律师所产品，后来变成中小企业（SMB）的 CRM。达梅什回忆：他和联合创始人在东海岸商学院相识，刻意避开两端。一端是大型企业——客户少、收入集中，少数客户会扭曲产品路线和愿景；另一端是消费市场，向大众收费很难达到消费级的规模效应。他们把口径收窄到看起来有趣、且能真正收费的问题，也用过人口普查里「律师事务所很多、可以相乘」的逻辑去试水。结果早期用户很快把他们拽走：时间追踪之类并不重要，客户真正要的是「帮我找到更匹配的理想客户」。于是他们驶入 SMB 营销产品，再逐渐长成平台和完整 CRM。达梅什强调：几乎人人都想做「某某领域的 HubSpot」，但他们并不是在 t=0 就规划好了整座平台。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">60% 的付费客户没用 CRM：做成免费，并用一体化消灭碎片</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">做到营销套件之后，他们发现一个让他们震惊的事实：约 60% 的付费客户完全没有在用 CRM。这些不是随便的公司，而是已经在给 HubSpot 付费的人。达梅什说自己和联合创始人「简单得离谱」：这些公司本该用 CRM，为什么不用？答案包括太贵、太吓人、太碎片。他们决定把「太贵」直接拿掉——做成免费，而且强调「不是高级免费（freemium），是免费」；哲学是先创造客户价值，再提取价值。同时他们预见到，既有 CRM 巨头很可能杀进营销软件，自己若只守在营销品类，空间会被压缩。至于「为什么要做所有模块」：当时 SEO、落地页、表单等领域都有很优秀的单点公司，但客户被碎片化吓住了，只有打成一个供给，才能解决真正的问题。这也为后来的平台化、以及「系统中已经有很多人、你要在周期里替换中间层」埋下伏笔。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">建造开发者信任的生态：当自己曾渴望却得不到的那种平台</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">乔问：围绕初始供给，如何思考正确的开发生态？达梅什说自己职业生涯大部分时间都是平台和生态的「消费者」，两边都体会过。他提起十多年前 Twitter 早期的教训：原本身为平台，后来路径变化，生态里的人受伤。HubSpot 把这些教训记在心里：要做「当年我们希望存在、却得不到的那种平台」。他们会主动标明：若我们在找空白、会去做哪些事，好让外部开发者知道哪里有机会。目标之一是压缩从「第一次调用 HubSpot API」到「在生态里赚到第一块钱」的路径，降低摩擦。乔祝贺这个生态已经相当繁荣，并转向他那篇黄砖路文章。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">避开黄砖路：看公司而不只看产品，模型正在变成基础设施</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">达梅什先声明：作为 HubSpot 联合创始人兼 CTO，他非常有立场，但「有立场不等于错」。他完全同意乔的前提：前沿实验室会沿着黄砖路一路冲，而且会因为发明了让自己更快的东西而更快。他认为两种判断是误导。第一，若你在句尾加上「还没（yet）」句子仍然成立，那就有问题——「ChatGPT 现在做不了」很快可能就能。第二，要分清「衡量产品还是衡量公司」：ChatGPT 做不了，不等于 OpenAI 这家公司做不了，它完全可以开一条新产品线。真正的护城河，是监管/结构约束，或激励约束。他举例：若要某个前沿模型公司（他点名 Anthropic 等）去做 HubSpot 这类要深入 SMB 工作流、长期服务的事，他们并非不能，但「真会去做」的概率极低，因为激励不在那里。他把 AI 比作当年的 AWS 和云计算：模型正在变成基础设施，创业者一旦离开黄砖路，就不那么可怕了。现在还有 Open Router 这类工具，模型可替换性上升，开源和商业产品都很多；只要不站在实验室的主赛道上，就不容易被正面碾压。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">ChatGPT 是新操作系统：界面是手段，别用推理去代替查询</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">达梅什说，在 AI 前后都一样，关键是复合飞轮。他特意「给录音标了时间戳」。HubSpot 是第一家把自己的连接器做到 ChatGPT 里的 CRM 公司。他用光谱解释界面的重要性：一端像 Uber Eats、DoorDash，网络效应强、界面即产品；但多数企业应用更靠近「把一件工作做完」。对 HubSpot 来说，界面重要只是因为营销和销售要交付结果，界面是手段不是目的。这就像当年 SaaS 搬上浏览器：浏览器成为方便的入口，但价值仍在产品本身。如今聊天机器人就是新的浏览器，人们通过它们消费价值，HubSpot 这类公司会插进去。他给建造者的建议是：别把界面想复杂，先找到客户要的结果的最佳达成方式。另一条很硬的原则：不要用推理去解决查询能解决的问题。比如「我们从爱尔兰拿到多少客户、多少收入」，你不该在 800 万条 Slack 和邮件里用推理去「翻找」答案，即使数据可能藏在里面；这应该是数据库查询，而不是把一个「300 IQ」的模型砸上去。乔说，很多公司正在这一层重新理解自己的定价和消费模式。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">为 AI 重思原语，并用 AI 回放 20 年的架构选择</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">乔问：当初为「人类来浏览信息」而做的架构决策，现在要如何改？达梅什说自己是科班软件工程师，相信原语一旦设计对了，就能随市场和产品演化被以新颖方式复用。HubSpot 一开始就这样：营销自动化的原语，后来可以直接复用到 CRM，让第二天的 CRM 就比从零开始更强。今天数据既有结构化也有非结构化，这些数据其实一直在客户组织里，只是现在模型能以完全不同的方式去看。他们正在补上他所谓的「上下文系统」（system of context），结构上很可能是某种图。下一步是：能否把正在发生的事情都存进合适的图结构里。对在位者来说，AI 让写软件、测想法、做产品更快，这甚至更有利。他觉得更迷人的是：可以回到 20 年前的分岔，问「如果当时换一种原语、引入另一种底层，今天会在哪条宇宙」；再用小范围的工作去试，看看重写能换来多少延迟或经济性收益。乔说自己几乎同时写过另一篇文章讨论这类「替代宇宙」，并问 HubSpot 内部还在长出哪些新流程和新团队。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">HubSpot Next 与 uSpot：公司里的创业公司必须有自由度</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">达梅什介绍 HubSpot Next：它本质上是创新实验室，是「创业公司里的创业公司」，指令接近「什么都别管，去把问题解开」。他主导过多个项目。有人会想到做「第二大脑」、把社交媒体都接进图模型，但他提醒：回到黄砖路，千万不要去解那种会被实验室以水平能力迅速碾压的问题；要落到「这一类客户的这一类问题」。uSpot 就是给一类特定用户（一人公司）用的 CRM。他提到 agent.AI 曾是 AI 智能体市场，是他「偶然跟萨姆·奥特曼（Sam Altman）竞争」的故事之一。把创新项目放在核心业务里做，往往少了实验所需的自由度；必须先像创业公司一样甩掉组织包袱，需要时再借用 HubSpot 的品牌和分发建议。乔把这比作某种「低价收购星公司」，达梅什笑着说：不是免费，但是 included——是「免费」的那种免费。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">一人公司崛起：消费计价的信号，以及「AI 仍是软件」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">乔说，现在很容易把 AI 想得很负面，但一人公司的超级个性化 CRM 在过去几乎做不成。达梅什分享两组他事先知道、但没想到会强到这种程度的事实。第一，uSpot 与他以往的 HubSpot Next 项目不同，他很早就货币化，不为了覆盖成本，而是为了学习定价、货币化和人们如何给价值标价；让他惊讶的是，人们愿意在消费计价（consumption-based）模型上直接绑信用卡。就「愿意付钱」这一点，这是他这些年在 HubSpot 推出的项目里最成功的。第二，宏观信号：2025 年美国新注册公司数量创纪录，约 560 万、接近 600 万家；今年到 8 月已经超过 400 万，会是又一个纪录年，并非一次性脉冲后回落。更有意思的是，这些新公司里「预计将保持为一人公司」的比例是有记录以来最高且仍在上升。美国普查把新公司分成两类：未来两年预计会雇至少一名员工，以及预计不会；「两年内不太可能雇人」的这一桶现在超过 70%。他接着反驳「SaaS 末日」：AI 说到底就是软件。当年他们做营销软件时，几乎所有风投都说这个品类很久没出过公司，因为预算多花在广告牌上、很少花在创作工具上；他们的论点是，互联网会让营销变成软件擅长解决的那种问题。今天同样如此：AI 带来一整批以前不存在的新问题，能做的事情变多了，总机会比以往任何时候都大。有能动性、想做软件的人，现在就该上路。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s12">
+<div class="sum-top"><span class="sum-num">12</span><span class="sum-title">闪电轮：Dunkin&#x27;、Instinct、大象，以及 20 年来最好的日子就在上周</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">乔以闪电轮收尾。Dunkin&#x27; 还是星巴克？达梅什选 Dunkin&#x27;，但补充自己多年前已戒咖啡、只喝别的——乔打趣他是不是机器人。Agent 购物体验里 Instinct 还是 Muse？他选 Instinct。若必须变成一种动物？大象。HubSpot 最波士顿的一点是什么？「几乎所有地方」：务实、先为客户解决问题，他把公司看成西海岸最佳想象与东海岸务实的混合体。在 HubSpot 最好的一天？大约一周前，事情开始各就其位。乔惊讶：做了这么多年，最好的一天竟是上周。达梅什说，HubSpot 已有约 20 年，而他作为创业者，此刻是整个公司历史上最好玩的阶段，因为他同时站在好几个正在成形的世界里。乔称他是一代创业者、也很善良的思考者，两人约定下次再聊。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">乔·施密特（Joe Schmidt）<em>主持</em></span><span class="spk-1">达梅什·沙阿（Dharmesh Shah）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场：新操作系统与黄砖路之外的空间</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>ChatGPT 和 Claude Cowork。他们实际上就是新的操作系统。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>在前沿人工智能实验室竞相发展的道路之外，还有大量空间可以开发软件。从那以后，HubSpot一直很忙。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>真正有价值的东西是正在进行的工作。界面只是达到目的的手段。建立一个生态系统很像建立一个产品。你必须这样思考。我们有一个非常广泛的营销应用基础。我们选择做这一切的原因是，这是解决客户实际问题的唯一方式，客户的问题是他们被这种碎片化所吓倒。一切都没问题。我们必须在一个产品中做到这一切。当你最初构建 HubSpot 时所做的架构决策，是为了让人类能够导航所有这些信息。现在我们有了这些难以置信的强大模型，它们可以以非常不同的方式去查看事物。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>在了解我们现在处于这个人工智能世界之后，为未来20年的HubSpot我们需要什么样的框架？有几件<span class="tag">【音乐】</span>事情。第一是</p>
+<p>欢迎回到a16z播客。我是乔·施密特（Joe Schmidt），今天我们邀请到了HubSpot的联合创始人兼首席技术官达梅什·沙阿（Dharmesh Shah）。我们将在一次关于我在X上发表的《黄砖路》文章的交流中开始的对话中继续探讨。这个想法是，在Frontier AI实验室竞相发展的道路之外，还有很多空间可以开发软件。自那以后，HubSpot一直很忙。他们推出了uSpot，这是一个面向单人企业的CRM，并且他们一直在围绕代理重新构建自己的平台。今天，我们将讨论值得构建的东西，一个成熟的软件公司需要改变什么，以及当AI成为客户使用你产品的方式时会发生什么。Dharmesh，谢谢你。</p>
+<p>感谢你的加入。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>最好也是最坏的时代：抽象层跃升，建造者最好的窗口</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>谢谢你邀请我。嗨。是的，太兴奋了。明星阵容，你知道的，</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>勒布朗，你知道的，麦当娜，<span class="tag">【笑声】</span>，你知道，你有那种一个字的名字，你知道，就是一个字的名字。所以，非常，非常激动。对我来说，这是一场有趣的对话，因为我几个月前写了那篇文章，其实是响应硅谷那种虚无主义的“什么都无所谓”的感觉。我觉得这种情况实际上仍在继续。所以，在这个时期经营一家大型上市公司，一家成功的上市公司，一定很奇怪吧。感觉会怎样？我可能想先从市场情况聊起。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>是的，它在你手上的那本书里，是《最好的时代，最坏的时代》。这是最好的时代，因为你知道当你经历这种巨大变革时，会有所有的能量和兴奋。我想 HubSpot 现在已经 20 岁了。当公司刚成立时，公司的起源是这样的：哦，有一样新的东西叫做互联网，中小企业应该可以从中受益以推动增长之类的。但它们还没有，因为这太令人不知所措，而且工具都很分散，这就是 HubSpot 开始的地方。现在，快进 20 年，有一样新的东西叫做人工智能，我们认为中小企业会……</p>
+<p>企业本应从中受益，但它仍然让人感到害怕和无所谓。所以感觉就像是这种新型的复兴使命，针对相同的客户群，只是采用了新技术。另一方面，你知道，它确实会造成很多战争迷雾和不确定性，而我们作为团队在大多数情况下尽量专注于客户，无论市场如何，市场会有它的变化。我们有自己的论点，关于事情如何发展以及我们在押注什么，但我专注于积极的一面。我，你知道，我已经做商业软件超过30年了。真的，每天都在做。而这是最</p>
+<p>在建造东西方面，我玩得最开心。这真是作为一个建造者的美好时光。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>是的。不，我完全同意。而且真的很奇怪，这种认知是负面的，而实际上每件事都在正常运作。就像你从船上掉进水里一样，可能如果我们回过头去，我很想谈一谈那些形成性的经历，显然是关于Pyramid，然后当然还有HubSpot，以及你们是怎么到达那里的。我敢肯定当时人们也会说一些类似的话，比如‘现在构建软件变得容易多了，你们到底在做什么？’我很想听听你对可能的相似点和差异的评论。</p>
+<p>就像你实际上是如何建立公司以及你今天在新创公司中看到的情况。我会给你一个稍微书呆子的回答，因为我就是一个书呆子，我在软件行业已经待了很久，从很久以前的时代算起，大概150年前。但是，是的，软件开发的故事一直都是这种不断提高抽象层次的过程。比如我刚开始的时候，我们仍然使用机器语言，在大型机上运行这些东西。然后我们有了3G语言，有C和 C++，然后又有了4G语言。因此我们所做的事情是说，好吧，我们能否达到你脑海中任何表现的那个程度。</p>
+<p>无论你正在尝试解决什么问题，我们能不能让你更容易去做，对吧？所以那时真的非常非常难，然后它逐渐变得更容易了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>在这个过程中我们经历了一些跳跃，比如你知道的抽象层次的非线性增长，但从根本上说，让我对人工智能感到兴奋的就是它为我们提供了一套在更高抽象层次上工作的全新工具，这就是发生变化的地方。在我看来，问题依然是人类和企业正在面对的那些问题，但现在我们拥有了一套更好的工具。我有一种偏向于软件的视角，那是我的专长。所以在某种程度上，这在本质上是相同的。我们这里会稍微偏离一下话题，因为其中一个...</p>
+<p>最近发生的事情是</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>你知道我们有开发模型</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>哦，是的，你知道的，由 TypeSafe 那些人发布的</p>
+<p>而真正把它带回来的核心，是像“哦，这实际上只是软件”，而我们正在开发的另一种维度，不是变压器，但实际上有点在开拓，而这就是它的作用——我们只是把更多的工具放进建设者的工具箱中，并且扩展谁可以成为建设者的范围，这也很棒。但很多东西仍然是一样的。我们仍然在处理类似的问题，只是能够在更高层次的抽象上工作，这很不错。我认为这是一个很好的时间的原因之一，总是做创业的好时机，但现在是一个做创业的</p>
+<p>创业公司的好处是，因为我们工作在如此高的抽象层次上，人工智能让你能够更快地迭代。哦，是的。所以你可以学习那些可能需要六个月、一年或两年才能学到的经验。就像，好吧，尝试一下，知道吗，构建一些东西，把它推出去，用实际的用户和客户来测试，看看会发生什么。而这在以前是不可能的。所以，是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>哦天哪。我完全同意你的看法，我真希望你能看到，你知道，我们在我们的风险投资公司这里正在构建的所有东西，对吧？我的意思是，甚至亲自站在前线也是非常有趣的。实际上，这也引出了我想和你讨论的一个问题，就是我认为从历史上来看，尤其是如果你看看你所建立的企业，你会发现你会从一些非常狭窄的产品领域开始，为非常有限类型的客户服务。你是如何观察到，在这个快速迭代的过程中，以及能够以更快的速度创造更多软件、构建更多东西的能力下，这种情况发生了怎样的变化的？我很想听你谈谈这个问题。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>怎么挑创业想法：别拿人口普查做乘法，先收窄再学</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>关于那一点点</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>是的，我觉得这个，你知道，我已经直接或间接地在初创企业领域待了很长时间了。我仍然认为自己是一个初创企业的人。选择一个想法一直是最困难的事情之一，尤其是对于那些没有经历过的第一次创业的人。即使现在，经过30年，我觉得自己在这方面也只是比以前稍微好一点。但我认为，企业家在选择想法时常犯的一个共同错误是，他们认为这是一个需要严格分析的问题，他们会做一个18栏的电子表格来给我所有的……</p>
+<p>系数出来后，它会给你最好的可能的想法。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>是的。我见过美国人口普查文件的次数很多。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>是的，正好像有 18,000 家律师事务所。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>这不相关。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>是的，然后只是，我的经历，不只是我，这不仅仅是一个人的数据点，甚至你知道和其他创始人交谈后会发现，几乎不可能知道一个想法的优先级，所谓的想法质量，或者它的成功概率，或者结果会是什么样子，而测试一个想法的唯一真正方法就是实际去测试它。即使你成功了，最终你成功的那件事通常，或者大多数情况下，并不会像你最初开始的原始想法那样。对吧？所以人们现在认为的，那是一个成功的企业，实际上过程是这样的。</p>
+<p>有时候它看起来不像，你知道，有一些相似的地方，也许，你知道，原始概念的基因库仍然存在，但它是不同的。所以，这种思维的副产品是，由于你不太可能知道某个想法或一组你可能正在探索的想法是否会好，那么聪明的做法就是尽快把想法提出，并尽快了解这是否是一个好主意，或者我是否应该去追求其他东西。嗯</p>
+<p>所以我认为这在今天仍然适用。好吧，除非再次回到那种人工智能的观点，我们现在可以更快地迭代。有一件事仍然很难，我甚至会说现在可能比以前更难，那就是分发，对吧？但那是因为现在构建软件要容易得多，更多的人会去做。所以会有更多的选择，也会很难去突破噪音，与客户取得联系。你知道，我非常相信的一件事就是从一开始就……我绝不是唯一一个这么说的人，但在早期阶段缩小视角是很重要的。</p>
+<p>某种程度上的专注因为那会增加你知道的，你有机会完成、学习，你知道的。创业者犯的第二个错误是，他们觉得自己需要从一个巨大的总可寻址市场（TAM）开始，就像‘哦，这可以是一个百亿美元的业务’。这很好，你有这样的雄心和愿景，认为这可以达到100亿美元，但告诉我你在前30天打算做什么。你真正要做的事情是什么？先赚到第一个1美元收入，然后再去实现100美元。</p>
+<p>对我来说，即使是现在，当我在探索新的想法时，无论是在 HubSpot 内部的新创部门 HubSpot Next 还是在核心平台内部的新想法上，我都会觉得是在缩小视野的范围。我们能不能以某种方式做到，我认为最终获胜的人是那些迭代时间最短、学习成本最低的人。所以，如果你能缩短这个循环，并以较低的成本学习到未来会出现的各种经验教训，最终你平均而言会取得胜利。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>是的。不，我仍然认为，这一刻对于有高度主动性的人来说是最好的时刻。现实情况是，是的，现在开发软件要容易得多，但也只有那么多人，会在下午10:45独自坐着，当我们在周六晚上交换邮件时，你不会去入侵他们的电脑去做那个人的事情，去构建一些很酷的东西。我想回到我在HubSpot开始时所信奉的东西</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>从「律师所产品」到 HubSpot：在企业与消费之间押注 SMB</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>如果我说错了请纠正我，一个合法的产品。也许那里曾经有一个合法的产品，而且不知怎么地，现在已经变成了为中小型企业服务的CRM。我是说，你们把这个切入点扩展成现在的样子，简直令人难以置信。我很想听听你们是如何考虑的，你们当然是从中小企业市场切入起步等等，但我很想听听你们是如何从那一步扩展到平台的。</p>
+<p>是的。所以，当我们刚开始的时候，你知道，我们还在商学院，这也是我和我的联合创始人在东海岸第一次相遇的地方。我们最初关注的是中小企业市场的美好之处。这个市场相对被忽视。我给你讲个简短的故事，因为挺有意思的。我们俩之前都在软件行业工作了很长时间。你主要是在市场和销售方面，我主要是在产品开发和工程方面。我们俩都做过企业软件，所以对这方面有一定了解。企业软件的挑战就是它完全不有趣。作为初创企业的创业者，销售周期是……</p>
+<p>很长。你会有收入集中。你有一小部分客户在某种程度上影响你的产品路线图和愿景等等。然后所以那样</p>
+<p>所以就是这样。从另一个方面来看，你有消费市场，对吧？软件领域的消费公司。消费市场的问题在于，它们中很多有非常两极化的结果，也就是说，如果你成功了，结果将是巨大的，而且很多时候，你是在做某种广告补贴或者想办法通过其他方式盈利，因为你实际上无法真正为产品收费，因为你没有大批量的客户。中小企业的美妙之处就在于，从纯粹的市场分析角度来看，当时在商学院的两个家伙会觉得哦，中小企业有企业级市场的美丽之处，即你实际上可以……</p>
+<p>为你正在解决的问题收费。收费本身没什么问题，但它有一个消费者规模，你不会有这种收入集中度。你可以拥有成千上万、数十万甚至数百万的客户。所以你基本上可以同时拥有两者的优点，对吧？这就是我们最初的想法，比如，如果我们要做一个创业公司，那么我们最初带到 MIT 50K 比赛的想法就是：面向小型企业的 ERP 软件，就像一个小型企业的甲骨文。</p>
+<p>而回到缩小视角的方式，好吧，这似乎是件有趣的事情，因为你知道我们正在从客户端-服务器向网络过渡，就像有人应该为小企业创建一个类似 Oracle 的系统，所有东西都整合在一起，协同工作，专门为中小企业构建。当我们去参加商业计划竞赛时，我们说那太大了，让我们缩小视角，叫它 Legal Spot，HubSpot 公司的名字已经存在了，但我们写商业计划的目的纯粹是为了早期测试市场，就是说让我们专注于为律师事务所提供 ERP 系统。</p>
+<p>就像很狭窄的，你知道的，回到你最初的行为，好像有，你知道的，所有美国人口普查局的东西，哦，外面有很多，我们可以用 x 乘以 y，而且这就成了很棒的商学院那种电子表格和幻灯片演示文稿</p>
+<p>所以我们做了那个，你知道，我们有一种试水的倾向。我们很早就学到一件事，就是当我们还在业务中，研究 HubSpot 的想法时，发现那不是一个有趣的市场去销售。当我们与律师事务所交谈，并谈论 ERP 以及解决方案可能是什么时，市场营销和网站所有部分对他们来说是最有趣的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>是啊。他们就像，‘等一下，等等。你能帮我找到更多客户吗？’</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>完全正确。是的。我当时就想，“我们有时间跟踪这些东西，其实并不重要。你能帮我找到更多理想的客户之类的吗？”于是我们大概就剩下这两个想法：哦，我们是继续针对中小企业的ERP，还是做针对中小企业的营销。我们差点掷硬币决定。我们差点真的这么做了，但没有，我们稍微更慎重一点。我们确实从一小部分数据点推导出来，但结果就是人生短暂。事实证明，律师是第二难销售的市场，软件开发者是最难的市场。这就像</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>60% 的付费客户没用 CRM：做成免费，并用一体化消灭碎片</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>所以现在我们正在，你知道，导航中小企业那种营销产品。当然，那随后会转变为，你知道，更像是一个平台和完整的CRM。从第一天起，这就是经过深思熟虑的吗？我之所以这么问，是因为我认为外面有很多人可能正在使用一些新的人工智能媒介，无论是你知道，通常早期是语音产品，我实际上仍然认为这是很多人巨大的机会。我相信你们在HubSpot也在探索这个。或者可能有某种支持类型的聊天，你知道，界面</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>每个人都总是想成为任何使用场景的中心，对吧？所以也许可以谈谈你是如何在那个产品旅程中导航，并创建合适的循环，从最初的切入点逐步发展成更大的平台。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>是的。所以我们一开始是作为一套营销应用程序开始的，回答你第一个问题，在那个时间点，我们并没有想过有一天会成为一个CRM平台，这并不在我们的任何PPT演示文稿中。不是的，所以是的，我们当时没有这个想法。但随着公司的发展，我们逐渐演变，这可能对HubSpot来说有点特殊，但我不这么认为。我觉得即使在CRM之外，这种模式仍然存在。你会有第二个产品的需求，对吧？比如第二个产品角色，或者人们通常会怎么说。然后我们就达到了那个阶段。所以有几件事情是同时发生的。</p>
+<p>我们从事的是营销软件业务，我们所意识到的一件事是，做营销软件业务实际上与销售和客户关系管理（CRM）非常接近，这是一个相邻的类别，所以这在逻辑上是合理的。我们学到的另一件事是，当我们拥有了一些客户之后，我们对客户进行了调查，这大约是在公司上市前几年，也就是公司成立五六年后，我们想了解他们使用的是哪种CRM。我们发现有20%的客户使用Salesforce.com，另外20%的客户使用的是除Salesforce.com以外的其他CRM。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>是的，但有60%的人根本没有使用CRM。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>这对我们来说简直疯狂。就像，等一下。你们在使用HubSpot软件，正在支付我们的钱。所以这些并不是随便的公司。这些是支付我们钱来获取潜在客户的人。这些潜在客户发生了什么？如果它们不在你放置的地方，会怎么样？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>所以，我们大概确定的事情是，好吧，那就这样吧</p>
+<p>像这些公司应该使用 CRM。所以，你知道，我和我的联合创始人都是非常奇怪且思想简单的。就像，好吧，他们为什么不使用 CRM 呢？类别已经存在，事实并非如此，而且有一些很棒的公司拥有优秀的产品。最后我们得出的结论是，哦，好吧，这太让人不知所措了。他们只是被 CRM 的概念吓到了。太贵了。他们认为启动一个 CRM 要花太多钱。所以我们做出了决定，这是一个不错的相关事情。无论如何，我们需要第二个产品，在时间的完整过程中现有的 CRM 有战略价值。</p>
+<p>玩家很可能会进入营销领域，即使我们想要继续停留在营销软件类别，也不太可能永远做到，对吧？所以所有这些事情大约在同一时间汇聚在一起。因此，当我们推出CRM时，我们在某种程度上解决了这两个问题。就是说，好吧，我们要构建一个CRM，并且要解决那60%的问题，对于那些还没有选择CRM的人来说，为什么他们还没有选择呢？太难了。好吧，让我们做一个有史以来最容易使用的CRM。当时，我们专注于中小企业，所以这本身就是一个核心优势。而且我们……</p>
+<p>我们打算把“太贵了”这个因素排除掉，因为我们打算免费提供它。</p>
+<p>不是高端的，是免费的。就像，好吧，这就是HubSpot的某种理念：在尝试获取价值之前先创造客户价值。就像，如果你能推出一些有用的东西，我们显然可以用我们已有的营销软件业务来补贴它。但这就是理念。就是，好吧，我们已经消除了障碍，然后就是让我们去做，然后在迭代的过程中，我们逐渐明白，要在CRM领域取得成功，它需要是一个平台。不能仅仅是CRM，因为CRM几乎从定义上来说现在就是这样。</p>
+<p>即便如此，它们也是平台。所以，那段旅程只是从产品一到产品二，再扩展到一个战略性的相关领域。但还有一点，我认为这对正在听的创业者也很有启发，那就是尽你所能去解决整个客户的问题——无论你如何定义它，无论你围出什么圈，这都是我们真正要解决的问题。所以，即便在 HubSpot 刚起步时，我们也有一个非常广泛的营销应用基础，这与所有你会得到的建议以及我自己给出的建议相悖，那就是专注做好一件事。但我们做了所有事情。因此我们有内容管理和</p>
+<p>SEO、着陆页、表单或其他什么，他们都是各自领域中拥有优秀产品的优秀公司。我们决定全都做的原因是，解决客户实际问题的唯一方式，就是他们被这种碎片化吓到了。一切都还好。我们必须在一个产品中全部实现。所以我们在过去20年里一直坚持这个理念，现在仍然如此。问题是，我们真正要解决的实际问题是什么？这很有趣，因为我认为你知道，事后看来，每个人总是谈论，好吧，从市场进入策略的角度，有所谓的棕地方法，如果你去追求……</p>
+<p>所有这些已经在每个核心系统上的人，你把它拆掉再替换，希望你正好处在这样的一个周期中，每个人都愿意重新考虑这个问题，或者你攻占一片新领域，尝试赢得所有从未使用过软件的新业务。我认为对HubSpot的标准想法是，哦，其实从一开始就非常周到，让你知道，让我们去新领域。现实情况是，其实不是的，我们所有的客户只是以前没有这个，我们就去构建它，如果按这个顺序做也完全没问题，如果你做得好，你仍然可以成为一个巨大的公司。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>建造开发者信任的生态：当自己曾渴望却得不到的那种平台</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>有趣。你是如何思考的，你知道，这其中的另一个部分是，你知道，围绕最初的产品建立正确的生态系统，对吧？我认为这是HubSpot做得非常出色的一件事。也许可以分享一下从早期建立生态系统中得到的关键经验教训；而现在，你的角色已经大不相同，你能够以不同的方式做很多事情。我很想听你谈谈这个话题，还有人工智能的出现如何影响生态系统。</p>
+<p>是的。而且在你知道的大部分职业生涯中，我一直是平台和生态系统的使用者。所以我有点了解双方的情况，这并不是对当时或现在任何现有平台的贬低。但平台和生态系统往往会发生这样的情况：平台提供者一开始会试图吸引开发者生态系统，让人们开发应用或者建设某种增值核心平台的公司。但随着时间的推移，最终发生的事情是，无论是有意还是无意，他们都会对这些开发者产生压制。他们会封闭一些东西，或者关闭...</p>
+<p>我们看到这个，我可以说，我们可以把这个当作故事来谈，这个故事现在已经有15多年了，就像推特在早期有过这样的情况，对吧，他们最初的推特是一个非常开放的生态系统。是一个平台，我们字面意思上看到成千上万的花朵在那时候绽放。很多推特客户端被开发出来，很多人，你知道的，在原有的API基础上开发了产品和公司。这不仅仅是推特独有的，只是现在最先想到的例子而已。但是后来他们逐渐关闭了它，从开发者不友好到几乎对开发者敌对，对吧？所以我认为，其中一件事情是，这有助于我们建设生态系统。</p>
+<p>我们有点把这些经验教训牢记在心，这意味着，好吧，让我们成为那个我们希望在自己还在做一些非常激进的事情的时候就已经存在的平台，比如说，让我们成为那种类似 HubSpot 品牌的角色，友好、讨人喜欢。我们是赤血资本主义者，我们喜欢把自己看作是热心的赤血资本主义者，好吧，每个人都是来赚钱的，这就是我们在做的事情。我们也尽量对我们的合作伙伴保持透明，尽可能做到开诚布公，例如，好吧，这些事情我们不能向你承诺我们不会做，但这里是我们会做的事情。</p>
+<p>如果我们在寻找白色空间，如果我们是你，这些事情我们会做的类型，我们认为有机会的事情，你知道，我们很不可能进入那个领域，而这很有效，所以我们已经在一大群人中建立了信任。然后其中一些只是你知道，建立一个生态系统很像建立一个产品，你必须以那种方式去考虑，也就是说，作为一个开发者，从本质上来说，就是像我们以核心客户的价值时间去思考一样，我们必须考虑开发者的快乐时间，一个人多快能到达“哦，我弄好了某些东西”的状态</p>
+<p>HubSpot API 哦，我赚到了我的第一美元，你知道的，在 HubSpot 生态系统内使用 HubSpot 工作，不管那是什么。我们能压缩这个吗？我们能减少喜悦的时间吗，你知道的，对于那一类客户，是的，所以</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>避开黄砖路：看公司而不只看产品，模型正在变成基础设施</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>不是完全否定，也不是不祝贺你们建立了如此繁荣的生态系统。也许现在只是稍微过渡一下，进入我们之前讨论的那篇文章和围绕它的对话。我很想听听你如何看待你可能关心的，关于实验室正在追求的工作流程的事情。当然，HubSpot体验内部还有很多事情，我认为那些横向产品正试图整合进去。以及你如何看待你想要防守的领域，以及在哪里可以建立最持久的价值。我很想听听你对此的评论。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>是的，有几个想法。首先我要以一个非常非常有偏见的观点开场，鉴于我是HubSpot的联合创始人兼首席技术官，</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>那并不一定意味着我错了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>所以有一些想法。其中一个是广泛地讨论，然后我们可以集中在一些具体的事情上。就是你知道，对于外面的人来说，好像感觉就是，这是你的黄色砖路，我很喜欢这篇文章，这个想法和比喻非常贴切，就像有一条经过精心铺设、闪闪发亮的道路，指向翡翠城或者其他地方，你怎么可能不想走下去呢？当时感觉很空虚，对吧，但你不知道的是，有一队坦克正沿着那条路驶来，而且速度越来越快。这并不是说他们甚至……</p>
+<p>慢，因为他们发明了这个新东西，让他们甚至变得更快。</p>
+<p>所以，这就是你文章的一个前提，我完全赞同，就是他们确实会沿着那条路前进。而那条路确实很光鲜，很诱人，因此才有了万亿美元的估值和即将到来的市值。但是，在那之外还有很多机会。所以，我是那种喜欢框架的人，这里有一个错误，我认为企业家在这两方面都会犯。一方面是当他们忽视它时，他们会说，哦，ChatGPT 做不到这个，Claude Cowork做不到那个，那么我们来做这个，我们来填补这个空白。而这些就是让我感到担忧的想法，因为……</p>
+<p>我认为这种想法有两点有些误导。第一点是，如果你只需在后面加上‘还’这个词，它仍然站得住脚，那就是一个问题。就像，“哦，Chad GPD 还做不到这个。”这说得通吗？如果在某种程度上说得通，那就好吧，这确实是一个问题。这是第一点。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>第二件事是我认为的衡量产品而非公司的方式。就像，哦，</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>聊天 GPT 做不到那件事。就像，好的，但 OpenAI 这家公司能做到吗？可能吧，你知道，也许这是一个新产品，或者新的产品线什么的。你得想清楚那条路有多宽，？就像，好的，也许路本身在变宽。好吧。那也许要避开这条路，但可能也要稍微待在外面一点，就像，好的，如果其他条件相同，你可以离得再远一点。即使当他们扩展时，如果可以预见也是有点规律的。所以第一件事就是要确保，然后，要么选择那些前沿模型公司已经拥有的东西，要么……</p>
+<p>结构性约束，他们在监管方面就是做不了，无论是什么，或者有我所认为的激励约束。是的，他们可以做到，</p>
+<p>但是他们那样做的可能性真的非常非常低，因为我就以 HubSpot 作为例子。假设任何一种前沿模型公司，我就挑 Sam Altman 说吧，因为我是 OpenAI 的投资人，也认识 Sam。就像他明天可能就会醒来说，那个 CRM 行业看起来非常诱人，而且 HubSpot 的收入有三十多亿美元，我们要把把那收入变成我们的使命，或者让公司内的某个人的使命去获取那收入。他们够聪明吗？是的。他们有野心吗？是的。但是正是这种野心，使得 OpenAI 的团队、Sam 或任何人这样做的可能性极低，情况也是一样的。</p>
+<p>对于 Anthropic 或任何前沿模型公司来说，他们不太可能那样做。但那正是要做到这一点所需要的。我的论点有点回到一个问题：你如何找到那些在黄砖路之外的机会点？我们可以确定的一件事是，前沿模型公司已经投资了数千亿美元进行预训练，正如你所知道的那样。因此，他们现在的整个业务实际上就是利用他们已经花费的资本支出以及持续投入的资金，来思考我们如何销售推理服务，如何销售代币，如何变现我们所构建的东西？是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>太棒了。这是一个古老的故事，他们有两个选择。比如，一个选择是他们可以说，哦，我们只是直接向地球上的每一个人出售代币，他们将通过消费者产品来做到这一点，他们会做到，甚至在高端市场，他们会说，好吧，我们将直接面向《财富》500强的摩根大通出售代币，因为我们要出售给他们，不需要中间人，我们会有一支全职员工的团队来帮我们做到这一点。这当然是一条路，他们也正在沿着这条路前进。另一种可能的路径是，好吧，有，你知道的软件即服务（SaaS）公司和产品以及公司，并且</p>
+<p>初创公司或其他什么企业，如果他们了解自己的特定领域，了解自己的市场，有一定的分销渠道，或者有一些东西可以让他们销售代币并成为推理的转售商，用一个不太合适的术语来说。就好像，好吧，而且他们实际上不必非此即彼，他们可以两者兼顾，他们可以说，哦，对于这些类型的事情，对于消费者，我们想自己拥有，不希望别人做类似于聊天GPT的东西，我们要自己掌控。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>但是将会有很多机会可以说，好吧，把人工智能看作基础设施，就像我们在十五年前把 AWS 和云计算看作基础设施一样</p>
+<p>这完全是一样的事情，就像……作为创业者，我再次声明我有偏见，但并非错误。我觉得现在在人工智能领域及其周边建设，比2023年更不那么可怕。我之所以这么说，是因为在2023年，我对商业有很少的规则。第一条是永远不要拥有餐厅。第二条是永远不要做房东并收取租金。第三条是永远不要和 Sam Altman竞争，我不小心有几次违反了这个规则。但现实情况是，如果回到2023年那个时候，如果我是一个……</p>
+<p>对于那个押注的人，我本来会说他们只是太远了，就像他们已经搞明白了某种魔法灵药之类的东西一样。我完全不知道是否有人最终能够真正解决它，并能够拉动包括必要的资本支出在内的所有事情。幸运的是，我在这点上错了。你知道，从创业者和生态系统的角度来看，幸运的是，因为现在的情况是，这些模型——我不会说它们是商品——但它们的一个优点是，它们如此普遍，因此它们就是基础设施，并且从定价上，它们将趋于</p>
+<p>从角度上，甚至从可替代性角度来看。目前，你知道的，像 OpenRouter 这样的东西存在，是因为很容易互换模型，甚至在 HubSpot 内部，大多数 SaaS 公司都在进行某种形式的用例分解和模型路由，以找出哪个模型最适合这项任务。由此产生的副产品是，你可以随意更换所需的内容。因此，没有太多理由感到害怕，因为你并不拥有这种供应链的控制力，即某家公司掌控着你构建产品和解决问题所需的关键成分。目前我们没有这种情况。我们是开放的</p>
+<p>来源。我们有很多很棒的商业产品。所以只要你远离黄色砖路，现在完全有可能你不会因为保证金问题被迫退出或者其他原因，因为你有选择。不只是一个公司提供建立 AI 原生公司所需的关键成分。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>不，完全是这样。我认为你触及到的另一个方面是，当然，如果有足够的专注力，这是没问题的，但同时，无论你是初创公司还是 HubSpot，或者其他公司，如果你不是在构建基础模型，你实际上仍然是在构建高质量的软件。我认为这是你追求的那个层次，用来为客户提供价值。当然，现在还有所有这些其他很棒的基础设施组件，你可以打包起来，然后提供给那些客户。至少我是这样思考的，当然我在这方面也有争论。</p>
+<p>论文就像你知道的那样，有循环，有测试，有一些你可以做的事情来尝试识别这些环节，但希望你在这一层构建某种、你知道的、规模报酬递增或复利优势。所以我很想听听你如何看待这件事，你知道，HubSpot 或你正在做的任何事情，以及它们与您试图在这些产品中构建的循环或你试图建立的优势的关系。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>ChatGPT 是新操作系统：界面是手段，别用推理去代替查询</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>是的，这是一个不断累积循环的过程，乔。当然，这就是整个游戏的名称。AI 之前，AI 之后，但我会说几件事。所以我要倒回去。我在堆栈上推了一个想法，现在我要把它弹出来，然后讲解一下。就是这样，你知道，我们收到的一个问题是，如果你是一个企业家在评估这些想法，比如，好吧，今天是 OpenAI 的开发者日，顺便说一下，是 9 月 30 日。所以，就在我们这次通话之前，你还没来得及看录音。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>那是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>我说我们是在为观众录制这段录像的时间。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>所以，你现在知道有时间戳了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>完全正确。你确切地知道这是在什么时候录制的。所以，HubSpot 推出了我们的——我们是第一家这样做的 CRM 公司——一年多前推出了与 ChatGPT 的连接器，我们还有一个为 Anthropic 的。我们有时会收到的问题之一是，比如说，这难道不会削弱 HubSpot 的长期价值吗？就像，如果每个人都是通过 Chatbot 或通过 Cloud Co-Work 之类的方式进入的，这不就像是在侵蚀长期价值吗？我理解这种想法，我的反驳是，界面很重要，但其重要程度不同，这是有一个范围的。</p>
+<p>比如说，我随便举一个例子，假设我们把它看作一个光谱。比如说你看看像Uber Eats或DoorDash这样的东西，对吧？它们有非常吸引人的应用程序，但问题是，应用程序本身其实是微不足道的。真正有价值的是它们拥有的网络、餐厅的合作关系等等。这样司机就可以出现，取餐并送达，这是物流相关的所有环节。那才是真正的价值所在，也是很难被替代的部分。还有一些东西，其界面就是产品的全部，对吧？就是全部。如果没有界面，就没有价值。然后，我</p>
+<p>我认为大多数商业应用实际上更像是 Uber Eats 之类的东西，对吧？不是说它们像 Uber Eats 和 Door Dash 那样有网络效应，而是说真正有价值的是正在进行的工作。界面只是达到目的的一种手段。嗯。</p>
+<p>界面对 HubSpot 重要的唯一原因是因为市场人员和销售人员试图完成某些工作或实现特定的结果，而界面是手段，但在他们与计算机交流以及人工智能出现之前。HubSpot 的著名之处在于，我们理解你试图完成的问题，并且实际上我们已经构建了一个非常简单的界面来帮助你实现目标，但这并不是全部的价值。现在有人可能会争论 HubSpot 处在什么范围内，但我可以保证，它并不属于“界面占 99% 价值”的情况，因此我的观点是，在</p>
+<p>同样，你知道你什么都知道这种感觉会再次回来的时候是，当我们看到最初的SAS开发转向基于网络的应用程序世界时，我们经历了类似的事情。就像，好吧，我们有客户机服务器应用程序，你知道，以前在我们的桌面上运行，然后我们有了浏览器的出现，比如Internet Explorer，后来还有Mozilla，你们都知道吧。然后就是，好吧，现在我的软件运行在浏览器里面，但事实证明，谷歌并没有拥有整个应用程序栈，当时有大量的软件公司被建立起来，就像……</p>
+<p>哦，界面变成了浏览器，因为这是一个方便的方式来访问你实际需要的那种产品。使用浏览器比在你知道的 1900 万台电脑上安装东西要好。我们现在也有类似的东西，但有所不同，对吗，因为 AI 在做工作。它在做真正聪明的事情。它们可以做更多的事情。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>但是如果你只是看看那种聊天</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>它们就是新的浏览器，就像人们在消费价值的方式将会发生变化，而且会有像 HubSpot 这样的公司能够接入进来，这就是我们从开发者日看到的情况，你知道的，我们去年也看到了，并且我们继续看到，就像，哦，他们将会增加在 Chat GPT 中可用内容的丰富性。他们推出了一个，你知道的，这种面向人们的市场，让人们可以接入到插件架构中，所有这些对我来说都是完全合理的。所以，我的基本理念，我认为对大多数至少在 B2B 世界里的人来说是成立的就是</p>
+<p>比如，不要过度思考界面，要弄清楚实现客户期望结果的最佳方式，然后另一点，你知道你能带来的价值是关于经济上的最佳方式，最低延迟的方式，最低摩擦的方式来实现这些结果。通常，像大语言模型在很多很多方面都非常非常擅长。这是我们人类历史上最杰出的技术。但我曾经公开说过的一件事是，任何可以通过结构化查询确定性地解决的问题，就用结构化查询确定性地解决。</p>
+<p>不要用推理去解决查询本可以解决的事情。这没有任何意义。所以即使数据在那里，也就像，哦，</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>如果你的问题是我们从爱尔兰获得了多少客户或收入，</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>你不应该需要翻查800万条Slack消息和电子邮件或其他东西来推断答案。是的，数据可能确实存在某个地方。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>但那应该是一个数据库查询，而不应该是你知道的，通过推理解决并扔一个300智商的模型去处理。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>不，完全是。而且我我我认为我认为有许多公司正在努力应对这一点，因为他们试图理解自己的定价和消费理念，这本身可能就是一个该死的播客，我觉得也是。也许这是关于这个的最后一个问题，因为我觉得你谈论这个真的很有趣</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>为 AI 重思原语，并用 AI 回放 20 年的架构选择</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>当你最初构建 HubSpot 时所做的架构决策，可能是在事后看来我们会受益的那些——我不知道你会如何重新考虑它们。我非常好奇想听听你是如何看待这个问题的，因为当然，你最初设计它的方式，是为了让人类能够导航所有这些信息，并以一种对人类直观的方式来存储它们。而现在我们有了这些令人难以置信的强大模型，它们可以以非常不同的方式来看待这些东西。所以我不知道你是如何看待可能希望从不同方式开始的方式，或者可能你现在正在采取什么措施来解决这个问题。</p>
+<p>作为HubSpot的一名高管。</p>
+<p>是的，有几件事。一是你知道的，我是一个受过经典训练的计算机科学软件开发宅男，一直都是这样，我特别相信的一件事是关于大型软件应用的概念，是关于框架，以及从一组原语开始，你会随着时间演变它们，因为这就是能给你带来回报的东西，又回到复利和杠杆的概念。我在每一家公司学习到的事情之一是，如果你能把这些核心原语做好，那么你最终做的就是不断重新混合和重新组合这些原语。</p>
+<p>基于市场如何发展以及产品如何发展的新颖方式。自始至终，这一点在HubSpot都是成立的，对吧？所以我们建立的东西是，我们有一个核心的操作系统或操作框架，我们在此基础上构建了营销自动化之类的东西。所以当我们进入产品2、3、4或其他版本时，我们需要带到市场的大部分价值已经以原始形式存在，比如说我们从营销自动化开始，也就是这是一个确定性的工作流程来做营销，比如发送电子邮件，等待三天，看他们是否点击，就像是，当我们进入销售时也是如此。</p>
+<p>而CRM就像是，我们的营销自动化原型实际上是一个原型，我们可以重用所有这些技术，这样我们在销售自动化应用或产品的第一天就可能拥有比其他人经过几年才能达到的更多功能，对吧？所以这部分我认为仍然是成立的。所以我们现在要做的是说，好吧，现在我们需要什么样的框架来支撑未来20年的HubSpot，同时我们知道我们有了这个AI世界。所以你提到的一个问题是，哦，数据不再只是存储在关系型数据存储中的结构化数据或其他东西，这在你进行确定性查询时是有意义的。</p>
+<p>现在它包含了结构化和非结构化数据，并且并不是说这些数据在组织内部甚至在我们客户的组织内部不存在。只不过以前你无法用它做任何有意义的事情。实际上大约十年前，不管付多少钱都做不到，但现在你可以了。所以现在我们重新审视这些基本元素，说好吧，我们仍然需要一个结构化数据存储。我很乐意与任何想讨论的人辩论这个问题：无论是关系型数据库还是其他什么，都需要有某种持久机制来存储已知的事实和数据，或者说某种记录系统，它需要与这种系统并行存在。</p>
+<p>把它看作是一个上下文系统，即这些非结构化数据，这就是我们正在构建的东西。我认为它的发展方式是这种概念，我使用这个术语，其他人也使用，比如第二大脑或者开放式的</p>
+<p>我们能否把所有正在发生的事情，以及可能合乎逻辑的那种结构，放在一起，这种结构可能是一种图结构？我们能否将其存储在某种上下文图中？这是另一个被使用过的术语，这就是这个想法。就是像这样：嗯，我们能否把这个拿出来，然后结合结构化数据存储使用，从而进行推理，驱动代理，推动结果，并完成工作。所以在人工智能方面有一件有趣的事情，你没有问这个问题，但在我们聊天的时候我突然想到，那就是现在代理式编程的其中一个真正美妙之处，尤其是对……非常适用。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>实际上对于在职人员来说更真实的是，是的，它确实让我们能够更快地开发软件。我们可以更快地测试想法，这是我们之前讨论过的，构建产品也更快，这一切都很棒。我们从中受益。但你还能做的另一件事是，你实际上可以深入做一些较大的项目，这些项目你可能原本不会考虑。所以现在可能的情况是，你知道，我们有一个代码的记录系统，大多数人使用的是 GitHub。想象一下，你说，好吧，我现在有类似 Fable 5.1 或现在发布的 6 Astra 或者 6.1。然后想象一下，你说，好吧，我希望年轻的我曾经做过</p>
+<p>当谈到如果我能够回到过去，我会如何做这些选择时，这就是我会如何做那些原语，或者我会把这个作为一个原语引入，这是一个可重用的服务，相比之下，因为那时我们并不知道，但理论上我们现在有点明白，其实现在可以说，我想要，我想要重现那个，我想拿这段用这个数据结构、这个语言、这个框架、这个架构所写的代码，然后会发生什么，如果我们说我们要花20万美元买代币来重新做一遍，基本上只是重放它，就像你知道的无限可能宇宙的事情，或者让我们跳到</p>
+<p>宇宙的那个分支中，我们做出了不同的选择，然后看看会发生什么，我们最终会到哪里。你知道，像 HubSpot 这样的公司有一个优势，就是我们有过去人们称为单元测试的东西，现在表现为评估（eval）。我们是否真的可以衡量我们刚做的事情的可行性，它是否仍然通过测试，是否仍然产生结果，是否仍然完成所有需要做的事情？现在我们有这个。所以我们现在确实运行这个测试，当新模型出现时，我们会说，好吧，我们可以在新模型上运行我们的一系列评估，然后说，好吧，这里有一个权衡，这里是经济价值，比如我们损失了大约 3% 的质量点，但我们</p>
+<p>在延迟或经济方面获得这么多收益。我们也可以用相同的方法来测试这些理论，比如说，如果我们把整个东西用 Rust 重写，我就是在做这个</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>它会是什么样子？实际情况会怎样，你现在可以用小规模的作品来测试一下。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>无论如何，这很令人兴奋。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>我认为这是一个非常吸引人的话题。我写过另一篇文章，我想大概是在我写《黄色书之路》的同一时间，也许稍早一些，其实我用Workday作为这个方面的例子，就是说，你必须从头开始思考如何成为AI原生，以及你拥有的所有优势，但也有所有的劣势。所以，你知道，HubSpot的好处几乎在于它拥有一位令人惊叹的创始人，他仍然非常非常参与公司的事务，当然还在经营业务并推动这些变革。因此，我非常喜欢这个试图思考的例子。</p>
+<p>这些就像你可以拥有的平行宇宙。你是否在尝试在 HubSpot 内创建其他流程，或者在 HubSpot 内创建团队，或者正在破除官僚主义？我只是好奇想听听你作为创始人现在在做什么。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>HubSpot Next 与 uSpot：公司里的创业公司必须有自由度</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>是的。所以我们在 HubSpot 内有一个名为 HubSpot Next 的团队，其理念是它实际上是一个创新实验室。可以说，它是创业公司中的创业团队。因此，在任何特定时间，我们可能会有若干这样的项目在进行。我们的动机是真正把它当作一个创业公司来看待，我们在构建 CRM 时也采用了类似的方式。就是，‘好了，我们要构建这个 CRM 项目。’然后有人会说，‘等等，那是什么？我们可是做营销软件的啊。’于是我们就把团队隔离开来，他们没有任何规则限制。不需要在我们的技术栈上构建，也不需要使用品牌，也不需要做……</p>
+<p>任何事情。只管去解决问题。我们现在已经在某种程度上贯彻了这个理念。所以，我这些年来一直倡导并领导了若干这样的项目。我现在正在做的这个项目，几乎每晚都在做，叫做 uSpot。它是一个面向单人的 CRM，是为独立创业者设计的 CRM。这就是市场所在。这又回到缩小你的关注范围的观点。但 HubSpot 的下一个项目，他们要么在探索一个新的产品类别、新的产品理念、一个新市场，或者在测试新技术。回到‘你能否低成本地学习教训’，这对我来说要容易得多。</p>
+<p>这就像我有一个为第二大脑而设的想法，对吧？就像，哦，也许一个图表，你知道，图模型可能效果更好。也许你把所有社交媒体，所有进来的东西或者其他什么都接入，然后就像，好吧，我们在uSpot测试一下吧，因为那是一种更容易、更快节奏的测试方式。所以这个产品现在正好三十天大。恭喜你，是的，而且这是一个非常有趣的学习经历。所以对最初问题的回答是，你知道，这样的东西能行吗？答案是可以的，它确实有效。我认为其他创业者应该从中学到的就是，这种拥有第二大脑的概念</p>
+<p>大脑能够保持，并且它是回到那种黄色砖路对话的东西，某种避免被碾过的东西，你不应该做的事情是说，哦，好吧，Chat GPT 和 Cloud Corework 在记忆方面真的很差，或者类似的这种情况</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>是的，好像会好起来的</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>不要去解决那个问题，不要去解决横向用例之类的事情，但可以说，嘿，在这一类客户中，他们有一类问题，如果考虑拥有第二大脑的概念，将会从中受益。注入点会是什么？你如何把它整合在一起？你会实际产生哪些代理或完成哪些工作？但我认为这个潜在的基本概念实际上是非常强大的。我认为它是适用的，所以</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>是的。然后现在你……我的意思是，我觉得你非常有洞察力，而且我认为这对特别是这种类型的用户非常有价值。我的意思是，这是他们当然想要的。是的。那么你如何将这些学习成果带回总部进行产品化，如果可能的话，以及你需要建立哪些流程来实现这一点？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>是的。我们做的方式是，你知道，我们这些年来有点摸索，尝试了各种机制，就是去拉扯那个最初的线索——这是一个初创公司中的初创公司。所以我们做了几件事。第一件事是，如果这个东西达到了规模，我们之前已经多次遇到过这种情况。有一个产品是我几年前推出的，叫做 agent.ai。</p>
+<p>agent.AI 曾经是一个 AI 代理市场，你知道的，很久以前。这是我无意中与 Sam Altman 竞争的故事之一。虽然它专注于市场推广，但它是两个横向的部分。它有一个 AI 代理市场，还有一个代理构建器，它会说：“哦，我们能不能让普通人实际上构建这种混合的确定性和非确定性代理？”我们发现，这个想法有一半是对的，但实际上需要整个 HubSpot 团队来支持。所以我们实际上进行了收购，对吧？于是他说，我们要把这个收购过来，现在要把代理构建器做成一个产品。</p>
+<p>HubSpot 或其他类似的东西，这就是它现在所处的位置。所以在美国的情况下，对吧？一种可能的结果是，哦，我们正在为单人公司的 CRM 构建产品，我们做对了这些，做错了那些，等等。也许我们只是把它吸收到 HubSpot，成为 HubSpot 的一个产品。也许我们会说，“哦，产品本身可能仍然需要独立存在，或者市场行不通。但第二大脑的想法可能可行，比如这些是在退出点上我们认为适合中小企业以及多玩家团队模式的东西。我们只是让核心团队自行决定他们想选择什么。” 就是这样</p>
+<p>有点像他们在看一个水上招聘，字面意思就是那样。就像，‘哦，这是我们可以买的东西。’以包含在内的超低价格。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>它包括在内。是的。 <span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>它不是 它不是 免费的。它是免费的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>完全正确。它是免费的。所以是的，就是这样</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>我们会尽量对此保持开放的心态。但用我们这种方式做的好处是</p>
+<p>所以你认为这是为什么，你知道，为什么你不能只在企业核心内部去做，因为那些自由度对于能够以你想要的速度进行实验非常重要。所以你必须像我长久以来所说的，作为一个创业公司的人，我一直说的问题是，对于现有企业来说使用起来有点困难，当我现在提到HubSpot时，我仍然以某种方式去看待它</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>它仍然是一家初创公司，别担心</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>为什么那不是某种东西的缺失，就像初创公司，你知道，它们并没有大公司所没有的东西，问题在于</p>
+<p>这就是我所谓的负担——组织所承受的重量。如果他们能找到一种方法来摆脱这些负担，那么你就能获得作为大公司的一切优势。你有分销渠道，你有客户关系，你有评估能力，你有二十年的代码库，可以作为数据来指导你构建下一个产品。所有这些东西实际上都是资产。所以，如果你能摆脱这些负债的话，HubSpot Next 就是一种方式来说，好吧，我们就假装自己没有那些负债，而作为一家初创公司，我们确实没有这些负债，我们可以自由地开展自己的业务，这也是我们一直在做的。</p>
+<p>做。但是当真正需要利用资产时，就像，哦，如果这里有HubSpot的品牌会很有帮助，或者我们能在那里得到一些关于分发的建议，就像我们可以做到一样。所以，</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>一人公司崛起：消费计价的信号，以及「AI 仍是软件」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>现在真的很容易，尤其是在一些国家舆论倾向于对人工智能及其影响持负面看法的时候，但现实是我看到的所有数据都非常令人兴奋。增长简直令人难以置信。我实际上认为，你提到的 Spot 是这种潜在增长的一个非常好的例子，对吧？在人类历史上，什么时候会是去建造这样的东西的一个好主意呢？</p>
+<p>像这样的超级个性化CRM，以前几乎是不可能实现的，对吧，但现在我们能够做到。那么那将允许这些一人公司做什么呢，就像那样。</p>
+<p>我们将看到前所未有的增长，我认为这是我们以前从未见过的，梦想一下真是太酷了。所以也许我很想听你谈谈你看到的一些情况，比如这些初步的使用案例，也许是来自uSpot的，或者是你从增长中看到的情况。这真的是一个令人惊叹的时代。</p>
+<p>是的，所以有趣的是，我知道情况是这样的，但我不确定程度有多大。就像我提到的，与我以前做的 HubSpot 相关项目相比，我在 uSpot 上做的一件不同的事情是，我非常早就实现了变现。部分原因不是为了弥补成本或类似的东西，而是这是我想学习的一课，我想学习定价的经验，以及我们想更多了解的关于变现、定价以及人们对其价值认知的一些内容。这是其中的一部分。所以让我感到非常惊讶的是，人们愿意放置信用卡的信息来...</p>
+<p>一个基于消费的模型。就像什么都没有。我，我多年来在HubSpot推出了很多项目。在这方面，这是最成功的一个。所以有这么一个信号，部分原因我认为只是由你知道的 sheer numbers 驱动的，我们会把美国人口普查数据引入到现在的这个情况，对吧？也就是说，在2025年，我们有美国有史以来最多的新公司成立，我记得大约是560万，接近600万，这很好。今年我们已经在四百万左右，到八月我们已经超过四百万了，所以这将是又一个创纪录的一年，所以这并不是说噢，我们只是有一次性事件。</p>
+<p>激增，现在又在回落。所以这是第一个非常有趣的事实。第二个更加有趣的事实是，预计将保持为单人公司的新公司占比例创历史新高，并且还在增加。实际上，美国人口普查局会追踪这些数据，他们表示会把每一个新公司分到两个类别中，一个是预计该公司将在未来两年内至少雇佣一名员工的类别，他们就是这样进行分类的；另一个类别是该公司在未来两年内不太可能雇佣员工的类别。这个比例现在已经超过70%。</p>
+<p>所以所以这很令人兴奋。这里有一个新市场。对于那些创业者来说，这完全是一个机会，就像当年中小企业（SMB）市场一样，你知道，当时大家对HubSpot都有些反对。大家都说哦，你在中小企业赚不到钱，这太难了，或者说除了HubSpot之外，没有任何软件公司曾经在中小企业市场做到数十亿美元的业务。但你可以，这个市场足够大。是的，这类市场会有一些痛点。不过，不管怎样，我对此感到很兴奋。我对经济感到兴奋，我对所有将要创办数百万家企业的创业者感到兴奋，不论是什么类型的企业。</p>
+<p>是的，然后也为那些为那个市场创建东西的企业家感到兴奋，就像整个过程都很令人兴奋。我是的</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>不，我完全同意这一点，而且我们一直在谈论这个方面的很多问题，我认为我们讨论过的一个领域是，比如说以往的垂直软件，你是怎么让它工作的呢？你是通过低的 ACV 或年度或月度成本让垂直软件工作的，但后来你又通过支付、换汇收入补回来了。我只是不确定人们是否完全意识到机会规模的增加，因为有太多你可以做的事情，以及有这么多其他方式可以为你的小客户提供价值并创造价值。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>这是是的，这也是我应对……的方式</p>
+<p>SAS 世界末日那种想法是，现实情况是，你知道，顺便说一句，为了说明，我知道你知道，人工智能就是软件，仅此而已，它不是新的能源，它就是软件，非常智能的软件，但还是软件。现在真正发生的事情是，如果你看看软件设计时应对的问题类别，我想我花一分钟时间讲这个，因为这是一个实际上只有少数几个好故事的好故事。当我们在 HubSpot 的第一年刚开始创业，并且出去筹集风险投资时，我们说，嘿，我们正在建立这家营销软件公司，情况如下：</p>
+<p>几乎我们所谈的所有风险投资公司都说过，他们几乎一致的观点是，没有哪家营销软件公司达到了数十亿美元的规模之类的。因此，我们有两次打击：一个是中小企业的打击，另一个是我们正在做营销软件。我们当时的论点是，如果你查看任何规模企业的损益表，损益表上的每一项开销几乎都有一个超过100亿美元的软件公司名字关联，除了营销。并不是说人们不花钱，原因是营销历来被视为一种艺术性、手工性东西之类的，你有这么一笔预算。</p>
+<p>你会把一些钱花在创意的制作上，但随后你只是把钱花在广告牌和各种广告上。没关系。</p>
+<p>我们的论点是，由于互联网营销的原因，这个行业将看起来很像软件被设计来解决的问题，这也是为什么一家软件公司在 HubSpot 创立前五年并不需要存在，但现在有人会建立一个巨大的、你知道的营销软件业务。我现在要提出同样的论点，那就是在软件真正能够解决之前，有一类问题软件并不擅长解决。</p>
+<p>是的。现在有大量这些新的问题存在，有一些以前不存在的、我们可以用人工智能做的新事情。所以机会集要大得多。是的，一些软件公司无疑会倒闭，就像一些软件公司未能过渡到SaaS 和基于云的业务或其他类似情况一样，这就是生命的循环。</p>
+<p>总体而言，这个机会比我们以往见过的任何时候都要大，如果你在软件领域有能力、有创业精神，现在建立一家软件公司从未有过更好的时机。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s12">
+<div class="body-sec-head"><h3>闪电轮：Dunkin&#x27;、Instinct、大象，以及 20 年来最好的日子就在上周</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>现在就去做吧，是的，我完全同意你，这真是非常有趣，我，我，我非常感谢你抽出时间。我将以一个快速的闪电问答环节结束</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>然后我们可以继续快乐地各自前行。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>我的反应不是很快，所以这些中只有少数比较简单。我先从一个非常容易的开始。我我我会假设是Duncan或Starbucks。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>Dunkin&#x27;。好的。</p>
+<p>顺便说一下，我不喝咖啡。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>哦，哇。好吧。那么你改喝什么呢？只喝水吗。你是半机械人吗？</p>
+<p>到底什么？是啊。哇。我几年前就戒掉咖啡因了。所以，无论如何，更令人印象深刻，Dharmesh。好吧。本能还是缪斯？</p>
+<p>对不起，你说什么？</p>
+<p>本能还是灵感？你知道的，关于新的、新的能动购物体验，</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>我得说是本能。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>好，有趣。如果你必须成为一种动物，你会选择哪种类型？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>也许是一只大象。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>一只大象。我喜欢那个。好的，很好。关于HubSpot最波士顿的特点是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>几乎所有。这是</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>好好答案。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>是的。我们非常务实，为客户解决问题。我会说我们有点像一种混合体，既有西海岸硅谷思维中某些最好的特质，比如雄心和进取心，也有东海岸那种低调务实、踏实努力工作的务实风格。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>我喜欢它。然后，最后，你在HubSpot度过的最美好的一天是什么时候？大约一周前。就像一切开始逐渐到位，无论是在我的脑海中，还是只是感觉像‘好吧，我可以大致看到这一切是如何展开的’。是的，很难解释。这不是我能够完全说出来的，但确实是这样的。</p>
+<p>哦，那太酷了。我的意思是，经过那么多年，你知道最美好的一天是一个星期。我是说</p>
+<p>是的，不过我也更广泛地说这个，我的意思是所有事情都是如此</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>所以，即使作为一个创业公司的人，在HubSpot 20年来的历史中，我经历过的最美好的时光，正是我现在正在经历的这段时间。原因是，人们会觉得那不可能是真的，如果你……就像，我拥有所有的……顺便说一下，我在HubSpot没有直接下属。我从来没有直接下属。所以，我是一个独立贡献者（IC），但是原因是我拥有所有规模化的好处。你可以在“大人”的桌上有一席之地。你可以做长期投资。你可以去做一些事情。同时，我也有另一种优势。我可以做HubSpot的下一个项目，比如uSpot或者其他。所以，我某种程度上拥有两者的最好体验。</p>
+<p>世界。现在玩起来非常有趣。是的。所以，</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="joe"><div class="label"><span class="badge" title="乔·施密特（Joe Schmidt）">施密特</span></div><div class="content">
+<p>太棒了。嗯，Dharmesh，你是一位跨时代的企业家，一位极其善良的人，以及一位跨时代的思想家。我非常感激你今天抽出时间，以及你对所有这些话题的参与。好好享受吧。</p>
+<p>我期待下一次。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="dharmesh"><div class="label"><span class="badge" title="达梅什·沙阿（Dharmesh Shah）">达梅什</span></div><div class="content">
+<p>谢谢你。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "a16z", "title": "创业公司如何在 OpenAI 与 Anthropic 之外取胜｜HubSpot 达梅什·沙阿", "url": "https://www.youtube.com/watch?v=s4lXP9IuHjk", "videoId": "s4lXP9IuHjk", "published_at": "2026-11-10", "duration": 3546, "caption_source": "YouTube 自动生成字幕（en-orig；普通 yt-dlp 成功拉取；无官方字幕；曾对并行的 en 自动轨出现 HTTP 429，但所需 en-orig 已写入，未使用 cookies / browser-cdp）；caption_source=yt-dlp-auto；中文为全文翻译并按话题分段。", "guests": ["达梅什·沙阿（Dharmesh Shah）"], "intro": {"summary": "a16z 合伙人乔·施密特（Joe Schmidt）对话 HubSpot 联合创始人兼 CTO 达梅什·沙阿（Dharmesh Shah）：前沿实验室会沿「黄砖路」冲向应用层，但创业公司仍可在模型变成基础设施的地方，靠工作流、客户上下文和把整个问题一次解决来建立持久价值。", "points": ["达梅什把 ChatGPT 与 Claude Cowork 视为新的「操作系统」，界面只是手段，真正值钱的是正在发生的工作与客户上下文。", "HubSpot 早期发现约 60% 的付费客户根本没用 CRM，于是把 CRM 做成「免费、不是高级免费（freemium）」，并用一体化套件解决碎片化带来的畏难。", "判断实验室会不会抢你的市场，不能只看 ChatGPT「现在」会不会，而要看 OpenAI 这家公司会不会做，以及有没有监管或激励约束。", "uSpot 是面向一人公司的 CRM：达梅什很早就用消费计价验证付费意愿；美国新注册公司 2025 年约 560 万家，到当年 8 月已逾 400 万，且逾 70% 预计两年内不会雇人。", "他反驳「SaaS 末日」：AI 本身就是软件。当年互联网让营销变成软件可解的问题，今天 AI 同样会打开一整批新问题，总机会比以往更大。", "闪电轮：他选 Dunkin'（但多年不喝咖啡）、Agent 购物里选 Instinct、若做动物想当大象；HubSpot 最波士顿的地方是几乎所有地方——务实、先为客户解决问题。"], "verdict": "值得看。对想避开前沿实验室主航道、又想理解老牌 SaaS 如何为智能体重构底层原语的创始人很有信息量；不想听公司史和闪电轮的人，可从「黄砖路」和「ChatGPT 是新操作系统」两段切入。", "audience": "AI 应用层创始人、SaaS/CRM 从业者、关注一人公司与消费计价的产品负责人。"}, "speakers": [{"id": "joe", "name": "乔·施密特（Joe Schmidt）", "role": "host", "short": "施密特"}, {"id": "dharmesh", "name": "达梅什·沙阿（Dharmesh Shah）", "role": "guest", "short": "达梅什"}], "sections": [{"id": "s1", "title": "开场：新操作系统与黄砖路之外的空间", "start_sec": 0, "summary": "预告里先抛出论点：ChatGPT 和 Claude Cowork 实际上成了新的操作系统；在前沿 AI 实验室狂奔的主航道之外，仍有大量软件可做。值钱的不是界面，而是正在发生的工作，界面只是手段。HubSpot 当年把营销应用做成一整套，是因为客户被碎片化吓住了，必须在一个产品里把问题一次解决。乔·施密特（Joe Schmidt）随后正式介绍嘉宾：HubSpot 联合创始人兼 CTO 达梅什·沙阿（Dharmesh Shah）。对话缘起于他在 X 上就乔的「黄砖路」（Yellow Brick Road）文章展开的讨论——实验室会沿那条路冲向应用，但别处仍有空间。HubSpot 此后已推出面向一人公司的 CRM 产品 uSpot，并围绕智能体重建自身平台。乔笑称达梅什已经是勒布朗、麦当娜那种「单名」人物，并请他给当前市场做个体感检查。"}, {"id": "s2", "title": "最好也是最坏的时代：抽象层跃升，建造者最好的窗口", "start_sec": 84, "summary": "达梅什用「最好的时代，也是最坏的时代」来形容当下：能量和兴奋感十足，本该惠及企业，但很多人仍觉得 intimidated。他觉得自己对同一批客户重新燃起了使命感，并说这是他造东西以来最好玩的一段。乔同意：外界观感偏负面，但「几乎所有事情都在运转」。达梅什给出偏极客的解释：软件的本质，就是把你要解决的问题变得更容易；底层抽象曾很难，后来逐步变容易，中间还有几次非线性跃升。他们提到 type-safe 那边发布的 dev 模型（自动字幕如此；他强调这不是 transformer，而是开发的另一维度），等于给建造者工具箱再添一层。因为抽象层更高，AI 让迭代快得多，过去可能要很久才能学到的教训现在可以更快验证。所以现在永远适合创业，尤其适合高能动性的人：做产品更容易了，但真正难的是把注意力收窄，提高「活下来并学会」的概率。"}, {"id": "s3", "title": "怎么挑创业想法：别拿人口普查做乘法，先收窄再学", "start_sec": 406, "summary": "达梅什说自己做了很久创业，仍自认是 startup 人。他反对那种把美国人口普查数据里的系数相乘、就吐出一个「最佳创意」的做法——乔立刻接话：他见过太多次「美国有 1.8 万家律师事务所」这类文件。达梅什认为，真正做出来的东西常常和最初概念只剩一点「基因」相似。AI 让迭代更快，但仍然很难的是聚焦：收窄口径会提高闯过早期、完成学习的几率。他甚至在 HubSpot Next（公司创新臂）里探索新想法时，也还在跟这个教训较劲。乔追问：这是不是高能动性者最好的时刻？达梅什说是，因为造东西更容易了，但如果你开口径太大，学习速度反而跟不上。"}, {"id": "s4", "title": "从「律师所产品」到 HubSpot：在企业与消费之间押注 SMB", "start_sec": 632, "summary": "乔提到，HubSpot 似乎经历过某种法律/律师所产品，后来变成中小企业（SMB）的 CRM。达梅什回忆：他和联合创始人在东海岸商学院相识，刻意避开两端。一端是大型企业——客户少、收入集中，少数客户会扭曲产品路线和愿景；另一端是消费市场，向大众收费很难达到消费级的规模效应。他们把口径收窄到看起来有趣、且能真正收费的问题，也用过人口普查里「律师事务所很多、可以相乘」的逻辑去试水。结果早期用户很快把他们拽走：时间追踪之类并不重要，客户真正要的是「帮我找到更匹配的理想客户」。于是他们驶入 SMB 营销产品，再逐渐长成平台和完整 CRM。达梅什强调：几乎人人都想做「某某领域的 HubSpot」，但他们并不是在 t=0 就规划好了整座平台。"}, {"id": "s5", "title": "60% 的付费客户没用 CRM：做成免费，并用一体化消灭碎片", "start_sec": 880, "summary": "做到营销套件之后，他们发现一个让他们震惊的事实：约 60% 的付费客户完全没有在用 CRM。这些不是随便的公司，而是已经在给 HubSpot 付费的人。达梅什说自己和联合创始人「简单得离谱」：这些公司本该用 CRM，为什么不用？答案包括太贵、太吓人、太碎片。他们决定把「太贵」直接拿掉——做成免费，而且强调「不是高级免费（freemium），是免费」；哲学是先创造客户价值，再提取价值。同时他们预见到，既有 CRM 巨头很可能杀进营销软件，自己若只守在营销品类，空间会被压缩。至于「为什么要做所有模块」：当时 SEO、落地页、表单等领域都有很优秀的单点公司，但客户被碎片化吓住了，只有打成一个供给，才能解决真正的问题。这也为后来的平台化、以及「系统中已经有很多人、你要在周期里替换中间层」埋下伏笔。"}, {"id": "s6", "title": "建造开发者信任的生态：当自己曾渴望却得不到的那种平台", "start_sec": 1229, "summary": "乔问：围绕初始供给，如何思考正确的开发生态？达梅什说自己职业生涯大部分时间都是平台和生态的「消费者」，两边都体会过。他提起十多年前 Twitter 早期的教训：原本身为平台，后来路径变化，生态里的人受伤。HubSpot 把这些教训记在心里：要做「当年我们希望存在、却得不到的那种平台」。他们会主动标明：若我们在找空白、会去做哪些事，好让外部开发者知道哪里有机会。目标之一是压缩从「第一次调用 HubSpot API」到「在生态里赚到第一块钱」的路径，降低摩擦。乔祝贺这个生态已经相当繁荣，并转向他那篇黄砖路文章。"}, {"id": "s7", "title": "避开黄砖路：看公司而不只看产品，模型正在变成基础设施", "start_sec": 1415, "summary": "达梅什先声明：作为 HubSpot 联合创始人兼 CTO，他非常有立场，但「有立场不等于错」。他完全同意乔的前提：前沿实验室会沿着黄砖路一路冲，而且会因为发明了让自己更快的东西而更快。他认为两种判断是误导。第一，若你在句尾加上「还没（yet）」句子仍然成立，那就有问题——「ChatGPT 现在做不了」很快可能就能。第二，要分清「衡量产品还是衡量公司」：ChatGPT 做不了，不等于 OpenAI 这家公司做不了，它完全可以开一条新产品线。真正的护城河，是监管/结构约束，或激励约束。他举例：若要某个前沿模型公司（他点名 Anthropic 等）去做 HubSpot 这类要深入 SMB 工作流、长期服务的事，他们并非不能，但「真会去做」的概率极低，因为激励不在那里。他把 AI 比作当年的 AWS 和云计算：模型正在变成基础设施，创业者一旦离开黄砖路，就不那么可怕了。现在还有 Open Router 这类工具，模型可替换性上升，开源和商业产品都很多；只要不站在实验室的主赛道上，就不容易被正面碾压。"}, {"id": "s8", "title": "ChatGPT 是新操作系统：界面是手段，别用推理去代替查询", "start_sec": 1911, "summary": "达梅什说，在 AI 前后都一样，关键是复合飞轮。他特意「给录音标了时间戳」。HubSpot 是第一家把自己的连接器做到 ChatGPT 里的 CRM 公司。他用光谱解释界面的重要性：一端像 Uber Eats、DoorDash，网络效应强、界面即产品；但多数企业应用更靠近「把一件工作做完」。对 HubSpot 来说，界面重要只是因为营销和销售要交付结果，界面是手段不是目的。这就像当年 SaaS 搬上浏览器：浏览器成为方便的入口，但价值仍在产品本身。如今聊天机器人就是新的浏览器，人们通过它们消费价值，HubSpot 这类公司会插进去。他给建造者的建议是：别把界面想复杂，先找到客户要的结果的最佳达成方式。另一条很硬的原则：不要用推理去解决查询能解决的问题。比如「我们从爱尔兰拿到多少客户、多少收入」，你不该在 800 万条 Slack 和邮件里用推理去「翻找」答案，即使数据可能藏在里面；这应该是数据库查询，而不是把一个「300 IQ」的模型砸上去。乔说，很多公司正在这一层重新理解自己的定价和消费模式。"}, {"id": "s9", "title": "为 AI 重思原语，并用 AI 回放 20 年的架构选择", "start_sec": 2234, "summary": "乔问：当初为「人类来浏览信息」而做的架构决策，现在要如何改？达梅什说自己是科班软件工程师，相信原语一旦设计对了，就能随市场和产品演化被以新颖方式复用。HubSpot 一开始就这样：营销自动化的原语，后来可以直接复用到 CRM，让第二天的 CRM 就比从零开始更强。今天数据既有结构化也有非结构化，这些数据其实一直在客户组织里，只是现在模型能以完全不同的方式去看。他们正在补上他所谓的「上下文系统」（system of context），结构上很可能是某种图。下一步是：能否把正在发生的事情都存进合适的图结构里。对在位者来说，AI 让写软件、测想法、做产品更快，这甚至更有利。他觉得更迷人的是：可以回到 20 年前的分岔，问「如果当时换一种原语、引入另一种底层，今天会在哪条宇宙」；再用小范围的工作去试，看看重写能换来多少延迟或经济性收益。乔说自己几乎同时写过另一篇文章讨论这类「替代宇宙」，并问 HubSpot 内部还在长出哪些新流程和新团队。"}, {"id": "s10", "title": "HubSpot Next 与 uSpot：公司里的创业公司必须有自由度", "start_sec": 2629, "summary": "达梅什介绍 HubSpot Next：它本质上是创新实验室，是「创业公司里的创业公司」，指令接近「什么都别管，去把问题解开」。他主导过多个项目。有人会想到做「第二大脑」、把社交媒体都接进图模型，但他提醒：回到黄砖路，千万不要去解那种会被实验室以水平能力迅速碾压的问题；要落到「这一类客户的这一类问题」。uSpot 就是给一类特定用户（一人公司）用的 CRM。他提到 agent.AI 曾是 AI 智能体市场，是他「偶然跟萨姆·奥特曼（Sam Altman）竞争」的故事之一。把创新项目放在核心业务里做，往往少了实验所需的自由度；必须先像创业公司一样甩掉组织包袱，需要时再借用 HubSpot 的品牌和分发建议。乔把这比作某种「低价收购星公司」，达梅什笑着说：不是免费，但是 included——是「免费」的那种免费。"}, {"id": "s11", "title": "一人公司崛起：消费计价的信号，以及「AI 仍是软件」", "start_sec": 2983, "summary": "乔说，现在很容易把 AI 想得很负面，但一人公司的超级个性化 CRM 在过去几乎做不成。达梅什分享两组他事先知道、但没想到会强到这种程度的事实。第一，uSpot 与他以往的 HubSpot Next 项目不同，他很早就货币化，不为了覆盖成本，而是为了学习定价、货币化和人们如何给价值标价；让他惊讶的是，人们愿意在消费计价（consumption-based）模型上直接绑信用卡。就「愿意付钱」这一点，这是他这些年在 HubSpot 推出的项目里最成功的。第二，宏观信号：2025 年美国新注册公司数量创纪录，约 560 万、接近 600 万家；今年到 8 月已经超过 400 万，会是又一个纪录年，并非一次性脉冲后回落。更有意思的是，这些新公司里「预计将保持为一人公司」的比例是有记录以来最高且仍在上升。美国普查把新公司分成两类：未来两年预计会雇至少一名员工，以及预计不会；「两年内不太可能雇人」的这一桶现在超过 70%。他接着反驳「SaaS 末日」：AI 说到底就是软件。当年他们做营销软件时，几乎所有风投都说这个品类很久没出过公司，因为预算多花在广告牌上、很少花在创作工具上；他们的论点是，互联网会让营销变成软件擅长解决的那种问题。今天同样如此：AI 带来一整批以前不存在的新问题，能做的事情变多了，总机会比以往任何时候都大。有能动性、想做软件的人，现在就该上路。"}, {"id": "s12", "title": "闪电轮：Dunkin'、Instinct、大象，以及 20 年来最好的日子就在上周", "start_sec": 3366, "summary": "乔以闪电轮收尾。Dunkin' 还是星巴克？达梅什选 Dunkin'，但补充自己多年前已戒咖啡、只喝别的——乔打趣他是不是机器人。Agent 购物体验里 Instinct 还是 Muse？他选 Instinct。若必须变成一种动物？大象。HubSpot 最波士顿的一点是什么？「几乎所有地方」：务实、先为客户解决问题，他把公司看成西海岸最佳想象与东海岸务实的混合体。在 HubSpot 最好的一天？大约一周前，事情开始各就其位。乔惊讶：做了这么多年，最好的一天竟是上周。达梅什说，HubSpot 已有约 20 年，而他作为创业者，此刻是整个公司历史上最好玩的阶段，因为他同时站在好几个正在成形的世界里。乔称他是一代创业者、也很善良的思考者，两人约定下次再聊。"}], "paragraphs": [{"start_sec": 1, "type": "text", "zh": "ChatGPT 和 Claude Cowork。他们实际上就是新的操作系统。", "speaker_id": "dharmesh", "section_id": "s1"}, {"start_sec": 5, "type": "text", "zh": "在前沿人工智能实验室竞相发展的道路之外，还有大量空间可以开发软件。从那以后，HubSpot一直很忙。", "speaker_id": "joe", "section_id": "s1"}, {"start_sec": 10, "type": "text", "zh": "真正有价值的东西是正在进行的工作。界面只是达到目的的手段。建立一个生态系统很像建立一个产品。你必须这样思考。我们有一个非常广泛的营销应用基础。我们选择做这一切的原因是，这是解决客户实际问题的唯一方式，客户的问题是他们被这种碎片化所吓倒。一切都没问题。我们必须在一个产品中做到这一切。当你最初构建 HubSpot 时所做的架构决策，是为了让人类能够导航所有这些信息。现在我们有了这些难以置信的强大模型，它们可以以非常不同的方式去查看事物。", "speaker_id": "dharmesh", "section_id": "s1"}, {"start_sec": 41, "type": "text", "zh": "在了解我们现在处于这个人工智能世界之后，为未来20年的HubSpot我们需要什么样的框架？有几件【音乐】事情。第一是", "speaker_id": "joe", "section_id": "s1"}, {"start_sec": 50, "type": "text", "zh": "欢迎回到a16z播客。我是乔·施密特（Joe Schmidt），今天我们邀请到了HubSpot的联合创始人兼首席技术官达梅什·沙阿（Dharmesh Shah）。我们将在一次关于我在X上发表的《黄砖路》文章的交流中开始的对话中继续探讨。这个想法是，在Frontier AI实验室竞相发展的道路之外，还有很多空间可以开发软件。自那以后，HubSpot一直很忙。他们推出了uSpot，这是一个面向单人企业的CRM，并且他们一直在围绕代理重新构建自己的平台。今天，我们将讨论值得构建的东西，一个成熟的软件公司需要改变什么，以及当AI成为客户使用你产品的方式时会发生什么。Dharmesh，谢谢你。", "speaker_id": "joe", "section_id": "s1"}, {"start_sec": 83, "type": "text", "zh": "感谢你的加入。", "speaker_id": "joe", "section_id": "s1"}, {"start_sec": 84, "type": "text", "zh": "谢谢你邀请我。嗨。是的，太兴奋了。明星阵容，你知道的，", "speaker_id": "dharmesh", "section_id": "s2"}, {"start_sec": 85, "type": "text", "zh": "勒布朗，你知道的，麦当娜，【笑声】，你知道，你有那种一个字的名字，你知道，就是一个字的名字。所以，非常，非常激动。对我来说，这是一场有趣的对话，因为我几个月前写了那篇文章，其实是响应硅谷那种虚无主义的“什么都无所谓”的感觉。我觉得这种情况实际上仍在继续。所以，在这个时期经营一家大型上市公司，一家成功的上市公司，一定很奇怪吧。感觉会怎样？我可能想先从市场情况聊起。", "speaker_id": "joe", "section_id": "s2"}, {"start_sec": 120, "type": "text", "zh": "是的，它在你手上的那本书里，是《最好的时代，最坏的时代》。这是最好的时代，因为你知道当你经历这种巨大变革时，会有所有的能量和兴奋。我想 HubSpot 现在已经 20 岁了。当公司刚成立时，公司的起源是这样的：哦，有一样新的东西叫做互联网，中小企业应该可以从中受益以推动增长之类的。但它们还没有，因为这太令人不知所措，而且工具都很分散，这就是 HubSpot 开始的地方。现在，快进 20 年，有一样新的东西叫做人工智能，我们认为中小企业会……", "speaker_id": "dharmesh", "section_id": "s2"}, {"start_sec": 152, "type": "text", "zh": "企业本应从中受益，但它仍然让人感到害怕和无所谓。所以感觉就像是这种新型的复兴使命，针对相同的客户群，只是采用了新技术。另一方面，你知道，它确实会造成很多战争迷雾和不确定性，而我们作为团队在大多数情况下尽量专注于客户，无论市场如何，市场会有它的变化。我们有自己的论点，关于事情如何发展以及我们在押注什么，但我专注于积极的一面。我，你知道，我已经做商业软件超过30年了。真的，每天都在做。而这是最", "speaker_id": "dharmesh", "section_id": "s2"}, {"start_sec": 193, "type": "text", "zh": "在建造东西方面，我玩得最开心。这真是作为一个建造者的美好时光。", "speaker_id": "dharmesh", "section_id": "s2"}, {"start_sec": 198, "type": "text", "zh": "是的。不，我完全同意。而且真的很奇怪，这种认知是负面的，而实际上每件事都在正常运作。就像你从船上掉进水里一样，可能如果我们回过头去，我很想谈一谈那些形成性的经历，显然是关于Pyramid，然后当然还有HubSpot，以及你们是怎么到达那里的。我敢肯定当时人们也会说一些类似的话，比如‘现在构建软件变得容易多了，你们到底在做什么？’我很想听听你对可能的相似点和差异的评论。", "speaker_id": "joe", "section_id": "s2"}, {"start_sec": 231, "type": "text", "zh": "就像你实际上是如何建立公司以及你今天在新创公司中看到的情况。我会给你一个稍微书呆子的回答，因为我就是一个书呆子，我在软件行业已经待了很久，从很久以前的时代算起，大概150年前。但是，是的，软件开发的故事一直都是这种不断提高抽象层次的过程。比如我刚开始的时候，我们仍然使用机器语言，在大型机上运行这些东西。然后我们有了3G语言，有C和 C++，然后又有了4G语言。因此我们所做的事情是说，好吧，我们能否达到你脑海中任何表现的那个程度。", "speaker_id": "joe", "section_id": "s2"}, {"start_sec": 267, "type": "text", "zh": "无论你正在尝试解决什么问题，我们能不能让你更容易去做，对吧？所以那时真的非常非常难，然后它逐渐变得更容易了。", "speaker_id": "joe", "section_id": "s2"}, {"start_sec": 274, "type": "text", "zh": "在这个过程中我们经历了一些跳跃，比如你知道的抽象层次的非线性增长，但从根本上说，让我对人工智能感到兴奋的就是它为我们提供了一套在更高抽象层次上工作的全新工具，这就是发生变化的地方。在我看来，问题依然是人类和企业正在面对的那些问题，但现在我们拥有了一套更好的工具。我有一种偏向于软件的视角，那是我的专长。所以在某种程度上，这在本质上是相同的。我们这里会稍微偏离一下话题，因为其中一个...", "speaker_id": "dharmesh", "section_id": "s2"}, {"start_sec": 311, "type": "text", "zh": "最近发生的事情是", "speaker_id": "dharmesh", "section_id": "s2"}, {"start_sec": 312, "type": "text", "zh": "你知道我们有开发模型", "speaker_id": "joe", "section_id": "s2"}, {"start_sec": 314, "type": "text", "zh": "哦，是的，你知道的，由 TypeSafe 那些人发布的", "speaker_id": "dharmesh", "section_id": "s2"}, {"start_sec": 318, "type": "text", "zh": "而真正把它带回来的核心，是像“哦，这实际上只是软件”，而我们正在开发的另一种维度，不是变压器，但实际上有点在开拓，而这就是它的作用——我们只是把更多的工具放进建设者的工具箱中，并且扩展谁可以成为建设者的范围，这也很棒。但很多东西仍然是一样的。我们仍然在处理类似的问题，只是能够在更高层次的抽象上工作，这很不错。我认为这是一个很好的时间的原因之一，总是做创业的好时机，但现在是一个做创业的", "speaker_id": "dharmesh", "section_id": "s2"}, {"start_sec": 351, "type": "text", "zh": "创业公司的好处是，因为我们工作在如此高的抽象层次上，人工智能让你能够更快地迭代。哦，是的。所以你可以学习那些可能需要六个月、一年或两年才能学到的经验。就像，好吧，尝试一下，知道吗，构建一些东西，把它推出去，用实际的用户和客户来测试，看看会发生什么。而这在以前是不可能的。所以，是的。", "speaker_id": "dharmesh", "section_id": "s2"}, {"start_sec": 372, "type": "text", "zh": "哦天哪。我完全同意你的看法，我真希望你能看到，你知道，我们在我们的风险投资公司这里正在构建的所有东西，对吧？我的意思是，甚至亲自站在前线也是非常有趣的。实际上，这也引出了我想和你讨论的一个问题，就是我认为从历史上来看，尤其是如果你看看你所建立的企业，你会发现你会从一些非常狭窄的产品领域开始，为非常有限类型的客户服务。你是如何观察到，在这个快速迭代的过程中，以及能够以更快的速度创造更多软件、构建更多东西的能力下，这种情况发生了怎样的变化的？我很想听你谈谈这个问题。", "speaker_id": "joe", "section_id": "s2"}, {"start_sec": 406, "type": "text", "zh": "关于那一点点", "speaker_id": "joe", "section_id": "s3"}, {"start_sec": 408, "type": "text", "zh": "是的，我觉得这个，你知道，我已经直接或间接地在初创企业领域待了很长时间了。我仍然认为自己是一个初创企业的人。选择一个想法一直是最困难的事情之一，尤其是对于那些没有经历过的第一次创业的人。即使现在，经过30年，我觉得自己在这方面也只是比以前稍微好一点。但我认为，企业家在选择想法时常犯的一个共同错误是，他们认为这是一个需要严格分析的问题，他们会做一个18栏的电子表格来给我所有的……", "speaker_id": "dharmesh", "section_id": "s3"}, {"start_sec": 441, "type": "text", "zh": "系数出来后，它会给你最好的可能的想法。", "speaker_id": "dharmesh", "section_id": "s3"}, {"start_sec": 444, "type": "text", "zh": "是的。我见过美国人口普查文件的次数很多。", "speaker_id": "joe", "section_id": "s3"}, {"start_sec": 449, "type": "text", "zh": "是的，正好像有 18,000 家律师事务所。", "speaker_id": "dharmesh", "section_id": "s3"}, {"start_sec": 452, "type": "text", "zh": "这不相关。", "speaker_id": "joe", "section_id": "s3"}, {"start_sec": 455, "type": "text", "zh": "是的，然后只是，我的经历，不只是我，这不仅仅是一个人的数据点，甚至你知道和其他创始人交谈后会发现，几乎不可能知道一个想法的优先级，所谓的想法质量，或者它的成功概率，或者结果会是什么样子，而测试一个想法的唯一真正方法就是实际去测试它。即使你成功了，最终你成功的那件事通常，或者大多数情况下，并不会像你最初开始的原始想法那样。对吧？所以人们现在认为的，那是一个成功的企业，实际上过程是这样的。", "speaker_id": "dharmesh", "section_id": "s3"}, {"start_sec": 491, "type": "text", "zh": "有时候它看起来不像，你知道，有一些相似的地方，也许，你知道，原始概念的基因库仍然存在，但它是不同的。所以，这种思维的副产品是，由于你不太可能知道某个想法或一组你可能正在探索的想法是否会好，那么聪明的做法就是尽快把想法提出，并尽快了解这是否是一个好主意，或者我是否应该去追求其他东西。嗯", "speaker_id": "dharmesh", "section_id": "s3"}, {"start_sec": 524, "type": "text", "zh": "所以我认为这在今天仍然适用。好吧，除非再次回到那种人工智能的观点，我们现在可以更快地迭代。有一件事仍然很难，我甚至会说现在可能比以前更难，那就是分发，对吧？但那是因为现在构建软件要容易得多，更多的人会去做。所以会有更多的选择，也会很难去突破噪音，与客户取得联系。你知道，我非常相信的一件事就是从一开始就……我绝不是唯一一个这么说的人，但在早期阶段缩小视角是很重要的。", "speaker_id": "dharmesh", "section_id": "s3"}, {"start_sec": 558, "type": "text", "zh": "某种程度上的专注因为那会增加你知道的，你有机会完成、学习，你知道的。创业者犯的第二个错误是，他们觉得自己需要从一个巨大的总可寻址市场（TAM）开始，就像‘哦，这可以是一个百亿美元的业务’。这很好，你有这样的雄心和愿景，认为这可以达到100亿美元，但告诉我你在前30天打算做什么。你真正要做的事情是什么？先赚到第一个1美元收入，然后再去实现100美元。", "speaker_id": "dharmesh", "section_id": "s3"}, {"start_sec": 585, "type": "text", "zh": "对我来说，即使是现在，当我在探索新的想法时，无论是在 HubSpot 内部的新创部门 HubSpot Next 还是在核心平台内部的新想法上，我都会觉得是在缩小视野的范围。我们能不能以某种方式做到，我认为最终获胜的人是那些迭代时间最短、学习成本最低的人。所以，如果你能缩短这个循环，并以较低的成本学习到未来会出现的各种经验教训，最终你平均而言会取得胜利。", "speaker_id": "dharmesh", "section_id": "s3"}, {"start_sec": 618, "type": "text", "zh": "是的。不，我仍然认为，这一刻对于有高度主动性的人来说是最好的时刻。现实情况是，是的，现在开发软件要容易得多，但也只有那么多人，会在下午10:45独自坐着，当我们在周六晚上交换邮件时，你不会去入侵他们的电脑去做那个人的事情，去构建一些很酷的东西。我想回到我在HubSpot开始时所信奉的东西", "speaker_id": "joe", "section_id": "s3"}, {"start_sec": 642, "type": "text", "zh": "如果我说错了请纠正我，一个合法的产品。也许那里曾经有一个合法的产品，而且不知怎么地，现在已经变成了为中小型企业服务的CRM。我是说，你们把这个切入点扩展成现在的样子，简直令人难以置信。我很想听听你们是如何考虑的，你们当然是从中小企业市场切入起步等等，但我很想听听你们是如何从那一步扩展到平台的。", "speaker_id": "dharmesh", "section_id": "s4"}, {"start_sec": 663, "type": "text", "zh": "是的。所以，当我们刚开始的时候，你知道，我们还在商学院，这也是我和我的联合创始人在东海岸第一次相遇的地方。我们最初关注的是中小企业市场的美好之处。这个市场相对被忽视。我给你讲个简短的故事，因为挺有意思的。我们俩之前都在软件行业工作了很长时间。你主要是在市场和销售方面，我主要是在产品开发和工程方面。我们俩都做过企业软件，所以对这方面有一定了解。企业软件的挑战就是它完全不有趣。作为初创企业的创业者，销售周期是……", "speaker_id": "dharmesh", "section_id": "s4"}, {"start_sec": 700, "type": "text", "zh": "很长。你会有收入集中。你有一小部分客户在某种程度上影响你的产品路线图和愿景等等。然后所以那样", "speaker_id": "dharmesh", "section_id": "s4"}, {"start_sec": 708, "type": "text", "zh": "所以就是这样。从另一个方面来看，你有消费市场，对吧？软件领域的消费公司。消费市场的问题在于，它们中很多有非常两极化的结果，也就是说，如果你成功了，结果将是巨大的，而且很多时候，你是在做某种广告补贴或者想办法通过其他方式盈利，因为你实际上无法真正为产品收费，因为你没有大批量的客户。中小企业的美妙之处就在于，从纯粹的市场分析角度来看，当时在商学院的两个家伙会觉得哦，中小企业有企业级市场的美丽之处，即你实际上可以……", "speaker_id": "dharmesh", "section_id": "s4"}, {"start_sec": 742, "type": "text", "zh": "为你正在解决的问题收费。收费本身没什么问题，但它有一个消费者规模，你不会有这种收入集中度。你可以拥有成千上万、数十万甚至数百万的客户。所以你基本上可以同时拥有两者的优点，对吧？这就是我们最初的想法，比如，如果我们要做一个创业公司，那么我们最初带到 MIT 50K 比赛的想法就是：面向小型企业的 ERP 软件，就像一个小型企业的甲骨文。", "speaker_id": "dharmesh", "section_id": "s4"}, {"start_sec": 770, "type": "text", "zh": "而回到缩小视角的方式，好吧，这似乎是件有趣的事情，因为你知道我们正在从客户端-服务器向网络过渡，就像有人应该为小企业创建一个类似 Oracle 的系统，所有东西都整合在一起，协同工作，专门为中小企业构建。当我们去参加商业计划竞赛时，我们说那太大了，让我们缩小视角，叫它 Legal Spot，HubSpot 公司的名字已经存在了，但我们写商业计划的目的纯粹是为了早期测试市场，就是说让我们专注于为律师事务所提供 ERP 系统。", "speaker_id": "dharmesh", "section_id": "s4"}, {"start_sec": 806, "type": "text", "zh": "就像很狭窄的，你知道的，回到你最初的行为，好像有，你知道的，所有美国人口普查局的东西，哦，外面有很多，我们可以用 x 乘以 y，而且这就成了很棒的商学院那种电子表格和幻灯片演示文稿", "speaker_id": "dharmesh", "section_id": "s4"}, {"start_sec": 821, "type": "text", "zh": "所以我们做了那个，你知道，我们有一种试水的倾向。我们很早就学到一件事，就是当我们还在业务中，研究 HubSpot 的想法时，发现那不是一个有趣的市场去销售。当我们与律师事务所交谈，并谈论 ERP 以及解决方案可能是什么时，市场营销和网站所有部分对他们来说是最有趣的。", "speaker_id": "dharmesh", "section_id": "s4"}, {"start_sec": 843, "type": "text", "zh": "是啊。他们就像，‘等一下，等等。你能帮我找到更多客户吗？’", "speaker_id": "joe", "section_id": "s4"}, {"start_sec": 846, "type": "text", "zh": "完全正确。是的。我当时就想，“我们有时间跟踪这些东西，其实并不重要。你能帮我找到更多理想的客户之类的吗？”于是我们大概就剩下这两个想法：哦，我们是继续针对中小企业的ERP，还是做针对中小企业的营销。我们差点掷硬币决定。我们差点真的这么做了，但没有，我们稍微更慎重一点。我们确实从一小部分数据点推导出来，但结果就是人生短暂。事实证明，律师是第二难销售的市场，软件开发者是最难的市场。这就像", "speaker_id": "dharmesh", "section_id": "s4"}, {"start_sec": 882, "type": "text", "zh": "所以现在我们正在，你知道，导航中小企业那种营销产品。当然，那随后会转变为，你知道，更像是一个平台和完整的CRM。从第一天起，这就是经过深思熟虑的吗？我之所以这么问，是因为我认为外面有很多人可能正在使用一些新的人工智能媒介，无论是你知道，通常早期是语音产品，我实际上仍然认为这是很多人巨大的机会。我相信你们在HubSpot也在探索这个。或者可能有某种支持类型的聊天，你知道，界面", "speaker_id": "dharmesh", "section_id": "s5"}, {"start_sec": 911, "type": "text", "zh": "每个人都总是想成为任何使用场景的中心，对吧？所以也许可以谈谈你是如何在那个产品旅程中导航，并创建合适的循环，从最初的切入点逐步发展成更大的平台。", "speaker_id": "joe", "section_id": "s5"}, {"start_sec": 925, "type": "text", "zh": "是的。所以我们一开始是作为一套营销应用程序开始的，回答你第一个问题，在那个时间点，我们并没有想过有一天会成为一个CRM平台，这并不在我们的任何PPT演示文稿中。不是的，所以是的，我们当时没有这个想法。但随着公司的发展，我们逐渐演变，这可能对HubSpot来说有点特殊，但我不这么认为。我觉得即使在CRM之外，这种模式仍然存在。你会有第二个产品的需求，对吧？比如第二个产品角色，或者人们通常会怎么说。然后我们就达到了那个阶段。所以有几件事情是同时发生的。", "speaker_id": "dharmesh", "section_id": "s5"}, {"start_sec": 962, "type": "text", "zh": "我们从事的是营销软件业务，我们所意识到的一件事是，做营销软件业务实际上与销售和客户关系管理（CRM）非常接近，这是一个相邻的类别，所以这在逻辑上是合理的。我们学到的另一件事是，当我们拥有了一些客户之后，我们对客户进行了调查，这大约是在公司上市前几年，也就是公司成立五六年后，我们想了解他们使用的是哪种CRM。我们发现有20%的客户使用Salesforce.com，另外20%的客户使用的是除Salesforce.com以外的其他CRM。", "speaker_id": "dharmesh", "section_id": "s5"}, {"start_sec": 1003, "type": "text", "zh": "是的，但有60%的人根本没有使用CRM。", "speaker_id": "joe", "section_id": "s5"}, {"start_sec": 1004, "type": "text", "zh": "是的。", "speaker_id": "dharmesh", "section_id": "s5"}, {"start_sec": 1006, "type": "text", "zh": "这对我们来说简直疯狂。就像，等一下。你们在使用HubSpot软件，正在支付我们的钱。所以这些并不是随便的公司。这些是支付我们钱来获取潜在客户的人。这些潜在客户发生了什么？如果它们不在你放置的地方，会怎么样？", "speaker_id": "joe", "section_id": "s5"}, {"start_sec": 1020, "type": "text", "zh": "所以，我们大概确定的事情是，好吧，那就这样吧", "speaker_id": "dharmesh", "section_id": "s5"}, {"start_sec": 1026, "type": "text", "zh": "像这些公司应该使用 CRM。所以，你知道，我和我的联合创始人都是非常奇怪且思想简单的。就像，好吧，他们为什么不使用 CRM 呢？类别已经存在，事实并非如此，而且有一些很棒的公司拥有优秀的产品。最后我们得出的结论是，哦，好吧，这太让人不知所措了。他们只是被 CRM 的概念吓到了。太贵了。他们认为启动一个 CRM 要花太多钱。所以我们做出了决定，这是一个不错的相关事情。无论如何，我们需要第二个产品，在时间的完整过程中现有的 CRM 有战略价值。", "speaker_id": "dharmesh", "section_id": "s5"}, {"start_sec": 1062, "type": "text", "zh": "玩家很可能会进入营销领域，即使我们想要继续停留在营销软件类别，也不太可能永远做到，对吧？所以所有这些事情大约在同一时间汇聚在一起。因此，当我们推出CRM时，我们在某种程度上解决了这两个问题。就是说，好吧，我们要构建一个CRM，并且要解决那60%的问题，对于那些还没有选择CRM的人来说，为什么他们还没有选择呢？太难了。好吧，让我们做一个有史以来最容易使用的CRM。当时，我们专注于中小企业，所以这本身就是一个核心优势。而且我们……", "speaker_id": "dharmesh", "section_id": "s5"}, {"start_sec": 1096, "type": "text", "zh": "我们打算把“太贵了”这个因素排除掉，因为我们打算免费提供它。", "speaker_id": "dharmesh", "section_id": "s5"}, {"start_sec": 1102, "type": "text", "zh": "不是高端的，是免费的。就像，好吧，这就是HubSpot的某种理念：在尝试获取价值之前先创造客户价值。就像，如果你能推出一些有用的东西，我们显然可以用我们已有的营销软件业务来补贴它。但这就是理念。就是，好吧，我们已经消除了障碍，然后就是让我们去做，然后在迭代的过程中，我们逐渐明白，要在CRM领域取得成功，它需要是一个平台。不能仅仅是CRM，因为CRM几乎从定义上来说现在就是这样。", "speaker_id": "dharmesh", "section_id": "s5"}, {"start_sec": 1136, "type": "text", "zh": "即便如此，它们也是平台。所以，那段旅程只是从产品一到产品二，再扩展到一个战略性的相关领域。但还有一点，我认为这对正在听的创业者也很有启发，那就是尽你所能去解决整个客户的问题——无论你如何定义它，无论你围出什么圈，这都是我们真正要解决的问题。所以，即便在 HubSpot 刚起步时，我们也有一个非常广泛的营销应用基础，这与所有你会得到的建议以及我自己给出的建议相悖，那就是专注做好一件事。但我们做了所有事情。因此我们有内容管理和", "speaker_id": "dharmesh", "section_id": "s5"}, {"start_sec": 1172, "type": "text", "zh": "SEO、着陆页、表单或其他什么，他们都是各自领域中拥有优秀产品的优秀公司。我们决定全都做的原因是，解决客户实际问题的唯一方式，就是他们被这种碎片化吓到了。一切都还好。我们必须在一个产品中全部实现。所以我们在过去20年里一直坚持这个理念，现在仍然如此。问题是，我们真正要解决的实际问题是什么？这很有趣，因为我认为你知道，事后看来，每个人总是谈论，好吧，从市场进入策略的角度，有所谓的棕地方法，如果你去追求……", "speaker_id": "dharmesh", "section_id": "s5"}, {"start_sec": 1202, "type": "text", "zh": "所有这些已经在每个核心系统上的人，你把它拆掉再替换，希望你正好处在这样的一个周期中，每个人都愿意重新考虑这个问题，或者你攻占一片新领域，尝试赢得所有从未使用过软件的新业务。我认为对HubSpot的标准想法是，哦，其实从一开始就非常周到，让你知道，让我们去新领域。现实情况是，其实不是的，我们所有的客户只是以前没有这个，我们就去构建它，如果按这个顺序做也完全没问题，如果你做得好，你仍然可以成为一个巨大的公司。", "speaker_id": "dharmesh", "section_id": "s5"}, {"start_sec": 1231, "type": "text", "zh": "有趣。你是如何思考的，你知道，这其中的另一个部分是，你知道，围绕最初的产品建立正确的生态系统，对吧？我认为这是HubSpot做得非常出色的一件事。也许可以分享一下从早期建立生态系统中得到的关键经验教训；而现在，你的角色已经大不相同，你能够以不同的方式做很多事情。我很想听你谈谈这个话题，还有人工智能的出现如何影响生态系统。", "speaker_id": "dharmesh", "section_id": "s6"}, {"start_sec": 1257, "type": "text", "zh": "是的。而且在你知道的大部分职业生涯中，我一直是平台和生态系统的使用者。所以我有点了解双方的情况，这并不是对当时或现在任何现有平台的贬低。但平台和生态系统往往会发生这样的情况：平台提供者一开始会试图吸引开发者生态系统，让人们开发应用或者建设某种增值核心平台的公司。但随着时间的推移，最终发生的事情是，无论是有意还是无意，他们都会对这些开发者产生压制。他们会封闭一些东西，或者关闭...", "speaker_id": "dharmesh", "section_id": "s6"}, {"start_sec": 1295, "type": "text", "zh": "我们看到这个，我可以说，我们可以把这个当作故事来谈，这个故事现在已经有15多年了，就像推特在早期有过这样的情况，对吧，他们最初的推特是一个非常开放的生态系统。是一个平台，我们字面意思上看到成千上万的花朵在那时候绽放。很多推特客户端被开发出来，很多人，你知道的，在原有的API基础上开发了产品和公司。这不仅仅是推特独有的，只是现在最先想到的例子而已。但是后来他们逐渐关闭了它，从开发者不友好到几乎对开发者敌对，对吧？所以我认为，其中一件事情是，这有助于我们建设生态系统。", "speaker_id": "dharmesh", "section_id": "s6"}, {"start_sec": 1332, "type": "text", "zh": "我们有点把这些经验教训牢记在心，这意味着，好吧，让我们成为那个我们希望在自己还在做一些非常激进的事情的时候就已经存在的平台，比如说，让我们成为那种类似 HubSpot 品牌的角色，友好、讨人喜欢。我们是赤血资本主义者，我们喜欢把自己看作是热心的赤血资本主义者，好吧，每个人都是来赚钱的，这就是我们在做的事情。我们也尽量对我们的合作伙伴保持透明，尽可能做到开诚布公，例如，好吧，这些事情我们不能向你承诺我们不会做，但这里是我们会做的事情。", "speaker_id": "dharmesh", "section_id": "s6"}, {"start_sec": 1367, "type": "text", "zh": "如果我们在寻找白色空间，如果我们是你，这些事情我们会做的类型，我们认为有机会的事情，你知道，我们很不可能进入那个领域，而这很有效，所以我们已经在一大群人中建立了信任。然后其中一些只是你知道，建立一个生态系统很像建立一个产品，你必须以那种方式去考虑，也就是说，作为一个开发者，从本质上来说，就是像我们以核心客户的价值时间去思考一样，我们必须考虑开发者的快乐时间，一个人多快能到达“哦，我弄好了某些东西”的状态", "speaker_id": "dharmesh", "section_id": "s6"}, {"start_sec": 1402, "type": "text", "zh": "HubSpot API 哦，我赚到了我的第一美元，你知道的，在 HubSpot 生态系统内使用 HubSpot 工作，不管那是什么。我们能压缩这个吗？我们能减少喜悦的时间吗，你知道的，对于那一类客户，是的，所以", "speaker_id": "dharmesh", "section_id": "s6"}, {"start_sec": 1415, "type": "text", "zh": "不是完全否定，也不是不祝贺你们建立了如此繁荣的生态系统。也许现在只是稍微过渡一下，进入我们之前讨论的那篇文章和围绕它的对话。我很想听听你如何看待你可能关心的，关于实验室正在追求的工作流程的事情。当然，HubSpot体验内部还有很多事情，我认为那些横向产品正试图整合进去。以及你如何看待你想要防守的领域，以及在哪里可以建立最持久的价值。我很想听听你对此的评论。", "speaker_id": "joe", "section_id": "s7"}, {"start_sec": 1447, "type": "text", "zh": "是的，有几个想法。首先我要以一个非常非常有偏见的观点开场，鉴于我是HubSpot的联合创始人兼首席技术官，", "speaker_id": "dharmesh", "section_id": "s7"}, {"start_sec": 1455, "type": "text", "zh": "那并不一定意味着我错了。", "speaker_id": "joe", "section_id": "s7"}, {"start_sec": 1459, "type": "text", "zh": "所以有一些想法。其中一个是广泛地讨论，然后我们可以集中在一些具体的事情上。就是你知道，对于外面的人来说，好像感觉就是，这是你的黄色砖路，我很喜欢这篇文章，这个想法和比喻非常贴切，就像有一条经过精心铺设、闪闪发亮的道路，指向翡翠城或者其他地方，你怎么可能不想走下去呢？当时感觉很空虚，对吧，但你不知道的是，有一队坦克正沿着那条路驶来，而且速度越来越快。这并不是说他们甚至……", "speaker_id": "dharmesh", "section_id": "s7"}, {"start_sec": 1492, "type": "text", "zh": "慢，因为他们发明了这个新东西，让他们甚至变得更快。", "speaker_id": "dharmesh", "section_id": "s7"}, {"start_sec": 1498, "type": "text", "zh": "所以，这就是你文章的一个前提，我完全赞同，就是他们确实会沿着那条路前进。而那条路确实很光鲜，很诱人，因此才有了万亿美元的估值和即将到来的市值。但是，在那之外还有很多机会。所以，我是那种喜欢框架的人，这里有一个错误，我认为企业家在这两方面都会犯。一方面是当他们忽视它时，他们会说，哦，ChatGPT 做不到这个，Claude Cowork做不到那个，那么我们来做这个，我们来填补这个空白。而这些就是让我感到担忧的想法，因为……", "speaker_id": "dharmesh", "section_id": "s7"}, {"start_sec": 1535, "type": "text", "zh": "我认为这种想法有两点有些误导。第一点是，如果你只需在后面加上‘还’这个词，它仍然站得住脚，那就是一个问题。就像，“哦，Chad GPD 还做不到这个。”这说得通吗？如果在某种程度上说得通，那就好吧，这确实是一个问题。这是第一点。", "speaker_id": "dharmesh", "section_id": "s7"}, {"start_sec": 1552, "type": "text", "zh": "第二件事是我认为的衡量产品而非公司的方式。就像，哦，", "speaker_id": "joe", "section_id": "s7"}, {"start_sec": 1557, "type": "text", "zh": "聊天 GPT 做不到那件事。就像，好的，但 OpenAI 这家公司能做到吗？可能吧，你知道，也许这是一个新产品，或者新的产品线什么的。你得想清楚那条路有多宽，？就像，好的，也许路本身在变宽。好吧。那也许要避开这条路，但可能也要稍微待在外面一点，就像，好的，如果其他条件相同，你可以离得再远一点。即使当他们扩展时，如果可以预见也是有点规律的。所以第一件事就是要确保，然后，要么选择那些前沿模型公司已经拥有的东西，要么……", "speaker_id": "dharmesh", "section_id": "s7"}, {"start_sec": 1592, "type": "text", "zh": "结构性约束，他们在监管方面就是做不了，无论是什么，或者有我所认为的激励约束。是的，他们可以做到，", "speaker_id": "dharmesh", "section_id": "s7"}, {"start_sec": 1602, "type": "text", "zh": "但是他们那样做的可能性真的非常非常低，因为我就以 HubSpot 作为例子。假设任何一种前沿模型公司，我就挑 Sam Altman 说吧，因为我是 OpenAI 的投资人，也认识 Sam。就像他明天可能就会醒来说，那个 CRM 行业看起来非常诱人，而且 HubSpot 的收入有三十多亿美元，我们要把把那收入变成我们的使命，或者让公司内的某个人的使命去获取那收入。他们够聪明吗？是的。他们有野心吗？是的。但是正是这种野心，使得 OpenAI 的团队、Sam 或任何人这样做的可能性极低，情况也是一样的。", "speaker_id": "dharmesh", "section_id": "s7"}, {"start_sec": 1638, "type": "text", "zh": "对于 Anthropic 或任何前沿模型公司来说，他们不太可能那样做。但那正是要做到这一点所需要的。我的论点有点回到一个问题：你如何找到那些在黄砖路之外的机会点？我们可以确定的一件事是，前沿模型公司已经投资了数千亿美元进行预训练，正如你所知道的那样。因此，他们现在的整个业务实际上就是利用他们已经花费的资本支出以及持续投入的资金，来思考我们如何销售推理服务，如何销售代币，如何变现我们所构建的东西？是的。", "speaker_id": "dharmesh", "section_id": "s7"}, {"start_sec": 1673, "type": "text", "zh": "太棒了。这是一个古老的故事，他们有两个选择。比如，一个选择是他们可以说，哦，我们只是直接向地球上的每一个人出售代币，他们将通过消费者产品来做到这一点，他们会做到，甚至在高端市场，他们会说，好吧，我们将直接面向《财富》500强的摩根大通出售代币，因为我们要出售给他们，不需要中间人，我们会有一支全职员工的团队来帮我们做到这一点。这当然是一条路，他们也正在沿着这条路前进。另一种可能的路径是，好吧，有，你知道的软件即服务（SaaS）公司和产品以及公司，并且", "speaker_id": "joe", "section_id": "s7"}, {"start_sec": 1703, "type": "text", "zh": "初创公司或其他什么企业，如果他们了解自己的特定领域，了解自己的市场，有一定的分销渠道，或者有一些东西可以让他们销售代币并成为推理的转售商，用一个不太合适的术语来说。就好像，好吧，而且他们实际上不必非此即彼，他们可以两者兼顾，他们可以说，哦，对于这些类型的事情，对于消费者，我们想自己拥有，不希望别人做类似于聊天GPT的东西，我们要自己掌控。", "speaker_id": "joe", "section_id": "s7"}, {"start_sec": 1726, "type": "text", "zh": "但是将会有很多机会可以说，好吧，把人工智能看作基础设施，就像我们在十五年前把 AWS 和云计算看作基础设施一样", "speaker_id": "dharmesh", "section_id": "s7"}, {"start_sec": 1737, "type": "text", "zh": "这完全是一样的事情，就像……作为创业者，我再次声明我有偏见，但并非错误。我觉得现在在人工智能领域及其周边建设，比2023年更不那么可怕。我之所以这么说，是因为在2023年，我对商业有很少的规则。第一条是永远不要拥有餐厅。第二条是永远不要做房东并收取租金。第三条是永远不要和 Sam Altman竞争，我不小心有几次违反了这个规则。但现实情况是，如果回到2023年那个时候，如果我是一个……", "speaker_id": "dharmesh", "section_id": "s7"}, {"start_sec": 1779, "type": "text", "zh": "对于那个押注的人，我本来会说他们只是太远了，就像他们已经搞明白了某种魔法灵药之类的东西一样。我完全不知道是否有人最终能够真正解决它，并能够拉动包括必要的资本支出在内的所有事情。幸运的是，我在这点上错了。你知道，从创业者和生态系统的角度来看，幸运的是，因为现在的情况是，这些模型——我不会说它们是商品——但它们的一个优点是，它们如此普遍，因此它们就是基础设施，并且从定价上，它们将趋于", "speaker_id": "dharmesh", "section_id": "s7"}, {"start_sec": 1812, "type": "text", "zh": "从角度上，甚至从可替代性角度来看。目前，你知道的，像 OpenRouter 这样的东西存在，是因为很容易互换模型，甚至在 HubSpot 内部，大多数 SaaS 公司都在进行某种形式的用例分解和模型路由，以找出哪个模型最适合这项任务。由此产生的副产品是，你可以随意更换所需的内容。因此，没有太多理由感到害怕，因为你并不拥有这种供应链的控制力，即某家公司掌控着你构建产品和解决问题所需的关键成分。目前我们没有这种情况。我们是开放的", "speaker_id": "dharmesh", "section_id": "s7"}, {"start_sec": 1845, "type": "text", "zh": "来源。我们有很多很棒的商业产品。所以只要你远离黄色砖路，现在完全有可能你不会因为保证金问题被迫退出或者其他原因，因为你有选择。不只是一个公司提供建立 AI 原生公司所需的关键成分。", "speaker_id": "dharmesh", "section_id": "s7"}, {"start_sec": 1859, "type": "text", "zh": "不，完全是这样。我认为你触及到的另一个方面是，当然，如果有足够的专注力，这是没问题的，但同时，无论你是初创公司还是 HubSpot，或者其他公司，如果你不是在构建基础模型，你实际上仍然是在构建高质量的软件。我认为这是你追求的那个层次，用来为客户提供价值。当然，现在还有所有这些其他很棒的基础设施组件，你可以打包起来，然后提供给那些客户。至少我是这样思考的，当然我在这方面也有争论。", "speaker_id": "joe", "section_id": "s7"}, {"start_sec": 1890, "type": "text", "zh": "论文就像你知道的那样，有循环，有测试，有一些你可以做的事情来尝试识别这些环节，但希望你在这一层构建某种、你知道的、规模报酬递增或复利优势。所以我很想听听你如何看待这件事，你知道，HubSpot 或你正在做的任何事情，以及它们与您试图在这些产品中构建的循环或你试图建立的优势的关系。", "speaker_id": "joe", "section_id": "s7"}, {"start_sec": 1911, "type": "text", "zh": "是的，这是一个不断累积循环的过程，乔。当然，这就是整个游戏的名称。AI 之前，AI 之后，但我会说几件事。所以我要倒回去。我在堆栈上推了一个想法，现在我要把它弹出来，然后讲解一下。就是这样，你知道，我们收到的一个问题是，如果你是一个企业家在评估这些想法，比如，好吧，今天是 OpenAI 的开发者日，顺便说一下，是 9 月 30 日。所以，就在我们这次通话之前，你还没来得及看录音。", "speaker_id": "dharmesh", "section_id": "s8"}, {"start_sec": 1942, "type": "text", "zh": "那是什么？", "speaker_id": "joe", "section_id": "s8"}, {"start_sec": 1943, "type": "text", "zh": "我说我们是在为观众录制这段录像的时间。", "speaker_id": "dharmesh", "section_id": "s8"}, {"start_sec": 1946, "type": "text", "zh": "所以，你现在知道有时间戳了。", "speaker_id": "joe", "section_id": "s8"}, {"start_sec": 1947, "type": "text", "zh": "完全正确。你确切地知道这是在什么时候录制的。所以，HubSpot 推出了我们的——我们是第一家这样做的 CRM 公司——一年多前推出了与 ChatGPT 的连接器，我们还有一个为 Anthropic 的。我们有时会收到的问题之一是，比如说，这难道不会削弱 HubSpot 的长期价值吗？就像，如果每个人都是通过 Chatbot 或通过 Cloud Co-Work 之类的方式进入的，这不就像是在侵蚀长期价值吗？我理解这种想法，我的反驳是，界面很重要，但其重要程度不同，这是有一个范围的。", "speaker_id": "dharmesh", "section_id": "s8"}, {"start_sec": 1986, "type": "text", "zh": "比如说，我随便举一个例子，假设我们把它看作一个光谱。比如说你看看像Uber Eats或DoorDash这样的东西，对吧？它们有非常吸引人的应用程序，但问题是，应用程序本身其实是微不足道的。真正有价值的是它们拥有的网络、餐厅的合作关系等等。这样司机就可以出现，取餐并送达，这是物流相关的所有环节。那才是真正的价值所在，也是很难被替代的部分。还有一些东西，其界面就是产品的全部，对吧？就是全部。如果没有界面，就没有价值。然后，我", "speaker_id": "dharmesh", "section_id": "s8"}, {"start_sec": 2016, "type": "text", "zh": "我认为大多数商业应用实际上更像是 Uber Eats 之类的东西，对吧？不是说它们像 Uber Eats 和 Door Dash 那样有网络效应，而是说真正有价值的是正在进行的工作。界面只是达到目的的一种手段。嗯。", "speaker_id": "dharmesh", "section_id": "s8"}, {"start_sec": 2030, "type": "text", "zh": "界面对 HubSpot 重要的唯一原因是因为市场人员和销售人员试图完成某些工作或实现特定的结果，而界面是手段，但在他们与计算机交流以及人工智能出现之前。HubSpot 的著名之处在于，我们理解你试图完成的问题，并且实际上我们已经构建了一个非常简单的界面来帮助你实现目标，但这并不是全部的价值。现在有人可能会争论 HubSpot 处在什么范围内，但我可以保证，它并不属于“界面占 99% 价值”的情况，因此我的观点是，在", "speaker_id": "dharmesh", "section_id": "s8"}, {"start_sec": 2064, "type": "text", "zh": "同样，你知道你什么都知道这种感觉会再次回来的时候是，当我们看到最初的SAS开发转向基于网络的应用程序世界时，我们经历了类似的事情。就像，好吧，我们有客户机服务器应用程序，你知道，以前在我们的桌面上运行，然后我们有了浏览器的出现，比如Internet Explorer，后来还有Mozilla，你们都知道吧。然后就是，好吧，现在我的软件运行在浏览器里面，但事实证明，谷歌并没有拥有整个应用程序栈，当时有大量的软件公司被建立起来，就像……", "speaker_id": "dharmesh", "section_id": "s8"}, {"start_sec": 2098, "type": "text", "zh": "哦，界面变成了浏览器，因为这是一个方便的方式来访问你实际需要的那种产品。使用浏览器比在你知道的 1900 万台电脑上安装东西要好。我们现在也有类似的东西，但有所不同，对吗，因为 AI 在做工作。它在做真正聪明的事情。它们可以做更多的事情。", "speaker_id": "dharmesh", "section_id": "s8"}, {"start_sec": 2117, "type": "text", "zh": "但是如果你只是看看那种聊天", "speaker_id": "joe", "section_id": "s8"}, {"start_sec": 2123, "type": "text", "zh": "它们就是新的浏览器，就像人们在消费价值的方式将会发生变化，而且会有像 HubSpot 这样的公司能够接入进来，这就是我们从开发者日看到的情况，你知道的，我们去年也看到了，并且我们继续看到，就像，哦，他们将会增加在 Chat GPT 中可用内容的丰富性。他们推出了一个，你知道的，这种面向人们的市场，让人们可以接入到插件架构中，所有这些对我来说都是完全合理的。所以，我的基本理念，我认为对大多数至少在 B2B 世界里的人来说是成立的就是", "speaker_id": "dharmesh", "section_id": "s8"}, {"start_sec": 2156, "type": "text", "zh": "比如，不要过度思考界面，要弄清楚实现客户期望结果的最佳方式，然后另一点，你知道你能带来的价值是关于经济上的最佳方式，最低延迟的方式，最低摩擦的方式来实现这些结果。通常，像大语言模型在很多很多方面都非常非常擅长。这是我们人类历史上最杰出的技术。但我曾经公开说过的一件事是，任何可以通过结构化查询确定性地解决的问题，就用结构化查询确定性地解决。", "speaker_id": "dharmesh", "section_id": "s8"}, {"start_sec": 2193, "type": "text", "zh": "不要用推理去解决查询本可以解决的事情。这没有任何意义。所以即使数据在那里，也就像，哦，", "speaker_id": "dharmesh", "section_id": "s8"}, {"start_sec": 2199, "type": "text", "zh": "如果你的问题是我们从爱尔兰获得了多少客户或收入，", "speaker_id": "joe", "section_id": "s8"}, {"start_sec": 2205, "type": "text", "zh": "你不应该需要翻查800万条Slack消息和电子邮件或其他东西来推断答案。是的，数据可能确实存在某个地方。", "speaker_id": "dharmesh", "section_id": "s8"}, {"start_sec": 2210, "type": "text", "zh": "是的。", "speaker_id": "joe", "section_id": "s8"}, {"start_sec": 2212, "type": "text", "zh": "但那应该是一个数据库查询，而不应该是你知道的，通过推理解决并扔一个300智商的模型去处理。", "speaker_id": "dharmesh", "section_id": "s8"}, {"start_sec": 2219, "type": "text", "zh": "不，完全是。而且我我我认为我认为有许多公司正在努力应对这一点，因为他们试图理解自己的定价和消费理念，这本身可能就是一个该死的播客，我觉得也是。也许这是关于这个的最后一个问题，因为我觉得你谈论这个真的很有趣", "speaker_id": "joe", "section_id": "s8"}, {"start_sec": 2234, "type": "text", "zh": "当你最初构建 HubSpot 时所做的架构决策，可能是在事后看来我们会受益的那些——我不知道你会如何重新考虑它们。我非常好奇想听听你是如何看待这个问题的，因为当然，你最初设计它的方式，是为了让人类能够导航所有这些信息，并以一种对人类直观的方式来存储它们。而现在我们有了这些令人难以置信的强大模型，它们可以以非常不同的方式来看待这些东西。所以我不知道你是如何看待可能希望从不同方式开始的方式，或者可能你现在正在采取什么措施来解决这个问题。", "speaker_id": "dharmesh", "section_id": "s9"}, {"start_sec": 2267, "type": "text", "zh": "作为HubSpot的一名高管。", "speaker_id": "dharmesh", "section_id": "s9"}, {"start_sec": 2270, "type": "text", "zh": "是的，有几件事。一是你知道的，我是一个受过经典训练的计算机科学软件开发宅男，一直都是这样，我特别相信的一件事是关于大型软件应用的概念，是关于框架，以及从一组原语开始，你会随着时间演变它们，因为这就是能给你带来回报的东西，又回到复利和杠杆的概念。我在每一家公司学习到的事情之一是，如果你能把这些核心原语做好，那么你最终做的就是不断重新混合和重新组合这些原语。", "speaker_id": "dharmesh", "section_id": "s9"}, {"start_sec": 2304, "type": "text", "zh": "基于市场如何发展以及产品如何发展的新颖方式。自始至终，这一点在HubSpot都是成立的，对吧？所以我们建立的东西是，我们有一个核心的操作系统或操作框架，我们在此基础上构建了营销自动化之类的东西。所以当我们进入产品2、3、4或其他版本时，我们需要带到市场的大部分价值已经以原始形式存在，比如说我们从营销自动化开始，也就是这是一个确定性的工作流程来做营销，比如发送电子邮件，等待三天，看他们是否点击，就像是，当我们进入销售时也是如此。", "speaker_id": "dharmesh", "section_id": "s9"}, {"start_sec": 2334, "type": "text", "zh": "而CRM就像是，我们的营销自动化原型实际上是一个原型，我们可以重用所有这些技术，这样我们在销售自动化应用或产品的第一天就可能拥有比其他人经过几年才能达到的更多功能，对吧？所以这部分我认为仍然是成立的。所以我们现在要做的是说，好吧，现在我们需要什么样的框架来支撑未来20年的HubSpot，同时我们知道我们有了这个AI世界。所以你提到的一个问题是，哦，数据不再只是存储在关系型数据存储中的结构化数据或其他东西，这在你进行确定性查询时是有意义的。", "speaker_id": "dharmesh", "section_id": "s9"}, {"start_sec": 2367, "type": "text", "zh": "现在它包含了结构化和非结构化数据，并且并不是说这些数据在组织内部甚至在我们客户的组织内部不存在。只不过以前你无法用它做任何有意义的事情。实际上大约十年前，不管付多少钱都做不到，但现在你可以了。所以现在我们重新审视这些基本元素，说好吧，我们仍然需要一个结构化数据存储。我很乐意与任何想讨论的人辩论这个问题：无论是关系型数据库还是其他什么，都需要有某种持久机制来存储已知的事实和数据，或者说某种记录系统，它需要与这种系统并行存在。", "speaker_id": "dharmesh", "section_id": "s9"}, {"start_sec": 2405, "type": "text", "zh": "把它看作是一个上下文系统，即这些非结构化数据，这就是我们正在构建的东西。我认为它的发展方式是这种概念，我使用这个术语，其他人也使用，比如第二大脑或者开放式的", "speaker_id": "dharmesh", "section_id": "s9"}, {"start_sec": 2422, "type": "text", "zh": "我们能否把所有正在发生的事情，以及可能合乎逻辑的那种结构，放在一起，这种结构可能是一种图结构？我们能否将其存储在某种上下文图中？这是另一个被使用过的术语，这就是这个想法。就是像这样：嗯，我们能否把这个拿出来，然后结合结构化数据存储使用，从而进行推理，驱动代理，推动结果，并完成工作。所以在人工智能方面有一件有趣的事情，你没有问这个问题，但在我们聊天的时候我突然想到，那就是现在代理式编程的其中一个真正美妙之处，尤其是对……非常适用。", "speaker_id": "dharmesh", "section_id": "s9"}, {"start_sec": 2459, "type": "text", "zh": "实际上对于在职人员来说更真实的是，是的，它确实让我们能够更快地开发软件。我们可以更快地测试想法，这是我们之前讨论过的，构建产品也更快，这一切都很棒。我们从中受益。但你还能做的另一件事是，你实际上可以深入做一些较大的项目，这些项目你可能原本不会考虑。所以现在可能的情况是，你知道，我们有一个代码的记录系统，大多数人使用的是 GitHub。想象一下，你说，好吧，我现在有类似 Fable 5.1 或现在发布的 6 Astra 或者 6.1。然后想象一下，你说，好吧，我希望年轻的我曾经做过", "speaker_id": "joe", "section_id": "s9"}, {"start_sec": 2500, "type": "text", "zh": "当谈到如果我能够回到过去，我会如何做这些选择时，这就是我会如何做那些原语，或者我会把这个作为一个原语引入，这是一个可重用的服务，相比之下，因为那时我们并不知道，但理论上我们现在有点明白，其实现在可以说，我想要，我想要重现那个，我想拿这段用这个数据结构、这个语言、这个框架、这个架构所写的代码，然后会发生什么，如果我们说我们要花20万美元买代币来重新做一遍，基本上只是重放它，就像你知道的无限可能宇宙的事情，或者让我们跳到", "speaker_id": "joe", "section_id": "s9"}, {"start_sec": 2534, "type": "text", "zh": "宇宙的那个分支中，我们做出了不同的选择，然后看看会发生什么，我们最终会到哪里。你知道，像 HubSpot 这样的公司有一个优势，就是我们有过去人们称为单元测试的东西，现在表现为评估（eval）。我们是否真的可以衡量我们刚做的事情的可行性，它是否仍然通过测试，是否仍然产生结果，是否仍然完成所有需要做的事情？现在我们有这个。所以我们现在确实运行这个测试，当新模型出现时，我们会说，好吧，我们可以在新模型上运行我们的一系列评估，然后说，好吧，这里有一个权衡，这里是经济价值，比如我们损失了大约 3% 的质量点，但我们", "speaker_id": "joe", "section_id": "s9"}, {"start_sec": 2569, "type": "text", "zh": "在延迟或经济方面获得这么多收益。我们也可以用相同的方法来测试这些理论，比如说，如果我们把整个东西用 Rust 重写，我就是在做这个", "speaker_id": "joe", "section_id": "s9"}, {"start_sec": 2577, "type": "text", "zh": "它会是什么样子？实际情况会怎样，你现在可以用小规模的作品来测试一下。", "speaker_id": "dharmesh", "section_id": "s9"}, {"start_sec": 2584, "type": "text", "zh": "无论如何，这很令人兴奋。", "speaker_id": "joe", "section_id": "s9"}, {"start_sec": 2586, "type": "text", "zh": "我认为这是一个非常吸引人的话题。我写过另一篇文章，我想大概是在我写《黄色书之路》的同一时间，也许稍早一些，其实我用Workday作为这个方面的例子，就是说，你必须从头开始思考如何成为AI原生，以及你拥有的所有优势，但也有所有的劣势。所以，你知道，HubSpot的好处几乎在于它拥有一位令人惊叹的创始人，他仍然非常非常参与公司的事务，当然还在经营业务并推动这些变革。因此，我非常喜欢这个试图思考的例子。", "speaker_id": "dharmesh", "section_id": "s9"}, {"start_sec": 2615, "type": "text", "zh": "这些就像你可以拥有的平行宇宙。你是否在尝试在 HubSpot 内创建其他流程，或者在 HubSpot 内创建团队，或者正在破除官僚主义？我只是好奇想听听你作为创始人现在在做什么。", "speaker_id": "dharmesh", "section_id": "s9"}, {"start_sec": 2629, "type": "text", "zh": "是的。所以我们在 HubSpot 内有一个名为 HubSpot Next 的团队，其理念是它实际上是一个创新实验室。可以说，它是创业公司中的创业团队。因此，在任何特定时间，我们可能会有若干这样的项目在进行。我们的动机是真正把它当作一个创业公司来看待，我们在构建 CRM 时也采用了类似的方式。就是，‘好了，我们要构建这个 CRM 项目。’然后有人会说，‘等等，那是什么？我们可是做营销软件的啊。’于是我们就把团队隔离开来，他们没有任何规则限制。不需要在我们的技术栈上构建，也不需要使用品牌，也不需要做……", "speaker_id": "dharmesh", "section_id": "s10"}, {"start_sec": 2662, "type": "text", "zh": "任何事情。只管去解决问题。我们现在已经在某种程度上贯彻了这个理念。所以，我这些年来一直倡导并领导了若干这样的项目。我现在正在做的这个项目，几乎每晚都在做，叫做 uSpot。它是一个面向单人的 CRM，是为独立创业者设计的 CRM。这就是市场所在。这又回到缩小你的关注范围的观点。但 HubSpot 的下一个项目，他们要么在探索一个新的产品类别、新的产品理念、一个新市场，或者在测试新技术。回到‘你能否低成本地学习教训’，这对我来说要容易得多。", "speaker_id": "dharmesh", "section_id": "s10"}, {"start_sec": 2702, "type": "text", "zh": "这就像我有一个为第二大脑而设的想法，对吧？就像，哦，也许一个图表，你知道，图模型可能效果更好。也许你把所有社交媒体，所有进来的东西或者其他什么都接入，然后就像，好吧，我们在uSpot测试一下吧，因为那是一种更容易、更快节奏的测试方式。所以这个产品现在正好三十天大。恭喜你，是的，而且这是一个非常有趣的学习经历。所以对最初问题的回答是，你知道，这样的东西能行吗？答案是可以的，它确实有效。我认为其他创业者应该从中学到的就是，这种拥有第二大脑的概念", "speaker_id": "dharmesh", "section_id": "s10"}, {"start_sec": 2744, "type": "text", "zh": "大脑能够保持，并且它是回到那种黄色砖路对话的东西，某种避免被碾过的东西，你不应该做的事情是说，哦，好吧，Chat GPT 和 Cloud Corework 在记忆方面真的很差，或者类似的这种情况", "speaker_id": "dharmesh", "section_id": "s10"}, {"start_sec": 2755, "type": "text", "zh": "是的，好像会好起来的", "speaker_id": "joe", "section_id": "s10"}, {"start_sec": 2757, "type": "text", "zh": "不要去解决那个问题，不要去解决横向用例之类的事情，但可以说，嘿，在这一类客户中，他们有一类问题，如果考虑拥有第二大脑的概念，将会从中受益。注入点会是什么？你如何把它整合在一起？你会实际产生哪些代理或完成哪些工作？但我认为这个潜在的基本概念实际上是非常强大的。我认为它是适用的，所以", "speaker_id": "dharmesh", "section_id": "s10"}, {"start_sec": 2780, "type": "text", "zh": "是的。然后现在你……我的意思是，我觉得你非常有洞察力，而且我认为这对特别是这种类型的用户非常有价值。我的意思是，这是他们当然想要的。是的。那么你如何将这些学习成果带回总部进行产品化，如果可能的话，以及你需要建立哪些流程来实现这一点？", "speaker_id": "joe", "section_id": "s10"}, {"start_sec": 2801, "type": "text", "zh": "是的。我们做的方式是，你知道，我们这些年来有点摸索，尝试了各种机制，就是去拉扯那个最初的线索——这是一个初创公司中的初创公司。所以我们做了几件事。第一件事是，如果这个东西达到了规模，我们之前已经多次遇到过这种情况。有一个产品是我几年前推出的，叫做 agent.ai。", "speaker_id": "dharmesh", "section_id": "s10"}, {"start_sec": 2822, "type": "text", "zh": "agent.AI 曾经是一个 AI 代理市场，你知道的，很久以前。这是我无意中与 Sam Altman 竞争的故事之一。虽然它专注于市场推广，但它是两个横向的部分。它有一个 AI 代理市场，还有一个代理构建器，它会说：“哦，我们能不能让普通人实际上构建这种混合的确定性和非确定性代理？”我们发现，这个想法有一半是对的，但实际上需要整个 HubSpot 团队来支持。所以我们实际上进行了收购，对吧？于是他说，我们要把这个收购过来，现在要把代理构建器做成一个产品。", "speaker_id": "dharmesh", "section_id": "s10"}, {"start_sec": 2857, "type": "text", "zh": "HubSpot 或其他类似的东西，这就是它现在所处的位置。所以在美国的情况下，对吧？一种可能的结果是，哦，我们正在为单人公司的 CRM 构建产品，我们做对了这些，做错了那些，等等。也许我们只是把它吸收到 HubSpot，成为 HubSpot 的一个产品。也许我们会说，“哦，产品本身可能仍然需要独立存在，或者市场行不通。但第二大脑的想法可能可行，比如这些是在退出点上我们认为适合中小企业以及多玩家团队模式的东西。我们只是让核心团队自行决定他们想选择什么。” 就是这样", "speaker_id": "dharmesh", "section_id": "s10"}, {"start_sec": 2890, "type": "text", "zh": "有点像他们在看一个水上招聘，字面意思就是那样。就像，‘哦，这是我们可以买的东西。’以包含在内的超低价格。", "speaker_id": "dharmesh", "section_id": "s10"}, {"start_sec": 2898, "type": "text", "zh": "它包括在内。是的。 【笑声】", "speaker_id": "joe", "section_id": "s10"}, {"start_sec": 2900, "type": "text", "zh": "它不是 它不是 免费的。它是免费的。", "speaker_id": "dharmesh", "section_id": "s10"}, {"start_sec": 2902, "type": "text", "zh": "完全正确。它是免费的。所以是的，就是这样", "speaker_id": "joe", "section_id": "s10"}, {"start_sec": 2905, "type": "text", "zh": "我们会尽量对此保持开放的心态。但用我们这种方式做的好处是", "speaker_id": "dharmesh", "section_id": "s10"}, {"start_sec": 2910, "type": "text", "zh": "所以你认为这是为什么，你知道，为什么你不能只在企业核心内部去做，因为那些自由度对于能够以你想要的速度进行实验非常重要。所以你必须像我长久以来所说的，作为一个创业公司的人，我一直说的问题是，对于现有企业来说使用起来有点困难，当我现在提到HubSpot时，我仍然以某种方式去看待它", "speaker_id": "dharmesh", "section_id": "s10"}, {"start_sec": 2935, "type": "text", "zh": "它仍然是一家初创公司，别担心", "speaker_id": "joe", "section_id": "s10"}, {"start_sec": 2937, "type": "text", "zh": "为什么那不是某种东西的缺失，就像初创公司，你知道，它们并没有大公司所没有的东西，问题在于", "speaker_id": "dharmesh", "section_id": "s10"}, {"start_sec": 2945, "type": "text", "zh": "这就是我所谓的负担——组织所承受的重量。如果他们能找到一种方法来摆脱这些负担，那么你就能获得作为大公司的一切优势。你有分销渠道，你有客户关系，你有评估能力，你有二十年的代码库，可以作为数据来指导你构建下一个产品。所有这些东西实际上都是资产。所以，如果你能摆脱这些负债的话，HubSpot Next 就是一种方式来说，好吧，我们就假装自己没有那些负债，而作为一家初创公司，我们确实没有这些负债，我们可以自由地开展自己的业务，这也是我们一直在做的。", "speaker_id": "dharmesh", "section_id": "s10"}, {"start_sec": 2976, "type": "text", "zh": "做。但是当真正需要利用资产时，就像，哦，如果这里有HubSpot的品牌会很有帮助，或者我们能在那里得到一些关于分发的建议，就像我们可以做到一样。所以，", "speaker_id": "dharmesh", "section_id": "s10"}, {"start_sec": 2987, "type": "text", "zh": "现在真的很容易，尤其是在一些国家舆论倾向于对人工智能及其影响持负面看法的时候，但现实是我看到的所有数据都非常令人兴奋。增长简直令人难以置信。我实际上认为，你提到的 Spot 是这种潜在增长的一个非常好的例子，对吧？在人类历史上，什么时候会是去建造这样的东西的一个好主意呢？", "speaker_id": "dharmesh", "section_id": "s11"}, {"start_sec": 3010, "type": "text", "zh": "像这样的超级个性化CRM，以前几乎是不可能实现的，对吧，但现在我们能够做到。那么那将允许这些一人公司做什么呢，就像那样。", "speaker_id": "dharmesh", "section_id": "s11"}, {"start_sec": 3021, "type": "text", "zh": "我们将看到前所未有的增长，我认为这是我们以前从未见过的，梦想一下真是太酷了。所以也许我很想听你谈谈你看到的一些情况，比如这些初步的使用案例，也许是来自uSpot的，或者是你从增长中看到的情况。这真的是一个令人惊叹的时代。", "speaker_id": "dharmesh", "section_id": "s11"}, {"start_sec": 3037, "type": "text", "zh": "是的，所以有趣的是，我知道情况是这样的，但我不确定程度有多大。就像我提到的，与我以前做的 HubSpot 相关项目相比，我在 uSpot 上做的一件不同的事情是，我非常早就实现了变现。部分原因不是为了弥补成本或类似的东西，而是这是我想学习的一课，我想学习定价的经验，以及我们想更多了解的关于变现、定价以及人们对其价值认知的一些内容。这是其中的一部分。所以让我感到非常惊讶的是，人们愿意放置信用卡的信息来...", "speaker_id": "dharmesh", "section_id": "s11"}, {"start_sec": 3074, "type": "text", "zh": "一个基于消费的模型。就像什么都没有。我，我多年来在HubSpot推出了很多项目。在这方面，这是最成功的一个。所以有这么一个信号，部分原因我认为只是由你知道的 sheer numbers 驱动的，我们会把美国人口普查数据引入到现在的这个情况，对吧？也就是说，在2025年，我们有美国有史以来最多的新公司成立，我记得大约是560万，接近600万，这很好。今年我们已经在四百万左右，到八月我们已经超过四百万了，所以这将是又一个创纪录的一年，所以这并不是说噢，我们只是有一次性事件。", "speaker_id": "dharmesh", "section_id": "s11"}, {"start_sec": 3107, "type": "text", "zh": "激增，现在又在回落。所以这是第一个非常有趣的事实。第二个更加有趣的事实是，预计将保持为单人公司的新公司占比例创历史新高，并且还在增加。实际上，美国人口普查局会追踪这些数据，他们表示会把每一个新公司分到两个类别中，一个是预计该公司将在未来两年内至少雇佣一名员工的类别，他们就是这样进行分类的；另一个类别是该公司在未来两年内不太可能雇佣员工的类别。这个比例现在已经超过70%。", "speaker_id": "dharmesh", "section_id": "s11"}, {"start_sec": 3146, "type": "text", "zh": "所以所以这很令人兴奋。这里有一个新市场。对于那些创业者来说，这完全是一个机会，就像当年中小企业（SMB）市场一样，你知道，当时大家对HubSpot都有些反对。大家都说哦，你在中小企业赚不到钱，这太难了，或者说除了HubSpot之外，没有任何软件公司曾经在中小企业市场做到数十亿美元的业务。但你可以，这个市场足够大。是的，这类市场会有一些痛点。不过，不管怎样，我对此感到很兴奋。我对经济感到兴奋，我对所有将要创办数百万家企业的创业者感到兴奋，不论是什么类型的企业。", "speaker_id": "dharmesh", "section_id": "s11"}, {"start_sec": 3183, "type": "text", "zh": "是的，然后也为那些为那个市场创建东西的企业家感到兴奋，就像整个过程都很令人兴奋。我是的", "speaker_id": "dharmesh", "section_id": "s11"}, {"start_sec": 3189, "type": "text", "zh": "不，我完全同意这一点，而且我们一直在谈论这个方面的很多问题，我认为我们讨论过的一个领域是，比如说以往的垂直软件，你是怎么让它工作的呢？你是通过低的 ACV 或年度或月度成本让垂直软件工作的，但后来你又通过支付、换汇收入补回来了。我只是不确定人们是否完全意识到机会规模的增加，因为有太多你可以做的事情，以及有这么多其他方式可以为你的小客户提供价值并创造价值。", "speaker_id": "joe", "section_id": "s11"}, {"start_sec": 3224, "type": "text", "zh": "这是是的，这也是我应对……的方式", "speaker_id": "dharmesh", "section_id": "s11"}, {"start_sec": 3229, "type": "text", "zh": "SAS 世界末日那种想法是，现实情况是，你知道，顺便说一句，为了说明，我知道你知道，人工智能就是软件，仅此而已，它不是新的能源，它就是软件，非常智能的软件，但还是软件。现在真正发生的事情是，如果你看看软件设计时应对的问题类别，我想我花一分钟时间讲这个，因为这是一个实际上只有少数几个好故事的好故事。当我们在 HubSpot 的第一年刚开始创业，并且出去筹集风险投资时，我们说，嘿，我们正在建立这家营销软件公司，情况如下：", "speaker_id": "dharmesh", "section_id": "s11"}, {"start_sec": 3268, "type": "text", "zh": "几乎我们所谈的所有风险投资公司都说过，他们几乎一致的观点是，没有哪家营销软件公司达到了数十亿美元的规模之类的。因此，我们有两次打击：一个是中小企业的打击，另一个是我们正在做营销软件。我们当时的论点是，如果你查看任何规模企业的损益表，损益表上的每一项开销几乎都有一个超过100亿美元的软件公司名字关联，除了营销。并不是说人们不花钱，原因是营销历来被视为一种艺术性、手工性东西之类的，你有这么一笔预算。", "speaker_id": "dharmesh", "section_id": "s11"}, {"start_sec": 3303, "type": "text", "zh": "你会把一些钱花在创意的制作上，但随后你只是把钱花在广告牌和各种广告上。没关系。", "speaker_id": "dharmesh", "section_id": "s11"}, {"start_sec": 3309, "type": "text", "zh": "我们的论点是，由于互联网营销的原因，这个行业将看起来很像软件被设计来解决的问题，这也是为什么一家软件公司在 HubSpot 创立前五年并不需要存在，但现在有人会建立一个巨大的、你知道的营销软件业务。我现在要提出同样的论点，那就是在软件真正能够解决之前，有一类问题软件并不擅长解决。", "speaker_id": "dharmesh", "section_id": "s11"}, {"start_sec": 3334, "type": "text", "zh": "是的。现在有大量这些新的问题存在，有一些以前不存在的、我们可以用人工智能做的新事情。所以机会集要大得多。是的，一些软件公司无疑会倒闭，就像一些软件公司未能过渡到SaaS 和基于云的业务或其他类似情况一样，这就是生命的循环。", "speaker_id": "dharmesh", "section_id": "s11"}, {"start_sec": 3355, "type": "text", "zh": "总体而言，这个机会比我们以往见过的任何时候都要大，如果你在软件领域有能力、有创业精神，现在建立一家软件公司从未有过更好的时机。", "speaker_id": "dharmesh", "section_id": "s11"}, {"start_sec": 3366, "type": "text", "zh": "现在就去做吧，是的，我完全同意你，这真是非常有趣，我，我，我非常感谢你抽出时间。我将以一个快速的闪电问答环节结束", "speaker_id": "joe", "section_id": "s12"}, {"start_sec": 3374, "type": "text", "zh": "然后我们可以继续快乐地各自前行。", "speaker_id": "dharmesh", "section_id": "s12"}, {"start_sec": 3377, "type": "text", "zh": "我的反应不是很快，所以这些中只有少数比较简单。我先从一个非常容易的开始。我我我会假设是Duncan或Starbucks。", "speaker_id": "joe", "section_id": "s12"}, {"start_sec": 3384, "type": "text", "zh": "Dunkin'。好的。", "speaker_id": "dharmesh", "section_id": "s12"}, {"start_sec": 3386, "type": "text", "zh": "顺便说一下，我不喝咖啡。", "speaker_id": "dharmesh", "section_id": "s12"}, {"start_sec": 3388, "type": "text", "zh": "哦，哇。好吧。那么你改喝什么呢？只喝水吗。你是半机械人吗？", "speaker_id": "joe", "section_id": "s12"}, {"start_sec": 3393, "type": "text", "zh": "到底什么？是啊。哇。我几年前就戒掉咖啡因了。所以，无论如何，更令人印象深刻，Dharmesh。好吧。本能还是缪斯？", "speaker_id": "joe", "section_id": "s12"}, {"start_sec": 3400, "type": "text", "zh": "对不起，你说什么？", "speaker_id": "joe", "section_id": "s12"}, {"start_sec": 3402, "type": "text", "zh": "本能还是灵感？你知道的，关于新的、新的能动购物体验，", "speaker_id": "joe", "section_id": "s12"}, {"start_sec": 3405, "type": "text", "zh": "我得说是本能。", "speaker_id": "dharmesh", "section_id": "s12"}, {"start_sec": 3407, "type": "text", "zh": "好，有趣。如果你必须成为一种动物，你会选择哪种类型？", "speaker_id": "joe", "section_id": "s12"}, {"start_sec": 3417, "type": "text", "zh": "也许是一只大象。", "speaker_id": "dharmesh", "section_id": "s12"}, {"start_sec": 3419, "type": "text", "zh": "一只大象。我喜欢那个。好的，很好。关于HubSpot最波士顿的特点是什么？", "speaker_id": "joe", "section_id": "s12"}, {"start_sec": 3426, "type": "text", "zh": "几乎所有。这是", "speaker_id": "dharmesh", "section_id": "s12"}, {"start_sec": 3427, "type": "text", "zh": "好好答案。", "speaker_id": "joe", "section_id": "s12"}, {"start_sec": 3431, "type": "text", "zh": "是的。我们非常务实，为客户解决问题。我会说我们有点像一种混合体，既有西海岸硅谷思维中某些最好的特质，比如雄心和进取心，也有东海岸那种低调务实、踏实努力工作的务实风格。", "speaker_id": "dharmesh", "section_id": "s12"}, {"start_sec": 3450, "type": "text", "zh": "我喜欢它。然后，最后，你在HubSpot度过的最美好的一天是什么时候？大约一周前。就像一切开始逐渐到位，无论是在我的脑海中，还是只是感觉像‘好吧，我可以大致看到这一切是如何展开的’。是的，很难解释。这不是我能够完全说出来的，但确实是这样的。", "speaker_id": "joe", "section_id": "s12"}, {"start_sec": 3471, "type": "text", "zh": "哦，那太酷了。我的意思是，经过那么多年，你知道最美好的一天是一个星期。我是说", "speaker_id": "joe", "section_id": "s12"}, {"start_sec": 3475, "type": "text", "zh": "是的，不过我也更广泛地说这个，我的意思是所有事情都是如此", "speaker_id": "joe", "section_id": "s12"}, {"start_sec": 3482, "type": "text", "zh": "所以，即使作为一个创业公司的人，在HubSpot 20年来的历史中，我经历过的最美好的时光，正是我现在正在经历的这段时间。原因是，人们会觉得那不可能是真的，如果你……就像，我拥有所有的……顺便说一下，我在HubSpot没有直接下属。我从来没有直接下属。所以，我是一个独立贡献者（IC），但是原因是我拥有所有规模化的好处。你可以在“大人”的桌上有一席之地。你可以做长期投资。你可以去做一些事情。同时，我也有另一种优势。我可以做HubSpot的下一个项目，比如uSpot或者其他。所以，我某种程度上拥有两者的最好体验。", "speaker_id": "dharmesh", "section_id": "s12"}, {"start_sec": 3515, "type": "text", "zh": "世界。现在玩起来非常有趣。是的。所以，", "speaker_id": "dharmesh", "section_id": "s12"}, {"start_sec": 3519, "type": "text", "zh": "太棒了。嗯，Dharmesh，你是一位跨时代的企业家，一位极其善良的人，以及一位跨时代的思想家。我非常感激你今天抽出时间，以及你对所有这些话题的参与。好好享受吧。", "speaker_id": "joe", "section_id": "s12"}, {"start_sec": 3530, "type": "text", "zh": "我期待下一次。", "speaker_id": "joe", "section_id": "s12"}, {"start_sec": 3531, "type": "text", "zh": "谢谢你。", "speaker_id": "dharmesh", "section_id": "s12"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>软件正确性与编程语言——肖恩·艾伦（Sean Allen）</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="gergely">格尔盖伊·奥罗斯（Gergely Orosz）</option><option value="sean">肖恩·艾伦（Sean Allen）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">The Pragmatic Engineer</span><span class="pill">2026-11-10</span></div>
+<h1>软件正确性与编程语言——肖恩·艾伦（Sean Allen）</h1>
+<p class="sub">嘉宾：肖恩·艾伦（Sean Allen） · 约 85 分钟（5120 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=OrXKvOjR-vI" target="_blank" rel="noopener">https://www.youtube.com/watch?v=OrXKvOjR-vI</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>The Pragmatic Engineer</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-10</dd></div><div class="meta-row"><dt>时长</dt><dd>约 85 分钟（5120 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；dump-json official_langs=[]，无官方字幕。普通 yt-dlp write-subs 开始拉 en 后遇 HTTP 429；cookies 路径 chrome:/home/box/chrome-profile/Fork-3 遇 “The page needs to be reloaded.”同批用 yt-dlp --dump-json --extractor-args youtube:player_client=android,tv（无 cookies）后 curl 自动字幕 en-orig VTT 成功，153264 字节。caption_source=yt-dlp-auto，不是 yt-dlp-chrome-cookies，也不是 browser-cdp。中文为全文翻译并按话题分段；说话人按主持格尔盖伊·奥罗斯 / 嘉宾肖恩·艾伦的问答轮次启发式标注（自动字幕无说话人标签、无 &gt;&gt; 箭头，中等把握）；复查英文字幕未见赞助口播。</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>OrXKvOjR-vI</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>格尔盖伊·奥罗斯访谈 Antithesis 杰出工程师肖恩·艾伦：从 BeOS 邮件列表上的尼尔·斯蒂芬森，到 OCaml、Ada、F# 与 Pony，再谈到正确性应先于测试、工作负载与银行测试、质量不是闸门，以及供应链、投机执行与技术债。节目有意避开「人工智能」这一用语，回到仍然关键的基本功。</p>
+<h3>核心要点</h3><ul><li>早年在 C 与 Ada 之间选了容易编译的 C，结果用多年自我规则防段错误；OCaml/ML 的穷尽匹配能在把和类型从五种改到六种时，让编译器标出代码库每一处未处理分支</li><li>F# 是唐·赛姆把 OCaml 精神带到 .NET，与运行时克制共生，许多特性已进入 C#；Pony 由西尔万·克莱布什从摩根士丹利的演员模型运行时和帝国理工博士论文中做出，在沃勒鲁被用来做银行级高速数据处理，由编译器强制执行从前靠人手防崩溃的并发规则</li><li>「GC 很慢」多半是停世界摧毁了尾延迟；Pony 让每个演员在若干次应用操作后自行回收，换来更平坦的延迟、略降峰值吞吐</li><li>他不把 Antithesis 看成测试公司，而看成验证/正确性公司：测试是后半段的手段。TDD 结对中他把 2+2 硬编码成返回 4，逼对方走向随机输入与基于属性的测试</li><li>键值存储上均等随机 get/put/delete 像醉汉走路，走不到刷盘或再分片；银行测试里系统共 10,000 美元，隔离成立时总和应永远是 10,000，但在杰普森/Antithesis 注入故障后这个极简负载会冒出大量缺陷。质量不是闸门，人人其实都在生产里测试</li><li>left-pad/npm 与 CI 密钥失守说明依赖几乎和自有代码权限相同；对象能力也挡不住 FFI。投机执行换来二十多年加速，侧信道却能打破机密计算的全部保证，他印象里第一次 Linux 补丁大约掉了 50% 性能。技术债可以绕开或扔掉，不必总偿还；要快，先统一「恰好一次」到底是什么意思</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：关心类型系统、并发、测试与验证、供应链和机密计算的工程师；约 1 小时 25 分，具体例子很多（银行测试、Ada 对 C、Pony/沃勒鲁、优步 Jump 单车、恰好一次的争论）。可跳过：只想听人工智能编程快餐、不关心语言与正确性基本功的人。片中未见赞助口播。</p>
+<h3>适合人群</h3><p>软件工程师 / 语言与类型系统 / 测试、验证与安全 / The Pragmatic Engineer 听众</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场与入行：音乐、Perl、Commodore 64，以及邮件列表上的尼尔·斯蒂芬森</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">开场先放出肖恩的几段原话：测试只是手段，人人某种程度上都在生产环境里测试；技术债只有必须偿还时才伤人，「每一笔债都必须还清」并不符合现实。两人随即发现一个巧合：格尔盖伊做过专业软件的第一家公司叫 Sensenet（他拼作 S-E-N-S-E-N-E-T），在匈牙利布达佩斯；肖恩的第一家叫 Sensent（S-E-N-S-E-N-T），在纽约，是两家不同的公司。肖恩说自己本来更想做音乐。大学毕业后翻通讯录，第一个肯收留他的人住在纽约；他差一点给一位美国参议员当演讲撰稿人，没做成，后来经朋友介绍去学乐（Scholastic）修电脑。又有朋友说学会 Perl 就可以去波士顿加入大学同学的创业公司，他花三四个月学到能上手，公司却先散了——那甚至还不是互联网泡沫，只是「一群会相互点燃的人」。更早时他迷上游戏《淘金者》（Lode Runner），让外祖母在得克萨斯州沃思堡的电脑店买编程书，店员给的是《Commodore 64 机器语言》。他由此意识到：这是一件别人会付高报酬的技能。真正进步最快的阶段是沉迷 BeOS。Metrowerks（同时为 Mac OS 做编译器）的编译器组负责人在邮件列表上教他 C++；另一位热心人其实是科幻作家尼尔·斯蒂芬森（Neal Stephenson），当时还互发邮件给建议。肖恩至今几乎没读过他的作品，只翻过几页《雪崩》（Snow Crash）。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">加入 Antithesis：红队只用客户同款工具</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">肖恩加入 Antithesis 的短版本是：那年十二月他正在找工作，首席执行官威尔·威尔逊（Will Wilson）在黑客新闻（Hacker News）「谁在招人」帖子里丢来一个链接，问他想不想做杰普森（Jepsen）那一类的事，他回说听起来可能挺有意思。他现在在红队（Red Team）。他觉得如果问公司里每个人红队是干什么的，答案几乎人人不同；他的理解是，威尔把一群聪明人聚在一起，要求他们像客户一样使用产品。肖恩为此有意从不使用仅限内部的配套工具，只用客户手头同样的工具。团队被给了很大自主空间，只要别人觉得对公司有价值就可以做。他花过不少时间做技能（skills），让智能体更好地配合 Antithesis，但他更喜欢把「如何确认软件真正能用」教给客户和同事——这在他看来远远早于任何被称为测试的层次，要从栈的更深处开始。他称这是一份梦想中的工作。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">OCaml、Ada 与编译器保证：穷尽匹配，以及早年选了好编译的 C</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">谈到「有点小众」的语言时，格尔盖伊先问为什么对冲基金和金融公司喜欢 OCaml。肖恩说它主要源自法国学术圈，诞生于人们试图把函数式和面向对象揉在一起的九十年代；但在简街（Jane Street）等重度用户那里，OCaml 名字里代表对象的那个 O，相关特性几乎没人用。OCaml 属于 ML 家族，和 Python、Perl、C、C++ 等 ALGOL 家族不同。Rust 是目前最有名的受 ML 影响的语言：和类型、模式匹配都来自 ML。核心能力是强类型加上穷尽匹配——如果和类型从五种可能改成六种，编译器会指出代码库里每一处未处理的分支，相当于把大量校验前置到编译期，而不像 TypeScript 里许多问题要到运行时才爆。肖恩早年在 C 和 Ada 里选了两门来认真投入。选 C 是因为当时在为大约 Mac OS System 6 编程，苹果正把大量代码从 Pascal 转到 C；Ada 则走极端严格的静态检查，很大程度上由国防部门推动，面向 NASA 等任务关键场景，市场不大但至今仍在。Ada 公司现在常打的牌是：「你喜欢 Rust？要不要再多要一些保证？」他的遗憾是：当时自己太嫩，Ada 严格到几乎编译不过，而 C 能编译就像拿到一块饼干；他没想明白自己的 C 程序动不动段错误、跑不长。后来他给自己定了一大套写并发 C/C++ 的规则，但人总会搞砸，他更希望编译器来帮忙。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">F# 与 .NET：唐·赛姆把 OCaml 精神带到平台上，并与 C# 共生</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">F# 出自微软研究院，几乎一切都和唐·赛姆（Don Syme）有关，一开始基本上是「面向 .NET 的 OCaml」。当时的 .NET 主要是 C# 加运行时，相当于微软版本的 JVM。肖恩回忆，微软曾在自己的 Java 里加入 Windows 特有 API，Sun 威胁并提起了诉讼。格尔盖伊补充：安德斯·海尔斯伯格（Anders Hejlsberg）在本节目里讲过，正因为这场诉讼，他们不能再继续用 Java，尽管他们想用，于是去发展 C# 和 .NET。肖恩认为 .NET 吸收了 JVM 的经验，并在那些已难改动的点上做了不同选择；但平台上基本上只有一门语义接近 Java 的 C#。F# 要带来的是另一套语义。它真正少见的优点不是某几个特性（OCaml 粉还会抱怨它缺的那些），而是和 .NET 贴合得极无缝——相比他在 JVM 上用 Scala 时和 Java 交互的毛边，体验完全不同。唐把语言推进得很克制：先往前走一点，再等运行时跟上，形成共生；这些年 F# 的许多特性已经进入 C#。语义上现在真正还缺的，大概是带穷尽匹配的和类型，而从 C# 近几年的变化看，连这一点最终也可能被吸收。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">Pony 与安全并发：从摩根士丹利的运行时，到类型系统强制的演员模型</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">Pony 是肖恩参与的开源语言，由好友西尔万·克莱布什（Sylvan Clebsch）创建。两人一起上过一所面向高中成绩不好、有退学风险者的「早期大学」；当初劝他学 Perl 去波士顿的也是西尔万。肖恩后来在一家想做银行高速数据处理的公司做咨询，需求是：必须快，还要有延迟保证。当时面向大众的 JVM 垃圾回收是停停整个世界（stop-the-world），请求延迟会从毫秒变成巨大尖刺，在交易或风控系统里代价极高。Azul Systems 有无暂停 JVM，但很贵，多数项目用不起。他们还需要对客户保证不丢、不乱数据，并对数据局部性有一定控制；他提到马丁·汤普森（Martin Thompson）的「机械共鸣」（mechanical sympathy）。他不认为用创业薪水能招到靠 C/C++（他自己的 C++ 仍像 1998 年）同时守住这些保证的人。转折来自 LinkedIn 上少有的一次有用联系：西尔万在摩根士丹利做了一个基于演员模型（actor model）的早期运行时，上面仍要写 C，专家稍有闪失就会毁掉运行时给的好处。西尔万随后到英国帝国理工学院读博，把类型系统学扎实，做出来的就是 Pony。肖恩当时在沃勒鲁（Wallaroo）——后来才变成人工智能公司，那时还在向银行卖高速数据处理——决定采用几乎没人用过的 Pony，对外最有用的说法是「它始于摩根士丹利的一个想法」。人们会问他们会不会成为 Pony 的「简街」，他们说如果足够成功，大概就是这个想法。Pony 有 ML 家族血统，目标是让人写出又快又高度异步的并发程序，并把肖恩从前靠人手记住、免得段错误的规则交给编译器强制。它让大部分非法状态不可表示，这一点像 Rust，但并发模型不同：像 Erlang/Elixir 一样内建演员模型，是一套打包好的「无畏并发」，而不是让你自己东挑西拣。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">重新理解垃圾回收：症状是停世界，Pony 用每名演员自己回收换平坦延迟</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">格尔盖伊引用肖恩的话：大多数工程师觉得垃圾回收慢，他们对体验没有错，停停整个世界的回收器确实会摧毁尾延迟，但「GC 很慢」把症状当成了原因。肖恩把垃圾回收定义成「程序释放不再需要的内存的机制」，而不是和 malloc/free 简单对立。想跑得快就不会频繁做那些系统调用，而会先大批分配，再用 slab、arena 等方法切小块；管到「何时算空闲、何时可释放」时，其实已经半只脚踏进垃圾回收，差别只在权衡。JVM 上内存几乎可从任何线程到达，很难不靠停世界来释放；Java 的 Shenandoah、Azul 自己的回收器能做并发回收，工程上非常惊人。Pony 的简化图景是：每个演员有自己的堆（人们描述 Erlang 虚拟机 BEAM 时也常这样说，严格说来不完全准确），做完一些工作后用启发式决定是否释放——好比做了十次应用操作，再做一次回收，而不必停下整个程序。结果不再是标准 JVM 上跑 Cassandra 一类系统时常见的尾延迟尖刺，而大致是平坦的延迟，代价是最快瞬间的吞吐量略低。这仍是垃圾回收，只是把「何时释放」交给算法，把程序员从方程里拿掉。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">正确性先于测试：不变量、Ada 的教训，以及把 TDD 逼向基于属性的测试</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">肖恩把软件正确性说成：程序做了你期望的事；他更习惯用「不变量」（invariants）这个形式化说法。很多时候人们并不清楚自己期望什么——坏了知道不对，好了却说不清。正确的软件还应完成被写下时的业务目的，并且不会在凌晨两点把人叫醒。他有一句刺耳的话：「没有人在乎测试。」他坚持：测试是手段，目的才重要。人们把 Antithesis 看成测试公司，他看成验证/正确性公司。测试是没有更好办法时才放进去的东西，从手工测试往上可以越做越精巧，但仍是在整盘棋后半段才动手。对照早年的选择：C 在正确性上几乎什么都不给，像对准自己脚的枪；Ada 从一开始就不允许他做内存不安全、通向损坏、崩溃或数据竞争的事，所以程序才编译不过。他主张在走到测试前就做尽可能多的事——ML 族尤其擅长在类型里表达合法状态与转换，于是思考「系统是否在工作」时，只需看类型系统管不到的那一层。面对「TDD 是不是也能做到类似效果」，他很喜欢 TDD，认为它是写出好 API 的最佳机制之一，因为你在审视如何使用这个东西。但在结对 kata 里，他会把「尽可能简单」执行到字面：你测 2+2 他就返回 4，再测 2+3 就硬编码返回 5。要击败这种实现，只能把输入随机化，于是进入基于属性的测试（property-based testing）。跟他结对的人常常做不完，但会觉得自己更会写测试了。他提醒：许多被测的东西，若有更强编译器根本不必测。他曾热爱 Smalltalk、Ruby、Perl、Python，觉得不需要编译器；后来明白那是因为系统小、能装进脑子。到了更大的系统和更多人的公司，即便在 Java 里，删掉一个要替换的类、让编译器列出所有破裂点，也开始变得珍贵。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">工作负载：醉汉走不出再分片，银行测试却能在故障注入下挖出隔离缺陷</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">肖恩认为测试策略里常被漏掉的是工作负载（workloads）。基于属性的测试在简单例子里是「列表反转两次应还原」；一旦用到分布式系统或数据库，工作负载就是：用来判断系统是否在工作的东西，加上为驱动代码而生成的输入。以键值存储（如 Redis）为例，get/put/delete 只是输入的一部分，还要决定键的数量与范围、键和值有多大。如果三种操作均等随机选，做了 put 附近就很可能 delete，几乎不会连续一万次 put、把系统推进换出到磁盘、回收或再分片的区域——像醉汉走路，走不远，也触发不了有意思的行为。另一极是简单却极强的「银行测试」，常用来测 ACID 数据库的隔离保证：系统里共 10,000 美元，分给比如 10 个账户各 1,000，事务中在账户间转账，同时不断查询总和；隔离成立时，看到的值应永远是 10,000。笔记本上的好数据库按理不该失败；但放到分布式环境并注入网络故障、杀节点后，凯尔·金斯伯里（Kyle Kingsbury）的杰普森（Jepsen）让这类结果经常冲上黑客新闻，Antithesis 做的也是同一路。这个极简负载在锻炼一个核心不变量：不应读到另一事务内部正在发生的事。「工作负载」可窄可宽：既可以只谈柏拉图式的银行测试，也可以把 Postgres 与 MySQL 的不同实现算成不同负载。它通常不是回放场景，他也不爱说「构造」，以免又滑回把步骤写死的例子测试；要点是先定规则，再让转账等方式自己展开。已经过严格测试的软件，银行测试按理不该再冒缺陷；可一旦进入杰普森/Antithesis、也是生产里天天发生的那类体验，缺陷就会大量出现。他称赞洛林·霍赫斯坦（Lorin Hochstein）把事故拆开写得非常清楚。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">质量不是闸门：构造即正确，人人其实都在生产里测试；复杂系统先拆不变量</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">肖恩写过「质量不是闸门」：把缺陷挡在门口的图景很安慰，却不是优秀团队保持优秀的方式。他更愿意谈正确性，而不是把测试当一件事。理想里应用 TLA+ 或 Alloy 写规格，再用模型检测证明坏事不可能发生，甚至从规格生成仍保有性能的实现——我们离那里还很远。再下一层是静态检查：Pony、Rust、OCaml 的类型系统；Erlang 则靠演员模型达到类似的「构造即正确」——数据只复制、经消息传递，从不共享，因而没有共享内存上的数据竞争。测试应留给静态手段管不住的部分，因为语言都有权衡：完美类型系统即便存在，也可能缺少你需要的性能，于是只好妥协，把剩下的交给测试和验证。格尔盖伊用瑞士奶酪模型反驳：编译器再完美也挡不住业务逻辑缺陷，还需要代码审查、CI/CD、静态分析和生产可观测性（谷歌还有可读性审查）。肖恩先放下「业务逻辑无法被静态强制」这个分歧，指出 Honeycomb 那句「我在生产里测试」其实是真话：现有工具没有哪一样好到足以保证你想保证的东西。即便杰普森/Antithesis 做得很好，生产里仍可能有生成器从未打到的损坏数据。多一道闸或再加几个写死值的测试会更好，但保证不了质量，「过了闸就可以发布」某种程度上是谎言。他见过的低效能团队，往往把质量想成拉取请求或预发上的传统 CI/CD 闸门，结果要么很慢，要么快但不稳、常要紧急发布；走得快且站得住的人，是从一开始就想质量，例如用 TLA+ 检查共识，或在第一版上生产前就放进杰普森/Antithesis，因为刚做出来时最好修。面对「谷歌搜索很难写测试」的例子，肖恩把「是否在工作」和「是否相关/该排第一」分开：前者可以是不变量，比如提交后必须拿回结果、高并发或中途离开时是否仍成立、结果是否带着对应查询的标记而不是把别人的结果给了你。推荐系统的「谁该排第一」是另一类问题。他提到把别人账户展示给用户的事故，并说自己身份证信息被盗过三次，尤其不愿意个人身份信息被误展示。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">供应链、侧信道与机密计算：对象能力也挡不住 FFI，投机执行打破所有保证</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">供应链安全说的是：越受欢迎的软件（也包括硬件），越容易从最薄弱一环下手。硬件上，AMD 或英特尔的可信计算模块再有保证，组装时写入恶意固件就可能毁掉「那是本该在那里的固件」这一前提，这属于可信计算基（trusted computing base）。软件上，他举了 npm 上的 left-pad：琐碎模块被广泛依赖，被替换后可塞进挖矿程序。更危险的是打进 CI/CD、拿走里面的密钥再发布带恶意软件的包。几乎所有语言都是同一模型：从网上下载的依赖和自有代码能力几乎相同，校验哈希也拦不住它建网络连接或挖矿。npm 已经发生过，他认为 Python 社区也在发生。冷静期（一周不进新包）、全部迁入内源或分叉，在他看来都很天真；若人人冷静，谁还去发现攻击？他认为对几乎所有流行语言都没有好答案。今天的包管理很大程度上仍是 Perl 的 CPAN 式信任，假定人人善意，和早期互联网一样。进入门槛也并非人们想的那么高：他大学同学里就有人青少年时期因蠕虫闯入大量政府计算机而被美国政府逮捕。依赖一多，根本无法逐一审查；沙箱通常也能被逃逸。一条研究路线是马克·米勒（Mark Miller）在 E 语言里的对象能力（object capabilities）：做任何事都必须被授予相应能力，例如没有建连能力就不能开网络。他们录制时正在哥本哈根的 Bug Bash，当天首位演讲者是帝国理工学院教授索菲娅（Sophia），讲的也是对象能力。Pony 把对象能力做进了语言，但若仍有几乎所有语言都有的 FFI（经 C ABI 调 C/Rust），攻击者可以直接走出那扇门，增量修补解决不了。即便上述软件防御都做了，多年前为了 CPU 更快而引入的投机执行（speculative execution）仍会把大部分防御打穿：多余周期里两条分支同时执行，换来二十多年里绝大部分加速，但投机分支必须存在于内存中，侧信道攻击（side-channel attacks）甚至不必有系统访问权，就能读出「已授权/未授权」路径上的内存，乃至把密钥拿走。肖恩曾在微软研究院做机密计算、机密容器产品：目标是在不必信任云运营者及其每位员工（他举了推特员工为沙特政府监视异议人士、以及员工被钓鱼或被收买的风险）的环境里跑软件——可他们的保证末尾总要补一句「除去侧信道」。要完全锁死只能拿掉投机执行；最早给 Linux 打的补丁，他印象里一次大约掉了 50% 性能，随后只能继续打地鼠。连他自己写开源时也会利用分支预测求快：这是一笔集体做成的、求快而从根本上不安全的交易。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">技术债不必总偿还，以及先慢后快：先统一「恰好一次」再写代码</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">十年前肖恩写过：即便有恐怖故事，他们仍在赚钱、增长、创造价值；他们不断发明绕开技术债的办法。债务隐喻是误导性的——不必总是还清，可以绕着走；债只有必须偿还时才伤人。他今天仍百分之百坚持，并强调要做可塑的软件：一年、两年、三年后处境会变，软件要能被放进新环境，其中一个答案常常是扔掉。推动那篇文章的例子是：债堆在 MySQL 的分片上限上，后来砸钱换成看起来仍像单库的分布式数据库就绕开了。代价是付给厂商不少钱，以及单机 MySQL 式保证在边上会有极罕见的例外；那不是用 Ada 的公司，这类例外对他并不那么重要。业务变化、系统跑了三年不再需要，也可以直接扔掉，债从未被偿还。当然也可能在找到产品市场契合前就把自己债进死角，但「每一笔债都必须还」并不符合现实。成功时你通常才会真正付出代价。格尔盖伊补充了优步（Uber）的经历：他在已成熟盈利的出行（Rides）团队，优食（Uber Eats）刚起步时有人改共享平台代码并删掉失败测试就发布；后来他才明白那是 Jump 单车——他们只想着明天，因为不确定下周是否还在。大约六个月后优步卖掉该部门，它在内部没有找到产品市场契合。对方甚至不要求对百分之百顾客有效，只求当时大致能用。肖恩区分了「把东西黑客进去」和「尽快做一个只覆盖窄缝、但容易拿掉、再堆五样东西三个月也不拖后腿的可塑方案」。「先慢后快」在他看来并不反直觉：先写规划并达成一致，先想怎么测，花几小时或几天做可扔掉的探针（spike），凌晨两点生产着火时先停下来。这就像每周工作八十小时并不会更快，只会因为累而制造更多缺陷；累了就该离开电脑。他见过最浪费时间的事，是三周后才发现大家对同一个词不是一个意思。敏捷里的冲刺本该避免走太远才回头。多年前分布式系统社区为一场「恰好一次」（exactly once）争论对轰：一派指恰好一次处理与幂等，另一派指消息字面上只到达一次，却没人先定义词语。随手在 Linear 或 Jira 卡片上写一句就派人去做，花上一小时到五天，回来却不是所期望的，就是走得很快、却哪里也没到。先把可观测性、如何发现宕机和灰故障（服务仍在、负载均衡器还在 ping，但大批用户体验很差）想清楚，后面才能冲得很快。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">格尔盖伊·奥罗斯（Gergely Orosz）<em>主持</em></span><span class="spk-1">肖恩·艾伦（Sean Allen）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场与入行：音乐、Perl、Commodore 64，以及邮件列表上的尼尔·斯蒂芬森</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>你写过一篇很有意思的博客，我引用一句：「测试只是达到目的的手段。手段本身并不重要。」</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>用测试能做出非常了不起的事，但到头来，你仍然是在整盘棋的后半段才动手。说到底，所有人——不论承不承认——某种程度上都是在生产环境里做测试。我们现有的工具，没有哪一样好到足以保证你想保证的东西。</p>
+<p>技术债只有在你必须偿还的时候才会伤人。当然，你完全可能在还没找到产品市场契合之前，就把自己债进死角了。但那种到处流传的想法——「每一笔债都是坏的，都必须还清」——并不符合现实。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>肖恩，很高兴邀请到你。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>谢谢。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>我们得先从发现的一件巧事说起。我做过专业软件的第一家公司叫 Sensenet，他拼作 S-E-N-S-E-N-E-T。你做过专业软件的第一家公司叫什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>Sensent，S-E-N-S-E-N-T。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>那是两家不同的公司。你那家在纽约。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>我这家在匈牙利布达佩斯。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>哦，我不知道你那家是在布达佩斯。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>把时钟再往回拨很多：在第一份工作之前，你是怎么进技术圈的？你本来就想进这一行，还是说音乐才更是你的方向？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>音乐绝对更是我的方向。但我大学毕业后发现自己完全不知道要做什么，就开始翻通讯录，第一个说可以让我去住的人住在纽约，我就去了。那里还有一个很好的朋友。我差一点得到一份差事：给一位美国参议员当演讲撰稿人，但没做成。后来一个朋友介绍我去学乐（Scholastic）修电脑。</p>
+<p>又有一个朋友告诉我：如果你学会 Perl，就可以搬到波士顿去——我有不少大学同学在那边做创业公司。于是我花了三四个月把 Perl 学到能上手的程度，可差不多学成的时候，那家创业公司已经散了。那甚至还不是互联网泡沫破裂，只是一群在一起会相互点燃的人。不过从那时候起，我开始觉得：我喜欢这件事，也享受它。</p>
+<p>更早的时候，我还是青少年，迷上了电子游戏《淘金者》（Lode Runner），很想做出类似的东西。我就让外祖母给我买一本电脑编程的书。我对外编程一无所知，外祖母也不懂。她去了得克萨斯州沃思堡（Fort Worth）的一家电脑店，店员塞给她一本《Commodore 64 机器语言》。我当时的感觉是：编程也太难了。但我就是那样起步的。</p>
+<p>那是我第一次意识到：原来有一件事，别人会为此付我很多钱。而我没有别的能换来高报酬的本事，所以应该把它练好。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>那你后来是怎么把编程真正练好的？你之后也在不同公司工作过，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>我花了大量业余时间只为变得更好。进步最大的阶段，是我对 BeOS 产生了兴趣。那个社区里有一些非常有意思、也非常乐于助人的人。BeOS 的编译工具是一家叫 Metrowerks 的公司做的，他们当时也为 Mac OS 做编译器。不知为什么，他们编译器组的负责人在邮件列表上对教我学 C++ 产生了兴趣。</p>
+<p>列表上还有另一位 C++ 很好、人也很好的人。我对科幻几乎一无所知，所以当时完全没意识到，那个人其实是尼尔·斯蒂芬森（Neal Stephenson）。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>不会吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>就是那位世界著名的科幻作家。他基本上就是跟我互相发邮件，给早期的我一些学 C++ 的建议。还有别人也帮过我，但这两位特别突出。说起来我至今几乎没读过他的作品，大概翻过几页《雪崩》（Snow Crash），不过这始终是个很好玩的故事。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>加入 Antithesis：红队只用客户同款工具</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>那你是怎么进到 Antithesis 的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>短版本是：那年十二月我正在找新工作，首席执行官威尔·威尔逊（Will Wilson）给我发了一条消息，只是一个链接，指向他们发在黑客新闻（Hacker News）「谁在招人」（Who&#x27;s Hiring）上的帖子，问我有没有兴趣。内容大致是：你想不想做杰普森（Jepsen）那一类的事？我的回答是：听起来可能挺有意思。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>你现在在 Antithesis 做什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>我在一个叫红队（Red Team）的团队。如果你问公司里每个人红队是干什么的，恐怕几乎人人答案都不同。我会这样说：威尔把一群很聪明的人聚在一起，希望他们像客户一样使用我们的产品。我为此做的一件事，是有意从不使用公司内部才有的那些配套工具，只用客户手头同样的工具来工作。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>这个想法挺巧妙：有一支内部的「客户团队」，但你还可以跟他们交谈，他们会讲道理，也会解释客户是怎么想的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>是的。我们都有不少经验，也被给了很大的自主空间：只要别人看了会觉得对公司有价值，差不多什么都可以做。我花了很多时间做技能（skills），让智能体更好地配合 Antithesis。但我最喜欢的，其实还是把这些年学到的、如何确认软件真正能用的方法，教给客户，也教给内部的人。对我来说，这远远早于任何人称之为「测试」的那一层，要从栈的更深处开始。</p>
+<p>我就是喜欢见到人、跟人聊，也真心热爱这个题目。某种意义上，这是一份梦想中的工作。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>OCaml、Ada 与编译器保证：穷尽匹配，以及早年选了好编译的 C</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>说到梦想工作，你一直钻得很深的一件事，是各种我会称为「有点小众」的语言——不是主流的 TypeScript，也未必是 Rust 或 Go，而是另一些语言。我们能先谈谈 OCaml 吗？OCaml 是什么？为什么对冲基金和金融公司都对它情有独钟？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>OCaml 主要源自学术圈，最初在法国。它出现的年代，人们正试图把函数式编程和面向对象揉在一起，这在九十年代是件大事——那时万物都在往上「螺栓」对象，对象被看成未来。有意思的是，在简街（Jane Street）以及其它大量使用 OCaml 的地方，真正流行开来的用法，几乎不用 OCaml 里那些面向对象的特性。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>那个 O 是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>O 就是对象（object）那一部分。语言里确实有一整套非常面向对象的特性，可我认识的写 OCaml 的人里，几乎没人真正在用它们。OCaml 源自 ML 家族，和 Python、Perl、很大程度上还有 Ruby、C、C++ 所属的 ALGOL 家族完全不同。ML 家族里还有不少其它语言。</p>
+<p>至于 Haskell 算不算在里面，问不同的人会得到不同答案。所有 ML 语言通常会给开发者另一套能力。现在最有名的、受 ML 影响的语言，我想是 Rust：和类型、模式匹配等等，大量都来自 ML。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>听起来更像声明式语言？你会怎么描述 ML？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>ML 家族的语言一般是围绕强类型系统来构建的，就像 Rust 围绕强类型系统来构建一样。你有一些类型，表示「这件事只能是这三种可能之一」，有点像很多人熟悉的 Java 枚举；现在 Rust 更流行了，也可能从那边认识。把这种类型和模式匹配结合起来，再加上穷尽匹配（exhaustive matching）：比如说这个和类型（sum type）有五种可能，你不再用 if，而是按它「是哪一种」来匹配。</p>
+<p>一旦有了穷尽匹配，你在代码库里做一处改动——「现在不是五种而是六种」——编译器会告诉你，代码里每一个还没处理这第六种情况的地方。那种体验极好，可以说非常痛快。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>听起来编译器给了你一种在 C 或 TypeScript 里不一定能得到的额外「测试」。那些编译器也会检查类型，但按我的理解，关键在于穷尽匹配。再加上匹配会去核对条件和假定：在 TypeScript 这类语言里，很多东西要到运行时坏了才知道；而在这里，大量结构规则在编译期就建立起来，等于把很多校验前置了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>是的。所有带有 ML 色彩、或同属这一大家族的语言，核心态度都是：把尽可能多的事情放进编译器的静态检查里，让编译器替你干活。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>我这就明白了，为什么一些喜欢 Rust 的人说 Rust 能让你少发布一些缺陷：它是一门 ML 风格的类型语言，规则更严，你得先熟悉这些规则，作为回报，编译器会帮你挡住很多东西，直接给编译错误。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>我很早就对各种编程语言、各种可能性很感兴趣。相当早的时候我决定先选定一件事，认真投入一段时间。最后定下来的两门是 C 和 Ada。选 C，主要是因为我当时在为 Mac OS 编程，印象里是 System 6 或 7，大概是 6。苹果那时正把大量东西从 Pascal 转到 C，我觉得 C 会很有意思。Ada 则是完全不同的另一路。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>对不太了解的人来说，Ada 是什么样的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>Ada 走的是非常严格的静态检查。在很多方面，它是被国防部门这类需求推着走的：他们要一门被深度规格化的语言，尽可能不让你写出不正确的程序，好知道不会出现某类缺陷。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>就是字面意义上的任务关键系统。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>对，任务关键。NASA、国防部门，都是 Ada 当初瞄准的用户。Ada 今天还在，市场不大但很扎实。Ada 公司现在最常打的一张牌是：「哦，你喜欢 Rust？要不要再多要一些保证？」这是我一大遗憾：那时我对编程、对语言都还不够了解，Ada 太严格了，我几乎编译不过去，非常挫败；而 C 程序能编译。当时没想明白的是，我的 C 程序动不动就段错误，跑不了多久，可编译通过就像拿到一块饼干，可以去做下一件事了。</p>
+<p>我花了好多年，才培养出在 C 里怎么写才不会让程序崩掉的直觉。后来我给自己定了一大套写并发 C 和 C++ 的规则，免得段错误。即便我对自己非常严格，我也是人，还是会搞砸。我更希望编译器来帮我。OCaml 以及同类语言里，有大量东西就是为此而存在的。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>F# 与 .NET：唐·赛姆把 OCaml 精神带到平台上，并与 C# 共生</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>我们能谈谈 F# 吗？对没用过 F#、但可能用过 C# 或 TypeScript 的人，你会怎么描述 F#，它有什么不同？而且它是微软创建的，或者说是微软在推动的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>我不确定是不是微软「创建」的，它出自微软研究院（Microsoft Research）。有一位叫唐·赛姆（Don Syme）的人，F# 几乎一切都和他有关。它一开始基本上就是「面向 .NET 的 OCaml」。当时的 .NET 主要是 C# 加上 .NET 运行时。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>.NET 是微软那套框架，我记得它让访问 Windows API 变得很容易，有大量工具函数，差不多是他们的「全能框架」，相当于他们版本的 JVM，也就是 Java 虚拟机。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>对。我没有内部内幕，但作为一个当时在场的人：微软在自己的 Java 版本里加入了 Windows 特有的 API，Sun 威胁要起诉，后来确实有官司。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>安德斯·海尔斯伯格（Anders Hejlsberg）在我们节目里讲过一个细节：因为与 Sun 的诉讼正在发生或即将发生，他们不能再继续用 Java，尽管他们其实想用，所以必须去发展 C#，我想也包括 .NET。事情就这样定了，他们做出了 .NET。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>是的。.NET 很出色，因为他们把从 JVM 学到的几乎所有东西都带了过去；有些想法已经深嵌在 JVM 里、很难再改，他们就做了当时看起来更好的不同选择。这些选择现在还值不值得争论并不重要。.NET 作为平台非常舒服，但上面基本上只有一门语言，就是 C#。它和 Java 很像，有差异，但语言的基本语义是一样的。</p>
+<p>F# 则是说：我们给这个平台带来不同的语义、不同的东西，最初就是想把 OCaml 带过来。我觉得 F# 真正了不起的，并不特别在某几个语言特性——它有很多 OCaml 有的东西，也缺一些，死忠 OCaml 粉常会抱怨缺的那些。F# 带来的、我在别处几乎没见过的，是它和 .NET 平台贴合得极好，是我见过最无缝的体验。</p>
+<p>我在 JVM 上用 Scala 和其它语言做过很多事，和 Java 交互时总有不少毛边，F# 没有那种感觉。F# 的发展在很多方面更慢。你能看出唐把这件事做得很漂亮：他不让 F# 跑得太快、搞出难以集成的毛边，而是往前推一点点，然后等 .NET 运行时跟上，好让一切继续顺畅。运行时后来也加了新能力。F# 往前推一点，显然也启发了 .NET 团队，两边是一种共生关系。这些年，F# 里许多有意思的特性已经进入了 C#。在语义层面上，现在真正还缺的，大概就是带穷尽匹配的和类型。从 C# 近几年的变化看，连这一点最终也很可能会被吸收进去。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>Pony 与安全并发：从摩根士丹利的运行时，到类型系统强制的演员模型</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>还有一门我想问你的语言是 Pony。Pony 是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>Pony 是一门我参与的开源语言。它最初由我的一个朋友创建。我们一起上过一所面向高中成绩不太好、有退学风险的人的「早期大学」，那种学校会收我们这种在高中混得不好的人。我和我的朋友西尔万·克莱布什（Sylvan Clebsch）都是那样。其实当初跟我说「你要是学会 Perl，就可以来波士顿一起干」的，就是西尔万。</p>
+<p>后来我去了一家公司，想做面向银行的高速数据处理。我们先从给纽约一家大银行做咨询开始，同时接各种咨询项目。那段时间我一直在想：这样一套系统应该长什么样、我希望怎么构建。很重要的一点是：它必须非常快，这就排除了整整一类语言；它还需要延迟方面的保证，而 JVM 本身让这一点变得很难。在银行内部，这类需求通常留给专门的方案，要么用 C++，要么用 Azul。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>你说 JVM 让这件事变难，是因为垃圾回收吗？因为垃圾回收会带来延迟问题？这些年垃圾回收已经做了很多工作。有时延迟会突然尖刺：一个按理说只要若干毫秒的普通函数，可能突然变得长得多，因为垃圾回收启动了——而且并不随机。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>特别是在那个年代，面向所有人提供的标准 JVM 版本里，垃圾回收都是「停停整个世界」（stop-the-world）：要回收垃圾，一切都必须停下来。于是一个刚进来的请求，延迟可能从毫秒级一下子变成巨大尖刺。这在交易系统里会非常糟糕。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>那可不行。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>所以 JVM 当时主要用于跑在交易系统旁边的那些系统。但即便如此仍可能出问题：假如你有一套风险系统，本应评估是否该停止某些交易，一旦出现这种尖刺，代价仍然可能非常大。有一家公司叫 Azul Systems，现在也还在，他们做了一种无暂停的 JVM，但很贵，大多数项目实际上用不起。</p>
+<p>于是我们在看：能不能替换那些 JVM 类系统，服务那些不想为 Azul 付高价的人。我们需要非常快，还需要对客户保证：不会弄丢你的任何数据，也不会把数据搞乱。也就是说，既要靠并发换速度，又要足够贴近硬件——对数据局部性之类决定「快」的因素有一定控制。如果有人感兴趣，可以去看「机械共鸣」（mechanical sympathy），马丁·汤普森（Martin Thompson）在这方面做了很多有意思的工作。</p>
+<p>我们要的就是这一组特性：必须知道它在正确工作，而且「绝不把你的数据搞乱」这个保证对我们极其重要。我懂 C，C 也写得还行；C++ 我基本上还是按 1998 年的方式在写，所以不一定敢自称 C++ 写得好。但我觉得，靠这些，我们无法同时满足全部保证；我更不认为，用创业公司的薪水，能招到足以把这件事做成的人。我当时不知道该怎么办，咨询还是继续做。</p>
+<p>LinkedIn 对我几乎没产生过什么用处，但有一次例外：几年没联系的西尔万给我发消息，说「看看我做的这个东西」。那是 Pony 的早期版本。他当时在摩根士丹利（Morgan Stanley）工作，做了一个看起来基本上是 C 的东西，是一种演员模型（actor model）——演员模型我们稍后可以展开——上面的人还是得用 C 来写。运行时本身很好，但 C 仍带着当年我没选 Ada、选了 C 之后就有的那些问题：并发、段错误等等。在上面写 C 的人必须非常专家、每一步都做对，否则就会把运行时本来能给的好处全部毁掉。</p>
+<p>于是西尔万决定：我要去学一大堆数学，把类型系统真正学好，然后自己做一门编程语言。他为此在英国帝国理工学院（Imperial College）读了博士，最后做出来的就是 Pony。他发给我看，我对照我们在沃勒鲁（Wallaroo）想做的事，觉得这还真合适。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>沃勒鲁是一家创业公司，你是在一家人工智能公司工作，对吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>沃勒鲁后来变成了一家人工智能公司。那个时点上，我们还是想把高速数据处理卖给银行。当时完全没人用过 Pony。我们决定采用它、别人问「那是什么」时，最好的说法是：它最初是摩根士丹利的一个想法——跟银行做生意时，这能换来很大的谈话空间。那时简街几乎是全世界 OCaml 最主要的用户，OCaml 已经和简街绑在一起了。人们会问：你们会不会成为 Pony 的「简街」？我们说：如果足够成功，是的，大概就是这个想法。说了这么多才回到问题：Pony 是什么。</p>
+<p>Pony 在某种程度上属于 ML 家族的后裔，和 OCaml 有很多共同点，和 F#、和 Rust 也有些共同点。它的目标非常明确：让人容易写出又快、又高度异步的并发程序，并且把我当年靠自己记住、免得段错误的那些规则，改由编译器来强制执行——而不是像我那样，最后总有一次搞砸、程序崩溃。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>我记得你形容过：Pony 让非法状态不可表示。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>大部分非法状态，是的。这一点和 Rust 很像。但它们做并发的模型非常不同。演员模型现在大概因 Elixir 而最广为人知；过去你可能会说是 Erlang，现在多半是 Elixir。演员模型让并发更容易推理。Pony 像 Elixir 和 Erlang 一样，提供内建的并发模型，这是 Rust 不会直接给你的；类型系统和整个设计都围绕「让异步编程变得很容易」来构建。</p>
+<p>我觉得它在这一组合上提供了最好的体验之一。Rust 这类语言也很擅长提供保证，但不一定是这种「全套打包、这就是无畏并发该怎么做」的体验。你不是自己东挑西拣，我们已经帮你选好并组合在一起。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>重新理解垃圾回收：症状是停世界，Pony 用每名演员自己回收换平坦延迟</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>我们能谈谈垃圾回收吗？刚才说它慢，我想引用你以前一篇博客，或者也许是一次演讲里的话：「大多数工程师觉得垃圾回收很慢。他们对自己的体验并没有错。停停整个世界的回收器，确实会摧毁你所有的尾延迟。但『垃圾回收很慢』把症状当成了原因。」原因是什么？症状就是有时候整个世界停下来，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>对。首先我想说，大多数人想到垃圾回收，想到的是 JVM 那种做法。我把垃圾回收看成另一件事：它是程序用来释放不再需要的内存的一种机制。人们常常把一边的 malloc/free，和另一边的垃圾回收对立起来。可如果你想跑得快，就不会一直 malloc 和 free，因为那很慢，是系统调用。人们的第一步通常是先一次性分配一大块内存，再用 slab 分配器、arena 分配之类的办法，给自己切一小片一小片。内存分配器是一整套家族。接下来的问题就变成：我在管理这块内存，怎么知道它何时空闲、何时可以释放？到这一步，你其实已经半只脚踏进大多数人所说的垃圾回收了。</p>
+<p>故事于是变成：我怎么做这些事，以及它们各自的权衡是什么。在 JVM 上，内存基本上可以从任何线程、任何地方到达，所以很难在不「停停整个世界」的情况下释放内存。Java 的 Shenandoah 回收器、Azul 自己的回收器，这类并发回收器能做到所谓的并发垃圾回收，工程上非常了不起。</p>
+<p>Pony 也有垃圾回收，但不必停掉整个世界。为了先把道理讲清楚，这里稍微简化一点：你可以把它想成每个演员拥有自己的堆——人们描述 Erlang 虚拟机 BEAM 时也常这么说，严格说来也不完全准确，但更好理解。每个演员负责释放自己用过的内存，于是你不必为了回收而停下整件事。</p>
+<p>做法是：一个演员做完一些工作后，可以用某种启发式判断自己是否有内存可以释放。演员可以想成有点像线程，但更轻量，像是一个相对独立、和其它演员分开的小世界。于是不是「我要停下整个程序来释放内存」，而更像「我做了十次应用操作，现在做一次释放内存的操作」。</p>
+<p>在 Pony 以及其它这种可以彼此独立运作的并发内存释放里，你得到的不再是人们在标准 JVM 上跑 Cassandra 一类系统时常见的那种尾延迟尖刺，而基本上是平坦的延迟，最多只有很小的起伏。你放弃的是：在最快的那些瞬间，吞吐量会比另一种做法略低一点。这仍然是垃圾回收，只是完全不同的一条路。</p>
+<p>它和很多人给自己手写的那些精巧内存分配器之间，真正的差别在于：到了这一步，他们几乎已经把「程序员本人」从方程里拿掉了——用算法来决定何时释放内存，而不是由人把具体规则写进代码。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>正确性先于测试：不变量、Ada 的教训，以及把 TDD 逼向基于属性的测试</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>我们来谈软件正确性。你怎么定义软件正确性？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>我会把软件正确性定义成：在很宽松的层面上，我的程序做了我期望它做的事。我更习惯用「不变量」（invariants）来谈，这是更形式化的规格术语；再宽松一点说，就是一种保证——软件正在做我期望的事。很多时候，人们并不真正清楚自己期望软件做什么：它不工作时他们知道不对劲，工作时却不一定说得清「工作」是什么。软件正确性其实是一种看待软件的方式：知道它在维持自己应当维持的东西，在完成它被写下时的业务目的，并且不会在凌晨两点把人叫醒。那就是正确的软件。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>要得到正确的软件，显然你得做一些测试。但你写过一篇很有意思的博客，我引用一句：「没有人在乎测试。」这话可能会伤到那些确实在乎测试的人的感情。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>但我还是要坚持这句话。这话出自一个经常被看成「爱谈测试」的人，听起来也许刺耳，可我并不看重测试本身。测试是达到目的的手段。手段并不重要，目的才是一切。我写这句，是因为我在 Antithesis，人们把它看成一家测试公司；我不是这样看的。我把它看成一家软件验证公司、一家正确性公司，这对我来说很不一样。</p>
+<p>测试是你在没有更好办法时，为了验证事情是否按你能验证的方式在工作而放进去的东西。最糟的情况是人们经常做的手工测试。从那里往回走，也许可以自动化，测试也可以越做越精巧，用测试能做出非常了不起的事。但到头来，你仍然是在整盘棋的后半段才动手。</p>
+<p>再回到我很早做的那个 C 和 Ada 的选择：C 在正确性上几乎什么都不给我，就像一把对准自己脚的巨枪，我一次次把脚打穿。Ada 则会从一开始就大量支持我去构造正确的软件，不允许我去做会不正确的事。我的 Ada 程序之所以编译不过，正因为我想做的事从根本上是内存不安全的，会走向内存损坏、崩溃、数据竞争之类的结果。</p>
+<p>我非常相信：在走到测试之前，就应该做尽可能多的事。人们常常写测试，只为确认「我的东西只会处于这三种状态之一」；如果你有合适的语言——ML 族语言特别擅长这类事——通常可以在类型系统里表示有哪些状态、允许哪些转换，并确保永远不会转到你没预料到的状态。这非常重要，因为当你思考「我的系统是否在工作」时，不必把整件事从底看到顶，只需思考类型系统不允许你表达的那一层之上的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>我理解 ML 语言能让你多做很多这类事。但我想唱个反调：如果你做测试驱动开发（TDD），先写测试再开发，是不是也能得到类似的效果？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>我很喜欢 TDD。我认为 TDD 是写出别人愿意使用的好 API 的最佳机制之一，因为你在主动审视：我到底该怎么使用这个东西。TDD 生态非常迷恋所谓的「型」（kata），就是那些小小的编程练习，也有每日一练。有一种型通常以结对编程的形式出现：一个人负责写测试，另一个人负责实现让测试通过的东西。做实现的那一方，被要求用尽可能简单的办法让测试通过。</p>
+<p>跟我一起做的人很快发现，我把「尽可能简单」执行得非常字面。我会一遍遍把他们那个基于例子的测试——也就是大多数人做 TDD 和单元测试的方式——硬编码进实现里。比如他们只测了「2 加 2」，我就直接返回 4；他们再测「2 加 3」，我就写一小段：一个是 2、一个是 3，那我返回 5，连加法都不做。</p>
+<p>这种型不应该停，直到写测试的那个人对实现满意为止。要击败一个极其「字面」、甚至有点抬杠的实现者，你只能开始把输入随机化。而一旦开始随机化输入，恭喜，你已经进入人们通常所说的基于属性的测试（property-based testing）。因为你在生成结果，去覆盖比手写例子更大的空间。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>如果我在对面，大概会觉得：肖恩这是有点故意找茬了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>要是再把用词说得更粗一点，那基本就是人们当时经常对我说的话。对，因为如果你拿加法这种非常容易实现的东西，你写测试、我写实现，我可以不断为边角情况加 if：这种输入就返回那个值。你写得越多，我就加更多 if。我是说，要打败我，要么让测试去做随机的事，要么走到基于属性的测试：对某个属性跑遍或生成大量情况。人们会因此觉得沮丧。但练习结束时，在我工作过、会定期让所有工程师做这个练习的地方，跟我结对的人常常是唯一没做完的，可他们出会说：天啊，我想我会更会写测试了。这很好，确实能导向好得多的测试。</p>
+<p>可到头来，被测的很多东西，如果你有更强的编译器，根本不必测。那家公司是 Java 店。Java 的类型系统能挡住一些事，但仍留下大量自由，就像 C 留下大量自由一样。有好多年，我是动态语言的爱好者：Smalltalk 至今是我最喜欢的语言之一，我也写过大量 Ruby、Perl、Python，总觉得自己不太需要编译器帮忙。后来我才明白：那是因为我主要做小系统，所有东西都能装进脑子里，而且往往只做一个系统、始终很熟。等开始做更大的系统、在更大的公司、和更多人一起、有更多我并不了解的东西进入系统时，情况就变了。</p>
+<p>我开始真正珍惜这些帮助。即便在 Java 里，你也可以说：我要替换这个类，那就先把这个类删掉，至少编译器会告诉我每一处因此破裂的地方，我就能开始知道该去代码库的哪些地方探索。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>工作负载：醉汉走不出再分片，银行测试却能在故障注入下挖出隔离缺陷</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>你写过、也做过一次演讲，谈一件测试策略里人们很可能漏掉的重要东西：工作负载（workloads）。工作负载是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>在基于属性的测试里，你会说：我的函数有这样一个属性，比如这是一个整数，然后测试工具可以——如果是 32 位整数——遍历所有整数，或者随机抽，或者跑一千个，等等。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>但大多数人接触基于属性的测试，还停留在很简单的例子：比如把一个列表反转再反转，应得到原来的列表。这太简了。一旦你想把它用到分布式系统或数据库上，「工作负载」就是：你用来验证事情是否真正在工作的那些东西，再加上你为了驱动代码、为了测试而生成的输入。</p>
+<p>举个简单的例子。你要测一个键值存储，比如 Redis，或你自己的键值库。它有三种操作：get、put、delete。这些都会作为输入进入系统，是工作负载的一部分。但工作负载还要决定：我会有多少个键？键的范围是什么？键有多大？放进去的值有多大？工作负载是这一切的组合：你的系统、你用来判断它是否在工作的东西，以及进入系统的输入。</p>
+<p>人们读到基于属性的测试、看到「反转列表」这种例子，很容易以为：好，就是随机，随机会帮我搞定。于是一种被简化的做法是：我有三种操作，每次随机挑一个来做——这里先忽略不同的键。这样其实触发不了代码里多少有意思的地方。因为你做了一次 put，附近很可能就会做一次 delete。连续做一万次 put、把系统推进可能要开始换出到磁盘、做某种垃圾回收或再分片的区域，这种事几乎不会发生。你只是在一个很小的范围内来回晃，像醉汉走路，永远走不太远。所以工作负载很重要的一部分，就是：什么样的输入能驱动出有意思的行为。</p>
+<p>对键值这种例子，有时意味着你需要把系统赶到真正有意思的地方。但另一些时候，工作负载可以看起来简单得骗人，却能验证非常强的性质。输入那一侧要讲清楚得有块白板；先说简单那一侧。</p>
+<p>有一种常用来测试 ACID 数据库隔离保证的工作负载。我认为隔离保证大概是 ACID 数据库里你最想守住的东西之一。它叫银行测试（bank test），简单得惊人，也非常精彩。你在一张表里建若干账户，假定系统里一共有 10,000 美元，分给比方说 10 个账户，每个一开始 1,000 美元。这个工作负载要做的，就是在事务里把钱从一个账户转到另一个账户，也就是把一列里的钱移到另一列。同时另有一个东西不断查询：系统里的钱总共是多少。如果隔离保证成立，它看到的值应该永远只有 10,000。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>这是一个很简单的测试，因为你只是在账户之间不停转账。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>对，而且你会跑很多不同的事务。如果数据库是好的，在笔记本上正常跑，按理不该看到奇怪的失败。然而，你把它放到分布式数据库上，再放进一个开始注入故障的环境——比如在节点之间注入网络故障、把节点杀掉——凯尔·金斯伯里（Kyle Kingsbury）用他的杰普森（Jepsen）把这类事做得很出名，经常冲上黑客新闻首页。我们在 Antithesis 做的也是同一路。从这个非常简单的工作负载里，各种有意思的缺陷会开始往外冒，因为它在锻炼系统一个非常核心的约束、一个不变量：我不应当读到另一个事务内部正在发生的事情。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>那工作负载本身，是你描述的这整套系统——这儿有 10,000 美元、这些账户、可以怎样在它们之间移动——还是说工作负载只是其中一件事，比如在账户间转钱，然后反复做很多次？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>取决于你想把这个词用到多「最大化」。你可以把被测的那个特定数据库也算进工作负载，因为 Postgres 做这些事的方式可能和 MySQL、和其它数据库略有不同，于是那就可以被说成不同的工作负载；你也可以在概念层面只谈银行测试，不考虑里面是哪个数据库、也不考虑实现细节。人们经常从这两个极端来谈：柏拉图意义上的银行测试是一种工作负载；也有非理想化的、带着具体实现的那一版。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>那我能不能在脑子里，把工作负载替换成「一个复杂的测试用例」或「一串复杂的测试用例」？就像我们用来测试的那个东西，去扮演或回放某个场景？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>通常不是回放一个场景。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>不是回放，而是构造一个场景？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>我也会避免「构造」这个词，因为一说构造，就又靠近单元测试里那种基于例子、你把具体步骤写死的东西了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>所以更接近：工作负载的要点是你先定下规则，然后让它自己展开。以银行转账为例，我们从不规定应该怎样转，只是希望来回转账——随机或不随机，最好能打到有意思的边角——发挥即可。那就是工作负载。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>对。如果是大多数已经存在一段时间、也经过某种严格测试的软件，银行测试这类工作负载按理不该再冒出缺陷；更复杂的工作负载也许还会。但对银行测试本身，本来不该。可一旦你把它放进杰普森或 Antithesis 那样的体验里——这也是生产环境里天天在发生的那类体验——缺陷就会大量往外冒。洛林·霍赫斯坦（Lorin Hochstein）一直把这类事写得非常出色：这次事故里发生了什么、那次又发生了什么，再以一个在这行浸淫很久的人的角度，帮你拆开看。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>质量不是闸门：构造即正确，人人其实都在生产里测试；复杂系统先拆不变量</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>关于质量，你说过一句我很感兴趣的话，我再引用一次：「质量不是闸门。」你写：整个闸门的想法，建立在一个该被拿到亮处审视的信念上——这个信念是，质量靠把坏东西挡在门外来维持，在门口把缺陷抓住。这幅图很让人安慰，却不是优秀团队保持优秀的方式。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>这在很大程度上也解释了，为什么我不喜欢把「测试」当一件事来谈，而喜欢谈正确性。尽可能地，你的系统根本不该允许坏事发生，从你怎么写软件、你能做哪些静态检查开始就该如此。理想世界里，你应该能用 TLA+ 或 Alloy 这类语言写下规格，并拥有一份与之完美对应的实现；或者干脆魔法般地从规格生成实现，同时还保有全部性能特性。我们离那个世界还远，但那会是理想：你用模型检测器证明了不可能发生坏事。它们能做的事非常惊人，只是我们还没有那样的日常工具。</p>
+<p>再下一层，就是类型系统里的静态检查：Pony 做的、Rust 做的、OCaml 做的。有意思的是，Erlang 也做了大量这类事，却不是靠类型系统，而是靠演员模型——你能做的事被限制住：一切都得通过消息发送，一条消息里，一个演员拥有的数据会被复制后再发给另一个演员，于是不存在因共享内存而来的数据竞争，因为内存根本从未被共享，只是被复制。这也是一种「构造即正确」，和类型系统能给你的是同一类东西。我们需要先有这样的地基。</p>
+<p>测试，应该留给我们现有的静态手段无法强制的那些事情。毕竟我们只有编程语言，而语言都带着权衡。也许存在一门类型系统完美、能表达你需要的一切的语言——第一，它多半并不存在；第二，即便存在，它大概也会缺少你同样需要的某种特性，比如性能。于是你得妥协，选一门性能保证更好或符合其它要求的语言，剩下的才交给测试和验证。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>我想反驳一下「质量闸门」。闸门的想法是：你写代码，编译器做一些事；出于现实原因我们使用的语言，即便编译器完美，也仍会留下大量应用层、业务逻辑上的缺陷，编译器测不了业务是否正确。过去我们——我想很多人现在也还是这样想——觉得写完之后要过质量闸门：代码审查、持续集成/持续交付（CI/CD）、静态分析，到了生产还有可观测性。有点像瑞士奶酪模型，每一层挡住一些东西。代码审查有时能抓住缺陷，虽然我们知道那不是抓缺陷的好地方，现在更加说不准；在谷歌他们还有可读性审查，会抓住可理解性的问题。CI/CD 会用测试抓住一些缺陷或已知回归。你说质量不是闸门，是意味着你不相信发布过程里该有这些所谓闸门，还是说只是换一种想法：把质量拉回到最开始？听起来你是把质量的观念推回到起点。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>很大程度上确实在起点。另外，我不同意「业务逻辑无法被静态强制」这个说法，不过那个兔子洞我们先放一边。此外，按现在通常的做法——也就是在杰普森和 Antithesis 那一类风格之外，单元测试以及在 CI 里跑的测试——Honeycomb 有些很棒的 T 恤，上面写着「我在生产里测试」，他们是做可观测性的。这话是真的：所有人到头来都以某种方式在生产里测试，不论承不承认。我们现有的工具，没有哪一样好到足以保证你想保证的东西。</p>
+<p>即便你用 Antithesis、杰普森这类工具做得非常出色，也想出了很多有意思的输入，生产系统里仍可能有某份在某个时间点被损坏的数据，是你的生成器从没随机打到、也生成不出来的。那种东西会在生产里发生，而我们事先并不知道它在那里，于是我们是在测试它。那种「过了这道闸就叫有质量、可以发布」的想法，某种程度上是个谎言。我们希望一路上有越来越高的信心，但并没有一道闸让我们「知道」它有质量。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>但你是说这些东西有帮助，只是要知道会有漏洞？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>对，会有漏洞，会有东西漏下去。再加上一道闸——并不是说你再加一道闸，就能把剩下的洞全部封死。这就像再加一两个、三个把值写死的测试：会更好，当然，但它们保证不了质量。</p>
+<p>我待过的那些我会称为「低效能」的团队——要么走得很慢、交付很少，要么交付很快却经常要紧急发布去修——通常就是用传统 CI/CD 来想这件事：围绕拉取请求，或一个预发环境，在上生产前跑一些测试，觉得「质量闸门就在这里」。而那些走得快、有信心、而且结果也站得住、不会一直被告警叫醒的人，是从一坐下就开始想质量。比如你在做分布式数据库，就应该用 TLA+ 一类工具，确认共识算法确实能工作、这里没有缺陷；或者在第一版、还从没上过生产之前，就把它放进杰普森或 Antithesis 这类工具里，问：它是按我期望的那样表现吗？因为东西刚做出来的时候最容易修；我见过许多地方，新系统要到很晚才开始测，那时已经没人知道它到底有没有在工作，甚至没人从一开始问过：我将如何知道这件事是在工作。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>我想再推一下：并不是「只要写个测试就能知道它在不在工作」。举个可能很难写测试的例子。我在谷歌搜索里输入「世界上最好的测试工具」。如果问十个人，其中五个在厂商工作，他们大概都会给出不同的「应该排第一」；在厂商的人当然会说自己家该排第一，我们在这儿做的就是很棒的测试。有人想看到维基百科条目，有人有别的期待。而且我天天搜同一句话，结果也会有点变化。我们可以假定谷歌知道自己在做什么，也是正确的。可一旦我要为一个复杂系统、哪怕只是谷歌搜索里的一小段写测试，就会很为难。即使用任何形式化语言或 TLA+，我也很难把「我期望什么」写成代码。虽然你眯着眼看会觉得「看起来够好」，或者有足够数据时能判断，但要编码出来是另一回事。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>不过有些东西我们是可以测的。比如有些不变量：我在框里提交了一个东西，我期望能拿回结果，这就是一个不变量。然后事情会继续往下走。我做过一段时间机器学习，其实是做推荐系统，就会碰到「什么应该排第一」这种有意思的问题。那和「它是否在工作」是完全不同的两件事。「在工作」可以是：我往框里放了东西，拿回了东西；「是否相关」是另一回事。对「是否在工作」，我们还可以问：如果我一秒钟提交一千个请求，它还在工作吗？并发请求来的时候呢？提交到一半我又提交第二次，或者导航离开呢？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>所以你是说，我们可以把问题分解成不同部分。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>对。我拿到的结果，是不是针对我实际那条查询的结果？里面具体是什么也许不重要，但我们可以给每个查询带上某种标记，确认回来的确实是对应的结果，服务器没有把你的结果错给了我。搜索也许不太容易让人察觉，但我想大家都听说过那种事故：某个服务开始把别人的账户展示给用户。那是非常糟糕的一种。我自己身份证信息被盗过三次，实在不希望有人无意中把我的个人身份信息展示给了别人。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>供应链、侧信道与机密计算：对象能力也挡不住 FFI，投机执行打破所有保证</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>我想谈谈行业里一些有意思的教训，我知道你对它们很有热情。其中一个是供应链安全。供应链安全是什么？我们现在听到它的次数更多了，尤其在开源里，不幸的是确实如此。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>供应链安全说的是：如果一样东西很受欢迎，攻破它最容易的办法，就是找到最薄弱的一环再下手。我们说的是软件、开源软件，但这同样适用于硬件。比如 AMD 或英特尔（Intel）会给出各种安全保证，机器里有可信计算模块；可如果你真想攻击这些系统，你想要的是：有人在组装时往机器上写入恶意固件。你怎么知道那确实是本该在那里的固件？我自己也有安全背景，这会被放进「可信计算基」（trusted computing base）来谈。</p>
+<p>不过人们现在谈供应链安全，通常已经是在谈软件。比如多年前的 left-pad，算不算一次供应链安全事件？那个在 npm 上做一件小事的小模块，后来有人往里面放了挖矿程序之类的东西。关键不在它有多琐碎，而在于替换一个被广泛使用的包。</p>
+<p>一种很有效的打法是：去攻击人们用得很多、却不太会细想的东西，尤其是持续集成系统。一旦你的代码能在 CI/CD 里跑起来，你就拿到了该系统里运行的全部密钥，也就可以开始发布可能带有恶意软件的软件，还能做别的。这是一种。更普遍的是：几乎现在所有编程语言都是这样一种模型——我从网上下载一样东西，也许校验了哈希，它却几乎能做任何事。我下载的本该是给文本补齐空白的东西，实际上却被允许去跑挖矿程序、建网络连接，等等。这些都是供应链攻击，可以造成非常严重的后果，而且正在发生。我们在 npm 上见过，我想 Python 社区里也在见到。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>什么才是有效的防御，是个很好的问题。有几种天真的办法。一种是冷静期：至少一周内不引入任何新包，指望供应链攻击够大、会被公开并被解决；坏处是，如果那是个热修复、修的是真正的安全漏洞，你等于把自己敞开放了一周。另一种更天真：去掉依赖，全部搬进自家。第三种是分叉，让安全团队决定何时更新、合并，或继续放在内部。这些都很天真。你觉得哪些做法真正可行？因为这像是在拿「及时拿到往往带有关键修复或很好功能的新鲜包」的延迟，去换「怕被投毒」的恐惧。而且，如果人人都上冷静期，谁还会去发现攻击？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>对，这点我们甚至还没谈到。我认为，对几乎所有现存的编程语言来说，这件事没有好答案；可能有好答案的那些语言，又没人在用，因为这在很长一段时间里根本不是一个被认真对待的问题。今天几乎所有包管理和开源的做法，都可以追溯到 Perl 的 CPAN 那种方式：它极度开放、极度信任，和早期互联网一样，假定人人都是善意行动者，电子邮件也很容易被伪造。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>我想那时的进入门槛也更高：恶意行动者至少得学会编程，或得雇到人。现在门槛变了，而且一旦他们知道我们在做什么，反而可能更高一点。但这一点已经变了，对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>即便那时也并非如此。和我一起上那所「高中过得不好的人的大学」的人里，就有一位青少年时期被美国政府逮捕过，因为他放出的蠕虫蔓延到大量他闯入的政府计算机上，而且还扩散得更远，是当时的重大事件之一。所以那时也在发生，只是规模更小，而且还不是所有人都像现在这样依赖这些东西。</p>
+<p>根本问题是：对几乎任何语言——JavaScript、Ruby、Rust，随便哪一种——你引入的依赖，在能力上基本上和你自己写的代码完全一样。你的代码大概什么都能做，那些从网上来的代码同样什么都能做。依赖一多，你要怎么审查所有这些代码？问题又绕回来了。靠我们现有的这套东西，最终没有人能解决它。人们也许会尝试沙箱，但每个沙箱都能被逃逸，通常也并不那么难，这本身就是一整片研究领域。</p>
+<p>有一位叫马克·米勒（Mark Miller）的人，做了一门叫 E 的语言，里面有称为「对象能力」（object capabilities）的东西，有很多有意思的研究。我们现在在哥本哈根的 Bug Bash 活动现场，当天第一个演讲来自索菲娅（Sophia），她是帝国理工学院的教授，讲的也是他们做的一些对象能力工作。对象能力的基本想法是：要在系统里采取任何行动，都必须以某种方式被授予相应能力。例如，除非你拥有建立网络连接的能力，系统就不会允许你这样做；而源程序、你写下的代码，必须把这种能力交给其它东西。</p>
+<p>没有流行语言真正在做这件事。Pony 最初由西尔万写下、现在我也在参与，对象能力是内建的。这是让你更能信任这段代码的一种手段。但你还得走得更远：如果编程语言允许某种外部函数接口（几乎全都允许），好让你调用 C 代码、Rust 代码，或任何走 C ABI 的东西，而你又没有办法完全控制这条路，那么有没有对象能力都无所谓——别人可以直接从 FFI 这扇门走出去。这些问题都需要被面对，而且不可能只靠在我们现有体系里做增量修补来解决。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>听起来软件安全之所以越来越重要，是有原因的，而且题目很复杂。我们做过一期关于软件安全的节目，但感觉只是刮到表面。和任何事情一样，细节里才复杂，策略也非常多。每家公司、每个团队都会自己决定：小创业公司一开始也许就是先莽着干，然后做一件简单的事，比如设冷静期，指望不是所有人都冷静、于是还能被发现；再往后会更细——扫描依赖、评估它们、减少不必要的、扫描依赖链，你也可以走得很深，深到有安全团队去审查、验证，甚至和作者建立联系，等等。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>所有这些真正可怕的地方在于：即便我们把你提到的这些、以及更多的事都做了，到头来仍不会是很好的防御。因为多年前我们为了让 CPU 更快，做了一个权衡：引入了投机执行（speculative execution）。投机执行的原理是：我有多余的周期，这条分支也可能走、那条也可能走，那我就两边同时执行。我们过去二十多年里得到的绝大部分加速，都来自这里。</p>
+<p>人们大概见过通常被称为侧信道攻击（side-channel attacks）的东西，种类很多。关键是：那些投机的分支必须实际存在于内存里。如果我作为攻击者足够好——系统既执行了「我已获授权」的分支，也执行了「未获授权」的分支——一个并不需要太多知识的人，即使实际上没有系统访问权，也可以用侧信道去读出「访问究竟是怎样的」那块被创建出来的内存；更好的是，他们还能把用于安全的密钥从内存里拿出来。</p>
+<p>所以其它所有事情我们都可以做对，可只要投机执行还在，这些攻击就在。我曾在微软研究院的机密计算组工作，我们做了一套机密容器产品，现在微软也还有。我们谈到自己那些本来很不错的安全保证时，总是要在末尾补一句：除去侧信道攻击——我们保护不了你免受侧信道攻击。我们拥有的每一条保证，都会被侧信道打破。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>什么是机密计算？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>机密计算的最终目标，是让软件跑在一个不必信任该环境运营者的环境里。你把东西放到云上，并不确定是谁在运营那朵云。多年前发生过一件事：一些推特（Twitter）员工实际上为沙特阿拉伯政府充当代理人，通过私信等途径监视沙特异议人士的活动。也可能是另一种情况：你也许信任微软或亚马逊，觉得他们不会偷你的数据，但你实际上是在信任每一个拥有那种访问权限的人——信任每个员工不会被钓鱼，也信任他们不会因为缺钱而被收买。机密计算就是试图让你不必信任那些人。在安全里，你信任的东西越多，系统就越不安全。</p>
+<p>在机密计算里，我们能给人们很好的保证，除了侧信道——侧信道可以打破所有保证。要在那一点上完全锁死，唯一的办法大概是把投机执行从系统里拿掉。最早一批投机执行攻击出来时，他们给 Linux 内核打补丁，只处理其中一个个案。我记不太准具体数字，印象里第一次大概掉了大约 50% 的性能，然后再努力把性能抠回来。接着又是另一种攻击、再一种、再一种。到了某个时点，我觉得人们基本上接受了：我们只能继续打地鼠，因为不愿意放弃投机执行带来的性能。</p>
+<p>我对安全非常在意，可我自己写的开源里，也绝对会去利用投机执行。想让东西跑得快的那一面很爱它：分支预测器知道通常会走这条路，就能把从前很贵的分支变得很便宜，于是我能做成一些从前很难做快的事。我们等于集体做了这笔交易：我们愿意求快，而它在根本上就是不安全的。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>技术债不必总偿还，以及先慢后快：先统一「恰好一次」再写代码</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>我想问你技术债。十年前你写过一段话，我读给你听，很好奇你现在的想法有没有变。你写的是在一家公司亲历或听说的恐怖故事：「可问题是，即便这类恐怖故事在发生，我们仍在赚钱。我们在增长，能养活自己，持续为公司创造价值。是的，我们有很多技术债，但我们不断找到、发明出绕开、不必偿还的办法。我们采用的债务隐喻是误导性的。你并不总是必须偿还自己造出的债。你可以绕着走，甚至永远不必还清。技术债只有在你必须偿还的时候才会伤人。」</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>是的，我百分之百仍然坚持这一点。我非常希望构建可塑的软件。所谓可塑，是指能够适应新的处境，因为软件被构建时的处境，不会是一年、两年、三年后的处境。它需要能被改变——不一定是改代码，而是能被放到它需要进入的新环境里。其中一个答案，常常就是把那东西扔掉。</p>
+<p>我记得那一篇，是被这样一个例子推动的：债大量堆在数据库怎么搭建上，MySQL 的分片有上限，事情越来越难。后来完全被绕开了，办法是砸钱上一个分布式数据库，它看起来仍像单一数据库。权衡是：第一，我们付给他们不少钱；第二，你期望从单机 MySQL 得到的那些保证，在边上会有奇怪的例外，并非总能成立。但那些例外非常罕见。这不是一家在用 Ada 的公司，那种我会偶尔去追查的极罕见情况，并没有那么重要。在很多情形里，你都可以这样完全绕开。也可能是业务变了，那套系统不再需要：它跑了三年，用不上了，扔掉，你从未偿还过任何债。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>你是说，也许我们很多人理解的技术债，并不是它实际发生的方式。你常常会造出债：做一堆黑客式的修补，或做一些在大规模生产公司里说不通、但在创业公司或早期阶段说得通的事；后来你也许永远不必偿还，因为你会重写软件，或引入一个把旧债作废的新技术，又或者没找到产品市场契合、跑道耗尽，那它又有什么关系？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>我还记得在优步（Uber）的时候，我在出行（Rides）团队，做的是已经成熟、做了多年、也在赚大钱的出行产品。优食（Uber Eats）团队当时刚起步，有个工程师跑进我们的代码库提交了一个改动，因为他们需要共享功能、要用到那部分平台。他们改完以后，删掉了一个因此失败的测试，然后就发布了。我们说：你在干什么，你不能删测试。双方就僵住了。他们说：我只是得把它做完。后来我才弄清，其实那是 Jump 单车。我逐渐明白，这些人真的只在想明天，因为他们不确定下周自己还在不在。果然，大约六个月后优步卖掉了整个部门，它在优步内部没有找到产品市场契合，后来成了自己的公司。我当时想：好吧，当你那样想的时候，你甚至会动到测试——能用就先上，看看怎样。他们甚至不在乎是否对百分之百的顾客都有效，只在乎在那个时点上，是否大致能满足他们的目的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>有时候你确实会付出代价，通常是因为你成功了。不过也可能是：人们既没在注意债，也没在想「怎样做才最可塑」——好让我能尽快做出来去验证。这和「我把东西黑客进这里」是不一样的：你可以做一个尽快完成、只覆盖很小一条缝、会漏掉各种边角的东西，但对我来说容易拿掉；如果接下来三个月我们再在上面堆五样东西，它也不会拖慢我们。因为说到底，我们也许只是一家创业公司，想尽快弄清自己在做什么。当然，你完全可能在还没找到产品市场契合之前，就把自己债进死角了。但那种「每一笔债都是坏的、都必须还清」的想法，并不符合现实。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>我们刚才谈的，以及更早谈你的职业和你怎么做软件，有一个主题是：你喜欢求快，而你也学会了，有时要快，得先慢。你也写过这个，我引用一句。「先慢后快，意味着先写规划文档，在任何人碰代码之前就对要做什么达成一致；意味着在开始构建之前就知道我们将如何测试；意味着花几个小时或几天，把还不理解的部分做成可以扔掉的探针（spike）；意味着凌晨两点生产着火时，先停下来。」其中有些听起来非常反直觉。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>对我来说并不反直觉。对我来说不。当然，在职业更早的时候，它们绝对曾经反直觉，那时就是觉得必须把那件事做完。这就像你最终会意识到：每周工作八十小时并不能让我更快，只会让我因为一直很累而犯更多错，然后把时间花在追查缺陷上，而不是做新功能。当我累了，就该离开电脑。这就是先慢后快：确保我休息好、身体健康，确保作为关键部分的大脑真正在正常工作。</p>
+<p>我职业生涯里见过最浪费时间的事之一，就是人们不肯花时间确认：彼此说话时，用的词其实是一个意思。结果三周后东西做出来，有人一看：这不是我想要的。这也是敏捷里「冲刺」（sprint）本该嵌入的东西：我们不会走很久才回头看，确认方向仍然一致。如果你要做一件又大又复杂的事，就值得花几天，让开发的第一部分不是写代码，而是写下这东西将如何工作、应当做什么，并确认所有人真的同意。因为在那一阶段改起来很容易，你还没在编码上投入大量时间，只是在确认：我们谈的是不是同一件事。</p>
+<p>多年前，分布式系统社区里有一场精彩的网上争论，两派来回对轰，争的是「恰好一次」（exactly once）在投递消息时究竟是什么意思，也就是恰好一次投递。一派说的是恰好一次处理，谈的是幂等，以及一件事实际上只产生一次影响；另一派说的是消息字面上只到达一台计算机一次。这边的人就说：你们在撒谎，不可能做到恰好一次。他们花了那么多时间互相喊，只因为没有人坐下来先说：我所说的恰好一次，指的是这个。</p>
+<p>同样的事随时都会出现。你随手在卡片上写了一小段——现在大概有人用 Linear，也还有人用 Jira，不管是什么——然后把人派出去做。那个人花了不知道一小时、一天还是五天，做完回来，你却说：不对，这不是我们期望的。你走得很快，却哪里也没到。</p>
+<p>你得花时间把地基打好，确保所有人朝同一个方向。而且，如果你以后想走得快，从一开始设计时就该想：我将如何知道它确实在工作。有些系统你几乎无法知道它是否在工作；有些则很容易知道，其中可以包括我谈过的静态手段，甚至只是让系统有良好的可观测性。我们要把一套系统放到生产里：我们将如何知道它是否宕了？我们将如何知道它是不是灰故障——一大群人体验极差，但它仍在、负载均衡器上还在 ping？只要先坐下来想这些事，确保它们做起来容易、以后不会拖你后腿，你就在前面花一点点时间，让所有人在同一页上，想清楚要做什么，然后就可以非常快地往前冲。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">Gergely</span></div><div class="content">
+<p>太好了。肖恩，这是一次很棒的谈话，谢谢你。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sean"><div class="label"><span class="badge" title="肖恩·艾伦（Sean Allen）">Sean</span></div><div class="content">
+<p>是的，非常愉快。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "The Pragmatic Engineer", "title": "软件正确性与编程语言——肖恩·艾伦（Sean Allen）", "url": "https://www.youtube.com/watch?v=OrXKvOjR-vI", "videoId": "OrXKvOjR-vI", "published_at": "2026-11-10", "duration": 5120, "caption_source": "YouTube 自动生成字幕（en-orig；dump-json official_langs=[]，无官方字幕。普通 yt-dlp write-subs 开始拉 en 后遇 HTTP 429；cookies 路径 chrome:/home/box/chrome-profile/Fork-3 遇 “The page needs to be reloaded.”同批用 yt-dlp --dump-json --extractor-args youtube:player_client=android,tv（无 cookies）后 curl 自动字幕 en-orig VTT 成功，153264 字节。caption_source=yt-dlp-auto，不是 yt-dlp-chrome-cookies，也不是 browser-cdp。中文为全文翻译并按话题分段；说话人按主持格尔盖伊·奥罗斯 / 嘉宾肖恩·艾伦的问答轮次启发式标注（自动字幕无说话人标签、无 \u003e\u003e 箭头，中等把握）；复查英文字幕未见赞助口播。", "guests": ["肖恩·艾伦（Sean Allen）"], "intro": {"summary": "格尔盖伊·奥罗斯访谈 Antithesis 杰出工程师肖恩·艾伦：从 BeOS 邮件列表上的尼尔·斯蒂芬森，到 OCaml、Ada、F# 与 Pony，再谈到正确性应先于测试、工作负载与银行测试、质量不是闸门，以及供应链、投机执行与技术债。节目有意避开「人工智能」这一用语，回到仍然关键的基本功。", "points": ["早年在 C 与 Ada 之间选了容易编译的 C，结果用多年自我规则防段错误；OCaml/ML 的穷尽匹配能在把和类型从五种改到六种时，让编译器标出代码库每一处未处理分支", "F# 是唐·赛姆把 OCaml 精神带到 .NET，与运行时克制共生，许多特性已进入 C#；Pony 由西尔万·克莱布什从摩根士丹利的演员模型运行时和帝国理工博士论文中做出，在沃勒鲁被用来做银行级高速数据处理，由编译器强制执行从前靠人手防崩溃的并发规则", "「GC 很慢」多半是停世界摧毁了尾延迟；Pony 让每个演员在若干次应用操作后自行回收，换来更平坦的延迟、略降峰值吞吐", "他不把 Antithesis 看成测试公司，而看成验证/正确性公司：测试是后半段的手段。TDD 结对中他把 2+2 硬编码成返回 4，逼对方走向随机输入与基于属性的测试", "键值存储上均等随机 get/put/delete 像醉汉走路，走不到刷盘或再分片；银行测试里系统共 10,000 美元，隔离成立时总和应永远是 10,000，但在杰普森/Antithesis 注入故障后这个极简负载会冒出大量缺陷。质量不是闸门，人人其实都在生产里测试", "left-pad/npm 与 CI 密钥失守说明依赖几乎和自有代码权限相同；对象能力也挡不住 FFI。投机执行换来二十多年加速，侧信道却能打破机密计算的全部保证，他印象里第一次 Linux 补丁大约掉了 50% 性能。技术债可以绕开或扔掉，不必总偿还；要快，先统一「恰好一次」到底是什么意思"], "verdict": "值得看：关心类型系统、并发、测试与验证、供应链和机密计算的工程师；约 1 小时 25 分，具体例子很多（银行测试、Ada 对 C、Pony/沃勒鲁、优步 Jump 单车、恰好一次的争论）。可跳过：只想听人工智能编程快餐、不关心语言与正确性基本功的人。片中未见赞助口播。", "audience": "软件工程师 / 语言与类型系统 / 测试、验证与安全 / The Pragmatic Engineer 听众"}, "speakers": [{"id": "gergely", "name": "格尔盖伊·奥罗斯（Gergely Orosz）", "role": "host", "short": "Gergely"}, {"id": "sean", "name": "肖恩·艾伦（Sean Allen）", "role": "guest", "short": "Sean"}], "sections": [{"id": "s1", "title": "开场与入行：音乐、Perl、Commodore 64，以及邮件列表上的尼尔·斯蒂芬森", "start_sec": 0, "summary": "开场先放出肖恩的几段原话：测试只是手段，人人某种程度上都在生产环境里测试；技术债只有必须偿还时才伤人，「每一笔债都必须还清」并不符合现实。两人随即发现一个巧合：格尔盖伊做过专业软件的第一家公司叫 Sensenet（他拼作 S-E-N-S-E-N-E-T），在匈牙利布达佩斯；肖恩的第一家叫 Sensent（S-E-N-S-E-N-T），在纽约，是两家不同的公司。肖恩说自己本来更想做音乐。大学毕业后翻通讯录，第一个肯收留他的人住在纽约；他差一点给一位美国参议员当演讲撰稿人，没做成，后来经朋友介绍去学乐（Scholastic）修电脑。又有朋友说学会 Perl 就可以去波士顿加入大学同学的创业公司，他花三四个月学到能上手，公司却先散了——那甚至还不是互联网泡沫，只是「一群会相互点燃的人」。更早时他迷上游戏《淘金者》（Lode Runner），让外祖母在得克萨斯州沃思堡的电脑店买编程书，店员给的是《Commodore 64 机器语言》。他由此意识到：这是一件别人会付高报酬的技能。真正进步最快的阶段是沉迷 BeOS。Metrowerks（同时为 Mac OS 做编译器）的编译器组负责人在邮件列表上教他 C++；另一位热心人其实是科幻作家尼尔·斯蒂芬森（Neal Stephenson），当时还互发邮件给建议。肖恩至今几乎没读过他的作品，只翻过几页《雪崩》（Snow Crash）。"}, {"id": "s2", "title": "加入 Antithesis：红队只用客户同款工具", "start_sec": 285, "summary": "肖恩加入 Antithesis 的短版本是：那年十二月他正在找工作，首席执行官威尔·威尔逊（Will Wilson）在黑客新闻（Hacker News）「谁在招人」帖子里丢来一个链接，问他想不想做杰普森（Jepsen）那一类的事，他回说听起来可能挺有意思。他现在在红队（Red Team）。他觉得如果问公司里每个人红队是干什么的，答案几乎人人不同；他的理解是，威尔把一群聪明人聚在一起，要求他们像客户一样使用产品。肖恩为此有意从不使用仅限内部的配套工具，只用客户手头同样的工具。团队被给了很大自主空间，只要别人觉得对公司有价值就可以做。他花过不少时间做技能（skills），让智能体更好地配合 Antithesis，但他更喜欢把「如何确认软件真正能用」教给客户和同事——这在他看来远远早于任何被称为测试的层次，要从栈的更深处开始。他称这是一份梦想中的工作。"}, {"id": "s3", "title": "OCaml、Ada 与编译器保证：穷尽匹配，以及早年选了好编译的 C", "start_sec": 409, "summary": "谈到「有点小众」的语言时，格尔盖伊先问为什么对冲基金和金融公司喜欢 OCaml。肖恩说它主要源自法国学术圈，诞生于人们试图把函数式和面向对象揉在一起的九十年代；但在简街（Jane Street）等重度用户那里，OCaml 名字里代表对象的那个 O，相关特性几乎没人用。OCaml 属于 ML 家族，和 Python、Perl、C、C++ 等 ALGOL 家族不同。Rust 是目前最有名的受 ML 影响的语言：和类型、模式匹配都来自 ML。核心能力是强类型加上穷尽匹配——如果和类型从五种可能改成六种，编译器会指出代码库里每一处未处理的分支，相当于把大量校验前置到编译期，而不像 TypeScript 里许多问题要到运行时才爆。肖恩早年在 C 和 Ada 里选了两门来认真投入。选 C 是因为当时在为大约 Mac OS System 6 编程，苹果正把大量代码从 Pascal 转到 C；Ada 则走极端严格的静态检查，很大程度上由国防部门推动，面向 NASA 等任务关键场景，市场不大但至今仍在。Ada 公司现在常打的牌是：「你喜欢 Rust？要不要再多要一些保证？」他的遗憾是：当时自己太嫩，Ada 严格到几乎编译不过，而 C 能编译就像拿到一块饼干；他没想明白自己的 C 程序动不动段错误、跑不长。后来他给自己定了一大套写并发 C/C++ 的规则，但人总会搞砸，他更希望编译器来帮忙。"}, {"id": "s4", "title": "F# 与 .NET：唐·赛姆把 OCaml 精神带到平台上，并与 C# 共生", "start_sec": 868, "summary": "F# 出自微软研究院，几乎一切都和唐·赛姆（Don Syme）有关，一开始基本上是「面向 .NET 的 OCaml」。当时的 .NET 主要是 C# 加运行时，相当于微软版本的 JVM。肖恩回忆，微软曾在自己的 Java 里加入 Windows 特有 API，Sun 威胁并提起了诉讼。格尔盖伊补充：安德斯·海尔斯伯格（Anders Hejlsberg）在本节目里讲过，正因为这场诉讼，他们不能再继续用 Java，尽管他们想用，于是去发展 C# 和 .NET。肖恩认为 .NET 吸收了 JVM 的经验，并在那些已难改动的点上做了不同选择；但平台上基本上只有一门语义接近 Java 的 C#。F# 要带来的是另一套语义。它真正少见的优点不是某几个特性（OCaml 粉还会抱怨它缺的那些），而是和 .NET 贴合得极无缝——相比他在 JVM 上用 Scala 时和 Java 交互的毛边，体验完全不同。唐把语言推进得很克制：先往前走一点，再等运行时跟上，形成共生；这些年 F# 的许多特性已经进入 C#。语义上现在真正还缺的，大概是带穷尽匹配的和类型，而从 C# 近几年的变化看，连这一点最终也可能被吸收。"}, {"id": "s5", "title": "Pony 与安全并发：从摩根士丹利的运行时，到类型系统强制的演员模型", "start_sec": 1106, "summary": "Pony 是肖恩参与的开源语言，由好友西尔万·克莱布什（Sylvan Clebsch）创建。两人一起上过一所面向高中成绩不好、有退学风险者的「早期大学」；当初劝他学 Perl 去波士顿的也是西尔万。肖恩后来在一家想做银行高速数据处理的公司做咨询，需求是：必须快，还要有延迟保证。当时面向大众的 JVM 垃圾回收是停停整个世界（stop-the-world），请求延迟会从毫秒变成巨大尖刺，在交易或风控系统里代价极高。Azul Systems 有无暂停 JVM，但很贵，多数项目用不起。他们还需要对客户保证不丢、不乱数据，并对数据局部性有一定控制；他提到马丁·汤普森（Martin Thompson）的「机械共鸣」（mechanical sympathy）。他不认为用创业薪水能招到靠 C/C++（他自己的 C++ 仍像 1998 年）同时守住这些保证的人。转折来自 LinkedIn 上少有的一次有用联系：西尔万在摩根士丹利做了一个基于演员模型（actor model）的早期运行时，上面仍要写 C，专家稍有闪失就会毁掉运行时给的好处。西尔万随后到英国帝国理工学院读博，把类型系统学扎实，做出来的就是 Pony。肖恩当时在沃勒鲁（Wallaroo）——后来才变成人工智能公司，那时还在向银行卖高速数据处理——决定采用几乎没人用过的 Pony，对外最有用的说法是「它始于摩根士丹利的一个想法」。人们会问他们会不会成为 Pony 的「简街」，他们说如果足够成功，大概就是这个想法。Pony 有 ML 家族血统，目标是让人写出又快又高度异步的并发程序，并把肖恩从前靠人手记住、免得段错误的规则交给编译器强制。它让大部分非法状态不可表示，这一点像 Rust，但并发模型不同：像 Erlang/Elixir 一样内建演员模型，是一套打包好的「无畏并发」，而不是让你自己东挑西拣。"}, {"id": "s6", "title": "重新理解垃圾回收：症状是停世界，Pony 用每名演员自己回收换平坦延迟", "start_sec": 1636, "summary": "格尔盖伊引用肖恩的话：大多数工程师觉得垃圾回收慢，他们对体验没有错，停停整个世界的回收器确实会摧毁尾延迟，但「GC 很慢」把症状当成了原因。肖恩把垃圾回收定义成「程序释放不再需要的内存的机制」，而不是和 malloc/free 简单对立。想跑得快就不会频繁做那些系统调用，而会先大批分配，再用 slab、arena 等方法切小块；管到「何时算空闲、何时可释放」时，其实已经半只脚踏进垃圾回收，差别只在权衡。JVM 上内存几乎可从任何线程到达，很难不靠停世界来释放；Java 的 Shenandoah、Azul 自己的回收器能做并发回收，工程上非常惊人。Pony 的简化图景是：每个演员有自己的堆（人们描述 Erlang 虚拟机 BEAM 时也常这样说，严格说来不完全准确），做完一些工作后用启发式决定是否释放——好比做了十次应用操作，再做一次回收，而不必停下整个程序。结果不再是标准 JVM 上跑 Cassandra 一类系统时常见的尾延迟尖刺，而大致是平坦的延迟，代价是最快瞬间的吞吐量略低。这仍是垃圾回收，只是把「何时释放」交给算法，把程序员从方程里拿掉。"}, {"id": "s7", "title": "正确性先于测试：不变量、Ada 的教训，以及把 TDD 逼向基于属性的测试", "start_sec": 1908, "summary": "肖恩把软件正确性说成：程序做了你期望的事；他更习惯用「不变量」（invariants）这个形式化说法。很多时候人们并不清楚自己期望什么——坏了知道不对，好了却说不清。正确的软件还应完成被写下时的业务目的，并且不会在凌晨两点把人叫醒。他有一句刺耳的话：「没有人在乎测试。」他坚持：测试是手段，目的才重要。人们把 Antithesis 看成测试公司，他看成验证/正确性公司。测试是没有更好办法时才放进去的东西，从手工测试往上可以越做越精巧，但仍是在整盘棋后半段才动手。对照早年的选择：C 在正确性上几乎什么都不给，像对准自己脚的枪；Ada 从一开始就不允许他做内存不安全、通向损坏、崩溃或数据竞争的事，所以程序才编译不过。他主张在走到测试前就做尽可能多的事——ML 族尤其擅长在类型里表达合法状态与转换，于是思考「系统是否在工作」时，只需看类型系统管不到的那一层。面对「TDD 是不是也能做到类似效果」，他很喜欢 TDD，认为它是写出好 API 的最佳机制之一，因为你在审视如何使用这个东西。但在结对 kata 里，他会把「尽可能简单」执行到字面：你测 2+2 他就返回 4，再测 2+3 就硬编码返回 5。要击败这种实现，只能把输入随机化，于是进入基于属性的测试（property-based testing）。跟他结对的人常常做不完，但会觉得自己更会写测试了。他提醒：许多被测的东西，若有更强编译器根本不必测。他曾热爱 Smalltalk、Ruby、Perl、Python，觉得不需要编译器；后来明白那是因为系统小、能装进脑子。到了更大的系统和更多人的公司，即便在 Java 里，删掉一个要替换的类、让编译器列出所有破裂点，也开始变得珍贵。"}, {"id": "s8", "title": "工作负载：醉汉走不出再分片，银行测试却能在故障注入下挖出隔离缺陷", "start_sec": 2452, "summary": "肖恩认为测试策略里常被漏掉的是工作负载（workloads）。基于属性的测试在简单例子里是「列表反转两次应还原」；一旦用到分布式系统或数据库，工作负载就是：用来判断系统是否在工作的东西，加上为驱动代码而生成的输入。以键值存储（如 Redis）为例，get/put/delete 只是输入的一部分，还要决定键的数量与范围、键和值有多大。如果三种操作均等随机选，做了 put 附近就很可能 delete，几乎不会连续一万次 put、把系统推进换出到磁盘、回收或再分片的区域——像醉汉走路，走不远，也触发不了有意思的行为。另一极是简单却极强的「银行测试」，常用来测 ACID 数据库的隔离保证：系统里共 10,000 美元，分给比如 10 个账户各 1,000，事务中在账户间转账，同时不断查询总和；隔离成立时，看到的值应永远是 10,000。笔记本上的好数据库按理不该失败；但放到分布式环境并注入网络故障、杀节点后，凯尔·金斯伯里（Kyle Kingsbury）的杰普森（Jepsen）让这类结果经常冲上黑客新闻，Antithesis 做的也是同一路。这个极简负载在锻炼一个核心不变量：不应读到另一事务内部正在发生的事。「工作负载」可窄可宽：既可以只谈柏拉图式的银行测试，也可以把 Postgres 与 MySQL 的不同实现算成不同负载。它通常不是回放场景，他也不爱说「构造」，以免又滑回把步骤写死的例子测试；要点是先定规则，再让转账等方式自己展开。已经过严格测试的软件，银行测试按理不该再冒缺陷；可一旦进入杰普森/Antithesis、也是生产里天天发生的那类体验，缺陷就会大量出现。他称赞洛林·霍赫斯坦（Lorin Hochstein）把事故拆开写得非常清楚。"}, {"id": "s9", "title": "质量不是闸门：构造即正确，人人其实都在生产里测试；复杂系统先拆不变量", "start_sec": 2970, "summary": "肖恩写过「质量不是闸门」：把缺陷挡在门口的图景很安慰，却不是优秀团队保持优秀的方式。他更愿意谈正确性，而不是把测试当一件事。理想里应用 TLA+ 或 Alloy 写规格，再用模型检测证明坏事不可能发生，甚至从规格生成仍保有性能的实现——我们离那里还很远。再下一层是静态检查：Pony、Rust、OCaml 的类型系统；Erlang 则靠演员模型达到类似的「构造即正确」——数据只复制、经消息传递，从不共享，因而没有共享内存上的数据竞争。测试应留给静态手段管不住的部分，因为语言都有权衡：完美类型系统即便存在，也可能缺少你需要的性能，于是只好妥协，把剩下的交给测试和验证。格尔盖伊用瑞士奶酪模型反驳：编译器再完美也挡不住业务逻辑缺陷，还需要代码审查、CI/CD、静态分析和生产可观测性（谷歌还有可读性审查）。肖恩先放下「业务逻辑无法被静态强制」这个分歧，指出 Honeycomb 那句「我在生产里测试」其实是真话：现有工具没有哪一样好到足以保证你想保证的东西。即便杰普森/Antithesis 做得很好，生产里仍可能有生成器从未打到的损坏数据。多一道闸或再加几个写死值的测试会更好，但保证不了质量，「过了闸就可以发布」某种程度上是谎言。他见过的低效能团队，往往把质量想成拉取请求或预发上的传统 CI/CD 闸门，结果要么很慢，要么快但不稳、常要紧急发布；走得快且站得住的人，是从一开始就想质量，例如用 TLA+ 检查共识，或在第一版上生产前就放进杰普森/Antithesis，因为刚做出来时最好修。面对「谷歌搜索很难写测试」的例子，肖恩把「是否在工作」和「是否相关/该排第一」分开：前者可以是不变量，比如提交后必须拿回结果、高并发或中途离开时是否仍成立、结果是否带着对应查询的标记而不是把别人的结果给了你。推荐系统的「谁该排第一」是另一类问题。他提到把别人账户展示给用户的事故，并说自己身份证信息被盗过三次，尤其不愿意个人身份信息被误展示。"}, {"id": "s10", "title": "供应链、侧信道与机密计算：对象能力也挡不住 FFI，投机执行打破所有保证", "start_sec": 3650, "summary": "供应链安全说的是：越受欢迎的软件（也包括硬件），越容易从最薄弱一环下手。硬件上，AMD 或英特尔的可信计算模块再有保证，组装时写入恶意固件就可能毁掉「那是本该在那里的固件」这一前提，这属于可信计算基（trusted computing base）。软件上，他举了 npm 上的 left-pad：琐碎模块被广泛依赖，被替换后可塞进挖矿程序。更危险的是打进 CI/CD、拿走里面的密钥再发布带恶意软件的包。几乎所有语言都是同一模型：从网上下载的依赖和自有代码能力几乎相同，校验哈希也拦不住它建网络连接或挖矿。npm 已经发生过，他认为 Python 社区也在发生。冷静期（一周不进新包）、全部迁入内源或分叉，在他看来都很天真；若人人冷静，谁还去发现攻击？他认为对几乎所有流行语言都没有好答案。今天的包管理很大程度上仍是 Perl 的 CPAN 式信任，假定人人善意，和早期互联网一样。进入门槛也并非人们想的那么高：他大学同学里就有人青少年时期因蠕虫闯入大量政府计算机而被美国政府逮捕。依赖一多，根本无法逐一审查；沙箱通常也能被逃逸。一条研究路线是马克·米勒（Mark Miller）在 E 语言里的对象能力（object capabilities）：做任何事都必须被授予相应能力，例如没有建连能力就不能开网络。他们录制时正在哥本哈根的 Bug Bash，当天首位演讲者是帝国理工学院教授索菲娅（Sophia），讲的也是对象能力。Pony 把对象能力做进了语言，但若仍有几乎所有语言都有的 FFI（经 C ABI 调 C/Rust），攻击者可以直接走出那扇门，增量修补解决不了。即便上述软件防御都做了，多年前为了 CPU 更快而引入的投机执行（speculative execution）仍会把大部分防御打穿：多余周期里两条分支同时执行，换来二十多年里绝大部分加速，但投机分支必须存在于内存中，侧信道攻击（side-channel attacks）甚至不必有系统访问权，就能读出「已授权/未授权」路径上的内存，乃至把密钥拿走。肖恩曾在微软研究院做机密计算、机密容器产品：目标是在不必信任云运营者及其每位员工（他举了推特员工为沙特政府监视异议人士、以及员工被钓鱼或被收买的风险）的环境里跑软件——可他们的保证末尾总要补一句「除去侧信道」。要完全锁死只能拿掉投机执行；最早给 Linux 打的补丁，他印象里一次大约掉了 50% 性能，随后只能继续打地鼠。连他自己写开源时也会利用分支预测求快：这是一笔集体做成的、求快而从根本上不安全的交易。"}, {"id": "s11", "title": "技术债不必总偿还，以及先慢后快：先统一「恰好一次」再写代码", "start_sec": 4478, "summary": "十年前肖恩写过：即便有恐怖故事，他们仍在赚钱、增长、创造价值；他们不断发明绕开技术债的办法。债务隐喻是误导性的——不必总是还清，可以绕着走；债只有必须偿还时才伤人。他今天仍百分之百坚持，并强调要做可塑的软件：一年、两年、三年后处境会变，软件要能被放进新环境，其中一个答案常常是扔掉。推动那篇文章的例子是：债堆在 MySQL 的分片上限上，后来砸钱换成看起来仍像单库的分布式数据库就绕开了。代价是付给厂商不少钱，以及单机 MySQL 式保证在边上会有极罕见的例外；那不是用 Ada 的公司，这类例外对他并不那么重要。业务变化、系统跑了三年不再需要，也可以直接扔掉，债从未被偿还。当然也可能在找到产品市场契合前就把自己债进死角，但「每一笔债都必须还」并不符合现实。成功时你通常才会真正付出代价。格尔盖伊补充了优步（Uber）的经历：他在已成熟盈利的出行（Rides）团队，优食（Uber Eats）刚起步时有人改共享平台代码并删掉失败测试就发布；后来他才明白那是 Jump 单车——他们只想着明天，因为不确定下周是否还在。大约六个月后优步卖掉该部门，它在内部没有找到产品市场契合。对方甚至不要求对百分之百顾客有效，只求当时大致能用。肖恩区分了「把东西黑客进去」和「尽快做一个只覆盖窄缝、但容易拿掉、再堆五样东西三个月也不拖后腿的可塑方案」。「先慢后快」在他看来并不反直觉：先写规划并达成一致，先想怎么测，花几小时或几天做可扔掉的探针（spike），凌晨两点生产着火时先停下来。这就像每周工作八十小时并不会更快，只会因为累而制造更多缺陷；累了就该离开电脑。他见过最浪费时间的事，是三周后才发现大家对同一个词不是一个意思。敏捷里的冲刺本该避免走太远才回头。多年前分布式系统社区为一场「恰好一次」（exactly once）争论对轰：一派指恰好一次处理与幂等，另一派指消息字面上只到达一次，却没人先定义词语。随手在 Linear 或 Jira 卡片上写一句就派人去做，花上一小时到五天，回来却不是所期望的，就是走得很快、却哪里也没到。先把可观测性、如何发现宕机和灰故障（服务仍在、负载均衡器还在 ping，但大批用户体验很差）想清楚，后面才能冲得很快。"}], "paragraphs": [{"start_sec": 0, "type": "text", "zh": "你写过一篇很有意思的博客，我引用一句：「测试只是达到目的的手段。手段本身并不重要。」", "speaker_id": "gergely", "section_id": "s1"}, {"start_sec": 8, "type": "text", "zh": "用测试能做出非常了不起的事，但到头来，你仍然是在整盘棋的后半段才动手。说到底，所有人——不论承不承认——某种程度上都是在生产环境里做测试。我们现有的工具，没有哪一样好到足以保证你想保证的东西。", "speaker_id": "sean", "section_id": "s1"}, {"start_sec": 22, "type": "text", "zh": "技术债只有在你必须偿还的时候才会伤人。当然，你完全可能在还没找到产品市场契合之前，就把自己债进死角了。但那种到处流传的想法——「每一笔债都是坏的，都必须还清」——并不符合现实。", "speaker_id": "sean", "section_id": "s1"}, {"start_sec": 48, "type": "text", "zh": "肖恩，很高兴邀请到你。", "speaker_id": "gergely", "section_id": "s1"}, {"start_sec": 50, "type": "text", "zh": "谢谢。", "speaker_id": "sean", "section_id": "s1"}, {"start_sec": 51, "type": "text", "zh": "我们得先从发现的一件巧事说起。我做过专业软件的第一家公司叫 Sensenet，他拼作 S-E-N-S-E-N-E-T。你做过专业软件的第一家公司叫什么？", "speaker_id": "gergely", "section_id": "s1"}, {"start_sec": 58, "type": "text", "zh": "Sensent，S-E-N-S-E-N-T。", "speaker_id": "sean", "section_id": "s1"}, {"start_sec": 61, "type": "text", "zh": "那是两家不同的公司。你那家在纽约。", "speaker_id": "gergely", "section_id": "s1"}, {"start_sec": 64, "type": "text", "zh": "对。", "speaker_id": "sean", "section_id": "s1"}, {"start_sec": 65, "type": "text", "zh": "我这家在匈牙利布达佩斯。", "speaker_id": "gergely", "section_id": "s1"}, {"start_sec": 67, "type": "text", "zh": "哦，我不知道你那家是在布达佩斯。", "speaker_id": "sean", "section_id": "s1"}, {"start_sec": 70, "type": "text", "zh": "把时钟再往回拨很多：在第一份工作之前，你是怎么进技术圈的？你本来就想进这一行，还是说音乐才更是你的方向？", "speaker_id": "gergely", "section_id": "s1"}, {"start_sec": 75, "type": "text", "zh": "音乐绝对更是我的方向。但我大学毕业后发现自己完全不知道要做什么，就开始翻通讯录，第一个说可以让我去住的人住在纽约，我就去了。那里还有一个很好的朋友。我差一点得到一份差事：给一位美国参议员当演讲撰稿人，但没做成。后来一个朋友介绍我去学乐（Scholastic）修电脑。", "speaker_id": "sean", "section_id": "s1"}, {"start_sec": 116, "type": "text", "zh": "又有一个朋友告诉我：如果你学会 Perl，就可以搬到波士顿去——我有不少大学同学在那边做创业公司。于是我花了三四个月把 Perl 学到能上手的程度，可差不多学成的时候，那家创业公司已经散了。那甚至还不是互联网泡沫破裂，只是一群在一起会相互点燃的人。不过从那时候起，我开始觉得：我喜欢这件事，也享受它。", "speaker_id": "sean", "section_id": "s1"}, {"start_sec": 150, "type": "text", "zh": "更早的时候，我还是青少年，迷上了电子游戏《淘金者》（Lode Runner），很想做出类似的东西。我就让外祖母给我买一本电脑编程的书。我对外编程一无所知，外祖母也不懂。她去了得克萨斯州沃思堡（Fort Worth）的一家电脑店，店员塞给她一本《Commodore 64 机器语言》。我当时的感觉是：编程也太难了。但我就是那样起步的。", "speaker_id": "sean", "section_id": "s1"}, {"start_sec": 189, "type": "text", "zh": "那是我第一次意识到：原来有一件事，别人会为此付我很多钱。而我没有别的能换来高报酬的本事，所以应该把它练好。", "speaker_id": "sean", "section_id": "s1"}, {"start_sec": 198, "type": "text", "zh": "那你后来是怎么把编程真正练好的？你之后也在不同公司工作过，对吧？", "speaker_id": "gergely", "section_id": "s1"}, {"start_sec": 205, "type": "text", "zh": "我花了大量业余时间只为变得更好。进步最大的阶段，是我对 BeOS 产生了兴趣。那个社区里有一些非常有意思、也非常乐于助人的人。BeOS 的编译工具是一家叫 Metrowerks 的公司做的，他们当时也为 Mac OS 做编译器。不知为什么，他们编译器组的负责人在邮件列表上对教我学 C++ 产生了兴趣。", "speaker_id": "sean", "section_id": "s1"}, {"start_sec": 250, "type": "text", "zh": "列表上还有另一位 C++ 很好、人也很好的人。我对科幻几乎一无所知，所以当时完全没意识到，那个人其实是尼尔·斯蒂芬森（Neal Stephenson）。", "speaker_id": "sean", "section_id": "s1"}, {"start_sec": 268, "type": "text", "zh": "不会吧？", "speaker_id": "gergely", "section_id": "s1"}, {"start_sec": 269, "type": "text", "zh": "就是那位世界著名的科幻作家。他基本上就是跟我互相发邮件，给早期的我一些学 C++ 的建议。还有别人也帮过我，但这两位特别突出。说起来我至今几乎没读过他的作品，大概翻过几页《雪崩》（Snow Crash），不过这始终是个很好玩的故事。", "speaker_id": "sean", "section_id": "s1"}, {"start_sec": 285, "type": "text", "zh": "那你是怎么进到 Antithesis 的？", "speaker_id": "gergely", "section_id": "s2"}, {"start_sec": 288, "type": "text", "zh": "短版本是：那年十二月我正在找新工作，首席执行官威尔·威尔逊（Will Wilson）给我发了一条消息，只是一个链接，指向他们发在黑客新闻（Hacker News）「谁在招人」（Who's Hiring）上的帖子，问我有没有兴趣。内容大致是：你想不想做杰普森（Jepsen）那一类的事？我的回答是：听起来可能挺有意思。", "speaker_id": "sean", "section_id": "s2"}, {"start_sec": 308, "type": "text", "zh": "你现在在 Antithesis 做什么？", "speaker_id": "gergely", "section_id": "s2"}, {"start_sec": 312, "type": "text", "zh": "我在一个叫红队（Red Team）的团队。如果你问公司里每个人红队是干什么的，恐怕几乎人人答案都不同。我会这样说：威尔把一群很聪明的人聚在一起，希望他们像客户一样使用我们的产品。我为此做的一件事，是有意从不使用公司内部才有的那些配套工具，只用客户手头同样的工具来工作。", "speaker_id": "sean", "section_id": "s2"}, {"start_sec": 352, "type": "text", "zh": "这个想法挺巧妙：有一支内部的「客户团队」，但你还可以跟他们交谈，他们会讲道理，也会解释客户是怎么想的。", "speaker_id": "gergely", "section_id": "s2"}, {"start_sec": 360, "type": "text", "zh": "是的。我们都有不少经验，也被给了很大的自主空间：只要别人看了会觉得对公司有价值，差不多什么都可以做。我花了很多时间做技能（skills），让智能体更好地配合 Antithesis。但我最喜欢的，其实还是把这些年学到的、如何确认软件真正能用的方法，教给客户，也教给内部的人。对我来说，这远远早于任何人称之为「测试」的那一层，要从栈的更深处开始。", "speaker_id": "sean", "section_id": "s2"}, {"start_sec": 394, "type": "text", "zh": "我就是喜欢见到人、跟人聊，也真心热爱这个题目。某种意义上，这是一份梦想中的工作。", "speaker_id": "sean", "section_id": "s2"}, {"start_sec": 409, "type": "text", "zh": "说到梦想工作，你一直钻得很深的一件事，是各种我会称为「有点小众」的语言——不是主流的 TypeScript，也未必是 Rust 或 Go，而是另一些语言。我们能先谈谈 OCaml 吗？OCaml 是什么？为什么对冲基金和金融公司都对它情有独钟？", "speaker_id": "gergely", "section_id": "s3"}, {"start_sec": 434, "type": "text", "zh": "OCaml 主要源自学术圈，最初在法国。它出现的年代，人们正试图把函数式编程和面向对象揉在一起，这在九十年代是件大事——那时万物都在往上「螺栓」对象，对象被看成未来。有意思的是，在简街（Jane Street）以及其它大量使用 OCaml 的地方，真正流行开来的用法，几乎不用 OCaml 里那些面向对象的特性。", "speaker_id": "sean", "section_id": "s3"}, {"start_sec": 475, "type": "text", "zh": "那个 O 是什么？", "speaker_id": "gergely", "section_id": "s3"}, {"start_sec": 477, "type": "text", "zh": "O 就是对象（object）那一部分。语言里确实有一整套非常面向对象的特性，可我认识的写 OCaml 的人里，几乎没人真正在用它们。OCaml 源自 ML 家族，和 Python、Perl、很大程度上还有 Ruby、C、C++ 所属的 ALGOL 家族完全不同。ML 家族里还有不少其它语言。", "speaker_id": "sean", "section_id": "s3"}, {"start_sec": 518, "type": "text", "zh": "至于 Haskell 算不算在里面，问不同的人会得到不同答案。所有 ML 语言通常会给开发者另一套能力。现在最有名的、受 ML 影响的语言，我想是 Rust：和类型、模式匹配等等，大量都来自 ML。", "speaker_id": "sean", "section_id": "s3"}, {"start_sec": 540, "type": "text", "zh": "听起来更像声明式语言？你会怎么描述 ML？", "speaker_id": "gergely", "section_id": "s3"}, {"start_sec": 548, "type": "text", "zh": "ML 家族的语言一般是围绕强类型系统来构建的，就像 Rust 围绕强类型系统来构建一样。你有一些类型，表示「这件事只能是这三种可能之一」，有点像很多人熟悉的 Java 枚举；现在 Rust 更流行了，也可能从那边认识。把这种类型和模式匹配结合起来，再加上穷尽匹配（exhaustive matching）：比如说这个和类型（sum type）有五种可能，你不再用 if，而是按它「是哪一种」来匹配。", "speaker_id": "sean", "section_id": "s3"}, {"start_sec": 599, "type": "text", "zh": "一旦有了穷尽匹配，你在代码库里做一处改动——「现在不是五种而是六种」——编译器会告诉你，代码里每一个还没处理这第六种情况的地方。那种体验极好，可以说非常痛快。", "speaker_id": "sean", "section_id": "s3"}, {"start_sec": 620, "type": "text", "zh": "听起来编译器给了你一种在 C 或 TypeScript 里不一定能得到的额外「测试」。那些编译器也会检查类型，但按我的理解，关键在于穷尽匹配。再加上匹配会去核对条件和假定：在 TypeScript 这类语言里，很多东西要到运行时坏了才知道；而在这里，大量结构规则在编译期就建立起来，等于把很多校验前置了。", "speaker_id": "gergely", "section_id": "s3"}, {"start_sec": 641, "type": "text", "zh": "是的。所有带有 ML 色彩、或同属这一大家族的语言，核心态度都是：把尽可能多的事情放进编译器的静态检查里，让编译器替你干活。", "speaker_id": "sean", "section_id": "s3"}, {"start_sec": 663, "type": "text", "zh": "我这就明白了，为什么一些喜欢 Rust 的人说 Rust 能让你少发布一些缺陷：它是一门 ML 风格的类型语言，规则更严，你得先熟悉这些规则，作为回报，编译器会帮你挡住很多东西，直接给编译错误。", "speaker_id": "gergely", "section_id": "s3"}, {"start_sec": 683, "type": "text", "zh": "我很早就对各种编程语言、各种可能性很感兴趣。相当早的时候我决定先选定一件事，认真投入一段时间。最后定下来的两门是 C 和 Ada。选 C，主要是因为我当时在为 Mac OS 编程，印象里是 System 6 或 7，大概是 6。苹果那时正把大量东西从 Pascal 转到 C，我觉得 C 会很有意思。Ada 则是完全不同的另一路。", "speaker_id": "sean", "section_id": "s3"}, {"start_sec": 745, "type": "text", "zh": "对不太了解的人来说，Ada 是什么样的？", "speaker_id": "gergely", "section_id": "s3"}, {"start_sec": 752, "type": "text", "zh": "Ada 走的是非常严格的静态检查。在很多方面，它是被国防部门这类需求推着走的：他们要一门被深度规格化的语言，尽可能不让你写出不正确的程序，好知道不会出现某类缺陷。", "speaker_id": "sean", "section_id": "s3"}, {"start_sec": 780, "type": "text", "zh": "就是字面意义上的任务关键系统。", "speaker_id": "gergely", "section_id": "s3"}, {"start_sec": 784, "type": "text", "zh": "对，任务关键。NASA、国防部门，都是 Ada 当初瞄准的用户。Ada 今天还在，市场不大但很扎实。Ada 公司现在最常打的一张牌是：「哦，你喜欢 Rust？要不要再多要一些保证？」这是我一大遗憾：那时我对编程、对语言都还不够了解，Ada 太严格了，我几乎编译不过去，非常挫败；而 C 程序能编译。当时没想明白的是，我的 C 程序动不动就段错误，跑不了多久，可编译通过就像拿到一块饼干，可以去做下一件事了。", "speaker_id": "sean", "section_id": "s3"}, {"start_sec": 808, "type": "text", "zh": "我花了好多年，才培养出在 C 里怎么写才不会让程序崩掉的直觉。后来我给自己定了一大套写并发 C 和 C++ 的规则，免得段错误。即便我对自己非常严格，我也是人，还是会搞砸。我更希望编译器来帮我。OCaml 以及同类语言里，有大量东西就是为此而存在的。", "speaker_id": "sean", "section_id": "s3"}, {"start_sec": 868, "type": "text", "zh": "我们能谈谈 F# 吗？对没用过 F#、但可能用过 C# 或 TypeScript 的人，你会怎么描述 F#，它有什么不同？而且它是微软创建的，或者说是微软在推动的？", "speaker_id": "gergely", "section_id": "s4"}, {"start_sec": 880, "type": "text", "zh": "我不确定是不是微软「创建」的，它出自微软研究院（Microsoft Research）。有一位叫唐·赛姆（Don Syme）的人，F# 几乎一切都和他有关。它一开始基本上就是「面向 .NET 的 OCaml」。当时的 .NET 主要是 C# 加上 .NET 运行时。", "speaker_id": "sean", "section_id": "s4"}, {"start_sec": 900, "type": "text", "zh": ".NET 是微软那套框架，我记得它让访问 Windows API 变得很容易，有大量工具函数，差不多是他们的「全能框架」，相当于他们版本的 JVM，也就是 Java 虚拟机。", "speaker_id": "gergely", "section_id": "s4"}, {"start_sec": 915, "type": "text", "zh": "对。我没有内部内幕，但作为一个当时在场的人：微软在自己的 Java 版本里加入了 Windows 特有的 API，Sun 威胁要起诉，后来确实有官司。", "speaker_id": "sean", "section_id": "s4"}, {"start_sec": 932, "type": "text", "zh": "安德斯·海尔斯伯格（Anders Hejlsberg）在我们节目里讲过一个细节：因为与 Sun 的诉讼正在发生或即将发生，他们不能再继续用 Java，尽管他们其实想用，所以必须去发展 C#，我想也包括 .NET。事情就这样定了，他们做出了 .NET。", "speaker_id": "gergely", "section_id": "s4"}, {"start_sec": 952, "type": "text", "zh": "是的。.NET 很出色，因为他们把从 JVM 学到的几乎所有东西都带了过去；有些想法已经深嵌在 JVM 里、很难再改，他们就做了当时看起来更好的不同选择。这些选择现在还值不值得争论并不重要。.NET 作为平台非常舒服，但上面基本上只有一门语言，就是 C#。它和 Java 很像，有差异，但语言的基本语义是一样的。", "speaker_id": "sean", "section_id": "s4"}, {"start_sec": 1000, "type": "text", "zh": "F# 则是说：我们给这个平台带来不同的语义、不同的东西，最初就是想把 OCaml 带过来。我觉得 F# 真正了不起的，并不特别在某几个语言特性——它有很多 OCaml 有的东西，也缺一些，死忠 OCaml 粉常会抱怨缺的那些。F# 带来的、我在别处几乎没见过的，是它和 .NET 平台贴合得极好，是我见过最无缝的体验。", "speaker_id": "sean", "section_id": "s4"}, {"start_sec": 1030, "type": "text", "zh": "我在 JVM 上用 Scala 和其它语言做过很多事，和 Java 交互时总有不少毛边，F# 没有那种感觉。F# 的发展在很多方面更慢。你能看出唐把这件事做得很漂亮：他不让 F# 跑得太快、搞出难以集成的毛边，而是往前推一点点，然后等 .NET 运行时跟上，好让一切继续顺畅。运行时后来也加了新能力。F# 往前推一点，显然也启发了 .NET 团队，两边是一种共生关系。这些年，F# 里许多有意思的特性已经进入了 C#。在语义层面上，现在真正还缺的，大概就是带穷尽匹配的和类型。从 C# 近几年的变化看，连这一点最终也很可能会被吸收进去。", "speaker_id": "sean", "section_id": "s4"}, {"start_sec": 1106, "type": "text", "zh": "还有一门我想问你的语言是 Pony。Pony 是什么？", "speaker_id": "gergely", "section_id": "s5"}, {"start_sec": 1112, "type": "text", "zh": "Pony 是一门我参与的开源语言。它最初由我的一个朋友创建。我们一起上过一所面向高中成绩不太好、有退学风险的人的「早期大学」，那种学校会收我们这种在高中混得不好的人。我和我的朋友西尔万·克莱布什（Sylvan Clebsch）都是那样。其实当初跟我说「你要是学会 Perl，就可以来波士顿一起干」的，就是西尔万。", "speaker_id": "sean", "section_id": "s5"}, {"start_sec": 1141, "type": "text", "zh": "后来我去了一家公司，想做面向银行的高速数据处理。我们先从给纽约一家大银行做咨询开始，同时接各种咨询项目。那段时间我一直在想：这样一套系统应该长什么样、我希望怎么构建。很重要的一点是：它必须非常快，这就排除了整整一类语言；它还需要延迟方面的保证，而 JVM 本身让这一点变得很难。在银行内部，这类需求通常留给专门的方案，要么用 C++，要么用 Azul。", "speaker_id": "sean", "section_id": "s5"}, {"start_sec": 1180, "type": "text", "zh": "你说 JVM 让这件事变难，是因为垃圾回收吗？因为垃圾回收会带来延迟问题？这些年垃圾回收已经做了很多工作。有时延迟会突然尖刺：一个按理说只要若干毫秒的普通函数，可能突然变得长得多，因为垃圾回收启动了——而且并不随机。", "speaker_id": "gergely", "section_id": "s5"}, {"start_sec": 1210, "type": "text", "zh": "特别是在那个年代，面向所有人提供的标准 JVM 版本里，垃圾回收都是「停停整个世界」（stop-the-world）：要回收垃圾，一切都必须停下来。于是一个刚进来的请求，延迟可能从毫秒级一下子变成巨大尖刺。这在交易系统里会非常糟糕。", "speaker_id": "sean", "section_id": "s5"}, {"start_sec": 1240, "type": "text", "zh": "那可不行。", "speaker_id": "gergely", "section_id": "s5"}, {"start_sec": 1242, "type": "text", "zh": "所以 JVM 当时主要用于跑在交易系统旁边的那些系统。但即便如此仍可能出问题：假如你有一套风险系统，本应评估是否该停止某些交易，一旦出现这种尖刺，代价仍然可能非常大。有一家公司叫 Azul Systems，现在也还在，他们做了一种无暂停的 JVM，但很贵，大多数项目实际上用不起。", "speaker_id": "sean", "section_id": "s5"}, {"start_sec": 1260, "type": "text", "zh": "于是我们在看：能不能替换那些 JVM 类系统，服务那些不想为 Azul 付高价的人。我们需要非常快，还需要对客户保证：不会弄丢你的任何数据，也不会把数据搞乱。也就是说，既要靠并发换速度，又要足够贴近硬件——对数据局部性之类决定「快」的因素有一定控制。如果有人感兴趣，可以去看「机械共鸣」（mechanical sympathy），马丁·汤普森（Martin Thompson）在这方面做了很多有意思的工作。", "speaker_id": "sean", "section_id": "s5"}, {"start_sec": 1303, "type": "text", "zh": "我们要的就是这一组特性：必须知道它在正确工作，而且「绝不把你的数据搞乱」这个保证对我们极其重要。我懂 C，C 也写得还行；C++ 我基本上还是按 1998 年的方式在写，所以不一定敢自称 C++ 写得好。但我觉得，靠这些，我们无法同时满足全部保证；我更不认为，用创业公司的薪水，能招到足以把这件事做成的人。我当时不知道该怎么办，咨询还是继续做。", "speaker_id": "sean", "section_id": "s5"}, {"start_sec": 1347, "type": "text", "zh": "LinkedIn 对我几乎没产生过什么用处，但有一次例外：几年没联系的西尔万给我发消息，说「看看我做的这个东西」。那是 Pony 的早期版本。他当时在摩根士丹利（Morgan Stanley）工作，做了一个看起来基本上是 C 的东西，是一种演员模型（actor model）——演员模型我们稍后可以展开——上面的人还是得用 C 来写。运行时本身很好，但 C 仍带着当年我没选 Ada、选了 C 之后就有的那些问题：并发、段错误等等。在上面写 C 的人必须非常专家、每一步都做对，否则就会把运行时本来能给的好处全部毁掉。", "speaker_id": "sean", "section_id": "s5"}, {"start_sec": 1429, "type": "text", "zh": "于是西尔万决定：我要去学一大堆数学，把类型系统真正学好，然后自己做一门编程语言。他为此在英国帝国理工学院（Imperial College）读了博士，最后做出来的就是 Pony。他发给我看，我对照我们在沃勒鲁（Wallaroo）想做的事，觉得这还真合适。", "speaker_id": "sean", "section_id": "s5"}, {"start_sec": 1455, "type": "text", "zh": "沃勒鲁是一家创业公司，你是在一家人工智能公司工作，对吗？", "speaker_id": "gergely", "section_id": "s5"}, {"start_sec": 1460, "type": "text", "zh": "沃勒鲁后来变成了一家人工智能公司。那个时点上，我们还是想把高速数据处理卖给银行。当时完全没人用过 Pony。我们决定采用它、别人问「那是什么」时，最好的说法是：它最初是摩根士丹利的一个想法——跟银行做生意时，这能换来很大的谈话空间。那时简街几乎是全世界 OCaml 最主要的用户，OCaml 已经和简街绑在一起了。人们会问：你们会不会成为 Pony 的「简街」？我们说：如果足够成功，是的，大概就是这个想法。说了这么多才回到问题：Pony 是什么。", "speaker_id": "sean", "section_id": "s5"}, {"start_sec": 1508, "type": "text", "zh": "Pony 在某种程度上属于 ML 家族的后裔，和 OCaml 有很多共同点，和 F#、和 Rust 也有些共同点。它的目标非常明确：让人容易写出又快、又高度异步的并发程序，并且把我当年靠自己记住、免得段错误的那些规则，改由编译器来强制执行——而不是像我那样，最后总有一次搞砸、程序崩溃。", "speaker_id": "sean", "section_id": "s5"}, {"start_sec": 1552, "type": "text", "zh": "我记得你形容过：Pony 让非法状态不可表示。", "speaker_id": "gergely", "section_id": "s5"}, {"start_sec": 1558, "type": "text", "zh": "大部分非法状态，是的。这一点和 Rust 很像。但它们做并发的模型非常不同。演员模型现在大概因 Elixir 而最广为人知；过去你可能会说是 Erlang，现在多半是 Elixir。演员模型让并发更容易推理。Pony 像 Elixir 和 Erlang 一样，提供内建的并发模型，这是 Rust 不会直接给你的；类型系统和整个设计都围绕「让异步编程变得很容易」来构建。", "speaker_id": "sean", "section_id": "s5"}, {"start_sec": 1594, "type": "text", "zh": "我觉得它在这一组合上提供了最好的体验之一。Rust 这类语言也很擅长提供保证，但不一定是这种「全套打包、这就是无畏并发该怎么做」的体验。你不是自己东挑西拣，我们已经帮你选好并组合在一起。", "speaker_id": "sean", "section_id": "s5"}, {"start_sec": 1636, "type": "text", "zh": "我们能谈谈垃圾回收吗？刚才说它慢，我想引用你以前一篇博客，或者也许是一次演讲里的话：「大多数工程师觉得垃圾回收很慢。他们对自己的体验并没有错。停停整个世界的回收器，确实会摧毁你所有的尾延迟。但『垃圾回收很慢』把症状当成了原因。」原因是什么？症状就是有时候整个世界停下来，对吧？", "speaker_id": "gergely", "section_id": "s6"}, {"start_sec": 1674, "type": "text", "zh": "对。首先我想说，大多数人想到垃圾回收，想到的是 JVM 那种做法。我把垃圾回收看成另一件事：它是程序用来释放不再需要的内存的一种机制。人们常常把一边的 malloc/free，和另一边的垃圾回收对立起来。可如果你想跑得快，就不会一直 malloc 和 free，因为那很慢，是系统调用。人们的第一步通常是先一次性分配一大块内存，再用 slab 分配器、arena 分配之类的办法，给自己切一小片一小片。内存分配器是一整套家族。接下来的问题就变成：我在管理这块内存，怎么知道它何时空闲、何时可以释放？到这一步，你其实已经半只脚踏进大多数人所说的垃圾回收了。", "speaker_id": "sean", "section_id": "s6"}, {"start_sec": 1712, "type": "text", "zh": "故事于是变成：我怎么做这些事，以及它们各自的权衡是什么。在 JVM 上，内存基本上可以从任何线程、任何地方到达，所以很难在不「停停整个世界」的情况下释放内存。Java 的 Shenandoah 回收器、Azul 自己的回收器，这类并发回收器能做到所谓的并发垃圾回收，工程上非常了不起。", "speaker_id": "sean", "section_id": "s6"}, {"start_sec": 1754, "type": "text", "zh": "Pony 也有垃圾回收，但不必停掉整个世界。为了先把道理讲清楚，这里稍微简化一点：你可以把它想成每个演员拥有自己的堆——人们描述 Erlang 虚拟机 BEAM 时也常这么说，严格说来也不完全准确，但更好理解。每个演员负责释放自己用过的内存，于是你不必为了回收而停下整件事。", "speaker_id": "sean", "section_id": "s6"}, {"start_sec": 1798, "type": "text", "zh": "做法是：一个演员做完一些工作后，可以用某种启发式判断自己是否有内存可以释放。演员可以想成有点像线程，但更轻量，像是一个相对独立、和其它演员分开的小世界。于是不是「我要停下整个程序来释放内存」，而更像「我做了十次应用操作，现在做一次释放内存的操作」。", "speaker_id": "sean", "section_id": "s6"}, {"start_sec": 1841, "type": "text", "zh": "在 Pony 以及其它这种可以彼此独立运作的并发内存释放里，你得到的不再是人们在标准 JVM 上跑 Cassandra 一类系统时常见的那种尾延迟尖刺，而基本上是平坦的延迟，最多只有很小的起伏。你放弃的是：在最快的那些瞬间，吞吐量会比另一种做法略低一点。这仍然是垃圾回收，只是完全不同的一条路。", "speaker_id": "sean", "section_id": "s6"}, {"start_sec": 1880, "type": "text", "zh": "它和很多人给自己手写的那些精巧内存分配器之间，真正的差别在于：到了这一步，他们几乎已经把「程序员本人」从方程里拿掉了——用算法来决定何时释放内存，而不是由人把具体规则写进代码。", "speaker_id": "sean", "section_id": "s6"}, {"start_sec": 1908, "type": "text", "zh": "我们来谈软件正确性。你怎么定义软件正确性？", "speaker_id": "gergely", "section_id": "s7"}, {"start_sec": 1914, "type": "text", "zh": "我会把软件正确性定义成：在很宽松的层面上，我的程序做了我期望它做的事。我更习惯用「不变量」（invariants）来谈，这是更形式化的规格术语；再宽松一点说，就是一种保证——软件正在做我期望的事。很多时候，人们并不真正清楚自己期望软件做什么：它不工作时他们知道不对劲，工作时却不一定说得清「工作」是什么。软件正确性其实是一种看待软件的方式：知道它在维持自己应当维持的东西，在完成它被写下时的业务目的，并且不会在凌晨两点把人叫醒。那就是正确的软件。", "speaker_id": "sean", "section_id": "s7"}, {"start_sec": 1966, "type": "text", "zh": "要得到正确的软件，显然你得做一些测试。但你写过一篇很有意思的博客，我引用一句：「没有人在乎测试。」这话可能会伤到那些确实在乎测试的人的感情。", "speaker_id": "gergely", "section_id": "s7"}, {"start_sec": 1980, "type": "text", "zh": "但我还是要坚持这句话。这话出自一个经常被看成「爱谈测试」的人，听起来也许刺耳，可我并不看重测试本身。测试是达到目的的手段。手段并不重要，目的才是一切。我写这句，是因为我在 Antithesis，人们把它看成一家测试公司；我不是这样看的。我把它看成一家软件验证公司、一家正确性公司，这对我来说很不一样。", "speaker_id": "sean", "section_id": "s7"}, {"start_sec": 2010, "type": "text", "zh": "测试是你在没有更好办法时，为了验证事情是否按你能验证的方式在工作而放进去的东西。最糟的情况是人们经常做的手工测试。从那里往回走，也许可以自动化，测试也可以越做越精巧，用测试能做出非常了不起的事。但到头来，你仍然是在整盘棋的后半段才动手。", "speaker_id": "sean", "section_id": "s7"}, {"start_sec": 2041, "type": "text", "zh": "再回到我很早做的那个 C 和 Ada 的选择：C 在正确性上几乎什么都不给我，就像一把对准自己脚的巨枪，我一次次把脚打穿。Ada 则会从一开始就大量支持我去构造正确的软件，不允许我去做会不正确的事。我的 Ada 程序之所以编译不过，正因为我想做的事从根本上是内存不安全的，会走向内存损坏、崩溃、数据竞争之类的结果。", "speaker_id": "sean", "section_id": "s7"}, {"start_sec": 2084, "type": "text", "zh": "我非常相信：在走到测试之前，就应该做尽可能多的事。人们常常写测试，只为确认「我的东西只会处于这三种状态之一」；如果你有合适的语言——ML 族语言特别擅长这类事——通常可以在类型系统里表示有哪些状态、允许哪些转换，并确保永远不会转到你没预料到的状态。这非常重要，因为当你思考「我的系统是否在工作」时，不必把整件事从底看到顶，只需思考类型系统不允许你表达的那一层之上的东西。", "speaker_id": "sean", "section_id": "s7"}, {"start_sec": 2124, "type": "text", "zh": "我理解 ML 语言能让你多做很多这类事。但我想唱个反调：如果你做测试驱动开发（TDD），先写测试再开发，是不是也能得到类似的效果？", "speaker_id": "gergely", "section_id": "s7"}, {"start_sec": 2141, "type": "text", "zh": "我很喜欢 TDD。我认为 TDD 是写出别人愿意使用的好 API 的最佳机制之一，因为你在主动审视：我到底该怎么使用这个东西。TDD 生态非常迷恋所谓的「型」（kata），就是那些小小的编程练习，也有每日一练。有一种型通常以结对编程的形式出现：一个人负责写测试，另一个人负责实现让测试通过的东西。做实现的那一方，被要求用尽可能简单的办法让测试通过。", "speaker_id": "sean", "section_id": "s7"}, {"start_sec": 2210, "type": "text", "zh": "跟我一起做的人很快发现，我把「尽可能简单」执行得非常字面。我会一遍遍把他们那个基于例子的测试——也就是大多数人做 TDD 和单元测试的方式——硬编码进实现里。比如他们只测了「2 加 2」，我就直接返回 4；他们再测「2 加 3」，我就写一小段：一个是 2、一个是 3，那我返回 5，连加法都不做。", "speaker_id": "sean", "section_id": "s7"}, {"start_sec": 2250, "type": "text", "zh": "这种型不应该停，直到写测试的那个人对实现满意为止。要击败一个极其「字面」、甚至有点抬杠的实现者，你只能开始把输入随机化。而一旦开始随机化输入，恭喜，你已经进入人们通常所说的基于属性的测试（property-based testing）。因为你在生成结果，去覆盖比手写例子更大的空间。", "speaker_id": "sean", "section_id": "s7"}, {"start_sec": 2286, "type": "text", "zh": "如果我在对面，大概会觉得：肖恩这是有点故意找茬了。", "speaker_id": "gergely", "section_id": "s7"}, {"start_sec": 2292, "type": "text", "zh": "要是再把用词说得更粗一点，那基本就是人们当时经常对我说的话。对，因为如果你拿加法这种非常容易实现的东西，你写测试、我写实现，我可以不断为边角情况加 if：这种输入就返回那个值。你写得越多，我就加更多 if。我是说，要打败我，要么让测试去做随机的事，要么走到基于属性的测试：对某个属性跑遍或生成大量情况。人们会因此觉得沮丧。但练习结束时，在我工作过、会定期让所有工程师做这个练习的地方，跟我结对的人常常是唯一没做完的，可他们出会说：天啊，我想我会更会写测试了。这很好，确实能导向好得多的测试。", "speaker_id": "sean", "section_id": "s7"}, {"start_sec": 2357, "type": "text", "zh": "可到头来，被测的很多东西，如果你有更强的编译器，根本不必测。那家公司是 Java 店。Java 的类型系统能挡住一些事，但仍留下大量自由，就像 C 留下大量自由一样。有好多年，我是动态语言的爱好者：Smalltalk 至今是我最喜欢的语言之一，我也写过大量 Ruby、Perl、Python，总觉得自己不太需要编译器帮忙。后来我才明白：那是因为我主要做小系统，所有东西都能装进脑子里，而且往往只做一个系统、始终很熟。等开始做更大的系统、在更大的公司、和更多人一起、有更多我并不了解的东西进入系统时，情况就变了。", "speaker_id": "sean", "section_id": "s7"}, {"start_sec": 2435, "type": "text", "zh": "我开始真正珍惜这些帮助。即便在 Java 里，你也可以说：我要替换这个类，那就先把这个类删掉，至少编译器会告诉我每一处因此破裂的地方，我就能开始知道该去代码库的哪些地方探索。", "speaker_id": "sean", "section_id": "s7"}, {"start_sec": 2452, "type": "text", "zh": "你写过、也做过一次演讲，谈一件测试策略里人们很可能漏掉的重要东西：工作负载（workloads）。工作负载是什么？", "speaker_id": "gergely", "section_id": "s8"}, {"start_sec": 2470, "type": "text", "zh": "在基于属性的测试里，你会说：我的函数有这样一个属性，比如这是一个整数，然后测试工具可以——如果是 32 位整数——遍历所有整数，或者随机抽，或者跑一千个，等等。", "speaker_id": "sean", "section_id": "s8"}, {"start_sec": 2490, "type": "text", "zh": "对。", "speaker_id": "gergely", "section_id": "s8"}, {"start_sec": 2491, "type": "text", "zh": "但大多数人接触基于属性的测试，还停留在很简单的例子：比如把一个列表反转再反转，应得到原来的列表。这太简了。一旦你想把它用到分布式系统或数据库上，「工作负载」就是：你用来验证事情是否真正在工作的那些东西，再加上你为了驱动代码、为了测试而生成的输入。", "speaker_id": "sean", "section_id": "s8"}, {"start_sec": 2512, "type": "text", "zh": "举个简单的例子。你要测一个键值存储，比如 Redis，或你自己的键值库。它有三种操作：get、put、delete。这些都会作为输入进入系统，是工作负载的一部分。但工作负载还要决定：我会有多少个键？键的范围是什么？键有多大？放进去的值有多大？工作负载是这一切的组合：你的系统、你用来判断它是否在工作的东西，以及进入系统的输入。", "speaker_id": "sean", "section_id": "s8"}, {"start_sec": 2587, "type": "text", "zh": "人们读到基于属性的测试、看到「反转列表」这种例子，很容易以为：好，就是随机，随机会帮我搞定。于是一种被简化的做法是：我有三种操作，每次随机挑一个来做——这里先忽略不同的键。这样其实触发不了代码里多少有意思的地方。因为你做了一次 put，附近很可能就会做一次 delete。连续做一万次 put、把系统推进可能要开始换出到磁盘、做某种垃圾回收或再分片的区域，这种事几乎不会发生。你只是在一个很小的范围内来回晃，像醉汉走路，永远走不太远。所以工作负载很重要的一部分，就是：什么样的输入能驱动出有意思的行为。", "speaker_id": "sean", "section_id": "s8"}, {"start_sec": 2629, "type": "text", "zh": "对键值这种例子，有时意味着你需要把系统赶到真正有意思的地方。但另一些时候，工作负载可以看起来简单得骗人，却能验证非常强的性质。输入那一侧要讲清楚得有块白板；先说简单那一侧。", "speaker_id": "sean", "section_id": "s8"}, {"start_sec": 2672, "type": "text", "zh": "有一种常用来测试 ACID 数据库隔离保证的工作负载。我认为隔离保证大概是 ACID 数据库里你最想守住的东西之一。它叫银行测试（bank test），简单得惊人，也非常精彩。你在一张表里建若干账户，假定系统里一共有 10,000 美元，分给比方说 10 个账户，每个一开始 1,000 美元。这个工作负载要做的，就是在事务里把钱从一个账户转到另一个账户，也就是把一列里的钱移到另一列。同时另有一个东西不断查询：系统里的钱总共是多少。如果隔离保证成立，它看到的值应该永远只有 10,000。", "speaker_id": "sean", "section_id": "s8"}, {"start_sec": 2713, "type": "text", "zh": "这是一个很简单的测试，因为你只是在账户之间不停转账。", "speaker_id": "gergely", "section_id": "s8"}, {"start_sec": 2718, "type": "text", "zh": "对，而且你会跑很多不同的事务。如果数据库是好的，在笔记本上正常跑，按理不该看到奇怪的失败。然而，你把它放到分布式数据库上，再放进一个开始注入故障的环境——比如在节点之间注入网络故障、把节点杀掉——凯尔·金斯伯里（Kyle Kingsbury）用他的杰普森（Jepsen）把这类事做得很出名，经常冲上黑客新闻首页。我们在 Antithesis 做的也是同一路。从这个非常简单的工作负载里，各种有意思的缺陷会开始往外冒，因为它在锻炼系统一个非常核心的约束、一个不变量：我不应当读到另一个事务内部正在发生的事情。", "speaker_id": "sean", "section_id": "s8"}, {"start_sec": 2794, "type": "text", "zh": "那工作负载本身，是你描述的这整套系统——这儿有 10,000 美元、这些账户、可以怎样在它们之间移动——还是说工作负载只是其中一件事，比如在账户间转钱，然后反复做很多次？", "speaker_id": "gergely", "section_id": "s8"}, {"start_sec": 2810, "type": "text", "zh": "取决于你想把这个词用到多「最大化」。你可以把被测的那个特定数据库也算进工作负载，因为 Postgres 做这些事的方式可能和 MySQL、和其它数据库略有不同，于是那就可以被说成不同的工作负载；你也可以在概念层面只谈银行测试，不考虑里面是哪个数据库、也不考虑实现细节。人们经常从这两个极端来谈：柏拉图意义上的银行测试是一种工作负载；也有非理想化的、带着具体实现的那一版。", "speaker_id": "sean", "section_id": "s8"}, {"start_sec": 2870, "type": "text", "zh": "那我能不能在脑子里，把工作负载替换成「一个复杂的测试用例」或「一串复杂的测试用例」？就像我们用来测试的那个东西，去扮演或回放某个场景？", "speaker_id": "gergely", "section_id": "s8"}, {"start_sec": 2885, "type": "text", "zh": "通常不是回放一个场景。", "speaker_id": "sean", "section_id": "s8"}, {"start_sec": 2888, "type": "text", "zh": "不是回放，而是构造一个场景？", "speaker_id": "gergely", "section_id": "s8"}, {"start_sec": 2892, "type": "text", "zh": "我也会避免「构造」这个词，因为一说构造，就又靠近单元测试里那种基于例子、你把具体步骤写死的东西了。", "speaker_id": "sean", "section_id": "s8"}, {"start_sec": 2906, "type": "text", "zh": "所以更接近：工作负载的要点是你先定下规则，然后让它自己展开。以银行转账为例，我们从不规定应该怎样转，只是希望来回转账——随机或不随机，最好能打到有意思的边角——发挥即可。那就是工作负载。", "speaker_id": "gergely", "section_id": "s8"}, {"start_sec": 2920, "type": "text", "zh": "对。如果是大多数已经存在一段时间、也经过某种严格测试的软件，银行测试这类工作负载按理不该再冒出缺陷；更复杂的工作负载也许还会。但对银行测试本身，本来不该。可一旦你把它放进杰普森或 Antithesis 那样的体验里——这也是生产环境里天天在发生的那类体验——缺陷就会大量往外冒。洛林·霍赫斯坦（Lorin Hochstein）一直把这类事写得非常出色：这次事故里发生了什么、那次又发生了什么，再以一个在这行浸淫很久的人的角度，帮你拆开看。", "speaker_id": "sean", "section_id": "s8"}, {"start_sec": 2970, "type": "text", "zh": "关于质量，你说过一句我很感兴趣的话，我再引用一次：「质量不是闸门。」你写：整个闸门的想法，建立在一个该被拿到亮处审视的信念上——这个信念是，质量靠把坏东西挡在门外来维持，在门口把缺陷抓住。这幅图很让人安慰，却不是优秀团队保持优秀的方式。", "speaker_id": "gergely", "section_id": "s9"}, {"start_sec": 2980, "type": "text", "zh": "这在很大程度上也解释了，为什么我不喜欢把「测试」当一件事来谈，而喜欢谈正确性。尽可能地，你的系统根本不该允许坏事发生，从你怎么写软件、你能做哪些静态检查开始就该如此。理想世界里，你应该能用 TLA+ 或 Alloy 这类语言写下规格，并拥有一份与之完美对应的实现；或者干脆魔法般地从规格生成实现，同时还保有全部性能特性。我们离那个世界还远，但那会是理想：你用模型检测器证明了不可能发生坏事。它们能做的事非常惊人，只是我们还没有那样的日常工具。", "speaker_id": "sean", "section_id": "s9"}, {"start_sec": 3063, "type": "text", "zh": "再下一层，就是类型系统里的静态检查：Pony 做的、Rust 做的、OCaml 做的。有意思的是，Erlang 也做了大量这类事，却不是靠类型系统，而是靠演员模型——你能做的事被限制住：一切都得通过消息发送，一条消息里，一个演员拥有的数据会被复制后再发给另一个演员，于是不存在因共享内存而来的数据竞争，因为内存根本从未被共享，只是被复制。这也是一种「构造即正确」，和类型系统能给你的是同一类东西。我们需要先有这样的地基。", "speaker_id": "sean", "section_id": "s9"}, {"start_sec": 3106, "type": "text", "zh": "测试，应该留给我们现有的静态手段无法强制的那些事情。毕竟我们只有编程语言，而语言都带着权衡。也许存在一门类型系统完美、能表达你需要的一切的语言——第一，它多半并不存在；第二，即便存在，它大概也会缺少你同样需要的某种特性，比如性能。于是你得妥协，选一门性能保证更好或符合其它要求的语言，剩下的才交给测试和验证。", "speaker_id": "sean", "section_id": "s9"}, {"start_sec": 3147, "type": "text", "zh": "我想反驳一下「质量闸门」。闸门的想法是：你写代码，编译器做一些事；出于现实原因我们使用的语言，即便编译器完美，也仍会留下大量应用层、业务逻辑上的缺陷，编译器测不了业务是否正确。过去我们——我想很多人现在也还是这样想——觉得写完之后要过质量闸门：代码审查、持续集成/持续交付（CI/CD）、静态分析，到了生产还有可观测性。有点像瑞士奶酪模型，每一层挡住一些东西。代码审查有时能抓住缺陷，虽然我们知道那不是抓缺陷的好地方，现在更加说不准；在谷歌他们还有可读性审查，会抓住可理解性的问题。CI/CD 会用测试抓住一些缺陷或已知回归。你说质量不是闸门，是意味着你不相信发布过程里该有这些所谓闸门，还是说只是换一种想法：把质量拉回到最开始？听起来你是把质量的观念推回到起点。", "speaker_id": "gergely", "section_id": "s9"}, {"start_sec": 3218, "type": "text", "zh": "很大程度上确实在起点。另外，我不同意「业务逻辑无法被静态强制」这个说法，不过那个兔子洞我们先放一边。此外，按现在通常的做法——也就是在杰普森和 Antithesis 那一类风格之外，单元测试以及在 CI 里跑的测试——Honeycomb 有些很棒的 T 恤，上面写着「我在生产里测试」，他们是做可观测性的。这话是真的：所有人到头来都以某种方式在生产里测试，不论承不承认。我们现有的工具，没有哪一样好到足以保证你想保证的东西。", "speaker_id": "sean", "section_id": "s9"}, {"start_sec": 3255, "type": "text", "zh": "即便你用 Antithesis、杰普森这类工具做得非常出色，也想出了很多有意思的输入，生产系统里仍可能有某份在某个时间点被损坏的数据，是你的生成器从没随机打到、也生成不出来的。那种东西会在生产里发生，而我们事先并不知道它在那里，于是我们是在测试它。那种「过了这道闸就叫有质量、可以发布」的想法，某种程度上是个谎言。我们希望一路上有越来越高的信心，但并没有一道闸让我们「知道」它有质量。", "speaker_id": "sean", "section_id": "s9"}, {"start_sec": 3299, "type": "text", "zh": "但你是说这些东西有帮助，只是要知道会有漏洞？", "speaker_id": "gergely", "section_id": "s9"}, {"start_sec": 3305, "type": "text", "zh": "对，会有漏洞，会有东西漏下去。再加上一道闸——并不是说你再加一道闸，就能把剩下的洞全部封死。这就像再加一两个、三个把值写死的测试：会更好，当然，但它们保证不了质量。", "speaker_id": "sean", "section_id": "s9"}, {"start_sec": 3336, "type": "text", "zh": "我待过的那些我会称为「低效能」的团队——要么走得很慢、交付很少，要么交付很快却经常要紧急发布去修——通常就是用传统 CI/CD 来想这件事：围绕拉取请求，或一个预发环境，在上生产前跑一些测试，觉得「质量闸门就在这里」。而那些走得快、有信心、而且结果也站得住、不会一直被告警叫醒的人，是从一坐下就开始想质量。比如你在做分布式数据库，就应该用 TLA+ 一类工具，确认共识算法确实能工作、这里没有缺陷；或者在第一版、还从没上过生产之前，就把它放进杰普森或 Antithesis 这类工具里，问：它是按我期望的那样表现吗？因为东西刚做出来的时候最容易修；我见过许多地方，新系统要到很晚才开始测，那时已经没人知道它到底有没有在工作，甚至没人从一开始问过：我将如何知道这件事是在工作。", "speaker_id": "sean", "section_id": "s9"}, {"start_sec": 3456, "type": "text", "zh": "我想再推一下：并不是「只要写个测试就能知道它在不在工作」。举个可能很难写测试的例子。我在谷歌搜索里输入「世界上最好的测试工具」。如果问十个人，其中五个在厂商工作，他们大概都会给出不同的「应该排第一」；在厂商的人当然会说自己家该排第一，我们在这儿做的就是很棒的测试。有人想看到维基百科条目，有人有别的期待。而且我天天搜同一句话，结果也会有点变化。我们可以假定谷歌知道自己在做什么，也是正确的。可一旦我要为一个复杂系统、哪怕只是谷歌搜索里的一小段写测试，就会很为难。即使用任何形式化语言或 TLA+，我也很难把「我期望什么」写成代码。虽然你眯着眼看会觉得「看起来够好」，或者有足够数据时能判断，但要编码出来是另一回事。", "speaker_id": "gergely", "section_id": "s9"}, {"start_sec": 3525, "type": "text", "zh": "不过有些东西我们是可以测的。比如有些不变量：我在框里提交了一个东西，我期望能拿回结果，这就是一个不变量。然后事情会继续往下走。我做过一段时间机器学习，其实是做推荐系统，就会碰到「什么应该排第一」这种有意思的问题。那和「它是否在工作」是完全不同的两件事。「在工作」可以是：我往框里放了东西，拿回了东西；「是否相关」是另一回事。对「是否在工作」，我们还可以问：如果我一秒钟提交一千个请求，它还在工作吗？并发请求来的时候呢？提交到一半我又提交第二次，或者导航离开呢？", "speaker_id": "sean", "section_id": "s9"}, {"start_sec": 3594, "type": "text", "zh": "所以你是说，我们可以把问题分解成不同部分。", "speaker_id": "gergely", "section_id": "s9"}, {"start_sec": 3600, "type": "text", "zh": "对。我拿到的结果，是不是针对我实际那条查询的结果？里面具体是什么也许不重要，但我们可以给每个查询带上某种标记，确认回来的确实是对应的结果，服务器没有把你的结果错给了我。搜索也许不太容易让人察觉，但我想大家都听说过那种事故：某个服务开始把别人的账户展示给用户。那是非常糟糕的一种。我自己身份证信息被盗过三次，实在不希望有人无意中把我的个人身份信息展示给了别人。", "speaker_id": "sean", "section_id": "s9"}, {"start_sec": 3650, "type": "text", "zh": "我想谈谈行业里一些有意思的教训，我知道你对它们很有热情。其中一个是供应链安全。供应链安全是什么？我们现在听到它的次数更多了，尤其在开源里，不幸的是确实如此。", "speaker_id": "gergely", "section_id": "s10"}, {"start_sec": 3666, "type": "text", "zh": "供应链安全说的是：如果一样东西很受欢迎，攻破它最容易的办法，就是找到最薄弱的一环再下手。我们说的是软件、开源软件，但这同样适用于硬件。比如 AMD 或英特尔（Intel）会给出各种安全保证，机器里有可信计算模块；可如果你真想攻击这些系统，你想要的是：有人在组装时往机器上写入恶意固件。你怎么知道那确实是本该在那里的固件？我自己也有安全背景，这会被放进「可信计算基」（trusted computing base）来谈。", "speaker_id": "sean", "section_id": "s10"}, {"start_sec": 3709, "type": "text", "zh": "不过人们现在谈供应链安全，通常已经是在谈软件。比如多年前的 left-pad，算不算一次供应链安全事件？那个在 npm 上做一件小事的小模块，后来有人往里面放了挖矿程序之类的东西。关键不在它有多琐碎，而在于替换一个被广泛使用的包。", "speaker_id": "sean", "section_id": "s10"}, {"start_sec": 3747, "type": "text", "zh": "一种很有效的打法是：去攻击人们用得很多、却不太会细想的东西，尤其是持续集成系统。一旦你的代码能在 CI/CD 里跑起来，你就拿到了该系统里运行的全部密钥，也就可以开始发布可能带有恶意软件的软件，还能做别的。这是一种。更普遍的是：几乎现在所有编程语言都是这样一种模型——我从网上下载一样东西，也许校验了哈希，它却几乎能做任何事。我下载的本该是给文本补齐空白的东西，实际上却被允许去跑挖矿程序、建网络连接，等等。这些都是供应链攻击，可以造成非常严重的后果，而且正在发生。我们在 npm 上见过，我想 Python 社区里也在见到。", "speaker_id": "sean", "section_id": "s10"}, {"start_sec": 3831, "type": "text", "zh": "什么才是有效的防御，是个很好的问题。有几种天真的办法。一种是冷静期：至少一周内不引入任何新包，指望供应链攻击够大、会被公开并被解决；坏处是，如果那是个热修复、修的是真正的安全漏洞，你等于把自己敞开放了一周。另一种更天真：去掉依赖，全部搬进自家。第三种是分叉，让安全团队决定何时更新、合并，或继续放在内部。这些都很天真。你觉得哪些做法真正可行？因为这像是在拿「及时拿到往往带有关键修复或很好功能的新鲜包」的延迟，去换「怕被投毒」的恐惧。而且，如果人人都上冷静期，谁还会去发现攻击？", "speaker_id": "gergely", "section_id": "s10"}, {"start_sec": 3868, "type": "text", "zh": "对，这点我们甚至还没谈到。我认为，对几乎所有现存的编程语言来说，这件事没有好答案；可能有好答案的那些语言，又没人在用，因为这在很长一段时间里根本不是一个被认真对待的问题。今天几乎所有包管理和开源的做法，都可以追溯到 Perl 的 CPAN 那种方式：它极度开放、极度信任，和早期互联网一样，假定人人都是善意行动者，电子邮件也很容易被伪造。", "speaker_id": "sean", "section_id": "s10"}, {"start_sec": 3946, "type": "text", "zh": "我想那时的进入门槛也更高：恶意行动者至少得学会编程，或得雇到人。现在门槛变了，而且一旦他们知道我们在做什么，反而可能更高一点。但这一点已经变了，对吧？", "speaker_id": "gergely", "section_id": "s10"}, {"start_sec": 3960, "type": "text", "zh": "即便那时也并非如此。和我一起上那所「高中过得不好的人的大学」的人里，就有一位青少年时期被美国政府逮捕过，因为他放出的蠕虫蔓延到大量他闯入的政府计算机上，而且还扩散得更远，是当时的重大事件之一。所以那时也在发生，只是规模更小，而且还不是所有人都像现在这样依赖这些东西。", "speaker_id": "sean", "section_id": "s10"}, {"start_sec": 3981, "type": "text", "zh": "根本问题是：对几乎任何语言——JavaScript、Ruby、Rust，随便哪一种——你引入的依赖，在能力上基本上和你自己写的代码完全一样。你的代码大概什么都能做，那些从网上来的代码同样什么都能做。依赖一多，你要怎么审查所有这些代码？问题又绕回来了。靠我们现有的这套东西，最终没有人能解决它。人们也许会尝试沙箱，但每个沙箱都能被逃逸，通常也并不那么难，这本身就是一整片研究领域。", "speaker_id": "sean", "section_id": "s10"}, {"start_sec": 4021, "type": "text", "zh": "有一位叫马克·米勒（Mark Miller）的人，做了一门叫 E 的语言，里面有称为「对象能力」（object capabilities）的东西，有很多有意思的研究。我们现在在哥本哈根的 Bug Bash 活动现场，当天第一个演讲来自索菲娅（Sophia），她是帝国理工学院的教授，讲的也是他们做的一些对象能力工作。对象能力的基本想法是：要在系统里采取任何行动，都必须以某种方式被授予相应能力。例如，除非你拥有建立网络连接的能力，系统就不会允许你这样做；而源程序、你写下的代码，必须把这种能力交给其它东西。", "speaker_id": "sean", "section_id": "s10"}, {"start_sec": 4064, "type": "text", "zh": "没有流行语言真正在做这件事。Pony 最初由西尔万写下、现在我也在参与，对象能力是内建的。这是让你更能信任这段代码的一种手段。但你还得走得更远：如果编程语言允许某种外部函数接口（几乎全都允许），好让你调用 C 代码、Rust 代码，或任何走 C ABI 的东西，而你又没有办法完全控制这条路，那么有没有对象能力都无所谓——别人可以直接从 FFI 这扇门走出去。这些问题都需要被面对，而且不可能只靠在我们现有体系里做增量修补来解决。", "speaker_id": "sean", "section_id": "s10"}, {"start_sec": 4148, "type": "text", "zh": "听起来软件安全之所以越来越重要，是有原因的，而且题目很复杂。我们做过一期关于软件安全的节目，但感觉只是刮到表面。和任何事情一样，细节里才复杂，策略也非常多。每家公司、每个团队都会自己决定：小创业公司一开始也许就是先莽着干，然后做一件简单的事，比如设冷静期，指望不是所有人都冷静、于是还能被发现；再往后会更细——扫描依赖、评估它们、减少不必要的、扫描依赖链，你也可以走得很深，深到有安全团队去审查、验证，甚至和作者建立联系，等等。", "speaker_id": "gergely", "section_id": "s10"}, {"start_sec": 4182, "type": "text", "zh": "所有这些真正可怕的地方在于：即便我们把你提到的这些、以及更多的事都做了，到头来仍不会是很好的防御。因为多年前我们为了让 CPU 更快，做了一个权衡：引入了投机执行（speculative execution）。投机执行的原理是：我有多余的周期，这条分支也可能走、那条也可能走，那我就两边同时执行。我们过去二十多年里得到的绝大部分加速，都来自这里。", "speaker_id": "sean", "section_id": "s10"}, {"start_sec": 4224, "type": "text", "zh": "人们大概见过通常被称为侧信道攻击（side-channel attacks）的东西，种类很多。关键是：那些投机的分支必须实际存在于内存里。如果我作为攻击者足够好——系统既执行了「我已获授权」的分支，也执行了「未获授权」的分支——一个并不需要太多知识的人，即使实际上没有系统访问权，也可以用侧信道去读出「访问究竟是怎样的」那块被创建出来的内存；更好的是，他们还能把用于安全的密钥从内存里拿出来。", "speaker_id": "sean", "section_id": "s10"}, {"start_sec": 4266, "type": "text", "zh": "所以其它所有事情我们都可以做对，可只要投机执行还在，这些攻击就在。我曾在微软研究院的机密计算组工作，我们做了一套机密容器产品，现在微软也还有。我们谈到自己那些本来很不错的安全保证时，总是要在末尾补一句：除去侧信道攻击——我们保护不了你免受侧信道攻击。我们拥有的每一条保证，都会被侧信道打破。", "speaker_id": "sean", "section_id": "s10"}, {"start_sec": 4304, "type": "text", "zh": "什么是机密计算？", "speaker_id": "gergely", "section_id": "s10"}, {"start_sec": 4308, "type": "text", "zh": "机密计算的最终目标，是让软件跑在一个不必信任该环境运营者的环境里。你把东西放到云上，并不确定是谁在运营那朵云。多年前发生过一件事：一些推特（Twitter）员工实际上为沙特阿拉伯政府充当代理人，通过私信等途径监视沙特异议人士的活动。也可能是另一种情况：你也许信任微软或亚马逊，觉得他们不会偷你的数据，但你实际上是在信任每一个拥有那种访问权限的人——信任每个员工不会被钓鱼，也信任他们不会因为缺钱而被收买。机密计算就是试图让你不必信任那些人。在安全里，你信任的东西越多，系统就越不安全。", "speaker_id": "sean", "section_id": "s10"}, {"start_sec": 4387, "type": "text", "zh": "在机密计算里，我们能给人们很好的保证，除了侧信道——侧信道可以打破所有保证。要在那一点上完全锁死，唯一的办法大概是把投机执行从系统里拿掉。最早一批投机执行攻击出来时，他们给 Linux 内核打补丁，只处理其中一个个案。我记不太准具体数字，印象里第一次大概掉了大约 50% 的性能，然后再努力把性能抠回来。接着又是另一种攻击、再一种、再一种。到了某个时点，我觉得人们基本上接受了：我们只能继续打地鼠，因为不愿意放弃投机执行带来的性能。", "speaker_id": "sean", "section_id": "s10"}, {"start_sec": 4426, "type": "text", "zh": "我对安全非常在意，可我自己写的开源里，也绝对会去利用投机执行。想让东西跑得快的那一面很爱它：分支预测器知道通常会走这条路，就能把从前很贵的分支变得很便宜，于是我能做成一些从前很难做快的事。我们等于集体做了这笔交易：我们愿意求快，而它在根本上就是不安全的。", "speaker_id": "sean", "section_id": "s10"}, {"start_sec": 4478, "type": "text", "zh": "我想问你技术债。十年前你写过一段话，我读给你听，很好奇你现在的想法有没有变。你写的是在一家公司亲历或听说的恐怖故事：「可问题是，即便这类恐怖故事在发生，我们仍在赚钱。我们在增长，能养活自己，持续为公司创造价值。是的，我们有很多技术债，但我们不断找到、发明出绕开、不必偿还的办法。我们采用的债务隐喻是误导性的。你并不总是必须偿还自己造出的债。你可以绕着走，甚至永远不必还清。技术债只有在你必须偿还的时候才会伤人。」", "speaker_id": "gergely", "section_id": "s11"}, {"start_sec": 4498, "type": "text", "zh": "是的，我百分之百仍然坚持这一点。我非常希望构建可塑的软件。所谓可塑，是指能够适应新的处境，因为软件被构建时的处境，不会是一年、两年、三年后的处境。它需要能被改变——不一定是改代码，而是能被放到它需要进入的新环境里。其中一个答案，常常就是把那东西扔掉。", "speaker_id": "sean", "section_id": "s11"}, {"start_sec": 4539, "type": "text", "zh": "我记得那一篇，是被这样一个例子推动的：债大量堆在数据库怎么搭建上，MySQL 的分片有上限，事情越来越难。后来完全被绕开了，办法是砸钱上一个分布式数据库，它看起来仍像单一数据库。权衡是：第一，我们付给他们不少钱；第二，你期望从单机 MySQL 得到的那些保证，在边上会有奇怪的例外，并非总能成立。但那些例外非常罕见。这不是一家在用 Ada 的公司，那种我会偶尔去追查的极罕见情况，并没有那么重要。在很多情形里，你都可以这样完全绕开。也可能是业务变了，那套系统不再需要：它跑了三年，用不上了，扔掉，你从未偿还过任何债。", "speaker_id": "sean", "section_id": "s11"}, {"start_sec": 4626, "type": "text", "zh": "你是说，也许我们很多人理解的技术债，并不是它实际发生的方式。你常常会造出债：做一堆黑客式的修补，或做一些在大规模生产公司里说不通、但在创业公司或早期阶段说得通的事；后来你也许永远不必偿还，因为你会重写软件，或引入一个把旧债作废的新技术，又或者没找到产品市场契合、跑道耗尽，那它又有什么关系？", "speaker_id": "gergely", "section_id": "s11"}, {"start_sec": 4661, "type": "text", "zh": "对。", "speaker_id": "sean", "section_id": "s11"}, {"start_sec": 4662, "type": "text", "zh": "我还记得在优步（Uber）的时候，我在出行（Rides）团队，做的是已经成熟、做了多年、也在赚大钱的出行产品。优食（Uber Eats）团队当时刚起步，有个工程师跑进我们的代码库提交了一个改动，因为他们需要共享功能、要用到那部分平台。他们改完以后，删掉了一个因此失败的测试，然后就发布了。我们说：你在干什么，你不能删测试。双方就僵住了。他们说：我只是得把它做完。后来我才弄清，其实那是 Jump 单车。我逐渐明白，这些人真的只在想明天，因为他们不确定下周自己还在不在。果然，大约六个月后优步卖掉了整个部门，它在优步内部没有找到产品市场契合，后来成了自己的公司。我当时想：好吧，当你那样想的时候，你甚至会动到测试——能用就先上，看看怎样。他们甚至不在乎是否对百分之百的顾客都有效，只在乎在那个时点上，是否大致能满足他们的目的。", "speaker_id": "gergely", "section_id": "s11"}, {"start_sec": 4733, "type": "text", "zh": "有时候你确实会付出代价，通常是因为你成功了。不过也可能是：人们既没在注意债，也没在想「怎样做才最可塑」——好让我能尽快做出来去验证。这和「我把东西黑客进这里」是不一样的：你可以做一个尽快完成、只覆盖很小一条缝、会漏掉各种边角的东西，但对我来说容易拿掉；如果接下来三个月我们再在上面堆五样东西，它也不会拖慢我们。因为说到底，我们也许只是一家创业公司，想尽快弄清自己在做什么。当然，你完全可能在还没找到产品市场契合之前，就把自己债进死角了。但那种「每一笔债都是坏的、都必须还清」的想法，并不符合现实。", "speaker_id": "sean", "section_id": "s11"}, {"start_sec": 4809, "type": "text", "zh": "我们刚才谈的，以及更早谈你的职业和你怎么做软件，有一个主题是：你喜欢求快，而你也学会了，有时要快，得先慢。你也写过这个，我引用一句。「先慢后快，意味着先写规划文档，在任何人碰代码之前就对要做什么达成一致；意味着在开始构建之前就知道我们将如何测试；意味着花几个小时或几天，把还不理解的部分做成可以扔掉的探针（spike）；意味着凌晨两点生产着火时，先停下来。」其中有些听起来非常反直觉。", "speaker_id": "gergely", "section_id": "s11"}, {"start_sec": 4847, "type": "text", "zh": "对我来说并不反直觉。对我来说不。当然，在职业更早的时候，它们绝对曾经反直觉，那时就是觉得必须把那件事做完。这就像你最终会意识到：每周工作八十小时并不能让我更快，只会让我因为一直很累而犯更多错，然后把时间花在追查缺陷上，而不是做新功能。当我累了，就该离开电脑。这就是先慢后快：确保我休息好、身体健康，确保作为关键部分的大脑真正在正常工作。", "speaker_id": "sean", "section_id": "s11"}, {"start_sec": 4886, "type": "text", "zh": "我职业生涯里见过最浪费时间的事之一，就是人们不肯花时间确认：彼此说话时，用的词其实是一个意思。结果三周后东西做出来，有人一看：这不是我想要的。这也是敏捷里「冲刺」（sprint）本该嵌入的东西：我们不会走很久才回头看，确认方向仍然一致。如果你要做一件又大又复杂的事，就值得花几天，让开发的第一部分不是写代码，而是写下这东西将如何工作、应当做什么，并确认所有人真的同意。因为在那一阶段改起来很容易，你还没在编码上投入大量时间，只是在确认：我们谈的是不是同一件事。", "speaker_id": "sean", "section_id": "s11"}, {"start_sec": 4970, "type": "text", "zh": "多年前，分布式系统社区里有一场精彩的网上争论，两派来回对轰，争的是「恰好一次」（exactly once）在投递消息时究竟是什么意思，也就是恰好一次投递。一派说的是恰好一次处理，谈的是幂等，以及一件事实际上只产生一次影响；另一派说的是消息字面上只到达一台计算机一次。这边的人就说：你们在撒谎，不可能做到恰好一次。他们花了那么多时间互相喊，只因为没有人坐下来先说：我所说的恰好一次，指的是这个。", "speaker_id": "sean", "section_id": "s11"}, {"start_sec": 5010, "type": "text", "zh": "同样的事随时都会出现。你随手在卡片上写了一小段——现在大概有人用 Linear，也还有人用 Jira，不管是什么——然后把人派出去做。那个人花了不知道一小时、一天还是五天，做完回来，你却说：不对，这不是我们期望的。你走得很快，却哪里也没到。", "speaker_id": "sean", "section_id": "s11"}, {"start_sec": 5048, "type": "text", "zh": "你得花时间把地基打好，确保所有人朝同一个方向。而且，如果你以后想走得快，从一开始设计时就该想：我将如何知道它确实在工作。有些系统你几乎无法知道它是否在工作；有些则很容易知道，其中可以包括我谈过的静态手段，甚至只是让系统有良好的可观测性。我们要把一套系统放到生产里：我们将如何知道它是否宕了？我们将如何知道它是不是灰故障——一大群人体验极差，但它仍在、负载均衡器上还在 ping？只要先坐下来想这些事，确保它们做起来容易、以后不会拖你后腿，你就在前面花一点点时间，让所有人在同一页上，想清楚要做什么，然后就可以非常快地往前冲。", "speaker_id": "sean", "section_id": "s11"}, {"start_sec": 5113, "type": "text", "zh": "太好了。肖恩，这是一次很棒的谈话，谢谢你。", "speaker_id": "gergely", "section_id": "s11"}, {"start_sec": 5118, "type": "text", "zh": "是的，非常愉快。", "speaker_id": "sean", "section_id": "s11"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
