@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>创立 Robinhood、撑过 GameStop，以及一通价值 5 亿美元的电话｜弗拉德·特内夫</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="senra">大卫·森拉（David Senra）</option><option value="vlad">弗拉德·特内夫（Vlad Tenev）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">David Senra</span><span class="pill">2026-11-12</span></div>
+<h1>创立 Robinhood、撑过 GameStop，以及一通价值 5 亿美元的电话｜弗拉德·特内夫</h1>
+<p class="sub">嘉宾：Vlad Tenev · 约 71 分钟（4248 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=cU9uOHRWDmE" target="_blank" rel="noopener">https://www.youtube.com/watch?v=cU9uOHRWDmE</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>David Senra</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-12</dd></div><div class="meta-row"><dt>时长</dt><dd>约 71 分钟（4248 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>yt-dlp-auto</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>cU9uOHRWDmE</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>大卫·森拉（David Senra）对话 Robinhood 联合创始人兼首席执行官弗拉德·特内夫（Vlad Tenev）。弗拉德讲述 Ribbit Capital 的米奇·马尔卡（Micky Malka）先拒绝种子轮、后来在 2021 年用大约 30 到 45 分钟投入超过 5 亿美元；2020 年 3 月的全日交易中断促使他们预先签好危机条款清单，才撑过 GameStop 期间从不到 1 亿美元跳到约 30 亿美元的保证金要求。他也讲到保加利亚恶性通胀、12 岁用 SAT 1370 分换来的投资本金，以及在加州大学洛杉矶分校师从陶哲轩（Terence Tao）之后，用「50 年后会不会骄傲」这一问放弃为对冲基金卖软件、转去创办 Robinhood。</p>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：想听创始人如何处理流动性危机、投资人信任和职业选择的听众。可跳过：只关心交易产品细节、对人物故事没耐心的人（约 71 分钟）。</p>
+<h3>适合人群</h3><p>创业 / 金融科技 / 投资人与创始人关系</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">Ribbit 为什么错过种子轮，又为何后来非他不可</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">森拉开场就问：为什么创始人圈子里对米奇·马尔卡（Micky Malka）评价极高？弗拉德说 Ribbit 和 Robinhood 几乎同时起步，他在帕洛阿尔托 Social Capital 办公室里见到还没有自己工位的 Ribbit，并在 1000 万美元估值上限的种子轮向米奇、Nick 和 Nikolai 做了路演，但对方没投。当时「金融科技」这个词几乎还不存在，事后对方会找借口说策略不合、阶段太早；弗拉德认为米奇真想做的事总能做成——2021 年他在大约 30 到 45 分钟里向 Robinhood 投入了超过 5 亿美元。双方是先彼此建立信任：Ribbit 后来跟 Index 一起参与 A 轮并成为董事会观察员。早期为董事会席位和保护性条款发生过争执，弗拉德曾在南帕洛阿尔托一座小公园里来回踱步谈判。米奇当时说：五年、十年后你会希望我更深地参与，会想让我进董事会。弗拉德当时觉得谁都会这么说，但在关键时刻米奇一次次站在公司和他这边。上市时观察员通常离场，多数风险投资人也会离开公众公司董事会；米奇是唯一被「升上去」的人。他先在上市时离开，大约六个月后弗拉德又请他以正式董事身份回归。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">2020 年 3 月的全日中断，和一份提前放进抽屉的条款清单</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">5 亿美元那笔钱发生在 2021 年 1 月，但故事要回到八个月前。2020 年 3 月是他们搬进新办公室的日子；3 月 2 日那个周一，市场大涨，Robinhood 的基础设施却垮了，出现一整天的交易中断。作为金融公司，这让人极度紧张，当时市场刚崩过，悲观情绪浓重。弗拉德意识到成交量若突然放大十倍，可能在极短时间内需要数亿美元来满足资本金要求，于是和投资人预先谈好：把条款清单准备好，真到那一天只需签字，钱当天就能打进来。2020 年 3 月他们谈妥后自我感觉良好，后来又从红杉和 D1 融到资。随后市场从 2020 年下半年到 2021 年下半年变成一轮巨大的投机牛市。加密业务 2018 年 1 月上线后多年收入接近零，因为正赶上漫长的加密寒冬；到 2020 年第三季度一下子放大约十倍，第四季度到了「数亿美元」量级，2021 年第二季度加密收入大约 5 亿到 6 亿美元。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">隔夜跳到 30 亿美元的保证金，以及「马上给公司打电话」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">GameStop 行情到来时，清算和保证金数字在自动化文件里一夜之间来回跳：先看到大约 30 亿美元，后来变成 18 亿，还有一份文件是 7 亿。弗拉德大约早上 5 点醒来时，数字仍在变。30 亿几乎无法立刻筹到，18 亿也会非常吃力。他们把 GameStop（GME）标成只许平仓，由于平台本身不做空，这意味着投资者只能卖不能买。领导层只能在 Zoom 上各自作战，而这类火灾本应把人拉进同一间房间。弗拉德当时正尝试睡觉时把手机放在另一个房间；妻子很少接到公司电话，一旦来了就知道事态严重，对他说：「弗拉德，你必须马上给公司回电话。」系统在那一轮勉强撑住，他事后说工程上最怕的是系统再次倒下。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">第一通电话打给米奇：时间会杀死所有交易</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">第一通电话打给米奇。弗拉德提到需要 2.5 亿或 5 亿美元量级的支持，米奇说「我有」——其实当时钱还没完全到位。一个后来才知道的转折是，米奇打电话给硅谷银行（SVB）的首席执行官。2008 年金融危机后更严的资本要求，让经纪商必须极度充足地准备交易保证金。弗拉德说，这笔钱要在那种时刻真正打进来非常难；直到 FTX 倒塌、硅谷银行危机之后，外面的人才更能体会他们当时的处境。米奇先开口，让后面每一通融资电话都容易得多：第二通可以变成「米奇要给我 5 亿美元」。与此同时 Robinhood 成了 App Store 总榜第一，超过 Instagram 和 TikTok，这对金融应用极其罕见。公司既极度缺资本，又在高速增长：2019 年收入大约 2 亿美元，到 2021 年提到约 18 亿美元量级的年化。需求旺盛到他们觉得必须改交易结构，因为第一轮条款可能面对大约 100 亿美元的需求。弗拉德还得在危机中做路演，向各家银行保证财务状况仍稳，以免授信被抽走、引发连锁失败。提前放在抽屉里、2020 年 3 月就准备好却未签署的那份条款清单，在这一刻派上了用场。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">保加利亚的恶性通胀、铜炊具，以及 9·11 那天出发的祖父母</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">话题转到出身。弗拉德 1987 年出生，1992 年从保加利亚移民美国；离开前一年的 1991 年，通胀大约 170%，列弗对美元从约 2:1 走到 2000:1 这个量级。家庭一边经历社会崩溃，一边用囤积铜等实物保存财富；香蕉在保加利亚是一年一次的稀罕物，到美国超市里却到处都是。母亲一侧的家族在集体化时期失去大约 100 英亩土地。祖父母第一次来美国的机票订在 2001 年 9 月 11 日，飞机改降法兰克福，他们在机场地下室住了两周。森拉提到米奇也曾在委内瑞拉经历通胀，并讲过向祖父借钱买伯克希尔股票、祖父还要收利息的故事。这些记忆成为后面「美国为什么看起来像科幻」对照的底色。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">曼哈顿像科幻小说：五岁孩子看到的两种社会</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">弗拉德说，五岁第一次落地就能感到气氛完全不同。在保加利亚，老人低着头、整座社会走得很慢；从肯尼迪机场开车去特拉华（父亲在特拉华大学读研究生）时路过曼哈顿，每一栋楼都像保加利亚最高的建筑。家里是独生子女，父母忙着在新世界里找路，他几乎觉得自己是平等的合伙人。大约七岁家里有了电脑，尽管没钱，还是决定自己买一台；研究生邻居教他用软盘装游戏。美国和保加利亚的反差在他心里点燃了燃料：既要搞懂电脑，也开始盯盘、摸索金融市场。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">把 SAT 分数换成美元，以及一套很早就卖掉的英伟达</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">七年级时他跳过一级，只有 12 岁，却进了两周学完一年数学的项目。父亲说：SAT 如果超过 1300 分，就把分数换成等额美元给你去投资。他考了 1370 分，于是拿着 1370 美元入市，重仓做 Palm Pilot 的 3Com，后来公司分拆出 Palm；他也很早买过英伟达，却在 25 美元卖掉，只因为「他们显卡很好」、自己是游戏玩家。这段既是金融启蒙，也成了后来长久的后悔样本。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">在陶哲轩门下读博，以及年薪 1.8 万美元的机会成本</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">弗拉德一路把数学阶梯爬到加州大学洛杉矶分校，成为陶哲轩（Terence Tao）的博士生。他形容这大概处在「一个人能学到的数学」的最顶端附近，尽管还不是博后或教授；能读懂陶哲轩论文的人，全世界也许只有大约 20 个。研究生年薪 1.8 万美元。他同时开始碰交易系统：一笔交易可能要跳过大约 30 台机器才到交易所，若能把大约 30 毫秒延迟打到 10 毫秒，就有生意。联合创始人拜朱·巴特（Baiju Bhatt）在金融危机期间劝他一起开公司。他想得很清楚：自己并不是辞掉谷歌年薪数百万的舒适工作，而是从 1.8 万美元的研究生身份出发，失败了大不了再找工作。他本科在斯坦福，但当时并没有真正进入创业圈子，去洛杉矶分校更多是默认的最优学术选项。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">「你想当商人吗？」一辆 1998 年的车和母亲的羞愧</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">他们把服务器塞进弗拉德 1998 年的英菲尼迪 Q45，从洛杉矶开到纽约。他去找副系主任申请一年停学，紧张得几乎咬指甲。多年后他回洛杉矶分校数学系做毕业典礼演讲，才知道那场谈话对那位老师同样难忘。第一年他们承认自己在「晃荡」；一年到期时母亲的心情很复杂：儿子先是斯坦福的数学天才，再解释洛杉矶分校纯数学其实很强已经像降级，现在更是「快要无家可归」。亲戚会问他还回不回学校。停学变成一次把身份从学者改写成创业者的公开承诺。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">创业像数学里最好的那部分，只是少了那些废话</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">「为创业而创业」只能撑一段时间，关键变成能否做出能养活自己的收入。做决定时他们还没完全走到那一步，但他觉得乐观；大约六个月后真的有了收入，虽然不是最初那个想法。第一家公司大约做到 200 万美元收入，隐约能看到 1000 万美元的路径。弗拉德把这阶段比成数学最好的部分：只剩你、头脑，也许再加一块黑板；一旦数学变成职业，就要上课、带助教、应付系里行政。创业当时接近那种纯粹，却能直接对世界负责。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">如果 50 年后回顾，我会为这件事骄傲吗？</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">第二道门更严：即便能把生意从 100 万做到 1000 万、也许一亿，如果 50 年后回顾却不骄傲，或无法想象未来 30 到 40 年都做这件事，就该停。他提到有人从所罗门兄弟被解雇时拿到大约 1500 万美元的「黄金降落伞」，钱在当时极多，却仍逼出职业反思。森拉把它比作史蒂夫·乔布斯招约翰·斯卡利（John Sculley）离开百事的那次谈话。弗拉德想要的是既能创造新事物、又能影响数亿人的事业，而不是继续把交易软件卖给对冲基金。正是这个测试，把他从第一家公司推向后来的 Robinhood：既是创造，也是可规模化地改变普通人的生活。他认为，作为创业者得到的满足，会大于只作为投资者的成功。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">大卫·森拉（David Senra）<em>主持</em></span><span class="spk-1">弗拉德·特内夫（Vlad Tenev）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>Ribbit 为什么错过种子轮，又为何后来非他不可</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>你和我在Mickey Mela有个朋友 我是他的粉丝 事实上,我今天早上打电话给他 我们谈论你。 为什么米奇这么特别? 像为什么你觉得他和创始人一样有名? 一群创始人和我一样了解他 就像你 很难找到比Mickey Mala更有名气的人</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>米奇玛拉和我认识很久了 Ribbit和Robin Hood差不多是在同一时间开始的 我记得在Palo Alto市中心的 社会资本办公室工作时遇到Ribbit的人 他们甚至还没有自己的办公室。 我可能不该告诉你 但一开始他们把Robinhood传出去了 所以,你知道,我们很高兴见到他们。 我投了米奇,尼克,和尼古拉。 这是我们的种子回合 以1000万的上限。 最后没有完成 虽然我非常兴奋是因为它就像一个 金融科技聚焦公司。 Robin Hood开始的时候 Fintech根本不是什么 你可以看看谷歌的趋势。 这就像零。 然后,你知道,几年后, 人们开始使用这个术语, 你知道,他会给我借口, 为什么他们没有做交易 在种子。 像,哦,你知道, 我们没有陷害。 这不是我们的任务 这对我们来说还为时过早。 但你和我都知道Mickey是那种想要东西的人 他会想办法完成的 对吧? 我的意思是,他投资超过5亿 在Robinhood在2021年可能30到45分钟的时间内 我认为与米奇特别, 但也与我们所有的投资人, 最优秀的, 我们有一个时期 有点像 了解对方 和赢得彼此的相互信任。 和那个,你知道,我会说 那种关系 增长和复杂 一段时间。 于是,他们最终以指数投资A系列并成为董事会观察员. 我记得那段时间我和Mickey有过一次特别有争议的讨论 因为我忘记了我们在谈论什么比我愿意给的保护。 他要么想加入董事会 要么想成为观察员 你知道,作为一个创始人,特别是早期, 你被教导对董事会的权利有极大的保护。 所以,我有点谈判反对他。 我记得我就像走在我们办公室旁边 南帕洛阿尔托有个小公园 我只是绕着这个小公园走 他就像,你知道,弗拉德, 你会了解我的这个。 我将是,你知道, 你实际上唯一的投资者 5年后,10年后,你会说,我希望你能多参与进来 你会希望我加入你的董事会 当然,当时我很喜欢, “好吧,每个人可能都这么说。” 但是,我想在重要的时刻, 他一次又一次地证明了 他有我们的背,我的背 有点像公司的最佳利益。 所以米奇有这个非常独特的东西, 我一开始觉得当你见到他的时候,他可能是我意思是,他是一个特殊的人 可能不是每个人的茶。 他不是你喜欢的人当然 他的外表有点硬 他是个大人物 体重室可能向会员国提供了相当的重量。 他的脾气像向会员国提供攻击性。 这些是我最喜欢的那种人 我和他第一次点击他挑战我和公司的方式他直接这样做。 清净无碍. 我从不担心他对我或公司有什么好处 因此,我认为我们的信任 刚刚发展了一段时间和多次 他在那里 帮助公司 在我们最重要的时刻。 在我们公开之前 他是Robinhood的董事会观察员 你可能知道这一点, 但通常当你公开, 所有观察者都走了。 而事实上,大多数促成了风险投资的董事会成员 最终都会在公共板上打滚 因为这不是他们从事的生意 所以Mickey实际上是我们董事会上唯一一个晋升的 所以,他滚了 当我们去6个月后我又回到他身边 &quot;嗨,我们想请你加入这个公司 作为正式的董事会成员&quot; 你为什么要这么做?因为我很看重他的议会 当你是一家公共公司时, 你可以选择你的董事会成员 基本上。 你知道,当你是私人的时候, 是投资人,你选择他们, 但这是通过谈判达成的, 投资人拥有董事会席位。 所以有时你会遇到一些情况,也许你和某个董事相处融洽,然后他们离开公司, 但这是公司的董事会席位,所以他们可以决定它的后果。 公共公司,你选你的董事会成员。 因此,我可以奢侈地选择董事会上的人。 现在,你在我们谈话开始时提到 他把5亿美金扔进Robinhood 大约30到45分钟 你能讲故事吗?</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>2020 年 3 月的全日中断，和一份提前放进抽屉的条款清单</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>故事实际上可以追溯到2020年3月. 所以,当他实际甩掉这笔钱是在2021年1月,但8个月前,2020年3月是Robinhood历史上一个大漏洞. 所以,这是CO的开始, 我会为你设定场景。 对</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>我们在这间办公室 或者街对面的一间 我们基本上占领了日落杂志总部 和日落杂志,也许你不知道, 但有两栋大建筑。 那边好像我们住的那间 街对面有个大花园 总之,有一个运行的笑话 因为我们先搬进小的, 然后我们得到了大的。 你知道,我们的首席财务干事会不断回答 当我们搬进那栋大楼, 因为日期 不断被搬回和搬回。 旧有建筑. 他们不得不做大量的改造. 无论如何,</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>2020年3月是我们的移动日期。 所以,我们用一个大黑龙。 所以,周末,我们有一个黑克逊, 并记住这是一个悲哀的黑克逊, 一种出席不足。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>或没有关系? 师曰. 我觉得就像有 一点点的恶意。 我不知道它是否与COVID有关, 或者我们只是通过 运动,我们没有真正 乱编它足够, 但很少人被黑。 翌日,即2020年3月2日星期一,我们发生了大规模日间交易中断. 而这一天就像市场的巨大上升。 因此,有一些上下。 COVID已经开始了。 市场下跌了 星期一又涨了 我们的基础设施基本上失败了, 我们有一个日复一日的 交易中断,这是非常神经崩溃 因为你是一个金融公司。 你知道人们的客户依赖你进行交易。 对于我个人来说,作为一名工程师, 我非常关心任何基础设施工程问题。 我觉得我的核心能力失败了 对吧? 事情就是这样的 一周后大家都回家了 因为我们开始封锁 我记得那段时间很困惑 因为当时我们同行集团中的所有公司 都在采取预防措施 他们计划削减人口统计。 A级他们中很多人都在裁员那时候你觉得你的同伴小组怎么样?你知道,像Airbnb,Door Dash, 这些类型的公司。但我认为是只是技术的启动。 没有技术的初创,但是它超出了这个范围。 我的意思是,只是悲观, 你知道市场已经崩溃了 人们只是假设 我们将会处于黑暗时期 在接下来的几年。 我们真的不知道会走哪条路 因为当你看我们的数字时 我们只是看到疯狂的数字 用户基础在增长,收入在增长,数量在增长。 因此,CO一开始似乎 看起来像一个头风, 我们不得不管理的风险 然后变得相当清楚,这只是一个巨大的加速剂业务。 但是,作为我们业务快速发展的一部分,我们第一次遇到了资本需求。 基本上,我们是受管制的经纪人, 取决于我们平台上有多少活动, 我们必须留出公司现金,商业现金喜欢支持这一活动。 我们在3月份开始注意到, 你知道股票和期权的发行量 以及资本需求也在增加。 所以我打电话给Mickey 我觉得现在一切都很好 收入不断增长,企业不断增长. 很难说,如果我是诚实的 因为它就像我们做了三倍的体积 一个月前。 但我可能很快需要数亿美元 因为如果有一天 我们的10xs和你知道这些资本要求和他一样好,让我们做个交易。 如果存在,你就会知道, 我们就会存在,我们就会存在, 给文件签个名, 钱也在同一天汇入你的账户。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>聪明没人愿意做那样的简易交易,对吧? 记得当时的风险投资家 并不是真正的投资。 每个人在舱门里都看到CO发生了什么 几个月后 很明显,有些企业 正在做得很好 然后洪水门再次打开 它成为有史以来最大的牛市之一 从2020年下半年到2021年下半年</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Ramp]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：AppLovin]</span></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>2020年3月,我们达成了这个协议,我们感觉非常好。 后来我们从塞奎亚筹集资本,然后是D1. 因此,我们从来就不用把那个术语表从架子上拿下来, 因为我们感觉很好,而且事情已经稳定下来,进入了一个更正常的成长期。 随后2021年1月发生,这就像投机性贸易活动中一个巨大的漏洞点.手法为何如此?手法不记.</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>我想这是新年 每次你从12月底到1月初 都会发现活动上有个不畅之处 就像活动上的一个步骤变化 我认为这是行为。 众生归家. 你知道,年末是 一种结束的一章, 打开新的一章, 人们开始思考 他们的财务。 所以,他们打开,你知道,Robinhood账户 并开始购买股票。 所以有这样的。 还有刺激检查即人们的帐户。 为了花你的钱,没有别的事可做 我是说很多餐馆和体育赛事都关门了 因此,零利率环境。 对 我们看到的只是对密码和股票的疯狂兴趣。 我们于2018年1月推出的密码业务 多年来,它几乎一无所获因为2018年1月是一位长期加密赢家的开始.</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>好。我们刚刚开始 所以没有固定的活动基础。 所以人们在买东西,有些时候你知道我们有更多的活动, 但称它接近于零,直到2020年。 之后2020年Q3又刚刚上升了10x. 所以我们开始看到你知道几千万季度收入。 Q4是几百,到2021年的Q2, 我想我们有5亿6千万的密码收入。 因此,它从无到有 到我们最大的或第二大的收入来源。 这和所有meme股票一样 所以,我们不得不和这两件事争吵淇 中、英、法、英、法、英、法、俄、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西) 这就像上次的危机 所以我就说 我是个工程师 保持系统。 确保你知道我们可以为客户服务 因为你知道那是我知道的魔鬼 所以,我们只是有点盲目 资本要求的问题再次出现一夜。 我们的资本需求。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>隔夜跳到 30 亿美元的保证金，以及「马上给公司打电话」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>是真的过夜吗?基本是一夜之间,一天 变得有点混乱 因为数字一直在变化 但第一个通过自动化文件的数字 是大约30亿。 因此,它像30亿 然后18亿 然后,我们有一个文件 是7亿数字我醒来时是凌晨5点 太平洋,这就像 我生命中一个非常独特的时刻。 一开始我在楼下用手机睡觉 因为我觉得自己在一个糟糕的耳机空间 就像我手机上一样 就像我一开始认为合作对我非常兴奋,因为我说:&quot;哦,我可以如此高效. 我可以做所有这些工作,然后我的家人就在这里, 我可以被插上,同时 与我的家人在一起。” 但几个月过去了 我意识到这对我不好 我只是喜欢分心 所有的时间,总是在我的电话,总是工作。 所以我尝试了这个东西 在那里,我会睡 我的手机在另一个房间。 但具体地说,你说这是一个糟糕的耳机空间。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>是啊,焦虑,抑郁。这是什么?</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>绝对是焦虑 可能还不是抑郁症 但我能描述的最好方法是 不管我有一个会议有多好, 如果它是在Zoom, 我希望会议结束 我想出去,对不对? 这和我现实生活中的见面大不相同 在那里我可以和人们交流 所以我意识到自己在合作期间 不是一个远程工作的人。 对 不管我开过多好的会 我都不会高兴 多么激动人心 我只是不想在电脑屏幕上盯着人看</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>你用手机在楼下睡觉</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>对拮据于我 我妻子叫醒了我 就像上班的人打电话给她这可不好而且她很少接到上班电话 所以她知道这是坏的。 她想,&quot;哦,我的上帝, 哦,我的上帝,弗拉德,你必须马上叫工作。&quot; 所以我下楼拿起我的手机 手机也没用 它就像不停的震动 只是我捡起来,这是短信 进来,电话去语音信箱。 我好像有一次在Instagram上看到这个 当Kim Kardashian关掉她时 不打扰你 然后你就看到电话开始闪烁 因为人们只是评论她的Instagram文章 总之,这可能是我最接近的。 <span class="tag">【笑声】</span>这就像仇恨的微博和语音邮件 比如,你知道,你怎么能做到这一点? 重开.</p>
+<p>但发生什么事了? 我以为你不得不关闭交易 因为你没有钱来支撑。 到底是什么东西?</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>对 所以,我还不知道发生了什么。 我在等Gretchen的电话 他是我们的指挥官 你知道,我拿起我的电话 和在电话和短信之间, 我发现我可以进入 设置和屏蔽未知的数字。 然后Gretchen通过 然后她,你知道,解释 事情给我。 它的高潮是我们不得不PCO GME。 所以,我们有一个标记的GMEE, 这是GameStop（GameStop）的股票, 位置关闭, 因为我们不允许短缺意味着人们只能出售它。 如果你买不到更多的GME。 如果你没有拥有它,你买不起 如果你拥有它,你只能卖掉它。 她在解释原因 这就像,首先 他们要求30亿, 然后是1.8。 我们没有那么多钱。 可能不止这些,但绝对不是30亿。 1.8会很困难那么,好吧,我们该怎么办? 师曰. 师便打. 我们得到了一个领导团队 在Zoom的电话,你知道, 每个人都有点在不同的地方, 这使得这种类型的火 很难战斗, 因为你现在做的第一件事 就是把每个人拉到一个房间里。 没有房间 那是一个Zoom电话。 我们决定分头行动 一个工作流就是想出如何与顾客沟通,因为他们当时显然非常生气,所以你知道营销,通讯员开始研究这个 接下来是工程 保持那些敲打木头的系统 这其实是我最大的恐惧 但那些系统实际上就像支撑 在整个疯狂的活动。 然后第三个工作流是找到钱拿到我们不知道需要多少钱 但是它只是得到尽可能多的。 所以,当你知道 你需要找到钱, 谁是你第一个打电话的人?</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>第一通电话打给米奇：时间会杀死所有交易</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>我给米奇打了电话这是第一个电话。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>对 对</p>
+<p>对 而他当场犯罪 他问:&quot;你需要多少钱?&quot; 我说:&quot;我不知道. 2.5亿,5亿,我不确定&quot;. 师曰:&quot;吾有矣. &quot;</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>他还没拿到呢</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>我后来得知 他给SVB的首席执行官打电话</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>较早是硅谷银行较早听过这个故事.</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>对 是啊,因为我有一个咖啡 与天哪,他叫什么名字? SVB的首席执行官. 不错的家伙。 他经过了自己的问题, 不幸的是,它没有结束 如此积极。 但他在夏威夷的高尔夫球场上 他和米奇一样 他就像,我必须拉 的信用线 我设置与你们。 所以,他没有钱,但是他有一个信用额度。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>对。无论如何,这最终成为了 由此而来的第一通电话 因为这些时代是高度不确定的时期, 你可以想象。 你知道,没有人想给钱 一个生意即将崩溃。 我认为有人害怕这个是正当的。 就像在金融服务中,如果有一个解决的问题, 你知道,你不想成为你必须先拿出你的钱。 你当然要花很多钱 才能在那个时候注入资金 正如我们从那时起在很多失败中发现的 我注意到我讲这个故事 取决于我们在世界中的位置对FTX倒闭后我们所经历的 更加同情 我理解SVB银行危机后你提起FTX和SVB 很有趣 我像J Gold一样想着 在发明之前发生的事情 就像SEC一样完全和实际上,如果你看看 具体资本要求的历史 已经爆炸给我们, 有很多 由多德弗兰克的结果。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>对。由于2008年的全球金融危机,他们说,“好吧,我们想确保每个人都像超级资本一样处理他们能够处理的交易活动。” 因此,我们有这些像自有资本的要求。 当然了,他们从未预料到人们会是, 你知道,零售商 交易meme股票家里有刺激检查 没有佣金 你为什么说这是第一个电话?</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>我想它可能会走另一条路 第一个电话没有这么强烈的接待。 他们说 我们会考虑的 我得跟我的团队谈谈 我得跟我的首席财务官谈谈 还有然后也许第二个电话 也说了类似的话。 然后第三通电话问我, 那么,有没有其他人这样做? 我必须告诉他们 不 你是我的第一个电话 你知道,时间 杀死所有的交易。 所以让Mickey亲自接电话 并当场做出承诺 对我们来说是开始的</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>让你有信心吗?为了我个人?对 这对你有什么好处?</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>所以,这是一个非常有趣的时间,因为 并列起来像大 我们试图筹集很多钱。 这种巨大的财政需要,我们有 典型的 公司,在那个状态下做不好。 这是一种不好的情况, 但我们处于那种情况的原因是 因为我们生长得太快。 这是太多的成功的结果,这是相当罕见的。 那时Robin Hood是应用商店的头号应用, 不仅仅是在金融领域, 这还是个好东西, 但我们领先于Instagram, 我们领先于Tik Tok, 总体来说, 在金融领域非常罕见。 我们从来没有见过类似的东西。 因此,我们处于一个需要资本的位置,但我们增长非常迅速, 很难同时保持你的头脑,因为作为一个领导人,我显然对增长感到兴奋。。。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>临行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>4x 对然后在2021年,我们得到了18亿。 很明显,这种成长让我兴奋, 我为之欢呼。 但随着这种快速增长,风险也随之增加。但回到电话的必然性质 以及米奇只是想,&quot;是的,你得到了钱。 &quot;你结束了&quot;他当场犯罪并说&quot;我加入&quot;的事实.</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>其他人每一次谈话都比他容易得多</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>谈话进展如何? 第二通电话说,“嘿,米奇·马尔卡给我50亿美元。”</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>第二通电话是米奇老鼠的英寸 好吧,我喜欢。最后我们接到电话,对吧? 这就像还剩多少? 然后我们像,等待,等待,等待一分钟。这些搜查令。 是的,我们必须改变交易 因为我们可能,你知道,</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>第一学期需求100亿元.</p>
+<p>我很喜欢你刚刚对Cus说的故事 因为你喜欢,是的,这发生在 我们说我们是什么 2021年1月。 你说什么? 好吧,我告诉你。 但一月,实际上当时并没有发生. 发生在2020年3月 你们做了这个学期表,没有签字, 然后放进一个抽屉里, 你们知道这会发生。 难以置信,伙计。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>对,差不多 我敢打赌,我们本来可以以两种方式完成这项工作,但确实有助于我们经过这种思考。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>你听说过其他类似的东西吗? 我无法再想到另一个例子刚刚更新的业务规划 达到这个程度。 我不想给自己太多的荣誉,你知道的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>我会把它给米奇。 我可能得把功劳给米奇 不可思议.在那段时间里,我们的许多对手 因为我们有很多的对手 经营这个生意。 例如,证券贷款是大银行,它们设有信贷风险部门。 因此,我不得不做一个道路秀 在所有这一切,我魅惑我们的所有银行 我向他们保证,我们的财务状况仍然很强, 因为,如果它们拉起信用线, 也可能造成连锁故障。 所以,你知道,我们做的,我被告知, 这是一个奇迹,对不对? 有很多办法 公司实际上 破产和走了破产了,但我想我们只是导航它。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>让我去查一下Mickey 我有个问题 他怎么结束你的电话? 他说什么? 他最后对你说了什么?</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>我觉得他们只是有点紧张</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>我得问他为什么 他知道我什么 但每次我认为这是最后三次我们挂断电话时,他都会说&quot;要乖&quot;.</p>
+<p>对 他没有说再见。 他说,&quot;确保你的行为。&quot; 或者不是,他只是说,&quot;要乖&quot;。 电话就到此为止 余曰:&quot;他以为吾何为? 不只是他用西班牙语说</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>没有 不,因为我会知道的 我父亲是古巴人</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>所以,不,我只是说,&quot;好吧,我得问他为什么。 他以为我会在这里做什么?</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>他从不让我做人&quot;我知道,我记得 没错 所以,我说,&quot;好吧,这个也许他认为我比你更乖很明显,&quot;好吧。 所以,等等,我想这很好奇。 喜欢,你年轻的时候, 当你像个孩子, 你总是对金融市场感兴趣吗? 后世有这种兴趣吗?</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>保加利亚的恶性通胀、铜炊具，以及 9·11 那天出发的祖父母</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>我一直对金融市场感兴趣。 为什么? 就像他告诉Mickey在我的播客里 讲了那个疯狂的故事 我认为他喜欢从祖父那里借钱去买一幅画 他祖父向他收取利息 去买Besserkshire Hathaway的一股像你这样吗? 1992年我从保加利亚移民到美国,1991年我离开前一年,保加利亚开始经历严重的通货膨胀。 我认为1991年的通货膨胀率是170%。 和你米奇在委内瑞拉的经历很相似1997年。 (单位:千美元) 在刚刚逃离或移民几年之后,保加利亚不幸地区分了世界上最高的通货膨胀率。真的吗?</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>1,77% (单位:千美元)时间鞠躬尽致?</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>一年时间</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>哦。对 所以,你知道,他们是 增加零的货币。 它从两叶变成一美元到2000美元 你知道,我看到了它对我祖父母所做的。 所以,它从一个敏锐的观察者 到什么是共产主义制度, 如何影响我的家人,因为我的家人总是会讲述这个故事。 我妈妈那边 集体化来了 我想说20世纪60年代 所以我长大了 我们住在这栋公寓里 他们给我看了那片土地上的照片 在那里,现在有 一种残酷的苏联时代 那种可怕的公寓大楼 我长大了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>我曾祖父曾经拥有一个漂亮的院子和房子 他们进来没收了并建立了一个大丑陋的结构。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>巨大的丑陋结构, 但当然他们给了他一个公寓 在那里。 然后在我爸爸的身边,他总是讲述他曾祖父如何失去土地的故事. 他们有100英亩左右。 你知道他和他的村友 带着漫长的艰辛之旅 来到了首都 在法庭面前争辩 他们应该收回自己的土地 所以,不管怎样,每个人都在叹息 失去自己的财产, 然后恶性通货膨胀来了 每一个金融系统崩溃, 我认为我的祖父母是非常幸运的。因为他们刚刚退休 我的父母刚刚开始 在美国建立。 所以,我们所有的争论 都是为了钱作为一个家庭。 哪一边得到更多?事情发生时你多大了?</p>
+<p>我五岁的时候,我搬家 和金融货币危机。 我大概10岁,1997年 我出生于87年. 我祖父也是我最早的记忆之一 在他们的公寓里打开了这个衣柜, 它只是铜器皿掉出来。 这是他们的投资。警察是他们的财富他们会囤积铜器因为通货膨胀太严重了通货膨胀令人发指。 我还记得古巴的香蕉很美味 当我来到美国时,一个让我震惊的事情是 你进入杂货店,到处都有香蕉。 当然,我不能碰有机的。 我妈妈会拍我的手 如果我接近这些。 但是在保加利亚,古巴香蕉就像一个一年一度的事情, 在那里,我的祖父会有他的钩 在船厂那边,对不对? 所以,这是非常,非常不同的。 我在过去十年里阅读了400多部历史最伟大的创始人传记. 如果我不得不提炼我学到的</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：WorkOS]</span></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>等等,你五点左右到美国?</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>好吧,我告诉你。 你什么时候对你感兴趣? 你听到这些疯狂的故事 从你的很明显 你的父母和你的祖父母。 你的祖父母也来美国了吗?</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>没有 不,他们没有。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>好吧,我告诉你。 所以,他们一直呆在那里。他们留在保加利亚。 对</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>好。</p>
+<p>对 我祖父母第一次来美国,这个疯狂的故事,是在2001年9月11日. 他们安排了第一次访问美国 第一次访问我们 2001年9月11日,他们在前往美国的路上离开保加利亚. 当然,他们的飞机立即被改道前往德国法兰克福,他们在法兰克福机场地下室呆了两周.</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>哦哇。</p>
+<p>对 只是他们有一排床 等待下一次飞行。 好吧,我告诉你。 这么说你10岁了 你什么时候开始关注金融市场,钱? 你什么时候感兴趣?</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>曼哈顿像科幻小说：五岁孩子看到的两种社会</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>当我们在美国登陆时, 立即发生了巨大的海洋变化。 感觉完全不同 我作为一个5岁的孩子注意到了它, 因为保加利亚,你走来走去, 社会正在崩溃。 所有老太太都像往下看一样 每个人都在慢慢地移动 我第一次抵达美国的时候 还记得吧 我降落在肯尼迪大学 父母住在特拉华州 因为我爸爸是特拉华大学的研究生 在从肯尼迪机场到特拉华的路上 我们开车穿过曼哈顿 和刚上飞机的保加利亚孩子它必须像另一个星球。 曼哈顿看起来就像科幻小说 我当时想整个国家都这样吗?</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>对。每一栋建筑都是保加利亚最高的建筑 仿佛建筑互相竞争,对吧? 在保加利亚没有竞争. 人们没有竞争力。 人们只是移动很快。 我当时想,大家都在赶时间吗? 所以,我想另一个事情是 我是唯一的孩子,我的父母 刚刚开始 他们总是想着如何在他们的职业生涯中前进, 我感觉就像一个平等的伙伴 在几乎。 我的父母会让我坐下 他们说:&quot;看,弗拉基米尔,你知道,我国签证持有者的地位非常脆弱. 我们随时会被驱逐出境 顺便说一句,你爸爸没赚到钱,所以你要是想上大学,就得拿到奖学金. 你知道,不能指望我们,基本上。 所以,从很早开始, 我就说,&quot;哦,好吧。&quot; 你知道,这里的钱很紧 我只是在想那些东西</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>你是独生子 他们从没有其他孩子追你</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>不是。但他们在跟你说话因为我们的财政状况这是毁灭性的。 对我相信这可能是他们最大的遗憾 你父母还活着吗? 对</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>上帝保佑他们看到你的成功 对他们来说一定很棒 我敢打赌,如果你和他们说话, 他们最大的遗憾可能 无法拥有更多的孩子。 我估计但是他们像成年人一样跟你说话, 我认为这很聪明, 不喜欢隐藏的东西,你知道,说,&quot;嘿,我们处于严峻的境地。 就像你显然想要更好的生活, 你在这个国家。 你可以看到保加利亚和美国的区别&quot;. 这基本上点燃了你内心的燃料。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>对 我也是个很紧要的孩子 我父母买不起保姆,他们都差不多同龄 我喜欢这个想法,就像我们只是 运行街道,只要你想。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>横扫街道. 我会从公交车站步行回家 到公寓大楼。 起初他们就像敲邻居的门 谁是印度尼西亚家庭 你知道她会让你进来的 她会给你钥匙的 然后他们清楚地意识到 我们的儿子正在经历这种复杂的事件 回家。 我们为什么不只是我们可以信任他的钥匙。 这么说然后你找到电脑,对电脑感兴趣。 当时你几岁?</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>我大概五六岁真的吗?</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>我爸有时会带我去读研究生</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>他是马里兰大学的研究生.他在学习什么?</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>经济学。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>好。</p>
+<p>所以,我会挂出 在计算机实验室 你知道他会去上课或什么的。 我第一次用电脑的经验 就是挂在那里,对不对? 但你可以自由统治 做你想做的事</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>当然 对 他不知道怎么用电脑 我也不晓得 他像,&quot;玩至少在周围玩。 自己想办法&quot;. 我很快就进入了至少在你身上 当然, 瞧, 我开始玩游戏了, 你知道, 想想怎么安装游戏, 因为那里有其他的研究生 他们给我看, 然后说, &quot;嘿,我能拿软盘吗?&quot; 然后不知何故,我们没有钱 但是他们决定我们自己买一台电脑是个好主意。 所以,我们得到了一台电脑 也许当我7岁。 我真的很喜欢这个 当然没有互联网 所以,我就像你知道 学习使用终端做这一切。 我是一个相当好的学生。 还有一件事,我父母认为,当时 我有点烦他们 这一点,因为我的朋友 总是在活动,对不对? 他们就像在打棒球 踢球 篮球 踢足球 我的父母基本上就像第一 我们买不起这些东西。 其次,我不知道谁来开车送你 你知道,我们有一辆车, 我们都在工作。 所以,你必须喜欢自己想出。 你知道,你想打电话给你的朋友, 得到一个拼车。 我六岁,所以它只是从来没有发生了 所以我在电脑上经常在家 当我们最终获得了互联网 我打开了雅虎金融 并喜欢创建投资组合。 为什么? 我甚至不知道自己是怎么搞到的 但我确实搞到的,只是...</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>那么,股票是你的第一个迷?</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>是啊,股票,电脑,和电脑游戏。此时你已经对数学感兴趣了吗? 是的,我想很早的时候,我意识到 我擅长数学,你知道, 这对我来说也很有趣 因为我被扔进美国学校,幼儿园, 不懂英语。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>因此,我的第一次经历在某种程度上是令人沮丧的。 就像你进入这个地方, 甚至不说语言。 我甚至不能告诉老师我想要那个玩具。 对吧? 几个月前,我读了我的旧成绩单。 我在幼儿园时找到成绩单 老师都在写我 我读到的这个像弗拉基米尔 他适应了幼儿园 他还没有跟其他孩子说话 有点让我伤心 所以,我就像,伙计, 我和这个半年。 可能是因为我不懂英语 我只是害羞和安静 以</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>我猜一年级毕业时,我学的是高级英语和高级数学。 所以,这是回来的时候,他们会 那种仍然排序的孩子。 你会有天赋的</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>对 所以,在结束时</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>对 目录,我想在一年里,我从什么都不知道, 没有和任何人交谈到 那种最高级的数学和英语... ...你知道,老师们还不错... 所以我要感受一下轨迹,我想那时我意识到了,我大概是擅长数学、学校和学习。 但是,如果你回去 喜欢你是一个孩子 独自坐在公寓 在你的电脑 建立一个投资组合 关于雅虎金融。 是因为你喜欢, &quot;嘿,我厌倦了贫穷。 我不想重现我在保加利亚看到的一切你觉得你甚至明白你为什么对金融感兴趣吗? 难道你认为这是一条道路 喜欢变得富有一天 基本上有更大的控制力。” 因为你现在描述的基本上是你的家人 我是说很多家庭 当你回到Mickey Malca的家里时 你知道 得从委内瑞拉来 我觉得他30多岁了 我父亲显然出生在古巴 就像你缺乏自主权,缺乏控制 对有些人就像在压力下崩溃一样 来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>对 我觉得那时我很害怕这个下行的案子 如果你知道我们无家可归 或者我无家可归 或者我无法想象这些事情 连我的词汇里都没有你家里没有企业家吧?</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>对 实际上,我爸爸在保加利亚有个创业企业 我太小了,不能算是他耿耿于怀,但是他开始了旅游业。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>社会垮台时,旅游量很大.</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>柏林墙一塌糊涂 就有大批游客涌入 他们以前不可能来自西欧 我爸爸会说法语这一观点瑰丽的名字 他们基本上会把法国游客带到保加利亚的遗址周围 那里有很多惊人的历史遗址 旅游业仍然是保加利亚最大的产业. 我认为它可能在破产期间表现良好 因为它依赖于外国资金在&quot;是啊。&quot; 规模小,不是技术行业。 他们想买公交车 带人到处逛逛但是,你认为你会得到 当你说好,我甚至不认为 即使真的没有创业 是一条道路 对我来说是当时。</p>
+<p>你以为你会在金融领域找份工作吗? 如果你能回去跟弗拉德谈谈 你觉得怎么样? 他以为他会怎么做? 我想我妈妈最理想的印象 我最后会做什么 会得到一个工作 像一个分析师JP摩根 或者什么或上帝禁止高盛。 那会让我妈妈大吃一惊 或者你知道咨询麦肯锡 是的,因为我父母都开始 在世界银行工作。 我爸在大学毕业时 开始在世界银行工作</p>
+<p>马里兰州. 所以,他有两个全职工作。 他是一个全日制的研究生, 全职在世界银行, 他 vodkan 支付我们有足够的钱 我妈妈得到一个MBA 在乔治敦 加入世界银行。 他们的职业生涯都在那里。 所以,每个25年。 对 有点有趣 我父母冒着巨大的风险 把整个家庭都连根拔起 搬到这个新国家 我认为当他们来到这里, 他们只是非常专注于稳定。 碞钩и挡</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>对。就像那只是一个疯狂的经历 让我们只是确保 现在我们在这里, 我们可以呆在这里,你知道 我们可以为我们的儿子提供一个良好的基础。 对 我觉得一开始投资的兴趣是好奇心。 就像我听说过投资。 我在所有的留言板上。 我看见有人谈论它。 我们正处在点潮中 所以它就在这里。 我当然看到,你知道, 报道说,有些人正在赚很多钱。 这很吸引人 不过是的,但那时你可能 13在2000年 类似的东西。 你出生87岁</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>没错。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>我在学习,对不对? 对 我有一个模拟的组合 在那段时间里做得非常好。 可能因为一切都很好</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>把 SAT 分数换成美元，以及一套很早就卖掉的英伟达</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>但后来我爸爸给了我挑战 他说:&quot;我在为这个测试而学习, 因为我在这个叫做CTY的节目里。 岂知熟识. 基本上,你采取SAT。 这取决于你是如何做的, 他们把你在这个方案 在那里你可以得到 一年的价值数学 在两周。&quot; 我在做这件事 我想我当时在七年级 我跳过了一个年级 所以我12岁了 他说,&quot;好吧,如果你得到1300以上 在SAT,我会给你的分数 美元投资。&quot; 这让我很兴奋 页:1我觉得他做了一件非常聪明的事 因为我刚刚得到它,我结束 我得到了一个1370 在SAT。 所以,他给了我一些钱 投资。 于是,这成为了我真正的投资组合。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>现在,你没有模拟组合。 你有一个组合。 现在我部署真正的资本。 当然几个月后 市场崩溃了 但不是在我做出明智的举动之前 于是我买了这个3Com公司,它制造了Palm Pilot, 就像第一个PDA个人数字助理。 所以我在3COM里放了一大笔钱 然后就从Palm上掉下来了 所以,我从一个股票到两个股票。 然后,我记得,你知道, 在邮件中得到了一大包股东信息 然后跳过它。 它给了我这种感觉 像我实际上拥有东西,对不对? 即使不是一吨钱, 也 也有一些自豪感。 就像我不仅买了这个东西, 而且我是一个公司的老板。 他们要我投票 他们在乎 我得知道公司重组和附带利益是什么 追踪这个投资组合 我学到了很多对孩子来说是很好的现实教育 从你父亲的这个想法。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>我对此与国家非常热衷 对 你知道,我开始 交易相当多。 我让Nvidia很早。我所有的遗憾 一直,对不对?</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>不是。<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>售价为25美元. 因为他们制作的图形卡。 对 我喜欢你一个玩家。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>我喜欢游戏。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Deel]</span></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>让我问个问题 我听到你之前说过 你发现创业令人陶醉</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>在陶哲轩门下读博，以及年薪 1.8 万美元的机会成本</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>对 现在,我无法了解你是否更喜欢金融, 是因为你已经建立了一个企业, 方便人们进行交易, 或者你更喜欢你的创业, 比如在你的大脑,创业或投资中占据主导地位。</p>
+<p>我认为这是一个有趣的问题。 我只有这些 是啊,如果碧珠是我的Robinhood联合创始人, 没有打电话给我,说服我一起创办我们的第一个公司, 情况会如何, 这总是很难想象。 有很多相互竞争的力量 因此,在我成为企业家之前,我是一个数学研究生。 我觉得我和数学的关系很长 而且有点折磨人 所以从我上幼儿园开始, 很明显我擅长数学。 我就像数学界的顶尖学生我的课。 我开始得到所有这些积极的强化。 好吧,做更多的数学。 夏时行. 两周后算一年的数学 它变成了一个自我特惠的循环, 在那里,我将努力爬上阶梯 一直到成为一个数学博士生 在加州大学洛杉矶分校学习 这个家伙Terrence Tao, 许多人认为是最伟大的 活着的数学家 如此高的等级, 所以我是数学研究生 我的第一个读研究生一个月,你就要开始全球金融危机了。 尽管我去过斯坦福, 我并没有真正进入创业圈。 那时斯坦福并没有像今天这样 以企业家为中心。 就像头号专业不是计算机科学 很多人都想投身金融界 但就像你认识戈德曼 JP Morgan一样 我并不真正在那些圈子里 我比较在数学和物理领域 研究圈, 我的数学和物理朋友不太能工作。 这就像前数据科学,前AI。 每个人都是雇佣计算机科学家。 所以,我也处于一个奇怪的境地, 没有一吨有吸引力的工作选择。 喜欢,我没有得到一吨的工作面试。 我去过加州大学洛杉矶分校 因为这是最好的选择 默认的选择 继续算 我拿了18000元做研究生 去洛杉矶玩吧,我们都知道这是非常好的, 但是如果你是超级穷人,那就不是个很好的地方。 说清楚,当时我有点漂流 然后我进入了研究生院 我看到所有这些移民逃离了他们的国家,这是他们的时刻。 所以他们一直在做数学, 你知道,他们不会出去。 他们只是睡觉,吃饭,去上课,做数学。 然后,我记得在想自己,伙计, 如果我不是这样的, 我甚至在做什么? 喜欢,没有办法,我要去, 你知道,出 这些人竞争 越来越多的后托位置。 我问了很多我自己的问题 比如,我甚至想要吗? 那是我想要的生活吗? 陶哲轩,世界上最伟大的数学家 也许世界上有20个人能够理解Terrence Tao的论文。 所以,并不是在课堂上你学到的东西, 你知道,高斯,雷曼,所有这些伟大的数学家, 每一个孩子都学会他们的工作。 现在猿人很少读到这些东西 那时我开始问自己 这就像数学梯子 引导我到一个好地方,我意识到没有。 那种为学习而学习 进步和发现的浪漫思想 与现实相冲突 而这就像最糟糕的职业和工作之一我甚至没有谈论处理 像大学的行政 和所有的官僚。 那时雷曼兄弟在下台 你和我的创始人碧珠 也是数学和物理学家 所以我们为他在马林县的对冲基金 找了份工作那家公司会做什么基本上,他是受雇于这个对冲基金 进行专有交易。 所以,它不是真的 一个对冲基金。 是一家专营贸易公司 他们用计算机算法交易策略 来交易所有者的资本 基本上,他们有 几个交易赚钱。 其中之一是所谓的内部列表ARB, 这是有史以来最简单的策略。 基本上,它的工作方式是 你有一个股票 交易在加拿大。 英特尔说,然后它也在纽约交易你们之间有一条快速的线。 这么说你只是靖边买到更便宜的地方,再卖到更贵的地方,你试着,你知道的,尽可能减少两者之间的空闲,这样你就可以少滑了. 这家公司在多伦多和纽约之间有一条很快速的线路 所以他们利用这个交易赚了很多钱。 还有几家其他的 类似这个近距离交易的市场 直接把它交易了 它会买下失衡的走向接近。 因此,它会交易 5分钟在一天结束时。 而这又是一场全速比赛. 他给我打电话了 他说,&quot;你看,我是受雇于这里是第一名 我可以看到所有的商人。 我可以看到所有的工程师。 他们运行在Windows机器上. 他们抓走了Java. 一个贸易跳过30台机器,然后被送到交易所。 所以最初我们开始的想法是 我们可以只是喜欢压缩吗? 我们能做一台机器吗? 我们可以运行Linux? 我们可以用C而不是Java吗? 也许我们把30毫秒的休息时间 降到10毫秒 如果这是一个速度游戏, 你知道,那应该赢。但等一分钟,我们到达那里, 像想法外,考虑一下。 就像从我身上跳下来那样说 保守的家庭教育 就像你父母冒了巨大的风险 来到美国 但一旦他们来到这里 他们就会说 &quot;我们基本上要坚持一个事业差点 我不知道他们是否认为你, 你知道,只是得到一个正常的工作。 你刚刚有你妈妈的目标 就像只是去工作 高盛或JP摩根。 这是真棒。“就像你只是中产阶级生活, 也许中产阶级上层,也许你省了很多钱, 你是一个数位百万富翁 在几年内,无论什么情况, 但你从这 是一个地狱跳跃 从数学研究生 到企业家 当你从来没有经营过公司。 当然</p>
+<p>你做到了,你做到了。 你做到了。 所以,解释一下你是如何做决定的。 说清楚是个艰难的决定。 我与它摔跤了一点点。 我真的想这么做吗?</p>
+<p>我当时很幸运 我第一年就过了 所以,你知道,你大一之后的夏天 或你第一年, 典型的你 是学习你的夸尔。 所以数学系付你钱 让你学习 一切都做好了 考试的准备 所以,基本上,我被付钱 什么都不做。 因此,这是一个机会 聚在一起,黑客的东西,对不对? 我们租了一个小地方 在南方使团。 我,碧珠和另一个孩子,安德鲁・雅莫拉, 他也是斯坦福数学系的 而且,我们得到了这个地方南方传教团,不是一个伟大的社区, 但有点乐趣。 我们就像,建设贸易系统。 那是夏天的目标 然后,我的计划总是 总结一下夏天末的事情, 看看我们取得了多大的进展, 基本上,我们几乎没有取得什么进展, 但是,我们玩得很开心,我有点想看清楚。 于是我们打算建造这些东西 然后我们打算去纽约 找出如何部署和交易</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>对 如果你只是说我不满意 我在做什么,现在你玩得很开心 不赚钱。 对 碞钩ê妓碞镑所以没有更有趣 有足够的理由看来我没冒险对你说实话 因为另一种选择这不像我 必须杀死它 在谷歌的 的确工作用以支付每年18000美元一年赚18 000如果这样不行的话 我可能会再找份一年赚一万八千元的工作我其实很担心 于是到户部副使,请假.</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>「你想当商人吗？」一辆 1998 年的车和母亲的羞愧</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>嗯。我当时想,“好吧,我想有一个安全网。 我不会在这里傻的 我要去找副会长,请假一年。” 我就像咬掉指甲来谈这个 我仍然生动地记得它 因为我计划了我的决定树 我很喜欢,如果他告诉我 他不会批准它,我可能 退后,哇。继续念研究生 是那个俄国人Dimash Latenko 几年前,我被邀请参加加州大学洛杉矶分校的数学课 而迪马什·拉腾科是当时的部门主席. 所以,我们吃了这个晚餐 而我想,</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>&quot;你告诉我,你还记得那次谈话吗?这改变了我的生活轨迹</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>&quot;改变了我的生活轨迹&quot; 他喜欢,他是一个他喜欢, &quot;那个对话改变了 它是非常难忘的。 我为你感到非常骄傲&quot;. 所以,他,我走进他的办公室,他说:&quot;先生,你想当商人,是吧? <span class="tag">【笑声】</span> 我像你这么大的时候 也想做生意 祝你们好运 你做它,我们会有位置 为你,如果它不工作。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>哦,这是真棒。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>所以我想,伙计,这家伙只是是啊。 只是你知道,给我是的,安全网。 所以,我觉得很好。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>你看过伊隆的传记吗?他们中的一些人。 对</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>对 他有一个故事 他在其中之一。 我觉得我读过的所有关于他的东西 我认为他在那里 在研究生院。 我忘了他在某所学校的事 他说&quot;我要请假&quot; 那个人对他说:&quot;你永远不会回来了&quot; 然后他说,&quot;他是对的&quot;</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>对。<span class="tag">【笑声】</span>我觉得他离开去做&quot;二号&quot;了 如果我记得正确的话</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>我走了个跳跃的缺席。 我们把所有的服务器和我们所有的东西 放在我1998年的Infiniti Q45号船的后面 从洛杉矶开到纽约市 第一年,我们 有点打转,说实话。 试试看 他们没有真正工作。 然后,一年来了, 然后我记得有这个谈话 与我妈妈。 当时我住在布鲁克林 就像我们租的烂公寓 浴室在厨房里</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>非常卫生。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>对 对 我妈妈会来看我 然后她哭了 她说,&quot;伙计,我的儿子,数学天才,我的儿子去了斯坦福大学 首先,他去了斯坦福,然后我非常羞愧地告诉人们,他然后去了加州大学洛杉矶分校,因为你知道</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>斯坦福,每个人都知道你得解释一下 加州大学洛杉矶分校 拥有一个非常强大的纯数学系的细微差别 但从表层来看 感觉就像至少我父母的低调 他们喜欢,&quot;你会回到加州大学洛杉矶分校?&quot; 他们知道,你知道,我的一年。 我说, &quot; 不。 我玩得很开心 这是真棒。 谁在乎我们不成功?&quot;</p>
+<p>再说一遍 谁在乎我们不成功? 你说你开始创业的时候 甚至在成功之前就发现创业很醉?</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>创业像数学里最好的那部分，只是少了那些废话</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>对 所以我认为跛脚创业的第一个经验 几乎是数学的最好部分, 但没有数学的最好部分, 数学的最好部分是,只有你,你的思想,也许是一个粉笔板。 现在它是一个计算机, 但那时它只是你,你的思想,一个沙发, 你可以只是取得进步, 你实际上不用依赖任何其他人。 当然,当你把数学变成一个职业, 它不再是因为你必须去上课, 你必须教书,TA,处理部门,行政, 所有这一切。是啊,这有点类似的方式。 只是你电脑,你在写代码,也许你有生意 企业能创造收入。 人们想要你写的代码, 但中提出的就像所有在你控制下, 没有老板,你知道, 没有人,没有人你必须处理。 所以这是我第一次体验, 我发现那部分令人陶醉, 现在,我最终认为它变得很重要 为我们谋生。 所以,为了创业,创业 持续了我至今, 然后它开始 你知道,我们真的能 创立一个企业,创造我们自己可以维持的收入 而在我不得不做决定的时候,我们并不在那里 但我确实感到乐观 我们将要到达那里, 所以6个月后,我们有一个企业 创造收入, 所以,我们有种 即兴的我们的方式 做生意。 对 它得到的可能是200万的收入。 我们雇了一个小队 我们盈利,成长。 我们有一个路径 1000万左右的收入。 然后我开始我的第二个进化</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>如果 50 年后回顾，我会为这件事骄傲吗？</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>作为一个企业家。 首先是从为了创业而享受创业,到有一个能养活我的可持续企业,你知道我的联合创始人和我们的雇员。 第二道门是好的,我可以把这个生意从100万发展到1千万,也许可以达到1亿,但如果50年后我不得不回顾我的生活,我会为我所做的一切感到骄傲吗? 我是否会觉得自己为世界和社会做出了积极的贡献并产生了影响? 我们出售软件给那些已经很富有的基金 并让它们,你知道,交易一点点速度更快,效率更高。 我的共同创始人和我 都意识到, 如果有什么, 这是达到目的的手段。 就像我们没有看到自己 只是做这个生意</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>我喜欢你把自己想象成一个老人 来回顾你明确表示</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>我想我听到你说这就像一个遗产测试。 我真的想花30到40年的时间做这个吗? 就像你会走到最后一样,你喜欢,我有点浪费了我的生命。 这让我想起了史蒂夫·乔布斯从百事公司招募约翰·斯卡利时的著名谈话. 他喜欢,你想继续卖糖水 还是你想和我一起去改变世界? 喜欢它非常迷人, 但我认为这个想法 我爱,也许我错了,但喜欢看看你在做出什么样的职业选择, 你能够建立的企业 因为你是一个企业家, 你可以建立任何你想要的企业。 就像看着一样,我会花 在接下来的30到40年 我这样做,如果答案是否定的,你应该停止。 我认为我之所以喜欢数学 是因为这个想法,就像做一个基本的发现。 也许如果你做一个根本的发现, 真正的大最终 每个孩子会知道它,对不对? 不仅在历史书里,每个孩子都喜欢学习技术在学校。 这让我很兴奋,因为你既有创造力 将新的事物带入这个世界, 我自然觉得它很有趣, 也有影响,你知道它会影响数百万人, 我想这就是我对Bea成为Robin Hood的想法感到兴奋的原因。 它既像一种创造行为, 一些全新的,根本上不同的事物, 也可能像大规模 能够改变亿万人民生活的东西。 回到我们讨论开始的地方更把自己当成企业家 与投资人的成功相比, 创业者的成功让你更满意。 你是指金融公司的创始人吗?</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>没有 对 我的意思是,你投资也一样,但就像是 清楚的从我们的讨论, 特别是你刚刚包装它漂亮。 这就像你认为自己 作为一个企业家。 你读过迈克尔·布隆伯格的自传吗?</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>我没有在处理 没有在处理。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="vlad"><div class="label"><span class="badge" title="弗拉德·特内夫（Vlad Tenev）">弗拉德</span></div><div class="content">
+<p>好吧,我告诉你。 他当时是金融界人士,当他被开除时,我想从萨洛蒙兄弟那里, 我想是20世纪80年代那样的事情。 他有一个1500万美元的金色降落伞, 这在当时是一吨钱。 自从他投身于金融界以来,每个人都想, “好吧,你只要拿下那些钱,做投资者。” 他只说:&quot;不,我想做点什么. 我想建立一个真正让他人生活更美好的企业。” 反复谈论他的自传. 这正是你刚刚告诉我们的故事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="senra"><div class="label"><span class="badge" title="大卫·森拉（David Senra）">森拉</span></div><div class="content">
+<p>对玄妙,我想金融方面真的融入了我的成长和身份, 这也是为什么我关心它,我关心我们的客户。 这个世界的变化非常迅速 我的意思是,你有AI, 它真的改变的东西为积极。 还让人很紧张 但有一件事是没有改变的,我相当有信心的是,拥有资金,投资,产生被动收入的重要性. 我认为这从来没有比现在更重要。 弗拉德,你把讨论 在一些领域 我无法表明我们本来要去的。 我甚至没有得到一半的东西 我想跟你谈谈。 所以,我几个月后会回来 然后我们真的要 做弗拉德的工作。 但是,这是真棒,伙计。 谢谢你抽空来 贡举志五种 上. 希望你喜欢这集 请记住,无论你在哪里听 并留下评论。 确保你听另一个播客,创始人, 将近十年。 我沉迷于阅读了400多部历史最伟大的企业家的传记, 寻找你们可以用来工作的想法。 你听到的多数客人 都先通过创始人找到我</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "David Senra", "title": "创立 Robinhood、撑过 GameStop，以及一通价值 5 亿美元的电话｜弗拉德·特内夫", "url": "https://www.youtube.com/watch?v=cU9uOHRWDmE", "videoId": "cU9uOHRWDmE", "published_at": "2026-11-12", "duration": 4248, "caption_source": "yt-dlp-auto", "guests": ["Vlad Tenev"], "intro": {"summary": "大卫·森拉（David Senra）对话 Robinhood 联合创始人兼首席执行官弗拉德·特内夫（Vlad Tenev）。弗拉德讲述 Ribbit Capital 的米奇·马尔卡（Micky Malka）先拒绝种子轮、后来在 2021 年用大约 30 到 45 分钟投入超过 5 亿美元；2020 年 3 月的全日交易中断促使他们预先签好危机条款清单，才撑过 GameStop 期间从不到 1 亿美元跳到约 30 亿美元的保证金要求。他也讲到保加利亚恶性通胀、12 岁用 SAT 1370 分换来的投资本金，以及在加州大学洛杉矶分校师从陶哲轩（Terence Tao）之后，用「50 年后会不会骄傲」这一问放弃为对冲基金卖软件、转去创办 Robinhood。", "points": [], "verdict": "值得看：想听创始人如何处理流动性危机、投资人信任和职业选择的听众。可跳过：只关心交易产品细节、对人物故事没耐心的人（约 71 分钟）。", "audience": "创业 / 金融科技 / 投资人与创始人关系"}, "speakers": [{"id": "senra", "name": "大卫·森拉（David Senra）", "role": "host", "short": "森拉"}, {"id": "vlad", "name": "弗拉德·特内夫（Vlad Tenev）", "role": "guest", "short": "弗拉德"}], "sections": [{"id": "s1", "start_sec": 0, "title": "Ribbit 为什么错过种子轮，又为何后来非他不可", "summary": "森拉开场就问：为什么创始人圈子里对米奇·马尔卡（Micky Malka）评价极高？弗拉德说 Ribbit 和 Robinhood 几乎同时起步，他在帕洛阿尔托 Social Capital 办公室里见到还没有自己工位的 Ribbit，并在 1000 万美元估值上限的种子轮向米奇、Nick 和 Nikolai 做了路演，但对方没投。当时「金融科技」这个词几乎还不存在，事后对方会找借口说策略不合、阶段太早；弗拉德认为米奇真想做的事总能做成——2021 年他在大约 30 到 45 分钟里向 Robinhood 投入了超过 5 亿美元。双方是先彼此建立信任：Ribbit 后来跟 Index 一起参与 A 轮并成为董事会观察员。早期为董事会席位和保护性条款发生过争执，弗拉德曾在南帕洛阿尔托一座小公园里来回踱步谈判。米奇当时说：五年、十年后你会希望我更深地参与，会想让我进董事会。弗拉德当时觉得谁都会这么说，但在关键时刻米奇一次次站在公司和他这边。上市时观察员通常离场，多数风险投资人也会离开公众公司董事会；米奇是唯一被「升上去」的人。他先在上市时离开，大约六个月后弗拉德又请他以正式董事身份回归。"}, {"id": "s2", "start_sec": 335, "title": "2020 年 3 月的全日中断，和一份提前放进抽屉的条款清单", "summary": "5 亿美元那笔钱发生在 2021 年 1 月，但故事要回到八个月前。2020 年 3 月是他们搬进新办公室的日子；3 月 2 日那个周一，市场大涨，Robinhood 的基础设施却垮了，出现一整天的交易中断。作为金融公司，这让人极度紧张，当时市场刚崩过，悲观情绪浓重。弗拉德意识到成交量若突然放大十倍，可能在极短时间内需要数亿美元来满足资本金要求，于是和投资人预先谈好：把条款清单准备好，真到那一天只需签字，钱当天就能打进来。2020 年 3 月他们谈妥后自我感觉良好，后来又从红杉和 D1 融到资。随后市场从 2020 年下半年到 2021 年下半年变成一轮巨大的投机牛市。加密业务 2018 年 1 月上线后多年收入接近零，因为正赶上漫长的加密寒冬；到 2020 年第三季度一下子放大约十倍，第四季度到了「数亿美元」量级，2021 年第二季度加密收入大约 5 亿到 6 亿美元。"}, {"id": "s3", "start_sec": 987, "title": "隔夜跳到 30 亿美元的保证金，以及「马上给公司打电话」", "summary": "GameStop 行情到来时，清算和保证金数字在自动化文件里一夜之间来回跳：先看到大约 30 亿美元，后来变成 18 亿，还有一份文件是 7 亿。弗拉德大约早上 5 点醒来时，数字仍在变。30 亿几乎无法立刻筹到，18 亿也会非常吃力。他们把 GameStop（GME）标成只许平仓，由于平台本身不做空，这意味着投资者只能卖不能买。领导层只能在 Zoom 上各自作战，而这类火灾本应把人拉进同一间房间。弗拉德当时正尝试睡觉时把手机放在另一个房间；妻子很少接到公司电话，一旦来了就知道事态严重，对他说：「弗拉德，你必须马上给公司回电话。」系统在那一轮勉强撑住，他事后说工程上最怕的是系统再次倒下。"}, {"id": "s4", "start_sec": 1294, "title": "第一通电话打给米奇：时间会杀死所有交易", "summary": "第一通电话打给米奇。弗拉德提到需要 2.5 亿或 5 亿美元量级的支持，米奇说「我有」——其实当时钱还没完全到位。一个后来才知道的转折是，米奇打电话给硅谷银行（SVB）的首席执行官。2008 年金融危机后更严的资本要求，让经纪商必须极度充足地准备交易保证金。弗拉德说，这笔钱要在那种时刻真正打进来非常难；直到 FTX 倒塌、硅谷银行危机之后，外面的人才更能体会他们当时的处境。米奇先开口，让后面每一通融资电话都容易得多：第二通可以变成「米奇要给我 5 亿美元」。与此同时 Robinhood 成了 App Store 总榜第一，超过 Instagram 和 TikTok，这对金融应用极其罕见。公司既极度缺资本，又在高速增长：2019 年收入大约 2 亿美元，到 2021 年提到约 18 亿美元量级的年化。需求旺盛到他们觉得必须改交易结构，因为第一轮条款可能面对大约 100 亿美元的需求。弗拉德还得在危机中做路演，向各家银行保证财务状况仍稳，以免授信被抽走、引发连锁失败。提前放在抽屉里、2020 年 3 月就准备好却未签署的那份条款清单，在这一刻派上了用场。"}, {"id": "s5", "start_sec": 1773, "title": "保加利亚的恶性通胀、铜炊具，以及 9·11 那天出发的祖父母", "summary": "话题转到出身。弗拉德 1987 年出生，1992 年从保加利亚移民美国；离开前一年的 1991 年，通胀大约 170%，列弗对美元从约 2:1 走到 2000:1 这个量级。家庭一边经历社会崩溃，一边用囤积铜等实物保存财富；香蕉在保加利亚是一年一次的稀罕物，到美国超市里却到处都是。母亲一侧的家族在集体化时期失去大约 100 英亩土地。祖父母第一次来美国的机票订在 2001 年 9 月 11 日，飞机改降法兰克福，他们在机场地下室住了两周。森拉提到米奇也曾在委内瑞拉经历通胀，并讲过向祖父借钱买伯克希尔股票、祖父还要收利息的故事。这些记忆成为后面「美国为什么看起来像科幻」对照的底色。"}, {"id": "s6", "start_sec": 2134, "title": "曼哈顿像科幻小说：五岁孩子看到的两种社会", "summary": "弗拉德说，五岁第一次落地就能感到气氛完全不同。在保加利亚，老人低着头、整座社会走得很慢；从肯尼迪机场开车去特拉华（父亲在特拉华大学读研究生）时路过曼哈顿，每一栋楼都像保加利亚最高的建筑。家里是独生子女，父母忙着在新世界里找路，他几乎觉得自己是平等的合伙人。大约七岁家里有了电脑，尽管没钱，还是决定自己买一台；研究生邻居教他用软盘装游戏。美国和保加利亚的反差在他心里点燃了燃料：既要搞懂电脑，也开始盯盘、摸索金融市场。"}, {"id": "s7", "start_sec": 2835, "title": "把 SAT 分数换成美元，以及一套很早就卖掉的英伟达", "summary": "七年级时他跳过一级，只有 12 岁，却进了两周学完一年数学的项目。父亲说：SAT 如果超过 1300 分，就把分数换成等额美元给你去投资。他考了 1370 分，于是拿着 1370 美元入市，重仓做 Palm Pilot 的 3Com，后来公司分拆出 Palm；他也很早买过英伟达，却在 25 美元卖掉，只因为「他们显卡很好」、自己是游戏玩家。这段既是金融启蒙，也成了后来长久的后悔样本。"}, {"id": "s8", "start_sec": 3053, "title": "在陶哲轩门下读博，以及年薪 1.8 万美元的机会成本", "summary": "弗拉德一路把数学阶梯爬到加州大学洛杉矶分校，成为陶哲轩（Terence Tao）的博士生。他形容这大概处在「一个人能学到的数学」的最顶端附近，尽管还不是博后或教授；能读懂陶哲轩论文的人，全世界也许只有大约 20 个。研究生年薪 1.8 万美元。他同时开始碰交易系统：一笔交易可能要跳过大约 30 台机器才到交易所，若能把大约 30 毫秒延迟打到 10 毫秒，就有生意。联合创始人拜朱·巴特（Baiju Bhatt）在金融危机期间劝他一起开公司。他想得很清楚：自己并不是辞掉谷歌年薪数百万的舒适工作，而是从 1.8 万美元的研究生身份出发，失败了大不了再找工作。他本科在斯坦福，但当时并没有真正进入创业圈子，去洛杉矶分校更多是默认的最优学术选项。"}, {"id": "s9", "start_sec": 3622, "title": "「你想当商人吗？」一辆 1998 年的车和母亲的羞愧", "summary": "他们把服务器塞进弗拉德 1998 年的英菲尼迪 Q45，从洛杉矶开到纽约。他去找副系主任申请一年停学，紧张得几乎咬指甲。多年后他回洛杉矶分校数学系做毕业典礼演讲，才知道那场谈话对那位老师同样难忘。第一年他们承认自己在「晃荡」；一年到期时母亲的心情很复杂：儿子先是斯坦福的数学天才，再解释洛杉矶分校纯数学其实很强已经像降级，现在更是「快要无家可归」。亲戚会问他还回不回学校。停学变成一次把身份从学者改写成创业者的公开承诺。"}, {"id": "s10", "start_sec": 3828, "title": "创业像数学里最好的那部分，只是少了那些废话", "summary": "「为创业而创业」只能撑一段时间，关键变成能否做出能养活自己的收入。做决定时他们还没完全走到那一步，但他觉得乐观；大约六个月后真的有了收入，虽然不是最初那个想法。第一家公司大约做到 200 万美元收入，隐约能看到 1000 万美元的路径。弗拉德把这阶段比成数学最好的部分：只剩你、头脑，也许再加一块黑板；一旦数学变成职业，就要上课、带助教、应付系里行政。创业当时接近那种纯粹，却能直接对世界负责。"}, {"id": "s11", "start_sec": 3956, "title": "如果 50 年后回顾，我会为这件事骄傲吗？", "summary": "第二道门更严：即便能把生意从 100 万做到 1000 万、也许一亿，如果 50 年后回顾却不骄傲，或无法想象未来 30 到 40 年都做这件事，就该停。他提到有人从所罗门兄弟被解雇时拿到大约 1500 万美元的「黄金降落伞」，钱在当时极多，却仍逼出职业反思。森拉把它比作史蒂夫·乔布斯招约翰·斯卡利（John Sculley）离开百事的那次谈话。弗拉德想要的是既能创造新事物、又能影响数亿人的事业，而不是继续把交易软件卖给对冲基金。正是这个测试，把他从第一家公司推向后来的 Robinhood：既是创造，也是可规模化地改变普通人的生活。他认为，作为创业者得到的满足，会大于只作为投资者的成功。"}], "paragraphs": [{"start_sec": 2, "type": "text", "zh": "你和我在Mickey Mela有个朋友 我是他的粉丝 事实上,我今天早上打电话给他 我们谈论你。 为什么米奇这么特别? 像为什么你觉得他和创始人一样有名? 一群创始人和我一样了解他 就像你 很难找到比Mickey Mala更有名气的人", "speaker_id": "senra", "section_id": "s1"}, {"start_sec": 22, "type": "text", "zh": "米奇玛拉和我认识很久了 Ribbit和Robin Hood差不多是在同一时间开始的 我记得在Palo Alto市中心的 社会资本办公室工作时遇到Ribbit的人 他们甚至还没有自己的办公室。 我可能不该告诉你 但一开始他们把Robinhood传出去了 所以,你知道,我们很高兴见到他们。 我投了米奇,尼克,和尼古拉。 这是我们的种子回合 以1000万的上限。 最后没有完成 虽然我非常兴奋是因为它就像一个 金融科技聚焦公司。 Robin Hood开始的时候 Fintech根本不是什么 你可以看看谷歌的趋势。 这就像零。 然后,你知道,几年后, 人们开始使用这个术语, 你知道,他会给我借口, 为什么他们没有做交易 在种子。 像,哦,你知道, 我们没有陷害。 这不是我们的任务 这对我们来说还为时过早。 但你和我都知道Mickey是那种想要东西的人 他会想办法完成的 对吧? 我的意思是,他投资超过5亿 在Robinhood在2021年可能30到45分钟的时间内 我认为与米奇特别, 但也与我们所有的投资人, 最优秀的, 我们有一个时期 有点像 了解对方 和赢得彼此的相互信任。 和那个,你知道,我会说 那种关系 增长和复杂 一段时间。 于是,他们最终以指数投资A系列并成为董事会观察员. 我记得那段时间我和Mickey有过一次特别有争议的讨论 因为我忘记了我们在谈论什么比我愿意给的保护。 他要么想加入董事会 要么想成为观察员 你知道,作为一个创始人,特别是早期, 你被教导对董事会的权利有极大的保护。 所以,我有点谈判反对他。 我记得我就像走在我们办公室旁边 南帕洛阿尔托有个小公园 我只是绕着这个小公园走 他就像,你知道,弗拉德, 你会了解我的这个。 我将是,你知道, 你实际上唯一的投资者 5年后,10年后,你会说,我希望你能多参与进来 你会希望我加入你的董事会 当然,当时我很喜欢, “好吧,每个人可能都这么说。” 但是,我想在重要的时刻, 他一次又一次地证明了 他有我们的背,我的背 有点像公司的最佳利益。 所以米奇有这个非常独特的东西, 我一开始觉得当你见到他的时候,他可能是我意思是,他是一个特殊的人 可能不是每个人的茶。 他不是你喜欢的人当然 他的外表有点硬 他是个大人物 体重室可能向会员国提供了相当的重量。 他的脾气像向会员国提供攻击性。 这些是我最喜欢的那种人 我和他第一次点击他挑战我和公司的方式他直接这样做。 清净无碍. 我从不担心他对我或公司有什么好处 因此,我认为我们的信任 刚刚发展了一段时间和多次 他在那里 帮助公司 在我们最重要的时刻。 在我们公开之前 他是Robinhood的董事会观察员 你可能知道这一点, 但通常当你公开, 所有观察者都走了。 而事实上,大多数促成了风险投资的董事会成员 最终都会在公共板上打滚 因为这不是他们从事的生意 所以Mickey实际上是我们董事会上唯一一个晋升的 所以,他滚了 当我们去6个月后我又回到他身边 \"嗨,我们想请你加入这个公司 作为正式的董事会成员\" 你为什么要这么做?因为我很看重他的议会 当你是一家公共公司时, 你可以选择你的董事会成员 基本上。 你知道,当你是私人的时候, 是投资人,你选择他们, 但这是通过谈判达成的, 投资人拥有董事会席位。 所以有时你会遇到一些情况,也许你和某个董事相处融洽,然后他们离开公司, 但这是公司的董事会席位,所以他们可以决定它的后果。 公共公司,你选你的董事会成员。 因此,我可以奢侈地选择董事会上的人。 现在,你在我们谈话开始时提到 他把5亿美金扔进Robinhood 大约30到45分钟 你能讲故事吗?", "speaker_id": "vlad", "section_id": "s1"}, {"start_sec": 343, "type": "text", "zh": "故事实际上可以追溯到2020年3月. 所以,当他实际甩掉这笔钱是在2021年1月,但8个月前,2020年3月是Robinhood历史上一个大漏洞. 所以,这是CO的开始, 我会为你设定场景。 对", "speaker_id": "vlad", "section_id": "s2"}, {"start_sec": 365, "type": "text", "zh": "我们在这间办公室 或者街对面的一间 我们基本上占领了日落杂志总部 和日落杂志,也许你不知道, 但有两栋大建筑。 那边好像我们住的那间 街对面有个大花园 总之,有一个运行的笑话 因为我们先搬进小的, 然后我们得到了大的。 你知道,我们的首席财务干事会不断回答 当我们搬进那栋大楼, 因为日期 不断被搬回和搬回。 旧有建筑. 他们不得不做大量的改造. 无论如何,", "speaker_id": "senra", "section_id": "s2"}, {"start_sec": 406, "type": "text", "zh": "2020年3月是我们的移动日期。 所以,我们用一个大黑龙。 所以,周末,我们有一个黑克逊, 并记住这是一个悲哀的黑克逊, 一种出席不足。", "speaker_id": "vlad", "section_id": "s2"}, {"start_sec": 418, "type": "text", "zh": "或没有关系? 师曰. 我觉得就像有 一点点的恶意。 我不知道它是否与COVID有关, 或者我们只是通过 运动,我们没有真正 乱编它足够, 但很少人被黑。 翌日,即2020年3月2日星期一,我们发生了大规模日间交易中断. 而这一天就像市场的巨大上升。 因此,有一些上下。 COVID已经开始了。 市场下跌了 星期一又涨了 我们的基础设施基本上失败了, 我们有一个日复一日的 交易中断,这是非常神经崩溃 因为你是一个金融公司。 你知道人们的客户依赖你进行交易。 对于我个人来说,作为一名工程师, 我非常关心任何基础设施工程问题。 我觉得我的核心能力失败了 对吧? 事情就是这样的 一周后大家都回家了 因为我们开始封锁 我记得那段时间很困惑 因为当时我们同行集团中的所有公司 都在采取预防措施 他们计划削减人口统计。 A级他们中很多人都在裁员那时候你觉得你的同伴小组怎么样?你知道,像Airbnb,Door Dash, 这些类型的公司。但我认为是只是技术的启动。 没有技术的初创,但是它超出了这个范围。 我的意思是,只是悲观, 你知道市场已经崩溃了 人们只是假设 我们将会处于黑暗时期 在接下来的几年。 我们真的不知道会走哪条路 因为当你看我们的数字时 我们只是看到疯狂的数字 用户基础在增长,收入在增长,数量在增长。 因此,CO一开始似乎 看起来像一个头风, 我们不得不管理的风险 然后变得相当清楚,这只是一个巨大的加速剂业务。 但是,作为我们业务快速发展的一部分,我们第一次遇到了资本需求。 基本上,我们是受管制的经纪人, 取决于我们平台上有多少活动, 我们必须留出公司现金,商业现金喜欢支持这一活动。 我们在3月份开始注意到, 你知道股票和期权的发行量 以及资本需求也在增加。 所以我打电话给Mickey 我觉得现在一切都很好 收入不断增长,企业不断增长. 很难说,如果我是诚实的 因为它就像我们做了三倍的体积 一个月前。 但我可能很快需要数亿美元 因为如果有一天 我们的10xs和你知道这些资本要求和他一样好,让我们做个交易。 如果存在,你就会知道, 我们就会存在,我们就会存在, 给文件签个名, 钱也在同一天汇入你的账户。", "speaker_id": "senra", "section_id": "s2"}, {"start_sec": 648, "type": "text", "zh": "聪明没人愿意做那样的简易交易,对吧? 记得当时的风险投资家 并不是真正的投资。 每个人在舱门里都看到CO发生了什么 几个月后 很明显,有些企业 正在做得很好 然后洪水门再次打开 它成为有史以来最大的牛市之一 从2020年下半年到2021年下半年", "speaker_id": "vlad", "section_id": "s2"}, {"start_sec": 682, "type": "ad_omitted", "ad_brand": "Ramp", "section_id": "s2"}, {"start_sec": 723.01, "type": "ad_omitted", "ad_brand": "AppLovin", "section_id": "s2"}, {"start_sec": 803, "type": "text", "zh": "2020年3月,我们达成了这个协议,我们感觉非常好。 后来我们从塞奎亚筹集资本,然后是D1. 因此,我们从来就不用把那个术语表从架子上拿下来, 因为我们感觉很好,而且事情已经稳定下来,进入了一个更正常的成长期。 随后2021年1月发生,这就像投机性贸易活动中一个巨大的漏洞点.手法为何如此?手法不记.", "speaker_id": "senra", "section_id": "s2"}, {"start_sec": 838, "type": "text", "zh": "我想这是新年 每次你从12月底到1月初 都会发现活动上有个不畅之处 就像活动上的一个步骤变化 我认为这是行为。 众生归家. 你知道,年末是 一种结束的一章, 打开新的一章, 人们开始思考 他们的财务。 所以,他们打开,你知道,Robinhood账户 并开始购买股票。 所以有这样的。 还有刺激检查即人们的帐户。 为了花你的钱,没有别的事可做 我是说很多餐馆和体育赛事都关门了 因此,零利率环境。 对 我们看到的只是对密码和股票的疯狂兴趣。 我们于2018年1月推出的密码业务 多年来,它几乎一无所获因为2018年1月是一位长期加密赢家的开始.", "speaker_id": "vlad", "section_id": "s2"}, {"start_sec": 918, "type": "text", "zh": "好。我们刚刚开始 所以没有固定的活动基础。 所以人们在买东西,有些时候你知道我们有更多的活动, 但称它接近于零,直到2020年。 之后2020年Q3又刚刚上升了10x. 所以我们开始看到你知道几千万季度收入。 Q4是几百,到2021年的Q2, 我想我们有5亿6千万的密码收入。 因此,它从无到有 到我们最大的或第二大的收入来源。 这和所有meme股票一样 所以,我们不得不和这两件事争吵淇 中、英、法、英、法、英、法、俄、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西、西) 这就像上次的危机 所以我就说 我是个工程师 保持系统。 确保你知道我们可以为客户服务 因为你知道那是我知道的魔鬼 所以,我们只是有点盲目 资本要求的问题再次出现一夜。 我们的资本需求。", "speaker_id": "senra", "section_id": "s2"}, {"start_sec": 995, "type": "text", "zh": "是真的过夜吗?基本是一夜之间,一天 变得有点混乱 因为数字一直在变化 但第一个通过自动化文件的数字 是大约30亿。 因此,它像30亿 然后18亿 然后,我们有一个文件 是7亿数字我醒来时是凌晨5点 太平洋,这就像 我生命中一个非常独特的时刻。 一开始我在楼下用手机睡觉 因为我觉得自己在一个糟糕的耳机空间 就像我手机上一样 就像我一开始认为合作对我非常兴奋,因为我说:\"哦,我可以如此高效. 我可以做所有这些工作,然后我的家人就在这里, 我可以被插上,同时 与我的家人在一起。” 但几个月过去了 我意识到这对我不好 我只是喜欢分心 所有的时间,总是在我的电话,总是工作。 所以我尝试了这个东西 在那里,我会睡 我的手机在另一个房间。 但具体地说,你说这是一个糟糕的耳机空间。", "speaker_id": "senra", "section_id": "s3"}, {"start_sec": 1068, "type": "text", "zh": "是啊,焦虑,抑郁。这是什么?", "speaker_id": "vlad", "section_id": "s3"}, {"start_sec": 1073, "type": "text", "zh": "绝对是焦虑 可能还不是抑郁症 但我能描述的最好方法是 不管我有一个会议有多好, 如果它是在Zoom, 我希望会议结束 我想出去,对不对? 这和我现实生活中的见面大不相同 在那里我可以和人们交流 所以我意识到自己在合作期间 不是一个远程工作的人。 对 不管我开过多好的会 我都不会高兴 多么激动人心 我只是不想在电脑屏幕上盯着人看", "speaker_id": "senra", "section_id": "s3"}, {"start_sec": 1112, "type": "text", "zh": "你用手机在楼下睡觉", "speaker_id": "vlad", "section_id": "s3"}, {"start_sec": 1116, "type": "text", "zh": "对拮据于我 我妻子叫醒了我 就像上班的人打电话给她这可不好而且她很少接到上班电话 所以她知道这是坏的。 她想,\"哦,我的上帝, 哦,我的上帝,弗拉德,你必须马上叫工作。\" 所以我下楼拿起我的手机 手机也没用 它就像不停的震动 只是我捡起来,这是短信 进来,电话去语音信箱。 我好像有一次在Instagram上看到这个 当Kim Kardashian关掉她时 不打扰你 然后你就看到电话开始闪烁 因为人们只是评论她的Instagram文章 总之,这可能是我最接近的。 【笑声】这就像仇恨的微博和语音邮件 比如,你知道,你怎么能做到这一点? 重开.", "speaker_id": "senra", "section_id": "s3"}, {"start_sec": 1177, "type": "text", "zh": "但发生什么事了? 我以为你不得不关闭交易 因为你没有钱来支撑。 到底是什么东西?", "speaker_id": "senra", "section_id": "s3"}, {"start_sec": 1183, "type": "text", "zh": "对 所以,我还不知道发生了什么。 我在等Gretchen的电话 他是我们的指挥官 你知道,我拿起我的电话 和在电话和短信之间, 我发现我可以进入 设置和屏蔽未知的数字。 然后Gretchen通过 然后她,你知道,解释 事情给我。 它的高潮是我们不得不PCO GME。 所以,我们有一个标记的GMEE, 这是GameStop（GameStop）的股票, 位置关闭, 因为我们不允许短缺意味着人们只能出售它。 如果你买不到更多的GME。 如果你没有拥有它,你买不起 如果你拥有它,你只能卖掉它。 她在解释原因 这就像,首先 他们要求30亿, 然后是1.8。 我们没有那么多钱。 可能不止这些,但绝对不是30亿。 1.8会很困难那么,好吧,我们该怎么办? 师曰. 师便打. 我们得到了一个领导团队 在Zoom的电话,你知道, 每个人都有点在不同的地方, 这使得这种类型的火 很难战斗, 因为你现在做的第一件事 就是把每个人拉到一个房间里。 没有房间 那是一个Zoom电话。 我们决定分头行动 一个工作流就是想出如何与顾客沟通,因为他们当时显然非常生气,所以你知道营销,通讯员开始研究这个 接下来是工程 保持那些敲打木头的系统 这其实是我最大的恐惧 但那些系统实际上就像支撑 在整个疯狂的活动。 然后第三个工作流是找到钱拿到我们不知道需要多少钱 但是它只是得到尽可能多的。 所以,当你知道 你需要找到钱, 谁是你第一个打电话的人?", "speaker_id": "vlad", "section_id": "s3"}, {"start_sec": 1296, "type": "text", "zh": "我给米奇打了电话这是第一个电话。", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1297, "type": "text", "zh": "对 对", "speaker_id": "senra", "section_id": "s4"}, {"start_sec": 1301, "type": "text", "zh": "对 而他当场犯罪 他问:\"你需要多少钱?\" 我说:\"我不知道. 2.5亿,5亿,我不确定\". 师曰:\"吾有矣. \"", "speaker_id": "senra", "section_id": "s4"}, {"start_sec": 1310, "type": "text", "zh": "他还没拿到呢", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1313, "type": "text", "zh": "我后来得知 他给SVB的首席执行官打电话", "speaker_id": "senra", "section_id": "s4"}, {"start_sec": 1319, "type": "text", "zh": "较早是硅谷银行较早听过这个故事.", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1321, "type": "text", "zh": "对 是啊,因为我有一个咖啡 与天哪,他叫什么名字? SVB的首席执行官. 不错的家伙。 他经过了自己的问题, 不幸的是,它没有结束 如此积极。 但他在夏威夷的高尔夫球场上 他和米奇一样 他就像,我必须拉 的信用线 我设置与你们。 所以,他没有钱,但是他有一个信用额度。", "speaker_id": "senra", "section_id": "s4"}, {"start_sec": 1352, "type": "text", "zh": "对。无论如何,这最终成为了 由此而来的第一通电话 因为这些时代是高度不确定的时期, 你可以想象。 你知道,没有人想给钱 一个生意即将崩溃。 我认为有人害怕这个是正当的。 就像在金融服务中,如果有一个解决的问题, 你知道,你不想成为你必须先拿出你的钱。 你当然要花很多钱 才能在那个时候注入资金 正如我们从那时起在很多失败中发现的 我注意到我讲这个故事 取决于我们在世界中的位置对FTX倒闭后我们所经历的 更加同情 我理解SVB银行危机后你提起FTX和SVB 很有趣 我像J Gold一样想着 在发明之前发生的事情 就像SEC一样完全和实际上,如果你看看 具体资本要求的历史 已经爆炸给我们, 有很多 由多德弗兰克的结果。", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1447, "type": "text", "zh": "对。由于2008年的全球金融危机,他们说,“好吧,我们想确保每个人都像超级资本一样处理他们能够处理的交易活动。” 因此,我们有这些像自有资本的要求。 当然了,他们从未预料到人们会是, 你知道,零售商 交易meme股票家里有刺激检查 没有佣金 你为什么说这是第一个电话?", "speaker_id": "senra", "section_id": "s4"}, {"start_sec": 1473, "type": "text", "zh": "我想它可能会走另一条路 第一个电话没有这么强烈的接待。 他们说 我们会考虑的 我得跟我的团队谈谈 我得跟我的首席财务官谈谈 还有然后也许第二个电话 也说了类似的话。 然后第三通电话问我, 那么,有没有其他人这样做? 我必须告诉他们 不 你是我的第一个电话 你知道,时间 杀死所有的交易。 所以让Mickey亲自接电话 并当场做出承诺 对我们来说是开始的", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1503, "type": "text", "zh": "让你有信心吗?为了我个人?对 这对你有什么好处?", "speaker_id": "senra", "section_id": "s4"}, {"start_sec": 1509, "type": "text", "zh": "所以,这是一个非常有趣的时间,因为 并列起来像大 我们试图筹集很多钱。 这种巨大的财政需要,我们有 典型的 公司,在那个状态下做不好。 这是一种不好的情况, 但我们处于那种情况的原因是 因为我们生长得太快。 这是太多的成功的结果,这是相当罕见的。 那时Robin Hood是应用商店的头号应用, 不仅仅是在金融领域, 这还是个好东西, 但我们领先于Instagram, 我们领先于Tik Tok, 总体来说, 在金融领域非常罕见。 我们从来没有见过类似的东西。 因此,我们处于一个需要资本的位置,但我们增长非常迅速, 很难同时保持你的头脑,因为作为一个领导人,我显然对增长感到兴奋。。。", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1585, "type": "text", "zh": "临行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行行。", "speaker_id": "senra", "section_id": "s4"}, {"start_sec": 1589, "type": "text", "zh": "对。", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1589, "type": "text", "zh": "好。", "speaker_id": "senra", "section_id": "s4"}, {"start_sec": 1590, "type": "text", "zh": "4x 对然后在2021年,我们得到了18亿。 很明显,这种成长让我兴奋, 我为之欢呼。 但随着这种快速增长,风险也随之增加。但回到电话的必然性质 以及米奇只是想,\"是的,你得到了钱。 \"你结束了\"他当场犯罪并说\"我加入\"的事实.", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1615, "type": "text", "zh": "好。", "speaker_id": "senra", "section_id": "s4"}, {"start_sec": 1615, "type": "text", "zh": "其他人每一次谈话都比他容易得多", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1619, "type": "text", "zh": "谈话进展如何? 第二通电话说,“嘿,米奇·马尔卡给我50亿美元。”", "speaker_id": "senra", "section_id": "s4"}, {"start_sec": 1627, "type": "text", "zh": "第二通电话是米奇老鼠的英寸 好吧,我喜欢。最后我们接到电话,对吧? 这就像还剩多少? 然后我们像,等待,等待,等待一分钟。这些搜查令。 是的,我们必须改变交易 因为我们可能,你知道,", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1646, "type": "text", "zh": "第一学期需求100亿元.", "speaker_id": "senra", "section_id": "s4"}, {"start_sec": 1649, "type": "text", "zh": "我很喜欢你刚刚对Cus说的故事 因为你喜欢,是的,这发生在 我们说我们是什么 2021年1月。 你说什么? 好吧,我告诉你。 但一月,实际上当时并没有发生. 发生在2020年3月 你们做了这个学期表,没有签字, 然后放进一个抽屉里, 你们知道这会发生。 难以置信,伙计。", "speaker_id": "senra", "section_id": "s4"}, {"start_sec": 1667, "type": "text", "zh": "对,差不多 我敢打赌,我们本来可以以两种方式完成这项工作,但确实有助于我们经过这种思考。", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1678, "type": "text", "zh": "你听说过其他类似的东西吗? 我无法再想到另一个例子刚刚更新的业务规划 达到这个程度。 我不想给自己太多的荣誉,你知道的。", "speaker_id": "senra", "section_id": "s4"}, {"start_sec": 1686, "type": "text", "zh": "我会把它给米奇。 我可能得把功劳给米奇 不可思议.在那段时间里,我们的许多对手 因为我们有很多的对手 经营这个生意。 例如,证券贷款是大银行,它们设有信贷风险部门。 因此,我不得不做一个道路秀 在所有这一切,我魅惑我们的所有银行 我向他们保证,我们的财务状况仍然很强, 因为,如果它们拉起信用线, 也可能造成连锁故障。 所以,你知道,我们做的,我被告知, 这是一个奇迹,对不对? 有很多办法 公司实际上 破产和走了破产了,但我想我们只是导航它。", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1734, "type": "text", "zh": "让我去查一下Mickey 我有个问题 他怎么结束你的电话? 他说什么? 他最后对你说了什么?", "speaker_id": "senra", "section_id": "s4"}, {"start_sec": 1740, "type": "text", "zh": "我觉得他们只是有点紧张", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1740, "type": "text", "zh": "我得问他为什么 他知道我什么 但每次我认为这是最后三次我们挂断电话时,他都会说\"要乖\".", "speaker_id": "senra", "section_id": "s4"}, {"start_sec": 1748, "type": "text", "zh": "对 他没有说再见。 他说,\"确保你的行为。\" 或者不是,他只是说,\"要乖\"。 电话就到此为止 余曰:\"他以为吾何为? 不只是他用西班牙语说", "speaker_id": "senra", "section_id": "s4"}, {"start_sec": 1756, "type": "text", "zh": "没有 不,因为我会知道的 我父亲是古巴人", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1760, "type": "text", "zh": "所以,不,我只是说,\"好吧,我得问他为什么。 他以为我会在这里做什么?", "speaker_id": "senra", "section_id": "s4"}, {"start_sec": 1764, "type": "text", "zh": "他从不让我做人\"我知道,我记得 没错 所以,我说,\"好吧,这个也许他认为我比你更乖很明显,\"好吧。 所以,等等,我想这很好奇。 喜欢,你年轻的时候, 当你像个孩子, 你总是对金融市场感兴趣吗? 后世有这种兴趣吗?", "speaker_id": "vlad", "section_id": "s4"}, {"start_sec": 1779, "type": "text", "zh": "我一直对金融市场感兴趣。 为什么? 就像他告诉Mickey在我的播客里 讲了那个疯狂的故事 我认为他喜欢从祖父那里借钱去买一幅画 他祖父向他收取利息 去买Besserkshire Hathaway的一股像你这样吗? 1992年我从保加利亚移民到美国,1991年我离开前一年,保加利亚开始经历严重的通货膨胀。 我认为1991年的通货膨胀率是170%。 和你米奇在委内瑞拉的经历很相似1997年。 (单位:千美元) 在刚刚逃离或移民几年之后,保加利亚不幸地区分了世界上最高的通货膨胀率。真的吗?", "speaker_id": "senra", "section_id": "s5"}, {"start_sec": 1835, "type": "text", "zh": "1,77% (单位:千美元)时间鞠躬尽致?", "speaker_id": "vlad", "section_id": "s5"}, {"start_sec": 1838, "type": "text", "zh": "一年时间", "speaker_id": "senra", "section_id": "s5"}, {"start_sec": 1840, "type": "text", "zh": "哦。对 所以,你知道,他们是 增加零的货币。 它从两叶变成一美元到2000美元 你知道,我看到了它对我祖父母所做的。 所以,它从一个敏锐的观察者 到什么是共产主义制度, 如何影响我的家人,因为我的家人总是会讲述这个故事。 我妈妈那边 集体化来了 我想说20世纪60年代 所以我长大了 我们住在这栋公寓里 他们给我看了那片土地上的照片 在那里,现在有 一种残酷的苏联时代 那种可怕的公寓大楼 我长大了。", "speaker_id": "vlad", "section_id": "s5"}, {"start_sec": 1892, "type": "text", "zh": "我曾祖父曾经拥有一个漂亮的院子和房子 他们进来没收了并建立了一个大丑陋的结构。", "speaker_id": "senra", "section_id": "s5"}, {"start_sec": 1901, "type": "text", "zh": "巨大的丑陋结构, 但当然他们给了他一个公寓 在那里。 然后在我爸爸的身边,他总是讲述他曾祖父如何失去土地的故事. 他们有100英亩左右。 你知道他和他的村友 带着漫长的艰辛之旅 来到了首都 在法庭面前争辩 他们应该收回自己的土地 所以,不管怎样,每个人都在叹息 失去自己的财产, 然后恶性通货膨胀来了 每一个金融系统崩溃, 我认为我的祖父母是非常幸运的。因为他们刚刚退休 我的父母刚刚开始 在美国建立。 所以,我们所有的争论 都是为了钱作为一个家庭。 哪一边得到更多?事情发生时你多大了?", "speaker_id": "vlad", "section_id": "s5"}, {"start_sec": 1963, "type": "text", "zh": "我五岁的时候,我搬家 和金融货币危机。 我大概10岁,1997年 我出生于87年. 我祖父也是我最早的记忆之一 在他们的公寓里打开了这个衣柜, 它只是铜器皿掉出来。 这是他们的投资。警察是他们的财富他们会囤积铜器因为通货膨胀太严重了通货膨胀令人发指。 我还记得古巴的香蕉很美味 当我来到美国时,一个让我震惊的事情是 你进入杂货店,到处都有香蕉。 当然,我不能碰有机的。 我妈妈会拍我的手 如果我接近这些。 但是在保加利亚,古巴香蕉就像一个一年一度的事情, 在那里,我的祖父会有他的钩 在船厂那边,对不对? 所以,这是非常,非常不同的。 我在过去十年里阅读了400多部历史最伟大的创始人传记. 如果我不得不提炼我学到的", "speaker_id": "vlad", "section_id": "s5"}, {"start_sec": 2025, "type": "ad_omitted", "ad_brand": "WorkOS", "section_id": "s5"}, {"start_sec": 2058.01, "type": "text", "zh": "等等,你五点左右到美国?", "speaker_id": "senra", "section_id": "s5"}, {"start_sec": 2081, "type": "text", "zh": "对。", "speaker_id": "vlad", "section_id": "s5"}, {"start_sec": 2083, "type": "text", "zh": "好吧,我告诉你。 你什么时候对你感兴趣? 你听到这些疯狂的故事 从你的很明显 你的父母和你的祖父母。 你的祖父母也来美国了吗?", "speaker_id": "senra", "section_id": "s5"}, {"start_sec": 2091, "type": "text", "zh": "没有 不,他们没有。", "speaker_id": "vlad", "section_id": "s5"}, {"start_sec": 2091, "type": "text", "zh": "好吧,我告诉你。 所以,他们一直呆在那里。他们留在保加利亚。 对", "speaker_id": "senra", "section_id": "s5"}, {"start_sec": 2094, "type": "text", "zh": "好。", "speaker_id": "vlad", "section_id": "s5"}, {"start_sec": 2094, "type": "text", "zh": "对 我祖父母第一次来美国,这个疯狂的故事,是在2001年9月11日. 他们安排了第一次访问美国 第一次访问我们 2001年9月11日,他们在前往美国的路上离开保加利亚. 当然,他们的飞机立即被改道前往德国法兰克福,他们在法兰克福机场地下室呆了两周.", "speaker_id": "vlad", "section_id": "s5"}, {"start_sec": 2127, "type": "text", "zh": "哦哇。", "speaker_id": "senra", "section_id": "s5"}, {"start_sec": 2127, "type": "text", "zh": "对 只是他们有一排床 等待下一次飞行。 好吧,我告诉你。 这么说你10岁了 你什么时候开始关注金融市场,钱? 你什么时候感兴趣?", "speaker_id": "senra", "section_id": "s5"}, {"start_sec": 2141, "type": "text", "zh": "当我们在美国登陆时, 立即发生了巨大的海洋变化。 感觉完全不同 我作为一个5岁的孩子注意到了它, 因为保加利亚,你走来走去, 社会正在崩溃。 所有老太太都像往下看一样 每个人都在慢慢地移动 我第一次抵达美国的时候 还记得吧 我降落在肯尼迪大学 父母住在特拉华州 因为我爸爸是特拉华大学的研究生 在从肯尼迪机场到特拉华的路上 我们开车穿过曼哈顿 和刚上飞机的保加利亚孩子它必须像另一个星球。 曼哈顿看起来就像科幻小说 我当时想整个国家都这样吗?", "speaker_id": "vlad", "section_id": "s6"}, {"start_sec": 2191, "type": "text", "zh": "对。每一栋建筑都是保加利亚最高的建筑 仿佛建筑互相竞争,对吧? 在保加利亚没有竞争. 人们没有竞争力。 人们只是移动很快。 我当时想,大家都在赶时间吗? 所以,我想另一个事情是 我是唯一的孩子,我的父母 刚刚开始 他们总是想着如何在他们的职业生涯中前进, 我感觉就像一个平等的伙伴 在几乎。 我的父母会让我坐下 他们说:\"看,弗拉基米尔,你知道,我国签证持有者的地位非常脆弱. 我们随时会被驱逐出境 顺便说一句,你爸爸没赚到钱,所以你要是想上大学,就得拿到奖学金. 你知道,不能指望我们,基本上。 所以,从很早开始, 我就说,\"哦,好吧。\" 你知道,这里的钱很紧 我只是在想那些东西", "speaker_id": "senra", "section_id": "s6"}, {"start_sec": 2256, "type": "text", "zh": "你是独生子 他们从没有其他孩子追你", "speaker_id": "vlad", "section_id": "s6"}, {"start_sec": 2259, "type": "text", "zh": "不是。但他们在跟你说话因为我们的财政状况这是毁灭性的。 对我相信这可能是他们最大的遗憾 你父母还活着吗? 对", "speaker_id": "senra", "section_id": "s6"}, {"start_sec": 2268, "type": "text", "zh": "上帝保佑他们看到你的成功 对他们来说一定很棒 我敢打赌,如果你和他们说话, 他们最大的遗憾可能 无法拥有更多的孩子。 我估计但是他们像成年人一样跟你说话, 我认为这很聪明, 不喜欢隐藏的东西,你知道,说,\"嘿,我们处于严峻的境地。 就像你显然想要更好的生活, 你在这个国家。 你可以看到保加利亚和美国的区别\". 这基本上点燃了你内心的燃料。", "speaker_id": "vlad", "section_id": "s6"}, {"start_sec": 2292, "type": "text", "zh": "对 我也是个很紧要的孩子 我父母买不起保姆,他们都差不多同龄 我喜欢这个想法,就像我们只是 运行街道,只要你想。", "speaker_id": "senra", "section_id": "s6"}, {"start_sec": 2302, "type": "text", "zh": "横扫街道. 我会从公交车站步行回家 到公寓大楼。 起初他们就像敲邻居的门 谁是印度尼西亚家庭 你知道她会让你进来的 她会给你钥匙的 然后他们清楚地意识到 我们的儿子正在经历这种复杂的事件 回家。 我们为什么不只是我们可以信任他的钥匙。 这么说然后你找到电脑,对电脑感兴趣。 当时你几岁?", "speaker_id": "vlad", "section_id": "s6"}, {"start_sec": 2326, "type": "text", "zh": "我大概五六岁真的吗?", "speaker_id": "senra", "section_id": "s6"}, {"start_sec": 2329, "type": "text", "zh": "我爸有时会带我去读研究生", "speaker_id": "vlad", "section_id": "s6"}, {"start_sec": 2337, "type": "text", "zh": "他是马里兰大学的研究生.他在学习什么?", "speaker_id": "senra", "section_id": "s6"}, {"start_sec": 2340, "type": "text", "zh": "经济学。", "speaker_id": "vlad", "section_id": "s6"}, {"start_sec": 2341, "type": "text", "zh": "好。", "speaker_id": "senra", "section_id": "s6"}, {"start_sec": 2341, "type": "text", "zh": "所以,我会挂出 在计算机实验室 你知道他会去上课或什么的。 我第一次用电脑的经验 就是挂在那里,对不对? 但你可以自由统治 做你想做的事", "speaker_id": "senra", "section_id": "s6"}, {"start_sec": 2356, "type": "text", "zh": "当然 对 他不知道怎么用电脑 我也不晓得 他像,\"玩至少在周围玩。 自己想办法\". 我很快就进入了至少在你身上 当然, 瞧, 我开始玩游戏了, 你知道, 想想怎么安装游戏, 因为那里有其他的研究生 他们给我看, 然后说, \"嘿,我能拿软盘吗?\" 然后不知何故,我们没有钱 但是他们决定我们自己买一台电脑是个好主意。 所以,我们得到了一台电脑 也许当我7岁。 我真的很喜欢这个 当然没有互联网 所以,我就像你知道 学习使用终端做这一切。 我是一个相当好的学生。 还有一件事,我父母认为,当时 我有点烦他们 这一点,因为我的朋友 总是在活动,对不对? 他们就像在打棒球 踢球 篮球 踢足球 我的父母基本上就像第一 我们买不起这些东西。 其次,我不知道谁来开车送你 你知道,我们有一辆车, 我们都在工作。 所以,你必须喜欢自己想出。 你知道,你想打电话给你的朋友, 得到一个拼车。 我六岁,所以它只是从来没有发生了 所以我在电脑上经常在家 当我们最终获得了互联网 我打开了雅虎金融 并喜欢创建投资组合。 为什么? 我甚至不知道自己是怎么搞到的 但我确实搞到的,只是...", "speaker_id": "vlad", "section_id": "s6"}, {"start_sec": 2464, "type": "text", "zh": "那么,股票是你的第一个迷?", "speaker_id": "senra", "section_id": "s6"}, {"start_sec": 2464, "type": "text", "zh": "是啊,股票,电脑,和电脑游戏。此时你已经对数学感兴趣了吗? 是的,我想很早的时候,我意识到 我擅长数学,你知道, 这对我来说也很有趣 因为我被扔进美国学校,幼儿园, 不懂英语。", "speaker_id": "vlad", "section_id": "s6"}, {"start_sec": 2488, "type": "text", "zh": "因此,我的第一次经历在某种程度上是令人沮丧的。 就像你进入这个地方, 甚至不说语言。 我甚至不能告诉老师我想要那个玩具。 对吧? 几个月前,我读了我的旧成绩单。 我在幼儿园时找到成绩单 老师都在写我 我读到的这个像弗拉基米尔 他适应了幼儿园 他还没有跟其他孩子说话 有点让我伤心 所以,我就像,伙计, 我和这个半年。 可能是因为我不懂英语 我只是害羞和安静 以", "speaker_id": "senra", "section_id": "s6"}, {"start_sec": 2533, "type": "text", "zh": "我猜一年级毕业时,我学的是高级英语和高级数学。 所以,这是回来的时候,他们会 那种仍然排序的孩子。 你会有天赋的", "speaker_id": "vlad", "section_id": "s6"}, {"start_sec": 2544, "type": "text", "zh": "对 所以,在结束时", "speaker_id": "senra", "section_id": "s6"}, {"start_sec": 2547, "type": "text", "zh": "对 目录,我想在一年里,我从什么都不知道, 没有和任何人交谈到 那种最高级的数学和英语... ...你知道,老师们还不错... 所以我要感受一下轨迹,我想那时我意识到了,我大概是擅长数学、学校和学习。 但是,如果你回去 喜欢你是一个孩子 独自坐在公寓 在你的电脑 建立一个投资组合 关于雅虎金融。 是因为你喜欢, \"嘿,我厌倦了贫穷。 我不想重现我在保加利亚看到的一切你觉得你甚至明白你为什么对金融感兴趣吗? 难道你认为这是一条道路 喜欢变得富有一天 基本上有更大的控制力。” 因为你现在描述的基本上是你的家人 我是说很多家庭 当你回到Mickey Malca的家里时 你知道 得从委内瑞拉来 我觉得他30多岁了 我父亲显然出生在古巴 就像你缺乏自主权,缺乏控制 对有些人就像在压力下崩溃一样 来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来来", "speaker_id": "vlad", "section_id": "s6"}, {"start_sec": 2623, "type": "text", "zh": "对 我觉得那时我很害怕这个下行的案子 如果你知道我们无家可归 或者我无家可归 或者我无法想象这些事情 连我的词汇里都没有你家里没有企业家吧?", "speaker_id": "senra", "section_id": "s6"}, {"start_sec": 2652, "type": "text", "zh": "对 实际上,我爸爸在保加利亚有个创业企业 我太小了,不能算是他耿耿于怀,但是他开始了旅游业。", "speaker_id": "vlad", "section_id": "s6"}, {"start_sec": 2667, "type": "text", "zh": "社会垮台时,旅游量很大.", "speaker_id": "senra", "section_id": "s6"}, {"start_sec": 2670, "type": "text", "zh": "柏林墙一塌糊涂 就有大批游客涌入 他们以前不可能来自西欧 我爸爸会说法语这一观点瑰丽的名字 他们基本上会把法国游客带到保加利亚的遗址周围 那里有很多惊人的历史遗址 旅游业仍然是保加利亚最大的产业. 我认为它可能在破产期间表现良好 因为它依赖于外国资金在\"是啊。\" 规模小,不是技术行业。 他们想买公交车 带人到处逛逛但是,你认为你会得到 当你说好,我甚至不认为 即使真的没有创业 是一条道路 对我来说是当时。", "speaker_id": "vlad", "section_id": "s6"}, {"start_sec": 2717, "type": "text", "zh": "你以为你会在金融领域找份工作吗? 如果你能回去跟弗拉德谈谈 你觉得怎么样? 他以为他会怎么做? 我想我妈妈最理想的印象 我最后会做什么 会得到一个工作 像一个分析师JP摩根 或者什么或上帝禁止高盛。 那会让我妈妈大吃一惊 或者你知道咨询麦肯锡 是的,因为我父母都开始 在世界银行工作。 我爸在大学毕业时 开始在世界银行工作", "speaker_id": "vlad", "section_id": "s6"}, {"start_sec": 2754, "type": "text", "zh": "马里兰州. 所以,他有两个全职工作。 他是一个全日制的研究生, 全职在世界银行, 他 vodkan 支付我们有足够的钱 我妈妈得到一个MBA 在乔治敦 加入世界银行。 他们的职业生涯都在那里。 所以,每个25年。 对 有点有趣 我父母冒着巨大的风险 把整个家庭都连根拔起 搬到这个新国家 我认为当他们来到这里, 他们只是非常专注于稳定。 碞钩и挡", "speaker_id": "vlad", "section_id": "s6"}, {"start_sec": 2788, "type": "text", "zh": "对。就像那只是一个疯狂的经历 让我们只是确保 现在我们在这里, 我们可以呆在这里,你知道 我们可以为我们的儿子提供一个良好的基础。 对 我觉得一开始投资的兴趣是好奇心。 就像我听说过投资。 我在所有的留言板上。 我看见有人谈论它。 我们正处在点潮中 所以它就在这里。 我当然看到,你知道, 报道说,有些人正在赚很多钱。 这很吸引人 不过是的,但那时你可能 13在2000年 类似的东西。 你出生87岁", "speaker_id": "senra", "section_id": "s6"}, {"start_sec": 2824, "type": "text", "zh": "没错。", "speaker_id": "vlad", "section_id": "s6"}, {"start_sec": 2826, "type": "text", "zh": "我在学习,对不对? 对 我有一个模拟的组合 在那段时间里做得非常好。 可能因为一切都很好", "speaker_id": "senra", "section_id": "s6"}, {"start_sec": 2835, "type": "text", "zh": "但后来我爸爸给了我挑战 他说:\"我在为这个测试而学习, 因为我在这个叫做CTY的节目里。 岂知熟识. 基本上,你采取SAT。 这取决于你是如何做的, 他们把你在这个方案 在那里你可以得到 一年的价值数学 在两周。\" 我在做这件事 我想我当时在七年级 我跳过了一个年级 所以我12岁了 他说,\"好吧,如果你得到1300以上 在SAT,我会给你的分数 美元投资。\" 这让我很兴奋 页:1我觉得他做了一件非常聪明的事 因为我刚刚得到它,我结束 我得到了一个1370 在SAT。 所以,他给了我一些钱 投资。 于是,这成为了我真正的投资组合。", "speaker_id": "senra", "section_id": "s7"}, {"start_sec": 2892, "type": "text", "zh": "现在,你没有模拟组合。 你有一个组合。 现在我部署真正的资本。 当然几个月后 市场崩溃了 但不是在我做出明智的举动之前 于是我买了这个3Com公司,它制造了Palm Pilot, 就像第一个PDA个人数字助理。 所以我在3COM里放了一大笔钱 然后就从Palm上掉下来了 所以,我从一个股票到两个股票。 然后,我记得,你知道, 在邮件中得到了一大包股东信息 然后跳过它。 它给了我这种感觉 像我实际上拥有东西,对不对? 即使不是一吨钱, 也 也有一些自豪感。 就像我不仅买了这个东西, 而且我是一个公司的老板。 他们要我投票 他们在乎 我得知道公司重组和附带利益是什么 追踪这个投资组合 我学到了很多对孩子来说是很好的现实教育 从你父亲的这个想法。", "speaker_id": "vlad", "section_id": "s7"}, {"start_sec": 2958, "type": "text", "zh": "我对此与国家非常热衷 对 你知道,我开始 交易相当多。 我让Nvidia很早。我所有的遗憾 一直,对不对?", "speaker_id": "senra", "section_id": "s7"}, {"start_sec": 2970, "type": "text", "zh": "不是。【笑声】", "speaker_id": "vlad", "section_id": "s7"}, {"start_sec": 2970, "type": "text", "zh": "售价为25美元. 因为他们制作的图形卡。 对 我喜欢你一个玩家。", "speaker_id": "senra", "section_id": "s7"}, {"start_sec": 2977, "type": "text", "zh": "我喜欢游戏。", "speaker_id": "vlad", "section_id": "s7"}, {"start_sec": 2980, "type": "ad_omitted", "ad_brand": "Deel", "section_id": "s7"}, {"start_sec": 3052, "type": "text", "zh": "让我问个问题 我听到你之前说过 你发现创业令人陶醉", "speaker_id": "senra", "section_id": "s7"}, {"start_sec": 3056, "type": "text", "zh": "对 现在,我无法了解你是否更喜欢金融, 是因为你已经建立了一个企业, 方便人们进行交易, 或者你更喜欢你的创业, 比如在你的大脑,创业或投资中占据主导地位。", "speaker_id": "vlad", "section_id": "s8"}, {"start_sec": 3074, "type": "text", "zh": "我认为这是一个有趣的问题。 我只有这些 是啊,如果碧珠是我的Robinhood联合创始人, 没有打电话给我,说服我一起创办我们的第一个公司, 情况会如何, 这总是很难想象。 有很多相互竞争的力量 因此,在我成为企业家之前,我是一个数学研究生。 我觉得我和数学的关系很长 而且有点折磨人 所以从我上幼儿园开始, 很明显我擅长数学。 我就像数学界的顶尖学生我的课。 我开始得到所有这些积极的强化。 好吧,做更多的数学。 夏时行. 两周后算一年的数学 它变成了一个自我特惠的循环, 在那里,我将努力爬上阶梯 一直到成为一个数学博士生 在加州大学洛杉矶分校学习 这个家伙Terrence Tao, 许多人认为是最伟大的 活着的数学家 如此高的等级, 所以我是数学研究生 我的第一个读研究生一个月,你就要开始全球金融危机了。 尽管我去过斯坦福, 我并没有真正进入创业圈。 那时斯坦福并没有像今天这样 以企业家为中心。 就像头号专业不是计算机科学 很多人都想投身金融界 但就像你认识戈德曼 JP Morgan一样 我并不真正在那些圈子里 我比较在数学和物理领域 研究圈, 我的数学和物理朋友不太能工作。 这就像前数据科学,前AI。 每个人都是雇佣计算机科学家。 所以,我也处于一个奇怪的境地, 没有一吨有吸引力的工作选择。 喜欢,我没有得到一吨的工作面试。 我去过加州大学洛杉矶分校 因为这是最好的选择 默认的选择 继续算 我拿了18000元做研究生 去洛杉矶玩吧,我们都知道这是非常好的, 但是如果你是超级穷人,那就不是个很好的地方。 说清楚,当时我有点漂流 然后我进入了研究生院 我看到所有这些移民逃离了他们的国家,这是他们的时刻。 所以他们一直在做数学, 你知道,他们不会出去。 他们只是睡觉,吃饭,去上课,做数学。 然后,我记得在想自己,伙计, 如果我不是这样的, 我甚至在做什么? 喜欢,没有办法,我要去, 你知道,出 这些人竞争 越来越多的后托位置。 我问了很多我自己的问题 比如,我甚至想要吗? 那是我想要的生活吗? 陶哲轩,世界上最伟大的数学家 也许世界上有20个人能够理解Terrence Tao的论文。 所以,并不是在课堂上你学到的东西, 你知道,高斯,雷曼,所有这些伟大的数学家, 每一个孩子都学会他们的工作。 现在猿人很少读到这些东西 那时我开始问自己 这就像数学梯子 引导我到一个好地方,我意识到没有。 那种为学习而学习 进步和发现的浪漫思想 与现实相冲突 而这就像最糟糕的职业和工作之一我甚至没有谈论处理 像大学的行政 和所有的官僚。 那时雷曼兄弟在下台 你和我的创始人碧珠 也是数学和物理学家 所以我们为他在马林县的对冲基金 找了份工作那家公司会做什么基本上,他是受雇于这个对冲基金 进行专有交易。 所以,它不是真的 一个对冲基金。 是一家专营贸易公司 他们用计算机算法交易策略 来交易所有者的资本 基本上,他们有 几个交易赚钱。 其中之一是所谓的内部列表ARB, 这是有史以来最简单的策略。 基本上,它的工作方式是 你有一个股票 交易在加拿大。 英特尔说,然后它也在纽约交易你们之间有一条快速的线。 这么说你只是靖边买到更便宜的地方,再卖到更贵的地方,你试着,你知道的,尽可能减少两者之间的空闲,这样你就可以少滑了. 这家公司在多伦多和纽约之间有一条很快速的线路 所以他们利用这个交易赚了很多钱。 还有几家其他的 类似这个近距离交易的市场 直接把它交易了 它会买下失衡的走向接近。 因此,它会交易 5分钟在一天结束时。 而这又是一场全速比赛. 他给我打电话了 他说,\"你看,我是受雇于这里是第一名 我可以看到所有的商人。 我可以看到所有的工程师。 他们运行在Windows机器上. 他们抓走了Java. 一个贸易跳过30台机器,然后被送到交易所。 所以最初我们开始的想法是 我们可以只是喜欢压缩吗? 我们能做一台机器吗? 我们可以运行Linux? 我们可以用C而不是Java吗? 也许我们把30毫秒的休息时间 降到10毫秒 如果这是一个速度游戏, 你知道,那应该赢。但等一分钟,我们到达那里, 像想法外,考虑一下。 就像从我身上跳下来那样说 保守的家庭教育 就像你父母冒了巨大的风险 来到美国 但一旦他们来到这里 他们就会说 \"我们基本上要坚持一个事业差点 我不知道他们是否认为你, 你知道,只是得到一个正常的工作。 你刚刚有你妈妈的目标 就像只是去工作 高盛或JP摩根。 这是真棒。“就像你只是中产阶级生活, 也许中产阶级上层,也许你省了很多钱, 你是一个数位百万富翁 在几年内,无论什么情况, 但你从这 是一个地狱跳跃 从数学研究生 到企业家 当你从来没有经营过公司。 当然", "speaker_id": "vlad", "section_id": "s8"}, {"start_sec": 3503, "type": "text", "zh": "你做到了,你做到了。 你做到了。 所以,解释一下你是如何做决定的。 说清楚是个艰难的决定。 我与它摔跤了一点点。 我真的想这么做吗?", "speaker_id": "vlad", "section_id": "s8"}, {"start_sec": 3511, "type": "text", "zh": "我当时很幸运 我第一年就过了 所以,你知道,你大一之后的夏天 或你第一年, 典型的你 是学习你的夸尔。 所以数学系付你钱 让你学习 一切都做好了 考试的准备 所以,基本上,我被付钱 什么都不做。 因此,这是一个机会 聚在一起,黑客的东西,对不对? 我们租了一个小地方 在南方使团。 我,碧珠和另一个孩子,安德鲁・雅莫拉, 他也是斯坦福数学系的 而且,我们得到了这个地方南方传教团,不是一个伟大的社区, 但有点乐趣。 我们就像,建设贸易系统。 那是夏天的目标 然后,我的计划总是 总结一下夏天末的事情, 看看我们取得了多大的进展, 基本上,我们几乎没有取得什么进展, 但是,我们玩得很开心,我有点想看清楚。 于是我们打算建造这些东西 然后我们打算去纽约 找出如何部署和交易", "speaker_id": "vlad", "section_id": "s8"}, {"start_sec": 3587, "type": "text", "zh": "对 如果你只是说我不满意 我在做什么,现在你玩得很开心 不赚钱。 对 碞钩ê妓碞镑所以没有更有趣 有足够的理由看来我没冒险对你说实话 因为另一种选择这不像我 必须杀死它 在谷歌的 的确工作用以支付每年18000美元一年赚18 000如果这样不行的话 我可能会再找份一年赚一万八千元的工作我其实很担心 于是到户部副使,请假.", "speaker_id": "senra", "section_id": "s8"}, {"start_sec": 3628, "type": "text", "zh": "嗯。我当时想,“好吧,我想有一个安全网。 我不会在这里傻的 我要去找副会长,请假一年。” 我就像咬掉指甲来谈这个 我仍然生动地记得它 因为我计划了我的决定树 我很喜欢,如果他告诉我 他不会批准它,我可能 退后,哇。继续念研究生 是那个俄国人Dimash Latenko 几年前,我被邀请参加加州大学洛杉矶分校的数学课 而迪马什·拉腾科是当时的部门主席. 所以,我们吃了这个晚餐 而我想,", "speaker_id": "vlad", "section_id": "s9"}, {"start_sec": 3676, "type": "text", "zh": "\"你告诉我,你还记得那次谈话吗?这改变了我的生活轨迹", "speaker_id": "senra", "section_id": "s9"}, {"start_sec": 3677, "type": "text", "zh": "\"改变了我的生活轨迹\" 他喜欢,他是一个他喜欢, \"那个对话改变了 它是非常难忘的。 我为你感到非常骄傲\". 所以,他,我走进他的办公室,他说:\"先生,你想当商人,是吧? 【笑声】 我像你这么大的时候 也想做生意 祝你们好运 你做它,我们会有位置 为你,如果它不工作。", "speaker_id": "vlad", "section_id": "s9"}, {"start_sec": 3703, "type": "text", "zh": "哦,这是真棒。", "speaker_id": "senra", "section_id": "s9"}, {"start_sec": 3704, "type": "text", "zh": "所以我想,伙计,这家伙只是是啊。 只是你知道,给我是的,安全网。 所以,我觉得很好。", "speaker_id": "vlad", "section_id": "s9"}, {"start_sec": 3711, "type": "text", "zh": "你看过伊隆的传记吗?他们中的一些人。 对", "speaker_id": "senra", "section_id": "s9"}, {"start_sec": 3717, "type": "text", "zh": "对 他有一个故事 他在其中之一。 我觉得我读过的所有关于他的东西 我认为他在那里 在研究生院。 我忘了他在某所学校的事 他说\"我要请假\" 那个人对他说:\"你永远不会回来了\" 然后他说,\"他是对的\"", "speaker_id": "vlad", "section_id": "s9"}, {"start_sec": 3729, "type": "text", "zh": "对。【笑声】我觉得他离开去做\"二号\"了 如果我记得正确的话", "speaker_id": "senra", "section_id": "s9"}, {"start_sec": 3734, "type": "text", "zh": "我走了个跳跃的缺席。 我们把所有的服务器和我们所有的东西 放在我1998年的Infiniti Q45号船的后面 从洛杉矶开到纽约市 第一年,我们 有点打转,说实话。 试试看 他们没有真正工作。 然后,一年来了, 然后我记得有这个谈话 与我妈妈。 当时我住在布鲁克林 就像我们租的烂公寓 浴室在厨房里", "speaker_id": "vlad", "section_id": "s9"}, {"start_sec": 3770, "type": "text", "zh": "非常卫生。", "speaker_id": "senra", "section_id": "s9"}, {"start_sec": 3770, "type": "text", "zh": "对 对 我妈妈会来看我 然后她哭了 她说,\"伙计,我的儿子,数学天才,我的儿子去了斯坦福大学 首先,他去了斯坦福,然后我非常羞愧地告诉人们,他然后去了加州大学洛杉矶分校,因为你知道", "speaker_id": "vlad", "section_id": "s9"}, {"start_sec": 3791, "type": "text", "zh": "斯坦福,每个人都知道你得解释一下 加州大学洛杉矶分校 拥有一个非常强大的纯数学系的细微差别 但从表层来看 感觉就像至少我父母的低调 他们喜欢,\"你会回到加州大学洛杉矶分校?\" 他们知道,你知道,我的一年。 我说, \" 不。 我玩得很开心 这是真棒。 谁在乎我们不成功?\"", "speaker_id": "senra", "section_id": "s9"}, {"start_sec": 3827, "type": "text", "zh": "再说一遍 谁在乎我们不成功? 你说你开始创业的时候 甚至在成功之前就发现创业很醉?", "speaker_id": "senra", "section_id": "s9"}, {"start_sec": 3836, "type": "text", "zh": "对 所以我认为跛脚创业的第一个经验 几乎是数学的最好部分, 但没有数学的最好部分, 数学的最好部分是,只有你,你的思想,也许是一个粉笔板。 现在它是一个计算机, 但那时它只是你,你的思想,一个沙发, 你可以只是取得进步, 你实际上不用依赖任何其他人。 当然,当你把数学变成一个职业, 它不再是因为你必须去上课, 你必须教书,TA,处理部门,行政, 所有这一切。是啊,这有点类似的方式。 只是你电脑,你在写代码,也许你有生意 企业能创造收入。 人们想要你写的代码, 但中提出的就像所有在你控制下, 没有老板,你知道, 没有人,没有人你必须处理。 所以这是我第一次体验, 我发现那部分令人陶醉, 现在,我最终认为它变得很重要 为我们谋生。 所以,为了创业,创业 持续了我至今, 然后它开始 你知道,我们真的能 创立一个企业,创造我们自己可以维持的收入 而在我不得不做决定的时候,我们并不在那里 但我确实感到乐观 我们将要到达那里, 所以6个月后,我们有一个企业 创造收入, 所以,我们有种 即兴的我们的方式 做生意。 对 它得到的可能是200万的收入。 我们雇了一个小队 我们盈利,成长。 我们有一个路径 1000万左右的收入。 然后我开始我的第二个进化", "speaker_id": "vlad", "section_id": "s10"}, {"start_sec": 3958, "type": "text", "zh": "作为一个企业家。 首先是从为了创业而享受创业,到有一个能养活我的可持续企业,你知道我的联合创始人和我们的雇员。 第二道门是好的,我可以把这个生意从100万发展到1千万,也许可以达到1亿,但如果50年后我不得不回顾我的生活,我会为我所做的一切感到骄傲吗? 我是否会觉得自己为世界和社会做出了积极的贡献并产生了影响? 我们出售软件给那些已经很富有的基金 并让它们,你知道,交易一点点速度更快,效率更高。 我的共同创始人和我 都意识到, 如果有什么, 这是达到目的的手段。 就像我们没有看到自己 只是做这个生意", "speaker_id": "vlad", "section_id": "s11"}, {"start_sec": 4017, "type": "text", "zh": "我喜欢你把自己想象成一个老人 来回顾你明确表示", "speaker_id": "senra", "section_id": "s11"}, {"start_sec": 4020, "type": "text", "zh": "对。", "speaker_id": "vlad", "section_id": "s11"}, {"start_sec": 4022, "type": "text", "zh": "我想我听到你说这就像一个遗产测试。 我真的想花30到40年的时间做这个吗? 就像你会走到最后一样,你喜欢,我有点浪费了我的生命。 这让我想起了史蒂夫·乔布斯从百事公司招募约翰·斯卡利时的著名谈话. 他喜欢,你想继续卖糖水 还是你想和我一起去改变世界? 喜欢它非常迷人, 但我认为这个想法 我爱,也许我错了,但喜欢看看你在做出什么样的职业选择, 你能够建立的企业 因为你是一个企业家, 你可以建立任何你想要的企业。 就像看着一样,我会花 在接下来的30到40年 我这样做,如果答案是否定的,你应该停止。 我认为我之所以喜欢数学 是因为这个想法,就像做一个基本的发现。 也许如果你做一个根本的发现, 真正的大最终 每个孩子会知道它,对不对? 不仅在历史书里,每个孩子都喜欢学习技术在学校。 这让我很兴奋,因为你既有创造力 将新的事物带入这个世界, 我自然觉得它很有趣, 也有影响,你知道它会影响数百万人, 我想这就是我对Bea成为Robin Hood的想法感到兴奋的原因。 它既像一种创造行为, 一些全新的,根本上不同的事物, 也可能像大规模 能够改变亿万人民生活的东西。 回到我们讨论开始的地方更把自己当成企业家 与投资人的成功相比, 创业者的成功让你更满意。 你是指金融公司的创始人吗?", "speaker_id": "senra", "section_id": "s11"}, {"start_sec": 4141, "type": "text", "zh": "没有 对 我的意思是,你投资也一样,但就像是 清楚的从我们的讨论, 特别是你刚刚包装它漂亮。 这就像你认为自己 作为一个企业家。 你读过迈克尔·布隆伯格的自传吗?", "speaker_id": "vlad", "section_id": "s11"}, {"start_sec": 4153, "type": "text", "zh": "我没有在处理 没有在处理。", "speaker_id": "senra", "section_id": "s11"}, {"start_sec": 4153, "type": "text", "zh": "好吧,我告诉你。 他当时是金融界人士,当他被开除时,我想从萨洛蒙兄弟那里, 我想是20世纪80年代那样的事情。 他有一个1500万美元的金色降落伞, 这在当时是一吨钱。 自从他投身于金融界以来,每个人都想, “好吧,你只要拿下那些钱,做投资者。” 他只说:\"不,我想做点什么. 我想建立一个真正让他人生活更美好的企业。” 反复谈论他的自传. 这正是你刚刚告诉我们的故事。", "speaker_id": "vlad", "section_id": "s11"}, {"start_sec": 4176, "type": "text", "zh": "对玄妙,我想金融方面真的融入了我的成长和身份, 这也是为什么我关心它,我关心我们的客户。 这个世界的变化非常迅速 我的意思是,你有AI, 它真的改变的东西为积极。 还让人很紧张 但有一件事是没有改变的,我相当有信心的是,拥有资金,投资,产生被动收入的重要性. 我认为这从来没有比现在更重要。 弗拉德,你把讨论 在一些领域 我无法表明我们本来要去的。 我甚至没有得到一半的东西 我想跟你谈谈。 所以,我几个月后会回来 然后我们真的要 做弗拉德的工作。 但是,这是真棒,伙计。 谢谢你抽空来 贡举志五种 上. 希望你喜欢这集 请记住,无论你在哪里听 并留下评论。 确保你听另一个播客,创始人, 将近十年。 我沉迷于阅读了400多部历史最伟大的企业家的传记, 寻找你们可以用来工作的想法。 你听到的多数客人 都先通过创始人找到我", "speaker_id": "senra", "section_id": "s11"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

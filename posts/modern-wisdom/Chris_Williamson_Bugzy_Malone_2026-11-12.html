@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>「为了内心平静，谁都可以切断」——巴格兹·马龙</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="chris">克里斯·威廉姆森（Chris Williamson）</option><option value="bugzy">巴格兹·马龙（Bugzy Malone）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Chris Williamson</span><span class="pill">2026-11-11</span></div>
+<h1>「为了内心平静，谁都可以切断」——巴格兹·马龙</h1>
+<p class="sub">嘉宾：巴格兹·马龙（Bugzy Malone） · 约 14 分钟（815 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=qz-o0yyxgk4" target="_blank" rel="noopener">https://www.youtube.com/watch?v=qz-o0yyxgk4</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Chris Williamson</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-11</dd></div><div class="meta-row"><dt>时长</dt><dd>约 14 分钟（815 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>无官方字幕（dump-json 显示 subtitles 为空，仅有 automatic_captions en / en-orig）。普通 yt-dlp --write-subs（player_client=android,tv）遇「Sign in to confirm you’re not a bot」；同批 cookies 路径（chrome:/home/box/chrome-profile/Fork-3）遇「The page needs to be reloaded」。随即用普通 yt-dlp dump-json（player_client=android,tv，无 cookies）取出 automatic_captions en-orig timedtext VTT 并成功下载（24808 字节）。caption_source=yt-dlp-auto / auto-generated，不是 yt-dlp-chrome-cookies，也不是 browser-cdp。中文为全文通顺改写并按话题分段；说话人按标题/简介、问答轮次与自动字幕 &gt;&gt; 标注（克里斯主持 + 巴格兹·马龙），把握中等偏高。广告已标灰：节目订阅提醒、LMNT。</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>qz-o0yyxgk4</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>巴格兹·马龙和克里斯讨论“有毒燃料”：靠树敌、恐惧和对抗来逼自己变强，短期有效，长期是拐杖；真正的燃料来自爱，以及为了内心平静而切断不负责任的人。克里斯用慢性炎症反应综合征（CIRS）来比喻心理免疫系统。</p>
+<h3>核心要点</h3><ul><li>有人为了维持动力会凭空“制造敌人”；巴格兹觉得 50 Cent 也有这个问题，但声明不想评论别人的路，只讲自己。</li><li>街头威胁和拳击赛会把最坏结局摆到眼前，从而逼出早睡、加练、认真赚钱的另一个自己；进入娱乐圈后界限模糊，他也承认自己挑动过这种燃料。</li><li>这是在“种植”外部能量，也是拐杖；他主张过一段隔离期（克里斯称之为 winter arc），学会向内找本质，真正的燃料是爱。</li><li>12 岁看纪录片《当时我们是国王》里的丛林大战，在失能家庭和自杀念头中抓住灵感；他为“外面那个孩子”坚持，免得让他失望。</li><li>为了内心平静可以切断任何人；歌《Prisoner》里他问自己是否变冷，遇见愿意担当的人时才发现心里其实有很多爱，只是会被熟悉的破坏性特质触发。</li><li>克里斯用 CIRS（霉菌等生物毒素导致的慢性炎症反应综合征）类比：即使剂量远低于从前，熟悉的危险模式仍会立刻拉响心理免疫系统。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看。这是约 13 分半的对话切片，密度高，把“靠恨和怕驱动自己”讲清楚了，后半段断亲和 CIRS 类比也很具体。不是 2026-11-09 那期完整长访谈（VyqLmiZSLG4，约 2 小时），而是同一嘉宾的独立短片，主题完整，不必当预告片跳过。</p>
+<h3>适合人群</h3><p>对自我驱动、边界感、原生家庭议题感兴趣的人；听过克里斯·威廉姆森或巴格兹·马龙、关心创造性工作与心理健康的人。</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">有毒燃料耗尽之后：有人会凭空“制造敌人”</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯开场就问：有多少人能在扔掉一开始那罐“有毒燃料”之后，还继续追求精通？油箱用空了怎么办？这种燃料可以继续烧，但时间一长就是有毒的。巴格兹接了一句：那就还得再去生产更多这种燃料。克里斯完全同意，并说他最近认识几个人，几乎是在“制造敌人”——很多局面本来根本不需要那么大的摩擦、较劲、对立和分歧，敌人是凭空捏造出来的，只为了给自己找一个可以顶上去的对象。巴格兹承认自己也做过这种事。克里斯把那种心态说出来：我要给自己树一个敌人，好补充我担心正在耗尽的燃料。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">50 Cent、街头与拳击：把最坏结局摆到眼前</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">巴格兹说他觉得 50 Cent 也有这个问题，但立刻声明自己没有兴趣评论别人的路，只是观察。克里斯问他树过哪些敌人、自己不太清楚这段圈内典故。巴格兹改谈自己：在街头会有可怕的人，只要有机会就想把你从世界上抹掉；嫉妒、仇恨、愤怒会把人体内的某种东西点燃。拳击馆也一样——教练说给你安排了比赛、对手打过多少场，这是真要上台的。脑子里会出现一个终点：最坏情况可能发生，你会输，输了可能丢掉身份和自尊，赌注太大，这会逼出另一个自己：多跑一圈、早睡、睡前读书。他在街头也经历过：跟可怕的人有了过节，就会更认真地赚钱，因为不能永远待在那种环境里。他承认，进入娱乐圈后界限变模糊——“我是个说唱歌手”到底意味着什么，得自己搭一套框架——自己也试图主动去生产这种有毒燃料。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">在演艺圈里主动挑起敌意，把自己变成“准备好的人”</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯追问：所以你是自己制造了敌人和对峙。巴格兹说那些人其实也在，只是没有从前最糟的对手那么“有戏”。尊严并不真的押在他们身上，你也并不在乎他们怎么说你；但你可以打开那个开关——他到底说了什么？——然后想象：要是碰到他，他因为我有名就要动手，而我却没认真对待自卫。于是那个自己就出现了：体格练结实、注意力集中、睡前还在读书。外面确实有很多嫉妒的人，也有人对他说过的话、做过的事不满。有些时候他会专门去看这些人在想什么，自己刺激自己，让自己有点紧张：他在外面，只要有机会就会找我麻烦。好，那就变成那个为这场挑战做好准备的自己。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">这是在“种植”能量，也是拐杖；要过一段隔离期</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯说他能看到两边：一方面这是免费燃料，逼你把自己逼得更狠、变得更好；另一方面，你是在凭空给世界制造对立。巴格兹说，本质上你是在“种能量、收能量”，但这也是拐杖——你在依赖外部的东西来产生能量。克里斯把它跟巴格兹先前的说法对上：即使身边没有人给你打气、告诉你可以更好，你也希望能把自己做到最好。巴格兹认为，人必须过一段隔离期，这件事被说得太少。克里斯随口接：眼下正要入冬，就是所谓的 winter arc（冬日充电期），对吧？巴格兹说对，而且要相信自己能走出来；在那段时间里会放下所有拐杖。他不需要某个巴不得跟他过不去的人——那种人得利、他受损——也不需要靠这种燃料才能起床、去健身房搬铁，或去对练、真正放开打。要学会向内看，不去取有毒燃料，而去找真正的燃料，也就是你的本质。真正的燃料，其实来自爱。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">12 岁看《当时我们是国王》：爱，以及不能让那个孩子失望</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">巴格兹解释自己为什么在意使命：他记得 12 岁那年，看着纪录片《当时我们是国王》，穆罕默德·阿里和乔治·福尔曼要在扎伊尔打“丛林大战”。当时他被彻底的失能和混乱包围，拼命寻找灵感来源，那部片子在很大程度上成了他的养料。那些时候他脑子里有过自杀的念头，处在很黑暗的地方。从爱出发，去接通那种充沛的爱的能量。他知道外面还有那样的孩子，会从他接下来做的事里汲取力量，所以这就够了——如果他掉队，就是让那个孩子失望。他说，自己可能因此救过一条命。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">为了内心平静切断任何人，以及《Prisoner》里的自我拷问</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">巴格兹说，家庭非常失能时，内心会有一场拉扯：你必须放下一些人，然后会问自己是不是不再有爱、是不是变冷了。他有一首歌叫《Prisoner》，歌词里就在写：我害怕自己已经冷了。那像是在这首歌里写日记。一问这个问题，就得重新看自己和他人的关系。他真的愿意为了保住内心平静而切断任何人，不管对方是什么身份、什么头衔——你不承担责任、撒谎、不尊重，他就会把你留在那边，继续走自己的路。可当他遇到一个愿意担当的人，或同样出身失能家庭、却把自己训练出来的人，才会看清心里到底有什么：结果是心里其实有很多爱，也比自己以为的更开放。他只是会被某些特质触发——那些跟他成长时接触过、也亲眼见过其破坏力的人很像。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">心理免疫系统：用 CIRS（慢性炎症反应综合征）来类比</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯给出自己的解释：有一种病叫 CIRS，即慢性炎症反应综合征。如果住在有生物毒素的房子里，比如霉菌和微生物，免疫系统会慢慢学会把它们当成威胁，自身也被一点点削弱。一旦再暴露在类似环境里，免疫系统几乎立刻打开，像警报：这很熟，而且危险。就算已经离开有毒环境 12 个月，再走进一栋有类似霉菌孢子的房子，仍可能脖子发红、身体发炎、耳鸣、脑雾，甚至想吐——立刻启动。身体学会了：一种既熟悉又危险的病原体又出现了。他认为巴格兹说的情况与此相似：你认识那种原型、那种心态和世界观，于是一套“心理免疫系统”会启动——如果跟这种人待太久，我可能会退回去。这不一定完全有意识。克里斯说自己也看到过，童年里印进“源代码”的模式，比如赌博、出轨、不管孩子、靠酒精处理问题，他绝不想再要。有时还会错误地模式匹配：就像 CIRS，你走进一栋楼，剂量可能只有从前的千分之一、百分之一，免疫系统还是立刻打开，因为它在找那个曾经可能毁了健康、毁了人生路径的东西。他在某个人、某段关系、某种动态里，看到一个非常不想再进去的世界，而且它熟得让心理免疫系统喊：赶紧离开。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">克里斯·威廉姆森（Chris Williamson）<em>主持</em></span><span class="spk-1">巴格兹·马龙（Bugzy Malone）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>有毒燃料耗尽之后：有人会凭空“制造敌人”</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>我很关心一件事：有多少人能在扔掉一开始那种有毒燃料之后，还继续追求精通。油箱耗尽了怎么办？你可以继续用这种燃料，但时间一长，它就是有毒的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="bugzy"><div class="label"><span class="badge" title="巴格兹·马龙（Bugzy Malone）">巴格兹</span></div><div class="content">
+<p>那是因为你接下来还得再去制造更多这种燃料。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>完全同意。我最近认识几个人，基本上是在“制造敌人”。很多事情本来根本不需要那么大的摩擦、较劲、对立和分歧。这些敌人是凭空捏造、拼凑出来的，只是为了让自己有个东西可以去顶、去较劲。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="bugzy"><div class="label"><span class="badge" title="巴格兹·马龙（Bugzy Malone）">巴格兹</span></div><div class="content">
+<p>说得很精巧。我也做过这种事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>就是那种心态：我要给自己树一个敌人，好补充我担心正在耗尽的燃料。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>50 Cent、街头与拳击：把最坏结局摆到眼前</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="bugzy"><div class="label"><span class="badge" title="巴格兹·马龙（Bugzy Malone）">巴格兹</span></div><div class="content">
+<p>我觉得 50 Cent 也有这问题。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>他树过哪些敌人？我不太清楚这段圈内典故。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="bugzy"><div class="label"><span class="badge" title="巴格兹·马龙（Bugzy Malone）">巴格兹</span></div><div class="content">
+<p>不过，我没有兴趣去评论别人的路，这只是观察。我只讲自己懂的事，也能对上一些相似之处。在街头，会有那种可怕的人，只要有机会就想把你从世界上抹掉。出于嫉妒、仇恨、愤怒，不管什么原因，它会把你体内的什么东西点燃。拳击馆里也一样：教练说给你安排了一场比赛，对手打过多少场，这是真的要上台。你脑子里会出现一个终点——最坏的情况可能发生：你会输，输了可能丢掉身份、丢掉自尊。赌注太大，这会逼出另一个自己。你会多跑一圈，会早睡、睡前读书。我在街头也经历过：跟一个可怕的人有了过节，你会更认真地赚钱，因为你不能永远待在那种环境里。所以我承认，自己也试图主动去生产这种有毒燃料。等到进入娱乐圈的职业生涯，界限就模糊了——我是个说唱歌手，那到底意味着什么？你得自己搭一套框架。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>在演艺圈里主动挑起敌意，把自己变成“准备好的人”</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>所以你是自己制造了敌人和对峙，因为——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="bugzy"><div class="label"><span class="badge" title="巴格兹·马龙（Bugzy Malone）">巴格兹</span></div><div class="content">
+<p>那些人其实也在，只是没有从前那些最糟的对手那么“有戏”。其实你的尊严并不真的押在上面，你也并不在乎他们怎么说你。但你可以打开脑子里的那个开关：他到底说了什么？然后你就会想象：要是碰到他，他因为我有名就要动手，而我却没认真对待自卫……于是那个自己就出现了：体格练结实了，注意力集中，睡前还在读书。外面确实有很多嫉妒的人，也有人对我说过的话、做过的事不满。有些时候我会专门去看这些人在想什么，自己刺激自己，让自己有点紧张：他在外面，只要有机会就会找我麻烦。好，那就变成那个为这场挑战做好准备的自己。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>这是在“种植”能量，也是拐杖；要过一段隔离期</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>你怎么看？我能看到两边。一方面，这是免费燃料，逼你把自己逼得更狠、变得更好；另一方面，你是在凭空给世界制造对立。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="bugzy"><div class="label"><span class="badge" title="巴格兹·马龙（Bugzy Malone）">巴格兹</span></div><div class="content">
+<p>本质上，你是在“种能量、收能量”。但这也是拐杖——你在依赖外部的东西来产生能量。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>这跟你刚才说的一样：你希望即使身边没有人给你打气、告诉你可以更好，你依然能把自己做到最好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="bugzy"><div class="label"><span class="badge" title="巴格兹·马龙（Bugzy Malone）">巴格兹</span></div><div class="content">
+<p>你得过一段隔离期，这件事说得太少了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>眼下正要入冬，就是所谓的 winter arc（冬日充电期），对吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="bugzy"><div class="label"><span class="badge" title="巴格兹·马龙（Bugzy Malone）">巴格兹</span></div><div class="content">
+<p>对。而且要相信自己能走出来。在那段时间里，你会放下所有拐杖。我不需要某个巴不得跟我过不去的人——那种人得利、我受损。我不需要靠这种燃料才能起床、去健身房搬铁，或去对练、真正放开打。你要学会向内看，不要去取有毒燃料，而去找真正的燃料，也就是你的本质。真正的燃料，其实来自爱。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>12 岁看《当时我们是国王》：爱，以及不能让那个孩子失望</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="bugzy"><div class="label"><span class="badge" title="巴格兹·马龙（Bugzy Malone）">巴格兹</span></div><div class="content">
+<p>我为什么在意自己的使命？因为我记得 12 岁那年，看着纪录片《当时我们是国王》，穆罕默德·阿里和乔治·福尔曼要在扎伊尔打“丛林大战”。我当时被彻底的失能和混乱包围，拼命寻找灵感来源。那部片子在很大程度上成了我的养料。那些时候我脑子里有过自杀的念头，处在很黑暗的地方。从爱出发，去接通那种充沛的爱的能量。我知道外面还有那样的孩子，他会从我接下来做的事里汲取力量。所以这就够了——如果我掉队，就是让那个孩子失望。我可能因此救过一条命。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>为了内心平静切断任何人，以及《Prisoner》里的自我拷问</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="bugzy"><div class="label"><span class="badge" title="巴格兹·马龙（Bugzy Malone）">巴格兹</span></div><div class="content">
+<p>我觉得，当你的家庭非常失能，内心会有一场拉扯：你必须放下一些人。然后你会问自己：我是不是不再有爱了？我是不是冷了？我有一首歌叫《Prisoner》，歌词里就在说：我害怕自己已经冷了。那像是在这首歌里写日记，问自己这个问题。一问，你就得重新看自己和他人的关系。因为我真的愿意为了保住内心平静而切断任何人，不管对方是什么身份、什么头衔。你不承担责任、撒谎、不尊重，我就会把你留在那边，继续走自己的路。可当你遇到一个愿意担当的人，或者同样出身失能家庭、却把自己训练出来的人，你才会看清心里到底有什么——结果我心里其实有很多爱。我比自己以为的更开放。我只是会被某些特质触发：那些跟我成长时接触过、也亲眼见过其破坏力的人很像。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>心理免疫系统：用 CIRS（慢性炎症反应综合征）来类比</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>你知道我为什么觉得会这样吗？有一种病叫 CIRS，慢性炎症反应综合征。如果你住在有生物毒素的房子里，比如霉菌和微生物，免疫系统会慢慢学会把它们当成威胁，也在被一点点削弱。一旦再暴露在类似环境里，免疫系统几乎立刻打开，像警报：这很熟，而且危险。就算你已经离开有毒环境 12 个月，再走进一栋有类似霉菌孢子的房子，脖子会发红、身体发炎、耳鸣、脑雾，可能还想吐——立刻就启动。身体学会了：一种既熟悉又危险的病原体又出现了。我觉得你说的情况有点像。你认识那种原型、那种人、那种心态和世界观。于是一套“心理免疫系统”会启动：如果跟这种人待太久，我可能会退回去。这不一定是完全有意识的，但我自己也看到过。童年里印进“源代码”的模式——赌博、出轨、不管孩子、靠酒精处理问题——我绝不想再要这些。有时甚至会错误地模式匹配：就像 CIRS，你走进一栋楼，剂量可能只有从前的千分之一、百分之一，免疫系统还是立刻打开，因为它在找那个曾经可能毁了你健康、毁了你人生路径的东西。我在这个人、这段关系、这种动态里，看到一个我非常不想再进去的世界，而且它熟得让心理免疫系统喊：赶紧离开。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：订阅提醒]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：LMNT]</span></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Chris Williamson", "title": "「为了内心平静，谁都可以切断」——巴格兹·马龙", "url": "https://www.youtube.com/watch?v=qz-o0yyxgk4", "videoId": "qz-o0yyxgk4", "published_at": "2026-11-11", "duration": 815, "caption_source": "无官方字幕（dump-json 显示 subtitles 为空，仅有 automatic_captions en / en-orig）。普通 yt-dlp --write-subs（player_client=android,tv）遇「Sign in to confirm you’re not a bot」；同批 cookies 路径（chrome:/home/box/chrome-profile/Fork-3）遇「The page needs to be reloaded」。随即用普通 yt-dlp dump-json（player_client=android,tv，无 cookies）取出 automatic_captions en-orig timedtext VTT 并成功下载（24808 字节）。caption_source=yt-dlp-auto / auto-generated，不是 yt-dlp-chrome-cookies，也不是 browser-cdp。中文为全文通顺改写并按话题分段；说话人按标题/简介、问答轮次与自动字幕 \u003e\u003e 标注（克里斯主持 + 巴格兹·马龙），把握中等偏高。广告已标灰：节目订阅提醒、LMNT。", "guests": ["巴格兹·马龙（Bugzy Malone）"], "speakers": [{"id": "chris", "name": "克里斯·威廉姆森（Chris Williamson）", "role": "host", "short": "克里斯"}, {"id": "bugzy", "name": "巴格兹·马龙（Bugzy Malone）", "role": "guest", "short": "巴格兹"}], "intro": {"summary": "巴格兹·马龙和克里斯讨论“有毒燃料”：靠树敌、恐惧和对抗来逼自己变强，短期有效，长期是拐杖；真正的燃料来自爱，以及为了内心平静而切断不负责任的人。克里斯用慢性炎症反应综合征（CIRS）来比喻心理免疫系统。", "points": ["有人为了维持动力会凭空“制造敌人”；巴格兹觉得 50 Cent 也有这个问题，但声明不想评论别人的路，只讲自己。", "街头威胁和拳击赛会把最坏结局摆到眼前，从而逼出早睡、加练、认真赚钱的另一个自己；进入娱乐圈后界限模糊，他也承认自己挑动过这种燃料。", "这是在“种植”外部能量，也是拐杖；他主张过一段隔离期（克里斯称之为 winter arc），学会向内找本质，真正的燃料是爱。", "12 岁看纪录片《当时我们是国王》里的丛林大战，在失能家庭和自杀念头中抓住灵感；他为“外面那个孩子”坚持，免得让他失望。", "为了内心平静可以切断任何人；歌《Prisoner》里他问自己是否变冷，遇见愿意担当的人时才发现心里其实有很多爱，只是会被熟悉的破坏性特质触发。", "克里斯用 CIRS（霉菌等生物毒素导致的慢性炎症反应综合征）类比：即使剂量远低于从前，熟悉的危险模式仍会立刻拉响心理免疫系统。"], "verdict": "值得看。这是约 13 分半的对话切片，密度高，把“靠恨和怕驱动自己”讲清楚了，后半段断亲和 CIRS 类比也很具体。不是 2026-11-09 那期完整长访谈（VyqLmiZSLG4，约 2 小时），而是同一嘉宾的独立短片，主题完整，不必当预告片跳过。", "audience": "对自我驱动、边界感、原生家庭议题感兴趣的人；听过克里斯·威廉姆森或巴格兹·马龙、关心创造性工作与心理健康的人。"}, "sections": [{"id": "s1", "title": "有毒燃料耗尽之后：有人会凭空“制造敌人”", "start_sec": 0, "summary": "克里斯开场就问：有多少人能在扔掉一开始那罐“有毒燃料”之后，还继续追求精通？油箱用空了怎么办？这种燃料可以继续烧，但时间一长就是有毒的。巴格兹接了一句：那就还得再去生产更多这种燃料。克里斯完全同意，并说他最近认识几个人，几乎是在“制造敌人”——很多局面本来根本不需要那么大的摩擦、较劲、对立和分歧，敌人是凭空捏造出来的，只为了给自己找一个可以顶上去的对象。巴格兹承认自己也做过这种事。克里斯把那种心态说出来：我要给自己树一个敌人，好补充我担心正在耗尽的燃料。"}, {"id": "s2", "title": "50 Cent、街头与拳击：把最坏结局摆到眼前", "start_sec": 73, "summary": "巴格兹说他觉得 50 Cent 也有这个问题，但立刻声明自己没有兴趣评论别人的路，只是观察。克里斯问他树过哪些敌人、自己不太清楚这段圈内典故。巴格兹改谈自己：在街头会有可怕的人，只要有机会就想把你从世界上抹掉；嫉妒、仇恨、愤怒会把人体内的某种东西点燃。拳击馆也一样——教练说给你安排了比赛、对手打过多少场，这是真要上台的。脑子里会出现一个终点：最坏情况可能发生，你会输，输了可能丢掉身份和自尊，赌注太大，这会逼出另一个自己：多跑一圈、早睡、睡前读书。他在街头也经历过：跟可怕的人有了过节，就会更认真地赚钱，因为不能永远待在那种环境里。他承认，进入娱乐圈后界限变模糊——“我是个说唱歌手”到底意味着什么，得自己搭一套框架——自己也试图主动去生产这种有毒燃料。"}, {"id": "s3", "title": "在演艺圈里主动挑起敌意，把自己变成“准备好的人”", "start_sec": 197, "summary": "克里斯追问：所以你是自己制造了敌人和对峙。巴格兹说那些人其实也在，只是没有从前最糟的对手那么“有戏”。尊严并不真的押在他们身上，你也并不在乎他们怎么说你；但你可以打开那个开关——他到底说了什么？——然后想象：要是碰到他，他因为我有名就要动手，而我却没认真对待自卫。于是那个自己就出现了：体格练结实、注意力集中、睡前还在读书。外面确实有很多嫉妒的人，也有人对他说过的话、做过的事不满。有些时候他会专门去看这些人在想什么，自己刺激自己，让自己有点紧张：他在外面，只要有机会就会找我麻烦。好，那就变成那个为这场挑战做好准备的自己。"}, {"id": "s4", "title": "这是在“种植”能量，也是拐杖；要过一段隔离期", "start_sec": 271, "summary": "克里斯说他能看到两边：一方面这是免费燃料，逼你把自己逼得更狠、变得更好；另一方面，你是在凭空给世界制造对立。巴格兹说，本质上你是在“种能量、收能量”，但这也是拐杖——你在依赖外部的东西来产生能量。克里斯把它跟巴格兹先前的说法对上：即使身边没有人给你打气、告诉你可以更好，你也希望能把自己做到最好。巴格兹认为，人必须过一段隔离期，这件事被说得太少。克里斯随口接：眼下正要入冬，就是所谓的 winter arc（冬日充电期），对吧？巴格兹说对，而且要相信自己能走出来；在那段时间里会放下所有拐杖。他不需要某个巴不得跟他过不去的人——那种人得利、他受损——也不需要靠这种燃料才能起床、去健身房搬铁，或去对练、真正放开打。要学会向内看，不去取有毒燃料，而去找真正的燃料，也就是你的本质。真正的燃料，其实来自爱。"}, {"id": "s5", "title": "12 岁看《当时我们是国王》：爱，以及不能让那个孩子失望", "start_sec": 368, "summary": "巴格兹解释自己为什么在意使命：他记得 12 岁那年，看着纪录片《当时我们是国王》，穆罕默德·阿里和乔治·福尔曼要在扎伊尔打“丛林大战”。当时他被彻底的失能和混乱包围，拼命寻找灵感来源，那部片子在很大程度上成了他的养料。那些时候他脑子里有过自杀的念头，处在很黑暗的地方。从爱出发，去接通那种充沛的爱的能量。他知道外面还有那样的孩子，会从他接下来做的事里汲取力量，所以这就够了——如果他掉队，就是让那个孩子失望。他说，自己可能因此救过一条命。"}, {"id": "s6", "title": "为了内心平静切断任何人，以及《Prisoner》里的自我拷问", "start_sec": 438, "summary": "巴格兹说，家庭非常失能时，内心会有一场拉扯：你必须放下一些人，然后会问自己是不是不再有爱、是不是变冷了。他有一首歌叫《Prisoner》，歌词里就在写：我害怕自己已经冷了。那像是在这首歌里写日记。一问这个问题，就得重新看自己和他人的关系。他真的愿意为了保住内心平静而切断任何人，不管对方是什么身份、什么头衔——你不承担责任、撒谎、不尊重，他就会把你留在那边，继续走自己的路。可当他遇到一个愿意担当的人，或同样出身失能家庭、却把自己训练出来的人，才会看清心里到底有什么：结果是心里其实有很多爱，也比自己以为的更开放。他只是会被某些特质触发——那些跟他成长时接触过、也亲眼见过其破坏力的人很像。"}, {"id": "s7", "title": "心理免疫系统：用 CIRS（慢性炎症反应综合征）来类比", "start_sec": 547, "summary": "克里斯给出自己的解释：有一种病叫 CIRS，即慢性炎症反应综合征。如果住在有生物毒素的房子里，比如霉菌和微生物，免疫系统会慢慢学会把它们当成威胁，自身也被一点点削弱。一旦再暴露在类似环境里，免疫系统几乎立刻打开，像警报：这很熟，而且危险。就算已经离开有毒环境 12 个月，再走进一栋有类似霉菌孢子的房子，仍可能脖子发红、身体发炎、耳鸣、脑雾，甚至想吐——立刻启动。身体学会了：一种既熟悉又危险的病原体又出现了。他认为巴格兹说的情况与此相似：你认识那种原型、那种心态和世界观，于是一套“心理免疫系统”会启动——如果跟这种人待太久，我可能会退回去。这不一定完全有意识。克里斯说自己也看到过，童年里印进“源代码”的模式，比如赌博、出轨、不管孩子、靠酒精处理问题，他绝不想再要。有时还会错误地模式匹配：就像 CIRS，你走进一栋楼，剂量可能只有从前的千分之一、百分之一，免疫系统还是立刻打开，因为它在找那个曾经可能毁了健康、毁了人生路径的东西。他在某个人、某段关系、某种动态里，看到一个非常不想再进去的世界，而且它熟得让心理免疫系统喊：赶紧离开。"}], "paragraphs": [{"start_sec": 0, "type": "text", "speaker_id": "chris", "section_id": "s1", "zh": "我很关心一件事：有多少人能在扔掉一开始那种有毒燃料之后，还继续追求精通。油箱耗尽了怎么办？你可以继续用这种燃料，但时间一长，它就是有毒的。"}, {"start_sec": 21, "type": "text", "speaker_id": "bugzy", "section_id": "s1", "zh": "那是因为你接下来还得再去制造更多这种燃料。"}, {"start_sec": 23, "type": "text", "speaker_id": "chris", "section_id": "s1", "zh": "完全同意。我最近认识几个人，基本上是在“制造敌人”。很多事情本来根本不需要那么大的摩擦、较劲、对立和分歧。这些敌人是凭空捏造、拼凑出来的，只是为了让自己有个东西可以去顶、去较劲。"}, {"start_sec": 60, "type": "text", "speaker_id": "bugzy", "section_id": "s1", "zh": "说得很精巧。我也做过这种事。"}, {"start_sec": 65, "type": "text", "speaker_id": "chris", "section_id": "s1", "zh": "就是那种心态：我要给自己树一个敌人，好补充我担心正在耗尽的燃料。"}, {"start_sec": 73, "type": "text", "speaker_id": "bugzy", "section_id": "s2", "zh": "我觉得 50 Cent 也有这问题。"}, {"start_sec": 73, "type": "text", "speaker_id": "chris", "section_id": "s2", "zh": "他树过哪些敌人？我不太清楚这段圈内典故。"}, {"start_sec": 78, "type": "text", "speaker_id": "bugzy", "section_id": "s2", "zh": "不过，我没有兴趣去评论别人的路，这只是观察。我只讲自己懂的事，也能对上一些相似之处。在街头，会有那种可怕的人，只要有机会就想把你从世界上抹掉。出于嫉妒、仇恨、愤怒，不管什么原因，它会把你体内的什么东西点燃。拳击馆里也一样：教练说给你安排了一场比赛，对手打过多少场，这是真的要上台。你脑子里会出现一个终点——最坏的情况可能发生：你会输，输了可能丢掉身份、丢掉自尊。赌注太大，这会逼出另一个自己。你会多跑一圈，会早睡、睡前读书。我在街头也经历过：跟一个可怕的人有了过节，你会更认真地赚钱，因为你不能永远待在那种环境里。所以我承认，自己也试图主动去生产这种有毒燃料。等到进入娱乐圈的职业生涯，界限就模糊了——我是个说唱歌手，那到底意味着什么？你得自己搭一套框架。"}, {"start_sec": 197, "type": "text", "speaker_id": "chris", "section_id": "s3", "zh": "所以你是自己制造了敌人和对峙，因为——"}, {"start_sec": 200, "type": "text", "speaker_id": "bugzy", "section_id": "s3", "zh": "那些人其实也在，只是没有从前那些最糟的对手那么“有戏”。其实你的尊严并不真的押在上面，你也并不在乎他们怎么说你。但你可以打开脑子里的那个开关：他到底说了什么？然后你就会想象：要是碰到他，他因为我有名就要动手，而我却没认真对待自卫……于是那个自己就出现了：体格练结实了，注意力集中，睡前还在读书。外面确实有很多嫉妒的人，也有人对我说过的话、做过的事不满。有些时候我会专门去看这些人在想什么，自己刺激自己，让自己有点紧张：他在外面，只要有机会就会找我麻烦。好，那就变成那个为这场挑战做好准备的自己。"}, {"start_sec": 271, "type": "text", "speaker_id": "chris", "section_id": "s4", "zh": "你怎么看？我能看到两边。一方面，这是免费燃料，逼你把自己逼得更狠、变得更好；另一方面，你是在凭空给世界制造对立。"}, {"start_sec": 292, "type": "text", "speaker_id": "bugzy", "section_id": "s4", "zh": "本质上，你是在“种能量、收能量”。但这也是拐杖——你在依赖外部的东西来产生能量。"}, {"start_sec": 305, "type": "text", "speaker_id": "chris", "section_id": "s4", "zh": "这跟你刚才说的一样：你希望即使身边没有人给你打气、告诉你可以更好，你依然能把自己做到最好。"}, {"start_sec": 311, "type": "text", "speaker_id": "bugzy", "section_id": "s4", "zh": "你得过一段隔离期，这件事说得太少了。"}, {"start_sec": 316, "type": "text", "speaker_id": "chris", "section_id": "s4", "zh": "眼下正要入冬，就是所谓的 winter arc（冬日充电期），对吧？"}, {"start_sec": 319, "type": "text", "speaker_id": "bugzy", "section_id": "s4", "zh": "对。而且要相信自己能走出来。在那段时间里，你会放下所有拐杖。我不需要某个巴不得跟我过不去的人——那种人得利、我受损。我不需要靠这种燃料才能起床、去健身房搬铁，或去对练、真正放开打。你要学会向内看，不要去取有毒燃料，而去找真正的燃料，也就是你的本质。真正的燃料，其实来自爱。"}, {"start_sec": 368, "type": "text", "speaker_id": "bugzy", "section_id": "s5", "zh": "我为什么在意自己的使命？因为我记得 12 岁那年，看着纪录片《当时我们是国王》，穆罕默德·阿里和乔治·福尔曼要在扎伊尔打“丛林大战”。我当时被彻底的失能和混乱包围，拼命寻找灵感来源。那部片子在很大程度上成了我的养料。那些时候我脑子里有过自杀的念头，处在很黑暗的地方。从爱出发，去接通那种充沛的爱的能量。我知道外面还有那样的孩子，他会从我接下来做的事里汲取力量。所以这就够了——如果我掉队，就是让那个孩子失望。我可能因此救过一条命。"}, {"start_sec": 438, "type": "text", "speaker_id": "bugzy", "section_id": "s6", "zh": "我觉得，当你的家庭非常失能，内心会有一场拉扯：你必须放下一些人。然后你会问自己：我是不是不再有爱了？我是不是冷了？我有一首歌叫《Prisoner》，歌词里就在说：我害怕自己已经冷了。那像是在这首歌里写日记，问自己这个问题。一问，你就得重新看自己和他人的关系。因为我真的愿意为了保住内心平静而切断任何人，不管对方是什么身份、什么头衔。你不承担责任、撒谎、不尊重，我就会把你留在那边，继续走自己的路。可当你遇到一个愿意担当的人，或者同样出身失能家庭、却把自己训练出来的人，你才会看清心里到底有什么——结果我心里其实有很多爱。我比自己以为的更开放。我只是会被某些特质触发：那些跟我成长时接触过、也亲眼见过其破坏力的人很像。"}, {"start_sec": 547, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "你知道我为什么觉得会这样吗？有一种病叫 CIRS，慢性炎症反应综合征。如果你住在有生物毒素的房子里，比如霉菌和微生物，免疫系统会慢慢学会把它们当成威胁，也在被一点点削弱。一旦再暴露在类似环境里，免疫系统几乎立刻打开，像警报：这很熟，而且危险。就算你已经离开有毒环境 12 个月，再走进一栋有类似霉菌孢子的房子，脖子会发红、身体发炎、耳鸣、脑雾，可能还想吐——立刻就启动。身体学会了：一种既熟悉又危险的病原体又出现了。我觉得你说的情况有点像。你认识那种原型、那种人、那种心态和世界观。于是一套“心理免疫系统”会启动：如果跟这种人待太久，我可能会退回去。这不一定是完全有意识的，但我自己也看到过。童年里印进“源代码”的模式——赌博、出轨、不管孩子、靠酒精处理问题——我绝不想再要这些。有时甚至会错误地模式匹配：就像 CIRS，你走进一栋楼，剂量可能只有从前的千分之一、百分之一，免疫系统还是立刻打开，因为它在找那个曾经可能毁了你健康、毁了你人生路径的东西。我在这个人、这段关系、这种动态里，看到一个我非常不想再进去的世界，而且它熟得让心理免疫系统喊：赶紧离开。"}, {"start_sec": 699, "type": "ad_omitted", "ad_brand": "订阅提醒", "section_id": "s7"}, {"start_sec": 744, "type": "ad_omitted", "ad_brand": "LMNT", "section_id": "s7"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
