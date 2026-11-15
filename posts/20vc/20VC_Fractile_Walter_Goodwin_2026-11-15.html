@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>估值70亿美元的创业公司，做AI芯片挑战英伟达｜Fractile 创始人兼CEO沃尔特·古德温（Walter Goodwin）</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="harry">哈里·斯特宾斯（Harry Stebbings）</option><option value="walter">沃尔特·古德温（Walter Goodwin）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">20VC with Harry Stebbings</span><span class="pill">2026-11-14 07:00 PT（America/Los_Angeles）</span></div>
+<h1>估值70亿美元的创业公司，做AI芯片挑战英伟达｜Fractile 创始人兼CEO沃尔特·古德温（Walter Goodwin）</h1>
+<p class="sub">嘉宾：沃尔特·古德温（Walter Goodwin） · 约 76 分钟（4559 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=UZ8eYaAf08M" target="_blank" rel="noopener">https://www.youtube.com/watch?v=UZ8eYaAf08M</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>20VC with Harry Stebbings</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-14 07:00 PT（America/Los_Angeles）</dd></div><div class="meta-row"><dt>时长</dt><dd>约 76 分钟（4559 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 页面 Show transcript / 内容转文字（caption_source=browser-cdp）；官方/自动 yt-dlp 遇 HTTP 429，chrome cookies 路径（chrome:/home/box/chrome-profile/Fork-3）因“The page needs to be reloaded”失败。同批用浏览器 Show transcript 成功（592 条线索，0:00–1:15:46，末条 4546 秒，时长 4559 秒，足够完整）。中文为全文翻译并按话题分段；无赞助口播需标灰。说话人按主持哈里·斯特宾斯与嘉宾沃尔特·古德温的互相点名、问答轮次启发式标注（Show transcript 无说话人标签；一对一访谈整体把握较高，少数同一字幕块内的交接句为中等把握，未编造第三位嘉宾）。ASR/专名订正：No Prize→No Priors；Sarah→莎拉·郭（Sarah Guo）；Light Speed→Lightspeed；Radpoint→Redpoint；Thrive Founders Fund→Thrive 与 Founders Fund（联合领投/共同领投，口播未给出分拆金额，未编造出资额）；Jalapino/Jalapeno/Halipino/Japano→Jalapeño（OpenAI 自研芯片项目，保留口播专名）；Dorito 2 保留专名；SRAMM→SRAM；DAM/DRM/DM→DRAM；HPM/HM/Frontier HM→HBM；Navia Stokes + Millennium Prize→纳维–斯托克斯（Navier-Stokes）方程/千禧年大奖难题，不是人名；Listen, Mort→英式口语 mate 的误听，不是名叫 Mort 的第三人；Grock→Groq（SRAM/LPU 推理公司，按上下文与 SRAM 策略交叉核对，不是 xAI 的 Grok）；Cabbrus/Cerabus/Cerebrus→Cerebras；Reuben→Rubin（英伟达 GPU 架构）；infant / infant server / infant space→inference（推理）；Mo&#x27;s law→摩尔定律；Nome Brown→诺姆·布朗（Noam Brown）；Mike Cannon Bruce/Brook→迈克·坎农-布鲁克斯（Mike Cannon-Brookes）；Charlie Kawas→查理·卡瓦斯（Charlie Kawwas，博通）；Deis Saris / Deus→德米斯·哈萨比斯（Demis Hassabis，按「学术偶像兼英国英雄」交叉核对，把握较高）；Sat→萨蒂亚·纳德拉（Satya Nadella，近日同节目嘉宾，与「每家公司自建专用模型与评测基准」的表述相符）；Deepseek→DeepSeek；modal / fireworks / base 10s / togethers→Modal、Fireworks、Baseten、Together；neocloud / neocclass→neo-cloud；Fluid Stack→Fluidstack；NScale 按口播保留；Inherent（伦敦创业公司）按口播保留；Dan Rabinovich 按口播保留中文译名丹·拉比诺维奇（Dan Rabinovich）；multillion / multiundred→数万亿 / 数千亿；disagregation→拆分（disaggregation）；amatize→摊销；GDS2→GDSII；seinal→seminal（关键交接）。未编造出资额拆分或其他嘉宾。口播 “less than 10 times as much SRAM capacity” 句法含混，正文写为 SRAM 单位面积容量远低于 DRAM，未写成精确倍数。</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>UZ8eYaAf08M</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>本集哈里·斯特宾斯（Harry Stebbings）在演播室对谈 Fractile 创始人兼首席执行官沃尔特·古德温（Walter Goodwin）。公司刚完成 7.2 亿美元 C 轮，由 Thrive 与 Founders Fund 联合领投，Lightspeed 与 Redpoint 共同参与，估值 70 亿美元。沃尔特把 Fractile 定位为做芯片和机架级系统的前沿人工智能公司：只靠卖芯片和机柜赚钱，不卖自研模型、也不与客户竞争，但内部必须有机器学习研究能力，才能对模型架构和负载下对注。对谈从内存墙、把 DRAM 三维堆叠到逻辑芯片上、流片与内部里程碑「Task Zero」，讲到土地与电力瓶颈、测试时计算，以及英伟达收购 Groq、博通代工平台和推理服务商格局。</p>
+<h3>核心要点</h3><ul><li>Fractile 刚完成 7.2 亿美元 C 轮，估值 70 亿美元；Thrive 与 Founders Fund 联合领投，Lightspeed、Redpoint 参与。沃尔特强调他们是芯片公司：卖芯片和机架级算力，永不靠内部模型变现，也不与客户抢生意；但团队从机器学习研究员，到每隔几周飞台湾的工艺专家，再到机柜热设计与机械结构，必须看懂整条栈，否则会下错注。</li><li>他认为真正开始商品化的是云算力层——「一家合格的 neo-cloud 和另一家合格的差不多」。DeepSeek 几天前放出整套推理软件栈，在 GPU 上跑自己的模型，吞吐和交互性明显好过别人搭的 DeepSeek 推理服务，说明即便开源模型的部署也还没杀到血本无归。Fluidstack 被他举为第一家大幅离开英伟达、改部谷歌 TPU（Google TPU）并因此过了很出色一年的 neo-cloud。</li><li>内存墙：过去约 25 年，芯片浮点算力（FLOP）提升了约一百万倍，带宽只提升约 40 倍，落后约 2.5 万倍。大前沿模型大约每秒 80 个 token，往往不是算力不够，而是带宽不够，每秒只能把权重从内存装载大约 80 次。SRAM 又快又近但密度低、贵；DRAM 又密又便宜，却隔着芯片边缘有限的「海滩线」。Fractile 的做法是把 DRAM 三维堆叠到逻辑芯片上方，用百万级垂直铜线换带宽，目标是 SRAM 级带宽加上 DRAM 的容量与可扩展性。</li><li>硅片已经从晶圆厂回来，数月内还要做完整产品流片（tape-out）；真正的考验是台积电（TSMC）和 HBM 产能。谷歌 TPU、OpenAI 的 Jalapeño、Meta 的 MTIA、MatX、Etched 都被传闻走博通（Broadcom）做后端，用相近的台积电节点和同一套 HBM。博通的查理·卡瓦斯（Charlie Kawwas）今年夏天展示下一代平台的乐高模型，称 2028 年会与六家大客户量产——同一套平台换个名字，可能是 TPU、MTIA、Jalapeño、Dorito 2。Fractile 坚持自建后端与晶圆厂关系，用别人已经不用的工艺节点去找吉瓦级产能。公司内部真正盯的里程碑叫 Task Zero：参考负载在整柜 Fractile 芯片上跑起来的那一天。</li><li>瓶颈已从三年前的英伟达 GPU 短缺，转到 HBM 与台积电逻辑硅，再到土地和电力：美国能在约 90 天内部署燃气轮机的捷径、以及可改造成数据中心的工业用地，已经用得差不多。美英电网接入排队规模，据说比网上现有电量大一个数量级。他举纳维–斯托克斯（Navier-Stokes）千禧年大奖难题为例：约 80 小时、1 万个并行智能体组成的集群，才能堆出海量 token；测试时计算是把能力拧上去的旋钮。世界需要的是比今天多几千倍的算力，但不必多建几千倍的数据中心，而是把每兆瓦、每机柜挤出多得多的智能。</li><li>价值判断：纯软件编排层有风险。英伟达收购 Groq 后，计划把 Rubin GPU 与 Groq 芯片并排放，做预填充/解码拆分和注意力拆分，但上下文变长或模型变大就会让配比失准、产能闲置。Fractile 自称把存储「搬上楼」，底层逻辑裸出给张量核心，同时拿到三维访问的 SRAM 级带宽和 DRAM 容量，因此不必靠异构。传闻 Cerebras 与 OpenAI 的交易、英伟达收购 Groq，都在 12 月 24 日签约。推理服务商他不点名站队 Modal、Fireworks、Baseten、Together，但宁做推理服务商不做 neo-cloud，并认为这个赛道会走出少数几家数千亿美元级公司。若能投资，供应商选台积电，客户提到伦敦的 Inherent，对手提到同一赛道上架构不同的 D-Matrix。快问快答里，他确信英伟达五年内可以成为 10 万亿美元的公司，并说其远期估值倍数甚至低于互联网泡沫破裂后的思科（Cisco）。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：想理解为什么内存墙卡住了大模型推理、三维堆叠和「不走博通」的供应链逻辑、测试时计算如何把科学难题变成海量 token，以及英伟达收购 Groq 之后异构数据中心可能怎样退潮的人。约 76 分钟，数字密、技术细节多，是典型的硬核芯片深访，不是入门科普。可跳过：不关心芯片工艺、HBM/SRAM/DRAM 取舍和数据中心电力的听众。</p>
+<h3>适合人群</h3><p>关注人工智能基础设施、芯片创业与一级市场融资的听众；做推理部署、neo-cloud 或模型实验室的人；想听英伟达、博通、台积电和 Groq/Cerebras 格局对照的投资者。</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场：7.2亿美元C轮、70亿美元估值，Fractile是做什么的</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">片头先抛出几个判断：人们对互联网泡沫创伤太深，从一开始就把过热计价进去了；十年后，花在跑模型上的钱会远高于今天。哈里·斯特宾斯（Harry Stebbings）介绍嘉宾沃尔特·古德温（Walter Goodwin），Fractile 创始人兼首席执行官。公司刚完成 7.2 亿美元 C 轮，由 Thrive 与 Founders Fund 联合领投，Lightspeed 与 Redpoint 共同参与，估值 70 亿美元。进棚后，沃尔特用大约一分钟说明公司定位：某种意义上是前沿人工智能公司，但做的是芯片，以及专门推进前沿能力的大型机架级系统。团队从机器学习研究员，到每隔几周飞台湾的工艺专家，再到负责热设计与机械结构、把整柜系统装起来的人，覆盖整条栈。哈里提到自己刚听了沃尔特上《No Priors》、和莎拉·郭（Sarah Guo）的对话，对方当时明确说自己是芯片公司。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">只做芯片还是全栈：垂直整合、商品化与DeepSeek推理栈</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里问：OpenAI 有 Jalapeño，DeepSeek、Anthropic 也在自研，Meta 和马克（Mark）同样有自己的芯片，未来是不是垂直整合者才能赢，如今还能不能只做芯片公司。沃尔特的回答是：必须对模型会长成什么样、负载和硅会怎样演化有一整套判断，否则会下错注；但商业模式是卖芯片、卖机柜算力，永远不打算用内部模型变现，也不与客户竞争。哈里追问，大家拼命垂直整合，是不是在对抗某一层的商品化——OpenAI 九个月做出 Jalapeño，似乎说明那一层已经有商品化迹象。沃尔特承认前沿实验室和云厂商需要第一方或第三方芯片，作为对在位芯片高毛利的制衡；但「智能饱和」只出现在部分任务上，开源模型够用的那一层才会商品化。前沿智能尚未商品化，仍有高毛利，而且前沿的经验会向下滴到更小的模型。他举几天前 DeepSeek 放出整套推理软件栈为例：他们把模型跑在 GPU 上的吞吐、交互性和速度，明显好过其他人搭的 DeepSeek 推理服务，说明即便开源模型的部署，也还没杀到血本无归。真正在商品化的是云算力——「一家合格的 neo-cloud 和另一家合格的差不多」，今天之所以热闹，是因为还不知道谁合格。哈里提到 Nebius 创始人上节目时说，公司正把模型路由和推理当成核心业务。沃尔特认为 neo-cloud 都在做推理服务，而差异化硅片会成为关键；这块仍是早期，上新平台仍是大胆的融资选择，例如 Fractile、Cerebras。Fluidstack 被他举为第一家「迈步离开英伟达」、部署谷歌 TPU、过了很出色一年的例子。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">英伟达做横向通用，Fractile押注前沿推理</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里问：英伟达（Nvidia）是横向供应商，Fractile 更像专业供应商，未来芯片会不会按负载高度专业化，市场将怎样分层。沃尔特称英伟达是非凡的公司，按许多指标打造了世界上最好的人工智能芯片和系统，在数据中心级推理上也做了出色工作。不同之处在于，演进中的前沿需要另一类下注：一家公司必须能拐角看路、做大胆预测，并把整个技术产品转向这些预测。英伟达擅长的是以惊人的规模交付高质量、相对「无立场」的通用处理器；Fractile 的赌注是推理，要做比这些 GPU 快几个数量级的芯片，架构上死磕巨大的内存带宽，因而可能牺牲一部分完全的通用性。他强调，前沿如今已占市场压倒性的份额——过去几年专门为前沿大模型服务的推理算力在大规模铺开，所以「专业」绝不等于小众。放在五年甚至十年前，去做一颗专业芯片会显得有些疯狂，因为当时没有任何单一负载占到总计算负担的大约 10%；现在有了，也就需要另一种公司结构，把预测能力做进组织里，并让整家公司围着这件事转。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">内存墙：算力涨了一百万倍，带宽只涨了约40倍</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里请他解释，为什么内存墙至今仍如此突出，沃尔特还提到了 HBM。沃尔特从芯片「王牌规格」讲起：一边是每秒能做多少浮点运算（一次乘法或加法），也就是数学能力；另一边是内存的容量，尤其是带宽——数据能多快地在处理器和存储器之间往返。看一颗 GPU，中间是跑数学、高算力的硅，周围是 HBM（高带宽内存）像高速公路一样把数据送进来。过去约 25 年，依靠摩尔定律（Moore&#x27;s law），浮点算力大约提升了一百万倍；带宽更受物理限制，同期大约只提升了 40 倍，落后约 2.5 万倍，于是越来越多的操作变成带宽受限。大模型推理尤其如此：文本是自回归、一个词接一个词生成的，每生成一个词，都要把全部模型权重、以及今天还要把所见过的上下文状态，从那条有限的带宽里装载进来。一颗很大的前沿模型大约每秒生成 80 个 token，往往不是芯片上的数学能力不够，而是你没有足够带宽，每秒只能把权重从内存装进处理器大约 80 次。他把 DRAM 比作另一栋楼里的仓库，SRAM 则是长期放在处理器这间办公室里的少量箱子：SRAM 可以和处理器做在同一块台积电工艺的硅上，带宽极高，但不是为密度优化的，单位面积容量远低于 DRAM，按晶圆成本折算每美元容量也差一截。DRAM 和 SRAM 在完全不同的晶圆厂、为完全不同的目标而造。哈里问，推理要延迟，未来更适合 DRAM 还是 SRAM。沃尔特说延迟和带宽都重要，Fractile 过去几年做的，正是拒绝接受这个权衡。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">三维堆叠：用DRAM的容量，拿到SRAM级带宽</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">今天 DRAM 和芯片坐在同一平面上，数据只能从芯片边缘那条有限的「海滩线」进来。Fractile 过去两年做的，是把这层存储器叠到逻辑芯片上方，让整片二维面积都变成岸线，铜线不再横向走，而是有数百万根垂直向下。哈里问这怎么可能。沃尔特说，三维在芯片世界里已经被缩放了很久，但很复杂：HBM 本身就是一叠 DRAM，却并不适合直接扣到逻辑芯片上。Fractile 团队在三维堆叠上有很深的积淀。哈里用「在海滩上盖公寓而不是独栋」来类比，沃尔特则说更像新填的群岛，人人都挨着海岸。谈及与 Etched 等专业选手的差异，他分哲学和技术两边讲：公司的使命是用更好的硬件推进前沿人工智能能力，今天这条路落到「SRAM 的带宽加上 DRAM 的容量与可扩展性」，而且会跨多代把技术优势滚下去；但他们小心，不想变成「破解了三维 DRAM 的那家公司」，负载变了，响应也得能变。未来几年，HBM 路线的芯片——GPU、TPU、OpenAI 的 Jalapeño、Etched、MatX——往往芯片上的架构很出色，却都被同一套王牌规格框住：同样的 HBM 模块，同一批供应商。另一边是 SRAM 路线，如 Groq、Cerebras，能让强大模型跑得快得多，却有严重的容量约束。沃尔特四年前创办 Fractile，就是为了把大模型推理跑得快得多，因为他一直相信会走到今天所谓的测试时计算扩展：推理模型、越跑越久才越强的长程智能体。把前沿大模型对准一道千禧年大奖难题，它会连续生成数百万个 token，再拉起一群这样的智能体，你可能要等上很多天。SRAM 快芯片的速度，和长上下文、大容量的新负载对不上，世界迫切需要的是带宽和容量同时「往右上走」。已有三维集成技术其实存在很久，只是还没被用到这个内存堆叠问题上；如果你愿意改架构、做制造端的脏活，并说服供应链伙伴你不是疯子，就有可能出现几乎一夜之间的转变。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">有没有量产、为何不走博通，以及流片只是第一步</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里转述昨晚一位芯片公司创始人的直言：行业里热气和营销很多，真正量产的很少，Etched、Fractile 也都被这么看。沃尔特说，Fractile 的硅已经走过晶圆厂并回到手里，还在跑更多试验，数月内也会做完整产品流片，这点很令人兴奋；但规模才是该被追问的。新进入前沿的芯片公司，抢的是同一批台积电产能和 HBM 产能。TPU、Jalapeño、Meta 的 MTIA、MatX、Etched，都被传闻使用博通做后端，工艺节点和 HBM 技术也非常接近，对这有限资源像淘金热，短期内很难做到有意义的规模。Fractile 的「不公平」之处是把最后一公里的物理设计、与晶圆厂的对接做在公司内部，团队在加入 Fractile 之前就这样交付芯片几十年了，从一开始就和制造伙伴直接打交道。哈里确认：别人的路径是先经过博通，再由博通去对接晶圆厂。沃尔特举今年夏天的一场会议：博通的查理·卡瓦斯（Charlie Kawwas）举起下一代平台的乐高模型，说 2028 年会与六家大客户量产——意思是看上去一模一样的东西，会被六家做成不同名字：TPU、MTIA、Jalapeño，以及哈里接上的 Dorito 2。各家内部芯片团队会做出极聪明的架构优化，但底层是同一套平台、同一叠 HBM、同样数量的芯片，后端伙伴把基础积木定死了，你大概只能改油漆颜色。Fractile 因此能去做高度定制的内存堆叠，一旦打通，就有了别人没有的资产，也更可能用上别人已经离开的工艺节点或 DRAM 代际，「从沙发缝里」找出吉瓦级产能。哈里请他解释什么是流片。沃尔特说，那是芯片设计流程的最终文件——一份巨大的、称为 GDSII 的「图像」，标出所有铜线、晶体管和逻辑，交给台积电或逻辑晶圆厂去制作掩模这套「模具」。对设计师来说这是一次关键交接：架构、前端、验证、物理设计、版图走完，文件一送出，若有缺陷就太晚了，掩模已经在刻。但今天它只是很长流程的第一步：硅要在厂里走几个月才回来，然后是实验室点亮、把负载跑到单芯片、托盘，直到整柜。Fractile 会跟踪流片日期，但真正持续瞄准的内部目标叫 Task Zero：某一参考负载在整柜 Fractile 芯片上跑起来的那一天。他觉得近几年芯片创始人和投资人偶然共享了对「流片日」的执念，因为它日期明确、可触摸；而软件、系统，以及让芯片尽快可靠上量的那些不易言说的工作，才是真正要把产品做成可大规模制造、有修复和冗余、良率高的关键。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">瓶颈从GPU短缺转到土地与电力，又快又省才装得下</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里回忆两人楼下聊天时，沃尔特说硅也许不再像从前那样是瓶颈，数据中心容量才是。沃尔特说过去四年令人兴奋，因为每个季度，最卡住「在数据中心规模化跑更多前沿模型」的东西都在变：底层始终急需更快的推理、更长上下文和更好的经济性，但约束本身在切换。三年前毫无疑问是英伟达 GPU 短缺，随后是底层硅和供应链，今天 HBM 等内存短缺会延多年，台积电的逻辑硅也紧。此刻土地和电力成了另一道限制：可改造成数据中心的工业用地、美国能在约 90 天内部署燃气轮机的许可捷径，这些「一次性招数」已经用得差不多，只剩下更长、更难的尾巴。一方面，数据中心容量成了能铺开多少算力的根本瓶颈，若要完全不站队，投资能源就是最底层的押注；另一方面，正是这条约束，才让「为特定工作装上最合适的芯片」变得至关紧要。前沿实验室和云厂商给模型开「快速模式」时，若跑在基于 HBM 的芯片上，往往处于权衡曲线上非常低效的点：要么慢而省，要么快但每兆瓦打出的 token 少得多。若要把一颗数万亿参数的模型跑到每秒数千个 token，而你只有一座 500 兆瓦的数据中心、聚合吞吐不够服务用户，就会有压力去装上即便被挤到更高速度仍能保持很好聚合吞吐的芯片，Fractile 就是这样一个例子。土地和电力可能比供应链更紧，但这恰恰激励了更合用的芯片。被问到能源缺口有多大，他说看美英的积压，电网接入排队规模像是比网上现有电量大一个数量级；这些项目有多少真正能落地可以存疑，但需求看上去极其惊人。哈里把话题拉回 DeepSeek 的推理栈创新，并对比中国对能源「一路绿灯」、甚至为能源场地搬迁数百万人，美国则有邻避（NIMBY），英国还有蝙蝠和蝴蝶挡住自然景观场地，西方是否天生落后。沃尔特承认中国在这方面某种程度上抢了先手：巨型水电项目特别适合人工智能算力，因为 15 吉瓦的电集中到一个点、再向外输送，过去可能不方便，而人工智能数据中心不太在乎位置，为什么不把 15 吉瓦的算力直接放在偏远水电旁边。欧美也能做得更像这样，比如把数据中心放在苏格兰大型风场旁边，而从前那里未必有用电故事。哈里说，短视频里一谈到数据中心建不成，比如微软退出 NScale 项目，评论区往往是「科技佬快走」，这种反弹让他吃惊。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">测试时计算：纳维–斯托克斯、80小时与1万个智能体</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里说自己后悔没更早听沃尔特对推理市场的判断，并问他现在对这个市场有什么仍不那么显而易见的看法。沃尔特认为，今天是他四年前那个判断的加强版。第一层逻辑是：基础模型训练成固定成本，部署也就是推理才是唯一真正重要的部分；若长期在训练上花的钱比用模型赚回的还多，就像工厂永远收不回投资，或运动员只在健身房训练却不上场比赛。第二层赌注是测试时计算扩展，也就是推理模型的到来——它们晚了两年才出现，他很感谢最先发表这类工作的诺姆·布朗（Noam Brown）和 OpenAI 团队。今天能力提升有两条轴：训练算力十倍再十倍地加，以及把更多算力倒进部署侧。他举纳维–斯托克斯（Navier-Stokes）千禧年大奖难题为例：那次求解大约是 1 万个智能体组成的集群执行了 80 小时——1 万条并行的思维链，再跑 80 小时，这和「问一句、单线程几乎立刻作答」的直觉完全不同。最难的问题往往也最有社会价值，比如科学或医学；单次询问不够用时，推理算力就是你能拧的那只旋钮。他举例：若要找一种罕见病的疗法，模型不会立刻在「神经元」里弹出答案，但如果你让它提出几百个候选方案，复制出很多个自己去检索文献、互相辩论，花大约一周、也许生成数十亿个 token 再回来，就像给一群聪明人充足时间，才有机会带回一个解。哈里随后把两个相反的念头摊开来：他作为投资人看到债务和信贷周期，觉得世界上的钱不够支撑这个周期所要求的一切，更别说物理世界、数据和机器人还没被真正解决。沃尔特的回应是，服务智能的每一层都需要持续创新。好消息是，即便硬件不变，模型效率、服务同一智力水平的成本也在下降；上下文变长时，也出现了压缩上下文、稀疏注意力等办法。同一芯片、同等算力（iso-compute）下能得到更多智能，硬件侧也在做同样的事。因此他认为这次扩建总体上站得住，不会见到 2000 到 2001 年光纤大铺设那样的崩塌——数据中心里加电的 GPU 是满负荷的，没有「关着灯的 GPU 船队」，因为作为物种我们仍有大量必须解决的问题，而推理阶段本来还可以多做许多数量级的思考，只是缺少算力。他同意世界需要比今天多几千倍的算力，但不会、大概也不该多建几千倍的数据中心；未来几年要用模型和硬件创新，把现有土地、电力和机柜里每兆瓦挤出显著更多的智能。哈里转述 Atlassian 的迈克·坎农-布鲁克斯（Mike Cannon-Brookes）的判断：推理成本未来三到五年会大幅下降，两人还开了几句口音的玩笑。沃尔特认为「十年后一个 token 要花多少钱」取决于那时跑的是什么模型——可能比今天大几个数量级，一个 token 交付的能力也强得多；推理的利润会在不同环节起伏，但十年后花在跑模型上的钱会远高于今天。价值会大量留在芯片层，因为设计、流片、制造和在数据中心里的使用寿命天然有滞后，不像别处那样容易杀到完全竞争；前沿模型的构建仍然昂贵，需要顶尖团队和海量算力，但谁都想要地球上最强的智能，奖池在扩大，是正和游戏。哈里提到刚请萨蒂亚·纳德拉（Satya Nadella）上过节目，对方认为未来每家公司都会用自有数据做专用模型，并把评测基准当成核心价值。沃尔特承认微调今天确有用，但优势是暂时的，下一个开源模型一发布往往就消失；若能叠在最好的前沿能力之上，内部专用变体仍可能有优势。最难回答的是：到底该把开源模型专门化，还是直接押注仍在追逐更高计算效率、因而可能更划算的前沿模型。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">价值栈、异构编排，以及英伟达收购Groq</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里问价值栈上最值钱和最不值钱的环节。沃尔特认为，纯软件层存在风险。他看到一些编排方向的尝试：世界上将出现 GPU、其他 XPU 和新芯片努力的异构浪潮，有的云和软件公司想做这一层的编排者，并相信巨大价值会出在「如何调度这些芯片」上。他觉得这种异构可能是暂时的——并没有根本理由必须用七个不同平台跑一种负载，经济上也很难维持。英伟达收购 Groq 之后，计划把 Rubin GPU 和 Groq 芯片并排放，做所谓的预填充/解码拆分和注意力拆分，也就是某种「芯片路由」。技术逻辑是：把模型权重放在 Groq 上，因为那条高带宽访问很快，而且数据中心里每个用户都要同一份权重，昂贵的 SRAM 成本可以被摊薄；注意力作用在上下文上，上下文因人而异、无法共享，你对存储器成本极其敏感，SRAM 太贵，就得退回 GPU 上更便宜的 DRAM。问题是，若上下文变长，你可能希望比去年多放英伟达 GPU；若模型突然变大，你又希望多要 Groq 芯片。配比一旦定错，一部分产能就会闲置。兆瓦数是固定的，你想从中挤出尽可能多的收入，而数据中心是要摊销多年的资本开支，固定配比无法改，这让异构非常难受。它其实是对「今天还没有一颗能把事做全的芯片」的暂时回应：SRAM 芯片能部分解决快速推理，却没有足够容量做注意力，也没有足够的算力密度去做预填充（提示处理）——同一块昂贵的硅要把面积分给数学和存储器，张量核心数量必然少于把 100% 面积留给矩阵乘法的 HBM 芯片。Fractile 的做法是把 SRAM「搬上楼」，在底层逻辑上叠一层 DRAM：计算裸片可以铺满张量核心，算力可以顶到王牌规格的上限，同时又从三维访问拿到 SRAM 级带宽、从 DRAM 拿到容量。所谓「三位一体」齐了，就不需要异构和复杂编排，也不必承担闲置产能的风险。哈里问英伟达收购 Groq 是不是一份保险。沃尔特说传闻很多：Groq 团队非常聪明，黄仁勋（Jensen Huang）想把聪明人收到自己队里；他们也确实做了一个平台，回答了英伟达当时面临的大问题——如何进入快速推理。黄仁勋某种程度上也是生态玩家，上周在伦敦还对 Fractile 说了些好话。另有传闻称 Cerebras 与 OpenAI 达成了交易。若你是一家数万亿美元的 GPU 公司，最大客户之一突然签下你原先也许不觉得生死攸关的快速推理平台，会是令人警惕的时刻。据说这两笔交易都在 12 月 24 日签约。哈里问这是不是对 OpenAI 多元化的膝跳反应。沃尔特认为，那是承认当时空间的某些部分需要不同解法，Groq 的 SRAM 方案在那个时刻是把大模型跑得更快的正确解；但今天已经往前走了：单靠 SRAM 芯片解决不了大模型推理，容量不够，为速度付出的成本太高，能支撑的上下文长度约束非常刺眼。他的概括是：那套方案能给你更敏捷的聊天机器人，却未必能把跑上许多天的前沿智能体截短几个数量级。而巨大的奖池，正在后一件事上。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">推理服务商、7.2亿美元C轮，以及资本换来的机动空间</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里点名人们熟悉的推理服务商：Modal、Fireworks、Baseten、Together，请沃尔特押其中一个。沃尔特说和其中好几家的创始人是朋友，不愿点名，但喜欢他们都还有迂回空间：还没有把自己的产能锁死，不是 neo-cloud，可以对新芯片下注，也可以开辟新的市场切片，比如专精多模态、文本或快速推理，这一层未必会完全商品化。若一定要选身份，他今天宁做把模型跑起来、签下消耗 token 的企业客户、把飞轮转起来的推理服务商，也不做 neo-cloud。会不会出现数千亿美元的公司？是优步/Lyft 那种赢家通吃、第二第三名价值差一截，还是 AWS 与 GCP 那样只剩少数几家？他认为不会有十家，今天已经有一条长尾，再加上 neo-cloud，肯定有几十家都在数十亿美元量级上挪动；这个空间里会走出少数几家数千亿美元级的公司。谈到新一轮融资，金额是 7.2 亿美元 C 轮。进程好不好玩？他回想四年前甚至两年前，还在教投资人「推理」这个词：一场 30 分钟的路演，四年前得先花 10 分钟解释什么是大模型，再花 10 分钟说明为什么训练不会是全部、还要部署，再留 5 分钟讲为什么速度会重要——那时还没有推理模型。相比之下，现在可以直接谈团队如何与众不同、供应链位置如何独特、用怎样的哲学在这个空间里取胜，像坐下来喝咖啡。处于风暴眼是一种优势，因为人们终于理解这是必须解决的关键问题。哈里问 7.2 亿够不够、账上突然有这笔钱能做什么。沃尔特说先感到责任的分量：有人在他们身上压了大额资本，责任之一是始终多点射门。资本让他们能同时看多件事、把眼光放到更多代际之后，在系统层、网络层做更多创新，把整条未来系统路线图铺出来。这个领域很贵，但把芯片做出来、把第一批系统拿回来的成本，某种意义上这几年是相对固定的；更重要的是在供应链其余部分更快地机动，例如对未来多年都需要的某些元器件签长期协议，并建立更强的预测能力：自己多跑实验，判断未来什么会重要。Fractile 会永远是芯片公司，但必须对什么东西能规模化、模型架构可能朝哪走、如何处理很长的上下文、跑一个智能体集群和跑一条很长的串行智能体有何不同，有足够洞察，才能对客户更有帮助。他们也在地理上扩张：台湾有人，美国有团队；几周前，来自 Meta、曾负责大量人工智能计算系统的丹·拉比诺维奇（Dan Rabinovich）加入，推动从芯片往上的系统建设，包括机架级系统、网络和与数据中心的整合，并继续拉进世界级人才。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">若能投资供应商、客户或对手，以及快问快答</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里连续追问三个投资假设。若能投资一家供应商，沃尔特选台积电：今天发生的几乎每件事都能追溯到他们，这不是什么独家新闻，台积电支撑着世界上绝大多数前沿芯片生产，「怎么买都便宜」，他会天天买这只股票。若能投资一家客户，他喜欢一些精干能打、估值也更便宜些的新实验室（neo-lab）；点名时提到朋友在伦敦创办的 Inherent，既在看递归自我改进（RSI）这类挑战，也特别关注如何建造能自动做科学、自动做研究的系统——不是去追一个包打天下的最强前沿模型，而是编排和部署模型、把系统做得更会解题。若必须投资一个竞争对手，他看好三维 DRAM 这条路线，并提到同一空间里还有一家叫 D-Matrix 的公司走了不同的架构方向，他认为两家都会非常成功；哈里问上轮估值，他说不知道。快问快答里，过去 12 个月他改观最大的是模型能力推进的底层速度：今年夏天的数学结果让人谈论时间线被截短；凡是可验证的领域，例如数学和编程，往往属于未来 12 个月就能被解决的那一类，前沿模型将能啃下这些硬的、可验证的挑战。最想请上董事会的人，他立刻点名德米斯·哈萨比斯（Demis Hassabis），既是他的学术偶像，也有几分英国英雄的意味，目前还没邀请，哈里笑说这期节目倒是一个好时机。芯片行业最大的误称是什么？他认为人们把科技公司想得过于「技术」，实际上这是一个非常非常人性的空间，大量取决于关系和能跨整条栈协作的团队，是人在驱动。英伟达五年内会不会成为 10 万亿美元的公司？他毫不犹豫说会，并称这是正和游戏；作为一句可能不精确的快评，他认为英伟达今天的远期估值倍数低于互联网泡沫破裂后的思科（Cisco）。人们被互联网泡沫创伤太深，从一开始就把过热计价进去了，因而还没充分意识到这次扩建会有多持久。不必不断新增数据中心：在有限的兆瓦下，也必须每隔几年用更好的芯片替换旧芯片。对作为市场新进入者的 Fractile，这是巨大优势——今天数据中心里你看到的每一颗芯片，最多六七年一定会被换掉，许多撑不过两三年。市场领导者会因供应链关系而过得很好；同时，服务前沿需求的芯片供应商面前还有一块巨大的、甚至可说是新的机会，他同样看好 Fractile 在这个时间尺度上的机会。若由他掌管英国、要让英国成为科技超级大国，他认为遗憾的是，解锁增长很大程度上就是解锁能源：尽一切努力把更多可再生能源、更多核能和其他电力来源并网，才能让真正重要的产业在这里铺开。对未来十年最兴奋的是：人们已经在用这些模型解决从前解决不了的问题，它对真实世界的意义才刚刚起飞，生活会变得更好一些，包括攻克从前无法对付的疾病、让每个人都能获得高质量教育。哈里补充：传统课堂可能有 40 个孩子，有了人工智能就可以按选择题或视觉学习的习惯、按自己的速度做个性化教育；他自嘲数学不好，从前不敢举手说「我不懂」，怕显得愚蠢。沃尔特对此非常同意。收尾处哈里说喜欢做这档节目，是因为能向像沃尔特这样的人学习，并用英式口语向对方致谢（逐字稿里被误听成一个人名，正文按「伙计」处理），两人互相感谢。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">哈里·斯特宾斯（Harry Stebbings）<em>主持</em></span><span class="spk-1">沃尔特·古德温（Walter Goodwin）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场：7.2亿美元C轮、70亿美元估值，Fractile是做什么的</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>我们对互联网泡沫创伤太深，从一开始就把过热的情绪计价进去了。十年后，我们花在跑模型上的钱，会远远高于今天。今天坐到这张热座位上的，是前沿芯片领域最重要的头脑之一：沃尔特·古德温（Walter Goodwin），Fractile 创始人兼首席执行官。</p>
+<p>这家公司刚刚完成 7.2 亿美元的 C 轮融资，由 Thrive 与 Founders Fund 联合领投，Lightspeed 和 Redpoint 共同参与，估值达到 70 亿美元。</p>
+<p>感觉我们需要的算力，要比今天多出几千倍。前沿智能尚未商品化。我认为在这个领域会走出几家数万亿美元级的公司。一家合格的 neo-cloud，和另一家合格的 neo-cloud，其实差不多。准备开始。</p>
+</div></div>
+<div class="marker-line"><span class="tag">【片头音乐】</span></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>沃尔特，这次我真的特别兴奋。能当面做这期太好了，你能来演播室，我特别开心。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>哈里，能和你坐在一起也非常好。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>我想先用 60 秒，给还不了解的人介绍一下：Fractile 是做什么的？我们需要知道什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>Fractile，某种意义上是一家前沿人工智能公司，但我们做的是芯片。我们做这些大型的机架级系统，完全聚焦于把人工智能能力的前沿往前推。</p>
+<p>所以从团队构成上看，这意味着我们既有机器学习研究员，也有每隔几周就飞去台湾的工艺专家，还有真正去看热设计、看机械结构、把这样一整柜系统装起来的人。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>完全明白。我听了你上《No Priors》的那期，我们刚才也聊到莎拉·郭（Sarah Guo）。你当时说得很干脆：你们是一家芯片公司。我听着觉得很好。可转头一看，所有人都在走向全栈。我们看到 OpenAI 有 Jalapeño，看到 DeepSeek 也在做自己的，看到 Anthropic 在自研，显然 Meta 和马克（Mark）也有自己的。我想问的是：未来是不是垂直整合者才能赢？如今还能不能只做一家芯片公司？</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>只做芯片还是全栈：垂直整合、商品化与DeepSeek推理栈</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>这是一个非常好的问题。确实有一种垂直化：当这些不同的部件组装到一起，尤其是你望向未来，去想这些模型会长成什么样、负载会怎样演化、硅会怎样演化，你绝对有必要对其中每一部分都有一套判断。</p>
+<p>所以 Fractile 是一家芯片公司，但某种意义上，我们也是一家前沿人工智能公司。对我们来说，这一点会一直成立：我们靠卖芯片赚钱，靠向客户出售成机柜的算力赚钱。</p>
+<p>但完全必要的是，公司内部要有一批机器学习研究员，去看模型架构可能怎样演化，甚至去跑一些规模比领先实验室更小的实验。这里要区分的是：赢所需要的内部专长，和商业模式本身是两回事。</p>
+<p>我们永远不打算和客户竞争，也永远不会靠内部模型变现，因为我们选择把这家公司建在芯片这一层，选择在芯片层竞争。但你又不能退一步，不去逼自己在所有这些其他地方建立专长，否则以我们的情况，就会下错注。</p>
+<p>你必须把从整个生态系统里学到的东西综合起来，再带回到你正在建造的那一块，并对它保持强迫症般的专注。如果这件事做对了，你理想中会找到一大片绿地：对上游的伙伴、对客户、对供应商都极其有帮助。你也得了解他们业务的一部分，但当然，你永远不会寻求和他们发生冲突。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>你会不会认为，所有人都走向垂直整合，是因为大家都在对抗某一层的商品化？想想 OpenAI 用九个月做出 Jalapeño，这似乎暗示那一层已经出现某种商品化。你觉得所有人都在拼命扩张，就是为了跑在商品化前面吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>确实存在一场保卫毛利的战斗。比如说，如果你在服务前沿模型，很重要的一点是，不能被在位芯片厂商非常高的利润率一路向下挤压。这时候，有一个第一方方案，或者另一个第三方方案，能成为对它的制衡，就非常有用。</p>
+<p>所以各种力量汇到一起，意味着如果你是前沿实验室、是云厂商，对这条链上的多个环节有自己的应对，就非常重要。但我仍然觉得，今天有一个相当关键的区分：什么也许正在商品化，什么我们在前沿仍然看得见。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>那什么正在商品化？帮我理解一下——我是投资人，我在优秀的创业者和企业里寻找价值。哪些是大多数人以为还没有商品化、其实已经商品化的？哪些又是大家以为已经商品化、其实还没有的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>有时人们会担心、有时又会兴奋一个概念，叫「智能饱和」：模型越来越聪明，会越过一条水位线，对一整类任务我们不再需要更强的智能。我认为，确实有某些任务已经出现这种智能饱和，开源模型已经够用，模型在那一层就会商品化。</p>
+<p>不过再往细处看，即便到了那个水平，模型仍在对抗商品化，因为始终存在一种经济压力，比如要把智能的成本打下来。也许有点反直觉，这正是我觉得前沿实验室和前沿努力仍然至关重要的原因：当然，前沿智能尚未商品化。</p>
+<p>我们在那里看到很高的毛利，看到和其他所有人之间很大的差距。而且从前沿得到的经验，也会向下滴到更小、更好的模型上。所以如果你看整条光谱，无论是前沿大模型能力，还是落后于前沿的那些能力，仍然是一场非常激烈的战斗。</p>
+<p>我会把它刻画为：只要你在某件事上是市场领导者，你仍然可以抽出高毛利，所以它还没有商品化。一个很好的例子是，DeepSeek 几天前放出了他们整套推理栈、整套软件栈。人们很快就意识到，DeepSeek 把自己的模型跑在 GPU 上的推理栈做得非常出色，吞吐更高，交互性更好，速度也比所有其他人为 DeepSeek 搭建的推理服务更好。</p>
+<p>一件你可能以为到这个时点已经商品化的事——服务一个开源模型——他们通过走全栈，既把模型做得更高效，又为这个模型做了更高效的推理服务，从而给自己切出了仍然相当健康的利润空间。所以即便在开源领域，我们还没有看到彻底的逐底竞争，至少对那些再次试图掌握这条链上大量垂直理解的人来说是这样。</p>
+<p>我认为正在商品化的，而且我觉得也没有人真正争辩过它不会商品化的，是整个云算力这一块。一家合格的 neo-cloud，和另一家合格的 neo-cloud，其实差不多。今天之所以如此热闹，是因为我们还不知道哪些是合格的。所以那里仍然有很大空间，会出现巨大的赢家，也许也会有巨大的输家。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>所以你才会看到，所有 neo-cloud 都在拼命垂直整合，因为他们很清楚自己这一层在商品化。我们请过 Nebius 的创始人来节目，他谈到他们正把模型路由和推理做成核心业务、核心战略，我想就是因为意识到了这一点。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>是的，我认为这是真的。你确实看到，每一家 neo-cloud 都在试图做推理服务。很多在推理服务上建立起优势的人——那归根结底是一种软件优势——也在想，如何在算力这一侧对自己的命运有更多掌控。我当然有立场，但我觉得，新芯片的故事、差异化的硅，恰恰可以成为这些玩家真正核心的差异点。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>你能展开讲讲吗？为什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我们仍处在非主流、非常规硅片投放非常早的局：不是那些主流的 GPU、TPU 和其他 XPU。尤其是看这些扩建如何融资，倒向一个新的芯片平台，比如 Fractile、Cerebras 等等，仍然要大胆得多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>抱歉，为了让大家跟上：我们需要这些新的芯片平台，是因为负载正变得越来越复杂、越来越重，而这些芯片的专业化，会让这些负载的执行高效得多。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我认为这些新平台——当然我们是其中之一——相信在某些负载上，你会有超过 10 倍的优势，无论是成本，还是以我们的情况，是成本和速度。所以某种意义上，它们仍然是逆势的赌注。我们还没有看到很多吉瓦的新硅被铺开，但它们确实有潜力从根本上改写经济账。</p>
+<p>想象你是一家 neo-cloud，而且是第一家想明白如何打破与某一家 GPU 供应商某种绑定的 neo-cloud，你就有可能收获巨大的好处。Fluidstack 是一个很好的例子：他们在某种程度上是第一家决定迈步离开英伟达（Nvidia）、部署了一批谷歌 TPU（Google TPU）的 neo-cloud，跨过那条卢比孔河之后，他们过了非常出色的一年，也赢得了开始部署其他芯片的资格。所以当你走得更垂直，也可以去下一些风险略高的注，并因此收获巨大的好处。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>英伟达做横向通用，Fractile押注前沿推理</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>那我们这样想的话，这对英伟达的业务意味着什么？如果把英伟达看成横向供应商，把你们看成某种专业供应商，芯片的未来会不会按负载高度专业化？我们该如何理解横向对专业的这种市场构成？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我是这样看的。英伟达是一家非凡的公司，按许多指标来说，他们打造了世界上最好的人工智能芯片，也打造了最好的系统，在数据中心级推理上做了非常出色的工作。在推理这个领域，我认为他们同样有一些精彩的成果。</p>
+<p>我觉得当下不同、也和 Fractile 的身份相关的一点是：存在一种不断演进的前沿。这个前沿需要略微不同类型的下注，也需要略微不同的思维方式，因为你必然要建立一家能够拐角看路的公司，能够做出大胆的预测，然后能够把整个技术产品转向这些大胆的预测。</p>
+<p>而如果你看英伟达的业务，他们最擅长的，是以惊人的规模交付高质量产品，而且这些产品某种意义上是「无立场」的：它们是强大的通用处理器，在人工智能计算世界的多个部分都非常好用。</p>
+<p>如果你看 Fractile 的赌注，比如在推理上，我们是要做比这些 GPU 快几个数量级的芯片。那是一个非常明确的焦点。对我们将意味着，架构上要专注于找到通往巨大内存带宽的路径，而这可能也会在某些方面让我们离开那种完全的通用性。</p>
+<p>不过今天有意思的地方、也是我们如此兴奋的原因在于：前沿同时也是整个市场压倒性的一部分。只要看过去几年发生的事，我们专门为服务前沿大模型，展开了规模惊人的推理算力建设。所以某种意义上的「专业」，绝不是小众。</p>
+<p>这才是真正的转变。如果倒回十年，哪怕五年，去做一颗专业芯片都会显得有些疯狂：我们当时没有任何单一负载占到总计算负担的、比如说 10%。现在突然有了。我认为这要求略微不同的公司结构，要把那种预测能力做进去，并试着让整个组织围绕「追逐这件事意味着什么」来编排。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>这里面有太多我想拆开的环节。你刚才提到了内存和 HBM。为什么内存墙到今天仍然是如此突出的问题？你能帮我理解一下吗？</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>内存墙：算力涨了一百万倍，带宽只涨了约40倍</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>当然。这是芯片物理里一个很有意思的事实。先从那句好听的说起——如果你看硅的世界过去大约 20 年，真正构成芯片顶级规格、那种「王牌」指标的，大概是两件事。</p>
+<p>其中一件，对人工智能芯片来说当然是浮点运算次数：你每秒能做多少次浮点运算，一次乘法或一次加法。那就是这颗芯片上的数学能力。另一件则是芯片上存储器的特性：容量，尤其是通往那块存储器的带宽——你能多快地把数据来回运送。</p>
+<p>看一颗 GPU，中间那块硅在跑数学，算力很高；周围还有其他硅，也就是 HBM，高带宽内存，像高速公路一样把数据送进来。依靠摩尔定律（Moore&#x27;s law），我们在放大浮点算力上极其出色，过去 25 年大约提升了一百万倍。相比之下，带宽在物理上受到的限制要本质得多，同期大约只提升了 40 倍。所以它落后于算力缩放大约 2.5 万倍。我们自然就越来越发现，自己在很多操作上是带宽受限的。</p>
+<p>对大模型推理这类事情，这已经变成关键瓶颈，因为它和文本生成的方式缠在一起。我们都有一种感觉：这是自回归的、顺序的，模型一个词接一个词往外生成。每生成其中一个词，我都要从那块存储器、经过那条有限的带宽，把模型的全部权重装载进来；今天，还要把我正在处理的全部上下文、我见过的那些状态，一并装进来。于是生成速度就卡在这里。</p>
+<p>如果你拿一颗非常大的前沿模型，它也许每秒生成 80 个 token、大约每秒 80 个词，原因往往不是芯片上的数学能力有限，而是你通往那块存储器的带宽远远不够。我无法以超过、比如说每秒 80 次的频率，把模型权重从内存装进那个处理器。</p>
+<p>我之所以从那句关于物理的「好听的话」讲起，是因为如果你把接口放大来看，本质上有一束铜线，从这块 DRAM 走进处理器。全世界把它们做得越来越小，已经相当不错，但能缩放的空间也就那么多。所以你大概只有几千根线。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>所以这就是为什么——抱歉——你们会用 SRAM，并且把存储器移得更近，我说得对吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>对，SRAM。可以这样想：DRAM 差不多像在另一栋楼里，你要把这些箱子搬下楼，再搬上楼，进到做数学的那栋处理器大楼；不幸的是，还得再搬回去，因为那栋楼里没有足够空间放下所有箱子。也许更像是一座仓库，再加上一间你真正干活的办公室。</p>
+<p>SRAM 则像是有一批箱子长期放在处理器里。那是少量存储器，被塞进你做计算的同一块硅上。但麻烦也在这里。过去 30 年我们把存储器外置成所谓的 DRAM、放到另一块硅上，是因为它们在完全不同的晶圆厂里制造，为非常非常不同的目标做了专业化。</p>
+<p>DRAM 完全聚焦于密度。所谓的 DRAM 存储单元结构极其简单，你可以在很小一块硅上塞进许多个十亿。SRAM 则恰好建在完全相同的工艺节点上，比如由台积电（TSMC）和你做处理器的那块硅做在一起，但它并不是为密度优化的。所以同样面积上，你能得到的 SRAM 容量远低于 DRAM 能放下的那些吉字节，按美元计也是如此，因为晶圆按面积计价。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>那当你看推理、看推理的未来，哪一种更合适？是 DRAM 还是 SRAM？因为延迟很重要。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>没错，延迟重要，带宽也重要：我到底能往这条通道里塞多少。这正是我们过去几年在 Fractile 努力的事情之一，某种意义上是拒绝接受这种权衡。</p>
+<p>作为存储器，SRAM 是今天唯一能和处理器做在同一块芯片上的，也是唯一能靠得极近、从而拥有极高带宽的。DRAM 便宜得多、密得多、容量大得多，但我们访问它的方式有根本限制。可你如果看那种物理——它是从铜线过来的——会发现是因为我们把它放错了位置：DRAM 和芯片坐在同一个平面上。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>三维堆叠：用DRAM的容量，拿到SRAM级带宽</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我们把它和芯片放在同一个平面上，于是只剩下一条有限的、被称为「海滩线」的边缘：字面意义上，芯片边上那点有限的地产。Fractile 过去两年做的，本质上就是把这块存储器叠到逻辑之上。与其只有有限的海滩线，不如让人人都拥有海景房：整层存储器坐在逻辑芯片上面。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>这怎么可能？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>在芯片世界里，三维是人们缩放了很久的一个维度，但它有各种各样的复杂性。其实如果你看 HBM，一块高带宽内存，它本身就是一叠 DRAM 芯片。可这种叠法有某些特性，让它并不适合被拿起来、直接扣到你的逻辑芯片上，所以我们今天并不那样做。不过存在一些工艺技术，这是 Fractile 团队有很深积淀的领域，围绕的就是三维堆叠。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>所以你们是在海滩上盖公寓，而不是盖独栋，为的是有更大容量。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我猜我们更像是在建那种新建的群岛，每个人都能分到一点海滩。一条条地，人人都紧挨着海岸。你把它放上去之后，突然就有了整片二维面积。那些铜线不再横向走，而是有数百万根垂直向下。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>看和其他供应商的差异，这是不是你们的差异化因素？你怎么分析在这个领域和你们竞争的那些专业供应商，比如 Etched？差异到底在哪里？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我觉得可以从几方面看。一是哲学，一是今天的技术。从哲学上说，Fractile 是有使命的，使命就是通过建造更好的硬件，推进前沿人工智能能力。过去几年，这件事把我们带到了今天这个方案。团队解锁了一个未来：你可以拥有 SRAM 的带宽，同时又拥有 DRAM 的容量和可扩展性。这是一种能改变世界的创新，而且会有持久力。我们非常兴奋把它跨多代做下去，把技术优势滚起来。</p>
+<p>但与此同时，既有使命，如果负载变了，你也希望能够改变自己的回应。所以我们小心的一件事，就是不要变成「破解了三维 DRAM 的那家公司」。我们希望继续被推动去创新，不管下一步是什么。</p>
+<p>不过如果看这对我们未来几年机制上意味着什么，芯片领域今天有一个挑战。一边是所有这些基于 HBM 的芯片，在某个层面上它们很难真正分化：无论是 GPU、TPU、OpenAI 的 Jalapeño 芯片，还是 Etched、MatX，它们在芯片上往往有非常出色的架构，能比彼此稍微更高效地做某些事，但从根本上被那种「王牌规格」框住了——你只能拿到这么多算力，只能拿到这么多带宽。</p>
+<p>坐在它们旁边的那块 HBM，是完全相同的硅，是来自同一批供应商的同一套模块，每一颗这样的芯片都是如此。另一边则是基于 SRAM 的芯片，内存带宽很高，却有巨大的容量约束。如果你看 Groq，或看 Cerebras，它们今天能做到的事情非常了不起：让你把强大的模型跑得快得多。</p>
+<p>我一直为 Fractile 感到兴奋、也是我四年前创办这家公司时想做的事情，就是做出更擅长大模型推理的芯片，尤其是能让我们把推理跑得快得多的芯片。因为我们始终相信，会走到我们今天实际所处的这个空间，也就是所谓的测试时计算扩展：推理模型、跑得越久就越强的长程智能体，为你给出更好的答案。而这正是今天正在改变世界的前沿负载的面貌。</p>
+<p>如果你看把一个前沿大模型对准一道千禧年大奖难题时会发生什么：它会连续生成许多个百万级的 token，你还会把一群这样的智能体并行拉起来。这里有并行的一面，但那许多个百万级的顺序 token 生成，意味着你要等上很多很多天，才能得到其中一个回答。</p>
+<p>某种程度上，这是一个至今完全没有被今天任何硅、任何芯片破解的空间。因为存在一种诱人的错配：那些快推理芯片、基于 SRAM 的芯片，有能力快速访问内存、快速生成 token；而这种新负载、这种长程智能体，需要巨大的容量，因为正在出现非常长的上下文。所以世界迫切需要一种同时往右上走的东西：既有非常高的带宽和速度，又有高容量，从而能够扩展到更长的上下文和更大的模型。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>这种事是不是总比你以为的更久？还是说，你会在技术加速里看到那种戏剧性的拐点？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我觉得这件事令人兴奋的地方在于——而且我认为技术突破往往如此——你永远站在巨人的肩膀上。以我们的情况，我们用来做三维集成的一些技术，其实已经存在相当长时间了，只是还没有被转到这个精确的问题上，转到内存堆叠这个挑战上。</p>
+<p>所以在这个空间里，如果你愿意同时做架构上的努力，重新设计芯片来利用这一点，也愿意去做制造运营上那些脏活累活，并且能一路说服你的合作伙伴你并没有疯，这里其实有可能出现几乎一夜之间的转变。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>有没有量产、为何不走博通，以及流片只是第一步</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>我能直言吗？昨晚我和一位非常出色的芯片公司创始人聊天，他说这个行业里有大量热气和空话，营销泡沫很多，但真正进入生产的并不多。当你看 Etched 或 Fractile，我们真的在量产吗？落地之后该怎么理解「在生产」？他这句话对吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>这件事有两面。是的，Fractile 已经有硅走过晶圆厂、回到我们手里。是的，我们还在跑进一步的试验，数月内也会做完整的产品流片，这相当令人兴奋。但生产的规模是非常值得追问的。对进入前沿的新芯片公司来说，一个真正的挑战是获得比如台积电的产能、HBM 的产能。</p>
+<p>尤其是，其中一些努力在抢同一份资源。今天很多这样的芯片是和后端伙伴一起做的，比如无论是 TPU 还是 Jalapeño，Meta 的 MTIA，还有 MatX 或 Etched，它们都被传闻在使用博通（Broadcom），使用相同或非常相近的台积电工艺节点，以及同样的 HBM 技术。你可以看出，为什么对那份有限的资源会有一场真正的淘金热，这也意味着，要在短时间里做到真正有意义的规模，会很有挑战。</p>
+<p>Fractile 一直比较专注的一件事是，我们几乎有一种不公平的、深入栈里的触及能力。后端伙伴的意义，是去做最后一公里，也就是物理设计，去和晶圆厂、和制造这一侧互动。Fractile 始终把这些放在内部，我们有一支非常出色的团队，在加入 Fractile 之前几十年里，交付芯片的方式一直如此。这成了我们核心的战略优势：我们从一开始就必须和制造伙伴直接打交道，也一直有这种直接的沟通。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>我理解一下另一种路径：你先经过博通，再由博通去掌握与制造伙伴的关系。是这样吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>明白了。所以博通是大多数人会经过、而你们不会经过的那层中间商，你们也不走这条路。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>是的。我觉得这里有两点。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>那这让你们能做什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>第一件是，能为这些芯片建造完全不同的积木。如果你看博通——今年夏天我在一场会议上，查理·卡瓦斯（Charlie Kawwas），那边的一位负责人，举起下一代平台的一个乐高模型，说这将在 2028 年和六家大客户一起进入生产。这话有点奇怪，因为他的意思是：看上去和这个一模一样的东西，会和六家主要玩家一起被做出来，只是被起上不同的名字。它会是 TPU、会是 MTIA、会是 Jalapeño，你知道，还有三个——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>Dorito 2。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>没错。这揭示了这个市场的某种结构：那些芯片各自会有不同的名字，它们也会有所不同，那些公司内部都有非常了不起的芯片团队，会做出极其聪明的架构优化，但到头来，它会是完全同一套平台，同一叠 HBM，同样数量的芯片。很多最根本的积木是由后端伙伴决定的，因为这是一种平台技术的玩法。基本上，你只能改油漆的颜色。</p>
+<p>所以对我们而言，这让我们能够腾挪，去建造这些新的积木。比如内存堆叠这项工作，极其复杂、极其痛苦，需要把多家比我们大得多的供应链伙伴召集起来，让他们去做高度定制的事情。可一旦你像我们已经做到的那样把它打通，你就拥有了别人没有的资产。</p>
+<p>绕这么远，也是为了回到你关于上量生产的问题。这多半还意味着，你找到了使用别人没用的资源的办法。以我们的情况，也许是不同的工艺节点，也许是略微不同的 DRAM 节点或 DRAM 代际，那种可能不会进入前沿 HBM 的。于是你相当于在沙发缝里，找到了建设吉瓦级产能的机会，用的是其他人、以及这套前沿平台已经离开的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>能问一下吗，当我们想到所谓的生产线，很多人告诉我一定要问流片（tape-out）。流片是什么？我们需要知道什么？你怎么看待它？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>流片是那个时刻：你的芯片设计流程的最终文件——基本上是一幅巨大的图像，我们称之为 GDSII 文件——被送出去。这幅图像规定了所有铜线在哪里、晶体管在哪里、逻辑在哪里，它被交给台积电，或交给你的逻辑晶圆厂伙伴，他们开始制作掩模组，也就是最终将生产出这颗芯片的那套「模具」，然后你开始做第一轮试验，也许也包括第一轮生产。</p>
+<p>所以对芯片设计师来说，这突然成了一次相当关键的交接。因为在架构、前端设计、验证、物理设计、版图这条长流程的尽头，你把文件送出去；如果这一刻里面有缺陷，就太晚了，掩模已经在被刻出来。所以它会是日历上一个重大日期之类的东西。</p>
+<p>不过在今天，它也只是很长流程中的第一步。因为那块硅随后要走进晶圆厂，你要等几个月它才回来，而且你必须做好准备去接收它、跑点亮流程。封装好的硅回到实验室，你然后冲刺，把一个负载跑在单颗芯片上，跑在托盘上，最终跑在整柜上。</p>
+<p>所以这算是第二部分。在 Fractile，我们会跟踪进度，中间有流片日期，但我们持续瞄准的那件事，我们称之为 Task Zero，是某一参考负载在整柜 Fractile 芯片上跑起来的那一天。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>这个过程里，有什么是别人看不见、对你却最为突出的？如果把流片看成一次关键交接，流片日之后的困难、那种分量，是不是没人真正理解？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我想，其实就是接下来会发生的事。如果你过分执着于把第一颗芯片交给晶圆厂这一件事，会有太多东西你可能没让自己准备好。所以对我们来说，是持续跟踪：我们到底在试图建造什么？我们要建造良率很好的系统，从而底层经济性很好，因为我们设计的硅有合适的修复和冗余水平，它高度可制造，作为产品说得通，然后再装进一个同样良率高、可靠的系统里。</p>
+<p>所以，把一个可大规模制造的产品做出来，并找到尽快爬坡的路径，某种意义上才是目标。我几乎觉得，过去几年芯片创业公司创始人和支持他们的风险投资人之间，偶然共享了对「流片」这个词的执念，因为它是一个如此可触摸的时刻，一个如此明确的日期。</p>
+<p>可我们在 Fractile 做的大量工作——所有软件工作，所有系统工作，以及硅团队里的很多人——聚焦的是芯片上那些某种意义上无形、难以言说的部分，它们关乎的是：怎样尽快把这些东西点亮、做可靠，并做到上量。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>瓶颈从GPU短缺转到土地与电力，又快又省才装得下</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>我们在楼下的时候，你说硅也许不再像从前那样是瓶颈，也许数据中心、或者说数据中心容量才是。你能谈谈这种关系和短缺的转换吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>可以。这也是过去四年如此令人兴奋的原因：感觉每个季度，最能约束我们在数据中心里规模化跑更多前沿模型的那件事，都在切换。底层有一些我们急需的属性，比如把推理跑得快得多，比如以更好的经济性跑更长的上下文。但如果你回想三年前，毫无疑问，是英伟达 GPU 短缺，不存在其他芯片的问题。</p>
+<p>随后我们又发现自己处在底层硅和供应链短缺里。今天对 HBM 等内存的短缺非常尖锐，会延伸到未来多年；逻辑硅在台积电那边也短缺。而如果你看今天这个空间，土地和电力绝对是另一道限制。</p>
+<p>所有那种能被改造成数据中心的工业用地、那些低垂的果实，以及在美国能获得许可、把燃气轮机就近部署、大约 90 天就能把这些东西转起来的地方，这些往往是一次性的招数，已经差不多被用尽了。我们现在是在探索更长的尾巴，用越来越难的办法去找土地和电力，好把这些芯片装进去。</p>
+<p>所以一方面，数据中心容量成了我们能铺开多少算力的根本瓶颈。若你想完全不站队、做多头的人工智能投资，基本上就是去买能源，因为那显然是最底层的东西。但与此同时，恰恰是这种约束性的上限，才让「为任何一项工作装上尽可能好的芯片」变得如此重要。</p>
+<p>如果你看今天的前沿实验室和云厂商，它们的模型上有一种快速模式。若你把这种模式跑在基于 HBM 的芯片上，你是在一条权衡曲线上极其低效的点上运行：在这些芯片上，你要么生成 token 时又慢又省，要么快，但非常低效，比如说每兆瓦功率每秒打出的 token 少得多。</p>
+<p>那如果我想把一颗数万亿参数的模型跑到每秒数千个 token，而我只有一座 500 兆瓦的数据中心，聚合吞吐不够，无法在那些芯片上服务我的用户群，会怎样？现在就会有一种真实的压力，去装上一组即便被挤到高得多的速度、仍然能保持很好聚合吞吐的芯片。Fractile 会是这样的一个例子。所以，尽管土地和电力可能是比供应链约束更尖锐的瓶颈，但恰恰是它，激励了更加合用的芯片。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>我们的能源缺口有多大？我知道这是一个非常宏观、非常大胆的问题，但当你看能源需求对能源供给，你觉得缺口是什么样的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>如果看美国、英国的积压，那种程度非常惊人：电网接入的排队规模，会像是比电网里现有的电量大一个数量级。这样看的话，当然，这些项目里有多少真正站得住、能够落地，是我们可以质疑的。但需求看上去确实到了令人瞠目的水平。我认为能源是这些真正底层的基本面之一。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>回到我们前面说的 DeepSeek，以及他们在推理栈上了不起的创新。当你看中国对能源的政策和监管环境，那是一路绿灯。什么都开绿灯，包括把数百万人从家里迁走，因为他们需要场地去做能源供应。而在美国，你有邻避（NIMBY）；在英国，蝙蝠和蝴蝶会挡住具有科学或自然价值的场地。在一个能源需求如此之高的世界里，我们是不是天生就落后于中国？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我觉得这是中国某种程度上已经抢了西方先手的地方之一。尤其是那些巨型工程，比如巨大的水电项目，它们非常适合人工智能算力的铺开，因为它们有一种特别的特征：曾经可能不方便的是，15 吉瓦的电力全部到达一个点，然后再被分配出去。人工智能数据中心并不真正在乎自己在哪里。那为什么不把 15 吉瓦的人工智能算力，直接放在偏远地区这座水电站旁边呢？</p>
+<p>我认为在美国，尤其在英国和欧洲，我们有很多可以做的事，让自己看起来更像那样。好消息是——这也是我认为这边的政府、以及欧洲政府应该更多地去强调的——恰恰是这个事实：很多可以被用上的电源，可再生能源可以成为这个故事里很大的一部分。你可以把一座数据中心放在苏格兰，放在一个巨大的风场旁边，而从前也许根本讲不出一个为什么要在那里发电的故事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>对我来说很有意思的一点是，我们现在做很多短视频。一旦我们谈到数据中心建不成——前几天我们还谈过微软退出 NScale 项目——所有人都在说「可算走了，可算走了，你们这些科技佬」。看到这种几乎一律的反弹，坦白说，来自一些非常愚蠢的路人，我感到吃惊。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>测试时计算：纳维–斯托克斯、80小时与1万个智能体</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>能问你吗——你比很多人都更早看到推理是一个市场，真希望几年前就听进去了。我现在知道、也希望自己 12 个月前就知道的，是对推理几乎无穷的需求。关于推理市场，你现在知道些什么，是你觉得并不那么显而易见、或者和其他人说的不一样的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我觉得这件事在某些方面，仍然是我最初那个赌注更强烈的版本。四年前，洞察大概是两层。第一，当你开始拥有这类在所有东西上训练、然后可以泛化到你扔给它的任何事情上的基础模型，就会有一种硬逻辑：训练变成固定成本，部署、也就是推理，只是用这些模型去做有用的事。它是唯一真正重要的部分。如果你长期在训练上花的钱更多，那我们为什么还要建这些东西？你简直可以打包回家了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>我总是和我妈妈这样形容：就像奥运会，你在同一条船上。他在健身房训练，很好，然后决定：我其实不上场比赛。那还有什么意义？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>对，没意义。这就像你花远比收回的更多的钱去建一座工厂，却从来没有真正从里面生产出东西。高固定成本地去建造一样东西，其硬逻辑就是：你必须相信自己会做足够多的部署，才能证明它合理。所以我认为那是第一部分。</p>
+<p>然后是第二个赌注：我们会拥有所谓的测试时计算扩展，也就是推理模型的到来。它们晚了两年才出现。我非常感谢诺姆·布朗（Noam Brown）和 OpenAI 的团队，他们是最先把这类工作发表出来的。我认为今天正在发生的是，我们继续看到这些测试时计算扩展定律的向量：我们追求更强能力的方式，是一层层叠上去的。</p>
+<p>一条是，把用来训练这些模型的算力十倍、再十倍地加上去。另一条则是，我们如何把更多算力倒进部署这些模型、倒进推理这一侧。这是你到达更强能力的很大一部分。再次以求解一道千禧年大奖难题为例，纳维–斯托克斯（Navier-Stokes）那次求解，我记得是 1 万个智能体组成的集群执行了 80 小时。</p>
+<p>于是你有两条轴，勾勒出极其巨大的 token 生成量：我既有 1 万个并行的智能体，各自生成自己的思维链，它们又要跑 80 小时。这和我们可能对大模型的直觉完全不同——那种直觉是，我们问一个问题，这个单线程的东西几乎立刻就会给出一个答案。</p>
+<p>当我们把这些模型用到最难的问题上——我觉得这也算一个好消息：最难的问题往往也是对社会正面影响最大的，通常是在解决一个科学问题，或医学里我们以前也许还解决不了的事情——要去做这件事，去做这种在经济和在社会上都极其有益、却超出「把模型拿来问一次、让它一次性给出答案」的范围的事，推理算力就是我们拥有的那条通路。纳维–斯托克斯这个例子，就是这方面的证据。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>你说「推理算力是我们拥有的通路」，是什么意思？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>它是我们为了获得更强能力所能拧动的那只旋钮。想象在任何一个时刻，世界上都有最好的前沿模型，它会在某个时点来自某一家实验室。最好的前沿模型能力极其强，你和它对话，会觉得它比你以前交谈过的任何东西都更聪明。可事实是，当你说：嗨，我正在做这项挑战，我们真的很想找到一种罕见病的疗法——我们当然还没到那种地步，它不会立刻说：哦，就是这个，我想到了，它已经在我的神经元里立刻发射出来了。</p>
+<p>可我们同时发现的是：如果你真的往上面堆足够多的算力，如果你说，别只是试图给我一个答案，先提出几百个你可以去探索的候选方案，再复制出很多个自己，去遍历互联网、去读文献，和自己的副本辩论，交换信息，大概一周后再回来见我，那时你也许已经为了找到一个答案生成了数十亿个 token——有一点像我们给一群聪明人很多时间去解一道题，你确实有机会拿回一个解。我们真的看到了这一点。关键是：把一个前沿模型用到一道难题上，每一次都会是这个样子。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>我想问你的是：我是风险投资人，是投资人，我看到眼下正在撞上、也即将撞上的紧缩、债务周期和信贷问题。这个周期所要求的一切，再加上你刚才说的那些我同意的话，世界上的钱不够。然后我再一看，我们还没有真正解决物理世界、物理数据和机器人，以及中间所需的一切。所以我脑子里同时握着这两个看似相反的念头：现在到底怎么办？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>所以我们才需要在服务智能的每一层都持续创新。好消息是，尽管我们这边聚焦在芯片上，可你只要看算法这一侧，比如模型效率：在假设硬件不变的前提下，服务某一智力水平的成本正在下降。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>没错，在硬件不变的情况下，效率也在提升。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>是的。而且当我们看到更长的上下文变成挑战时，也看到了非常出色的创新：你如何压缩上下文，如何做稀疏注意力，以及处理这件事的其他办法。所以在你所谓的模型计算效率上，有持续的创新：同一颗芯片、同等算力，我能到达多少更多的智能、多少更多的解。当然，我们在硬件上也有同样的效果，我们非常努力地确保这个硬件效应也在。</p>
+<p>所以真正令人振奋、也是我认为总体而言这次扩建完全站得住、我们不会看到这个市场崩塌的原因在于：远不像 2000 到 2001 年的光纤大铺设，数据中心里加了电的 GPU 是完全满负荷的。我们没有关着灯的 GPU 船队。因为正如你所见，作为一个物种我们仍然有巨大数量的问题要去解决，我们现在有了可以扔向这些问题的工具，而且如果我们有算力，本可以在推理阶段多做许多个数量级的思考，去解决最难的挑战。</p>
+<p>所以一方面我同意你，感觉我们需要的算力比今天多几千倍。我们不会得到多几千倍的数据中心，我认为这对世界大概也是好事。我们能够做的，是拿今天已有的大约这么多土地、电力和数据中心选址，在未来几年里，通过模型创新和硬件创新走到一起，把其中一座数据中心里每兆瓦、每机柜所能挤出的智能，大幅度地再挤、再挤、再挤。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>我请过 Atlassian 的迈克·坎农-布鲁克斯（Mike Cannon-Brookes）来节目，他对我说，我认为推理成本在未来三到五年会大幅下降，所以我才不当演员。——下一期你来学我一下。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>下一期里的你，其实已经挺接近我了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>你想让我来一段俄语？那倒真的不错。不过回到迈克·坎农-布鲁克斯这个主题：推理成本会发生什么？十年后，一个 token 会花多少钱？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>这是那种会引出另一个问题的问题：我们跑的是什么模型？它大概会比我们今天拥有的模型大几个数量级，所以那个 token 在某种意义上也在交付强得多的能力。我认为推理里的利润会起伏，也会出现在不同的地方。十年后，我们花在跑模型上的钱会远远多于今天。这部分我觉得是清楚的。</p>
+<p>可谁会在这个空间里赢？今天大概有芯片，有云，有在做前沿模型的前沿实验室，也有在构建和服务开源模型的人。我非常看好芯片、认为价值会大量发生在这里、或至少是一个重大发生地的原因之一，其实是下对芯片赌注这件事本身的性质：它有一种内在的滞后。设计芯片、把芯片做出来、再让它被造出来，以及它必须在数据中心里拥有一段有用寿命，这意味着你在芯片领域不会有别处那种完全高效的竞赛，某种意义上甚至是逐底竞争。</p>
+<p>如果你有更好的想法，如果你能以某种方式建立起持续的优势，我认为你会看到很多价值在那里累积。我认为很多价值仍然会累积在前沿：构建相对于其他模型仍有持续优势的前沿模型，是一个昂贵的过程，需要极其有才华的团队，配合海量算力。可它交付的是——谁不想要地球上最了不起的智能呢？当然人们会继续为此付费。所以整个奖池在扩大，其中会有相对的赢家和输家，但在推理上，这是一场正和游戏。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>我们前几天刚请萨蒂亚·纳德拉（Satya Nadella）上过节目。他说，我们会看到一个未来：每家公司都有自己的专用模型，用自己独特的专有数据；一个很酷的价值环节，其实是它们为自己、为自己的公司和自己的目标所做的评测基准。你同意那种每家公司各有专用模型的世界吗？还是觉得这相对技术乐观、并不对？你怎么看？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我认为今天绝对有空间，而且只要看技术本身，把一个模型按你的用例微调，确实有正面效果。但这是暂时的。一般来说，拥有某种内部微调版本的优势，会在下一个开源模型的下一版发布时消失。</p>
+<p>我觉得这仍然可以变成一种「是的，而且」：只要你有一个模型，这种构造是叠在最好的前沿能力之上的，我就完全相信，拥有某种否则会在前沿被做出来的东西的内部专用变体，会有优势。但这确实是最难回答的问题之一。因为随着时间推移，也许你只能对开源模型做这件事。若是那样，这其中的权衡意味着什么：对我来说，把一个开源模型专门化更好，还是全力投入那个仍在追逐更高计算效率、因而对我的挑战可能实际上非常划算的、在前沿发布的东西更好？</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>价值栈、异构编排，以及英伟达收购Groq</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>完全明白。那当你看这条价值栈，你刚才说芯片显然是你认为最有价值的地方——最不值钱的环节在哪里？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我认为，对任何纯粹工作在软件层的人来说，都存在一种危险。我最近看到一些编排方向的尝试。我们即将在世界上拥有的芯片会出现一波异构：GPU、其他 XPU、这些新的芯片努力。有些云、有些软件供应商，已经把自己定位成即将到来的这一波之上的编排层。</p>
+<p>我觉得有一种世界是：这种异构会是稍微暂时的。是的，今天我们看到比如英伟达收购了 Groq，会把两种芯片并排放：Rubin GPU 和 Groq 的芯片，做所谓的预填充与解码拆分，以及注意力拆分，这些硅片分别承担大模型推理负载里不同的部分。所以会有一种相当复杂的编排，有点像模型路由，但是芯片路由。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>没错，芯片路由。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>对，芯片路由。从一种技术观点看，也许有人会说：为什么停在这里？为什么不弄七种不同的硅，也许来自不同供应商，各自专精不同部分？也有一种信念是，巨大的价值创造浪潮会出在如何编排这些东西的专长上。我认为，其中很多可能会随着时间再收回去。我们并没有一种根本的、生存性的理由，必须用七个不同平台去跑一种负载；也没有很强的经济理由，说明我们能把这种结构维持下去。</p>
+<p>即便只想象英伟达与 Groq 的数据中心部署：我在里面放多少颗英伟达 GPU，对多少颗 Groq 芯片？今天的赌注是这样——如果允许我在技术上多讲一分钟——这种注意力与前馈的拆分是：我把模型权重放在 Groq 芯片上，因为在那条高带宽上访问它们非常快，而且我往那个数据中心里塞的每一个用户，都要同一份模型权重，所以我可以把那块贵得多的存储器的成本摊薄，靠量把它赚回来。</p>
+<p>注意力是作用在上下文上的那一部分，它不能在用户之间共享。我的上下文和你的上下文不同。所以对那一块，我对存储器成本极其敏感。我们前面讲过，SRAM 太贵了，DRAM 便宜得多，于是我需要退回到 GPU、退回到 GPU 的存储器上去跑那一块。这就是今天一个同时放了这两种芯片的英伟达数据中心的逻辑。</p>
+<p>可当我去规格化这些芯片、决定放多少的时候：如果我的上下文长度随着时间变长，我突然可能希望比去年放更多英伟达 GPU，因为上下文更长了。它们还会再长多少？也许模型突然变大了，我又希望自己多要一些 Groq 芯片。于是你很可能落到一个处境：数据中心里某一部分产能被闲置了，你就是填不满，因为配比错了。这是不可接受的，完全不可接受。因为你有确定数量的兆瓦，你想从中挤出尽可能多的收入。</p>
+<p>所以这种想法——你放下一种固定配比，而在接下来几年里你改不了这座数据中心，它是资本开支，要按时间摊销——让异构实际上成为一件非常棘手的事。我觉得它是对一个事实的暂时回应：你今天还没有一颗能把事做全的芯片。这些基于 SRAM 的芯片，多少解决了快速推理这个挑战，但它们没有做注意力所需的内存容量，所以我们仍然要把 GPU 拉进来。</p>
+<p>它们也没有王牌规格里那种算力密度，去跑大模型推理里计算密集的那部分，也就是预填充、提示处理。因为你有一块成本很高的硅，你必须把本可以放数学的面积，和放存储器的面积分享。所以你的数学一定没有对面那位用 HBM、能把 100% 芯片面积留给跑矩阵乘法的张量核心的对手多。</p>
+<p>如果看 Fractile 在做的事：我们基本上是把 SRAM「搬上楼」，在上面叠一层 DRAM。底部那整块计算裸片现在可以自由地铺上张量核心，你可以拥有和任何人一样多的算力，可以在王牌规格上拉到满。但你同时从三维访问拿到 SRAM 级的带宽，又从 DRAM 拿到容量。于是你突然拥有了这种「三位一体」，这三样东西都在一颗芯片里，也就清楚了：你不需要异构，不需要所有这些复杂的编排，也不必承担产能闲置的风险。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>英伟达收购 Groq，是一份保险吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我觉得这件事有很多有意思的传闻。Groq 团队是一支非常聪明的团队，黄仁勋（Jensen Huang）是一个聪明人，希望聪明人在他的队里。他们也确实做了一个平台，我认为它回答了、或者说曾经回答了英伟达当时面临的一个大挑战：我们如何进入快速推理这个空间。</p>
+<p>我觉得黄仁勋在这个空间里相当正面。上周他在伦敦的时候，还对 Fractile 说了些好话。某种意义上，他也是一个生态玩家。英伟达抓住这个市场主体的方式是：他们有时会被部署在其他平台旁边，那些平台补强他们能力的某些部分。</p>
+<p>另有一个传闻是，Cerebras 显然和 OpenAI 达成了交易。如果你在经营一家数万亿美元的 GPU 公司，而你最大的客户之一突然签下一样你先前也许并不认为有生存必要性的东西——一个快速推理平台——我认为那会是一个令人警惕的时刻。你的反应会是什么？据说这两笔交易都是在 12 月 24 日签的，对律师来说想必也是一段有趣的时间。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>现在做律师可是好时候。所以你觉得，这是对 OpenAI 那次多元化的膝跳反应吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我认为这是一种承认：在那个时候，这个空间的某些部分需要一种不同的解法，而 Groq 的 SRAM 方案，是那个时刻把大模型跑得更快的正确解。但今天我们已经看到自己往前走了。你无法用这些基于 SRAM 的芯片解决大模型推理：容量不够，为达到速度付出的成本太高，你能操作的上下文长度约束非常刺眼。</p>
+<p>所以我会把那套方案刻画为：它能给你更敏捷的聊天机器人，却未必能给你这样一件事——把那种压倒性的前沿智能、那些一跑就是许多天的智能体，截短几个数量级。我认为巨大的奖池真正在那里。而今天，那套方案并不能为此提供一个答案。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>推理服务商、7.2亿美元C轮，以及资本换来的机动空间</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>推理这个空间里，人们熟悉的不同玩家是 Modal、Fireworks，或者 Baseten、Together。你押其中一个。你会押哪一个？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我和其中好几家公司的创始人是朋友，所以——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>孩子总有一个最喜欢的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我喜欢这些家伙的一点是，他们仍然有迂回腾挪的空间。他们还没有把自己的大量产能锁死，他们不是 neo-cloud。他们有可能在新芯片出现时去下注，也有可能开辟市场里新的部分。我认为存在一种世界，这一块不会完全商品化：你可以专精于服务多模态模型、文本模型、快速推理。所以我不会下一个具体的注。我会说，我今天宁愿做一家推理服务商，专精于把这些模型跑起来、把它们部署上去，也不愿做一家 neo-cloud。</p>
+<p>实际上，我认为更有延伸空间的，是能够做成那种商业飞轮：签下消耗这些 token 的企业客户。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>他们会成为数千亿美元级的公司吗？这是一个优步和 Lyft 那样的市场，赢家通吃、第二第三名价值差一截，还是像 GCP 对 AWS 那样的市场？即便那样，大概也只有三家玩家。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>是的，我觉得你不会有十家。今天你可能已经有一条把你推向那个数量的长尾。如果把 neo-cloud 也加进去，你肯定会有几十家玩家，每一家都在数十亿美元的量级上挪动。它们是数千亿美元的空间吗？我认为我们会在这个空间里，走出少数几家数千亿美元级的公司。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>能和我谈谈新一轮融资吗？我们融了多少？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>是 7.2 亿美元的 C 轮。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>过程怎么样？好玩吗？因为现在你简直成了舞会的焦点。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>如果你倒回四年，其实倒回两年，我们还在教人们「推理」这个词。这会让投资人路演变得更难，因为当你在教育一个投资人，时间有点像：然后你就离开了，你只有 30 分钟，你得花掉 20 分钟。四年前，你得先花 10 分钟解释什么是大模型，然后再花 10 分钟解释为什么你觉得训练这些东西不会是全部，你还要去部署。我再花 5 分钟说，以及我为什么认为速度会重要。那时我们还没有看到推理模型等等。</p>
+<p>所以和那时相比，现在非常有意思的是，你可以直接进入，去谈我们如何拥有一支完全独特、出色的团队，能以和其他所有人不同的方式做事；我们如何在供应链里拥有非常独特的位置，能够以不同的方式腾挪；以及我认为在这个空间里怎样建造才能赢的另一套哲学。我可以把时间花在咖啡边上谈这些。所以现在以某种方式处于风暴眼，是一种真正的优势，因为这个空间里已经有一种理解：为什么这是一个必须去解决的关键问题。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>7.2 亿。和我谈谈，这够吗？突然这笔钱到了账上，有什么变化？有什么是你以前做不了、现在能做的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>突然有一种责任的分量。有一些人在我们身上压下了大额资本，我认为我们的责任之一，是始终确保我们在多点射门。资本允许我们做的一件事，就是把自己铺开，同时看多件事情。我们现在能够开始把眼光放到更多代际之后，能够探索比以前也许会探索的更多栈上的部分，比如在系统层、在网络层做更多创新。把这整条未来系统的路线图建出来，是资本允许我们做的一件事。</p>
+<p>这个领域很贵，但我认为，把那颗芯片做出来、把第一批系统拿回来所需的底层资本，某种意义上是过去几年里相对固定的成本。很多这类资本现在更重要的用途，并不是大多数人以为的那样。我认为现在变得重要的，是在供应链的其余部分、在这个世界里更快地机动，比如对未来多年我们都需要的某些元器件去签长期协议；以及建立起更多那种预测能力。我们现在可以开始想，如何更多地自己跑实验，弄清未来什么可能重要。</p>
+<p>正如我所说，Fractile 会永远是一家芯片公司。但我们确实需要有强的洞察，才能对客户更有帮助：什么东西能规模化得很好，模型架构接下来可能朝哪走，你如何处理非常长的上下文，跑一个智能体集群和跑一条很长的串行智能体看起来有什么不同。所有这些几乎是机器学习研究的挑战，我们现在也能够去着手。</p>
+<p>我们也在地理上扩张。显然我们在台湾有人，在美国有一支团队。我非常兴奋的是，几周前，来自 Meta、曾在那里做大量人工智能计算系统工作的丹·拉比诺维奇（Dan Rabinovich）加入了我们，推动我们的系统建设：从芯片往上的一切，机架级系统、网络、与数据中心的整合。所以这是一条很长的栈，我们会在有意义的地方去把业务的这些部分建起来，并在追逐这些的过程中，把世界上最好的人才拉进来。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>若能投资供应商、客户或对手，以及快问快答</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>能问你吗，说到投资人：如果你能投资你的供应商中的任何一家，会是哪一家，为什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>台积电是一家非凡的企业。如果你看今天正在发生的一切，每件事都能追溯到他们。这不会是你这档节目的独家新闻，我觉得相当众所周知的是，台积电支撑着世界上所有的芯片生产。它怎么买都便宜。我会一周七天都买这只股票。世界上处于前沿的芯片，或者说绝大多数处于前沿的芯片，都在那里建造。他们是一家非凡的企业，一支非凡的团队。所以我想我们会走进那里。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>这个我记下了。如果你能投资你的客户中的任何一家，会是哪一家，为什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我真的很喜欢其中一些精干能打的新实验室。我这次是在像投资人那样想，这正是我想要的：它们更便宜一些。而且我认为我们会看到一些——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>哪一家？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我有些朋友在伦敦创办了 Inherent，不知道你有没有接触过他们。他们既在看递归自我改进这类挑战，也特别关注建造能够自动做科学、自动做研究的系统需要什么。我认为这里有很大的空间：它并不完全等同于去追求那个包打天下的最强前沿模型，但在编排和部署模型、建造更善于解决这些挑战的系统上，有非常多有意思的问题。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>如果必须投资你的竞争对手中的一个——这是快问快答前最后一个——会是哪一个，为什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我非常看好三维 DRAM。同一空间里还有一家叫 D-Matrix 的公司，走了不同的架构方向。我认为这两家公司都会非常成功。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>他们上一轮估值是多少？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我不知道。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>好。你准备好快问快答了吗？过去 12 个月，你改了想法的是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>也许我还没完全准备好快问快答。你愿意先把快问快答念给我听吗？抱歉，我只是——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>这段能留着吗？其实从来没有人真正准备好快问快答。好，其中一个是：过去 12 个月你改了想法的是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我认为，模型能力推进的底层速度是非凡的。我们今年夏天看到的那些数学结果，就人们谈论的时间线被截短而言——已经变得清楚的是，任何可验证的东西，数学和编程往往落入这一类，会在未来 12 个月被解决。我们将能够用前沿模型去啃下这些困难的、可验证的挑战。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>你的董事会里还没有、但你非常希望拥有的人是谁？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>这题很容易。我认为德米斯·哈萨比斯（Demis Hassabis）既是我的学术偶像，也有几分是一位英国英雄。我觉得他应该加入董事会。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>你请过他了吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>还没有。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>这倒是一个好办法。德米斯——芯片行业今天最大的误称是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我猜，关于科技企业的误称，通常是以为它们非常「技术」。这其实是一个非常非常非常人性的空间。其中那么多取决于关系，以我们的情况，那么多取决于拥有一支能跨整条栈协作的出色团队。所以它是由人驱动的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>英伟达五年内会不会成为一家 10 万亿美元的公司？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>会。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>你说得相当有把握。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>这是一场非常正和的游戏。英伟达今天的交易——这是一句快评，也许不够精确——但我认为，它的远期估值倍数低于互联网泡沫破裂之后的思科（Cisco）。我对这个空间非常看好。</p>
+<p>我们在这场泡沫甚至还没开始爆发之前，就已经在谈论它。我们对互联网泡沫创伤太深，从一开始就把过热计价进去了。所以我认为，我们还没有充分意识到，这次扩建会有多么持久。你也不必必然地不断新增数据中心。我们谈过计算效率的提升：如果我的兆瓦数是有限的，我就需要每隔几年用更好的芯片替换我的芯片。</p>
+<p>所以对作为市场新进入者的 Fractile，这是一个巨大优势：因为今天你在数据中心里看到的每一颗芯片，最多六七年一定会被换出那些数据中心，其中许多撑不过两三年。对市场领导者来说，那是巨大的市场机会。他们有非凡的供应链关系，他们会过得很好。然后还有这个巨大的、我愿意说是新的机会：成为服务前沿需求的那家芯片供应商。在那个时间尺度上，我也非常看好 Fractile 的机会。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>恭喜，现在由你掌管英国。为了让英国成为科技超级大国，你会改什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>遗憾的是，我认为解锁增长的很大一部分就是解锁能源。尽我们所能，把更多可再生能源、更多核能、更多电力来源并网，让我们能够在这里铺开真正重要的产业。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>最后一个。对未来十年，你最感到兴奋的是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我想，还是这一点：我们现在已经在使用这些模型。我们用它们做什么？用它们解决从前解决不了的问题。我认为我们才刚刚开始看到，这件事对真实世界意味着什么，开始加速起飞。所以它会是生活变得更好一些的所有那些方式：我们找到从前无法对付的疾病的疗法，我们让每个人都能获得高质量的教育。这些事情毫无疑问会到来。我们已经有了让它发生的技术。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>我觉得这太棒了。你看传统的班级规模，一个班大概 40 个孩子。有了人工智能，你就可以做个性化教育：有人喜欢选择题，有人喜欢视觉学习，按照他们自己的速度。我和你大概不一样，我数学不好，从前总是不敢举手说「我不懂」，因为我会显得愚蠢。针对这一点的个性化学习，只是一个很小的例子。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>我非常同意你。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">Harry</span></div><div class="content">
+<p>听着，伙计，我喜欢做这档节目，因为我真的能向像你这样出色的人学习。所以谢谢你和我一起做这期，真的非常有意思。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="walter"><div class="label"><span class="badge" title="沃尔特·古德温（Walter Goodwin）">Walter</span></div><div class="content">
+<p>非常谢谢你，哈里。这很有意思。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "20VC with Harry Stebbings", "title": "估值70亿美元的创业公司，做AI芯片挑战英伟达｜Fractile 创始人兼CEO沃尔特·古德温（Walter Goodwin）", "url": "https://www.youtube.com/watch?v=UZ8eYaAf08M", "videoId": "UZ8eYaAf08M", "published_at": "2026-11-14 07:00 PT（America/Los_Angeles）", "duration": 4559, "caption_source": "YouTube 页面 Show transcript / 内容转文字（caption_source=browser-cdp）；官方/自动 yt-dlp 遇 HTTP 429，chrome cookies 路径（chrome:/home/box/chrome-profile/Fork-3）因“The page needs to be reloaded”失败。同批用浏览器 Show transcript 成功（592 条线索，0:00–1:15:46，末条 4546 秒，时长 4559 秒，足够完整）。中文为全文翻译并按话题分段；无赞助口播需标灰。说话人按主持哈里·斯特宾斯与嘉宾沃尔特·古德温的互相点名、问答轮次启发式标注（Show transcript 无说话人标签；一对一访谈整体把握较高，少数同一字幕块内的交接句为中等把握，未编造第三位嘉宾）。ASR/专名订正：No Prize→No Priors；Sarah→莎拉·郭（Sarah Guo）；Light Speed→Lightspeed；Radpoint→Redpoint；Thrive Founders Fund→Thrive 与 Founders Fund（联合领投/共同领投，口播未给出分拆金额，未编造出资额）；Jalapino/Jalapeno/Halipino/Japano→Jalapeño（OpenAI 自研芯片项目，保留口播专名）；Dorito 2 保留专名；SRAMM→SRAM；DAM/DRM/DM→DRAM；HPM/HM/Frontier HM→HBM；Navia Stokes + Millennium Prize→纳维–斯托克斯（Navier-Stokes）方程/千禧年大奖难题，不是人名；Listen, Mort→英式口语 mate 的误听，不是名叫 Mort 的第三人；Grock→Groq（SRAM/LPU 推理公司，按上下文与 SRAM 策略交叉核对，不是 xAI 的 Grok）；Cabbrus/Cerabus/Cerebrus→Cerebras；Reuben→Rubin（英伟达 GPU 架构）；infant / infant server / infant space→inference（推理）；Mo's law→摩尔定律；Nome Brown→诺姆·布朗（Noam Brown）；Mike Cannon Bruce/Brook→迈克·坎农-布鲁克斯（Mike Cannon-Brookes）；Charlie Kawas→查理·卡瓦斯（Charlie Kawwas，博通）；Deis Saris / Deus→德米斯·哈萨比斯（Demis Hassabis，按「学术偶像兼英国英雄」交叉核对，把握较高）；Sat→萨蒂亚·纳德拉（Satya Nadella，近日同节目嘉宾，与「每家公司自建专用模型与评测基准」的表述相符）；Deepseek→DeepSeek；modal / fireworks / base 10s / togethers→Modal、Fireworks、Baseten、Together；neocloud / neocclass→neo-cloud；Fluid Stack→Fluidstack；NScale 按口播保留；Inherent（伦敦创业公司）按口播保留；Dan Rabinovich 按口播保留中文译名丹·拉比诺维奇（Dan Rabinovich）；multillion / multiundred→数万亿 / 数千亿；disagregation→拆分（disaggregation）；amatize→摊销；GDS2→GDSII；seinal→seminal（关键交接）。未编造出资额拆分或其他嘉宾。口播 “less than 10 times as much SRAM capacity” 句法含混，正文写为 SRAM 单位面积容量远低于 DRAM，未写成精确倍数。", "guests": ["沃尔特·古德温（Walter Goodwin）"], "intro": {"summary": "本集哈里·斯特宾斯（Harry Stebbings）在演播室对谈 Fractile 创始人兼首席执行官沃尔特·古德温（Walter Goodwin）。公司刚完成 7.2 亿美元 C 轮，由 Thrive 与 Founders Fund 联合领投，Lightspeed 与 Redpoint 共同参与，估值 70 亿美元。沃尔特把 Fractile 定位为做芯片和机架级系统的前沿人工智能公司：只靠卖芯片和机柜赚钱，不卖自研模型、也不与客户竞争，但内部必须有机器学习研究能力，才能对模型架构和负载下对注。对谈从内存墙、把 DRAM 三维堆叠到逻辑芯片上、流片与内部里程碑「Task Zero」，讲到土地与电力瓶颈、测试时计算，以及英伟达收购 Groq、博通代工平台和推理服务商格局。", "points": ["Fractile 刚完成 7.2 亿美元 C 轮，估值 70 亿美元；Thrive 与 Founders Fund 联合领投，Lightspeed、Redpoint 参与。沃尔特强调他们是芯片公司：卖芯片和机架级算力，永不靠内部模型变现，也不与客户抢生意；但团队从机器学习研究员，到每隔几周飞台湾的工艺专家，再到机柜热设计与机械结构，必须看懂整条栈，否则会下错注。", "他认为真正开始商品化的是云算力层——「一家合格的 neo-cloud 和另一家合格的差不多」。DeepSeek 几天前放出整套推理软件栈，在 GPU 上跑自己的模型，吞吐和交互性明显好过别人搭的 DeepSeek 推理服务，说明即便开源模型的部署也还没杀到血本无归。Fluidstack 被他举为第一家大幅离开英伟达、改部谷歌 TPU（Google TPU）并因此过了很出色一年的 neo-cloud。", "内存墙：过去约 25 年，芯片浮点算力（FLOP）提升了约一百万倍，带宽只提升约 40 倍，落后约 2.5 万倍。大前沿模型大约每秒 80 个 token，往往不是算力不够，而是带宽不够，每秒只能把权重从内存装载大约 80 次。SRAM 又快又近但密度低、贵；DRAM 又密又便宜，却隔着芯片边缘有限的「海滩线」。Fractile 的做法是把 DRAM 三维堆叠到逻辑芯片上方，用百万级垂直铜线换带宽，目标是 SRAM 级带宽加上 DRAM 的容量与可扩展性。", "硅片已经从晶圆厂回来，数月内还要做完整产品流片（tape-out）；真正的考验是台积电（TSMC）和 HBM 产能。谷歌 TPU、OpenAI 的 Jalapeño、Meta 的 MTIA、MatX、Etched 都被传闻走博通（Broadcom）做后端，用相近的台积电节点和同一套 HBM。博通的查理·卡瓦斯（Charlie Kawwas）今年夏天展示下一代平台的乐高模型，称 2028 年会与六家大客户量产——同一套平台换个名字，可能是 TPU、MTIA、Jalapeño、Dorito 2。Fractile 坚持自建后端与晶圆厂关系，用别人已经不用的工艺节点去找吉瓦级产能。公司内部真正盯的里程碑叫 Task Zero：参考负载在整柜 Fractile 芯片上跑起来的那一天。", "瓶颈已从三年前的英伟达 GPU 短缺，转到 HBM 与台积电逻辑硅，再到土地和电力：美国能在约 90 天内部署燃气轮机的捷径、以及可改造成数据中心的工业用地，已经用得差不多。美英电网接入排队规模，据说比网上现有电量大一个数量级。他举纳维–斯托克斯（Navier-Stokes）千禧年大奖难题为例：约 80 小时、1 万个并行智能体组成的集群，才能堆出海量 token；测试时计算是把能力拧上去的旋钮。世界需要的是比今天多几千倍的算力，但不必多建几千倍的数据中心，而是把每兆瓦、每机柜挤出多得多的智能。", "价值判断：纯软件编排层有风险。英伟达收购 Groq 后，计划把 Rubin GPU 与 Groq 芯片并排放，做预填充/解码拆分和注意力拆分，但上下文变长或模型变大就会让配比失准、产能闲置。Fractile 自称把存储「搬上楼」，底层逻辑裸出给张量核心，同时拿到三维访问的 SRAM 级带宽和 DRAM 容量，因此不必靠异构。传闻 Cerebras 与 OpenAI 的交易、英伟达收购 Groq，都在 12 月 24 日签约。推理服务商他不点名站队 Modal、Fireworks、Baseten、Together，但宁做推理服务商不做 neo-cloud，并认为这个赛道会走出少数几家数千亿美元级公司。若能投资，供应商选台积电，客户提到伦敦的 Inherent，对手提到同一赛道上架构不同的 D-Matrix。快问快答里，他确信英伟达五年内可以成为 10 万亿美元的公司，并说其远期估值倍数甚至低于互联网泡沫破裂后的思科（Cisco）。"], "verdict": "值得看：想理解为什么内存墙卡住了大模型推理、三维堆叠和「不走博通」的供应链逻辑、测试时计算如何把科学难题变成海量 token，以及英伟达收购 Groq 之后异构数据中心可能怎样退潮的人。约 76 分钟，数字密、技术细节多，是典型的硬核芯片深访，不是入门科普。可跳过：不关心芯片工艺、HBM/SRAM/DRAM 取舍和数据中心电力的听众。", "audience": "关注人工智能基础设施、芯片创业与一级市场融资的听众；做推理部署、neo-cloud 或模型实验室的人；想听英伟达、博通、台积电和 Groq/Cerebras 格局对照的投资者。"}, "speakers": [{"id": "harry", "name": "哈里·斯特宾斯（Harry Stebbings）", "role": "host", "short": "Harry"}, {"id": "walter", "name": "沃尔特·古德温（Walter Goodwin）", "role": "guest", "short": "Walter"}], "sections": [{"id": "s1", "start_sec": 0, "title": "开场：7.2亿美元C轮、70亿美元估值，Fractile是做什么的", "summary": "片头先抛出几个判断：人们对互联网泡沫创伤太深，从一开始就把过热计价进去了；十年后，花在跑模型上的钱会远高于今天。哈里·斯特宾斯（Harry Stebbings）介绍嘉宾沃尔特·古德温（Walter Goodwin），Fractile 创始人兼首席执行官。公司刚完成 7.2 亿美元 C 轮，由 Thrive 与 Founders Fund 联合领投，Lightspeed 与 Redpoint 共同参与，估值 70 亿美元。进棚后，沃尔特用大约一分钟说明公司定位：某种意义上是前沿人工智能公司，但做的是芯片，以及专门推进前沿能力的大型机架级系统。团队从机器学习研究员，到每隔几周飞台湾的工艺专家，再到负责热设计与机械结构、把整柜系统装起来的人，覆盖整条栈。哈里提到自己刚听了沃尔特上《No Priors》、和莎拉·郭（Sarah Guo）的对话，对方当时明确说自己是芯片公司。"}, {"id": "s2", "start_sec": 119, "title": "只做芯片还是全栈：垂直整合、商品化与DeepSeek推理栈", "summary": "哈里问：OpenAI 有 Jalapeño，DeepSeek、Anthropic 也在自研，Meta 和马克（Mark）同样有自己的芯片，未来是不是垂直整合者才能赢，如今还能不能只做芯片公司。沃尔特的回答是：必须对模型会长成什么样、负载和硅会怎样演化有一整套判断，否则会下错注；但商业模式是卖芯片、卖机柜算力，永远不打算用内部模型变现，也不与客户竞争。哈里追问，大家拼命垂直整合，是不是在对抗某一层的商品化——OpenAI 九个月做出 Jalapeño，似乎说明那一层已经有商品化迹象。沃尔特承认前沿实验室和云厂商需要第一方或第三方芯片，作为对在位芯片高毛利的制衡；但「智能饱和」只出现在部分任务上，开源模型够用的那一层才会商品化。前沿智能尚未商品化，仍有高毛利，而且前沿的经验会向下滴到更小的模型。他举几天前 DeepSeek 放出整套推理软件栈为例：他们把模型跑在 GPU 上的吞吐、交互性和速度，明显好过其他人搭的 DeepSeek 推理服务，说明即便开源模型的部署，也还没杀到血本无归。真正在商品化的是云算力——「一家合格的 neo-cloud 和另一家合格的差不多」，今天之所以热闹，是因为还不知道谁合格。哈里提到 Nebius 创始人上节目时说，公司正把模型路由和推理当成核心业务。沃尔特认为 neo-cloud 都在做推理服务，而差异化硅片会成为关键；这块仍是早期，上新平台仍是大胆的融资选择，例如 Fractile、Cerebras。Fluidstack 被他举为第一家「迈步离开英伟达」、部署谷歌 TPU、过了很出色一年的例子。"}, {"id": "s3", "start_sec": 671, "title": "英伟达做横向通用，Fractile押注前沿推理", "summary": "哈里问：英伟达（Nvidia）是横向供应商，Fractile 更像专业供应商，未来芯片会不会按负载高度专业化，市场将怎样分层。沃尔特称英伟达是非凡的公司，按许多指标打造了世界上最好的人工智能芯片和系统，在数据中心级推理上也做了出色工作。不同之处在于，演进中的前沿需要另一类下注：一家公司必须能拐角看路、做大胆预测，并把整个技术产品转向这些预测。英伟达擅长的是以惊人的规模交付高质量、相对「无立场」的通用处理器；Fractile 的赌注是推理，要做比这些 GPU 快几个数量级的芯片，架构上死磕巨大的内存带宽，因而可能牺牲一部分完全的通用性。他强调，前沿如今已占市场压倒性的份额——过去几年专门为前沿大模型服务的推理算力在大规模铺开，所以「专业」绝不等于小众。放在五年甚至十年前，去做一颗专业芯片会显得有些疯狂，因为当时没有任何单一负载占到总计算负担的大约 10%；现在有了，也就需要另一种公司结构，把预测能力做进组织里，并让整家公司围着这件事转。"}, {"id": "s4", "start_sec": 859, "title": "内存墙：算力涨了一百万倍，带宽只涨了约40倍", "summary": "哈里请他解释，为什么内存墙至今仍如此突出，沃尔特还提到了 HBM。沃尔特从芯片「王牌规格」讲起：一边是每秒能做多少浮点运算（一次乘法或加法），也就是数学能力；另一边是内存的容量，尤其是带宽——数据能多快地在处理器和存储器之间往返。看一颗 GPU，中间是跑数学、高算力的硅，周围是 HBM（高带宽内存）像高速公路一样把数据送进来。过去约 25 年，依靠摩尔定律（Moore's law），浮点算力大约提升了一百万倍；带宽更受物理限制，同期大约只提升了 40 倍，落后约 2.5 万倍，于是越来越多的操作变成带宽受限。大模型推理尤其如此：文本是自回归、一个词接一个词生成的，每生成一个词，都要把全部模型权重、以及今天还要把所见过的上下文状态，从那条有限的带宽里装载进来。一颗很大的前沿模型大约每秒生成 80 个 token，往往不是芯片上的数学能力不够，而是你没有足够带宽，每秒只能把权重从内存装进处理器大约 80 次。他把 DRAM 比作另一栋楼里的仓库，SRAM 则是长期放在处理器这间办公室里的少量箱子：SRAM 可以和处理器做在同一块台积电工艺的硅上，带宽极高，但不是为密度优化的，单位面积容量远低于 DRAM，按晶圆成本折算每美元容量也差一截。DRAM 和 SRAM 在完全不同的晶圆厂、为完全不同的目标而造。哈里问，推理要延迟，未来更适合 DRAM 还是 SRAM。沃尔特说延迟和带宽都重要，Fractile 过去几年做的，正是拒绝接受这个权衡。"}, {"id": "s5", "start_sec": 1179, "title": "三维堆叠：用DRAM的容量，拿到SRAM级带宽", "summary": "今天 DRAM 和芯片坐在同一平面上，数据只能从芯片边缘那条有限的「海滩线」进来。Fractile 过去两年做的，是把这层存储器叠到逻辑芯片上方，让整片二维面积都变成岸线，铜线不再横向走，而是有数百万根垂直向下。哈里问这怎么可能。沃尔特说，三维在芯片世界里已经被缩放了很久，但很复杂：HBM 本身就是一叠 DRAM，却并不适合直接扣到逻辑芯片上。Fractile 团队在三维堆叠上有很深的积淀。哈里用「在海滩上盖公寓而不是独栋」来类比，沃尔特则说更像新填的群岛，人人都挨着海岸。谈及与 Etched 等专业选手的差异，他分哲学和技术两边讲：公司的使命是用更好的硬件推进前沿人工智能能力，今天这条路落到「SRAM 的带宽加上 DRAM 的容量与可扩展性」，而且会跨多代把技术优势滚下去；但他们小心，不想变成「破解了三维 DRAM 的那家公司」，负载变了，响应也得能变。未来几年，HBM 路线的芯片——GPU、TPU、OpenAI 的 Jalapeño、Etched、MatX——往往芯片上的架构很出色，却都被同一套王牌规格框住：同样的 HBM 模块，同一批供应商。另一边是 SRAM 路线，如 Groq、Cerebras，能让强大模型跑得快得多，却有严重的容量约束。沃尔特四年前创办 Fractile，就是为了把大模型推理跑得快得多，因为他一直相信会走到今天所谓的测试时计算扩展：推理模型、越跑越久才越强的长程智能体。把前沿大模型对准一道千禧年大奖难题，它会连续生成数百万个 token，再拉起一群这样的智能体，你可能要等上很多天。SRAM 快芯片的速度，和长上下文、大容量的新负载对不上，世界迫切需要的是带宽和容量同时「往右上走」。已有三维集成技术其实存在很久，只是还没被用到这个内存堆叠问题上；如果你愿意改架构、做制造端的脏活，并说服供应链伙伴你不是疯子，就有可能出现几乎一夜之间的转变。"}, {"id": "s6", "start_sec": 1612, "title": "有没有量产、为何不走博通，以及流片只是第一步", "summary": "哈里转述昨晚一位芯片公司创始人的直言：行业里热气和营销很多，真正量产的很少，Etched、Fractile 也都被这么看。沃尔特说，Fractile 的硅已经走过晶圆厂并回到手里，还在跑更多试验，数月内也会做完整产品流片，这点很令人兴奋；但规模才是该被追问的。新进入前沿的芯片公司，抢的是同一批台积电产能和 HBM 产能。TPU、Jalapeño、Meta 的 MTIA、MatX、Etched，都被传闻使用博通做后端，工艺节点和 HBM 技术也非常接近，对这有限资源像淘金热，短期内很难做到有意义的规模。Fractile 的「不公平」之处是把最后一公里的物理设计、与晶圆厂的对接做在公司内部，团队在加入 Fractile 之前就这样交付芯片几十年了，从一开始就和制造伙伴直接打交道。哈里确认：别人的路径是先经过博通，再由博通去对接晶圆厂。沃尔特举今年夏天的一场会议：博通的查理·卡瓦斯（Charlie Kawwas）举起下一代平台的乐高模型，说 2028 年会与六家大客户量产——意思是看上去一模一样的东西，会被六家做成不同名字：TPU、MTIA、Jalapeño，以及哈里接上的 Dorito 2。各家内部芯片团队会做出极聪明的架构优化，但底层是同一套平台、同一叠 HBM、同样数量的芯片，后端伙伴把基础积木定死了，你大概只能改油漆颜色。Fractile 因此能去做高度定制的内存堆叠，一旦打通，就有了别人没有的资产，也更可能用上别人已经离开的工艺节点或 DRAM 代际，「从沙发缝里」找出吉瓦级产能。哈里请他解释什么是流片。沃尔特说，那是芯片设计流程的最终文件——一份巨大的、称为 GDSII 的「图像」，标出所有铜线、晶体管和逻辑，交给台积电或逻辑晶圆厂去制作掩模这套「模具」。对设计师来说这是一次关键交接：架构、前端、验证、物理设计、版图走完，文件一送出，若有缺陷就太晚了，掩模已经在刻。但今天它只是很长流程的第一步：硅要在厂里走几个月才回来，然后是实验室点亮、把负载跑到单芯片、托盘，直到整柜。Fractile 会跟踪流片日期，但真正持续瞄准的内部目标叫 Task Zero：某一参考负载在整柜 Fractile 芯片上跑起来的那一天。他觉得近几年芯片创始人和投资人偶然共享了对「流片日」的执念，因为它日期明确、可触摸；而软件、系统，以及让芯片尽快可靠上量的那些不易言说的工作，才是真正要把产品做成可大规模制造、有修复和冗余、良率高的关键。"}, {"id": "s7", "start_sec": 2149, "title": "瓶颈从GPU短缺转到土地与电力，又快又省才装得下", "summary": "哈里回忆两人楼下聊天时，沃尔特说硅也许不再像从前那样是瓶颈，数据中心容量才是。沃尔特说过去四年令人兴奋，因为每个季度，最卡住「在数据中心规模化跑更多前沿模型」的东西都在变：底层始终急需更快的推理、更长上下文和更好的经济性，但约束本身在切换。三年前毫无疑问是英伟达 GPU 短缺，随后是底层硅和供应链，今天 HBM 等内存短缺会延多年，台积电的逻辑硅也紧。此刻土地和电力成了另一道限制：可改造成数据中心的工业用地、美国能在约 90 天内部署燃气轮机的许可捷径，这些「一次性招数」已经用得差不多，只剩下更长、更难的尾巴。一方面，数据中心容量成了能铺开多少算力的根本瓶颈，若要完全不站队，投资能源就是最底层的押注；另一方面，正是这条约束，才让「为特定工作装上最合适的芯片」变得至关紧要。前沿实验室和云厂商给模型开「快速模式」时，若跑在基于 HBM 的芯片上，往往处于权衡曲线上非常低效的点：要么慢而省，要么快但每兆瓦打出的 token 少得多。若要把一颗数万亿参数的模型跑到每秒数千个 token，而你只有一座 500 兆瓦的数据中心、聚合吞吐不够服务用户，就会有压力去装上即便被挤到更高速度仍能保持很好聚合吞吐的芯片，Fractile 就是这样一个例子。土地和电力可能比供应链更紧，但这恰恰激励了更合用的芯片。被问到能源缺口有多大，他说看美英的积压，电网接入排队规模像是比网上现有电量大一个数量级；这些项目有多少真正能落地可以存疑，但需求看上去极其惊人。哈里把话题拉回 DeepSeek 的推理栈创新，并对比中国对能源「一路绿灯」、甚至为能源场地搬迁数百万人，美国则有邻避（NIMBY），英国还有蝙蝠和蝴蝶挡住自然景观场地，西方是否天生落后。沃尔特承认中国在这方面某种程度上抢了先手：巨型水电项目特别适合人工智能算力，因为 15 吉瓦的电集中到一个点、再向外输送，过去可能不方便，而人工智能数据中心不太在乎位置，为什么不把 15 吉瓦的算力直接放在偏远水电旁边。欧美也能做得更像这样，比如把数据中心放在苏格兰大型风场旁边，而从前那里未必有用电故事。哈里说，短视频里一谈到数据中心建不成，比如微软退出 NScale 项目，评论区往往是「科技佬快走」，这种反弹让他吃惊。"}, {"id": "s8", "start_sec": 2530, "title": "测试时计算：纳维–斯托克斯、80小时与1万个智能体", "summary": "哈里说自己后悔没更早听沃尔特对推理市场的判断，并问他现在对这个市场有什么仍不那么显而易见的看法。沃尔特认为，今天是他四年前那个判断的加强版。第一层逻辑是：基础模型训练成固定成本，部署也就是推理才是唯一真正重要的部分；若长期在训练上花的钱比用模型赚回的还多，就像工厂永远收不回投资，或运动员只在健身房训练却不上场比赛。第二层赌注是测试时计算扩展，也就是推理模型的到来——它们晚了两年才出现，他很感谢最先发表这类工作的诺姆·布朗（Noam Brown）和 OpenAI 团队。今天能力提升有两条轴：训练算力十倍再十倍地加，以及把更多算力倒进部署侧。他举纳维–斯托克斯（Navier-Stokes）千禧年大奖难题为例：那次求解大约是 1 万个智能体组成的集群执行了 80 小时——1 万条并行的思维链，再跑 80 小时，这和「问一句、单线程几乎立刻作答」的直觉完全不同。最难的问题往往也最有社会价值，比如科学或医学；单次询问不够用时，推理算力就是你能拧的那只旋钮。他举例：若要找一种罕见病的疗法，模型不会立刻在「神经元」里弹出答案，但如果你让它提出几百个候选方案，复制出很多个自己去检索文献、互相辩论，花大约一周、也许生成数十亿个 token 再回来，就像给一群聪明人充足时间，才有机会带回一个解。哈里随后把两个相反的念头摊开来：他作为投资人看到债务和信贷周期，觉得世界上的钱不够支撑这个周期所要求的一切，更别说物理世界、数据和机器人还没被真正解决。沃尔特的回应是，服务智能的每一层都需要持续创新。好消息是，即便硬件不变，模型效率、服务同一智力水平的成本也在下降；上下文变长时，也出现了压缩上下文、稀疏注意力等办法。同一芯片、同等算力（iso-compute）下能得到更多智能，硬件侧也在做同样的事。因此他认为这次扩建总体上站得住，不会见到 2000 到 2001 年光纤大铺设那样的崩塌——数据中心里加电的 GPU 是满负荷的，没有「关着灯的 GPU 船队」，因为作为物种我们仍有大量必须解决的问题，而推理阶段本来还可以多做许多数量级的思考，只是缺少算力。他同意世界需要比今天多几千倍的算力，但不会、大概也不该多建几千倍的数据中心；未来几年要用模型和硬件创新，把现有土地、电力和机柜里每兆瓦挤出显著更多的智能。哈里转述 Atlassian 的迈克·坎农-布鲁克斯（Mike Cannon-Brookes）的判断：推理成本未来三到五年会大幅下降，两人还开了几句口音的玩笑。沃尔特认为「十年后一个 token 要花多少钱」取决于那时跑的是什么模型——可能比今天大几个数量级，一个 token 交付的能力也强得多；推理的利润会在不同环节起伏，但十年后花在跑模型上的钱会远高于今天。价值会大量留在芯片层，因为设计、流片、制造和在数据中心里的使用寿命天然有滞后，不像别处那样容易杀到完全竞争；前沿模型的构建仍然昂贵，需要顶尖团队和海量算力，但谁都想要地球上最强的智能，奖池在扩大，是正和游戏。哈里提到刚请萨蒂亚·纳德拉（Satya Nadella）上过节目，对方认为未来每家公司都会用自有数据做专用模型，并把评测基准当成核心价值。沃尔特承认微调今天确有用，但优势是暂时的，下一个开源模型一发布往往就消失；若能叠在最好的前沿能力之上，内部专用变体仍可能有优势。最难回答的是：到底该把开源模型专门化，还是直接押注仍在追逐更高计算效率、因而可能更划算的前沿模型。"}, {"id": "s9", "start_sec": 3312, "title": "价值栈、异构编排，以及英伟达收购Groq", "summary": "哈里问价值栈上最值钱和最不值钱的环节。沃尔特认为，纯软件层存在风险。他看到一些编排方向的尝试：世界上将出现 GPU、其他 XPU 和新芯片努力的异构浪潮，有的云和软件公司想做这一层的编排者，并相信巨大价值会出在「如何调度这些芯片」上。他觉得这种异构可能是暂时的——并没有根本理由必须用七个不同平台跑一种负载，经济上也很难维持。英伟达收购 Groq 之后，计划把 Rubin GPU 和 Groq 芯片并排放，做所谓的预填充/解码拆分和注意力拆分，也就是某种「芯片路由」。技术逻辑是：把模型权重放在 Groq 上，因为那条高带宽访问很快，而且数据中心里每个用户都要同一份权重，昂贵的 SRAM 成本可以被摊薄；注意力作用在上下文上，上下文因人而异、无法共享，你对存储器成本极其敏感，SRAM 太贵，就得退回 GPU 上更便宜的 DRAM。问题是，若上下文变长，你可能希望比去年多放英伟达 GPU；若模型突然变大，你又希望多要 Groq 芯片。配比一旦定错，一部分产能就会闲置。兆瓦数是固定的，你想从中挤出尽可能多的收入，而数据中心是要摊销多年的资本开支，固定配比无法改，这让异构非常难受。它其实是对「今天还没有一颗能把事做全的芯片」的暂时回应：SRAM 芯片能部分解决快速推理，却没有足够容量做注意力，也没有足够的算力密度去做预填充（提示处理）——同一块昂贵的硅要把面积分给数学和存储器，张量核心数量必然少于把 100% 面积留给矩阵乘法的 HBM 芯片。Fractile 的做法是把 SRAM「搬上楼」，在底层逻辑上叠一层 DRAM：计算裸片可以铺满张量核心，算力可以顶到王牌规格的上限，同时又从三维访问拿到 SRAM 级带宽、从 DRAM 拿到容量。所谓「三位一体」齐了，就不需要异构和复杂编排，也不必承担闲置产能的风险。哈里问英伟达收购 Groq 是不是一份保险。沃尔特说传闻很多：Groq 团队非常聪明，黄仁勋（Jensen Huang）想把聪明人收到自己队里；他们也确实做了一个平台，回答了英伟达当时面临的大问题——如何进入快速推理。黄仁勋某种程度上也是生态玩家，上周在伦敦还对 Fractile 说了些好话。另有传闻称 Cerebras 与 OpenAI 达成了交易。若你是一家数万亿美元的 GPU 公司，最大客户之一突然签下你原先也许不觉得生死攸关的快速推理平台，会是令人警惕的时刻。据说这两笔交易都在 12 月 24 日签约。哈里问这是不是对 OpenAI 多元化的膝跳反应。沃尔特认为，那是承认当时空间的某些部分需要不同解法，Groq 的 SRAM 方案在那个时刻是把大模型跑得更快的正确解；但今天已经往前走了：单靠 SRAM 芯片解决不了大模型推理，容量不够，为速度付出的成本太高，能支撑的上下文长度约束非常刺眼。他的概括是：那套方案能给你更敏捷的聊天机器人，却未必能把跑上许多天的前沿智能体截短几个数量级。而巨大的奖池，正在后一件事上。"}, {"id": "s10", "start_sec": 3766, "title": "推理服务商、7.2亿美元C轮，以及资本换来的机动空间", "summary": "哈里点名人们熟悉的推理服务商：Modal、Fireworks、Baseten、Together，请沃尔特押其中一个。沃尔特说和其中好几家的创始人是朋友，不愿点名，但喜欢他们都还有迂回空间：还没有把自己的产能锁死，不是 neo-cloud，可以对新芯片下注，也可以开辟新的市场切片，比如专精多模态、文本或快速推理，这一层未必会完全商品化。若一定要选身份，他今天宁做把模型跑起来、签下消耗 token 的企业客户、把飞轮转起来的推理服务商，也不做 neo-cloud。会不会出现数千亿美元的公司？是优步/Lyft 那种赢家通吃、第二第三名价值差一截，还是 AWS 与 GCP 那样只剩少数几家？他认为不会有十家，今天已经有一条长尾，再加上 neo-cloud，肯定有几十家都在数十亿美元量级上挪动；这个空间里会走出少数几家数千亿美元级的公司。谈到新一轮融资，金额是 7.2 亿美元 C 轮。进程好不好玩？他回想四年前甚至两年前，还在教投资人「推理」这个词：一场 30 分钟的路演，四年前得先花 10 分钟解释什么是大模型，再花 10 分钟说明为什么训练不会是全部、还要部署，再留 5 分钟讲为什么速度会重要——那时还没有推理模型。相比之下，现在可以直接谈团队如何与众不同、供应链位置如何独特、用怎样的哲学在这个空间里取胜，像坐下来喝咖啡。处于风暴眼是一种优势，因为人们终于理解这是必须解决的关键问题。哈里问 7.2 亿够不够、账上突然有这笔钱能做什么。沃尔特说先感到责任的分量：有人在他们身上压了大额资本，责任之一是始终多点射门。资本让他们能同时看多件事、把眼光放到更多代际之后，在系统层、网络层做更多创新，把整条未来系统路线图铺出来。这个领域很贵，但把芯片做出来、把第一批系统拿回来的成本，某种意义上这几年是相对固定的；更重要的是在供应链其余部分更快地机动，例如对未来多年都需要的某些元器件签长期协议，并建立更强的预测能力：自己多跑实验，判断未来什么会重要。Fractile 会永远是芯片公司，但必须对什么东西能规模化、模型架构可能朝哪走、如何处理很长的上下文、跑一个智能体集群和跑一条很长的串行智能体有何不同，有足够洞察，才能对客户更有帮助。他们也在地理上扩张：台湾有人，美国有团队；几周前，来自 Meta、曾负责大量人工智能计算系统的丹·拉比诺维奇（Dan Rabinovich）加入，推动从芯片往上的系统建设，包括机架级系统、网络和与数据中心的整合，并继续拉进世界级人才。"}, {"id": "s11", "start_sec": 4144, "title": "若能投资供应商、客户或对手，以及快问快答", "summary": "哈里连续追问三个投资假设。若能投资一家供应商，沃尔特选台积电：今天发生的几乎每件事都能追溯到他们，这不是什么独家新闻，台积电支撑着世界上绝大多数前沿芯片生产，「怎么买都便宜」，他会天天买这只股票。若能投资一家客户，他喜欢一些精干能打、估值也更便宜些的新实验室（neo-lab）；点名时提到朋友在伦敦创办的 Inherent，既在看递归自我改进（RSI）这类挑战，也特别关注如何建造能自动做科学、自动做研究的系统——不是去追一个包打天下的最强前沿模型，而是编排和部署模型、把系统做得更会解题。若必须投资一个竞争对手，他看好三维 DRAM 这条路线，并提到同一空间里还有一家叫 D-Matrix 的公司走了不同的架构方向，他认为两家都会非常成功；哈里问上轮估值，他说不知道。快问快答里，过去 12 个月他改观最大的是模型能力推进的底层速度：今年夏天的数学结果让人谈论时间线被截短；凡是可验证的领域，例如数学和编程，往往属于未来 12 个月就能被解决的那一类，前沿模型将能啃下这些硬的、可验证的挑战。最想请上董事会的人，他立刻点名德米斯·哈萨比斯（Demis Hassabis），既是他的学术偶像，也有几分英国英雄的意味，目前还没邀请，哈里笑说这期节目倒是一个好时机。芯片行业最大的误称是什么？他认为人们把科技公司想得过于「技术」，实际上这是一个非常非常人性的空间，大量取决于关系和能跨整条栈协作的团队，是人在驱动。英伟达五年内会不会成为 10 万亿美元的公司？他毫不犹豫说会，并称这是正和游戏；作为一句可能不精确的快评，他认为英伟达今天的远期估值倍数低于互联网泡沫破裂后的思科（Cisco）。人们被互联网泡沫创伤太深，从一开始就把过热计价进去了，因而还没充分意识到这次扩建会有多持久。不必不断新增数据中心：在有限的兆瓦下，也必须每隔几年用更好的芯片替换旧芯片。对作为市场新进入者的 Fractile，这是巨大优势——今天数据中心里你看到的每一颗芯片，最多六七年一定会被换掉，许多撑不过两三年。市场领导者会因供应链关系而过得很好；同时，服务前沿需求的芯片供应商面前还有一块巨大的、甚至可说是新的机会，他同样看好 Fractile 在这个时间尺度上的机会。若由他掌管英国、要让英国成为科技超级大国，他认为遗憾的是，解锁增长很大程度上就是解锁能源：尽一切努力把更多可再生能源、更多核能和其他电力来源并网，才能让真正重要的产业在这里铺开。对未来十年最兴奋的是：人们已经在用这些模型解决从前解决不了的问题，它对真实世界的意义才刚刚起飞，生活会变得更好一些，包括攻克从前无法对付的疾病、让每个人都能获得高质量教育。哈里补充：传统课堂可能有 40 个孩子，有了人工智能就可以按选择题或视觉学习的习惯、按自己的速度做个性化教育；他自嘲数学不好，从前不敢举手说「我不懂」，怕显得愚蠢。沃尔特对此非常同意。收尾处哈里说喜欢做这档节目，是因为能向像沃尔特这样的人学习，并用英式口语向对方致谢（逐字稿里被误听成一个人名，正文按「伙计」处理），两人互相感谢。"}], "paragraphs": [{"start_sec": 0, "type": "text", "zh": "我们对互联网泡沫创伤太深，从一开始就把过热的情绪计价进去了。十年后，我们花在跑模型上的钱，会远远高于今天。今天坐到这张热座位上的，是前沿芯片领域最重要的头脑之一：沃尔特·古德温（Walter Goodwin），Fractile 创始人兼首席执行官。", "speaker_id": "harry", "section_id": "s1"}, {"start_sec": 16, "type": "text", "zh": "这家公司刚刚完成 7.2 亿美元的 C 轮融资，由 Thrive 与 Founders Fund 联合领投，Lightspeed 和 Redpoint 共同参与，估值达到 70 亿美元。", "speaker_id": "harry", "section_id": "s1"}, {"start_sec": 24, "type": "text", "zh": "感觉我们需要的算力，要比今天多出几千倍。前沿智能尚未商品化。我认为在这个领域会走出几家数万亿美元级的公司。一家合格的 neo-cloud，和另一家合格的 neo-cloud，其实差不多。准备开始。", "speaker_id": "harry", "section_id": "s1"}, {"start_sec": 50, "type": "text", "zh": "【片头音乐】", "speaker_id": "harry", "section_id": "s1"}, {"start_sec": 57, "type": "text", "zh": "沃尔特，这次我真的特别兴奋。能当面做这期太好了，你能来演播室，我特别开心。", "speaker_id": "harry", "section_id": "s1"}, {"start_sec": 68, "type": "text", "zh": "哈里，能和你坐在一起也非常好。", "speaker_id": "walter", "section_id": "s1"}, {"start_sec": 72, "type": "text", "zh": "我想先用 60 秒，给还不了解的人介绍一下：Fractile 是做什么的？我们需要知道什么？", "speaker_id": "harry", "section_id": "s1"}, {"start_sec": 81, "type": "text", "zh": "Fractile，某种意义上是一家前沿人工智能公司，但我们做的是芯片。我们做这些大型的机架级系统，完全聚焦于把人工智能能力的前沿往前推。", "speaker_id": "walter", "section_id": "s1"}, {"start_sec": 89, "type": "text", "zh": "所以从团队构成上看，这意味着我们既有机器学习研究员，也有每隔几周就飞去台湾的工艺专家，还有真正去看热设计、看机械结构、把这样一整柜系统装起来的人。", "speaker_id": "walter", "section_id": "s1"}, {"start_sec": 97, "type": "text", "zh": "完全明白。我听了你上《No Priors》的那期，我们刚才也聊到莎拉·郭（Sarah Guo）。你当时说得很干脆：你们是一家芯片公司。我听着觉得很好。可转头一看，所有人都在走向全栈。我们看到 OpenAI 有 Jalapeño，看到 DeepSeek 也在做自己的，看到 Anthropic 在自研，显然 Meta 和马克（Mark）也有自己的。我想问的是：未来是不是垂直整合者才能赢？如今还能不能只做一家芯片公司？", "speaker_id": "harry", "section_id": "s1"}, {"start_sec": 127, "type": "text", "zh": "这是一个非常好的问题。确实有一种垂直化：当这些不同的部件组装到一起，尤其是你望向未来，去想这些模型会长成什么样、负载会怎样演化、硅会怎样演化，你绝对有必要对其中每一部分都有一套判断。", "speaker_id": "walter", "section_id": "s2"}, {"start_sec": 160, "type": "text", "zh": "所以 Fractile 是一家芯片公司，但某种意义上，我们也是一家前沿人工智能公司。对我们来说，这一点会一直成立：我们靠卖芯片赚钱，靠向客户出售成机柜的算力赚钱。", "speaker_id": "walter", "section_id": "s2"}, {"start_sec": 174, "type": "text", "zh": "但完全必要的是，公司内部要有一批机器学习研究员，去看模型架构可能怎样演化，甚至去跑一些规模比领先实验室更小的实验。这里要区分的是：赢所需要的内部专长，和商业模式本身是两回事。", "speaker_id": "walter", "section_id": "s2"}, {"start_sec": 205, "type": "text", "zh": "我们永远不打算和客户竞争，也永远不会靠内部模型变现，因为我们选择把这家公司建在芯片这一层，选择在芯片层竞争。但你又不能退一步，不去逼自己在所有这些其他地方建立专长，否则以我们的情况，就会下错注。", "speaker_id": "walter", "section_id": "s2"}, {"start_sec": 228, "type": "text", "zh": "你必须把从整个生态系统里学到的东西综合起来，再带回到你正在建造的那一块，并对它保持强迫症般的专注。如果这件事做对了，你理想中会找到一大片绿地：对上游的伙伴、对客户、对供应商都极其有帮助。你也得了解他们业务的一部分，但当然，你永远不会寻求和他们发生冲突。", "speaker_id": "walter", "section_id": "s2"}, {"start_sec": 245, "type": "text", "zh": "你会不会认为，所有人都走向垂直整合，是因为大家都在对抗某一层的商品化？想想 OpenAI 用九个月做出 Jalapeño，这似乎暗示那一层已经出现某种商品化。你觉得所有人都在拼命扩张，就是为了跑在商品化前面吗？", "speaker_id": "harry", "section_id": "s2"}, {"start_sec": 267, "type": "text", "zh": "确实存在一场保卫毛利的战斗。比如说，如果你在服务前沿模型，很重要的一点是，不能被在位芯片厂商非常高的利润率一路向下挤压。这时候，有一个第一方方案，或者另一个第三方方案，能成为对它的制衡，就非常有用。", "speaker_id": "walter", "section_id": "s2"}, {"start_sec": 282, "type": "text", "zh": "所以各种力量汇到一起，意味着如果你是前沿实验室、是云厂商，对这条链上的多个环节有自己的应对，就非常重要。但我仍然觉得，今天有一个相当关键的区分：什么也许正在商品化，什么我们在前沿仍然看得见。", "speaker_id": "walter", "section_id": "s2"}, {"start_sec": 314, "type": "text", "zh": "那什么正在商品化？帮我理解一下——我是投资人，我在优秀的创业者和企业里寻找价值。哪些是大多数人以为还没有商品化、其实已经商品化的？哪些又是大家以为已经商品化、其实还没有的？", "speaker_id": "harry", "section_id": "s2"}, {"start_sec": 322, "type": "text", "zh": "有时人们会担心、有时又会兴奋一个概念，叫「智能饱和」：模型越来越聪明，会越过一条水位线，对一整类任务我们不再需要更强的智能。我认为，确实有某些任务已经出现这种智能饱和，开源模型已经够用，模型在那一层就会商品化。", "speaker_id": "walter", "section_id": "s2"}, {"start_sec": 364, "type": "text", "zh": "不过再往细处看，即便到了那个水平，模型仍在对抗商品化，因为始终存在一种经济压力，比如要把智能的成本打下来。也许有点反直觉，这正是我觉得前沿实验室和前沿努力仍然至关重要的原因：当然，前沿智能尚未商品化。", "speaker_id": "walter", "section_id": "s2"}, {"start_sec": 385, "type": "text", "zh": "我们在那里看到很高的毛利，看到和其他所有人之间很大的差距。而且从前沿得到的经验，也会向下滴到更小、更好的模型上。所以如果你看整条光谱，无论是前沿大模型能力，还是落后于前沿的那些能力，仍然是一场非常激烈的战斗。", "speaker_id": "walter", "section_id": "s2"}, {"start_sec": 417, "type": "text", "zh": "我会把它刻画为：只要你在某件事上是市场领导者，你仍然可以抽出高毛利，所以它还没有商品化。一个很好的例子是，DeepSeek 几天前放出了他们整套推理栈、整套软件栈。人们很快就意识到，DeepSeek 把自己的模型跑在 GPU 上的推理栈做得非常出色，吞吐更高，交互性更好，速度也比所有其他人为 DeepSeek 搭建的推理服务更好。", "speaker_id": "walter", "section_id": "s2"}, {"start_sec": 456, "type": "text", "zh": "一件你可能以为到这个时点已经商品化的事——服务一个开源模型——他们通过走全栈，既把模型做得更高效，又为这个模型做了更高效的推理服务，从而给自己切出了仍然相当健康的利润空间。所以即便在开源领域，我们还没有看到彻底的逐底竞争，至少对那些再次试图掌握这条链上大量垂直理解的人来说是这样。", "speaker_id": "walter", "section_id": "s2"}, {"start_sec": 490, "type": "text", "zh": "我认为正在商品化的，而且我觉得也没有人真正争辩过它不会商品化的，是整个云算力这一块。一家合格的 neo-cloud，和另一家合格的 neo-cloud，其实差不多。今天之所以如此热闹，是因为我们还不知道哪些是合格的。所以那里仍然有很大空间，会出现巨大的赢家，也许也会有巨大的输家。", "speaker_id": "walter", "section_id": "s2"}, {"start_sec": 513, "type": "text", "zh": "所以你才会看到，所有 neo-cloud 都在拼命垂直整合，因为他们很清楚自己这一层在商品化。我们请过 Nebius 的创始人来节目，他谈到他们正把模型路由和推理做成核心业务、核心战略，我想就是因为意识到了这一点。", "speaker_id": "harry", "section_id": "s2"}, {"start_sec": 524, "type": "text", "zh": "是的，我认为这是真的。你确实看到，每一家 neo-cloud 都在试图做推理服务。很多在推理服务上建立起优势的人——那归根结底是一种软件优势——也在想，如何在算力这一侧对自己的命运有更多掌控。我当然有立场，但我觉得，新芯片的故事、差异化的硅，恰恰可以成为这些玩家真正核心的差异点。", "speaker_id": "walter", "section_id": "s2"}, {"start_sec": 556, "type": "text", "zh": "你能展开讲讲吗？为什么？", "speaker_id": "harry", "section_id": "s2"}, {"start_sec": 560, "type": "text", "zh": "我们仍处在非主流、非常规硅片投放非常早的局：不是那些主流的 GPU、TPU 和其他 XPU。尤其是看这些扩建如何融资，倒向一个新的芯片平台，比如 Fractile、Cerebras 等等，仍然要大胆得多。", "speaker_id": "walter", "section_id": "s2"}, {"start_sec": 583, "type": "text", "zh": "抱歉，为了让大家跟上：我们需要这些新的芯片平台，是因为负载正变得越来越复杂、越来越重，而这些芯片的专业化，会让这些负载的执行高效得多。", "speaker_id": "harry", "section_id": "s2"}, {"start_sec": 591, "type": "text", "zh": "我认为这些新平台——当然我们是其中之一——相信在某些负载上，你会有超过 10 倍的优势，无论是成本，还是以我们的情况，是成本和速度。所以某种意义上，它们仍然是逆势的赌注。我们还没有看到很多吉瓦的新硅被铺开，但它们确实有潜力从根本上改写经济账。", "speaker_id": "walter", "section_id": "s2"}, {"start_sec": 612, "type": "text", "zh": "想象你是一家 neo-cloud，而且是第一家想明白如何打破与某一家 GPU 供应商某种绑定的 neo-cloud，你就有可能收获巨大的好处。Fluidstack 是一个很好的例子：他们在某种程度上是第一家决定迈步离开英伟达（Nvidia）、部署了一批谷歌 TPU（Google TPU）的 neo-cloud，跨过那条卢比孔河之后，他们过了非常出色的一年，也赢得了开始部署其他芯片的资格。所以当你走得更垂直，也可以去下一些风险略高的注，并因此收获巨大的好处。", "speaker_id": "walter", "section_id": "s2"}, {"start_sec": 671, "type": "text", "zh": "那我们这样想的话，这对英伟达的业务意味着什么？如果把英伟达看成横向供应商，把你们看成某种专业供应商，芯片的未来会不会按负载高度专业化？我们该如何理解横向对专业的这种市场构成？", "speaker_id": "harry", "section_id": "s3"}, {"start_sec": 687, "type": "text", "zh": "我是这样看的。英伟达是一家非凡的公司，按许多指标来说，他们打造了世界上最好的人工智能芯片，也打造了最好的系统，在数据中心级推理上做了非常出色的工作。在推理这个领域，我认为他们同样有一些精彩的成果。", "speaker_id": "walter", "section_id": "s3"}, {"start_sec": 710, "type": "text", "zh": "我觉得当下不同、也和 Fractile 的身份相关的一点是：存在一种不断演进的前沿。这个前沿需要略微不同类型的下注，也需要略微不同的思维方式，因为你必然要建立一家能够拐角看路的公司，能够做出大胆的预测，然后能够把整个技术产品转向这些大胆的预测。", "speaker_id": "walter", "section_id": "s3"}, {"start_sec": 742, "type": "text", "zh": "而如果你看英伟达的业务，他们最擅长的，是以惊人的规模交付高质量产品，而且这些产品某种意义上是「无立场」的：它们是强大的通用处理器，在人工智能计算世界的多个部分都非常好用。", "speaker_id": "walter", "section_id": "s3"}, {"start_sec": 766, "type": "text", "zh": "如果你看 Fractile 的赌注，比如在推理上，我们是要做比这些 GPU 快几个数量级的芯片。那是一个非常明确的焦点。对我们将意味着，架构上要专注于找到通往巨大内存带宽的路径，而这可能也会在某些方面让我们离开那种完全的通用性。", "speaker_id": "walter", "section_id": "s3"}, {"start_sec": 785, "type": "text", "zh": "不过今天有意思的地方、也是我们如此兴奋的原因在于：前沿同时也是整个市场压倒性的一部分。只要看过去几年发生的事，我们专门为服务前沿大模型，展开了规模惊人的推理算力建设。所以某种意义上的「专业」，绝不是小众。", "speaker_id": "walter", "section_id": "s3"}, {"start_sec": 811, "type": "text", "zh": "这才是真正的转变。如果倒回十年，哪怕五年，去做一颗专业芯片都会显得有些疯狂：我们当时没有任何单一负载占到总计算负担的、比如说 10%。现在突然有了。我认为这要求略微不同的公司结构，要把那种预测能力做进去，并试着让整个组织围绕「追逐这件事意味着什么」来编排。", "speaker_id": "walter", "section_id": "s3"}, {"start_sec": 835, "type": "text", "zh": "这里面有太多我想拆开的环节。你刚才提到了内存和 HBM。为什么内存墙到今天仍然是如此突出的问题？你能帮我理解一下吗？", "speaker_id": "harry", "section_id": "s3"}, {"start_sec": 859, "type": "text", "zh": "当然。这是芯片物理里一个很有意思的事实。先从那句好听的说起——如果你看硅的世界过去大约 20 年，真正构成芯片顶级规格、那种「王牌」指标的，大概是两件事。", "speaker_id": "walter", "section_id": "s4"}, {"start_sec": 885, "type": "text", "zh": "其中一件，对人工智能芯片来说当然是浮点运算次数：你每秒能做多少次浮点运算，一次乘法或一次加法。那就是这颗芯片上的数学能力。另一件则是芯片上存储器的特性：容量，尤其是通往那块存储器的带宽——你能多快地把数据来回运送。", "speaker_id": "walter", "section_id": "s4"}, {"start_sec": 902, "type": "text", "zh": "看一颗 GPU，中间那块硅在跑数学，算力很高；周围还有其他硅，也就是 HBM，高带宽内存，像高速公路一样把数据送进来。依靠摩尔定律（Moore's law），我们在放大浮点算力上极其出色，过去 25 年大约提升了一百万倍。相比之下，带宽在物理上受到的限制要本质得多，同期大约只提升了 40 倍。所以它落后于算力缩放大约 2.5 万倍。我们自然就越来越发现，自己在很多操作上是带宽受限的。", "speaker_id": "walter", "section_id": "s4"}, {"start_sec": 953, "type": "text", "zh": "对大模型推理这类事情，这已经变成关键瓶颈，因为它和文本生成的方式缠在一起。我们都有一种感觉：这是自回归的、顺序的，模型一个词接一个词往外生成。每生成其中一个词，我都要从那块存储器、经过那条有限的带宽，把模型的全部权重装载进来；今天，还要把我正在处理的全部上下文、我见过的那些状态，一并装进来。于是生成速度就卡在这里。", "speaker_id": "walter", "section_id": "s4"}, {"start_sec": 985, "type": "text", "zh": "如果你拿一颗非常大的前沿模型，它也许每秒生成 80 个 token、大约每秒 80 个词，原因往往不是芯片上的数学能力有限，而是你通往那块存储器的带宽远远不够。我无法以超过、比如说每秒 80 次的频率，把模型权重从内存装进那个处理器。", "speaker_id": "walter", "section_id": "s4"}, {"start_sec": 1009, "type": "text", "zh": "我之所以从那句关于物理的「好听的话」讲起，是因为如果你把接口放大来看，本质上有一束铜线，从这块 DRAM 走进处理器。全世界把它们做得越来越小，已经相当不错，但能缩放的空间也就那么多。所以你大概只有几千根线。", "speaker_id": "walter", "section_id": "s4"}, {"start_sec": 1028, "type": "text", "zh": "所以这就是为什么——抱歉——你们会用 SRAM，并且把存储器移得更近，我说得对吗？", "speaker_id": "harry", "section_id": "s4"}, {"start_sec": 1038, "type": "text", "zh": "对，SRAM。可以这样想：DRAM 差不多像在另一栋楼里，你要把这些箱子搬下楼，再搬上楼，进到做数学的那栋处理器大楼；不幸的是，还得再搬回去，因为那栋楼里没有足够空间放下所有箱子。也许更像是一座仓库，再加上一间你真正干活的办公室。", "speaker_id": "walter", "section_id": "s4"}, {"start_sec": 1055, "type": "text", "zh": "SRAM 则像是有一批箱子长期放在处理器里。那是少量存储器，被塞进你做计算的同一块硅上。但麻烦也在这里。过去 30 年我们把存储器外置成所谓的 DRAM、放到另一块硅上，是因为它们在完全不同的晶圆厂里制造，为非常非常不同的目标做了专业化。", "speaker_id": "walter", "section_id": "s4"}, {"start_sec": 1106, "type": "text", "zh": "DRAM 完全聚焦于密度。所谓的 DRAM 存储单元结构极其简单，你可以在很小一块硅上塞进许多个十亿。SRAM 则恰好建在完全相同的工艺节点上，比如由台积电（TSMC）和你做处理器的那块硅做在一起，但它并不是为密度优化的。所以同样面积上，你能得到的 SRAM 容量远低于 DRAM 能放下的那些吉字节，按美元计也是如此，因为晶圆按面积计价。", "speaker_id": "walter", "section_id": "s4"}, {"start_sec": 1138, "type": "text", "zh": "那当你看推理、看推理的未来，哪一种更合适？是 DRAM 还是 SRAM？因为延迟很重要。", "speaker_id": "harry", "section_id": "s4"}, {"start_sec": 1144, "type": "text", "zh": "没错，延迟重要，带宽也重要：我到底能往这条通道里塞多少。这正是我们过去几年在 Fractile 努力的事情之一，某种意义上是拒绝接受这种权衡。", "speaker_id": "walter", "section_id": "s4"}, {"start_sec": 1158, "type": "text", "zh": "作为存储器，SRAM 是今天唯一能和处理器做在同一块芯片上的，也是唯一能靠得极近、从而拥有极高带宽的。DRAM 便宜得多、密得多、容量大得多，但我们访问它的方式有根本限制。可你如果看那种物理——它是从铜线过来的——会发现是因为我们把它放错了位置：DRAM 和芯片坐在同一个平面上。", "speaker_id": "walter", "section_id": "s4"}, {"start_sec": 1179, "type": "text", "zh": "我们把它和芯片放在同一个平面上，于是只剩下一条有限的、被称为「海滩线」的边缘：字面意义上，芯片边上那点有限的地产。Fractile 过去两年做的，本质上就是把这块存储器叠到逻辑之上。与其只有有限的海滩线，不如让人人都拥有海景房：整层存储器坐在逻辑芯片上面。", "speaker_id": "walter", "section_id": "s5"}, {"start_sec": 1211, "type": "text", "zh": "这怎么可能？", "speaker_id": "harry", "section_id": "s5"}, {"start_sec": 1213, "type": "text", "zh": "在芯片世界里，三维是人们缩放了很久的一个维度，但它有各种各样的复杂性。其实如果你看 HBM，一块高带宽内存，它本身就是一叠 DRAM 芯片。可这种叠法有某些特性，让它并不适合被拿起来、直接扣到你的逻辑芯片上，所以我们今天并不那样做。不过存在一些工艺技术，这是 Fractile 团队有很深积淀的领域，围绕的就是三维堆叠。", "speaker_id": "walter", "section_id": "s5"}, {"start_sec": 1246, "type": "text", "zh": "所以你们是在海滩上盖公寓，而不是盖独栋，为的是有更大容量。", "speaker_id": "harry", "section_id": "s5"}, {"start_sec": 1252, "type": "text", "zh": "我猜我们更像是在建那种新建的群岛，每个人都能分到一点海滩。一条条地，人人都紧挨着海岸。你把它放上去之后，突然就有了整片二维面积。那些铜线不再横向走，而是有数百万根垂直向下。", "speaker_id": "walter", "section_id": "s5"}, {"start_sec": 1278, "type": "text", "zh": "看和其他供应商的差异，这是不是你们的差异化因素？你怎么分析在这个领域和你们竞争的那些专业供应商，比如 Etched？差异到底在哪里？", "speaker_id": "harry", "section_id": "s5"}, {"start_sec": 1300, "type": "text", "zh": "我觉得可以从几方面看。一是哲学，一是今天的技术。从哲学上说，Fractile 是有使命的，使命就是通过建造更好的硬件，推进前沿人工智能能力。过去几年，这件事把我们带到了今天这个方案。团队解锁了一个未来：你可以拥有 SRAM 的带宽，同时又拥有 DRAM 的容量和可扩展性。这是一种能改变世界的创新，而且会有持久力。我们非常兴奋把它跨多代做下去，把技术优势滚起来。", "speaker_id": "walter", "section_id": "s5"}, {"start_sec": 1340, "type": "text", "zh": "但与此同时，既有使命，如果负载变了，你也希望能够改变自己的回应。所以我们小心的一件事，就是不要变成「破解了三维 DRAM 的那家公司」。我们希望继续被推动去创新，不管下一步是什么。", "speaker_id": "walter", "section_id": "s5"}, {"start_sec": 1364, "type": "text", "zh": "不过如果看这对我们未来几年机制上意味着什么，芯片领域今天有一个挑战。一边是所有这些基于 HBM 的芯片，在某个层面上它们很难真正分化：无论是 GPU、TPU、OpenAI 的 Jalapeño 芯片，还是 Etched、MatX，它们在芯片上往往有非常出色的架构，能比彼此稍微更高效地做某些事，但从根本上被那种「王牌规格」框住了——你只能拿到这么多算力，只能拿到这么多带宽。", "speaker_id": "walter", "section_id": "s5"}, {"start_sec": 1403, "type": "text", "zh": "坐在它们旁边的那块 HBM，是完全相同的硅，是来自同一批供应商的同一套模块，每一颗这样的芯片都是如此。另一边则是基于 SRAM 的芯片，内存带宽很高，却有巨大的容量约束。如果你看 Groq，或看 Cerebras，它们今天能做到的事情非常了不起：让你把强大的模型跑得快得多。", "speaker_id": "walter", "section_id": "s5"}, {"start_sec": 1440, "type": "text", "zh": "我一直为 Fractile 感到兴奋、也是我四年前创办这家公司时想做的事情，就是做出更擅长大模型推理的芯片，尤其是能让我们把推理跑得快得多的芯片。因为我们始终相信，会走到我们今天实际所处的这个空间，也就是所谓的测试时计算扩展：推理模型、跑得越久就越强的长程智能体，为你给出更好的答案。而这正是今天正在改变世界的前沿负载的面貌。", "speaker_id": "walter", "section_id": "s5"}, {"start_sec": 1475, "type": "text", "zh": "如果你看把一个前沿大模型对准一道千禧年大奖难题时会发生什么：它会连续生成许多个百万级的 token，你还会把一群这样的智能体并行拉起来。这里有并行的一面，但那许多个百万级的顺序 token 生成，意味着你要等上很多很多天，才能得到其中一个回答。", "speaker_id": "walter", "section_id": "s5"}, {"start_sec": 1499, "type": "text", "zh": "某种程度上，这是一个至今完全没有被今天任何硅、任何芯片破解的空间。因为存在一种诱人的错配：那些快推理芯片、基于 SRAM 的芯片，有能力快速访问内存、快速生成 token；而这种新负载、这种长程智能体，需要巨大的容量，因为正在出现非常长的上下文。所以世界迫切需要一种同时往右上走的东西：既有非常高的带宽和速度，又有高容量，从而能够扩展到更长的上下文和更大的模型。", "speaker_id": "walter", "section_id": "s5"}, {"start_sec": 1545, "type": "text", "zh": "这种事是不是总比你以为的更久？还是说，你会在技术加速里看到那种戏剧性的拐点？", "speaker_id": "harry", "section_id": "s5"}, {"start_sec": 1553, "type": "text", "zh": "我觉得这件事令人兴奋的地方在于——而且我认为技术突破往往如此——你永远站在巨人的肩膀上。以我们的情况，我们用来做三维集成的一些技术，其实已经存在相当长时间了，只是还没有被转到这个精确的问题上，转到内存堆叠这个挑战上。", "speaker_id": "walter", "section_id": "s5"}, {"start_sec": 1576, "type": "text", "zh": "所以在这个空间里，如果你愿意同时做架构上的努力，重新设计芯片来利用这一点，也愿意去做制造运营上那些脏活累活，并且能一路说服你的合作伙伴你并没有疯，这里其实有可能出现几乎一夜之间的转变。", "speaker_id": "walter", "section_id": "s5"}, {"start_sec": 1612, "type": "text", "zh": "我能直言吗？昨晚我和一位非常出色的芯片公司创始人聊天，他说这个行业里有大量热气和空话，营销泡沫很多，但真正进入生产的并不多。当你看 Etched 或 Fractile，我们真的在量产吗？落地之后该怎么理解「在生产」？他这句话对吗？", "speaker_id": "harry", "section_id": "s6"}, {"start_sec": 1630, "type": "text", "zh": "这件事有两面。是的，Fractile 已经有硅走过晶圆厂、回到我们手里。是的，我们还在跑进一步的试验，数月内也会做完整的产品流片，这相当令人兴奋。但生产的规模是非常值得追问的。对进入前沿的新芯片公司来说，一个真正的挑战是获得比如台积电的产能、HBM 的产能。", "speaker_id": "walter", "section_id": "s6"}, {"start_sec": 1670, "type": "text", "zh": "尤其是，其中一些努力在抢同一份资源。今天很多这样的芯片是和后端伙伴一起做的，比如无论是 TPU 还是 Jalapeño，Meta 的 MTIA，还有 MatX 或 Etched，它们都被传闻在使用博通（Broadcom），使用相同或非常相近的台积电工艺节点，以及同样的 HBM 技术。你可以看出，为什么对那份有限的资源会有一场真正的淘金热，这也意味着，要在短时间里做到真正有意义的规模，会很有挑战。", "speaker_id": "walter", "section_id": "s6"}, {"start_sec": 1702, "type": "text", "zh": "Fractile 一直比较专注的一件事是，我们几乎有一种不公平的、深入栈里的触及能力。后端伙伴的意义，是去做最后一公里，也就是物理设计，去和晶圆厂、和制造这一侧互动。Fractile 始终把这些放在内部，我们有一支非常出色的团队，在加入 Fractile 之前几十年里，交付芯片的方式一直如此。这成了我们核心的战略优势：我们从一开始就必须和制造伙伴直接打交道，也一直有这种直接的沟通。", "speaker_id": "walter", "section_id": "s6"}, {"start_sec": 1746, "type": "text", "zh": "我理解一下另一种路径：你先经过博通，再由博通去掌握与制造伙伴的关系。是这样吗？", "speaker_id": "harry", "section_id": "s6"}, {"start_sec": 1754, "type": "text", "zh": "对。", "speaker_id": "walter", "section_id": "s6"}, {"start_sec": 1756, "type": "text", "zh": "明白了。所以博通是大多数人会经过、而你们不会经过的那层中间商，你们也不走这条路。", "speaker_id": "harry", "section_id": "s6"}, {"start_sec": 1760, "type": "text", "zh": "是的。我觉得这里有两点。", "speaker_id": "walter", "section_id": "s6"}, {"start_sec": 1767, "type": "text", "zh": "那这让你们能做什么？", "speaker_id": "harry", "section_id": "s6"}, {"start_sec": 1770, "type": "text", "zh": "第一件是，能为这些芯片建造完全不同的积木。如果你看博通——今年夏天我在一场会议上，查理·卡瓦斯（Charlie Kawwas），那边的一位负责人，举起下一代平台的一个乐高模型，说这将在 2028 年和六家大客户一起进入生产。这话有点奇怪，因为他的意思是：看上去和这个一模一样的东西，会和六家主要玩家一起被做出来，只是被起上不同的名字。它会是 TPU、会是 MTIA、会是 Jalapeño，你知道，还有三个——", "speaker_id": "walter", "section_id": "s6"}, {"start_sec": 1806, "type": "text", "zh": "Dorito 2。", "speaker_id": "harry", "section_id": "s6"}, {"start_sec": 1808, "type": "text", "zh": "没错。这揭示了这个市场的某种结构：那些芯片各自会有不同的名字，它们也会有所不同，那些公司内部都有非常了不起的芯片团队，会做出极其聪明的架构优化，但到头来，它会是完全同一套平台，同一叠 HBM，同样数量的芯片。很多最根本的积木是由后端伙伴决定的，因为这是一种平台技术的玩法。基本上，你只能改油漆的颜色。", "speaker_id": "walter", "section_id": "s6"}, {"start_sec": 1828, "type": "text", "zh": "所以对我们而言，这让我们能够腾挪，去建造这些新的积木。比如内存堆叠这项工作，极其复杂、极其痛苦，需要把多家比我们大得多的供应链伙伴召集起来，让他们去做高度定制的事情。可一旦你像我们已经做到的那样把它打通，你就拥有了别人没有的资产。", "speaker_id": "walter", "section_id": "s6"}, {"start_sec": 1865, "type": "text", "zh": "绕这么远，也是为了回到你关于上量生产的问题。这多半还意味着，你找到了使用别人没用的资源的办法。以我们的情况，也许是不同的工艺节点，也许是略微不同的 DRAM 节点或 DRAM 代际，那种可能不会进入前沿 HBM 的。于是你相当于在沙发缝里，找到了建设吉瓦级产能的机会，用的是其他人、以及这套前沿平台已经离开的东西。", "speaker_id": "walter", "section_id": "s6"}, {"start_sec": 1909, "type": "text", "zh": "能问一下吗，当我们想到所谓的生产线，很多人告诉我一定要问流片（tape-out）。流片是什么？我们需要知道什么？你怎么看待它？", "speaker_id": "harry", "section_id": "s6"}, {"start_sec": 1915, "type": "text", "zh": "流片是那个时刻：你的芯片设计流程的最终文件——基本上是一幅巨大的图像，我们称之为 GDSII 文件——被送出去。这幅图像规定了所有铜线在哪里、晶体管在哪里、逻辑在哪里，它被交给台积电，或交给你的逻辑晶圆厂伙伴，他们开始制作掩模组，也就是最终将生产出这颗芯片的那套「模具」，然后你开始做第一轮试验，也许也包括第一轮生产。", "speaker_id": "walter", "section_id": "s6"}, {"start_sec": 1940, "type": "text", "zh": "所以对芯片设计师来说，这突然成了一次相当关键的交接。因为在架构、前端设计、验证、物理设计、版图这条长流程的尽头，你把文件送出去；如果这一刻里面有缺陷，就太晚了，掩模已经在被刻出来。所以它会是日历上一个重大日期之类的东西。", "speaker_id": "walter", "section_id": "s6"}, {"start_sec": 1972, "type": "text", "zh": "不过在今天，它也只是很长流程中的第一步。因为那块硅随后要走进晶圆厂，你要等几个月它才回来，而且你必须做好准备去接收它、跑点亮流程。封装好的硅回到实验室，你然后冲刺，把一个负载跑在单颗芯片上，跑在托盘上，最终跑在整柜上。", "speaker_id": "walter", "section_id": "s6"}, {"start_sec": 2004, "type": "text", "zh": "所以这算是第二部分。在 Fractile，我们会跟踪进度，中间有流片日期，但我们持续瞄准的那件事，我们称之为 Task Zero，是某一参考负载在整柜 Fractile 芯片上跑起来的那一天。", "speaker_id": "walter", "section_id": "s6"}, {"start_sec": 2020, "type": "text", "zh": "这个过程里，有什么是别人看不见、对你却最为突出的？如果把流片看成一次关键交接，流片日之后的困难、那种分量，是不是没人真正理解？", "speaker_id": "harry", "section_id": "s6"}, {"start_sec": 2036, "type": "text", "zh": "我想，其实就是接下来会发生的事。如果你过分执着于把第一颗芯片交给晶圆厂这一件事，会有太多东西你可能没让自己准备好。所以对我们来说，是持续跟踪：我们到底在试图建造什么？我们要建造良率很好的系统，从而底层经济性很好，因为我们设计的硅有合适的修复和冗余水平，它高度可制造，作为产品说得通，然后再装进一个同样良率高、可靠的系统里。", "speaker_id": "walter", "section_id": "s6"}, {"start_sec": 2072, "type": "text", "zh": "所以，把一个可大规模制造的产品做出来，并找到尽快爬坡的路径，某种意义上才是目标。我几乎觉得，过去几年芯片创业公司创始人和支持他们的风险投资人之间，偶然共享了对「流片」这个词的执念，因为它是一个如此可触摸的时刻，一个如此明确的日期。", "speaker_id": "walter", "section_id": "s6"}, {"start_sec": 2111, "type": "text", "zh": "可我们在 Fractile 做的大量工作——所有软件工作，所有系统工作，以及硅团队里的很多人——聚焦的是芯片上那些某种意义上无形、难以言说的部分，它们关乎的是：怎样尽快把这些东西点亮、做可靠，并做到上量。", "speaker_id": "walter", "section_id": "s6"}, {"start_sec": 2149, "type": "text", "zh": "我们在楼下的时候，你说硅也许不再像从前那样是瓶颈，也许数据中心、或者说数据中心容量才是。你能谈谈这种关系和短缺的转换吗？", "speaker_id": "harry", "section_id": "s7"}, {"start_sec": 2169, "type": "text", "zh": "可以。这也是过去四年如此令人兴奋的原因：感觉每个季度，最能约束我们在数据中心里规模化跑更多前沿模型的那件事，都在切换。底层有一些我们急需的属性，比如把推理跑得快得多，比如以更好的经济性跑更长的上下文。但如果你回想三年前，毫无疑问，是英伟达 GPU 短缺，不存在其他芯片的问题。", "speaker_id": "walter", "section_id": "s7"}, {"start_sec": 2189, "type": "text", "zh": "随后我们又发现自己处在底层硅和供应链短缺里。今天对 HBM 等内存的短缺非常尖锐，会延伸到未来多年；逻辑硅在台积电那边也短缺。而如果你看今天这个空间，土地和电力绝对是另一道限制。", "speaker_id": "walter", "section_id": "s7"}, {"start_sec": 2212, "type": "text", "zh": "所有那种能被改造成数据中心的工业用地、那些低垂的果实，以及在美国能获得许可、把燃气轮机就近部署、大约 90 天就能把这些东西转起来的地方，这些往往是一次性的招数，已经差不多被用尽了。我们现在是在探索更长的尾巴，用越来越难的办法去找土地和电力，好把这些芯片装进去。", "speaker_id": "walter", "section_id": "s7"}, {"start_sec": 2244, "type": "text", "zh": "所以一方面，数据中心容量成了我们能铺开多少算力的根本瓶颈。若你想完全不站队、做多头的人工智能投资，基本上就是去买能源，因为那显然是最底层的东西。但与此同时，恰恰是这种约束性的上限，才让「为任何一项工作装上尽可能好的芯片」变得如此重要。", "speaker_id": "walter", "section_id": "s7"}, {"start_sec": 2268, "type": "text", "zh": "如果你看今天的前沿实验室和云厂商，它们的模型上有一种快速模式。若你把这种模式跑在基于 HBM 的芯片上，你是在一条权衡曲线上极其低效的点上运行：在这些芯片上，你要么生成 token 时又慢又省，要么快，但非常低效，比如说每兆瓦功率每秒打出的 token 少得多。", "speaker_id": "walter", "section_id": "s7"}, {"start_sec": 2306, "type": "text", "zh": "那如果我想把一颗数万亿参数的模型跑到每秒数千个 token，而我只有一座 500 兆瓦的数据中心，聚合吞吐不够，无法在那些芯片上服务我的用户群，会怎样？现在就会有一种真实的压力，去装上一组即便被挤到高得多的速度、仍然能保持很好聚合吞吐的芯片。Fractile 会是这样的一个例子。所以，尽管土地和电力可能是比供应链约束更尖锐的瓶颈，但恰恰是它，激励了更加合用的芯片。", "speaker_id": "walter", "section_id": "s7"}, {"start_sec": 2349, "type": "text", "zh": "我们的能源缺口有多大？我知道这是一个非常宏观、非常大胆的问题，但当你看能源需求对能源供给，你觉得缺口是什么样的？", "speaker_id": "harry", "section_id": "s7"}, {"start_sec": 2357, "type": "text", "zh": "如果看美国、英国的积压，那种程度非常惊人：电网接入的排队规模，会像是比电网里现有的电量大一个数量级。这样看的话，当然，这些项目里有多少真正站得住、能够落地，是我们可以质疑的。但需求看上去确实到了令人瞠目的水平。我认为能源是这些真正底层的基本面之一。", "speaker_id": "walter", "section_id": "s7"}, {"start_sec": 2390, "type": "text", "zh": "回到我们前面说的 DeepSeek，以及他们在推理栈上了不起的创新。当你看中国对能源的政策和监管环境，那是一路绿灯。什么都开绿灯，包括把数百万人从家里迁走，因为他们需要场地去做能源供应。而在美国，你有邻避（NIMBY）；在英国，蝙蝠和蝴蝶会挡住具有科学或自然价值的场地。在一个能源需求如此之高的世界里，我们是不是天生就落后于中国？", "speaker_id": "harry", "section_id": "s7"}, {"start_sec": 2418, "type": "text", "zh": "我觉得这是中国某种程度上已经抢了西方先手的地方之一。尤其是那些巨型工程，比如巨大的水电项目，它们非常适合人工智能算力的铺开，因为它们有一种特别的特征：曾经可能不方便的是，15 吉瓦的电力全部到达一个点，然后再被分配出去。人工智能数据中心并不真正在乎自己在哪里。那为什么不把 15 吉瓦的人工智能算力，直接放在偏远地区这座水电站旁边呢？", "speaker_id": "walter", "section_id": "s7"}, {"start_sec": 2460, "type": "text", "zh": "我认为在美国，尤其在英国和欧洲，我们有很多可以做的事，让自己看起来更像那样。好消息是——这也是我认为这边的政府、以及欧洲政府应该更多地去强调的——恰恰是这个事实：很多可以被用上的电源，可再生能源可以成为这个故事里很大的一部分。你可以把一座数据中心放在苏格兰，放在一个巨大的风场旁边，而从前也许根本讲不出一个为什么要在那里发电的故事。", "speaker_id": "walter", "section_id": "s7"}, {"start_sec": 2530, "type": "text", "zh": "对我来说很有意思的一点是，我们现在做很多短视频。一旦我们谈到数据中心建不成——前几天我们还谈过微软退出 NScale 项目——所有人都在说「可算走了，可算走了，你们这些科技佬」。看到这种几乎一律的反弹，坦白说，来自一些非常愚蠢的路人，我感到吃惊。", "speaker_id": "harry", "section_id": "s7"}, {"start_sec": 2548, "type": "text", "zh": "能问你吗——你比很多人都更早看到推理是一个市场，真希望几年前就听进去了。我现在知道、也希望自己 12 个月前就知道的，是对推理几乎无穷的需求。关于推理市场，你现在知道些什么，是你觉得并不那么显而易见、或者和其他人说的不一样的？", "speaker_id": "harry", "section_id": "s8"}, {"start_sec": 2572, "type": "text", "zh": "我觉得这件事在某些方面，仍然是我最初那个赌注更强烈的版本。四年前，洞察大概是两层。第一，当你开始拥有这类在所有东西上训练、然后可以泛化到你扔给它的任何事情上的基础模型，就会有一种硬逻辑：训练变成固定成本，部署、也就是推理，只是用这些模型去做有用的事。它是唯一真正重要的部分。如果你长期在训练上花的钱更多，那我们为什么还要建这些东西？你简直可以打包回家了。", "speaker_id": "walter", "section_id": "s8"}, {"start_sec": 2610, "type": "text", "zh": "我总是和我妈妈这样形容：就像奥运会，你在同一条船上。他在健身房训练，很好，然后决定：我其实不上场比赛。那还有什么意义？", "speaker_id": "harry", "section_id": "s8"}, {"start_sec": 2624, "type": "text", "zh": "对，没意义。这就像你花远比收回的更多的钱去建一座工厂，却从来没有真正从里面生产出东西。高固定成本地去建造一样东西，其硬逻辑就是：你必须相信自己会做足够多的部署，才能证明它合理。所以我认为那是第一部分。", "speaker_id": "walter", "section_id": "s8"}, {"start_sec": 2659, "type": "text", "zh": "然后是第二个赌注：我们会拥有所谓的测试时计算扩展，也就是推理模型的到来。它们晚了两年才出现。我非常感谢诺姆·布朗（Noam Brown）和 OpenAI 的团队，他们是最先把这类工作发表出来的。我认为今天正在发生的是，我们继续看到这些测试时计算扩展定律的向量：我们追求更强能力的方式，是一层层叠上去的。", "speaker_id": "walter", "section_id": "s8"}, {"start_sec": 2689, "type": "text", "zh": "一条是，把用来训练这些模型的算力十倍、再十倍地加上去。另一条则是，我们如何把更多算力倒进部署这些模型、倒进推理这一侧。这是你到达更强能力的很大一部分。再次以求解一道千禧年大奖难题为例，纳维–斯托克斯（Navier-Stokes）那次求解，我记得是 1 万个智能体组成的集群执行了 80 小时。", "speaker_id": "walter", "section_id": "s8"}, {"start_sec": 2722, "type": "text", "zh": "于是你有两条轴，勾勒出极其巨大的 token 生成量：我既有 1 万个并行的智能体，各自生成自己的思维链，它们又要跑 80 小时。这和我们可能对大模型的直觉完全不同——那种直觉是，我们问一个问题，这个单线程的东西几乎立刻就会给出一个答案。", "speaker_id": "walter", "section_id": "s8"}, {"start_sec": 2758, "type": "text", "zh": "当我们把这些模型用到最难的问题上——我觉得这也算一个好消息：最难的问题往往也是对社会正面影响最大的，通常是在解决一个科学问题，或医学里我们以前也许还解决不了的事情——要去做这件事，去做这种在经济和在社会上都极其有益、却超出「把模型拿来问一次、让它一次性给出答案」的范围的事，推理算力就是我们拥有的那条通路。纳维–斯托克斯这个例子，就是这方面的证据。", "speaker_id": "walter", "section_id": "s8"}, {"start_sec": 2799, "type": "text", "zh": "你说「推理算力是我们拥有的通路」，是什么意思？", "speaker_id": "harry", "section_id": "s8"}, {"start_sec": 2807, "type": "text", "zh": "它是我们为了获得更强能力所能拧动的那只旋钮。想象在任何一个时刻，世界上都有最好的前沿模型，它会在某个时点来自某一家实验室。最好的前沿模型能力极其强，你和它对话，会觉得它比你以前交谈过的任何东西都更聪明。可事实是，当你说：嗨，我正在做这项挑战，我们真的很想找到一种罕见病的疗法——我们当然还没到那种地步，它不会立刻说：哦，就是这个，我想到了，它已经在我的神经元里立刻发射出来了。", "speaker_id": "walter", "section_id": "s8"}, {"start_sec": 2862, "type": "text", "zh": "可我们同时发现的是：如果你真的往上面堆足够多的算力，如果你说，别只是试图给我一个答案，先提出几百个你可以去探索的候选方案，再复制出很多个自己，去遍历互联网、去读文献，和自己的副本辩论，交换信息，大概一周后再回来见我，那时你也许已经为了找到一个答案生成了数十亿个 token——有一点像我们给一群聪明人很多时间去解一道题，你确实有机会拿回一个解。我们真的看到了这一点。关键是：把一个前沿模型用到一道难题上，每一次都会是这个样子。", "speaker_id": "walter", "section_id": "s8"}, {"start_sec": 2924, "type": "text", "zh": "我想问你的是：我是风险投资人，是投资人，我看到眼下正在撞上、也即将撞上的紧缩、债务周期和信贷问题。这个周期所要求的一切，再加上你刚才说的那些我同意的话，世界上的钱不够。然后我再一看，我们还没有真正解决物理世界、物理数据和机器人，以及中间所需的一切。所以我脑子里同时握着这两个看似相反的念头：现在到底怎么办？", "speaker_id": "harry", "section_id": "s8"}, {"start_sec": 2984, "type": "text", "zh": "所以我们才需要在服务智能的每一层都持续创新。好消息是，尽管我们这边聚焦在芯片上，可你只要看算法这一侧，比如模型效率：在假设硬件不变的前提下，服务某一智力水平的成本正在下降。", "speaker_id": "walter", "section_id": "s8"}, {"start_sec": 3008, "type": "text", "zh": "没错，在硬件不变的情况下，效率也在提升。", "speaker_id": "harry", "section_id": "s8"}, {"start_sec": 3012, "type": "text", "zh": "是的。而且当我们看到更长的上下文变成挑战时，也看到了非常出色的创新：你如何压缩上下文，如何做稀疏注意力，以及处理这件事的其他办法。所以在你所谓的模型计算效率上，有持续的创新：同一颗芯片、同等算力，我能到达多少更多的智能、多少更多的解。当然，我们在硬件上也有同样的效果，我们非常努力地确保这个硬件效应也在。", "speaker_id": "walter", "section_id": "s8"}, {"start_sec": 3049, "type": "text", "zh": "所以真正令人振奋、也是我认为总体而言这次扩建完全站得住、我们不会看到这个市场崩塌的原因在于：远不像 2000 到 2001 年的光纤大铺设，数据中心里加了电的 GPU 是完全满负荷的。我们没有关着灯的 GPU 船队。因为正如你所见，作为一个物种我们仍然有巨大数量的问题要去解决，我们现在有了可以扔向这些问题的工具，而且如果我们有算力，本可以在推理阶段多做许多个数量级的思考，去解决最难的挑战。", "speaker_id": "walter", "section_id": "s8"}, {"start_sec": 3089, "type": "text", "zh": "所以一方面我同意你，感觉我们需要的算力比今天多几千倍。我们不会得到多几千倍的数据中心，我认为这对世界大概也是好事。我们能够做的，是拿今天已有的大约这么多土地、电力和数据中心选址，在未来几年里，通过模型创新和硬件创新走到一起，把其中一座数据中心里每兆瓦、每机柜所能挤出的智能，大幅度地再挤、再挤、再挤。", "speaker_id": "walter", "section_id": "s8"}, {"start_sec": 3116, "type": "text", "zh": "我请过 Atlassian 的迈克·坎农-布鲁克斯（Mike Cannon-Brookes）来节目，他对我说，我认为推理成本在未来三到五年会大幅下降，所以我才不当演员。——下一期你来学我一下。", "speaker_id": "harry", "section_id": "s8"}, {"start_sec": 3132, "type": "text", "zh": "下一期里的你，其实已经挺接近我了。", "speaker_id": "walter", "section_id": "s8"}, {"start_sec": 3136, "type": "text", "zh": "你想让我来一段俄语？那倒真的不错。不过回到迈克·坎农-布鲁克斯这个主题：推理成本会发生什么？十年后，一个 token 会花多少钱？", "speaker_id": "harry", "section_id": "s8"}, {"start_sec": 3156, "type": "text", "zh": "这是那种会引出另一个问题的问题：我们跑的是什么模型？它大概会比我们今天拥有的模型大几个数量级，所以那个 token 在某种意义上也在交付强得多的能力。我认为推理里的利润会起伏，也会出现在不同的地方。十年后，我们花在跑模型上的钱会远远多于今天。这部分我觉得是清楚的。", "speaker_id": "walter", "section_id": "s8"}, {"start_sec": 3180, "type": "text", "zh": "可谁会在这个空间里赢？今天大概有芯片，有云，有在做前沿模型的前沿实验室，也有在构建和服务开源模型的人。我非常看好芯片、认为价值会大量发生在这里、或至少是一个重大发生地的原因之一，其实是下对芯片赌注这件事本身的性质：它有一种内在的滞后。设计芯片、把芯片做出来、再让它被造出来，以及它必须在数据中心里拥有一段有用寿命，这意味着你在芯片领域不会有别处那种完全高效的竞赛，某种意义上甚至是逐底竞争。", "speaker_id": "walter", "section_id": "s8"}, {"start_sec": 3220, "type": "text", "zh": "如果你有更好的想法，如果你能以某种方式建立起持续的优势，我认为你会看到很多价值在那里累积。我认为很多价值仍然会累积在前沿：构建相对于其他模型仍有持续优势的前沿模型，是一个昂贵的过程，需要极其有才华的团队，配合海量算力。可它交付的是——谁不想要地球上最了不起的智能呢？当然人们会继续为此付费。所以整个奖池在扩大，其中会有相对的赢家和输家，但在推理上，这是一场正和游戏。", "speaker_id": "walter", "section_id": "s8"}, {"start_sec": 3238, "type": "text", "zh": "我们前几天刚请萨蒂亚·纳德拉（Satya Nadella）上过节目。他说，我们会看到一个未来：每家公司都有自己的专用模型，用自己独特的专有数据；一个很酷的价值环节，其实是它们为自己、为自己的公司和自己的目标所做的评测基准。你同意那种每家公司各有专用模型的世界吗？还是觉得这相对技术乐观、并不对？你怎么看？", "speaker_id": "harry", "section_id": "s8"}, {"start_sec": 3252, "type": "text", "zh": "我认为今天绝对有空间，而且只要看技术本身，把一个模型按你的用例微调，确实有正面效果。但这是暂时的。一般来说，拥有某种内部微调版本的优势，会在下一个开源模型的下一版发布时消失。", "speaker_id": "walter", "section_id": "s8"}, {"start_sec": 3276, "type": "text", "zh": "我觉得这仍然可以变成一种「是的，而且」：只要你有一个模型，这种构造是叠在最好的前沿能力之上的，我就完全相信，拥有某种否则会在前沿被做出来的东西的内部专用变体，会有优势。但这确实是最难回答的问题之一。因为随着时间推移，也许你只能对开源模型做这件事。若是那样，这其中的权衡意味着什么：对我来说，把一个开源模型专门化更好，还是全力投入那个仍在追逐更高计算效率、因而对我的挑战可能实际上非常划算的、在前沿发布的东西更好？", "speaker_id": "walter", "section_id": "s8"}, {"start_sec": 3312, "type": "text", "zh": "完全明白。那当你看这条价值栈，你刚才说芯片显然是你认为最有价值的地方——最不值钱的环节在哪里？", "speaker_id": "harry", "section_id": "s9"}, {"start_sec": 3325, "type": "text", "zh": "我认为，对任何纯粹工作在软件层的人来说，都存在一种危险。我最近看到一些编排方向的尝试。我们即将在世界上拥有的芯片会出现一波异构：GPU、其他 XPU、这些新的芯片努力。有些云、有些软件供应商，已经把自己定位成即将到来的这一波之上的编排层。", "speaker_id": "walter", "section_id": "s9"}, {"start_sec": 3361, "type": "text", "zh": "我觉得有一种世界是：这种异构会是稍微暂时的。是的，今天我们看到比如英伟达收购了 Groq，会把两种芯片并排放：Rubin GPU 和 Groq 的芯片，做所谓的预填充与解码拆分，以及注意力拆分，这些硅片分别承担大模型推理负载里不同的部分。所以会有一种相当复杂的编排，有点像模型路由，但是芯片路由。", "speaker_id": "walter", "section_id": "s9"}, {"start_sec": 3403, "type": "text", "zh": "没错，芯片路由。", "speaker_id": "harry", "section_id": "s9"}, {"start_sec": 3406, "type": "text", "zh": "对，芯片路由。从一种技术观点看，也许有人会说：为什么停在这里？为什么不弄七种不同的硅，也许来自不同供应商，各自专精不同部分？也有一种信念是，巨大的价值创造浪潮会出在如何编排这些东西的专长上。我认为，其中很多可能会随着时间再收回去。我们并没有一种根本的、生存性的理由，必须用七个不同平台去跑一种负载；也没有很强的经济理由，说明我们能把这种结构维持下去。", "speaker_id": "walter", "section_id": "s9"}, {"start_sec": 3446, "type": "text", "zh": "即便只想象英伟达与 Groq 的数据中心部署：我在里面放多少颗英伟达 GPU，对多少颗 Groq 芯片？今天的赌注是这样——如果允许我在技术上多讲一分钟——这种注意力与前馈的拆分是：我把模型权重放在 Groq 芯片上，因为在那条高带宽上访问它们非常快，而且我往那个数据中心里塞的每一个用户，都要同一份模型权重，所以我可以把那块贵得多的存储器的成本摊薄，靠量把它赚回来。", "speaker_id": "walter", "section_id": "s9"}, {"start_sec": 3489, "type": "text", "zh": "注意力是作用在上下文上的那一部分，它不能在用户之间共享。我的上下文和你的上下文不同。所以对那一块，我对存储器成本极其敏感。我们前面讲过，SRAM 太贵了，DRAM 便宜得多，于是我需要退回到 GPU、退回到 GPU 的存储器上去跑那一块。这就是今天一个同时放了这两种芯片的英伟达数据中心的逻辑。", "speaker_id": "walter", "section_id": "s9"}, {"start_sec": 3520, "type": "text", "zh": "可当我去规格化这些芯片、决定放多少的时候：如果我的上下文长度随着时间变长，我突然可能希望比去年放更多英伟达 GPU，因为上下文更长了。它们还会再长多少？也许模型突然变大了，我又希望自己多要一些 Groq 芯片。于是你很可能落到一个处境：数据中心里某一部分产能被闲置了，你就是填不满，因为配比错了。这是不可接受的，完全不可接受。因为你有确定数量的兆瓦，你想从中挤出尽可能多的收入。", "speaker_id": "walter", "section_id": "s9"}, {"start_sec": 3552, "type": "text", "zh": "所以这种想法——你放下一种固定配比，而在接下来几年里你改不了这座数据中心，它是资本开支，要按时间摊销——让异构实际上成为一件非常棘手的事。我觉得它是对一个事实的暂时回应：你今天还没有一颗能把事做全的芯片。这些基于 SRAM 的芯片，多少解决了快速推理这个挑战，但它们没有做注意力所需的内存容量，所以我们仍然要把 GPU 拉进来。", "speaker_id": "walter", "section_id": "s9"}, {"start_sec": 3587, "type": "text", "zh": "它们也没有王牌规格里那种算力密度，去跑大模型推理里计算密集的那部分，也就是预填充、提示处理。因为你有一块成本很高的硅，你必须把本可以放数学的面积，和放存储器的面积分享。所以你的数学一定没有对面那位用 HBM、能把 100% 芯片面积留给跑矩阵乘法的张量核心的对手多。", "speaker_id": "walter", "section_id": "s9"}, {"start_sec": 3629, "type": "text", "zh": "如果看 Fractile 在做的事：我们基本上是把 SRAM「搬上楼」，在上面叠一层 DRAM。底部那整块计算裸片现在可以自由地铺上张量核心，你可以拥有和任何人一样多的算力，可以在王牌规格上拉到满。但你同时从三维访问拿到 SRAM 级的带宽，又从 DRAM 拿到容量。于是你突然拥有了这种「三位一体」，这三样东西都在一颗芯片里，也就清楚了：你不需要异构，不需要所有这些复杂的编排，也不必承担产能闲置的风险。", "speaker_id": "walter", "section_id": "s9"}, {"start_sec": 3660, "type": "text", "zh": "英伟达收购 Groq，是一份保险吗？", "speaker_id": "harry", "section_id": "s9"}, {"start_sec": 3664, "type": "text", "zh": "我觉得这件事有很多有意思的传闻。Groq 团队是一支非常聪明的团队，黄仁勋（Jensen Huang）是一个聪明人，希望聪明人在他的队里。他们也确实做了一个平台，我认为它回答了、或者说曾经回答了英伟达当时面临的一个大挑战：我们如何进入快速推理这个空间。", "speaker_id": "walter", "section_id": "s9"}, {"start_sec": 3694, "type": "text", "zh": "我觉得黄仁勋在这个空间里相当正面。上周他在伦敦的时候，还对 Fractile 说了些好话。某种意义上，他也是一个生态玩家。英伟达抓住这个市场主体的方式是：他们有时会被部署在其他平台旁边，那些平台补强他们能力的某些部分。", "speaker_id": "walter", "section_id": "s9"}, {"start_sec": 3718, "type": "text", "zh": "另有一个传闻是，Cerebras 显然和 OpenAI 达成了交易。如果你在经营一家数万亿美元的 GPU 公司，而你最大的客户之一突然签下一样你先前也许并不认为有生存必要性的东西——一个快速推理平台——我认为那会是一个令人警惕的时刻。你的反应会是什么？据说这两笔交易都是在 12 月 24 日签的，对律师来说想必也是一段有趣的时间。", "speaker_id": "walter", "section_id": "s9"}, {"start_sec": 3748, "type": "text", "zh": "现在做律师可是好时候。所以你觉得，这是对 OpenAI 那次多元化的膝跳反应吗？", "speaker_id": "harry", "section_id": "s9"}, {"start_sec": 3752, "type": "text", "zh": "我认为这是一种承认：在那个时候，这个空间的某些部分需要一种不同的解法，而 Groq 的 SRAM 方案，是那个时刻把大模型跑得更快的正确解。但今天我们已经看到自己往前走了。你无法用这些基于 SRAM 的芯片解决大模型推理：容量不够，为达到速度付出的成本太高，你能操作的上下文长度约束非常刺眼。", "speaker_id": "walter", "section_id": "s9"}, {"start_sec": 3760, "type": "text", "zh": "所以我会把那套方案刻画为：它能给你更敏捷的聊天机器人，却未必能给你这样一件事——把那种压倒性的前沿智能、那些一跑就是许多天的智能体，截短几个数量级。我认为巨大的奖池真正在那里。而今天，那套方案并不能为此提供一个答案。", "speaker_id": "walter", "section_id": "s9"}, {"start_sec": 3766, "type": "text", "zh": "推理这个空间里，人们熟悉的不同玩家是 Modal、Fireworks，或者 Baseten、Together。你押其中一个。你会押哪一个？", "speaker_id": "harry", "section_id": "s10"}, {"start_sec": 3785, "type": "text", "zh": "我和其中好几家公司的创始人是朋友，所以——", "speaker_id": "walter", "section_id": "s10"}, {"start_sec": 3790, "type": "text", "zh": "孩子总有一个最喜欢的。", "speaker_id": "harry", "section_id": "s10"}, {"start_sec": 3793, "type": "text", "zh": "我喜欢这些家伙的一点是，他们仍然有迂回腾挪的空间。他们还没有把自己的大量产能锁死，他们不是 neo-cloud。他们有可能在新芯片出现时去下注，也有可能开辟市场里新的部分。我认为存在一种世界，这一块不会完全商品化：你可以专精于服务多模态模型、文本模型、快速推理。所以我不会下一个具体的注。我会说，我今天宁愿做一家推理服务商，专精于把这些模型跑起来、把它们部署上去，也不愿做一家 neo-cloud。", "speaker_id": "walter", "section_id": "s10"}, {"start_sec": 3835, "type": "text", "zh": "实际上，我认为更有延伸空间的，是能够做成那种商业飞轮：签下消耗这些 token 的企业客户。", "speaker_id": "walter", "section_id": "s10"}, {"start_sec": 3845, "type": "text", "zh": "他们会成为数千亿美元级的公司吗？这是一个优步和 Lyft 那样的市场，赢家通吃、第二第三名价值差一截，还是像 GCP 对 AWS 那样的市场？即便那样，大概也只有三家玩家。", "speaker_id": "harry", "section_id": "s10"}, {"start_sec": 3862, "type": "text", "zh": "是的，我觉得你不会有十家。今天你可能已经有一条把你推向那个数量的长尾。如果把 neo-cloud 也加进去，你肯定会有几十家玩家，每一家都在数十亿美元的量级上挪动。它们是数千亿美元的空间吗？我认为我们会在这个空间里，走出少数几家数千亿美元级的公司。", "speaker_id": "walter", "section_id": "s10"}, {"start_sec": 3878, "type": "text", "zh": "能和我谈谈新一轮融资吗？我们融了多少？", "speaker_id": "harry", "section_id": "s10"}, {"start_sec": 3882, "type": "text", "zh": "是 7.2 亿美元的 C 轮。", "speaker_id": "walter", "section_id": "s10"}, {"start_sec": 3888, "type": "text", "zh": "过程怎么样？好玩吗？因为现在你简直成了舞会的焦点。", "speaker_id": "harry", "section_id": "s10"}, {"start_sec": 3892, "type": "text", "zh": "如果你倒回四年，其实倒回两年，我们还在教人们「推理」这个词。这会让投资人路演变得更难，因为当你在教育一个投资人，时间有点像：然后你就离开了，你只有 30 分钟，你得花掉 20 分钟。四年前，你得先花 10 分钟解释什么是大模型，然后再花 10 分钟解释为什么你觉得训练这些东西不会是全部，你还要去部署。我再花 5 分钟说，以及我为什么认为速度会重要。那时我们还没有看到推理模型等等。", "speaker_id": "walter", "section_id": "s10"}, {"start_sec": 3929, "type": "text", "zh": "所以和那时相比，现在非常有意思的是，你可以直接进入，去谈我们如何拥有一支完全独特、出色的团队，能以和其他所有人不同的方式做事；我们如何在供应链里拥有非常独特的位置，能够以不同的方式腾挪；以及我认为在这个空间里怎样建造才能赢的另一套哲学。我可以把时间花在咖啡边上谈这些。所以现在以某种方式处于风暴眼，是一种真正的优势，因为这个空间里已经有一种理解：为什么这是一个必须去解决的关键问题。", "speaker_id": "walter", "section_id": "s10"}, {"start_sec": 3969, "type": "text", "zh": "7.2 亿。和我谈谈，这够吗？突然这笔钱到了账上，有什么变化？有什么是你以前做不了、现在能做的？", "speaker_id": "harry", "section_id": "s10"}, {"start_sec": 3978, "type": "text", "zh": "突然有一种责任的分量。有一些人在我们身上压下了大额资本，我认为我们的责任之一，是始终确保我们在多点射门。资本允许我们做的一件事，就是把自己铺开，同时看多件事情。我们现在能够开始把眼光放到更多代际之后，能够探索比以前也许会探索的更多栈上的部分，比如在系统层、在网络层做更多创新。把这整条未来系统的路线图建出来，是资本允许我们做的一件事。", "speaker_id": "walter", "section_id": "s10"}, {"start_sec": 4022, "type": "text", "zh": "这个领域很贵，但我认为，把那颗芯片做出来、把第一批系统拿回来所需的底层资本，某种意义上是过去几年里相对固定的成本。很多这类资本现在更重要的用途，并不是大多数人以为的那样。我认为现在变得重要的，是在供应链的其余部分、在这个世界里更快地机动，比如对未来多年我们都需要的某些元器件去签长期协议；以及建立起更多那种预测能力。我们现在可以开始想，如何更多地自己跑实验，弄清未来什么可能重要。", "speaker_id": "walter", "section_id": "s10"}, {"start_sec": 4076, "type": "text", "zh": "正如我所说，Fractile 会永远是一家芯片公司。但我们确实需要有强的洞察，才能对客户更有帮助：什么东西能规模化得很好，模型架构接下来可能朝哪走，你如何处理非常长的上下文，跑一个智能体集群和跑一条很长的串行智能体看起来有什么不同。所有这些几乎是机器学习研究的挑战，我们现在也能够去着手。", "speaker_id": "walter", "section_id": "s10"}, {"start_sec": 4110, "type": "text", "zh": "我们也在地理上扩张。显然我们在台湾有人，在美国有一支团队。我非常兴奋的是，几周前，来自 Meta、曾在那里做大量人工智能计算系统工作的丹·拉比诺维奇（Dan Rabinovich）加入了我们，推动我们的系统建设：从芯片往上的一切，机架级系统、网络、与数据中心的整合。所以这是一条很长的栈，我们会在有意义的地方去把业务的这些部分建起来，并在追逐这些的过程中，把世界上最好的人才拉进来。", "speaker_id": "walter", "section_id": "s10"}, {"start_sec": 4144, "type": "text", "zh": "能问你吗，说到投资人：如果你能投资你的供应商中的任何一家，会是哪一家，为什么？", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 4152, "type": "text", "zh": "台积电是一家非凡的企业。如果你看今天正在发生的一切，每件事都能追溯到他们。这不会是你这档节目的独家新闻，我觉得相当众所周知的是，台积电支撑着世界上所有的芯片生产。它怎么买都便宜。我会一周七天都买这只股票。世界上处于前沿的芯片，或者说绝大多数处于前沿的芯片，都在那里建造。他们是一家非凡的企业，一支非凡的团队。所以我想我们会走进那里。", "speaker_id": "walter", "section_id": "s11"}, {"start_sec": 4191, "type": "text", "zh": "这个我记下了。如果你能投资你的客户中的任何一家，会是哪一家，为什么？", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 4199, "type": "text", "zh": "我真的很喜欢其中一些精干能打的新实验室。我这次是在像投资人那样想，这正是我想要的：它们更便宜一些。而且我认为我们会看到一些——", "speaker_id": "walter", "section_id": "s11"}, {"start_sec": 4209, "type": "text", "zh": "哪一家？", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 4211, "type": "text", "zh": "我有些朋友在伦敦创办了 Inherent，不知道你有没有接触过他们。他们既在看递归自我改进这类挑战，也特别关注建造能够自动做科学、自动做研究的系统需要什么。我认为这里有很大的空间：它并不完全等同于去追求那个包打天下的最强前沿模型，但在编排和部署模型、建造更善于解决这些挑战的系统上，有非常多有意思的问题。", "speaker_id": "walter", "section_id": "s11"}, {"start_sec": 4239, "type": "text", "zh": "如果必须投资你的竞争对手中的一个——这是快问快答前最后一个——会是哪一个，为什么？", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 4248, "type": "text", "zh": "我非常看好三维 DRAM。同一空间里还有一家叫 D-Matrix 的公司，走了不同的架构方向。我认为这两家公司都会非常成功。", "speaker_id": "walter", "section_id": "s11"}, {"start_sec": 4261, "type": "text", "zh": "他们上一轮估值是多少？", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 4263, "type": "text", "zh": "我不知道。", "speaker_id": "walter", "section_id": "s11"}, {"start_sec": 4265, "type": "text", "zh": "好。你准备好快问快答了吗？过去 12 个月，你改了想法的是什么？", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 4273, "type": "text", "zh": "也许我还没完全准备好快问快答。你愿意先把快问快答念给我听吗？抱歉，我只是——", "speaker_id": "walter", "section_id": "s11"}, {"start_sec": 4281, "type": "text", "zh": "这段能留着吗？其实从来没有人真正准备好快问快答。好，其中一个是：过去 12 个月你改了想法的是什么？", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 4290, "type": "text", "zh": "我认为，模型能力推进的底层速度是非凡的。我们今年夏天看到的那些数学结果，就人们谈论的时间线被截短而言——已经变得清楚的是，任何可验证的东西，数学和编程往往落入这一类，会在未来 12 个月被解决。我们将能够用前沿模型去啃下这些困难的、可验证的挑战。", "speaker_id": "walter", "section_id": "s11"}, {"start_sec": 4320, "type": "text", "zh": "你的董事会里还没有、但你非常希望拥有的人是谁？", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 4328, "type": "text", "zh": "这题很容易。我认为德米斯·哈萨比斯（Demis Hassabis）既是我的学术偶像，也有几分是一位英国英雄。我觉得他应该加入董事会。", "speaker_id": "walter", "section_id": "s11"}, {"start_sec": 4340, "type": "text", "zh": "你请过他了吗？", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 4342, "type": "text", "zh": "还没有。", "speaker_id": "walter", "section_id": "s11"}, {"start_sec": 4344, "type": "text", "zh": "这倒是一个好办法。德米斯——芯片行业今天最大的误称是什么？", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 4351, "type": "text", "zh": "我猜，关于科技企业的误称，通常是以为它们非常「技术」。这其实是一个非常非常非常人性的空间。其中那么多取决于关系，以我们的情况，那么多取决于拥有一支能跨整条栈协作的出色团队。所以它是由人驱动的。", "speaker_id": "walter", "section_id": "s11"}, {"start_sec": 4358, "type": "text", "zh": "英伟达五年内会不会成为一家 10 万亿美元的公司？", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 4362, "type": "text", "zh": "会。", "speaker_id": "walter", "section_id": "s11"}, {"start_sec": 4365, "type": "text", "zh": "你说得相当有把握。", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 4368, "type": "text", "zh": "这是一场非常正和的游戏。英伟达今天的交易——这是一句快评，也许不够精确——但我认为，它的远期估值倍数低于互联网泡沫破裂之后的思科（Cisco）。我对这个空间非常看好。", "speaker_id": "walter", "section_id": "s11"}, {"start_sec": 4382, "type": "text", "zh": "我们在这场泡沫甚至还没开始爆发之前，就已经在谈论它。我们对互联网泡沫创伤太深，从一开始就把过热计价进去了。所以我认为，我们还没有充分意识到，这次扩建会有多么持久。你也不必必然地不断新增数据中心。我们谈过计算效率的提升：如果我的兆瓦数是有限的，我就需要每隔几年用更好的芯片替换我的芯片。", "speaker_id": "walter", "section_id": "s11"}, {"start_sec": 4416, "type": "text", "zh": "所以对作为市场新进入者的 Fractile，这是一个巨大优势：因为今天你在数据中心里看到的每一颗芯片，最多六七年一定会被换出那些数据中心，其中许多撑不过两三年。对市场领导者来说，那是巨大的市场机会。他们有非凡的供应链关系，他们会过得很好。然后还有这个巨大的、我愿意说是新的机会：成为服务前沿需求的那家芯片供应商。在那个时间尺度上，我也非常看好 Fractile 的机会。", "speaker_id": "walter", "section_id": "s11"}, {"start_sec": 4453, "type": "text", "zh": "恭喜，现在由你掌管英国。为了让英国成为科技超级大国，你会改什么？", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 4461, "type": "text", "zh": "遗憾的是，我认为解锁增长的很大一部分就是解锁能源。尽我们所能，把更多可再生能源、更多核能、更多电力来源并网，让我们能够在这里铺开真正重要的产业。", "speaker_id": "walter", "section_id": "s11"}, {"start_sec": 4477, "type": "text", "zh": "最后一个。对未来十年，你最感到兴奋的是什么？", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 4485, "type": "text", "zh": "我想，还是这一点：我们现在已经在使用这些模型。我们用它们做什么？用它们解决从前解决不了的问题。我认为我们才刚刚开始看到，这件事对真实世界意味着什么，开始加速起飞。所以它会是生活变得更好一些的所有那些方式：我们找到从前无法对付的疾病的疗法，我们让每个人都能获得高质量的教育。这些事情毫无疑问会到来。我们已经有了让它发生的技术。", "speaker_id": "walter", "section_id": "s11"}, {"start_sec": 4506, "type": "text", "zh": "我觉得这太棒了。你看传统的班级规模，一个班大概 40 个孩子。有了人工智能，你就可以做个性化教育：有人喜欢选择题，有人喜欢视觉学习，按照他们自己的速度。我和你大概不一样，我数学不好，从前总是不敢举手说「我不懂」，因为我会显得愚蠢。针对这一点的个性化学习，只是一个很小的例子。", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 4534, "type": "text", "zh": "我非常同意你。", "speaker_id": "walter", "section_id": "s11"}, {"start_sec": 4536, "type": "text", "zh": "听着，伙计，我喜欢做这档节目，因为我真的能向像你这样出色的人学习。所以谢谢你和我一起做这期，真的非常有意思。", "speaker_id": "harry", "section_id": "s11"}, {"start_sec": 4543, "type": "text", "zh": "非常谢谢你，哈里。这很有意思。", "speaker_id": "walter", "section_id": "s11"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
