@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>麦克维与加勒特谈伤情、有人顶上，备战第10周红雀</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-2{--c:#4c8c5a;--cbg:#29392a;--cbgl:#eaf1eb}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="mcvay">肖恩·麦克维（Sean McVay）</option><option value="garrett">迈尔斯·加勒特（Myles Garrett）</option><option value="reporter">记者</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">洛杉矶公羊（Los Angeles Rams）</span><span class="pill">2026-11-13 13:28 PST（America/Los_Angeles）</span></div>
+<h1>麦克维与加勒特谈伤情、有人顶上，备战第10周红雀</h1>
+<p class="sub">嘉宾：迈尔斯·加勒特（Myles Garrett） · 约 16 分钟（951 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=4AFXtIaWJwA" target="_blank" rel="noopener">https://www.youtube.com/watch?v=4AFXtIaWJwA</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>洛杉矶公羊（Los Angeles Rams）</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-13 13:28 PST（America/Los_Angeles）</dd></div><div class="meta-row"><dt>时长</dt><dd>约 16 分钟（951 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 页面 Show transcript / 内容转文字（caption_source=browser-cdp，subtitle_type=youtube-show-transcript）。本批 yt-dlp 普通路径遇 “Sign in to confirm you’re not a bot”，chrome cookies（chrome:/home/box/chrome-profile/Fork-3）路径报 “The page needs to be reloaded”，同批改走浏览器 Show transcript。</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>4AFXtIaWJwA</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>第10周客场对阵亚利桑那红雀前，主教练肖恩·麦克维与外线线卫迈尔斯·加勒特召开新闻发布会。麦克维说明将普卡·纳库阿放入伤病名单是为了腾出名额提拔布伦南·普雷斯利，并公布本周伤情；加勒特则谈复出后的身体感受、面对首次首发四分卫的策略，以及更衣室氛围。</p>
+<h3>核心要点</h3><ul><li>普卡·纳库阿（Puka Nacua）进入伤病名单，是因为名单名额有变、要提拔布伦南·普雷斯利（Brennan Presley），并不是康复时间线改了——本来也回不来得比伤病名单窗口更早。普卡心情不错，已开始康复，一步一步来。达万特·亚当斯（Davante Adams）本周也不在。</li><li>今日伤情：迈尔斯·加勒特未参加训练、出战成疑，但自我感觉不错、本周训练充分，麦克维预计他能打、只是要聪明地安排；史蒂夫·阿维拉（Steve Avila）因腘绳肌确定缺阵；特伦特·麦克达菲（Trent McDuffie）与卡姆·克尔（Kam Curl）今日限制训练、出战成疑，还要看今天的负荷；泰伦斯·弗格森（Terrance Ferguson）缺阵。近端锋四人——科尔比·帕金森、泰勒·希格比、戴维斯·艾伦、麦克斯·克莱尔——预计都能出战。</li><li>提拔普雷斯利是因为近几年训练一直稳定、号码被叫到就能完成，还能打多个位置、特勤组和回攻。泽维尔·史密斯（Xavier Smith，「X战警」）也已回归，可能与普雷斯利、罗尼·里弗斯一起做开球回攻。麦克维还称赞CJ·丹尼尔斯（CJ Daniels）的成熟、争球点的身体素质，以及他爱往罗伯特·伍兹身边请教。</li><li>防守后场称麦克达菲为「蓝图」（22号）：比赛态度稳定、会给队友打气，上周伊曼纽尔·福布斯完成一次出色的失码擒抱时，边线上最兴奋、戴着墨镜秀肌肉的就是他。麦克维说交易并续约他，也是看中这种文化效应；吉米·莱克、在酋长队接触过他的人，以及大学时代的克里斯·彼得森，都增加了信任。</li><li>上一次对红雀，对方大量阻击、多次结实地撞上斯塔福德。麦克维说无论两位头号外接是否在场，保护四分卫始终放在第一位。加勒特认为面对一名首次首发的四分卫，对方会用快节奏或假口令保护他，不能一上来就猛冲，要先防住掩护、抽跑和快速短传。加勒特自称复出首战「累得要命」，两分钟进攻很久没打了；起跑时机自己觉得很糟，轮休来得正好。他不认为进攻减员就等于防守要刻意「站出来」，而应靠准备和基本功。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">公羊球迷值得看：约16分钟，伤情与阵容信息完整，加勒特谈复出感受和轮休也很具体。只想看比赛集锦的可以跳过。</p>
+<h3>适合人群</h3><p>公羊球迷 / 第10周对红雀的赛前情报</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">普卡进伤病名单是为了名额，不是康复时间变了</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">发布会开头已在回答关于普卡·纳库阿（Puka Nacua）的问题。麦克维说，大家一定想知道「到底为什么改了」：球队需要一个名单名额，一开始并不需要，里面有手续和机制上的细节。按他此前向媒体暗示的时间线，普卡本来也不可能在伤病名单窗口之前回来，所以这次把他放进伤病名单，并不是因为康复进度突然变了，而是人员调动变了、需要这个位置，好把布伦南·普雷斯利（Brennan Presley）提上现役名单。普卡本人心情不错，已经开始康复，会一步一步来。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">伤情报告：加勒特预计能打，阿维拉与弗格森确定缺阵</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">今日不参加训练（DNP）的有迈尔斯·加勒特，比赛名单将列为出战成疑。麦克维说他自我感觉不错，更多是想把他调整到尽可能好的状态：本周训练质量很高，已经打了不少回合，希望能在此基础上再推进，但会聪明地安排。记者追问是否预计加勒特能出战，麦克维明确说「是的」。史蒂夫·阿维拉（Steve Avila）因腘绳肌将被列为缺阵。特伦特·麦克达菲（Trent McDuffie）和卡姆·克尔（Kam Curl）今日限制训练、出战成疑。泰伦斯·弗格森（Terrance Ferguson）本场也将缺阵。被问到麦克达菲和克尔能否出战，麦克维对两人都比较乐观，但很大程度取决于今天限制训练的负荷反应；昨天已经能比较放开地练、状态不错，本人也急着要打，如果问他自己，会说希望能上场，球队同样希望，不过还要看今天的身体负荷。昨天练完反馈很好，今天有一点酸，但跑出了一些不错的数据。今天会尽量模拟那些会给伤处带来更大压力的身体对抗和无剧本变向，而不只是直线跑和变向。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">提拔普雷斯利：训练稳定，还能回攻；「X战警」也回来了</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">记者问看中了布伦南·普雷斯利什么，才决定把他提上名单。麦克维说关键是训练里的稳定性：近两年大家都看到了，只要号码被叫到，他就能完成回合；他是很好的队友，人很聪明，必要时能打多个位置，也能贡献特勤组，还具备一定回攻能力，这些都进入了提拔决定。被问到他会不会参与回攻，麦克维说有可能：泽维尔·史密斯（Xavier Smith，外号「X战警」）也回来了，开球回攻可能会看到他们两人之一，再加上罗尼·里弗斯（Ronnie Rivers），这对球队是好事。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">近端锋四人预计都能打；CJ·丹尼尔斯的成熟与争球</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">关于比赛日近端锋组，麦克维预计大家都能量装出战。科尔比·帕金森（Colby Parkinson）进展稳健；泰勒·希格比（Tyler Higbee）和戴维斯·艾伦（Davis Allen）一直在竞争，表现很好；麦克斯·克莱尔（Max Klare）也会继续获得训练机会，进步明显。他预计这四个人都能做好准备。谈到CJ·丹尼尔斯（CJ Daniels）近两天的表现，麦克维给出的关键词是「成熟」：无论是给一队防线当高质量陪练，还是训练营里处理事情，从一开始就让人觉得沉稳、不废话，舞台对他来说并不太大。他能稳稳接受指导和纠正，在争球点打得很大胆，身体对抗符合公羊对外接手的要求，而且非常好学——既谦逊又对足球有热情，会去请教身边的人。麦克维说，看他像是钻在罗伯特·伍兹（Robert Woods）身边学习，很有意思；埃里克·亚伯（Eric Yarber）等教练也做得很好。他为CJ感到兴奋。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">更衣室影子拳击联赛：麦克维喜欢听到笑声</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">记者问麦克维是否知道球员在更衣室里组织了一套相当正式的「影子拳击」联赛，支不支持。麦克维说知道，只要他们喜欢、能增进情谊、有点竞争，他都接受，里面也有不少好笑的事，还开玩笑让记者去跟他们比试。他真正喜欢的是听到笑声、看到大家享受彼此：该专注时要能收住，但也要有这种自然发生、只有球员之间才能建立的连接；如果是被安排出来的，就不自然。球队有很多愿意待在一起的人，能听到笑，说明文化是健康的。记者提到海鹰去年在《硬汉》（Hard Knocks）里也这么玩、当时很受关注，并自称「太笨、搞不懂，肯定打不好」。再问「最奇怪是在哪里玩过」，麦克维说不知道，得去问球员——自己一走过去，现场往往就安静了。他笑称：教练们玩得正高兴，自己一靠近就没声；当了十年主教练，「没人喜欢我，我好孤独」。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">斯塔福德的沉稳，以及红雀的大量阻击</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">记者（麦克维问答里称对方为「斯图」）问：外接手位置变动这么多，拥有马修·斯塔福德这样的四分卫，他的稳定性这周有多重要。麦克维说，关键正在于这份沉稳。有一位具备掌控力、真正像教练组延伸的四分卫，始终是好事；他能把信息讲清楚，让所有人在散球前都保持冷静、明白自己要做什么。无论身边是老将还是新人，他在散球时不只重复战术，还会带上细小的提示和提醒——你把信息交给他，他能转达给其余十个人。他的冷静会给进攻组带来信心，并传到整个队。上一次对红雀，对方阻击很多，多次结实地撞上斯塔福德。记者问，普卡和达万特·亚当斯都不在的情况下，保护他会不会被放得更重。麦克维说，无论对面是谁、这两位头号球员在不在，保护四分卫始终是第一位。大量阻击本就是红雀防守的做法，他们上次完成得很好，并不让人意外；从应对思路上，是更多快传，还是用别的办法回答，都要准备。他尊重对方防守的变化方式，但保护马修会一直放在最前面。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">「蓝图」22号麦克达菲，以及史密斯回归的熟悉感</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">有防守后场球员把特伦特·麦克达菲称为「蓝图」。麦克维说，无论叫不叫这个名字，关键都是稳定性：比赛态度和情绪无论什么情况都一致，哪怕别人没那么想上场，他也在正面影响环境——不只是能在场边或边界角卫位置打出明星级表现，还能把人托起来、给鼓励。他举例上周伊曼纽尔·福布斯（Emmanuel Forbes）在第二档完成一次出色的失码擒抱，边线上最兴奋、戴着墨镜秀肌肉的就是麦克达菲。之所以是「蓝图」，是因为他在做示范：年轻球员若想知道职业球员和好人该怎么做，看22号就对了。记者问，高价交易并续约这样的球员，是否也看重文化效应。麦克维说毫无疑问，而且很大程度建立在他对身边人的信任上：吉米·莱克（Jimmy Lake）与麦克达菲有特殊关系，酋长队接触过他的人也是如此，麦克维的好友克里斯·彼得森（Chris Petersen）还在大学里执教过他。结论是肯定的：他比自己预想的还要更好。谈到把泽维尔·史密斯召回、以及22号重新出现在大楼里的无形价值，麦克维说是熟悉和安心。这些球员职业生涯早期就由他们执教，既熟悉人、也熟悉体系要求，临时被叫上来也能立刻贡献。22号回来的路径不太一样，是被交易回归；「X战警」此前在旧金山49人练习队表现很好，去年和今年为公羊也做了不少，麦克维很高兴他又回来了。麦克维部分到此结束。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">加勒特：节奏还要找回来，面对首次首发的四分卫要聪明</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">约9分22秒起由迈尔斯·加勒特回答提问。记者提到他赛后曾说还有成长空间，看完录像后觉得空间在哪里。加勒特说，要把自然节奏找回来，步点要重新踩熟，自信地去抓住不同的机会——这是从一套防线换到另一套防线时很自然的过渡。要能判断何时冒险去赢下这一档或打出大回合，也要和其他人配合做配合套路，把时机打顺、让所有环节按预想咬合。被问到「听说对面是一名（首次首发的）四分卫时心里怎么想」——结合本周红雀将由新秀卡森·贝克（Carson Beck）第一次首发——加勒特说必须聪明：对方会想尽办法保护他、把比赛变得简单，不让他想太多；也会把开球口令当成武器，要么打快，要么用假口令。要意识到这些，也要明白开局对方不会让你直接猛冲，必须先防住掩护、抽跑和把球快速送到空当的短平快，而不是等着让四分卫自己带队往下推。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">影子拳击「头牌」，进攻减员后防守不必刻意「站出来」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">记者说加勒特在更衣室影子拳击排行榜上几乎是头名，问是不是他把这套带过来的、又是怎么坐上这个位置的。加勒特说不是自己带来的，但离开上一家时他已经是头牌，现在还是头牌，没太大变化。队友有没有向他挑战？当然，而且经常有，他不会回避，只是还没输过。记者再问：他上周对加里说过自己是这支球队的「终结者」；这周进攻会少几位明星级持球手，作为防线领袖，如何在「防守可能需要多站出来帮进攻」和实际场上执行之间取得平衡。加勒特并不接受「站出来」这种说法，无论防守还是进攻都是：不管人手齐不齐，大家都想把回合执行干净，进攻绝没有被绑住手脚。每个技术位置都有很好的球员，一些正在顶上的人不过是等来了属于自己的机会。防线会支持他们、把他们放到最容易成功和取胜的位置上；防守则把该做的做好。这不是「必须站出来」，而是靠准备和基本功，对手和局势变了，这些也不能变。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">复出首战累坏了；兰德曼会打掉球；唐纳德笑得很多</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">这是加勒特隔了相当一段时间后的第一场比赛。他形容自己「累得要命」，大家看他坐在头盔上大概就看出来了，也许跟比赛末段的两分钟进攻有关——这种两分钟战术他大概一年没跑过了，第四节消耗很大。但体能只能通过正式比赛、真正待在场上才能找回来，这对所有人都是一次学习：怎样在比赛末段把回合执行好、把胜利保住。谈到内特·兰德曼（Nate Landman，字幕作 Nick，按「打掉球」特长推断），加勒特说这人就是能打球的人，热爱这项运动，无论是去抢断、当「捡球鹰」、还是把球打掉，都喜欢制造能改变比赛的回合。就他亲眼所见，还没见过谁能如此频繁、成功地把球打掉。兰德曼每天带上球场的热情很有感染力，让人愿意跟上，也想在每次上场时拿出同样的强度。记者又问亚伦·唐纳德（Aaron Donald，字幕作 Eric）：加勒特没有赶上唐纳德第一次和这批队友共事，但大楼里都说他今年看起来很开心。加勒特说无法比较以前开不开心，只是现在常见他笑，所以猜从前大概没这么笑。他开玩笑「我愿意以为是因为我」，随即说唐纳德就是享受重新回到大楼、回到队友中间——这是大家休赛期或退役后都会想念的东西：待在一起、处在这种环境里，一起比赛、赢球、为彼此的成功庆祝。他觉得唐纳德正在把这些都收下，享受每一个当下。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">起跑时机自己觉得很糟，轮休来得正好</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">记者问他上周的起跑时机（get-off）怎么样，加勒特一度没听清。听明白后他说：自我感觉很糟。下一代数据（NextGen）或职业橄榄球焦点（PFF）大概会告诉他其实没那么差，但他自己觉得有点慢，下半场才逐渐找回来，还要继续练。这是他引以为傲的能力。一位叫布鲁斯（Bruce）的人告诉过他：要想成为统治级的传球施压者，第一件事就是起跑必须比谁都快，并给过他几条要领。从那以后，他先打磨这项能力，其他再跟上。记者问能不能给「锈掉了多少、离比赛状态还有多远」打一个百分比，加勒特说还没到百分之百，他不会把话说那么满，但正在往那个方向走。轮休来得正是时候，对所有人都是：自己能多一些场上训练、打磨细节、即使没有那么多比赛也能把节奏找回来，长远看对大家都有帮助。发布会在致谢中结束。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">肖恩·麦克维（Sean McVay）<em>主持</em></span><span class="spk-1">迈尔斯·加勒特（Myles Garrett）<em>嘉宾</em></span><span class="spk-2">记者<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>普卡进伤病名单是为了名额，不是康复时间变了</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="mcvay"><div class="label"><span class="badge" title="肖恩·麦克维（Sean McVay）">麦克维</span></div><div class="content">
+<p>你们一定想知道，普卡（Puka Nacua）这边到底为什么改了。我们需要这个名单名额。一开始并不需要，里面有手续和机制上的细节。按我之前跟大家暗示的时间线，他本来也不可能在那个窗口之前回来。所以把他放进伤病名单，并不是因为名单机制本身突然变成了必须，而是情况有变，人员调动让我们需要这个位置，好把布伦南·普雷斯利（Brennan Presley）提上来。思路大概就是这样。不过他心情不错，已经开始康复，会一步一步来。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>伤情报告：加勒特预计能打，阿维拉与弗格森确定缺阵</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="mcvay"><div class="label"><span class="badge" title="肖恩·麦克维（Sean McVay）">麦克维</span></div><div class="content">
+<p>说到今天的伤情：不参加训练的有迈尔斯·加勒特（Myles Garrett），比赛名单会列为出战成疑。他自我感觉不错，更多是想把他调整到尽可能好的状态。他本周训练质量很高，已经打了不少回合，我们预计他能在此基础上再推进，但会聪明地安排他。史蒂夫·阿维拉（Steve Avila）因腘绳肌将被列为缺阵。特伦特·麦克达菲（Trent McDuffie）和卡姆·克尔（Kam Curl）今天都会限制训练，并列为出战成疑。泰伦斯·弗格森（Terrance Ferguson）本场也将缺阵。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>你预计迈尔斯能出战吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="mcvay"><div class="label"><span class="badge" title="肖恩·麦克维（Sean McVay）">麦克维</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>特伦特和卡姆，你预计他们能出战吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="mcvay"><div class="label"><span class="badge" title="肖恩·麦克维（Sean McVay）">麦克维</span></div><div class="content">
+<p>我对卡姆和特伦特都比较有信心。很大程度要看今天限制训练进行得怎么样。他昨天已经比较放开，做了不少高质量的内容，相信你们也看到了，他自己也急着要打。但这个回答很大程度上取决于他今天怎么消化身体负荷。如果你问他本人，他会说希望能上场，我们也希望，不过还是可能随着今天的训练情况变化。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>昨天练完，他的反馈是什么？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="mcvay"><div class="label"><span class="badge" title="肖恩·麦克维（Sean McVay）">麦克维</span></div><div class="content">
+<p>感觉非常好。今天有一点酸，但整体很好，也跑出了一些不错的数据。接下来很大一块是：怎么去模拟那些会让那个部位承受更大压力的身体场景，而不只是直线跑和变向，还包括一些无剧本的动作。这就是我们今天想做的。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>提拔普雷斯利：训练稳定，还能回攻；「X战警」也回来了</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="mcvay"><div class="label"><span class="badge" title="肖恩·麦克维（Sean McVay）">麦克维</span></div><div class="content">
+<p>布伦南·普雷斯利这题我再回来，你先请。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>你在布伦南·普雷斯利身上看到了什么，才决定把他提上名单？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="mcvay"><div class="label"><span class="badge" title="肖恩·麦克维（Sean McVay）">麦克维</span></div><div class="content">
+<p>关键就是他在训练里有多稳定。近两年你们都看到了，他就是那种号码被叫到就能完成回合的人。他是很好的队友，人很聪明，必要时能打很多不同位置，也能在特勤组做贡献，还具备一定回攻能力。这些都进入了我们提拔他的决定。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>他有可能参与回攻吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="mcvay"><div class="label"><span class="badge" title="肖恩·麦克维（Sean McVay）">麦克维</span></div><div class="content">
+<p>有可能。泽维尔·史密斯（Xavier Smith，「X战警」）也回来了，开球回攻可能会看到他们两人之一，再加上罗尼·里弗斯（Ronnie Rivers），这对我们是好事。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>近端锋四人预计都能打；CJ·丹尼尔斯的成熟与争球</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>你预计比赛日的近端锋组会是什么样子？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="mcvay"><div class="label"><span class="badge" title="肖恩·麦克维（Sean McVay）">麦克维</span></div><div class="content">
+<p>我预计大家都会赶上这场比赛。科尔比（Colby Parkinson）进展很稳健；希格比（Tyler Higbee）和DA（Davis Allen，戴维斯·艾伦）一直在竞争，他们做得很好；麦克斯（Max Klare）也会继续获得训练，而且进步很明显。我预计这四个人都能做好准备。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>肖恩，这两天你在CJ·丹尼尔斯（CJ Daniels）身上看到了什么？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="mcvay"><div class="label"><span class="badge" title="肖恩·麦克维（Sean McVay）">麦克维</span></div><div class="content">
+<p>就是成熟。和我一直看到的一样：无论是给一队防线提供高质量的演练，还是在训练营里处理事情，我从一开始就跟你们说过，他身上有一种成熟的气质，不废话，但舞台对他来说并不太大。他能很稳地接受指导或纠正，在争球点打得很大胆，那种身体对抗正是我们对外接手想要的，这些框他都在勾上。而且他非常好学。你真正希望年轻人具备的，就是谦逊、对这项运动的热情，以及保持好奇心，他身边也有很多人可以请教。看他像是钻在罗伯特·伍兹（Robert Woods）身边学习，挺有意思的；罗布·卡利布（Rob Calib，字幕音，把握低）和埃里克·亚伯（Eric Yarber）也做得很好。我为CJ感到兴奋。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>更衣室影子拳击联赛：麦克维喜欢听到笑声</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>肖恩，你们球员在更衣室里好像组织了一套挺正式的影子拳击联赛。你知道这件事吗？你支持吗，觉得这是好事吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="mcvay"><div class="label"><span class="badge" title="肖恩·麦克维（Sean McVay）">麦克维</span></div><div class="content">
+<p>我知道。我觉得只要他们喜欢、能增进情谊、享受其中，再来点竞争，都没问题，那儿肯定也有不少好笑的事。你该去跟他们比试一下，看自己行不行。我确实知道这件事。我真正喜欢的是听到笑声，听到大家在享受。关键从来都是：什么时候该收住、专注进入状态，什么时候又能做这些自然发生的事，去建立一种只有球员之间才能建立的连接。如果是被安排出来的，就不自然。我们有很多愿意待在一起的好人，能听到笑，我觉得就是文化健康的信号。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>老实说，我看过海鹰去年在《硬汉》（Hard Knocks）里也这么玩，当时还挺轰动。我觉得自己肯定打不好，我笨到搞不懂那套。</p>
+<p>你见过他们在最奇怪的什么地方玩这个？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="mcvay"><div class="label"><span class="badge" title="肖恩·麦克维（Sean McVay）">麦克维</span></div><div class="content">
+<p>我不知道什么叫最奇怪的地方。他们就是在自己待着的那些区域玩。这个你得去问他们。我一走过去，现场往往就安静了。这事从来不会过时：教练们正玩得高兴，你一靠近就没声了；球员也是，一走过去——反正没人喜欢我。十年了，还是这样。唉，我好孤独。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>斯塔福德的沉稳，以及红雀的大量阻击</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>尤其这周外接手位置变动这么多，拥有马修这样的四分卫，价值在哪里？他的这份沉稳能起什么帮助？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="mcvay"><div class="label"><span class="badge" title="肖恩·麦克维（Sean McVay）">麦克维</span></div><div class="content">
+<p>他的沉稳就是关键，斯图。有一位具备掌控力、真正像教练组延伸的四分卫，始终是好事。他能把话讲清楚，让所有人保持冷静，在散球之前就明白自己要做什么，这一点对我们非常重要。无论他身边是踢球很久的人，还是别人，都是这样。你听他散球时讲的那些，不只是战术本身，还有细小的提示和提醒。你把信息交给他，他能转达、表达给其余十个人。他那么冷静，会带出一种信心，并传到球阵里的每一个人。这对我们球队是稳定存在的。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>你们上次打红雀，对方阻击很多，多次结实地撞上他。普卡和达万特（Davante Adams）都不在的情况下，保护他会不会被放得更重，会不会进入你们的考虑？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="mcvay"><div class="label"><span class="badge" title="肖恩·麦克维（Sean McVay）">麦克维</span></div><div class="content">
+<p>无论他对阵的是谁，这一点始终都在。你总是想让四分卫保持干净，这本来就是他们防守的做法。上次有些回合他们完成得很好。说到底是你的应对思路：是不是要更快把球传出去，还有哪些不同的回答方式。这些并不让我们意外，但他们做得确实好。我很尊重他们防守的变化方式。保护马修会一直被放在最优先、最靠前的位置，不管那两位头号球员在不在。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>「蓝图」22号麦克达菲，以及史密斯回归的熟悉感</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>有些防守后场会把特伦特·麦克达菲称为「蓝图」。就你目前看到的，他作为球员、职业人士和一个人，有什么让年轻球员想去模仿？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="mcvay"><div class="label"><span class="badge" title="肖恩·麦克维（Sean McVay）">麦克维</span></div><div class="content">
+<p>无论是叫「蓝图」还是别的，我跟你们说过，关键是稳定性：他的比赛意志，以及无论什么情况下情绪和态度都一致。哪怕别人没那么想上场，他也在正面影响和改变环境——不只是能在场边或边界角卫位置打出明星级表现，或完成他做过的那些不同任务，更在于他能把人托起来、给人鼓励。你看上周一些回合，边线上伊曼纽尔·福布斯（Emmanuel Forbes）在第二档完成一次非常出色的失码擒抱，没有人比特伦特更兴奋，戴着墨镜秀肌肉，整个人很酷。他之所以是「蓝图」，是因为他在做示范。如果一个年轻人进来问：职业球员该怎么把各方面都做对，一个优秀的人该是什么样子？看22号，你就会很顺利。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>你们出去交易一个人、再按那样的分量给他续约，这种「最好的球员在做示范」的文化效应，是否也是考虑的一部分？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="mcvay"><div class="label"><span class="badge" title="肖恩·麦克维（Sean McVay）">麦克维</span></div><div class="content">
+<p>毫无疑问。而且很大程度也取决于我对那些接触过他的人的信任。吉米·莱克（Jimmy Lake）显然和他有特殊关系，甚至包括在酋长队接触过他的人。克里斯·彼得森（Chris Petersen）是我很熟的朋友，大学时执教过他。所以答案绝对是肯定的。而我当初以为他会有多好，他现在比那还要更好。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>作为教练，把泽维尔·史密斯这样的人召回来，再加上22号重新出现在大楼里，你看重哪些无形的东西？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="mcvay"><div class="label"><span class="badge" title="肖恩·麦克维（Sean McVay）">麦克维</span></div><div class="content">
+<p>我想是安心和熟悉。能让这些人回来，中间也有一些特殊情况。首先，我们喜欢和这些家伙待在一起，也喜欢执教他们。他们职业生涯很早的阶段我们就在一起，所以你熟悉这个人，他们也熟悉我们要求的许多东西。一旦要在短通知下上来，他们已经准备好做贡献。当然，22号回来的路径不太一样，是被交易回归我们。「X战警」之前在旧金山的练习队表现很好，为我们也做得很好。我觉得他去年做了不少出色的事，今年也有好的表现，我很高兴X又回来了。</p>
+<p>好，谢谢大家。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>加勒特：节奏还要找回来，面对首次首发的四分卫要聪明</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>我们赛后聊过，你觉得自己还有成长空间。看完录像之后，你觉得空间还在哪里？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="garrett"><div class="label"><span class="badge" title="迈尔斯·加勒特（Myles Garrett）">加勒特</span></div><div class="content">
+<p>得把自然节奏找回来，把步点重新踩熟，自信地去抓住不同的机会。这是从一套防线换到另一套防线时很自然的过渡。你得能判断何时冒险去赢下这一档，或打出大回合；也要和其他人一起做配合套路，把时机打顺，让所有环节按我们想要的方式咬合。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>当你听说对面是一名（首次首发的）四分卫时，脑子里会想什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="garrett"><div class="label"><span class="badge" title="迈尔斯·加勒特（Myles Garrett）">加勒特</span></div><div class="content">
+<p>必须聪明。他们会想尽办法保护他，把比赛变得简单，不让他想太多。他们会把开球口令当成武器，要么打快，要么用假口令来调我们。必须意识到这些，也要明白开局他们不会让我们直接猛冲。你得先防住掩护、抽跑这类把球快速送到空当的短平快，让这些回合替他把事办了，而不是等着让他把队伍自己往下推。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>影子拳击「头牌」，进攻减员后防守不必刻意「站出来」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>更衣室里影子拳击那项，你差不多排在最前面。是你把它带过来的吗？你又是怎么坐上这个位置的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="garrett"><div class="label"><span class="badge" title="迈尔斯·加勒特（Myles Garrett）">加勒特</span></div><div class="content">
+<p>不是我带过来的。但我离开上一家的时候已经是头牌，现在还是头牌，没太大变化。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>队友有向你挑战吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="garrett"><div class="label"><span class="badge" title="迈尔斯·加勒特（Myles Garrett）">加勒特</span></div><div class="content">
+<p>当然，经常有。我不会回避挑战，只是还没输过。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>迈尔斯，你上周对加里说，你是这支球队的「终结者」。这周进攻会少几位能创造机会的明星球员。作为防线的领袖，你怎么在「防守可能需要多站出来帮进攻」这种意识和实际执行之间取得平衡？你又会怎样跟队友讲？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="garrett"><div class="label"><span class="badge" title="迈尔斯·加勒特（Myles Garrett）">加勒特</span></div><div class="content">
+<p>我不认为这是「站出来」的问题，防守或进攻都不是。不管人手齐不齐，他们都想把回合执行干净，进攻绝没有被绑住手脚。每个技术位置我们都有很好的球员，一些正在顶上的人，不过是等来了属于自己的机会，出去把事做成。我们会支持他们，把他们放到最容易成功和取胜的位置上。至于防守，我们就把自己能做的做好。这不是「必须站出来」，而是要靠我们的准备和基本功，这些不会因为对手或局势不同而改变。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>复出首战累坏了；兰德曼会打掉球；唐纳德笑得很多</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>对你来说显然是隔了相当一段时间的第一场。赛后身体感觉怎么样，现在又觉得怎么样？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="garrett"><div class="label"><span class="badge" title="迈尔斯·加勒特（Myles Garrett）">加勒特</span></div><div class="content">
+<p>我累得要命，你们大概也看出来了。我当时坐在头盔上。也许是因为比赛末段在打两分钟进攻，那种两分钟战术我大概一年没跑过了，所以第四节消耗很大。但你只能这样把体能找回来：足球体能只能通过踢足球、真正待在场上才能获得。这对我们所有人也是一次很好的学习，知道比赛末段该怎样执行，才能把胜利保住。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>那你对内特（Nate Landman，字幕作 Nick）又有哪些新的认识？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="garrett"><div class="label"><span class="badge" title="迈尔斯·加勒特（Myles Garrett）">加勒特</span></div><div class="content">
+<p>这人就是能打球的人，他热爱这项运动。他就是喜欢打出能改变比赛的回合，不管是当「抢球的鹰」、还是把球打掉。就我亲眼所见，还没见过谁能如此成功地把球打掉。再看他每天带上球场的那种热情，很有感染力，是你真正愿意跟上的东西，也会让你想在每次踏上球场时拿出同样的强度。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>你没有赶上埃里克——也就是亚伦·唐纳德（Aaron Donald，字幕作 Eric）——第一次和这批队友共事，但大楼里都说他今年看起来很开心。你有看到他在享受吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="garrett"><div class="label"><span class="badge" title="迈尔斯·加勒特（Myles Garrett）">加勒特</span></div><div class="content">
+<p>他以前到底开不开心，我没资格多说，但我现在常见他笑，所以猜从前大概没这么笑。我愿意以为是因为我，但我觉得他就是享受重新回到大楼、回到这帮人中间。这对他是很大的事，也是我们都会想念的——无论是进入休赛期，还是有一天退役来临，就是待在队友身边，处在这种环境里，一起比赛、赢球、为彼此的成功庆祝。所以我觉得他正在把这些都收下，享受每一个当下。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>起跑时机自己觉得很糟，轮休来得正好</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>你上周的时机怎么样？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="garrett"><div class="label"><span class="badge" title="迈尔斯·加勒特（Myles Garrett）">加勒特</span></div><div class="content">
+<p>我的时机？我的时机是指什么？起跑时机吗？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>对，离开球后的起跑。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="garrett"><div class="label"><span class="badge" title="迈尔斯·加勒特（Myles Garrett）">加勒特</span></div><div class="content">
+<p>哦，自我感觉很糟。下一代数据（NextGen）或者职业橄榄球焦点（PFF）大概会告诉我其实没那么差，但我自己觉得有点慢，下半场才逐渐找回来。还要继续练。这是我引以为傲的能力，就是要把起跑做好。布鲁斯（Bruce）告诉过我，要想成为统治级的传球施压者，第一件事就是起跑必须比谁都快。他给过我几条要领，从那以后我就先打磨这项能力，其他再跟上。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>你昨天好像说过，能不能按你的感觉，给「锈掉了多少、离重新进入比赛状态还有多远」打一个百分比？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="garrett"><div class="label"><span class="badge" title="迈尔斯·加勒特（Myles Garrett）">加勒特</span></div><div class="content">
+<p>对我们、对我自己来说，还没到百分之百，我不会把话说那么满。但我们也不是原地不动，正在往那个方向走。轮休来得正是时候，对所有人都是。能多一些场上的训练，打磨一些东西，即使没有那么多比赛也能把节奏找回来，我觉得长远看对大家都有帮助。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="reporter"><div class="label"><span class="badge" title="记者">记者</span></div><div class="content">
+<p>好，谢谢。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="garrett"><div class="label"><span class="badge" title="迈尔斯·加勒特（Myles Garrett）">加勒特</span></div><div class="content">
+<p>非常感谢。谢谢。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "洛杉矶公羊（Los Angeles Rams）", "title": "麦克维与加勒特谈伤情、有人顶上，备战第10周红雀", "url": "https://www.youtube.com/watch?v=4AFXtIaWJwA", "videoId": "4AFXtIaWJwA", "published_at": "2026-11-13 13:28 PST（America/Los_Angeles）", "duration": 951, "caption_source": "YouTube 页面 Show transcript / 内容转文字（caption_source=browser-cdp，subtitle_type=youtube-show-transcript）。本批 yt-dlp 普通路径遇 “Sign in to confirm you’re not a bot”，chrome cookies（chrome:/home/box/chrome-profile/Fork-3）路径报 “The page needs to be reloaded”，同批改走浏览器 Show transcript。", "guests": ["迈尔斯·加勒特（Myles Garrett）"], "speakers": [{"id": "mcvay", "name": "肖恩·麦克维（Sean McVay）", "role": "host", "short": "麦克维"}, {"id": "garrett", "name": "迈尔斯·加勒特（Myles Garrett）", "role": "guest", "short": "加勒特"}, {"id": "reporter", "name": "记者", "role": "guest", "short": "记者"}], "intro": {"summary": "第10周客场对阵亚利桑那红雀前，主教练肖恩·麦克维与外线线卫迈尔斯·加勒特召开新闻发布会。麦克维说明将普卡·纳库阿放入伤病名单是为了腾出名额提拔布伦南·普雷斯利，并公布本周伤情；加勒特则谈复出后的身体感受、面对首次首发四分卫的策略，以及更衣室氛围。", "points": ["普卡·纳库阿（Puka Nacua）进入伤病名单，是因为名单名额有变、要提拔布伦南·普雷斯利（Brennan Presley），并不是康复时间线改了——本来也回不来得比伤病名单窗口更早。普卡心情不错，已开始康复，一步一步来。达万特·亚当斯（Davante Adams）本周也不在。", "今日伤情：迈尔斯·加勒特未参加训练、出战成疑，但自我感觉不错、本周训练充分，麦克维预计他能打、只是要聪明地安排；史蒂夫·阿维拉（Steve Avila）因腘绳肌确定缺阵；特伦特·麦克达菲（Trent McDuffie）与卡姆·克尔（Kam Curl）今日限制训练、出战成疑，还要看今天的负荷；泰伦斯·弗格森（Terrance Ferguson）缺阵。近端锋四人——科尔比·帕金森、泰勒·希格比、戴维斯·艾伦、麦克斯·克莱尔——预计都能出战。", "提拔普雷斯利是因为近几年训练一直稳定、号码被叫到就能完成，还能打多个位置、特勤组和回攻。泽维尔·史密斯（Xavier Smith，「X战警」）也已回归，可能与普雷斯利、罗尼·里弗斯一起做开球回攻。麦克维还称赞CJ·丹尼尔斯（CJ Daniels）的成熟、争球点的身体素质，以及他爱往罗伯特·伍兹身边请教。", "防守后场称麦克达菲为「蓝图」（22号）：比赛态度稳定、会给队友打气，上周伊曼纽尔·福布斯完成一次出色的失码擒抱时，边线上最兴奋、戴着墨镜秀肌肉的就是他。麦克维说交易并续约他，也是看中这种文化效应；吉米·莱克、在酋长队接触过他的人，以及大学时代的克里斯·彼得森，都增加了信任。", "上一次对红雀，对方大量阻击、多次结实地撞上斯塔福德。麦克维说无论两位头号外接是否在场，保护四分卫始终放在第一位。加勒特认为面对一名首次首发的四分卫，对方会用快节奏或假口令保护他，不能一上来就猛冲，要先防住掩护、抽跑和快速短传。加勒特自称复出首战「累得要命」，两分钟进攻很久没打了；起跑时机自己觉得很糟，轮休来得正好。他不认为进攻减员就等于防守要刻意「站出来」，而应靠准备和基本功。"], "verdict": "公羊球迷值得看：约16分钟，伤情与阵容信息完整，加勒特谈复出感受和轮休也很具体。只想看比赛集锦的可以跳过。", "audience": "公羊球迷 / 第10周对红雀的赛前情报"}, "sections": [{"id": "s1", "title": "普卡进伤病名单是为了名额，不是康复时间变了", "start_sec": 0, "summary": "发布会开头已在回答关于普卡·纳库阿（Puka Nacua）的问题。麦克维说，大家一定想知道「到底为什么改了」：球队需要一个名单名额，一开始并不需要，里面有手续和机制上的细节。按他此前向媒体暗示的时间线，普卡本来也不可能在伤病名单窗口之前回来，所以这次把他放进伤病名单，并不是因为康复进度突然变了，而是人员调动变了、需要这个位置，好把布伦南·普雷斯利（Brennan Presley）提上现役名单。普卡本人心情不错，已经开始康复，会一步一步来。"}, {"id": "s2", "title": "伤情报告：加勒特预计能打，阿维拉与弗格森确定缺阵", "start_sec": 31, "summary": "今日不参加训练（DNP）的有迈尔斯·加勒特，比赛名单将列为出战成疑。麦克维说他自我感觉不错，更多是想把他调整到尽可能好的状态：本周训练质量很高，已经打了不少回合，希望能在此基础上再推进，但会聪明地安排。记者追问是否预计加勒特能出战，麦克维明确说「是的」。史蒂夫·阿维拉（Steve Avila）因腘绳肌将被列为缺阵。特伦特·麦克达菲（Trent McDuffie）和卡姆·克尔（Kam Curl）今日限制训练、出战成疑。泰伦斯·弗格森（Terrance Ferguson）本场也将缺阵。被问到麦克达菲和克尔能否出战，麦克维对两人都比较乐观，但很大程度取决于今天限制训练的负荷反应；昨天已经能比较放开地练、状态不错，本人也急着要打，如果问他自己，会说希望能上场，球队同样希望，不过还要看今天的身体负荷。昨天练完反馈很好，今天有一点酸，但跑出了一些不错的数据。今天会尽量模拟那些会给伤处带来更大压力的身体对抗和无剧本变向，而不只是直线跑和变向。"}, {"id": "s3", "title": "提拔普雷斯利：训练稳定，还能回攻；「X战警」也回来了", "start_sec": 123, "summary": "记者问看中了布伦南·普雷斯利什么，才决定把他提上名单。麦克维说关键是训练里的稳定性：近两年大家都看到了，只要号码被叫到，他就能完成回合；他是很好的队友，人很聪明，必要时能打多个位置，也能贡献特勤组，还具备一定回攻能力，这些都进入了提拔决定。被问到他会不会参与回攻，麦克维说有可能：泽维尔·史密斯（Xavier Smith，外号「X战警」）也回来了，开球回攻可能会看到他们两人之一，再加上罗尼·里弗斯（Ronnie Rivers），这对球队是好事。"}, {"id": "s4", "title": "近端锋四人预计都能打；CJ·丹尼尔斯的成熟与争球", "start_sec": 159, "summary": "关于比赛日近端锋组，麦克维预计大家都能量装出战。科尔比·帕金森（Colby Parkinson）进展稳健；泰勒·希格比（Tyler Higbee）和戴维斯·艾伦（Davis Allen）一直在竞争，表现很好；麦克斯·克莱尔（Max Klare）也会继续获得训练机会，进步明显。他预计这四个人都能做好准备。谈到CJ·丹尼尔斯（CJ Daniels）近两天的表现，麦克维给出的关键词是「成熟」：无论是给一队防线当高质量陪练，还是训练营里处理事情，从一开始就让人觉得沉稳、不废话，舞台对他来说并不太大。他能稳稳接受指导和纠正，在争球点打得很大胆，身体对抗符合公羊对外接手的要求，而且非常好学——既谦逊又对足球有热情，会去请教身边的人。麦克维说，看他像是钻在罗伯特·伍兹（Robert Woods）身边学习，很有意思；埃里克·亚伯（Eric Yarber）等教练也做得很好。他为CJ感到兴奋。"}, {"id": "s5", "title": "更衣室影子拳击联赛：麦克维喜欢听到笑声", "start_sec": 227, "summary": "记者问麦克维是否知道球员在更衣室里组织了一套相当正式的「影子拳击」联赛，支不支持。麦克维说知道，只要他们喜欢、能增进情谊、有点竞争，他都接受，里面也有不少好笑的事，还开玩笑让记者去跟他们比试。他真正喜欢的是听到笑声、看到大家享受彼此：该专注时要能收住，但也要有这种自然发生、只有球员之间才能建立的连接；如果是被安排出来的，就不自然。球队有很多愿意待在一起的人，能听到笑，说明文化是健康的。记者提到海鹰去年在《硬汉》（Hard Knocks）里也这么玩、当时很受关注，并自称「太笨、搞不懂，肯定打不好」。再问「最奇怪是在哪里玩过」，麦克维说不知道，得去问球员——自己一走过去，现场往往就安静了。他笑称：教练们玩得正高兴，自己一靠近就没声；当了十年主教练，「没人喜欢我，我好孤独」。"}, {"id": "s6", "title": "斯塔福德的沉稳，以及红雀的大量阻击", "start_sec": 317, "summary": "记者（麦克维问答里称对方为「斯图」）问：外接手位置变动这么多，拥有马修·斯塔福德这样的四分卫，他的稳定性这周有多重要。麦克维说，关键正在于这份沉稳。有一位具备掌控力、真正像教练组延伸的四分卫，始终是好事；他能把信息讲清楚，让所有人在散球前都保持冷静、明白自己要做什么。无论身边是老将还是新人，他在散球时不只重复战术，还会带上细小的提示和提醒——你把信息交给他，他能转达给其余十个人。他的冷静会给进攻组带来信心，并传到整个队。上一次对红雀，对方阻击很多，多次结实地撞上斯塔福德。记者问，普卡和达万特·亚当斯都不在的情况下，保护他会不会被放得更重。麦克维说，无论对面是谁、这两位头号球员在不在，保护四分卫始终是第一位。大量阻击本就是红雀防守的做法，他们上次完成得很好，并不让人意外；从应对思路上，是更多快传，还是用别的办法回答，都要准备。他尊重对方防守的变化方式，但保护马修会一直放在最前面。"}, {"id": "s7", "title": "「蓝图」22号麦克达菲，以及史密斯回归的熟悉感", "start_sec": 419, "summary": "有防守后场球员把特伦特·麦克达菲称为「蓝图」。麦克维说，无论叫不叫这个名字，关键都是稳定性：比赛态度和情绪无论什么情况都一致，哪怕别人没那么想上场，他也在正面影响环境——不只是能在场边或边界角卫位置打出明星级表现，还能把人托起来、给鼓励。他举例上周伊曼纽尔·福布斯（Emmanuel Forbes）在第二档完成一次出色的失码擒抱，边线上最兴奋、戴着墨镜秀肌肉的就是麦克达菲。之所以是「蓝图」，是因为他在做示范：年轻球员若想知道职业球员和好人该怎么做，看22号就对了。记者问，高价交易并续约这样的球员，是否也看重文化效应。麦克维说毫无疑问，而且很大程度建立在他对身边人的信任上：吉米·莱克（Jimmy Lake）与麦克达菲有特殊关系，酋长队接触过他的人也是如此，麦克维的好友克里斯·彼得森（Chris Petersen）还在大学里执教过他。结论是肯定的：他比自己预想的还要更好。谈到把泽维尔·史密斯召回、以及22号重新出现在大楼里的无形价值，麦克维说是熟悉和安心。这些球员职业生涯早期就由他们执教，既熟悉人、也熟悉体系要求，临时被叫上来也能立刻贡献。22号回来的路径不太一样，是被交易回归；「X战警」此前在旧金山49人练习队表现很好，去年和今年为公羊也做了不少，麦克维很高兴他又回来了。麦克维部分到此结束。"}, {"id": "s8", "title": "加勒特：节奏还要找回来，面对首次首发的四分卫要聪明", "start_sec": 565, "summary": "约9分22秒起由迈尔斯·加勒特回答提问。记者提到他赛后曾说还有成长空间，看完录像后觉得空间在哪里。加勒特说，要把自然节奏找回来，步点要重新踩熟，自信地去抓住不同的机会——这是从一套防线换到另一套防线时很自然的过渡。要能判断何时冒险去赢下这一档或打出大回合，也要和其他人配合做配合套路，把时机打顺、让所有环节按预想咬合。被问到「听说对面是一名（首次首发的）四分卫时心里怎么想」——结合本周红雀将由新秀卡森·贝克（Carson Beck）第一次首发——加勒特说必须聪明：对方会想尽办法保护他、把比赛变得简单，不让他想太多；也会把开球口令当成武器，要么打快，要么用假口令。要意识到这些，也要明白开局对方不会让你直接猛冲，必须先防住掩护、抽跑和把球快速送到空当的短平快，而不是等着让四分卫自己带队往下推。"}, {"id": "s9", "title": "影子拳击「头牌」，进攻减员后防守不必刻意「站出来」", "start_sec": 648, "summary": "记者说加勒特在更衣室影子拳击排行榜上几乎是头名，问是不是他把这套带过来的、又是怎么坐上这个位置的。加勒特说不是自己带来的，但离开上一家时他已经是头牌，现在还是头牌，没太大变化。队友有没有向他挑战？当然，而且经常有，他不会回避，只是还没输过。记者再问：他上周对加里说过自己是这支球队的「终结者」；这周进攻会少几位明星级持球手，作为防线领袖，如何在「防守可能需要多站出来帮进攻」和实际场上执行之间取得平衡。加勒特并不接受「站出来」这种说法，无论防守还是进攻都是：不管人手齐不齐，大家都想把回合执行干净，进攻绝没有被绑住手脚。每个技术位置都有很好的球员，一些正在顶上的人不过是等来了属于自己的机会。防线会支持他们、把他们放到最容易成功和取胜的位置上；防守则把该做的做好。这不是「必须站出来」，而是靠准备和基本功，对手和局势变了，这些也不能变。"}, {"id": "s10", "title": "复出首战累坏了；兰德曼会打掉球；唐纳德笑得很多", "start_sec": 743, "summary": "这是加勒特隔了相当一段时间后的第一场比赛。他形容自己「累得要命」，大家看他坐在头盔上大概就看出来了，也许跟比赛末段的两分钟进攻有关——这种两分钟战术他大概一年没跑过了，第四节消耗很大。但体能只能通过正式比赛、真正待在场上才能找回来，这对所有人都是一次学习：怎样在比赛末段把回合执行好、把胜利保住。谈到内特·兰德曼（Nate Landman，字幕作 Nick，按「打掉球」特长推断），加勒特说这人就是能打球的人，热爱这项运动，无论是去抢断、当「捡球鹰」、还是把球打掉，都喜欢制造能改变比赛的回合。就他亲眼所见，还没见过谁能如此频繁、成功地把球打掉。兰德曼每天带上球场的热情很有感染力，让人愿意跟上，也想在每次上场时拿出同样的强度。记者又问亚伦·唐纳德（Aaron Donald，字幕作 Eric）：加勒特没有赶上唐纳德第一次和这批队友共事，但大楼里都说他今年看起来很开心。加勒特说无法比较以前开不开心，只是现在常见他笑，所以猜从前大概没这么笑。他开玩笑「我愿意以为是因为我」，随即说唐纳德就是享受重新回到大楼、回到队友中间——这是大家休赛期或退役后都会想念的东西：待在一起、处在这种环境里，一起比赛、赢球、为彼此的成功庆祝。他觉得唐纳德正在把这些都收下，享受每一个当下。"}, {"id": "s11", "title": "起跑时机自己觉得很糟，轮休来得正好", "start_sec": 865, "summary": "记者问他上周的起跑时机（get-off）怎么样，加勒特一度没听清。听明白后他说：自我感觉很糟。下一代数据（NextGen）或职业橄榄球焦点（PFF）大概会告诉他其实没那么差，但他自己觉得有点慢，下半场才逐渐找回来，还要继续练。这是他引以为傲的能力。一位叫布鲁斯（Bruce）的人告诉过他：要想成为统治级的传球施压者，第一件事就是起跑必须比谁都快，并给过他几条要领。从那以后，他先打磨这项能力，其他再跟上。记者问能不能给「锈掉了多少、离比赛状态还有多远」打一个百分比，加勒特说还没到百分之百，他不会把话说那么满，但正在往那个方向走。轮休来得正是时候，对所有人都是：自己能多一些场上训练、打磨细节、即使没有那么多比赛也能把节奏找回来，长远看对大家都有帮助。发布会在致谢中结束。"}], "paragraphs": [{"start_sec": 0, "type": "text", "zh": "你们一定想知道，普卡（Puka Nacua）这边到底为什么改了。我们需要这个名单名额。一开始并不需要，里面有手续和机制上的细节。按我之前跟大家暗示的时间线，他本来也不可能在那个窗口之前回来。所以把他放进伤病名单，并不是因为名单机制本身突然变成了必须，而是情况有变，人员调动让我们需要这个位置，好把布伦南·普雷斯利（Brennan Presley）提上来。思路大概就是这样。不过他心情不错，已经开始康复，会一步一步来。", "speaker_id": "mcvay", "section_id": "s1"}, {"start_sec": 31, "type": "text", "zh": "说到今天的伤情：不参加训练的有迈尔斯·加勒特（Myles Garrett），比赛名单会列为出战成疑。他自我感觉不错，更多是想把他调整到尽可能好的状态。他本周训练质量很高，已经打了不少回合，我们预计他能在此基础上再推进，但会聪明地安排他。史蒂夫·阿维拉（Steve Avila）因腘绳肌将被列为缺阵。特伦特·麦克达菲（Trent McDuffie）和卡姆·克尔（Kam Curl）今天都会限制训练，并列为出战成疑。泰伦斯·弗格森（Terrance Ferguson）本场也将缺阵。", "speaker_id": "mcvay", "section_id": "s2"}, {"start_sec": 64, "type": "text", "zh": "你预计迈尔斯能出战吗？", "speaker_id": "reporter", "section_id": "s2"}, {"start_sec": 69, "type": "text", "zh": "是的。", "speaker_id": "mcvay", "section_id": "s2"}, {"start_sec": 70, "type": "text", "zh": "特伦特和卡姆，你预计他们能出战吗？", "speaker_id": "reporter", "section_id": "s2"}, {"start_sec": 73, "type": "text", "zh": "我对卡姆和特伦特都比较有信心。很大程度要看今天限制训练进行得怎么样。他昨天已经比较放开，做了不少高质量的内容，相信你们也看到了，他自己也急着要打。但这个回答很大程度上取决于他今天怎么消化身体负荷。如果你问他本人，他会说希望能上场，我们也希望，不过还是可能随着今天的训练情况变化。", "speaker_id": "mcvay", "section_id": "s2"}, {"start_sec": 97, "type": "text", "zh": "昨天练完，他的反馈是什么？", "speaker_id": "reporter", "section_id": "s2"}, {"start_sec": 100, "type": "text", "zh": "感觉非常好。今天有一点酸，但整体很好，也跑出了一些不错的数据。接下来很大一块是：怎么去模拟那些会让那个部位承受更大压力的身体场景，而不只是直线跑和变向，还包括一些无剧本的动作。这就是我们今天想做的。", "speaker_id": "mcvay", "section_id": "s2"}, {"start_sec": 123, "type": "text", "zh": "布伦南·普雷斯利这题我再回来，你先请。", "speaker_id": "mcvay", "section_id": "s3"}, {"start_sec": 125, "type": "text", "zh": "你在布伦南·普雷斯利身上看到了什么，才决定把他提上名单？", "speaker_id": "reporter", "section_id": "s3"}, {"start_sec": 128, "type": "text", "zh": "关键就是他在训练里有多稳定。近两年你们都看到了，他就是那种号码被叫到就能完成回合的人。他是很好的队友，人很聪明，必要时能打很多不同位置，也能在特勤组做贡献，还具备一定回攻能力。这些都进入了我们提拔他的决定。", "speaker_id": "mcvay", "section_id": "s3"}, {"start_sec": 151, "type": "text", "zh": "他有可能参与回攻吗？", "speaker_id": "reporter", "section_id": "s3"}, {"start_sec": 152, "type": "text", "zh": "有可能。泽维尔·史密斯（Xavier Smith，「X战警」）也回来了，开球回攻可能会看到他们两人之一，再加上罗尼·里弗斯（Ronnie Rivers），这对我们是好事。", "speaker_id": "mcvay", "section_id": "s3"}, {"start_sec": 159, "type": "text", "zh": "你预计比赛日的近端锋组会是什么样子？", "speaker_id": "reporter", "section_id": "s4"}, {"start_sec": 163, "type": "text", "zh": "我预计大家都会赶上这场比赛。科尔比（Colby Parkinson）进展很稳健；希格比（Tyler Higbee）和DA（Davis Allen，戴维斯·艾伦）一直在竞争，他们做得很好；麦克斯（Max Klare）也会继续获得训练，而且进步很明显。我预计这四个人都能做好准备。", "speaker_id": "mcvay", "section_id": "s4"}, {"start_sec": 179, "type": "text", "zh": "肖恩，这两天你在CJ·丹尼尔斯（CJ Daniels）身上看到了什么？", "speaker_id": "reporter", "section_id": "s4"}, {"start_sec": 182, "type": "text", "zh": "就是成熟。和我一直看到的一样：无论是给一队防线提供高质量的演练，还是在训练营里处理事情，我从一开始就跟你们说过，他身上有一种成熟的气质，不废话，但舞台对他来说并不太大。他能很稳地接受指导或纠正，在争球点打得很大胆，那种身体对抗正是我们对外接手想要的，这些框他都在勾上。而且他非常好学。你真正希望年轻人具备的，就是谦逊、对这项运动的热情，以及保持好奇心，他身边也有很多人可以请教。看他像是钻在罗伯特·伍兹（Robert Woods）身边学习，挺有意思的；罗布·卡利布（Rob Calib，字幕音，把握低）和埃里克·亚伯（Eric Yarber）也做得很好。我为CJ感到兴奋。", "speaker_id": "mcvay", "section_id": "s4"}, {"start_sec": 227, "type": "text", "zh": "肖恩，你们球员在更衣室里好像组织了一套挺正式的影子拳击联赛。你知道这件事吗？你支持吗，觉得这是好事吗？", "speaker_id": "reporter", "section_id": "s5"}, {"start_sec": 235, "type": "text", "zh": "我知道。我觉得只要他们喜欢、能增进情谊、享受其中，再来点竞争，都没问题，那儿肯定也有不少好笑的事。你该去跟他们比试一下，看自己行不行。我确实知道这件事。我真正喜欢的是听到笑声，听到大家在享受。关键从来都是：什么时候该收住、专注进入状态，什么时候又能做这些自然发生的事，去建立一种只有球员之间才能建立的连接。如果是被安排出来的，就不自然。我们有很多愿意待在一起的好人，能听到笑，我觉得就是文化健康的信号。", "speaker_id": "mcvay", "section_id": "s5"}, {"start_sec": 278, "type": "text", "zh": "老实说，我看过海鹰去年在《硬汉》（Hard Knocks）里也这么玩，当时还挺轰动。我觉得自己肯定打不好，我笨到搞不懂那套。", "speaker_id": "reporter", "section_id": "s5"}, {"start_sec": 289, "type": "text", "zh": "你见过他们在最奇怪的什么地方玩这个？", "speaker_id": "reporter", "section_id": "s5"}, {"start_sec": 292, "type": "text", "zh": "我不知道什么叫最奇怪的地方。他们就是在自己待着的那些区域玩。这个你得去问他们。我一走过去，现场往往就安静了。这事从来不会过时：教练们正玩得高兴，你一靠近就没声了；球员也是，一走过去——反正没人喜欢我。十年了，还是这样。唉，我好孤独。", "speaker_id": "mcvay", "section_id": "s5"}, {"start_sec": 317, "type": "text", "zh": "尤其这周外接手位置变动这么多，拥有马修这样的四分卫，价值在哪里？他的这份沉稳能起什么帮助？", "speaker_id": "reporter", "section_id": "s6"}, {"start_sec": 326, "type": "text", "zh": "他的沉稳就是关键，斯图。有一位具备掌控力、真正像教练组延伸的四分卫，始终是好事。他能把话讲清楚，让所有人保持冷静，在散球之前就明白自己要做什么，这一点对我们非常重要。无论他身边是踢球很久的人，还是别人，都是这样。你听他散球时讲的那些，不只是战术本身，还有细小的提示和提醒。你把信息交给他，他能转达、表达给其余十个人。他那么冷静，会带出一种信心，并传到球阵里的每一个人。这对我们球队是稳定存在的。", "speaker_id": "mcvay", "section_id": "s6"}, {"start_sec": 368, "type": "text", "zh": "你们上次打红雀，对方阻击很多，多次结实地撞上他。普卡和达万特（Davante Adams）都不在的情况下，保护他会不会被放得更重，会不会进入你们的考虑？", "speaker_id": "reporter", "section_id": "s6"}, {"start_sec": 384, "type": "text", "zh": "无论他对阵的是谁，这一点始终都在。你总是想让四分卫保持干净，这本来就是他们防守的做法。上次有些回合他们完成得很好。说到底是你的应对思路：是不是要更快把球传出去，还有哪些不同的回答方式。这些并不让我们意外，但他们做得确实好。我很尊重他们防守的变化方式。保护马修会一直被放在最优先、最靠前的位置，不管那两位头号球员在不在。", "speaker_id": "mcvay", "section_id": "s6"}, {"start_sec": 419, "type": "text", "zh": "有些防守后场会把特伦特·麦克达菲称为「蓝图」。就你目前看到的，他作为球员、职业人士和一个人，有什么让年轻球员想去模仿？", "speaker_id": "reporter", "section_id": "s7"}, {"start_sec": 427, "type": "text", "zh": "无论是叫「蓝图」还是别的，我跟你们说过，关键是稳定性：他的比赛意志，以及无论什么情况下情绪和态度都一致。哪怕别人没那么想上场，他也在正面影响和改变环境——不只是能在场边或边界角卫位置打出明星级表现，或完成他做过的那些不同任务，更在于他能把人托起来、给人鼓励。你看上周一些回合，边线上伊曼纽尔·福布斯（Emmanuel Forbes）在第二档完成一次非常出色的失码擒抱，没有人比特伦特更兴奋，戴着墨镜秀肌肉，整个人很酷。他之所以是「蓝图」，是因为他在做示范。如果一个年轻人进来问：职业球员该怎么把各方面都做对，一个优秀的人该是什么样子？看22号，你就会很顺利。", "speaker_id": "mcvay", "section_id": "s7"}, {"start_sec": 484, "type": "text", "zh": "你们出去交易一个人、再按那样的分量给他续约，这种「最好的球员在做示范」的文化效应，是否也是考虑的一部分？", "speaker_id": "reporter", "section_id": "s7"}, {"start_sec": 494, "type": "text", "zh": "毫无疑问。而且很大程度也取决于我对那些接触过他的人的信任。吉米·莱克（Jimmy Lake）显然和他有特殊关系，甚至包括在酋长队接触过他的人。克里斯·彼得森（Chris Petersen）是我很熟的朋友，大学时执教过他。所以答案绝对是肯定的。而我当初以为他会有多好，他现在比那还要更好。", "speaker_id": "mcvay", "section_id": "s7"}, {"start_sec": 516, "type": "text", "zh": "作为教练，把泽维尔·史密斯这样的人召回来，再加上22号重新出现在大楼里，你看重哪些无形的东西？", "speaker_id": "reporter", "section_id": "s7"}, {"start_sec": 521, "type": "text", "zh": "我想是安心和熟悉。能让这些人回来，中间也有一些特殊情况。首先，我们喜欢和这些家伙待在一起，也喜欢执教他们。他们职业生涯很早的阶段我们就在一起，所以你熟悉这个人，他们也熟悉我们要求的许多东西。一旦要在短通知下上来，他们已经准备好做贡献。当然，22号回来的路径不太一样，是被交易回归我们。「X战警」之前在旧金山的练习队表现很好，为我们也做得很好。我觉得他去年做了不少出色的事，今年也有好的表现，我很高兴X又回来了。", "speaker_id": "mcvay", "section_id": "s7"}, {"start_sec": 559, "type": "text", "zh": "好，谢谢大家。", "speaker_id": "mcvay", "section_id": "s7"}, {"start_sec": 565, "type": "text", "zh": "我们赛后聊过，你觉得自己还有成长空间。看完录像之后，你觉得空间还在哪里？", "speaker_id": "reporter", "section_id": "s8"}, {"start_sec": 575, "type": "text", "zh": "得把自然节奏找回来，把步点重新踩熟，自信地去抓住不同的机会。这是从一套防线换到另一套防线时很自然的过渡。你得能判断何时冒险去赢下这一档，或打出大回合；也要和其他人一起做配合套路，把时机打顺，让所有环节按我们想要的方式咬合。", "speaker_id": "garrett", "section_id": "s8"}, {"start_sec": 609, "type": "text", "zh": "当你听说对面是一名（首次首发的）四分卫时，脑子里会想什么？", "speaker_id": "reporter", "section_id": "s8"}, {"start_sec": 615, "type": "text", "zh": "必须聪明。他们会想尽办法保护他，把比赛变得简单，不让他想太多。他们会把开球口令当成武器，要么打快，要么用假口令来调我们。必须意识到这些，也要明白开局他们不会让我们直接猛冲。你得先防住掩护、抽跑这类把球快速送到空当的短平快，让这些回合替他把事办了，而不是等着让他把队伍自己往下推。", "speaker_id": "garrett", "section_id": "s8"}, {"start_sec": 648, "type": "text", "zh": "更衣室里影子拳击那项，你差不多排在最前面。是你把它带过来的吗？你又是怎么坐上这个位置的？", "speaker_id": "reporter", "section_id": "s9"}, {"start_sec": 660, "type": "text", "zh": "不是我带过来的。但我离开上一家的时候已经是头牌，现在还是头牌，没太大变化。", "speaker_id": "garrett", "section_id": "s9"}, {"start_sec": 668, "type": "text", "zh": "队友有向你挑战吗？", "speaker_id": "reporter", "section_id": "s9"}, {"start_sec": 671, "type": "text", "zh": "当然，经常有。我不会回避挑战，只是还没输过。", "speaker_id": "garrett", "section_id": "s9"}, {"start_sec": 681, "type": "text", "zh": "迈尔斯，你上周对加里说，你是这支球队的「终结者」。这周进攻会少几位能创造机会的明星球员。作为防线的领袖，你怎么在「防守可能需要多站出来帮进攻」这种意识和实际执行之间取得平衡？你又会怎样跟队友讲？", "speaker_id": "reporter", "section_id": "s9"}, {"start_sec": 702, "type": "text", "zh": "我不认为这是「站出来」的问题，防守或进攻都不是。不管人手齐不齐，他们都想把回合执行干净，进攻绝没有被绑住手脚。每个技术位置我们都有很好的球员，一些正在顶上的人，不过是等来了属于自己的机会，出去把事做成。我们会支持他们，把他们放到最容易成功和取胜的位置上。至于防守，我们就把自己能做的做好。这不是「必须站出来」，而是要靠我们的准备和基本功，这些不会因为对手或局势不同而改变。", "speaker_id": "garrett", "section_id": "s9"}, {"start_sec": 743, "type": "text", "zh": "对你来说显然是隔了相当一段时间的第一场。赛后身体感觉怎么样，现在又觉得怎么样？", "speaker_id": "reporter", "section_id": "s10"}, {"start_sec": 750, "type": "text", "zh": "我累得要命，你们大概也看出来了。我当时坐在头盔上。也许是因为比赛末段在打两分钟进攻，那种两分钟战术我大概一年没跑过了，所以第四节消耗很大。但你只能这样把体能找回来：足球体能只能通过踢足球、真正待在场上才能获得。这对我们所有人也是一次很好的学习，知道比赛末段该怎样执行，才能把胜利保住。", "speaker_id": "garrett", "section_id": "s10"}, {"start_sec": 783, "type": "text", "zh": "那你对内特（Nate Landman，字幕作 Nick）又有哪些新的认识？", "speaker_id": "reporter", "section_id": "s10"}, {"start_sec": 789, "type": "text", "zh": "这人就是能打球的人，他热爱这项运动。他就是喜欢打出能改变比赛的回合，不管是当「抢球的鹰」、还是把球打掉。就我亲眼所见，还没见过谁能如此成功地把球打掉。再看他每天带上球场的那种热情，很有感染力，是你真正愿意跟上的东西，也会让你想在每次踏上球场时拿出同样的强度。", "speaker_id": "garrett", "section_id": "s10"}, {"start_sec": 822, "type": "text", "zh": "你没有赶上埃里克——也就是亚伦·唐纳德（Aaron Donald，字幕作 Eric）——第一次和这批队友共事，但大楼里都说他今年看起来很开心。你有看到他在享受吗？", "speaker_id": "reporter", "section_id": "s10"}, {"start_sec": 831, "type": "text", "zh": "他以前到底开不开心，我没资格多说，但我现在常见他笑，所以猜从前大概没这么笑。我愿意以为是因为我，但我觉得他就是享受重新回到大楼、回到这帮人中间。这对他是很大的事，也是我们都会想念的——无论是进入休赛期，还是有一天退役来临，就是待在队友身边，处在这种环境里，一起比赛、赢球、为彼此的成功庆祝。所以我觉得他正在把这些都收下，享受每一个当下。", "speaker_id": "garrett", "section_id": "s10"}, {"start_sec": 865, "type": "text", "zh": "你上周的时机怎么样？", "speaker_id": "reporter", "section_id": "s11"}, {"start_sec": 872, "type": "text", "zh": "我的时机？我的时机是指什么？起跑时机吗？", "speaker_id": "garrett", "section_id": "s11"}, {"start_sec": 880, "type": "text", "zh": "对，离开球后的起跑。", "speaker_id": "reporter", "section_id": "s11"}, {"start_sec": 880, "type": "text", "zh": "哦，自我感觉很糟。下一代数据（NextGen）或者职业橄榄球焦点（PFF）大概会告诉我其实没那么差，但我自己觉得有点慢，下半场才逐渐找回来。还要继续练。这是我引以为傲的能力，就是要把起跑做好。布鲁斯（Bruce）告诉过我，要想成为统治级的传球施压者，第一件事就是起跑必须比谁都快。他给过我几条要领，从那以后我就先打磨这项能力，其他再跟上。", "speaker_id": "garrett", "section_id": "s11"}, {"start_sec": 913, "type": "text", "zh": "你昨天好像说过，能不能按你的感觉，给「锈掉了多少、离重新进入比赛状态还有多远」打一个百分比？", "speaker_id": "reporter", "section_id": "s11"}, {"start_sec": 920, "type": "text", "zh": "对我们、对我自己来说，还没到百分之百，我不会把话说那么满。但我们也不是原地不动，正在往那个方向走。轮休来得正是时候，对所有人都是。能多一些场上的训练，打磨一些东西，即使没有那么多比赛也能把节奏找回来，我觉得长远看对大家都有帮助。", "speaker_id": "garrett", "section_id": "s11"}, {"start_sec": 935, "type": "text", "zh": "好，谢谢。", "speaker_id": "reporter", "section_id": "s11"}, {"start_sec": 936, "type": "text", "zh": "非常感谢。谢谢。", "speaker_id": "garrett", "section_id": "s11"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

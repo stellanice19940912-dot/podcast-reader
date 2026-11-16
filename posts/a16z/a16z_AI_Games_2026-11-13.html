@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>OpenAI 和 Anthropic 如何改变“谁能做游戏”</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-2{--c:#4c8c5a;--cbg:#29392a;--cbgl:#eaf1eb}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="host">主持人（a16z，未报名）</option><option value="anish">阿尼什·阿查里雅（Anish Acharya）</option><option value="jon">乔纳森·赖（Jonathan Lai）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">a16z</span><span class="pill">2026-11-12 06:50 PST（America/Los_Angeles）</span></div>
+<h1>OpenAI 和 Anthropic 如何改变“谁能做游戏”</h1>
+<p class="sub">嘉宾：阿尼什·阿查里雅（Anish Acharya）、乔纳森·赖（Jonathan Lai） · 约 46 分钟（2772 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=HDRy6XmE2RQ" target="_blank" rel="noopener">https://www.youtube.com/watch?v=HDRy6XmE2RQ</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>a16z</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-12 06:50 PST（America/Los_Angeles）</dd></div><div class="meta-row"><dt>时长</dt><dd>约 46 分钟（2772 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 页面 Show transcript / 内容转文字（caption_source=browser-cdp，subtitle_type=youtube-show-transcript）。今日 yt-dlp 普通路径在 ffh7fdwfrWU 上遇 HTTP 429、chrome cookies（chrome:/home/box/chrome-profile/Fork-3）路径报 “The page needs to be reloaded”，为免加剧风控本条直接走浏览器 Show transcript。观看页当前标题为“How AI Could Bring Halo and Other Classic Games Back to Life”，发现阶段 /videos 列表标题为“How OpenAI and Anthropic Are Changing Who Can Make Games”，同一 videoId。说话人：简介点名两位普通合伙人；另有一位未报名的主持人负责提问（低把握，未编造姓名）。两位嘉宾按互相称呼（“John”“Anish”）和自述经历（阿尼什的哈宝酒店唱片店、BBS；乔纳森的儿子、职业模拟器）启发式区分，中等把握。ASR订正：Ghost of Sushima→《对马岛之魂》；CEX→Codex；3JS→Three.js；Andrew’s game→《安德的游戏》；Ait Patel→阿米特·帕特尔（Amit Patel）；Baron Realms Elite→Barren Realms Elite；autoto→乙女（otome）；Agent Empires a factorial→《帝国时代》/《异星工厂》；quad code→Claude Code。Astra、Opus 4.7/4.8/5.5 等模型名按口播保留。片头约44秒为正片片段剪辑。无赞助口播。</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>HDRy6XmE2RQ</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>a16z普通合伙人阿尼什·阿查里雅与乔纳森·赖谈AI如何缩短从想法到可玩游戏的距离：从Astra直接操作Blender和虚幻引擎，到模组、反编译、AI原生分发平台、自适应“永恒游戏”，以及他们自己终于能做的游戏。</p>
+<h3>核心要点</h3><ul><li>约一个月前的Astra能直接操作Blender、Unreal、Unity并截图自测，业余爱好者也能一次性做出可玩原型；Opus 4.7/4.8的Three.js能力则代表“写代码”这条路径。</li><li>开发周期是游戏业的结构性问题：GTA6约做了12–13年；若能压到2–5年、预算从数亿美元降到数千万美元，工作室就敢押新IP、新类型。</li><li>模组曾催生《反恐精英》《英雄联盟》《绝地求生》《堡垒之夜》；AI让普通玩家也能做模组，乔纳森八岁的儿子用Codex把《对马岛之魂》做成了《我的世界》模组。</li><li>“最后20%占80%的工作”：手感、枪声、世界细节仍要靠人的品味；IP方如何从模组获益仍缺商业模式，Spawn在尝试AI原生的跨游戏社区。</li><li>被成本压住的即时战略、职业模拟器、乙女游戏（《恋与深空》收入数亿美元）可能迎来复兴；自适应MMO是“永不结束的游戏”这个圣杯。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：关心AI游戏工具、游戏行业结构、模组和UGC平台的人，约46分钟，例子具体。可跳过：只想要硬核技术细节或投资数据的人，后半段闲聊偏多。</p>
+<h3>适合人群</h3><p>游戏开发者 / AI工具与UGC创业者 / 游戏行业投资人</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">片头与引子：GTA6开发了十二三年，AI正在改变谁能做游戏</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">片头剪辑预告了几个核心论点：《侠盗猎车手6》下月发售，约从2013–2014年开始制作；价值数十亿美元的系列常从模组起家（《反恐精英》来自《半条命》，《英雄联盟》受DotA启发，DotA本身是《魔兽争霸3》模组）；AI让过去经济上不可行的小众类型变得可做。主持人引出背景：Epic的蒂姆·斯威尼和Xbox负责人阿莎都公开谈到AI与软硬件结合，行业潮水在转向。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">Astra 的“工具使用”解锁：一个人一次性做出可玩游戏</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">乔纳森说约一个月前Astra带来关键解锁：它能直接操作Blender、虚幻引擎和Unity，而不是只告诉用户怎么做。于是从没做过游戏的爱好者也能让它写设计文档、出概念图、在Blender建模、做动画和绑骨骼、导入Unreal、生成音乐音效，最后导出可玩版本；它还能截图自测、发现漏洞再修，所以X上的原型“出奇地好”。第一层影响是从想法到原型的时间大幅缩短，他希望把五到十年的开发周期压到两到五年，让开发者多冒险、多试错。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">两条技术路径：写代码（Three.js）与操作工具（Blender）</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">阿尼什补充，最早真正能用于游戏的是对Three.js（浏览器3D）的操控能力，他记得是Opus 4.7或4.8，Anthropic称这并非刻意设计；模型会逐个元素地摆放场景，细致到人类会被逼疯。另一条路径是Astra擅长的工具使用（本地和云端Blender）。一个是涌现能力、一个是专门训练的能力，两者汇合推动游戏开发加速。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">长周期扼杀创新：续作、射击游戏泛滥与“更大野心”</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">主持人和阿尼什指出，长周期让许多游戏在六年周期的第三、第五年被砍，市场和玩家口味早已变化。乔纳森说3A制作人面对十年、数亿美元的投入只会批准续作（如出到约第20部的《使命召唤》）和已验证的射击类型；若周期缩到五年、预算降到几千万美元，就能押注新IP和没出过作品的新团队。阿尼什则提出另一种用法：提高野心，GTA6团队有闲暇就自制了电台节目，用现在的工具再做十年，“可以造出同等细节的整个宇宙”。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">游戏创作的民主化：会有更多人成为开发者</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">乔纳森认为AI可能开启游戏的“丰饶时代”。游戏是需要代码、美术、设计、音乐音效的多学科手艺，执行门槛远高于拍照或做视频；现在AI能补上专业空缺，一个有点子和参考美术的人就能和Astra迭代出原型。很多人只做完第一关就放弃，但会有一部分人坚持下来并把它当职业，创作者数量会爆发。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">好玩靠什么：最后20%占80%的工作，品味仍属于人</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">主持人问AI能否解决平衡性和“好玩”。乔纳森引用行业说法“最后20%的游戏占80%的工作量”：前80%只是能跑起来的游戏，最后20%是手感和世界感，比如霰弹枪和手枪的枪声应该不同、激光枪要有后坐感，这些在可预见的未来仍是人的品味与判断。主持人补充，让人愿意在《侠盗猎车手》或《博德之门3》里花一千小时的是细节与世界的后果感，这或许是大模型能帮忙延展的部分。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">“创作即消费”：做游戏像禅意园艺</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">阿尼什说AI不会让做出好玩的游戏变得轻而易举，因为乐趣来自设计、偶然、文化与社交的交汇；但未来绝大多数游戏可能只被创作者本人玩，这也没关系，做游戏本身就是一种宁静的活动，看到素材活起来、角色说出没写给它们的话，有“禅意园艺”的感觉。乔纳森以《我的世界》和乐高为例说明“创作就是玩”，AI只是为此加涡轮。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">亲身案例：哈宝酒店风唱片店与八岁孩子的《对马岛之魂》模组</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">阿尼什用Opus 5.5，只给了几张《哈宝酒店》参考美术，就生成了一个九十年代风格唱片店：AI生成的节奏布鲁斯、舞厅雷鬼、嘻哈和灵魂乐可挑选播放，DJ会换唱片。之后他把它扩成九十年代多伦多皇后街，让其他玩家用提示词建造店面并定制功能；他儿子建了宠物领养中心，宠物会跟着人走，这个机制是编程智能体自行修改引擎加上的，阿尼什称之为从“动态内容”走向“动态能力”。乔纳森八岁的儿子因不被允许玩血腥的《对马岛之魂》，就用ChatGPT拆解维基上的机制，再让Codex做成《我的世界》模组，现在想玩什么就自己做。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">模组、反编译、跨游戏融合三股趋势</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">乔纳森梳理模组史：《反恐精英》《英雄联盟》、DotA，以及受《武装突袭》大逃杀模组启发的《绝地求生》和《堡垒之夜》，说明数十亿美元的系列可以从模组诞生。AI让普通玩家能对Astra说“做个《对马岛之魂》，再加方块建造和《动物森友会》的关系系统”；在已有游戏框架里混搭，比从白纸开始容易得多。阿尼什补充另两类：反编译老游戏拿到源码和素材（如《旧共和国武士》，原工作室不会再做续作），以及X上的Blendy把两款游戏的素材合成第三款。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">《光环》网页版与 Xbox 实验室：老IP接触新观众</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">乔纳森认为，促成Xbox实验室发布的原因之一是社区涌现了大量把2001年初代《光环》反编译、再编译到现代平台的项目，他听说有四个项目把它做成了WebGPU网页游戏。过去要专门团队做移植或重制，如今AI可大幅帮忙，把成熟IP带给从没玩过《旧共和国武士》这类游戏的孩子，并放到他们常用的设备上。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">被成本压住的类型将复兴：即时战略与“职业模拟器”</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">阿尼什说即时战略长期因投入产出比不划算而稀缺，iPad上一直没有真正优秀的即时战略游戏，AI可能带来全面复兴。乔纳森自曝爱玩“职业模拟器”，比如驾驶东京JR地铁，停车不准导致最后一节车厢没进站就会被扣工资，小众但核心玩家愿意付高价。阿尼什举老电脑杂志的软件排行：第一名常是VisiCalc，第二名是微软《模拟飞行》，说明模拟类型一直有吸引力；三人还聊到《无题大鹅模拟》。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s12">
+<div class="sum-top"><span class="sum-num">12</span><span class="sum-title">游戏化的智能体管理界面：帝国时代皮肤下的 Claude Code</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">主持人提到有人给智能体编排套上《帝国时代》或《我的世界》皮肤，用不同建筑代表不同的Claude Code实例。阿尼什认为在Credit Karma或谷歌管一条业务线本来就像模拟游戏：控制有限、信息不完整、还有市场力量；以前做这种界面成本太高，现在却可能是最优解。乔纳森认为普通消费者觉得命令行式智能体编排不直观，未来很可能出现面向大众的可视化界面，至于像《星际争霸》还是《异星工厂》尚不确定。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s13">
+<div class="sum-top"><span class="sum-num">13</span><span class="sum-title">平台方能否获益：模组的商业模式缺口</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">主持人问Epic和Xbox的生态能否真正从AI游戏中获益。乔纳森说历史上IP所有者很少从模组获益：DotA原作者没怎么受益于《英雄联盟》，《半条命》开发者也未必从《反恐精英》赚到多少；业内在探讨收入分成或版税，但仍在早期。阿尼什认为《我的世界》是最强形态：扩展共享底座的附加内容对IP所有者有利，而分叉游戏没好处，甚至会分裂社区。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s14">
+<div class="sum-top"><span class="sum-num">14</span><span class="sum-title">AI 原生分发平台：Spawn 与“跨游戏社区”</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">乔纳森指出今天AI游戏仍走Steam、应用商店或Roblox等传统渠道，缺一个原生服务AI创作者的分发平台。阿尼什推荐Spawn（他们未投资）：雅各布团队做了“共享社区+游戏生成”平台，具身智能体萨维在每款游戏里陪玩家，能接漏洞报告、边玩边改游戏、开传送门去别的游戏，每款游戏默认多人。二人对比《我的世界》与Roblox：前者核心丰富、模组像同人小说（共享末影人等文化），后者去中心化，从《越狱》《布鲁克海文》等任一入口进入，两种方式都可行。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s15">
+<div class="sum-top"><span class="sum-num">15</span><span class="sum-title">工作室和发行商：最兴奋降本，最担心没有“永恒游戏”</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">阿尼什说工作室最兴奋的是降低成本、以更小的财务风险做更多IP；现在工作室的生死取决于能否拿到发行商的开发合同，几百人超负荷工作，生活质量极差，AI应该让从业者生活和生意质量都大幅提升。最担心的是缺少像网络和社交产品那样的资产：微软虽有《我的世界》，《堡垒之夜》五年前最受喜爱、如今热度下降，“永恒游戏”这个圣杯很难达到。乔纳森说开发者普遍已在用AI（设计文档、概念图、快速原型），这是第一波；下一波是用AI创造新玩法和新类型、扩大市场。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s16">
+<div class="sum-top"><span class="sum-num">16</span><span class="sum-title">永不结束的游戏：自适应 MMO 与《安德的游戏》</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">乔纳森介绍自己写过的“永不结束的游戏”概念：今天的MMO是线性脚本，默认玩家落地海滩后会去森林；自适应MMO（比如基于世界模型）可以为爱海的玩家现场生成整条航海任务线，出现海盗和海战。他把它比作《安德的游戏》里随主角意愿变化的“心灵游戏”，阿尼什调侃“也许我们正在玩”。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s17">
+<div class="sum-top"><span class="sum-num">17</span><span class="sum-title">各自玩得最久的游戏</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">阿尼什：《巫师3》通关两次，力荐已被移植到Mac的《沙丘2000》。乔纳森：《英雄联盟》几千小时，许多挚友在游戏里结识；其次是从《母巢之战》到《星际争霸2》的全系列，他指出硬核即时战略因APM门槛受众萎缩、开发者不愿投入，期待AI带来即时战略爆发。主持人是《十字军之王3》玩家，形容它是“《模拟人生》加《帝国时代》”。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s18">
+<div class="sum-top"><span class="sum-num">18</span><span class="sum-title">终于能做的游戏：BBS 经典重建、智能体版《文明》与 AI 乙女游戏</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">阿尼什少年时经营BBS，想重建谷歌早期员工阿米特·帕特尔在斯坦福时写的异步多人游戏《太阳领域精英》，源码已丢、只剩设计文档和exe，此前每代模型都做不到，现在终于有了相当忠实的重建版。乔纳森想在现代硬件上重做只能靠软盘运行的16位《文明2》，并设想每个单位都是有自己目标的智能体、统治者只能施加影响；主持人笑称这就是《十字军之王3》。主持人说自己2020年底感染新冠期间自学C#、用Unity做过日式恋爱模拟。乔纳森认为乙女游戏最适合被AI颠覆：中国厂商的《恋与深空》收入达数亿美元，但每个新角色都需大量内容制作，未来角色可以是实时回应、记得你一天经历的智能体。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">主持人（a16z，未报名）<em>主持</em></span><span class="spk-1">阿尼什·阿查里雅（Anish Acharya）<em>嘉宾</em></span><span class="spk-2">乔纳森·赖（Jonathan Lai）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>片头与引子：GTA6开发了十二三年，AI正在改变谁能做游戏</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p><span class="tag">【片头剪辑】</span>《侠盗猎车手6》（Grand Theft Auto 6）终于要在下个月发售了。那款游戏大概从2013、2014年就开始制作，开发周期长达十二三年，太疯狂了。游戏一直是最复杂的产品之一，但现在人工智能可以帮你补上一部分专业知识，你不再需要是专业人士。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p><span class="tag">【片头剪辑】</span>有的做法是让智能体看着某样东西，从零重建一款游戏；也有把两款游戏、两种美术风格融合在一起的。很多价值数十亿美元的游戏系列，就是从模组（mod）里诞生的：比如《反恐精英》（Counter-Strike）原本是《半条命》（Half-Life）的模组；《英雄联盟》（League of Legends）受《遗迹守卫》（Defense of the Ancients，DotA）启发，而DotA本身又是《魔兽争霸3》（Warcraft III）的模组。那么，想象一下下一款开发十二年的游戏会是什么样。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p><span class="tag">【片头剪辑】</span>人工智能让那些小众、冷门的类型游戏变得可以做了，而以前它们在经济上根本不可行。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="host"><div class="label"><span class="badge" title="主持人（a16z，未报名）">主持</span></div><div class="content">
+<p>你们每个人有没有一款想做了很多年、现在终于能做的游戏？游戏行业似乎正在发生巨大转变，独立开发者和业余玩家那边也是。Epic的蒂姆·斯威尼（Tim Sweeney）就人工智能说了不少很有意思的话；Xbox的负责人阿莎（Asha）也表示，他们在认真思考Xbox上硬件与软件的相互作用。感觉潮水正在转向，我们来聊聊。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>Astra 的“工具使用”解锁：一个人一次性做出可玩游戏</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>我先开个头吧，然后很想听听阿尼什的看法，因为你业余时间一直在做游戏。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>是的，我在做。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>我觉得大约一个月前，Astra带来了一次重大的技术解锁，因为它特别擅长直接使用主流的游戏开发软件：它非常会用Blender，还能直接在虚幻引擎（Unreal）和Unity里操作。前几代模型只会跟用户解释“你应该去Blender里这样做”“你应该在Unreal里那样做”，而Astra能直接替你操作软件，这是巨大的解锁。于是第一次，一个从没做过游戏的业余爱好者，可以用Astra起草游戏设计文档、生成概念图，把概念图导进Blender建出3D模型，做动画、绑骨骼，再导入Unreal，加上音乐和音效——这些也都能生成——然后导出成可玩版本，你就真的用Astra一次性做出了一款游戏。另一个很有价值的地方是，Astra还能自己做质量测试：它会给游戏截图，从自己的输出里学习，“哦，这里有个漏洞要修”“这个看起来不对”。这就是为什么大家在X上发的那些早期原型出奇地好。</p>
+<p>我认为这是一次巨大的技术解锁，它在游戏行业带来的连锁反应已经开始显现。第一个效应是，从想法到原型的时间被大幅缩短。蒂姆·斯威尼在他的一些推文里也谈到过：人工智能让小众游戏、冷门类型变得可以做，而以前它们在经济上并不可行；因为做游戏的时间缩短了，他现在可以很快搭出一个古怪点子的原型，花钱更少、耗时更短。我认为这对游戏行业意义重大，因为游戏行业的一个结构性难题就是制作周期太长。我们刚才还聊到，《侠盗猎车手6》终于要在下个月发售，它大概从2013、2014年就开始制作，开发周期十二三年，太疯狂了。我相信它会是一款了不起的游戏，但按任何其他软件开发的标准，花十年以上做一套人力资源软件或客户关系管理系统<span class="tag">【笑】</span>，都是疯狂的。所以如果能缩短从想法到原型的时间，比如把五到十年的开发周期缩到两到五年——仍然需要时间——就能让开发者冒更多风险、多试几次、多做实验，整体提升游戏的丰富度和多样性，我觉得这非常令人兴奋。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>两条技术路径：写代码（Three.js）与操作工具（Blender）</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>接着这些说，有意思的是我们看到了两条路径。我认为第一个真正能用到游戏上的，是对Three.js的操控能力。我记得是Opus 4.7，也可能是4.8，它有一个并非刻意设计的特性——至少Anthropic说不是——就是特别擅长Three.js，也就是浏览器里的3D。有意思的是，它几乎是逐个元素地摆放东西，那种细致程度换成人会被逼疯。所以写代码是生成游戏的一条路径。而就像你说的，约翰（Jonathan），Astra做得特别好的是工具使用，能非常有效地使用Blender和云端Blender。这是模型里的两大趋势：一个是涌现出来的，一个是专门训练出来的，它们正在汇合，推动游戏开发大幅加速。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>长周期扼杀创新：续作、射击游戏泛滥与“更大野心”</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="host"><div class="label"><span class="badge" title="主持人（a16z，未报名）">主持</span></div><div class="content">
+<p>你说花十二年做人力资源软件挺好笑的。我觉得正是因为耗时太长，游戏行业才有那么多悲伤的故事。想想有多少游戏故事没能讲出来：有多少游戏在六年周期里做到第三年、第五年就被砍掉了？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>市场已经变了，玩家口味变了。你会经历财务周期，也会经历创意周期，三年前有意思的点子现在看就显得平淡。做一件东西十三年、一直做完还要做得好，太难了，它能成功简直是奇迹。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>对，确实。长开发周期还有一个大家不常谈、但对行业影响很真实的方面：它会扼杀创新。如果你是3A工作室的制作人，知道做一款游戏要十年、花几亿美元，你在立项时就会非常保守。你会批准续作，而不是新IP。《使命召唤》（Call of Duty）大概出到第二十部了，《侠盗猎车手6》也不是新IP。你会偏向需求已被验证的类型，这就是为什么我们看到那么多第一人称射击、第三人称射击，而不是某个实验性类型。当你降低做游戏的门槛——用五年而不是十年，花几千万而不是几亿美元，仍然很贵——人们就能承担更多创意风险：你真的可以推出新IP，可以押注一些从没做出过作品的开发者，给他们立项和预算。我认为这对游戏行业是非常令人兴奋的故事，会解锁大量结构性创新。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>另一种利用这项新能力的方式是提高野心。想象一下下一款开发十二年的游戏，比如《侠盗猎车手7》会是什么样。你今天还在说《侠盗猎车手6》里的城市有多精细。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>对。他们还专门设计了定制电台，因为他们觉得：反正还有一年，这个团队也闲着，干脆录一堆电台节目。但这很了不起。想象一下，如果用现在的工具再花十年，别说一座城市或一个世界，你可以造出同等细节的整个宇宙。为什么不呢？</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>游戏创作的民主化：会有更多人成为开发者</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>我觉得完全正确：扩大游戏的范围和野心，承担更多创意风险。我认为人工智能真的能为游戏开启一个以前不可能出现的“丰饶时代”，因为我们能做出前所未见的游戏。还有一点我们没谈、但同样重要：人工智能也在改变谁能做游戏。游戏一直是最复杂的产品之一，是真正的多学科手艺：要会写代码、会美术、会游戏设计、会音乐和音效。做出一款好游戏的执行门槛非常高，比拍一张好照片或做一段视频高得多——那些也不容易，但难度不在一个量级。而现在人工智能能填补一部分你不具备的专业知识，你不再需要是专业人士，不再需要一整个各司其职的专业团队，人工智能可以补上你技能和知识上的空缺。我认为这在以一种以前不可能的方式让游戏创作民主化：一个人只要有个点子和一些参考美术，就能和Astra一起迭代出游戏原型。当然它只是原型，不是完整可玩的游戏，很多人也不会做完，做完第一关就放弃了。但其中会有一定比例的人坚持下来，发现自己热爱游戏开发，想把它变成职业。我认为游戏创作者的数量会出现爆发，这非常令人兴奋。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>好玩靠什么：最后20%占80%的工作，品味仍属于人</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="host"><div class="label"><span class="badge" title="主持人（a16z，未报名）">主持</span></div><div class="content">
+<p>你们一定常和创始人聊，他们要么在为这些借助人工智能的准开发者做工具，要么自己在做人工智能开发的游戏。在我看来最难的应该是游戏平衡，做出真正有趣、让人投入的东西。这像一门艺术，我觉得需要人的直觉和经验，还需要另一种创造力。在这方面你们看到人工智能能做到什么？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>你说到点子上了。我认为人工智能模型不会取代人的品味和创意判断，这仍然非常关键。游戏行业有句话：最后20%的游戏占了80%的工作量，而让游戏变得有趣的魔法都在那里。前80%可以说只是拼出一款能运行的游戏：能启动，有个角色，能射击，有怪物可打。最后20%非常关键：这个世界给人什么感觉？回到你说的《侠盗猎车手6》的定制电台——开枪时枪声是什么样？霰弹枪的声音应该和手枪不同；用激光枪时应该有后坐感。正是这些小细节造就了神奇的体验。我认为在可预见的未来，这仍然是人的领地：东西给人什么感觉？玩家想要什么？这把枪手感该怎样？所以在这些情况下，人的品味和判断仍然关键。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="host"><div class="label"><span class="badge" title="主持人（a16z，未报名）">主持</span></div><div class="content">
+<p>对。是什么让我想花一千小时玩《侠盗猎车手》或《博德之门3》（Baldur&#x27;s Gate 3）这样了不起的游戏？我觉得确实在于细节，也在于一个世界的后果感和深度，也许这正是大语言模型能帮着延展的地方。你怎么看？</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>“创作即消费”：做游戏像禅意园艺</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>我同意。我不认为它会让做出一款真正好玩的游戏变得轻而易举，因为那非常难，是很多因素的交汇：有些是设计出来的，有些是偶然的，有些甚至是文化和社交层面的。但我确实认为，在这个新时代，有时创作就是消费。未来绝大多数游戏，可能只会被一个人玩，那就是它的创作者。其实这没关系，因为编程或做游戏，一种是为了产出那个成品，另一种是把它当作一项活动。做游戏、打磨游戏其实非常宁静，尤其它有艺术成分：看着素材活起来，看着角色说出你没写给它们的话。我真心认为游戏创作有种“禅意园艺”的感觉，会越来越流行。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>这一点说得太好了。我们确实看到，有时创作本身就是玩。《我的世界》（Minecraft）就是这样，它是史上最成功、运营最久的游戏之一；甚至在电子游戏之前，乐高（Lego）也是这样，孩子们为了好玩去造东西、互相分享。今天的人工智能也一样：创造一个东西、让它活起来，本身就很有趣，而人工智能正在为人们能创造的东西加涡轮。你不需要懂代码、美术和3D的一切，也能做出让自己骄傲、做起来开心的东西。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>亲身案例：哈宝酒店风唱片店与八岁孩子的《对马岛之魂》模组</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="host"><div class="label"><span class="badge" title="主持人（a16z，未报名）">主持</span></div><div class="content">
+<p>阿尼什，你做了一个《哈宝酒店》（Habbo Hotel）风格的唱片店，过程是怎样的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>其实起源于和一位DJ朋友的对话。他说网上的唱片店看起来都一样，就是一张歌曲列表。我们聊到九十年代在多伦多（Toronto）逛唱片店，那就像去理发店，因为店里挤满了人，你不可能不跟人聊上五六句；后面有人把歌放得很响，有混音带卖，有锐舞派对在宣传，整个就是一个真正的社交环境。他说：为什么网上买唱片不能像那样？我觉得很酷，就想试着把它做出来。这次用的是Opus 5.5。我试了一下，只给了它几张《哈宝酒店》的参考美术素材，</p>
+<p>结果远远超出我的预期：它不只生成了房间，还不知怎么找来了各种九十年代风格的音乐——有生成的节奏布鲁斯、舞厅雷鬼、嘻哈、灵魂乐。你可以挑曲子、翻看曲目、放上去，后面的DJ就会拿起唱片放上唱机，小人们在那里跳舞，非常精细，完全是灵感爆发。然后我想：如果把它扩展成九十年代多伦多的皇后街（Queen Street）呢？于是我把它变成了一整条街。最后一笔，我觉得是最科幻、以前绝不可能做到的：我让街上其他每个店面，都可以由别的玩家只靠写提示词来建造。有意思的是，他们不只能定制美术，还能定制功能。我儿子进去建了一个宠物领养中心，而且你真的可以领养宠物，它们会跟着你走。我当然没设计“动物跟随”这个功能，是编程智能体更新了我的游戏引擎，造出了这个机制。过去，程序化生成关卡已经很让人振奋，但那只是动态内容；现在我们说的是动态能力，是全新的玩法机制。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>你儿子玩过Roblox上的《领养我》（Adopt Me!）吗？那是Roblox上最受欢迎的游戏之一。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>哦，也许玩过，所以才想到这个。我还以为他特别有创意呢<span class="tag">【笑】</span>。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>肯定的，这是个很好的例子。我儿子最近也开始用人工智能做游戏了，起因是他想玩《对马岛之魂》（Ghost of Tsushima）。那是款很棒的游戏，基本上是在封建时代的日本扮演武士，你能想象，非常血腥暴力。所以我们跟他说：不行，你才八岁，不能玩这种血腥的武士游戏<span class="tag">【笑】</span>。但他特别想玩，就开始跟ChatGPT聊这个游戏，然后不知怎么发现自己可以做一个《对马岛之魂》的《我的世界》模组。他用GPT基本把游戏拆解了一遍，因为网上有很多维基详细拆解玩法机制、首领战怎么运作。然后Codex帮他做了一个《我的世界》模组，他装上之后，就是《我的世界》版的《对马岛之魂》，而且真的能玩，运行得非常好。他一直在跟朋友分享。现在他已经不再找我们买新游戏了，而是说：我想玩这个游戏，我就把它做成《我的世界》模组。我觉得这很鼓舞人。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>我还喜欢这件事说明的一点：想到游戏怎么变得更好时，写实并不是唯一的、甚至不一定是最有意思的进化方向。你能把两个现有概念合成一个以前绝不会存在的新概念，这本身就很了不起。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>模组、反编译、跨游戏融合三股趋势</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="host"><div class="label"><span class="badge" title="主持人（a16z，未报名）">主持</span></div><div class="content">
+<p>没错。我觉得这正好可以过渡到“反编译”，这感觉像是一个新趋势，而且分成几种不同的形式：一种是让智能体看着某样东西，从零重建一款游戏；还有一种是把两款游戏或两种美术风格融合。我很想把现在发生的这些不同事情理一理。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>我觉得有两个趋势正在被人工智能加速。第一，游戏行业长期由模组驱动。模组就是拿一款你已经喜欢的游戏，给它做一个扩展，以某种方式改变玩法，然后它变成一款独立的游戏，甚至一个独立的类型。历史上，游戏行业一些最大的游戏都来自模组：比如电竞大作《反恐精英》原本是《半条命》的模组；史上最成功的多人在线战术竞技游戏之一《英雄联盟》，受《遗迹守卫》启发，而DotA本身是《魔兽争霸3》的模组；我最喜欢的例子是《堡垒之夜》（Fortnite）和《绝地求生》（PUBG），它们受到了《武装突袭》（Arma）上PlayerUnknown大逃杀模组的启发。所以价值数十亿美元的游戏系列就是靠模组诞生的，世界上一些最好、最大的游戏就是这样来的。而人工智能现在让做模组变得极其容易，就像我儿子那样：一个热爱某个IP或游戏的普通玩家，可以把Astra指向它说：给我做个《对马岛之魂》，再加上这个——比如加上方块建造，加上《动物森友会》（Animal Crossing）的关系系统——然后真的做出来，看好不好玩。如果好玩，其他人开始玩，它就成为一个独立类型，然后大火。</p>
+<p>这也和创作循环有关。让人在一张白纸上创造新东西是很难的。如果你只是把一个文本框摆在别人面前说“给我做个游戏”，他根本不知道从哪里开始。所以在别人已经做好的游戏框架里工作，说“加上这个”“把它和那个混一下”，就会非常强大，因为它给了你一个起点和一个可以混搭的基础。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>有意思。你提到了模组，我看到的另外两个方向，一个是反编译，让你拿到源代码和素材。我觉得这对那些备受喜爱但已经老旧的游戏特别有意思。比如《星球大战：旧共和国武士》（Knights of the Old Republic），开发它的那家工作室（Bioware，口播如此）当然不会再做一部新的了，你想想去扩展它或做个分支，那真的很酷。第三个，也许是我见过最未来感的：X上有个叫Blendy（BLNDI）的人做了很多惊人的东西，他把两款现有游戏的素材拿来合成第三款游戏，这个概念完全天马行空，但居然行得通，有些还非常好玩。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>《光环》网页版与 Xbox 实验室：老IP接触新观众</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>说到复古游戏，我觉得促成Xbox实验室（Xbox Labs）那次发布的——阿莎谈到想支持人工智能和开发的新前沿——是因为冒出了太多社区项目，把《光环》（Halo），我记得是2001年Xbox上的那款经典初代，反编译再重新编译到现代平台上。我听说有四个社区项目把《光环》做成了能在WebGPU上玩的游戏，现在基本上可以在网页里玩《光环》了。这真的很了不起，也回到你刚才说的Three.js，</p>
+<p>网页上的3D从来没有像现在这样强大、这样容易上手。所以我想Xbox很可能看到了这些现象，于是说：我们以前要专门组建团队，把一款Windows游戏移植到iOS生态，或者把停运的老游戏重制一遍，现在人工智能能在这些事情上帮大忙。你基本上是把一个成熟IP带给新观众，比如今天长大的孩子，从没机会玩过《旧共和国武士》，现在他们可以玩了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>没错，而且可能是在对他们来说合适的主机、电脑或设备上。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>被成本压住的类型将复兴：即时战略与“职业模拟器”</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>我觉得这非常酷。还有一些游戏类型，生产成本一直很高，以至于根本收不回投资。比如大家都爱即时战略（RTS），所有人都痴迷过即时战略，有过无数尝试想在iPad上做一款优秀的即时战略游戏，但我们一直没真正等到。现在我认为即时战略这类类型会迎来全面复兴。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>我觉得蒂姆·斯威尼也谈过这一点。这正是我个人特别兴奋的地方：我很喜欢一个非常小众的类型，叫“职业模拟器”<span class="tag">【笑】</span>。概念很奇怪，基本上是体验某一种职业的一天，而且通常不是光鲜的职业，你不会去当总统什么的<span class="tag">【笑】</span>。我最近玩得最多的是一款列车司机模拟器，你可以在世界各地城市驾驶地铁和火车。我当过日本JR、东京地铁的司机，跟听起来一模一样，一点都不光鲜：你去上班，有时刻表要赶，你得开着这列车每站都停、接上乘客，而且要做得分毫不差，如果停车晚了一点，最后一节车厢没进站台，不是所有人都能上车，你的工资就会被扣。这是个小众类型，我很难想象有多少人想当列车司机。但如果有，现在你就能做出这样的游戏，而像我这样真心喜欢的人，会愿意花很多钱去玩。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="host"><div class="label"><span class="badge" title="主持人（a16z，未报名）">主持</span></div><div class="content">
+<p>好玩吗？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>我觉得很好玩<span class="tag">【笑】</span>。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>有意思的是，翻翻老的电脑杂志，看顶级软件排行，第一名通常是VisiCalc，第二名就是微软《模拟飞行》（Microsoft Flight Simulator）这类早期飞行模拟游戏。我其实觉得模拟这个类型对人有很强的吸引力，大家就是爱模拟游戏，它是常青类型。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>也许某种特定职业会打动某些人，但他们从来没机会发现，因为模拟器类型一直不够大。而现在，你几乎可以扮演你能想象到的世界上任何一种职业的一天，那不是很酷吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="host"><div class="label"><span class="badge" title="主持人（a16z，未报名）">主持</span></div><div class="content">
+<p>你们玩过《无题大鹅模拟》（Untitled Goose Game）吗？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>我知道这款游戏，就是模拟一只鹅。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="host"><div class="label"><span class="badge" title="主持人（a16z，未报名）">主持</span></div><div class="content">
+<p>对，你扮成一只鹅到处转悠。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>那也许我也喜欢模拟类型，一只调皮的鹅。不知道这说明我是什么样的人<span class="tag">【笑】</span>。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s12">
+<div class="body-sec-head"><h3>游戏化的智能体管理界面：帝国时代皮肤下的 Claude Code</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="host"><div class="label"><span class="badge" title="主持人（a16z，未报名）">主持</span></div><div class="content">
+<p>回到即时战略游戏的话题，我看到一些智能体编排方案长得像经典即时战略：在你的智能体编排上套一层《帝国时代》（Age of Empires）的皮肤。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>对，还有《我的世界》版的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="host"><div class="label"><span class="badge" title="主持人（a16z，未报名）">主持</span></div><div class="content">
+<p>各种不同的建筑代表不同的Claude Code实例。你们怎么看？那只是一种玩具式的呈现，还是说管理智能体本来就有点像玩游戏的一种延伸，又或者是一个新模拟类型的开端？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>我觉得可能是。在任何一家公司当一条业务线的总经理，无论是Credit Karma、谷歌（Google）还是别处，本身就有点像模拟游戏：你和很多团队合作，你的控制力有限，信息不完整、不完美，还有市场力量在起作用。所以我不觉得差别很大。我反而认为，现在你可以轻而易举地做出这些非常有野心的界面，在这个世界里你可能真会这么做，甚至这可能是最优解；而在过去，成本高到离谱，根本说不通。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>我觉得这些受游戏启发、用于管理智能体的图形界面让我想到：普通消费者觉得智能体编排很不直观。在命令行里用以文字为主的界面管理智能体，这很不直观。所以我同意，很可能会出现一种面向大众的可视化界面，让普通消费者能管理一组智能体。至于它会长得像《星际争霸》（StarCraft）、《帝国时代》式的“智能体帝国”还是《异星工厂》（Factorio），具体形态我不太确定，但感觉我们还处在为以智能体工作为主的用户摸索界面的早期。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s13">
+<div class="body-sec-head"><h3>平台方能否获益：模组的商业模式缺口</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="host"><div class="label"><span class="badge" title="主持人（a16z，未报名）">主持</span></div><div class="content">
+<p>约翰，我很想听听你对这个的看法。蒂姆和阿莎都公开表态，非常支持围绕人工智能开发游戏的社区，这很棒。但你认为他们的公司和生态已经准备好真正从这个趋势中获取价值了吗？还是说他们眼下处境有点尴尬，知道自己必须改变？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>好问题。就拿模组来说，历史上原IP所有者并没有从基于他们IP的模组里获益多少。我想DotA最初的创作者并没有从《英雄联盟》中获益多少；我也不确定《半条命》最初的开发者从《反恐精英》里赚了多少。所以在商业模式上存在一个缺口需要解决。如果你真的把人工智能当作混搭、做模组、反编译和重新编译的引擎，</p>
+<p>来赋能你的玩家群体，那作为公司你怎么从中获得商业回报？我觉得大家还在早期。我听说有人在研究能否设计一种收入分成或版税回流给公司，以此来赋能创作者，但这方面还有很多要摸索。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>在我看来最强的形态是《我的世界》，它真正从模组生态里获益。有意思的是，我们一直把“混搭”和“扩展”混着用，但我其实认为，那些扩展核心游戏、共享“社区+基础游戏”这一核心底座的附加内容，确实让IP所有者获益；而如果你是把游戏分叉出去，就没有好处，甚至可能分裂社区。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s14">
+<div class="body-sec-head"><h3>AI 原生分发平台：Spawn 与“跨游戏社区”</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>对，没错。这也回到我们私下聊过的一件事：怎么为下一代人工智能游戏、或者用人工智能做出来的游戏，创造新的分发形式？今天很多这类游戏仍走传统渠道：发在Steam、发在应用商店；如果在Roblox里做，就还在Roblox生态里。我认为有机会出现一家公司，打造一个原生地服务和赋能所有这些人工智能游戏创作者的分发平台，而今天还不存在，因为所有游戏都在走传统渠道。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>你真该看看Spawn。我们不是投资人，但我非常欣赏他们在做的事。那是雅各布（Jacob）和他的团队，他们做了一个“共享社区+游戏生成”的平台。你和一个名叫萨维（Savvy）的具身智能体一起工作，她在所有游戏里陪着你，不只能在平台里接收漏洞报告，还能在你玩的时候修改游戏，就像副驾驶。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>对，没错。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>她还能为你创建传送门，让你走进别的游戏，还能带上其他玩家。每款游戏默认都是多人的，共享同一个社区。还很早期，但这是我见过做这类事情最令人印象深刻、最有野心的尝试，我相信还会有更多。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>我觉得这很令人兴奋。我也很欣赏雅各布，关注这家公司有一阵子了。更大的机会在于：怎么打造一个能在不同游戏之间延续的社区？而不是这几个人玩这款、那几个人玩那款，彼此不相连。我认为这是巨大的机会。《我的世界》和Roblox就是很好的例子：一旦你进入Roblox生态，玩腻了一款游戏、打通了一款游戏，还有几十万甚至数百万种体验可以参与。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>约翰，你能对比一下这两者吗？我注意到，Roblox上的游戏彼此差异极大，所以感觉那个共享的核心游戏——如果还能这么叫的话——其实很薄；而《我的世界》的共享核心游戏非常丰富。你认为必须有一个很丰富的核心游戏吗？还是说，纯粹靠传送门连接、没有共享核心玩法的世界更难起步？还是不一定？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>我觉得《我的世界》这种更中心化的模式的好处是，每个人一开始玩的都是同一款游戏，然后就像你说的，你分叉、改模组、把它变成自己的。好处在于大家有共同的体验、熟悉这个IP，然后从这里出发。所以《我的世界》的模组几乎就像同人小说：大家都看过同一部《权力的游戏》（Game of Thrones），知道丹妮莉丝（Daenerys）、琼恩·雪诺（Jon Snow），知道守夜人是什么。《我的世界》有大量共享文化，比如末影人（Enderman）、末影龙。这和更去中心化的做法很不一样，我会把Roblox归为后者：人们可以从任何一款游戏进入Roblox生态，比如我之前提过的《越狱》（Jailbreak），还有《布鲁克海文》（Brookhaven）等等，然后得到很不一样的体验，再去学从哪里继续、怎么当创作者。两种方式都完全可行，我认为只是在如何扩展游戏、如何调动社区上的理念差异，两种都行得通。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s15">
+<div class="body-sec-head"><h3>工作室和发行商：最兴奋降本，最担心没有“永恒游戏”</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="host"><div class="label"><span class="badge" title="主持人（a16z，未报名）">主持</span></div><div class="content">
+<p>回到工作室和发行商的话题，你们觉得他们现在最兴奋的是什么？最担心的又是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>我觉得能把成本降下来肯定非常令人兴奋，还能以更小的财务风险创造更多IP。说实话，很多工作室的生死，取决于能否赢得为某个发行商开发游戏的权利，如果游戏表现不好，可能就不会再有下一次。几百个人疯狂超负荷工作，这大概是生活质量最差的行业之一。大家还是在做，因为热爱，但真的很辛苦。所以我认为，行业里普通人的生活质量，以及说实话整个生意的质量，都应该大幅提升。</p>
+<p>我猜让他们担心的可能是：微软拥有《我的世界》，但他们（Xbox）也希望拥有一个更接近网络和社交产品、而不只是纯娱乐产品的资产。我相信《堡垒之夜》虽然五年前是全世界最受喜爱的游戏，现在讨论度已经没那么高了。所以存在一个圣杯，约翰，就是你说的“永不结束的游戏”或“永恒游戏”，但很难达到，也许借助这些技术他们会更有机会。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>在我和游戏开发者的交流里，可以说他们基本都已经在用人工智能了。人工智能已经成了提升效率的标配工具：用它生成游戏设计文档、快速生成概念图、迭代想法、做出原型。我之前说过，缩短从初始想法到原型的距离和时间，大家普遍都非常兴奋。我把这看作游戏工作室采用人工智能的第一波。我认为下一波——也是阿尼什刚才说的更令人兴奋的——是怎么用人工智能创造新的玩法、新的游戏机制、今天还不存在的新类型，这可能大幅扩张游戏市场。也就是说，你不只是更快更便宜地做《侠盗猎车手6》，而是在做一种以前不可能存在的新游戏。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s16">
+<div class="body-sec-head"><h3>永不结束的游戏：自适应 MMO 与《安德的游戏》</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>我之前写过一篇关于“永不结束的游戏”这一概念的文章，这是我个人非常热衷、很想看到实现的东西。大型多人在线游戏（MMO）的圣杯，是一款能无限适应玩家意愿的游戏。比如你在一款MMO里落在海滩上，按设计你应该去森林，因为游戏就是这么开头的。但也许你特别喜欢大海，决定留在海滩、造一艘船、驶向大海。今天的MMO处理不了这种情况，因为它是线性脚本化的，预期你进森林，然后发生某件事把你引上一条任务线。但在一款自适应的MMO里，比如用世界模型构建的那种，你真的可以为一个特别喜欢大海的人生成一整条任务线，比如现在出现了海盗，</p>
+<p>来攻击你，有了航海作战的元素，等等。我感觉这类讨论总会走向科幻，但你记得《安德的游戏》（Ender&#x27;s Game）里的“心灵游戏”（mind game）吗？那个游戏会随时根据安德想做的事来调整自己。我觉得我们某天可能会看到自己的“心灵游戏”，那会是一款你停不下来的游戏，因为它会随时适应你想做的任何事。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>说不定我们此刻就在玩它。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>没错<span class="tag">【笑】</span>，《黑客帝国》（The Matrix）。或者就是《安德的游戏》本身，我甚至觉得故事里他并不知道自己在游戏里。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s17">
+<div class="body-sec-head"><h3>各自玩得最久的游戏</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="host"><div class="label"><span class="badge" title="主持人（a16z，未报名）">主持</span></div><div class="content">
+<p>你们玩得最久的游戏是哪款？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>我玩过《巫师3》（The Witcher 3），通关了两次，半途而废的次数更多，我非常喜欢它。另一款我特别钟爱的是《沙丘2000》（Dune 2000）。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>哦，那是我小时候最喜欢的即时战略游戏。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>太好玩了。其实已经有人把它移植到Mac上了，跟当年一样好玩。所以即时战略爱好者如果没玩过，强烈推荐《沙丘2000》。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>我可能在《英雄联盟》上花了几千小时，一些最好的朋友和友谊就是在那款游戏里结下的，所以它大概是我玩得最多的游戏。紧随其后的可能是《星际争霸》，我玩过所有版本，从《母巢之战》（Brood War）到《星际争霸2》。它是一个典型例子：硬核即时战略的受众随时间不断萎缩，因为这个类型太难了，你的每分钟操作数（APM）很重要，你没法打竞技而不感到挫败，因为别人都比你快得多、强得多。也没有多少开发者在尝试做新的、现代的即时战略游戏，因为如果纯从市场规模分析，受众撑不起来。但有了人工智能，我很期待看到即时战略游戏的爆发，我会尽可能多地去玩。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="host"><div class="label"><span class="badge" title="主持人（a16z，未报名）">主持</span></div><div class="content">
+<p>不错。我是《十字军之王3》（Crusader Kings III）的忠实玩家，它其实不算即时战略。我跟不了解它的人描述时会说，它像《模拟人生》（The Sims）混合《帝国时代》：有性格管理、人际关系、政治；同时你还要在宏大的世界地图上管理你的王朝和领地，非常非常有深度。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s18">
+<div class="body-sec-head"><h3>终于能做的游戏：BBS 经典重建、智能体版《文明》与 AI 乙女游戏</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="host"><div class="label"><span class="badge" title="主持人（a16z，未报名）">主持</span></div><div class="content">
+<p>最后收个尾：你们每个人有没有一款想做了很多年、现在终于能做的游戏？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>我快速说一下。我从小经营一个电子公告板系统（BBS），这就暴露我的年龄了。在互联网之前，大家会拨号接入，而BBS以异步多人游戏著称，因为同一时间只能有一个人拨入：你拨号连上，玩完你的回合，下线；第二天再玩下一回合，同时看到其他人的回合。有一整个类型的异步多人游戏都很棒，其中两款是谷歌最早期的员工之一写的，那时他还在斯坦福（Stanford），他叫阿米特·帕特尔（Amit Patel）。他做了《野蛮领域精英》（Barren Realms Elite）和《太阳领域精英》（Solar Realms Elite）。可惜他把两款里更好的《太阳领域精英》的源代码弄丢了，但他有游戏设计文档和可执行文件。我对每一代模型都试过：能不能重建这个游戏？一直做不到。而现在，我的电脑上跑着一个感觉相当忠实的重建版本。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="host"><div class="label"><span class="badge" title="主持人（a16z，未报名）">主持</span></div><div class="content">
+<p>不可思议，好故事。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>我的想法大概类似。我是《文明》（Civilization）的忠实玩家，初代《文明2》给了我一些最珍贵的童年回忆，就是那种要用软盘才能玩的16位Windows版本。它今天已经玩不了了，因为是16位可执行文件。我很想在现代硬件栈上重建那款游戏。另外我也一直在想，有了智能体的《文明》会是什么样？因为这款游戏的幻想是你是一个帝国的统治者，但在玩的过程中这种幻想会崩塌，因为你要微操帝国里的每一个单位。你可以想象：如果有一版《文明》，每个单位都是一个智能体，有自己的议程和目标，而你作为统治者只制定战略，设法影响你的臣民朝你想要的方向发展，你没法让他们完全照你说的做，只能去引导和施加影响。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="host"><div class="label"><span class="badge" title="主持人（a16z，未报名）">主持</span></div><div class="content">
+<p>我有个好消息告诉你：这就是《十字军之王3》，这款游戏已经存在了，而且完全没用前沿人工智能。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>真的吗？是一样的游戏？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="host"><div class="label"><span class="badge" title="主持人（a16z，未报名）">主持</span></div><div class="content">
+<p>差不多是。你得管理各种阴谋、不同人的性格和他们对你的看法，有时人们不按你想的做，因为他们对你的评价太低。如果你想征服一个王国或一块领土，有太多不同的方式，你可以谋杀继承顺位排在你前面的人。它非常有深度。我觉得它其实最接近你之前说的那种“永不结束、无尽的游戏”：当它极其有深度、极其真实，选择的排列组合多得多时会是什么感觉。你一定要去试试。疫情期间，我在2020年底得了新冠，开始自学C#，用Unity做一款日式恋爱模拟游戏。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>很受欢迎的类型。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="host"><div class="label"><span class="badge" title="主持人（a16z，未报名）">主持</span></div><div class="content">
+<p>对，因为那时正好是Unity上市前后，我很好奇Unity是怎么运作的、有多容易上手。基本上就是分支对话树，所以编程上没那么高级，我也没做多远，有一些基础的东西，比如管理生命值、口渴值之类。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="jon"><div class="label"><span class="badge" title="乔纳森·赖（Jonathan Lai）">乔纳森</span></div><div class="content">
+<p>有点跑题了，但既然你提到了，我认为恋爱模拟类型正适合被颠覆。有一个类型叫乙女游戏（otome），基本上是面向女性的恋爱模拟，让玩家和不同性格、不同类型的男性约会。有一款中国开发商做的《恋与深空》（Love and Deepspace）正在爆火，收入达到几亿美元。但难点在于制作内容需要大量时间和工作，因为游戏的扩展包基本上就是角色：出一个新的可约会对象就是一次更新，还要为他打造丰富的背景故事，比如他喜欢猫、喜欢在海边散步，却极度恐高，等等，而你得慢慢去发现这一切。但没有理由说他们将来不能是智能体：这些角色有自己的性格，存在他们的数据库里，在你和他们对话时实时回应你，知道你这一天过得怎么样。我认为恋爱模拟类型现在完全敞开，正适合被人工智能颠覆。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="host"><div class="label"><span class="badge" title="主持人（a16z，未报名）">主持</span></div><div class="content">
+<p>太棒了，以一个有趣的话题收尾。非常感谢两位参加。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="anish"><div class="label"><span class="badge" title="阿尼什·阿查里雅（Anish Acharya）">阿尼什</span></div><div class="content">
+<p>谢谢，太好玩了。这是第一期，以后还会有很多期吧？</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "a16z", "title": "OpenAI 和 Anthropic 如何改变“谁能做游戏”", "url": "https://www.youtube.com/watch?v=HDRy6XmE2RQ", "videoId": "HDRy6XmE2RQ", "published_at": "2026-11-12 06:50 PST（America/Los_Angeles）", "duration": 2772, "caption_source": "YouTube 页面 Show transcript / 内容转文字（caption_source=browser-cdp，subtitle_type=youtube-show-transcript）。今日 yt-dlp 普通路径在 ffh7fdwfrWU 上遇 HTTP 429、chrome cookies（chrome:/home/box/chrome-profile/Fork-3）路径报 “The page needs to be reloaded”，为免加剧风控本条直接走浏览器 Show transcript。观看页当前标题为“How AI Could Bring Halo and Other Classic Games Back to Life”，发现阶段 /videos 列表标题为“How OpenAI and Anthropic Are Changing Who Can Make Games”，同一 videoId。说话人：简介点名两位普通合伙人；另有一位未报名的主持人负责提问（低把握，未编造姓名）。两位嘉宾按互相称呼（“John”“Anish”）和自述经历（阿尼什的哈宝酒店唱片店、BBS；乔纳森的儿子、职业模拟器）启发式区分，中等把握。ASR订正：Ghost of Sushima→《对马岛之魂》；CEX→Codex；3JS→Three.js；Andrew’s game→《安德的游戏》；Ait Patel→阿米特·帕特尔（Amit Patel）；Baron Realms Elite→Barren Realms Elite；autoto→乙女（otome）；Agent Empires a factorial→《帝国时代》/《异星工厂》；quad code→Claude Code。Astra、Opus 4.7/4.8/5.5 等模型名按口播保留。片头约44秒为正片片段剪辑。无赞助口播。", "guests": ["阿尼什·阿查里雅（Anish Acharya）", "乔纳森·赖（Jonathan Lai）"], "speakers": [{"id": "host", "name": "主持人（a16z，未报名）", "role": "host", "short": "主持"}, {"id": "anish", "name": "阿尼什·阿查里雅（Anish Acharya）", "role": "guest", "short": "阿尼什"}, {"id": "jon", "name": "乔纳森·赖（Jonathan Lai）", "role": "guest", "short": "乔纳森"}], "intro": {"summary": "a16z普通合伙人阿尼什·阿查里雅与乔纳森·赖谈AI如何缩短从想法到可玩游戏的距离：从Astra直接操作Blender和虚幻引擎，到模组、反编译、AI原生分发平台、自适应“永恒游戏”，以及他们自己终于能做的游戏。", "points": ["约一个月前的Astra能直接操作Blender、Unreal、Unity并截图自测，业余爱好者也能一次性做出可玩原型；Opus 4.7/4.8的Three.js能力则代表“写代码”这条路径。", "开发周期是游戏业的结构性问题：GTA6约做了12–13年；若能压到2–5年、预算从数亿美元降到数千万美元，工作室就敢押新IP、新类型。", "模组曾催生《反恐精英》《英雄联盟》《绝地求生》《堡垒之夜》；AI让普通玩家也能做模组，乔纳森八岁的儿子用Codex把《对马岛之魂》做成了《我的世界》模组。", "“最后20%占80%的工作”：手感、枪声、世界细节仍要靠人的品味；IP方如何从模组获益仍缺商业模式，Spawn在尝试AI原生的跨游戏社区。", "被成本压住的即时战略、职业模拟器、乙女游戏（《恋与深空》收入数亿美元）可能迎来复兴；自适应MMO是“永不结束的游戏”这个圣杯。"], "verdict": "值得看：关心AI游戏工具、游戏行业结构、模组和UGC平台的人，约46分钟，例子具体。可跳过：只想要硬核技术细节或投资数据的人，后半段闲聊偏多。", "audience": "游戏开发者 / AI工具与UGC创业者 / 游戏行业投资人"}, "sections": [{"id": "s1", "title": "片头与引子：GTA6开发了十二三年，AI正在改变谁能做游戏", "start_sec": 0, "summary": "片头剪辑预告了几个核心论点：《侠盗猎车手6》下月发售，约从2013–2014年开始制作；价值数十亿美元的系列常从模组起家（《反恐精英》来自《半条命》，《英雄联盟》受DotA启发，DotA本身是《魔兽争霸3》模组）；AI让过去经济上不可行的小众类型变得可做。主持人引出背景：Epic的蒂姆·斯威尼和Xbox负责人阿莎都公开谈到AI与软硬件结合，行业潮水在转向。"}, {"id": "s2", "title": "Astra 的“工具使用”解锁：一个人一次性做出可玩游戏", "start_sec": 92, "summary": "乔纳森说约一个月前Astra带来关键解锁：它能直接操作Blender、虚幻引擎和Unity，而不是只告诉用户怎么做。于是从没做过游戏的爱好者也能让它写设计文档、出概念图、在Blender建模、做动画和绑骨骼、导入Unreal、生成音乐音效，最后导出可玩版本；它还能截图自测、发现漏洞再修，所以X上的原型“出奇地好”。第一层影响是从想法到原型的时间大幅缩短，他希望把五到十年的开发周期压到两到五年，让开发者多冒险、多试错。"}, {"id": "s3", "title": "两条技术路径：写代码（Three.js）与操作工具（Blender）", "start_sec": 286, "summary": "阿尼什补充，最早真正能用于游戏的是对Three.js（浏览器3D）的操控能力，他记得是Opus 4.7或4.8，Anthropic称这并非刻意设计；模型会逐个元素地摆放场景，细致到人类会被逼疯。另一条路径是Astra擅长的工具使用（本地和云端Blender）。一个是涌现能力、一个是专门训练的能力，两者汇合推动游戏开发加速。"}, {"id": "s4", "title": "长周期扼杀创新：续作、射击游戏泛滥与“更大野心”", "start_sec": 343, "summary": "主持人和阿尼什指出，长周期让许多游戏在六年周期的第三、第五年被砍，市场和玩家口味早已变化。乔纳森说3A制作人面对十年、数亿美元的投入只会批准续作（如出到约第20部的《使命召唤》）和已验证的射击类型；若周期缩到五年、预算降到几千万美元，就能押注新IP和没出过作品的新团队。阿尼什则提出另一种用法：提高野心，GTA6团队有闲暇就自制了电台节目，用现在的工具再做十年，“可以造出同等细节的整个宇宙”。"}, {"id": "s5", "title": "游戏创作的民主化：会有更多人成为开发者", "start_sec": 494, "summary": "乔纳森认为AI可能开启游戏的“丰饶时代”。游戏是需要代码、美术、设计、音乐音效的多学科手艺，执行门槛远高于拍照或做视频；现在AI能补上专业空缺，一个有点子和参考美术的人就能和Astra迭代出原型。很多人只做完第一关就放弃，但会有一部分人坚持下来并把它当职业，创作者数量会爆发。"}, {"id": "s6", "title": "好玩靠什么：最后20%占80%的工作，品味仍属于人", "start_sec": 608, "summary": "主持人问AI能否解决平衡性和“好玩”。乔纳森引用行业说法“最后20%的游戏占80%的工作量”：前80%只是能跑起来的游戏，最后20%是手感和世界感，比如霰弹枪和手枪的枪声应该不同、激光枪要有后坐感，这些在可预见的未来仍是人的品味与判断。主持人补充，让人愿意在《侠盗猎车手》或《博德之门3》里花一千小时的是细节与世界的后果感，这或许是大模型能帮忙延展的部分。"}, {"id": "s7", "title": "“创作即消费”：做游戏像禅意园艺", "start_sec": 748, "summary": "阿尼什说AI不会让做出好玩的游戏变得轻而易举，因为乐趣来自设计、偶然、文化与社交的交汇；但未来绝大多数游戏可能只被创作者本人玩，这也没关系，做游戏本身就是一种宁静的活动，看到素材活起来、角色说出没写给它们的话，有“禅意园艺”的感觉。乔纳森以《我的世界》和乐高为例说明“创作就是玩”，AI只是为此加涡轮。"}, {"id": "s8", "title": "亲身案例：哈宝酒店风唱片店与八岁孩子的《对马岛之魂》模组", "start_sec": 841, "summary": "阿尼什用Opus 5.5，只给了几张《哈宝酒店》参考美术，就生成了一个九十年代风格唱片店：AI生成的节奏布鲁斯、舞厅雷鬼、嘻哈和灵魂乐可挑选播放，DJ会换唱片。之后他把它扩成九十年代多伦多皇后街，让其他玩家用提示词建造店面并定制功能；他儿子建了宠物领养中心，宠物会跟着人走，这个机制是编程智能体自行修改引擎加上的，阿尼什称之为从“动态内容”走向“动态能力”。乔纳森八岁的儿子因不被允许玩血腥的《对马岛之魂》，就用ChatGPT拆解维基上的机制，再让Codex做成《我的世界》模组，现在想玩什么就自己做。"}, {"id": "s9", "title": "模组、反编译、跨游戏融合三股趋势", "start_sec": 1074, "summary": "乔纳森梳理模组史：《反恐精英》《英雄联盟》、DotA，以及受《武装突袭》大逃杀模组启发的《绝地求生》和《堡垒之夜》，说明数十亿美元的系列可以从模组诞生。AI让普通玩家能对Astra说“做个《对马岛之魂》，再加方块建造和《动物森友会》的关系系统”；在已有游戏框架里混搭，比从白纸开始容易得多。阿尼什补充另两类：反编译老游戏拿到源码和素材（如《旧共和国武士》，原工作室不会再做续作），以及X上的Blendy把两款游戏的素材合成第三款。"}, {"id": "s10", "title": "《光环》网页版与 Xbox 实验室：老IP接触新观众", "start_sec": 1281, "summary": "乔纳森认为，促成Xbox实验室发布的原因之一是社区涌现了大量把2001年初代《光环》反编译、再编译到现代平台的项目，他听说有四个项目把它做成了WebGPU网页游戏。过去要专门团队做移植或重制，如今AI可大幅帮忙，把成熟IP带给从没玩过《旧共和国武士》这类游戏的孩子，并放到他们常用的设备上。"}, {"id": "s11", "title": "被成本压住的类型将复兴：即时战略与“职业模拟器”", "start_sec": 1371, "summary": "阿尼什说即时战略长期因投入产出比不划算而稀缺，iPad上一直没有真正优秀的即时战略游戏，AI可能带来全面复兴。乔纳森自曝爱玩“职业模拟器”，比如驾驶东京JR地铁，停车不准导致最后一节车厢没进站就会被扣工资，小众但核心玩家愿意付高价。阿尼什举老电脑杂志的软件排行：第一名常是VisiCalc，第二名是微软《模拟飞行》，说明模拟类型一直有吸引力；三人还聊到《无题大鹅模拟》。"}, {"id": "s12", "title": "游戏化的智能体管理界面：帝国时代皮肤下的 Claude Code", "start_sec": 1550, "summary": "主持人提到有人给智能体编排套上《帝国时代》或《我的世界》皮肤，用不同建筑代表不同的Claude Code实例。阿尼什认为在Credit Karma或谷歌管一条业务线本来就像模拟游戏：控制有限、信息不完整、还有市场力量；以前做这种界面成本太高，现在却可能是最优解。乔纳森认为普通消费者觉得命令行式智能体编排不直观，未来很可能出现面向大众的可视化界面，至于像《星际争霸》还是《异星工厂》尚不确定。"}, {"id": "s13", "title": "平台方能否获益：模组的商业模式缺口", "start_sec": 1683, "summary": "主持人问Epic和Xbox的生态能否真正从AI游戏中获益。乔纳森说历史上IP所有者很少从模组获益：DotA原作者没怎么受益于《英雄联盟》，《半条命》开发者也未必从《反恐精英》赚到多少；业内在探讨收入分成或版税，但仍在早期。阿尼什认为《我的世界》是最强形态：扩展共享底座的附加内容对IP所有者有利，而分叉游戏没好处，甚至会分裂社区。"}, {"id": "s14", "title": "AI 原生分发平台：Spawn 与“跨游戏社区”", "start_sec": 1798, "summary": "乔纳森指出今天AI游戏仍走Steam、应用商店或Roblox等传统渠道，缺一个原生服务AI创作者的分发平台。阿尼什推荐Spawn（他们未投资）：雅各布团队做了“共享社区+游戏生成”平台，具身智能体萨维在每款游戏里陪玩家，能接漏洞报告、边玩边改游戏、开传送门去别的游戏，每款游戏默认多人。二人对比《我的世界》与Roblox：前者核心丰富、模组像同人小说（共享末影人等文化），后者去中心化，从《越狱》《布鲁克海文》等任一入口进入，两种方式都可行。"}, {"id": "s15", "title": "工作室和发行商：最兴奋降本，最担心没有“永恒游戏”", "start_sec": 2033, "summary": "阿尼什说工作室最兴奋的是降低成本、以更小的财务风险做更多IP；现在工作室的生死取决于能否拿到发行商的开发合同，几百人超负荷工作，生活质量极差，AI应该让从业者生活和生意质量都大幅提升。最担心的是缺少像网络和社交产品那样的资产：微软虽有《我的世界》，《堡垒之夜》五年前最受喜爱、如今热度下降，“永恒游戏”这个圣杯很难达到。乔纳森说开发者普遍已在用AI（设计文档、概念图、快速原型），这是第一波；下一波是用AI创造新玩法和新类型、扩大市场。"}, {"id": "s16", "title": "永不结束的游戏：自适应 MMO 与《安德的游戏》", "start_sec": 2175, "summary": "乔纳森介绍自己写过的“永不结束的游戏”概念：今天的MMO是线性脚本，默认玩家落地海滩后会去森林；自适应MMO（比如基于世界模型）可以为爱海的玩家现场生成整条航海任务线，出现海盗和海战。他把它比作《安德的游戏》里随主角意愿变化的“心灵游戏”，阿尼什调侃“也许我们正在玩”。"}, {"id": "s17", "title": "各自玩得最久的游戏", "start_sec": 2276, "summary": "阿尼什：《巫师3》通关两次，力荐已被移植到Mac的《沙丘2000》。乔纳森：《英雄联盟》几千小时，许多挚友在游戏里结识；其次是从《母巢之战》到《星际争霸2》的全系列，他指出硬核即时战略因APM门槛受众萎缩、开发者不愿投入，期待AI带来即时战略爆发。主持人是《十字军之王3》玩家，形容它是“《模拟人生》加《帝国时代》”。"}, {"id": "s18", "title": "终于能做的游戏：BBS 经典重建、智能体版《文明》与 AI 乙女游戏", "start_sec": 2406, "summary": "阿尼什少年时经营BBS，想重建谷歌早期员工阿米特·帕特尔在斯坦福时写的异步多人游戏《太阳领域精英》，源码已丢、只剩设计文档和exe，此前每代模型都做不到，现在终于有了相当忠实的重建版。乔纳森想在现代硬件上重做只能靠软盘运行的16位《文明2》，并设想每个单位都是有自己目标的智能体、统治者只能施加影响；主持人笑称这就是《十字军之王3》。主持人说自己2020年底感染新冠期间自学C#、用Unity做过日式恋爱模拟。乔纳森认为乙女游戏最适合被AI颠覆：中国厂商的《恋与深空》收入达数亿美元，但每个新角色都需大量内容制作，未来角色可以是实时回应、记得你一天经历的智能体。"}], "paragraphs": [{"start_sec": 0, "type": "text", "zh": "【片头剪辑】《侠盗猎车手6》（Grand Theft Auto 6）终于要在下个月发售了。那款游戏大概从2013、2014年就开始制作，开发周期长达十二三年，太疯狂了。游戏一直是最复杂的产品之一，但现在人工智能可以帮你补上一部分专业知识，你不再需要是专业人士。", "speaker_id": "jon", "section_id": "s1"}, {"start_sec": 20, "type": "text", "zh": "【片头剪辑】有的做法是让智能体看着某样东西，从零重建一款游戏；也有把两款游戏、两种美术风格融合在一起的。很多价值数十亿美元的游戏系列，就是从模组（mod）里诞生的：比如《反恐精英》（Counter-Strike）原本是《半条命》（Half-Life）的模组；《英雄联盟》（League of Legends）受《遗迹守卫》（Defense of the Ancients，DotA）启发，而DotA本身又是《魔兽争霸3》（Warcraft III）的模组。那么，想象一下下一款开发十二年的游戏会是什么样。", "speaker_id": "anish", "section_id": "s1"}, {"start_sec": 44, "type": "text", "zh": "【片头剪辑】人工智能让那些小众、冷门的类型游戏变得可以做了，而以前它们在经济上根本不可行。", "speaker_id": "jon", "section_id": "s1"}, {"start_sec": 51, "type": "text", "zh": "你们每个人有没有一款想做了很多年、现在终于能做的游戏？游戏行业似乎正在发生巨大转变，独立开发者和业余玩家那边也是。Epic的蒂姆·斯威尼（Tim Sweeney）就人工智能说了不少很有意思的话；Xbox的负责人阿莎（Asha）也表示，他们在认真思考Xbox上硬件与软件的相互作用。感觉潮水正在转向，我们来聊聊。", "speaker_id": "host", "section_id": "s1"}, {"start_sec": 92, "type": "text", "zh": "我先开个头吧，然后很想听听阿尼什的看法，因为你业余时间一直在做游戏。", "speaker_id": "jon", "section_id": "s2"}, {"start_sec": 97, "type": "text", "zh": "是的，我在做。", "speaker_id": "anish", "section_id": "s2"}, {"start_sec": 99, "type": "text", "zh": "我觉得大约一个月前，Astra带来了一次重大的技术解锁，因为它特别擅长直接使用主流的游戏开发软件：它非常会用Blender，还能直接在虚幻引擎（Unreal）和Unity里操作。前几代模型只会跟用户解释“你应该去Blender里这样做”“你应该在Unreal里那样做”，而Astra能直接替你操作软件，这是巨大的解锁。于是第一次，一个从没做过游戏的业余爱好者，可以用Astra起草游戏设计文档、生成概念图，把概念图导进Blender建出3D模型，做动画、绑骨骼，再导入Unreal，加上音乐和音效——这些也都能生成——然后导出成可玩版本，你就真的用Astra一次性做出了一款游戏。另一个很有价值的地方是，Astra还能自己做质量测试：它会给游戏截图，从自己的输出里学习，“哦，这里有个漏洞要修”“这个看起来不对”。这就是为什么大家在X上发的那些早期原型出奇地好。", "speaker_id": "jon", "section_id": "s2"}, {"start_sec": 179, "type": "text", "zh": "我认为这是一次巨大的技术解锁，它在游戏行业带来的连锁反应已经开始显现。第一个效应是，从想法到原型的时间被大幅缩短。蒂姆·斯威尼在他的一些推文里也谈到过：人工智能让小众游戏、冷门类型变得可以做，而以前它们在经济上并不可行；因为做游戏的时间缩短了，他现在可以很快搭出一个古怪点子的原型，花钱更少、耗时更短。我认为这对游戏行业意义重大，因为游戏行业的一个结构性难题就是制作周期太长。我们刚才还聊到，《侠盗猎车手6》终于要在下个月发售，它大概从2013、2014年就开始制作，开发周期十二三年，太疯狂了。我相信它会是一款了不起的游戏，但按任何其他软件开发的标准，花十年以上做一套人力资源软件或客户关系管理系统【笑】，都是疯狂的。所以如果能缩短从想法到原型的时间，比如把五到十年的开发周期缩到两到五年——仍然需要时间——就能让开发者冒更多风险、多试几次、多做实验，整体提升游戏的丰富度和多样性，我觉得这非常令人兴奋。", "speaker_id": "jon", "section_id": "s2"}, {"start_sec": 286, "type": "text", "zh": "接着这些说，有意思的是我们看到了两条路径。我认为第一个真正能用到游戏上的，是对Three.js的操控能力。我记得是Opus 4.7，也可能是4.8，它有一个并非刻意设计的特性——至少Anthropic说不是——就是特别擅长Three.js，也就是浏览器里的3D。有意思的是，它几乎是逐个元素地摆放东西，那种细致程度换成人会被逼疯。所以写代码是生成游戏的一条路径。而就像你说的，约翰（Jonathan），Astra做得特别好的是工具使用，能非常有效地使用Blender和云端Blender。这是模型里的两大趋势：一个是涌现出来的，一个是专门训练出来的，它们正在汇合，推动游戏开发大幅加速。", "speaker_id": "anish", "section_id": "s3"}, {"start_sec": 343, "type": "text", "zh": "你说花十二年做人力资源软件挺好笑的。我觉得正是因为耗时太长，游戏行业才有那么多悲伤的故事。想想有多少游戏故事没能讲出来：有多少游戏在六年周期里做到第三年、第五年就被砍掉了？", "speaker_id": "host", "section_id": "s4"}, {"start_sec": 363, "type": "text", "zh": "市场已经变了，玩家口味变了。你会经历财务周期，也会经历创意周期，三年前有意思的点子现在看就显得平淡。做一件东西十三年、一直做完还要做得好，太难了，它能成功简直是奇迹。", "speaker_id": "anish", "section_id": "s4"}, {"start_sec": 381, "type": "text", "zh": "对，确实。长开发周期还有一个大家不常谈、但对行业影响很真实的方面：它会扼杀创新。如果你是3A工作室的制作人，知道做一款游戏要十年、花几亿美元，你在立项时就会非常保守。你会批准续作，而不是新IP。《使命召唤》（Call of Duty）大概出到第二十部了，《侠盗猎车手6》也不是新IP。你会偏向需求已被验证的类型，这就是为什么我们看到那么多第一人称射击、第三人称射击，而不是某个实验性类型。当你降低做游戏的门槛——用五年而不是十年，花几千万而不是几亿美元，仍然很贵——人们就能承担更多创意风险：你真的可以推出新IP，可以押注一些从没做出过作品的开发者，给他们立项和预算。我认为这对游戏行业是非常令人兴奋的故事，会解锁大量结构性创新。", "speaker_id": "jon", "section_id": "s4"}, {"start_sec": 455, "type": "text", "zh": "另一种利用这项新能力的方式是提高野心。想象一下下一款开发十二年的游戏，比如《侠盗猎车手7》会是什么样。你今天还在说《侠盗猎车手6》里的城市有多精细。", "speaker_id": "anish", "section_id": "s4"}, {"start_sec": 470, "type": "text", "zh": "对。他们还专门设计了定制电台，因为他们觉得：反正还有一年，这个团队也闲着，干脆录一堆电台节目。但这很了不起。想象一下，如果用现在的工具再花十年，别说一座城市或一个世界，你可以造出同等细节的整个宇宙。为什么不呢？", "speaker_id": "jon", "section_id": "s4"}, {"start_sec": 494, "type": "text", "zh": "我觉得完全正确：扩大游戏的范围和野心，承担更多创意风险。我认为人工智能真的能为游戏开启一个以前不可能出现的“丰饶时代”，因为我们能做出前所未见的游戏。还有一点我们没谈、但同样重要：人工智能也在改变谁能做游戏。游戏一直是最复杂的产品之一，是真正的多学科手艺：要会写代码、会美术、会游戏设计、会音乐和音效。做出一款好游戏的执行门槛非常高，比拍一张好照片或做一段视频高得多——那些也不容易，但难度不在一个量级。而现在人工智能能填补一部分你不具备的专业知识，你不再需要是专业人士，不再需要一整个各司其职的专业团队，人工智能可以补上你技能和知识上的空缺。我认为这在以一种以前不可能的方式让游戏创作民主化：一个人只要有个点子和一些参考美术，就能和Astra一起迭代出游戏原型。当然它只是原型，不是完整可玩的游戏，很多人也不会做完，做完第一关就放弃了。但其中会有一定比例的人坚持下来，发现自己热爱游戏开发，想把它变成职业。我认为游戏创作者的数量会出现爆发，这非常令人兴奋。", "speaker_id": "jon", "section_id": "s5"}, {"start_sec": 608, "type": "text", "zh": "你们一定常和创始人聊，他们要么在为这些借助人工智能的准开发者做工具，要么自己在做人工智能开发的游戏。在我看来最难的应该是游戏平衡，做出真正有趣、让人投入的东西。这像一门艺术，我觉得需要人的直觉和经验，还需要另一种创造力。在这方面你们看到人工智能能做到什么？", "speaker_id": "host", "section_id": "s6"}, {"start_sec": 647, "type": "text", "zh": "你说到点子上了。我认为人工智能模型不会取代人的品味和创意判断，这仍然非常关键。游戏行业有句话：最后20%的游戏占了80%的工作量，而让游戏变得有趣的魔法都在那里。前80%可以说只是拼出一款能运行的游戏：能启动，有个角色，能射击，有怪物可打。最后20%非常关键：这个世界给人什么感觉？回到你说的《侠盗猎车手6》的定制电台——开枪时枪声是什么样？霰弹枪的声音应该和手枪不同；用激光枪时应该有后坐感。正是这些小细节造就了神奇的体验。我认为在可预见的未来，这仍然是人的领地：东西给人什么感觉？玩家想要什么？这把枪手感该怎样？所以在这些情况下，人的品味和判断仍然关键。", "speaker_id": "jon", "section_id": "s6"}, {"start_sec": 719, "type": "text", "zh": "对。是什么让我想花一千小时玩《侠盗猎车手》或《博德之门3》（Baldur's Gate 3）这样了不起的游戏？我觉得确实在于细节，也在于一个世界的后果感和深度，也许这正是大语言模型能帮着延展的地方。你怎么看？", "speaker_id": "host", "section_id": "s6"}, {"start_sec": 748, "type": "text", "zh": "我同意。我不认为它会让做出一款真正好玩的游戏变得轻而易举，因为那非常难，是很多因素的交汇：有些是设计出来的，有些是偶然的，有些甚至是文化和社交层面的。但我确实认为，在这个新时代，有时创作就是消费。未来绝大多数游戏，可能只会被一个人玩，那就是它的创作者。其实这没关系，因为编程或做游戏，一种是为了产出那个成品，另一种是把它当作一项活动。做游戏、打磨游戏其实非常宁静，尤其它有艺术成分：看着素材活起来，看着角色说出你没写给它们的话。我真心认为游戏创作有种“禅意园艺”的感觉，会越来越流行。", "speaker_id": "anish", "section_id": "s7"}, {"start_sec": 799, "type": "text", "zh": "这一点说得太好了。我们确实看到，有时创作本身就是玩。《我的世界》（Minecraft）就是这样，它是史上最成功、运营最久的游戏之一；甚至在电子游戏之前，乐高（Lego）也是这样，孩子们为了好玩去造东西、互相分享。今天的人工智能也一样：创造一个东西、让它活起来，本身就很有趣，而人工智能正在为人们能创造的东西加涡轮。你不需要懂代码、美术和3D的一切，也能做出让自己骄傲、做起来开心的东西。", "speaker_id": "jon", "section_id": "s7"}, {"start_sec": 841, "type": "text", "zh": "阿尼什，你做了一个《哈宝酒店》（Habbo Hotel）风格的唱片店，过程是怎样的？", "speaker_id": "host", "section_id": "s8"}, {"start_sec": 849, "type": "text", "zh": "其实起源于和一位DJ朋友的对话。他说网上的唱片店看起来都一样，就是一张歌曲列表。我们聊到九十年代在多伦多（Toronto）逛唱片店，那就像去理发店，因为店里挤满了人，你不可能不跟人聊上五六句；后面有人把歌放得很响，有混音带卖，有锐舞派对在宣传，整个就是一个真正的社交环境。他说：为什么网上买唱片不能像那样？我觉得很酷，就想试着把它做出来。这次用的是Opus 5.5。我试了一下，只给了它几张《哈宝酒店》的参考美术素材，", "speaker_id": "anish", "section_id": "s8"}, {"start_sec": 893, "type": "text", "zh": "结果远远超出我的预期：它不只生成了房间，还不知怎么找来了各种九十年代风格的音乐——有生成的节奏布鲁斯、舞厅雷鬼、嘻哈、灵魂乐。你可以挑曲子、翻看曲目、放上去，后面的DJ就会拿起唱片放上唱机，小人们在那里跳舞，非常精细，完全是灵感爆发。然后我想：如果把它扩展成九十年代多伦多的皇后街（Queen Street）呢？于是我把它变成了一整条街。最后一笔，我觉得是最科幻、以前绝不可能做到的：我让街上其他每个店面，都可以由别的玩家只靠写提示词来建造。有意思的是，他们不只能定制美术，还能定制功能。我儿子进去建了一个宠物领养中心，而且你真的可以领养宠物，它们会跟着你走。我当然没设计“动物跟随”这个功能，是编程智能体更新了我的游戏引擎，造出了这个机制。过去，程序化生成关卡已经很让人振奋，但那只是动态内容；现在我们说的是动态能力，是全新的玩法机制。", "speaker_id": "anish", "section_id": "s8"}, {"start_sec": 968, "type": "text", "zh": "你儿子玩过Roblox上的《领养我》（Adopt Me!）吗？那是Roblox上最受欢迎的游戏之一。", "speaker_id": "jon", "section_id": "s8"}, {"start_sec": 978, "type": "text", "zh": "哦，也许玩过，所以才想到这个。我还以为他特别有创意呢【笑】。", "speaker_id": "anish", "section_id": "s8"}, {"start_sec": 983, "type": "text", "zh": "肯定的，这是个很好的例子。我儿子最近也开始用人工智能做游戏了，起因是他想玩《对马岛之魂》（Ghost of Tsushima）。那是款很棒的游戏，基本上是在封建时代的日本扮演武士，你能想象，非常血腥暴力。所以我们跟他说：不行，你才八岁，不能玩这种血腥的武士游戏【笑】。但他特别想玩，就开始跟ChatGPT聊这个游戏，然后不知怎么发现自己可以做一个《对马岛之魂》的《我的世界》模组。他用GPT基本把游戏拆解了一遍，因为网上有很多维基详细拆解玩法机制、首领战怎么运作。然后Codex帮他做了一个《我的世界》模组，他装上之后，就是《我的世界》版的《对马岛之魂》，而且真的能玩，运行得非常好。他一直在跟朋友分享。现在他已经不再找我们买新游戏了，而是说：我想玩这个游戏，我就把它做成《我的世界》模组。我觉得这很鼓舞人。", "speaker_id": "jon", "section_id": "s8"}, {"start_sec": 1055, "type": "text", "zh": "我还喜欢这件事说明的一点：想到游戏怎么变得更好时，写实并不是唯一的、甚至不一定是最有意思的进化方向。你能把两个现有概念合成一个以前绝不会存在的新概念，这本身就很了不起。", "speaker_id": "anish", "section_id": "s8"}, {"start_sec": 1074, "type": "text", "zh": "没错。我觉得这正好可以过渡到“反编译”，这感觉像是一个新趋势，而且分成几种不同的形式：一种是让智能体看着某样东西，从零重建一款游戏；还有一种是把两款游戏或两种美术风格融合。我很想把现在发生的这些不同事情理一理。", "speaker_id": "host", "section_id": "s9"}, {"start_sec": 1107, "type": "text", "zh": "我觉得有两个趋势正在被人工智能加速。第一，游戏行业长期由模组驱动。模组就是拿一款你已经喜欢的游戏，给它做一个扩展，以某种方式改变玩法，然后它变成一款独立的游戏，甚至一个独立的类型。历史上，游戏行业一些最大的游戏都来自模组：比如电竞大作《反恐精英》原本是《半条命》的模组；史上最成功的多人在线战术竞技游戏之一《英雄联盟》，受《遗迹守卫》启发，而DotA本身是《魔兽争霸3》的模组；我最喜欢的例子是《堡垒之夜》（Fortnite）和《绝地求生》（PUBG），它们受到了《武装突袭》（Arma）上PlayerUnknown大逃杀模组的启发。所以价值数十亿美元的游戏系列就是靠模组诞生的，世界上一些最好、最大的游戏就是这样来的。而人工智能现在让做模组变得极其容易，就像我儿子那样：一个热爱某个IP或游戏的普通玩家，可以把Astra指向它说：给我做个《对马岛之魂》，再加上这个——比如加上方块建造，加上《动物森友会》（Animal Crossing）的关系系统——然后真的做出来，看好不好玩。如果好玩，其他人开始玩，它就成为一个独立类型，然后大火。", "speaker_id": "jon", "section_id": "s9"}, {"start_sec": 1206, "type": "text", "zh": "这也和创作循环有关。让人在一张白纸上创造新东西是很难的。如果你只是把一个文本框摆在别人面前说“给我做个游戏”，他根本不知道从哪里开始。所以在别人已经做好的游戏框架里工作，说“加上这个”“把它和那个混一下”，就会非常强大，因为它给了你一个起点和一个可以混搭的基础。", "speaker_id": "jon", "section_id": "s9"}, {"start_sec": 1237, "type": "text", "zh": "有意思。你提到了模组，我看到的另外两个方向，一个是反编译，让你拿到源代码和素材。我觉得这对那些备受喜爱但已经老旧的游戏特别有意思。比如《星球大战：旧共和国武士》（Knights of the Old Republic），开发它的那家工作室（Bioware，口播如此）当然不会再做一部新的了，你想想去扩展它或做个分支，那真的很酷。第三个，也许是我见过最未来感的：X上有个叫Blendy（BLNDI）的人做了很多惊人的东西，他把两款现有游戏的素材拿来合成第三款游戏，这个概念完全天马行空，但居然行得通，有些还非常好玩。", "speaker_id": "anish", "section_id": "s9"}, {"start_sec": 1281, "type": "text", "zh": "说到复古游戏，我觉得促成Xbox实验室（Xbox Labs）那次发布的——阿莎谈到想支持人工智能和开发的新前沿——是因为冒出了太多社区项目，把《光环》（Halo），我记得是2001年Xbox上的那款经典初代，反编译再重新编译到现代平台上。我听说有四个社区项目把《光环》做成了能在WebGPU上玩的游戏，现在基本上可以在网页里玩《光环》了。这真的很了不起，也回到你刚才说的Three.js，", "speaker_id": "jon", "section_id": "s10"}, {"start_sec": 1328, "type": "text", "zh": "网页上的3D从来没有像现在这样强大、这样容易上手。所以我想Xbox很可能看到了这些现象，于是说：我们以前要专门组建团队，把一款Windows游戏移植到iOS生态，或者把停运的老游戏重制一遍，现在人工智能能在这些事情上帮大忙。你基本上是把一个成熟IP带给新观众，比如今天长大的孩子，从没机会玩过《旧共和国武士》，现在他们可以玩了。", "speaker_id": "jon", "section_id": "s10"}, {"start_sec": 1365, "type": "text", "zh": "没错，而且可能是在对他们来说合适的主机、电脑或设备上。", "speaker_id": "anish", "section_id": "s10"}, {"start_sec": 1371, "type": "text", "zh": "我觉得这非常酷。还有一些游戏类型，生产成本一直很高，以至于根本收不回投资。比如大家都爱即时战略（RTS），所有人都痴迷过即时战略，有过无数尝试想在iPad上做一款优秀的即时战略游戏，但我们一直没真正等到。现在我认为即时战略这类类型会迎来全面复兴。", "speaker_id": "anish", "section_id": "s11"}, {"start_sec": 1396, "type": "text", "zh": "我觉得蒂姆·斯威尼也谈过这一点。这正是我个人特别兴奋的地方：我很喜欢一个非常小众的类型，叫“职业模拟器”【笑】。概念很奇怪，基本上是体验某一种职业的一天，而且通常不是光鲜的职业，你不会去当总统什么的【笑】。我最近玩得最多的是一款列车司机模拟器，你可以在世界各地城市驾驶地铁和火车。我当过日本JR、东京地铁的司机，跟听起来一模一样，一点都不光鲜：你去上班，有时刻表要赶，你得开着这列车每站都停、接上乘客，而且要做得分毫不差，如果停车晚了一点，最后一节车厢没进站台，不是所有人都能上车，你的工资就会被扣。这是个小众类型，我很难想象有多少人想当列车司机。但如果有，现在你就能做出这样的游戏，而像我这样真心喜欢的人，会愿意花很多钱去玩。", "speaker_id": "jon", "section_id": "s11"}, {"start_sec": 1475, "type": "text", "zh": "好玩吗？", "speaker_id": "host", "section_id": "s11"}, {"start_sec": 1478, "type": "text", "zh": "我觉得很好玩【笑】。", "speaker_id": "jon", "section_id": "s11"}, {"start_sec": 1480, "type": "text", "zh": "有意思的是，翻翻老的电脑杂志，看顶级软件排行，第一名通常是VisiCalc，第二名就是微软《模拟飞行》（Microsoft Flight Simulator）这类早期飞行模拟游戏。我其实觉得模拟这个类型对人有很强的吸引力，大家就是爱模拟游戏，它是常青类型。", "speaker_id": "anish", "section_id": "s11"}, {"start_sec": 1509, "type": "text", "zh": "也许某种特定职业会打动某些人，但他们从来没机会发现，因为模拟器类型一直不够大。而现在，你几乎可以扮演你能想象到的世界上任何一种职业的一天，那不是很酷吗？", "speaker_id": "jon", "section_id": "s11"}, {"start_sec": 1528, "type": "text", "zh": "你们玩过《无题大鹅模拟》（Untitled Goose Game）吗？", "speaker_id": "host", "section_id": "s11"}, {"start_sec": 1531, "type": "text", "zh": "我知道这款游戏，就是模拟一只鹅。", "speaker_id": "jon", "section_id": "s11"}, {"start_sec": 1537, "type": "text", "zh": "对，你扮成一只鹅到处转悠。", "speaker_id": "host", "section_id": "s11"}, {"start_sec": 1540, "type": "text", "zh": "那也许我也喜欢模拟类型，一只调皮的鹅。不知道这说明我是什么样的人【笑】。", "speaker_id": "anish", "section_id": "s11"}, {"start_sec": 1550, "type": "text", "zh": "回到即时战略游戏的话题，我看到一些智能体编排方案长得像经典即时战略：在你的智能体编排上套一层《帝国时代》（Age of Empires）的皮肤。", "speaker_id": "host", "section_id": "s12"}, {"start_sec": 1568, "type": "text", "zh": "对，还有《我的世界》版的。", "speaker_id": "jon", "section_id": "s12"}, {"start_sec": 1570, "type": "text", "zh": "各种不同的建筑代表不同的Claude Code实例。你们怎么看？那只是一种玩具式的呈现，还是说管理智能体本来就有点像玩游戏的一种延伸，又或者是一个新模拟类型的开端？", "speaker_id": "host", "section_id": "s12"}, {"start_sec": 1596, "type": "text", "zh": "我觉得可能是。在任何一家公司当一条业务线的总经理，无论是Credit Karma、谷歌（Google）还是别处，本身就有点像模拟游戏：你和很多团队合作，你的控制力有限，信息不完整、不完美，还有市场力量在起作用。所以我不觉得差别很大。我反而认为，现在你可以轻而易举地做出这些非常有野心的界面，在这个世界里你可能真会这么做，甚至这可能是最优解；而在过去，成本高到离谱，根本说不通。", "speaker_id": "anish", "section_id": "s12"}, {"start_sec": 1631, "type": "text", "zh": "我觉得这些受游戏启发、用于管理智能体的图形界面让我想到：普通消费者觉得智能体编排很不直观。在命令行里用以文字为主的界面管理智能体，这很不直观。所以我同意，很可能会出现一种面向大众的可视化界面，让普通消费者能管理一组智能体。至于它会长得像《星际争霸》（StarCraft）、《帝国时代》式的“智能体帝国”还是《异星工厂》（Factorio），具体形态我不太确定，但感觉我们还处在为以智能体工作为主的用户摸索界面的早期。", "speaker_id": "jon", "section_id": "s12"}, {"start_sec": 1683, "type": "text", "zh": "约翰，我很想听听你对这个的看法。蒂姆和阿莎都公开表态，非常支持围绕人工智能开发游戏的社区，这很棒。但你认为他们的公司和生态已经准备好真正从这个趋势中获取价值了吗？还是说他们眼下处境有点尴尬，知道自己必须改变？", "speaker_id": "host", "section_id": "s13"}, {"start_sec": 1704, "type": "text", "zh": "好问题。就拿模组来说，历史上原IP所有者并没有从基于他们IP的模组里获益多少。我想DotA最初的创作者并没有从《英雄联盟》中获益多少；我也不确定《半条命》最初的开发者从《反恐精英》里赚了多少。所以在商业模式上存在一个缺口需要解决。如果你真的把人工智能当作混搭、做模组、反编译和重新编译的引擎，", "speaker_id": "jon", "section_id": "s13"}, {"start_sec": 1743, "type": "text", "zh": "来赋能你的玩家群体，那作为公司你怎么从中获得商业回报？我觉得大家还在早期。我听说有人在研究能否设计一种收入分成或版税回流给公司，以此来赋能创作者，但这方面还有很多要摸索。", "speaker_id": "jon", "section_id": "s13"}, {"start_sec": 1767, "type": "text", "zh": "在我看来最强的形态是《我的世界》，它真正从模组生态里获益。有意思的是，我们一直把“混搭”和“扩展”混着用，但我其实认为，那些扩展核心游戏、共享“社区+基础游戏”这一核心底座的附加内容，确实让IP所有者获益；而如果你是把游戏分叉出去，就没有好处，甚至可能分裂社区。", "speaker_id": "anish", "section_id": "s13"}, {"start_sec": 1798, "type": "text", "zh": "对，没错。这也回到我们私下聊过的一件事：怎么为下一代人工智能游戏、或者用人工智能做出来的游戏，创造新的分发形式？今天很多这类游戏仍走传统渠道：发在Steam、发在应用商店；如果在Roblox里做，就还在Roblox生态里。我认为有机会出现一家公司，打造一个原生地服务和赋能所有这些人工智能游戏创作者的分发平台，而今天还不存在，因为所有游戏都在走传统渠道。", "speaker_id": "jon", "section_id": "s14"}, {"start_sec": 1843, "type": "text", "zh": "你真该看看Spawn。我们不是投资人，但我非常欣赏他们在做的事。那是雅各布（Jacob）和他的团队，他们做了一个“共享社区+游戏生成”的平台。你和一个名叫萨维（Savvy）的具身智能体一起工作，她在所有游戏里陪着你，不只能在平台里接收漏洞报告，还能在你玩的时候修改游戏，就像副驾驶。", "speaker_id": "anish", "section_id": "s14"}, {"start_sec": 1867, "type": "text", "zh": "对，没错。", "speaker_id": "jon", "section_id": "s14"}, {"start_sec": 1868, "type": "text", "zh": "她还能为你创建传送门，让你走进别的游戏，还能带上其他玩家。每款游戏默认都是多人的，共享同一个社区。还很早期，但这是我见过做这类事情最令人印象深刻、最有野心的尝试，我相信还会有更多。", "speaker_id": "anish", "section_id": "s14"}, {"start_sec": 1885, "type": "text", "zh": "我觉得这很令人兴奋。我也很欣赏雅各布，关注这家公司有一阵子了。更大的机会在于：怎么打造一个能在不同游戏之间延续的社区？而不是这几个人玩这款、那几个人玩那款，彼此不相连。我认为这是巨大的机会。《我的世界》和Roblox就是很好的例子：一旦你进入Roblox生态，玩腻了一款游戏、打通了一款游戏，还有几十万甚至数百万种体验可以参与。", "speaker_id": "jon", "section_id": "s14"}, {"start_sec": 1924, "type": "text", "zh": "约翰，你能对比一下这两者吗？我注意到，Roblox上的游戏彼此差异极大，所以感觉那个共享的核心游戏——如果还能这么叫的话——其实很薄；而《我的世界》的共享核心游戏非常丰富。你认为必须有一个很丰富的核心游戏吗？还是说，纯粹靠传送门连接、没有共享核心玩法的世界更难起步？还是不一定？", "speaker_id": "anish", "section_id": "s14"}, {"start_sec": 1952, "type": "text", "zh": "我觉得《我的世界》这种更中心化的模式的好处是，每个人一开始玩的都是同一款游戏，然后就像你说的，你分叉、改模组、把它变成自己的。好处在于大家有共同的体验、熟悉这个IP，然后从这里出发。所以《我的世界》的模组几乎就像同人小说：大家都看过同一部《权力的游戏》（Game of Thrones），知道丹妮莉丝（Daenerys）、琼恩·雪诺（Jon Snow），知道守夜人是什么。《我的世界》有大量共享文化，比如末影人（Enderman）、末影龙。这和更去中心化的做法很不一样，我会把Roblox归为后者：人们可以从任何一款游戏进入Roblox生态，比如我之前提过的《越狱》（Jailbreak），还有《布鲁克海文》（Brookhaven）等等，然后得到很不一样的体验，再去学从哪里继续、怎么当创作者。两种方式都完全可行，我认为只是在如何扩展游戏、如何调动社区上的理念差异，两种都行得通。", "speaker_id": "jon", "section_id": "s14"}, {"start_sec": 2033, "type": "text", "zh": "回到工作室和发行商的话题，你们觉得他们现在最兴奋的是什么？最担心的又是什么？", "speaker_id": "host", "section_id": "s15"}, {"start_sec": 2044, "type": "text", "zh": "我觉得能把成本降下来肯定非常令人兴奋，还能以更小的财务风险创造更多IP。说实话，很多工作室的生死，取决于能否赢得为某个发行商开发游戏的权利，如果游戏表现不好，可能就不会再有下一次。几百个人疯狂超负荷工作，这大概是生活质量最差的行业之一。大家还是在做，因为热爱，但真的很辛苦。所以我认为，行业里普通人的生活质量，以及说实话整个生意的质量，都应该大幅提升。", "speaker_id": "anish", "section_id": "s15"}, {"start_sec": 2085, "type": "text", "zh": "我猜让他们担心的可能是：微软拥有《我的世界》，但他们（Xbox）也希望拥有一个更接近网络和社交产品、而不只是纯娱乐产品的资产。我相信《堡垒之夜》虽然五年前是全世界最受喜爱的游戏，现在讨论度已经没那么高了。所以存在一个圣杯，约翰，就是你说的“永不结束的游戏”或“永恒游戏”，但很难达到，也许借助这些技术他们会更有机会。", "speaker_id": "anish", "section_id": "s15"}, {"start_sec": 2116, "type": "text", "zh": "在我和游戏开发者的交流里，可以说他们基本都已经在用人工智能了。人工智能已经成了提升效率的标配工具：用它生成游戏设计文档、快速生成概念图、迭代想法、做出原型。我之前说过，缩短从初始想法到原型的距离和时间，大家普遍都非常兴奋。我把这看作游戏工作室采用人工智能的第一波。我认为下一波——也是阿尼什刚才说的更令人兴奋的——是怎么用人工智能创造新的玩法、新的游戏机制、今天还不存在的新类型，这可能大幅扩张游戏市场。也就是说，你不只是更快更便宜地做《侠盗猎车手6》，而是在做一种以前不可能存在的新游戏。", "speaker_id": "jon", "section_id": "s15"}, {"start_sec": 2175, "type": "text", "zh": "我之前写过一篇关于“永不结束的游戏”这一概念的文章，这是我个人非常热衷、很想看到实现的东西。大型多人在线游戏（MMO）的圣杯，是一款能无限适应玩家意愿的游戏。比如你在一款MMO里落在海滩上，按设计你应该去森林，因为游戏就是这么开头的。但也许你特别喜欢大海，决定留在海滩、造一艘船、驶向大海。今天的MMO处理不了这种情况，因为它是线性脚本化的，预期你进森林，然后发生某件事把你引上一条任务线。但在一款自适应的MMO里，比如用世界模型构建的那种，你真的可以为一个特别喜欢大海的人生成一整条任务线，比如现在出现了海盗，", "speaker_id": "jon", "section_id": "s16"}, {"start_sec": 2230, "type": "text", "zh": "来攻击你，有了航海作战的元素，等等。我感觉这类讨论总会走向科幻，但你记得《安德的游戏》（Ender's Game）里的“心灵游戏”（mind game）吗？那个游戏会随时根据安德想做的事来调整自己。我觉得我们某天可能会看到自己的“心灵游戏”，那会是一款你停不下来的游戏，因为它会随时适应你想做的任何事。", "speaker_id": "jon", "section_id": "s16"}, {"start_sec": 2264, "type": "text", "zh": "说不定我们此刻就在玩它。", "speaker_id": "anish", "section_id": "s16"}, {"start_sec": 2266, "type": "text", "zh": "没错【笑】，《黑客帝国》（The Matrix）。或者就是《安德的游戏》本身，我甚至觉得故事里他并不知道自己在游戏里。", "speaker_id": "jon", "section_id": "s16"}, {"start_sec": 2276, "type": "text", "zh": "你们玩得最久的游戏是哪款？", "speaker_id": "host", "section_id": "s17"}, {"start_sec": 2280, "type": "text", "zh": "我玩过《巫师3》（The Witcher 3），通关了两次，半途而废的次数更多，我非常喜欢它。另一款我特别钟爱的是《沙丘2000》（Dune 2000）。", "speaker_id": "anish", "section_id": "s17"}, {"start_sec": 2295, "type": "text", "zh": "哦，那是我小时候最喜欢的即时战略游戏。", "speaker_id": "jon", "section_id": "s17"}, {"start_sec": 2298, "type": "text", "zh": "太好玩了。其实已经有人把它移植到Mac上了，跟当年一样好玩。所以即时战略爱好者如果没玩过，强烈推荐《沙丘2000》。", "speaker_id": "anish", "section_id": "s17"}, {"start_sec": 2309, "type": "text", "zh": "我可能在《英雄联盟》上花了几千小时，一些最好的朋友和友谊就是在那款游戏里结下的，所以它大概是我玩得最多的游戏。紧随其后的可能是《星际争霸》，我玩过所有版本，从《母巢之战》（Brood War）到《星际争霸2》。它是一个典型例子：硬核即时战略的受众随时间不断萎缩，因为这个类型太难了，你的每分钟操作数（APM）很重要，你没法打竞技而不感到挫败，因为别人都比你快得多、强得多。也没有多少开发者在尝试做新的、现代的即时战略游戏，因为如果纯从市场规模分析，受众撑不起来。但有了人工智能，我很期待看到即时战略游戏的爆发，我会尽可能多地去玩。", "speaker_id": "jon", "section_id": "s17"}, {"start_sec": 2373, "type": "text", "zh": "不错。我是《十字军之王3》（Crusader Kings III）的忠实玩家，它其实不算即时战略。我跟不了解它的人描述时会说，它像《模拟人生》（The Sims）混合《帝国时代》：有性格管理、人际关系、政治；同时你还要在宏大的世界地图上管理你的王朝和领地，非常非常有深度。", "speaker_id": "host", "section_id": "s17"}, {"start_sec": 2406, "type": "text", "zh": "最后收个尾：你们每个人有没有一款想做了很多年、现在终于能做的游戏？", "speaker_id": "host", "section_id": "s18"}, {"start_sec": 2418, "type": "text", "zh": "我快速说一下。我从小经营一个电子公告板系统（BBS），这就暴露我的年龄了。在互联网之前，大家会拨号接入，而BBS以异步多人游戏著称，因为同一时间只能有一个人拨入：你拨号连上，玩完你的回合，下线；第二天再玩下一回合，同时看到其他人的回合。有一整个类型的异步多人游戏都很棒，其中两款是谷歌最早期的员工之一写的，那时他还在斯坦福（Stanford），他叫阿米特·帕特尔（Amit Patel）。他做了《野蛮领域精英》（Barren Realms Elite）和《太阳领域精英》（Solar Realms Elite）。可惜他把两款里更好的《太阳领域精英》的源代码弄丢了，但他有游戏设计文档和可执行文件。我对每一代模型都试过：能不能重建这个游戏？一直做不到。而现在，我的电脑上跑着一个感觉相当忠实的重建版本。", "speaker_id": "anish", "section_id": "s18"}, {"start_sec": 2477, "type": "text", "zh": "不可思议，好故事。", "speaker_id": "host", "section_id": "s18"}, {"start_sec": 2480, "type": "text", "zh": "我的想法大概类似。我是《文明》（Civilization）的忠实玩家，初代《文明2》给了我一些最珍贵的童年回忆，就是那种要用软盘才能玩的16位Windows版本。它今天已经玩不了了，因为是16位可执行文件。我很想在现代硬件栈上重建那款游戏。另外我也一直在想，有了智能体的《文明》会是什么样？因为这款游戏的幻想是你是一个帝国的统治者，但在玩的过程中这种幻想会崩塌，因为你要微操帝国里的每一个单位。你可以想象：如果有一版《文明》，每个单位都是一个智能体，有自己的议程和目标，而你作为统治者只制定战略，设法影响你的臣民朝你想要的方向发展，你没法让他们完全照你说的做，只能去引导和施加影响。", "speaker_id": "jon", "section_id": "s18"}, {"start_sec": 2560, "type": "text", "zh": "我有个好消息告诉你：这就是《十字军之王3》，这款游戏已经存在了，而且完全没用前沿人工智能。", "speaker_id": "host", "section_id": "s18"}, {"start_sec": 2568, "type": "text", "zh": "真的吗？是一样的游戏？", "speaker_id": "jon", "section_id": "s18"}, {"start_sec": 2570, "type": "text", "zh": "差不多是。你得管理各种阴谋、不同人的性格和他们对你的看法，有时人们不按你想的做，因为他们对你的评价太低。如果你想征服一个王国或一块领土，有太多不同的方式，你可以谋杀继承顺位排在你前面的人。它非常有深度。我觉得它其实最接近你之前说的那种“永不结束、无尽的游戏”：当它极其有深度、极其真实，选择的排列组合多得多时会是什么感觉。你一定要去试试。疫情期间，我在2020年底得了新冠，开始自学C#，用Unity做一款日式恋爱模拟游戏。", "speaker_id": "host", "section_id": "s18"}, {"start_sec": 2637, "type": "text", "zh": "很受欢迎的类型。", "speaker_id": "jon", "section_id": "s18"}, {"start_sec": 2638, "type": "text", "zh": "对，因为那时正好是Unity上市前后，我很好奇Unity是怎么运作的、有多容易上手。基本上就是分支对话树，所以编程上没那么高级，我也没做多远，有一些基础的东西，比如管理生命值、口渴值之类。", "speaker_id": "host", "section_id": "s18"}, {"start_sec": 2669, "type": "text", "zh": "有点跑题了，但既然你提到了，我认为恋爱模拟类型正适合被颠覆。有一个类型叫乙女游戏（otome），基本上是面向女性的恋爱模拟，让玩家和不同性格、不同类型的男性约会。有一款中国开发商做的《恋与深空》（Love and Deepspace）正在爆火，收入达到几亿美元。但难点在于制作内容需要大量时间和工作，因为游戏的扩展包基本上就是角色：出一个新的可约会对象就是一次更新，还要为他打造丰富的背景故事，比如他喜欢猫、喜欢在海边散步，却极度恐高，等等，而你得慢慢去发现这一切。但没有理由说他们将来不能是智能体：这些角色有自己的性格，存在他们的数据库里，在你和他们对话时实时回应你，知道你这一天过得怎么样。我认为恋爱模拟类型现在完全敞开，正适合被人工智能颠覆。", "speaker_id": "jon", "section_id": "s18"}, {"start_sec": 2747, "type": "text", "zh": "太棒了，以一个有趣的话题收尾。非常感谢两位参加。", "speaker_id": "host", "section_id": "s18"}, {"start_sec": 2752, "type": "text", "zh": "谢谢，太好玩了。这是第一期，以后还会有很多期吧？", "speaker_id": "anish", "section_id": "s18"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

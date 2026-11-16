@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>用 AI 驱动药物发现：对话同构实验室总裁马克斯·雅德伯格</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="elad">埃拉德·吉尔（Elad Gil）</option><option value="max">马克斯·雅德伯格（Max Jaderberg）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">No Priors</span><span class="pill">2026-11-12 03:00 PST（America/Los_Angeles）</span></div>
+<h1>用 AI 驱动药物发现：对话同构实验室总裁马克斯·雅德伯格</h1>
+<p class="sub">嘉宾：马克斯·雅德伯格（Max Jaderberg） · 约 39 分钟（2356 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=IiKf3BgBezE" target="_blank" rel="noopener">https://www.youtube.com/watch?v=IiKf3BgBezE</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>No Priors</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-12 03:00 PST（America/Los_Angeles）</dd></div><div class="meta-row"><dt>时长</dt><dd>约 39 分钟（2356 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 页面 Show transcript / 内容转文字（caption_source=browser-cdp，subtitle_type=youtube-show-transcript）。今日 yt-dlp 普通路径在 ffh7fdwfrWU 上遇 HTTP 429、chrome cookies（chrome:/home/box/chrome-profile/Fork-3）路径报 “The page needs to be reloaded”，为免加剧风控本条直接走浏览器 Show transcript。说话人：简介写明由埃拉德·吉尔主持，嘉宾马克斯·雅德伯格；按问答轮次与自述经历（埃拉德的生物学博士与Color公司、马克斯的DeepMind经历）区分，较高把握。ASR订正：Max Yadberg→马克斯·雅德伯格（Max Jaderberg）；Isomeorphic→同构实验室（Isomorphic Labs）；Deus/Demis→德米斯·哈萨比斯；Yan Lakun→杨立昆；Madna→Moderna；Vert.Ex→福泰（Vertex）；Amjen→安进（Amgen）；Alphold++→AlphaFold++；Durax and RAS / Kraz→RAS抑制剂 daraxonrasib（Revolution Medicines，按音推断）；Jansen→保罗·杨森（Paul Janssen）；St. Churchill→丘吉尔；seaggans→秀丽隐杆线虫（C. elegans）；no-bers.com→no-priors.com。片头约44秒为正片片段剪辑。片尾订阅口播已删除。</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>IiKf3BgBezE</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>《No Priors》中，埃拉德·吉尔（Elad Gil）对话同构实验室（Isomorphic Labs）总裁马克斯·雅德伯格（Max Jaderberg），谈如何把药物发现从经验试错变成“计算机里的精密工程”，以及AI制药的数据、商业模式、监管与长寿。</p>
+<h3>核心要点</h3><ul><li>制药悖论：论文数量涨10–20倍、药物形态增多，新药获批数量却持平；单药成本约15亿美元、周期约15年，失败主要发生在临床。</li><li>同构实验室所有内部排行榜都有一条“实验级准确度”虚线，目标是让模拟模型准到可以替代大部分现实实验，现实世界主要用来验证。</li><li>大鼠对人体临床毒性的预测性约只有30%；公司自建无偏数据并观察到数据规模定律，也在结合类器官、器官芯片等新技术建模人体毒性。</li><li>不卖模型、不授权：自有管线聚焦肿瘤、免疫与炎症，另与药企合作攻克多年无进展的难题；团队约五名AI人才配一名领域专家。</li><li>首个临床试验没有时间表，正在扩建临床团队；马克斯说五年内如果疾病生物学预测能力没有阶跃式进步，他会“非常失望”。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：关心AI制药、生物科技投资与长寿研究的人，约39分钟，问答扎实，有不少具体数字。可跳过：想了解具体管线细节的人，嘉宾没有透露分子、靶点或时间表。</p>
+<h3>适合人群</h3><p>AI+生物医药 / 生物科技投资 / 长寿研究</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场：同构实验室总裁马克斯·雅德伯格</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">片头剪辑点出全集主线：制药高度依赖经验试错，最大的失败发生在临床，因为毒性等问题直到给病人用药才被发现；机会是把药物发现搬到计算机上。埃拉德·吉尔介绍嘉宾：马克斯是由Alphabet等投资的同构实验室（Isomorphic Labs）总裁和创始团队成员，计算机视觉博士，曾把公司卖给谷歌DeepMind并在那里晋升，公司目标是“攻克所有疾病”。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">从 AlphaGo 到 AlphaFold：为什么在2021年创立同构实验室</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">马克斯在DeepMind做过早期生成模型、语言模型、深度强化学习，以及AlphaGo、AlphaStar等游戏挑战，2018–2019年还在向世界证明“AI是回事”。他和德米斯·哈萨比斯都在想这些技术该用在哪；AlphaFold的结果是第一个证据，说明深度学习能在生物学中一个有意义的空间泛化。攻克所有疾病需要独立的公司、文化和跨学科团队，并要跑得快，于是2021年前后成立了同构实验室。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">个人经历：AlexNet前读博、ImageNet 2014、被德米斯“劝”进 DeepMind</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">马克斯是工程背景，在AlexNet（2012）之前开始在牛津读计算机视觉博士，曾与杨立昆讨论卷积网络，团队拿下2014年ImageNet冠军网络，做物体识别和文字检测。他创办了“计算机视觉即服务”公司，正值DeepMind刚被谷歌收购，他去找德米斯谈天使投资，德米斯反问“为什么不来DeepMind一起解决AGI”，他当时的回应是“AGI是什么”，公司于2014年被DeepMind收购。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">制药悖论：知识爆炸，新药产出却持平</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">埃拉德指出，每年新药获批数量大致持平，但论文数量涨了10–20倍，抗体、小分子、蛋白质、多肽等药物形态增多；单药成本从一亿到几亿美元涨到约15亿美元，周期从八九年拉长到约15年。马克斯认为根本原因是行业做药一直靠经验：百年前的药多是偶然发现，阿司匹林、对乙酰氨基酚的作用机制长期不明，至今仍是“提出假设→合成→实测→反复迭代”。细胞与分子都是高维复杂系统，试错筛选限制了能找到的方案复杂度，低垂果实已被摘完。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">行业老化与研发的规模经济：让学习成果复利累积</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">埃拉德说，除了因新冠崛起的Moderna，上一次诞生500亿美元以上的生物医药公司还是1980年代的再生元（同时期还有福泰、安进），将近40年没有新的几百亿美元级生物科技公司，问这是不是监管和官僚化导致的老化，就像特斯拉之前的汽车业。马克斯认为还有文化因素，关键是研发缺乏规模经济：每款药都像孤立的定制科研项目，经验难以迁移；如果底层有AI平台吸收每个项目的经验、改进对疾病生物学和分子设计的理解，做的药越多改进越快。埃拉德把这与基础模型“规模带来泛化”联系起来。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">招人：AI 顶尖人才 + 生物化学专家，约一比五</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">“AI药物发现专家”几乎不存在，所以同构实验室招核心AI与深度学习的顶尖人才（可能完全不懂生命科学），也招没怎么接触过AI的生物学家和化学家，在内部培养跨学科科学家。埃拉德分享自己创办基因组公司Color时约五个机器学习人员配一个传统领域科学家；马克斯说核心建模项目的比例相近，领域专家负责确保指标真实、能转化为药物。目前重点招聘方向是AlphaFold++这类模拟模型，以及把前沿和开源模型适配到药物领域的推理模型。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">北极星：把药物发现搬进计算机，达到“实验级准确度”</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">马克斯说，时间和成本的最大瓶颈是合成真实分子再做实测，其他工程领域早已转向计算机辅助设计。以AlphaFold为例，X射线晶体学测一个结构要几个月到几年，预测模型可以省掉这些时间。公司所有内部排行榜上都画着一条“实验级准确度”虚线，目标是让各项模拟能力达到这条线；这样进入现实实验时成功率更高、需要的轮次更少。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">15年、15亿美元里，真正的大头在临床失败</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">埃拉德估计，小分子与体外、组织培养、小鼠实验约占2–3年、5000万美元量级，其余约14.5亿美元和12年花在临床试验与安全性研究上。马克斯解释，从发现到临床前动物研究约一年，再到一、二、三期临床；成本高主要因为失败太多，而失败集中在临床：没预料到的毒性、脱靶效应，或者靶点本身调节后有严重副作用。最大的机会是在进人体前就理解得更多，所以模型不只看“什么分子结合什么”，还要建模细胞和疾病生物学中的其他组成部分。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">数据从哪来：自建无偏数据；大鼠毒性只有约30%预测性</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">马克斯说，公开、药企和公司内部数据库多是多年做药的被动副产品，偏差很大，不利于通用模型；同构实验室自己生成数据，并观察到惊人的数据规模定律。埃拉德提到癌症“在小鼠身上被治愈了几百次”却难以转化到人。马克斯指出，监管金标准要求证明分子对大鼠等动物无毒，但大鼠对人体临床毒性的预测性约只有30%；他主张结合体外终点、AI预测模型，以及类器官、器官芯片、合成人体组织等新技术，直接建模人体临床毒性，尽管这方面临床数据有限。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">自研与外包：模型全自研，数据与全球伙伴共建</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">针对CRO（合同研究组织）质量参差不齐的问题，马克斯说药物设计引擎和全部AI模型都在内部开发，并重视自有专有数据；但实验平台复杂且长尾，所以数据生产会结合自建实验、CRO和其他创新公司。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">自动化湿实验室与闭环：终极目标是“只进现实世界做验证”</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">埃拉德提到Anthropic宣布在旧金山建湿实验室，外界推测可能是机器人闭环系统，因为生物实验往往要等三周才能拿到结果，迭代很慢。马克斯说同构实验室早就在和自动化实验室合作，也应继续缩短迭代时间，但化学反应和细胞培养有物理上限，所以更要把工作搬到计算机上，让现实实验主要用于验证而不是学习和迭代；新假设最终仍须在人身上证明安全有效。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s12">
+<div class="sum-top"><span class="sum-num">12</span><span class="sum-title">商业模式与疾病领域：不卖模型，自有管线+药企合作；瞄准“根节点”</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">同构实验室不出售或授权模型、不按token收费，只在内部用来做药：一类是自有自筹的内部管线，另一类是与药企、生物科技公司的合作项目，对方常带来做了10–20年进展不大的难题。内部聚焦肿瘤、免疫与炎症，但引擎对疾病、靶点类别和药物形态都通用。马克斯强调攻克“根节点”机制，举例Revolution Medicines的RAS抑制剂daraxonrasib在大型癌症会议上获得起立鼓掌，显著改善晚期胰腺癌患者状况；双方也谈到RAS研究二三十年之难，以及癌症会绕开药物突变。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s13">
+<div class="sum-top"><span class="sum-num">13</span><span class="sum-title">组合疗法：先把单个分子设计得足够精巧</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">埃拉德以HIV的鸡尾酒疗法为例，问癌症为何多是单药开发。马克斯说许多分子虽有效，却有毒性或伤肝，多药同服会产生有害的药物相互作用；临床试验能招募的病人有限，组合数量又在叠加。只要能把分子设计得足够安全、不伤肝、互不干扰，就有望做出同时调节整条复杂通路上一组靶点的组合疗法。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s14">
+<div class="sum-top"><span class="sum-num">14</span><span class="sum-title">安全与风险：杨森、丘吉尔与青霉素的故事</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">埃拉德引用杨森制药创始人保罗·杨森的观点：药物开发的主要制约是过度强调安全，并举例二战时丘吉尔为治疗前线士兵的性病扫除监管障碍，九个月内重新发现并商业化了二十年代就由弗莱明发现、后来被搁置的青霉素；新冠疫苗也类似。马克斯坚持病人安全始终至关重要，但风险承受度因适应症而异，晚期癌症病人与慢性轻度炎症病人显然不同。他说与FDA等全球监管者交流时，各方都希望尽快把最好的药给病人；他希望用统计上显著更高的成功率和更好的安全性，来改变人们对监管的看法。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s15">
+<div class="sum-top"><span class="sum-num">15</span><span class="sum-title">首个临床试验何时？五年内应有阶跃式进步</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">马克斯不给确切日期，称这是困难的前沿科学，但有几款“非常令人兴奋”的药物进展顺利，公司正在扩建临床开发团队。被问80%癌症何时可治，他说如果五年后对疾病生物学的预测能力、以及设计更精准低毒分子的能力还没有阶跃式提升，他会非常失望；药物开发仍需数年，但应该具备成片攻克疾病的工具。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s16">
+<div class="sum-top"><span class="sum-num">16</span><span class="sum-title">长寿：寿命与健康寿命</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">埃拉德说统计上消除癌症和心脏病大约只让平均寿命多出五到七年；而在线虫、果蝇、小鼠身上敲除特定通路基因可延寿20%–30%，线虫甚至三倍，他读博时研究过这些通路。马克斯谈衰老带来的慢性退化，例如骨骼肌肉退化、一次摔倒就让晚年最后十到二十年生活质量骤降。埃拉德指出衰老模型中延缓衰老会同时延长健康寿命；马克斯认为既要治疗具体疾病、最大化健康寿命，也要攻击衰老的根本原因。片尾订阅口播已删除。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">埃拉德·吉尔（Elad Gil）<em>主持</em></span><span class="spk-1">马克斯·雅德伯格（Max Jaderberg）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场：同构实验室总裁马克斯·雅德伯格</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p><span class="tag">【片头剪辑】</span>这个行业大部分制药流程都高度依赖经验试错。<span class="tag">【音乐】</span>真正失败的地方在临床，因为直到把药用到病人身上，我们才看得到问题，然后才说：糟了，有我们没考虑到的毒性。所以真正的大机会，是在进入人体之前就拥有多得多的理解：怎样把药物发现的全部工作搬到计算机上？怎样摆脱对现实世界实验的依赖？如果快进到五年后，我们对疾病生物学的预测性理解还没有出现巨大的阶跃式进步，我会非常失望。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p><span class="tag">【片头剪辑】</span>你能预测一下，比如80%的人类癌症什么时候能够被治疗吗？</p>
+<p>今天的《No Priors》，我们请到了马克斯·雅德伯格（Max Jaderberg），他是同构实验室（Isomorphic Labs）总裁、创始团队成员之一。同构实验室由Alphabet和其他多家投资方支持，目标是攻克所有疾病，这个话题非常令人兴奋。我们会聊聊人工智能在生物医药、人类健康和长寿未来中的角色。马克斯有机器学习背景，拥有这一领域的博士学位，做的是机器视觉，后来把公司卖给了谷歌DeepMind，在那里一路晋升，如今担任同构实验室总裁。很期待这次对话。马克斯，非常感谢你今天来。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>非常荣幸来到这里，谢谢。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>从 AlphaGo 到 AlphaFold：为什么在2021年创立同构实验室</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>我认为同构实验室是目前整个科技界最引人入胜的公司之一。Alphabet是主要股东和支持方；德米斯（Demis Hassabis）在DeepMind等地开创了很多模型——我记得你之前就把公司卖给了DeepMind——他在公司的创立、搭建和如今的运营上都出了大力。你们在攻克人类剩下的最大难题之一：人类健康。能讲讲你是怎么来做这家公司的、创立它的动力是什么吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>我是同构实验室创始团队的一员。在此之前我在DeepMind待了很长时间，个人做的是早期的生成模型、语言模型、深度强化学习，以及那些大型游戏挑战问题，像AlphaGo、AlphaStar，那是我的拿手好戏。那时候，大概是2018、2019年，我们在攻克那些所谓“不可能”的问题。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>就是游戏，人工智能能不能打赢电子游戏。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>没错。那时我们还在努力向世界证明人工智能真的是回事。我们去攻克那些不可能的问题，而我亲眼看到了怎样系统性地解决它们。到了某个时候，我个人的想法是：好，我们还没有达到通用人工智能（AGI），但我们显然已经拥有深度学习和强化学习这一整套惊人的技术，我们真正应该把它用在什么问题上？我在想这些，德米斯当然也在想这些。同时我们看到了AlphaFold的结果，最初的火花开始出现。对我们来说，那是第一个概念验证：深度学习模型能够在生物学中一个有意义的空间里实现泛化。正是这个概念验证给了我们信心：现在就是追求这个宏大使命的正确时机——改变我们思考人类健康的方式，去攻克所有疾病。这需要非常大的投入，值得单独成立一家公司、拥有自己的文化，把不同学科的人聚在一起，并且能够跑得非常快。这就是2021年前后同构实验室的起源。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>个人经历：AlexNet前读博、ImageNet 2014、被德米斯“劝”进 DeepMind</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>太棒了。你的背景最初更偏深度学习和人工智能建模，我记得你把一家公司卖给了DeepMind，是2014年吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>对，没错。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>那很早了，你在很多人意识到它有多重要之前就在做这些。能多讲讲你一路走来的经历吗？最初是什么让你感兴趣的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>我是工程背景，几乎是误打误撞读了计算机视觉的博士，而且恰好赶上转折点：我读博开始时还在AlexNet之前。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>AlexNet是2012年吧？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>对。然后我看着它出现，心想：哇，太棒了。我记得和杨立昆（Yann LeCun）聊卷积神经网络，我觉得我们必须把它引入我们在牛津（Oxford）做的核心计算机视觉领域。后来我们开发了一系列方法，拿下了2014年ImageNet的冠军网络，做最好的物体识别、文字检测之类。我还在这个领域创办了一家公司，做“计算机视觉即服务”，当时在融资，恰好德米斯和DeepMind刚卖给谷歌。我想很快融到钱，就去找德米斯谈天使投资，他说：你为什么不干脆来DeepMind一起解决AGI？我说：AGI是什么？就这样开始了我在DeepMind的旅程。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>制药悖论：知识爆炸，新药产出却持平</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>太精彩了。你们现在基本是一家垂直整合的公司，从模型到生物学全都做，目标是找到能在人类健康各方面帮助人的药物。看制药行业，我觉得有一点特别惊人——我以前画过这张图——每年新药获批数量大致是平的。可同期知识在爆炸：科学论文数量呈指数增长，涨了10到20倍；新的药物形态也多了，有抗体药、小分子、蛋白质、多肽，各种新的治疗方式。价格却大幅上涨，从每款药一亿到几亿美元涨到15亿美元；周期从八九年变成15年。所以在知识库爆炸、可做的分子类型增多的同时，各项指标都在变差，产出却持平。为什么会这样？为什么在其他方面进步这么大的情况下，它还这么停滞？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>是啊，看到做新药越来越难、越来越贵、越来越久，真的很夸张。我想背后有很多原因。我思考很多的一点是：整个行业、乃至人类一直以来做药的方式，都是非常非常依赖经验的过程。最开始——很久以前，比如一百年前——我们找到的药物是偶然得来的，碰巧发现某样东西有生理作用，人们就开始用。后来稍微精细了一点，但仍是经验性的反复试错。很多药我们其实是猜出来的，比如阿司匹林，很长时间我们都不知道它是怎么起作用的；对乙酰氨基酚（扑热息痛）也一样。而我们做药的方式，至今行业里大部分仍是这种高度经验驱动的过程。所谓经验驱动，就是你对疾病如何运作有一个假设，对好的分子设计有一个假设，但必须把它做出来、在现实世界里测试，并且反复迭代。这很慢，很难从中得到信号。生物学的空间非常大、非常复杂：细胞是一个庞大、复杂、混沌、维度极高的系统；分子设计，无论小分子、抗体还是多肽，也都是维度极高的对象，组合起来</p>
+<p>就是巨大的设计问题，而我们手里能用的工具，基本上只有反复试错的筛选流程。在我看来，这就限制了在有限时间、有限经费的经验性工作里，你能找到的解决方案有多复杂。所以随着时间推移，你看到的是：靠经验性设计流程能找到的“低垂果实”正在被摘完，而要提高复杂度、找到这套经验流程够不着的东西，就越来越难。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>行业老化与研发的规模经济：让学习成果复利累积</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>有意思。但你不觉得吗？看其他任何行业，行业的“年龄”往往会影响它的变化速度，越老的行业动得越慢，变得更官僚，监管俘获更多等等。我想，除了Moderna——而Moderna几乎是新冠带来的意外——上一次出现市值超过500亿美元的生物医药公司，还是1980年代的再生元（Regeneron）。所以已经快40年没有诞生一家几百亿美元级的新生物科技公司了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>对，再生元、福泰（Vertex），安进（Amgen）也是那个年代，八十年代初。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>所以你觉得多大程度上只是监管问题、官僚化的组织，或者说是那种到处都会发生的自然老化？汽车业在特斯拉（Tesla）出现之前就是这样。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>我们刚才谈的可能是科学层面。我认为还有很大的文化层面：一个行业怎么才能持续创新、持续跑得非常快？与科学技术相关的另一点是：在研发端，到底什么机制能带来规模经济？如果你是一家药企或生物科技公司，瞄准某个药物靶点、全力去做某个药，你从中学到了什么，能帮你更快地做下一个药，再下一个更快？因为如果能让学习成果随时间复利累积，你也许就能获得规模效应，打造出真正了不起的大公司。但我认为行业里很多做药的技术和方式，实际上把每个药都当作彼此割裂的项目，就像一个定制的前沿科学项目，你对这个项目学到很多，可能真正能迁移到下一个的并不多——当然在疾病领域上也有大量各不相同的积累。我认为这正是人工智能和机器学习的世界可以大幅改变的地方：如果在做这些药的下面有一个平台，能真正吸收、理解这些经验，并反过来影响你对疾病生物学、对如何设计好分子、如何精巧地设计这些药物的基础理解，那么你就有望做的药越多，改进就越呈复利增长。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>我想这是因为，深度学习和我们现在所处的基础模型时代涌现出的一个惊人特点，就是随着规模扩大，某些东西具有可泛化性。听起来在生物学里也许也是这样：只要规模足够、方法足够周全，你就能把以前需要定制解决的问题泛化。你们采取的是什么方法？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>我认为这正是同构实验室和以往相比的重大转变。我们不是第一批试图用人工智能改变药物设计和药物发现方式的人。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>招人：AI 顶尖人才 + 生物化学专家，约一比五</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>同构实验室有一点特别吸引人：一群背景迥异的人聚在一起为同一个目标努力。能多讲讲你们招什么样的人吗？他们的画像是什么？你们现在在找什么人？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>这个领域很有意思，因为前沿人工智能与药物发现、化学、生物学的结合并没有存在多久。所以你没法出去说“我要招全世界最懂人工智能药物发现的专家”，因为这样的人基本不存在；就算有，用的也不是我们的模型，而是不同的技术。所以我们的思路就是去找核心人工智能和深度学习领域最顶尖的人，他们可能根本没有生命科学、生物学或化学背景，但非常希望自己在深度学习上的工作能转化为对人类的巨大影响。所以我们招核心的人工智能人才，也招可能没怎么接触过人工智能的核心生物学和化学人才，然后在内部努力建立一种人人互相交流、互相学习的文化，内部就逐渐涌现出跨学科的专家型科学家，看到这一点非常令人兴奋。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>你们怎么考虑这些人的比例？我很久以前创办过一家叫Color的公司，前几年我当联合首席执行官，十多年前由我的联合创始人接手。那时我们基本是把机器学习和数据科学用于基因组学，搭建基因组分析流程。我们发现，大约五个机器学习人员配一个来自传统领域的研究科学家，差不多就是我们采用的比例。你们现在怎样？一个攻关小组里，各学科的人各有多少最合适？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>对于那些核心的人工智能“超能力”项目，也就是人工智能建模项目，我觉得其实差不多：有核心的建模人员，比如工程师、人工智能科学家，然后需要一些关键的领域专家，真正理解应用场景、理解数据的细微之处、知道各项指标意味着什么，确保我们不是在追逐虚假的指标，而是真正能转化为做出药物的东西。所以一比五这样的比例，和我们团队的样子很吻合。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>有没有你们正在积极招聘的特定岗位？还是全面招？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>我们希望最好的人工智能研究者加入同构实验室，帮我们推进这个使命。核心模拟模型方面，比如AlphaFold++，有大量工作要做；核心推理模型方面也是，要把各种前沿模型和开源模型拿来适配到我们的领域。这是我们非常重要的招聘方向。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>北极星：把药物发现搬进计算机，达到“实验级准确度”</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>你们主要攻关哪些组成部分、聚焦哪些领域来做新药？你们有自己的实验室吗？会用机器人做移液吗？你们的方法是怎样的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>如果你走进我们的核心人工智能团队，我们的北极星、真正想实现的目标是：怎样把全部药物发现工作、全部药物设计工作、对疾病生物学的理解都搬到计算机上？怎样摆脱对现实世界的依赖？我知道很多人在打造高效对接现实世界的方式，让你能在现实里做大量迭代，这很好，也是互补的。但从根本上说，时间和成本的大瓶颈在于合成真实的原子，再在真实的检测和实验中测试它们。我们已经看到几乎所有其他工程领域都转向了计算机辅助设计，这改变了我们能设计什么、能制造什么。我们想在这个领域做同样的事。所以说到核心的人工智能药物设计引擎研发，重点就是：我们的模拟模型、世界模型怎样才能达到实验级的准确度？如果你有一个预测模型——以AlphaFold为例，它做的是结构预测，也就是蛋白质的结构以及它们如何相互作用——通常这要花几个月甚至几年做X射线晶体学才能得到一个结构。如果你能用模拟模型</p>
+<p>比如AlphaFold做到，就不必去现实世界里做那些实验，能省下好几个月的时间。药物发现是许多极其困难的科学和工程问题的组合，如果你能用预测模型取代现实世界，就能节省大量时间。所以在内部，我们所有的排行榜上都有一条虚线，代表“实验级准确度”。我们打造的所有这些“超能力”，目标都是达到实验级准确度。到那时就不需要去现实世界了，你可以在计算机上做多得多的设计和迭代。这样当你真的进入现实世界、合成分子、检验科学假设时，成功概率会比传统方式高得多，你不需要在现实世界里转那么多轮，事情变快了，问题也更容易攻克。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>15年、15亿美元里，真正的大头在临床失败</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>我看药物开发，现在大概是15年的流程，花费15亿美元。我的感觉是，小分子和体外工作、组织培养和小鼠实验，大概占两到三年、五千万美元这个量级；另外约14.5亿美元和12年左右，是临床试验、各个阶段和安全性研究。你认为其中有多少能真正装进计算机？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>有发现阶段，就是从一个想法到你认为得到了一个可以用于病人的好分子；在那之前还得做临床前的动物研究，确保它安全、按预期起效，这又要一年；然后进入临床研究，一期、二期、三期逐级加码。看时间线和失败率，我认为这些才是真正拉高平均成本的因素：为什么东西这么贵？因为失败的太多了。而真正失败的地方在临床。并不是这些问题本身是什么怪物，它们之所以在临床失败，是因为直到真正动真格、把药用到病人身上，我们才看得到问题：糟了，有我们没考虑到的毒性；或者分子击中了我们设计它要击中的靶点，但同时也击中了别的东西，产生严重负面效应；或者你击中的那个靶点，我们以为能治好疾病，也许确实能，但它本身就有很严重的负面效应。所以人们只有在开始给真实病人用药时才会发现这些问题。真正的大机会，是在进入人体之前就拥有多得多的这类理解。如果你对疾病生物学、对细胞如何运作理解得更好，也许就能理解你想击中和调节的那个东西真正牵涉到什么。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>所以你们其实在建模所有这些其他组成部分，而不只是“什么分子会和什么结合”。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>没错，我们在建模所有这些组成部分。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>数据从哪来：自建无偏数据；大鼠毒性只有约30%预测性</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>建模这些东西的数据从哪来？这些数据集是怎么来的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>我们有一套极其全面的数据策略。数据到处都有，但过去五年我们学到的根本一点是：自己生成数据有很大机会。当然有大型数据库，有时对深度学习很有用；但很多时候，这些数据库无论是公开的、药企的还是公司里的，都是多年做药过程中被动收集的副产品，所以可能非常有偏，如果你想为药物发现做通用的解决方案，这往往帮不上忙。如果你真的在乎模型的泛化能力，可能需要不同分布的数据。所以我们自己去生成数据，结果看到了非常惊人的数据规模定律（scaling laws）。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>你们怎么衡量这些东西会不会有副作用？有句老话——我有生物学博士学位，做过癌症、神经科学等很多领域——在癌症方面，我们在小鼠身上治愈癌症几百次了，但那些分子转化不到人身上。所以很多真正需要的数据，只能在人体临床试验里产生。你们怎么生成真正有用的数据？因为如果用动物模型，得出的数据往往和人体生物学不符。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>正是这样。听起来你亲身经历过很多，非常痛苦。想想毒性，监管机构要求的金标准，是你必须证明分子在大鼠和其他动物身上没有毒性。可即使药物获批、在大鼠身上验证过，最后在人身上仍常常有毒性。为什么？因为大鼠毕竟不是人，预测性并不好，看你选哪项研究，大鼠对人体临床毒性的预测率大约只有30%。如果我的某位人工智能科学家或工程师跑来说“我们有个很棒的模型，预测率30%”，你会说：好吧，也许再做好一点。所以我认为有很大机会重新思考，人体临床毒性的预测终点到底是什么。别管动物了，它们在过去五十到七十年里一直是替代指标，但我们也许能做得更好：把实验室里容易测的体外终点，和人工智能预测模型，再加上类器官、器官芯片、合成人体组织等一些很棒的新实验技术结合起来，这些技术能近似构建出人体器官的微缩环境。可以想象，有机会把这些结合起来，直接去建模人体临床毒性。这方面数据不多，因为做过的临床试验数量有限，但我认为我们现在有一些很好的方法。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>自研与外包：模型全自研，数据与全球伙伴共建</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>这些方法和技术，你们倾向于合作还是自建？我有点好奇你们作为公司怎么运作，因为能做的事太多了。你们有多想专注计算机科学这一侧？生物学领域常用合同研究组织（CRO），但不幸的是这类机构的产出质量往往参差不齐。你们多大程度依赖外部，多大程度靠内部？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>我们的药物设计引擎、所有人工智能模型，全部是自研。我们也看到生成专有数据、自己拥有这些数据的巨大机会。但生物学和这类实验平台非常复杂、长尾很长，有一些很了不起的人在做很棒的平台。所以我们和全世界合作：有我们自己做的，有合同研究组织，也有其他创新公司，一起帮我们产出驱动模型的数据。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>自动化湿实验室与闭环：终极目标是“只进现实世界做验证”</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>很酷。Anthropic最近宣布要在旧金山（San Francisco）建一个湿实验室。我没有任何内部消息，只是读外部论文，字里行间看起来可能有某种机器人系统、闭环系统之类的东西，</p>
+<p>总的来说——你比我更懂——人工智能模型需要闭环系统来快速迭代，也就是说，如果能拿到快速反馈，比如写代码时能立刻测试，你就有一个快速检验模型好不好的办法。而生物学的问题之一是：你设置一个实验，等三周才拿到结果，还得解读，循环很长，这拖慢了在数据上迭代的进展。建造这些机器人平台之类的东西也许能加快速度。你们怎么看这个问题？你们会把它当作解决方案的一部分吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>看到这些自动化实验室、实验机器人方案进步这么快，真的很令人兴奋。我们和这类自动化实验室合作已经很久了，每个人都应该这样做，我们应该持续压缩与现实世界的迭代时间。但从根本上说，我想摆脱现实世界。因为总有一天你会撞上物理定律的有限性：合成一个分子要多久？到某个时候你只能等反应发生，反应就要那么久。培养一个细胞要多久？到某个时候你只能等那几天，让细胞达到合适状态才能在上面测试。所以，是的，我们作为一个物种可以、也应该、也正在大量改进自动化；但我们也应该大力推动把这些搬到“硅上”，搬进计算机，减少在现实世界花的时间，在计算机上做多得多的预测性工作。这样当我们真的进入现实世界时，是去验证，而不一定是去学习和迭代。我们仍然需要进入现实世界验证，因为我们提出的是新颖的科学假设，最终要在人身上检验，必须确保它有效、安全。但问题在于，你能把进入现实世界做实验、做迭代的时间压缩多少。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s12">
+<div class="body-sec-head"><h3>商业模式与疾病领域：不卖模型，自有管线+药企合作；瞄准“根节点”</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>你们的做法有多少是和现有药企合作，又有多少是自己开发药物？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>人工智能药物设计引擎是我们自研的，而且我们不卖模型、不授权模型，也不按token卖，而是内部用来做药。做药有两种方式：一是我们完全自有、自己出资、自己推进的药物发现项目，也就是内部管线；二是和优秀的药企、生物科技公司合作的项目。后者也非常令人兴奋，因为这些公司和团队往往在特定疾病领域有很棒的想法和深厚的专业积累，他们带着最难的问题来找我们，有些问题他们已经做了10年、20年进展不大，而我们一起用药物设计引擎，能取得巨大进展。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>你们聚焦哪些适应症、哪些健康领域？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>内部我们更多聚焦肿瘤、免疫和炎症。但很酷的是，药物设计引擎和所有模型都是通用的：与疾病无关、与靶点类别无关、与药物形态无关，能跨多种形态使用。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>你们从癌症起步，另外是自身免疫疾病还是别的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>对，免疫和炎症往往高度相关，就是这一类领域。我们内部做肿瘤、炎症这些方向时，我认为有很大机会去攻克一些“根节点”问题：如果有了解决方案，就能对许多不同下游适应症的大量病人产生积极影响。举个例子，癌症是非常非常复杂、长尾的疾病，在病人身上有千变万化的表现形式，但我们也知道，可能存在一些对很多癌症都通用的核心驱动机制。今年早些时候我们看到一个了不起的例子：Revolution Medicines的RAS抑制剂daraxonrasib（口播“Durax”）在一场大型癌症会议上赢得全场起立鼓掌，大幅改善了晚期胰腺癌患者的生存状况。这又是一个攻克某种根节点的好例子。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>明白。RAS在癌症文献里出现了大概二三十年了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>对。但从药物发现和设计的角度看，这些问题难得要命，而且它还有自身的正常生理功能，所以要能精准调节。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>没错。当然癌症突变得很快，你以为找到了办法，临床上却不奏效，因为它绕开你的办法突变了。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s13">
+<div class="body-sec-head"><h3>组合疗法：先把单个分子设计得足够精巧</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>这一点其实很有意思，因为在很多药、很多健康领域，比如HIV，最终都是用药物组合，正是组合疗法让你能压制艾滋病或HIV。而在癌症里，很多药是作为单药而不是组合开发的。就像你说的，肿瘤内部往往有一系列突变，如果你真想治愈它，就得同时压制它们，否则它会在细胞间分布的突变基础上进化逃逸。你们在考虑这种更复杂的组合或多药方案吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>那为什么我们不更多地用组合疗法？问题在于，这些分子往往虽然有效，但有一定毒性，或者对肝脏有影响，同时服用多种时会产生对病人非常有害的药物相互作用。所以恰恰是因为我们还不擅长设计足够精巧的分子和药物，才没法安全地把它们组合给病人，这可能限制了适用面。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>我想也因为能招进临床试验的病人数量有限，所以组合的可能性在临床试验这一侧也会层层叠加，尤其是这些药物怎么组合本身就有很大风险和不确定性。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>这正是我们看到机会的地方。如果你能更精准地设计这些分子，让它们安全、不伤肝、彼此之间不产生不良相互作用，那就有可能设计出——我真心希望——相当复杂的组合，不是一次只调节一个靶点，而是同时调节横跨复杂生物通路的一整组靶点，从而对疾病产生更好的效果。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s14">
+<div class="body-sec-head"><h3>安全与风险：杨森、丘吉尔与青霉素的故事</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>YouTube上有一段很好的视频，讲的是创办杨森制药（Janssen Pharmaceutica）的保罗·杨森（Paul Janssen），公司后来被强生（J&amp;J）收购。他是药物开发和制药领域的伟大先驱之一，按实际上市的药物数量算，他们是最高产的药企之一。视频里他非常强烈地表达了一个观点：药物开发的主要制约是对安全性的过度强调，监管机构在一定程度上抑制了进展。他举例说，二战期间丘吉尔（Churchill）想为前线士兵找到一种性病的治疗办法，于是他们重新发现了抗生素：青霉素早在二十年代就被弗莱明（Fleming）发现，然后被束之高阁、遗忘了；结果在九个月里，他们从零开始重新发现并商业化了青霉素，专门用于治疗这种病，原因是丘吉尔扫除了所有监管障碍。这是杨森举的例子，新冠疫苗也可以说类似，能够加速推出。你认为对安全性的强调是不是太多了？杨森的观点是，这关乎风险与回报。</p>
+<p>你得做权衡，不能一刀切地只谈安全，也该谈获益，有些情况下也该承担风险。你怎么看？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>说实话，我认为始终把病人安全放在心上是至关重要的。但你也需要理解病人面对的风险和他们的风险承受度，这在不同适应症之间可能不同。新冠就是个好例子：因为它太普遍、太危险，病人的风险承受度发生了巨大变化，我认为这改变了需求，也形成了以稍微不同的方式做事的推动力。在不同疾病领域你也能看到：如果病人是晚期癌症、面前没多少选择，风险承受度就和治疗慢性、轻度炎症类适应症非常不同。所以我认为非常重要的是，我们始终聚焦病人安全，同时能根据病人的需求去调节。归根结底，我们希望病人活得更健康，尽快得到治疗。我们和监管机构交流很多，包括美国食品药品监督管理局（FDA）和全世界的监管者，我认为共同点是，大家都真心希望让病人得到最好的药物和解决方案。我也确实认为，随着时间推移，当分子是在对其作用机制有多得多理解的情况下设计出来的，我们能在设计空间里搜索、设计出比经验驱动流程好得多的东西时，它们的成功率和安全性特征会有所不同。我希望随时间证明这种差异在统计上是显著的，而这会改变我们对监管、对把药物送到病人手中的思考方式。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s15">
+<div class="body-sec-head"><h3>首个临床试验何时？五年内应有阶跃式进步</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>你们预计什么时候开展第一项临床试验？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>我很想给你一个确切日期，但这真的是非常难的前沿科学。我们有一些非常令人兴奋的药物正在推进，进展非常顺利，我们正全力尽快把它们送到病人身上。我们一直在扩建临床开发团队，正在为此做准备。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>我知道这类问题总是无法回答，但你能预测一下，比如80%的人类癌症什么时候能被治疗？或者用别的指标说明这件事对世界为什么如此重要？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>如果快进到哪怕五年后，我们还没有这些基础工具——对疾病生物学的预测性理解没有出现巨大的阶跃式进步，我们设计更精准、毒性更低的分子的能力没有出现巨大的阶跃式提升——我会非常失望。药物发现和开发现在仍要好几年，这会随时间缩短，但现在确实要好几年。不过，我们应该具备那些工具，真正开始以不同的方式攻克大片大片的疾病。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s16">
+<div class="body-sec-head"><h3>长寿：寿命与健康寿命</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>统计数据似乎显示，如果从社会中消除癌症和心脏病，普通人的寿命大概会延长五年或七年，我记不清了。所以从某种意义上说，攻克两大头号杀手对长寿的实际影响相当大，换个角度看又有点小。有不少公司试图把衰老或长寿当作一个更普遍的过程来研究，而它显然是由基因编程的：在秀丽隐杆线虫（C. elegans）、果蝇或小鼠身上敲除某些基因，它们能多活20%到30%；线虫甚至能活三倍长，只要敲除特定通路里的某些基因。我读博时其实就研究过那些通路。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>太酷了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>很好玩。在人类寿命的背景下你怎么看？我们最终会不会到达人能活三倍、五倍长的地步？在药物开发和这些即将出现的工具的背景下，你怎么看长寿？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>有意思的是，有些重大疾病影响的人太多了，如果我们能对它们产生影响，就会切实影响人们活多久。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>我觉得即使在癌症和心脏病之外，还有衰老带来的各种慢性病痛在不断累积，而根源就是衰老本身。换句话说，根源在于你让这些系统随时间退化，还有干细胞库。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>对，它们叠加在一起，意味着即使人们活到美好的八九十岁，人生最后十年甚至二十年也未必过得那么好：骨骼开始退化，肌肉开始退化，摔一跤突然就行动不便，这又影响心理健康，生活质量骤降，而你可能还要再活十年。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>衰老研究圈把这叫做“寿命”与“健康寿命”之别。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>没错，我们对此思考很多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>但所有的衰老模型都显示，如果你干预并延缓衰老，健康寿命也会随之延长。换句话说，如果活了三倍长，其实是作为健康成年人活了三倍长，然后在最后才急转直下，两者是同时被延长的。所以我有点好奇你怎么看延长寿命这类事情。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>我觉得看到大家都在做这件事会非常有意思。就像你说的，我们可以从各个角度攻克它：一方面改善那些折磨我们的疾病，帮助最大化健康寿命；另一方面也去攻击身体、细胞和器官衰老与退化的一些根本原因，让我们真正能随时间延长它。这个领域正在发生非常令人兴奋的工作，看它怎么发展会很有意思。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elad"><div class="label"><span class="badge" title="埃拉德·吉尔（Elad Gil）">埃拉德</span></div><div class="content">
+<p>太棒了，非常感谢你今天的到来。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="max"><div class="label"><span class="badge" title="马克斯·雅德伯格（Max Jaderberg）">马克斯</span></div><div class="content">
+<p>这是一次非常精彩的对话。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：节目订阅与社交账号口播]</span></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "No Priors", "title": "用 AI 驱动药物发现：对话同构实验室总裁马克斯·雅德伯格", "url": "https://www.youtube.com/watch?v=IiKf3BgBezE", "videoId": "IiKf3BgBezE", "published_at": "2026-11-12 03:00 PST（America/Los_Angeles）", "duration": 2356, "caption_source": "YouTube 页面 Show transcript / 内容转文字（caption_source=browser-cdp，subtitle_type=youtube-show-transcript）。今日 yt-dlp 普通路径在 ffh7fdwfrWU 上遇 HTTP 429、chrome cookies（chrome:/home/box/chrome-profile/Fork-3）路径报 “The page needs to be reloaded”，为免加剧风控本条直接走浏览器 Show transcript。说话人：简介写明由埃拉德·吉尔主持，嘉宾马克斯·雅德伯格；按问答轮次与自述经历（埃拉德的生物学博士与Color公司、马克斯的DeepMind经历）区分，较高把握。ASR订正：Max Yadberg→马克斯·雅德伯格（Max Jaderberg）；Isomeorphic→同构实验室（Isomorphic Labs）；Deus/Demis→德米斯·哈萨比斯；Yan Lakun→杨立昆；Madna→Moderna；Vert.Ex→福泰（Vertex）；Amjen→安进（Amgen）；Alphold++→AlphaFold++；Durax and RAS / Kraz→RAS抑制剂 daraxonrasib（Revolution Medicines，按音推断）；Jansen→保罗·杨森（Paul Janssen）；St. Churchill→丘吉尔；seaggans→秀丽隐杆线虫（C. elegans）；no-bers.com→no-priors.com。片头约44秒为正片片段剪辑。片尾订阅口播已删除。", "guests": ["马克斯·雅德伯格（Max Jaderberg）"], "speakers": [{"id": "elad", "name": "埃拉德·吉尔（Elad Gil）", "role": "host", "short": "埃拉德"}, {"id": "max", "name": "马克斯·雅德伯格（Max Jaderberg）", "role": "guest", "short": "马克斯"}], "intro": {"summary": "《No Priors》中，埃拉德·吉尔（Elad Gil）对话同构实验室（Isomorphic Labs）总裁马克斯·雅德伯格（Max Jaderberg），谈如何把药物发现从经验试错变成“计算机里的精密工程”，以及AI制药的数据、商业模式、监管与长寿。", "points": ["制药悖论：论文数量涨10–20倍、药物形态增多，新药获批数量却持平；单药成本约15亿美元、周期约15年，失败主要发生在临床。", "同构实验室所有内部排行榜都有一条“实验级准确度”虚线，目标是让模拟模型准到可以替代大部分现实实验，现实世界主要用来验证。", "大鼠对人体临床毒性的预测性约只有30%；公司自建无偏数据并观察到数据规模定律，也在结合类器官、器官芯片等新技术建模人体毒性。", "不卖模型、不授权：自有管线聚焦肿瘤、免疫与炎症，另与药企合作攻克多年无进展的难题；团队约五名AI人才配一名领域专家。", "首个临床试验没有时间表，正在扩建临床团队；马克斯说五年内如果疾病生物学预测能力没有阶跃式进步，他会“非常失望”。"], "verdict": "值得看：关心AI制药、生物科技投资与长寿研究的人，约39分钟，问答扎实，有不少具体数字。可跳过：想了解具体管线细节的人，嘉宾没有透露分子、靶点或时间表。", "audience": "AI+生物医药 / 生物科技投资 / 长寿研究"}, "sections": [{"id": "s1", "title": "开场：同构实验室总裁马克斯·雅德伯格", "start_sec": 0, "summary": "片头剪辑点出全集主线：制药高度依赖经验试错，最大的失败发生在临床，因为毒性等问题直到给病人用药才被发现；机会是把药物发现搬到计算机上。埃拉德·吉尔介绍嘉宾：马克斯是由Alphabet等投资的同构实验室（Isomorphic Labs）总裁和创始团队成员，计算机视觉博士，曾把公司卖给谷歌DeepMind并在那里晋升，公司目标是“攻克所有疾病”。"}, {"id": "s2", "title": "从 AlphaGo 到 AlphaFold：为什么在2021年创立同构实验室", "start_sec": 83, "summary": "马克斯在DeepMind做过早期生成模型、语言模型、深度强化学习，以及AlphaGo、AlphaStar等游戏挑战，2018–2019年还在向世界证明“AI是回事”。他和德米斯·哈萨比斯都在想这些技术该用在哪；AlphaFold的结果是第一个证据，说明深度学习能在生物学中一个有意义的空间泛化。攻克所有疾病需要独立的公司、文化和跨学科团队，并要跑得快，于是2021年前后成立了同构实验室。"}, {"id": "s3", "title": "个人经历：AlexNet前读博、ImageNet 2014、被德米斯“劝”进 DeepMind", "start_sec": 228, "summary": "马克斯是工程背景，在AlexNet（2012）之前开始在牛津读计算机视觉博士，曾与杨立昆讨论卷积网络，团队拿下2014年ImageNet冠军网络，做物体识别和文字检测。他创办了“计算机视觉即服务”公司，正值DeepMind刚被谷歌收购，他去找德米斯谈天使投资，德米斯反问“为什么不来DeepMind一起解决AGI”，他当时的回应是“AGI是什么”，公司于2014年被DeepMind收购。"}, {"id": "s4", "title": "制药悖论：知识爆炸，新药产出却持平", "start_sec": 322, "summary": "埃拉德指出，每年新药获批数量大致持平，但论文数量涨了10–20倍，抗体、小分子、蛋白质、多肽等药物形态增多；单药成本从一亿到几亿美元涨到约15亿美元，周期从八九年拉长到约15年。马克斯认为根本原因是行业做药一直靠经验：百年前的药多是偶然发现，阿司匹林、对乙酰氨基酚的作用机制长期不明，至今仍是“提出假设→合成→实测→反复迭代”。细胞与分子都是高维复杂系统，试错筛选限制了能找到的方案复杂度，低垂果实已被摘完。"}, {"id": "s5", "title": "行业老化与研发的规模经济：让学习成果复利累积", "start_sec": 528, "summary": "埃拉德说，除了因新冠崛起的Moderna，上一次诞生500亿美元以上的生物医药公司还是1980年代的再生元（同时期还有福泰、安进），将近40年没有新的几百亿美元级生物科技公司，问这是不是监管和官僚化导致的老化，就像特斯拉之前的汽车业。马克斯认为还有文化因素，关键是研发缺乏规模经济：每款药都像孤立的定制科研项目，经验难以迁移；如果底层有AI平台吸收每个项目的经验、改进对疾病生物学和分子设计的理解，做的药越多改进越快。埃拉德把这与基础模型“规模带来泛化”联系起来。"}, {"id": "s6", "title": "招人：AI 顶尖人才 + 生物化学专家，约一比五", "start_sec": 711, "summary": "“AI药物发现专家”几乎不存在，所以同构实验室招核心AI与深度学习的顶尖人才（可能完全不懂生命科学），也招没怎么接触过AI的生物学家和化学家，在内部培养跨学科科学家。埃拉德分享自己创办基因组公司Color时约五个机器学习人员配一个传统领域科学家；马克斯说核心建模项目的比例相近，领域专家负责确保指标真实、能转化为药物。目前重点招聘方向是AlphaFold++这类模拟模型，以及把前沿和开源模型适配到药物领域的推理模型。"}, {"id": "s7", "title": "北极星：把药物发现搬进计算机，达到“实验级准确度”", "start_sec": 875, "summary": "马克斯说，时间和成本的最大瓶颈是合成真实分子再做实测，其他工程领域早已转向计算机辅助设计。以AlphaFold为例，X射线晶体学测一个结构要几个月到几年，预测模型可以省掉这些时间。公司所有内部排行榜上都画着一条“实验级准确度”虚线，目标是让各项模拟能力达到这条线；这样进入现实实验时成功率更高、需要的轮次更少。"}, {"id": "s8", "title": "15年、15亿美元里，真正的大头在临床失败", "start_sec": 1040, "summary": "埃拉德估计，小分子与体外、组织培养、小鼠实验约占2–3年、5000万美元量级，其余约14.5亿美元和12年花在临床试验与安全性研究上。马克斯解释，从发现到临床前动物研究约一年，再到一、二、三期临床；成本高主要因为失败太多，而失败集中在临床：没预料到的毒性、脱靶效应，或者靶点本身调节后有严重副作用。最大的机会是在进人体前就理解得更多，所以模型不只看“什么分子结合什么”，还要建模细胞和疾病生物学中的其他组成部分。"}, {"id": "s9", "title": "数据从哪来：自建无偏数据；大鼠毒性只有约30%预测性", "start_sec": 1171, "summary": "马克斯说，公开、药企和公司内部数据库多是多年做药的被动副产品，偏差很大，不利于通用模型；同构实验室自己生成数据，并观察到惊人的数据规模定律。埃拉德提到癌症“在小鼠身上被治愈了几百次”却难以转化到人。马克斯指出，监管金标准要求证明分子对大鼠等动物无毒，但大鼠对人体临床毒性的预测性约只有30%；他主张结合体外终点、AI预测模型，以及类器官、器官芯片、合成人体组织等新技术，直接建模人体临床毒性，尽管这方面临床数据有限。"}, {"id": "s10", "title": "自研与外包：模型全自研，数据与全球伙伴共建", "start_sec": 1369, "summary": "针对CRO（合同研究组织）质量参差不齐的问题，马克斯说药物设计引擎和全部AI模型都在内部开发，并重视自有专有数据；但实验平台复杂且长尾，所以数据生产会结合自建实验、CRO和其他创新公司。"}, {"id": "s11", "title": "自动化湿实验室与闭环：终极目标是“只进现实世界做验证”", "start_sec": 1435, "summary": "埃拉德提到Anthropic宣布在旧金山建湿实验室，外界推测可能是机器人闭环系统，因为生物实验往往要等三周才能拿到结果，迭代很慢。马克斯说同构实验室早就在和自动化实验室合作，也应继续缩短迭代时间，但化学反应和细胞培养有物理上限，所以更要把工作搬到计算机上，让现实实验主要用于验证而不是学习和迭代；新假设最终仍须在人身上证明安全有效。"}, {"id": "s12", "title": "商业模式与疾病领域：不卖模型，自有管线+药企合作；瞄准“根节点”", "start_sec": 1581, "summary": "同构实验室不出售或授权模型、不按token收费，只在内部用来做药：一类是自有自筹的内部管线，另一类是与药企、生物科技公司的合作项目，对方常带来做了10–20年进展不大的难题。内部聚焦肿瘤、免疫与炎症，但引擎对疾病、靶点类别和药物形态都通用。马克斯强调攻克“根节点”机制，举例Revolution Medicines的RAS抑制剂daraxonrasib在大型癌症会议上获得起立鼓掌，显著改善晚期胰腺癌患者状况；双方也谈到RAS研究二三十年之难，以及癌症会绕开药物突变。"}, {"id": "s13", "title": "组合疗法：先把单个分子设计得足够精巧", "start_sec": 1760, "summary": "埃拉德以HIV的鸡尾酒疗法为例，问癌症为何多是单药开发。马克斯说许多分子虽有效，却有毒性或伤肝，多药同服会产生有害的药物相互作用；临床试验能招募的病人有限，组合数量又在叠加。只要能把分子设计得足够安全、不伤肝、互不干扰，就有望做出同时调节整条复杂通路上一组靶点的组合疗法。"}, {"id": "s14", "title": "安全与风险：杨森、丘吉尔与青霉素的故事", "start_sec": 1877, "summary": "埃拉德引用杨森制药创始人保罗·杨森的观点：药物开发的主要制约是过度强调安全，并举例二战时丘吉尔为治疗前线士兵的性病扫除监管障碍，九个月内重新发现并商业化了二十年代就由弗莱明发现、后来被搁置的青霉素；新冠疫苗也类似。马克斯坚持病人安全始终至关重要，但风险承受度因适应症而异，晚期癌症病人与慢性轻度炎症病人显然不同。他说与FDA等全球监管者交流时，各方都希望尽快把最好的药给病人；他希望用统计上显著更高的成功率和更好的安全性，来改变人们对监管的看法。"}, {"id": "s15", "title": "首个临床试验何时？五年内应有阶跃式进步", "start_sec": 2066, "summary": "马克斯不给确切日期，称这是困难的前沿科学，但有几款“非常令人兴奋”的药物进展顺利，公司正在扩建临床开发团队。被问80%癌症何时可治，他说如果五年后对疾病生物学的预测能力、以及设计更精准低毒分子的能力还没有阶跃式提升，他会非常失望；药物开发仍需数年，但应该具备成片攻克疾病的工具。"}, {"id": "s16", "title": "长寿：寿命与健康寿命", "start_sec": 2141, "summary": "埃拉德说统计上消除癌症和心脏病大约只让平均寿命多出五到七年；而在线虫、果蝇、小鼠身上敲除特定通路基因可延寿20%–30%，线虫甚至三倍，他读博时研究过这些通路。马克斯谈衰老带来的慢性退化，例如骨骼肌肉退化、一次摔倒就让晚年最后十到二十年生活质量骤降。埃拉德指出衰老模型中延缓衰老会同时延长健康寿命；马克斯认为既要治疗具体疾病、最大化健康寿命，也要攻击衰老的根本原因。片尾订阅口播已删除。"}], "paragraphs": [{"start_sec": 0, "type": "text", "zh": "【片头剪辑】这个行业大部分制药流程都高度依赖经验试错。【音乐】真正失败的地方在临床，因为直到把药用到病人身上，我们才看得到问题，然后才说：糟了，有我们没考虑到的毒性。所以真正的大机会，是在进入人体之前就拥有多得多的理解：怎样把药物发现的全部工作搬到计算机上？怎样摆脱对现实世界实验的依赖？如果快进到五年后，我们对疾病生物学的预测性理解还没有出现巨大的阶跃式进步，我会非常失望。", "speaker_id": "max", "section_id": "s1"}, {"start_sec": 32, "type": "text", "zh": "【片头剪辑】你能预测一下，比如80%的人类癌症什么时候能够被治疗吗？", "speaker_id": "elad", "section_id": "s1"}, {"start_sec": 45, "type": "text", "zh": "今天的《No Priors》，我们请到了马克斯·雅德伯格（Max Jaderberg），他是同构实验室（Isomorphic Labs）总裁、创始团队成员之一。同构实验室由Alphabet和其他多家投资方支持，目标是攻克所有疾病，这个话题非常令人兴奋。我们会聊聊人工智能在生物医药、人类健康和长寿未来中的角色。马克斯有机器学习背景，拥有这一领域的博士学位，做的是机器视觉，后来把公司卖给了谷歌DeepMind，在那里一路晋升，如今担任同构实验室总裁。很期待这次对话。马克斯，非常感谢你今天来。", "speaker_id": "elad", "section_id": "s1"}, {"start_sec": 78, "type": "text", "zh": "非常荣幸来到这里，谢谢。", "speaker_id": "max", "section_id": "s1"}, {"start_sec": 83, "type": "text", "zh": "我认为同构实验室是目前整个科技界最引人入胜的公司之一。Alphabet是主要股东和支持方；德米斯（Demis Hassabis）在DeepMind等地开创了很多模型——我记得你之前就把公司卖给了DeepMind——他在公司的创立、搭建和如今的运营上都出了大力。你们在攻克人类剩下的最大难题之一：人类健康。能讲讲你是怎么来做这家公司的、创立它的动力是什么吗？", "speaker_id": "elad", "section_id": "s2"}, {"start_sec": 116, "type": "text", "zh": "我是同构实验室创始团队的一员。在此之前我在DeepMind待了很长时间，个人做的是早期的生成模型、语言模型、深度强化学习，以及那些大型游戏挑战问题，像AlphaGo、AlphaStar，那是我的拿手好戏。那时候，大概是2018、2019年，我们在攻克那些所谓“不可能”的问题。", "speaker_id": "max", "section_id": "s2"}, {"start_sec": 144, "type": "text", "zh": "就是游戏，人工智能能不能打赢电子游戏。", "speaker_id": "elad", "section_id": "s2"}, {"start_sec": 147, "type": "text", "zh": "没错。那时我们还在努力向世界证明人工智能真的是回事。我们去攻克那些不可能的问题，而我亲眼看到了怎样系统性地解决它们。到了某个时候，我个人的想法是：好，我们还没有达到通用人工智能（AGI），但我们显然已经拥有深度学习和强化学习这一整套惊人的技术，我们真正应该把它用在什么问题上？我在想这些，德米斯当然也在想这些。同时我们看到了AlphaFold的结果，最初的火花开始出现。对我们来说，那是第一个概念验证：深度学习模型能够在生物学中一个有意义的空间里实现泛化。正是这个概念验证给了我们信心：现在就是追求这个宏大使命的正确时机——改变我们思考人类健康的方式，去攻克所有疾病。这需要非常大的投入，值得单独成立一家公司、拥有自己的文化，把不同学科的人聚在一起，并且能够跑得非常快。这就是2021年前后同构实验室的起源。", "speaker_id": "max", "section_id": "s2"}, {"start_sec": 228, "type": "text", "zh": "太棒了。你的背景最初更偏深度学习和人工智能建模，我记得你把一家公司卖给了DeepMind，是2014年吗？", "speaker_id": "elad", "section_id": "s3"}, {"start_sec": 236, "type": "text", "zh": "对，没错。", "speaker_id": "max", "section_id": "s3"}, {"start_sec": 237, "type": "text", "zh": "那很早了，你在很多人意识到它有多重要之前就在做这些。能多讲讲你一路走来的经历吗？最初是什么让你感兴趣的？", "speaker_id": "elad", "section_id": "s3"}, {"start_sec": 247, "type": "text", "zh": "我是工程背景，几乎是误打误撞读了计算机视觉的博士，而且恰好赶上转折点：我读博开始时还在AlexNet之前。", "speaker_id": "max", "section_id": "s3"}, {"start_sec": 263, "type": "text", "zh": "AlexNet是2012年吧？", "speaker_id": "elad", "section_id": "s3"}, {"start_sec": 265, "type": "text", "zh": "对。然后我看着它出现，心想：哇，太棒了。我记得和杨立昆（Yann LeCun）聊卷积神经网络，我觉得我们必须把它引入我们在牛津（Oxford）做的核心计算机视觉领域。后来我们开发了一系列方法，拿下了2014年ImageNet的冠军网络，做最好的物体识别、文字检测之类。我还在这个领域创办了一家公司，做“计算机视觉即服务”，当时在融资，恰好德米斯和DeepMind刚卖给谷歌。我想很快融到钱，就去找德米斯谈天使投资，他说：你为什么不干脆来DeepMind一起解决AGI？我说：AGI是什么？就这样开始了我在DeepMind的旅程。", "speaker_id": "max", "section_id": "s3"}, {"start_sec": 322, "type": "text", "zh": "太精彩了。你们现在基本是一家垂直整合的公司，从模型到生物学全都做，目标是找到能在人类健康各方面帮助人的药物。看制药行业，我觉得有一点特别惊人——我以前画过这张图——每年新药获批数量大致是平的。可同期知识在爆炸：科学论文数量呈指数增长，涨了10到20倍；新的药物形态也多了，有抗体药、小分子、蛋白质、多肽，各种新的治疗方式。价格却大幅上涨，从每款药一亿到几亿美元涨到15亿美元；周期从八九年变成15年。所以在知识库爆炸、可做的分子类型增多的同时，各项指标都在变差，产出却持平。为什么会这样？为什么在其他方面进步这么大的情况下，它还这么停滞？", "speaker_id": "elad", "section_id": "s4"}, {"start_sec": 384, "type": "text", "zh": "是啊，看到做新药越来越难、越来越贵、越来越久，真的很夸张。我想背后有很多原因。我思考很多的一点是：整个行业、乃至人类一直以来做药的方式，都是非常非常依赖经验的过程。最开始——很久以前，比如一百年前——我们找到的药物是偶然得来的，碰巧发现某样东西有生理作用，人们就开始用。后来稍微精细了一点，但仍是经验性的反复试错。很多药我们其实是猜出来的，比如阿司匹林，很长时间我们都不知道它是怎么起作用的；对乙酰氨基酚（扑热息痛）也一样。而我们做药的方式，至今行业里大部分仍是这种高度经验驱动的过程。所谓经验驱动，就是你对疾病如何运作有一个假设，对好的分子设计有一个假设，但必须把它做出来、在现实世界里测试，并且反复迭代。这很慢，很难从中得到信号。生物学的空间非常大、非常复杂：细胞是一个庞大、复杂、混沌、维度极高的系统；分子设计，无论小分子、抗体还是多肽，也都是维度极高的对象，组合起来", "speaker_id": "max", "section_id": "s4"}, {"start_sec": 486, "type": "text", "zh": "就是巨大的设计问题，而我们手里能用的工具，基本上只有反复试错的筛选流程。在我看来，这就限制了在有限时间、有限经费的经验性工作里，你能找到的解决方案有多复杂。所以随着时间推移，你看到的是：靠经验性设计流程能找到的“低垂果实”正在被摘完，而要提高复杂度、找到这套经验流程够不着的东西，就越来越难。", "speaker_id": "max", "section_id": "s4"}, {"start_sec": 528, "type": "text", "zh": "有意思。但你不觉得吗？看其他任何行业，行业的“年龄”往往会影响它的变化速度，越老的行业动得越慢，变得更官僚，监管俘获更多等等。我想，除了Moderna——而Moderna几乎是新冠带来的意外——上一次出现市值超过500亿美元的生物医药公司，还是1980年代的再生元（Regeneron）。所以已经快40年没有诞生一家几百亿美元级的新生物科技公司了。", "speaker_id": "elad", "section_id": "s5"}, {"start_sec": 554, "type": "text", "zh": "对，再生元、福泰（Vertex），安进（Amgen）也是那个年代，八十年代初。", "speaker_id": "max", "section_id": "s5"}, {"start_sec": 567, "type": "text", "zh": "所以你觉得多大程度上只是监管问题、官僚化的组织，或者说是那种到处都会发生的自然老化？汽车业在特斯拉（Tesla）出现之前就是这样。", "speaker_id": "elad", "section_id": "s5"}, {"start_sec": 580, "type": "text", "zh": "我们刚才谈的可能是科学层面。我认为还有很大的文化层面：一个行业怎么才能持续创新、持续跑得非常快？与科学技术相关的另一点是：在研发端，到底什么机制能带来规模经济？如果你是一家药企或生物科技公司，瞄准某个药物靶点、全力去做某个药，你从中学到了什么，能帮你更快地做下一个药，再下一个更快？因为如果能让学习成果随时间复利累积，你也许就能获得规模效应，打造出真正了不起的大公司。但我认为行业里很多做药的技术和方式，实际上把每个药都当作彼此割裂的项目，就像一个定制的前沿科学项目，你对这个项目学到很多，可能真正能迁移到下一个的并不多——当然在疾病领域上也有大量各不相同的积累。我认为这正是人工智能和机器学习的世界可以大幅改变的地方：如果在做这些药的下面有一个平台，能真正吸收、理解这些经验，并反过来影响你对疾病生物学、对如何设计好分子、如何精巧地设计这些药物的基础理解，那么你就有望做的药越多，改进就越呈复利增长。", "speaker_id": "max", "section_id": "s5"}, {"start_sec": 679, "type": "text", "zh": "我想这是因为，深度学习和我们现在所处的基础模型时代涌现出的一个惊人特点，就是随着规模扩大，某些东西具有可泛化性。听起来在生物学里也许也是这样：只要规模足够、方法足够周全，你就能把以前需要定制解决的问题泛化。你们采取的是什么方法？", "speaker_id": "elad", "section_id": "s5"}, {"start_sec": 699, "type": "text", "zh": "我认为这正是同构实验室和以往相比的重大转变。我们不是第一批试图用人工智能改变药物设计和药物发现方式的人。", "speaker_id": "max", "section_id": "s5"}, {"start_sec": 711, "type": "text", "zh": "同构实验室有一点特别吸引人：一群背景迥异的人聚在一起为同一个目标努力。能多讲讲你们招什么样的人吗？他们的画像是什么？你们现在在找什么人？", "speaker_id": "elad", "section_id": "s6"}, {"start_sec": 723, "type": "text", "zh": "这个领域很有意思，因为前沿人工智能与药物发现、化学、生物学的结合并没有存在多久。所以你没法出去说“我要招全世界最懂人工智能药物发现的专家”，因为这样的人基本不存在；就算有，用的也不是我们的模型，而是不同的技术。所以我们的思路就是去找核心人工智能和深度学习领域最顶尖的人，他们可能根本没有生命科学、生物学或化学背景，但非常希望自己在深度学习上的工作能转化为对人类的巨大影响。所以我们招核心的人工智能人才，也招可能没怎么接触过人工智能的核心生物学和化学人才，然后在内部努力建立一种人人互相交流、互相学习的文化，内部就逐渐涌现出跨学科的专家型科学家，看到这一点非常令人兴奋。", "speaker_id": "max", "section_id": "s6"}, {"start_sec": 779, "type": "text", "zh": "你们怎么考虑这些人的比例？我很久以前创办过一家叫Color的公司，前几年我当联合首席执行官，十多年前由我的联合创始人接手。那时我们基本是把机器学习和数据科学用于基因组学，搭建基因组分析流程。我们发现，大约五个机器学习人员配一个来自传统领域的研究科学家，差不多就是我们采用的比例。你们现在怎样？一个攻关小组里，各学科的人各有多少最合适？", "speaker_id": "elad", "section_id": "s6"}, {"start_sec": 813, "type": "text", "zh": "对于那些核心的人工智能“超能力”项目，也就是人工智能建模项目，我觉得其实差不多：有核心的建模人员，比如工程师、人工智能科学家，然后需要一些关键的领域专家，真正理解应用场景、理解数据的细微之处、知道各项指标意味着什么，确保我们不是在追逐虚假的指标，而是真正能转化为做出药物的东西。所以一比五这样的比例，和我们团队的样子很吻合。", "speaker_id": "max", "section_id": "s6"}, {"start_sec": 846, "type": "text", "zh": "有没有你们正在积极招聘的特定岗位？还是全面招？", "speaker_id": "elad", "section_id": "s6"}, {"start_sec": 850, "type": "text", "zh": "我们希望最好的人工智能研究者加入同构实验室，帮我们推进这个使命。核心模拟模型方面，比如AlphaFold++，有大量工作要做；核心推理模型方面也是，要把各种前沿模型和开源模型拿来适配到我们的领域。这是我们非常重要的招聘方向。", "speaker_id": "max", "section_id": "s6"}, {"start_sec": 875, "type": "text", "zh": "你们主要攻关哪些组成部分、聚焦哪些领域来做新药？你们有自己的实验室吗？会用机器人做移液吗？你们的方法是怎样的？", "speaker_id": "elad", "section_id": "s7"}, {"start_sec": 888, "type": "text", "zh": "如果你走进我们的核心人工智能团队，我们的北极星、真正想实现的目标是：怎样把全部药物发现工作、全部药物设计工作、对疾病生物学的理解都搬到计算机上？怎样摆脱对现实世界的依赖？我知道很多人在打造高效对接现实世界的方式，让你能在现实里做大量迭代，这很好，也是互补的。但从根本上说，时间和成本的大瓶颈在于合成真实的原子，再在真实的检测和实验中测试它们。我们已经看到几乎所有其他工程领域都转向了计算机辅助设计，这改变了我们能设计什么、能制造什么。我们想在这个领域做同样的事。所以说到核心的人工智能药物设计引擎研发，重点就是：我们的模拟模型、世界模型怎样才能达到实验级的准确度？如果你有一个预测模型——以AlphaFold为例，它做的是结构预测，也就是蛋白质的结构以及它们如何相互作用——通常这要花几个月甚至几年做X射线晶体学才能得到一个结构。如果你能用模拟模型", "speaker_id": "max", "section_id": "s7"}, {"start_sec": 986, "type": "text", "zh": "比如AlphaFold做到，就不必去现实世界里做那些实验，能省下好几个月的时间。药物发现是许多极其困难的科学和工程问题的组合，如果你能用预测模型取代现实世界，就能节省大量时间。所以在内部，我们所有的排行榜上都有一条虚线，代表“实验级准确度”。我们打造的所有这些“超能力”，目标都是达到实验级准确度。到那时就不需要去现实世界了，你可以在计算机上做多得多的设计和迭代。这样当你真的进入现实世界、合成分子、检验科学假设时，成功概率会比传统方式高得多，你不需要在现实世界里转那么多轮，事情变快了，问题也更容易攻克。", "speaker_id": "max", "section_id": "s7"}, {"start_sec": 1040, "type": "text", "zh": "我看药物开发，现在大概是15年的流程，花费15亿美元。我的感觉是，小分子和体外工作、组织培养和小鼠实验，大概占两到三年、五千万美元这个量级；另外约14.5亿美元和12年左右，是临床试验、各个阶段和安全性研究。你认为其中有多少能真正装进计算机？", "speaker_id": "elad", "section_id": "s8"}, {"start_sec": 1068, "type": "text", "zh": "有发现阶段，就是从一个想法到你认为得到了一个可以用于病人的好分子；在那之前还得做临床前的动物研究，确保它安全、按预期起效，这又要一年；然后进入临床研究，一期、二期、三期逐级加码。看时间线和失败率，我认为这些才是真正拉高平均成本的因素：为什么东西这么贵？因为失败的太多了。而真正失败的地方在临床。并不是这些问题本身是什么怪物，它们之所以在临床失败，是因为直到真正动真格、把药用到病人身上，我们才看得到问题：糟了，有我们没考虑到的毒性；或者分子击中了我们设计它要击中的靶点，但同时也击中了别的东西，产生严重负面效应；或者你击中的那个靶点，我们以为能治好疾病，也许确实能，但它本身就有很严重的负面效应。所以人们只有在开始给真实病人用药时才会发现这些问题。真正的大机会，是在进入人体之前就拥有多得多的这类理解。如果你对疾病生物学、对细胞如何运作理解得更好，也许就能理解你想击中和调节的那个东西真正牵涉到什么。", "speaker_id": "max", "section_id": "s8"}, {"start_sec": 1164, "type": "text", "zh": "所以你们其实在建模所有这些其他组成部分，而不只是“什么分子会和什么结合”。", "speaker_id": "elad", "section_id": "s8"}, {"start_sec": 1169, "type": "text", "zh": "没错，我们在建模所有这些组成部分。", "speaker_id": "max", "section_id": "s8"}, {"start_sec": 1171, "type": "text", "zh": "建模这些东西的数据从哪来？这些数据集是怎么来的？", "speaker_id": "elad", "section_id": "s9"}, {"start_sec": 1174, "type": "text", "zh": "我们有一套极其全面的数据策略。数据到处都有，但过去五年我们学到的根本一点是：自己生成数据有很大机会。当然有大型数据库，有时对深度学习很有用；但很多时候，这些数据库无论是公开的、药企的还是公司里的，都是多年做药过程中被动收集的副产品，所以可能非常有偏，如果你想为药物发现做通用的解决方案，这往往帮不上忙。如果你真的在乎模型的泛化能力，可能需要不同分布的数据。所以我们自己去生成数据，结果看到了非常惊人的数据规模定律（scaling laws）。", "speaker_id": "max", "section_id": "s9"}, {"start_sec": 1230, "type": "text", "zh": "你们怎么衡量这些东西会不会有副作用？有句老话——我有生物学博士学位，做过癌症、神经科学等很多领域——在癌症方面，我们在小鼠身上治愈癌症几百次了，但那些分子转化不到人身上。所以很多真正需要的数据，只能在人体临床试验里产生。你们怎么生成真正有用的数据？因为如果用动物模型，得出的数据往往和人体生物学不符。", "speaker_id": "elad", "section_id": "s9"}, {"start_sec": 1258, "type": "text", "zh": "正是这样。听起来你亲身经历过很多，非常痛苦。想想毒性，监管机构要求的金标准，是你必须证明分子在大鼠和其他动物身上没有毒性。可即使药物获批、在大鼠身上验证过，最后在人身上仍常常有毒性。为什么？因为大鼠毕竟不是人，预测性并不好，看你选哪项研究，大鼠对人体临床毒性的预测率大约只有30%。如果我的某位人工智能科学家或工程师跑来说“我们有个很棒的模型，预测率30%”，你会说：好吧，也许再做好一点。所以我认为有很大机会重新思考，人体临床毒性的预测终点到底是什么。别管动物了，它们在过去五十到七十年里一直是替代指标，但我们也许能做得更好：把实验室里容易测的体外终点，和人工智能预测模型，再加上类器官、器官芯片、合成人体组织等一些很棒的新实验技术结合起来，这些技术能近似构建出人体器官的微缩环境。可以想象，有机会把这些结合起来，直接去建模人体临床毒性。这方面数据不多，因为做过的临床试验数量有限，但我认为我们现在有一些很好的方法。", "speaker_id": "max", "section_id": "s9"}, {"start_sec": 1369, "type": "text", "zh": "这些方法和技术，你们倾向于合作还是自建？我有点好奇你们作为公司怎么运作，因为能做的事太多了。你们有多想专注计算机科学这一侧？生物学领域常用合同研究组织（CRO），但不幸的是这类机构的产出质量往往参差不齐。你们多大程度依赖外部，多大程度靠内部？", "speaker_id": "elad", "section_id": "s10"}, {"start_sec": 1393, "type": "text", "zh": "我们的药物设计引擎、所有人工智能模型，全部是自研。我们也看到生成专有数据、自己拥有这些数据的巨大机会。但生物学和这类实验平台非常复杂、长尾很长，有一些很了不起的人在做很棒的平台。所以我们和全世界合作：有我们自己做的，有合同研究组织，也有其他创新公司，一起帮我们产出驱动模型的数据。", "speaker_id": "max", "section_id": "s10"}, {"start_sec": 1435, "type": "text", "zh": "很酷。Anthropic最近宣布要在旧金山（San Francisco）建一个湿实验室。我没有任何内部消息，只是读外部论文，字里行间看起来可能有某种机器人系统、闭环系统之类的东西，", "speaker_id": "elad", "section_id": "s11"}, {"start_sec": 1451, "type": "text", "zh": "总的来说——你比我更懂——人工智能模型需要闭环系统来快速迭代，也就是说，如果能拿到快速反馈，比如写代码时能立刻测试，你就有一个快速检验模型好不好的办法。而生物学的问题之一是：你设置一个实验，等三周才拿到结果，还得解读，循环很长，这拖慢了在数据上迭代的进展。建造这些机器人平台之类的东西也许能加快速度。你们怎么看这个问题？你们会把它当作解决方案的一部分吗？", "speaker_id": "elad", "section_id": "s11"}, {"start_sec": 1485, "type": "text", "zh": "看到这些自动化实验室、实验机器人方案进步这么快，真的很令人兴奋。我们和这类自动化实验室合作已经很久了，每个人都应该这样做，我们应该持续压缩与现实世界的迭代时间。但从根本上说，我想摆脱现实世界。因为总有一天你会撞上物理定律的有限性：合成一个分子要多久？到某个时候你只能等反应发生，反应就要那么久。培养一个细胞要多久？到某个时候你只能等那几天，让细胞达到合适状态才能在上面测试。所以，是的，我们作为一个物种可以、也应该、也正在大量改进自动化；但我们也应该大力推动把这些搬到“硅上”，搬进计算机，减少在现实世界花的时间，在计算机上做多得多的预测性工作。这样当我们真的进入现实世界时，是去验证，而不一定是去学习和迭代。我们仍然需要进入现实世界验证，因为我们提出的是新颖的科学假设，最终要在人身上检验，必须确保它有效、安全。但问题在于，你能把进入现实世界做实验、做迭代的时间压缩多少。", "speaker_id": "max", "section_id": "s11"}, {"start_sec": 1581, "type": "text", "zh": "你们的做法有多少是和现有药企合作，又有多少是自己开发药物？", "speaker_id": "elad", "section_id": "s12"}, {"start_sec": 1587, "type": "text", "zh": "人工智能药物设计引擎是我们自研的，而且我们不卖模型、不授权模型，也不按token卖，而是内部用来做药。做药有两种方式：一是我们完全自有、自己出资、自己推进的药物发现项目，也就是内部管线；二是和优秀的药企、生物科技公司合作的项目。后者也非常令人兴奋，因为这些公司和团队往往在特定疾病领域有很棒的想法和深厚的专业积累，他们带着最难的问题来找我们，有些问题他们已经做了10年、20年进展不大，而我们一起用药物设计引擎，能取得巨大进展。", "speaker_id": "max", "section_id": "s12"}, {"start_sec": 1638, "type": "text", "zh": "你们聚焦哪些适应症、哪些健康领域？", "speaker_id": "elad", "section_id": "s12"}, {"start_sec": 1643, "type": "text", "zh": "内部我们更多聚焦肿瘤、免疫和炎症。但很酷的是，药物设计引擎和所有模型都是通用的：与疾病无关、与靶点类别无关、与药物形态无关，能跨多种形态使用。", "speaker_id": "max", "section_id": "s12"}, {"start_sec": 1658, "type": "text", "zh": "你们从癌症起步，另外是自身免疫疾病还是别的？", "speaker_id": "elad", "section_id": "s12"}, {"start_sec": 1664, "type": "text", "zh": "对，免疫和炎症往往高度相关，就是这一类领域。我们内部做肿瘤、炎症这些方向时，我认为有很大机会去攻克一些“根节点”问题：如果有了解决方案，就能对许多不同下游适应症的大量病人产生积极影响。举个例子，癌症是非常非常复杂、长尾的疾病，在病人身上有千变万化的表现形式，但我们也知道，可能存在一些对很多癌症都通用的核心驱动机制。今年早些时候我们看到一个了不起的例子：Revolution Medicines的RAS抑制剂daraxonrasib（口播“Durax”）在一场大型癌症会议上赢得全场起立鼓掌，大幅改善了晚期胰腺癌患者的生存状况。这又是一个攻克某种根节点的好例子。", "speaker_id": "max", "section_id": "s12"}, {"start_sec": 1735, "type": "text", "zh": "明白。RAS在癌症文献里出现了大概二三十年了。", "speaker_id": "elad", "section_id": "s12"}, {"start_sec": 1740, "type": "text", "zh": "对。但从药物发现和设计的角度看，这些问题难得要命，而且它还有自身的正常生理功能，所以要能精准调节。", "speaker_id": "max", "section_id": "s12"}, {"start_sec": 1748, "type": "text", "zh": "没错。当然癌症突变得很快，你以为找到了办法，临床上却不奏效，因为它绕开你的办法突变了。", "speaker_id": "elad", "section_id": "s12"}, {"start_sec": 1760, "type": "text", "zh": "这一点其实很有意思，因为在很多药、很多健康领域，比如HIV，最终都是用药物组合，正是组合疗法让你能压制艾滋病或HIV。而在癌症里，很多药是作为单药而不是组合开发的。就像你说的，肿瘤内部往往有一系列突变，如果你真想治愈它，就得同时压制它们，否则它会在细胞间分布的突变基础上进化逃逸。你们在考虑这种更复杂的组合或多药方案吗？", "speaker_id": "elad", "section_id": "s13"}, {"start_sec": 1796, "type": "text", "zh": "那为什么我们不更多地用组合疗法？问题在于，这些分子往往虽然有效，但有一定毒性，或者对肝脏有影响，同时服用多种时会产生对病人非常有害的药物相互作用。所以恰恰是因为我们还不擅长设计足够精巧的分子和药物，才没法安全地把它们组合给病人，这可能限制了适用面。", "speaker_id": "max", "section_id": "s13"}, {"start_sec": 1835, "type": "text", "zh": "我想也因为能招进临床试验的病人数量有限，所以组合的可能性在临床试验这一侧也会层层叠加，尤其是这些药物怎么组合本身就有很大风险和不确定性。", "speaker_id": "elad", "section_id": "s13"}, {"start_sec": 1848, "type": "text", "zh": "这正是我们看到机会的地方。如果你能更精准地设计这些分子，让它们安全、不伤肝、彼此之间不产生不良相互作用，那就有可能设计出——我真心希望——相当复杂的组合，不是一次只调节一个靶点，而是同时调节横跨复杂生物通路的一整组靶点，从而对疾病产生更好的效果。", "speaker_id": "max", "section_id": "s13"}, {"start_sec": 1877, "type": "text", "zh": "YouTube上有一段很好的视频，讲的是创办杨森制药（Janssen Pharmaceutica）的保罗·杨森（Paul Janssen），公司后来被强生（J\u0026J）收购。他是药物开发和制药领域的伟大先驱之一，按实际上市的药物数量算，他们是最高产的药企之一。视频里他非常强烈地表达了一个观点：药物开发的主要制约是对安全性的过度强调，监管机构在一定程度上抑制了进展。他举例说，二战期间丘吉尔（Churchill）想为前线士兵找到一种性病的治疗办法，于是他们重新发现了抗生素：青霉素早在二十年代就被弗莱明（Fleming）发现，然后被束之高阁、遗忘了；结果在九个月里，他们从零开始重新发现并商业化了青霉素，专门用于治疗这种病，原因是丘吉尔扫除了所有监管障碍。这是杨森举的例子，新冠疫苗也可以说类似，能够加速推出。你认为对安全性的强调是不是太多了？杨森的观点是，这关乎风险与回报。", "speaker_id": "elad", "section_id": "s14"}, {"start_sec": 1942, "type": "text", "zh": "你得做权衡，不能一刀切地只谈安全，也该谈获益，有些情况下也该承担风险。你怎么看？", "speaker_id": "elad", "section_id": "s14"}, {"start_sec": 1950, "type": "text", "zh": "说实话，我认为始终把病人安全放在心上是至关重要的。但你也需要理解病人面对的风险和他们的风险承受度，这在不同适应症之间可能不同。新冠就是个好例子：因为它太普遍、太危险，病人的风险承受度发生了巨大变化，我认为这改变了需求，也形成了以稍微不同的方式做事的推动力。在不同疾病领域你也能看到：如果病人是晚期癌症、面前没多少选择，风险承受度就和治疗慢性、轻度炎症类适应症非常不同。所以我认为非常重要的是，我们始终聚焦病人安全，同时能根据病人的需求去调节。归根结底，我们希望病人活得更健康，尽快得到治疗。我们和监管机构交流很多，包括美国食品药品监督管理局（FDA）和全世界的监管者，我认为共同点是，大家都真心希望让病人得到最好的药物和解决方案。我也确实认为，随着时间推移，当分子是在对其作用机制有多得多理解的情况下设计出来的，我们能在设计空间里搜索、设计出比经验驱动流程好得多的东西时，它们的成功率和安全性特征会有所不同。我希望随时间证明这种差异在统计上是显著的，而这会改变我们对监管、对把药物送到病人手中的思考方式。", "speaker_id": "max", "section_id": "s14"}, {"start_sec": 2066, "type": "text", "zh": "你们预计什么时候开展第一项临床试验？", "speaker_id": "elad", "section_id": "s15"}, {"start_sec": 2069, "type": "text", "zh": "我很想给你一个确切日期，但这真的是非常难的前沿科学。我们有一些非常令人兴奋的药物正在推进，进展非常顺利，我们正全力尽快把它们送到病人身上。我们一直在扩建临床开发团队，正在为此做准备。", "speaker_id": "max", "section_id": "s15"}, {"start_sec": 2088, "type": "text", "zh": "我知道这类问题总是无法回答，但你能预测一下，比如80%的人类癌症什么时候能被治疗？或者用别的指标说明这件事对世界为什么如此重要？", "speaker_id": "elad", "section_id": "s15"}, {"start_sec": 2099, "type": "text", "zh": "如果快进到哪怕五年后，我们还没有这些基础工具——对疾病生物学的预测性理解没有出现巨大的阶跃式进步，我们设计更精准、毒性更低的分子的能力没有出现巨大的阶跃式提升——我会非常失望。药物发现和开发现在仍要好几年，这会随时间缩短，但现在确实要好几年。不过，我们应该具备那些工具，真正开始以不同的方式攻克大片大片的疾病。", "speaker_id": "max", "section_id": "s15"}, {"start_sec": 2141, "type": "text", "zh": "统计数据似乎显示，如果从社会中消除癌症和心脏病，普通人的寿命大概会延长五年或七年，我记不清了。所以从某种意义上说，攻克两大头号杀手对长寿的实际影响相当大，换个角度看又有点小。有不少公司试图把衰老或长寿当作一个更普遍的过程来研究，而它显然是由基因编程的：在秀丽隐杆线虫（C. elegans）、果蝇或小鼠身上敲除某些基因，它们能多活20%到30%；线虫甚至能活三倍长，只要敲除特定通路里的某些基因。我读博时其实就研究过那些通路。", "speaker_id": "elad", "section_id": "s16"}, {"start_sec": 2183, "type": "text", "zh": "太酷了。", "speaker_id": "max", "section_id": "s16"}, {"start_sec": 2183, "type": "text", "zh": "很好玩。在人类寿命的背景下你怎么看？我们最终会不会到达人能活三倍、五倍长的地步？在药物开发和这些即将出现的工具的背景下，你怎么看长寿？", "speaker_id": "elad", "section_id": "s16"}, {"start_sec": 2199, "type": "text", "zh": "有意思的是，有些重大疾病影响的人太多了，如果我们能对它们产生影响，就会切实影响人们活多久。", "speaker_id": "max", "section_id": "s16"}, {"start_sec": 2212, "type": "text", "zh": "我觉得即使在癌症和心脏病之外，还有衰老带来的各种慢性病痛在不断累积，而根源就是衰老本身。换句话说，根源在于你让这些系统随时间退化，还有干细胞库。", "speaker_id": "elad", "section_id": "s16"}, {"start_sec": 2235, "type": "text", "zh": "对，它们叠加在一起，意味着即使人们活到美好的八九十岁，人生最后十年甚至二十年也未必过得那么好：骨骼开始退化，肌肉开始退化，摔一跤突然就行动不便，这又影响心理健康，生活质量骤降，而你可能还要再活十年。", "speaker_id": "max", "section_id": "s16"}, {"start_sec": 2270, "type": "text", "zh": "衰老研究圈把这叫做“寿命”与“健康寿命”之别。", "speaker_id": "elad", "section_id": "s16"}, {"start_sec": 2274, "type": "text", "zh": "没错，我们对此思考很多。", "speaker_id": "max", "section_id": "s16"}, {"start_sec": 2275, "type": "text", "zh": "但所有的衰老模型都显示，如果你干预并延缓衰老，健康寿命也会随之延长。换句话说，如果活了三倍长，其实是作为健康成年人活了三倍长，然后在最后才急转直下，两者是同时被延长的。所以我有点好奇你怎么看延长寿命这类事情。", "speaker_id": "elad", "section_id": "s16"}, {"start_sec": 2295, "type": "text", "zh": "我觉得看到大家都在做这件事会非常有意思。就像你说的，我们可以从各个角度攻克它：一方面改善那些折磨我们的疾病，帮助最大化健康寿命；另一方面也去攻击身体、细胞和器官衰老与退化的一些根本原因，让我们真正能随时间延长它。这个领域正在发生非常令人兴奋的工作，看它怎么发展会很有意思。", "speaker_id": "max", "section_id": "s16"}, {"start_sec": 2331, "type": "text", "zh": "太棒了，非常感谢你今天的到来。", "speaker_id": "elad", "section_id": "s16"}, {"start_sec": 2335, "type": "text", "zh": "这是一次非常精彩的对话。", "speaker_id": "max", "section_id": "s16"}, {"start_sec": 2337, "type": "ad_omitted", "ad_brand": "节目订阅与社交账号口播", "section_id": "s16"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

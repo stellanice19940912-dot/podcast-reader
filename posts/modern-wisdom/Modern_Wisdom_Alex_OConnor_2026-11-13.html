@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>为什么无神论者总能（在万物中）找到上帝——对话亚历克斯·奥康纳</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="chris">克里斯·威廉森（Chris Williamson）</option><option value="alex">亚历克斯·奥康纳（Alex O&#x27;Connor）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Chris Williamson (Modern Wisdom)</span><span class="pill">2026-11-12 08:00 PST（America/Los_Angeles）</span></div>
+<h1>为什么无神论者总能（在万物中）找到上帝——对话亚历克斯·奥康纳</h1>
+<p class="sub">嘉宾：亚历克斯·奥康纳（Alex O&#x27;Connor） · 约 117 分钟（7003 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=OLwQ5A3sRyI" target="_blank" rel="noopener">https://www.youtube.com/watch?v=OLwQ5A3sRyI</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Chris Williamson (Modern Wisdom)</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-12 08:00 PST（America/Los_Angeles）</dd></div><div class="meta-row"><dt>时长</dt><dd>约 117 分钟（7003 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 页面 Show transcript / 内容转文字（caption_source=browser-cdp，subtitle_type=youtube-show-transcript）。今日 yt-dlp 普通路径在 ffh7fdwfrWU 上遇 HTTP 429、chrome cookies（chrome:/home/box/chrome-profile/Fork-3）路径报 “The page needs to be reloaded”，为免加剧风控本条直接走浏览器 Show transcript。说话人：标题与简介写明嘉宾为亚历克斯·奥康纳，主持人克里斯·威廉森；按问答轮次与自述区分，较高把握，少数短插话（如“那会让我更脆弱吗”“幸好没人看见”）归属为中等把握。ASR订正：Mister Ehart→埃克哈特大师；Anna al-Hack→Ana al-Haqq（嘉宾未想起名字，按常识注为曼苏尔·哈拉智）；Nagels→内格尔；An al Seth→阿尼尔·塞斯；Bur and Russell→伯特兰·罗素；Majamaka→中观派；Schoppenhower→叔本华；Paret/puff→德里克·帕菲特；Herasite→Herasight；Michael Pollen→迈克尔·波伦；hypothesis non-finger→hypotheses non fingo；Carlo→卡洛·罗韦利（按语境推断）；JLPs/GLPs→GLP-1类药物；Finn Taylor 按音保留并标注“音”。嘉宾称空间站重力为99.9%属口误，实际约90%，正文已注明。43:51处所提节目名转写不清（“Mark on Schultz’s show”），正文未写具体节目名。</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>OLwQ5A3sRyI</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>Modern Wisdom 主持人克里斯·威廉森对话哲学类YouTuber亚历克斯·奥康纳（约1小时57分）。从亚历克斯如何从“刻薄辩论哥”变成更有同理心的不可知论者谈起，聊到新无神论的退潮、宗教哲学为何没有进展，主体是一场关于意识的长讨论：意识无法定义、科学只能描述不能解释、唯物主义难以辩护、涌现论的循环，以及观念论与上帝的关系；最后是关于祈祷、基因增强/胚胎筛选、非同一性问题和“幻想是否算出轨”的伦理快问快答。</p>
+<h3>核心要点</h3><ul><li>亚历克斯现自称不可知论者，认为在上帝与意识问题上自信到可以“宣讲”是愚蠢的；宗教哲学没有进展，因为它更像体验而非论证（阿奎那、帕斯卡、安瑟伦为例）。</li><li>意识是几乎所有世界观的最大漏洞：它无法被指向也无法被定义，一切知识都经由意识。</li><li>科学只描述事物如何表现（牛顿也说“我不杜撰假说”），所以永远解释不了意识；这让唯物主义而非无神论更难辩护。</li><li>“意识是涌现的”站不住：所有涌现例子（热感、屏幕图像）本身都在意识中涌现；他倾向观念论，认为它不比全能神创世更古怪。</li><li>祈祷主要是为祈祷者自己对齐意志；基因增强与胚胎筛选要警惕完美主义与“买家懊悔”，帕菲特的非同一性问题让“谁被伤害了”变得棘手。</li><li>出轨的核心在于主动玩味吸引力，证据显示色情内容让人更易物化女性和出轨，应设置“心理安全措施”。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：对意识、科学边界和宗教哲学感兴趣的人信息密度很高，亚历克斯讲解清晰、例子生动；后半段伦理快问快答较轻松。纯科学取向、对观念论无兴趣的观众可只看前40分钟和最后半小时。</p>
+<h3>适合人群</h3><p>哲学 / 宗教 / 意识研究爱好者</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">从“辩论哥”到不可知论者：不再庆祝别人变成无神论者</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">亚历克斯谈自己从带刺的辩论风格转向更有同理心：在上帝、意识这类基础问题上，自认为确信到足以“宣讲”是愚蠢的。他现在更愿称自己为不可知论者（主张宇宙由意识构成的人很难自称纯粹无神论），并说一直希望基督教或某种宗教传统是真的。他不庆祝有人因他变成无神论者，只庆祝有人开始质疑；还调侃了YouTube哲学圈的乔·施密德皈依天主教，以及“与地平论者辩论你可能会输”——因为糟糕理由的信念也可能被对方深思过。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">地球是宇宙中心吗：运动的相对性与“时间旅行”</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">亚历克斯半开玩笑自称“地心论者”：所有运动都是相对的，不存在一个可以比较的“真实视角”。克里斯引用一篇Substack文章说时间旅行会让你落在太空里，因为地球一直在运动；亚历克斯反驳：要“让宇宙保持静止”本身就说不通。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">为什么宗教哲学两千年没进展：阿奎那、帕斯卡与安瑟伦</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">人们常为糟糕的理由信或不信上帝（从小被教、恶的问题等），而支持与反对的论证都漏洞百出。哲学不像物理学那样累积，大家都还在和柏拉图搏斗同样的问题，因为哲学更像体验性的直觉。例证：阿奎那临终前因数秒的神秘体验拒绝写完《神学大全》（“一切如同稻草”）；帕斯卡1654年的“火之夜”笔记写着“不是哲学家的上帝”；安瑟伦的本体论论证原本是一篇祷词（“信仰寻求理解”），自然神学论证大量出现其实相当晚近。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">新无神论的退潮：道金斯与阿彦·希尔西·阿里</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯回顾两人这代人伴着“四骑士”和希钦斯式“打脸视频”长大，并讲阿彦·希尔西·阿里在道金斯面前讲自己抑郁、从基督教获得慰藉却遭冷冰冰回应的故事，说明公众对“学究式冷漠”越来越反感。亚历克斯（当时在场）认为两种态度都正当：基督教确实提出童贞女生子、复活等真理主张，值得追问；但个人的宗教体验同样合理，双方是在各说各话。他还指出“宗教”本身是个现代概念，古人生活在宗教里如同鱼在水中。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">15万年前的宗教冲动：神灵、梵与“上帝或自然”之前的区分</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">亚历克斯认为原始人类很可能有宗教或原始宗教体验，人类学上宗教冲动几乎普遍；这既可解释为进化选择，也可解释为神圣真实存在（约翰·希克的“认识距离”让两种理论都能预测数据）。他强调要区分大写G的上帝与小写g的众神：宙斯、奥丁是受造秩序里的角色，而一神论的上帝或印度教的梵是终极实在；神秘体验（埃克哈特、哈拉智“我即真理”）是与终极实在合一，与“森林之神”不同。他推测希腊人信神的方式可能类似大人陪孩子把毛绒玩具当真，或我们今天说“这是命运”。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">意识：几乎所有世界观的最大漏洞，而且无法被定义</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">意识不只是无神论的漏洞，而是几乎所有世界观的漏洞（印度传统把它当作根本者除外）；它与信不信上帝基本无关。一切都经由意识，你从未直接接触“桌子”，只接触它的显现（康德的物自体）。意识无法被指向，就像手电筒照不到自己；也无法被定义，因为词典是自我指涉的，词义最终依赖体验（没见过红色就无法定义红）。内格尔的“成为某物的感受”、阿尼尔·塞斯的“全麻时消失的东西”都只是举例而非定义。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">科学为何永远解释不了意识：描述≠解释</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">亚历克斯认为“科学解释不了意识”是必然的：科学描述规律、把事物数学化、分解到更基本的层次，但只描述“如何”而非“是什么”。他用牛顿引力（月球一直在“下落”又一直错过地球；空间站宇航员仍受约九成地面重力——原话误说为99.9%）和牛顿“我不杜撰假说”说明这一点。思想实验：一个盲人学尽颜色科学，复明后第一次看见蓝色仍会学到新东西——那就是体验；科学追求客观，而意识就是主观本身。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">唯物主义比无神论更难辩护</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">意识是我们研究世界的“扳手”，不能用扳手修扳手。研究意识让唯物主义（而非无神论）更难辩护：问到底，“物质”“原子”“电子”只能用其行为来描述（像象棋规则说明不了棋子是什么材料），科学无法给出实在的实体是什么；大多数科学家也承认这一边界。科学无法证明他人心灵、外部世界和逻辑定律，体验必须在先。宇宙中唯一能被直接接触的，就是意识体验本身。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">若宇宙从根本上是体验，那和“上帝”有多大区别</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯追问：既然体验在科学范畴之外，评估“上帝体验”的工具是否失效？亚历克斯认为这正是神秘主义传统强调“合一”的原因：若把上帝理解为宇宙的根本意识，人就是它的表达。印度传统的梵像大海、自我像其中的漩涡；迷幻体验中的“万物合一”可理解为同一事物的不同表达。他澄清“斯宾诺莎的上帝”不是把上帝降为自然，而是把自然升为神性（“上帝或自然”）。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">冥想、迷幻药与关掉“概念”</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">亚历克斯自认从未享受过冥想。他认为深度冥想者和迷幻体验者都在跳出概念：大脑把世界翻译成方便的故事（魔方颜色错觉、画家看到蓝天里的绿与紫），关掉概念后才看到“一直如此、只是现在才注意到”的样子。冥想（如反复念咒）让“我在做什么”的念头淡出，只剩“一切正在发生”。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">开悟者更接近真实吗：先天盲人复明实验与经验主义</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">亚历克斯认为无法判断开悟者是否更准确地感知实在，因为不存在可比较的客观世界。克里斯设想一个从出生就无文化预设的“人类实验群体”；亚历克斯举出先天盲人复明后无法凭视觉区分立方体和球体的研究，说明我们对世界的理解只是不同感官的相互作用。经验主义者与“意识优先”者其实都同意知识来自体验，区别在于是否认为体验直接对应实在；内格尔《成为一只蝙蝠是什么感觉》说明主观体验只能从内部知道。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s12">
+<div class="sum-top"><span class="sum-num">12</span><span class="sum-title">用一种感官解释另一种：康德、叔本华与“简单的意识”</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">受默林·谢尔德雷克《真菌》中松露犬启发，亚历克斯指出科学解释嗅觉其实是用“看起来的样子”描述“闻起来的样子”，偏重视觉。康德区分现象与本体；叔本华发现自己的身体同时从外部（现象）和内部（意志）显现，并把这种内在意志推广到万物。亚历克斯认为意识本身极其简单（只是觉知），复杂的是其显现，像石头和帝国大厦由同样材料构成。人们难以接受“意识更根本”，部分因为我们被人造物包围；在森林里谈这个会显得没那么疯狂（引迈克尔·波伦的植物延时摄影）。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s13">
+<div class="sum-top"><span class="sum-num">13</span><span class="sum-title">反驳“意识是涌现的”</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">亚历克斯指出物理学界能接受哥本哈根诠释（“里面藏着cope”）和多世界诠释，却嘲笑“根本处有原始意识”，这不公平。他反驳涌现论：从物质产生思想，与靠思考产生一个水分子一样说不通（像把橘子排对就产生“离婚”的概念）；而人们举的每个涌现例子（温度的“热感”、屏幕上的雏菊图像）本身都是在意识中涌现的，等于用意识解释意识。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s14">
+<div class="sum-top"><span class="sum-num">14</span><span class="sum-title">意识与宗教：泛心论、观念论与一神论</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">区分强涌现与弱涌现（生态系统可预测，意识不可预测）。若意识不可能涌现，则它必在根基处，有三种思路：泛心论（原子有意识，他觉得怪）、观念论/斯宾诺莎式的“一个巨大心灵”、以及传统一神论（上帝给部分物质注入意识，他认为不够简约）。他倾向观念论：物理世界是心灵之物的显现，像梦中的房间问“实际多大”没有意义；这并不比全能神“唰”地创世更古怪。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s15">
+<div class="sum-top"><span class="sum-num">15</span><span class="sum-title">AI 智能体替人祈祷？祈祷到底是为了谁</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">针对网友“用75个AI代祷智能体每分钟念500遍主祷文”的玩笑（亚历克斯称之为“帕斯卡的智能体赌注”），亚历克斯分析：请求全知的上帝做事看似荒谬，所以祈祷其实是为了祈祷者自己——让自己的意志与上帝对齐、提醒自己关心他人。例证：耶稣在客西马尼园祈求“叫这杯离开我”，上帝说不，但他说“只要照你的意思”；饭前谢恩本质是感恩，他推崇世俗版谢饭祷告。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s16">
+<div class="sum-top"><span class="sum-num">16</span><span class="sum-title">哲学一致性测试①：基因增强、胚胎筛选与非同一性问题</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯问：拒绝用基因工程让孩子更聪明更好看，是否等同于拒绝给孩子好教育？亚历克斯认为直觉差异源于我们对教育有掌控而对长相没有；但他担心定制外貌是“通往地狱的第一步”，完美主义没有尽头（像沉迷整容）。克里斯提到IVF本已在给胚胎分级，Herasight等公司已能预测IQ、身高、犯罪倾向等，冰岛几乎消除唐氏综合征，从筛除负面到选择正面很难划界。亚历克斯表示若技术让他对孩子产生“买家懊悔”，他会全力抵制，并讲解帕菲特的非同一性问题：两位母亲都故意生下残疾孩子，第二位却没有伤害任何具体的人，那她错在哪里？</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s17">
+<div class="sum-top"><span class="sum-num">17</span><span class="sum-title">哲学一致性测试②：幻想算不算出轨、色情内容与“心理安全措施”</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">亚历克斯认为出轨的核心错误是主动玩味并屈服于吸引力，而非身体行为本身（意图与意志才是伴侣真正在乎的），这也是耶稣“心里犯奸淫”的意思，不是思想罪。梦中没出轨不该加分，除非也为梦中坏事负责。克里斯引用亚瑟·布鲁克斯“不要办不许带伴侣的团建”和“办公室加两分效应”；亚历克斯主张练习抵抗而非“暴露训练”，证据显示常看色情内容者更易物化女性、更易出轨，最大受害者是女性。他讲阿奎那举火棍赶走家人雇来的妓女的故事，并建议设置“心理安全措施”（定制Instagram算法等）。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s18">
+<div class="sum-top"><span class="sum-num">18</span><span class="sum-title">收尾：11月北美巡演与新计划</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">亚历克斯11月在北美有六场“有问必答”式巡演（含纽约市政厅剧院、洛杉矶、多伦多；旧金山已售罄），票务见 alexoconnor.com/tour；另有暂不能透露的项目，并计划回归更多视频随笔和播客。片尾为节目订阅提醒（已省略）。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">克里斯·威廉森（Chris Williamson）<em>主持</em></span><span class="spk-1">亚历克斯·奥康纳（Alex O&#x27;Connor）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>从“辩论哥”到不可知论者：不再庆祝别人变成无神论者</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="marker-line"><span class="tag">[已省略广告：Modern Wisdom 周边商品（mwmerch.com）]</span></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>我们刚才在聊你的转变：从有时有点刻薄的“辩论哥”形象，变得更柔和一些、更有同理心、更能理解别人。在“事实就是这样，我就该这样直说”和“我仍然可以说，但带着几分优雅和同情”之间，你最后落在哪里？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>我为这个挨了不少批评，我想是因为大家喜欢看一个人对某个观点想清楚了、知道自己怎么想、并且愿意在批评面前捍卫它，尤其当话题被认为很重要的时候，比如上帝是否存在、伦理之类。有人在强力捍卫这些立场，对很多人来说很重要。但我认为，尤其在上帝、意识和基础哲学这些问题上，如果以为我的确信程度已经接近真理、足以让我理直气壮地宣讲，那就太愚蠢了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>那种好斗的狂热。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>当然是好斗。我其实没什么好斗的理由。即便我曾是无神论者，现在我更愿意称自己为不可知论者，因为当你主张宇宙是由意识构成的时候，很难让人觉得这里面没点古怪。但我以前就常想：我并不是在庆祝有人因为听了我的话变成无神论者。我一直说，我很希望基督教是真的，或者希望某些宗教传统是真的，哪怕只是存在一位上帝、有永生这样的想法，我觉得那会很棒，我很乐意那样，也完全对它保持开放。所以当有人跑过来说“嘿，我听了你的论证，觉得没有上帝”时，我很难一边这么想、一边说“太好了，太棒了”。像伯特兰·罗素（Bertrand Russell）说的那样，站到天堂门口说“对不起，天父，你给的证据不够”是一回事；身后带着两百万个被你也变成无神论者的人站在那里，说“听我解释”，那是另一回事。</p>
+<p>所以我不庆祝这个。但我确实庆祝的是：大多数时候，这说明有人质疑了他们原本不会质疑的东西。很多人跟我说，他们在宗教社群里长大，不是没机会思考这些，而是没有动力，从没人问过他们上帝和善的关系、经文的流传是否准确之类的问题。对此我非常感激。但同样多的宗教信徒会跑来对我说：这听起来很奇怪，但你真的帮助了我的信仰。每听到一次，我就觉得它没那么奇怪了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>为什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>因为它发生得太频繁了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>你觉得那里发生了什么？你花了十年时间想给上帝存在的论证挑毛病，结果干得太差，反而加强了有神论者的信仰，是这个意思吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>太好笑了。有个人刚刚皈依了天主教，在YouTube哲学圈简直是震撼弹，他叫乔·施密德（Joe Schmid），突然宣布自己是天主教徒了。我记得他发帖说删掉了一些以前的讨论和辩论——他以前主持宗教人士和无神论者之间的辩论——因为他担心这些会引人犯罪，所以撤下了一些。这一举动有点争议，但如果那是他的信念，我能理解。有人在推特上回应：想象一下，如果你是那场辩论里的基督徒，表现差到他现在因为担心误导人而把它撤下。我觉得我有点像个律师，在某种程度上替不同立场辩护。这么说听起来好像很轻佻，我其实真的在乎这些问题，我的意思是：即使我明天成了基督徒、穆斯林或印度教徒，突然相信了上帝，我今天的那些批评依然都在，不会突然觉得不成立的论证变成立了。</p>
+<p>我认为很多人的信念理由并不扎实，我们所有人相信很多事情的理由都不扎实。所以如果你和一个地平论者辩论，你可能会输，因为这个人对此想了又想。如果你相信地球是球体的真正理由，只是NASA和你的老师这么告诉你，那其实是相信地球是球体的一个很糟的理由，哪怕它是真的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>没错。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>别误会，地球确实……其实地球严格说并不是球体，是扁球体，但你明白我的意思。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>我见过那张有点像激光雷达生成的图，显示地球有多不圆，要是拿来滚一滚，可不太好看。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>地球是宇宙中心吗：运动的相对性与“时间旅行”</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>是啊，有很多鸡毛蒜皮的方式能让你听起来像个阴谋论者：地球不是球体，因为它其实像个蛋。我还是个地心论者：我认为地球是宇宙的中心，因为所有运动都是相对的，你可以从任何地方来测量，所以你完全可以把地球当作中心。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>几周前我读了一篇很有意思的Substack文章，讲你为什么永远都不该时间旅行。时间旅行就是把你从这里送到未来或过去的某个时刻，但地球一直在自转，哪怕地球不公转，你也会落到另一侧；而且它还在绕太阳公转，太阳又在绕银河系中心运动，银河系也在运动。所以如果你要找一个……这该叫什么，宇宙同步的位置？只要过几天，你就会偏出几百万英里这种疯狂的距离，因为一切都在运动。你还记得奥陌陌（ʻOumuamua）吗？那颗长条形的小行星，阿维·洛布（Avi Loeb）谈了很多。它看起来像根雪茄，飞速穿过太阳系；因为这种独特的“大香肠”形状飞过太阳系的可能性似乎很低，大多数天体会更圆，所以有人猜它也许是被造出来的，或者是卫星、基地之类。有意思的一点是：它穿过太阳系的速度很快，但如果相对于太阳系外的许多其他天体来定位，它其实是相对静止的。也就是说是我们穿过了它，就像我们开车以每小时70英里驶过路边的行人，然后说“哇，他正以每小时70英里往那个方向跑”，只有在你不知道动的是自己而不是他时才会这么想。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>但所有运动都是相对的。所以当你想：好，我要去时间旅行，并且让宇宙保持</p>
+<p>静止不动，这根本说不通。并不是“从我们的视角看一切都在动，从另一个视角看一切都静止”这么有趣，而是根本不存在一个可以拿来比较的“真实视角”，只有相对运动。卡洛·罗韦利（Carlo Rovelli）最近有本很棒的书，讲这种相对性一直贯穿到底，他认为一切在根本上都是关系性的，非常迷人。他举例说：如果你在火车上问自己“我以什么速度在移动”，你可能会说每小时多少公里；但如果火车上的家长对孩子说“别乱动”，他们可不是希望孩子跳出窗外，他们说的是相对于地面。一切都完全是相对的。这也是我为什么是地心论者：你可以从任何地方测量，那么哪个参照系最不武断？唯一一个存在观察者的参照系，就是地球。所以从技术上说，你可以认为一切都在绕着地球转。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>为什么宗教哲学两千年没进展：阿奎那、帕斯卡与安瑟伦</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>扯远了。我之所以提地平论，是因为人们一直都在为糟糕的理由相信事情，这在宗教哲学里比比皆是。有人信上帝是因为从小被这样教；有人不信上帝，是因为认为恶的存在与上帝的存在在逻辑上不相容，诸如此类。我认为很多这类观点并没有经过深思熟虑——不是侮辱持这些观点的人，而是很多人就是懒得去想这些，这也没关系，没有义务非要想。但如果你想，我在这里陪你，我们一起把它理清楚：好，也许恶在逻辑上并不与上帝的存在相冲突，但可能让上帝存在的可能性降低；那它降低的程度，是否大到压过支持上帝的证据，比如宇宙微调之类？于是你就开始权衡。但所有这些论证都漏洞百出。所以我研究支持和反对上帝存在的论证之后得出的最终结论是：我们之所以“还没搞定”，是有原因的。</p>
+<p>它不像物理学。物理学里，你小时候学到上一代人研究到的终点，从那里出发再往上建。而在这里，每个人都从同一个起点出发，我们在和柏拉图（Plato）和古人们搏斗完全相同的问题。之所以没有进展，是因为哲学并不是靠无法反驳的论证建立共识，它是一种体验性的现象，是弄清你的直觉是什么、落在哪里。在宗教哲学里我觉得这很明显：无数著名的宗教哲学家和神学家有过某种宗教体验之后，就把哲学整个抛开了。托马斯·阿奎那（Thomas Aquinas）在临终前也没写完《神学大全》（Summa Theologica），那可能是宗教哲学史上最伟大的贡献之一，因为他在主持圣餐时有了一次宗教体验，只有几秒钟的神秘狂喜，然后就拒绝再写。他的朋友兼同事雷金纳德（Reginald）写信给他说：托马斯，你必须写完《神学大全》。据说托马斯回答：我写不下去了，和我所见的相比，一切都如同稻草。</p>
+<p>同样，伟大的数学家、顺便还发明了公共马车的布莱兹·帕斯卡（Blaise Pascal），1654年有过一次宗教体验，在日记里写下：火，火，亚伯拉罕的上帝，以撒的上帝，雅各的上帝，耶稣基督的上帝，不是哲学家和知识分子的上帝。这句话简直从纸上跳出来。虽然宗教不正是最根本的哲学问题吗？某种意义上是，但你也完全明白他说“不是哲学家的上帝”是什么意思。因为上帝不是某个只要你够聪明就能在显微镜底下发现的命题。如果上帝存在，在宗教史的绝大部分时间里，它最深刻、最笃定的表达都是以体验和神秘主义的形式出现的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>那这不就让关于上帝的整场辩论完全没意义了吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>有点。但要看你为什么辩论。对坎特伯雷的安瑟伦（Anselm of Canterbury），也就是上帝存在的本体论论证的著名开创者来说，他那本名著原本的标题是“信仰寻求理解”。也就是说，所有这些关于上帝的理性思考，目的不是向无神论者证明上帝存在，而是去充实、去给一个已经存在的信仰上色：你相信上帝，现在你想知道、想理解、想弄明白上帝可能是什么样子。所以他那个大家常谈的本体论论证，其实是一篇祷告，它所在的《宣讲》（Proslogion）就是一篇祷词，不是“亲爱的无神论者们，这就是你们该信上帝的理由”，而只是在默想上帝的本性。宗教史上大量都是这样。我们称之为“自然神学”的那些上帝存在论证——观察世界、从中构建上帝存在的论证——真正大量出现，差不多要到上一个千年的后期，对我们来说已经很久远，但在宗教思想史上算比较晚近的。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>新无神论的退潮：道金斯与阿彦·希尔西·阿里</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>那你怎么看更近期的——至少在我看来——从好斗、刻薄的路线转向别处？我跟你做朋友，天哪，大概八年了吧，很长时间了。你在某种程度上一直是煤矿里的金丝雀，像一个神学风向标。我觉得很多和我们同龄的人，是伴着“四骑士”（Four Horsemen）以及他们周边那一套长大的：宗教烂透了，我们很酷，看我们怎么揭穿它；还有那种“前本·夏皮罗（Ben Shapiro）式”的打脸视频，比如克里斯托弗·希钦斯（Christopher Hitchens）对上某人，有点刺人、有点扎手。然后三年前在奥斯汀（Austin），你给我讲了一个阿彦·希尔西·阿里（Ayaan Hirsi Ali）的故事。她本该是“第五位骑士”，只是迟到了或没能到场——那样的话也许该叫“五大支柱”了。一个长期处于新无神论世界观核心的人，和理查德·道金斯（Richard Dawkins）——当年准时赴约的骑士之一——同台，讲述自己很长时间都很抑郁、心灰意冷、失去所有希望，甚至考虑过做点很极端的事，后来有了一些体验和领悟，现在开始相信了。那是一个关于信仰对她意味着什么、非常动情的故事。我记得你说，半个会场鼓完掌后，理查德只是来了一句：但你相信耶稣是童贞女所生吗？你相信亚利马太（Arimathea）的约瑟那座坟墓的石头真的被挪开了吗？在我看来，这也许说明我们现在所处的文化和世界里，大多数人对美好、对快乐、满足和找到意义的那点把握，已经变得如此脆弱，</p>
+<p>以至于当有人对一个显然正在挣扎的人——很多人自己也在经历、或听说别人在经历同样的处境——做出那种冰冷、迂腐的回应时，我们会更反感一点。这个故事我一直记得，我觉得它很能概括“旧式批评”与一种更有同理心的方式之间的差别。如果那件事发生在你台上，我想你的回应会客气得多、有同理心得多。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>也许吧。那次对话发生在布鲁克林（Brooklyn）时我在场。我认为两种态度都合理。像理查德这样的人说“拜托”，也完全说得过去：基督教对世界做出了实质性的真理主张，它声称有个人由童贞女所生，声称有人死而复生，声称行过神迹，还有关于出埃及之类的历史主张。想知道这些问题的答案，完全合理。另一方面，说“我对那些并不确定，我只知道我从这部经文里得到了道德讯息，耶稣这个人打动了我，我有对上帝的体验，我紧紧抓住它”，也没问题。两者都可以，但我觉得你没法用其中一个去批评另一个。如果有人在提出一个关于耶稣的怀疑主义历史论证——我不认为耶稣自称是上帝，不认为他真的复活了——这时有人跑来说“但我就是觉得它是真的”，那听起来很蠢；同样，如果有人说“我经历了一次无法言说的体验，品格因此改变，真希望能传达给你，但我做不到”，另一个人回应“是啊，但我很确定《约翰福音》有后来的增补，我们最早的抄本彼此并不完全吻合”，那听起来也一样蠢。这是在各说各话。</p>
+<p>请记住，宗教——我听起来像那种让人受不了的学者——“宗教”是一个现代概念。我最讨厌的事情之一，就是学术界变得太谨慎了：读十九世纪的学术著作，作者会说“这就是世界的真相，我来告诉你为什么”；读一本现代学术书，前三章都在讲我们连要讨论的对象都没法定义，其实挺烦人的。但我确实认为“宗教”是个相对现代的概念。我们把家庭、工作、宗教放在各自的小盒子里，彼此分开、收好，偶尔才让它们互相对话。但在古代世界尤其如此，宗教就是你游在其中的海洋，根本不存在“宗教”这个东西，它就是你的生活方式，就是你做的那些事。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Function Health 血液检测]</span></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>15万年前的宗教冲动：神灵、梵与“上帝或自然”之前的区分</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>如果我说回到15万年前——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>那你会在太空里，不是吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>——假设你的时间机器回去时，你不知怎么把自己拴在了同一个地点。我想当时一定有很多拟人化和叙事化的解释，说明为什么今天天空在发怒：比如地平线那边打雷，或者庄稼没下到雨——我猜那时还没有庄稼——或者最近一段时间比平常冷。你觉得15万年前早期狩猎采集者有过某种宗教或原始宗教体验的可能性有多大？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>我认为很有可能，也许大概率如此。只是因为从人类学上看，观察人类社会——现在比较难了，因为世界联系得太紧密——我们通常都会观察到某种宗教冲动。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>作为一种普遍的、趋同的文化演化。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>完全正确。对此有两种解释：一种是，存在某种在进化上被选择出来的、与神圣的“神秘联结”，所以它在各地独立演化；另一种是，这个神圣就是存在的，是真实的，是准确的表征。这一直是很多宗教讨论的问题：数据有时可以被两种理论同时预测。我最近在研究“神的隐藏性”问题，也就是如果上帝存在，为什么人们并不清楚地看到他。伟大的神学家约翰·希克（John Hick）写道，上帝想与他的造物保持一种认识上的距离，让他们有行动的自由，而不会觉得一直有人在头顶盯着。他对此说了很多，大意是：世界在某种程度上必须看起来就像没有上帝一样。我想，好吧，说得过去<span class="tag">【笑】</span>，但这样一来两种理论都能预测数据，就不太有帮助了。不过很明显，有一种宗教冲动在某种程度上是人类固有的。</p>
+<p>不过它的样子可能不太一样，因为我觉得很不幸的是，我们把大写G的“上帝”（God）和小写g的“神”（gods）混着用。你可能听无神论者说过：好吧，我不信你的上帝，但你也不信奥丁（Odin）、托尔（Thor）和宙斯（Zeus）这些家伙啊。可这些家伙并不是一个单一、统一、非物质、对宇宙存在负责的创造神。这些小写g的神，是受造秩序里的角色，他们到处走动、彼此交谈、交流、互动，就像一出戏里的角色。这和一神论传统核心里的那种上帝概念不同。我还要说，印度教有时被称为多神教，但它有一个终极的根本实在叫梵（Brahman），所有这些神都只是它的表现。它并不比基督教更“多神”，基督教也有三位一体，那些是同一个统一上帝的表现或位格。所以，人们把世界看作被施了魔法的——森林里的精灵、雷神、他们崇拜的太阳神——这显然指向人类内心某种超自然的本能，觉得有什么超越人类经验的奇怪东西在发生。但这和相信“万物从中涌出的那唯一源泉”不是一回事，这是两种不同的本能。我不认为我们真能清楚知道一神论图景是从什么时候开始发展的。在哲学里，它可以追溯到亚里士多德（Aristotle），他所设想的那个使实在得以实现的根本原理，是一个非常非人格化的存在，并不在乎人类</p>
+<p>事务，也不可能在乎，因为它是一种极度超越的东西。但这个观念是随时间发展的，所以要看你指的是什么。今天，当一位宗教神秘主义者体验到与神合一——神秘主义很难像书上说的那样定义，但神秘宗教体验的关键主题之一，就是与上帝合一的感觉，我与上帝之间的界限消失了。埃克哈特大师（Meister Eckhart）说：上帝的根基，也就是我的根基。还有一位著名的苏菲派神秘主义者，我一时想不起名字（应为曼苏尔·哈拉智，Mansur al-Hallaj），他旋转着高呼“我即真理”（Ana al-Haqq），而“真理”（al-Haqq）是《古兰经》里真主的名字之一，所以这是极大的亵渎，但他是在说自己感受到了那种联结。你很难和“绿色森林之神”或奥丁产生那种联结，那不会发生。你可能在宽泛意义上感到与自然相连，但不会在体验上觉得自己被拴在了终极实在上。</p>
+<p>我之所以提宗教多元论，是因为当你说15万年前，人们想象的是到处看到神灵的泛灵论者，但那些神与一神论的上帝、与终极实在完全是不同种类的存在。我觉得我们该给它们换个词，大卫·本特利·哈特（David Bentley Hart）的《上帝的经验》（The Experience of God）在这一点上写得很好。谈那些神时应该用别的词，以免混淆。毕竟关于“希腊人到底信不信他们的神”其实是有争论的。想一想，这些人并不笨，事实上他们是至少西方传统史上最聪明的哲学家之一。他们会相信，爬上山就能看到宙斯坐在宝座上？会真的相信雅典娜（Athena）在四处做事？其实并不完全清楚，那可能更像一种叙事手法，挺难把握的。显然他们并不是在字面意义上相信。那他们是以什么方式信的？很可能和基督徒信上帝、印度教徒信梵的方式非常不同。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>你觉得他们真的相信这些角色是实在的真实组成部分吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>我想了很久，我觉得我找到的最好的类比是：想象你和伴侣或孩子有一只毛绒玩具，你们都知道它只是毛绒玩具，显然不是真的狗。但点破这一事实会显得像亵渎一样。你们称这只狗为“他”，和它互动时把它当成真的，因为你们在玩一个把这个小家伙拟人化的游戏；如果有人点破它只是个毛绒玩具、一个物件，那会很可怕。但你们俩都知道它只是个物件。我觉得当时可能就是类似的情况。我们谈雷神，而我们今天仍然会用“命运”之类的叙事性说法。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>“命运”这个词的词源是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>我不知道“命运”的词源。我只是在想现代人说的一些话，你可能都意识不到它们是这样的。比如这场对话一开始我说“天哪，我好渴”，而你正好有这杯很棒的含咖啡因饮料，你说“这就是命运”。你并不真的相信，不相信宇宙里真嵌着一条规则决定了这件事发生，你只是用它作为一种叙事手法。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>有点柏拉图式地给宇宙稍微注入一点灵性。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>我觉得希腊诸神也许就是这样。但实在的根基不是什么我们用来解释雷从哪来的叙事角色，它就是实在的根基，是我们生活、行动、存在于其中的那个东西，是宇宙的实体。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>意识：几乎所有世界观的最大漏洞，而且无法被定义</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>意识是不是无神论世界观里最大的漏洞之一？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p><span class="tag">【倒吸一口气】</span>我认为它几乎是所有世界观里最大的漏洞之一。我不认为任何人能在自己其余的思想里给意识安排一个很舒服的位置，也许只有那些把意识当作首要和根本的哲学除外，那通常和印度传统联系在一起。在西方哲学里，它是实在中一个非常别扭、奇怪的面向，不能整齐地嵌进我们喜欢谈论的任何其他东西。我认为这与你是无神论者还是有神论者无关。很多信上帝的人也认为存在一个物质宇宙，而意识是某种独立的东西：你有一个非物质的灵魂和你的肉体相互作用，这对他们来说也非常成问题。你也可以不信上帝，却相信意识是非物质的、相信灵魂和心灵。所以这和有神论、无神论关系不大。对我来说，哲学的根本问题是意识，因为一切都要经过意识。</p>
+<p>意识是你的起点。你不是从一张桌子、一个麦克风、另一个人开始，而是从你对这些东西的体验开始，它永远经由体验中介。你不可能直接和我们叫做“桌子”的东西互动，只有它看起来怎样、摸起来怎样、听起来怎样、尝起来怎样——如果你想舔一口的话，没有别的途径。问题在于，如果我们相信外面有一个真实的东西，康德（Kant）所说的“物自体”，却无法直接接触它，那我们处在什么位置？我们对宇宙的知识究竟是什么？基于什么？我们到底在和什么互动？说起来有点怪，但严格来说你从未和桌子互动过，你互动的是桌子通过意识向你呈现的样子。如果拿掉桌子的样子，比如你失明了，你仍然能知道桌子是什么，你会摸它、听它；但如果再拿掉触觉、听觉、嗅觉和味觉，你还剩什么？你怎么和这张桌子互动？你根本无法接触到它。</p>
+<p>所以我们透过意识看其他一切。然后大家说：好，我们想理解意识，想知道意识到底是什么，所以我们得去看意识。但没办法，因为意识就是你用来看的那个东西，就像试图用手电筒照手电筒本身，像试图用手指指向那根手指本身，做不到。对任何东西本质的探究，首先要定义它是什么，再拿它和它不是的东西比较，然后试着弄清它从哪来、本质是什么。但意识逃过了所有这类探究，因为你没法指向它，也没法在不关闭你做任何事所依赖的机制的情况下把它关掉。它也无法定义，我认为真的无法定义。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>为什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>因为定义是什么？这很有意思。想想词典，它完全是自我指涉的：每个词都用另一个词来定义，所以并不存在一个所有定义都从中而来的客观基础，一切都相互关联。所以这一切能运作的唯一方式是：当我用词语定义一个对象时，你需要知道</p>
+<p>那些词的意思，而要定义那些词，你又得知道另一些词的意思，这一切从哪里开始？你是怎么开始知道任何词的意思的？大概是通过体验世界：指着东西、看着东西、听别人告诉你。你长大的时候，有人说“罐子、桌子、灯、人”，还会说“木头、金属、金属”，你开始弄清这些东西有什么共同点、有什么不同，然后意识到：啊，这就是杯子，这就是桌子，这就是金属。都是通过你与世界的体验。就像你可以谈论黄色一样：你可以告诉我英国电话亭是红色的，我们都知道那是什么意思，但前提是我们在某个时候体验过红色。如果你从没体验过红色，比如你是盲人，你就完全不知道它指什么，你根本无法定义“红”这个词。</p>
+<p>那到了定义意识的时候，我们怎么办？我们想指向意识，说“这就是意识，我们来看看它是什么”，但做不到，因为意识就是你用来观察世界上其他一切的那个东西。看看人们定义意识的尝试，总是非常模糊。最有名的定义是托马斯·内格尔（Thomas Nagel）在七十年代给出的：如果某物有意识，那么“成为那个东西是有某种感受的”。你明白他的意思：成为你有某种感受，成为一条狗大概也有，成为一块石头则没有，这就是意识。说得过去，但这不是一个很好用的定义，“成为……的感受”并不详尽，除了通过例子，我们并不太清楚它的意思。阿尼尔·塞斯（Anil Seth）有时说，意识就是你接受全身麻醉时会消失的那个东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>很好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>进入无梦深睡时它也会消失。我理解，所以知道我们谈论的大概是什么，但这不是精确的定义。因为你在宇宙中体验或遇到过的每一样东西，都经过意识过滤。如果你想在它周围画个小边界、套个小盒子，说盒子里是意识体验、外面的不是——可外面是什么？外面什么都没有。你可以说“没被感知时的桌子”在外面，但你对此毫无概念，因为你对桌子的唯一概念就来自意识体验内部。所以我认为它根本无法定义：你没法指向它，也没法拿它和别的东西比较。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>科学为何永远解释不了意识：描述≠解释</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>这是否意味着科学永远无法解释意识？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>不是“意味着”，我认为是“必然推出”。科学非常擅长它所做的事，但人们对它可能的边界过于乐观了。科学做什么？科学描述宇宙中的规律，把事物分解为更基本的组成部分，并以此更准确地描述它们。它还把一切数学化，科学是用数学语言写成的，伽利略（Galileo）有句名言：数学是宇宙的语言。任何物理定律都是一个数学方程。以牛顿的引力理论为例，它并不是对物体为什么落地的解释，而是对它们如何落地的描述，是对事物如何运动的描述。我一直在讲这个：牛顿发现引力时，他到底发现了什么？人们早就知道东西会落地，大家都知道。牛顿想明白了前人没想明白的是：让物体下落的那个东西，同样让行星保持在轨道上。他看着月亮想：月亮是不是也在朝地球下落？他革命性的答案是：是的，月亮一直在朝地球下落，只是它同时也在横向运动。如果月亮只是下落，它就会撞上我们；但如果你把它往侧面推一下、再推远一点，速度恰到好处时，它会一直朝地球下落，又一直错过地球，这就是轨道。国际空间站（ISS）现在就是这样。很多人以为空间站上是零重力，因为他们飘来飘去。你觉得那些人感受到的重力，跟我们现在站在地面上相比是百分之多少？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>百分之十？五？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>大约是百分之九十（原话称99.9%，实际约为90%）。他们离地球很近，重力不会就这么关掉，他们被拉向地球的速度和你我现在一样快，区别在于他们同时也在横向运动，所以一直朝地球下落又一直错过。爱因斯坦（Einstein）把这称为他一生中最快乐的想法：他想象一个人从楼上掉下来。想象你从楼上掉下来，手里拿着这罐饮料，在空中下落，如果我松开罐子，会怎样？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>它就停在我面前。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>对，它不会比我掉得更快。如果我在下落时拿着一堆东西然后松手，它们都只会在我旁边一起下落。有空气阻力的话可能会有点移动，但如果是在完美真空里，那和在深空漂浮没法区分：你松开东西，它就停在那里。这是爱因斯坦的重要领悟之一，空间站上也是这样：你在空间站松开东西它会漂浮，是因为你们俩以同样的速度朝地球下落，同时又不断地从地球旁边掠过，这就是轨道。牛顿意识到这一点，太了不起了：原来不是天使在推动行星，而是让物体落地的同一个东西。然后他用引力理论在数学上描述了它，一堆字母和一个等号，宇宙中的事物用字母表示：引力F等于大G乘以两个物体的质量，再除以它们之间距离的平方。他算出，距离远两倍，引力弱四倍；远四倍，弱十六倍，是平方关系。这就是他的引力理论，太棒了，现在他能描述行星运动了。</p>
+<p>但在他发表这一理论的《自然哲学的数学原理》（Principia Mathematica）的附注（Scholium）中，他明确回应了这个问题：好，那引力到底是什么，东西为什么真的会落地？他有句名言：“我不杜撰假说”（hypotheses non fingo）——他不知道，没有任何想法。他还说，这不是自然哲学——也就是我们今天所说的科学——的问题，不是科学能回答的那类问题。当然不能。科学用数学描述事物，描述规律，把一个东西分解到更基本的层次：把桌子用原子描述，把原子用电子描述，如此等等。但它永远是在更基本层次上的描述，这就是“解释”的本质：在更基本层次上的描述。</p>
+<p>于是就有了这样一种想法：我们能对意识做同样的事，能以某种方式解释它从何而来，或把它变成某个数学公式，告诉我们它是什么、为什么存在，而不只是它如何表现。别误会，你可以把大脑活动解释得非常好，你可以描述大脑的神经元活动。但我就算告诉你你大脑里发生的一切，你仍然会留下一个问题：你为什么会体验到这些？我可以追踪每一个神经元活动，可以谈大脑结构，可以告诉你某些体验发生时大脑哪些区域“亮起来”，但我完全不知道为什么体验会伴随着大脑活动出现。这有点争议，因为人们以为我们总有一天会做到。但这样想：假设你能获取任何人能获取的所有科学信息，假设你</p>
+<p>有一台时光机，你穿越到未来，学会了关于眼睛和颜色的一切科学知识：你学习波长，学习蓝色、红色的文化含义，比如红色代表不好，诸如此类。但想象你同时是个盲人，从没真正见过这些颜色。你学会了一切可以被还原为文字、数学或其他解释的东西。这个过程结束时，你觉得你会理解蓝色是什么吗？如果你突然恢复视力，第一次看到蓝色，你会学到新东西吗？答案似乎是会。而如果你学到了新东西，那个新东西就是体验，就是对蓝色的意识体验。它永远无法被写下来，无法被变成数学推论，无法从一个人传达给另一个人。因为科学的事业就是远离主观、走向客观，这正是科学该做的：我这样看世界，你那样看世界，那我们就从一个想象的第三人称视角研究它实际如何呈现。但意识就是主观性，意识就是对世界的主观体验。所以你的描述越不主观、越客观，你离意识就越远；你越接近意识，就越远离客观描述。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Momentous 睡眠补充剂]</span></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>唯物主义比无神论更难辩护</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p><span class="tag">【笑】</span>你觉得还有哪些领域是科学永远无法解释的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>我不确定意识这个类别本身是不是独一无二的——我觉得它真的是。我认为意识不同于宇宙中的其他任何东西，因为它不只是宇宙中的又一样东西。不是说你有桌子、椅子、耳朵、手，然后还有意识；而是其他所有东西都是透过意识被看到的。这在人们听来很怪：“所以你是说科学能解释这个、那个，却唯独解释不了这一样？”但它不是和其他东西一样待在宇宙里的又一件东西，它是你经验地研究周围世界所用的工具。就好像你有一把神奇的扳手，能修好世界上所有东西，没有它修不好的；然后你的扳手坏了，你想：为什么不用扳手修扳手呢？做不到，因为它就是你研究其余世界的工具。意识就是这样。关掉意识再去做科学试试，看你能走多远：作为一个无意识的行动者，去研究世界、做实验、写下东西、把它们变成数学推论，那是你做不到的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>那这是否意味着对意识的研究让无神论更难辩护了？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>我认为它让唯物主义更难辩护了。你可以认为意识完全无法解释，可以认为意识是根本性的，可以认为意识存在于微小的原子中，也可以认为意识完全是幻觉，这些都不一定和你信不信上帝有关。你不需要信上帝也能相信心灵是非物质的，这两件事没有关联。但没错，唯物主义——它常和无神论相伴——我认为作为一种世界理论几乎无法辩护。唯物主义是什么意思？宇宙由物质构成。好，什么是物质？原子之类的东西。很好。那什么是原子？这是个老问题，伯特兰·罗素（Bertrand Russell）就有这个问题。原子由质子和电子构成。好，什么是电子？一种基本的带负电的粒子。好，那是什么意思？意思是如果你让它接触另一个带负电的粒子，它们会互相排斥。好，那是它做什么，但它是什么？它的实体是什么？我们在与之互动的那个东西的真实本性是什么？这是科学回答不了的问题，因为科学是一项描述性的事业。</p>
+<p>这并不是在贬低科学，它当然回答不了这个问题。它告诉你事物如何表现、做什么，不告诉你它们是什么，不给你对任何东西的实体性理解，就像国际象棋规则无法让你理解棋子是用什么做的一样。物体并不是因为牛顿运动定律而运动，牛顿运动定律描述的是它们被推动时如何运动。所以我认为，用科学——一项本质上描述事物如何表现的事业，有点像对原子的“行为主义”——去解释根本实在是什么，是一个错误；就像一个木匠想弄清用什么材料做国王棋子，却去研究象棋规则一样，那是完全不同的事业。我不认为它们能做到这一点。那么，实在的根本材料到底是什么？也许唯一的答案是：我们不知道，没有办法触及它。我不是说解决这个问题的唯一方法是对意识持某种疯狂观点，我只是说科学不会告诉你实在的根本本性、实在的实体是什么。顺便说，大多数科学家都同意这一点，他们会说：“对啊，可它凭什么要告诉你呢？存在的只有它做了什么，仅此而已。”我觉得这有点怪，但也许是对的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>存在的只有它做了什么。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>正是。因为那样的话就会问：那“在做”的那个东西是什么？你到底在说什么？卡洛·罗韦利（Carlo Rovelli）在最近的出版物里可能对此有最好的辩护，比如你刚出的那本书，我觉得为你的立场辩护得很好。但关键是，当有人说“我是唯物主义者”，我想知道他们是什么意思。看起来他们在对宇宙由什么构成做出主张——不只是它如何表现、做什么，而是它实际上是什么、它的实体是什么。可是一拆开来看，它根本无法定义。</p>
+<p>所以也许唯物主义者真正的意思是：我只是不相信存在任何科学无法描述的东西。这也行，但这种观点听起来就很怪，因为你在说唯一存在的是行为，却没有任何“在行为的东西”。总得有某种实体。所以我觉得很有意思的是，在实在的根基处，你真的无处立足：实在的实体对科学来说完全不可穿透，我认为科学永远无法回答。我再强调一遍，科学家大体同意这一点，这不是什么有争议的古怪科学批评，只是在划定边界。说象棋规则永远解释不了乐理，并不是在侮辱象棋规则；说科学方法永远不会告诉你实在的实体是什么，也不是在侮辱科学。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>我觉得区别在于，科学曾希望能描述一切，希望一切都能被象棋规则描述。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>如果有人这么想，那我觉得他们是在自欺。“科学能解释一切”——科学能解释它自己的预设吗？任何方法在这个意义上都不可能自我解释。总有些东西是科学无法触及的，而且这再平常不过：逻辑的基本定律无法被科学证明；你无法科学地证明他人的心灵存在；你无法科学地证明外部世界存在，因为你一开始观察，就已经假定了外部世界存在。这没问题，你想这么做就做，但别声称你是从科学出发的。你不是先有科学再有体验，而是先有体验，再透过体验做科学。体验必须在先。所以在实在的底部有一种空无。有些哲学家认为实在在这个意义上真的是空的，比如佛教中观派（Madhyamaka）著名的“空”的概念，认为宇宙没有任何实体，只有相互作用，这一切有点玄。但如果你像我一样认为那里确实有某种东西，世界上确实有一种真实的“存在性”，那么谜题就是：好，它是什么？</p>
+<p>批评者可能会说：好吧亚历克斯，那你要怎么解释这种“存在性”？你能用什么方法描述或解释某物的本性？因为你一用语言、一试图解释一个概念，就只是在谈论它；如果实在的本性是这种不可还原的实体，你要怎么解释它？我觉得，好问题。那么宇宙中你唯一能直接接触——不是间接而是直接——的东西是什么？你确切知道它是什么，不需要被解释，甚至没法向别人解释，你就是确切知道它是什么。答案是意识体验，那是你唯一直接体验的东西。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>若宇宙从根本上是体验，那和“上帝”有多大区别</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>如果宇宙从根本上是体验、是体验性的，那这和说它就是上帝有多大区别？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>那要看——如哲学家们喜欢说的——你怎么把它兑现。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>之前你提到很多人有这种神圣体验，而这种体验被一堆工具批评和评估，其中很多工具要么完全属于科学范畴，要么与科学相关。如果被批评的是体验，而你又说描述和评估我们对世界的体验性诠释从根本上不在科学范畴之内，那这不就让对“上帝体验”的评估变得有点……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>对。我觉得这就是为什么神秘主义传统和体验性传统都有“合一”这个元素。它不像交流，不是你在一种一切如常的状态里跟上帝聊天，而是你感觉自己与这种神性相连，你是这种神性的某种表达。我认为如果你相信我们所说的上帝最好被描述为宇宙的根本意识，那么你某种意义上就是那种意识的表达。在这一点上印度传统把握得更好，比如他们对梵的看法——梵是他们指称终极实在的词，有时被视为等同于“上帝”，但又不完全是，他们不认为它是一个存在着、并有意志地创造宇宙的存在者，而是认为梵就是我们都在其中游泳的那片大海。他们一直用这类比喻：你的自我就像水中的一个漩涡，你可以指着它，它是一个独立的东西，它在做着某事，但它只是这片大海的表达，无法与大海分开，你不能把它从海里捞出来挪到别处，它是大海表达自身的一种方式。所以观念论者、泛心论者以及相信宇宙从根本上有意识的人，通常把世上存在的一切视为意识的显现。</p>
+<p>所以按照他们的诠释，宗教体验就是对此的领悟和认知。人们服用迷幻药时感到与自然合一、感到那种联结，“我与万物为一”，这到底能是什么意思？我和那边那棵树是同一个东西，荒谬至极——除非你从这样的层面理解：我们都是同一个东西的表达，就像一棵树的所有叶子互相看着说：“看，我们都是一个巨大的生命体。”我想这就是它要表达的。在宗教语境里，就是我们都是根本意识的表达。西方传统中这方面的主要思想家是斯宾诺莎（Spinoza）。很多人说“我信斯宾诺莎的上帝”，他们的意思是“我是无神论者，我热爱科学”。人们以为斯宾诺莎做的是把上帝拉低到自然层面，说“我只是认为自然就是上帝”。不是的，斯宾诺莎是把自然提升到了神性的高度。斯宾诺莎认为只有一个终极实体，他有个著名的说法叫“上帝或自然”（Deus sive Natura），他并不在乎你怎么称呼它，但他说它是我们都在其中运动的那个根本的东西。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>冥想、迷幻药与关掉“概念”</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>问个问题。你和冥想的关系——不一定出名，但至少公开来说——挺紧张的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>我记得有人曾试图让你冥想，你有过一次……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>对，我聊过相对不愉快的体验，我从来没真正享受过冥想。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>那你认为，那些经验极其丰富的冥想者似乎都会汇聚到某种非二元觉知上——有人称之为觉醒体验，有人称为开悟，有人说是他们与周围世界之间的二元界限被消融了——这背后发生的是什么？你刚才讲树的那段，让我想到了这个。</p>
+<p>我们之前谈到许多不同文化趋同演化出这些东西；某种非二元开悟时刻的体验似乎也相对非常罕见，却均匀地分布在不同文化、不同时代、使用不同方法和技巧的人群中。你想过那里发生了什么吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>在我看来，他们很可能领悟到了某种真理。我认为冥想对人的作用，大概是让他们能够跳出自己的概念。人们推崇迷幻药也是因为这一点：不是说你吃了迷幻药世界就变得奇奇怪怪，有时的感受并不是“一切都好怪”，而是“一切一直都是这样，我现在才注意到”。它的原理是去掉你的概念、去掉你感知世界的方式。我记得乔·罗根（Joe Rogan）或者他节目上的某位嘉宾谈过一个比喻：雪橇沿着雪道往下滑，你一直坐在这个沿着固定轨道滑下山的雪橇上，而迷幻药做的是抹掉沙子里的车辙印，于是你可以自由地四处滑动。就是去掉你的概念，按世界本来的样子、或者按它朴素地呈现给你的样子去看它。我想冥想者也能做到类似的事情。</p>
+<p>妨碍我们理解万物合一、意识的根本性这些奇奇怪怪东西的最大障碍，就是我们的概念，是我们喜欢把事物框起来的方式：我看到桌子时，坚信自己看到的就是桌子本身，好像我的眼睛是通往世界的透明窗户，我体验到的就是世界本来的样子。对我来说，在哲学上我需要提醒自己：我不是在体验世界本来的样子，而是从一个视角在体验它，它被我的大脑翻译成我能理解的方式。这张桌子在我看来是一种颜色，尽管有许多不同颜色的光从它上面反射出来，是我的大脑在翻译，我们知道大脑会这样做。你见过那些视错觉吗？比如魔方错觉，两个方块其实是同一种颜色，简直不敢相信。它们之所以奏效，是因为你的大脑天生就会给你讲一个关于实在的故事：这个方块实际上是这种颜色，你却感知为另一种颜色，因为那样有助于你理解实在。这类概念意味着，我们看物体时并不是真的在看实在的本性，而是在看它如何向我们呈现。如果我们能以某种方式关掉这些，就开始看到它真正的样子。</p>
+<p>你就像画家，看到蓝天时，真的会意识到里面有一点绿、一点紫，还有一点白——阳光在水面反射的地方其实是纯白——还有一点橙色。画家是这方面的大师，这就是绘画之所以难的原因：我看桌子时觉得它是棕色的，但老兄，仔细看这张桌子上的颜色，有蓝色，中间某处还有白色。<span class="tag">【笑】</span>我觉得冥想体验中发生的就是类似的事，而迷幻药是通往同一处的捷径：概念被关掉了。这大概就是为什么人在迷幻状态下看桌子会说“哇，好酷”，因为它真的很酷：这张桌子充满了纹理、色彩和奇异感，而且是扭曲的，离你近的部分大，远的部分小。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>要是你能不带预设地去看它就好了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>正是。但你的大脑告诉你：“不，这只是一张桌子。”因为对你看到的每一平方厘米、听到的每一个声音、闻到的每一种气味都心生敬畏，效率太低了。所以我觉得冥想的作用——我对此了解不多，从没试过这类东西——比如人们念咒语，就坐在那儿一遍又一遍地重复同一个词。我想部分原因在于，当你开始思考自己在做什么时，你试着摆脱那些念头，把自己拉回那个状态，于是所有那些理智上的想法、概念，“我在做这个、我在这里”之类的念头就开始消退，直到某个时候它们远离了你的觉察，你开始感觉一切只是在发生。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Shopify（主持人自家品牌 Newtonic 的电商平台）]</span></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>开悟者更接近真实吗：先天盲人复明实验与经验主义</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>那你会不会说，一个经验非常丰富的冥想者在经历非二元觉醒或开悟体验时，比其他人更准确、更朴素地感知实在？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>这没法说，对吧？因为只有你如何感知世界这一回事，并不存在一个我们能接触到的客观世界，可以拿来和你我的体验做比较。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>假设我能给你伦理委员会的通行证来做这件事。养一个人类小群体，难道不是个很酷的实验吗？那部电影叫什么来着，是《母亲》（Mother）吗？就是一个婴儿被机器人抚养长大的那部。这个孩子一直被抚养长大，不知道外面可能还有别人，学会了说话，却没有任何关于世界的文化预设。创造一个小社群、一个人类繁育小群落，从出生起就为他们设定尽可能“去成见”的视角，那会多么迷人——当然也完全不道德。因为没有哪个人，哪怕追溯到原始人类、追溯到灵长类，不曾受到前人、前人的经验教训，甚至基因中注入的某些本能的影响。但我不知道，也许通过某种基因工程的组合……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>那你可能会喜欢这个。有些人天生失明，而有些类型的失明是可以治愈的——失明有许多不同类型，其中一些至少可以部分治愈。想象你天生失明，从没看见过任何东西，但你通过触觉和声音体验过世界，所以你知道东西是什么，比如你知道立方体是什么、球体是什么。再想象我治好了你的视力，你第一次能看见，面前放着一个立方体和一个球体。你通过触摸知道这两个物体是什么，但从没体验过视觉。你觉得如果我打开你的视觉，你看着它们能分辨出哪个是哪个吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p><span class="tag">【哼笑】</span>我猜可以。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>有意思的是，人们似乎实际上做不到，这很令人震惊，对吧？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>这真让人震惊。怎么会？摸起来的感觉难道不能对应上吗？一个是尖的，一个是光滑的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>对，但你不知道那（在视觉上）意味着什么，你从没在脑中把这两种体验联系起来过。我觉得像这样的实验真正表明了：我们对世界的理解，在多大程度上只是我们不同感官相互作用的方式。我们只有感官，只有体验。顺便说，很多人自称经验主义者，这听起来很科学、很理性，</p>
+<p>比如“我只相信我能观察和检验的东西”。我会说：是啊，其实我也是。这有点像马蹄铁效应，经验主义者和观念论者、“意识优先”的人说的是同一件事：你所有的知识都来自体验，全部。只是经验主义者通常认为你的体验是直接、真实、准确的，你就是以某种方式在和实在本来的样子互动；而“意识派”的人说，其实你是在和它向你呈现的样子互动。我觉得视错觉之类的东西基本证明了这一点。我们无法体验红外辐射，看不见它，如果能看见，世界看起来就会不一样。鸟类可以利用地球磁场导航。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>就像另一种感官，还有紫外线。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>正是。托马斯·内格尔——就是我前面提到的那个著名定义——写过《成为一只蝙蝠是什么感觉？》（What Is It Like to Be a Bat?）。他之所以问这个，是因为关键问题不是：克里斯，你能不能想象自己一天大部分时间倒挂着、长着带蹼的手臂到处飞？那只是你像蝙蝠一样行动会是什么感觉。问题是：对蝙蝠来说，成为一只蝙蝠是什么感觉？这篇文章我推荐所有人读，它的结论是：除了从内部，没有办法知道。因为再说一次，对主观体验给出客观描述，那到底能意味着什么？你离主观性越远，就离意识越远。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s12">
+<div class="body-sec-head"><h3>用一种感官解释另一种：康德、叔本华与“简单的意识”</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>我一直在想这个，可能听起来很怪：我当时在读默林·谢尔德雷克（Merlin Sheldrake）写真菌的书，非常有意思。他谈到那些能到处嗅出松露的神奇狗，我突然想到一件有点怪的事：我们有时觉得能用客观术语解释我们与世界的感官互动。想知道视觉是怎么回事，我就用波长、大脑化学和神经元的活动来解释；想解释听觉，就说空气振动之类。那嗅觉呢？如果你的孩子跑来问你：“我闻东西的时候发生了什么？我的鼻子是怎么闻到东西的？”你会怎么告诉他们？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>小颗粒进入你脸前面的两个洞里，里面有感受器。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>完全正确，很好。你在说这些小颗粒，说鼻子和洞。在非常真实的意义上，那只是它看起来的样子：如果我用显微镜看空气中的颗粒，会看到这些小颗粒；看你的鼻子，或者如果我是盲人，摸你的鼻子，我就知道洞是什么。除了它看起来怎样、摸起来怎样，我没有别的办法知道鼻子是什么。所以当我描述这些颗粒附着在你鼻腔里时，我其实是在用某物看起来的样子来描述它闻起来的样子。为什么我用“看起来的样子”来解释“闻起来的样子”，就算把它还原了呢？这并不比反过来更高明：如果你在显微镜下看到许多小颗粒附着在我鼻子上，问我“那里发生了什么，你能解释为什么吗”，我说“哦，那是薰衣草的气味”。你只是在用一种感官解释另一种感官。我认为科学里我们把视觉看得比其他大多数感官都重要，但你其实只是在更基本的层面描述实在看起来的样子：用原子描述桌子，只是说桌子在我看来是这样，但如果我用显微镜，比如电子显微镜，更仔细地看，它会以叫做原子的东西向我呈现；再往深看，它会以电子之类的东西向我呈现。你永远没能进入内部，永远没能超越它向你呈现的样子。</p>
+<p>这就是康德著名的区分：伊曼努尔·康德（Immanuel Kant）区分了“现象”（phenomena）与“本体”（noumena）。现象——就像“现象的”这个词——是世界如何呈现，是世界在你的觉知中如何显现；而本体，或者他会说的“物自体”，是那个真正在向你显现的东西。康德基本上说：你就是无法触及本体，永远不能，你只会知道事物向你显现的样子。后来阿图尔·叔本华（Arthur Schopenhauer）出现，他把自己视为康德的继承者，他说：没错，你永远无法触及周围任何事物的本体，我只能接触桌子、杯子、麦克风的现象。但宇宙中有一样东西同时以两种不同方式向我显现，那就是我自己的身体，我自己。如果我看自己的手，它只是世界中的一个物体，有形状、大小、颜色，反射光线，遵守物理定律，弹一下就会动；但它同时也从内部向我呈现，我知道有一只手是什么感觉。如果我照镜子，我在视觉中出现的方式就像你出现在我视觉中一样，只是世界中的一个物体，但我还有这种内在感受，我以两种方式出现在自己的理解中。所以叔本华说：从外部看它像一根手指，从内部感觉它是一根手指。对他来说，这就是现象与本体区分的关键：我手指的现象是它现在向你显现的样子，也就是它在我看来的样子；而手指的本体则是它从内部感受起来的样子。</p>
+<p>然后叔本华说：好，也许我是宇宙中唯一拥有这种特殊内在觉知的东西，他称之为“意志”，你也可以叫它意识，随便。也许我是宇宙中唯一有它的。大多数人觉得这不太可能，比如我认为你有意识，其他人也有意识。所以他说，也许你的本体和我的一样，你内在发生的也是类似的东西：这种觉知、意识、意志。接着他说：也许只有人类有这种本体，而宇宙中其他一切的本体我们永远无法知道；又或者就是同一种东西。也许最简约的解释是：宇宙中我唯一知道其自在本身的东西——我确实知道它的物自体——也许万物都有同样的本性。于是他开始把自己的这种内在意志感推广到其他人、动物、植物，再到世界本身的本性。他并不是说意识是那种对世界、景象和声音的复杂觉知，对他来说它是一种非常基本的盲目意志，非常非常原始的东西。</p>
+<p>在我看来，意识并不复杂。人们犯的最大错误之一，就是以为意识需要复杂性。我认为意识本身极其简单，它只是觉知，只是直接的觉知，但它有时可以以复杂的方式显现。所以你可以有复杂的体验，就像我拿一些砖头——非常简单的建筑材料——可以搭出非常复杂的结构。我有时拿一块石头和帝国大厦作比较，想象自己告诉别人：看看这区别，帝国大厦多了不起，有电梯、取款机、自动门、带冲水系统的厕所，太不可思议了；再看这块石头，死气沉沉，什么都不做。如果我告诉别人：猜怎么着，它们其实是由同样的东西构成的，别人可能会说：“你在说什么？这说不通。”是的，因为构成它的东西非常简单，只是在那边以更复杂的方式排列和表达。所以当我们看自己的意识——记忆、色彩感知、自我感、为税操心，还有复杂的味道和气味等等——</p>
+<p>这并不表明意识必然是复杂的，而是表明我们拥有的是一种非常复杂的意识。但你可以把那些东西拿掉，你可以设想某种存在者，在永恒中只体验到环绕着它的蓝色，别的什么都没有：没有声音，没有触觉，只有蓝，纯粹的蓝的体验。那会是一种非常简单的存在，但觉知仍在发生，有对蓝的觉知，只是非常非常原始。所以就有了“意志弥漫于整个宇宙”的观念。</p>
+<p>我认为人们接受或考虑“意识更根本、更原始、也许至少以萌芽形式存在于宇宙某处”这一观点的最大障碍，在于我们不再被自然事物包围，而是被哲学家所说的“人造物”包围，也就是人制造的东西。我现在能看到的周围一切都是人造的，除了你，而你是这个房间里唯一看起来有意识的东西。摄像机、砖头、灯、暖气、插头、电线、线缆，全是人造的。如果你住在森林里，我们坐着环顾四周——这就是为什么人们喜欢在大自然里吃迷幻药——你会更容易看看四周然后说：“哦，有某种生机在发生，有某种内在的运动。”迈克尔·波伦（Michael Pollan）的新书很精彩，他谈到看植物生长的延时摄影，看它们如何运动，然后说：老兄，我不认为它们会感到疼痛，不认为它们有意识觉知，但那里正在发生某种怪事，它们不像石头那样是死的。这样更容易想象宇宙背后有某种赋予生机的力量。</p>
+<p>而我们做的，是把所有那些自然的运动和自然的行为切碎、打破、楔合、焊接、混成合金，造出这些似乎不以那种方式运作的物体，因为我们把它们强行塞进了一种非常不自然的组织方式，它很复杂，却不自然。但如果你真去看木头本身，放大到电子之类的层面，突然它又是一锅沸腾冒泡的活动和奇异之物，因为那是人类还没有打破、变成人造物的部分。所以如果我们在森林里进行这场对话，听起来会少疯狂很多，你明白我的意思吗？你得记住，你整天都在和人造物打交道，你接触的一切都是人造物。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>人造物，就是一个人为制造的、无菌得多的环境。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>对。再说一次，我只是给你介绍这个观点，因为我觉得它好玩。如果你认为宇宙由意识构成、电子有意识或者那里有什么怪事，那它当然不会在麦克风防喷罩的层面上显现。但这一观点的辩护者会说：放大看看。连科学家都会告诉你，放大到足够小，那下面发生的事简直疯狂。不过请记住，我并不是说我在这里说的任何话应该让你相信宇宙由意识构成，我其实并没有给出那个论证，我只是解释了为什么我认为科学有其局限，以及意识作为宇宙根基的一些含义。对于觉得这表面上听起来就很蠢的人，我理解，我以前也这么想。但请记住，没人知道实在的根基处在发生什么。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s13">
+<div class="body-sec-head"><h3>反驳“意识是涌现的”</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>你听到的有些想法简直疯狂，但有些只是被更广泛地接受。如果你去一个物理学研讨会问世界顶尖专家“你认为电子是什么”，有人会说：“我认为电子是一团数学概率云，你观察它时它会坍缩到一个确定的位置。”大家说：“酷。”这是量子力学的哥本哈根诠释——我常说，哥本哈根诠释（Copenhagen interpretation）里藏着“自我安慰”（cope）这个词。另一位物理学家可能说：我认为电子必须做“决定”时，它两样都做了，于是现实产生一条新分支，每做一次量子决定就会产生一个全新的宇宙，每秒都在产生万亿又万亿个新现实。这是埃弗雷特（Everett）的多世界诠释，大家说：“对，酷，真有意思，我们研究研究。”然后有人说：我认为我们无论如何都解释不了的、意识这种完全神秘的特质，竟然从本身没有意识的根本实在中涌现，这表明也许实在的根基处有某种原始程度的意识。大家却说：这是我听过最荒谬的事。这对“意识根本论”的立场似乎有点不公平。</p>
+<p>因为人们会说：好吧亚历克斯，都很有意思——或者没那么有意思——但老兄，意识显然就是涌现出来的。你把大脑组装起来，大脑是非常复杂的器官，把死的东西以正确的顺序、正确的复杂度组合在一起，它就产生思想，就是涌现出来的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>他们说这就像0和1在电脑屏幕上生成图像一样。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>对，或者就像没有哪个单独的原子是热的，但把它们放在一起，你就得到了“温度”这种涌现出来的东西，叫热。可问题是这里面有几个毛病。首先，凭直觉说：人们以为把物质以正确的顺序和复杂度组合起来就会产生思想，很多人、唯物主义者都这么认为。好，想象我告诉你，克里斯，我现在要想一些念头，我要非常用力地想，以正确的顺序和方式想非常复杂的念头，仅靠思考就产生物质，产生一把椅子，甚至只是一个水分子，凭空通过以正确方式思考正确的念头造出来。你会觉得我疯了，不会说“真有意思，你打算怎么做”，而会说“这说不通，你在谈两种不同的东西，你不能通过复杂地组织思想来产生物质”，因为思想之物与物理之物之间有一道不可穿透的分隔，它们也许会以某种方式互动，但你无法从一个产生另一个。</p>
+<p>可一旦你把它反过来，突然这就成了所有人对意识本性的默认假设：对啊，你把物质组合起来就得到思想。怎么做到？为什么？这到底凭什么会发生？我以前比喻过，我们谈的是两种不同的东西，这就像把橘子以正确方式排列，就以某种方式产生了“离婚”这个概念，或者“紫色”。这根本说不通。有人说：“对，但如果你把橘子排成‘离婚’这个词呢？”那好吧，可前提是你之后去看它。这就是关于涌现的另一件事：人们会举例子，0和1变成屏幕上的图像呢？温度呢？而人们总是忽略的是，他们举出的每一个涌现的例子，都是在意识体验中涌现的东西，每一次都是，不管举什么例子。首先请注意，当有人说意识是涌现的，他们从不告诉你它是怎么运作的，甚至都不试图告诉你，他们不知道，当然不知道，他们只是给你举例子：“哦，它就像这样或那样涌现。”而他们举的每一个例子，每一个都是某物在</p>
+<p>意识中涌现的例子。就拿温度来说：单个原子是热的吗？这取决于你说的温度是什么。对物理学家来说，温度就是原子振动的平均速度，温度就是由这个构成的，单个原子也可以有。所以单个原子有温度，许多原子组合起来也有，没问题。可他们感兴趣的是：不不不，把它们放在一起时，除了能用科学预测的振动之外，还会额外产生一个新东西。那额外的东西是什么？这个叫温度、叫热的东西是什么？是你一碰会“哎哟”一声，靠近时能感觉到的那个温度，那才是涌现出来的东西。猜怎么着？那是一种体验，一种意识体验。电脑和屏幕上的图像也一样：0和1其实是晶体管的开与关，它们沿线缆发送电信号，连到显示器，显示器点亮小LED，发出电磁波射入空气、到达你的眼睛，诸如此类。很好，这些全是科学的，你能描述那里发生的一切。但你感兴趣的那个涌现出来的东西是什么？它涌现为一张雏菊的图片——前提是你在看屏幕。如果没人看屏幕，存在的只有穿过空气的电磁辐射。宇宙中并不存在“黄”，只有当你的大脑把电磁辐射翻译成黄色时，才有黄。</p>
+<p>所以电脑上的0、1和晶体管实际上只产生更多可被科学测量的东西，也就是光波和光子。有意思的是它们如何涌现为一幅图像，但图像是你的眼睛看到的东西。换句话说，就好比说“意识像X、Y、Z一样涌现”，可X、Y、Z的所有例子都只是意识的涌现。他们说的是“意识就像其他所有涌现出来的意识体验一样涌现”，你什么都没告诉我，你只是硬塞给我“意识是涌现的”这一观点。而且因为所有涌现的例子都是在意识中涌现的，你实际上在暗示宇宙中唯一会涌现的就是意识。我只是不认为那是对的。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Athletic Brewing 无醇啤酒]</span></div>
+</section>
+<section class="body-sec" id="sec-s14">
+<div class="body-sec-head"><h3>意识与宗教：泛心论、观念论与一神论</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>意识和宗教之间有什么联系？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>对一些人来说，他们把意识当作一个论证，说明实在的根基处一定有某种心灵。因为如果我关于涌现说的是对的——顺便说，人们会区分强涌现和弱涌现。如果有听众想：“难道家庭不是从成员中涌现的吗？生态系统不是从个体生物中涌现的吗？”是的，但那是以可预测的方式：如果我知道所有生物如何表现，我就能在更大尺度上预测这个你称为弱涌现的生态系统会如何表现。而意识的问题在于，我可以描述所有大脑活动，却仍然完全茫然，永远不会预料或预测到它会伴随着体验。所以人们说：如果这是对的，意识不可能是涌现的，而我们知道意识存在，因为我们此刻就在体验它，那就意味着意识一定以某种方式处于万物的根基。对此有几种思考方式。泛心论者说：很好，这意味着原子有意识。在我看来这有点怪，我不太认为那是准确的。另一些人说：也许我们存在于一个巨大的心灵之中，这是观念论，斯宾诺莎持的也大致是这种观点。</p>
+<p>但传统一神论者会说：不不不，真正发生的是存在一个有意识的根本原因导致了意识。存在一个物质世界，然后有一个叫意识的东西，你没法解释，说它就是从物质中涌现的，说不通。他们设想物质按自己的方式运作，然后被一个有意识的行动者赋予生机：有一个上帝、一个有意识的心灵，为物质宇宙的一部分注入生命，所以人类有意识、动物有意识，但桌子没有。不管哪种，论证通常都在说：你不能仅从物质得到意识，它必须来自某处。所以它只能来自三种可能：意识存在于极小的东西中；意识是我们存在于其中的整体；或者有某种掌控宇宙的意识，可以随心所欲地在这里那里放进意识。最后这种大致是一神论观点，我认为它不太简约：有一个上帝让一些东西有意识、另一些没有，还有一个物质世界，意识与物质互动，有点乱。我更倾向于认为，如果说这一思路指向什么，那就是存在一个巨大的心灵，万物以某种方式存在于意识之中。</p>
+<p>这听起来很怪，也很难用语言表达，你会开始对某些总是用比喻说话的哲学传统非常同情：它们总在谈波浪、漩涡之类，如果你是分析哲学家、想知道到底发生了什么，那会很烦人。但我开始对它们多了些同情，因为这确实很难用语言表达。我认为你不必用碎屑来解释蛋糕，也可以用蛋糕来解释碎屑，而对意识来说可能是后者。我更倾向于认为，如果这种观点站得住脚，它会指向所谓的观念论：存在一种巨大的心灵实体，我们都是它的表达，我们所说的物理世界其实是心灵之物的一种表达，广延、重量、空间、距离等等，并不是不真实，而是一种显现。</p>
+<p>理解这一点的最好方式是想想梦。假设现在就是一场梦，你五分钟后醒来，记得自己在一个房间里，有另一个人，有一张桌子，有距离。我问：那房间有多大？你说：在我梦里，房间挺大的，挺宽的。我说：对，但在真实实在的实体中，它实际上有多大？你会意识到这成了一个无意义的问题，因为一切都存在于你的心灵之中，没有距离，那只是一种显现，是存在于心灵中的东西。观念论者看待世界的方式大致如此，他们把一切视为一个巨大心灵的表达。这听起来非常古怪，但并不比“有一位全能的创造神‘唰’一下创造了宇宙”更古怪，在我看来后者其实更怪一点。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s15">
+<div class="body-sec-head"><h3>AI 智能体替人祈祷？祈祷到底是为了谁</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>说到这个，我最近看到一条推文，想听听你的反应。斯宾塞·格林伯格（Spencer Greenberg）提了一个问题：你让AI智能体为你做的最有用但不那么显而易见的事是什么？一位叫“Reborn the Hunter”的用户回复说：“为我不朽的灵魂祈祷。我有75个代祷智能体以大约每分钟500遍《主祷文》的速度恳求上帝让我免于永恒的诅咒。最终会有一位教皇宣布它们拥有灵魂，追溯性地使它们的祈祷生效，目标是在炼狱里最多待60年。”你怎么看？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>挺好的，挺好的。这是一种对冲风险的方式，对吧？帕斯卡的“智能体赌注”。</p>
+<p><span class="tag">【笑】</span>我觉得这挺好笑，但问题当然在于他不是认真的。可我喜欢“解剖青蛙”，试着弄清楚一件事为什么好笑。为什么好笑？因为它显然很荒谬。从中我们能学到两件事：一是祈祷这个概念本身有点怪；二是大多数人其实不认为AI有或能有意识。但祈祷这件事很有意思，因为很多无神论者是这样批评宗教的：祈祷有什么意义？人为什么祈祷？如果你祈祷说“天父啊，请照顾我住院的朋友”，那你觉得他本来不打算这么做吗？如果他本来就要做，那祈祷就没意义；如果他本来不打算做，那他一定有理由，而你又不比上帝更懂，你凭什么改变他的主意？你觉得你祈祷之后他会说“哦对，医院里的约翰尼，我差点忘了，谢谢”吗？请求全知的宇宙创造者去做某事，看起来极其奇怪。</p>
+<p>但当然，人并不笨。如果某件事显然很蠢，那一定另有其事。那祈祷时到底发生了什么？至少那类祈祷，我怀疑它们并不是为了被祈祷的那个人，而是为了你自己。祈祷是一个让自己与上帝意志对齐的机会。这里你对根本实在持什么观点并不重要：如果你相信存在某种根本的、有意志的存在者，或一个带着目的创造宇宙的上帝，你会不断偏离那个目的，你不会关心别人，你会从街上的流浪者身边走过，看都不看一眼。但如果你为他们祈祷，“主啊，请保护他们”，你真正在做的是校准自己的意志，提醒自己那是你应该关心的事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>所以人们不太可能祈祷说“我真希望亚历克斯今天绊一跤”，那就像在做坏事。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>对，不过你也可以那样祈祷，人们确实会祈祷那类事。他们大概一直在为各种事祈祷，比如“主啊，让我比别人先拿到新iPhone”——我在苹果店排队买iPhone时就这么祈祷过——上帝显然不会回应那种祈祷。事实上人们有时会忘记：耶稣在福音书里祈祷过，而上帝说了“不”。他在客西马尼园说：“主啊，求你叫这杯离开我。”他即将被钉十字架，这被称为“园中的痛苦”，是宗教艺术中的重要母题：耶稣在园中哭泣，基本上在说“请别让我做这件事，能把它从我这里拿走吗”。但接着他说：“然而，不要照我的意思，只要照你的意思。”所以这是一个祈祷：他承认自己不想做，但说如果这是你的意志，我就调整我的愿望，去做这件事。他祈求某事，上帝说不，但这仍然是一个非常重要的时刻，耶稣显然在接受正在发生的事。我觉得这就是祈祷对人的作用。</p>
+<p>人们饭前祈祷、做谢饭祷告也是同样的道理：你到底在做什么？是为谁？是为你自己，就是感恩。所以我很喜欢世俗版的谢饭祷告：吃饭前花一分钟，为自己所处的境地心怀感激。人们称之为正念，是同一类事情。你可以把它指向上帝，也可以不，没什么关系，但它不是为了上帝。你什么也给不了上帝，上帝是无限的实体，你无法给上帝增添任何东西，也不会因为做了他不喜欢的事而让他不高兴，所以不可能是为了他。如果你为别人祈祷，而上帝本来就会做他要做的事，那也不可能是为了他们，所以只能是为了你自己。这就是为什么当这个人说“我有50个AI智能体在为我祈祷”时，我会想：也许如果AI机器人有了意识，那些祈祷会对它们有好处，但我不确定会对那个人的救赎有多大帮助。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s16">
+<div class="body-sec-head"><h3>哲学一致性测试①：基因增强、胚胎筛选与非同一性问题</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>好，我想看看你在哲学上有多一致，我准备了一些问题听听你的看法。如果有人能通过基因工程让自己的孩子更有吸引力、更聪明、情绪更稳定，那拒绝这么做，在道德上和拒绝给他们良好教育有区别吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>嗯……也许有，也许是有区别的。但我觉得大多数人至少希望生活在一个重视教育、不重视外貌的文化中。不过我认为这种直觉的基础大概是：人们意识到你对教育的掌控是你对长相所没有的。如果你剪了个新发型，我可能会说“哇，你的头发真好看，干得好”，我会为此夸你；但如果你只是鼻子长得有点怪，我不会以同样的方式因此责怪你或称赞你，因为我们直觉上认为你能控制前者。所以如果我们真的把“可以定制一个人的长相”这件事常态化，那它就确实变成了你能掌控的东西，你就应该……</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>当GLP-1类药物让减肥变得更容易获得时，超重就会更多地被看作对你这个人的评价。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>也许吧，很可能会。但我也有同样的担忧：这在某种难以言喻、无法描述的意义上，是通往地狱之路的第一步。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>GLP-1是通往地狱之路的第一步。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>我是说为孩子定制外貌之类的想法。我觉得以一种我说不太清的方式，有时我们就是有一种直觉，觉得某件事是坏的。人们现在对AI也有这种感觉：当你看到它能做的某件事，你会说“我不喜欢这个，我不确定为什么，也没法完全证明”。我觉得我们应该警惕这种直觉。但同时我也认为，我们应该抵制因为人们缺乏教育而追究他们责任的想法，即便他们有机会接受教育却没有把握。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>我觉得在某种程度上，你也控制不了自己想要受教育的倾向。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>正是，对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>对。一旦你吞下行为遗传学这颗红药丸——离吞下决定论红药丸只有几步之遥——你最终基本上会为每个人做的每件事开脱。关于胚胎筛选有个有意思的问题。我认为基因工程在伦理上其实和胚胎筛选不同。做试管婴儿（IVF）时你本来就在做胚胎筛选，你可以质疑该不该做IVF，但锚定偏差可真是厉害。卵子受精后，医生、生殖专家会在显微镜下看，说：“哦，这两个又圆又漂亮，看起来不错，是A级；这三个是B级；还有那些，就不用提了。”所以你已经在做排名分级了。只是现在像Herasight这样——这方面全球最好的公司——能展示IQ方面的情况，它对IQ有预测性，对身高、免疫系统、外化行为、犯罪可能性等许多方面都有预测性。</p>
+<p>鉴于我们长期以来一直在说这样的话：如果你来自一个</p>
+<p>基因组合风险很高的群体，可能导致相当不理想的性状——不仅对整个社会不理想，可能对出生的那个人自己也是，比如亨廷顿病等等——我记得冰岛已经基本消除了唐氏综合征，因为他们对孕妇做的筛查程度很高，这意味着你能够筛除负面的东西。而一旦你接受“避免让患有亨廷顿病或其他让人生活很糟糕的疾病或困境的人出生，是我们应该做的”，那就很难坚持“我们不应该从筛除负面性状一路走到选择正面性状”。为什么不让一个人的免疫系统更强？为什么不让一个人有更大概率不进监狱？为什么不让一个人更亲社会、更善解人意、更能认识自己、更能为社会做贡献、不对配偶出轨之类？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>一个现实的理由是，我们挺幸运的：在某些情况下，生活的任意性和随机性阻止了我们沉迷于完美，而完美是没有尽头的。你有时会谈到完美主义的问题，说它是伪装成别的东西的什么，你是怎么说的来着？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>拖延是伪装成质量控制的完美主义。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>好吧，也许我记混了。但完美主义通常是在负面意义上使用的，因为它没有尽头，总有可以微调、总有可以做的地方。我不太想对我们的孩子这样做。好吧，说得过去：我的孩子出生时会没有腿，我按一下这个按钮他们就有腿，很好。但我也可以让他们更好看一点，再更好看一点。你知道这让我想到什么吗？让我想到那些沉迷肉毒杆菌或整容手术的人：一开始只是“我觉得眉毛可以稍微提一点”，然后不可避免地，他们坐在早间节目的沙发上，看起来像个塑料娃娃，太疯狂了，大家都说他们有心理疾病。如果我们不小心，我们就会对孩子做同样的事，因为它没有一个停下来的点。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>我和芬恩·泰勒（Finn Taylor，音）有过一次有意思的对话，大概两年前我们同一天上了他的节目。我和他聊了同样的话题，他大概有两三个孩子，他提到他认为很多父母会有“买家懊悔”：当你参与了对孩子的挑选，你就更可能以某种方式感到内疚、后悔、怨恨或骄傲。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>我认为任何会导致我哪怕有可能看着自己的孩子、脑中冒出“买家懊悔”这两个词的技术或哲学，我都会用灵魂的每一寸去抵抗，直到我死的那天。这又是一件我说不太清为什么的事，但我就是觉得那里面有某种邪恶。你听说过“非同一性问题”吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>听说过。我和乔纳森·阿诺马利（Jonathan Anomaly）聊过：通过选择一个人——或选择一个胚胎——另一个胚胎就不会出生。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>对，这里似乎有伦理上的区别，这在哲学上其实是个难题。它由伟大的牛津哲学家德里克·帕菲特（Derek Parfit）提出——他是牛津的吗？我想是。伤害或惠及一个已经存在的生命，与在一个受益个体和一个受损个体之间做选择，似乎在伦理上有区别。想象孕妇有两种密切相关的状况——我可能会讲得乱七八糟，凭记忆试试，大概类似这样。状况A：你已经怀孕，孩子出生时腿将无法正常运作，你只需吃一颗药就能修复孩子的腿，让他健康出生。状况B：在怀孕之前你有一种状况，如果现在受孕，孩子出生时会没有腿，但如果等一个月让状况消退，孩子就会有正常的腿。现在想象两个女人，一个有状况A：她体内的孩子将没有腿，她只需吃一颗药，却说“不用了，我不想吃，其实我有点想要一个残疾孩子，因为那会让人更同情我、让我成为关注的中心”。孩子出生了，这是可怕的、不道德的、邪恶的行为。然后帕菲特说：再想象第二个女人有状况B，她被告知如果现在受孕孩子会没有腿，如果等一等就不会，她说“不，我现在就要孩子，因为我想成为关注的中心，想让大家同情我和我的残疾孩子”。所以两人最终都生了残疾孩子，两人似乎都以同样的方式做错了，都做了可怕的事。</p>
+<p>但她们伤害了谁？第一个女人肯定伤害了她的孩子，因为她让那个孩子没有了腿。但第二个女人并没有伤害她的孩子，因为如果她等一个月再生，那会是另一个孩子，而不是同一个。所以如果孩子说“我很恼火你明知自己有这种状况还选择怀孕”，那说不通。唯一的前提是他们的生命总体上值得活——当然有些人经历极其负面，会说“我希望自己从没出生”，有些人甚至真的以“错误出生”为由起诉父母，这挺疯狂的，不一定是哲学上疯狂，只是这种事居然在发生很疯狂。但基本要点是：你可以对这个恼火的孩子说，他们想一想大概会说“其实我挺庆幸她那时生了孩子，否则我根本就不会存在”。所以问题是：到底谁受到了伤害？你可以说：那个本来会出生却没能存在的孩子受到了伤害，因为他们本可以存在。不，这对所有可能存在的人都成立，那岂不是说你现在不生孩子就在伤害别人？那似乎不公平、不对，我们对不存在的生命没有义务。但帕菲特说，假定一件事要是坏的，就必须让某些人比原本更糟，这似乎也合理，否则一件事是坏的或有害的意味着什么？</p>
+<p>所以我们认为第二位母亲做错了事，但怎么错的？她伤害了谁？她没伤害任何人，没人变得更糟。事实上，包括孩子在内的所有相关者，都比她做出其他选择时过得更好。可我们还是想说她做错了。那我们怎么理解这一点？是什么让她的行为是错的？还是我们干脆说其实没问题？如果说没问题，就打开了某种选择性优生学的大门：不允许在基因已经存在时编辑它们，却允许在怀孕开始前控制各种因素。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s17">
+<div class="body-sec-head"><h3>哲学一致性测试②：幻想算不算出轨、色情内容与“心理安全措施”</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>好，再来一个。如果出轨之所以错是因为它破坏了信任，那么暗自幻想别人，与出轨在道德上有区别吗？还是只是受技术所限的出轨？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>嗯，“凡看见妇女就动淫念的，这人心里已经与她犯奸淫了”，拿撒勒人耶稣如是说。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>但那是暗自幻想。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>对。幻想的特点在于它是主动的。人们批评基督教把淫念视为该受惩罚——甚至不说惩罚，只是负面的——的观念，说这就像“思想罪”：“哦，哪怕你想了不该想的事。”但这不只是想了一个念头，不是说</p>
+<p>一个念头偶然溜进你脑子里，而是似乎在“玩味”那个念头，你会接着去和那个念头周旋。我认为出轨的错并不在于你觉得另一个人有吸引力。你可以在一段关系中、在婚姻中，看到另一个人并注意到他们有吸引力，但我认为擅长经营婚姻的人基本上会直接掐掉那个念头：他们会把目光移开，或者把那个念头从脑中清除，或许他们一开始就不会有那个念头，因为他们对妻子如此忠诚。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>我再给你一个，是我在某档节目上听来的。那位嘉宾做了一个春梦，梦里他妻子的一个朋友和他在一起，而在梦里——虽然那不是清醒梦——他并没有和妻子的朋友出轨。<span class="tag">【笑】</span>这算不算品格的良好体现？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>只是“还没有”而已。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>他醒来后说：“难道我不该得到‘好孩子积分’吗？我在梦里无意识地、不由自主地没有和她的朋友出轨，难道不该被妻子表扬吗？”</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>只有当你也要为自己在梦里做过的所有坏事负责时才行。也许你还真该负责，因为梦里发生的事也许是你潜意识中所发生之事的表达，所以真正揭示了你是谁。所以我会很乐意做那样的梦，因为我觉得它会揭示那也许就是真正的我。但我们其实并不知道梦到底是怎么回事，可能什么都有。有时你会梦到最疯狂的事，醒来后想……</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>幸好没人看见。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>……那些都不是真的。所以我不认为那是个明智的标准。但我确实认为出轨中“主动”的成分在于向吸引力屈服，而对此最简单、不武断的衡量标准，就是你有没有在身体上付诸行动，这就是为什么人们认为那如此重要。但你可以把它们分开。想象你有妻子或伴侣，有两种情形：一种是她非常非常想和某人上床，但对方也许拒绝了，于是她离开了；另一种是她非常非常不想，但不知怎么还是发生了。我们通常会认为在第二种情况下她是受害者——如果像我描述的那样，她确实是受害者，那是可怕的事，你会陪在伴侣身边。但在第一种情况下，如果你发现那是真的，你会非常难过，因为你真正在乎的是那份意图、欲望和意志。只是这很难从人的脑子内部衡量，连他们自己都难。所以我认为，如果你认真对待一段关系，就应该掐掉那类东西，不该看色情内容，不该沉溺于那类东西，因为那才是通奸和出轨真正有害的部分，而不是身体行为本身，因为你可以把身体行为单独拎出来，在那种情况下你并不会谴责它，恰恰相反。</p>
+<p>我认为这就是耶稣说“看妇女动淫念就是心里犯了奸淫”的意思。人们说那是思想罪，不是的，他只是在说：别去玩味那个念头。我认为他大概是对的。有反对的论证吗？有理由认为其实……</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>我记得和亚瑟·布鲁克斯（Arthur Brooks）——大概是他——聊过，他向我解释说，作为企业主，你永远不该组织那种允许员工参加但不许带伴侣的团建或外出活动，永远不要。因为那是一个新环境，经常一起工作的人之间可能有某种潜在的暧昧在表面下翻涌，只是因为距离近，还有所谓的“办公室加两分效应”：不管你有多好看，如果你和对方在同一个办公室工作，你在对方眼里就加两分。你不该这么做，因为那经常就是“度假浪漫加潜在办公室恋情”转化成现实的时刻，然后事情就会变得很糟。所以你可以设想，也许你会说：如果你真的忠于伴侣，你应该能看着桌上一个赤裸的女人而连碰都不碰她。理想情况下你应该能做到，对吧？但我觉得这种想法是：不，那是因为你控制不了自己心理上的程度。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>其实也许你多少能控制，也许你可以训练自己。我们一直在谈身体训练，比如有人用膝盖撞柱子来强化自己，好去打UFC之类的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>你是说我应该让自己尽可能多地接触裸体女性，来建立我的抵抗力？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>我是说你大概应该反过来：一有机会就练习抵抗，因为你当然应该这么做，这就是关键所在。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>那不会让我更脆弱吗？就好比我想要强壮的膝盖，可为了拥有强壮的膝盖，我永远不让它撞任何东西。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>如果会，那也许就是好事。我不知道，我觉得你就应该能说“不”。如果你告诉我“如果面前有个非常有吸引力的裸体女人，我就是没法拒绝”，那我会说：那你需要加强你的心理训练。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>但你加强心理训练的方式就是不待在有吸引力的裸体女人身边。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>对，这是个有意思的想法，也许你能做的最好的事就是……也许隔着一块玻璃屏？我不认为那是明智的，因为我想证据显示的恰恰相反。我知道，既然我说你应该能训练自己抵抗这类东西，那认为也许需要“暴露”是合理的，但证据似乎显示相反：经常看色情内容的人更可能物化女性，更可能出轨。在某种意义上，色情内容本身就可以是一种出轨。我认为出轨是由你和伴侣的关系来界定的，你们可以决定开放多元关系，然后有些事才算出轨；你们也可以说“你可以和任何人上床，除了本（Ben）”，那么只有和本才算出轨，所以要看情况。但证据显示：如果你不再允许自己沉溺于这些念头，你物化女性的可能性其实会更低。也就是说，你不是在建立耐受力，而是如果你看大量色情内容，你会更可能物化女性，看到裸体女人就会把她当作性对象，那很可怕、很糟糕。</p>
+<p>如果你不再沉溺于那些淫念、不再看色情内容，那么当那个裸体女人出现在桌上说“来吧，背叛你的妻子”时，你会说“离我远点”，你会像托马斯·阿奎那那样。他的家人非常担心他对神学的投入，因为他对神学着了迷。在中世纪，他住在一座城堡里，算是被关了起来，他的家人雇了一个妓女去引诱他犯罪，试图让他从对神学的痴迷中清醒过来。据说他从壁炉里抄起一根燃烧的木棍，把她赶出了城堡。我认为那不完全是我会建议别人做的事，因为物化女性最大的受害者当然是女性，而不是男性，这一点在这类讨论中总是被忽略。人们谈色情内容的坏处时说“看它让男人多淫荡”，其实色情内容对女性非常糟糕，主要是对女性糟糕。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>尤其是当你拿着一根着火的棍子在街上追她们的时候。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>那也是真的。但它在很多方面都对女性不好。显然色情片里的女性有可怕的经历，而且和色情毫无关系的女性也得承受看色情内容的男人带来的影响：那些男人第一次和她们上床就试图掐她们的脖子，尽管50年前人们并不这么做，这其实挺疯狂的。除非你非常非常了解某个人，</p>
+<p>即便那样也大概不太安全。但所有这类事情，女性都得面对。正如你所说，证据表明那些沉溺于淫念的人……再说一次，我认为耶稣的意思不是“如果你觉得一个女人有吸引力，就该因通奸被石头砸死”，而是“别去玩味这些念头，别放纵这些念头，因为你在做对灵性有害的事”。我认为其世俗版本是：所有证据都表明，一个人们更多这样做的世界，是一个有更多街头骚扰、更多让人不适的目光、更多被认为“还行”并被常态化的不良行为的世界。我们可以整天讨论——播客上人们也确实在讨论——这对男性心理健康有多糟，但它首先对女性非常糟糕。所以我认为这大概是你应该停止这样做的主要原因。同理，你应该建立不出轨的心理韧性，主要不是为了你的斯多葛智慧，而是为了你的妻子，那个你理应比世上任何人都更爱、更在乎的人。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>所以别去参加公司团建。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>对，但关键就在这里，那是一种安全措施。我认为你可以在自己的心理空间里设置安全措施。就像你有“不参加团建”的规则一样，你也可以有不上Instagram、当然更不要上色情网站的规则——如果那会成为你的触发点的话；如果你的信息流里充满了诱惑你犯罪的东西……</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>你的Instagram信息流是什么样的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>主要是圣经研究，还有音乐相关的东西。你知道你可以定制自己的算法吗？你可以进设置里给它指定想看的主题，很棒。所以我的信息流是刻意维持得相对……我还是会无休止地刷，但我真的在努力避免对那种把你吸进去的随机内容上瘾。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>AI狗狗讲阿奎那，或者辣妹给你讲康德的立场。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>还是会，你最后还是会刷到各种随机的无聊东西。我有点想彻底戒掉社交媒体，大家都想，但问题就在这儿，对吧？不是你想戒掉它，而是你想让所有人都戒掉它。不过说真的，我不认为这是多大的伦理困境，只是在实践上很难证明。如果你和一个人在一起，发现过去十年他一直在暗中苦苦思慕同事，你可以说在某种意义上那不是他的错，但也许他的错在于没有正视、处理这件事，也没有告诉你。因为如果你知道了，也许你就不想和他在一起了，也许你还想，但那是你的选择，你应该了解事实。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s18">
+<div class="body-sec-head"><h3>收尾：11月北美巡演与新计划</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>女士们先生们，这就是亚历克斯·奥康纳。老兄，谢谢你。大家应该去哪里找你？你马上有巡演，还在做什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>对，我有个巡演，11月在北美做六场演出，其中一场在加拿大，非常快了，会很令人兴奋。这是一种“有问必答”（AMA）式的形式，所以如果你想来问关于意识、宗教或者我的Instagram信息流的问题，我是本敞开的书。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>除此之外，大家在哪里买票？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>通过简介里的链接，克里斯。好吧，你可以去 alexoconnor.com/tour，在那里买票。我们会去纽约和洛杉矶。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>你在纽约的市政厅剧院（Town Hall）演出。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>没错，我去年也在那里演过。旧金山已经售罄了，我们还会去多伦多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>他们不喜欢你那样念“多伦多”，要把“t”吞掉，发成喉塞音。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>他们确实和英国人有很多相似的说话方式，对吧？感觉有时像美国人在模仿英国俚语，尤其是在说唱文化里，非常奇怪，但我很期待亲身体验。我从没去过加拿大。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>加拿大很棒，安大略。你也去温哥华吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>不，只去多伦多。加拿大的演出卖得太快了，挺吓人的。我很期待，但这只是一个规模有限的巡演，先在那边试试水，我相信我们还会再去、做更多场。除此之外，我在做一些还不能透露的项目，会很好玩，希望一两年后再看这期节目的人会知道我在说什么——也许他们已经知道了。我还希望重新回到播客和视频随笔的节奏上。很多人说我应该多做些对着镜头独白的内容，我最近做了很多访谈和对话，他们怀念我做视频随笔风格的东西。我想多做些，只是最近没时间，它们在拍摄和剪辑上实际要比播客花更长时间，因为所有剪辑都是我自己做。但我也想多做一些，所以一直在问的人，敬请期待。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>太好了。谢谢你，老兄，下次见。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O&#x27;Connor）">亚历克斯</span></div><div class="content">
+<p>随时。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Modern Wisdom 订阅提醒（片尾自我推广）]</span></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Chris Williamson (Modern Wisdom)", "title": "为什么无神论者总能（在万物中）找到上帝——对话亚历克斯·奥康纳", "url": "https://www.youtube.com/watch?v=OLwQ5A3sRyI", "videoId": "OLwQ5A3sRyI", "published_at": "2026-11-12 08:00 PST（America/Los_Angeles）", "duration": 7003, "caption_source": "YouTube 页面 Show transcript / 内容转文字（caption_source=browser-cdp，subtitle_type=youtube-show-transcript）。今日 yt-dlp 普通路径在 ffh7fdwfrWU 上遇 HTTP 429、chrome cookies（chrome:/home/box/chrome-profile/Fork-3）路径报 “The page needs to be reloaded”，为免加剧风控本条直接走浏览器 Show transcript。说话人：标题与简介写明嘉宾为亚历克斯·奥康纳，主持人克里斯·威廉森；按问答轮次与自述区分，较高把握，少数短插话（如“那会让我更脆弱吗”“幸好没人看见”）归属为中等把握。ASR订正：Mister Ehart→埃克哈特大师；Anna al-Hack→Ana al-Haqq（嘉宾未想起名字，按常识注为曼苏尔·哈拉智）；Nagels→内格尔；An al Seth→阿尼尔·塞斯；Bur and Russell→伯特兰·罗素；Majamaka→中观派；Schoppenhower→叔本华；Paret/puff→德里克·帕菲特；Herasite→Herasight；Michael Pollen→迈克尔·波伦；hypothesis non-finger→hypotheses non fingo；Carlo→卡洛·罗韦利（按语境推断）；JLPs/GLPs→GLP-1类药物；Finn Taylor 按音保留并标注“音”。嘉宾称空间站重力为99.9%属口误，实际约90%，正文已注明。43:51处所提节目名转写不清（“Mark on Schultz’s show”），正文未写具体节目名。", "guests": ["亚历克斯·奥康纳（Alex O'Connor）"], "speakers": [{"id": "chris", "name": "克里斯·威廉森（Chris Williamson）", "role": "host", "short": "克里斯"}, {"id": "alex", "name": "亚历克斯·奥康纳（Alex O'Connor）", "role": "guest", "short": "亚历克斯"}], "intro": {"summary": "Modern Wisdom 主持人克里斯·威廉森对话哲学类YouTuber亚历克斯·奥康纳（约1小时57分）。从亚历克斯如何从“刻薄辩论哥”变成更有同理心的不可知论者谈起，聊到新无神论的退潮、宗教哲学为何没有进展，主体是一场关于意识的长讨论：意识无法定义、科学只能描述不能解释、唯物主义难以辩护、涌现论的循环，以及观念论与上帝的关系；最后是关于祈祷、基因增强/胚胎筛选、非同一性问题和“幻想是否算出轨”的伦理快问快答。", "points": ["亚历克斯现自称不可知论者，认为在上帝与意识问题上自信到可以“宣讲”是愚蠢的；宗教哲学没有进展，因为它更像体验而非论证（阿奎那、帕斯卡、安瑟伦为例）。", "意识是几乎所有世界观的最大漏洞：它无法被指向也无法被定义，一切知识都经由意识。", "科学只描述事物如何表现（牛顿也说“我不杜撰假说”），所以永远解释不了意识；这让唯物主义而非无神论更难辩护。", "“意识是涌现的”站不住：所有涌现例子（热感、屏幕图像）本身都在意识中涌现；他倾向观念论，认为它不比全能神创世更古怪。", "祈祷主要是为祈祷者自己对齐意志；基因增强与胚胎筛选要警惕完美主义与“买家懊悔”，帕菲特的非同一性问题让“谁被伤害了”变得棘手。", "出轨的核心在于主动玩味吸引力，证据显示色情内容让人更易物化女性和出轨，应设置“心理安全措施”。"], "verdict": "值得看：对意识、科学边界和宗教哲学感兴趣的人信息密度很高，亚历克斯讲解清晰、例子生动；后半段伦理快问快答较轻松。纯科学取向、对观念论无兴趣的观众可只看前40分钟和最后半小时。", "audience": "哲学 / 宗教 / 意识研究爱好者"}, "sections": [{"id": "s1", "title": "从“辩论哥”到不可知论者：不再庆祝别人变成无神论者", "start_sec": 0, "summary": "亚历克斯谈自己从带刺的辩论风格转向更有同理心：在上帝、意识这类基础问题上，自认为确信到足以“宣讲”是愚蠢的。他现在更愿称自己为不可知论者（主张宇宙由意识构成的人很难自称纯粹无神论），并说一直希望基督教或某种宗教传统是真的。他不庆祝有人因他变成无神论者，只庆祝有人开始质疑；还调侃了YouTube哲学圈的乔·施密德皈依天主教，以及“与地平论者辩论你可能会输”——因为糟糕理由的信念也可能被对方深思过。"}, {"id": "s2", "title": "地球是宇宙中心吗：运动的相对性与“时间旅行”", "start_sec": 327, "summary": "亚历克斯半开玩笑自称“地心论者”：所有运动都是相对的，不存在一个可以比较的“真实视角”。克里斯引用一篇Substack文章说时间旅行会让你落在太空里，因为地球一直在运动；亚历克斯反驳：要“让宇宙保持静止”本身就说不通。"}, {"id": "s3", "title": "为什么宗教哲学两千年没进展：阿奎那、帕斯卡与安瑟伦", "start_sec": 524, "summary": "人们常为糟糕的理由信或不信上帝（从小被教、恶的问题等），而支持与反对的论证都漏洞百出。哲学不像物理学那样累积，大家都还在和柏拉图搏斗同样的问题，因为哲学更像体验性的直觉。例证：阿奎那临终前因数秒的神秘体验拒绝写完《神学大全》（“一切如同稻草”）；帕斯卡1654年的“火之夜”笔记写着“不是哲学家的上帝”；安瑟伦的本体论论证原本是一篇祷词（“信仰寻求理解”），自然神学论证大量出现其实相当晚近。"}, {"id": "s4", "title": "新无神论的退潮：道金斯与阿彦·希尔西·阿里", "start_sec": 782, "summary": "克里斯回顾两人这代人伴着“四骑士”和希钦斯式“打脸视频”长大，并讲阿彦·希尔西·阿里在道金斯面前讲自己抑郁、从基督教获得慰藉却遭冷冰冰回应的故事，说明公众对“学究式冷漠”越来越反感。亚历克斯（当时在场）认为两种态度都正当：基督教确实提出童贞女生子、复活等真理主张，值得追问；但个人的宗教体验同样合理，双方是在各说各话。他还指出“宗教”本身是个现代概念，古人生活在宗教里如同鱼在水中。"}, {"id": "s5", "title": "15万年前的宗教冲动：神灵、梵与“上帝或自然”之前的区分", "start_sec": 1171, "summary": "亚历克斯认为原始人类很可能有宗教或原始宗教体验，人类学上宗教冲动几乎普遍；这既可解释为进化选择，也可解释为神圣真实存在（约翰·希克的“认识距离”让两种理论都能预测数据）。他强调要区分大写G的上帝与小写g的众神：宙斯、奥丁是受造秩序里的角色，而一神论的上帝或印度教的梵是终极实在；神秘体验（埃克哈特、哈拉智“我即真理”）是与终极实在合一，与“森林之神”不同。他推测希腊人信神的方式可能类似大人陪孩子把毛绒玩具当真，或我们今天说“这是命运”。"}, {"id": "s6", "title": "意识：几乎所有世界观的最大漏洞，而且无法被定义", "start_sec": 1674, "summary": "意识不只是无神论的漏洞，而是几乎所有世界观的漏洞（印度传统把它当作根本者除外）；它与信不信上帝基本无关。一切都经由意识，你从未直接接触“桌子”，只接触它的显现（康德的物自体）。意识无法被指向，就像手电筒照不到自己；也无法被定义，因为词典是自我指涉的，词义最终依赖体验（没见过红色就无法定义红）。内格尔的“成为某物的感受”、阿尼尔·塞斯的“全麻时消失的东西”都只是举例而非定义。"}, {"id": "s7", "title": "科学为何永远解释不了意识：描述≠解释", "start_sec": 2038, "summary": "亚历克斯认为“科学解释不了意识”是必然的：科学描述规律、把事物数学化、分解到更基本的层次，但只描述“如何”而非“是什么”。他用牛顿引力（月球一直在“下落”又一直错过地球；空间站宇航员仍受约九成地面重力——原话误说为99.9%）和牛顿“我不杜撰假说”说明这一点。思想实验：一个盲人学尽颜色科学，复明后第一次看见蓝色仍会学到新东西——那就是体验；科学追求客观，而意识就是主观本身。"}, {"id": "s8", "title": "唯物主义比无神论更难辩护", "start_sec": 2537, "summary": "意识是我们研究世界的“扳手”，不能用扳手修扳手。研究意识让唯物主义（而非无神论）更难辩护：问到底，“物质”“原子”“电子”只能用其行为来描述（像象棋规则说明不了棋子是什么材料），科学无法给出实在的实体是什么；大多数科学家也承认这一边界。科学无法证明他人心灵、外部世界和逻辑定律，体验必须在先。宇宙中唯一能被直接接触的，就是意识体验本身。"}, {"id": "s9", "title": "若宇宙从根本上是体验，那和“上帝”有多大区别", "start_sec": 3012, "summary": "克里斯追问：既然体验在科学范畴之外，评估“上帝体验”的工具是否失效？亚历克斯认为这正是神秘主义传统强调“合一”的原因：若把上帝理解为宇宙的根本意识，人就是它的表达。印度传统的梵像大海、自我像其中的漩涡；迷幻体验中的“万物合一”可理解为同一事物的不同表达。他澄清“斯宾诺莎的上帝”不是把上帝降为自然，而是把自然升为神性（“上帝或自然”）。"}, {"id": "s10", "title": "冥想、迷幻药与关掉“概念”", "start_sec": 3234, "summary": "亚历克斯自认从未享受过冥想。他认为深度冥想者和迷幻体验者都在跳出概念：大脑把世界翻译成方便的故事（魔方颜色错觉、画家看到蓝天里的绿与紫），关掉概念后才看到“一直如此、只是现在才注意到”的样子。冥想（如反复念咒）让“我在做什么”的念头淡出，只剩“一切正在发生”。"}, {"id": "s11", "title": "开悟者更接近真实吗：先天盲人复明实验与经验主义", "start_sec": 3590, "summary": "亚历克斯认为无法判断开悟者是否更准确地感知实在，因为不存在可比较的客观世界。克里斯设想一个从出生就无文化预设的“人类实验群体”；亚历克斯举出先天盲人复明后无法凭视觉区分立方体和球体的研究，说明我们对世界的理解只是不同感官的相互作用。经验主义者与“意识优先”者其实都同意知识来自体验，区别在于是否认为体验直接对应实在；内格尔《成为一只蝙蝠是什么感觉》说明主观体验只能从内部知道。"}, {"id": "s12", "title": "用一种感官解释另一种：康德、叔本华与“简单的意识”", "start_sec": 3866, "summary": "受默林·谢尔德雷克《真菌》中松露犬启发，亚历克斯指出科学解释嗅觉其实是用“看起来的样子”描述“闻起来的样子”，偏重视觉。康德区分现象与本体；叔本华发现自己的身体同时从外部（现象）和内部（意志）显现，并把这种内在意志推广到万物。亚历克斯认为意识本身极其简单（只是觉知），复杂的是其显现，像石头和帝国大厦由同样材料构成。人们难以接受“意识更根本”，部分因为我们被人造物包围；在森林里谈这个会显得没那么疯狂（引迈克尔·波伦的植物延时摄影）。"}, {"id": "s13", "title": "反驳“意识是涌现的”", "start_sec": 4478, "summary": "亚历克斯指出物理学界能接受哥本哈根诠释（“里面藏着cope”）和多世界诠释，却嘲笑“根本处有原始意识”，这不公平。他反驳涌现论：从物质产生思想，与靠思考产生一个水分子一样说不通（像把橘子排对就产生“离婚”的概念）；而人们举的每个涌现例子（温度的“热感”、屏幕上的雏菊图像）本身都是在意识中涌现的，等于用意识解释意识。"}, {"id": "s14", "title": "意识与宗教：泛心论、观念论与一神论", "start_sec": 4925, "summary": "区分强涌现与弱涌现（生态系统可预测，意识不可预测）。若意识不可能涌现，则它必在根基处，有三种思路：泛心论（原子有意识，他觉得怪）、观念论/斯宾诺莎式的“一个巨大心灵”、以及传统一神论（上帝给部分物质注入意识，他认为不够简约）。他倾向观念论：物理世界是心灵之物的显现，像梦中的房间问“实际多大”没有意义；这并不比全能神“唰”地创世更古怪。"}, {"id": "s15", "title": "AI 智能体替人祈祷？祈祷到底是为了谁", "start_sec": 5203, "summary": "针对网友“用75个AI代祷智能体每分钟念500遍主祷文”的玩笑（亚历克斯称之为“帕斯卡的智能体赌注”），亚历克斯分析：请求全知的上帝做事看似荒谬，所以祈祷其实是为了祈祷者自己——让自己的意志与上帝对齐、提醒自己关心他人。例证：耶稣在客西马尼园祈求“叫这杯离开我”，上帝说不，但他说“只要照你的意思”；饭前谢恩本质是感恩，他推崇世俗版谢饭祷告。"}, {"id": "s16", "title": "哲学一致性测试①：基因增强、胚胎筛选与非同一性问题", "start_sec": 5496, "summary": "克里斯问：拒绝用基因工程让孩子更聪明更好看，是否等同于拒绝给孩子好教育？亚历克斯认为直觉差异源于我们对教育有掌控而对长相没有；但他担心定制外貌是“通往地狱的第一步”，完美主义没有尽头（像沉迷整容）。克里斯提到IVF本已在给胚胎分级，Herasight等公司已能预测IQ、身高、犯罪倾向等，冰岛几乎消除唐氏综合征，从筛除负面到选择正面很难划界。亚历克斯表示若技术让他对孩子产生“买家懊悔”，他会全力抵制，并讲解帕菲特的非同一性问题：两位母亲都故意生下残疾孩子，第二位却没有伤害任何具体的人，那她错在哪里？"}, {"id": "s17", "title": "哲学一致性测试②：幻想算不算出轨、色情内容与“心理安全措施”", "start_sec": 6157, "summary": "亚历克斯认为出轨的核心错误是主动玩味并屈服于吸引力，而非身体行为本身（意图与意志才是伴侣真正在乎的），这也是耶稣“心里犯奸淫”的意思，不是思想罪。梦中没出轨不该加分，除非也为梦中坏事负责。克里斯引用亚瑟·布鲁克斯“不要办不许带伴侣的团建”和“办公室加两分效应”；亚历克斯主张练习抵抗而非“暴露训练”，证据显示常看色情内容者更易物化女性、更易出轨，最大受害者是女性。他讲阿奎那举火棍赶走家人雇来的妓女的故事，并建议设置“心理安全措施”（定制Instagram算法等）。"}, {"id": "s18", "title": "收尾：11月北美巡演与新计划", "start_sec": 6849, "summary": "亚历克斯11月在北美有六场“有问必答”式巡演（含纽约市政厅剧院、洛杉矶、多伦多；旧金山已售罄），票务见 alexoconnor.com/tour；另有暂不能透露的项目，并计划回归更多视频随笔和播客。片尾为节目订阅提醒（已省略）。"}], "paragraphs": [{"start_sec": 0, "type": "ad_omitted", "ad_brand": "Modern Wisdom 周边商品（mwmerch.com）", "section_id": "s1"}, {"start_sec": 20, "type": "text", "zh": "我们刚才在聊你的转变：从有时有点刻薄的“辩论哥”形象，变得更柔和一些、更有同理心、更能理解别人。在“事实就是这样，我就该这样直说”和“我仍然可以说，但带着几分优雅和同情”之间，你最后落在哪里？", "speaker_id": "chris", "section_id": "s1"}, {"start_sec": 45, "type": "text", "zh": "我为这个挨了不少批评，我想是因为大家喜欢看一个人对某个观点想清楚了、知道自己怎么想、并且愿意在批评面前捍卫它，尤其当话题被认为很重要的时候，比如上帝是否存在、伦理之类。有人在强力捍卫这些立场，对很多人来说很重要。但我认为，尤其在上帝、意识和基础哲学这些问题上，如果以为我的确信程度已经接近真理、足以让我理直气壮地宣讲，那就太愚蠢了。", "speaker_id": "alex", "section_id": "s1"}, {"start_sec": 88, "type": "text", "zh": "那种好斗的狂热。", "speaker_id": "chris", "section_id": "s1"}, {"start_sec": 91, "type": "text", "zh": "当然是好斗。我其实没什么好斗的理由。即便我曾是无神论者，现在我更愿意称自己为不可知论者，因为当你主张宇宙是由意识构成的时候，很难让人觉得这里面没点古怪。但我以前就常想：我并不是在庆祝有人因为听了我的话变成无神论者。我一直说，我很希望基督教是真的，或者希望某些宗教传统是真的，哪怕只是存在一位上帝、有永生这样的想法，我觉得那会很棒，我很乐意那样，也完全对它保持开放。所以当有人跑过来说“嘿，我听了你的论证，觉得没有上帝”时，我很难一边这么想、一边说“太好了，太棒了”。像伯特兰·罗素（Bertrand Russell）说的那样，站到天堂门口说“对不起，天父，你给的证据不够”是一回事；身后带着两百万个被你也变成无神论者的人站在那里，说“听我解释”，那是另一回事。", "speaker_id": "alex", "section_id": "s1"}, {"start_sec": 151, "type": "text", "zh": "所以我不庆祝这个。但我确实庆祝的是：大多数时候，这说明有人质疑了他们原本不会质疑的东西。很多人跟我说，他们在宗教社群里长大，不是没机会思考这些，而是没有动力，从没人问过他们上帝和善的关系、经文的流传是否准确之类的问题。对此我非常感激。但同样多的宗教信徒会跑来对我说：这听起来很奇怪，但你真的帮助了我的信仰。每听到一次，我就觉得它没那么奇怪了。", "speaker_id": "alex", "section_id": "s1"}, {"start_sec": 192, "type": "text", "zh": "为什么？", "speaker_id": "chris", "section_id": "s1"}, {"start_sec": 194, "type": "text", "zh": "因为它发生得太频繁了。", "speaker_id": "alex", "section_id": "s1"}, {"start_sec": 196, "type": "text", "zh": "你觉得那里发生了什么？你花了十年时间想给上帝存在的论证挑毛病，结果干得太差，反而加强了有神论者的信仰，是这个意思吗？", "speaker_id": "chris", "section_id": "s1"}, {"start_sec": 215, "type": "text", "zh": "太好笑了。有个人刚刚皈依了天主教，在YouTube哲学圈简直是震撼弹，他叫乔·施密德（Joe Schmid），突然宣布自己是天主教徒了。我记得他发帖说删掉了一些以前的讨论和辩论——他以前主持宗教人士和无神论者之间的辩论——因为他担心这些会引人犯罪，所以撤下了一些。这一举动有点争议，但如果那是他的信念，我能理解。有人在推特上回应：想象一下，如果你是那场辩论里的基督徒，表现差到他现在因为担心误导人而把它撤下。我觉得我有点像个律师，在某种程度上替不同立场辩护。这么说听起来好像很轻佻，我其实真的在乎这些问题，我的意思是：即使我明天成了基督徒、穆斯林或印度教徒，突然相信了上帝，我今天的那些批评依然都在，不会突然觉得不成立的论证变成立了。", "speaker_id": "alex", "section_id": "s1"}, {"start_sec": 285, "type": "text", "zh": "我认为很多人的信念理由并不扎实，我们所有人相信很多事情的理由都不扎实。所以如果你和一个地平论者辩论，你可能会输，因为这个人对此想了又想。如果你相信地球是球体的真正理由，只是NASA和你的老师这么告诉你，那其实是相信地球是球体的一个很糟的理由，哪怕它是真的。", "speaker_id": "alex", "section_id": "s1"}, {"start_sec": 310, "type": "text", "zh": "没错。", "speaker_id": "chris", "section_id": "s1"}, {"start_sec": 311, "type": "text", "zh": "别误会，地球确实……其实地球严格说并不是球体，是扁球体，但你明白我的意思。", "speaker_id": "alex", "section_id": "s1"}, {"start_sec": 316, "type": "text", "zh": "我见过那张有点像激光雷达生成的图，显示地球有多不圆，要是拿来滚一滚，可不太好看。", "speaker_id": "chris", "section_id": "s1"}, {"start_sec": 327, "type": "text", "zh": "是啊，有很多鸡毛蒜皮的方式能让你听起来像个阴谋论者：地球不是球体，因为它其实像个蛋。我还是个地心论者：我认为地球是宇宙的中心，因为所有运动都是相对的，你可以从任何地方来测量，所以你完全可以把地球当作中心。", "speaker_id": "alex", "section_id": "s2"}, {"start_sec": 343, "type": "text", "zh": "几周前我读了一篇很有意思的Substack文章，讲你为什么永远都不该时间旅行。时间旅行就是把你从这里送到未来或过去的某个时刻，但地球一直在自转，哪怕地球不公转，你也会落到另一侧；而且它还在绕太阳公转，太阳又在绕银河系中心运动，银河系也在运动。所以如果你要找一个……这该叫什么，宇宙同步的位置？只要过几天，你就会偏出几百万英里这种疯狂的距离，因为一切都在运动。你还记得奥陌陌（ʻOumuamua）吗？那颗长条形的小行星，阿维·洛布（Avi Loeb）谈了很多。它看起来像根雪茄，飞速穿过太阳系；因为这种独特的“大香肠”形状飞过太阳系的可能性似乎很低，大多数天体会更圆，所以有人猜它也许是被造出来的，或者是卫星、基地之类。有意思的一点是：它穿过太阳系的速度很快，但如果相对于太阳系外的许多其他天体来定位，它其实是相对静止的。也就是说是我们穿过了它，就像我们开车以每小时70英里驶过路边的行人，然后说“哇，他正以每小时70英里往那个方向跑”，只有在你不知道动的是自己而不是他时才会这么想。", "speaker_id": "chris", "section_id": "s2"}, {"start_sec": 456, "type": "text", "zh": "但所有运动都是相对的。所以当你想：好，我要去时间旅行，并且让宇宙保持", "speaker_id": "alex", "section_id": "s2"}, {"start_sec": 463, "type": "text", "zh": "静止不动，这根本说不通。并不是“从我们的视角看一切都在动，从另一个视角看一切都静止”这么有趣，而是根本不存在一个可以拿来比较的“真实视角”，只有相对运动。卡洛·罗韦利（Carlo Rovelli）最近有本很棒的书，讲这种相对性一直贯穿到底，他认为一切在根本上都是关系性的，非常迷人。他举例说：如果你在火车上问自己“我以什么速度在移动”，你可能会说每小时多少公里；但如果火车上的家长对孩子说“别乱动”，他们可不是希望孩子跳出窗外，他们说的是相对于地面。一切都完全是相对的。这也是我为什么是地心论者：你可以从任何地方测量，那么哪个参照系最不武断？唯一一个存在观察者的参照系，就是地球。所以从技术上说，你可以认为一切都在绕着地球转。", "speaker_id": "alex", "section_id": "s2"}, {"start_sec": 524, "type": "text", "zh": "扯远了。我之所以提地平论，是因为人们一直都在为糟糕的理由相信事情，这在宗教哲学里比比皆是。有人信上帝是因为从小被这样教；有人不信上帝，是因为认为恶的存在与上帝的存在在逻辑上不相容，诸如此类。我认为很多这类观点并没有经过深思熟虑——不是侮辱持这些观点的人，而是很多人就是懒得去想这些，这也没关系，没有义务非要想。但如果你想，我在这里陪你，我们一起把它理清楚：好，也许恶在逻辑上并不与上帝的存在相冲突，但可能让上帝存在的可能性降低；那它降低的程度，是否大到压过支持上帝的证据，比如宇宙微调之类？于是你就开始权衡。但所有这些论证都漏洞百出。所以我研究支持和反对上帝存在的论证之后得出的最终结论是：我们之所以“还没搞定”，是有原因的。", "speaker_id": "alex", "section_id": "s3"}, {"start_sec": 594, "type": "text", "zh": "它不像物理学。物理学里，你小时候学到上一代人研究到的终点，从那里出发再往上建。而在这里，每个人都从同一个起点出发，我们在和柏拉图（Plato）和古人们搏斗完全相同的问题。之所以没有进展，是因为哲学并不是靠无法反驳的论证建立共识，它是一种体验性的现象，是弄清你的直觉是什么、落在哪里。在宗教哲学里我觉得这很明显：无数著名的宗教哲学家和神学家有过某种宗教体验之后，就把哲学整个抛开了。托马斯·阿奎那（Thomas Aquinas）在临终前也没写完《神学大全》（Summa Theologica），那可能是宗教哲学史上最伟大的贡献之一，因为他在主持圣餐时有了一次宗教体验，只有几秒钟的神秘狂喜，然后就拒绝再写。他的朋友兼同事雷金纳德（Reginald）写信给他说：托马斯，你必须写完《神学大全》。据说托马斯回答：我写不下去了，和我所见的相比，一切都如同稻草。", "speaker_id": "alex", "section_id": "s3"}, {"start_sec": 660, "type": "text", "zh": "同样，伟大的数学家、顺便还发明了公共马车的布莱兹·帕斯卡（Blaise Pascal），1654年有过一次宗教体验，在日记里写下：火，火，亚伯拉罕的上帝，以撒的上帝，雅各的上帝，耶稣基督的上帝，不是哲学家和知识分子的上帝。这句话简直从纸上跳出来。虽然宗教不正是最根本的哲学问题吗？某种意义上是，但你也完全明白他说“不是哲学家的上帝”是什么意思。因为上帝不是某个只要你够聪明就能在显微镜底下发现的命题。如果上帝存在，在宗教史的绝大部分时间里，它最深刻、最笃定的表达都是以体验和神秘主义的形式出现的。", "speaker_id": "alex", "section_id": "s3"}, {"start_sec": 708, "type": "text", "zh": "那这不就让关于上帝的整场辩论完全没意义了吗？", "speaker_id": "chris", "section_id": "s3"}, {"start_sec": 711, "type": "text", "zh": "有点。但要看你为什么辩论。对坎特伯雷的安瑟伦（Anselm of Canterbury），也就是上帝存在的本体论论证的著名开创者来说，他那本名著原本的标题是“信仰寻求理解”。也就是说，所有这些关于上帝的理性思考，目的不是向无神论者证明上帝存在，而是去充实、去给一个已经存在的信仰上色：你相信上帝，现在你想知道、想理解、想弄明白上帝可能是什么样子。所以他那个大家常谈的本体论论证，其实是一篇祷告，它所在的《宣讲》（Proslogion）就是一篇祷词，不是“亲爱的无神论者们，这就是你们该信上帝的理由”，而只是在默想上帝的本性。宗教史上大量都是这样。我们称之为“自然神学”的那些上帝存在论证——观察世界、从中构建上帝存在的论证——真正大量出现，差不多要到上一个千年的后期，对我们来说已经很久远，但在宗教思想史上算比较晚近的。", "speaker_id": "alex", "section_id": "s3"}, {"start_sec": 782, "type": "text", "zh": "那你怎么看更近期的——至少在我看来——从好斗、刻薄的路线转向别处？我跟你做朋友，天哪，大概八年了吧，很长时间了。你在某种程度上一直是煤矿里的金丝雀，像一个神学风向标。我觉得很多和我们同龄的人，是伴着“四骑士”（Four Horsemen）以及他们周边那一套长大的：宗教烂透了，我们很酷，看我们怎么揭穿它；还有那种“前本·夏皮罗（Ben Shapiro）式”的打脸视频，比如克里斯托弗·希钦斯（Christopher Hitchens）对上某人，有点刺人、有点扎手。然后三年前在奥斯汀（Austin），你给我讲了一个阿彦·希尔西·阿里（Ayaan Hirsi Ali）的故事。她本该是“第五位骑士”，只是迟到了或没能到场——那样的话也许该叫“五大支柱”了。一个长期处于新无神论世界观核心的人，和理查德·道金斯（Richard Dawkins）——当年准时赴约的骑士之一——同台，讲述自己很长时间都很抑郁、心灰意冷、失去所有希望，甚至考虑过做点很极端的事，后来有了一些体验和领悟，现在开始相信了。那是一个关于信仰对她意味着什么、非常动情的故事。我记得你说，半个会场鼓完掌后，理查德只是来了一句：但你相信耶稣是童贞女所生吗？你相信亚利马太（Arimathea）的约瑟那座坟墓的石头真的被挪开了吗？在我看来，这也许说明我们现在所处的文化和世界里，大多数人对美好、对快乐、满足和找到意义的那点把握，已经变得如此脆弱，", "speaker_id": "chris", "section_id": "s4"}, {"start_sec": 936, "type": "text", "zh": "以至于当有人对一个显然正在挣扎的人——很多人自己也在经历、或听说别人在经历同样的处境——做出那种冰冷、迂腐的回应时，我们会更反感一点。这个故事我一直记得，我觉得它很能概括“旧式批评”与一种更有同理心的方式之间的差别。如果那件事发生在你台上，我想你的回应会客气得多、有同理心得多。", "speaker_id": "chris", "section_id": "s4"}, {"start_sec": 976, "type": "text", "zh": "也许吧。那次对话发生在布鲁克林（Brooklyn）时我在场。我认为两种态度都合理。像理查德这样的人说“拜托”，也完全说得过去：基督教对世界做出了实质性的真理主张，它声称有个人由童贞女所生，声称有人死而复生，声称行过神迹，还有关于出埃及之类的历史主张。想知道这些问题的答案，完全合理。另一方面，说“我对那些并不确定，我只知道我从这部经文里得到了道德讯息，耶稣这个人打动了我，我有对上帝的体验，我紧紧抓住它”，也没问题。两者都可以，但我觉得你没法用其中一个去批评另一个。如果有人在提出一个关于耶稣的怀疑主义历史论证——我不认为耶稣自称是上帝，不认为他真的复活了——这时有人跑来说“但我就是觉得它是真的”，那听起来很蠢；同样，如果有人说“我经历了一次无法言说的体验，品格因此改变，真希望能传达给你，但我做不到”，另一个人回应“是啊，但我很确定《约翰福音》有后来的增补，我们最早的抄本彼此并不完全吻合”，那听起来也一样蠢。这是在各说各话。", "speaker_id": "alex", "section_id": "s4"}, {"start_sec": 1062, "type": "text", "zh": "请记住，宗教——我听起来像那种让人受不了的学者——“宗教”是一个现代概念。我最讨厌的事情之一，就是学术界变得太谨慎了：读十九世纪的学术著作，作者会说“这就是世界的真相，我来告诉你为什么”；读一本现代学术书，前三章都在讲我们连要讨论的对象都没法定义，其实挺烦人的。但我确实认为“宗教”是个相对现代的概念。我们把家庭、工作、宗教放在各自的小盒子里，彼此分开、收好，偶尔才让它们互相对话。但在古代世界尤其如此，宗教就是你游在其中的海洋，根本不存在“宗教”这个东西，它就是你的生活方式，就是你做的那些事。", "speaker_id": "alex", "section_id": "s4"}, {"start_sec": 1115, "type": "ad_omitted", "ad_brand": "Function Health 血液检测", "section_id": "s4"}, {"start_sec": 1171, "type": "text", "zh": "如果我说回到15万年前——", "speaker_id": "chris", "section_id": "s5"}, {"start_sec": 1176, "type": "text", "zh": "那你会在太空里，不是吗？", "speaker_id": "alex", "section_id": "s5"}, {"start_sec": 1181, "type": "text", "zh": "——假设你的时间机器回去时，你不知怎么把自己拴在了同一个地点。我想当时一定有很多拟人化和叙事化的解释，说明为什么今天天空在发怒：比如地平线那边打雷，或者庄稼没下到雨——我猜那时还没有庄稼——或者最近一段时间比平常冷。你觉得15万年前早期狩猎采集者有过某种宗教或原始宗教体验的可能性有多大？", "speaker_id": "chris", "section_id": "s5"}, {"start_sec": 1217, "type": "text", "zh": "我认为很有可能，也许大概率如此。只是因为从人类学上看，观察人类社会——现在比较难了，因为世界联系得太紧密——我们通常都会观察到某种宗教冲动。", "speaker_id": "alex", "section_id": "s5"}, {"start_sec": 1236, "type": "text", "zh": "作为一种普遍的、趋同的文化演化。", "speaker_id": "chris", "section_id": "s5"}, {"start_sec": 1239, "type": "text", "zh": "完全正确。对此有两种解释：一种是，存在某种在进化上被选择出来的、与神圣的“神秘联结”，所以它在各地独立演化；另一种是，这个神圣就是存在的，是真实的，是准确的表征。这一直是很多宗教讨论的问题：数据有时可以被两种理论同时预测。我最近在研究“神的隐藏性”问题，也就是如果上帝存在，为什么人们并不清楚地看到他。伟大的神学家约翰·希克（John Hick）写道，上帝想与他的造物保持一种认识上的距离，让他们有行动的自由，而不会觉得一直有人在头顶盯着。他对此说了很多，大意是：世界在某种程度上必须看起来就像没有上帝一样。我想，好吧，说得过去【笑】，但这样一来两种理论都能预测数据，就不太有帮助了。不过很明显，有一种宗教冲动在某种程度上是人类固有的。", "speaker_id": "alex", "section_id": "s5"}, {"start_sec": 1300, "type": "text", "zh": "不过它的样子可能不太一样，因为我觉得很不幸的是，我们把大写G的“上帝”（God）和小写g的“神”（gods）混着用。你可能听无神论者说过：好吧，我不信你的上帝，但你也不信奥丁（Odin）、托尔（Thor）和宙斯（Zeus）这些家伙啊。可这些家伙并不是一个单一、统一、非物质、对宇宙存在负责的创造神。这些小写g的神，是受造秩序里的角色，他们到处走动、彼此交谈、交流、互动，就像一出戏里的角色。这和一神论传统核心里的那种上帝概念不同。我还要说，印度教有时被称为多神教，但它有一个终极的根本实在叫梵（Brahman），所有这些神都只是它的表现。它并不比基督教更“多神”，基督教也有三位一体，那些是同一个统一上帝的表现或位格。所以，人们把世界看作被施了魔法的——森林里的精灵、雷神、他们崇拜的太阳神——这显然指向人类内心某种超自然的本能，觉得有什么超越人类经验的奇怪东西在发生。但这和相信“万物从中涌出的那唯一源泉”不是一回事，这是两种不同的本能。我不认为我们真能清楚知道一神论图景是从什么时候开始发展的。在哲学里，它可以追溯到亚里士多德（Aristotle），他所设想的那个使实在得以实现的根本原理，是一个非常非人格化的存在，并不在乎人类", "speaker_id": "alex", "section_id": "s5"}, {"start_sec": 1414, "type": "text", "zh": "事务，也不可能在乎，因为它是一种极度超越的东西。但这个观念是随时间发展的，所以要看你指的是什么。今天，当一位宗教神秘主义者体验到与神合一——神秘主义很难像书上说的那样定义，但神秘宗教体验的关键主题之一，就是与上帝合一的感觉，我与上帝之间的界限消失了。埃克哈特大师（Meister Eckhart）说：上帝的根基，也就是我的根基。还有一位著名的苏菲派神秘主义者，我一时想不起名字（应为曼苏尔·哈拉智，Mansur al-Hallaj），他旋转着高呼“我即真理”（Ana al-Haqq），而“真理”（al-Haqq）是《古兰经》里真主的名字之一，所以这是极大的亵渎，但他是在说自己感受到了那种联结。你很难和“绿色森林之神”或奥丁产生那种联结，那不会发生。你可能在宽泛意义上感到与自然相连，但不会在体验上觉得自己被拴在了终极实在上。", "speaker_id": "alex", "section_id": "s5"}, {"start_sec": 1488, "type": "text", "zh": "我之所以提宗教多元论，是因为当你说15万年前，人们想象的是到处看到神灵的泛灵论者，但那些神与一神论的上帝、与终极实在完全是不同种类的存在。我觉得我们该给它们换个词，大卫·本特利·哈特（David Bentley Hart）的《上帝的经验》（The Experience of God）在这一点上写得很好。谈那些神时应该用别的词，以免混淆。毕竟关于“希腊人到底信不信他们的神”其实是有争论的。想一想，这些人并不笨，事实上他们是至少西方传统史上最聪明的哲学家之一。他们会相信，爬上山就能看到宙斯坐在宝座上？会真的相信雅典娜（Athena）在四处做事？其实并不完全清楚，那可能更像一种叙事手法，挺难把握的。显然他们并不是在字面意义上相信。那他们是以什么方式信的？很可能和基督徒信上帝、印度教徒信梵的方式非常不同。", "speaker_id": "alex", "section_id": "s5"}, {"start_sec": 1566, "type": "text", "zh": "你觉得他们真的相信这些角色是实在的真实组成部分吗？", "speaker_id": "chris", "section_id": "s5"}, {"start_sec": 1570, "type": "text", "zh": "我想了很久，我觉得我找到的最好的类比是：想象你和伴侣或孩子有一只毛绒玩具，你们都知道它只是毛绒玩具，显然不是真的狗。但点破这一事实会显得像亵渎一样。你们称这只狗为“他”，和它互动时把它当成真的，因为你们在玩一个把这个小家伙拟人化的游戏；如果有人点破它只是个毛绒玩具、一个物件，那会很可怕。但你们俩都知道它只是个物件。我觉得当时可能就是类似的情况。我们谈雷神，而我们今天仍然会用“命运”之类的叙事性说法。", "speaker_id": "alex", "section_id": "s5"}, {"start_sec": 1622, "type": "text", "zh": "“命运”这个词的词源是什么？", "speaker_id": "chris", "section_id": "s5"}, {"start_sec": 1628, "type": "text", "zh": "我不知道“命运”的词源。我只是在想现代人说的一些话，你可能都意识不到它们是这样的。比如这场对话一开始我说“天哪，我好渴”，而你正好有这杯很棒的含咖啡因饮料，你说“这就是命运”。你并不真的相信，不相信宇宙里真嵌着一条规则决定了这件事发生，你只是用它作为一种叙事手法。", "speaker_id": "alex", "section_id": "s5"}, {"start_sec": 1654, "type": "text", "zh": "有点柏拉图式地给宇宙稍微注入一点灵性。", "speaker_id": "chris", "section_id": "s5"}, {"start_sec": 1659, "type": "text", "zh": "我觉得希腊诸神也许就是这样。但实在的根基不是什么我们用来解释雷从哪来的叙事角色，它就是实在的根基，是我们生活、行动、存在于其中的那个东西，是宇宙的实体。", "speaker_id": "alex", "section_id": "s5"}, {"start_sec": 1674, "type": "text", "zh": "意识是不是无神论世界观里最大的漏洞之一？", "speaker_id": "chris", "section_id": "s6"}, {"start_sec": 1680, "type": "text", "zh": "【倒吸一口气】我认为它几乎是所有世界观里最大的漏洞之一。我不认为任何人能在自己其余的思想里给意识安排一个很舒服的位置，也许只有那些把意识当作首要和根本的哲学除外，那通常和印度传统联系在一起。在西方哲学里，它是实在中一个非常别扭、奇怪的面向，不能整齐地嵌进我们喜欢谈论的任何其他东西。我认为这与你是无神论者还是有神论者无关。很多信上帝的人也认为存在一个物质宇宙，而意识是某种独立的东西：你有一个非物质的灵魂和你的肉体相互作用，这对他们来说也非常成问题。你也可以不信上帝，却相信意识是非物质的、相信灵魂和心灵。所以这和有神论、无神论关系不大。对我来说，哲学的根本问题是意识，因为一切都要经过意识。", "speaker_id": "alex", "section_id": "s6"}, {"start_sec": 1753, "type": "text", "zh": "意识是你的起点。你不是从一张桌子、一个麦克风、另一个人开始，而是从你对这些东西的体验开始，它永远经由体验中介。你不可能直接和我们叫做“桌子”的东西互动，只有它看起来怎样、摸起来怎样、听起来怎样、尝起来怎样——如果你想舔一口的话，没有别的途径。问题在于，如果我们相信外面有一个真实的东西，康德（Kant）所说的“物自体”，却无法直接接触它，那我们处在什么位置？我们对宇宙的知识究竟是什么？基于什么？我们到底在和什么互动？说起来有点怪，但严格来说你从未和桌子互动过，你互动的是桌子通过意识向你呈现的样子。如果拿掉桌子的样子，比如你失明了，你仍然能知道桌子是什么，你会摸它、听它；但如果再拿掉触觉、听觉、嗅觉和味觉，你还剩什么？你怎么和这张桌子互动？你根本无法接触到它。", "speaker_id": "alex", "section_id": "s6"}, {"start_sec": 1824, "type": "text", "zh": "所以我们透过意识看其他一切。然后大家说：好，我们想理解意识，想知道意识到底是什么，所以我们得去看意识。但没办法，因为意识就是你用来看的那个东西，就像试图用手电筒照手电筒本身，像试图用手指指向那根手指本身，做不到。对任何东西本质的探究，首先要定义它是什么，再拿它和它不是的东西比较，然后试着弄清它从哪来、本质是什么。但意识逃过了所有这类探究，因为你没法指向它，也没法在不关闭你做任何事所依赖的机制的情况下把它关掉。它也无法定义，我认为真的无法定义。", "speaker_id": "alex", "section_id": "s6"}, {"start_sec": 1868, "type": "text", "zh": "为什么？", "speaker_id": "chris", "section_id": "s6"}, {"start_sec": 1870, "type": "text", "zh": "因为定义是什么？这很有意思。想想词典，它完全是自我指涉的：每个词都用另一个词来定义，所以并不存在一个所有定义都从中而来的客观基础，一切都相互关联。所以这一切能运作的唯一方式是：当我用词语定义一个对象时，你需要知道", "speaker_id": "alex", "section_id": "s6"}, {"start_sec": 1894, "type": "text", "zh": "那些词的意思，而要定义那些词，你又得知道另一些词的意思，这一切从哪里开始？你是怎么开始知道任何词的意思的？大概是通过体验世界：指着东西、看着东西、听别人告诉你。你长大的时候，有人说“罐子、桌子、灯、人”，还会说“木头、金属、金属”，你开始弄清这些东西有什么共同点、有什么不同，然后意识到：啊，这就是杯子，这就是桌子，这就是金属。都是通过你与世界的体验。就像你可以谈论黄色一样：你可以告诉我英国电话亭是红色的，我们都知道那是什么意思，但前提是我们在某个时候体验过红色。如果你从没体验过红色，比如你是盲人，你就完全不知道它指什么，你根本无法定义“红”这个词。", "speaker_id": "alex", "section_id": "s6"}, {"start_sec": 1943, "type": "text", "zh": "那到了定义意识的时候，我们怎么办？我们想指向意识，说“这就是意识，我们来看看它是什么”，但做不到，因为意识就是你用来观察世界上其他一切的那个东西。看看人们定义意识的尝试，总是非常模糊。最有名的定义是托马斯·内格尔（Thomas Nagel）在七十年代给出的：如果某物有意识，那么“成为那个东西是有某种感受的”。你明白他的意思：成为你有某种感受，成为一条狗大概也有，成为一块石头则没有，这就是意识。说得过去，但这不是一个很好用的定义，“成为……的感受”并不详尽，除了通过例子，我们并不太清楚它的意思。阿尼尔·塞斯（Anil Seth）有时说，意识就是你接受全身麻醉时会消失的那个东西。", "speaker_id": "alex", "section_id": "s6"}, {"start_sec": 1999, "type": "text", "zh": "很好。", "speaker_id": "chris", "section_id": "s6"}, {"start_sec": 2000, "type": "text", "zh": "进入无梦深睡时它也会消失。我理解，所以知道我们谈论的大概是什么，但这不是精确的定义。因为你在宇宙中体验或遇到过的每一样东西，都经过意识过滤。如果你想在它周围画个小边界、套个小盒子，说盒子里是意识体验、外面的不是——可外面是什么？外面什么都没有。你可以说“没被感知时的桌子”在外面，但你对此毫无概念，因为你对桌子的唯一概念就来自意识体验内部。所以我认为它根本无法定义：你没法指向它，也没法拿它和别的东西比较。", "speaker_id": "alex", "section_id": "s6"}, {"start_sec": 2038, "type": "text", "zh": "这是否意味着科学永远无法解释意识？", "speaker_id": "chris", "section_id": "s7"}, {"start_sec": 2041, "type": "text", "zh": "不是“意味着”，我认为是“必然推出”。科学非常擅长它所做的事，但人们对它可能的边界过于乐观了。科学做什么？科学描述宇宙中的规律，把事物分解为更基本的组成部分，并以此更准确地描述它们。它还把一切数学化，科学是用数学语言写成的，伽利略（Galileo）有句名言：数学是宇宙的语言。任何物理定律都是一个数学方程。以牛顿的引力理论为例，它并不是对物体为什么落地的解释，而是对它们如何落地的描述，是对事物如何运动的描述。我一直在讲这个：牛顿发现引力时，他到底发现了什么？人们早就知道东西会落地，大家都知道。牛顿想明白了前人没想明白的是：让物体下落的那个东西，同样让行星保持在轨道上。他看着月亮想：月亮是不是也在朝地球下落？他革命性的答案是：是的，月亮一直在朝地球下落，只是它同时也在横向运动。如果月亮只是下落，它就会撞上我们；但如果你把它往侧面推一下、再推远一点，速度恰到好处时，它会一直朝地球下落，又一直错过地球，这就是轨道。国际空间站（ISS）现在就是这样。很多人以为空间站上是零重力，因为他们飘来飘去。你觉得那些人感受到的重力，跟我们现在站在地面上相比是百分之多少？", "speaker_id": "alex", "section_id": "s7"}, {"start_sec": 2149, "type": "text", "zh": "百分之十？五？", "speaker_id": "chris", "section_id": "s7"}, {"start_sec": 2150, "type": "text", "zh": "大约是百分之九十（原话称99.9%，实际约为90%）。他们离地球很近，重力不会就这么关掉，他们被拉向地球的速度和你我现在一样快，区别在于他们同时也在横向运动，所以一直朝地球下落又一直错过。爱因斯坦（Einstein）把这称为他一生中最快乐的想法：他想象一个人从楼上掉下来。想象你从楼上掉下来，手里拿着这罐饮料，在空中下落，如果我松开罐子，会怎样？", "speaker_id": "alex", "section_id": "s7"}, {"start_sec": 2182, "type": "text", "zh": "它就停在我面前。", "speaker_id": "chris", "section_id": "s7"}, {"start_sec": 2185, "type": "text", "zh": "对，它不会比我掉得更快。如果我在下落时拿着一堆东西然后松手，它们都只会在我旁边一起下落。有空气阻力的话可能会有点移动，但如果是在完美真空里，那和在深空漂浮没法区分：你松开东西，它就停在那里。这是爱因斯坦的重要领悟之一，空间站上也是这样：你在空间站松开东西它会漂浮，是因为你们俩以同样的速度朝地球下落，同时又不断地从地球旁边掠过，这就是轨道。牛顿意识到这一点，太了不起了：原来不是天使在推动行星，而是让物体落地的同一个东西。然后他用引力理论在数学上描述了它，一堆字母和一个等号，宇宙中的事物用字母表示：引力F等于大G乘以两个物体的质量，再除以它们之间距离的平方。他算出，距离远两倍，引力弱四倍；远四倍，弱十六倍，是平方关系。这就是他的引力理论，太棒了，现在他能描述行星运动了。", "speaker_id": "alex", "section_id": "s7"}, {"start_sec": 2268, "type": "text", "zh": "但在他发表这一理论的《自然哲学的数学原理》（Principia Mathematica）的附注（Scholium）中，他明确回应了这个问题：好，那引力到底是什么，东西为什么真的会落地？他有句名言：“我不杜撰假说”（hypotheses non fingo）——他不知道，没有任何想法。他还说，这不是自然哲学——也就是我们今天所说的科学——的问题，不是科学能回答的那类问题。当然不能。科学用数学描述事物，描述规律，把一个东西分解到更基本的层次：把桌子用原子描述，把原子用电子描述，如此等等。但它永远是在更基本层次上的描述，这就是“解释”的本质：在更基本层次上的描述。", "speaker_id": "alex", "section_id": "s7"}, {"start_sec": 2316, "type": "text", "zh": "于是就有了这样一种想法：我们能对意识做同样的事，能以某种方式解释它从何而来，或把它变成某个数学公式，告诉我们它是什么、为什么存在，而不只是它如何表现。别误会，你可以把大脑活动解释得非常好，你可以描述大脑的神经元活动。但我就算告诉你你大脑里发生的一切，你仍然会留下一个问题：你为什么会体验到这些？我可以追踪每一个神经元活动，可以谈大脑结构，可以告诉你某些体验发生时大脑哪些区域“亮起来”，但我完全不知道为什么体验会伴随着大脑活动出现。这有点争议，因为人们以为我们总有一天会做到。但这样想：假设你能获取任何人能获取的所有科学信息，假设你", "speaker_id": "alex", "section_id": "s7"}, {"start_sec": 2380, "type": "text", "zh": "有一台时光机，你穿越到未来，学会了关于眼睛和颜色的一切科学知识：你学习波长，学习蓝色、红色的文化含义，比如红色代表不好，诸如此类。但想象你同时是个盲人，从没真正见过这些颜色。你学会了一切可以被还原为文字、数学或其他解释的东西。这个过程结束时，你觉得你会理解蓝色是什么吗？如果你突然恢复视力，第一次看到蓝色，你会学到新东西吗？答案似乎是会。而如果你学到了新东西，那个新东西就是体验，就是对蓝色的意识体验。它永远无法被写下来，无法被变成数学推论，无法从一个人传达给另一个人。因为科学的事业就是远离主观、走向客观，这正是科学该做的：我这样看世界，你那样看世界，那我们就从一个想象的第三人称视角研究它实际如何呈现。但意识就是主观性，意识就是对世界的主观体验。所以你的描述越不主观、越客观，你离意识就越远；你越接近意识，就越远离客观描述。", "speaker_id": "alex", "section_id": "s7"}, {"start_sec": 2467, "type": "ad_omitted", "ad_brand": "Momentous 睡眠补充剂", "section_id": "s7"}, {"start_sec": 2537, "type": "text", "zh": "【笑】你觉得还有哪些领域是科学永远无法解释的？", "speaker_id": "chris", "section_id": "s8"}, {"start_sec": 2549, "type": "text", "zh": "我不确定意识这个类别本身是不是独一无二的——我觉得它真的是。我认为意识不同于宇宙中的其他任何东西，因为它不只是宇宙中的又一样东西。不是说你有桌子、椅子、耳朵、手，然后还有意识；而是其他所有东西都是透过意识被看到的。这在人们听来很怪：“所以你是说科学能解释这个、那个，却唯独解释不了这一样？”但它不是和其他东西一样待在宇宙里的又一件东西，它是你经验地研究周围世界所用的工具。就好像你有一把神奇的扳手，能修好世界上所有东西，没有它修不好的；然后你的扳手坏了，你想：为什么不用扳手修扳手呢？做不到，因为它就是你研究其余世界的工具。意识就是这样。关掉意识再去做科学试试，看你能走多远：作为一个无意识的行动者，去研究世界、做实验、写下东西、把它们变成数学推论，那是你做不到的。", "speaker_id": "alex", "section_id": "s8"}, {"start_sec": 2626, "type": "text", "zh": "那这是否意味着对意识的研究让无神论更难辩护了？", "speaker_id": "chris", "section_id": "s8"}, {"start_sec": 2634, "type": "text", "zh": "我认为它让唯物主义更难辩护了。你可以认为意识完全无法解释，可以认为意识是根本性的，可以认为意识存在于微小的原子中，也可以认为意识完全是幻觉，这些都不一定和你信不信上帝有关。你不需要信上帝也能相信心灵是非物质的，这两件事没有关联。但没错，唯物主义——它常和无神论相伴——我认为作为一种世界理论几乎无法辩护。唯物主义是什么意思？宇宙由物质构成。好，什么是物质？原子之类的东西。很好。那什么是原子？这是个老问题，伯特兰·罗素（Bertrand Russell）就有这个问题。原子由质子和电子构成。好，什么是电子？一种基本的带负电的粒子。好，那是什么意思？意思是如果你让它接触另一个带负电的粒子，它们会互相排斥。好，那是它做什么，但它是什么？它的实体是什么？我们在与之互动的那个东西的真实本性是什么？这是科学回答不了的问题，因为科学是一项描述性的事业。", "speaker_id": "alex", "section_id": "s8"}, {"start_sec": 2711, "type": "text", "zh": "这并不是在贬低科学，它当然回答不了这个问题。它告诉你事物如何表现、做什么，不告诉你它们是什么，不给你对任何东西的实体性理解，就像国际象棋规则无法让你理解棋子是用什么做的一样。物体并不是因为牛顿运动定律而运动，牛顿运动定律描述的是它们被推动时如何运动。所以我认为，用科学——一项本质上描述事物如何表现的事业，有点像对原子的“行为主义”——去解释根本实在是什么，是一个错误；就像一个木匠想弄清用什么材料做国王棋子，却去研究象棋规则一样，那是完全不同的事业。我不认为它们能做到这一点。那么，实在的根本材料到底是什么？也许唯一的答案是：我们不知道，没有办法触及它。我不是说解决这个问题的唯一方法是对意识持某种疯狂观点，我只是说科学不会告诉你实在的根本本性、实在的实体是什么。顺便说，大多数科学家都同意这一点，他们会说：“对啊，可它凭什么要告诉你呢？存在的只有它做了什么，仅此而已。”我觉得这有点怪，但也许是对的。", "speaker_id": "alex", "section_id": "s8"}, {"start_sec": 2800, "type": "text", "zh": "存在的只有它做了什么。", "speaker_id": "chris", "section_id": "s8"}, {"start_sec": 2801, "type": "text", "zh": "正是。因为那样的话就会问：那“在做”的那个东西是什么？你到底在说什么？卡洛·罗韦利（Carlo Rovelli）在最近的出版物里可能对此有最好的辩护，比如你刚出的那本书，我觉得为你的立场辩护得很好。但关键是，当有人说“我是唯物主义者”，我想知道他们是什么意思。看起来他们在对宇宙由什么构成做出主张——不只是它如何表现、做什么，而是它实际上是什么、它的实体是什么。可是一拆开来看，它根本无法定义。", "speaker_id": "alex", "section_id": "s8"}, {"start_sec": 2831, "type": "text", "zh": "所以也许唯物主义者真正的意思是：我只是不相信存在任何科学无法描述的东西。这也行，但这种观点听起来就很怪，因为你在说唯一存在的是行为，却没有任何“在行为的东西”。总得有某种实体。所以我觉得很有意思的是，在实在的根基处，你真的无处立足：实在的实体对科学来说完全不可穿透，我认为科学永远无法回答。我再强调一遍，科学家大体同意这一点，这不是什么有争议的古怪科学批评，只是在划定边界。说象棋规则永远解释不了乐理，并不是在侮辱象棋规则；说科学方法永远不会告诉你实在的实体是什么，也不是在侮辱科学。", "speaker_id": "alex", "section_id": "s8"}, {"start_sec": 2877, "type": "text", "zh": "我觉得区别在于，科学曾希望能描述一切，希望一切都能被象棋规则描述。", "speaker_id": "chris", "section_id": "s8"}, {"start_sec": 2886, "type": "text", "zh": "如果有人这么想，那我觉得他们是在自欺。“科学能解释一切”——科学能解释它自己的预设吗？任何方法在这个意义上都不可能自我解释。总有些东西是科学无法触及的，而且这再平常不过：逻辑的基本定律无法被科学证明；你无法科学地证明他人的心灵存在；你无法科学地证明外部世界存在，因为你一开始观察，就已经假定了外部世界存在。这没问题，你想这么做就做，但别声称你是从科学出发的。你不是先有科学再有体验，而是先有体验，再透过体验做科学。体验必须在先。所以在实在的底部有一种空无。有些哲学家认为实在在这个意义上真的是空的，比如佛教中观派（Madhyamaka）著名的“空”的概念，认为宇宙没有任何实体，只有相互作用，这一切有点玄。但如果你像我一样认为那里确实有某种东西，世界上确实有一种真实的“存在性”，那么谜题就是：好，它是什么？", "speaker_id": "alex", "section_id": "s8"}, {"start_sec": 2963, "type": "text", "zh": "批评者可能会说：好吧亚历克斯，那你要怎么解释这种“存在性”？你能用什么方法描述或解释某物的本性？因为你一用语言、一试图解释一个概念，就只是在谈论它；如果实在的本性是这种不可还原的实体，你要怎么解释它？我觉得，好问题。那么宇宙中你唯一能直接接触——不是间接而是直接——的东西是什么？你确切知道它是什么，不需要被解释，甚至没法向别人解释，你就是确切知道它是什么。答案是意识体验，那是你唯一直接体验的东西。", "speaker_id": "alex", "section_id": "s8"}, {"start_sec": 3012, "type": "text", "zh": "如果宇宙从根本上是体验、是体验性的，那这和说它就是上帝有多大区别？", "speaker_id": "chris", "section_id": "s9"}, {"start_sec": 3023, "type": "text", "zh": "那要看——如哲学家们喜欢说的——你怎么把它兑现。", "speaker_id": "alex", "section_id": "s9"}, {"start_sec": 3028, "type": "text", "zh": "之前你提到很多人有这种神圣体验，而这种体验被一堆工具批评和评估，其中很多工具要么完全属于科学范畴，要么与科学相关。如果被批评的是体验，而你又说描述和评估我们对世界的体验性诠释从根本上不在科学范畴之内，那这不就让对“上帝体验”的评估变得有点……", "speaker_id": "chris", "section_id": "s9"}, {"start_sec": 3065, "type": "text", "zh": "对。我觉得这就是为什么神秘主义传统和体验性传统都有“合一”这个元素。它不像交流，不是你在一种一切如常的状态里跟上帝聊天，而是你感觉自己与这种神性相连，你是这种神性的某种表达。我认为如果你相信我们所说的上帝最好被描述为宇宙的根本意识，那么你某种意义上就是那种意识的表达。在这一点上印度传统把握得更好，比如他们对梵的看法——梵是他们指称终极实在的词，有时被视为等同于“上帝”，但又不完全是，他们不认为它是一个存在着、并有意志地创造宇宙的存在者，而是认为梵就是我们都在其中游泳的那片大海。他们一直用这类比喻：你的自我就像水中的一个漩涡，你可以指着它，它是一个独立的东西，它在做着某事，但它只是这片大海的表达，无法与大海分开，你不能把它从海里捞出来挪到别处，它是大海表达自身的一种方式。所以观念论者、泛心论者以及相信宇宙从根本上有意识的人，通常把世上存在的一切视为意识的显现。", "speaker_id": "alex", "section_id": "s9"}, {"start_sec": 3156, "type": "text", "zh": "所以按照他们的诠释，宗教体验就是对此的领悟和认知。人们服用迷幻药时感到与自然合一、感到那种联结，“我与万物为一”，这到底能是什么意思？我和那边那棵树是同一个东西，荒谬至极——除非你从这样的层面理解：我们都是同一个东西的表达，就像一棵树的所有叶子互相看着说：“看，我们都是一个巨大的生命体。”我想这就是它要表达的。在宗教语境里，就是我们都是根本意识的表达。西方传统中这方面的主要思想家是斯宾诺莎（Spinoza）。很多人说“我信斯宾诺莎的上帝”，他们的意思是“我是无神论者，我热爱科学”。人们以为斯宾诺莎做的是把上帝拉低到自然层面，说“我只是认为自然就是上帝”。不是的，斯宾诺莎是把自然提升到了神性的高度。斯宾诺莎认为只有一个终极实体，他有个著名的说法叫“上帝或自然”（Deus sive Natura），他并不在乎你怎么称呼它，但他说它是我们都在其中运动的那个根本的东西。", "speaker_id": "alex", "section_id": "s9"}, {"start_sec": 3234, "type": "text", "zh": "问个问题。你和冥想的关系——不一定出名，但至少公开来说——挺紧张的。", "speaker_id": "chris", "section_id": "s10"}, {"start_sec": 3243, "type": "text", "zh": "是的。", "speaker_id": "alex", "section_id": "s10"}, {"start_sec": 3243, "type": "text", "zh": "我记得有人曾试图让你冥想，你有过一次……", "speaker_id": "chris", "section_id": "s10"}, {"start_sec": 3246, "type": "text", "zh": "对，我聊过相对不愉快的体验，我从来没真正享受过冥想。", "speaker_id": "alex", "section_id": "s10"}, {"start_sec": 3254, "type": "text", "zh": "那你认为，那些经验极其丰富的冥想者似乎都会汇聚到某种非二元觉知上——有人称之为觉醒体验，有人称为开悟，有人说是他们与周围世界之间的二元界限被消融了——这背后发生的是什么？你刚才讲树的那段，让我想到了这个。", "speaker_id": "chris", "section_id": "s10"}, {"start_sec": 3284, "type": "text", "zh": "我们之前谈到许多不同文化趋同演化出这些东西；某种非二元开悟时刻的体验似乎也相对非常罕见，却均匀地分布在不同文化、不同时代、使用不同方法和技巧的人群中。你想过那里发生了什么吗？", "speaker_id": "chris", "section_id": "s10"}, {"start_sec": 3305, "type": "text", "zh": "在我看来，他们很可能领悟到了某种真理。我认为冥想对人的作用，大概是让他们能够跳出自己的概念。人们推崇迷幻药也是因为这一点：不是说你吃了迷幻药世界就变得奇奇怪怪，有时的感受并不是“一切都好怪”，而是“一切一直都是这样，我现在才注意到”。它的原理是去掉你的概念、去掉你感知世界的方式。我记得乔·罗根（Joe Rogan）或者他节目上的某位嘉宾谈过一个比喻：雪橇沿着雪道往下滑，你一直坐在这个沿着固定轨道滑下山的雪橇上，而迷幻药做的是抹掉沙子里的车辙印，于是你可以自由地四处滑动。就是去掉你的概念，按世界本来的样子、或者按它朴素地呈现给你的样子去看它。我想冥想者也能做到类似的事情。", "speaker_id": "alex", "section_id": "s10"}, {"start_sec": 3366, "type": "text", "zh": "妨碍我们理解万物合一、意识的根本性这些奇奇怪怪东西的最大障碍，就是我们的概念，是我们喜欢把事物框起来的方式：我看到桌子时，坚信自己看到的就是桌子本身，好像我的眼睛是通往世界的透明窗户，我体验到的就是世界本来的样子。对我来说，在哲学上我需要提醒自己：我不是在体验世界本来的样子，而是从一个视角在体验它，它被我的大脑翻译成我能理解的方式。这张桌子在我看来是一种颜色，尽管有许多不同颜色的光从它上面反射出来，是我的大脑在翻译，我们知道大脑会这样做。你见过那些视错觉吗？比如魔方错觉，两个方块其实是同一种颜色，简直不敢相信。它们之所以奏效，是因为你的大脑天生就会给你讲一个关于实在的故事：这个方块实际上是这种颜色，你却感知为另一种颜色，因为那样有助于你理解实在。这类概念意味着，我们看物体时并不是真的在看实在的本性，而是在看它如何向我们呈现。如果我们能以某种方式关掉这些，就开始看到它真正的样子。", "speaker_id": "alex", "section_id": "s10"}, {"start_sec": 3440, "type": "text", "zh": "你就像画家，看到蓝天时，真的会意识到里面有一点绿、一点紫，还有一点白——阳光在水面反射的地方其实是纯白——还有一点橙色。画家是这方面的大师，这就是绘画之所以难的原因：我看桌子时觉得它是棕色的，但老兄，仔细看这张桌子上的颜色，有蓝色，中间某处还有白色。【笑】我觉得冥想体验中发生的就是类似的事，而迷幻药是通往同一处的捷径：概念被关掉了。这大概就是为什么人在迷幻状态下看桌子会说“哇，好酷”，因为它真的很酷：这张桌子充满了纹理、色彩和奇异感，而且是扭曲的，离你近的部分大，远的部分小。", "speaker_id": "alex", "section_id": "s10"}, {"start_sec": 3489, "type": "text", "zh": "要是你能不带预设地去看它就好了。", "speaker_id": "chris", "section_id": "s10"}, {"start_sec": 3493, "type": "text", "zh": "正是。但你的大脑告诉你：“不，这只是一张桌子。”因为对你看到的每一平方厘米、听到的每一个声音、闻到的每一种气味都心生敬畏，效率太低了。所以我觉得冥想的作用——我对此了解不多，从没试过这类东西——比如人们念咒语，就坐在那儿一遍又一遍地重复同一个词。我想部分原因在于，当你开始思考自己在做什么时，你试着摆脱那些念头，把自己拉回那个状态，于是所有那些理智上的想法、概念，“我在做这个、我在这里”之类的念头就开始消退，直到某个时候它们远离了你的觉察，你开始感觉一切只是在发生。", "speaker_id": "alex", "section_id": "s10"}, {"start_sec": 3539, "type": "ad_omitted", "ad_brand": "Shopify（主持人自家品牌 Newtonic 的电商平台）", "section_id": "s10"}, {"start_sec": 3590, "type": "text", "zh": "那你会不会说，一个经验非常丰富的冥想者在经历非二元觉醒或开悟体验时，比其他人更准确、更朴素地感知实在？", "speaker_id": "chris", "section_id": "s11"}, {"start_sec": 3602, "type": "text", "zh": "这没法说，对吧？因为只有你如何感知世界这一回事，并不存在一个我们能接触到的客观世界，可以拿来和你我的体验做比较。", "speaker_id": "alex", "section_id": "s11"}, {"start_sec": 3617, "type": "text", "zh": "假设我能给你伦理委员会的通行证来做这件事。养一个人类小群体，难道不是个很酷的实验吗？那部电影叫什么来着，是《母亲》（Mother）吗？就是一个婴儿被机器人抚养长大的那部。这个孩子一直被抚养长大，不知道外面可能还有别人，学会了说话，却没有任何关于世界的文化预设。创造一个小社群、一个人类繁育小群落，从出生起就为他们设定尽可能“去成见”的视角，那会多么迷人——当然也完全不道德。因为没有哪个人，哪怕追溯到原始人类、追溯到灵长类，不曾受到前人、前人的经验教训，甚至基因中注入的某些本能的影响。但我不知道，也许通过某种基因工程的组合……", "speaker_id": "chris", "section_id": "s11"}, {"start_sec": 3685, "type": "text", "zh": "那你可能会喜欢这个。有些人天生失明，而有些类型的失明是可以治愈的——失明有许多不同类型，其中一些至少可以部分治愈。想象你天生失明，从没看见过任何东西，但你通过触觉和声音体验过世界，所以你知道东西是什么，比如你知道立方体是什么、球体是什么。再想象我治好了你的视力，你第一次能看见，面前放着一个立方体和一个球体。你通过触摸知道这两个物体是什么，但从没体验过视觉。你觉得如果我打开你的视觉，你看着它们能分辨出哪个是哪个吗？", "speaker_id": "alex", "section_id": "s11"}, {"start_sec": 3724, "type": "text", "zh": "【哼笑】我猜可以。", "speaker_id": "chris", "section_id": "s11"}, {"start_sec": 3725, "type": "text", "zh": "有意思的是，人们似乎实际上做不到，这很令人震惊，对吧？", "speaker_id": "alex", "section_id": "s11"}, {"start_sec": 3730, "type": "text", "zh": "这真让人震惊。怎么会？摸起来的感觉难道不能对应上吗？一个是尖的，一个是光滑的。", "speaker_id": "chris", "section_id": "s11"}, {"start_sec": 3736, "type": "text", "zh": "对，但你不知道那（在视觉上）意味着什么，你从没在脑中把这两种体验联系起来过。我觉得像这样的实验真正表明了：我们对世界的理解，在多大程度上只是我们不同感官相互作用的方式。我们只有感官，只有体验。顺便说，很多人自称经验主义者，这听起来很科学、很理性，", "speaker_id": "alex", "section_id": "s11"}, {"start_sec": 3774, "type": "text", "zh": "比如“我只相信我能观察和检验的东西”。我会说：是啊，其实我也是。这有点像马蹄铁效应，经验主义者和观念论者、“意识优先”的人说的是同一件事：你所有的知识都来自体验，全部。只是经验主义者通常认为你的体验是直接、真实、准确的，你就是以某种方式在和实在本来的样子互动；而“意识派”的人说，其实你是在和它向你呈现的样子互动。我觉得视错觉之类的东西基本证明了这一点。我们无法体验红外辐射，看不见它，如果能看见，世界看起来就会不一样。鸟类可以利用地球磁场导航。", "speaker_id": "alex", "section_id": "s11"}, {"start_sec": 3815, "type": "text", "zh": "就像另一种感官，还有紫外线。", "speaker_id": "chris", "section_id": "s11"}, {"start_sec": 3818, "type": "text", "zh": "正是。托马斯·内格尔——就是我前面提到的那个著名定义——写过《成为一只蝙蝠是什么感觉？》（What Is It Like to Be a Bat?）。他之所以问这个，是因为关键问题不是：克里斯，你能不能想象自己一天大部分时间倒挂着、长着带蹼的手臂到处飞？那只是你像蝙蝠一样行动会是什么感觉。问题是：对蝙蝠来说，成为一只蝙蝠是什么感觉？这篇文章我推荐所有人读，它的结论是：除了从内部，没有办法知道。因为再说一次，对主观体验给出客观描述，那到底能意味着什么？你离主观性越远，就离意识越远。", "speaker_id": "alex", "section_id": "s11"}, {"start_sec": 3866, "type": "text", "zh": "我一直在想这个，可能听起来很怪：我当时在读默林·谢尔德雷克（Merlin Sheldrake）写真菌的书，非常有意思。他谈到那些能到处嗅出松露的神奇狗，我突然想到一件有点怪的事：我们有时觉得能用客观术语解释我们与世界的感官互动。想知道视觉是怎么回事，我就用波长、大脑化学和神经元的活动来解释；想解释听觉，就说空气振动之类。那嗅觉呢？如果你的孩子跑来问你：“我闻东西的时候发生了什么？我的鼻子是怎么闻到东西的？”你会怎么告诉他们？", "speaker_id": "alex", "section_id": "s12"}, {"start_sec": 3921, "type": "text", "zh": "小颗粒进入你脸前面的两个洞里，里面有感受器。", "speaker_id": "chris", "section_id": "s12"}, {"start_sec": 3927, "type": "text", "zh": "完全正确，很好。你在说这些小颗粒，说鼻子和洞。在非常真实的意义上，那只是它看起来的样子：如果我用显微镜看空气中的颗粒，会看到这些小颗粒；看你的鼻子，或者如果我是盲人，摸你的鼻子，我就知道洞是什么。除了它看起来怎样、摸起来怎样，我没有别的办法知道鼻子是什么。所以当我描述这些颗粒附着在你鼻腔里时，我其实是在用某物看起来的样子来描述它闻起来的样子。为什么我用“看起来的样子”来解释“闻起来的样子”，就算把它还原了呢？这并不比反过来更高明：如果你在显微镜下看到许多小颗粒附着在我鼻子上，问我“那里发生了什么，你能解释为什么吗”，我说“哦，那是薰衣草的气味”。你只是在用一种感官解释另一种感官。我认为科学里我们把视觉看得比其他大多数感官都重要，但你其实只是在更基本的层面描述实在看起来的样子：用原子描述桌子，只是说桌子在我看来是这样，但如果我用显微镜，比如电子显微镜，更仔细地看，它会以叫做原子的东西向我呈现；再往深看，它会以电子之类的东西向我呈现。你永远没能进入内部，永远没能超越它向你呈现的样子。", "speaker_id": "alex", "section_id": "s12"}, {"start_sec": 4021, "type": "text", "zh": "这就是康德著名的区分：伊曼努尔·康德（Immanuel Kant）区分了“现象”（phenomena）与“本体”（noumena）。现象——就像“现象的”这个词——是世界如何呈现，是世界在你的觉知中如何显现；而本体，或者他会说的“物自体”，是那个真正在向你显现的东西。康德基本上说：你就是无法触及本体，永远不能，你只会知道事物向你显现的样子。后来阿图尔·叔本华（Arthur Schopenhauer）出现，他把自己视为康德的继承者，他说：没错，你永远无法触及周围任何事物的本体，我只能接触桌子、杯子、麦克风的现象。但宇宙中有一样东西同时以两种不同方式向我显现，那就是我自己的身体，我自己。如果我看自己的手，它只是世界中的一个物体，有形状、大小、颜色，反射光线，遵守物理定律，弹一下就会动；但它同时也从内部向我呈现，我知道有一只手是什么感觉。如果我照镜子，我在视觉中出现的方式就像你出现在我视觉中一样，只是世界中的一个物体，但我还有这种内在感受，我以两种方式出现在自己的理解中。所以叔本华说：从外部看它像一根手指，从内部感觉它是一根手指。对他来说，这就是现象与本体区分的关键：我手指的现象是它现在向你显现的样子，也就是它在我看来的样子；而手指的本体则是它从内部感受起来的样子。", "speaker_id": "alex", "section_id": "s12"}, {"start_sec": 4126, "type": "text", "zh": "然后叔本华说：好，也许我是宇宙中唯一拥有这种特殊内在觉知的东西，他称之为“意志”，你也可以叫它意识，随便。也许我是宇宙中唯一有它的。大多数人觉得这不太可能，比如我认为你有意识，其他人也有意识。所以他说，也许你的本体和我的一样，你内在发生的也是类似的东西：这种觉知、意识、意志。接着他说：也许只有人类有这种本体，而宇宙中其他一切的本体我们永远无法知道；又或者就是同一种东西。也许最简约的解释是：宇宙中我唯一知道其自在本身的东西——我确实知道它的物自体——也许万物都有同样的本性。于是他开始把自己的这种内在意志感推广到其他人、动物、植物，再到世界本身的本性。他并不是说意识是那种对世界、景象和声音的复杂觉知，对他来说它是一种非常基本的盲目意志，非常非常原始的东西。", "speaker_id": "alex", "section_id": "s12"}, {"start_sec": 4190, "type": "text", "zh": "在我看来，意识并不复杂。人们犯的最大错误之一，就是以为意识需要复杂性。我认为意识本身极其简单，它只是觉知，只是直接的觉知，但它有时可以以复杂的方式显现。所以你可以有复杂的体验，就像我拿一些砖头——非常简单的建筑材料——可以搭出非常复杂的结构。我有时拿一块石头和帝国大厦作比较，想象自己告诉别人：看看这区别，帝国大厦多了不起，有电梯、取款机、自动门、带冲水系统的厕所，太不可思议了；再看这块石头，死气沉沉，什么都不做。如果我告诉别人：猜怎么着，它们其实是由同样的东西构成的，别人可能会说：“你在说什么？这说不通。”是的，因为构成它的东西非常简单，只是在那边以更复杂的方式排列和表达。所以当我们看自己的意识——记忆、色彩感知、自我感、为税操心，还有复杂的味道和气味等等——", "speaker_id": "alex", "section_id": "s12"}, {"start_sec": 4259, "type": "text", "zh": "这并不表明意识必然是复杂的，而是表明我们拥有的是一种非常复杂的意识。但你可以把那些东西拿掉，你可以设想某种存在者，在永恒中只体验到环绕着它的蓝色，别的什么都没有：没有声音，没有触觉，只有蓝，纯粹的蓝的体验。那会是一种非常简单的存在，但觉知仍在发生，有对蓝的觉知，只是非常非常原始。所以就有了“意志弥漫于整个宇宙”的观念。", "speaker_id": "alex", "section_id": "s12"}, {"start_sec": 4295, "type": "text", "zh": "我认为人们接受或考虑“意识更根本、更原始、也许至少以萌芽形式存在于宇宙某处”这一观点的最大障碍，在于我们不再被自然事物包围，而是被哲学家所说的“人造物”包围，也就是人制造的东西。我现在能看到的周围一切都是人造的，除了你，而你是这个房间里唯一看起来有意识的东西。摄像机、砖头、灯、暖气、插头、电线、线缆，全是人造的。如果你住在森林里，我们坐着环顾四周——这就是为什么人们喜欢在大自然里吃迷幻药——你会更容易看看四周然后说：“哦，有某种生机在发生，有某种内在的运动。”迈克尔·波伦（Michael Pollan）的新书很精彩，他谈到看植物生长的延时摄影，看它们如何运动，然后说：老兄，我不认为它们会感到疼痛，不认为它们有意识觉知，但那里正在发生某种怪事，它们不像石头那样是死的。这样更容易想象宇宙背后有某种赋予生机的力量。", "speaker_id": "alex", "section_id": "s12"}, {"start_sec": 4328, "type": "text", "zh": "而我们做的，是把所有那些自然的运动和自然的行为切碎、打破、楔合、焊接、混成合金，造出这些似乎不以那种方式运作的物体，因为我们把它们强行塞进了一种非常不自然的组织方式，它很复杂，却不自然。但如果你真去看木头本身，放大到电子之类的层面，突然它又是一锅沸腾冒泡的活动和奇异之物，因为那是人类还没有打破、变成人造物的部分。所以如果我们在森林里进行这场对话，听起来会少疯狂很多，你明白我的意思吗？你得记住，你整天都在和人造物打交道，你接触的一切都是人造物。", "speaker_id": "alex", "section_id": "s12"}, {"start_sec": 4421, "type": "text", "zh": "人造物，就是一个人为制造的、无菌得多的环境。", "speaker_id": "chris", "section_id": "s12"}, {"start_sec": 4425, "type": "text", "zh": "对。再说一次，我只是给你介绍这个观点，因为我觉得它好玩。如果你认为宇宙由意识构成、电子有意识或者那里有什么怪事，那它当然不会在麦克风防喷罩的层面上显现。但这一观点的辩护者会说：放大看看。连科学家都会告诉你，放大到足够小，那下面发生的事简直疯狂。不过请记住，我并不是说我在这里说的任何话应该让你相信宇宙由意识构成，我其实并没有给出那个论证，我只是解释了为什么我认为科学有其局限，以及意识作为宇宙根基的一些含义。对于觉得这表面上听起来就很蠢的人，我理解，我以前也这么想。但请记住，没人知道实在的根基处在发生什么。", "speaker_id": "alex", "section_id": "s12"}, {"start_sec": 4478, "type": "text", "zh": "你听到的有些想法简直疯狂，但有些只是被更广泛地接受。如果你去一个物理学研讨会问世界顶尖专家“你认为电子是什么”，有人会说：“我认为电子是一团数学概率云，你观察它时它会坍缩到一个确定的位置。”大家说：“酷。”这是量子力学的哥本哈根诠释——我常说，哥本哈根诠释（Copenhagen interpretation）里藏着“自我安慰”（cope）这个词。另一位物理学家可能说：我认为电子必须做“决定”时，它两样都做了，于是现实产生一条新分支，每做一次量子决定就会产生一个全新的宇宙，每秒都在产生万亿又万亿个新现实。这是埃弗雷特（Everett）的多世界诠释，大家说：“对，酷，真有意思，我们研究研究。”然后有人说：我认为我们无论如何都解释不了的、意识这种完全神秘的特质，竟然从本身没有意识的根本实在中涌现，这表明也许实在的根基处有某种原始程度的意识。大家却说：这是我听过最荒谬的事。这对“意识根本论”的立场似乎有点不公平。", "speaker_id": "alex", "section_id": "s13"}, {"start_sec": 4566, "type": "text", "zh": "因为人们会说：好吧亚历克斯，都很有意思——或者没那么有意思——但老兄，意识显然就是涌现出来的。你把大脑组装起来，大脑是非常复杂的器官，把死的东西以正确的顺序、正确的复杂度组合在一起，它就产生思想，就是涌现出来的。", "speaker_id": "alex", "section_id": "s13"}, {"start_sec": 4585, "type": "text", "zh": "他们说这就像0和1在电脑屏幕上生成图像一样。", "speaker_id": "chris", "section_id": "s13"}, {"start_sec": 4589, "type": "text", "zh": "对，或者就像没有哪个单独的原子是热的，但把它们放在一起，你就得到了“温度”这种涌现出来的东西，叫热。可问题是这里面有几个毛病。首先，凭直觉说：人们以为把物质以正确的顺序和复杂度组合起来就会产生思想，很多人、唯物主义者都这么认为。好，想象我告诉你，克里斯，我现在要想一些念头，我要非常用力地想，以正确的顺序和方式想非常复杂的念头，仅靠思考就产生物质，产生一把椅子，甚至只是一个水分子，凭空通过以正确方式思考正确的念头造出来。你会觉得我疯了，不会说“真有意思，你打算怎么做”，而会说“这说不通，你在谈两种不同的东西，你不能通过复杂地组织思想来产生物质”，因为思想之物与物理之物之间有一道不可穿透的分隔，它们也许会以某种方式互动，但你无法从一个产生另一个。", "speaker_id": "alex", "section_id": "s13"}, {"start_sec": 4666, "type": "text", "zh": "可一旦你把它反过来，突然这就成了所有人对意识本性的默认假设：对啊，你把物质组合起来就得到思想。怎么做到？为什么？这到底凭什么会发生？我以前比喻过，我们谈的是两种不同的东西，这就像把橘子以正确方式排列，就以某种方式产生了“离婚”这个概念，或者“紫色”。这根本说不通。有人说：“对，但如果你把橘子排成‘离婚’这个词呢？”那好吧，可前提是你之后去看它。这就是关于涌现的另一件事：人们会举例子，0和1变成屏幕上的图像呢？温度呢？而人们总是忽略的是，他们举出的每一个涌现的例子，都是在意识体验中涌现的东西，每一次都是，不管举什么例子。首先请注意，当有人说意识是涌现的，他们从不告诉你它是怎么运作的，甚至都不试图告诉你，他们不知道，当然不知道，他们只是给你举例子：“哦，它就像这样或那样涌现。”而他们举的每一个例子，每一个都是某物在", "speaker_id": "alex", "section_id": "s13"}, {"start_sec": 4735, "type": "text", "zh": "意识中涌现的例子。就拿温度来说：单个原子是热的吗？这取决于你说的温度是什么。对物理学家来说，温度就是原子振动的平均速度，温度就是由这个构成的，单个原子也可以有。所以单个原子有温度，许多原子组合起来也有，没问题。可他们感兴趣的是：不不不，把它们放在一起时，除了能用科学预测的振动之外，还会额外产生一个新东西。那额外的东西是什么？这个叫温度、叫热的东西是什么？是你一碰会“哎哟”一声，靠近时能感觉到的那个温度，那才是涌现出来的东西。猜怎么着？那是一种体验，一种意识体验。电脑和屏幕上的图像也一样：0和1其实是晶体管的开与关，它们沿线缆发送电信号，连到显示器，显示器点亮小LED，发出电磁波射入空气、到达你的眼睛，诸如此类。很好，这些全是科学的，你能描述那里发生的一切。但你感兴趣的那个涌现出来的东西是什么？它涌现为一张雏菊的图片——前提是你在看屏幕。如果没人看屏幕，存在的只有穿过空气的电磁辐射。宇宙中并不存在“黄”，只有当你的大脑把电磁辐射翻译成黄色时，才有黄。", "speaker_id": "alex", "section_id": "s13"}, {"start_sec": 4822, "type": "text", "zh": "所以电脑上的0、1和晶体管实际上只产生更多可被科学测量的东西，也就是光波和光子。有意思的是它们如何涌现为一幅图像，但图像是你的眼睛看到的东西。换句话说，就好比说“意识像X、Y、Z一样涌现”，可X、Y、Z的所有例子都只是意识的涌现。他们说的是“意识就像其他所有涌现出来的意识体验一样涌现”，你什么都没告诉我，你只是硬塞给我“意识是涌现的”这一观点。而且因为所有涌现的例子都是在意识中涌现的，你实际上在暗示宇宙中唯一会涌现的就是意识。我只是不认为那是对的。", "speaker_id": "alex", "section_id": "s13"}, {"start_sec": 4867, "type": "ad_omitted", "ad_brand": "Athletic Brewing 无醇啤酒", "section_id": "s13"}, {"start_sec": 4925, "type": "text", "zh": "意识和宗教之间有什么联系？", "speaker_id": "chris", "section_id": "s14"}, {"start_sec": 4928, "type": "text", "zh": "对一些人来说，他们把意识当作一个论证，说明实在的根基处一定有某种心灵。因为如果我关于涌现说的是对的——顺便说，人们会区分强涌现和弱涌现。如果有听众想：“难道家庭不是从成员中涌现的吗？生态系统不是从个体生物中涌现的吗？”是的，但那是以可预测的方式：如果我知道所有生物如何表现，我就能在更大尺度上预测这个你称为弱涌现的生态系统会如何表现。而意识的问题在于，我可以描述所有大脑活动，却仍然完全茫然，永远不会预料或预测到它会伴随着体验。所以人们说：如果这是对的，意识不可能是涌现的，而我们知道意识存在，因为我们此刻就在体验它，那就意味着意识一定以某种方式处于万物的根基。对此有几种思考方式。泛心论者说：很好，这意味着原子有意识。在我看来这有点怪，我不太认为那是准确的。另一些人说：也许我们存在于一个巨大的心灵之中，这是观念论，斯宾诺莎持的也大致是这种观点。", "speaker_id": "alex", "section_id": "s14"}, {"start_sec": 5011, "type": "text", "zh": "但传统一神论者会说：不不不，真正发生的是存在一个有意识的根本原因导致了意识。存在一个物质世界，然后有一个叫意识的东西，你没法解释，说它就是从物质中涌现的，说不通。他们设想物质按自己的方式运作，然后被一个有意识的行动者赋予生机：有一个上帝、一个有意识的心灵，为物质宇宙的一部分注入生命，所以人类有意识、动物有意识，但桌子没有。不管哪种，论证通常都在说：你不能仅从物质得到意识，它必须来自某处。所以它只能来自三种可能：意识存在于极小的东西中；意识是我们存在于其中的整体；或者有某种掌控宇宙的意识，可以随心所欲地在这里那里放进意识。最后这种大致是一神论观点，我认为它不太简约：有一个上帝让一些东西有意识、另一些没有，还有一个物质世界，意识与物质互动，有点乱。我更倾向于认为，如果说这一思路指向什么，那就是存在一个巨大的心灵，万物以某种方式存在于意识之中。", "speaker_id": "alex", "section_id": "s14"}, {"start_sec": 5087, "type": "text", "zh": "这听起来很怪，也很难用语言表达，你会开始对某些总是用比喻说话的哲学传统非常同情：它们总在谈波浪、漩涡之类，如果你是分析哲学家、想知道到底发生了什么，那会很烦人。但我开始对它们多了些同情，因为这确实很难用语言表达。我认为你不必用碎屑来解释蛋糕，也可以用蛋糕来解释碎屑，而对意识来说可能是后者。我更倾向于认为，如果这种观点站得住脚，它会指向所谓的观念论：存在一种巨大的心灵实体，我们都是它的表达，我们所说的物理世界其实是心灵之物的一种表达，广延、重量、空间、距离等等，并不是不真实，而是一种显现。", "speaker_id": "alex", "section_id": "s14"}, {"start_sec": 5147, "type": "text", "zh": "理解这一点的最好方式是想想梦。假设现在就是一场梦，你五分钟后醒来，记得自己在一个房间里，有另一个人，有一张桌子，有距离。我问：那房间有多大？你说：在我梦里，房间挺大的，挺宽的。我说：对，但在真实实在的实体中，它实际上有多大？你会意识到这成了一个无意义的问题，因为一切都存在于你的心灵之中，没有距离，那只是一种显现，是存在于心灵中的东西。观念论者看待世界的方式大致如此，他们把一切视为一个巨大心灵的表达。这听起来非常古怪，但并不比“有一位全能的创造神‘唰’一下创造了宇宙”更古怪，在我看来后者其实更怪一点。", "speaker_id": "alex", "section_id": "s14"}, {"start_sec": 5203, "type": "text", "zh": "说到这个，我最近看到一条推文，想听听你的反应。斯宾塞·格林伯格（Spencer Greenberg）提了一个问题：你让AI智能体为你做的最有用但不那么显而易见的事是什么？一位叫“Reborn the Hunter”的用户回复说：“为我不朽的灵魂祈祷。我有75个代祷智能体以大约每分钟500遍《主祷文》的速度恳求上帝让我免于永恒的诅咒。最终会有一位教皇宣布它们拥有灵魂，追溯性地使它们的祈祷生效，目标是在炼狱里最多待60年。”你怎么看？", "speaker_id": "chris", "section_id": "s15"}, {"start_sec": 5236, "type": "text", "zh": "挺好的，挺好的。这是一种对冲风险的方式，对吧？帕斯卡的“智能体赌注”。", "speaker_id": "alex", "section_id": "s15"}, {"start_sec": 5243, "type": "text", "zh": "【笑】我觉得这挺好笑，但问题当然在于他不是认真的。可我喜欢“解剖青蛙”，试着弄清楚一件事为什么好笑。为什么好笑？因为它显然很荒谬。从中我们能学到两件事：一是祈祷这个概念本身有点怪；二是大多数人其实不认为AI有或能有意识。但祈祷这件事很有意思，因为很多无神论者是这样批评宗教的：祈祷有什么意义？人为什么祈祷？如果你祈祷说“天父啊，请照顾我住院的朋友”，那你觉得他本来不打算这么做吗？如果他本来就要做，那祈祷就没意义；如果他本来不打算做，那他一定有理由，而你又不比上帝更懂，你凭什么改变他的主意？你觉得你祈祷之后他会说“哦对，医院里的约翰尼，我差点忘了，谢谢”吗？请求全知的宇宙创造者去做某事，看起来极其奇怪。", "speaker_id": "alex", "section_id": "s15"}, {"start_sec": 5313, "type": "text", "zh": "但当然，人并不笨。如果某件事显然很蠢，那一定另有其事。那祈祷时到底发生了什么？至少那类祈祷，我怀疑它们并不是为了被祈祷的那个人，而是为了你自己。祈祷是一个让自己与上帝意志对齐的机会。这里你对根本实在持什么观点并不重要：如果你相信存在某种根本的、有意志的存在者，或一个带着目的创造宇宙的上帝，你会不断偏离那个目的，你不会关心别人，你会从街上的流浪者身边走过，看都不看一眼。但如果你为他们祈祷，“主啊，请保护他们”，你真正在做的是校准自己的意志，提醒自己那是你应该关心的事。", "speaker_id": "alex", "section_id": "s15"}, {"start_sec": 5359, "type": "text", "zh": "所以人们不太可能祈祷说“我真希望亚历克斯今天绊一跤”，那就像在做坏事。", "speaker_id": "chris", "section_id": "s15"}, {"start_sec": 5370, "type": "text", "zh": "对，不过你也可以那样祈祷，人们确实会祈祷那类事。他们大概一直在为各种事祈祷，比如“主啊，让我比别人先拿到新iPhone”——我在苹果店排队买iPhone时就这么祈祷过——上帝显然不会回应那种祈祷。事实上人们有时会忘记：耶稣在福音书里祈祷过，而上帝说了“不”。他在客西马尼园说：“主啊，求你叫这杯离开我。”他即将被钉十字架，这被称为“园中的痛苦”，是宗教艺术中的重要母题：耶稣在园中哭泣，基本上在说“请别让我做这件事，能把它从我这里拿走吗”。但接着他说：“然而，不要照我的意思，只要照你的意思。”所以这是一个祈祷：他承认自己不想做，但说如果这是你的意志，我就调整我的愿望，去做这件事。他祈求某事，上帝说不，但这仍然是一个非常重要的时刻，耶稣显然在接受正在发生的事。我觉得这就是祈祷对人的作用。", "speaker_id": "alex", "section_id": "s15"}, {"start_sec": 5440, "type": "text", "zh": "人们饭前祈祷、做谢饭祷告也是同样的道理：你到底在做什么？是为谁？是为你自己，就是感恩。所以我很喜欢世俗版的谢饭祷告：吃饭前花一分钟，为自己所处的境地心怀感激。人们称之为正念，是同一类事情。你可以把它指向上帝，也可以不，没什么关系，但它不是为了上帝。你什么也给不了上帝，上帝是无限的实体，你无法给上帝增添任何东西，也不会因为做了他不喜欢的事而让他不高兴，所以不可能是为了他。如果你为别人祈祷，而上帝本来就会做他要做的事，那也不可能是为了他们，所以只能是为了你自己。这就是为什么当这个人说“我有50个AI智能体在为我祈祷”时，我会想：也许如果AI机器人有了意识，那些祈祷会对它们有好处，但我不确定会对那个人的救赎有多大帮助。", "speaker_id": "alex", "section_id": "s15"}, {"start_sec": 5496, "type": "text", "zh": "好，我想看看你在哲学上有多一致，我准备了一些问题听听你的看法。如果有人能通过基因工程让自己的孩子更有吸引力、更聪明、情绪更稳定，那拒绝这么做，在道德上和拒绝给他们良好教育有区别吗？", "speaker_id": "chris", "section_id": "s16"}, {"start_sec": 5513, "type": "text", "zh": "嗯……也许有，也许是有区别的。但我觉得大多数人至少希望生活在一个重视教育、不重视外貌的文化中。不过我认为这种直觉的基础大概是：人们意识到你对教育的掌控是你对长相所没有的。如果你剪了个新发型，我可能会说“哇，你的头发真好看，干得好”，我会为此夸你；但如果你只是鼻子长得有点怪，我不会以同样的方式因此责怪你或称赞你，因为我们直觉上认为你能控制前者。所以如果我们真的把“可以定制一个人的长相”这件事常态化，那它就确实变成了你能掌控的东西，你就应该……", "speaker_id": "alex", "section_id": "s16"}, {"start_sec": 5567, "type": "text", "zh": "当GLP-1类药物让减肥变得更容易获得时，超重就会更多地被看作对你这个人的评价。", "speaker_id": "chris", "section_id": "s16"}, {"start_sec": 5577, "type": "text", "zh": "也许吧，很可能会。但我也有同样的担忧：这在某种难以言喻、无法描述的意义上，是通往地狱之路的第一步。", "speaker_id": "alex", "section_id": "s16"}, {"start_sec": 5589, "type": "text", "zh": "GLP-1是通往地狱之路的第一步。", "speaker_id": "chris", "section_id": "s16"}, {"start_sec": 5591, "type": "text", "zh": "我是说为孩子定制外貌之类的想法。我觉得以一种我说不太清的方式，有时我们就是有一种直觉，觉得某件事是坏的。人们现在对AI也有这种感觉：当你看到它能做的某件事，你会说“我不喜欢这个，我不确定为什么，也没法完全证明”。我觉得我们应该警惕这种直觉。但同时我也认为，我们应该抵制因为人们缺乏教育而追究他们责任的想法，即便他们有机会接受教育却没有把握。", "speaker_id": "alex", "section_id": "s16"}, {"start_sec": 5624, "type": "text", "zh": "我觉得在某种程度上，你也控制不了自己想要受教育的倾向。", "speaker_id": "chris", "section_id": "s16"}, {"start_sec": 5629, "type": "text", "zh": "正是，对。", "speaker_id": "alex", "section_id": "s16"}, {"start_sec": 5630, "type": "text", "zh": "对。一旦你吞下行为遗传学这颗红药丸——离吞下决定论红药丸只有几步之遥——你最终基本上会为每个人做的每件事开脱。关于胚胎筛选有个有意思的问题。我认为基因工程在伦理上其实和胚胎筛选不同。做试管婴儿（IVF）时你本来就在做胚胎筛选，你可以质疑该不该做IVF，但锚定偏差可真是厉害。卵子受精后，医生、生殖专家会在显微镜下看，说：“哦，这两个又圆又漂亮，看起来不错，是A级；这三个是B级；还有那些，就不用提了。”所以你已经在做排名分级了。只是现在像Herasight这样——这方面全球最好的公司——能展示IQ方面的情况，它对IQ有预测性，对身高、免疫系统、外化行为、犯罪可能性等许多方面都有预测性。", "speaker_id": "chris", "section_id": "s16"}, {"start_sec": 5704, "type": "text", "zh": "鉴于我们长期以来一直在说这样的话：如果你来自一个", "speaker_id": "chris", "section_id": "s16"}, {"start_sec": 5711, "type": "text", "zh": "基因组合风险很高的群体，可能导致相当不理想的性状——不仅对整个社会不理想，可能对出生的那个人自己也是，比如亨廷顿病等等——我记得冰岛已经基本消除了唐氏综合征，因为他们对孕妇做的筛查程度很高，这意味着你能够筛除负面的东西。而一旦你接受“避免让患有亨廷顿病或其他让人生活很糟糕的疾病或困境的人出生，是我们应该做的”，那就很难坚持“我们不应该从筛除负面性状一路走到选择正面性状”。为什么不让一个人的免疫系统更强？为什么不让一个人有更大概率不进监狱？为什么不让一个人更亲社会、更善解人意、更能认识自己、更能为社会做贡献、不对配偶出轨之类？", "speaker_id": "chris", "section_id": "s16"}, {"start_sec": 5786, "type": "text", "zh": "一个现实的理由是，我们挺幸运的：在某些情况下，生活的任意性和随机性阻止了我们沉迷于完美，而完美是没有尽头的。你有时会谈到完美主义的问题，说它是伪装成别的东西的什么，你是怎么说的来着？", "speaker_id": "alex", "section_id": "s16"}, {"start_sec": 5809, "type": "text", "zh": "拖延是伪装成质量控制的完美主义。", "speaker_id": "chris", "section_id": "s16"}, {"start_sec": 5812, "type": "text", "zh": "好吧，也许我记混了。但完美主义通常是在负面意义上使用的，因为它没有尽头，总有可以微调、总有可以做的地方。我不太想对我们的孩子这样做。好吧，说得过去：我的孩子出生时会没有腿，我按一下这个按钮他们就有腿，很好。但我也可以让他们更好看一点，再更好看一点。你知道这让我想到什么吗？让我想到那些沉迷肉毒杆菌或整容手术的人：一开始只是“我觉得眉毛可以稍微提一点”，然后不可避免地，他们坐在早间节目的沙发上，看起来像个塑料娃娃，太疯狂了，大家都说他们有心理疾病。如果我们不小心，我们就会对孩子做同样的事，因为它没有一个停下来的点。", "speaker_id": "alex", "section_id": "s16"}, {"start_sec": 5854, "type": "text", "zh": "我和芬恩·泰勒（Finn Taylor，音）有过一次有意思的对话，大概两年前我们同一天上了他的节目。我和他聊了同样的话题，他大概有两三个孩子，他提到他认为很多父母会有“买家懊悔”：当你参与了对孩子的挑选，你就更可能以某种方式感到内疚、后悔、怨恨或骄傲。", "speaker_id": "chris", "section_id": "s16"}, {"start_sec": 5884, "type": "text", "zh": "我认为任何会导致我哪怕有可能看着自己的孩子、脑中冒出“买家懊悔”这两个词的技术或哲学，我都会用灵魂的每一寸去抵抗，直到我死的那天。这又是一件我说不太清为什么的事，但我就是觉得那里面有某种邪恶。你听说过“非同一性问题”吗？", "speaker_id": "alex", "section_id": "s16"}, {"start_sec": 5906, "type": "text", "zh": "听说过。我和乔纳森·阿诺马利（Jonathan Anomaly）聊过：通过选择一个人——或选择一个胚胎——另一个胚胎就不会出生。", "speaker_id": "chris", "section_id": "s16"}, {"start_sec": 5914, "type": "text", "zh": "对，这里似乎有伦理上的区别，这在哲学上其实是个难题。它由伟大的牛津哲学家德里克·帕菲特（Derek Parfit）提出——他是牛津的吗？我想是。伤害或惠及一个已经存在的生命，与在一个受益个体和一个受损个体之间做选择，似乎在伦理上有区别。想象孕妇有两种密切相关的状况——我可能会讲得乱七八糟，凭记忆试试，大概类似这样。状况A：你已经怀孕，孩子出生时腿将无法正常运作，你只需吃一颗药就能修复孩子的腿，让他健康出生。状况B：在怀孕之前你有一种状况，如果现在受孕，孩子出生时会没有腿，但如果等一个月让状况消退，孩子就会有正常的腿。现在想象两个女人，一个有状况A：她体内的孩子将没有腿，她只需吃一颗药，却说“不用了，我不想吃，其实我有点想要一个残疾孩子，因为那会让人更同情我、让我成为关注的中心”。孩子出生了，这是可怕的、不道德的、邪恶的行为。然后帕菲特说：再想象第二个女人有状况B，她被告知如果现在受孕孩子会没有腿，如果等一等就不会，她说“不，我现在就要孩子，因为我想成为关注的中心，想让大家同情我和我的残疾孩子”。所以两人最终都生了残疾孩子，两人似乎都以同样的方式做错了，都做了可怕的事。", "speaker_id": "alex", "section_id": "s16"}, {"start_sec": 6026, "type": "text", "zh": "但她们伤害了谁？第一个女人肯定伤害了她的孩子，因为她让那个孩子没有了腿。但第二个女人并没有伤害她的孩子，因为如果她等一个月再生，那会是另一个孩子，而不是同一个。所以如果孩子说“我很恼火你明知自己有这种状况还选择怀孕”，那说不通。唯一的前提是他们的生命总体上值得活——当然有些人经历极其负面，会说“我希望自己从没出生”，有些人甚至真的以“错误出生”为由起诉父母，这挺疯狂的，不一定是哲学上疯狂，只是这种事居然在发生很疯狂。但基本要点是：你可以对这个恼火的孩子说，他们想一想大概会说“其实我挺庆幸她那时生了孩子，否则我根本就不会存在”。所以问题是：到底谁受到了伤害？你可以说：那个本来会出生却没能存在的孩子受到了伤害，因为他们本可以存在。不，这对所有可能存在的人都成立，那岂不是说你现在不生孩子就在伤害别人？那似乎不公平、不对，我们对不存在的生命没有义务。但帕菲特说，假定一件事要是坏的，就必须让某些人比原本更糟，这似乎也合理，否则一件事是坏的或有害的意味着什么？", "speaker_id": "alex", "section_id": "s16"}, {"start_sec": 6121, "type": "text", "zh": "所以我们认为第二位母亲做错了事，但怎么错的？她伤害了谁？她没伤害任何人，没人变得更糟。事实上，包括孩子在内的所有相关者，都比她做出其他选择时过得更好。可我们还是想说她做错了。那我们怎么理解这一点？是什么让她的行为是错的？还是我们干脆说其实没问题？如果说没问题，就打开了某种选择性优生学的大门：不允许在基因已经存在时编辑它们，却允许在怀孕开始前控制各种因素。", "speaker_id": "alex", "section_id": "s16"}, {"start_sec": 6157, "type": "text", "zh": "好，再来一个。如果出轨之所以错是因为它破坏了信任，那么暗自幻想别人，与出轨在道德上有区别吗？还是只是受技术所限的出轨？", "speaker_id": "chris", "section_id": "s17"}, {"start_sec": 6171, "type": "text", "zh": "嗯，“凡看见妇女就动淫念的，这人心里已经与她犯奸淫了”，拿撒勒人耶稣如是说。", "speaker_id": "alex", "section_id": "s17"}, {"start_sec": 6180, "type": "text", "zh": "但那是暗自幻想。", "speaker_id": "chris", "section_id": "s17"}, {"start_sec": 6181, "type": "text", "zh": "对。幻想的特点在于它是主动的。人们批评基督教把淫念视为该受惩罚——甚至不说惩罚，只是负面的——的观念，说这就像“思想罪”：“哦，哪怕你想了不该想的事。”但这不只是想了一个念头，不是说", "speaker_id": "alex", "section_id": "s17"}, {"start_sec": 6197, "type": "text", "zh": "一个念头偶然溜进你脑子里，而是似乎在“玩味”那个念头，你会接着去和那个念头周旋。我认为出轨的错并不在于你觉得另一个人有吸引力。你可以在一段关系中、在婚姻中，看到另一个人并注意到他们有吸引力，但我认为擅长经营婚姻的人基本上会直接掐掉那个念头：他们会把目光移开，或者把那个念头从脑中清除，或许他们一开始就不会有那个念头，因为他们对妻子如此忠诚。", "speaker_id": "alex", "section_id": "s17"}, {"start_sec": 6231, "type": "text", "zh": "我再给你一个，是我在某档节目上听来的。那位嘉宾做了一个春梦，梦里他妻子的一个朋友和他在一起，而在梦里——虽然那不是清醒梦——他并没有和妻子的朋友出轨。【笑】这算不算品格的良好体现？", "speaker_id": "chris", "section_id": "s17"}, {"start_sec": 6254, "type": "text", "zh": "只是“还没有”而已。", "speaker_id": "alex", "section_id": "s17"}, {"start_sec": 6256, "type": "text", "zh": "他醒来后说：“难道我不该得到‘好孩子积分’吗？我在梦里无意识地、不由自主地没有和她的朋友出轨，难道不该被妻子表扬吗？”", "speaker_id": "chris", "section_id": "s17"}, {"start_sec": 6262, "type": "text", "zh": "只有当你也要为自己在梦里做过的所有坏事负责时才行。也许你还真该负责，因为梦里发生的事也许是你潜意识中所发生之事的表达，所以真正揭示了你是谁。所以我会很乐意做那样的梦，因为我觉得它会揭示那也许就是真正的我。但我们其实并不知道梦到底是怎么回事，可能什么都有。有时你会梦到最疯狂的事，醒来后想……", "speaker_id": "alex", "section_id": "s17"}, {"start_sec": 6294, "type": "text", "zh": "幸好没人看见。", "speaker_id": "chris", "section_id": "s17"}, {"start_sec": 6296, "type": "text", "zh": "……那些都不是真的。所以我不认为那是个明智的标准。但我确实认为出轨中“主动”的成分在于向吸引力屈服，而对此最简单、不武断的衡量标准，就是你有没有在身体上付诸行动，这就是为什么人们认为那如此重要。但你可以把它们分开。想象你有妻子或伴侣，有两种情形：一种是她非常非常想和某人上床，但对方也许拒绝了，于是她离开了；另一种是她非常非常不想，但不知怎么还是发生了。我们通常会认为在第二种情况下她是受害者——如果像我描述的那样，她确实是受害者，那是可怕的事，你会陪在伴侣身边。但在第一种情况下，如果你发现那是真的，你会非常难过，因为你真正在乎的是那份意图、欲望和意志。只是这很难从人的脑子内部衡量，连他们自己都难。所以我认为，如果你认真对待一段关系，就应该掐掉那类东西，不该看色情内容，不该沉溺于那类东西，因为那才是通奸和出轨真正有害的部分，而不是身体行为本身，因为你可以把身体行为单独拎出来，在那种情况下你并不会谴责它，恰恰相反。", "speaker_id": "alex", "section_id": "s17"}, {"start_sec": 6342, "type": "text", "zh": "我认为这就是耶稣说“看妇女动淫念就是心里犯了奸淫”的意思。人们说那是思想罪，不是的，他只是在说：别去玩味那个念头。我认为他大概是对的。有反对的论证吗？有理由认为其实……", "speaker_id": "alex", "section_id": "s17"}, {"start_sec": 6398, "type": "text", "zh": "我记得和亚瑟·布鲁克斯（Arthur Brooks）——大概是他——聊过，他向我解释说，作为企业主，你永远不该组织那种允许员工参加但不许带伴侣的团建或外出活动，永远不要。因为那是一个新环境，经常一起工作的人之间可能有某种潜在的暧昧在表面下翻涌，只是因为距离近，还有所谓的“办公室加两分效应”：不管你有多好看，如果你和对方在同一个办公室工作，你在对方眼里就加两分。你不该这么做，因为那经常就是“度假浪漫加潜在办公室恋情”转化成现实的时刻，然后事情就会变得很糟。所以你可以设想，也许你会说：如果你真的忠于伴侣，你应该能看着桌上一个赤裸的女人而连碰都不碰她。理想情况下你应该能做到，对吧？但我觉得这种想法是：不，那是因为你控制不了自己心理上的程度。", "speaker_id": "chris", "section_id": "s17"}, {"start_sec": 6466, "type": "text", "zh": "其实也许你多少能控制，也许你可以训练自己。我们一直在谈身体训练，比如有人用膝盖撞柱子来强化自己，好去打UFC之类的。", "speaker_id": "alex", "section_id": "s17"}, {"start_sec": 6482, "type": "text", "zh": "你是说我应该让自己尽可能多地接触裸体女性，来建立我的抵抗力？", "speaker_id": "chris", "section_id": "s17"}, {"start_sec": 6486, "type": "text", "zh": "我是说你大概应该反过来：一有机会就练习抵抗，因为你当然应该这么做，这就是关键所在。", "speaker_id": "alex", "section_id": "s17"}, {"start_sec": 6494, "type": "text", "zh": "那不会让我更脆弱吗？就好比我想要强壮的膝盖，可为了拥有强壮的膝盖，我永远不让它撞任何东西。", "speaker_id": "chris", "section_id": "s17"}, {"start_sec": 6507, "type": "text", "zh": "如果会，那也许就是好事。我不知道，我觉得你就应该能说“不”。如果你告诉我“如果面前有个非常有吸引力的裸体女人，我就是没法拒绝”，那我会说：那你需要加强你的心理训练。", "speaker_id": "alex", "section_id": "s17"}, {"start_sec": 6522, "type": "text", "zh": "但你加强心理训练的方式就是不待在有吸引力的裸体女人身边。", "speaker_id": "chris", "section_id": "s17"}, {"start_sec": 6526, "type": "text", "zh": "对，这是个有意思的想法，也许你能做的最好的事就是……也许隔着一块玻璃屏？我不认为那是明智的，因为我想证据显示的恰恰相反。我知道，既然我说你应该能训练自己抵抗这类东西，那认为也许需要“暴露”是合理的，但证据似乎显示相反：经常看色情内容的人更可能物化女性，更可能出轨。在某种意义上，色情内容本身就可以是一种出轨。我认为出轨是由你和伴侣的关系来界定的，你们可以决定开放多元关系，然后有些事才算出轨；你们也可以说“你可以和任何人上床，除了本（Ben）”，那么只有和本才算出轨，所以要看情况。但证据显示：如果你不再允许自己沉溺于这些念头，你物化女性的可能性其实会更低。也就是说，你不是在建立耐受力，而是如果你看大量色情内容，你会更可能物化女性，看到裸体女人就会把她当作性对象，那很可怕、很糟糕。", "speaker_id": "alex", "section_id": "s17"}, {"start_sec": 6591, "type": "text", "zh": "如果你不再沉溺于那些淫念、不再看色情内容，那么当那个裸体女人出现在桌上说“来吧，背叛你的妻子”时，你会说“离我远点”，你会像托马斯·阿奎那那样。他的家人非常担心他对神学的投入，因为他对神学着了迷。在中世纪，他住在一座城堡里，算是被关了起来，他的家人雇了一个妓女去引诱他犯罪，试图让他从对神学的痴迷中清醒过来。据说他从壁炉里抄起一根燃烧的木棍，把她赶出了城堡。我认为那不完全是我会建议别人做的事，因为物化女性最大的受害者当然是女性，而不是男性，这一点在这类讨论中总是被忽略。人们谈色情内容的坏处时说“看它让男人多淫荡”，其实色情内容对女性非常糟糕，主要是对女性糟糕。", "speaker_id": "alex", "section_id": "s17"}, {"start_sec": 6654, "type": "text", "zh": "尤其是当你拿着一根着火的棍子在街上追她们的时候。", "speaker_id": "chris", "section_id": "s17"}, {"start_sec": 6657, "type": "text", "zh": "那也是真的。但它在很多方面都对女性不好。显然色情片里的女性有可怕的经历，而且和色情毫无关系的女性也得承受看色情内容的男人带来的影响：那些男人第一次和她们上床就试图掐她们的脖子，尽管50年前人们并不这么做，这其实挺疯狂的。除非你非常非常了解某个人，", "speaker_id": "alex", "section_id": "s17"}, {"start_sec": 6681, "type": "text", "zh": "即便那样也大概不太安全。但所有这类事情，女性都得面对。正如你所说，证据表明那些沉溺于淫念的人……再说一次，我认为耶稣的意思不是“如果你觉得一个女人有吸引力，就该因通奸被石头砸死”，而是“别去玩味这些念头，别放纵这些念头，因为你在做对灵性有害的事”。我认为其世俗版本是：所有证据都表明，一个人们更多这样做的世界，是一个有更多街头骚扰、更多让人不适的目光、更多被认为“还行”并被常态化的不良行为的世界。我们可以整天讨论——播客上人们也确实在讨论——这对男性心理健康有多糟，但它首先对女性非常糟糕。所以我认为这大概是你应该停止这样做的主要原因。同理，你应该建立不出轨的心理韧性，主要不是为了你的斯多葛智慧，而是为了你的妻子，那个你理应比世上任何人都更爱、更在乎的人。", "speaker_id": "alex", "section_id": "s17"}, {"start_sec": 6740, "type": "text", "zh": "所以别去参加公司团建。", "speaker_id": "chris", "section_id": "s17"}, {"start_sec": 6744, "type": "text", "zh": "对，但关键就在这里，那是一种安全措施。我认为你可以在自己的心理空间里设置安全措施。就像你有“不参加团建”的规则一样，你也可以有不上Instagram、当然更不要上色情网站的规则——如果那会成为你的触发点的话；如果你的信息流里充满了诱惑你犯罪的东西……", "speaker_id": "alex", "section_id": "s17"}, {"start_sec": 6766, "type": "text", "zh": "你的Instagram信息流是什么样的？", "speaker_id": "chris", "section_id": "s17"}, {"start_sec": 6772, "type": "text", "zh": "主要是圣经研究，还有音乐相关的东西。你知道你可以定制自己的算法吗？你可以进设置里给它指定想看的主题，很棒。所以我的信息流是刻意维持得相对……我还是会无休止地刷，但我真的在努力避免对那种把你吸进去的随机内容上瘾。", "speaker_id": "alex", "section_id": "s17"}, {"start_sec": 6796, "type": "text", "zh": "AI狗狗讲阿奎那，或者辣妹给你讲康德的立场。", "speaker_id": "chris", "section_id": "s17"}, {"start_sec": 6805, "type": "text", "zh": "还是会，你最后还是会刷到各种随机的无聊东西。我有点想彻底戒掉社交媒体，大家都想，但问题就在这儿，对吧？不是你想戒掉它，而是你想让所有人都戒掉它。不过说真的，我不认为这是多大的伦理困境，只是在实践上很难证明。如果你和一个人在一起，发现过去十年他一直在暗中苦苦思慕同事，你可以说在某种意义上那不是他的错，但也许他的错在于没有正视、处理这件事，也没有告诉你。因为如果你知道了，也许你就不想和他在一起了，也许你还想，但那是你的选择，你应该了解事实。", "speaker_id": "alex", "section_id": "s17"}, {"start_sec": 6849, "type": "text", "zh": "女士们先生们，这就是亚历克斯·奥康纳。老兄，谢谢你。大家应该去哪里找你？你马上有巡演，还在做什么？", "speaker_id": "chris", "section_id": "s18"}, {"start_sec": 6854, "type": "text", "zh": "对，我有个巡演，11月在北美做六场演出，其中一场在加拿大，非常快了，会很令人兴奋。这是一种“有问必答”（AMA）式的形式，所以如果你想来问关于意识、宗教或者我的Instagram信息流的问题，我是本敞开的书。", "speaker_id": "alex", "section_id": "s18"}, {"start_sec": 6873, "type": "text", "zh": "除此之外，大家在哪里买票？", "speaker_id": "chris", "section_id": "s18"}, {"start_sec": 6875, "type": "text", "zh": "通过简介里的链接，克里斯。好吧，你可以去 alexoconnor.com/tour，在那里买票。我们会去纽约和洛杉矶。", "speaker_id": "alex", "section_id": "s18"}, {"start_sec": 6884, "type": "text", "zh": "你在纽约的市政厅剧院（Town Hall）演出。", "speaker_id": "chris", "section_id": "s18"}, {"start_sec": 6887, "type": "text", "zh": "没错，我去年也在那里演过。旧金山已经售罄了，我们还会去多伦多。", "speaker_id": "alex", "section_id": "s18"}, {"start_sec": 6893, "type": "text", "zh": "他们不喜欢你那样念“多伦多”，要把“t”吞掉，发成喉塞音。", "speaker_id": "chris", "section_id": "s18"}, {"start_sec": 6903, "type": "text", "zh": "他们确实和英国人有很多相似的说话方式，对吧？感觉有时像美国人在模仿英国俚语，尤其是在说唱文化里，非常奇怪，但我很期待亲身体验。我从没去过加拿大。", "speaker_id": "alex", "section_id": "s18"}, {"start_sec": 6915, "type": "text", "zh": "加拿大很棒，安大略。你也去温哥华吗？", "speaker_id": "chris", "section_id": "s18"}, {"start_sec": 6920, "type": "text", "zh": "不，只去多伦多。加拿大的演出卖得太快了，挺吓人的。我很期待，但这只是一个规模有限的巡演，先在那边试试水，我相信我们还会再去、做更多场。除此之外，我在做一些还不能透露的项目，会很好玩，希望一两年后再看这期节目的人会知道我在说什么——也许他们已经知道了。我还希望重新回到播客和视频随笔的节奏上。很多人说我应该多做些对着镜头独白的内容，我最近做了很多访谈和对话，他们怀念我做视频随笔风格的东西。我想多做些，只是最近没时间，它们在拍摄和剪辑上实际要比播客花更长时间，因为所有剪辑都是我自己做。但我也想多做一些，所以一直在问的人，敬请期待。", "speaker_id": "alex", "section_id": "s18"}, {"start_sec": 6976, "type": "text", "zh": "太好了。谢谢你，老兄，下次见。", "speaker_id": "chris", "section_id": "s18"}, {"start_sec": 6978, "type": "text", "zh": "随时。", "speaker_id": "alex", "section_id": "s18"}, {"start_sec": 6978, "type": "ad_omitted", "ad_brand": "Modern Wisdom 订阅提醒（片尾自我推广）", "section_id": "s18"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

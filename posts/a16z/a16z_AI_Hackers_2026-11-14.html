@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>如何防御 AI 黑客：与 Wiz 的阿米·卢特瓦克对谈</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-2{--c:#4c8c5a;--cbg:#29392a;--cbgl:#eaf1eb}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="ami">阿米·卢特瓦克（Ami Luttwak）</option><option value="zane">齐恩·拉基（Zane Lackey）</option><option value="sarah">莎拉·王（Sarah Wang）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">a16z</span><span class="pill">2026-11-13 07:30 PST（America/Los_Angeles）</span></div>
+<h1>如何防御 AI 黑客：与 Wiz 的阿米·卢特瓦克对谈</h1>
+<p class="sub">嘉宾：阿米·卢特瓦克（Ami Luttwak） · 约 46 分钟（2766 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=PbD9pVXxsYM" target="_blank" rel="noopener">https://www.youtube.com/watch?v=PbD9pVXxsYM</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>a16z</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-13 07:30 PST（America/Los_Angeles）</dd></div><div class="meta-row"><dt>时长</dt><dd>约 46 分钟（2766 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 页面 Show transcript / 内容转文字（caption_source=browser-cdp，subtitle_type=youtube-show-transcript）。本批 yt-dlp 普通路径遇 “Sign in to confirm you’re not a bot”，chrome cookies（chrome:/home/box/chrome-profile/Fork-3）路径报 “The page needs to be reloaded”，同批改走浏览器 Show transcript。观看页当前标题为“How to Defend Against AI Hackers, with Wiz’s Ami Luttwak”，发现阶段/RSS 标题为“Cyberattacks Used to Take Months. AI Can Do It in Minutes.”，同一 videoId。说话人：简介与口播点名嘉宾阿米·卢特瓦克（Ami Luttwak，Wiz 联合创始人/CTO），两位主持人为 a16z 普通合伙人齐恩·拉基（Zane Lackey）与莎拉·王（Sarah Wang）。齐恩依据自述“曾是一家 PHP 电商公司的 CISO”以及偏实操的追问（开源模型差距、PHP2Shell 案例、红队流水线、90 年代/蠕虫）区分；莎拉依据“我们两位合伙人写过一篇文章”“Wiz 已是谷歌大家庭一员”“齐恩和同事乔尔写过一封给创始人的便函”“补一句齐恩的问题”等主持框架区分。开场白（约 1:06）及部分转场追问为中等把握；极短附和未单独猜名。ASR 订正：Ammy/on me→Ami；Moders→Models；Mitos/bentos/meters/mess→Mythos（Claude Mythos）；hacking face→Hugging Face；Califf→Calif；Whiz/wheels→Wiz；pedaging/pitch→patching/patch；anentic→agentic；247 sock→24/7 SOC；CV→CVE；under the mitt→门垫（mat）；LLM checking→LLMJacking（LLM 劫持）；automated pet process→automated patch process；full ODAS→full 0-days；Zayn→Zane；CESOS→CISOs。片头约 66 秒为正片片段剪辑。无赞助口播。</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>PbD9pVXxsYM</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>a16z 普通合伙人齐恩·拉基与莎拉·王对话 Wiz 联合创始人兼首席技术官阿米·卢特瓦克，梳理他称为“黑十月”（Black October）的安全拐点：AI 已能在约 20 分钟内走完过去顶尖攻击者要数周到数月的攻击链，开源模型正在追上前沿模型，防守方不能再按人类时间表运作。</p>
+<h3>核心要点</h3><ul><li>阿米把 2026 年 10 月称为“黑十月”，视为一场黑天鹅（black swan）：单月出现的安全事件数量与严重程度都前所未见，其中包括他认为可能是 AI 迄今发现的最严重漏洞——PHP2Shell；与此同时，AI 攻击者正以前所未见的速度和“专业能力”打向企业、初创公司和联网设备。</li><li>此前有两个铺垫时刻：Anthropic 的 Mythos 展示模型已经能发现漏洞，以及 OpenAI 智能体意外打到 Hugging Face 的事件（当时还是“误打”）。黑十月里这些原先停留在理论里的风险一并砸了下来：模型已能发现并利用复杂漏洞；开源模型正在追上——阿米认为找漏洞的差距不超过约三个月——不必等复杂的 PHP 漏洞，应用编程接口（API）里的一个错误，就可能被用来在约 20 分钟内跑完整场攻击。</li><li>PHP 大约覆盖互联网的 70%，几乎 100% 的 Wiz 客户环境里都跑着某种 PHP。披露后两到三天内约 50% 完成补丁，但更老的 PHP 版本已不再提供补丁，单这一个漏洞要数年才能消化。利用时间已被压到分钟级，而通用漏洞披露（CVE）和补丁常常还没出来，信息就已经泄露；Linux 内核漏洞传到各发行版有时也要数周甚至数月。</li><li>Wiz 用名为 Atlas 的框架对多个模型（含网络方向的专用版本）做持续漏洞挖掘，并比较像比特币挖矿：新模型会挖出新洞。蓝队智能体（Blue Agent）按“确定性检测→便宜模型→更强模型→最强模型确认”的流水线调查攻击；红队智能体（Red Agent）从外部持续自攻，多数 Wiz 客户已经在用。阿米强调：未认证的对外暴露面比扫代码更紧急，Mythos 的公关把行业注意力带偏了。</li><li>给创始人的建议：安全游戏已经变了，要同时把红蓝两侧自动化，从第一天起就设计自动补丁。初创公司正因为握有人工智能密钥而成为主要目标，尤其是 LLM 劫持（LLMJacking）；要对密钥设限额，否则被盗后账单会非常惨。有首席信息安全官（CISO）称明年安全预算或增 80%，但阿米认为预算买不到安全，关键是安全架构：沙箱、隔离、网络/进程/镜像锁定，按国家级攻击者来设计——容器逃逸和 Linux 零日并不罕见。</li><li>齐恩预测未来两三年会“回到 90 年代和 2000 年代”：未认证的远程零日会再次密集出现，甚至可能再看到当年 Windows XP 时代那种蠕虫——当时在线安装还没补完就会被感染。阿米 4 月曾写“12 到 18 个月内会有一次 Y2K 时刻”，现在认为开源模型追得比预想快，黑十月可能就是开始。欧洲制冷设备等公共基础设施也已受攻击，Wiz 因此推出 Scan for Good，为公共服务做扫描，推动对方自己做持续红队扫描。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：关心云安全、AI 攻防、创业公司安全投入的人，约 46 分钟，案例具体（PHP2Shell、20 分钟攻击链、红队智能体、Windows XP 蠕虫类比）。可跳过：只想听具体厂商对比或工具评测清单的人，节目几乎不点名竞品。</p>
+<h3>适合人群</h3><p>创始人与安全负责人 / 云与应用安全从业者 / 关注 AI 攻防的投资人</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">片头与“黑十月”：一个月里砸下来的漏洞和 AI 攻击</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">片头先抛出后文的核心判断：安全局面会重新变得像 90 年代和 2000 年代那样漏洞与泄露频发；模型已能发现并利用复杂漏洞，开源模型也在追上；安全团队眼下做的大部分事其实不是安全。正式开场后，莎拉·王请阿米解释行业所称的“黑十月”。阿米把它看作一场黑天鹅：单月出现的安全事件数量是他从未见过的，既包括 10 月发现的漏洞数量与严重程度——其中就有他认为可能是 AI 迄今发现的最严重漏洞 PHP2Shell——也包括另一面更糟的情况：AI 攻击者正用全新的速度和“专业能力”，大规模打向企业、初创公司，甚至冰箱这类联网设备。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">每天都是零日：从 Mythos、Hugging Face 到 20 分钟打穿</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">齐恩追问机制：阿米曾说“每天都是零日”（埃隆·马斯克最近也发过类似推文），AI 究竟如何把写利用的时间从数月压到数周甚至更短，创始人该怎么想。阿米回顾 10 月之前的两个大时刻：一是 Anthropic 的 Mythos 问世，证明模型能发现漏洞，但当时“太阳照常升起”，还没有变成日常冲击；二是 OpenAI 智能体意外打到 Hugging Face 的事件，让人看见 AI 攻击的风险，但那一次仍属“误打”。黑十月里，这些原先停留在理论里的事一并砸了下来：模型已经好到能发现并利用复杂漏洞，漏洞开始“爆炸式”出现；更可怕的是开源模型正在追上——几个月前谈 Mythos 时他们还说“再过几个月”，现在已经到了。不必等复杂的 PHP 漏洞，应用编程接口里的一个错误就可能被当成你代码里的零日，把过去顶尖攻击者要花数周到数月的整场攻击，压缩到大约 20 分钟。齐恩听到的攻防能力差距大约是六到九个月；阿米认为，就“找漏洞”而言，开源模型落后不超过三个月，真正的问题是“进攻”这一侧。Wiz 一篇博客起初统计 10 月有 9 家人工智能开发平台被打，名单每天都在增加，录制时已到 15 家——它们被点名，是因为手里握着人工智能密钥。攻击者不必很老练，开源模型已经够用来在 20 分钟内找到并利用问题；哪家小创业公司准备好了检测、定位并及时响应？按这个速度，几乎等于每家小公司都需要一套全天候安全运营中心（SOC）。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">PHP2Shell 案例：覆盖约七成互联网，补丁却要数年</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">齐恩把 PHP2Shell 当作黑十月诸多事件中的一个案例，追问客户环境里有多普遍、公开几周后补丁进展如何。他自己曾是一家 PHP 电商公司的首席信息安全官。阿米确认，PHP 作为对外暴露的技术极为普遍，常被说成覆盖互联网的约 70%；几乎 100% 的 Wiz 客户环境里都跑着某种 PHP。他们很快看到了补丁率的大幅下降：客户还没有做到自动打补丁，但对补丁的重要性已经非常警觉，头两到三天大约 50% 完成了补丁，几乎是“立刻减面”。但正因为这是互联网的约 70%，单这一个漏洞要完全解决会耗上数年。互联网上和客户环境里都有大量实例根本没有补丁路径——更老的 PHP 版本已经不再提供补丁。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">补丁为什么跟不上：利用只要几分钟，发行版却要等几个月</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">莎拉提到两位合伙人写过一篇关于“写利用的时间 vs 打补丁的时间”的文章：AI 让人更容易把补丁差异（diff）变成可工作的利用，这方面的时间在下降；可过去 20 到 25 年的数据里，打补丁的时间不仅没有下降，反而在上升。AI 能不能也帮上防守这一侧？阿米同意利用时间已大幅缩短，而且情况更糟：很多时候通用漏洞披露（CVE）还没发布，信息就已经泄露；即便 CVE 出来了，补丁也还没有。PHP 这个案例里，他们和 PHP 项目合作了数月，想让整个行业先准备好，结果还是提前泄露了，客户无计可施，Linux 上的补丁当时也还没就绪。即便是报给 Linux 内核的漏洞，传到各个发行版也可能要数周甚至数月。行业整体还没为“AI 能在几分钟内完成利用”做好准备。自动打补丁目前也没有清晰路径：如果是一家正在从零建设、已经有自动化工程、持续集成/持续交付（CI/CD）和自动化测试的新公司，有可能做到“我告诉你打这个补丁，整套系统自动完成”；这需要完整的智能体化流水线（自动开发出补丁、自动测试、自动 CI/CD、自动运维）。多数老公司做不到，对它们的大部分代码也不现实。阿米认为新创公司应该把自动打补丁当成设计任务。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">Wiz 如何找漏洞：Atlas、多模型矩阵，以及蓝队调查流水线</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">齐恩补充一个注脚：PHP2Shell 由 Wiz 和 Calif 两个团队独立发现，这种“一洞多发现”以前也常见。他想听 Wiz 研究团队如何用 AI 做漏洞研究。阿米把这比作比特币挖矿：新模型带来新能力，漏洞不会被挖完，所以同一漏洞被多个团队同时找到并不奇怪。他们正在为 Wiz 的 Zero Day Con（ZDC，零日漏洞竞赛）做准备，已经收到多个团队报送的、他认为也会对互联网有重大影响的严重漏洞。对内，他们为漏洞团队、也为 Wiz 产品本身做了一个名叫 Atlas 的漏洞检测框架，持续搭配不同模型来跑——来自 OpenAI、谷歌（Google）或 Carbon（口播，或指 Gemini 4 Carbon）的模型各有特长。必须把精力放在关键基础设施上，并用仍有几个月优势的前沿模型持续先于攻击者发现；但世界上的代码太多，攻击者仍可能在某个模型上找到防守方没看到的洞。莎拉追问：各模型分别擅长什么？Wiz 已是谷歌大家庭一员，手头有深度思维（DeepMind）的模型，为什么还要用多家模型？前沿实验室和独立网络安全公司该如何相处？阿米的回答是：每个模型、每个版本，再加上它们的“网络专用版”，构成一张复杂矩阵，速度和成本都不同，没有单一答案。独立公司只能不停试遍所有模型，找到最佳组合。对多数创始人来说，“用 AI 开发已经很容易”并不成立，关键在于服务成本：必须做非常聪明的流水线，简单任务用特定模型、复杂任务用别的模型，高效拼在一起，否则卖得越多亏得越多。他举蓝队智能体调查攻击的例子：不能对每个事件都跑最贵、最强的模型，而是从确定性检测开始，再到便宜模型、再到更强模型；如果前面都认为是恶意的，再交给最强模型做最终判断，然后才告知客户。他认为这才是规模化 AI 系统的新工程挑战。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">持续测试的成本：扫一次就要几百万，还不是一劳永逸</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">莎拉转到持续测试相对一次性静态扫描的范式转变，以及成本如何决定这件事能否普及到每家公司、而不只是最赚钱、最成熟的那一批。阿米回到 Mythos 时刻：有人说“天哪，出了 Mythos，我得把所有代码扫一遍”。假设你在 4 月做了这件事，你可能已经浪费了 500 万美元——他强调这是真实量级。现在又出了 Mythos 1.2，你还得再扫一遍。这不是小预算，有的客户现在已经在代码扫描上花数千万美元。必须做成可扩展、持续且“聪明”的系统：会有新模型、新能力、新代码，不能只靠一次扫描。他们还在摸索如何把预算用在刀刃上——从内到外、主动攻击与被动攻击、代码分析、磁盘上扫描、运行时观察——不是单次扫描，而是持续扫描。若有人对你说“把 Mythos 在代码上跑一遍就行了”，那解决不了持续存在的问题，只会在预算上砸出一个大洞。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">AI 时代的云安全：老问题没消失，客户却开始要求自动修复和自动响应</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">齐恩提醒：新问题出现并不等于老问题消失。对许多《财富》500 强（Fortune 500）和全球 2000 强（Global 2000）来说，云安全挑战还在。他先请阿米抛开 AI，谈谈 2026 年云采用与云安全的状态，再把 AI 叠上去。阿米的看法是：应用几乎总是跑在云上，AI 攻击者打过来时，往往还是从过去就存在的那些漏洞、问题和配置错误进门——如果你有一个没修好的 PHP 漏洞，攻击者还是会从那儿进来。新增加的是更多漏洞和更多类型的攻击，并不意味着旧的攻击路径可以不修。云安全上，大家已经明白需要一套能看清全局的“记录系统”（system of record）。开始变化的是：公司在尝试更多智能体化工作流，也对 Wiz 提出更高期待。以前 Wiz 给出带优先级的漏洞即可；现在客户希望他们回到代码里定位、做出修复、提交拉取请求（pull request），把耗时的流程更多地自动化。检测也一样：不要只给一条告警，还要完整调查、取证、讲清攻击者怎么进来并把他们打出去。阿米认为，过去没被自动化掉的每一步，公司都在自己尝试自动化，也要求厂商做得更好。Wiz 已经不能只是发现威胁，必须做完整调查和取证；而在看到 AI 攻击者之后，下一步是开始思考自动响应——这很可怕，但他觉得已经没有别的选择。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">红队智能体：用最新模型持续攻击自己，水位每周都在抬高</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">莎拉请阿米多讲红队智能体：这是从对手视角做模拟，Wiz 是否在把“机器速度”交给客户，以应对进攻方已经被 AI 改写的风险。阿米说最终是红蓝两股力量：蓝队发现并阻止攻击，红队的逻辑则是“最好的防御就是进攻”——必须用 AI 持续攻击自己。以前还可以靠静态防御；现在每个新模型都带来新能力，昨天还算安全的应用，今天可能已经不安全。他用一扇门作比喻：你把钥匙藏在门垫下，一度算安全；可攻击者几乎每周都在获得“超能力”，下周也许就能进门。安全的水位不断抬高，唯一知道自己有没有问题的办法，就是用最新模型持续自攻，赶在攻击者打开门之前发现并修好，而且时间窗口很短——这就是“防御速度”之所以关键的原因。红队智能体从外部发起进攻型 AI 攻击，同时利用 Wiz 从内部掌握的上下文，争取在攻击者利用之前找到问题。齐恩从“让团队少走弯路”的角度追问：蓝队是从确定性方法起步，再叠加便宜模型、再逐步用更贵的模型；红队是同样分层，还是许多模型从头同时跑？阿米的回答是：都要。如果有预算就全部交给 Mythos 去扫代码，并不高效。更高效的做法是先用确定性方法分析全部暴露面，再叠上他们称为“暴露率智能体”（exposure rate agent）的一层，专门看环境里所有未认证、暴露在互联网上的东西——这是最紧急的事，甚至比扫代码更重要。再下一层才是更深的渗透测试和代码分析。从外部看，暴露面智能体对每个端点也许只要几分钟（因为可能有上百万个端点）；遇到关键应用，他可能花 10 个小时去尝试攻破。一切都将是流水线，核心是管理预算，而不是砸钱扫代码就以为结束。各部分还是连在一起的：如果发现了问题，工程团队说修复太贵，可以把情况告诉蓝队智能体，先加上检测。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">谁真正在持续自攻：对外暴露面比扫代码更要紧</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">莎拉提到他们内部前几天和里克（Rick）讨论过：目前的“最前沿”几乎就是红队智能体在做的事——用智能体集群不断攻击自己的系统，从而知道该如何防护。Wiz 既服务《财富》100 强里过半的企业，也有最前沿的初创客户，真正在这么做的有多少？阿米说，在 Wiz 的客户里，大多数已经在用红队智能体，这是他们发布过的增长最快的功能之一，覆盖面正迅速接近“几乎全覆盖”；但放眼整个行业还远远不够。他的判断很干脆：眼下没有比持续从外部扫描自己的环境更重要的事，最好的防御就是进攻，等对方来了可能已经晚了。他认为 Mythos 获得了大量公关，但公关把注意力带偏了——扫代码并不是你能做的最有效的事。两天前就有一起重大事件：移动应用里硬编码的密钥，导致大量用户数据暴露。攻击者就是从这类未认证的暴露面进来的，必须对它们做持续扫描。这就是他看到的差距，也是他希望行业明白的一点。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">创始人发版前该做什么：红蓝自动化，以及 LLM 劫持下的密钥</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">莎拉提到，黑十月期间齐恩和同事乔尔（Joel）曾给旗下创始人写过一封便函，谈到要加大安全投入，甚至考虑推迟产品发布。如果马上有一版要发、手里还有一堆安全问题积压，发版前到底必须完成什么？这是问两位的。齐恩先说：他和阿米判断一致，安全这场游戏已经变了，必须思考如何把蓝队和红队两侧大量工作自动化，并用各种各样的智能体来做这些自动化。旧模式是“先发版，再为了安全推迟”；新模式是这些事并行推进，持续测试；如果今天从零做一家公司，应从一开始就做自动打补丁，并把大量自动化做进软件开发和基础设施。阿米把场景拉到他正在打交道的、已经挨打的创业公司首席执行官身上：你早上醒来，安全团队说夜里出了事，他们想拦但对方还是进来了，最好的情况也是过了一个小时才发现——齐恩插话说，能有一个小时已经是阿米说得很客气了，而且对方还得先有安全团队；很多融过一轮的公司甚至没有专职的人。整场攻击大约 20 分钟：从进入到把所有秘密、所有客户的人工智能密钥全部拿走。然后你得决定对客户说什么、下一步做什么。这是一种以前没见过的新威胁，针对所有人；但如果你是初创公司，尤其手里有攻击者想要的东西（人工智能密钥或任何他们能用的资产），你就是他们的目标，不必非得是大公司。初创公司现在反而是 LLM 劫持的重点目标。如果有密钥，最好先加上限额，免得被盗后出现巨额账单——这种事他们见得很多，而且非常令人难受。背上已经有靶子，就必须在安全上投入，否则对方想进来会来得很快，没有别的说法。齐恩完全同意：无论是钱还是时间，未来几年的安全投入都必须上升。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">预算也许上涨，但买不来安全：先做安全设计和锁定</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">莎拉说，最近有一位首席信息安全官告诉他们团队的一位合伙人，预期明年安全预算增加 80%——大家都料到会涨，但这个幅度大概偏高。她想知道人们实际在把钱花到哪里，又该在哪些地方少花；阿米也曾公开写过，有一类安全产品可能会变得有些过时。阿米先用房子作比喻：你知道一群最训练有素的精英黑客要来打你的房子，他们未必走门，可能走窗户或屋顶。有多少房子连这个都准备好了？多数会说屋顶就不管了。问题的难点在于，大多数公司还没准备好面对拥有世界顶尖攻击者那种速度和专业能力的对手。所以即便先不谈预算，他甚至不知道加预算能不能解决问题——这关乎焦点，更关乎安全架构和安全设计。世界上没有一种买来就万事大吉的安全工具。齐恩笑着说，要是真有就好了，大家的工作会轻松得多。阿米接着说，大多数传统安全工具已经不再相关；即便换成懂 AI 时代攻击、也懂云攻击的原生安全能力，关键仍是安全设计，而不仅仅是预算。预算也许会涨，现有技术栈也的确应该复盘，但更重要的是有一支开发团队持续扫描代码和应用，思考沙箱与隔离、安全设计，以及网络锁定、进程锁定、镜像锁定。现在还在建设的人，要按国家级攻击者来准备：不要假定“全放进一个 Kubernetes 集群就行了”，Linux 上经常出现零日漏洞，任何人都可能逃出容器。安全设计远比预算重要。齐恩表示非常同意，并觉得这很像当年上云时的那一级台阶：他看到很多首席信息安全官正在重估现有厂商栈，改用人工智能原生技术，去支撑阿米所说的安全架构——漏洞同时存在于栈的每一层。这正是那句老话：“别浪费一场好危机”，而且无论你愿不愿意，这个新时代已经到来。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s12">
+<div class="sum-top"><span class="sum-num">12</span><span class="sum-title">安全团队做的大部分事不是安全：别再围着配置清单转</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">莎拉问得更直接：先不点名任何一家公司，哪一类安全软件是首席信息安全官现在还装着、其实已经不再需要的？阿米说了一句可能不好听的话：安全团队做的大部分事情并不是安全，真正花在安全上的时间只是很小一部分。检验方法很简单——你花了多少时间做红队，又花了多少时间做合规、写报告？在他看来，安全要么是为攻击者做准备（包括自己攻击自己），要么是在攻击到来时把护栏就位。必须把效率提得高得多，停掉现在做的大多数事，聚焦找出关键风险、想办法缓解，至少布好检测，并做好响应准备。若一项任务是在写报告，先问这报告是否真的有帮助。他一直反对的，就是云时代那种经典的云安全态势管理（CSPM）：只是一长串配置检查。他不关心那个。你该关心的是攻击者会从哪儿进来、自己是否做了能做的一切去拦住他们；若能建一道战略性屏障，就去建。重点是看清环境里真实的风险，并形成可长期维持的隔离策略。莎拉再问：当智能体承担更多日常调查和测试之后，最有经验的安全人员该把时间花在哪？阿米认为，从现在从零开始的安全团队要容易得多：正在创业的人很幸运，应该尽量做成全自动的安全视图、自动补丁流程、自动调查；只要对自身环境有足够的上下文和知识库，完全自动化是有路径的。但对大多数安全团队并非如此——大量遗留软件、成千上万名开发者，甚至说不清谁拥有什么。并不会因为来了一个 AI 智能体，一切就自动变了。还是得找回“谁真正拥有每一项资源”的上下文，并让他们去打补丁，这件事很复杂。行业里多数安全团队要走到真正的效率，还需要时间，因为组织里的很多知识是含混的、并没有写下来。但这就是所有安全团队面临的挑战：如果我不能在几分钟内响应，我还有没有资格待在这个位置上？</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s13">
+<div class="sum-top"><span class="sum-num">13</span><span class="sum-title">回到 90 年代：蠕虫可能再来，Y2K 时刻也许已经开始</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">齐恩用一个贯穿全文的问题收尾：未来两三年会是什么样子？他自己的预测是，我们会再次回到 90 年代和 2000 年代——未认证的远程零日会不断冒出来，泄露事件也会再次变得密集，这会和过去 15 年的安全局面非常不同。他甚至抛出一个更“狂”的判断：不排除互联网上会再次出现蠕虫，就像 Windows XP 那个年代。他们基础设施团队内部聊天时，马丁（Martin）提起一个许多过来人都记得的窗口：你当时甚至没法足够快地安装并更新 Windows XP——从开始安装到更新还没跑完，蠕虫就会在补丁完成前打进来；所以你必须离线安装，在线装就会在打上补丁之前被攻陷。他觉得眼下这些被说成“AI 带来的全新事物”，其中很多是二三十年前互联网蛮荒时代就经历过的。莎拉补问：阿米 4 月曾写过一篇博客，说 12 到 18 个月内会有一次 Y2K 时刻；鉴于最近半年发生的一切，他会不会把这个时刻往前提？阿米说，黑十月可能就是开始。他们本来不想过度恐吓，也希望能再多一点时间，但开源模型追得比预想快——原先希望它们落后一年，实际上并没有。他们从未在客户侧见过如此规模的攻击，事情已经在发生。若要和 90 年代比，今天我们对技术的依赖要高得多。更关键的是：这几乎是当下人类活动中，AI 已经强过人类的少数领域之一。现在的 AI 攻击普遍、容易，而且比任何人都强。他谈到当天就有一起利用内核驱动零日的攻击——这种事本应非常罕见，现在却几乎每天都在发生，人类攻击者做不到。他无法看清两年后的样子，但认为能存活下来的，只会是那些现在就在建设安全自动化、安全设计和安全评审，并以新方式设计互联网暴露面的公司；还没准备好的，应该尽快从互联网上撤下来。在网上的东西，必须按“疯狂的攻击者”来设计和准备。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s14">
+<div class="sum-top"><span class="sum-num">14</span><span class="sum-title">Scan for Good：制冷设备、交通与公共基础设施也在风险里</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">莎拉把话题从企业和科技公司转到公共领域：Wiz 最近推出了 Scan for Good 倡议。她提到欧洲制冷设备最近遭受的攻击——若放到食品供应链上、再放大到大规模，对人类社会的后果会非常严重。她不想危言耸听，但认为阿米一直在走一条恰当的线：让人认真起来、做好准备。两个问题是：对公共基础设施、以及那些没有庞大网络安全预算的机构，我们该有多担心？以及 Scan for Good 如何帮助非营利组织和公共服务做好已经到来的准备？阿米承认他确实担心：遗留软件可能是真实世界里的冰箱，也可能是交通系统，任何我们知道已经连上互联网的东西都在风险之中。这正是他们启动 Scan for Good 的原因——为任何愿意接受帮助的公共服务做扫描、找问题。它解决不了对方的全部问题，但希望能推一把：一旦扫出东西，对方会意识到这是一项更大的工程，并开始自己做红队扫描。节目在默契的道别中结束：这是一个疯狂的时刻，齐恩和阿米也提到从当年一起开会，走到了今天这一步。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">阿米·卢特瓦克（Ami Luttwak）<em>嘉宾</em></span><span class="spk-1">齐恩·拉基（Zane Lackey）<em>主持</em></span><span class="spk-2">莎拉·王（Sarah Wang）<em>主持</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>片头与“黑十月”：一个月里砸下来的漏洞和 AI 攻击</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 host" data-spk="zane"><div class="label"><span class="badge" title="齐恩·拉基（Zane Lackey）">齐恩</span></div><div class="content">
+<p><span class="tag">【片头剪辑】</span>我们又要回到90年代和2000年代了。泄露事件会再次变得密集。只不过这一次，会和过去15年的安全局面看起来很不一样。</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p><span class="tag">【片头剪辑】</span>AI 攻击者正在以前所未见的规模和速度，打向企业和初创公司。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="zane"><div class="label"><span class="badge" title="齐恩·拉基（Zane Lackey）">齐恩</span></div><div class="content">
+<p><span class="tag">【片头剪辑】</span>埃隆·马斯克（Elon Musk）最近发过推：每天都是零日（zero-day）。AI 究竟在做些什么，才让这一切发生？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p><span class="tag">【片头剪辑】</span>模型现在已经足够好，能发现并利用复杂漏洞。另一件更可怕的事是开源模型。几个月前我们还说，再过几个月开源模型就会追上，现在它们正在追上。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="zane"><div class="label"><span class="badge" title="齐恩·拉基（Zane Lackey）">齐恩</span></div><div class="content">
+<p><span class="tag">【片头剪辑】</span>安全这场游戏已经变了。你必须思考，如何把蓝队和红队两侧的大量工作都自动化。</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p><span class="tag">【片头剪辑】</span>眼下安全团队做的大部分事情，其实都不是安全。我们应该停掉现在做的大多数事，把精力放在找出关键风险、想办法缓解，至少要布好检测，同时还要做好响应准备。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="zane"><div class="label"><span class="badge" title="齐恩·拉基（Zane Lackey）">齐恩</span></div><div class="content">
+<p><span class="tag">【片头剪辑】</span>你觉得未来几年会是什么样子？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p><span class="tag">【片头剪辑】</span>AI 攻击会变得普遍、容易，而且比任何人类都更强。这就是问题所在。能活下来的，只会是那些正在——</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="sarah"><div class="label"><span class="badge" title="莎拉·王（Sarah Wang）">莎拉</span></div><div class="content">
+<p>阿米，非常感谢你来参加节目。安全从业者把这个10月称为“黑十月”（Black October），很明显，我们正在进入一个智能体化攻击的新时代。能否先为我们梳理一下：眼下到底在发生什么，我们又该如何度过这个关键时刻？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>当然，首先很高兴能来。我们称之为“黑十月”，在我看来，这就像一场黑天鹅（black swan）事件。我们从未见过——从来没有见过——这么多安全事件挤在同一个月里发生。这里说的是多种不同类型的安全事件：既包括10月被发现的漏洞数量，也包括这些漏洞的严重程度，其中就有 PHP 漏洞，大概是 AI 迄今发现的最严重的漏洞。漏洞出现的速度是我们从未见过的。但另一面更糟：我们正在看到 AI 攻击的崛起。AI 攻击者在用一种我们从未见过的全新速度和“专业能力”，真正打向企业、初创公司，甚至冰箱，规模和速度都是前所未见的。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>每天都是零日：从 Mythos、Hugging Face 到 20 分钟打穿</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 host" data-spk="sarah"><div class="label"><span class="badge" title="莎拉·王（Sarah Wang）">莎拉</span></div><div class="content">
+<p>是的。按你刚才的话说，真正可怕的就是速度。你们在博客里也写过这些，而且你私下对我们、大概公开也说过：每天都是零日。埃隆·马斯克最近还发过这样的推文。能不能再讲讲，AI 到底在用什么机制加速编写利用？我记得你们做过相关研究，发现时间从数月被压到了数周。这对这次节目的听众、对创始人来说，意味着他们该想些什么、做些什么？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>如果回溯我们是怎么走到这一步的，在10月之前，其实有两个大时刻。一个是 Mythos 时刻：Mythos 出来时，大家说“天哪，我们居然能用它找到漏洞”。那是一个节点。可随后并没有立刻天翻地覆，人们还是会说：好吧，世界还在转，太阳照常升起。另一个大时刻，是 OpenAI 与 Hugging Face 的那次事件。那也是一起重大事件，让我们看见了 AI 攻击的风险，但那一次仍然属于“误打”。现在，到了黑十月，原先所有还停在理论上的东西、我们说“即将到来”的那些事，一起砸到了我们头上，而且就在眼下发生。</p>
+<p>第一，模型现在已经足够好，能发现并利用复杂漏洞。这不再是理论，而是正在发生的事，是一场漏洞的爆炸。第二，也是更可怕的一点：开源模型。几个月前我们讨论 Mythos 的时候就说过，再过几个月，开源模型就会追上。现在，它们正在追上。</p>
+<p>它们一旦追上，就不再只是“找漏洞”这件事了。它们能找到在你环境里执行代码的办法，不必非是一个复杂的 PHP2Shell 级别的漏洞，也可能只是你的应用编程接口（API）里的一个错误。它们能发现并利用你代码里的这些零日，基本上把过去哪怕最优秀的攻击者也要花数周或数月才能完成的整场攻击，压缩到大约20分钟。这就是我们现在看到的情况。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="zane"><div class="label"><span class="badge" title="齐恩·拉基（Zane Lackey）">齐恩</span></div><div class="content">
+<p>你看到开源模型落后了多少？我们和攻防能力这一侧的人交流时，听到的差距大概是六到九个月，现在这个距离已经够近了。你实际看到的是怎样的？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>这里其实有两个不同的问题。一个是进攻里“找漏洞”这一侧：我们是不是比开源模型更强？也许我们还领先大约三个月，不会超过三个月。真正的问题，是进攻里“打进去”这一侧。因为我是一家公司，比如说一家初创公司，现在面对的是一轮攻击浪潮。只看人工智能开发服务商这一个市场：我们发过一篇博客，一开始统计的是10月有9家公司被打，名单每天都在增加，现在已经到了15家。这只是一个市场的例子，就是人工智能开发平台。它们之所以被专门盯上，是因为手里握着人工智能密钥。</p>
+<p>关键在于，攻击者不必是很老练的人，也可以用 AI；开源模型已经足够好，能在你的代码里找到问题，而且能在大约20分钟内把它们用上。想想看，哪家初创公司已经准备好检测这类攻击？我不知道。然后还要真正发现它们、并及时做出响应。按这个速度，几乎等于每家小创业公司都需要一套全天候的安全运营中心（SOC）。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>PHP2Shell 案例：覆盖约七成互联网，补丁却要数年</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 host" data-spk="zane"><div class="label"><span class="badge" title="齐恩·拉基（Zane Lackey）">齐恩</span></div><div class="content">
+<p>那我们先把 PHP2Shell 当作黑十月里许多事件中的一个案例。能否谈谈，你在客户环境里看到它有多普遍？现在已经过去几周了，我也很想听你对整个客户群体补丁情况的判断，几周之后，眼下是什么状态？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>PHP 可能是对外暴露最普遍的技术之一。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="zane"><div class="label"><span class="badge" title="齐恩·拉基（Zane Lackey）">齐恩</span></div><div class="content">
+<p>没错，我以前就是一家 PHP 电商公司的首席信息安全官（CISO）。有人说这大概覆盖了互联网的70%，对吧？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>对，就是这样。所以影响面基本上是：我们几乎100%的客户环境里，都跑着某种 PHP。我们很快看到了补丁率的大幅下降。我还不能说客户已经有了自动打补丁的能力，但他们对打补丁的重要性已经非常警觉。头两到三天大约50%完成了补丁，几乎是立刻把暴露面压下去了。可问题仍然在于，这是互联网的70%。所以即便只是这一个漏洞，也要数年才能真正解决。我们在互联网上、也在客户环境里看到大量案例，他们根本没有补丁路径——因为更老的 PHP 版本甚至已经不再提供补丁。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>补丁为什么跟不上：利用只要几分钟，发行版却要等几个月</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 host" data-spk="sarah"><div class="label"><span class="badge" title="莎拉·王（Sarah Wang）">莎拉</span></div><div class="content">
+<p>我想问一个更“元”一层的问题。我们有两位合伙人写过一篇很好的文章，讲的是写利用的时间对比打补丁的时间。外面有很多讨论说，AI 已经让人更便宜、更容易把一份补丁差异（diff）变成可工作的利用，也有数据表明这段时间在下降。可另一方面，看起来打补丁的时间并没有下降；如果你看过去20到25年的数据，它反而上升了。阿米，AI 能不能也帮上这一侧，还是现在仍太早？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>首先你说得对，拿到可工作利用的时间已经大幅缩短。而且情况更糟：很多时候，通用漏洞披露（CVE）还没发布，信息就已经泄露了；即便 CVE 已经出来，补丁也还没有。PHP 这个案例里，我们和 PHP 项目合作了数月，想让整个行业先准备好，结果还是提前泄露了。客户没什么可做的，补丁当时在 Linux 上也还没就绪。即便有漏洞已经报给了 Linux 内核，要传到各个发行版，也可能需要数周甚至数月。所以整个行业还没有准备好：就算你内部能很快打上补丁，有时补丁还没到达你的发行版。行业还没为 AI 做好准备——AI 能在几分钟内完成利用。</p>
+<p>所以答案是：这个世界还没有准备好，这就是问题。说到打补丁，你说得也对，我们目前还并不确切知道如何自动打补丁。坦白说，我暂时也看不到一条清晰的路径。口头上说“让我们把一切都自动化”很容易。现实里，如果你现在正在从零做一家新公司，这是可以做到的：如果你已经有自动化工程、自动化的持续集成与持续交付（CI/CD）、自动化测试，那么当我告诉你“打这个补丁”时，整套系统可以自动完成。我认为新公司就应该把系统设计成能够自动打补丁。但要做到这一点，你需要一条完整的、覆盖各环节的智能体化流水线：要能接过一张工单，由自动化开发做出补丁，还要有自动化测试、自动化 CI/CD 和自动化运维。同时具备这一切的老公司并不多，对它们的大部分代码来说甚至也不现实。但对初创公司，也许是可能的。如果你正在起步或正在规划，我会把这当成一项该认真考虑的任务。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>Wiz 如何找漏洞：Atlas、多模型矩阵，以及蓝队调查流水线</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 host" data-spk="zane"><div class="label"><span class="badge" title="齐恩·拉基（Zane Lackey）">齐恩</span></div><div class="content">
+<p>完全同意。我想再往进攻这一侧多走一步。说起这次发现，有个小小的注脚：这个漏洞是由两个团队独立发现的，Wiz 和 Calif，细节就是这个 PHP2Shell，以前这类事其实也经常发生。我很好奇，你们的研究团队当时是怎样真正借助 AI 发现它的？它又如何在更深层上打开漏洞研究团队的能力？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>先说几句。首先，我认为这种情况现在会频繁得多，因为每出一个新模型，就会有新的能力。我把它比作比特币挖矿：漏洞的数量看起来会往下走，但正因为像挖矿一样，总还能再挖，新模型也能挖出更多漏洞。所以并不会让人意外：一个新模型出来，就会有多个团队同时找到新的漏洞。恰恰现在，我们正在为 Zero Day Con（ZDC，Wiz 的零日漏洞竞赛）做准备，已经收到多个团队报送的、非常非常关键的漏洞，而且我相信它同样会对互联网造成重大影响。同一个漏洞，正在被多个团队报告上来。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="zane"><div class="label"><span class="badge" title="齐恩·拉基（Zane Lackey）">齐恩</span></div><div class="content">
+<p>是啊。安全行业里，很多旧事物突然又变新了，这点现在特别明显。</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>你说得对。在内部，我们的漏洞团队——其实也为 Wiz 产品本身——做了一个我们称为 Atlas 的框架，专门用于漏洞检测。我们一直在用不同模型去跑它，因为每个模型都有自己独特的能力：无论是来自 OpenAI、谷歌（Google），还是 Carbon，各有各的长处。我们会尽量把它们都用上，能找多少找多少。但关键是，大家都在这么做，所以你会预期很多团队会在同一时间找到漏洞。而更重要的是：我们必须把精力放在关键基础设施上，并用仍有几个月优势的前沿 AI 模型，持续在这些区域里做这件事，确保我们先于攻击者找到问题。可世界上的代码实在太多，这仍然不够，因为还是会有攻击者在某个模型上找到我们没有看到的漏洞。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="sarah"><div class="label"><span class="badge" title="莎拉·王（Sarah Wang）">莎拉</span></div><div class="content">
+<p>我不想把讨论带进前沿模型的兔子洞里太深，但想就你刚才说的“同时使用多个模型、各有所长”再追问两句。在你可以分享的范围内：第一，不同模型大致分别更擅长什么？第二，Wiz 现在已经是谷歌大家庭的一员，深度思维（DeepMind）团队和他们的模型就在手头，但听起来你们仍在使用多家模型。在这个时代，你怎么看待前沿实验室和独立网络安全公司之间的关系？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>我觉得，每一个模型、以及每一个模型的每一个版本，现在都让事情变得更复杂：既有前沿模型，也有这些模型的“网络专用版”，每一个都——这是一张很复杂的矩阵。但重点是，它们的表现并不一样，速度和成本也不一样。所以没有一个单一答案。这一点对网络方向的任务成立，对其他事情也成立。作为一家独立公司，你唯一能做的，就是一直试遍所有模型，找到最佳组合。</p>
+<p>在我看来，有人说“现在用 AI 开发已经很容易了”，对大多数创始人来说并非如此。眼下的关键是服务的成本。要做成可扩展的服务，唯一的办法是建一条非常非常聪明的流水线：一部分任务用特定模型，更复杂的任务用别的模型，再把它们非常高效地拼在一起，否则你会在销售上亏钱。举个例子，我们有所谓的蓝队智能体（Blue Agent），负责调查攻击。我不能对每一条事件都跑最先进、最贵的模型，但我可以做一条流水线：先从确定性检测开始，再经过便宜模型的检测，再经过更强的模型；如果它们都认为是恶意的，我再让最强的模型判断“这到底是不是真的恶意”，然后才告知客户。所以你需要多种模型、多种类型的模型，并且必须去设计流水线。我认为，这正是规模化构建 AI 系统的创始人面临的新工程挑战。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>持续测试的成本：扫一次就要几百万，还不是一劳永逸</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 host" data-spk="sarah"><div class="label"><span class="badge" title="莎拉·王（Sarah Wang）">莎拉</span></div><div class="content">
+<p>完全同意。就成本这一点，你们大概在一篇博客里也写过，不妨在这里概括一下：围绕持续测试，需要发生一次范式转变，重点是“持续”，而不是一次性的静态扫描。成本显然也决定了这件事能不能普及到每一家公司，而不只是最赚钱、最成熟的那一批。从成本角度看，我们离那一步还有多远？还需要哪些变化——文化上的、工具上的？你觉得公司应该往哪走，今天又处在什么位置？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>这是一个很大的问题。就拿安全作例子，回到 Mythos 那个时刻。人们会说：天哪，出了 Mythos，我得把所有代码扫一遍。好，假设你扫了，假设你在4月做了这件事，你可能已经浪费了500万美元。这是真实的量级，浪费得很厉害，现在非常贵。然后现在又有了 Mythos 1.2，你还得再做一遍。我不是在说小预算，我是说有的客户现在已经在代码扫描上花数千万美元。</p>
+<p>你必须去想一套可扩展的系统，一套持续的、而且是聪明的扫描系统。你不能只靠蛮扫，因为还会有新模型、新能力、新代码。我们把这看作整个行业的重大挑战，也还在摸索，我不会告诉你我们已经解决了。挑战在于：如何把预算用得聪明——从内部扫、从外部扫，有主动攻击、也有被动攻击，有代码分析，可以在磁盘上扫，也可以看运行时。怎样才能把全部预算以最有效的方式用在客户身上，而且不是一次扫描，而是持续扫描？这就是眼下安全扫描的挑战。如果我对你说，把 Mythos 在你的代码上跑一遍就行了，没错，你当然可以那样做，可那能持续解决你的问题吗？不能。它只会在你的预算上砸出一个大洞。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>AI 时代的云安全：老问题没消失，客户却开始要求自动修复和自动响应</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 host" data-spk="zane"><div class="label"><span class="badge" title="齐恩·拉基（Zane Lackey）">齐恩</span></div><div class="content">
+<p>我知道，我们曾经满口只谈云安全、前 AI 时代的安全，感觉像是上辈子的事了。但对安全团队、从业者、首席信息安全官（CISO）和安全工程师来说，新问题出现并不等于老问题消失。对许多《财富》500 强（Fortune 500）和全球 2000 强（Global 2000）而言，他们仍在应对大量云安全挑战。这个问题我想分两层：先把 AI 放在一边，请你谈谈 2026 年云采用和云安全的状态；然后我们再把 AI 叠上去，看看它具体如何改变云安全。</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>首先，当我们谈云安全时，我的应用在跑，它几乎总是跑在云上。当我们谈 AI 攻击者打向我的应用时，他们往往还是会从过去就存在的那些漏洞、问题和错误起步。这一点并没有变：在云安全里，你仍然必须先盯住关键风险，然后把它修好。如果你有一个 PHP 漏洞却没修，攻击者还是会从那儿进来。我们只是又多了一批漏洞、多了几类攻击，这并不意味着旧的攻击路径可以不修。</p>
+<p>就云安全而言，我们看到的是：首先，大家都明白需要一套“记录系统”（system of record），能理解并让你看见所有东西。开始发生变化的是，公司在尝试建立更多智能体化工作流，同时也对 Wiz 有了更高期待。比如说，以前我们给出一个带优先级的漏洞就行；现在他们会希望我们回到代码里，找到对应代码，做出修复，提交拉取请求（pull request），把那些耗时的流程更多地自动化。检测也是一样：他们要的不只是一条检测，还希望得到完整的调查、取证，找出根因，告诉我攻击者是怎么进来的，再把他们打出去。在我看来，AI 眼下做的，就是把我们过去没能自动完成的每一步，都推向自动化——公司自己在尝试，也期待我们做得更好。举个例子，我们现在不能只是发现威胁，必须做完整调查，也需要做取证。而我认为，在我们已经看到 AI 攻击者的情况下，下一步是开始思考自动响应。这很可怕，但我觉得我们已经没有别的选择。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>红队智能体：用最新模型持续攻击自己，水位每周都在抬高</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 host" data-spk="sarah"><div class="label"><span class="badge" title="莎拉·王（Sarah Wang）">莎拉</span></div><div class="content">
+<p>完全同意。谈到你们正在自动化的事情、以及 Wiz 自身如何演进，你刚才讲了蓝队智能体，能不能再多分享一些红队智能体（Red Agent）？因为那才是你们真正在模拟对手视角的地方。面对 AI 正在改写的风险，Wiz 的回应是不是：回到刚才说的速度——防守方的速度、攻击方的速度——想办法把“机器速度”交给客户？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>正是如此。最终这里有两股力量，红和蓝。蓝队试图发现攻击并阻止它们。红队想说的则是：最好的防御就是进攻。你必须用 AI 持续攻击自己。因为和以前不同，过去我们还有静态防御；现在防御必须是动态的，因为每个新模型都有新能力。也许你的应用昨天还被认为是安全的，今天就已经不安全了。打个比方：你有一扇门，也许你把钥匙藏在门垫下面，这一度算是安全的。可攻击者几乎每周都在获得超能力，也许下周他们就能进门。如果每个 AI 模型都能进那扇门，上周还算安全的东西，现在就不再安全。水位在不断抬高。所以，唯一能知道自己有没有问题的办法，就是用最新的模型持续攻击自己。在攻击者打开门之前，你先发现、先修好，而且你没有多少时间。这就是我们谈“防御速度”时，它之所以关键的原因。红队智能体就是在做这件事：从外部对你的应用发起进攻型 AI 攻击，同时利用我们从内部掌握的上下文，争取在攻击者真正用上这些问题之前找到它们。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="zane"><div class="label"><span class="badge" title="齐恩·拉基（Zane Lackey）">齐恩</span></div><div class="content">
+<p>红队这一侧，你们是不是也在用类似的流水线？我问这个，是为那些听下来都觉得有道理、也想动手的团队，帮他们少走别人已经走过的弯路。蓝队这边，你们从确定性方法起步，再叠加便宜模型，再沿着你刚才说的流水线逐步用更贵的模型。红队是同样从确定性开始、再叠加便宜模型，还是许多不同的模型全都从头同时跑？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>全都要，没错。首先对比一下：如果你有预算，就全部交给 Mythos 去扫代码，那并不是很高效。更高效的做法是，先分析全部暴露面，我们用确定性方法来做这一步。然后在这上面再叠一层，我们称为“暴露率智能体”（exposure rate agent），它专门看你环境里所有未认证、暴露在互联网上的东西。对你拥有的每一处暴露，这都是一次立刻要做的分析。这是最紧急的事，甚至比扫你的代码更重要。谁在乎你的代码呢？我现在说的是你实际未认证、已对外暴露的攻击面，那更紧迫。再下一步，才是开始做更深的渗透测试分析和更深的代码分析。所以这里确实有层次。在模型和调查时间上同样如此：从外部看，我们称为暴露面智能体的那一层，也许对每个端点只要几分钟，因为你可能有上百万个端点；而遇到一个关键应用，我可能花10个小时去尝试攻破它。</p>
+<p>所以这全部是一条流水线。现在所有事情都会变成流水线。你不能把钱砸在代码扫描上，就以为做完了。不，这一切的核心都是在管理预算。它们还是连在一起的：如果我发现了一个问题，工程团队说“天哪，修这个太贵了”，那好，我可以告诉蓝队智能体，先在那里加上一些检测。你看，这是在一起工作的。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>谁真正在持续自攻：对外暴露面比扫代码更要紧</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 host" data-spk="sarah"><div class="label"><span class="badge" title="莎拉·王（Sarah Wang）">莎拉</span></div><div class="content">
+<p>我正想问这一点，听你的看法也很有意思，因为前几天我们内部和里克（Rick）讨论过：现在的“最前沿”，本质上就是红队智能体在做的事——用智能体集群不断攻击自己的系统，从而知道该如何防护。你们既在和顶尖的企业客户合作，覆盖了《财富》100 强（Fortune 100）里超过50%的公司，客户里也有最前沿的初创公司。真正在这么做的人有多少？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>在我们的客户里，大多数已经在使用红队智能体。但放眼整个行业，我认为还远远不够。我觉得所有人现在都应该做这件事。没有比持续从外部扫描自己的环境更重要的事了，真的没有更重要的。最好的防御就是进攻。等他们来了，可能已经太晚。所以你现在能做的最好的事，就是持续攻击自己的环境。</p>
+<p>在我看来，就 Wiz 的客户这一侧，我们正很快接近几乎全覆盖，大家都理解了，这也是我们发布过的增长最快的功能之一。但放眼全世界，我不认为人们已经理解了这一点。有时候 Mythos 获得了大量公关，这很好，但公关把注意力带偏了。我其实并不认为扫代码是你能做的最有效的事情。这一点必须说清楚，因为人们会说：“是啊，我在扫代码上已经投入了这么多。”可那真的不是你最该做的。你应该先把重点放在扫描对外暴露面上。就在两天前还有一起重大事件：一个密钥被硬编码在移动应用里，导致大量用户数据暴露。攻击者就是从这类地方发起攻击的，是未认证的暴露面。你必须对它们做扫描，而且必须持续做。我觉得这就是差距所在，也是这个世界需要明白的一点。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>创始人发版前该做什么：红蓝自动化，以及 LLM 劫持下的密钥</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 host" data-spk="sarah"><div class="label"><span class="badge" title="莎拉·王（Sarah Wang）">莎拉</span></div><div class="content">
+<p>顺着“创始人该做什么”这条线，齐恩和我们的同事乔尔（Joel）其实在黑十月期间写过一封给创始人的便函，谈到要加大安全投入，甚至考虑推迟产品发布。这个问题想问你们两位，也想请齐恩再多讲几句。假设我是一名创始人，马上有一版要发，手里还有一堆安全问题积压，发版之前该如何判断哪些事必须先做？</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="zane"><div class="label"><span class="badge" title="齐恩·拉基（Zane Lackey）">齐恩</span></div><div class="content">
+<p>好，我先说。我觉得我和你在这一点上非常一致：安全这场游戏已经变了。你必须思考，如何把蓝队和红队两侧的大量工作都自动化，并且真正用上各种各样的智能体来做这些自动化。历史上，旧模式是你有一个发布，然后再为了安全把它推迟，诸如此类。我认为你现在想的新模式是：怎样让这些事情并行发生？怎样真正借助各种各样的智能体去做持续测试？如果你今天正在从零做一家新公司，从一开始就做自动打补丁，并把大量自动化做进软件开发和基础设施建设里。</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>对。我想把场景拉回到现实里。我和一些正在挨打的创业公司首席执行官一起工作，让我们站在他们的位置上想一想。你早上醒来，安全团队说夜里出了不好的事，我们想拦住，但对方还是进来了；我们过了一个小时才醒过来——而这已经算好的情况了。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="zane"><div class="label"><span class="badge" title="齐恩·拉基（Zane Lackey）">齐恩</span></div><div class="content">
+<p>一个小时已经是你说得很客气了。而且他们还得先有一支安全团队。</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>没错。很多公司融过一轮之后，我甚至不知道他们有没有专职的人。然后我们发现，攻击者已经进来了，整场攻击同样大约只要20分钟：从他们进入，到拿走所有秘密、拿走所有客户的全部人工智能密钥。接下来你得想清楚，要对所有客户说什么、自己下一步做什么。这就是现在正在许多公司里发生的事。</p>
+<p>所以关键是：AI 攻击是我们从未见过的，必须把它理解成一种新威胁，对所有人都是威胁。但如果你是一家初创公司，尤其是手里有攻击者想要的东西——特别是人工智能密钥，或任何他们能用得上的东西——那你就在他们的目标清单上，不必非得是大公司。初创公司现在反而是 LLM 劫持（LLMJacking）的重点目标。如果你有密钥，最好先给它们加上限额，因为一旦被盗，你不会希望看到巨额账单。这种事我们见得很多，而且真的非常令人难受。同时你也要明白，如果背上已经有靶子，就必须在安全上投入很多精力。以前并非如此，但现在是真的：他们想进来，就会来得很快。所以你必须在这件事上投资，没有别的说法。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="zane"><div class="label"><span class="badge" title="齐恩·拉基（Zane Lackey）">齐恩</span></div><div class="content">
+<p>我完全同意。无论是钱、时间，还是其他投入，安全投资的水位在未来几年里都必须上升，因为我们正在进入一个新的安全时代。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>预算也许上涨，但买不来安全：先做安全设计和锁定</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 host" data-spk="sarah"><div class="label"><span class="badge" title="莎拉·王（Sarah Wang）">莎拉</span></div><div class="content">
+<p>顺着这个话题，最近有一位首席信息安全官告诉我们团队的一位合伙人，他预期明年自己的安全预算会增加80%。大家都料到预算会涨，但这个幅度大概已经偏高了。你看到大家在往哪些地方加钱？反过来说，首席信息安全官又该在哪些地方少花？你也公开写过，有一类安全产品可能会变得有些过时。不妨从预算该上调、以及预算该下调这两个方向一起谈谈。</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>好。还是先假设你有一栋房子，而且你知道一群训练最有素的精英黑客要来打你的房子。他们未必走门，可能走窗户，也可能走屋顶。老实说，有多少房子连这个都准备好了？多数房子会说：算了，屋顶我不会去防，我反正也没办法，这不可能。问题的关键正在这里：我们绝大多数公司，都还没有准备好面对拥有世界顶尖攻击者那种速度和专业能力的对手。所以这才是一个难题。即便我们先不谈预算，我甚至不知道预算能不能解决这个问题。这不只是安全预算的问题，它关乎焦点；但老实说，它更关乎安全架构、安全设计。预算解决不了什么——并不是说这个世界上有一种安全工具，你买下来就万事大吉了。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="zane"><div class="label"><span class="badge" title="齐恩·拉基（Zane Lackey）">齐恩</span></div><div class="content">
+<p>该死。要是真是那样，我们好多工作都会轻松得多。可惜我也不觉得那是真的。</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>显然，大多数传统安全工具已经不再相关了。就算你已经把安全做到人工智能原生，理解 AI 世界里的攻击如何发生，也理解云上的攻击，即便到了那一步，老实说，关键仍然是安全设计，而不仅仅是安全预算。安全预算会上涨吗？也许会。我们应不应该复盘手头已有的技术？应该。但比这更重要的是，要有一支开发团队，持续专注于扫描代码和应用；要去思考沙箱和隔离，思考安全设计，以及网络锁定、进程锁定、镜像锁定。如果你现在正在建设，请按国家级攻击者来做好准备。想象一下会出现漏洞：不要假定“我们把所有东西都放进一个 Kubernetes 集群里就行了”。不，Linux 上经常出现零日漏洞，任何人都可能逃出容器。所以你看，安全设计远比预算重要。安全预算当然很好，但它不是全部。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="zane"><div class="label"><span class="badge" title="齐恩·拉基（Zane Lackey）">齐恩</span></div><div class="content">
+<p>说得非常对。就这一点而言，这的确很像当年上云时的那一级台阶。我看到很多首席信息安全官正在重新审视现有的厂商栈，做一次重启，看哪些是人工智能原生的——因为当你真正聚焦安全架构时，你就需要人工智能原生的技术。这正是你刚才说的：要把问题想透，并理解漏洞同时存在于栈的每一层。这就是那句老的 CISO 口头禅：别浪费一场好危机。而现在这件事正在发生，人们正在把大量安全产品版图重启成人工智能原生，好走进这个无论你愿不愿意都已经到来的新时代。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s12">
+<div class="body-sec-head"><h3>安全团队做的大部分事不是安全：别再围着配置清单转</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 host" data-spk="sarah"><div class="label"><span class="badge" title="莎拉·王（Sarah Wang）">莎拉</span></div><div class="content">
+<p>好。那就把话说得更明确一点，我并不想贬低任何一家具体公司：有没有一类安全软件，是首席信息安全官现在还装着、其实已经不再需要的？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>如果非要说——这句话也许不好听——安全团队做的大部分事情并不是安全。他们只有很小很小一部分时间真正在做安全。检验的方法是这样的，也正因为此我一直相信要自己攻击自己：你花了多少时间和红队在一起，又花了多少时间做合规、做报告？老实说，大多数安全团队的焦点并不在安全上。在我看来，安全要么是为攻击者做准备，包括自己攻击自己；要么是在攻击到来时把护栏就位。所以现在我们必须把安全团队的效率提得高得多。我们应该停掉现在做的大多数事，聚焦在找出关键风险，想办法缓解，至少布好检测，并且做好响应准备。我们必须把这件事做好。我们没有时间再花在所有不聚焦于此的事情上。所以如果你在做一项任务，先问一句：这份报告真的对我们有帮助吗？我一直反对的，就是云时代那种经典的云安全态势管理（CSPM）：那只是从前做云安全的方式，一长串配置检查。那个我并不关心。你必须关心的是攻击者会从哪儿进来，我是否做了自己能做的一切去拦住他们；如果有一道战略性的屏障可以建，那就去建。要把精力放在看清环境里真实的风险，并形成可长期维持的隔离策略。这些才是你该做的事。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="sarah"><div class="label"><span class="badge" title="莎拉·王（Sarah Wang）">莎拉</span></div><div class="content">
+<p>说到时间管理，也可以翻到另一面：AI 实际上在如何帮助安全团队。当智能体承担更多日常调查和测试之后，你觉得——你刚才也答到过一些，不妨再深入一点——那些最有经验的安全专业人员，应该把时间花在哪里？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>从现在从零开始的安全团队，要容易得多。显然，如果你现在正在做一家公司，你是幸运的，应该尽量把一切都做成全自动的安全视图、自动补丁流程、自动调查。只要你对自身环境有足够的上下文和知识库，完全有办法把一切做成彻底自动化。问题是，对大多数安全团队来说，情况并非如此。你有大量遗留软件，有成千上万名开发者，你甚至说不清谁拥有什么。并不会因为来了一个 AI 智能体，一切就都变了。还是得回到：找到谁真正拥有每一项资源的上下文，以及我怎样才能让他们去打补丁。这件事很复杂。所以对行业里大多数安全团队来说，要真正走到高效，还需要时间。这并不像听上去那么简单，因为组织里的很多知识是含混的，并没有写在任何一个地方。但这就是所有安全团队面临的挑战：如果我不能在几分钟内做出响应，我还有没有资格待在这个位置上？</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s13">
+<div class="body-sec-head"><h3>回到 90 年代：蠕虫可能再来，Y2K 时刻也许已经开始</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 host" data-spk="zane"><div class="label"><span class="badge" title="齐恩·拉基（Zane Lackey）">齐恩</span></div><div class="content">
+<p>是的。就这一点，我想用一个问题把我们前面谈到的主线串起来：你觉得未来几年会是什么样子？就看未来两到三年。我先抛出自己的预测：我们又要回到90年代和2000年代了。会不断冒出完全远程、未认证的零日，泄露事件会再次变得密集。这一次会和过去15年的安全局面看起来很不一样。我觉得我们正在回到一个和后来那段时间非常不同的安全时代。我甚至再抛一个更狂的判断：我不会惊讶如果互联网上再次出现蠕虫，就像 Windows XP 那个年代一样。我们基础设施团队内部聊到这件事时，马丁（Martin）提了一个很多人当时都经历过的窗口：有那么一段时间，你甚至没法足够快地安装并更新 Windows XP——因为从你开始安装、启动更新，到更新完成之前，蠕虫就会打进系统并完成感染。所以你必须离线完成这些安装；如果你在线安装，它被攻陷的速度会比你打上补丁更快。我觉得眼下这些被说成因 AI 而全新的事物，在很多方面，其实是我们中间不少人在二三十年前、互联网还处于蛮荒时代时就已经经历过的。基于这些，我很想听你怎么看未来几年。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="sarah"><div class="label"><span class="badge" title="莎拉·王（Sarah Wang）">莎拉</span></div><div class="content">
+<p>阿米，我再在齐恩的问题上补一句。你在4月写过一篇很好的博客，说12到18个月内会迎来一个 Y2K 时刻。顺着齐恩说的未来两到三年，考虑到最近半年发生的一切，你会不会把那个时刻往前提？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>会。首先，我觉得黑十月可能就是开始。我们本来不想过度恐吓，也希望能再多一点时间，但开源模型追得比我们预想的快得多。原先的希望是开源模型落后一年，可它们并没有。所以我觉得事情已经在发生。我们从未在客户侧见过如此规模的攻击，它正在发生。如果要和90年代比，我们对技术的依赖要比那时高得多。</p>
+<p>还有一点必须说清楚：这几乎是当下人类活动中，AI 已经强过人类的少数领域之一。这就是问题所在。这在90年代并不是问题。现在的 AI 攻击普遍、容易，而且比任何人都强，这就是问题。我说的是非常非常复杂的、使用零日的攻击。就在今天，我们还看到一起利用内核驱动零日的攻击。天哪，这种事本来应该非常罕见，现在却几乎每天都在发生。人类攻击者做不到这些。所以你看，我们处在一个 AI 已经强过人类的时代。如果要我看两年后，我看不清。但我认为，能活下来的，只会是那些现在就在建设的公司：不只是安全自动化，还有安全设计、安全评审；他们在用一种新的方式，设计那些暴露在互联网上的系统。还没准备好的，应该尽快从互联网上撤下来。在互联网上的东西，必须为那些疯狂的攻击者做好一切准备，必须按这个前提来设计。我觉得这是唯一的路。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s14">
+<div class="body-sec-head"><h3>Scan for Good：制冷设备、交通与公共基础设施也在风险里</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 host" data-spk="sarah"><div class="label"><span class="badge" title="莎拉·王（Sarah Wang）">莎拉</span></div><div class="content">
+<p>这次节目很多内容都聚焦在企业、科技公司等等。我想提一下你们最近推出的 Scan for Good 倡议，并且想把它放在我们刚才谈的那些攻击的语境里，比如针对人工智能基础设施公司的攻击。但如果我们看最近欧洲制冷设备遭受的攻击——再想到供应链、食品供应链——这种事一旦放大到大规模，对人类社会的后果会非常严重。我不想危言耸听，但我觉得你也一直走在一条恰当的线上：让人们有所准备、把事情认真起来。所以两个问题：第一，对于公共基础设施，以及那些并没有庞大网络安全预算的机构，我们该有多担心？第二，也不妨谈谈 Scan for Good，你们为什么做这件事，又如何在帮助非营利组织、公共服务等真正为已经到来的局面做好准备？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>我确实担心。那些遗留软件，可能就是真实世界里的冰箱，也可能是交通系统，可能是任何东西。我们知道，凡是连上互联网的，都在风险之中。这正是我们启动 Scan for Good 的原因。Scan for Good 想帮助任何愿意接受帮助的公共服务：我们尝试为他们扫描、尝试发现问题。这不会解决他们的全部问题，但我们想先推他们一把。我们的希望是，一旦我们找出问题，他们会明白这是一项更大的工程，并开始自己做红队扫描。所以这件事更像是把他们推进去。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="zane"><div class="label"><span class="badge" title="齐恩·拉基（Zane Lackey）">齐恩</span></div><div class="content">
+<p>太好了，非常感谢。真的非常过瘾，太精彩了。</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>也很高兴见到你们两位。这真是一个疯狂的时刻。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="zane"><div class="label"><span class="badge" title="齐恩·拉基（Zane Lackey）">齐恩</span></div><div class="content">
+<p>绝对是，这是一个疯狂的时刻。也感谢你眼下正在做的这些事。谁能想到，从当年一起开会，走到了今天这一步，伙计。见到你真好。</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="ami"><div class="label"><span class="badge" title="阿米·卢特瓦克（Ami Luttwak）">阿米</span></div><div class="content">
+<p>是啊，是啊。我记得那次也很有意思。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "a16z", "title": "如何防御 AI 黑客：与 Wiz 的阿米·卢特瓦克对谈", "url": "https://www.youtube.com/watch?v=PbD9pVXxsYM", "videoId": "PbD9pVXxsYM", "published_at": "2026-11-13 07:30 PST（America/Los_Angeles）", "duration": 2766, "caption_source": "YouTube 页面 Show transcript / 内容转文字（caption_source=browser-cdp，subtitle_type=youtube-show-transcript）。本批 yt-dlp 普通路径遇 “Sign in to confirm you’re not a bot”，chrome cookies（chrome:/home/box/chrome-profile/Fork-3）路径报 “The page needs to be reloaded”，同批改走浏览器 Show transcript。观看页当前标题为“How to Defend Against AI Hackers, with Wiz’s Ami Luttwak”，发现阶段/RSS 标题为“Cyberattacks Used to Take Months. AI Can Do It in Minutes.”，同一 videoId。说话人：简介与口播点名嘉宾阿米·卢特瓦克（Ami Luttwak，Wiz 联合创始人/CTO），两位主持人为 a16z 普通合伙人齐恩·拉基（Zane Lackey）与莎拉·王（Sarah Wang）。齐恩依据自述“曾是一家 PHP 电商公司的 CISO”以及偏实操的追问（开源模型差距、PHP2Shell 案例、红队流水线、90 年代/蠕虫）区分；莎拉依据“我们两位合伙人写过一篇文章”“Wiz 已是谷歌大家庭一员”“齐恩和同事乔尔写过一封给创始人的便函”“补一句齐恩的问题”等主持框架区分。开场白（约 1:06）及部分转场追问为中等把握；极短附和未单独猜名。ASR 订正：Ammy/on me→Ami；Moders→Models；Mitos/bentos/meters/mess→Mythos（Claude Mythos）；hacking face→Hugging Face；Califf→Calif；Whiz/wheels→Wiz；pedaging/pitch→patching/patch；anentic→agentic；247 sock→24/7 SOC；CV→CVE；under the mitt→门垫（mat）；LLM checking→LLMJacking（LLM 劫持）；automated pet process→automated patch process；full ODAS→full 0-days；Zayn→Zane；CESOS→CISOs。片头约 66 秒为正片片段剪辑。无赞助口播。", "guests": ["阿米·卢特瓦克（Ami Luttwak）"], "speakers": [{"id": "ami", "name": "阿米·卢特瓦克（Ami Luttwak）", "role": "guest", "short": "阿米"}, {"id": "zane", "name": "齐恩·拉基（Zane Lackey）", "role": "host", "short": "齐恩"}, {"id": "sarah", "name": "莎拉·王（Sarah Wang）", "role": "host", "short": "莎拉"}], "intro": {"summary": "a16z 普通合伙人齐恩·拉基与莎拉·王对话 Wiz 联合创始人兼首席技术官阿米·卢特瓦克，梳理他称为“黑十月”（Black October）的安全拐点：AI 已能在约 20 分钟内走完过去顶尖攻击者要数周到数月的攻击链，开源模型正在追上前沿模型，防守方不能再按人类时间表运作。", "points": ["阿米把 2026 年 10 月称为“黑十月”，视为一场黑天鹅（black swan）：单月出现的安全事件数量与严重程度都前所未见，其中包括他认为可能是 AI 迄今发现的最严重漏洞——PHP2Shell；与此同时，AI 攻击者正以前所未见的速度和“专业能力”打向企业、初创公司和联网设备。", "此前有两个铺垫时刻：Anthropic 的 Mythos 展示模型已经能发现漏洞，以及 OpenAI 智能体意外打到 Hugging Face 的事件（当时还是“误打”）。黑十月里这些原先停留在理论里的风险一并砸了下来：模型已能发现并利用复杂漏洞；开源模型正在追上——阿米认为找漏洞的差距不超过约三个月——不必等复杂的 PHP 漏洞，应用编程接口（API）里的一个错误，就可能被用来在约 20 分钟内跑完整场攻击。", "PHP 大约覆盖互联网的 70%，几乎 100% 的 Wiz 客户环境里都跑着某种 PHP。披露后两到三天内约 50% 完成补丁，但更老的 PHP 版本已不再提供补丁，单这一个漏洞要数年才能消化。利用时间已被压到分钟级，而通用漏洞披露（CVE）和补丁常常还没出来，信息就已经泄露；Linux 内核漏洞传到各发行版有时也要数周甚至数月。", "Wiz 用名为 Atlas 的框架对多个模型（含网络方向的专用版本）做持续漏洞挖掘，并比较像比特币挖矿：新模型会挖出新洞。蓝队智能体（Blue Agent）按“确定性检测→便宜模型→更强模型→最强模型确认”的流水线调查攻击；红队智能体（Red Agent）从外部持续自攻，多数 Wiz 客户已经在用。阿米强调：未认证的对外暴露面比扫代码更紧急，Mythos 的公关把行业注意力带偏了。", "给创始人的建议：安全游戏已经变了，要同时把红蓝两侧自动化，从第一天起就设计自动补丁。初创公司正因为握有人工智能密钥而成为主要目标，尤其是 LLM 劫持（LLMJacking）；要对密钥设限额，否则被盗后账单会非常惨。有首席信息安全官（CISO）称明年安全预算或增 80%，但阿米认为预算买不到安全，关键是安全架构：沙箱、隔离、网络/进程/镜像锁定，按国家级攻击者来设计——容器逃逸和 Linux 零日并不罕见。", "齐恩预测未来两三年会“回到 90 年代和 2000 年代”：未认证的远程零日会再次密集出现，甚至可能再看到当年 Windows XP 时代那种蠕虫——当时在线安装还没补完就会被感染。阿米 4 月曾写“12 到 18 个月内会有一次 Y2K 时刻”，现在认为开源模型追得比预想快，黑十月可能就是开始。欧洲制冷设备等公共基础设施也已受攻击，Wiz 因此推出 Scan for Good，为公共服务做扫描，推动对方自己做持续红队扫描。"], "verdict": "值得看：关心云安全、AI 攻防、创业公司安全投入的人，约 46 分钟，案例具体（PHP2Shell、20 分钟攻击链、红队智能体、Windows XP 蠕虫类比）。可跳过：只想听具体厂商对比或工具评测清单的人，节目几乎不点名竞品。", "audience": "创始人与安全负责人 / 云与应用安全从业者 / 关注 AI 攻防的投资人"}, "sections": [{"id": "s1", "title": "片头与“黑十月”：一个月里砸下来的漏洞和 AI 攻击", "start_sec": 0, "summary": "片头先抛出后文的核心判断：安全局面会重新变得像 90 年代和 2000 年代那样漏洞与泄露频发；模型已能发现并利用复杂漏洞，开源模型也在追上；安全团队眼下做的大部分事其实不是安全。正式开场后，莎拉·王请阿米解释行业所称的“黑十月”。阿米把它看作一场黑天鹅：单月出现的安全事件数量是他从未见过的，既包括 10 月发现的漏洞数量与严重程度——其中就有他认为可能是 AI 迄今发现的最严重漏洞 PHP2Shell——也包括另一面更糟的情况：AI 攻击者正用全新的速度和“专业能力”，大规模打向企业、初创公司，甚至冰箱这类联网设备。"}, {"id": "s2", "title": "每天都是零日：从 Mythos、Hugging Face 到 20 分钟打穿", "start_sec": 151, "summary": "齐恩追问机制：阿米曾说“每天都是零日”（埃隆·马斯克最近也发过类似推文），AI 究竟如何把写利用的时间从数月压到数周甚至更短，创始人该怎么想。阿米回顾 10 月之前的两个大时刻：一是 Anthropic 的 Mythos 问世，证明模型能发现漏洞，但当时“太阳照常升起”，还没有变成日常冲击；二是 OpenAI 智能体意外打到 Hugging Face 的事件，让人看见 AI 攻击的风险，但那一次仍属“误打”。黑十月里，这些原先停留在理论里的事一并砸了下来：模型已经好到能发现并利用复杂漏洞，漏洞开始“爆炸式”出现；更可怕的是开源模型正在追上——几个月前谈 Mythos 时他们还说“再过几个月”，现在已经到了。不必等复杂的 PHP 漏洞，应用编程接口里的一个错误就可能被当成你代码里的零日，把过去顶尖攻击者要花数周到数月的整场攻击，压缩到大约 20 分钟。齐恩听到的攻防能力差距大约是六到九个月；阿米认为，就“找漏洞”而言，开源模型落后不超过三个月，真正的问题是“进攻”这一侧。Wiz 一篇博客起初统计 10 月有 9 家人工智能开发平台被打，名单每天都在增加，录制时已到 15 家——它们被点名，是因为手里握着人工智能密钥。攻击者不必很老练，开源模型已经够用来在 20 分钟内找到并利用问题；哪家小创业公司准备好了检测、定位并及时响应？按这个速度，几乎等于每家小公司都需要一套全天候安全运营中心（SOC）。"}, {"id": "s3", "title": "PHP2Shell 案例：覆盖约七成互联网，补丁却要数年", "start_sec": 412, "summary": "齐恩把 PHP2Shell 当作黑十月诸多事件中的一个案例，追问客户环境里有多普遍、公开几周后补丁进展如何。他自己曾是一家 PHP 电商公司的首席信息安全官。阿米确认，PHP 作为对外暴露的技术极为普遍，常被说成覆盖互联网的约 70%；几乎 100% 的 Wiz 客户环境里都跑着某种 PHP。他们很快看到了补丁率的大幅下降：客户还没有做到自动打补丁，但对补丁的重要性已经非常警觉，头两到三天大约 50% 完成了补丁，几乎是“立刻减面”。但正因为这是互联网的约 70%，单这一个漏洞要完全解决会耗上数年。互联网上和客户环境里都有大量实例根本没有补丁路径——更老的 PHP 版本已经不再提供补丁。"}, {"id": "s4", "title": "补丁为什么跟不上：利用只要几分钟，发行版却要等几个月", "start_sec": 516, "summary": "莎拉提到两位合伙人写过一篇关于“写利用的时间 vs 打补丁的时间”的文章：AI 让人更容易把补丁差异（diff）变成可工作的利用，这方面的时间在下降；可过去 20 到 25 年的数据里，打补丁的时间不仅没有下降，反而在上升。AI 能不能也帮上防守这一侧？阿米同意利用时间已大幅缩短，而且情况更糟：很多时候通用漏洞披露（CVE）还没发布，信息就已经泄露；即便 CVE 出来了，补丁也还没有。PHP 这个案例里，他们和 PHP 项目合作了数月，想让整个行业先准备好，结果还是提前泄露了，客户无计可施，Linux 上的补丁当时也还没就绪。即便是报给 Linux 内核的漏洞，传到各个发行版也可能要数周甚至数月。行业整体还没为“AI 能在几分钟内完成利用”做好准备。自动打补丁目前也没有清晰路径：如果是一家正在从零建设、已经有自动化工程、持续集成/持续交付（CI/CD）和自动化测试的新公司，有可能做到“我告诉你打这个补丁，整套系统自动完成”；这需要完整的智能体化流水线（自动开发出补丁、自动测试、自动 CI/CD、自动运维）。多数老公司做不到，对它们的大部分代码也不现实。阿米认为新创公司应该把自动打补丁当成设计任务。"}, {"id": "s5", "title": "Wiz 如何找漏洞：Atlas、多模型矩阵，以及蓝队调查流水线", "start_sec": 692, "summary": "齐恩补充一个注脚：PHP2Shell 由 Wiz 和 Calif 两个团队独立发现，这种“一洞多发现”以前也常见。他想听 Wiz 研究团队如何用 AI 做漏洞研究。阿米把这比作比特币挖矿：新模型带来新能力，漏洞不会被挖完，所以同一漏洞被多个团队同时找到并不奇怪。他们正在为 Wiz 的 Zero Day Con（ZDC，零日漏洞竞赛）做准备，已经收到多个团队报送的、他认为也会对互联网有重大影响的严重漏洞。对内，他们为漏洞团队、也为 Wiz 产品本身做了一个名叫 Atlas 的漏洞检测框架，持续搭配不同模型来跑——来自 OpenAI、谷歌（Google）或 Carbon（口播，或指 Gemini 4 Carbon）的模型各有特长。必须把精力放在关键基础设施上，并用仍有几个月优势的前沿模型持续先于攻击者发现；但世界上的代码太多，攻击者仍可能在某个模型上找到防守方没看到的洞。莎拉追问：各模型分别擅长什么？Wiz 已是谷歌大家庭一员，手头有深度思维（DeepMind）的模型，为什么还要用多家模型？前沿实验室和独立网络安全公司该如何相处？阿米的回答是：每个模型、每个版本，再加上它们的“网络专用版”，构成一张复杂矩阵，速度和成本都不同，没有单一答案。独立公司只能不停试遍所有模型，找到最佳组合。对多数创始人来说，“用 AI 开发已经很容易”并不成立，关键在于服务成本：必须做非常聪明的流水线，简单任务用特定模型、复杂任务用别的模型，高效拼在一起，否则卖得越多亏得越多。他举蓝队智能体调查攻击的例子：不能对每个事件都跑最贵、最强的模型，而是从确定性检测开始，再到便宜模型、再到更强模型；如果前面都认为是恶意的，再交给最强模型做最终判断，然后才告知客户。他认为这才是规模化 AI 系统的新工程挑战。"}, {"id": "s6", "title": "持续测试的成本：扫一次就要几百万，还不是一劳永逸", "start_sec": 1016, "summary": "莎拉转到持续测试相对一次性静态扫描的范式转变，以及成本如何决定这件事能否普及到每家公司、而不只是最赚钱、最成熟的那一批。阿米回到 Mythos 时刻：有人说“天哪，出了 Mythos，我得把所有代码扫一遍”。假设你在 4 月做了这件事，你可能已经浪费了 500 万美元——他强调这是真实量级。现在又出了 Mythos 1.2，你还得再扫一遍。这不是小预算，有的客户现在已经在代码扫描上花数千万美元。必须做成可扩展、持续且“聪明”的系统：会有新模型、新能力、新代码，不能只靠一次扫描。他们还在摸索如何把预算用在刀刃上——从内到外、主动攻击与被动攻击、代码分析、磁盘上扫描、运行时观察——不是单次扫描，而是持续扫描。若有人对你说“把 Mythos 在代码上跑一遍就行了”，那解决不了持续存在的问题，只会在预算上砸出一个大洞。"}, {"id": "s7", "title": "AI 时代的云安全：老问题没消失，客户却开始要求自动修复和自动响应", "start_sec": 1163, "summary": "齐恩提醒：新问题出现并不等于老问题消失。对许多《财富》500 强（Fortune 500）和全球 2000 强（Global 2000）来说，云安全挑战还在。他先请阿米抛开 AI，谈谈 2026 年云采用与云安全的状态，再把 AI 叠上去。阿米的看法是：应用几乎总是跑在云上，AI 攻击者打过来时，往往还是从过去就存在的那些漏洞、问题和配置错误进门——如果你有一个没修好的 PHP 漏洞，攻击者还是会从那儿进来。新增加的是更多漏洞和更多类型的攻击，并不意味着旧的攻击路径可以不修。云安全上，大家已经明白需要一套能看清全局的“记录系统”（system of record）。开始变化的是：公司在尝试更多智能体化工作流，也对 Wiz 提出更高期待。以前 Wiz 给出带优先级的漏洞即可；现在客户希望他们回到代码里定位、做出修复、提交拉取请求（pull request），把耗时的流程更多地自动化。检测也一样：不要只给一条告警，还要完整调查、取证、讲清攻击者怎么进来并把他们打出去。阿米认为，过去没被自动化掉的每一步，公司都在自己尝试自动化，也要求厂商做得更好。Wiz 已经不能只是发现威胁，必须做完整调查和取证；而在看到 AI 攻击者之后，下一步是开始思考自动响应——这很可怕，但他觉得已经没有别的选择。"}, {"id": "s8", "title": "红队智能体：用最新模型持续攻击自己，水位每周都在抬高", "start_sec": 1337, "summary": "莎拉请阿米多讲红队智能体：这是从对手视角做模拟，Wiz 是否在把“机器速度”交给客户，以应对进攻方已经被 AI 改写的风险。阿米说最终是红蓝两股力量：蓝队发现并阻止攻击，红队的逻辑则是“最好的防御就是进攻”——必须用 AI 持续攻击自己。以前还可以靠静态防御；现在每个新模型都带来新能力，昨天还算安全的应用，今天可能已经不安全。他用一扇门作比喻：你把钥匙藏在门垫下，一度算安全；可攻击者几乎每周都在获得“超能力”，下周也许就能进门。安全的水位不断抬高，唯一知道自己有没有问题的办法，就是用最新模型持续自攻，赶在攻击者打开门之前发现并修好，而且时间窗口很短——这就是“防御速度”之所以关键的原因。红队智能体从外部发起进攻型 AI 攻击，同时利用 Wiz 从内部掌握的上下文，争取在攻击者利用之前找到问题。齐恩从“让团队少走弯路”的角度追问：蓝队是从确定性方法起步，再叠加便宜模型、再逐步用更贵的模型；红队是同样分层，还是许多模型从头同时跑？阿米的回答是：都要。如果有预算就全部交给 Mythos 去扫代码，并不高效。更高效的做法是先用确定性方法分析全部暴露面，再叠上他们称为“暴露率智能体”（exposure rate agent）的一层，专门看环境里所有未认证、暴露在互联网上的东西——这是最紧急的事，甚至比扫代码更重要。再下一层才是更深的渗透测试和代码分析。从外部看，暴露面智能体对每个端点也许只要几分钟（因为可能有上百万个端点）；遇到关键应用，他可能花 10 个小时去尝试攻破。一切都将是流水线，核心是管理预算，而不是砸钱扫代码就以为结束。各部分还是连在一起的：如果发现了问题，工程团队说修复太贵，可以把情况告诉蓝队智能体，先加上检测。"}, {"id": "s9", "title": "谁真正在持续自攻：对外暴露面比扫代码更要紧", "start_sec": 1612, "summary": "莎拉提到他们内部前几天和里克（Rick）讨论过：目前的“最前沿”几乎就是红队智能体在做的事——用智能体集群不断攻击自己的系统，从而知道该如何防护。Wiz 既服务《财富》100 强里过半的企业，也有最前沿的初创客户，真正在这么做的有多少？阿米说，在 Wiz 的客户里，大多数已经在用红队智能体，这是他们发布过的增长最快的功能之一，覆盖面正迅速接近“几乎全覆盖”；但放眼整个行业还远远不够。他的判断很干脆：眼下没有比持续从外部扫描自己的环境更重要的事，最好的防御就是进攻，等对方来了可能已经晚了。他认为 Mythos 获得了大量公关，但公关把注意力带偏了——扫代码并不是你能做的最有效的事。两天前就有一起重大事件：移动应用里硬编码的密钥，导致大量用户数据暴露。攻击者就是从这类未认证的暴露面进来的，必须对它们做持续扫描。这就是他看到的差距，也是他希望行业明白的一点。"}, {"id": "s10", "title": "创始人发版前该做什么：红蓝自动化，以及 LLM 劫持下的密钥", "start_sec": 1718, "summary": "莎拉提到，黑十月期间齐恩和同事乔尔（Joel）曾给旗下创始人写过一封便函，谈到要加大安全投入，甚至考虑推迟产品发布。如果马上有一版要发、手里还有一堆安全问题积压，发版前到底必须完成什么？这是问两位的。齐恩先说：他和阿米判断一致，安全这场游戏已经变了，必须思考如何把蓝队和红队两侧大量工作自动化，并用各种各样的智能体来做这些自动化。旧模式是“先发版，再为了安全推迟”；新模式是这些事并行推进，持续测试；如果今天从零做一家公司，应从一开始就做自动打补丁，并把大量自动化做进软件开发和基础设施。阿米把场景拉到他正在打交道的、已经挨打的创业公司首席执行官身上：你早上醒来，安全团队说夜里出了事，他们想拦但对方还是进来了，最好的情况也是过了一个小时才发现——齐恩插话说，能有一个小时已经是阿米说得很客气了，而且对方还得先有安全团队；很多融过一轮的公司甚至没有专职的人。整场攻击大约 20 分钟：从进入到把所有秘密、所有客户的人工智能密钥全部拿走。然后你得决定对客户说什么、下一步做什么。这是一种以前没见过的新威胁，针对所有人；但如果你是初创公司，尤其手里有攻击者想要的东西（人工智能密钥或任何他们能用的资产），你就是他们的目标，不必非得是大公司。初创公司现在反而是 LLM 劫持的重点目标。如果有密钥，最好先加上限额，免得被盗后出现巨额账单——这种事他们见得很多，而且非常令人难受。背上已经有靶子，就必须在安全上投入，否则对方想进来会来得很快，没有别的说法。齐恩完全同意：无论是钱还是时间，未来几年的安全投入都必须上升。"}, {"id": "s11", "title": "预算也许上涨，但买不来安全：先做安全设计和锁定", "start_sec": 1932, "summary": "莎拉说，最近有一位首席信息安全官告诉他们团队的一位合伙人，预期明年安全预算增加 80%——大家都料到会涨，但这个幅度大概偏高。她想知道人们实际在把钱花到哪里，又该在哪些地方少花；阿米也曾公开写过，有一类安全产品可能会变得有些过时。阿米先用房子作比喻：你知道一群最训练有素的精英黑客要来打你的房子，他们未必走门，可能走窗户或屋顶。有多少房子连这个都准备好了？多数会说屋顶就不管了。问题的难点在于，大多数公司还没准备好面对拥有世界顶尖攻击者那种速度和专业能力的对手。所以即便先不谈预算，他甚至不知道加预算能不能解决问题——这关乎焦点，更关乎安全架构和安全设计。世界上没有一种买来就万事大吉的安全工具。齐恩笑着说，要是真有就好了，大家的工作会轻松得多。阿米接着说，大多数传统安全工具已经不再相关；即便换成懂 AI 时代攻击、也懂云攻击的原生安全能力，关键仍是安全设计，而不仅仅是预算。预算也许会涨，现有技术栈也的确应该复盘，但更重要的是有一支开发团队持续扫描代码和应用，思考沙箱与隔离、安全设计，以及网络锁定、进程锁定、镜像锁定。现在还在建设的人，要按国家级攻击者来准备：不要假定“全放进一个 Kubernetes 集群就行了”，Linux 上经常出现零日漏洞，任何人都可能逃出容器。安全设计远比预算重要。齐恩表示非常同意，并觉得这很像当年上云时的那一级台阶：他看到很多首席信息安全官正在重估现有厂商栈，改用人工智能原生技术，去支撑阿米所说的安全架构——漏洞同时存在于栈的每一层。这正是那句老话：“别浪费一场好危机”，而且无论你愿不愿意，这个新时代已经到来。"}, {"id": "s12", "title": "安全团队做的大部分事不是安全：别再围着配置清单转", "start_sec": 2170, "summary": "莎拉问得更直接：先不点名任何一家公司，哪一类安全软件是首席信息安全官现在还装着、其实已经不再需要的？阿米说了一句可能不好听的话：安全团队做的大部分事情并不是安全，真正花在安全上的时间只是很小一部分。检验方法很简单——你花了多少时间做红队，又花了多少时间做合规、写报告？在他看来，安全要么是为攻击者做准备（包括自己攻击自己），要么是在攻击到来时把护栏就位。必须把效率提得高得多，停掉现在做的大多数事，聚焦找出关键风险、想办法缓解，至少布好检测，并做好响应准备。若一项任务是在写报告，先问这报告是否真的有帮助。他一直反对的，就是云时代那种经典的云安全态势管理（CSPM）：只是一长串配置检查。他不关心那个。你该关心的是攻击者会从哪儿进来、自己是否做了能做的一切去拦住他们；若能建一道战略性屏障，就去建。重点是看清环境里真实的风险，并形成可长期维持的隔离策略。莎拉再问：当智能体承担更多日常调查和测试之后，最有经验的安全人员该把时间花在哪？阿米认为，从现在从零开始的安全团队要容易得多：正在创业的人很幸运，应该尽量做成全自动的安全视图、自动补丁流程、自动调查；只要对自身环境有足够的上下文和知识库，完全自动化是有路径的。但对大多数安全团队并非如此——大量遗留软件、成千上万名开发者，甚至说不清谁拥有什么。并不会因为来了一个 AI 智能体，一切就自动变了。还是得找回“谁真正拥有每一项资源”的上下文，并让他们去打补丁，这件事很复杂。行业里多数安全团队要走到真正的效率，还需要时间，因为组织里的很多知识是含混的、并没有写下来。但这就是所有安全团队面临的挑战：如果我不能在几分钟内响应，我还有没有资格待在这个位置上？"}, {"id": "s13", "title": "回到 90 年代：蠕虫可能再来，Y2K 时刻也许已经开始", "start_sec": 2390, "summary": "齐恩用一个贯穿全文的问题收尾：未来两三年会是什么样子？他自己的预测是，我们会再次回到 90 年代和 2000 年代——未认证的远程零日会不断冒出来，泄露事件也会再次变得密集，这会和过去 15 年的安全局面非常不同。他甚至抛出一个更“狂”的判断：不排除互联网上会再次出现蠕虫，就像 Windows XP 那个年代。他们基础设施团队内部聊天时，马丁（Martin）提起一个许多过来人都记得的窗口：你当时甚至没法足够快地安装并更新 Windows XP——从开始安装到更新还没跑完，蠕虫就会在补丁完成前打进来；所以你必须离线安装，在线装就会在打上补丁之前被攻陷。他觉得眼下这些被说成“AI 带来的全新事物”，其中很多是二三十年前互联网蛮荒时代就经历过的。莎拉补问：阿米 4 月曾写过一篇博客，说 12 到 18 个月内会有一次 Y2K 时刻；鉴于最近半年发生的一切，他会不会把这个时刻往前提？阿米说，黑十月可能就是开始。他们本来不想过度恐吓，也希望能再多一点时间，但开源模型追得比预想快——原先希望它们落后一年，实际上并没有。他们从未在客户侧见过如此规模的攻击，事情已经在发生。若要和 90 年代比，今天我们对技术的依赖要高得多。更关键的是：这几乎是当下人类活动中，AI 已经强过人类的少数领域之一。现在的 AI 攻击普遍、容易，而且比任何人都强。他谈到当天就有一起利用内核驱动零日的攻击——这种事本应非常罕见，现在却几乎每天都在发生，人类攻击者做不到。他无法看清两年后的样子，但认为能存活下来的，只会是那些现在就在建设安全自动化、安全设计和安全评审，并以新方式设计互联网暴露面的公司；还没准备好的，应该尽快从互联网上撤下来。在网上的东西，必须按“疯狂的攻击者”来设计和准备。"}, {"id": "s14", "title": "Scan for Good：制冷设备、交通与公共基础设施也在风险里", "start_sec": 2612, "summary": "莎拉把话题从企业和科技公司转到公共领域：Wiz 最近推出了 Scan for Good 倡议。她提到欧洲制冷设备最近遭受的攻击——若放到食品供应链上、再放大到大规模，对人类社会的后果会非常严重。她不想危言耸听，但认为阿米一直在走一条恰当的线：让人认真起来、做好准备。两个问题是：对公共基础设施、以及那些没有庞大网络安全预算的机构，我们该有多担心？以及 Scan for Good 如何帮助非营利组织和公共服务做好已经到来的准备？阿米承认他确实担心：遗留软件可能是真实世界里的冰箱，也可能是交通系统，任何我们知道已经连上互联网的东西都在风险之中。这正是他们启动 Scan for Good 的原因——为任何愿意接受帮助的公共服务做扫描、找问题。它解决不了对方的全部问题，但希望能推一把：一旦扫出东西，对方会意识到这是一项更大的工程，并开始自己做红队扫描。节目在默契的道别中结束：这是一个疯狂的时刻，齐恩和阿米也提到从当年一起开会，走到了今天这一步。"}], "paragraphs": [{"start_sec": 0, "type": "text", "zh": "【片头剪辑】我们又要回到90年代和2000年代了。泄露事件会再次变得密集。只不过这一次，会和过去15年的安全局面看起来很不一样。", "speaker_id": "zane", "section_id": "s1"}, {"start_sec": 8, "type": "text", "zh": "【片头剪辑】AI 攻击者正在以前所未见的规模和速度，打向企业和初创公司。", "speaker_id": "ami", "section_id": "s1"}, {"start_sec": 12, "type": "text", "zh": "【片头剪辑】埃隆·马斯克（Elon Musk）最近发过推：每天都是零日（zero-day）。AI 究竟在做些什么，才让这一切发生？", "speaker_id": "zane", "section_id": "s1"}, {"start_sec": 16, "type": "text", "zh": "【片头剪辑】模型现在已经足够好，能发现并利用复杂漏洞。另一件更可怕的事是开源模型。几个月前我们还说，再过几个月开源模型就会追上，现在它们正在追上。", "speaker_id": "ami", "section_id": "s1"}, {"start_sec": 32, "type": "text", "zh": "【片头剪辑】安全这场游戏已经变了。你必须思考，如何把蓝队和红队两侧的大量工作都自动化。", "speaker_id": "zane", "section_id": "s1"}, {"start_sec": 40, "type": "text", "zh": "【片头剪辑】眼下安全团队做的大部分事情，其实都不是安全。我们应该停掉现在做的大多数事，把精力放在找出关键风险、想办法缓解，至少要布好检测，同时还要做好响应准备。", "speaker_id": "ami", "section_id": "s1"}, {"start_sec": 52, "type": "text", "zh": "【片头剪辑】你觉得未来几年会是什么样子？", "speaker_id": "zane", "section_id": "s1"}, {"start_sec": 55, "type": "text", "zh": "【片头剪辑】AI 攻击会变得普遍、容易，而且比任何人类都更强。这就是问题所在。能活下来的，只会是那些正在——", "speaker_id": "ami", "section_id": "s1"}, {"start_sec": 66, "type": "text", "zh": "阿米，非常感谢你来参加节目。安全从业者把这个10月称为“黑十月”（Black October），很明显，我们正在进入一个智能体化攻击的新时代。能否先为我们梳理一下：眼下到底在发生什么，我们又该如何度过这个关键时刻？", "speaker_id": "sarah", "section_id": "s1"}, {"start_sec": 87, "type": "text", "zh": "当然，首先很高兴能来。我们称之为“黑十月”，在我看来，这就像一场黑天鹅（black swan）事件。我们从未见过——从来没有见过——这么多安全事件挤在同一个月里发生。这里说的是多种不同类型的安全事件：既包括10月被发现的漏洞数量，也包括这些漏洞的严重程度，其中就有 PHP 漏洞，大概是 AI 迄今发现的最严重的漏洞。漏洞出现的速度是我们从未见过的。但另一面更糟：我们正在看到 AI 攻击的崛起。AI 攻击者在用一种我们从未见过的全新速度和“专业能力”，真正打向企业、初创公司，甚至冰箱，规模和速度都是前所未见的。", "speaker_id": "ami", "section_id": "s1"}, {"start_sec": 151, "type": "text", "zh": "是的。按你刚才的话说，真正可怕的就是速度。你们在博客里也写过这些，而且你私下对我们、大概公开也说过：每天都是零日。埃隆·马斯克最近还发过这样的推文。能不能再讲讲，AI 到底在用什么机制加速编写利用？我记得你们做过相关研究，发现时间从数月被压到了数周。这对这次节目的听众、对创始人来说，意味着他们该想些什么、做些什么？", "speaker_id": "sarah", "section_id": "s2"}, {"start_sec": 200, "type": "text", "zh": "如果回溯我们是怎么走到这一步的，在10月之前，其实有两个大时刻。一个是 Mythos 时刻：Mythos 出来时，大家说“天哪，我们居然能用它找到漏洞”。那是一个节点。可随后并没有立刻天翻地覆，人们还是会说：好吧，世界还在转，太阳照常升起。另一个大时刻，是 OpenAI 与 Hugging Face 的那次事件。那也是一起重大事件，让我们看见了 AI 攻击的风险，但那一次仍然属于“误打”。现在，到了黑十月，原先所有还停在理论上的东西、我们说“即将到来”的那些事，一起砸到了我们头上，而且就在眼下发生。", "speaker_id": "ami", "section_id": "s2"}, {"start_sec": 256, "type": "text", "zh": "第一，模型现在已经足够好，能发现并利用复杂漏洞。这不再是理论，而是正在发生的事，是一场漏洞的爆炸。第二，也是更可怕的一点：开源模型。几个月前我们讨论 Mythos 的时候就说过，再过几个月，开源模型就会追上。现在，它们正在追上。", "speaker_id": "ami", "section_id": "s2"}, {"start_sec": 281, "type": "text", "zh": "它们一旦追上，就不再只是“找漏洞”这件事了。它们能找到在你环境里执行代码的办法，不必非是一个复杂的 PHP2Shell 级别的漏洞，也可能只是你的应用编程接口（API）里的一个错误。它们能发现并利用你代码里的这些零日，基本上把过去哪怕最优秀的攻击者也要花数周或数月才能完成的整场攻击，压缩到大约20分钟。这就是我们现在看到的情况。", "speaker_id": "ami", "section_id": "s2"}, {"start_sec": 314, "type": "text", "zh": "你看到开源模型落后了多少？我们和攻防能力这一侧的人交流时，听到的差距大概是六到九个月，现在这个距离已经够近了。你实际看到的是怎样的？", "speaker_id": "zane", "section_id": "s2"}, {"start_sec": 330, "type": "text", "zh": "这里其实有两个不同的问题。一个是进攻里“找漏洞”这一侧：我们是不是比开源模型更强？也许我们还领先大约三个月，不会超过三个月。真正的问题，是进攻里“打进去”这一侧。因为我是一家公司，比如说一家初创公司，现在面对的是一轮攻击浪潮。只看人工智能开发服务商这一个市场：我们发过一篇博客，一开始统计的是10月有9家公司被打，名单每天都在增加，现在已经到了15家。这只是一个市场的例子，就是人工智能开发平台。它们之所以被专门盯上，是因为手里握着人工智能密钥。", "speaker_id": "ami", "section_id": "s2"}, {"start_sec": 380, "type": "text", "zh": "关键在于，攻击者不必是很老练的人，也可以用 AI；开源模型已经足够好，能在你的代码里找到问题，而且能在大约20分钟内把它们用上。想想看，哪家初创公司已经准备好检测这类攻击？我不知道。然后还要真正发现它们、并及时做出响应。按这个速度，几乎等于每家小创业公司都需要一套全天候的安全运营中心（SOC）。", "speaker_id": "ami", "section_id": "s2"}, {"start_sec": 412, "type": "text", "zh": "那我们先把 PHP2Shell 当作黑十月里许多事件中的一个案例。能否谈谈，你在客户环境里看到它有多普遍？现在已经过去几周了，我也很想听你对整个客户群体补丁情况的判断，几周之后，眼下是什么状态？", "speaker_id": "zane", "section_id": "s3"}, {"start_sec": 435, "type": "text", "zh": "PHP 可能是对外暴露最普遍的技术之一。", "speaker_id": "ami", "section_id": "s3"}, {"start_sec": 448, "type": "text", "zh": "没错，我以前就是一家 PHP 电商公司的首席信息安全官（CISO）。有人说这大概覆盖了互联网的70%，对吧？", "speaker_id": "zane", "section_id": "s3"}, {"start_sec": 460, "type": "text", "zh": "对，就是这样。所以影响面基本上是：我们几乎100%的客户环境里，都跑着某种 PHP。我们很快看到了补丁率的大幅下降。我还不能说客户已经有了自动打补丁的能力，但他们对打补丁的重要性已经非常警觉。头两到三天大约50%完成了补丁，几乎是立刻把暴露面压下去了。可问题仍然在于，这是互联网的70%。所以即便只是这一个漏洞，也要数年才能真正解决。我们在互联网上、也在客户环境里看到大量案例，他们根本没有补丁路径——因为更老的 PHP 版本甚至已经不再提供补丁。", "speaker_id": "ami", "section_id": "s3"}, {"start_sec": 516, "type": "text", "zh": "我想问一个更“元”一层的问题。我们有两位合伙人写过一篇很好的文章，讲的是写利用的时间对比打补丁的时间。外面有很多讨论说，AI 已经让人更便宜、更容易把一份补丁差异（diff）变成可工作的利用，也有数据表明这段时间在下降。可另一方面，看起来打补丁的时间并没有下降；如果你看过去20到25年的数据，它反而上升了。阿米，AI 能不能也帮上这一侧，还是现在仍太早？", "speaker_id": "sarah", "section_id": "s4"}, {"start_sec": 560, "type": "text", "zh": "首先你说得对，拿到可工作利用的时间已经大幅缩短。而且情况更糟：很多时候，通用漏洞披露（CVE）还没发布，信息就已经泄露了；即便 CVE 已经出来，补丁也还没有。PHP 这个案例里，我们和 PHP 项目合作了数月，想让整个行业先准备好，结果还是提前泄露了。客户没什么可做的，补丁当时在 Linux 上也还没就绪。即便有漏洞已经报给了 Linux 内核，要传到各个发行版，也可能需要数周甚至数月。所以整个行业还没有准备好：就算你内部能很快打上补丁，有时补丁还没到达你的发行版。行业还没为 AI 做好准备——AI 能在几分钟内完成利用。", "speaker_id": "ami", "section_id": "s4"}, {"start_sec": 618, "type": "text", "zh": "所以答案是：这个世界还没有准备好，这就是问题。说到打补丁，你说得也对，我们目前还并不确切知道如何自动打补丁。坦白说，我暂时也看不到一条清晰的路径。口头上说“让我们把一切都自动化”很容易。现实里，如果你现在正在从零做一家新公司，这是可以做到的：如果你已经有自动化工程、自动化的持续集成与持续交付（CI/CD）、自动化测试，那么当我告诉你“打这个补丁”时，整套系统可以自动完成。我认为新公司就应该把系统设计成能够自动打补丁。但要做到这一点，你需要一条完整的、覆盖各环节的智能体化流水线：要能接过一张工单，由自动化开发做出补丁，还要有自动化测试、自动化 CI/CD 和自动化运维。同时具备这一切的老公司并不多，对它们的大部分代码来说甚至也不现实。但对初创公司，也许是可能的。如果你正在起步或正在规划，我会把这当成一项该认真考虑的任务。", "speaker_id": "ami", "section_id": "s4"}, {"start_sec": 692, "type": "text", "zh": "完全同意。我想再往进攻这一侧多走一步。说起这次发现，有个小小的注脚：这个漏洞是由两个团队独立发现的，Wiz 和 Calif，细节就是这个 PHP2Shell，以前这类事其实也经常发生。我很好奇，你们的研究团队当时是怎样真正借助 AI 发现它的？它又如何在更深层上打开漏洞研究团队的能力？", "speaker_id": "zane", "section_id": "s5"}, {"start_sec": 730, "type": "text", "zh": "先说几句。首先，我认为这种情况现在会频繁得多，因为每出一个新模型，就会有新的能力。我把它比作比特币挖矿：漏洞的数量看起来会往下走，但正因为像挖矿一样，总还能再挖，新模型也能挖出更多漏洞。所以并不会让人意外：一个新模型出来，就会有多个团队同时找到新的漏洞。恰恰现在，我们正在为 Zero Day Con（ZDC，Wiz 的零日漏洞竞赛）做准备，已经收到多个团队报送的、非常非常关键的漏洞，而且我相信它同样会对互联网造成重大影响。同一个漏洞，正在被多个团队报告上来。", "speaker_id": "ami", "section_id": "s5"}, {"start_sec": 789, "type": "text", "zh": "是啊。安全行业里，很多旧事物突然又变新了，这点现在特别明显。", "speaker_id": "zane", "section_id": "s5"}, {"start_sec": 800, "type": "text", "zh": "你说得对。在内部，我们的漏洞团队——其实也为 Wiz 产品本身——做了一个我们称为 Atlas 的框架，专门用于漏洞检测。我们一直在用不同模型去跑它，因为每个模型都有自己独特的能力：无论是来自 OpenAI、谷歌（Google），还是 Carbon，各有各的长处。我们会尽量把它们都用上，能找多少找多少。但关键是，大家都在这么做，所以你会预期很多团队会在同一时间找到漏洞。而更重要的是：我们必须把精力放在关键基础设施上，并用仍有几个月优势的前沿 AI 模型，持续在这些区域里做这件事，确保我们先于攻击者找到问题。可世界上的代码实在太多，这仍然不够，因为还是会有攻击者在某个模型上找到我们没有看到的漏洞。", "speaker_id": "ami", "section_id": "s5"}, {"start_sec": 857, "type": "text", "zh": "我不想把讨论带进前沿模型的兔子洞里太深，但想就你刚才说的“同时使用多个模型、各有所长”再追问两句。在你可以分享的范围内：第一，不同模型大致分别更擅长什么？第二，Wiz 现在已经是谷歌大家庭的一员，深度思维（DeepMind）团队和他们的模型就在手头，但听起来你们仍在使用多家模型。在这个时代，你怎么看待前沿实验室和独立网络安全公司之间的关系？", "speaker_id": "sarah", "section_id": "s5"}, {"start_sec": 897, "type": "text", "zh": "我觉得，每一个模型、以及每一个模型的每一个版本，现在都让事情变得更复杂：既有前沿模型，也有这些模型的“网络专用版”，每一个都——这是一张很复杂的矩阵。但重点是，它们的表现并不一样，速度和成本也不一样。所以没有一个单一答案。这一点对网络方向的任务成立，对其他事情也成立。作为一家独立公司，你唯一能做的，就是一直试遍所有模型，找到最佳组合。", "speaker_id": "ami", "section_id": "s5"}, {"start_sec": 951, "type": "text", "zh": "在我看来，有人说“现在用 AI 开发已经很容易了”，对大多数创始人来说并非如此。眼下的关键是服务的成本。要做成可扩展的服务，唯一的办法是建一条非常非常聪明的流水线：一部分任务用特定模型，更复杂的任务用别的模型，再把它们非常高效地拼在一起，否则你会在销售上亏钱。举个例子，我们有所谓的蓝队智能体（Blue Agent），负责调查攻击。我不能对每一条事件都跑最先进、最贵的模型，但我可以做一条流水线：先从确定性检测开始，再经过便宜模型的检测，再经过更强的模型；如果它们都认为是恶意的，我再让最强的模型判断“这到底是不是真的恶意”，然后才告知客户。所以你需要多种模型、多种类型的模型，并且必须去设计流水线。我认为，这正是规模化构建 AI 系统的创始人面临的新工程挑战。", "speaker_id": "ami", "section_id": "s5"}, {"start_sec": 1016, "type": "text", "zh": "完全同意。就成本这一点，你们大概在一篇博客里也写过，不妨在这里概括一下：围绕持续测试，需要发生一次范式转变，重点是“持续”，而不是一次性的静态扫描。成本显然也决定了这件事能不能普及到每一家公司，而不只是最赚钱、最成熟的那一批。从成本角度看，我们离那一步还有多远？还需要哪些变化——文化上的、工具上的？你觉得公司应该往哪走，今天又处在什么位置？", "speaker_id": "sarah", "section_id": "s6"}, {"start_sec": 1076, "type": "text", "zh": "这是一个很大的问题。就拿安全作例子，回到 Mythos 那个时刻。人们会说：天哪，出了 Mythos，我得把所有代码扫一遍。好，假设你扫了，假设你在4月做了这件事，你可能已经浪费了500万美元。这是真实的量级，浪费得很厉害，现在非常贵。然后现在又有了 Mythos 1.2，你还得再做一遍。我不是在说小预算，我是说有的客户现在已经在代码扫描上花数千万美元。", "speaker_id": "ami", "section_id": "s6"}, {"start_sec": 1106, "type": "text", "zh": "你必须去想一套可扩展的系统，一套持续的、而且是聪明的扫描系统。你不能只靠蛮扫，因为还会有新模型、新能力、新代码。我们把这看作整个行业的重大挑战，也还在摸索，我不会告诉你我们已经解决了。挑战在于：如何把预算用得聪明——从内部扫、从外部扫，有主动攻击、也有被动攻击，有代码分析，可以在磁盘上扫，也可以看运行时。怎样才能把全部预算以最有效的方式用在客户身上，而且不是一次扫描，而是持续扫描？这就是眼下安全扫描的挑战。如果我对你说，把 Mythos 在你的代码上跑一遍就行了，没错，你当然可以那样做，可那能持续解决你的问题吗？不能。它只会在你的预算上砸出一个大洞。", "speaker_id": "ami", "section_id": "s6"}, {"start_sec": 1163, "type": "text", "zh": "我知道，我们曾经满口只谈云安全、前 AI 时代的安全，感觉像是上辈子的事了。但对安全团队、从业者、首席信息安全官（CISO）和安全工程师来说，新问题出现并不等于老问题消失。对许多《财富》500 强（Fortune 500）和全球 2000 强（Global 2000）而言，他们仍在应对大量云安全挑战。这个问题我想分两层：先把 AI 放在一边，请你谈谈 2026 年云采用和云安全的状态；然后我们再把 AI 叠上去，看看它具体如何改变云安全。", "speaker_id": "zane", "section_id": "s7"}, {"start_sec": 1193, "type": "text", "zh": "首先，当我们谈云安全时，我的应用在跑，它几乎总是跑在云上。当我们谈 AI 攻击者打向我的应用时，他们往往还是会从过去就存在的那些漏洞、问题和错误起步。这一点并没有变：在云安全里，你仍然必须先盯住关键风险，然后把它修好。如果你有一个 PHP 漏洞却没修，攻击者还是会从那儿进来。我们只是又多了一批漏洞、多了几类攻击，这并不意味着旧的攻击路径可以不修。", "speaker_id": "ami", "section_id": "s7"}, {"start_sec": 1252, "type": "text", "zh": "就云安全而言，我们看到的是：首先，大家都明白需要一套“记录系统”（system of record），能理解并让你看见所有东西。开始发生变化的是，公司在尝试建立更多智能体化工作流，同时也对 Wiz 有了更高期待。比如说，以前我们给出一个带优先级的漏洞就行；现在他们会希望我们回到代码里，找到对应代码，做出修复，提交拉取请求（pull request），把那些耗时的流程更多地自动化。检测也是一样：他们要的不只是一条检测，还希望得到完整的调查、取证，找出根因，告诉我攻击者是怎么进来的，再把他们打出去。在我看来，AI 眼下做的，就是把我们过去没能自动完成的每一步，都推向自动化——公司自己在尝试，也期待我们做得更好。举个例子，我们现在不能只是发现威胁，必须做完整调查，也需要做取证。而我认为，在我们已经看到 AI 攻击者的情况下，下一步是开始思考自动响应。这很可怕，但我觉得我们已经没有别的选择。", "speaker_id": "ami", "section_id": "s7"}, {"start_sec": 1337, "type": "text", "zh": "完全同意。谈到你们正在自动化的事情、以及 Wiz 自身如何演进，你刚才讲了蓝队智能体，能不能再多分享一些红队智能体（Red Agent）？因为那才是你们真正在模拟对手视角的地方。面对 AI 正在改写的风险，Wiz 的回应是不是：回到刚才说的速度——防守方的速度、攻击方的速度——想办法把“机器速度”交给客户？", "speaker_id": "sarah", "section_id": "s8"}, {"start_sec": 1377, "type": "text", "zh": "正是如此。最终这里有两股力量，红和蓝。蓝队试图发现攻击并阻止它们。红队想说的则是：最好的防御就是进攻。你必须用 AI 持续攻击自己。因为和以前不同，过去我们还有静态防御；现在防御必须是动态的，因为每个新模型都有新能力。也许你的应用昨天还被认为是安全的，今天就已经不安全了。打个比方：你有一扇门，也许你把钥匙藏在门垫下面，这一度算是安全的。可攻击者几乎每周都在获得超能力，也许下周他们就能进门。如果每个 AI 模型都能进那扇门，上周还算安全的东西，现在就不再安全。水位在不断抬高。所以，唯一能知道自己有没有问题的办法，就是用最新的模型持续攻击自己。在攻击者打开门之前，你先发现、先修好，而且你没有多少时间。这就是我们谈“防御速度”时，它之所以关键的原因。红队智能体就是在做这件事：从外部对你的应用发起进攻型 AI 攻击，同时利用我们从内部掌握的上下文，争取在攻击者真正用上这些问题之前找到它们。", "speaker_id": "ami", "section_id": "s8"}, {"start_sec": 1474, "type": "text", "zh": "红队这一侧，你们是不是也在用类似的流水线？我问这个，是为那些听下来都觉得有道理、也想动手的团队，帮他们少走别人已经走过的弯路。蓝队这边，你们从确定性方法起步，再叠加便宜模型，再沿着你刚才说的流水线逐步用更贵的模型。红队是同样从确定性开始、再叠加便宜模型，还是许多不同的模型全都从头同时跑？", "speaker_id": "zane", "section_id": "s8"}, {"start_sec": 1505, "type": "text", "zh": "全都要，没错。首先对比一下：如果你有预算，就全部交给 Mythos 去扫代码，那并不是很高效。更高效的做法是，先分析全部暴露面，我们用确定性方法来做这一步。然后在这上面再叠一层，我们称为“暴露率智能体”（exposure rate agent），它专门看你环境里所有未认证、暴露在互联网上的东西。对你拥有的每一处暴露，这都是一次立刻要做的分析。这是最紧急的事，甚至比扫你的代码更重要。谁在乎你的代码呢？我现在说的是你实际未认证、已对外暴露的攻击面，那更紧迫。再下一步，才是开始做更深的渗透测试分析和更深的代码分析。所以这里确实有层次。在模型和调查时间上同样如此：从外部看，我们称为暴露面智能体的那一层，也许对每个端点只要几分钟，因为你可能有上百万个端点；而遇到一个关键应用，我可能花10个小时去尝试攻破它。", "speaker_id": "ami", "section_id": "s8"}, {"start_sec": 1576, "type": "text", "zh": "所以这全部是一条流水线。现在所有事情都会变成流水线。你不能把钱砸在代码扫描上，就以为做完了。不，这一切的核心都是在管理预算。它们还是连在一起的：如果我发现了一个问题，工程团队说“天哪，修这个太贵了”，那好，我可以告诉蓝队智能体，先在那里加上一些检测。你看，这是在一起工作的。", "speaker_id": "ami", "section_id": "s8"}, {"start_sec": 1612, "type": "text", "zh": "我正想问这一点，听你的看法也很有意思，因为前几天我们内部和里克（Rick）讨论过：现在的“最前沿”，本质上就是红队智能体在做的事——用智能体集群不断攻击自己的系统，从而知道该如何防护。你们既在和顶尖的企业客户合作，覆盖了《财富》100 强（Fortune 100）里超过50%的公司，客户里也有最前沿的初创公司。真正在这么做的人有多少？", "speaker_id": "sarah", "section_id": "s9"}, {"start_sec": 1635, "type": "text", "zh": "在我们的客户里，大多数已经在使用红队智能体。但放眼整个行业，我认为还远远不够。我觉得所有人现在都应该做这件事。没有比持续从外部扫描自己的环境更重要的事了，真的没有更重要的。最好的防御就是进攻。等他们来了，可能已经太晚。所以你现在能做的最好的事，就是持续攻击自己的环境。", "speaker_id": "ami", "section_id": "s9"}, {"start_sec": 1662, "type": "text", "zh": "在我看来，就 Wiz 的客户这一侧，我们正很快接近几乎全覆盖，大家都理解了，这也是我们发布过的增长最快的功能之一。但放眼全世界，我不认为人们已经理解了这一点。有时候 Mythos 获得了大量公关，这很好，但公关把注意力带偏了。我其实并不认为扫代码是你能做的最有效的事情。这一点必须说清楚，因为人们会说：“是啊，我在扫代码上已经投入了这么多。”可那真的不是你最该做的。你应该先把重点放在扫描对外暴露面上。就在两天前还有一起重大事件：一个密钥被硬编码在移动应用里，导致大量用户数据暴露。攻击者就是从这类地方发起攻击的，是未认证的暴露面。你必须对它们做扫描，而且必须持续做。我觉得这就是差距所在，也是这个世界需要明白的一点。", "speaker_id": "ami", "section_id": "s9"}, {"start_sec": 1718, "type": "text", "zh": "顺着“创始人该做什么”这条线，齐恩和我们的同事乔尔（Joel）其实在黑十月期间写过一封给创始人的便函，谈到要加大安全投入，甚至考虑推迟产品发布。这个问题想问你们两位，也想请齐恩再多讲几句。假设我是一名创始人，马上有一版要发，手里还有一堆安全问题积压，发版之前该如何判断哪些事必须先做？", "speaker_id": "sarah", "section_id": "s10"}, {"start_sec": 1756, "type": "text", "zh": "好，我先说。我觉得我和你在这一点上非常一致：安全这场游戏已经变了。你必须思考，如何把蓝队和红队两侧的大量工作都自动化，并且真正用上各种各样的智能体来做这些自动化。历史上，旧模式是你有一个发布，然后再为了安全把它推迟，诸如此类。我认为你现在想的新模式是：怎样让这些事情并行发生？怎样真正借助各种各样的智能体去做持续测试？如果你今天正在从零做一家新公司，从一开始就做自动打补丁，并把大量自动化做进软件开发和基础设施建设里。", "speaker_id": "zane", "section_id": "s10"}, {"start_sec": 1808, "type": "text", "zh": "对。我想把场景拉回到现实里。我和一些正在挨打的创业公司首席执行官一起工作，让我们站在他们的位置上想一想。你早上醒来，安全团队说夜里出了不好的事，我们想拦住，但对方还是进来了；我们过了一个小时才醒过来——而这已经算好的情况了。", "speaker_id": "ami", "section_id": "s10"}, {"start_sec": 1826, "type": "text", "zh": "一个小时已经是你说得很客气了。而且他们还得先有一支安全团队。", "speaker_id": "zane", "section_id": "s10"}, {"start_sec": 1835, "type": "text", "zh": "没错。很多公司融过一轮之后，我甚至不知道他们有没有专职的人。然后我们发现，攻击者已经进来了，整场攻击同样大约只要20分钟：从他们进入，到拿走所有秘密、拿走所有客户的全部人工智能密钥。接下来你得想清楚，要对所有客户说什么、自己下一步做什么。这就是现在正在许多公司里发生的事。", "speaker_id": "ami", "section_id": "s10"}, {"start_sec": 1863, "type": "text", "zh": "所以关键是：AI 攻击是我们从未见过的，必须把它理解成一种新威胁，对所有人都是威胁。但如果你是一家初创公司，尤其是手里有攻击者想要的东西——特别是人工智能密钥，或任何他们能用得上的东西——那你就在他们的目标清单上，不必非得是大公司。初创公司现在反而是 LLM 劫持（LLMJacking）的重点目标。如果你有密钥，最好先给它们加上限额，因为一旦被盗，你不会希望看到巨额账单。这种事我们见得很多，而且真的非常令人难受。同时你也要明白，如果背上已经有靶子，就必须在安全上投入很多精力。以前并非如此，但现在是真的：他们想进来，就会来得很快。所以你必须在这件事上投资，没有别的说法。", "speaker_id": "ami", "section_id": "s10"}, {"start_sec": 1922, "type": "text", "zh": "我完全同意。无论是钱、时间，还是其他投入，安全投资的水位在未来几年里都必须上升，因为我们正在进入一个新的安全时代。", "speaker_id": "zane", "section_id": "s10"}, {"start_sec": 1932, "type": "text", "zh": "顺着这个话题，最近有一位首席信息安全官告诉我们团队的一位合伙人，他预期明年自己的安全预算会增加80%。大家都料到预算会涨，但这个幅度大概已经偏高了。你看到大家在往哪些地方加钱？反过来说，首席信息安全官又该在哪些地方少花？你也公开写过，有一类安全产品可能会变得有些过时。不妨从预算该上调、以及预算该下调这两个方向一起谈谈。", "speaker_id": "sarah", "section_id": "s11"}, {"start_sec": 1969, "type": "text", "zh": "好。还是先假设你有一栋房子，而且你知道一群训练最有素的精英黑客要来打你的房子。他们未必走门，可能走窗户，也可能走屋顶。老实说，有多少房子连这个都准备好了？多数房子会说：算了，屋顶我不会去防，我反正也没办法，这不可能。问题的关键正在这里：我们绝大多数公司，都还没有准备好面对拥有世界顶尖攻击者那种速度和专业能力的对手。所以这才是一个难题。即便我们先不谈预算，我甚至不知道预算能不能解决这个问题。这不只是安全预算的问题，它关乎焦点；但老实说，它更关乎安全架构、安全设计。预算解决不了什么——并不是说这个世界上有一种安全工具，你买下来就万事大吉了。", "speaker_id": "ami", "section_id": "s11"}, {"start_sec": 2040, "type": "text", "zh": "该死。要是真是那样，我们好多工作都会轻松得多。可惜我也不觉得那是真的。", "speaker_id": "zane", "section_id": "s11"}, {"start_sec": 2047, "type": "text", "zh": "显然，大多数传统安全工具已经不再相关了。就算你已经把安全做到人工智能原生，理解 AI 世界里的攻击如何发生，也理解云上的攻击，即便到了那一步，老实说，关键仍然是安全设计，而不仅仅是安全预算。安全预算会上涨吗？也许会。我们应不应该复盘手头已有的技术？应该。但比这更重要的是，要有一支开发团队，持续专注于扫描代码和应用；要去思考沙箱和隔离，思考安全设计，以及网络锁定、进程锁定、镜像锁定。如果你现在正在建设，请按国家级攻击者来做好准备。想象一下会出现漏洞：不要假定“我们把所有东西都放进一个 Kubernetes 集群里就行了”。不，Linux 上经常出现零日漏洞，任何人都可能逃出容器。所以你看，安全设计远比预算重要。安全预算当然很好，但它不是全部。", "speaker_id": "ami", "section_id": "s11"}, {"start_sec": 2120, "type": "text", "zh": "说得非常对。就这一点而言，这的确很像当年上云时的那一级台阶。我看到很多首席信息安全官正在重新审视现有的厂商栈，做一次重启，看哪些是人工智能原生的——因为当你真正聚焦安全架构时，你就需要人工智能原生的技术。这正是你刚才说的：要把问题想透，并理解漏洞同时存在于栈的每一层。这就是那句老的 CISO 口头禅：别浪费一场好危机。而现在这件事正在发生，人们正在把大量安全产品版图重启成人工智能原生，好走进这个无论你愿不愿意都已经到来的新时代。", "speaker_id": "zane", "section_id": "s11"}, {"start_sec": 2170, "type": "text", "zh": "好。那就把话说得更明确一点，我并不想贬低任何一家具体公司：有没有一类安全软件，是首席信息安全官现在还装着、其实已经不再需要的？", "speaker_id": "sarah", "section_id": "s12"}, {"start_sec": 2195, "type": "text", "zh": "如果非要说——这句话也许不好听——安全团队做的大部分事情并不是安全。他们只有很小很小一部分时间真正在做安全。检验的方法是这样的，也正因为此我一直相信要自己攻击自己：你花了多少时间和红队在一起，又花了多少时间做合规、做报告？老实说，大多数安全团队的焦点并不在安全上。在我看来，安全要么是为攻击者做准备，包括自己攻击自己；要么是在攻击到来时把护栏就位。所以现在我们必须把安全团队的效率提得高得多。我们应该停掉现在做的大多数事，聚焦在找出关键风险，想办法缓解，至少布好检测，并且做好响应准备。我们必须把这件事做好。我们没有时间再花在所有不聚焦于此的事情上。所以如果你在做一项任务，先问一句：这份报告真的对我们有帮助吗？我一直反对的，就是云时代那种经典的云安全态势管理（CSPM）：那只是从前做云安全的方式，一长串配置检查。那个我并不关心。你必须关心的是攻击者会从哪儿进来，我是否做了自己能做的一切去拦住他们；如果有一道战略性的屏障可以建，那就去建。要把精力放在看清环境里真实的风险，并形成可长期维持的隔离策略。这些才是你该做的事。", "speaker_id": "ami", "section_id": "s12"}, {"start_sec": 2292, "type": "text", "zh": "说到时间管理，也可以翻到另一面：AI 实际上在如何帮助安全团队。当智能体承担更多日常调查和测试之后，你觉得——你刚才也答到过一些，不妨再深入一点——那些最有经验的安全专业人员，应该把时间花在哪里？", "speaker_id": "sarah", "section_id": "s12"}, {"start_sec": 2318, "type": "text", "zh": "从现在从零开始的安全团队，要容易得多。显然，如果你现在正在做一家公司，你是幸运的，应该尽量把一切都做成全自动的安全视图、自动补丁流程、自动调查。只要你对自身环境有足够的上下文和知识库，完全有办法把一切做成彻底自动化。问题是，对大多数安全团队来说，情况并非如此。你有大量遗留软件，有成千上万名开发者，你甚至说不清谁拥有什么。并不会因为来了一个 AI 智能体，一切就都变了。还是得回到：找到谁真正拥有每一项资源的上下文，以及我怎样才能让他们去打补丁。这件事很复杂。所以对行业里大多数安全团队来说，要真正走到高效，还需要时间。这并不像听上去那么简单，因为组织里的很多知识是含混的，并没有写在任何一个地方。但这就是所有安全团队面临的挑战：如果我不能在几分钟内做出响应，我还有没有资格待在这个位置上？", "speaker_id": "ami", "section_id": "s12"}, {"start_sec": 2390, "type": "text", "zh": "是的。就这一点，我想用一个问题把我们前面谈到的主线串起来：你觉得未来几年会是什么样子？就看未来两到三年。我先抛出自己的预测：我们又要回到90年代和2000年代了。会不断冒出完全远程、未认证的零日，泄露事件会再次变得密集。这一次会和过去15年的安全局面看起来很不一样。我觉得我们正在回到一个和后来那段时间非常不同的安全时代。我甚至再抛一个更狂的判断：我不会惊讶如果互联网上再次出现蠕虫，就像 Windows XP 那个年代一样。我们基础设施团队内部聊到这件事时，马丁（Martin）提了一个很多人当时都经历过的窗口：有那么一段时间，你甚至没法足够快地安装并更新 Windows XP——因为从你开始安装、启动更新，到更新完成之前，蠕虫就会打进系统并完成感染。所以你必须离线完成这些安装；如果你在线安装，它被攻陷的速度会比你打上补丁更快。我觉得眼下这些被说成因 AI 而全新的事物，在很多方面，其实是我们中间不少人在二三十年前、互联网还处于蛮荒时代时就已经经历过的。基于这些，我很想听你怎么看未来几年。", "speaker_id": "zane", "section_id": "s13"}, {"start_sec": 2488, "type": "text", "zh": "阿米，我再在齐恩的问题上补一句。你在4月写过一篇很好的博客，说12到18个月内会迎来一个 Y2K 时刻。顺着齐恩说的未来两到三年，考虑到最近半年发生的一切，你会不会把那个时刻往前提？", "speaker_id": "sarah", "section_id": "s13"}, {"start_sec": 2506, "type": "text", "zh": "会。首先，我觉得黑十月可能就是开始。我们本来不想过度恐吓，也希望能再多一点时间，但开源模型追得比我们预想的快得多。原先的希望是开源模型落后一年，可它们并没有。所以我觉得事情已经在发生。我们从未在客户侧见过如此规模的攻击，它正在发生。如果要和90年代比，我们对技术的依赖要比那时高得多。", "speaker_id": "ami", "section_id": "s13"}, {"start_sec": 2547, "type": "text", "zh": "还有一点必须说清楚：这几乎是当下人类活动中，AI 已经强过人类的少数领域之一。这就是问题所在。这在90年代并不是问题。现在的 AI 攻击普遍、容易，而且比任何人都强，这就是问题。我说的是非常非常复杂的、使用零日的攻击。就在今天，我们还看到一起利用内核驱动零日的攻击。天哪，这种事本来应该非常罕见，现在却几乎每天都在发生。人类攻击者做不到这些。所以你看，我们处在一个 AI 已经强过人类的时代。如果要我看两年后，我看不清。但我认为，能活下来的，只会是那些现在就在建设的公司：不只是安全自动化，还有安全设计、安全评审；他们在用一种新的方式，设计那些暴露在互联网上的系统。还没准备好的，应该尽快从互联网上撤下来。在互联网上的东西，必须为那些疯狂的攻击者做好一切准备，必须按这个前提来设计。我觉得这是唯一的路。", "speaker_id": "ami", "section_id": "s13"}, {"start_sec": 2612, "type": "text", "zh": "这次节目很多内容都聚焦在企业、科技公司等等。我想提一下你们最近推出的 Scan for Good 倡议，并且想把它放在我们刚才谈的那些攻击的语境里，比如针对人工智能基础设施公司的攻击。但如果我们看最近欧洲制冷设备遭受的攻击——再想到供应链、食品供应链——这种事一旦放大到大规模，对人类社会的后果会非常严重。我不想危言耸听，但我觉得你也一直走在一条恰当的线上：让人们有所准备、把事情认真起来。所以两个问题：第一，对于公共基础设施，以及那些并没有庞大网络安全预算的机构，我们该有多担心？第二，也不妨谈谈 Scan for Good，你们为什么做这件事，又如何在帮助非营利组织、公共服务等真正为已经到来的局面做好准备？", "speaker_id": "sarah", "section_id": "s14"}, {"start_sec": 2692, "type": "text", "zh": "我确实担心。那些遗留软件，可能就是真实世界里的冰箱，也可能是交通系统，可能是任何东西。我们知道，凡是连上互联网的，都在风险之中。这正是我们启动 Scan for Good 的原因。Scan for Good 想帮助任何愿意接受帮助的公共服务：我们尝试为他们扫描、尝试发现问题。这不会解决他们的全部问题，但我们想先推他们一把。我们的希望是，一旦我们找出问题，他们会明白这是一项更大的工程，并开始自己做红队扫描。所以这件事更像是把他们推进去。", "speaker_id": "ami", "section_id": "s14"}, {"start_sec": 2728, "type": "text", "zh": "太好了，非常感谢。真的非常过瘾，太精彩了。", "speaker_id": "zane", "section_id": "s14"}, {"start_sec": 2738, "type": "text", "zh": "也很高兴见到你们两位。这真是一个疯狂的时刻。", "speaker_id": "ami", "section_id": "s14"}, {"start_sec": 2744, "type": "text", "zh": "绝对是，这是一个疯狂的时刻。也感谢你眼下正在做的这些事。谁能想到，从当年一起开会，走到了今天这一步，伙计。见到你真好。", "speaker_id": "zane", "section_id": "s14"}, {"start_sec": 2758, "type": "text", "zh": "是啊，是啊。我记得那次也很有意思。", "speaker_id": "ami", "section_id": "s14"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
