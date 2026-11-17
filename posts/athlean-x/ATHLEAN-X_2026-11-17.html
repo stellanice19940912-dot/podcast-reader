@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>这个方法能快速纠正 95% 的体态问题</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="jeff">杰夫·卡瓦利尔（Jeff Cavaliere）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">ATHLEAN-X</span><span class="pill">2026-11-16</span></div>
+<h1>这个方法能快速纠正 95% 的体态问题</h1>
+<p class="sub">约 12 分钟（715 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=633UP8zXNI8" target="_blank" rel="noopener">https://www.youtube.com/watch?v=633UP8zXNI8</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>ATHLEAN-X</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-16</dd></div><div class="meta-row"><dt>时长</dt><dd>约 12 分钟（715 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动生成字幕（en-orig；普通 yt-dlp 先拉 en 轨遇 HTTP 429，同批改拉 en-orig 成功）；caption_source=yt-dlp-auto；中文为全文通顺改写并按测试/动作分段。独白节目，说话人仅主持杰夫·卡瓦利尔（Jeff Cavaliere），未编造嘉宾。片尾 22 天腹肌/俯卧撑计划与 athleanx.com 推广已标广告省略。</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>633UP8zXNI8</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>杰夫·卡瓦利尔（Jeff Cavaliere）用六个通过/不通过测试，找出几乎人人会出问题的体态薄弱点，并给出一套22天交替拉伸与强化的方案。后侧盯胸椎、腘绳肌和小腿，前侧盯腹肌、髋屈肌和髋旋转肌；每个部位都有明确的失败标准和配套动作，时间多为45秒、4组。</p>
+<h3>核心要点</h3><ul><li>靠墙深蹲测试：双脚离墙约15厘米，双手按在墙上11点和1点位置下蹲；必须蹲到大腿平行、手不离墙、不后倒，否则失败。</li><li>胸椎用跪姿伸展（肘撑凳/沙发，保持45秒、3–4组）加面拉强化上背；没有弹力带可用门框做自重面拉，拉的时候拇指要先于肘到达身后。</li><li>腘绳肌用带骨盆前倾的摸脚尖测试；拉伸是靠墙走胸，力量则练对侧髂腰肌：脚踩箱或台阶，髋高于90度，再把膝上抬3到4英寸并稳住3到4秒。</li><li>小腿用膝盖触墙测试（脚跟不离地）。拉伸分直膝和屈膝，分别拉腓肠肌和比目鱼肌；力量补胫骨前肌，但要隔次再做，以免引起胫骨骨膜炎。</li><li>腹肌用俯卧上撑测试（肘伸直且髋不离地）；拉伸是悬挂弓身或健身球后仰，力量用超人式强化腰段竖脊肌。髋屈肌必须先过托马斯测试，不能只凭「感觉紧」就断定过短。</li><li>髋内旋用坐姿交叉测试，腿放不平就算失败（示范里杰西的腿是翘起来的）。拉伸做椒盐卷饼式，力量做青蛙式臀推，把发力从臀大肌转到臀中肌。22天安排是第1天测试、中间21天交替、第22天复测。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看。这是一条结构清楚的12分钟体态课，六个测试的通过标准和动作剂量都很具体，核心逻辑也一致：先测、再拉紧的一侧、同时强化对侧。已经只想要动作名单的人看逐段总结也能列出清单，但示范细节（骨盆前倾、脚跟是否离地、拇指与肘的关系）仍值得对照视频。片尾其他22天计划与网站推广可跳过。</p>
+<h3>适合人群</h3><p>觉得体态含胸、拍照不好看，或髋、腿后侧、小腿和腹前侧发紧的人；适合居家用墙、门框、弹力带或健身球跟练。有明显疼痛或伤病时应先自行判断是否适合这些测试。</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">靠墙深蹲测试（wall splat test）</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">杰夫·卡瓦利尔（Jeff Cavaliere）先用「靠墙深蹲测试」（wall splat test）做体态筛查：双脚离墙约15厘米（6英寸），双手按在墙上时钟11点和1点的位置，然后向下蹲。要通过，大腿必须蹲到与地面平行，双手始终贴墙，并且不能失去平衡、更不能向后摔倒。做不到深度、手离开墙面或后倒，一律算失败。他强调后面所有测试都是通过/不通过，没有中间分。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">六大关键部位与22天计划</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">体态不好既影响观感，也几乎人人都会在六个关键部位「翻车」。后侧是胸椎、腘绳肌和小腿；前侧是腹肌、髋屈肌和髋旋转肌。杰夫承诺：按他接下来展示的方法练满22天，会站得更直、感觉更好，拍照也会更好看。后面的内容就是针对这六个部位，各配一项通过/不通过测试，再给出拉伸日和力量日的对应动作。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">胸椎：跪姿伸展与面拉</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">胸椎活动不足时，拉伸重点是跪姿胸椎伸展：肘放到凳子或沙发上，胸口尽量下沉，臀部坐向脚跟，这样能增加胸椎伸展，同时拉伸因驼背而易紧的背阔肌。保持45秒，做3到4组。后侧肌肉因为长期被拉长而变弱，力量动作用面拉（face pull）补上：向后拉时让拇指先于肘到达身后，手臂大约成90度，并短暂停住，确保练到上背。没有弹力带可以用门框做自重面拉，动作要领相同，用来对抗前面的紧张。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">腘绳肌：摸脚尖测试、靠墙拉伸与髂腰肌强化</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">第二项是摸脚尖测试。要真正测腘绳肌长度，必须先做成骨盆前倾，最好用髋铰链：双手自然垂在身前，尽量向后铰，同时保持下背轻微凹陷。摸不到脚尖就算失败，需要纳入22天计划。拉伸日做靠墙版本：一脚踩上墙以顺带拉到小腿，双手高举在墙上，胸口向墙走，始终保持骨盆前倾和下背微弓，每侧保持45秒、左右各4组。力量日不练已经紧的髋伸肌，改练对侧的深层髋屈肌，也就是髂腰肌（psoas）：脚平放在箱子或台阶上，髋略高于90度，再把膝盖往上抬3到4英寸并稳住；对侧髋要伸开、臀肌收紧，不扶任何东西保持平衡，顶住3到4秒再放下。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">小腿：膝盖触墙测试、踝下落拉伸与胫骨前肌</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">第三项是膝盖触墙测试：同样站在离墙约15厘米处，脚跟全程不离地，让膝盖向前去碰墙。膝盖碰不到墙，或碰到时脚跟抬起，都算失败。拉伸日做脚踝下落拉伸，分两个变式分别照顾腓肠肌和比目鱼肌：先膝盖伸直让脚跟尽量下沉，拉腓肠肌；再屈膝重复，拉比目鱼肌。都是每侧45秒、各4组。力量上要补经常被忽略的胫骨前肌：坐在地上，把弹力带固定在前方绕过脚，向后坐到带子有张力，先让脚进入跖屈，再对抗阻力把脚背拉回来。注意不要每个力量日都做，隔一次做一次，因为突然加量容易引起胫骨骨膜炎（shin splints）。这样能把拉伸日拿到的踝关节活动度巩固住。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">腹肌：上撑测试、弓身拉伸与超人式</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">转到前侧先测腹肌。杰夫说就算看不见腹肌，腹肌仍然可能很紧。测试是俯卧上撑：要能把肘完全伸直，同时髋不离开地面；髋抬起或肘伸不直，都算失败。拉伸日可以做悬挂弓身：抓住门框引体向上杆，双脚后撤，让身体下沉、骨盆向前落，拉前面这一侧。他说「享受」这个词不合适，会相当难受，但有效。保持45秒，做4组。有健身球也可以躺在球上，髋尽量下沉，再顺着球体弧度后仰，两种都能用，关键是能坚持做。力量日加入超人式：既继续把腹直肌放到拉长位置，更重要的是强化因腹肌长期紧张而变弱的腰段竖脊肌。在22天计划的每个力量日，都按既定组数和次数来做。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">髋屈肌：托马斯测试、反向弓步伸手与臀桥足跟点地</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">髋屈肌用托马斯测试（Thomas test）：仰卧，把一侧膝盖拉向胸口，看对侧大腿能否完全落到床面或地面并与之平行。大腿落不到，或者为了落下而把下背大幅度弓起，都算失败。拉伸动作用他非常喜欢的反向弓步伸手（reverse lunge and reach），紧的一侧做，多数人两侧都做，每次45秒、4组。他特别提醒：感觉髋前侧紧，不等于真的短；也可能只是发僵，问题完全不同。除非用托马斯测试验过，不能默认人人都有髋屈肌过紧，他为此还专门做过一期视频。力量日练对侧的腘绳肌和臀肌，动作为臀桥足跟点地：弯曲那条腿主要用臀肌把髋撑起来，另一腿迈出并伸膝，负荷会更动态地转到腘绳肌，把后链两边都练到，帮助把这个问题真正解决掉。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">髋内旋：坐姿交叉测试、椒盐卷饼拉伸与青蛙式臀推</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">最后测髋内旋，用坐姿髋部交叉测试：把一侧脚踝放到对侧膝盖上，看小腿能否完全平行地面、整条腿放平，必要时可以稍稍用手按下。如果腿还翘在空中，就像旁边示范的杰西（Jesse）那样，就算失败。拉伸日做椒盐卷饼式（pretzel stretch）：动作和坐姿测试很像，只是改成仰卧，同样每侧45秒、4组。髋内旋肌长期过紧，往往伴随着髋外旋肌无力。力量动作用青蛙式臀推：仰卧，两脚掌相对、脚跟尽量靠近臀部，再从这里向上桥起。发力重点会从臀大肌转到臀中肌，也就是髋外旋肌；如果你一直有髋内旋紧张，这里会明显更弱。拉伸加对侧强化，是他把这个问题一次解决掉的「组合拳」。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">22天怎么排：先测试，再交替拉伸与强化</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">22天的安排是：第1天先做测试日，六个部位里无论你有六项、三项还是只失败一项，后面都有相应的功课。接下来21天交替进行：拉伸日针对发紧的部位，力量日强化对侧，避免问题回潮。第22天再把所有测试重做一遍，对比现在和当时的体态，看进步有多少。杰夫认为到那时会觉得这些功夫值得。片尾他还推荐另外两套22天训练（六块腹肌、增加俯卧撑），并指向 athleanx.com 上的分步计划，这一段已标为广告省略。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">杰夫·卡瓦利尔（Jeff Cavaliere）<em>主持</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>靠墙深蹲测试（wall splat test）</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="jeff"><div class="label"><span class="badge" title="杰夫·卡瓦利尔（Jeff Cavaliere）">Jeff</span></div><div class="content">
+<p>我有一个测试，叫靠墙深蹲测试（wall splat test）。你走到墙边，双脚离墙约15厘米（6英寸）站好。然后把手按在墙上时钟11点和1点的位置，直接往下蹲。目标是看你能不能蹲到大腿与地面平行。如果蹲不到，就算失败。后面这些测试全都是通过或不通过，要么做得到，要么做不到。就算你能蹲到足够深，但手离开了墙，或者更糟，人向后倒了，同样算失败。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>六大关键部位与22天计划</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="jeff"><div class="label"><span class="badge" title="杰夫·卡瓦利尔（Jeff Cavaliere）">Jeff</span></div><div class="content">
+<p>要通过这项测试，你必须蹲到大腿平行，双手始终贴着墙，而且平衡不能丢。说实话，体态不好，看起来就不怎么样。不过我们真正要盯的是六个关键部位，几乎所有人都会在这些地方出问题。后侧是胸椎、腘绳肌和小腿；前侧是腹肌、髋屈肌和髋旋转肌。我保证，按我接下来教的方法练满22天，你会站得更直，感觉更好，拍照也会更好看。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>胸椎：跪姿伸展与面拉</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="jeff"><div class="label"><span class="badge" title="杰夫·卡瓦利尔（Jeff Cavaliere）">Jeff</span></div><div class="content">
+<p>如果这里是薄弱环节，你要重点做的拉伸是跪姿胸椎伸展：把肘放到凳子或沙发上，胸口尽量往下沉，臀部坐向脚跟。这样能把你带进更多的胸椎伸展，同时也会拉到一块因为这种脊柱位置而容易变紧的次要肌肉，也就是背阔肌。你只要保持这个姿势45秒，做3到4组。与此同时，后侧这些肌肉因为长期处在被拉长的位置，往往已经变弱了，所以还得把它们重新练强壮。</p>
+<p>这时候就要用到面拉（face pull）。做面拉时，把手臂向后拉，尽量让拇指比肘先到身后。不要靠肘发力、拇指还留在身体前方。理想情况是手臂大约成90度，并在终点稍停一下，确保练到上背那一带的肌肉。如果没有弹力带，也可以用你在画面里看到的自重面拉：借门框，用同样的方式把手臂向后拉。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>腘绳肌：摸脚尖测试、靠墙拉伸与髂腰肌强化</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="jeff"><div class="label"><span class="badge" title="杰夫·卡瓦利尔（Jeff Cavaliere）">Jeff</span></div><div class="content">
+<p>这样做是为了把这些肌肉练强壮，好对抗你一直在对付的紧张。下一项测试是腘绳肌。怎么评估？用摸脚尖测试。要真正测腘绳肌长度，必须先做成骨盆前倾，最好的办法是髋铰链：双手自然垂在身前，然后尽量向后铰，同时保持下背那一点轻微的凹陷。我要看的是：你能不能摸到脚尖？摸不到，同样算失败，就需要把相应的练习和拉伸放进你的22天计划。</p>
+<p>如果你的腘绳肌需要在这22天里专门处理，拉伸日就做这个动作。一脚踩上墙，顺便再多拉一点小腿；然后双手高举到墙上，试着让胸口笔直朝墙走过去。全程都要保持骨盆前倾，下背那道弓也不能丢。你要做的就是在这个拉伸位置上保持45秒，左右腿各做4组。</p>
+<p>到了力量日，面对发紧的腘绳肌，我们要把注意力放到关节的对侧。不再去强化那些髋伸肌，而是去练深层髋屈肌，这里说的是髂腰肌（psoas）。方法很简单：站在箱子旁边，一只脚平放在箱面上；有楼梯也可以。要点是让髋略高于90度。然后你只要再把膝盖往上抬，哪怕只多3到4英寸，并稳住这个位置，而且不能扶任何东西来保持平衡。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>小腿：膝盖触墙测试、踝下落拉伸与胫骨前肌</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="jeff"><div class="label"><span class="badge" title="杰夫·卡瓦利尔（Jeff Cavaliere）">Jeff</span></div><div class="content">
+<p>要做到这一点，对侧的髋要伸开，对侧臀肌要收紧。关键就是能进到这个姿势，顶住3到4秒，再放下。第三项测试针对小腿，叫膝盖触墙测试。还是站在离墙约15厘米的地方，目标是脚跟全程不离地，让膝盖向前去碰墙。如果膝盖碰不到墙，或者碰到了但脚跟抬起来了，都算失败。</p>
+<p>这两种情况都不能接受。你必须在脚跟仍完全贴地的前提下，用膝盖触到墙。拉伸日做脚踝下落拉伸，这里有两个变式，因为我们要分别照顾小腿的两块肌肉：腓肠肌和比目鱼肌。先膝盖伸直锁住，让脚跟在柔韧性允许的范围内尽量下沉，还是每侧保持45秒、做4组。然后再屈膝重复，这样才能拉到比目鱼肌。</p>
+<p>左右各做45秒。还是那句话，关节一侧发生的事会影响另一侧，所以还要照顾一块常常被完全忽略的肌肉：胫骨前肌。我们要强化这块几乎从没被专门练过的肌肉，但有个提醒：不要每个力量日都做，隔一次做一次。如果你平时从不练它，突然每次都加进去，容易引起胫骨骨膜炎（shin splints）。做法是坐在地上，把弹力带固定在前方，绕过脚，再向后坐，直到带子有张力。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>腹肌：上撑测试、弓身拉伸与超人式</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="jeff"><div class="label"><span class="badge" title="杰夫·卡瓦利尔（Jeff Cavaliere）">Jeff</span></div><div class="content">
+<p>然后让脚先落到跖屈，再对抗弹力带的阻力把脚拉回来，这样能强化胫骨前肌，也有助于把拉伸日在踝关节上拿到的活动度巩固住。接下来转到前侧，先练腹肌。你可能会想：「可是杰夫，我要是连腹肌都看不见呢？」别担心，人人都有腹肌。看不见，不代表它们不紧。测试方法是俯卧上撑测试：要进入完整的上撑位置，同时不能出现下面两种情况。</p>
+<p>一是髋不能离开地面弹起来，二是肘必须完全伸直。只要髋抬起来了，或者肘伸不直，这项测试就失败了，就需要专门去处理。要通过，必须能完全撑起，并且髋始终贴着地面。如果腹肌紧张正是你的问题，拉伸日可以做这个弓身拉伸：需要能悬挂住，最好是自己门框上的引体向上杆。</p>
+<p>抓住杆，双脚往后撤，让身体沉下去，去「享受」这个拉伸。好吧，「享受」这个词可能不太合适，其实会相当难受，但有效。你要做的就是让骨盆往下掉，把前侧好好拉开。还是45秒，做4组。如果更想用健身球，而且手头有的话，可以躺到球上，髋尽量下沉，再顺着球体的弧度往后仰。这两种都行，看你有哪一种、哪一种更能坚持。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>髋屈肌：托马斯测试、反向弓步伸手与臀桥足跟点地</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="jeff"><div class="label"><span class="badge" title="杰夫·卡瓦利尔（Jeff Cavaliere）">Jeff</span></div><div class="content">
+<p>找到能让你持续做下去的方式最重要。如果腹肌是重点，力量日就要加上超人式，来处理我们刚才说的问题。它不仅能继续把腹直肌放到那个被拉长的位置上，更重要的是强化腰段竖脊肌——前侧长期紧张，这些肌肉往往会变弱。在22天计划里，每个力量日都按既定的组数和次数来做。接下来把焦点下移到髋屈肌，测试用的是托马斯测试（Thomas test）。</p>
+<p>我们要看的是：当你把一侧膝盖拉向胸口时，对侧大腿能不能完全落到你躺着的那个平面上，并与之平行。如果落不到，多半就是髋屈肌过紧，需要处理。还有一种情况：大腿是落下了，但你必须靠下背大幅度弓起来才能做到，那也不算做对。无论是弓背代偿，还是大腿落不到平面，都算失败，就得着手解决。我们可以用反向弓步伸手（reverse lunge and reach）正面处理这个问题。</p>
+<p>这是我最喜欢的髋屈肌拉伸方法之一。再次提醒：不是每个人都有髋屈肌过紧。仅仅感觉这里紧，并不一定真的短，也可能只是发僵，背后是完全不同的问题。我专门做过一期视频，说明除非用托马斯测试这类方法验过，不能默认人人都有髋屈肌紧张。当然，要做就做紧的那一侧，多数人两侧都做，每次45秒、4组。和前面一样，光有柔韧性还不够，还得补上力量。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>髋内旋：坐姿交叉测试、椒盐卷饼拉伸与青蛙式臀推</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="jeff"><div class="label"><span class="badge" title="杰夫·卡瓦利尔（Jeff Cavaliere）">Jeff</span></div><div class="content">
+<p>力量上我们还是打关节的对侧，这次是腘绳肌和臀肌，动作用臀桥足跟点地。弯曲的那条腿主要靠臀肌把身体向上推到髋伸展；另一条腿迈出去并伸直膝盖时，负荷会更动态地转到腘绳肌上。不管怎样，后链这两块肌肉都会被强化，而它们对于把这个问题真正解决掉非常关键。接下来还是围绕髋，请你坐下试试这个测试，叫坐姿髋部交叉测试。</p>
+<p>做法是把一侧脚踝放到对侧膝盖上。我们要看的是，小腿能不能完全与地面平行，也就是整条腿能够放平，必要时可以稍稍用手往下按。如果腿放不平，还翘在空中，就像杰西（Jesse）这里这样，我就视为测试失败，需要专门处理。如果髋内旋肌非常紧，拉伸日就做椒盐卷饼式拉伸（pretzel stretch）。它和刚才坐在椅子上的测试非常像，只不过这次改成仰卧。</p>
+<p>体感会和坐着做时很接近，这样你可以每次保持45秒，受影响的腿做4组。力量方面，髋内旋长期过紧，往往会导致髋外旋肌慢性无力。但这个动作能很有效地打到它们，就是青蛙式臀推。仰卧，双腿摆成青蛙那样的位置：脚掌相对，脚跟尽量拉近臀部，然后从这里向上做桥。</p>
+<p>你马上会感觉到，发力重点从臀大肌转到了臀中肌，也就是那些髋外旋肌。尤其是如果你一直有髋内旋紧张，这里会明显更弱。把它们拉开，再强化关节对侧，这个「组合拳」才能帮你把问题解决掉。好，这22天怎么安排呢？我们会在第1天先做测试日。所以，不管你六个部位里是全中、中了三项，还是只中了一项，</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>22天怎么排：先测试，再交替拉伸与强化</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="jeff"><div class="label"><span class="badge" title="杰夫·卡瓦利尔（Jeff Cavaliere）">Jeff</span></div><div class="content">
+<p>在这22天里你都还有功课要做。接下来的21天，基本上是交替进行：拉伸日针对发紧的部位，再安排练习去强化这些区域，避免问题回潮。最后一天，也就是第22天，会比较有意思，因为我们会重新测试，对比你那时和现在的体态，看进步有多少。到那时你就会意识到，这些功夫是值得的。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：ATHLEAN-X]</span></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "ATHLEAN-X", "title": "这个方法能快速纠正 95% 的体态问题", "url": "https://www.youtube.com/watch?v=633UP8zXNI8", "videoId": "633UP8zXNI8", "published_at": "2026-11-16", "duration": 715, "caption_source": "YouTube 自动生成字幕（en-orig；普通 yt-dlp 先拉 en 轨遇 HTTP 429，同批改拉 en-orig 成功）；caption_source=yt-dlp-auto；中文为全文通顺改写并按测试/动作分段。独白节目，说话人仅主持杰夫·卡瓦利尔（Jeff Cavaliere），未编造嘉宾。片尾 22 天腹肌/俯卧撑计划与 athleanx.com 推广已标广告省略。", "guests": [], "speakers": [{"id": "jeff", "name": "杰夫·卡瓦利尔（Jeff Cavaliere）", "role": "host", "short": "Jeff"}], "intro": {"summary": "杰夫·卡瓦利尔（Jeff Cavaliere）用六个通过/不通过测试，找出几乎人人会出问题的体态薄弱点，并给出一套22天交替拉伸与强化的方案。后侧盯胸椎、腘绳肌和小腿，前侧盯腹肌、髋屈肌和髋旋转肌；每个部位都有明确的失败标准和配套动作，时间多为45秒、4组。", "points": ["靠墙深蹲测试：双脚离墙约15厘米，双手按在墙上11点和1点位置下蹲；必须蹲到大腿平行、手不离墙、不后倒，否则失败。", "胸椎用跪姿伸展（肘撑凳/沙发，保持45秒、3–4组）加面拉强化上背；没有弹力带可用门框做自重面拉，拉的时候拇指要先于肘到达身后。", "腘绳肌用带骨盆前倾的摸脚尖测试；拉伸是靠墙走胸，力量则练对侧髂腰肌：脚踩箱或台阶，髋高于90度，再把膝上抬3到4英寸并稳住3到4秒。", "小腿用膝盖触墙测试（脚跟不离地）。拉伸分直膝和屈膝，分别拉腓肠肌和比目鱼肌；力量补胫骨前肌，但要隔次再做，以免引起胫骨骨膜炎。", "腹肌用俯卧上撑测试（肘伸直且髋不离地）；拉伸是悬挂弓身或健身球后仰，力量用超人式强化腰段竖脊肌。髋屈肌必须先过托马斯测试，不能只凭「感觉紧」就断定过短。", "髋内旋用坐姿交叉测试，腿放不平就算失败（示范里杰西的腿是翘起来的）。拉伸做椒盐卷饼式，力量做青蛙式臀推，把发力从臀大肌转到臀中肌。22天安排是第1天测试、中间21天交替、第22天复测。"], "verdict": "值得看。这是一条结构清楚的12分钟体态课，六个测试的通过标准和动作剂量都很具体，核心逻辑也一致：先测、再拉紧的一侧、同时强化对侧。已经只想要动作名单的人看逐段总结也能列出清单，但示范细节（骨盆前倾、脚跟是否离地、拇指与肘的关系）仍值得对照视频。片尾其他22天计划与网站推广可跳过。", "audience": "觉得体态含胸、拍照不好看，或髋、腿后侧、小腿和腹前侧发紧的人；适合居家用墙、门框、弹力带或健身球跟练。有明显疼痛或伤病时应先自行判断是否适合这些测试。"}, "sections": [{"id": "s1", "title": "靠墙深蹲测试（wall splat test）", "start_sec": 0, "summary": "杰夫·卡瓦利尔（Jeff Cavaliere）先用「靠墙深蹲测试」（wall splat test）做体态筛查：双脚离墙约15厘米（6英寸），双手按在墙上时钟11点和1点的位置，然后向下蹲。要通过，大腿必须蹲到与地面平行，双手始终贴墙，并且不能失去平衡、更不能向后摔倒。做不到深度、手离开墙面或后倒，一律算失败。他强调后面所有测试都是通过/不通过，没有中间分。"}, {"id": "s2", "title": "六大关键部位与22天计划", "start_sec": 34, "summary": "体态不好既影响观感，也几乎人人都会在六个关键部位「翻车」。后侧是胸椎、腘绳肌和小腿；前侧是腹肌、髋屈肌和髋旋转肌。杰夫承诺：按他接下来展示的方法练满22天，会站得更直、感觉更好，拍照也会更好看。后面的内容就是针对这六个部位，各配一项通过/不通过测试，再给出拉伸日和力量日的对应动作。"}, {"id": "s3", "title": "胸椎：跪姿伸展与面拉", "start_sec": 70, "summary": "胸椎活动不足时，拉伸重点是跪姿胸椎伸展：肘放到凳子或沙发上，胸口尽量下沉，臀部坐向脚跟，这样能增加胸椎伸展，同时拉伸因驼背而易紧的背阔肌。保持45秒，做3到4组。后侧肌肉因为长期被拉长而变弱，力量动作用面拉（face pull）补上：向后拉时让拇指先于肘到达身后，手臂大约成90度，并短暂停住，确保练到上背。没有弹力带可以用门框做自重面拉，动作要领相同，用来对抗前面的紧张。"}, {"id": "s4", "title": "腘绳肌：摸脚尖测试、靠墙拉伸与髂腰肌强化", "start_sec": 137, "summary": "第二项是摸脚尖测试。要真正测腘绳肌长度，必须先做成骨盆前倾，最好用髋铰链：双手自然垂在身前，尽量向后铰，同时保持下背轻微凹陷。摸不到脚尖就算失败，需要纳入22天计划。拉伸日做靠墙版本：一脚踩上墙以顺带拉到小腿，双手高举在墙上，胸口向墙走，始终保持骨盆前倾和下背微弓，每侧保持45秒、左右各4组。力量日不练已经紧的髋伸肌，改练对侧的深层髋屈肌，也就是髂腰肌（psoas）：脚平放在箱子或台阶上，髋略高于90度，再把膝盖往上抬3到4英寸并稳住；对侧髋要伸开、臀肌收紧，不扶任何东西保持平衡，顶住3到4秒再放下。"}, {"id": "s5", "title": "小腿：膝盖触墙测试、踝下落拉伸与胫骨前肌", "start_sec": 235, "summary": "第三项是膝盖触墙测试：同样站在离墙约15厘米处，脚跟全程不离地，让膝盖向前去碰墙。膝盖碰不到墙，或碰到时脚跟抬起，都算失败。拉伸日做脚踝下落拉伸，分两个变式分别照顾腓肠肌和比目鱼肌：先膝盖伸直让脚跟尽量下沉，拉腓肠肌；再屈膝重复，拉比目鱼肌。都是每侧45秒、各4组。力量上要补经常被忽略的胫骨前肌：坐在地上，把弹力带固定在前方绕过脚，向后坐到带子有张力，先让脚进入跖屈，再对抗阻力把脚背拉回来。注意不要每个力量日都做，隔一次做一次，因为突然加量容易引起胫骨骨膜炎（shin splints）。这样能把拉伸日拿到的踝关节活动度巩固住。"}, {"id": "s6", "title": "腹肌：上撑测试、弓身拉伸与超人式", "start_sec": 338, "summary": "转到前侧先测腹肌。杰夫说就算看不见腹肌，腹肌仍然可能很紧。测试是俯卧上撑：要能把肘完全伸直，同时髋不离开地面；髋抬起或肘伸不直，都算失败。拉伸日可以做悬挂弓身：抓住门框引体向上杆，双脚后撤，让身体下沉、骨盆向前落，拉前面这一侧。他说「享受」这个词不合适，会相当难受，但有效。保持45秒，做4组。有健身球也可以躺在球上，髋尽量下沉，再顺着球体弧度后仰，两种都能用，关键是能坚持做。力量日加入超人式：既继续把腹直肌放到拉长位置，更重要的是强化因腹肌长期紧张而变弱的腰段竖脊肌。在22天计划的每个力量日，都按既定组数和次数来做。"}, {"id": "s7", "title": "髋屈肌：托马斯测试、反向弓步伸手与臀桥足跟点地", "start_sec": 435, "summary": "髋屈肌用托马斯测试（Thomas test）：仰卧，把一侧膝盖拉向胸口，看对侧大腿能否完全落到床面或地面并与之平行。大腿落不到，或者为了落下而把下背大幅度弓起，都算失败。拉伸动作用他非常喜欢的反向弓步伸手（reverse lunge and reach），紧的一侧做，多数人两侧都做，每次45秒、4组。他特别提醒：感觉髋前侧紧，不等于真的短；也可能只是发僵，问题完全不同。除非用托马斯测试验过，不能默认人人都有髋屈肌过紧，他为此还专门做过一期视频。力量日练对侧的腘绳肌和臀肌，动作为臀桥足跟点地：弯曲那条腿主要用臀肌把髋撑起来，另一腿迈出并伸膝，负荷会更动态地转到腘绳肌，把后链两边都练到，帮助把这个问题真正解决掉。"}, {"id": "s8", "title": "髋内旋：坐姿交叉测试、椒盐卷饼拉伸与青蛙式臀推", "start_sec": 530, "summary": "最后测髋内旋，用坐姿髋部交叉测试：把一侧脚踝放到对侧膝盖上，看小腿能否完全平行地面、整条腿放平，必要时可以稍稍用手按下。如果腿还翘在空中，就像旁边示范的杰西（Jesse）那样，就算失败。拉伸日做椒盐卷饼式（pretzel stretch）：动作和坐姿测试很像，只是改成仰卧，同样每侧45秒、4组。髋内旋肌长期过紧，往往伴随着髋外旋肌无力。力量动作用青蛙式臀推：仰卧，两脚掌相对、脚跟尽量靠近臀部，再从这里向上桥起。发力重点会从臀大肌转到臀中肌，也就是髋外旋肌；如果你一直有髋内旋紧张，这里会明显更弱。拉伸加对侧强化，是他把这个问题一次解决掉的「组合拳」。"}, {"id": "s9", "title": "22天怎么排：先测试，再交替拉伸与强化", "start_sec": 654, "summary": "22天的安排是：第1天先做测试日，六个部位里无论你有六项、三项还是只失败一项，后面都有相应的功课。接下来21天交替进行：拉伸日针对发紧的部位，力量日强化对侧，避免问题回潮。第22天再把所有测试重做一遍，对比现在和当时的体态，看进步有多少。杰夫认为到那时会觉得这些功夫值得。片尾他还推荐另外两套22天训练（六块腹肌、增加俯卧撑），并指向 athleanx.com 上的分步计划，这一段已标为广告省略。"}], "paragraphs": [{"start_sec": 0, "type": "text", "zh": "我有一个测试，叫靠墙深蹲测试（wall splat test）。你走到墙边，双脚离墙约15厘米（6英寸）站好。然后把手按在墙上时钟11点和1点的位置，直接往下蹲。目标是看你能不能蹲到大腿与地面平行。如果蹲不到，就算失败。后面这些测试全都是通过或不通过，要么做得到，要么做不到。就算你能蹲到足够深，但手离开了墙，或者更糟，人向后倒了，同样算失败。", "speaker_id": "jeff", "section_id": "s1"}, {"start_sec": 34, "type": "text", "zh": "要通过这项测试，你必须蹲到大腿平行，双手始终贴着墙，而且平衡不能丢。说实话，体态不好，看起来就不怎么样。不过我们真正要盯的是六个关键部位，几乎所有人都会在这些地方出问题。后侧是胸椎、腘绳肌和小腿；前侧是腹肌、髋屈肌和髋旋转肌。我保证，按我接下来教的方法练满22天，你会站得更直，感觉更好，拍照也会更好看。", "speaker_id": "jeff", "section_id": "s2"}, {"start_sec": 70, "type": "text", "zh": "如果这里是薄弱环节，你要重点做的拉伸是跪姿胸椎伸展：把肘放到凳子或沙发上，胸口尽量往下沉，臀部坐向脚跟。这样能把你带进更多的胸椎伸展，同时也会拉到一块因为这种脊柱位置而容易变紧的次要肌肉，也就是背阔肌。你只要保持这个姿势45秒，做3到4组。与此同时，后侧这些肌肉因为长期处在被拉长的位置，往往已经变弱了，所以还得把它们重新练强壮。", "speaker_id": "jeff", "section_id": "s3"}, {"start_sec": 104, "type": "text", "zh": "这时候就要用到面拉（face pull）。做面拉时，把手臂向后拉，尽量让拇指比肘先到身后。不要靠肘发力、拇指还留在身体前方。理想情况是手臂大约成90度，并在终点稍停一下，确保练到上背那一带的肌肉。如果没有弹力带，也可以用你在画面里看到的自重面拉：借门框，用同样的方式把手臂向后拉。", "speaker_id": "jeff", "section_id": "s3"}, {"start_sec": 137, "type": "text", "zh": "这样做是为了把这些肌肉练强壮，好对抗你一直在对付的紧张。下一项测试是腘绳肌。怎么评估？用摸脚尖测试。要真正测腘绳肌长度，必须先做成骨盆前倾，最好的办法是髋铰链：双手自然垂在身前，然后尽量向后铰，同时保持下背那一点轻微的凹陷。我要看的是：你能不能摸到脚尖？摸不到，同样算失败，就需要把相应的练习和拉伸放进你的22天计划。", "speaker_id": "jeff", "section_id": "s4"}, {"start_sec": 170, "type": "text", "zh": "如果你的腘绳肌需要在这22天里专门处理，拉伸日就做这个动作。一脚踩上墙，顺便再多拉一点小腿；然后双手高举到墙上，试着让胸口笔直朝墙走过去。全程都要保持骨盆前倾，下背那道弓也不能丢。你要做的就是在这个拉伸位置上保持45秒，左右腿各做4组。", "speaker_id": "jeff", "section_id": "s4"}, {"start_sec": 201, "type": "text", "zh": "到了力量日，面对发紧的腘绳肌，我们要把注意力放到关节的对侧。不再去强化那些髋伸肌，而是去练深层髋屈肌，这里说的是髂腰肌（psoas）。方法很简单：站在箱子旁边，一只脚平放在箱面上；有楼梯也可以。要点是让髋略高于90度。然后你只要再把膝盖往上抬，哪怕只多3到4英寸，并稳住这个位置，而且不能扶任何东西来保持平衡。", "speaker_id": "jeff", "section_id": "s4"}, {"start_sec": 235, "type": "text", "zh": "要做到这一点，对侧的髋要伸开，对侧臀肌要收紧。关键就是能进到这个姿势，顶住3到4秒，再放下。第三项测试针对小腿，叫膝盖触墙测试。还是站在离墙约15厘米的地方，目标是脚跟全程不离地，让膝盖向前去碰墙。如果膝盖碰不到墙，或者碰到了但脚跟抬起来了，都算失败。", "speaker_id": "jeff", "section_id": "s5"}, {"start_sec": 268, "type": "text", "zh": "这两种情况都不能接受。你必须在脚跟仍完全贴地的前提下，用膝盖触到墙。拉伸日做脚踝下落拉伸，这里有两个变式，因为我们要分别照顾小腿的两块肌肉：腓肠肌和比目鱼肌。先膝盖伸直锁住，让脚跟在柔韧性允许的范围内尽量下沉，还是每侧保持45秒、做4组。然后再屈膝重复，这样才能拉到比目鱼肌。", "speaker_id": "jeff", "section_id": "s5"}, {"start_sec": 305, "type": "text", "zh": "左右各做45秒。还是那句话，关节一侧发生的事会影响另一侧，所以还要照顾一块常常被完全忽略的肌肉：胫骨前肌。我们要强化这块几乎从没被专门练过的肌肉，但有个提醒：不要每个力量日都做，隔一次做一次。如果你平时从不练它，突然每次都加进去，容易引起胫骨骨膜炎（shin splints）。做法是坐在地上，把弹力带固定在前方，绕过脚，再向后坐，直到带子有张力。", "speaker_id": "jeff", "section_id": "s5"}, {"start_sec": 338, "type": "text", "zh": "然后让脚先落到跖屈，再对抗弹力带的阻力把脚拉回来，这样能强化胫骨前肌，也有助于把拉伸日在踝关节上拿到的活动度巩固住。接下来转到前侧，先练腹肌。你可能会想：「可是杰夫，我要是连腹肌都看不见呢？」别担心，人人都有腹肌。看不见，不代表它们不紧。测试方法是俯卧上撑测试：要进入完整的上撑位置，同时不能出现下面两种情况。", "speaker_id": "jeff", "section_id": "s6"}, {"start_sec": 371, "type": "text", "zh": "一是髋不能离开地面弹起来，二是肘必须完全伸直。只要髋抬起来了，或者肘伸不直，这项测试就失败了，就需要专门去处理。要通过，必须能完全撑起，并且髋始终贴着地面。如果腹肌紧张正是你的问题，拉伸日可以做这个弓身拉伸：需要能悬挂住，最好是自己门框上的引体向上杆。", "speaker_id": "jeff", "section_id": "s6"}, {"start_sec": 403, "type": "text", "zh": "抓住杆，双脚往后撤，让身体沉下去，去「享受」这个拉伸。好吧，「享受」这个词可能不太合适，其实会相当难受，但有效。你要做的就是让骨盆往下掉，把前侧好好拉开。还是45秒，做4组。如果更想用健身球，而且手头有的话，可以躺到球上，髋尽量下沉，再顺着球体的弧度往后仰。这两种都行，看你有哪一种、哪一种更能坚持。", "speaker_id": "jeff", "section_id": "s6"}, {"start_sec": 435, "type": "text", "zh": "找到能让你持续做下去的方式最重要。如果腹肌是重点，力量日就要加上超人式，来处理我们刚才说的问题。它不仅能继续把腹直肌放到那个被拉长的位置上，更重要的是强化腰段竖脊肌——前侧长期紧张，这些肌肉往往会变弱。在22天计划里，每个力量日都按既定的组数和次数来做。接下来把焦点下移到髋屈肌，测试用的是托马斯测试（Thomas test）。", "speaker_id": "jeff", "section_id": "s7"}, {"start_sec": 466, "type": "text", "zh": "我们要看的是：当你把一侧膝盖拉向胸口时，对侧大腿能不能完全落到你躺着的那个平面上，并与之平行。如果落不到，多半就是髋屈肌过紧，需要处理。还有一种情况：大腿是落下了，但你必须靠下背大幅度弓起来才能做到，那也不算做对。无论是弓背代偿，还是大腿落不到平面，都算失败，就得着手解决。我们可以用反向弓步伸手（reverse lunge and reach）正面处理这个问题。", "speaker_id": "jeff", "section_id": "s7"}, {"start_sec": 500, "type": "text", "zh": "这是我最喜欢的髋屈肌拉伸方法之一。再次提醒：不是每个人都有髋屈肌过紧。仅仅感觉这里紧，并不一定真的短，也可能只是发僵，背后是完全不同的问题。我专门做过一期视频，说明除非用托马斯测试这类方法验过，不能默认人人都有髋屈肌紧张。当然，要做就做紧的那一侧，多数人两侧都做，每次45秒、4组。和前面一样，光有柔韧性还不够，还得补上力量。", "speaker_id": "jeff", "section_id": "s7"}, {"start_sec": 530, "type": "text", "zh": "力量上我们还是打关节的对侧，这次是腘绳肌和臀肌，动作用臀桥足跟点地。弯曲的那条腿主要靠臀肌把身体向上推到髋伸展；另一条腿迈出去并伸直膝盖时，负荷会更动态地转到腘绳肌上。不管怎样，后链这两块肌肉都会被强化，而它们对于把这个问题真正解决掉非常关键。接下来还是围绕髋，请你坐下试试这个测试，叫坐姿髋部交叉测试。", "speaker_id": "jeff", "section_id": "s8"}, {"start_sec": 560, "type": "text", "zh": "做法是把一侧脚踝放到对侧膝盖上。我们要看的是，小腿能不能完全与地面平行，也就是整条腿能够放平，必要时可以稍稍用手往下按。如果腿放不平，还翘在空中，就像杰西（Jesse）这里这样，我就视为测试失败，需要专门处理。如果髋内旋肌非常紧，拉伸日就做椒盐卷饼式拉伸（pretzel stretch）。它和刚才坐在椅子上的测试非常像，只不过这次改成仰卧。", "speaker_id": "jeff", "section_id": "s8"}, {"start_sec": 593, "type": "text", "zh": "体感会和坐着做时很接近，这样你可以每次保持45秒，受影响的腿做4组。力量方面，髋内旋长期过紧，往往会导致髋外旋肌慢性无力。但这个动作能很有效地打到它们，就是青蛙式臀推。仰卧，双腿摆成青蛙那样的位置：脚掌相对，脚跟尽量拉近臀部，然后从这里向上做桥。", "speaker_id": "jeff", "section_id": "s8"}, {"start_sec": 626, "type": "text", "zh": "你马上会感觉到，发力重点从臀大肌转到了臀中肌，也就是那些髋外旋肌。尤其是如果你一直有髋内旋紧张，这里会明显更弱。把它们拉开，再强化关节对侧，这个「组合拳」才能帮你把问题解决掉。好，这22天怎么安排呢？我们会在第1天先做测试日。所以，不管你六个部位里是全中、中了三项，还是只中了一项，", "speaker_id": "jeff", "section_id": "s8"}, {"start_sec": 654, "type": "text", "zh": "在这22天里你都还有功课要做。接下来的21天，基本上是交替进行：拉伸日针对发紧的部位，再安排练习去强化这些区域，避免问题回潮。最后一天，也就是第22天，会比较有意思，因为我们会重新测试，对比你那时和现在的体态，看进步有多少。到那时你就会意识到，这些功夫是值得的。", "speaker_id": "jeff", "section_id": "s9"}, {"start_sec": 689, "type": "ad_omitted", "ad_brand": "ATHLEAN-X", "section_id": "s9"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

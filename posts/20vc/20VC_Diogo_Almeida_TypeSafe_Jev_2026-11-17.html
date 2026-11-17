@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>美国开源模型追得上中国吗？智力成本、Token 与决策模型｜Jev 制作方迪奥戈·阿尔梅达</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="harry">哈里·斯泰宾斯（Harry Stebbings）</option><option value="diogo">迪奥戈·阿尔梅达（Diogo Almeida）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">20VC with Harry Stebbings</span><span class="pill">2026-11-16</span></div>
+<h1>美国开源模型追得上中国吗？智力成本、Token 与决策模型｜Jev 制作方迪奥戈·阿尔梅达</h1>
+<p class="sub">嘉宾：迪奥戈·阿尔梅达（Diogo Almeida） · 约 74 分钟（4410 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=BE2JqjsN4aY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=BE2JqjsN4aY</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>20VC with Harry Stebbings</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-16</dd></div><div class="meta-row"><dt>时长</dt><dd>约 74 分钟（4410 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 自动英文字幕（en-orig）。普通 yt-dlp 成功写出自动轨（caption.vtt 131805 字节，约 1001 条时间轴，首条 0.08 秒，末条开始 4394.64 秒、结束 4402.12 秒，时长 4410 秒，覆盖约 99.8%）。标注 yt-dlp-auto / auto-en-orig。未使用 cookies，也未用 browser-cdp。</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>BE2JqjsN4aY</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>哈里·斯泰宾斯对谈 TypeSafe AI 联合创始人兼首席执行官、Jev 制作方迪奥戈·阿尔梅达。哈里开场称 Jev 已被约三分之一的财富 500 强使用，公司估值 75 亿美元。迪奥戈的核心论点是：自动化最大的瓶颈不是算力，也不是模型「够不够聪明」，而是智力的可靠性——大约 95% 的时间你得到爱因斯坦，另外 5% 是憨豆先生。他提出「最苦的教训」：正确的任务大于数据，数据大于算力，算力大于算法；并认为多数 neo-lab 极度浪费，基准测试「完全是胡扯」，美国开源模型在真正智力上恐怕追不上中国，以及人工智能已处于泡沫、需求可能因预期错配而收缩。TypeSafe 此轮融资约 7.5 亿美元、估值 75 亿美元，由安德森·霍洛维茨领投、红杉参与；他强调公司已经盈利，要的不是估值最大化，而是能对抗全球最大公司的盟友。</p>
+<h3>核心要点</h3><ul><li>可靠性才是自动化的最大瓶颈：同一批模型大约 95% 的时间像爱因斯坦，5% 像憨豆先生，期望值算不过来，所以企业不敢把会计、客服里的关键决策交给模型。Jev 要做的是后台自动运行所需的「多个九」的智力可靠性，而不是人在环路里的助手。</li><li>「最苦的教训」排序是：正确任务，然后是数据，然后是算力，然后是算法。纯堆算力的叙事在 GPT-4.5 处被打破——按 token 成本它仍是最大模型，但商业上并不成功。人类反馈强化学习所需的偏好数据在互联网上原本不存在；来自可验证奖励的强化学习，关键也不只是可验证奖励，而是潜在思维链。</li><li>他相信决策模型会迎来超级杰文斯悖论，总 token 用量将远超文本大模型。企业软件几乎十年没变，他希望人工智能成为「第四种逻辑门」：蓝光 LED 不是把市场扩大 50%，而是打开屏幕和白光；「不能自动化」应变成只是投入问题。</li><li>公司不该为了「自有智能」去训练专用模型，真正的护城河在模型周围的软件与工程。Harvey 等从「自主完成大项目」转向律师副驾驶，他认为副驾驶能做的工程有限。每 token 智力已几乎不再显著提升，编程变强是因为把编码做进了分布之内。</li><li>基准测试「完全是胡扯」。一线的 OpenAI、Anthropic 相对不必作弊；二线实验室和「美国开源安慰奖」以及决策模型赛道在疯狂刷榜。美国开源模型在真正智力上他猜测追不上中国（伦理与法律基线更高），但威胁模型取决于是否「原样塞进编程代理」；Jev 已被用来分类工具调用是否安全、是否在向中国回传。</li><li>TypeSafe 融资约 7.5 亿美元、估值 75 亿美元，几乎没有路演稿、全是找上门来的，已经盈利，不为估值最大化。选择 a16z 是技术哲学同盟，选择红杉是因为索尼娅·王（Sonia Wong）。他们拒绝 2000 万美元薪酬包，基本不招 OpenAI 研究员。最被高估的是机器人，最被低估的是软件研究；他认为委托代理问题将在五年内被更好解决。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看。这期把「模型已经很聪明，软件却几乎没变」拆成智力可靠性、任务选择、刷榜、开源格局和需求侧泡沫，数字和例子都具体，对做企业自动化、模型产品或关心开源竞争的人信息密度很高。自动字幕有少量专名含混，但不影响主线。</p>
+<h3>适合人群</h3><p>关心企业自动化、决策模型、开源格局与人工智能泡沫，或想理解 Jev 和 TypeSafe 究竟在做什么的创始人、投资人和工程师。</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场：智力可靠性才是自动化的最大瓶颈</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里·斯泰宾斯介绍 TypeSafe 创始人、Jev 制作方迪奥戈·阿尔梅达：称约三分之一的财富 500 强已在使用 Jev，公司估值 75 亿美元，并预告后面关于数据重于算力、neo-lab 浪费、Anthropic 仍是最好、以及人工智能已在泡沫中的讨论。迪奥戈用约 60 秒定位产品：Jev 不是狭义的专用模型，要回答的是——人工智能能解数学里的千年大奖难题，企业软件却几乎还和十年前一样；得来速、客服里的关键决策仍然不敢交给模型。他强调自己说的可靠性不是正常运行时间或吞吐，而是智力的「非锯齿性」：同一批模型大约 95% 的时间像爱因斯坦，另外 5% 像憨豆先生，按期望值一算就过不了账，所以过去约四年的多轮热潮里，那么多公司反复尝试自动做会计却不断失败。他认为这根本不是普及问题；Jev 的超能力是用「多个九」的智力可靠性，换掉这种高方差，让软件能在后台一直跑下去，而不是停在「人在环路里」的助手。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">最苦的教训：正确任务大于数据，数据大于算力</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">迪奥戈改写萨顿（Rich Sutton）的「苦涩教训」：约 2019 到 2023 年是「扩规模就能变好」的时期，到 GPT-4.5 附近收益平台化，业界不再靠纯扩张。若按推理 token 成本衡量，GPT-4.5 仍是有史以来最大的模型，但商业上并不成功。他给出的重要性排序是：正确的任务，然后是数据，然后是算力，然后是算法。在 Jev 出现之前，大模型世界里的两个「正确任务」是取悦人类的人类反馈强化学习（RLHF），和在基准上拿高分的来自可验证奖励的强化学习（RLVR），两者都对不到「后台自动跑软件」。ChatGPT 在「当好 ChatGPT」上几乎从不失败，不可靠的是文本里的判断。RLHF 所需的人类偏好对比数据在互联网和公司数据库里原本不存在，必须先定义任务才能长出数据；RLVR 的关键也不只是可验证奖励，而是潜在思维链——2021 年就有人用近端策略优化（PPO）对着单元测试做强化学习，没有推理时一直失败。好数据取决于能否推动最前沿模型，因此数据商必须够到最强模型，并把难度卡在恰好的位置上。企业数据湖里的数据形状通常不对。哈里问 Surge、Mercor 这类公司还是不是好生意，他认为市场会从大模型扩展到「每家公司拥有自己的智能」；迪奥戈则认为仍处在炒作浪里，等这些公司必须成为可持续生意时，花在数据上的钱并不好估。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">合成数据只是工具；多数 neo-lab 极度浪费；人们错看了 Jev</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">迪奥戈认为合成数据不是神像，只是工具：文献里它多被用来让小模型追上大模型，很难用来继续推高已经最强的模型。TypeSafe 大量使用合成数据，但焦距打在「智力可靠性」这个正确任务上。他对全球把钱扔进火炉感到担忧：多数 neo-lab 的商业模式像是雇一堆前实验室员工、囤 GPU、玩一玩再等被收购，资源极度浪费；往强化学习里砸钱倒还有道理，模型确实在变聪明，但他不会用自己的钱去赌，按期望值计算也并不觉得当前这种投入已被证明合理。这个方向早在 TypeSafe 成立前就「明显到他以为 Anthropic 已经做完 80%」，他没预料到的是发布会变成开发者版的 ChatGPT 时刻，连非开发者也在讨论。团队不喜欢他在播客里讲真细节，因为讲清楚反而是竞争劣势；人们仍用大模型的框去看 Jev，盯着速度和成本。他们即便在基准上领先到离谱，模型偶尔变笨也会心疼，还要追问为什么是 97% 的准确率、缺的那一块是什么——而这常常是提示词问题。开发者很快就懂了，不看榜，只觉得「你们的模型明显更擅长新东西」；反而是觉得「这不过是个分类器、很无聊」的人，后来做出了那些不理解为何要死磕稳健性的仿制品。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">大厂并非不能复制，而是还没把可靠性当真</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里直问：发布之后 OpenAI 等已在做自己的决策模型，大厂为什么不直接抄走、把他们竞争出局。迪奥戈认为问题完全公平——一旦他们开始非常在乎可靠性，竞争才会变得有意思。至于「要企业客户、要收入，没有可靠性首席信息官怎么会签字」：他认为外界严重低估了大厂有多不在乎；人们很难把「智力」理解成一种产品，只好拿基准测试当创可贴。过去大约九个月，文本模型圈已经学会「榜说明不了什么」：Anthropic 的模型就是最好的，哪怕中国模型在榜上打平，哪怕 Anthropic 几乎不落在任何一条基准的帕累托前沿上。决策模型这个子领域大约在发布一周后出现模仿，两三周内人们就看穿那些是刷榜。大厂优化的是业务指标：在 ChatGPT 为王、还没有 Claude Code 的日子里，优化的是月活跃用户，谄媚（sycophancy）就是这样炼出来的——模型会撒谎，但那是用户想要的。现在优化的则是编程代理的「月活等价物」。如果不为这件事训练专用模型、也不认真投入，他不认为对手短期内能做出可比较的模型。他希望他们都去做，这对世界有好处、对 TypeSafe 的生意不好；眼下「几乎没有真正的竞争」，将来一定会有。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">决策模型将远超文本大模型的 token 用量，软件还缺第四种逻辑门</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">被问三年后市场会像优步与 Lyft，还是像亚马逊云、谷歌云与微软云，迪奥戈更像技术理想主义者：不盯竞争格局，要靠不断推出「技术上的震慑」。他相信这将是超级杰文斯悖论，不是文本大模型那种轻微或虚假的杰文斯；决策模型会无处不在、在后台运行，总 token 消耗将完全压过文本大模型，人们对比人工智能的感觉也会从「朝我喷垃圾」变成「真的让生活更好」。他们的模型相对极为高效，并不走补贴剧本，但仍需把效率再往前推。最大瓶颈目前像单人游戏——要靠他们推技术边界，并和开发者一起推。他讨厌旧金山把机器学习研究员压在工程师、再压在软件工程师之上的地位游戏，希望出现「软件研究员」这种新角色，像互联网或移动的寒武纪爆发里去立灯塔。工程师脑子里一直有「能自动化 / 不能自动化」的分界（搬文件可以，给笔记本做语音界面不行），他希望「不能」变成只是投入问题。蓝光 LED 的类比是：红绿 LED 只能做指示灯，补上蓝色不是把 LED 市值扩大 50%，而是让今天的屏幕和高效白光成为可能。他希望人工智能成为软件的第四种基本逻辑门，带来的不是 33% 的扩展，而是数十万倍，触发软件本身的寒武纪爆发。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">企业软件只是旁边挂了点 AI；自有模型并不是圣杯</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里指出，今天的企业软件充其量只是「撒了一点人工智能」。迪奥戈认为这极其合乎逻辑，而且不是分发问题：企业有强激励去采用，冲得最猛的往往伤得最重。大模型不可靠，不能托付对公司有利害的决策，却可以被用来做对用户有利害的决策——因为公司往往不那么在乎用户。于是人工智能进不了应用的深层逻辑，只是同一套 B2B SaaS 旁边挂一个会向用户喷「AI 垃圾」的附件，对错负担全甩给用户。SaaS 末日没有发生，马丁·卡萨多（Martin Casado）称之为 SaaS-a-palooza。最可能赢的是最在乎、最靠近问题的人：传统 SaaS 的优势不是分发，而是懂工作流、有体量去做真正的自动化工程。他举例，TurboTax 该改哪块界面，OpenAI 或 Anthropic 象牙塔里的人根本不会。至于 Fireworks 的林（Lin）和 Modal 的埃里克主张每家公司拥有自己的智能：他把「人工智能同事」比成无马马车——工业革命要自动化的是「拧瓶盖」这种极窄动作，而不是等一个人形同事。若假设每家公司都愿意且有能力按自己的分布训练同事模型，自有智能才勉强说得通；他认为实验室走「通用智能同事」更自洽。给公司无限多、成本低一千倍的实习生本该很好用，现在用不起来，借口往往是持续学习或必须更窄，他觉得这和现实对不上。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">垂直模型与 Harvey 的厚薄，以及每 token 智力几乎不再涨</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里提到 Fireworks 帮过硅谷一线品牌，Harvey、Ramp、Cognition 可能在自建模型，并问这是不是徒劳。迪奥戈说情况复杂：基准有极强的扭曲激励，对内对外都要显得不会被大模型打穿。能力跃迁往往是离散的，发生在某类数据被做进分布之时——他记得编码代理最大的一跳大约在去年 11 月某版 Opus，之后再爱用 Fable 5.2 或 Opus 5.5，也已是收益递减，这时才轮到每 token 成本这类微观优化。工程师讨厌升级依赖，只有「以前不够用」才会更新；一旦 Jev 这类模型把自动化锁住，人们更不愿意换。公司真正的专有智能来自模型周围的软件，而不是自己训练模型。Harvey、Cognition 必须讲「我们拥有智能」，否则看起来只是大模型上的薄封装；但真正的壁垒更像「你怎么用数据库」，而不是用哪家数据库。哈里强烈反驳 Harvey 是薄封装。迪奥戈说「薄」是相对的：Harvey 早期和 OpenAI 合作时想自主完成越来越大的项目，后来没做成，转到律师副驾驶。副驾驶周围能做的工程有限（领域 MCP、法律检索增强等），而人们想要的是自动完成大块工作，不只是让人效率提高两位数百分比。系统消息也是一种很糙的工程，没有保证、没有置信度、难以测试。关于「每 token 原始智力是否真在提升」：他认为曾经大幅提升，现在即使有也微乎其微，好比你分不出智商 180 和 190，而大模型其实更像偶尔 180、偶尔 80 甚至更差。预训练智力相对每美元算力几乎没有在动；编程之所以大幅提升，是因为编码被做进了分布、更可靠，不是基座变得更通用。写作等其他能力在过去约九个月几乎没有进步——在编程代理上堆数据，并不会改善别的能力。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">基准测试是胡扯；美国开源模型恐怕追不上中国</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">迪奥戈要大家记住：基准测试完全是胡扯，逆向激励巨大，最受伤的是没时间亲自玩模型的人，开放权重和开放研究尤其如此。实验室内部有智力的代理指标，却没有动力公开最好的测法。谁最在「胡扯」？他给了分层：一线的 OpenAI 与 Anthropic 有动力说实话，因为不必作弊也能站在上面，士气也需要真实感；二线实验室有动力对自己撒谎、内部狂刷榜却不能承认，Llama 4 就是太直白地刷榜，他觉得谷歌眼下和不少中国实验室也有类似压力——他们还在瞄准顶部，所以不是公开以刷榜为目的。真正疯狂刷榜的是去抢「安慰奖」的玩家，比如「美国开源领袖」这块边角：光学成分很重，没人真用这些模型，也就没人拆穿。决策模型赛道更糟，因为几乎没人懂什么叫好，人人刷到极致，反而没人信那些榜，解释权落到 TypeSafe 这边。哈里问要不要推一家美国开源领袖（Reflection、Poolside、Thinking Machines）。迪奥戈先反问「谁是我们、什么叫推」。若威胁模型是「原样插入编程代理」，中国开源模型的提示注入和后门值得担心，他自己不会在编程代理里原样用中国模型；但若公司会再训练、去偏置，情况不同。美国开源模型给自己设了更高的伦理和法律基线，在真正智力上他猜测追不上，除非中国自己停手；若整个领域平台化够硬，那多出来的几个百分点也可能无所谓。Jev 眼下一个重要用例就是分类工具调用是否安全、是否在向中国「回电话」。哈里提到最新 DeepSeek 等模型似乎用上了最新 Blackwell；迪奥戈说那是「Will Depw」（自动字幕，全名未能确认）的分析结果，网上用同样方法看，DeepSeek 4.1 Flash 并不像是那样训练的。他们模型很高效，可以站在 GPU 狂热和 neo-cloud 泡沫的边线上。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">他认为人工智能已在泡沫中，破灭将来自需求侧</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">被问未来 12 个月 neo-cloud 会发生什么，迪奥戈说人工智能泡沫已存在一段时间，并按泡沫破裂来做预案。哈里认为供给不是问题，需求也未见冲击。迪奥戈的看法是：编程代理确实改变了局面，但「这次不一样」已经喊了很多年；部分需求来自错失恐惧——人们以为结果很好就 all-in，一旦直面能力边界，需求可能迅速收缩。他接触到的买单者往往对能力校准不准、高估太多，这个领域长期过度承诺、交付不足。有人说即便模型不再进步，仍有大量价值没被榨取——他说这话的人正是靠榨取现有模型吃饭的，有立场偏差。他同意模型已经非常聪明，但接口和把聪明「挖出来」的方式很差；另一面是那些大裁员、以为人工智能能包办、后来又不得不收回的公司，长期后果很大。TypeSafe 自己利润率不错。哈里问：你们这么便宜，要做到 100 亿美元收入，规模得极大。迪奥戈搬出杰文斯悖论：不是「更便宜就会魔法般更好」，而是预算不变时 Jev 更便宜、更可靠，原来做不成的项目做成了，才会把智能扔到以前绝不会扔的地方；只有项目真正创造价值，预算才会回到原水平甚至更高——所以智力可靠性才是关键。在「真正自动化」这个总指标上，他把 Jev、Fable 和 Astra 都打成大约 0%：零星有一点，但「后台自动跑的人工智能」这个行业几乎还不存在，潜力应大于只让写软件效率提高约 20% 的编程代理。哈里提到 Cognition 眼下大约排第四、已是约 16 亿美元收入的生意，名单里还有 Claude Code、Codex、Cursor、Factory。迪奥戈说他几乎不分析编程代理市场，甚至短期里若 Jev 完全不做编程代理、让那边自己打架，对公司更轻松——不过已经有点晚了。市场会不会比今天大得多，他不知道：人工智能看起来像一条指数向上的线，其实是多次上下波动，每一轮 FOMO 叠上下一轮，假定「这次只会一直涨」太傲慢。哈里也想起 2015 到 2016 年 Bloomsbury AI、Message.ai 那一波。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">75 亿美元估值、7.5 亿美元融资：要的是盟友，不是估值最大化</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里问这一轮是不是一家家停下来收条款清单、一下子拿到 28 张。迪奥戈说那是一段非常混乱的时间，也让他们看清了风险投资人。几乎全是找上门来的，他们没有路演稿，只能让对方讲看到的市场信号，因为内部已经「着火」。有意思的是观察不同机构在最初几天、几周里兴奋如何变化，以及他们如何转述投资组合公司在用 Jev——TypeSafe 不窥探客户数据，本来并不知道客户拿它做什么。融资金额和估值来回改过：起步时他们甚至不知道这轮要什么，后来决定不必估值最大化，也不需要那么多钱，要的是能和全球最大公司对抗的盟友和最聪明的钱。他们已经盈利，账上现金还在增加；以他们此前融到的钱，不该一上来就计划把新钱花光。出现过那种带嘲讽意味的加码认购需求，甚至有人说「如果你按三倍估值来融，算我一份」——他们不需要这些钱。哈里骂这就是泡沫，有人可以 YOLO 210 亿美元；迪奥戈说他们既不需要钱也不需要估值，所以不必玩这个。为什么选红杉和安德森·霍洛维茨：他是技术乐观主义者，觉得 a16z 在哲学上最对齐，和马丁·卡萨多、本·霍洛维茨一起做的那期播客像老朋友交心。红杉这边，他坦白「我想要的不是红杉的钱，是索尼娅·王（Sonia Wong）」。他欣赏她那种独特的聪明，能在战略问题上给出别人给不了的视角。TypeSafe 有一条很「非创业公司」的价值观：「慢慢做出好决策」。他讨厌传统商务人士自动驾驶式地做事，重要事项必须有为什么、有框架；他希望把更多时间花在数据路线图、产品、可信度和每一个岗位的人选上。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">最难招的是「数据恶魔」团队；拒绝两千万美元薪酬包</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">招聘最难的是他们内部称作「数据恶魔」（data demon）的团队：新任务需要新形状的数据，他们内部几乎是一个只服务自家方法的迷你实验室。这件事本该极酷、最好招，却总招来不对的人；他不知道该怎么说服那些极为出色、却不觉得自己能推动机器学习边界、也不是研究员的人加入——他们会被这个子领域的顶尖专家带着，而且真的能让模型变聪明。薪酬上，他们已想清楚：不要雇佣兵，给的是「好、但不是实验室那种疯狂数字」。哈里转述 Modal 的埃里克必须去抢 2000 万美元薪酬包的毕业生。迪奥戈说 TypeSafe 不跟这个走。他认为 Anthropic 最近有点受过度雇佣兵化之苦——他们想要传教士，却付得比谁都多，于是出现了专门帮人准备 Anthropic 文化面试的市场。TypeSafe 要给到既照顾人、又筛掉雇佣枪手的水平。若只能给候选人烘焙一种特质，他要「痴迷」：对自己的手艺上瘾，睡不着，以及非性意味的技术迷恋，午饭和闲聊都想谈技术，整支队伍一起把科幻边界往前推，做出技术上的震慑。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s12">
+<div class="sum-top"><span class="sum-num">12</span><span class="sum-title">快问快答：炒作没那么重要，机器人被高估，委托代理问题将被改写</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">过去 12 个月他改变最多的看法是：炒作没他以为的那么重要。Jev 发布时他觉得炒作极重要，后来别人拼命刷榜，真实用户却说「试过了，很烂，没人在乎」，已经能看出谁最好、谁最在乎，他们可以继续少承诺、多交付。他持有、而前沿实验室最聪明的人会反对的信念是：今天的人工智能能做多少，以及可靠性有多重要。为什么基本不从 OpenAI 招人：进 OpenAI 有一种选择偏差，像一种反信号，要喝特定的迷魂汤；他尤其不招那里的研究员——他们天生爱算法和扩张、讨厌数据（数据在多数实验室里地位很低），也很少思考「正确的任务」，整个 OpenAI 里大概只有三个人在想这件事，他也不会招，因为若你痴迷于自己的正确任务，就不会想来做他的「机器原生人工智能」。他举阿迪蒂亚（Aditya，在 OpenAI 做出文生图、几乎发明整个方向）为例：这种人应该继续做自己的科幻，不能被移植到别人的任务上。剩下可招的机器学习研究，往往是爱烧钱搞算法的人。最被高估的品类是机器人——不是因为它不酷，而是在可靠性总账上离得最远，大量前置条件还没打牢。最被低估的是「软件研究」：用人工智能加软件做新事物、尤其是新界面。五年后他觉得会变得稀松平常的「疯狂」想法是：世界上到处都是委托代理问题（选民与代表、下属向你汇报、股东与公司），人们会找到好得多的解法，并惊讶今天曾容忍如此程度的错位；人工智能有望按法律的精神而不是字面去执行，因为法律很像在写软件，过去缺的是能刻画「精神」的原语，而这可能在最有争议的议题上把社会重新拧到一起。节目在哈里调侃「你能量不够」和迪奥戈说 Discord 上有人叫他 cocaine labu 的笑声里结束。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">哈里·斯泰宾斯（Harry Stebbings）<em>主持</em></span><span class="spk-1">迪奥戈·阿尔梅达（Diogo Almeida）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场：智力可靠性才是自动化的最大瓶颈</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>几乎所有认真看人工智能的人都知道：可靠性才是最大的瓶颈。你大概 95% 的时间得到的是爱因斯坦，另外 5% 是憨豆先生。今天坐到这张热座位上的，是这个时代最出色的创始人之一，也来自最热的公司之一：迪奥戈·阿尔梅达（Diogo Almeida），TypeSafe 创始人，Jev 的制作方。Jev 已被约三分之一的财富 500 强使用，相当惊人。</p>
+<p>他们的估值已经到了 75 亿美元。今天我们会谈到模型的未来。这会是一场非常精彩的讨论。数据比算力重要得多。「我不想被叫成 neo-lab，因为在我看来，大多数 neo-lab 都极度、极度浪费。」「Anthropic 的模型就是最好的。即便中国模型在基准测试上打平，眼下也感觉不到真正的竞争，而这肯定迟早会改变。」「所有人在单一模型上戴了太久的眼罩。」「我相信人工智能已经在泡沫里一段时间了，所以我会为泡沫破裂的可能性做预案。」准备开始。</p>
+<p>迪奥戈，我非常期待这一期。我们在 Modal 的埃里克（Eric）那期节目之后有过一次很精彩的交流，我昨晚还跟埃里克聊到了你。所以我特别兴奋。欢迎来到节目。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>谢谢，谢谢。那其实只是一次很小的交流，你喜欢我就很高兴。那次确实很有意思，我没想到后来会变成这样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我们说好了，这会是一期很「辣」的讨论。在进入那些辣的部分之前，我想先把框架和基础铺一下。请用 60 秒，给还不了解 TypeSafe 和 Jev 的人做一个介绍。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我并不认为 Jev 是一个狭义的专用模型。我对并非纯软件开发者的人，真正想讲的其实是人工智能此刻的状态：它怎么能在那么多事情上如此聪明——比如数学里的千年大奖难题——却几乎没有改变软件本身？</p>
+<p>我们用的那些 SaaS，基本上和十年前还是同一套。我们几乎没有把任何一份完整的工作真正自动化掉：得来速一次次失败，客服也是如此。市场上有人工智能客服，但关键决策其实信不过。这怎么可能？它在有些事上显得极好，在另一些事上又极差。在我看来，我们在做的、Jev 在做的，就是去填这条缝：让人工智能好到足以做自动化，而不只是「人在环路里」的助手。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我和红杉的索尼娅（Sonia，字幕作 Sali）聊过。说到这种端到端的自动化，她问：为什么可靠性是自动化最大的障碍？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我先加一个限定：我说的可靠性，不是正常运行时间，也不是系统是否可用、吞吐够不够。我指的是智力的可靠性——我还在找一个更合适的词，大概是智力的「非锯齿性」。几乎所有认真看人工智能的人都知道，这才是最大的瓶颈。举个例子：你的数学有多好，我的数学有多好？我们根本没机会去帮千年大奖的解答——我没读过那篇解答，但我愿意打这个赌。可就是同一批模型，连会计这种简单得多的事情都用不了。</p>
+<p>问题在哪？不是别的，是这些模型的方差极高。大家很喜欢我说的那句：你大概 95% 的时间得到爱因斯坦，另外 5% 是憨豆先生。麻烦在于，按期望值一算就过不了账，所以公司相当明智地学会了：这件事其实自动化不了。过去大约四年，我见过好多轮人工智能热潮里，那么多公司试图自动做会计，然后不断失败，因为账算不平。这根本不是扩散或普及的问题。可靠性给你的是：也许你可以拿掉一点「爱因斯坦」，换来更常、更稳地达到同样可用的智力。这对我来说，就是 Jev 的超能力。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>那我们怎么走到那一步？解决方案是什么？再怎么喜欢憨豆先生，也得把他请出去。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我也喜欢憨豆先生。我其实挺喜欢智能体发疯的时候，那种坏气氛很有故事性，也很有趣。但我不要这种东西跑在后台软件里。作为工程师，我想先把一件东西写好，事先花很多力气——也许一开始没意识到会这么费劲，但总是会费劲——然后让它在后台一直跑、把问题永远解决掉。要做到这一点，你需要「多个九」的智力可靠性。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>最苦的教训：正确任务大于数据，数据大于算力</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>怎么做到？我真希望能把幻灯片调出来，只好比划着说。我称之为人工智能「最苦的教训」。萨顿（Rich Sutton）提出过「苦涩的教训」，我按自己的理解转述，大致是：算力比算法更重要。</p>
+<p>大约 2019 年到 2022、2023 年，是一段「扩规模就能变好」的时期：只要放大，模型就会更好。这种故事大概在 GPT-4.5 附近平台化了，这个领域后来也不再靠纯扩张，因为回报没了。我要说的「苦涩教训」是：数据比算力重要得多。任何做过应用机器学习的人都觉得这显而易见，可看热闹的人似乎还没意识到——数据显然比算力更值钱。而最最重要的，是你的北极星：你把什么定义成「正确的任务」。在 Jev 出现之前，大模型世界里存在的两个「正确任务」，一个是人类反馈强化学习（RLHF），意思是取悦人类；另一个是来自可验证奖励的强化学习（RLVR），意思是</p>
+<p>在基准测试上拿高分。这两者都并不能转化成「在后台跑起来的软件」。我认为这才是一切问题的根。不是人工智能没有能力，它明显超级有能力。问题在于——你在真实世界里待过就知道——你优化什么，就得到什么。而我们恰好优化的，是「人在环路里」。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>谢谢你这么直白，一下子给了我这么多可以追问的方向。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我还能再说一句吗？还是说可靠性。ChatGPT 在「当好 ChatGPT」这件事上几乎从不失败。你上一次看到它输出一堆乱码是什么时候？就算你让它写一封礼貌的邮件，它也不会突然开始骂人、说不该说的话——人有时反而会犯这种错。问题不在它不够礼貌，也不在它是否谄媚，而在它会在文本内部做出错误的决策。有意思的是，它能在某些事情上可靠，在另一些事情上不行。如果你针对真正重要的事去优化可靠性，也就是决策和判断，那才能得到真正的可靠性。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你刚才说到，算力带来的收益已经在平台化。我们真的到这个阶段了吗？你是认真的？我还以为整个指向是——</p>
+<p>好吧，纯预训练也许是这样。可是投入越来越多的算力，不还是会带来越来越好的输出吗？不是吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>是的，但你需要的数据，比人们从前以为的多得多。也许有人会把历史改写成「我们一直都是对的」，但当年的叙事就是：把规模拉到月亮上，你就会得到通用人工智能。GPT-4.5 打破了这个叙事。我当然不知道实验室内部发生了什么，但如果我们相信实验室大致是按推理算力来定价的，那么按 token 成本看，GPT-4.5 仍是有史以来最大的模型，而它在商业上并不成功。事情显然是这样：你不能只堆算力、却不好好想清楚。人们现在往训练上扔很多算力，但必须配上大量数据。这就是为什么你会看到那么多</p>
+<p>「靠卖强化学习数据给实验室快速致富」的买卖——没有那些数据，你其实做不了太多。我记得好像是德瓦尔克什（Dwarkesh）最近在 Twitter 上发过一张图，比较数据、算力和算法谁更有效，数据要比另外两项强出许多倍，就在这周。从机器学习一开始，所有人都知道这件事，这甚至不是人工智能特有的；只是「算力扩张年代」成了一个奇怪的例外。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>当我说数据的价值远比算力更首要时，指的是合成数据，还是每家公司里那些专有的企业数据，还是人工智能系统自己产生的经验，还是某几类数据，还是越广越好？你能不能帮我讲清楚？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>真希望我有图可以指。我还是从「最苦的教训」倒着说：按重要性排序，是做对任务，然后是数据，然后是算力，然后是算法。我们在做人类反馈强化学习的时候，把这一点学得极深。只要任务是对的，底层算法的质量其实没那么重要。一个 GPT-2 体量的模型，可以打败所谓的「GPT-9」——而 GPT-9 根本不存在。所以，要拥有数据，你得先知道正确的任务是什么。而且当你创造一个新任务时，这个任务的数据通常根本还不存在。</p>
+<p>比如我们做人类反馈强化学习的时候，那种「对比大模型输出、看人更喜欢哪一个」的偏好数据，互联网上没有，公司数据库里也没有。我们必须先定义它，搞清说明书，找标注员，迭代，弄清楚这些数据该长成什么样。是「做对任务」这件事，首先把数据解锁了出来。麻烦在于，冷启动一个新任务很难，因为按定义，数据一开始就不存在。</p>
+<p>对我们来说是类似的，对来自可验证奖励的强化学习也类似。在它出现之前——我其实还想说，它的「正确任务」本身就有一层麻烦。来自可验证奖励的强化学习，关键并不全在「可验证的奖励」上，或者说只是一部分。更大的部分，是那种潜在的思维链、隐藏的推理，让模型可以私下思考再作答。因为即便在 2021 年，可验证奖励就已经有了，人们试过在没有推理的情况下，用近端策略优化（PPO）对着单元测试做强化学习，结果一直失败。所以那根本不只是可验证奖励的事。</p>
+<p>关键是任务的结构。一旦你在做来自可验证奖励的强化学习，模型在这件事上会好很多。而「什么叫好数据」，现在已经是模型有多强的函数。所以做数据的人必须够得着最前沿的模型：数据好不好，要看它能不能把最强的模型再往前推，难度还得卡在恰好的位置上。这里面有很多细微之处，包括数据是否「在策略上」（on-policy）。回到原来的问题：正确的数据是否就躺在企业的数据湖里？我认为不是，因为它的形状大概是不对的。</p>
+<p>当然有人在试。很多数据供应商想把这些数据挖出来再卖掉，也许再做一点整形就能用。但最重要的仍是：我们怎样用这东西把我们的任务往前推。你要是忘了这一点，就是在为一个局部目标做古德哈特式的刷分。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>像 Surge、Mercor 这样的数据供应公司，现在还是好生意吗？它们是不是已经变成必须做到端到端的服务生意，要深入到模型的落地和效果，而不再像早期那样只是供数据？它们是好生意吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>这更像是该问你的问题，不是该问我的。你觉得它们是好生意吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我个人觉得是。因为这些大模型会花在数据上的钱，对应的市场已经非常大。而且如果你相信我们会走向「公司拥有自己的智能」的世界，它们的数据将永远需要补充数据。于是这个市场的总盘，就会从大模型公司扩展到所有人。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>有意思，有意思。公司会不会拥有自己的智能，这本身也许会是一场有趣的辩论。我其实认为，我们仍处在炒作浪里，后面总会有幻想破灭的低谷，然后再进入现实。我觉得现实那一段还没到。我相信未来人类反馈强化学习和来自可验证奖励的强化学习都会非常有价值，我不知道人们会不会继续像现在砸这么多钱。但即便从来没有出现过可验证奖励这一路，ChatGPT 也会是一个极有价值的消费品牌，而那仍然需要数据。数据永远必要；可当这些公司必须成为可持续的、</p>
+<p>真实的生意时，它们愿意在数据上花多少，那个数字我不好估，所以很难拍脑袋给出一个量级。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>合成数据只是工具；多数 neo-lab 极度浪费；人们错看了 Jev</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>合成数据对改进模型有多大价值？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我不认为存在一种单一的「合成数据」。它更像一种工具，而不是一尊拿来膜拜的神像，效果取决于团队手里怎么用。如果你去读研究，会觉得合成数据多半被高估了：它主要被用来让小模型追上大模型，却不能用来继续改进已经最强的大模型。所以完全取决于你怎么用。不是所有人都这样——我们用很多合成数据，但用法和别人不一样。我们觉得更有意思的不是「它是合成的」，而是我们如何把这件工具极其聚焦地打在正确的任务上，也就是智力的可靠性。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你刚才说到炒作和低谷，我的朋友。</p>
+<p>原来真有这个「低谷」，好，知道了。我本来想说得更优雅一点——好吧，这就是我的英式魅力。</p>
+<p>你担心现在涌进去的钱的体量吗？还是你觉得这是有道理的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我为这个世界担心。我觉得把钱扔进火炉，对世界不是好事。我真的不想太负面。但我不想被叫成 neo-lab，因为在我看来，大多数 neo-lab 都极度、极度浪费。感觉它们的商业模式就是：雇一堆前实验室的人，搞来一堆 GPU，玩得开心，然后等着被收购。这在我看来是在浪费资源，所以这一面我并不喜欢。另一面，比如有人往强化学习里扔很多钱，我其实觉得挺酷。尽管边际回报在大幅递减，模型确实在变聪明，这对世界是好事，我觉得很酷。</p>
+<p>但我会用自己的钱去做这种投资吗？不会。显然不会，因为我们自己有要做的赌注，显然不会去赌那个。所以从世界的角度看，我也不喜欢那样。当然，也许风险投资的算法是：只有 1% 的机会成为登月项目，期望值仍然为正。对了，你刚问我担不担心，还有——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你是担心，还是觉得有道理？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>按我的期望值计算，我会猜这并没有被证明是合理的，不过我很乐意见证自己被打脸，至少就现在而言。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>迪奥戈，你有没有预料到它会见效得这么快？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我只能说，很多年来，甚至在 TypeSafe 出现之前，我都觉得自己一定是漏看了这个领域的什么东西。后来我说服自己并没有漏看，但这个方向对我来说实在太明显了，明显到我第一次想到时差点放弃，因为我觉得 Anthropic 肯定已经做完 80% 了。这是我听过最显而易见的事情。所以对我来说，它会对世界有价值，是非常非常显然的。我仍然觉得人们没懂。尽管发布本身非常成功，我没预料到的是那个「开发者版的 ChatGPT 时刻」：连不是开发者的人也在谈论它。</p>
+<p>那是我完全没有预测到的，非常奇怪。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>人们没懂的是什么？关于 Jev 和你，人们错得最厉害的是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我的团队很讨厌我谈这个，但我给自己定的规则是：在播客上我可以脱轨。我其实认为，把 Jev 真正在做的事讲清楚，对我是竞争劣势，因为人们总是打偏；如果我们谁也不告诉，我们也许能永远当这座山头的王。可我太在乎这个领域了，忍不住要痛苦地大喊：这到底是怎么回事？抱歉刚才骂了脏话。人们真正没懂的是：我们这个模型的特别之处，不是成本，也不是速度，而仍然是智力的可靠性。很多人还停在大模型的思维里。我觉得不少人正在透支自己的信誉。未来应该会有仿制模型，但在我看来，它们应当真正在乎可靠性。</p>
+<p>而眼下那些正在推出仿制品的人，并没有做到。他们还在用做大模型那一套：刷榜、博取热度，去展示速度、成本这类其实并不重要的数字。他们真正该做的，是钻进掩体，把模型做得很聪明、非常聪明。人们没意识到，这才是我们的全部。哪怕我们在基准上已经领先到离谱，只要模型还显得笨，我们仍然会心疼，我们盯的就是这个。我认为整个领域都该盯这个：为什么是 97% 的准确率，缺的那一块是什么？而且要说清楚，这不一定是模型的问题，很多时候是提示词的问题。但打造开发者工具，本来就是这样。</p>
+<p>我们需要教育用户，需要弄清怎样提示得更好，需要弄清这种语言里有没有某种细微之处，能让人写出更稳健的提示，还是我们必须把模型本身做得更聪明。我认为这才是人们真正漏掉的东西。开发者懂了，而且比我预想的快得多，因为他们本来就不在乎那些基准，只会说：你们的模型明显更擅长新东西。可另一些人——就是那些觉得「这很无聊，不过是个分类器」的人——</p>
+<p>后来去做了那些仿制品。他们不理解，为什么你值得花这么大力气，把模型一次次做得更稳健。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>大厂并非不能复制，而是还没把可靠性当真</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你刚才提到仿制品。我能直说吗？你们发布之后，OpenAI 和其他一些人动作很快，也在试图做自己的决策模型产品。</p>
+<p>那些大模型供应商为什么不直接复制你们，把你们竞争出局？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我不觉得这是一个无礼的问题，这是一个完全公平、合理的问题。我认为，如果有一天他们开始非常在乎可靠性，那才会变成一场有意思的对决。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>迪奥戈，他们怎么会不在乎可靠性？他们想要企业客户。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>你根本想象不到他们有多不在乎。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>可他们想要企业，想要收入。如果你没有可靠性，你怎么让首席信息官签字？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我觉得人们很难把「智力」理解成一种产品，所以才会拿基准测试当创可贴。基准测试在某种程度上是理解底层智力的代理指标，但据我观察，过去大约九个月，整个文本模型这个子领域已经学会了：基准测试说明不了什么。Anthropic 的模型就是最好的，即便中国模型在基准上打平。哪怕你专门去度量「刷榜」的程度，你仍然会觉得 Anthropic 的模型比竞争对手更好，尽管它们几乎不落在任何一条基准的帕累托前沿上。</p>
+<p>而系统 1、也就是决策模型这个子领域，大约在发布一周后就开始出现竞争，人们大概两三周就学会了：那些不过是刷榜，完全是垃圾，很容易看出不一样。我认为，要真正、非常在乎可靠性，需要一种不同的组织。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>如果他们不在乎——</p>
+<p>如果他们不在乎可靠性，那他们究竟在乎什么，迪奥戈？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>这真的取决于他们的业务目标。回到「ChatGPT 就是一切」、还没有 Claude Code 的那些日子，他们在乎的是月活跃用户。那其实是一个和「最好的聊天体验」非常不同的优化指标。谄媚（sycophancy）就是这样冒出来的，然后循环往复：它更会讨好，有时会撒谎，可那是人们想要的，所以在某些角落里就继续这么做。你优化什么，就得到什么，那就是当时 ChatGPT 优化的东西。我认为现在人们优化的，是编程代理的「月活等价物」。如果他们不为此训练专用模型，也不投入非常认真的思考，我不认为他们短期内能做出可比较的模型。</p>
+<p>我倒希望他们都去做，因为我觉得那对世界会非常好。显然对我们的生意不好。但眼下的局面是：感觉还没有真正的竞争，而这肯定迟早会改变。我希望出现竞争，然后我们证明自己是最好的——因为我们最在乎，也有最聪明的人，极其聚焦地盯着北极星。但再说一遍，这还不是竞争。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>决策模型将远超文本大模型的 token 用量，软件还缺第四种逻辑门</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>当你看你所处的决策模型产品格局——</p>
+<p>三年后那会是什么样子？会像优步和 Lyft 的市场，还是像谷歌云、亚马逊云和微软云那样的市场？三年后的市场结构会是怎样？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我可能有点技术理想主义者的意思，所以我其实不太去想竞争格局会怎样，我更关心技术本身。我们的强项永远会是技术上的震慑，所以我们必须不断推出令人惊叹的东西。在我看到的图景里，我会把竞争放在一边。我真心相信，在 token 用量上，我们将迎来超级杰文斯悖论。那不会是轻微的杰文斯，也不会像文本大模型那种虚假的杰文斯，而是超级加倍的那种。</p>
+<p>会有海量、海量、海量的使用。我认为它至少会在总 token 消耗上，完全压过文本大模型。这些东西会被用到所有地方，我们终于会让人工智能在后台跑起来。人们对比人工智能的感觉也会开始转变：从「这东西在朝我喷垃圾」，变成「它真的让生活更好了」——因为当技术改善生活时，人们是真心喜欢的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你说「超级杰文斯悖论」。我们有足够的能源和基础设施，去支撑你预想的那种需求吗？通往你那种技术乌托邦的瓶颈又是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>「乌托邦」这个词有点重，叫「梦想」也许更贴地。我们的模型相对来说极为高效，我们没有走那种标准的补贴剧本，这些东西我们能非常、非常高效地提供，而且在效率这个方向上还有很多边界可以推。当然得做一些很硬的研究，但这正是我信任我们能做的事。要让那种超级杰文斯发生，我们必须把效率再往前推一大步。最大的瓶颈，目前感觉有点像单人游戏：从人工智能和整个领域的角度看，要靠我们去推技术边界。我们会需要和开发者大量互动，会需要</p>
+<p>帮助他们去推这些边界。我一直在说一个我梦想中的角色。我已经厌倦了旧金山那种地位游戏：机器学习研究员高人一等，再往下是机器学习工程师，再往下才是软件工程师。我认为这完全搞反了。我希望能创造出一种新角色，我目前最喜欢的名字是「软件研究员」：真正去推软件边界的人。这说得通，对吧？如果你知道自己正处在互联网或移动的寒武纪爆发里，你会觉得有那么多边界可推，有那么多低垂的果实，需要开拓者走出去，建起一座座灯塔，</p>
+<p>告诉别人：这里有价值，来淘金吧。我特别兴奋去鼓励人们推这些边界，只恨自己没有时间亲自去做，因为值得做的疯狂而兴奋的事情太多了。所以我认为，要让系统 1 模型无处不在、让人工智能真正把事情自动做掉，最大的两个瓶颈就是这些。如果还能多说一句：我不知道你是不是软件工程师，但我保证，每个做过软件工程师的人，脑子里都有过「这件事我能自动化」或「这件事我自动化不了」的判断。</p>
+<p>你必须知道，对吧？如果你想自动做一些搬文件的事，你可以自动化；如果你想给笔记本电脑做一个不用手打字的语音界面，你自动化不了。我的希望是，人工智能能把「不能自动化」那一块彻底拿掉，从此只是投入多少力气的问题。这个想法还不太成熟，但我非常喜欢这个类比：人工智能已经明显很厉害，软件本身却没有变。写软件的方式变了很多，做出来的软件却还是老样子，这很可悲。我喜欢蓝光 LED 的比喻。当初只有红光和绿光 LED 的时候，用途非常窄，几乎只能做指示灯，因为它们很高效。</p>
+<p>但当你补上蓝光 LED，它并不是把 LED 的市值扩大了 50%，它让各种事情成为可能：没有它，就没有我们今天的屏幕，也没有效率高得多的白光 LED。缺的是这块可组合的拼图。我希望人工智能最终能成为第四种基本逻辑门。软件建立在三种基本逻辑门之上，它们本身很「笨」，但正是软件工程师的才华，才让你能用这些比特级的比较，堆出今天软件里的一切。假如我们能加上第四种呢？那应该不是把我们能做的事扩大 33%，而应该扩大几十万倍。</p>
+<p>这就是我为什么对软件本身的寒武纪爆发感到兴奋。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>企业软件只是旁边挂了点 AI；自有模型并不是圣杯</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你为什么觉得当前的软件状态本身就是一种悲剧？如果你看今天的企业软件，它充其量只是「在企业软件上撒了一点人工智能」。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你怎么看这件事？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我认为这其实极其合乎逻辑。我不觉得这是分发问题。企业有非常强的激励去采用人工智能，而冲得最猛的那些，往往也是伤得最重的。我一贯的论点是：大模型不可靠，所以不能被托付对公司有利害关系的决策；但你总可以让它们去做对用户有利害关系的决策，因为公司往往并不那么在乎用户。这很可悲，可事实就是这样。于是你看不到人工智能深入应用的逻辑里，最后得到的是同一套 B2B SaaS，旁边挂上一点人工智能：它做不了高利害的事，却可以向用户喷出「AI 垃圾」，因为人们觉得它反应很快，还挺喜欢；同时他们确保，检查「这到底对不对」的负担，</p>
+<p>全部落在用户盘子里。以目前的可靠性水平来看，这其实非常合乎逻辑。所以我觉得可悲的是，人们绕了这么大一圈、浪费了这么多资源，才走到眼下这个位置；但同时，以模型现在的聪明程度和可靠程度，这里大概也就是该在的位置。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>最大的好处会落到拥有分发优势的在位者身上吗？当你看 Salesforce 这样的公司，再对照你刚才说的「当前软件的悲剧」，好处是落在有分发渠道的那些公司，还是会落到新一代身上？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>第一，SaaS 末日显然没有发生。马丁·卡萨多（Martin Casado）把它叫成 SaaS-a-palooza，我很喜欢这个说法。我并不必然认为这</p>
+<p>就意味着大型 SaaS 会赢。我认为最有位置去赢的，是最在乎的那些人。SaaS 相对人工智能公司有一个巨大优势：它们真正熟悉工作流，也有体量先把工程投资砸下去——因为要把事情自动化、真正解决人们的任务，需要真正的工程，而这才是这里真正有价值的东西。我并不认为大型 SaaS 会永远是赢家，但我认为它们位置最好，原因完全不是分发，而是它们离问题最近。它们懂：假如我们在 TurboTax 这样的产品里，界面的哪一块可以改得更顺。</p>
+<p>OpenAI 或 Anthropic 里没有任何人知道该怎么做，对吧？他们还住在象牙塔里，以为「软件」这个概念本身将会不复存在。所以我认为，传统软件公司有可能成为大赢家。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你刚才说到了解流程、了解工作流有多重要。我在节目里做过 Fireworks 的林（Lin，字幕作 Lynn），也做过 Modal 的埃里克（Eric）。他们都谈到，作为一家公司，拥有自己的智能有多重要，以及拥有极其宝贵的专有数据、为每家公司训练专用模型，会带来哪些好处。</p>
+<p>重要性既然在流程和工作流里，这难道不就是圣杯吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我该怎么优雅地、用英式方式说呢。这种看法，我觉得是顺着当下世界的轨道在走。当下世界把人工智能摆成「同事」：人工智能被呈现为一个同事，这也是 Anthropic 非常用力推的方向，界面有点像跟一个人打交道。我相信这会成为人工智能时代的「无马马车」——就像工业时代有人说，我们把它做成马车的样子，只是把马拿掉。我认为「人工智能同事」就是某种形式的这个。因为如果你在做自动化，自动化会有和人类不同的能力剖面，</p>
+<p>你应当去顺着自动化的长处走。有点像工业革命：你不必等一个完整的同事、一个人形机器人来做事，你只要找到极窄的一件事，比如把瓶盖拧到瓶子上，然后把它自动化，这个问题就永远解决了。我认为工作大体上会这样走。如果你假定「人工智能同事」就是正途——我绝对不这么认为——并且假定大多数公司都有意愿、能力和欲望去训练它们，因为必须针对本公司的分布来训练，那么「拥有自己的智能」这条路才勉强说得通。我反而觉得，实验室那种「人工智能同事，但是通用智能」的路径，对我来说更说得通。</p>
+<p>因为差不多任何一家公司，如果你给它们无限多、成本低一千倍的实习生，大概都能找出大量有生产力的用法。作为领域，我们应该回答的是：为什么我们现在没有得到这种效果？那些主张「你必须拥有自己的智能」的人，借口往往是：你需要持续学习，或者你需要更窄的东西。我只是觉得，这和现实对不上。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>垂直模型与 Harvey 的厚薄，以及每 token 智力几乎不再涨</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>Fireworks 已经帮过硅谷好几家非常一线的品牌。我记得 Harvey 在你们的视野里，还有 Ramp，也许 Cognition 也在自建模型，我说的可能不完全准。你是说走那条路是错的，水平或别的通用模型会一样好，所以这基本上是徒劳？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>情况比较复杂。我百分之百相信，窄模型会——第一，基准测试极具误导性，做这些模型的人有很强的扭曲激励，对内要显得自己的模型更好，对外也要讲一个故事，免得看起来会被大模型彻底打穿。我不知道它们到底有多好。我可以想象它们一定能更便宜，也能更窄。</p>
+<p>当能力在某一个水平上平台化时，这其实是一种成熟的信号。我认为人工智能往往是以比较离散的台阶在往上走，而这些台阶出现在你开始获得某一特定分布的数据时。很难否认，编码代理性能最大的一跳，大约发生在去年 11 月前后，我记不清是哪一版 Opus。那是因为他们在那时把编码做进了分布之内。从那以后——我们可以说我们有多爱 Fable 5.2 或 Opus 5.5——看起来一直是收益递减。正是到了收益递减的时候，你才开始做每 token 成本这类微观优化。我对世界的看法是，这些都是</p>
+<p>「问题还没有被可靠解决」的症状。我认识的软件工程师，我自己也是软件工程师，我们讨厌升级依赖，讨厌去追最新、最炫的东西。我们会更新的唯一理由，是以前还不够好用；否则你就会把它锁进地下室，只在变得便宜很多的时候再更新。我相信我们现在有大量不够充分的自动化。我当然有立场，但我认为数据最支持的就是这一点。我的看法是，因为有了 Jev 以及类似 Jev 的模型，我们会开始把真正的自动化锁定下来，人们将不愿意再去更新。而公司获得自己专有智能的方式，并不是去拥有自己训练的模型，那很难做到，而是</p>
+<p>靠模型周围的软件。对 Harvey、Cognition 这类公司来说，叙事上必须说「我们拥有自己的智能」，否则它们看起来就只是大模型上的一层很薄的封装，像是没有护城河。可软件和工程是极好的东西：事先投入，去理解真正的问题，把它们自动化，让它们不必再被解决一次，人也不必再做这种重复劳动，我认为这对世界非常好。我也认为，未来公司往前走、形成专有智能，更可信的方式是发生在代码层。有点像：用哪家数据库也许有一点壁垒，但真正的肉，是你怎么使用这些数据库。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>迪奥戈，这件事我很着迷。我相当了解 Harvey 所在的法律市场。你真的觉得他们是薄封装吗？在我看来，这是一个非常具体的领域，需要只能以垂直方式完成的深度产品功能，所以他们才存在，而且非常成功。我会强烈反驳他们是薄封装。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>所以「薄」都是相对的。这么说现在听起来政治正确。这取决于我希望它有多深。按我上次了解的 Harvey——我显然连一份许可证都买不起，所以并不完全清楚——早年 Harvey 和 OpenAI 合作时，他们的梦想是自主地自动化越来越大的项目。那种事后来并没有做成，他们最后转到了</p>
+<p>律师的副驾驶，我的理解是他们现在仍是这样。是的，作为律师的副驾驶，你可以做很多领域特定的事情，但你能围绕一个副驾驶做的工程是有限的，对吧？比如领域特定的 MCP 工具，去拉取基于真实法律的检索增强生成，诸如此类。可现实是，人们想自动化的是大块工作，而不只是让人的效率提高两位数的百分比——我认为很多人工智能最后都停在那里。所以，是的，我觉得他们围绕这件事做很多工程非常好；我只是认为后面还会有多得多的工程。即便系统消息也是一种很粗糙的工程：你在给大模型编程，让它表现出某些行为，但你几乎</p>
+<p>没有保证，没有置信度，除了现在人们做的那些很奇怪的评测之外，也没有真正的办法去测试它有多有效。所以我希望在所有地方都有更多工程，尤其是紧挨着人工智能的那些东西。我实际上希望，有朝一日我们能走出副驾驶，直接把那些要花几周才能做完的工作，放到后台去自动化。而那也许会和现在人类做的工作形状非常不同，因为自动化往往要求你去适应技术上已经具备的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你刚才在那段两到三分钟的讲述开头提到了 token 成本。你说那很糟——哦不，我很喜欢，非常精彩。可我的麻烦是，我必须记住你说过的部分。我真正想问的是：看今天的原始智力，每 token 的原始智力，是否真像人们所说的那样在提升？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>哦，我很好奇你怎么看。我其实想写一篇博客专门谈这个。</p>
+<p>不，我认为现在已经不是了。曾经是大幅提升的。现在如果说还有，也只是极其微小，小到你几乎不会察觉。有点像你遇见一个智商 180 的人，再遇见一个 190 的，你分辨不出来。所以「是的，但并不显著」。我甚至觉得，用 180 到 190 来比喻现在的大模型已经非常慷慨了，因为我不会把它们叫成智商 180 或 190 的人。也许偶尔是 180，我也不确定，但有时你会得到一个 80，甚至更差。我的看法是，这其实不是单一维度。第一，基准测试并不重要，应该把它们扔掉。如果你去看「每美元对应的基准分数」随时间怎么变，那完全没有意义。第二，</p>
+<p>我认为有一种更一般的「智力」概念，大概是「每一美元算力对应的预训练智力」，据我理解，眼下几乎没有在动。我确实认为，当你有更多数据、并聚焦到不同的任务子集上，你可以把它们做得更「在分布之内」——又回到最苦的教训——于是在那个数据分布里，表现会好得多。从「每美元智力」的角度看，我们有没有在编程上大幅推动指针？超级有，但不是因为基座模型本质上变得更通用，而是因为我们把编码更多地做进了分布，使它在这件事上更可靠。可写作在过去大约九个月有没有变好？我不觉得。也许是我用它们写得不对，你可以告诉我。</p>
+<p>还有很多其他能力，完全看不到任何提升。因为你若不断在编程代理这个方向上堆数据，并不会改善许多其他形式的能力，这里同样有收益递减。所以这件事复杂而细腻。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你刚才说到模型能力的方差，有时是 180，有时是 80。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>基准测试是胡扯；美国开源模型恐怕追不上中国</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我想问，当我们看不同模型时，会看到开源模型现在在很多层面、很多方面已经尽可能接近前沿。你怎么看开放模型的格局，</p>
+<p>以及有哪些事情，并没有多少人知道、但他们应当知道？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>最后一个问题很难啊。哦天哪。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你什么都可以说，这里只有你和我。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>好。我认为人们应当知道的是：基准测试完全是胡扯。所有基准都不好，里面有扭曲的激励。具有讽刺意味的是，最受伤的是那些没有时间真正去玩模型的人，因为他们最容易被基准本身操纵，而且利害更高，这对所有开放权重和开放研究都是如此。我认为测量智力是有办法的，只是非常难。实验室不会公开谈论，他们内部当然有一些代理指标。公共舆论处于一种很不幸的状态：外面有太多错误信息，而人们并没有动力去发布自己最好的智力测量方法，我觉得这很可悲。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>谁，迪奥戈，谁最在「胡扯」？谁胡扯得最多？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>你说要辣的，那我就给你辣的。</p>
+<p>好，好，好。一线实验室有动力说实话，所以我相信 OpenAI 和 Anthropic 大体是诚实的。二线实验室有动力对自己撒谎：他们想相信自己能成为一线，于是内部有很大压力去刷榜，却又不能对自己承认，否则组织架构会炸。Llama 4 就是这样，他们在刷榜这件事上太直白了，尽管内部本来就有巨大激励去做。我认为谷歌眼下也是类似情况，不少其他中国实验室也是。他们还在瞄准顶部，因此并不是在公开、明确地以刷榜为目的。我认为，很多去争「安慰奖」的人，</p>
+<p>才在做完全疯狂程度的刷榜。如果我再辣一点，其中一个领域大概就是「美国开源领袖」这块：它足够像一个边角上的安慰奖，他们并不瞄准一线。那完全是胡扯和舆论包装，因为实际上没有人真的在用那些模型，谁会去拆穿他们呢？在我看来，决策模型这个赛道更糟，因为甚至没有人理解什么叫好的表现，于是他们全都把刷榜做到了极致。这对我们其实相当有利，因为没有人会相信那些基准，基准本身的解释权反而落到我们这边，我认为这对整个领域是最优的。</p>
+<p>在理想世界里，没有人会在意任何机器学习模型上的基准，不管是文本模型还是系统 1 模型。可眼下这种东西太多了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我们得把这个拆开。一线实验室有一种必须诚实的义务，还是说这会影响到——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>不是义务。他们不必靠作弊才能站在高处，而士气非常重要，他们真心想成为一线，也做得到，所以他们不需要作弊，这才是答案。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我感觉社区里有一种共识：我们必须有一个美国开源领袖，必须把这家公司往前推，不管是 Reflection、Poolside 还是 Thinking Machines。你觉得我们确实需要去推一个美国开源模型吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>「我们」是谁，「推」又是什么意思？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我觉得有一种共识是：中国的开源模型非常高效；除非我们有替代方案，否则中国开源模型会被大量使用，并威胁到美国安全的某些方面。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>把威胁模型拆开来看，其实很有意思。如果你按它们被后训练好的原样去跑，确实会有威胁；但如果你真的在用——我记不清你怎么描述的——公司内部的私有智能，理论上你在训练模型时可以在不同程度上去掉很多偏置，这类事情完全可以做。所以这实际上取决于：威胁模型是不是「原封不动、即插即用这些模型」。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>所以你并不担心中国开源模型里那些你并不知道的危险提示注入、后门？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>先说清楚：我不会在自己的编程代理里，原样使用一个中国模型。但那仍然只是一种威胁模型。如果你活在「编程代理是人工智能唯一形态」的世界里，那确实是很大的威胁。可我们必须考虑的另一面是：美国开源模型有多好，它们追不追得上中国模型。因为据我理解，它们给自己设了更高的伦理和法律基线，正因如此，要追上那些模型可能会非常难。而如果模型其实并不好用——这在很大程度上取决于「稍微聪明一点」究竟会造成多大差别，这会很难预测，尤其是</p>
+<p>在事情正在平台化的时候。但如果它们无法构成竞争，这也许会是一件徒劳的事。所以，若你只采取「把它们原样塞进编程代理」这种极窄的视角，这会是领域里一个开放的问题。如果你想象另一个世界：我们可以度量偏置，可以针对偏置建立威胁模型，可以把偏置训掉，可以加上护栏——这其实已经是我们眼下一个非常大的用例：用 Jev 去分类这些工具调用是否安全，或者它们是不是在向中国「回电话」，诸如此类。获得安全的方法还有很多。我觉得所有人已经在「单一模型」上戴了太久的眼罩，而我从一开始就拒绝那个前提。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你觉得美国开源模型会赶上来吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>就真正的智力而言，我的猜测是不会，除非中国自己决定停止努力——不是因为能力，而是因为伦理。不过这也许不会造成差别：如果这个领域平台化得足够硬，那多出来的几个百分点也许并不重要。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你觉得我们对中国的出口禁令是对的吗？我的理解是——我不知道你指的是不是 GPU 出口禁令，特指这个——因为从一些最新的 DeepSeek 模型和一些最新的中国模型来看，它们实际上是用最新的 Blackwell 训练的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>对，那好像是威尔·德普（Will Depw，自动字幕，全名未能确认）的分析结果。我和朋友也一直在聊这个，网上还有一些更刺激的说法。我在网上听到的是，用同样的方法可以看出，DeepSeek 4.1 Flash 并不是那样训练的，这也许和整个领域的情况是一致的，我不确定。我的工作是在这场疯狂的硬件泡沫、neo-cloud 乱局里导航，好让我们最终走到想要的未来。因为我们足够高效，可以站在边线上，不必成为 GPU 这件事的主力玩家，并希望能熬过眼下正在发生的种种疯狂。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>他认为人工智能已在泡沫中，破灭将来自需求侧</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你刚提到这些疯狂的事，还有 neo-cloud。哥们，neo-cloud 这一层现在非常狂。未来 12 个月，neo-cloud 里会发生哪些人们没有想到、也没有看见的事？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我相信人工智能已经在泡沫里一段时间了，所以我会为泡沫破裂的可能性持续做预案。而我的——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>泡沫破裂时会发生什么？在我看来，这不会是供给侧的问题，只会是需求侧；而我们并没有看到需求侧的冲击。那么，是什么会让泡沫破裂？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>好，我们可以谈这个，这是比较辣的一个。编程代理确实改变了人工智能的局面，但「这次不一样」这种说法已经喊了很多年。当你把许多指数式、高方差的东西叠在一起看，会非常有意思。我相信有一部分需求是由错失恐惧（FOMO）造成的：FOMO 来自人们以为自己得到了好结果，觉得必须在这类事情上 all-in。我也相信，当人们开始面对人工智能真正能做什么的现实时，需求可以收缩得相当快。以我接触到的那些在人工智能上花钱的人的经验来看，他们并没有完整理解人工智能的能力，校准相当不准，而且相当高估了人工智能能做的事。</p>
+<p>我觉得正是这类东西可能造成需求冲击。我也不知道，我也不是经济学家。我只是觉得，人工智能这个领域已经有太多过度承诺、交付不足。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>这和所有人说的正好相反。他们说，即便模型进步停很长一段时间，人类还有大量尚未榨取的价值。这和你刚才说的不太一样。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>嗯，我相信说这话的人，正是那些试图从现有模型里榨取价值的人，所以这里面有一点立场偏差。我并不反对那句话的精神：天哪，这些模型已经聪明得要命。我同意它们已经非常聪明，我只是觉得，它们的接口，以及这种聪明被挖掘出来的方式，是次优的。同时我们还得看另一面：那些在人工智能上 all-in 得太过头、结果被烫伤的人。有很多公司说，我们要裁掉大量劳动力，因为人工智能正在解决所有这些问题，然后又不得不往回走。这对它们公司的未来会有很多长期影响。那些人试图的，并不只是把牌打满或说过头，</p>
+<p>他们是想按照「人工智能能做更多」这个他们以为的现实，去下逻辑上说得通的注。所以这个故事非常细腻：即便能力暂停，人们到底有没有能力把那些价值真正榨出来，并没有那么简单。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>很多人看这些公司的利润结构，会说这很像泡沫。你们的利润率好吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我们的利润率很好。是的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>可你要怎么把收入做到规模化呢？你们这么便宜，这当然很出色，成本也是用 Jev 的一大好处，</p>
+<p>但要做到一家 100 亿美元收入的生意，所需的规模</p>
+<p>是极其巨大的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>对，对，对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你怎么帮我理解，你们怎样走到那里？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>杰文斯悖论，对吧？杰文斯悖论通常不是这样运作的：你把它变便宜，它就魔法般变得更好，那会是一种疯狂的世界运行方式。它应有的方式是：嘿，我有这笔人工智能预算，哦，Jev 让它便宜了这么多，现在这个项目做得通了；而且理想情况下，它在自动化真正关键的那些轴上更聪明、跑得足够可靠，于是我现在可以做那些其他项目，或者把智力扔到我以前绝不会扔智力的地方。即便如此，如果你开始把智力扔到以前没扔过的地方，那本身还不会让你提高预算；而杰文斯悖论意味着预算会增加。你需要看到的是，这些以往人工智能往往做失败的项目，终于创造出了如此多的价值，</p>
+<p>让你说：嘿，这真的有用，让我们继续加注，直到预算回到原来的水平，甚至再往上。这就是为什么智力的可靠性如此重要。我常说，在真正要紧的总指标上，也就是真正的自动化，Jev、Fable 和 Astra 目前大概打成平手，都约等于 0%。是的，这里那里有一点点，但我们还有极其大量的自动化要做。我们试图去造就的，是一个目前还不存在的行业：在后台运行的人工智能。我认为那显然会非常巨大，而且会明显大于只是让软件工程师写软件时效率提高大约 20% 的编程代理协助。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你怎么分析今天的编程代理市场？你知道，Cognition 目前大概排在第四，却已经是一家约 16 亿美元收入的生意。这个市场的纵深如此之大。你怎么看今天的这个市场，三年后又会是什么样子？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>谁是第三名？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>有 Claude Code，有 Codex，有 Cursor，还有</p>
+<p>Cognition，还有 Factory。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>坦白说，我并不分析编程代理市场。我个人希望 Jev 被用在编程代理上，而且我觉得那里可以做出很酷的科幻。但实际上我认为，我们离编程代理市场越远，他们就越继续打他们的小仗，我们就能继续聚焦自动化。所以从公司的角度看，短期里如果 Jev 完全没有任何编程代理的用途，也许反而更轻松一点。这件事已经有点晚了，我也说不准。但我并不去分析那个市场有多大。我认为它会是一个非常大的市场。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>这个市场会比今天大得多吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我不知道，因为错失恐惧真的会大幅拨动指针。我在人工智能里待得够久了，你肯定也是。你一定见过：人工智能看起来像一条指数向上的线，其实是多次上上下下，前一轮的 FOMO 会叠加到下一轮上涨里，可其中很多都曾经摔下来。若假定「这就是会一直涨、一直涨的那一件」，我觉得会有些傲慢。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我记得大概 2015、2016 年，大约有一年的热潮，当时有 Bloomsbury AI、Message.ai，还有一批这样的公司，就是那样。所以我完全理解你说的。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>75 亿美元估值、7.5 亿美元融资：要的是盟友，不是估值最大化</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我们刚说到那种偏泡沫的时刻。恕我直言，你们融了非常多的钱。</p>
+<p>跟我讲讲那一轮吧。是不是就像：在这家风险投资停一下、收一张条款清单，再到另一家停一下、再收几张，啊我已经有 28 张条款清单了？那一轮是怎么走的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>对我们来说，那是一段非常、非常混乱的时间，简直有点疯狂。天哪，我们关于风险投资人本身，学到了太多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你们学到了什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>学到了风险投资人的投资组合公司，在技术上已经走到哪一步。基本上全是找上门来的。我们没有路演稿。我们只能告诉对方：我们没时间做这份材料，而且看起来也不是每个人都需要这份材料。请你们告诉我们自己看到的市场信号，因为我们这边现在所有事情都在着火，我们没有时间替你们把这些东西整理出来。很奇妙的是，观察不同机构在最初几天、几周里如何演变：他们的兴奋如何变化，以及他们如何向我们转述，他们的投资组合公司正在怎样使用我们。</p>
+<p>我们不窥探客户的数据，所以其实并不知道他们拿它做什么。听到他们说「天哪，你们是真东西，你们至关重要，这就是未来」，是一件非常酷的事。对我来说，那是一种非常迷人的额外信号，我其实很怀念那种关于整个领域状态的信号。听到谁在用我们、为什么用、怎么用，实在太酷了。正是这些，让这一轮能够做成。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你们一开始就要的就是 7.5 亿美元、估值 75 亿美元，还是后来往上调的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>来回改过很多次。我们甚至在开始这些对话时，并不清楚这一轮自己真正要找什么。我们后来决定的是：嘿，也许这听起来有点疯，因为我们确实融了不少钱，但我们意识到，我们不必去做估值最大化，也不必去做那种很离谱的加码认购，其实也不需要那么多钱。我们需要的是能对抗全球最大公司的盟友。让我们找到最合适的人进入董事会。我们真正优化的是这个。其余对我来说，都更像微观优化，而不是去发现：我们要最聪明的钱，要最好的盟友，要那些</p>
+<p>能帮助我们驶过前方险水的人。我认为我们优化的东西，和其他公司很不一样，因为我们已经盈利，账上的现金现在还在增加。而且坦率地说，一家此前融到的钱像我们这么少的公司，不该一上来就计划把新融到的钱立刻花掉。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我真不敢相信，那种带嘲讽意味的加码认购（cuck tranche）现在居然成了一个词。不过我们继续。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>等等，你居然知道这个？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我知道。这完全是胡说，让我简直……是的，我绝对……不过我有一个很大的——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>这对我们来说也出现过。那边有非常多这样的需求。甚至有人说：如果你们按三倍的估值来融，算我一份。可问题是，我们并不需要那笔钱。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>那就是泡沫。那完全是胡说。对不起。我是说，有人可以 YOLO 210 亿美元，我无所谓。你知道吗，你只是需要一点自尊，因为那就像坐在那里看着——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>问题是，我们既不需要那笔钱，也不需要那个估值，对吧？所以我们不必去做那些事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>那你为什么选择了红杉和安德森·霍洛维茨（Andreessen Horowitz）？我喜欢他们，但你为什么选他们？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>天哪，这听起来会像我在拍马屁，但我真的很喜欢他们。我自己对技术有点疯狂，也是技术乐观主义者，而我觉得 a16z 就是那种精神的化身，他们和我们在哲学上能对齐到这种程度。我觉得大多数风险投资人，从战略上看是热爱技术的，但他们是金融机构，非常关心怎么打自己的金融牌；而安德森这家机构，往深处看，他们在乎的程度非常、非常深。我和马丁·卡萨多、本·霍洛维茨（Ben Horowitz）一起做的那期播客，我极其开心，感觉像老朋友一样在交心。也许他们太擅长说服人，把我卖进了某种假象，但我不这么认为。我觉得他们就是在哲学上</p>
+<p>如此对齐。我认为把我们带到今天这一步、也希望我们能继续保持的，就是把我们在乎的东西戴在袖口上，在人工智能领域走出自己的路。我希望按照这种方式行事，并让他们在船上。当然，他们非常出色。至于红杉，如果我完全坦白——我该怎么说呢——我想要的不是他们的钱，我想要的是索尼娅·王（Sonia Wong）。红杉会在，是因为这个。我并没有把红杉作为一家基金了解得很深，但我同样喜欢索尼娅，我就是喜欢。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>帮我理解一下，我也想成为最好的传播者。你究竟喜欢索尼娅什么，让你在所有人里选择了她？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我会说，她不只是聪明，而且是一种非常独特的聪明，那种形状的聪明是我们极其希望站在自己这边的。不管我咨询过多少顾问，只要和索尼娅谈一次，我就会得到一个不同的、非常有意思的视角，而这应当成为我们战略牌局里的一部分。我自己非常在乎战略思考。TypeSafe 有一条比较辣的价值观，叫做「慢慢做出好决策」。这很不像创业公司，但我认为事情就该这样做。在这一点上，她是一位极其有价值的思考伙伴。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>慢慢做出好决策。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>完全是。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>那你有哪件坏事，是做快了才做成的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我只能说，我做决策大概比大多数人都慢。我的感觉是，很多商业世界是在自动驾驶上。我讨厌和传统商务人士共事，他们只是把事情做掉。如果一件事做得好坏无所谓，我可以接受就这样做；可对重要的事情，我非常在乎为什么，哲学是什么，框架是什么，这件事是怎么做成的。每当我和传统商务人士共事，我都觉得要被逼疯，因为他们从来没有把事情做到让我不必担心的程度；而一旦我开始担心，我就需要理解为什么。</p>
+<p>我就会觉得，这个人只是在随机做事。可我认为，有计划其实相当重要。有太多事情我希望自己能花更多时间去想：我希望多想想我们的数据和数据路线图，多想想产品，多想想如何变得更值得信任，也多想想我们招聘的每一个岗位，以确保为这些角色找到尽可能最好的人。我应当承认，我没有时间做完所有这些，而把时间花在「想清楚」上，又是如此重要。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>最难招的是「数据恶魔」团队；拒绝两千万美元薪酬包</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>今天的招聘市场有多难？你必须把最好的人放到团队里，实际到底有多难？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我得说，最难的部分是招我们的「数据恶魔」（data demon）团队。又回到最苦的教训：当你有一个新任务，你就有一种新的数据，你需要一种新形状的数据才能让它成立。我们内部几乎有一个属于自己的小领域，有点像想象世界上最好的实验室，但只存在于一家公司内部，用我们的方式做数据。我会以为这应该是世界上最好招的事，因为它酷到离谱；可我们在这件事上招人却非常困难，因为没有人知道该怎样进入这个方向。我们不断收到错误类型的人来申请。这是这些天让我夜里睡不着的事：我们怎样才能</p>
+<p>说服那些极为出色、甚至不觉得自己能推动机器学习边界、因为他们并不是机器学习研究员的人，来做这个岗位——在这里，你会被这个子领域里世界级的专家带着学，而且它会非常有价值，因为你真的在让模型变得更聪明。我不知道该怎样把这件事告诉世界，这让我觉得很糟糕。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>薪酬是不是也很疯狂？我们听 Modal 的埃里克说过，他必须去抢一些非常出色的毕业生，对方有 2000 万美元的薪酬包。这些薪酬包是不是已经到了前所未有的程度？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>对我们来说不是。而且我很高兴我们在这件事上想清楚了。我们得到的真正清晰的结论是：我们不要雇佣兵。我们想给到「好」，但不是实验室那种疯狂的数字，我觉得这样很棒。我认为 Anthropic 最近有一点受到过度雇佣兵化的困扰，因为他们显然想要传教士，可他们付得比谁都多，于是不仅会吸引雇佣兵加入，还会有人伪装文化面试——现在甚至出现了专门帮人准备 Anthropic 文化面试的市场。我非常高兴我们决定不走那条路。</p>
+<p>我们想给人们的是不错的、但不是史上最高的薪酬，而且我们对现在的算法非常满意：这种安排既照顾到人，也把那些雇佣枪手过滤掉。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>最后一个问题。如果只能给潜在候选人烘焙一种性格特质，</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>那会是什么？对我的公司来说，会是「痴迷」。我需要一个人对自己的手艺着迷，对把它做得更好上瘾，夜里睡不着，这件事从各个方向驱使着他。一种能够对某件事产生痴迷的能力。我不知道这是不是对每个岗位都一样，但如果必须选，我找不到更好的词。它听起来有一点点色情，但我不是那个意思，是技术迷恋（technophilia），非性的，先说清楚，非性的。好，放松。我们是真心、真心热爱技术。我觉得这是泡沫里非常美好的一种东西，也是我希望每个岗位都有的东西，这样我们午饭时、闲逛时都可以谈论技术。我想身边都是我喜欢的人，希望我们是一整支大团队，一起走向</p>
+<p>不断地把科幻的边界往前推，因为我们就是这样真正做出技术上的震慑的。再说一遍，非性的意味。我想不到更好的词，技术迷恋者，技术……先说清楚。如果你们把这段剪掉，会很尴尬，不过，是的。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s12">
+<div class="body-sec-head"><h3>快问快答：炒作没那么重要，机器人被高估，委托代理问题将被改写</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>别担心，我们会留着，而且是非性的。我们来做一轮快问快答：我说一句短的，你立刻给出第一反应。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>好。先提醒一下，我通常不太做快问快答。我试试。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>过去 12 个月，你改变想法最多的是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>炒作有多重要。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>炒作有多重要？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>是的。我认为它比我以为的要次要得多。Jev 发布的时候，我会觉得：天哪，炒作太重要了。后来其他东西发布，它们把刷榜做到了极致。可当我们和真实的人交谈时，每个人都会说：对，我们试过了，很烂，没人在乎。我们已经能看出来，你们是最好的，也是最在乎的。我当时想：哇，这太方便了，我们可以继续做自己最热爱的事，也就是少承诺、多交付。这是最好的世界。所以在发布当时，我完全不会预料到这一点，这对我们实在太好了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你持有的、而前沿实验室里最聪明的人会与你意见相反的最大信念是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>今天的人工智能能做多少，以及可靠性有多重要。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你为什么不从 OpenAI 招人？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我的感觉是，要进入 OpenAI，需要经过某种选择偏差，而这有点像一种反信号：你得喝下某种特定的迷魂汤，这是第一点。第二，我说这话时，主要是指我不招 OpenAI 的研究员。因为 OpenAI 的研究员，按定义就热爱做算法，然后做扩张，他们往往讨厌数据。数据在大多数实验室里是一件地位很低的事。他们显然也不会去想「正确的任务」，因为那是相当稀少的事。整个 OpenAI 里大概只有三个人在思考正确的任务，而我也不会招他们——不是因为他们不够出色，而是因为如果你痴迷于正确的任务，你为什么要来做我的正确任务？我的正确任务是机器原生的人工智能。如果你</p>
+<p>痴迷的是让文生图成为一件事，阿迪蒂亚（Aditya）在 OpenAI 就做了这件事：天哪，他几乎发明了整个领域，那太酷了，他优秀到难以置信。可你也不能把他移植到另一个任务上，对吧？他应该继续熬煮自己的科幻，因为你在那样的事情上做到那么好，就该继续做。于是，按定义，剩下还招得到的机器学习研究，就是那些痴迷于算法的人。而在我看来，那正是你想把钱扔进火炉时才会做的事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>今天最被高估的品类是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我的直觉告诉我是机器人。不是因为机器人不酷，而只是：如果你从可靠性的总账来看，它们离得非常远。如果你想象哪些事情必须先被钉牢，还有大量前置条件没有被钉牢。我觉得机器人是离那一步最远的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>最被低估的是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>在我看来，是软件研究这个方向：人们把人工智能和软件放在一起玩，去做新事物，尤其是新的界面。我觉得这被低估到了可悲的程度。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>最后一问。你今天相信的、现在看起来很疯狂、但五年后会变得极其普遍的事情是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>我认为世界上到处都是委托代理问题。比如，作为委托人的选民，由一个有时与他们并不对齐的代理人来代表，也就是民意代表。为什么选民不能直接表达自己的愿望，让它表现得更像真正的民主？这只是一个勉强的例子，可这种事到处都在发生：向你汇报的人，股东对公司，委托代理问题比比皆是。我的看法是，我们会为所有这些找到好得多的解法，到时候会觉得疯狂：我们居然允许今天这种程度的错位存在。我认为那会是一个非常美好的世界：我们开始执行的是法律的精神，而不是字面。人工智能基本上就是这个，对吧？法律有点像</p>
+<p>在写软件，像在写一套详细的算法，好让事情公平、可复现。它缺的只是能够刻画「精神」的原语。我认为这会真正把社会重新拧在一起。即便在我们最有争议的议题上，很多人也能在事情的「精神」上团结起来。问题是精神无法被执行，于是你必须写下字面，而字面又会带来大量分歧。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你知道我对你有什么意见吗，迪奥戈？你就是能量不够，一直闷着，一直在监控，你知道的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>是啊，我的错，我的错。所以他们在 Discord 上才叫我 cocaine labu。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯泰宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>这期太好玩了。非常感谢你把能量带来，也感谢你愿意如此开放。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="diogo"><div class="label"><span class="badge" title="迪奥戈·阿尔梅达（Diogo Almeida）">迪奥戈</span></div><div class="content">
+<p>太棒了，实在太有意思了。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "20VC with Harry Stebbings", "title": "美国开源模型追得上中国吗？智力成本、Token 与决策模型｜Jev 制作方迪奥戈·阿尔梅达", "url": "https://www.youtube.com/watch?v=BE2JqjsN4aY", "videoId": "BE2JqjsN4aY", "published_at": "2026-11-16", "duration": 4410, "caption_source": "YouTube 自动英文字幕（en-orig）。普通 yt-dlp 成功写出自动轨（caption.vtt 131805 字节，约 1001 条时间轴，首条 0.08 秒，末条开始 4394.64 秒、结束 4402.12 秒，时长 4410 秒，覆盖约 99.8%）。标注 yt-dlp-auto / auto-en-orig。未使用 cookies，也未用 browser-cdp。", "guests": ["迪奥戈·阿尔梅达（Diogo Almeida）"], "intro": {"summary": "哈里·斯泰宾斯对谈 TypeSafe AI 联合创始人兼首席执行官、Jev 制作方迪奥戈·阿尔梅达。哈里开场称 Jev 已被约三分之一的财富 500 强使用，公司估值 75 亿美元。迪奥戈的核心论点是：自动化最大的瓶颈不是算力，也不是模型「够不够聪明」，而是智力的可靠性——大约 95% 的时间你得到爱因斯坦，另外 5% 是憨豆先生。他提出「最苦的教训」：正确的任务大于数据，数据大于算力，算力大于算法；并认为多数 neo-lab 极度浪费，基准测试「完全是胡扯」，美国开源模型在真正智力上恐怕追不上中国，以及人工智能已处于泡沫、需求可能因预期错配而收缩。TypeSafe 此轮融资约 7.5 亿美元、估值 75 亿美元，由安德森·霍洛维茨领投、红杉参与；他强调公司已经盈利，要的不是估值最大化，而是能对抗全球最大公司的盟友。", "points": ["可靠性才是自动化的最大瓶颈：同一批模型大约 95% 的时间像爱因斯坦，5% 像憨豆先生，期望值算不过来，所以企业不敢把会计、客服里的关键决策交给模型。Jev 要做的是后台自动运行所需的「多个九」的智力可靠性，而不是人在环路里的助手。", "「最苦的教训」排序是：正确任务，然后是数据，然后是算力，然后是算法。纯堆算力的叙事在 GPT-4.5 处被打破——按 token 成本它仍是最大模型，但商业上并不成功。人类反馈强化学习所需的偏好数据在互联网上原本不存在；来自可验证奖励的强化学习，关键也不只是可验证奖励，而是潜在思维链。", "他相信决策模型会迎来超级杰文斯悖论，总 token 用量将远超文本大模型。企业软件几乎十年没变，他希望人工智能成为「第四种逻辑门」：蓝光 LED 不是把市场扩大 50%，而是打开屏幕和白光；「不能自动化」应变成只是投入问题。", "公司不该为了「自有智能」去训练专用模型，真正的护城河在模型周围的软件与工程。Harvey 等从「自主完成大项目」转向律师副驾驶，他认为副驾驶能做的工程有限。每 token 智力已几乎不再显著提升，编程变强是因为把编码做进了分布之内。", "基准测试「完全是胡扯」。一线的 OpenAI、Anthropic 相对不必作弊；二线实验室和「美国开源安慰奖」以及决策模型赛道在疯狂刷榜。美国开源模型在真正智力上他猜测追不上中国（伦理与法律基线更高），但威胁模型取决于是否「原样塞进编程代理」；Jev 已被用来分类工具调用是否安全、是否在向中国回传。", "TypeSafe 融资约 7.5 亿美元、估值 75 亿美元，几乎没有路演稿、全是找上门来的，已经盈利，不为估值最大化。选择 a16z 是技术哲学同盟，选择红杉是因为索尼娅·王（Sonia Wong）。他们拒绝 2000 万美元薪酬包，基本不招 OpenAI 研究员。最被高估的是机器人，最被低估的是软件研究；他认为委托代理问题将在五年内被更好解决。"], "verdict": "值得看。这期把「模型已经很聪明，软件却几乎没变」拆成智力可靠性、任务选择、刷榜、开源格局和需求侧泡沫，数字和例子都具体，对做企业自动化、模型产品或关心开源竞争的人信息密度很高。自动字幕有少量专名含混，但不影响主线。", "audience": "关心企业自动化、决策模型、开源格局与人工智能泡沫，或想理解 Jev 和 TypeSafe 究竟在做什么的创始人、投资人和工程师。"}, "speakers": [{"id": "harry", "name": "哈里·斯泰宾斯（Harry Stebbings）", "role": "host", "short": "哈里"}, {"id": "diogo", "name": "迪奥戈·阿尔梅达（Diogo Almeida）", "role": "guest", "short": "迪奥戈"}], "sections": [{"id": "s1", "title": "开场：智力可靠性才是自动化的最大瓶颈", "start_sec": 0.08, "summary": "哈里·斯泰宾斯介绍 TypeSafe 创始人、Jev 制作方迪奥戈·阿尔梅达：称约三分之一的财富 500 强已在使用 Jev，公司估值 75 亿美元，并预告后面关于数据重于算力、neo-lab 浪费、Anthropic 仍是最好、以及人工智能已在泡沫中的讨论。迪奥戈用约 60 秒定位产品：Jev 不是狭义的专用模型，要回答的是——人工智能能解数学里的千年大奖难题，企业软件却几乎还和十年前一样；得来速、客服里的关键决策仍然不敢交给模型。他强调自己说的可靠性不是正常运行时间或吞吐，而是智力的「非锯齿性」：同一批模型大约 95% 的时间像爱因斯坦，另外 5% 像憨豆先生，按期望值一算就过不了账，所以过去约四年的多轮热潮里，那么多公司反复尝试自动做会计却不断失败。他认为这根本不是普及问题；Jev 的超能力是用「多个九」的智力可靠性，换掉这种高方差，让软件能在后台一直跑下去，而不是停在「人在环路里」的助手。"}, {"id": "s2", "title": "最苦的教训：正确任务大于数据，数据大于算力", "start_sec": 291.0, "summary": "迪奥戈改写萨顿（Rich Sutton）的「苦涩教训」：约 2019 到 2023 年是「扩规模就能变好」的时期，到 GPT-4.5 附近收益平台化，业界不再靠纯扩张。若按推理 token 成本衡量，GPT-4.5 仍是有史以来最大的模型，但商业上并不成功。他给出的重要性排序是：正确的任务，然后是数据，然后是算力，然后是算法。在 Jev 出现之前，大模型世界里的两个「正确任务」是取悦人类的人类反馈强化学习（RLHF），和在基准上拿高分的来自可验证奖励的强化学习（RLVR），两者都对不到「后台自动跑软件」。ChatGPT 在「当好 ChatGPT」上几乎从不失败，不可靠的是文本里的判断。RLHF 所需的人类偏好对比数据在互联网和公司数据库里原本不存在，必须先定义任务才能长出数据；RLVR 的关键也不只是可验证奖励，而是潜在思维链——2021 年就有人用近端策略优化（PPO）对着单元测试做强化学习，没有推理时一直失败。好数据取决于能否推动最前沿模型，因此数据商必须够到最强模型，并把难度卡在恰好的位置上。企业数据湖里的数据形状通常不对。哈里问 Surge、Mercor 这类公司还是不是好生意，他认为市场会从大模型扩展到「每家公司拥有自己的智能」；迪奥戈则认为仍处在炒作浪里，等这些公司必须成为可持续生意时，花在数据上的钱并不好估。"}, {"id": "s3", "title": "合成数据只是工具；多数 neo-lab 极度浪费；人们错看了 Jev", "start_sec": 838.0, "summary": "迪奥戈认为合成数据不是神像，只是工具：文献里它多被用来让小模型追上大模型，很难用来继续推高已经最强的模型。TypeSafe 大量使用合成数据，但焦距打在「智力可靠性」这个正确任务上。他对全球把钱扔进火炉感到担忧：多数 neo-lab 的商业模式像是雇一堆前实验室员工、囤 GPU、玩一玩再等被收购，资源极度浪费；往强化学习里砸钱倒还有道理，模型确实在变聪明，但他不会用自己的钱去赌，按期望值计算也并不觉得当前这种投入已被证明合理。这个方向早在 TypeSafe 成立前就「明显到他以为 Anthropic 已经做完 80%」，他没预料到的是发布会变成开发者版的 ChatGPT 时刻，连非开发者也在讨论。团队不喜欢他在播客里讲真细节，因为讲清楚反而是竞争劣势；人们仍用大模型的框去看 Jev，盯着速度和成本。他们即便在基准上领先到离谱，模型偶尔变笨也会心疼，还要追问为什么是 97% 的准确率、缺的那一块是什么——而这常常是提示词问题。开发者很快就懂了，不看榜，只觉得「你们的模型明显更擅长新东西」；反而是觉得「这不过是个分类器、很无聊」的人，后来做出了那些不理解为何要死磕稳健性的仿制品。"}, {"id": "s4", "title": "大厂并非不能复制，而是还没把可靠性当真", "start_sec": 1184.48, "summary": "哈里直问：发布之后 OpenAI 等已在做自己的决策模型，大厂为什么不直接抄走、把他们竞争出局。迪奥戈认为问题完全公平——一旦他们开始非常在乎可靠性，竞争才会变得有意思。至于「要企业客户、要收入，没有可靠性首席信息官怎么会签字」：他认为外界严重低估了大厂有多不在乎；人们很难把「智力」理解成一种产品，只好拿基准测试当创可贴。过去大约九个月，文本模型圈已经学会「榜说明不了什么」：Anthropic 的模型就是最好的，哪怕中国模型在榜上打平，哪怕 Anthropic 几乎不落在任何一条基准的帕累托前沿上。决策模型这个子领域大约在发布一周后出现模仿，两三周内人们就看穿那些是刷榜。大厂优化的是业务指标：在 ChatGPT 为王、还没有 Claude Code 的日子里，优化的是月活跃用户，谄媚（sycophancy）就是这样炼出来的——模型会撒谎，但那是用户想要的。现在优化的则是编程代理的「月活等价物」。如果不为这件事训练专用模型、也不认真投入，他不认为对手短期内能做出可比较的模型。他希望他们都去做，这对世界有好处、对 TypeSafe 的生意不好；眼下「几乎没有真正的竞争」，将来一定会有。"}, {"id": "s5", "title": "决策模型将远超文本大模型的 token 用量，软件还缺第四种逻辑门", "start_sec": 1368.0, "summary": "被问三年后市场会像优步与 Lyft，还是像亚马逊云、谷歌云与微软云，迪奥戈更像技术理想主义者：不盯竞争格局，要靠不断推出「技术上的震慑」。他相信这将是超级杰文斯悖论，不是文本大模型那种轻微或虚假的杰文斯；决策模型会无处不在、在后台运行，总 token 消耗将完全压过文本大模型，人们对比人工智能的感觉也会从「朝我喷垃圾」变成「真的让生活更好」。他们的模型相对极为高效，并不走补贴剧本，但仍需把效率再往前推。最大瓶颈目前像单人游戏——要靠他们推技术边界，并和开发者一起推。他讨厌旧金山把机器学习研究员压在工程师、再压在软件工程师之上的地位游戏，希望出现「软件研究员」这种新角色，像互联网或移动的寒武纪爆发里去立灯塔。工程师脑子里一直有「能自动化 / 不能自动化」的分界（搬文件可以，给笔记本做语音界面不行），他希望「不能」变成只是投入问题。蓝光 LED 的类比是：红绿 LED 只能做指示灯，补上蓝色不是把 LED 市值扩大 50%，而是让今天的屏幕和高效白光成为可能。他希望人工智能成为软件的第四种基本逻辑门，带来的不是 33% 的扩展，而是数十万倍，触发软件本身的寒武纪爆发。"}, {"id": "s6", "title": "企业软件只是旁边挂了点 AI；自有模型并不是圣杯", "start_sec": 1691.92, "summary": "哈里指出，今天的企业软件充其量只是「撒了一点人工智能」。迪奥戈认为这极其合乎逻辑，而且不是分发问题：企业有强激励去采用，冲得最猛的往往伤得最重。大模型不可靠，不能托付对公司有利害的决策，却可以被用来做对用户有利害的决策——因为公司往往不那么在乎用户。于是人工智能进不了应用的深层逻辑，只是同一套 B2B SaaS 旁边挂一个会向用户喷「AI 垃圾」的附件，对错负担全甩给用户。SaaS 末日没有发生，马丁·卡萨多（Martin Casado）称之为 SaaS-a-palooza。最可能赢的是最在乎、最靠近问题的人：传统 SaaS 的优势不是分发，而是懂工作流、有体量去做真正的自动化工程。他举例，TurboTax 该改哪块界面，OpenAI 或 Anthropic 象牙塔里的人根本不会。至于 Fireworks 的林（Lin）和 Modal 的埃里克主张每家公司拥有自己的智能：他把「人工智能同事」比成无马马车——工业革命要自动化的是「拧瓶盖」这种极窄动作，而不是等一个人形同事。若假设每家公司都愿意且有能力按自己的分布训练同事模型，自有智能才勉强说得通；他认为实验室走「通用智能同事」更自洽。给公司无限多、成本低一千倍的实习生本该很好用，现在用不起来，借口往往是持续学习或必须更窄，他觉得这和现实对不上。"}, {"id": "s7", "title": "垂直模型与 Harvey 的厚薄，以及每 token 智力几乎不再涨", "start_sec": 2012.16, "summary": "哈里提到 Fireworks 帮过硅谷一线品牌，Harvey、Ramp、Cognition 可能在自建模型，并问这是不是徒劳。迪奥戈说情况复杂：基准有极强的扭曲激励，对内对外都要显得不会被大模型打穿。能力跃迁往往是离散的，发生在某类数据被做进分布之时——他记得编码代理最大的一跳大约在去年 11 月某版 Opus，之后再爱用 Fable 5.2 或 Opus 5.5，也已是收益递减，这时才轮到每 token 成本这类微观优化。工程师讨厌升级依赖，只有「以前不够用」才会更新；一旦 Jev 这类模型把自动化锁住，人们更不愿意换。公司真正的专有智能来自模型周围的软件，而不是自己训练模型。Harvey、Cognition 必须讲「我们拥有智能」，否则看起来只是大模型上的薄封装；但真正的壁垒更像「你怎么用数据库」，而不是用哪家数据库。哈里强烈反驳 Harvey 是薄封装。迪奥戈说「薄」是相对的：Harvey 早期和 OpenAI 合作时想自主完成越来越大的项目，后来没做成，转到律师副驾驶。副驾驶周围能做的工程有限（领域 MCP、法律检索增强等），而人们想要的是自动完成大块工作，不只是让人效率提高两位数百分比。系统消息也是一种很糙的工程，没有保证、没有置信度、难以测试。关于「每 token 原始智力是否真在提升」：他认为曾经大幅提升，现在即使有也微乎其微，好比你分不出智商 180 和 190，而大模型其实更像偶尔 180、偶尔 80 甚至更差。预训练智力相对每美元算力几乎没有在动；编程之所以大幅提升，是因为编码被做进了分布、更可靠，不是基座变得更通用。写作等其他能力在过去约九个月几乎没有进步——在编程代理上堆数据，并不会改善别的能力。"}, {"id": "s8", "title": "基准测试是胡扯；美国开源模型恐怕追不上中国", "start_sec": 2522.32, "summary": "迪奥戈要大家记住：基准测试完全是胡扯，逆向激励巨大，最受伤的是没时间亲自玩模型的人，开放权重和开放研究尤其如此。实验室内部有智力的代理指标，却没有动力公开最好的测法。谁最在「胡扯」？他给了分层：一线的 OpenAI 与 Anthropic 有动力说实话，因为不必作弊也能站在上面，士气也需要真实感；二线实验室有动力对自己撒谎、内部狂刷榜却不能承认，Llama 4 就是太直白地刷榜，他觉得谷歌眼下和不少中国实验室也有类似压力——他们还在瞄准顶部，所以不是公开以刷榜为目的。真正疯狂刷榜的是去抢「安慰奖」的玩家，比如「美国开源领袖」这块边角：光学成分很重，没人真用这些模型，也就没人拆穿。决策模型赛道更糟，因为几乎没人懂什么叫好，人人刷到极致，反而没人信那些榜，解释权落到 TypeSafe 这边。哈里问要不要推一家美国开源领袖（Reflection、Poolside、Thinking Machines）。迪奥戈先反问「谁是我们、什么叫推」。若威胁模型是「原样插入编程代理」，中国开源模型的提示注入和后门值得担心，他自己不会在编程代理里原样用中国模型；但若公司会再训练、去偏置，情况不同。美国开源模型给自己设了更高的伦理和法律基线，在真正智力上他猜测追不上，除非中国自己停手；若整个领域平台化够硬，那多出来的几个百分点也可能无所谓。Jev 眼下一个重要用例就是分类工具调用是否安全、是否在向中国「回电话」。哈里提到最新 DeepSeek 等模型似乎用上了最新 Blackwell；迪奥戈说那是「Will Depw」（自动字幕，全名未能确认）的分析结果，网上用同样方法看，DeepSeek 4.1 Flash 并不像是那样训练的。他们模型很高效，可以站在 GPU 狂热和 neo-cloud 泡沫的边线上。"}, {"id": "s9", "title": "他认为人工智能已在泡沫中，破灭将来自需求侧", "start_sec": 2992.56, "summary": "被问未来 12 个月 neo-cloud 会发生什么，迪奥戈说人工智能泡沫已存在一段时间，并按泡沫破裂来做预案。哈里认为供给不是问题，需求也未见冲击。迪奥戈的看法是：编程代理确实改变了局面，但「这次不一样」已经喊了很多年；部分需求来自错失恐惧——人们以为结果很好就 all-in，一旦直面能力边界，需求可能迅速收缩。他接触到的买单者往往对能力校准不准、高估太多，这个领域长期过度承诺、交付不足。有人说即便模型不再进步，仍有大量价值没被榨取——他说这话的人正是靠榨取现有模型吃饭的，有立场偏差。他同意模型已经非常聪明，但接口和把聪明「挖出来」的方式很差；另一面是那些大裁员、以为人工智能能包办、后来又不得不收回的公司，长期后果很大。TypeSafe 自己利润率不错。哈里问：你们这么便宜，要做到 100 亿美元收入，规模得极大。迪奥戈搬出杰文斯悖论：不是「更便宜就会魔法般更好」，而是预算不变时 Jev 更便宜、更可靠，原来做不成的项目做成了，才会把智能扔到以前绝不会扔的地方；只有项目真正创造价值，预算才会回到原水平甚至更高——所以智力可靠性才是关键。在「真正自动化」这个总指标上，他把 Jev、Fable 和 Astra 都打成大约 0%：零星有一点，但「后台自动跑的人工智能」这个行业几乎还不存在，潜力应大于只让写软件效率提高约 20% 的编程代理。哈里提到 Cognition 眼下大约排第四、已是约 16 亿美元收入的生意，名单里还有 Claude Code、Codex、Cursor、Factory。迪奥戈说他几乎不分析编程代理市场，甚至短期里若 Jev 完全不做编程代理、让那边自己打架，对公司更轻松——不过已经有点晚了。市场会不会比今天大得多，他不知道：人工智能看起来像一条指数向上的线，其实是多次上下波动，每一轮 FOMO 叠上下一轮，假定「这次只会一直涨」太傲慢。哈里也想起 2015 到 2016 年 Bloomsbury AI、Message.ai 那一波。"}, {"id": "s10", "title": "75 亿美元估值、7.5 亿美元融资：要的是盟友，不是估值最大化", "start_sec": 3420.0, "summary": "哈里问这一轮是不是一家家停下来收条款清单、一下子拿到 28 张。迪奥戈说那是一段非常混乱的时间，也让他们看清了风险投资人。几乎全是找上门来的，他们没有路演稿，只能让对方讲看到的市场信号，因为内部已经「着火」。有意思的是观察不同机构在最初几天、几周里兴奋如何变化，以及他们如何转述投资组合公司在用 Jev——TypeSafe 不窥探客户数据，本来并不知道客户拿它做什么。融资金额和估值来回改过：起步时他们甚至不知道这轮要什么，后来决定不必估值最大化，也不需要那么多钱，要的是能和全球最大公司对抗的盟友和最聪明的钱。他们已经盈利，账上现金还在增加；以他们此前融到的钱，不该一上来就计划把新钱花光。出现过那种带嘲讽意味的加码认购需求，甚至有人说「如果你按三倍估值来融，算我一份」——他们不需要这些钱。哈里骂这就是泡沫，有人可以 YOLO 210 亿美元；迪奥戈说他们既不需要钱也不需要估值，所以不必玩这个。为什么选红杉和安德森·霍洛维茨：他是技术乐观主义者，觉得 a16z 在哲学上最对齐，和马丁·卡萨多、本·霍洛维茨一起做的那期播客像老朋友交心。红杉这边，他坦白「我想要的不是红杉的钱，是索尼娅·王（Sonia Wong）」。他欣赏她那种独特的聪明，能在战略问题上给出别人给不了的视角。TypeSafe 有一条很「非创业公司」的价值观：「慢慢做出好决策」。他讨厌传统商务人士自动驾驶式地做事，重要事项必须有为什么、有框架；他希望把更多时间花在数据路线图、产品、可信度和每一个岗位的人选上。"}, {"id": "s11", "title": "最难招的是「数据恶魔」团队；拒绝两千万美元薪酬包", "start_sec": 3882.08, "summary": "招聘最难的是他们内部称作「数据恶魔」（data demon）的团队：新任务需要新形状的数据，他们内部几乎是一个只服务自家方法的迷你实验室。这件事本该极酷、最好招，却总招来不对的人；他不知道该怎么说服那些极为出色、却不觉得自己能推动机器学习边界、也不是研究员的人加入——他们会被这个子领域的顶尖专家带着，而且真的能让模型变聪明。薪酬上，他们已想清楚：不要雇佣兵，给的是「好、但不是实验室那种疯狂数字」。哈里转述 Modal 的埃里克必须去抢 2000 万美元薪酬包的毕业生。迪奥戈说 TypeSafe 不跟这个走。他认为 Anthropic 最近有点受过度雇佣兵化之苦——他们想要传教士，却付得比谁都多，于是出现了专门帮人准备 Anthropic 文化面试的市场。TypeSafe 要给到既照顾人、又筛掉雇佣枪手的水平。若只能给候选人烘焙一种特质，他要「痴迷」：对自己的手艺上瘾，睡不着，以及非性意味的技术迷恋，午饭和闲聊都想谈技术，整支队伍一起把科幻边界往前推，做出技术上的震慑。"}, {"id": "s12", "title": "快问快答：炒作没那么重要，机器人被高估，委托代理问题将被改写", "start_sec": 4102.56, "summary": "过去 12 个月他改变最多的看法是：炒作没他以为的那么重要。Jev 发布时他觉得炒作极重要，后来别人拼命刷榜，真实用户却说「试过了，很烂，没人在乎」，已经能看出谁最好、谁最在乎，他们可以继续少承诺、多交付。他持有、而前沿实验室最聪明的人会反对的信念是：今天的人工智能能做多少，以及可靠性有多重要。为什么基本不从 OpenAI 招人：进 OpenAI 有一种选择偏差，像一种反信号，要喝特定的迷魂汤；他尤其不招那里的研究员——他们天生爱算法和扩张、讨厌数据（数据在多数实验室里地位很低），也很少思考「正确的任务」，整个 OpenAI 里大概只有三个人在想这件事，他也不会招，因为若你痴迷于自己的正确任务，就不会想来做他的「机器原生人工智能」。他举阿迪蒂亚（Aditya，在 OpenAI 做出文生图、几乎发明整个方向）为例：这种人应该继续做自己的科幻，不能被移植到别人的任务上。剩下可招的机器学习研究，往往是爱烧钱搞算法的人。最被高估的品类是机器人——不是因为它不酷，而是在可靠性总账上离得最远，大量前置条件还没打牢。最被低估的是「软件研究」：用人工智能加软件做新事物、尤其是新界面。五年后他觉得会变得稀松平常的「疯狂」想法是：世界上到处都是委托代理问题（选民与代表、下属向你汇报、股东与公司），人们会找到好得多的解法，并惊讶今天曾容忍如此程度的错位；人工智能有望按法律的精神而不是字面去执行，因为法律很像在写软件，过去缺的是能刻画「精神」的原语，而这可能在最有争议的议题上把社会重新拧到一起。节目在哈里调侃「你能量不够」和迪奥戈说 Discord 上有人叫他 cocaine labu 的笑声里结束。"}], "paragraphs": [{"start_sec": 0.08, "type": "text", "section_id": "s1", "speaker_id": "harry", "zh": "几乎所有认真看人工智能的人都知道：可靠性才是最大的瓶颈。你大概 95% 的时间得到的是爱因斯坦，另外 5% 是憨豆先生。今天坐到这张热座位上的，是这个时代最出色的创始人之一，也来自最热的公司之一：迪奥戈·阿尔梅达（Diogo Almeida），TypeSafe 创始人，Jev 的制作方。Jev 已被约三分之一的财富 500 强使用，相当惊人。"}, {"start_sec": 22.16, "type": "text", "section_id": "s1", "speaker_id": "harry", "zh": "他们的估值已经到了 75 亿美元。今天我们会谈到模型的未来。这会是一场非常精彩的讨论。数据比算力重要得多。「我不想被叫成 neo-lab，因为在我看来，大多数 neo-lab 都极度、极度浪费。」「Anthropic 的模型就是最好的。即便中国模型在基准测试上打平，眼下也感觉不到真正的竞争，而这肯定迟早会改变。」「所有人在单一模型上戴了太久的眼罩。」「我相信人工智能已经在泡沫里一段时间了，所以我会为泡沫破裂的可能性做预案。」准备开始。"}, {"start_sec": 67.04, "type": "text", "section_id": "s1", "speaker_id": "harry", "zh": "迪奥戈，我非常期待这一期。我们在 Modal 的埃里克（Eric）那期节目之后有过一次很精彩的交流，我昨晚还跟埃里克聊到了你。所以我特别兴奋。欢迎来到节目。"}, {"start_sec": 79.68, "type": "text", "section_id": "s1", "speaker_id": "diogo", "zh": "谢谢，谢谢。那其实只是一次很小的交流，你喜欢我就很高兴。那次确实很有意思，我没想到后来会变成这样。"}, {"start_sec": 89.12, "type": "text", "section_id": "s1", "speaker_id": "harry", "zh": "我们说好了，这会是一期很「辣」的讨论。在进入那些辣的部分之前，我想先把框架和基础铺一下。请用 60 秒，给还不了解 TypeSafe 和 Jev 的人做一个介绍。"}, {"start_sec": 102.0, "type": "text", "section_id": "s1", "speaker_id": "diogo", "zh": "我并不认为 Jev 是一个狭义的专用模型。我对并非纯软件开发者的人，真正想讲的其实是人工智能此刻的状态：它怎么能在那么多事情上如此聪明——比如数学里的千年大奖难题——却几乎没有改变软件本身？"}, {"start_sec": 121.44, "type": "text", "section_id": "s1", "speaker_id": "diogo", "zh": "我们用的那些 SaaS，基本上和十年前还是同一套。我们几乎没有把任何一份完整的工作真正自动化掉：得来速一次次失败，客服也是如此。市场上有人工智能客服，但关键决策其实信不过。这怎么可能？它在有些事上显得极好，在另一些事上又极差。在我看来，我们在做的、Jev 在做的，就是去填这条缝：让人工智能好到足以做自动化，而不只是「人在环路里」的助手。"}, {"start_sec": 155.0, "type": "text", "section_id": "s1", "speaker_id": "harry", "zh": "我和红杉的索尼娅（Sonia，字幕作 Sali）聊过。说到这种端到端的自动化，她问：为什么可靠性是自动化最大的障碍？"}, {"start_sec": 159.2, "type": "text", "section_id": "s1", "speaker_id": "diogo", "zh": "我先加一个限定：我说的可靠性，不是正常运行时间，也不是系统是否可用、吞吐够不够。我指的是智力的可靠性——我还在找一个更合适的词，大概是智力的「非锯齿性」。几乎所有认真看人工智能的人都知道，这才是最大的瓶颈。举个例子：你的数学有多好，我的数学有多好？我们根本没机会去帮千年大奖的解答——我没读过那篇解答，但我愿意打这个赌。可就是同一批模型，连会计这种简单得多的事情都用不了。"}, {"start_sec": 202.0, "type": "text", "section_id": "s1", "speaker_id": "diogo", "zh": "问题在哪？不是别的，是这些模型的方差极高。大家很喜欢我说的那句：你大概 95% 的时间得到爱因斯坦，另外 5% 是憨豆先生。麻烦在于，按期望值一算就过不了账，所以公司相当明智地学会了：这件事其实自动化不了。过去大约四年，我见过好多轮人工智能热潮里，那么多公司试图自动做会计，然后不断失败，因为账算不平。这根本不是扩散或普及的问题。可靠性给你的是：也许你可以拿掉一点「爱因斯坦」，换来更常、更稳地达到同样可用的智力。这对我来说，就是 Jev 的超能力。"}, {"start_sec": 253.92, "type": "text", "section_id": "s1", "speaker_id": "harry", "zh": "那我们怎么走到那一步？解决方案是什么？再怎么喜欢憨豆先生，也得把他请出去。"}, {"start_sec": 257.92, "type": "text", "section_id": "s1", "speaker_id": "diogo", "zh": "我也喜欢憨豆先生。我其实挺喜欢智能体发疯的时候，那种坏气氛很有故事性，也很有趣。但我不要这种东西跑在后台软件里。作为工程师，我想先把一件东西写好，事先花很多力气——也许一开始没意识到会这么费劲，但总是会费劲——然后让它在后台一直跑、把问题永远解决掉。要做到这一点，你需要「多个九」的智力可靠性。"}, {"start_sec": 291.0, "type": "text", "section_id": "s2", "speaker_id": "diogo", "zh": "怎么做到？我真希望能把幻灯片调出来，只好比划着说。我称之为人工智能「最苦的教训」。萨顿（Rich Sutton）提出过「苦涩的教训」，我按自己的理解转述，大致是：算力比算法更重要。"}, {"start_sec": 306.0, "type": "text", "section_id": "s2", "speaker_id": "diogo", "zh": "大约 2019 年到 2022、2023 年，是一段「扩规模就能变好」的时期：只要放大，模型就会更好。这种故事大概在 GPT-4.5 附近平台化了，这个领域后来也不再靠纯扩张，因为回报没了。我要说的「苦涩教训」是：数据比算力重要得多。任何做过应用机器学习的人都觉得这显而易见，可看热闹的人似乎还没意识到——数据显然比算力更值钱。而最最重要的，是你的北极星：你把什么定义成「正确的任务」。在 Jev 出现之前，大模型世界里存在的两个「正确任务」，一个是人类反馈强化学习（RLHF），意思是取悦人类；另一个是来自可验证奖励的强化学习（RLVR），意思是"}, {"start_sec": 360.16, "type": "text", "section_id": "s2", "speaker_id": "diogo", "zh": "在基准测试上拿高分。这两者都并不能转化成「在后台跑起来的软件」。我认为这才是一切问题的根。不是人工智能没有能力，它明显超级有能力。问题在于——你在真实世界里待过就知道——你优化什么，就得到什么。而我们恰好优化的，是「人在环路里」。"}, {"start_sec": 385.44, "type": "text", "section_id": "s2", "speaker_id": "harry", "zh": "谢谢你这么直白，一下子给了我这么多可以追问的方向。"}, {"start_sec": 389.04, "type": "text", "section_id": "s2", "speaker_id": "diogo", "zh": "我还能再说一句吗？还是说可靠性。ChatGPT 在「当好 ChatGPT」这件事上几乎从不失败。你上一次看到它输出一堆乱码是什么时候？就算你让它写一封礼貌的邮件，它也不会突然开始骂人、说不该说的话——人有时反而会犯这种错。问题不在它不够礼貌，也不在它是否谄媚，而在它会在文本内部做出错误的决策。有意思的是，它能在某些事情上可靠，在另一些事情上不行。如果你针对真正重要的事去优化可靠性，也就是决策和判断，那才能得到真正的可靠性。"}, {"start_sec": 432.88, "type": "text", "section_id": "s2", "speaker_id": "harry", "zh": "你刚才说到，算力带来的收益已经在平台化。我们真的到这个阶段了吗？你是认真的？我还以为整个指向是——"}, {"start_sec": 440.88, "type": "text", "section_id": "s2", "speaker_id": "harry", "zh": "好吧，纯预训练也许是这样。可是投入越来越多的算力，不还是会带来越来越好的输出吗？不是吗？"}, {"start_sec": 449.68, "type": "text", "section_id": "s2", "speaker_id": "diogo", "zh": "是的，但你需要的数据，比人们从前以为的多得多。也许有人会把历史改写成「我们一直都是对的」，但当年的叙事就是：把规模拉到月亮上，你就会得到通用人工智能。GPT-4.5 打破了这个叙事。我当然不知道实验室内部发生了什么，但如果我们相信实验室大致是按推理算力来定价的，那么按 token 成本看，GPT-4.5 仍是有史以来最大的模型，而它在商业上并不成功。事情显然是这样：你不能只堆算力、却不好好想清楚。人们现在往训练上扔很多算力，但必须配上大量数据。这就是为什么你会看到那么多"}, {"start_sec": 512.08, "type": "text", "section_id": "s2", "speaker_id": "diogo", "zh": "「靠卖强化学习数据给实验室快速致富」的买卖——没有那些数据，你其实做不了太多。我记得好像是德瓦尔克什（Dwarkesh）最近在 Twitter 上发过一张图，比较数据、算力和算法谁更有效，数据要比另外两项强出许多倍，就在这周。从机器学习一开始，所有人都知道这件事，这甚至不是人工智能特有的；只是「算力扩张年代」成了一个奇怪的例外。"}, {"start_sec": 548.0, "type": "text", "section_id": "s2", "speaker_id": "harry", "zh": "当我说数据的价值远比算力更首要时，指的是合成数据，还是每家公司里那些专有的企业数据，还是人工智能系统自己产生的经验，还是某几类数据，还是越广越好？你能不能帮我讲清楚？"}, {"start_sec": 561.2, "type": "text", "section_id": "s2", "speaker_id": "diogo", "zh": "真希望我有图可以指。我还是从「最苦的教训」倒着说：按重要性排序，是做对任务，然后是数据，然后是算力，然后是算法。我们在做人类反馈强化学习的时候，把这一点学得极深。只要任务是对的，底层算法的质量其实没那么重要。一个 GPT-2 体量的模型，可以打败所谓的「GPT-9」——而 GPT-9 根本不存在。所以，要拥有数据，你得先知道正确的任务是什么。而且当你创造一个新任务时，这个任务的数据通常根本还不存在。"}, {"start_sec": 603.28, "type": "text", "section_id": "s2", "speaker_id": "diogo", "zh": "比如我们做人类反馈强化学习的时候，那种「对比大模型输出、看人更喜欢哪一个」的偏好数据，互联网上没有，公司数据库里也没有。我们必须先定义它，搞清说明书，找标注员，迭代，弄清楚这些数据该长成什么样。是「做对任务」这件事，首先把数据解锁了出来。麻烦在于，冷启动一个新任务很难，因为按定义，数据一开始就不存在。"}, {"start_sec": 633.12, "type": "text", "section_id": "s2", "speaker_id": "diogo", "zh": "对我们来说是类似的，对来自可验证奖励的强化学习也类似。在它出现之前——我其实还想说，它的「正确任务」本身就有一层麻烦。来自可验证奖励的强化学习，关键并不全在「可验证的奖励」上，或者说只是一部分。更大的部分，是那种潜在的思维链、隐藏的推理，让模型可以私下思考再作答。因为即便在 2021 年，可验证奖励就已经有了，人们试过在没有推理的情况下，用近端策略优化（PPO）对着单元测试做强化学习，结果一直失败。所以那根本不只是可验证奖励的事。"}, {"start_sec": 678.8, "type": "text", "section_id": "s2", "speaker_id": "diogo", "zh": "关键是任务的结构。一旦你在做来自可验证奖励的强化学习，模型在这件事上会好很多。而「什么叫好数据」，现在已经是模型有多强的函数。所以做数据的人必须够得着最前沿的模型：数据好不好，要看它能不能把最强的模型再往前推，难度还得卡在恰好的位置上。这里面有很多细微之处，包括数据是否「在策略上」（on-policy）。回到原来的问题：正确的数据是否就躺在企业的数据湖里？我认为不是，因为它的形状大概是不对的。"}, {"start_sec": 724.08, "type": "text", "section_id": "s2", "speaker_id": "diogo", "zh": "当然有人在试。很多数据供应商想把这些数据挖出来再卖掉，也许再做一点整形就能用。但最重要的仍是：我们怎样用这东西把我们的任务往前推。你要是忘了这一点，就是在为一个局部目标做古德哈特式的刷分。"}, {"start_sec": 750.0, "type": "text", "section_id": "s2", "speaker_id": "harry", "zh": "像 Surge、Mercor 这样的数据供应公司，现在还是好生意吗？它们是不是已经变成必须做到端到端的服务生意，要深入到模型的落地和效果，而不再像早期那样只是供数据？它们是好生意吗？"}, {"start_sec": 764.64, "type": "text", "section_id": "s2", "speaker_id": "diogo", "zh": "这更像是该问你的问题，不是该问我的。你觉得它们是好生意吗？"}, {"start_sec": 767.68, "type": "text", "section_id": "s2", "speaker_id": "harry", "zh": "我个人觉得是。因为这些大模型会花在数据上的钱，对应的市场已经非常大。而且如果你相信我们会走向「公司拥有自己的智能」的世界，它们的数据将永远需要补充数据。于是这个市场的总盘，就会从大模型公司扩展到所有人。"}, {"start_sec": 786.32, "type": "text", "section_id": "s2", "speaker_id": "diogo", "zh": "有意思，有意思。公司会不会拥有自己的智能，这本身也许会是一场有趣的辩论。我其实认为，我们仍处在炒作浪里，后面总会有幻想破灭的低谷，然后再进入现实。我觉得现实那一段还没到。我相信未来人类反馈强化学习和来自可验证奖励的强化学习都会非常有价值，我不知道人们会不会继续像现在砸这么多钱。但即便从来没有出现过可验证奖励这一路，ChatGPT 也会是一个极有价值的消费品牌，而那仍然需要数据。数据永远必要；可当这些公司必须成为可持续的、"}, {"start_sec": 834.64, "type": "text", "section_id": "s2", "speaker_id": "diogo", "zh": "真实的生意时，它们愿意在数据上花多少，那个数字我不好估，所以很难拍脑袋给出一个量级。"}, {"start_sec": 838.0, "type": "text", "section_id": "s3", "speaker_id": "harry", "zh": "合成数据对改进模型有多大价值？"}, {"start_sec": 843.84, "type": "text", "section_id": "s3", "speaker_id": "diogo", "zh": "我不认为存在一种单一的「合成数据」。它更像一种工具，而不是一尊拿来膜拜的神像，效果取决于团队手里怎么用。如果你去读研究，会觉得合成数据多半被高估了：它主要被用来让小模型追上大模型，却不能用来继续改进已经最强的大模型。所以完全取决于你怎么用。不是所有人都这样——我们用很多合成数据，但用法和别人不一样。我们觉得更有意思的不是「它是合成的」，而是我们如何把这件工具极其聚焦地打在正确的任务上，也就是智力的可靠性。"}, {"start_sec": 891.28, "type": "text", "section_id": "s3", "speaker_id": "harry", "zh": "你刚才说到炒作和低谷，我的朋友。"}, {"start_sec": 894.16, "type": "text", "section_id": "s3", "speaker_id": "harry", "zh": "原来真有这个「低谷」，好，知道了。我本来想说得更优雅一点——好吧，这就是我的英式魅力。"}, {"start_sec": 898.56, "type": "text", "section_id": "s3", "speaker_id": "harry", "zh": "你担心现在涌进去的钱的体量吗？还是你觉得这是有道理的？"}, {"start_sec": 906.4, "type": "text", "section_id": "s3", "speaker_id": "diogo", "zh": "我为这个世界担心。我觉得把钱扔进火炉，对世界不是好事。我真的不想太负面。但我不想被叫成 neo-lab，因为在我看来，大多数 neo-lab 都极度、极度浪费。感觉它们的商业模式就是：雇一堆前实验室的人，搞来一堆 GPU，玩得开心，然后等着被收购。这在我看来是在浪费资源，所以这一面我并不喜欢。另一面，比如有人往强化学习里扔很多钱，我其实觉得挺酷。尽管边际回报在大幅递减，模型确实在变聪明，这对世界是好事，我觉得很酷。"}, {"start_sec": 954.32, "type": "text", "section_id": "s3", "speaker_id": "diogo", "zh": "但我会用自己的钱去做这种投资吗？不会。显然不会，因为我们自己有要做的赌注，显然不会去赌那个。所以从世界的角度看，我也不喜欢那样。当然，也许风险投资的算法是：只有 1% 的机会成为登月项目，期望值仍然为正。对了，你刚问我担不担心，还有——"}, {"start_sec": 976.0, "type": "text", "section_id": "s3", "speaker_id": "harry", "zh": "你是担心，还是觉得有道理？"}, {"start_sec": 982.0, "type": "text", "section_id": "s3", "speaker_id": "diogo", "zh": "按我的期望值计算，我会猜这并没有被证明是合理的，不过我很乐意见证自己被打脸，至少就现在而言。"}, {"start_sec": 986.0, "type": "text", "section_id": "s3", "speaker_id": "harry", "zh": "迪奥戈，你有没有预料到它会见效得这么快？"}, {"start_sec": 988.96, "type": "text", "section_id": "s3", "speaker_id": "diogo", "zh": "我只能说，很多年来，甚至在 TypeSafe 出现之前，我都觉得自己一定是漏看了这个领域的什么东西。后来我说服自己并没有漏看，但这个方向对我来说实在太明显了，明显到我第一次想到时差点放弃，因为我觉得 Anthropic 肯定已经做完 80% 了。这是我听过最显而易见的事情。所以对我来说，它会对世界有价值，是非常非常显然的。我仍然觉得人们没懂。尽管发布本身非常成功，我没预料到的是那个「开发者版的 ChatGPT 时刻」：连不是开发者的人也在谈论它。"}, {"start_sec": 1035.6, "type": "text", "section_id": "s3", "speaker_id": "diogo", "zh": "那是我完全没有预测到的，非常奇怪。"}, {"start_sec": 1039.12, "type": "text", "section_id": "s3", "speaker_id": "harry", "zh": "人们没懂的是什么？关于 Jev 和你，人们错得最厉害的是什么？"}, {"start_sec": 1042.96, "type": "text", "section_id": "s3", "speaker_id": "diogo", "zh": "我的团队很讨厌我谈这个，但我给自己定的规则是：在播客上我可以脱轨。我其实认为，把 Jev 真正在做的事讲清楚，对我是竞争劣势，因为人们总是打偏；如果我们谁也不告诉，我们也许能永远当这座山头的王。可我太在乎这个领域了，忍不住要痛苦地大喊：这到底是怎么回事？抱歉刚才骂了脏话。人们真正没懂的是：我们这个模型的特别之处，不是成本，也不是速度，而仍然是智力的可靠性。很多人还停在大模型的思维里。我觉得不少人正在透支自己的信誉。未来应该会有仿制模型，但在我看来，它们应当真正在乎可靠性。"}, {"start_sec": 1094.56, "type": "text", "section_id": "s3", "speaker_id": "diogo", "zh": "而眼下那些正在推出仿制品的人，并没有做到。他们还在用做大模型那一套：刷榜、博取热度，去展示速度、成本这类其实并不重要的数字。他们真正该做的，是钻进掩体，把模型做得很聪明、非常聪明。人们没意识到，这才是我们的全部。哪怕我们在基准上已经领先到离谱，只要模型还显得笨，我们仍然会心疼，我们盯的就是这个。我认为整个领域都该盯这个：为什么是 97% 的准确率，缺的那一块是什么？而且要说清楚，这不一定是模型的问题，很多时候是提示词的问题。但打造开发者工具，本来就是这样。"}, {"start_sec": 1143.2, "type": "text", "section_id": "s3", "speaker_id": "diogo", "zh": "我们需要教育用户，需要弄清怎样提示得更好，需要弄清这种语言里有没有某种细微之处，能让人写出更稳健的提示，还是我们必须把模型本身做得更聪明。我认为这才是人们真正漏掉的东西。开发者懂了，而且比我预想的快得多，因为他们本来就不在乎那些基准，只会说：你们的模型明显更擅长新东西。可另一些人——就是那些觉得「这很无聊，不过是个分类器」的人——"}, {"start_sec": 1175.6, "type": "text", "section_id": "s3", "speaker_id": "diogo", "zh": "后来去做了那些仿制品。他们不理解，为什么你值得花这么大力气，把模型一次次做得更稳健。"}, {"start_sec": 1184.48, "type": "text", "section_id": "s4", "speaker_id": "harry", "zh": "你刚才提到仿制品。我能直说吗？你们发布之后，OpenAI 和其他一些人动作很快，也在试图做自己的决策模型产品。"}, {"start_sec": 1196.72, "type": "text", "section_id": "s4", "speaker_id": "harry", "zh": "那些大模型供应商为什么不直接复制你们，把你们竞争出局？"}, {"start_sec": 1201.04, "type": "text", "section_id": "s4", "speaker_id": "diogo", "zh": "我不觉得这是一个无礼的问题，这是一个完全公平、合理的问题。我认为，如果有一天他们开始非常在乎可靠性，那才会变成一场有意思的对决。"}, {"start_sec": 1213.84, "type": "text", "section_id": "s4", "speaker_id": "harry", "zh": "迪奥戈，他们怎么会不在乎可靠性？他们想要企业客户。"}, {"start_sec": 1216.16, "type": "text", "section_id": "s4", "speaker_id": "diogo", "zh": "你根本想象不到他们有多不在乎。"}, {"start_sec": 1220.56, "type": "text", "section_id": "s4", "speaker_id": "harry", "zh": "可他们想要企业，想要收入。如果你没有可靠性，你怎么让首席信息官签字？"}, {"start_sec": 1228.0, "type": "text", "section_id": "s4", "speaker_id": "diogo", "zh": "我觉得人们很难把「智力」理解成一种产品，所以才会拿基准测试当创可贴。基准测试在某种程度上是理解底层智力的代理指标，但据我观察，过去大约九个月，整个文本模型这个子领域已经学会了：基准测试说明不了什么。Anthropic 的模型就是最好的，即便中国模型在基准上打平。哪怕你专门去度量「刷榜」的程度，你仍然会觉得 Anthropic 的模型比竞争对手更好，尽管它们几乎不落在任何一条基准的帕累托前沿上。"}, {"start_sec": 1266.32, "type": "text", "section_id": "s4", "speaker_id": "diogo", "zh": "而系统 1、也就是决策模型这个子领域，大约在发布一周后就开始出现竞争，人们大概两三周就学会了：那些不过是刷榜，完全是垃圾，很容易看出不一样。我认为，要真正、非常在乎可靠性，需要一种不同的组织。"}, {"start_sec": 1285.84, "type": "text", "section_id": "s4", "speaker_id": "harry", "zh": "如果他们不在乎——"}, {"start_sec": 1288.8, "type": "text", "section_id": "s4", "speaker_id": "harry", "zh": "如果他们不在乎可靠性，那他们究竟在乎什么，迪奥戈？"}, {"start_sec": 1291.92, "type": "text", "section_id": "s4", "speaker_id": "diogo", "zh": "这真的取决于他们的业务目标。回到「ChatGPT 就是一切」、还没有 Claude Code 的那些日子，他们在乎的是月活跃用户。那其实是一个和「最好的聊天体验」非常不同的优化指标。谄媚（sycophancy）就是这样冒出来的，然后循环往复：它更会讨好，有时会撒谎，可那是人们想要的，所以在某些角落里就继续这么做。你优化什么，就得到什么，那就是当时 ChatGPT 优化的东西。我认为现在人们优化的，是编程代理的「月活等价物」。如果他们不为此训练专用模型，也不投入非常认真的思考，我不认为他们短期内能做出可比较的模型。"}, {"start_sec": 1340.72, "type": "text", "section_id": "s4", "speaker_id": "diogo", "zh": "我倒希望他们都去做，因为我觉得那对世界会非常好。显然对我们的生意不好。但眼下的局面是：感觉还没有真正的竞争，而这肯定迟早会改变。我希望出现竞争，然后我们证明自己是最好的——因为我们最在乎，也有最聪明的人，极其聚焦地盯着北极星。但再说一遍，这还不是竞争。"}, {"start_sec": 1368.0, "type": "text", "section_id": "s5", "speaker_id": "harry", "zh": "当你看你所处的决策模型产品格局——"}, {"start_sec": 1372.24, "type": "text", "section_id": "s5", "speaker_id": "harry", "zh": "三年后那会是什么样子？会像优步和 Lyft 的市场，还是像谷歌云、亚马逊云和微软云那样的市场？三年后的市场结构会是怎样？"}, {"start_sec": 1385.0, "type": "text", "section_id": "s5", "speaker_id": "diogo", "zh": "我可能有点技术理想主义者的意思，所以我其实不太去想竞争格局会怎样，我更关心技术本身。我们的强项永远会是技术上的震慑，所以我们必须不断推出令人惊叹的东西。在我看到的图景里，我会把竞争放在一边。我真心相信，在 token 用量上，我们将迎来超级杰文斯悖论。那不会是轻微的杰文斯，也不会像文本大模型那种虚假的杰文斯，而是超级加倍的那种。"}, {"start_sec": 1421.52, "type": "text", "section_id": "s5", "speaker_id": "diogo", "zh": "会有海量、海量、海量的使用。我认为它至少会在总 token 消耗上，完全压过文本大模型。这些东西会被用到所有地方，我们终于会让人工智能在后台跑起来。人们对比人工智能的感觉也会开始转变：从「这东西在朝我喷垃圾」，变成「它真的让生活更好了」——因为当技术改善生活时，人们是真心喜欢的。"}, {"start_sec": 1446.88, "type": "text", "section_id": "s5", "speaker_id": "harry", "zh": "你说「超级杰文斯悖论」。我们有足够的能源和基础设施，去支撑你预想的那种需求吗？通往你那种技术乌托邦的瓶颈又是什么？"}, {"start_sec": 1457.76, "type": "text", "section_id": "s5", "speaker_id": "diogo", "zh": "「乌托邦」这个词有点重，叫「梦想」也许更贴地。我们的模型相对来说极为高效，我们没有走那种标准的补贴剧本，这些东西我们能非常、非常高效地提供，而且在效率这个方向上还有很多边界可以推。当然得做一些很硬的研究，但这正是我信任我们能做的事。要让那种超级杰文斯发生，我们必须把效率再往前推一大步。最大的瓶颈，目前感觉有点像单人游戏：从人工智能和整个领域的角度看，要靠我们去推技术边界。我们会需要和开发者大量互动，会需要"}, {"start_sec": 1513.84, "type": "text", "section_id": "s5", "speaker_id": "diogo", "zh": "帮助他们去推这些边界。我一直在说一个我梦想中的角色。我已经厌倦了旧金山那种地位游戏：机器学习研究员高人一等，再往下是机器学习工程师，再往下才是软件工程师。我认为这完全搞反了。我希望能创造出一种新角色，我目前最喜欢的名字是「软件研究员」：真正去推软件边界的人。这说得通，对吧？如果你知道自己正处在互联网或移动的寒武纪爆发里，你会觉得有那么多边界可推，有那么多低垂的果实，需要开拓者走出去，建起一座座灯塔，"}, {"start_sec": 1562.72, "type": "text", "section_id": "s5", "speaker_id": "diogo", "zh": "告诉别人：这里有价值，来淘金吧。我特别兴奋去鼓励人们推这些边界，只恨自己没有时间亲自去做，因为值得做的疯狂而兴奋的事情太多了。所以我认为，要让系统 1 模型无处不在、让人工智能真正把事情自动做掉，最大的两个瓶颈就是这些。如果还能多说一句：我不知道你是不是软件工程师，但我保证，每个做过软件工程师的人，脑子里都有过「这件事我能自动化」或「这件事我自动化不了」的判断。"}, {"start_sec": 1597.2, "type": "text", "section_id": "s5", "speaker_id": "diogo", "zh": "你必须知道，对吧？如果你想自动做一些搬文件的事，你可以自动化；如果你想给笔记本电脑做一个不用手打字的语音界面，你自动化不了。我的希望是，人工智能能把「不能自动化」那一块彻底拿掉，从此只是投入多少力气的问题。这个想法还不太成熟，但我非常喜欢这个类比：人工智能已经明显很厉害，软件本身却没有变。写软件的方式变了很多，做出来的软件却还是老样子，这很可悲。我喜欢蓝光 LED 的比喻。当初只有红光和绿光 LED 的时候，用途非常窄，几乎只能做指示灯，因为它们很高效。"}, {"start_sec": 1642.24, "type": "text", "section_id": "s5", "speaker_id": "diogo", "zh": "但当你补上蓝光 LED，它并不是把 LED 的市值扩大了 50%，它让各种事情成为可能：没有它，就没有我们今天的屏幕，也没有效率高得多的白光 LED。缺的是这块可组合的拼图。我希望人工智能最终能成为第四种基本逻辑门。软件建立在三种基本逻辑门之上，它们本身很「笨」，但正是软件工程师的才华，才让你能用这些比特级的比较，堆出今天软件里的一切。假如我们能加上第四种呢？那应该不是把我们能做的事扩大 33%，而应该扩大几十万倍。"}, {"start_sec": 1688.32, "type": "text", "section_id": "s5", "speaker_id": "diogo", "zh": "这就是我为什么对软件本身的寒武纪爆发感到兴奋。"}, {"start_sec": 1691.92, "type": "text", "section_id": "s6", "speaker_id": "harry", "zh": "你为什么觉得当前的软件状态本身就是一种悲剧？如果你看今天的企业软件，它充其量只是「在企业软件上撒了一点人工智能」。"}, {"start_sec": 1700.96, "type": "text", "section_id": "s6", "speaker_id": "diogo", "zh": "对。"}, {"start_sec": 1702.72, "type": "text", "section_id": "s6", "speaker_id": "harry", "zh": "你怎么看这件事？"}, {"start_sec": 1704.48, "type": "text", "section_id": "s6", "speaker_id": "diogo", "zh": "我认为这其实极其合乎逻辑。我不觉得这是分发问题。企业有非常强的激励去采用人工智能，而冲得最猛的那些，往往也是伤得最重的。我一贯的论点是：大模型不可靠，所以不能被托付对公司有利害关系的决策；但你总可以让它们去做对用户有利害关系的决策，因为公司往往并不那么在乎用户。这很可悲，可事实就是这样。于是你看不到人工智能深入应用的逻辑里，最后得到的是同一套 B2B SaaS，旁边挂上一点人工智能：它做不了高利害的事，却可以向用户喷出「AI 垃圾」，因为人们觉得它反应很快，还挺喜欢；同时他们确保，检查「这到底对不对」的负担，"}, {"start_sec": 1753.36, "type": "text", "section_id": "s6", "speaker_id": "diogo", "zh": "全部落在用户盘子里。以目前的可靠性水平来看，这其实非常合乎逻辑。所以我觉得可悲的是，人们绕了这么大一圈、浪费了这么多资源，才走到眼下这个位置；但同时，以模型现在的聪明程度和可靠程度，这里大概也就是该在的位置。"}, {"start_sec": 1780.0, "type": "text", "section_id": "s6", "speaker_id": "harry", "zh": "最大的好处会落到拥有分发优势的在位者身上吗？当你看 Salesforce 这样的公司，再对照你刚才说的「当前软件的悲剧」，好处是落在有分发渠道的那些公司，还是会落到新一代身上？"}, {"start_sec": 1790.0, "type": "text", "section_id": "s6", "speaker_id": "diogo", "zh": "第一，SaaS 末日显然没有发生。马丁·卡萨多（Martin Casado）把它叫成 SaaS-a-palooza，我很喜欢这个说法。我并不必然认为这"}, {"start_sec": 1796.48, "type": "text", "section_id": "s6", "speaker_id": "diogo", "zh": "就意味着大型 SaaS 会赢。我认为最有位置去赢的，是最在乎的那些人。SaaS 相对人工智能公司有一个巨大优势：它们真正熟悉工作流，也有体量先把工程投资砸下去——因为要把事情自动化、真正解决人们的任务，需要真正的工程，而这才是这里真正有价值的东西。我并不认为大型 SaaS 会永远是赢家，但我认为它们位置最好，原因完全不是分发，而是它们离问题最近。它们懂：假如我们在 TurboTax 这样的产品里，界面的哪一块可以改得更顺。"}, {"start_sec": 1844.4, "type": "text", "section_id": "s6", "speaker_id": "diogo", "zh": "OpenAI 或 Anthropic 里没有任何人知道该怎么做，对吧？他们还住在象牙塔里，以为「软件」这个概念本身将会不复存在。所以我认为，传统软件公司有可能成为大赢家。"}, {"start_sec": 1868.0, "type": "text", "section_id": "s6", "speaker_id": "harry", "zh": "你刚才说到了解流程、了解工作流有多重要。我在节目里做过 Fireworks 的林（Lin，字幕作 Lynn），也做过 Modal 的埃里克（Eric）。他们都谈到，作为一家公司，拥有自己的智能有多重要，以及拥有极其宝贵的专有数据、为每家公司训练专用模型，会带来哪些好处。"}, {"start_sec": 1876.08, "type": "text", "section_id": "s6", "speaker_id": "harry", "zh": "重要性既然在流程和工作流里，这难道不就是圣杯吗？"}, {"start_sec": 1881.04, "type": "text", "section_id": "s6", "speaker_id": "diogo", "zh": "我该怎么优雅地、用英式方式说呢。这种看法，我觉得是顺着当下世界的轨道在走。当下世界把人工智能摆成「同事」：人工智能被呈现为一个同事，这也是 Anthropic 非常用力推的方向，界面有点像跟一个人打交道。我相信这会成为人工智能时代的「无马马车」——就像工业时代有人说，我们把它做成马车的样子，只是把马拿掉。我认为「人工智能同事」就是某种形式的这个。因为如果你在做自动化，自动化会有和人类不同的能力剖面，"}, {"start_sec": 1938.16, "type": "text", "section_id": "s6", "speaker_id": "diogo", "zh": "你应当去顺着自动化的长处走。有点像工业革命：你不必等一个完整的同事、一个人形机器人来做事，你只要找到极窄的一件事，比如把瓶盖拧到瓶子上，然后把它自动化，这个问题就永远解决了。我认为工作大体上会这样走。如果你假定「人工智能同事」就是正途——我绝对不这么认为——并且假定大多数公司都有意愿、能力和欲望去训练它们，因为必须针对本公司的分布来训练，那么「拥有自己的智能」这条路才勉强说得通。我反而觉得，实验室那种「人工智能同事，但是通用智能」的路径，对我来说更说得通。"}, {"start_sec": 1986.56, "type": "text", "section_id": "s6", "speaker_id": "diogo", "zh": "因为差不多任何一家公司，如果你给它们无限多、成本低一千倍的实习生，大概都能找出大量有生产力的用法。作为领域，我们应该回答的是：为什么我们现在没有得到这种效果？那些主张「你必须拥有自己的智能」的人，借口往往是：你需要持续学习，或者你需要更窄的东西。我只是觉得，这和现实对不上。"}, {"start_sec": 2012.16, "type": "text", "section_id": "s7", "speaker_id": "harry", "zh": "Fireworks 已经帮过硅谷好几家非常一线的品牌。我记得 Harvey 在你们的视野里，还有 Ramp，也许 Cognition 也在自建模型，我说的可能不完全准。你是说走那条路是错的，水平或别的通用模型会一样好，所以这基本上是徒劳？"}, {"start_sec": 2055.0, "type": "text", "section_id": "s7", "speaker_id": "diogo", "zh": "情况比较复杂。我百分之百相信，窄模型会——第一，基准测试极具误导性，做这些模型的人有很强的扭曲激励，对内要显得自己的模型更好，对外也要讲一个故事，免得看起来会被大模型彻底打穿。我不知道它们到底有多好。我可以想象它们一定能更便宜，也能更窄。"}, {"start_sec": 2068.88, "type": "text", "section_id": "s7", "speaker_id": "diogo", "zh": "当能力在某一个水平上平台化时，这其实是一种成熟的信号。我认为人工智能往往是以比较离散的台阶在往上走，而这些台阶出现在你开始获得某一特定分布的数据时。很难否认，编码代理性能最大的一跳，大约发生在去年 11 月前后，我记不清是哪一版 Opus。那是因为他们在那时把编码做进了分布之内。从那以后——我们可以说我们有多爱 Fable 5.2 或 Opus 5.5——看起来一直是收益递减。正是到了收益递减的时候，你才开始做每 token 成本这类微观优化。我对世界的看法是，这些都是"}, {"start_sec": 2118.96, "type": "text", "section_id": "s7", "speaker_id": "diogo", "zh": "「问题还没有被可靠解决」的症状。我认识的软件工程师，我自己也是软件工程师，我们讨厌升级依赖，讨厌去追最新、最炫的东西。我们会更新的唯一理由，是以前还不够好用；否则你就会把它锁进地下室，只在变得便宜很多的时候再更新。我相信我们现在有大量不够充分的自动化。我当然有立场，但我认为数据最支持的就是这一点。我的看法是，因为有了 Jev 以及类似 Jev 的模型，我们会开始把真正的自动化锁定下来，人们将不愿意再去更新。而公司获得自己专有智能的方式，并不是去拥有自己训练的模型，那很难做到，而是"}, {"start_sec": 2171.04, "type": "text", "section_id": "s7", "speaker_id": "diogo", "zh": "靠模型周围的软件。对 Harvey、Cognition 这类公司来说，叙事上必须说「我们拥有自己的智能」，否则它们看起来就只是大模型上的一层很薄的封装，像是没有护城河。可软件和工程是极好的东西：事先投入，去理解真正的问题，把它们自动化，让它们不必再被解决一次，人也不必再做这种重复劳动，我认为这对世界非常好。我也认为，未来公司往前走、形成专有智能，更可信的方式是发生在代码层。有点像：用哪家数据库也许有一点壁垒，但真正的肉，是你怎么使用这些数据库。"}, {"start_sec": 2219.44, "type": "text", "section_id": "s7", "speaker_id": "harry", "zh": "迪奥戈，这件事我很着迷。我相当了解 Harvey 所在的法律市场。你真的觉得他们是薄封装吗？在我看来，这是一个非常具体的领域，需要只能以垂直方式完成的深度产品功能，所以他们才存在，而且非常成功。我会强烈反驳他们是薄封装。"}, {"start_sec": 2260.0, "type": "text", "section_id": "s7", "speaker_id": "diogo", "zh": "所以「薄」都是相对的。这么说现在听起来政治正确。这取决于我希望它有多深。按我上次了解的 Harvey——我显然连一份许可证都买不起，所以并不完全清楚——早年 Harvey 和 OpenAI 合作时，他们的梦想是自主地自动化越来越大的项目。那种事后来并没有做成，他们最后转到了"}, {"start_sec": 2277.68, "type": "text", "section_id": "s7", "speaker_id": "diogo", "zh": "律师的副驾驶，我的理解是他们现在仍是这样。是的，作为律师的副驾驶，你可以做很多领域特定的事情，但你能围绕一个副驾驶做的工程是有限的，对吧？比如领域特定的 MCP 工具，去拉取基于真实法律的检索增强生成，诸如此类。可现实是，人们想自动化的是大块工作，而不只是让人的效率提高两位数的百分比——我认为很多人工智能最后都停在那里。所以，是的，我觉得他们围绕这件事做很多工程非常好；我只是认为后面还会有多得多的工程。即便系统消息也是一种很粗糙的工程：你在给大模型编程，让它表现出某些行为，但你几乎"}, {"start_sec": 2326.32, "type": "text", "section_id": "s7", "speaker_id": "diogo", "zh": "没有保证，没有置信度，除了现在人们做的那些很奇怪的评测之外，也没有真正的办法去测试它有多有效。所以我希望在所有地方都有更多工程，尤其是紧挨着人工智能的那些东西。我实际上希望，有朝一日我们能走出副驾驶，直接把那些要花几周才能做完的工作，放到后台去自动化。而那也许会和现在人类做的工作形状非常不同，因为自动化往往要求你去适应技术上已经具备的东西。"}, {"start_sec": 2359.44, "type": "text", "section_id": "s7", "speaker_id": "harry", "zh": "你刚才在那段两到三分钟的讲述开头提到了 token 成本。你说那很糟——哦不，我很喜欢，非常精彩。可我的麻烦是，我必须记住你说过的部分。我真正想问的是：看今天的原始智力，每 token 的原始智力，是否真像人们所说的那样在提升？"}, {"start_sec": 2384.64, "type": "text", "section_id": "s7", "speaker_id": "diogo", "zh": "哦，我很好奇你怎么看。我其实想写一篇博客专门谈这个。"}, {"start_sec": 2392.4, "type": "text", "section_id": "s7", "speaker_id": "diogo", "zh": "不，我认为现在已经不是了。曾经是大幅提升的。现在如果说还有，也只是极其微小，小到你几乎不会察觉。有点像你遇见一个智商 180 的人，再遇见一个 190 的，你分辨不出来。所以「是的，但并不显著」。我甚至觉得，用 180 到 190 来比喻现在的大模型已经非常慷慨了，因为我不会把它们叫成智商 180 或 190 的人。也许偶尔是 180，我也不确定，但有时你会得到一个 80，甚至更差。我的看法是，这其实不是单一维度。第一，基准测试并不重要，应该把它们扔掉。如果你去看「每美元对应的基准分数」随时间怎么变，那完全没有意义。第二，"}, {"start_sec": 2441.36, "type": "text", "section_id": "s7", "speaker_id": "diogo", "zh": "我认为有一种更一般的「智力」概念，大概是「每一美元算力对应的预训练智力」，据我理解，眼下几乎没有在动。我确实认为，当你有更多数据、并聚焦到不同的任务子集上，你可以把它们做得更「在分布之内」——又回到最苦的教训——于是在那个数据分布里，表现会好得多。从「每美元智力」的角度看，我们有没有在编程上大幅推动指针？超级有，但不是因为基座模型本质上变得更通用，而是因为我们把编码更多地做进了分布，使它在这件事上更可靠。可写作在过去大约九个月有没有变好？我不觉得。也许是我用它们写得不对，你可以告诉我。"}, {"start_sec": 2493.68, "type": "text", "section_id": "s7", "speaker_id": "diogo", "zh": "还有很多其他能力，完全看不到任何提升。因为你若不断在编程代理这个方向上堆数据，并不会改善许多其他形式的能力，这里同样有收益递减。所以这件事复杂而细腻。"}, {"start_sec": 2518.0, "type": "text", "section_id": "s7", "speaker_id": "harry", "zh": "你刚才说到模型能力的方差，有时是 180，有时是 80。"}, {"start_sec": 2522.32, "type": "text", "section_id": "s8", "speaker_id": "harry", "zh": "我想问，当我们看不同模型时，会看到开源模型现在在很多层面、很多方面已经尽可能接近前沿。你怎么看开放模型的格局，"}, {"start_sec": 2536.72, "type": "text", "section_id": "s8", "speaker_id": "harry", "zh": "以及有哪些事情，并没有多少人知道、但他们应当知道？"}, {"start_sec": 2539.68, "type": "text", "section_id": "s8", "speaker_id": "diogo", "zh": "最后一个问题很难啊。哦天哪。"}, {"start_sec": 2544.24, "type": "text", "section_id": "s8", "speaker_id": "harry", "zh": "你什么都可以说，这里只有你和我。"}, {"start_sec": 2546.16, "type": "text", "section_id": "s8", "speaker_id": "diogo", "zh": "好。我认为人们应当知道的是：基准测试完全是胡扯。所有基准都不好，里面有扭曲的激励。具有讽刺意味的是，最受伤的是那些没有时间真正去玩模型的人，因为他们最容易被基准本身操纵，而且利害更高，这对所有开放权重和开放研究都是如此。我认为测量智力是有办法的，只是非常难。实验室不会公开谈论，他们内部当然有一些代理指标。公共舆论处于一种很不幸的状态：外面有太多错误信息，而人们并没有动力去发布自己最好的智力测量方法，我觉得这很可悲。"}, {"start_sec": 2595.52, "type": "text", "section_id": "s8", "speaker_id": "harry", "zh": "谁，迪奥戈，谁最在「胡扯」？谁胡扯得最多？"}, {"start_sec": 2601.28, "type": "text", "section_id": "s8", "speaker_id": "diogo", "zh": "你说要辣的，那我就给你辣的。"}, {"start_sec": 2603.68, "type": "text", "section_id": "s8", "speaker_id": "diogo", "zh": "好，好，好。一线实验室有动力说实话，所以我相信 OpenAI 和 Anthropic 大体是诚实的。二线实验室有动力对自己撒谎：他们想相信自己能成为一线，于是内部有很大压力去刷榜，却又不能对自己承认，否则组织架构会炸。Llama 4 就是这样，他们在刷榜这件事上太直白了，尽管内部本来就有巨大激励去做。我认为谷歌眼下也是类似情况，不少其他中国实验室也是。他们还在瞄准顶部，因此并不是在公开、明确地以刷榜为目的。我认为，很多去争「安慰奖」的人，"}, {"start_sec": 2654.24, "type": "text", "section_id": "s8", "speaker_id": "diogo", "zh": "才在做完全疯狂程度的刷榜。如果我再辣一点，其中一个领域大概就是「美国开源领袖」这块：它足够像一个边角上的安慰奖，他们并不瞄准一线。那完全是胡扯和舆论包装，因为实际上没有人真的在用那些模型，谁会去拆穿他们呢？在我看来，决策模型这个赛道更糟，因为甚至没有人理解什么叫好的表现，于是他们全都把刷榜做到了极致。这对我们其实相当有利，因为没有人会相信那些基准，基准本身的解释权反而落到我们这边，我认为这对整个领域是最优的。"}, {"start_sec": 2707.92, "type": "text", "section_id": "s8", "speaker_id": "diogo", "zh": "在理想世界里，没有人会在意任何机器学习模型上的基准，不管是文本模型还是系统 1 模型。可眼下这种东西太多了。"}, {"start_sec": 2716.72, "type": "text", "section_id": "s8", "speaker_id": "harry", "zh": "我们得把这个拆开。一线实验室有一种必须诚实的义务，还是说这会影响到——"}, {"start_sec": 2727.28, "type": "text", "section_id": "s8", "speaker_id": "diogo", "zh": "不是义务。他们不必靠作弊才能站在高处，而士气非常重要，他们真心想成为一线，也做得到，所以他们不需要作弊，这才是答案。"}, {"start_sec": 2748.0, "type": "text", "section_id": "s8", "speaker_id": "harry", "zh": "我感觉社区里有一种共识：我们必须有一个美国开源领袖，必须把这家公司往前推，不管是 Reflection、Poolside 还是 Thinking Machines。你觉得我们确实需要去推一个美国开源模型吗？"}, {"start_sec": 2760.96, "type": "text", "section_id": "s8", "speaker_id": "diogo", "zh": "「我们」是谁，「推」又是什么意思？"}, {"start_sec": 2764.56, "type": "text", "section_id": "s8", "speaker_id": "harry", "zh": "我觉得有一种共识是：中国的开源模型非常高效；除非我们有替代方案，否则中国开源模型会被大量使用，并威胁到美国安全的某些方面。"}, {"start_sec": 2778.0, "type": "text", "section_id": "s8", "speaker_id": "diogo", "zh": "把威胁模型拆开来看，其实很有意思。如果你按它们被后训练好的原样去跑，确实会有威胁；但如果你真的在用——我记不清你怎么描述的——公司内部的私有智能，理论上你在训练模型时可以在不同程度上去掉很多偏置，这类事情完全可以做。所以这实际上取决于：威胁模型是不是「原封不动、即插即用这些模型」。"}, {"start_sec": 2807.68, "type": "text", "section_id": "s8", "speaker_id": "harry", "zh": "所以你并不担心中国开源模型里那些你并不知道的危险提示注入、后门？"}, {"start_sec": 2825.0, "type": "text", "section_id": "s8", "speaker_id": "diogo", "zh": "先说清楚：我不会在自己的编程代理里，原样使用一个中国模型。但那仍然只是一种威胁模型。如果你活在「编程代理是人工智能唯一形态」的世界里，那确实是很大的威胁。可我们必须考虑的另一面是：美国开源模型有多好，它们追不追得上中国模型。因为据我理解，它们给自己设了更高的伦理和法律基线，正因如此，要追上那些模型可能会非常难。而如果模型其实并不好用——这在很大程度上取决于「稍微聪明一点」究竟会造成多大差别，这会很难预测，尤其是"}, {"start_sec": 2861.36, "type": "text", "section_id": "s8", "speaker_id": "diogo", "zh": "在事情正在平台化的时候。但如果它们无法构成竞争，这也许会是一件徒劳的事。所以，若你只采取「把它们原样塞进编程代理」这种极窄的视角，这会是领域里一个开放的问题。如果你想象另一个世界：我们可以度量偏置，可以针对偏置建立威胁模型，可以把偏置训掉，可以加上护栏——这其实已经是我们眼下一个非常大的用例：用 Jev 去分类这些工具调用是否安全，或者它们是不是在向中国「回电话」，诸如此类。获得安全的方法还有很多。我觉得所有人已经在「单一模型」上戴了太久的眼罩，而我从一开始就拒绝那个前提。"}, {"start_sec": 2914.32, "type": "text", "section_id": "s8", "speaker_id": "harry", "zh": "你觉得美国开源模型会赶上来吗？"}, {"start_sec": 2916.88, "type": "text", "section_id": "s8", "speaker_id": "diogo", "zh": "就真正的智力而言，我的猜测是不会，除非中国自己决定停止努力——不是因为能力，而是因为伦理。不过这也许不会造成差别：如果这个领域平台化得足够硬，那多出来的几个百分点也许并不重要。"}, {"start_sec": 2931.2, "type": "text", "section_id": "s8", "speaker_id": "harry", "zh": "你觉得我们对中国的出口禁令是对的吗？我的理解是——我不知道你指的是不是 GPU 出口禁令，特指这个——因为从一些最新的 DeepSeek 模型和一些最新的中国模型来看，它们实际上是用最新的 Blackwell 训练的。"}, {"start_sec": 2950.64, "type": "text", "section_id": "s8", "speaker_id": "diogo", "zh": "对，那好像是威尔·德普（Will Depw，自动字幕，全名未能确认）的分析结果。我和朋友也一直在聊这个，网上还有一些更刺激的说法。我在网上听到的是，用同样的方法可以看出，DeepSeek 4.1 Flash 并不是那样训练的，这也许和整个领域的情况是一致的，我不确定。我的工作是在这场疯狂的硬件泡沫、neo-cloud 乱局里导航，好让我们最终走到想要的未来。因为我们足够高效，可以站在边线上，不必成为 GPU 这件事的主力玩家，并希望能熬过眼下正在发生的种种疯狂。"}, {"start_sec": 2992.56, "type": "text", "section_id": "s9", "speaker_id": "harry", "zh": "你刚提到这些疯狂的事，还有 neo-cloud。哥们，neo-cloud 这一层现在非常狂。未来 12 个月，neo-cloud 里会发生哪些人们没有想到、也没有看见的事？"}, {"start_sec": 3004.08, "type": "text", "section_id": "s9", "speaker_id": "diogo", "zh": "我相信人工智能已经在泡沫里一段时间了，所以我会为泡沫破裂的可能性持续做预案。而我的——"}, {"start_sec": 3012.48, "type": "text", "section_id": "s9", "speaker_id": "harry", "zh": "泡沫破裂时会发生什么？在我看来，这不会是供给侧的问题，只会是需求侧；而我们并没有看到需求侧的冲击。那么，是什么会让泡沫破裂？"}, {"start_sec": 3025.12, "type": "text", "section_id": "s9", "speaker_id": "diogo", "zh": "好，我们可以谈这个，这是比较辣的一个。编程代理确实改变了人工智能的局面，但「这次不一样」这种说法已经喊了很多年。当你把许多指数式、高方差的东西叠在一起看，会非常有意思。我相信有一部分需求是由错失恐惧（FOMO）造成的：FOMO 来自人们以为自己得到了好结果，觉得必须在这类事情上 all-in。我也相信，当人们开始面对人工智能真正能做什么的现实时，需求可以收缩得相当快。以我接触到的那些在人工智能上花钱的人的经验来看，他们并没有完整理解人工智能的能力，校准相当不准，而且相当高估了人工智能能做的事。"}, {"start_sec": 3076.64, "type": "text", "section_id": "s9", "speaker_id": "diogo", "zh": "我觉得正是这类东西可能造成需求冲击。我也不知道，我也不是经济学家。我只是觉得，人工智能这个领域已经有太多过度承诺、交付不足。"}, {"start_sec": 3088.96, "type": "text", "section_id": "s9", "speaker_id": "harry", "zh": "这和所有人说的正好相反。他们说，即便模型进步停很长一段时间，人类还有大量尚未榨取的价值。这和你刚才说的不太一样。"}, {"start_sec": 3100.16, "type": "text", "section_id": "s9", "speaker_id": "diogo", "zh": "嗯，我相信说这话的人，正是那些试图从现有模型里榨取价值的人，所以这里面有一点立场偏差。我并不反对那句话的精神：天哪，这些模型已经聪明得要命。我同意它们已经非常聪明，我只是觉得，它们的接口，以及这种聪明被挖掘出来的方式，是次优的。同时我们还得看另一面：那些在人工智能上 all-in 得太过头、结果被烫伤的人。有很多公司说，我们要裁掉大量劳动力，因为人工智能正在解决所有这些问题，然后又不得不往回走。这对它们公司的未来会有很多长期影响。那些人试图的，并不只是把牌打满或说过头，"}, {"start_sec": 3150.48, "type": "text", "section_id": "s9", "speaker_id": "diogo", "zh": "他们是想按照「人工智能能做更多」这个他们以为的现实，去下逻辑上说得通的注。所以这个故事非常细腻：即便能力暂停，人们到底有没有能力把那些价值真正榨出来，并没有那么简单。"}, {"start_sec": 3170.0, "type": "text", "section_id": "s9", "speaker_id": "harry", "zh": "很多人看这些公司的利润结构，会说这很像泡沫。你们的利润率好吗？"}, {"start_sec": 3175.68, "type": "text", "section_id": "s9", "speaker_id": "diogo", "zh": "我们的利润率很好。是的。"}, {"start_sec": 3175.8, "type": "text", "section_id": "s9", "speaker_id": "harry", "zh": "可你要怎么把收入做到规模化呢？你们这么便宜，这当然很出色，成本也是用 Jev 的一大好处，"}, {"start_sec": 3184.88, "type": "text", "section_id": "s9", "speaker_id": "harry", "zh": "但要做到一家 100 亿美元收入的生意，所需的规模"}, {"start_sec": 3188.64, "type": "text", "section_id": "s9", "speaker_id": "harry", "zh": "是极其巨大的。"}, {"start_sec": 3192.96, "type": "text", "section_id": "s9", "speaker_id": "diogo", "zh": "对，对，对。"}, {"start_sec": 3192.97, "type": "text", "section_id": "s9", "speaker_id": "harry", "zh": "你怎么帮我理解，你们怎样走到那里？"}, {"start_sec": 3196.16, "type": "text", "section_id": "s9", "speaker_id": "diogo", "zh": "杰文斯悖论，对吧？杰文斯悖论通常不是这样运作的：你把它变便宜，它就魔法般变得更好，那会是一种疯狂的世界运行方式。它应有的方式是：嘿，我有这笔人工智能预算，哦，Jev 让它便宜了这么多，现在这个项目做得通了；而且理想情况下，它在自动化真正关键的那些轴上更聪明、跑得足够可靠，于是我现在可以做那些其他项目，或者把智力扔到我以前绝不会扔智力的地方。即便如此，如果你开始把智力扔到以前没扔过的地方，那本身还不会让你提高预算；而杰文斯悖论意味着预算会增加。你需要看到的是，这些以往人工智能往往做失败的项目，终于创造出了如此多的价值，"}, {"start_sec": 3244.64, "type": "text", "section_id": "s9", "speaker_id": "diogo", "zh": "让你说：嘿，这真的有用，让我们继续加注，直到预算回到原来的水平，甚至再往上。这就是为什么智力的可靠性如此重要。我常说，在真正要紧的总指标上，也就是真正的自动化，Jev、Fable 和 Astra 目前大概打成平手，都约等于 0%。是的，这里那里有一点点，但我们还有极其大量的自动化要做。我们试图去造就的，是一个目前还不存在的行业：在后台运行的人工智能。我认为那显然会非常巨大，而且会明显大于只是让软件工程师写软件时效率提高大约 20% 的编程代理协助。"}, {"start_sec": 3300.32, "type": "text", "section_id": "s9", "speaker_id": "harry", "zh": "你怎么分析今天的编程代理市场？你知道，Cognition 目前大概排在第四，却已经是一家约 16 亿美元收入的生意。这个市场的纵深如此之大。你怎么看今天的这个市场，三年后又会是什么样子？"}, {"start_sec": 3316.24, "type": "text", "section_id": "s9", "speaker_id": "diogo", "zh": "谁是第三名？"}, {"start_sec": 3320.16, "type": "text", "section_id": "s9", "speaker_id": "harry", "zh": "有 Claude Code，有 Codex，有 Cursor，还有"}, {"start_sec": 3325.04, "type": "text", "section_id": "s9", "speaker_id": "harry", "zh": "Cognition，还有 Factory。"}, {"start_sec": 3325.05, "type": "text", "section_id": "s9", "speaker_id": "diogo", "zh": "坦白说，我并不分析编程代理市场。我个人希望 Jev 被用在编程代理上，而且我觉得那里可以做出很酷的科幻。但实际上我认为，我们离编程代理市场越远，他们就越继续打他们的小仗，我们就能继续聚焦自动化。所以从公司的角度看，短期里如果 Jev 完全没有任何编程代理的用途，也许反而更轻松一点。这件事已经有点晚了，我也说不准。但我并不去分析那个市场有多大。我认为它会是一个非常大的市场。"}, {"start_sec": 3368.0, "type": "text", "section_id": "s9", "speaker_id": "harry", "zh": "这个市场会比今天大得多吗？"}, {"start_sec": 3372.24, "type": "text", "section_id": "s9", "speaker_id": "diogo", "zh": "我不知道，因为错失恐惧真的会大幅拨动指针。我在人工智能里待得够久了，你肯定也是。你一定见过：人工智能看起来像一条指数向上的线，其实是多次上上下下，前一轮的 FOMO 会叠加到下一轮上涨里，可其中很多都曾经摔下来。若假定「这就是会一直涨、一直涨的那一件」，我觉得会有些傲慢。"}, {"start_sec": 3398.96, "type": "text", "section_id": "s9", "speaker_id": "harry", "zh": "我记得大概 2015、2016 年，大约有一年的热潮，当时有 Bloomsbury AI、Message.ai，还有一批这样的公司，就是那样。所以我完全理解你说的。"}, {"start_sec": 3420.0, "type": "text", "section_id": "s10", "speaker_id": "harry", "zh": "我们刚说到那种偏泡沫的时刻。恕我直言，你们融了非常多的钱。"}, {"start_sec": 3423.04, "type": "text", "section_id": "s10", "speaker_id": "harry", "zh": "跟我讲讲那一轮吧。是不是就像：在这家风险投资停一下、收一张条款清单，再到另一家停一下、再收几张，啊我已经有 28 张条款清单了？那一轮是怎么走的？"}, {"start_sec": 3438.08, "type": "text", "section_id": "s10", "speaker_id": "diogo", "zh": "对我们来说，那是一段非常、非常混乱的时间，简直有点疯狂。天哪，我们关于风险投资人本身，学到了太多。"}, {"start_sec": 3450.72, "type": "text", "section_id": "s10", "speaker_id": "harry", "zh": "你们学到了什么？"}, {"start_sec": 3453.2, "type": "text", "section_id": "s10", "speaker_id": "diogo", "zh": "学到了风险投资人的投资组合公司，在技术上已经走到哪一步。基本上全是找上门来的。我们没有路演稿。我们只能告诉对方：我们没时间做这份材料，而且看起来也不是每个人都需要这份材料。请你们告诉我们自己看到的市场信号，因为我们这边现在所有事情都在着火，我们没有时间替你们把这些东西整理出来。很奇妙的是，观察不同机构在最初几天、几周里如何演变：他们的兴奋如何变化，以及他们如何向我们转述，他们的投资组合公司正在怎样使用我们。"}, {"start_sec": 3496.0, "type": "text", "section_id": "s10", "speaker_id": "diogo", "zh": "我们不窥探客户的数据，所以其实并不知道他们拿它做什么。听到他们说「天哪，你们是真东西，你们至关重要，这就是未来」，是一件非常酷的事。对我来说，那是一种非常迷人的额外信号，我其实很怀念那种关于整个领域状态的信号。听到谁在用我们、为什么用、怎么用，实在太酷了。正是这些，让这一轮能够做成。"}, {"start_sec": 3521.76, "type": "text", "section_id": "s10", "speaker_id": "harry", "zh": "你们一开始就要的就是 7.5 亿美元、估值 75 亿美元，还是后来往上调的？"}, {"start_sec": 3535.0, "type": "text", "section_id": "s10", "speaker_id": "diogo", "zh": "来回改过很多次。我们甚至在开始这些对话时，并不清楚这一轮自己真正要找什么。我们后来决定的是：嘿，也许这听起来有点疯，因为我们确实融了不少钱，但我们意识到，我们不必去做估值最大化，也不必去做那种很离谱的加码认购，其实也不需要那么多钱。我们需要的是能对抗全球最大公司的盟友。让我们找到最合适的人进入董事会。我们真正优化的是这个。其余对我来说，都更像微观优化，而不是去发现：我们要最聪明的钱，要最好的盟友，要那些"}, {"start_sec": 3574.8, "type": "text", "section_id": "s10", "speaker_id": "diogo", "zh": "能帮助我们驶过前方险水的人。我认为我们优化的东西，和其他公司很不一样，因为我们已经盈利，账上的现金现在还在增加。而且坦率地说，一家此前融到的钱像我们这么少的公司，不该一上来就计划把新融到的钱立刻花掉。"}, {"start_sec": 3595.44, "type": "text", "section_id": "s10", "speaker_id": "harry", "zh": "我真不敢相信，那种带嘲讽意味的加码认购（cuck tranche）现在居然成了一个词。不过我们继续。"}, {"start_sec": 3602.64, "type": "text", "section_id": "s10", "speaker_id": "diogo", "zh": "等等，你居然知道这个？"}, {"start_sec": 3605.36, "type": "text", "section_id": "s10", "speaker_id": "harry", "zh": "我知道。这完全是胡说，让我简直……是的，我绝对……不过我有一个很大的——"}, {"start_sec": 3609.92, "type": "text", "section_id": "s10", "speaker_id": "diogo", "zh": "这对我们来说也出现过。那边有非常多这样的需求。甚至有人说：如果你们按三倍的估值来融，算我一份。可问题是，我们并不需要那笔钱。"}, {"start_sec": 3622.16, "type": "text", "section_id": "s10", "speaker_id": "harry", "zh": "那就是泡沫。那完全是胡说。对不起。我是说，有人可以 YOLO 210 亿美元，我无所谓。你知道吗，你只是需要一点自尊，因为那就像坐在那里看着——"}, {"start_sec": 3640.0, "type": "text", "section_id": "s10", "speaker_id": "diogo", "zh": "问题是，我们既不需要那笔钱，也不需要那个估值，对吧？所以我们不必去做那些事。"}, {"start_sec": 3648.24, "type": "text", "section_id": "s10", "speaker_id": "harry", "zh": "那你为什么选择了红杉和安德森·霍洛维茨（Andreessen Horowitz）？我喜欢他们，但你为什么选他们？"}, {"start_sec": 3654.0, "type": "text", "section_id": "s10", "speaker_id": "diogo", "zh": "天哪，这听起来会像我在拍马屁，但我真的很喜欢他们。我自己对技术有点疯狂，也是技术乐观主义者，而我觉得 a16z 就是那种精神的化身，他们和我们在哲学上能对齐到这种程度。我觉得大多数风险投资人，从战略上看是热爱技术的，但他们是金融机构，非常关心怎么打自己的金融牌；而安德森这家机构，往深处看，他们在乎的程度非常、非常深。我和马丁·卡萨多、本·霍洛维茨（Ben Horowitz）一起做的那期播客，我极其开心，感觉像老朋友一样在交心。也许他们太擅长说服人，把我卖进了某种假象，但我不这么认为。我觉得他们就是在哲学上"}, {"start_sec": 3708.08, "type": "text", "section_id": "s10", "speaker_id": "diogo", "zh": "如此对齐。我认为把我们带到今天这一步、也希望我们能继续保持的，就是把我们在乎的东西戴在袖口上，在人工智能领域走出自己的路。我希望按照这种方式行事，并让他们在船上。当然，他们非常出色。至于红杉，如果我完全坦白——我该怎么说呢——我想要的不是他们的钱，我想要的是索尼娅·王（Sonia Wong）。红杉会在，是因为这个。我并没有把红杉作为一家基金了解得很深，但我同样喜欢索尼娅，我就是喜欢。"}, {"start_sec": 3746.72, "type": "text", "section_id": "s10", "speaker_id": "harry", "zh": "帮我理解一下，我也想成为最好的传播者。你究竟喜欢索尼娅什么，让你在所有人里选择了她？"}, {"start_sec": 3770.0, "type": "text", "section_id": "s10", "speaker_id": "diogo", "zh": "我会说，她不只是聪明，而且是一种非常独特的聪明，那种形状的聪明是我们极其希望站在自己这边的。不管我咨询过多少顾问，只要和索尼娅谈一次，我就会得到一个不同的、非常有意思的视角，而这应当成为我们战略牌局里的一部分。我自己非常在乎战略思考。TypeSafe 有一条比较辣的价值观，叫做「慢慢做出好决策」。这很不像创业公司，但我认为事情就该这样做。在这一点上，她是一位极其有价值的思考伙伴。"}, {"start_sec": 3806.72, "type": "text", "section_id": "s10", "speaker_id": "harry", "zh": "慢慢做出好决策。"}, {"start_sec": 3806.73, "type": "text", "section_id": "s10", "speaker_id": "diogo", "zh": "完全是。"}, {"start_sec": 3809.68, "type": "text", "section_id": "s10", "speaker_id": "harry", "zh": "那你有哪件坏事，是做快了才做成的？"}, {"start_sec": 3820.0, "type": "text", "section_id": "s10", "speaker_id": "diogo", "zh": "我只能说，我做决策大概比大多数人都慢。我的感觉是，很多商业世界是在自动驾驶上。我讨厌和传统商务人士共事，他们只是把事情做掉。如果一件事做得好坏无所谓，我可以接受就这样做；可对重要的事情，我非常在乎为什么，哲学是什么，框架是什么，这件事是怎么做成的。每当我和传统商务人士共事，我都觉得要被逼疯，因为他们从来没有把事情做到让我不必担心的程度；而一旦我开始担心，我就需要理解为什么。"}, {"start_sec": 3847.52, "type": "text", "section_id": "s10", "speaker_id": "diogo", "zh": "我就会觉得，这个人只是在随机做事。可我认为，有计划其实相当重要。有太多事情我希望自己能花更多时间去想：我希望多想想我们的数据和数据路线图，多想想产品，多想想如何变得更值得信任，也多想想我们招聘的每一个岗位，以确保为这些角色找到尽可能最好的人。我应当承认，我没有时间做完所有这些，而把时间花在「想清楚」上，又是如此重要。"}, {"start_sec": 3882.08, "type": "text", "section_id": "s11", "speaker_id": "harry", "zh": "今天的招聘市场有多难？你必须把最好的人放到团队里，实际到底有多难？"}, {"start_sec": 3895.0, "type": "text", "section_id": "s11", "speaker_id": "diogo", "zh": "我得说，最难的部分是招我们的「数据恶魔」（data demon）团队。又回到最苦的教训：当你有一个新任务，你就有一种新的数据，你需要一种新形状的数据才能让它成立。我们内部几乎有一个属于自己的小领域，有点像想象世界上最好的实验室，但只存在于一家公司内部，用我们的方式做数据。我会以为这应该是世界上最好招的事，因为它酷到离谱；可我们在这件事上招人却非常困难，因为没有人知道该怎样进入这个方向。我们不断收到错误类型的人来申请。这是这些天让我夜里睡不着的事：我们怎样才能"}, {"start_sec": 3934.96, "type": "text", "section_id": "s11", "speaker_id": "diogo", "zh": "说服那些极为出色、甚至不觉得自己能推动机器学习边界、因为他们并不是机器学习研究员的人，来做这个岗位——在这里，你会被这个子领域里世界级的专家带着学，而且它会非常有价值，因为你真的在让模型变得更聪明。我不知道该怎样把这件事告诉世界，这让我觉得很糟糕。"}, {"start_sec": 3960.0, "type": "text", "section_id": "s11", "speaker_id": "harry", "zh": "薪酬是不是也很疯狂？我们听 Modal 的埃里克说过，他必须去抢一些非常出色的毕业生，对方有 2000 万美元的薪酬包。这些薪酬包是不是已经到了前所未有的程度？"}, {"start_sec": 3967.36, "type": "text", "section_id": "s11", "speaker_id": "diogo", "zh": "对我们来说不是。而且我很高兴我们在这件事上想清楚了。我们得到的真正清晰的结论是：我们不要雇佣兵。我们想给到「好」，但不是实验室那种疯狂的数字，我觉得这样很棒。我认为 Anthropic 最近有一点受到过度雇佣兵化的困扰，因为他们显然想要传教士，可他们付得比谁都多，于是不仅会吸引雇佣兵加入，还会有人伪装文化面试——现在甚至出现了专门帮人准备 Anthropic 文化面试的市场。我非常高兴我们决定不走那条路。"}, {"start_sec": 4012.08, "type": "text", "section_id": "s11", "speaker_id": "diogo", "zh": "我们想给人们的是不错的、但不是史上最高的薪酬，而且我们对现在的算法非常满意：这种安排既照顾到人，也把那些雇佣枪手过滤掉。"}, {"start_sec": 4026.0, "type": "text", "section_id": "s11", "speaker_id": "harry", "zh": "最后一个问题。如果只能给潜在候选人烘焙一种性格特质，"}, {"start_sec": 4029.2, "type": "text", "section_id": "s11", "speaker_id": "diogo", "zh": "那会是什么？对我的公司来说，会是「痴迷」。我需要一个人对自己的手艺着迷，对把它做得更好上瘾，夜里睡不着，这件事从各个方向驱使着他。一种能够对某件事产生痴迷的能力。我不知道这是不是对每个岗位都一样，但如果必须选，我找不到更好的词。它听起来有一点点色情，但我不是那个意思，是技术迷恋（technophilia），非性的，先说清楚，非性的。好，放松。我们是真心、真心热爱技术。我觉得这是泡沫里非常美好的一种东西，也是我希望每个岗位都有的东西，这样我们午饭时、闲逛时都可以谈论技术。我想身边都是我喜欢的人，希望我们是一整支大团队，一起走向"}, {"start_sec": 4085.2, "type": "text", "section_id": "s11", "speaker_id": "diogo", "zh": "不断地把科幻的边界往前推，因为我们就是这样真正做出技术上的震慑的。再说一遍，非性的意味。我想不到更好的词，技术迷恋者，技术……先说清楚。如果你们把这段剪掉，会很尴尬，不过，是的。"}, {"start_sec": 4102.56, "type": "text", "section_id": "s12", "speaker_id": "harry", "zh": "别担心，我们会留着，而且是非性的。我们来做一轮快问快答：我说一句短的，你立刻给出第一反应。"}, {"start_sec": 4109.12, "type": "text", "section_id": "s12", "speaker_id": "diogo", "zh": "好。先提醒一下，我通常不太做快问快答。我试试。"}, {"start_sec": 4111.76, "type": "text", "section_id": "s12", "speaker_id": "harry", "zh": "过去 12 个月，你改变想法最多的是什么？"}, {"start_sec": 4116.16, "type": "text", "section_id": "s12", "speaker_id": "diogo", "zh": "炒作有多重要。"}, {"start_sec": 4119.44, "type": "text", "section_id": "s12", "speaker_id": "harry", "zh": "炒作有多重要？"}, {"start_sec": 4119.45, "type": "text", "section_id": "s12", "speaker_id": "diogo", "zh": "是的。我认为它比我以为的要次要得多。Jev 发布的时候，我会觉得：天哪，炒作太重要了。后来其他东西发布，它们把刷榜做到了极致。可当我们和真实的人交谈时，每个人都会说：对，我们试过了，很烂，没人在乎。我们已经能看出来，你们是最好的，也是最在乎的。我当时想：哇，这太方便了，我们可以继续做自己最热爱的事，也就是少承诺、多交付。这是最好的世界。所以在发布当时，我完全不会预料到这一点，这对我们实在太好了。"}, {"start_sec": 4150.24, "type": "text", "section_id": "s12", "speaker_id": "harry", "zh": "你持有的、而前沿实验室里最聪明的人会与你意见相反的最大信念是什么？"}, {"start_sec": 4156.88, "type": "text", "section_id": "s12", "speaker_id": "diogo", "zh": "今天的人工智能能做多少，以及可靠性有多重要。"}, {"start_sec": 4162.0, "type": "text", "section_id": "s12", "speaker_id": "harry", "zh": "你为什么不从 OpenAI 招人？"}, {"start_sec": 4163.92, "type": "text", "section_id": "s12", "speaker_id": "diogo", "zh": "我的感觉是，要进入 OpenAI，需要经过某种选择偏差，而这有点像一种反信号：你得喝下某种特定的迷魂汤，这是第一点。第二，我说这话时，主要是指我不招 OpenAI 的研究员。因为 OpenAI 的研究员，按定义就热爱做算法，然后做扩张，他们往往讨厌数据。数据在大多数实验室里是一件地位很低的事。他们显然也不会去想「正确的任务」，因为那是相当稀少的事。整个 OpenAI 里大概只有三个人在思考正确的任务，而我也不会招他们——不是因为他们不够出色，而是因为如果你痴迷于正确的任务，你为什么要来做我的正确任务？我的正确任务是机器原生的人工智能。如果你"}, {"start_sec": 4217.76, "type": "text", "section_id": "s12", "speaker_id": "diogo", "zh": "痴迷的是让文生图成为一件事，阿迪蒂亚（Aditya）在 OpenAI 就做了这件事：天哪，他几乎发明了整个领域，那太酷了，他优秀到难以置信。可你也不能把他移植到另一个任务上，对吧？他应该继续熬煮自己的科幻，因为你在那样的事情上做到那么好，就该继续做。于是，按定义，剩下还招得到的机器学习研究，就是那些痴迷于算法的人。而在我看来，那正是你想把钱扔进火炉时才会做的事。"}, {"start_sec": 4250.88, "type": "text", "section_id": "s12", "speaker_id": "harry", "zh": "今天最被高估的品类是什么？"}, {"start_sec": 4254.08, "type": "text", "section_id": "s12", "speaker_id": "diogo", "zh": "我的直觉告诉我是机器人。不是因为机器人不酷，而只是：如果你从可靠性的总账来看，它们离得非常远。如果你想象哪些事情必须先被钉牢，还有大量前置条件没有被钉牢。我觉得机器人是离那一步最远的。"}, {"start_sec": 4274.8, "type": "text", "section_id": "s12", "speaker_id": "harry", "zh": "最被低估的是什么？"}, {"start_sec": 4280.0, "type": "text", "section_id": "s12", "speaker_id": "diogo", "zh": "在我看来，是软件研究这个方向：人们把人工智能和软件放在一起玩，去做新事物，尤其是新的界面。我觉得这被低估到了可悲的程度。"}, {"start_sec": 4290.0, "type": "text", "section_id": "s12", "speaker_id": "harry", "zh": "最后一问。你今天相信的、现在看起来很疯狂、但五年后会变得极其普遍的事情是什么？"}, {"start_sec": 4300.24, "type": "text", "section_id": "s12", "speaker_id": "diogo", "zh": "我认为世界上到处都是委托代理问题。比如，作为委托人的选民，由一个有时与他们并不对齐的代理人来代表，也就是民意代表。为什么选民不能直接表达自己的愿望，让它表现得更像真正的民主？这只是一个勉强的例子，可这种事到处都在发生：向你汇报的人，股东对公司，委托代理问题比比皆是。我的看法是，我们会为所有这些找到好得多的解法，到时候会觉得疯狂：我们居然允许今天这种程度的错位存在。我认为那会是一个非常美好的世界：我们开始执行的是法律的精神，而不是字面。人工智能基本上就是这个，对吧？法律有点像"}, {"start_sec": 4351.68, "type": "text", "section_id": "s12", "speaker_id": "diogo", "zh": "在写软件，像在写一套详细的算法，好让事情公平、可复现。它缺的只是能够刻画「精神」的原语。我认为这会真正把社会重新拧在一起。即便在我们最有争议的议题上，很多人也能在事情的「精神」上团结起来。问题是精神无法被执行，于是你必须写下字面，而字面又会带来大量分歧。"}, {"start_sec": 4375.44, "type": "text", "section_id": "s12", "speaker_id": "harry", "zh": "你知道我对你有什么意见吗，迪奥戈？你就是能量不够，一直闷着，一直在监控，你知道的。"}, {"start_sec": 4383.36, "type": "text", "section_id": "s12", "speaker_id": "diogo", "zh": "是啊，我的错，我的错。所以他们在 Discord 上才叫我 cocaine labu。"}, {"start_sec": 4390.88, "type": "text", "section_id": "s12", "speaker_id": "harry", "zh": "这期太好玩了。非常感谢你把能量带来，也感谢你愿意如此开放。"}, {"start_sec": 4394.64, "type": "text", "section_id": "s12", "speaker_id": "diogo", "zh": "太棒了，实在太有意思了。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
