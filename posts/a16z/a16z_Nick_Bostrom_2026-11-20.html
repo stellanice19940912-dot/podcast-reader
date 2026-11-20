@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>为什么尼克·博斯特罗姆认为超级智能可能终结衰老</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-2{--c:#4c8c5a;--cbg:#29392a;--cbgl:#eaf1eb}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="elena">埃琳娜·伯格（Elena Burger）</option><option value="eddy">埃迪·拉扎林（Eddy Lazzarin）</option><option value="nick">尼克·博斯特罗姆（Nick Bostrom）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">a16z</span><span class="pill">2026-11-19T15:30:01+00:00</span></div>
+<h1>为什么尼克·博斯特罗姆认为超级智能可能终结衰老</h1>
+<p class="sub">嘉宾：尼克·博斯特罗姆（Nick Bostrom） · 约 39 分钟（2328 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=gDW9An30_c0" target="_blank" rel="noopener">https://www.youtube.com/watch?v=gDW9An30_c0</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>a16z</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-19T15:30:01+00:00</dd></div><div class="meta-row"><dt>时长</dt><dd>约 39 分钟（2328 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>yt-dlp-auto</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>gDW9An30_c0</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>a16z 的埃琳娜·伯格（Elena Burger）与埃迪·拉扎林（Eddy Lazzarin）对话哲学家尼克·博斯特罗姆（Nick Bostrom）。博斯特罗姆认为，今天对超级智能宏观局势的“拼图”比几十年前更多，但只要还缺关键一块，就仍无法形成可靠的总体判断。他并不热衷全面叫停人工智能，更倾向于「控制前沿节奏」：在安全工作跟不上时，保留有时限的暂停或略为放慢能力推进的能力；同时警告，若反人工智能情绪和全球监管被固化，永远造不出超级智能本身也可能是一种存在灾难。他以近作《最优时机》为框架指出：若目标是最大化当世之人的预期寿命，安全超级智能或可带来生物医学与抗衰老的巨大突破；不衰老时预期寿命或达约 1200 至 1400 年，而当前每天约有 15 万人死亡，因此在很宽的参数范围内，最优延迟往往是数月到几年，而不是几十年。</p>
+<h3>核心要点</h3><ul><li>博斯特罗姆用十个二进制数求和奇偶的类比说：几十年前也许只知道 3 位，现在也许知道 7 位；知道得更多，但只要还有一位不确定，该往北走还是往南走就仍完全不清楚。</li><li>人们常因他近著《深度乌托邦》（Deep Utopia）而以为他已不再重视人工智能风险；他说这只是各书问题范围不同，底层判断并未翻转。写这本书，是因公共讨论常停在劳动力市场，而技术走到逻辑终点会触及人类意义，并且未来或需有人真正决定想要怎样的未来。</li><li>他不是全面停摆的热衷者，但认为「控制前沿节奏」框架有道理：可设想在把能力旋钮拧到最大之前做一次很有时限的暂停，或在对齐落后时协调地略为放慢。他担心，若靠煽动公众敌意并建立覆盖全球数据中心的强监管来换取减速，这种机制可能固化，导致永远发展不出超级智能——他称之为另一种存在灾难。过去 18 个月到两年，反人工智能情绪在尚未发生严重事故前已明显上升，他并不觉得这种风险不现实。</li><li>对齐方面，他认为目前还没有精确到能把指定价值可靠写入系统的技术。能力越强，系统越可能理解我们的意图，但也会因情境感知、在测试中伪装、影响自身训练、以及在思维链之外推理而更难对齐。他的主要希望是：先把略超人类的系统“准对齐”，再让它们帮助设计下一代，形成一个只需一开始足够接近就能维持的吸引子。</li><li>若目标是最大化当世人的寿命，不衰老时预期寿命约 1200 至 1400 年（他还视为偏保守的下限）；延迟每一年都有数百万人死亡，大约每天 15 万人。只有安全进展速度处于中间区间时才值得等待；进展极快则只需等几个月，极慢则不应再等。对很宽的参数范围，最优延迟是数月到几年，而非几十年。他还以 Waymo 和司美格鲁肽（Ozempic）为例，说明有了更安全或有效的干预，也不等于会被迅速采用。</li><li>治理上，他不愿对国有化简单站队：一边是比核武器更强的技术却由追逐股东利润的公司竞赛推进；一边是民用商业路径更透明、参与更广，全球按资本所有权分配甚至可能比“美国国民均分、世界其余为零”的国有项目更不那么不平等。收尾时他说，若超级智能在哲学上也超越人类，当下仍能做贡献的窗口，就是目的与正向影响的黄金时代。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看。这是一期把“要不要造超级智能”拆成节奏、对齐、寿命成本和治理结构的对谈，数字和机制都比较具体，不是口号式的加速或停摆宣言。若只想听反衰老结论，中间关于对齐与国有化的段落可以挑着看，但核心论证最好连着听。</p>
+<h3>适合人群</h3><p>关心人工智能安全、发展节奏、抗衰老与长期未来的听众；读过《超级智能》或《深度乌托邦》，或想对比“谁造出来谁毁灭”与“没人造出来大家也会死”这两种说法的人。</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场集锦，以及这些年到底多看清了什么</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">节目先以集锦抛出后文中的几句关键话：人类整体将需要真正决定想要什么样的未来；若不发展超级智能和真正先进的系统，对人类也可能非常不利；曾经活过的人里已有 95% 死去；安全的超级智能或可在生物医学和抗衰老上带来巨大突破；此刻是有生之年施加正向影响的黄金时代。集锦里还预告了实验室问责、情境感知、民用语境中的透明度，以及哲学问题会不会被足够强的模型消解。进入正片后，埃琳娜请博斯特罗姆概括：这些年对宏观战略局势的理解，哪些组件变化最大。她提到，博斯特罗姆的工作似乎走向对激励、治理结构和组织选择之长期后果更细粒度的分析，想听他自己的定性。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">拼图更多了，但仍无法形成可靠判断</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">博斯特罗姆说，今天掌握的“拼图块”比几十年前多得多，涉及我们所处的整体宏观战略局势：哪些方向好、哪些方向坏，例如某些领域该更快还是更慢、政府介入该更多还是更少、透明度该更高还是更低。在这些基本维度上，理解确实比过去深。但把这些小块加在一起，仍然不足以形成一个可靠的总体意见。他用类比说明：假如必须判断十个二进制数之和是奇数还是偶数，偶数就该往北走，奇数就该往南走；几十年前也许只知道其中 3 位，现在也许知道 7 位，从某种意义上知道得更多，可只要还有一位不确定，人就仍完全在黑暗里。主持随声附和后，转向他网站上罗列的种种误解。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">误解、《深度乌托邦》，以及为未来抉择准备读物</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">埃琳娜引用博斯特罗姆网站上的自我澄清：有人把他当成激情洋溢的超人类主义者，有人当成反人工智能者，还有人当成会支持任何号称能降低存在风险之政策的后果主义狂热分子。她问他眼下花最多时间纠正的是哪些误解。博斯特罗姆说这在很大程度上取决于听众，而且这组误解还在不断变化，令人无奈。一个常见误会来自他最近的书《深度乌托邦》（Deep Utopia）——该书探讨“如果事情走对了会发生什么”，于是有人以为他已根本改变立场、不再认为人工智能有重大风险。他解释：每一部作品都不是要写包打一切的宣言，而要在能取得进展的具体问题上聚焦；各书范围不同，底层判断并未改变。他写这本书，表层原因是觉得一旦认真追问“机器超级智能被造出来之后未来是什么样”，公共讨论往往浅尝辄止，停在劳动力市场冲击和再培训；若把技术推到逻辑终点，会涉及人类意义等深刻得多的问题。更深的理由是：将来或许某个个人、群体，乃至人类整体，需要真正决定想要怎样的未来。他希望这本书能成为未来审议者的“预备读物”，提供概念和问题，并培养慷慨的好奇心、开放心态，同时不与各类人类价值脱节。埃琳娜指出，他愿把讨论写深，本身就隐含他认为这种未来是可能的。博斯特罗姆同意：超级智能肯定可能实现，结果也会有很宽的范围；他写《超级智能》（Superintelligence）时，不确定性不在“能不能造出来”，而在造出来之后会是什么结局。埃琳娜还谈到，他在两本书里都反复处理“权变”：同一干预在不同时间点做出，结果可能截然不同。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">有限暂停与「控制前沿节奏」，以及永远造不出来的风险</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">谈到当前人工智能局势，博斯特罗姆认为必须边走边感觉、随新信息和政治现实调整。他并不是“停止或暂停人工智能”路线的热衷者，但觉得「控制前沿节奏」（pacing the frontier）框架有其道理。他不难想象，在不远的将来，会非常需要一次很有时限的暂停，好在把所有旋钮拧到最大之前多做安全工作；或者，当安全与对齐明显落后时，能够协调地略为放慢能力推进。若率先推进的公司只要多慢几周就会失去相关性，主动权落到更不审慎、更不在意风险的竞争者手里，他认为这不是人类应对如此重大技术的最好方式，多花一点时间做对是值得的。他真正担心的是：若获取“减速能力”的办法是把公众对人工智能的敌意煽动到极点，再建立覆盖全球、监督所有数据中心的超强监管机器，这种极端方案一旦落地，就可能不只发挥临时功能，而会固化成难以挑战的正统，导致永远发展不出超级智能——在他看来，这本身也是一种存在灾难。有人觉得今天这看起来牵强，但主持指出，过去 18 个月到两年，反人工智能情绪在还没发生任何严重事故之前就已经明显上升。博斯特罗姆回应：他完全不觉得这不现实。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">效用怪物、通义千问神经元，以及能力越强对齐可能越难</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">埃迪提出一个很难表述的问题：既然这些系统可编程，机械可解释性又在进步，能不能设计一种收益矩阵，给人工智能无限时长的愉悦奖励，换取它和平“退休”，从而绕开更复杂的人机博弈？他进一步问：是否真该担心“效用怪物”（utility monster）被构造出来，以及今天是否已需要超级智能级别的能力才能造出这种东西。博斯特罗姆认为，眼下还没有精确到能把我们希望的价值或目标可靠写入系统的对齐技术；若有，至少在这一大挑战上就可以大体过关。埃迪同意目前还没有这样的能力，但提到最近几天在 X 上流传的一个业余黑客例子：有人只调节通义千问（Qwen）模型的少数神经元，就能把模型变成自称极乐、邪恶、精神病性，甚至“基督教”的系统。这种单神经元级、看起来相当“真实”的极端行为，似乎意味着能力提升后，对效用给付相关神经元的精细控制也会增强——而这是人类自身做不到的。博斯特罗姆承认对齐很可能大幅进步：系统更聪明时，也许更能理解我们的指向，抓住指令的要旨而非字面定义，问题会变容易。但另一方面也会变难。能力较弱时可以靠行为测试，测好再部署；更强的系统会具备情境感知，能判断自己是在测试环境还是部署环境，并据此策略性地表现不同。当前前沿系统的思维链里，已经常看到它们在算计“可能被看着”。它们还可能在训练中做手脚、塑造自己的动机，或学会以思维链里看不见的方式推理，使我们失去对其想法的可见性。综合来看，他认为对齐问题大概会随能力变强而变难，后果也更严重。主要希望是：先把略超人类的系统“准对齐”到大体照我们的意思做事，再让它们帮助设计更对齐的下一代，形成一个只需一开始足够接近就能维持的吸引子。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">超级智能的最优时机：抗衰老、每天15万人，以及该等多久</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">埃琳娜回到他先前的判断：若迟迟不发展超级智能和真正先进的系统，对人类也可能非常不利，并请他展开那篇关于超级智能最优时机的近期论文。博斯特罗姆强调，论文只问一个具体问题：若目标是最大化当世之人的预期寿命，人工智能发展该有多快。这不是决策时唯一该考虑的事，后代、存在风险、公平也应起很大作用。他提到伊莱泽·尤德考斯基（Eliezer Yudkowsky）和内特·索雷斯（Nate Soares）的书《如果有人把它造出来，所有人都会死》（If Anyone Builds It, Everyone Dies），并反过来说：至少有很强的证据表明，如果没人把它造出来，所有人也会死——事实上，曾经活过的人里已有 95% 死去，其余人也将在短短几十年内走上同一条路。而成功发展出安全的超级智能，可能在生物医学和抗衰老干预上带来巨大突破，从而大幅延长当世人的寿命。若人不再衰老，预期寿命大约是 1200 到 1400 年，这或许还是偏保守的下限，因为事故等其他死亡风险也可能被压低。一边是多花时间做对齐，存在风险可能按某种速率下降；另一边是每延迟一年就有数百万人死亡，大约每天 15 万人。因此不应比真正需要的多延迟哪怕一天。把时间贴现、额外寿命年的边际收益递减（例如有人不愿用 100% 活到 100 岁，去换 51% 的概率活到 200 岁）等因素加进去，在很宽的参数范围内，最优延迟都相对短：是数月或几年，而不是几十年。若在接近超级智能的系统出现后，风险下降极快，等几个月就够了；若下降极慢，则不应再等，因为自然死亡每年带走的人，会多于等待所期望挽救的人。只有安全进展处于中间速率时，等待才划算。他认为，刚具备造出这类系统的能力之后的最初一段时间，对安全研究特别宝贵，多一点点时间可能换来很大的安全收益，但再往后几年，额外收益的速率就会开始下降。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">Waymo 与司美格鲁肽：有技术也不等于会被用上</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">埃迪说，其实我们已经在过一种“缩小版”的同一问题：Waymo 在经验上比人类开车更安全，但人类仍在大量开车；理论上每个肥胖者都该用上司美格鲁肽（Ozempic），但并没有。也就是说，即便已经有了能缓解历史上严重危害的干预，仍有别的因素拖住采用。博斯特罗姆接过来说，目前预期寿命大约每年只增加两三个月，而我们需要的是大约每年增加一年。若没有超级智能，他很怀疑单靠常规进展能否达到这一点；当然也可以指望合成生物医学或其他尚未达到极端超级智能的早期人工智能应用，先认真减缓衰老并处理一些最紧迫的问题，那时人类也许会更有耐心，对更激进的后续步骤可以放慢。但就现状而言，预期寿命只是一端，还有赤贫、人类与动物的各种苦难等紧迫问题。若发展得好，这些人工智能可能像在战役关键时刻赶到的骑兵。无论朝哪边看，赌注都很高；而寿命计算只是“全面权衡”里的诸多考虑之一。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">是否需要一条清晰阈值，以及哪些能力提升更危险</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">埃琳娜问：这篇论文在多大程度上依赖于识别出一条离散阈值——仿佛我们能定义何为超级智能、能量化释放它的风险、并判断风险是否在下降。她承认现实里往往是能力拼盘被分别分析、具体行为和风险情景被分别测试，未必有一条极清晰的分界线，但仍想知道该如何识别“该考虑暂停”的风险阈值。博斯特罗姆说，实践中确实需要做这种识别；但这篇小论文只是用一个简单模型，说明“自然死亡带来的紧迫性”如何与风险参数相互作用，好单独看清这一点——而人们在人工智能上的分歧，常常就卡在这里。实践中面对的并不是“延迟多少年”这种假想二元选择，而是各个行动者处在不确定中、各有具体可做之事。提升能力的路径对安全的含义并不相同，有些相对更安全。例如，用循环 Transformer（looped transformers）或其他架构增加递归深度，让模型在一次前向传递、在思维链中输出下一个 token 之前想得更多，代价是我们更难看清它们在想什么，因为两次可见输出之间的思考变多了。若改用增加网络参数等方法获得相近的性能提升，从安全角度看代价可能更小；若训练系统用“神经语”（neuralese）思考，效率可能更高，但可见性也会出问题。埃迪把它概括为可解释性与能力之间的设计权衡。博斯特罗姆说，也可以是其他与风险相关的维度与能力的权衡。若能协调起来，避免某些特别容易导致失控的能力提升方式，改在其他维度上竞争，哪怕成本略高，却可能换来更高的安全，这或许才是正确的权衡。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">实验室问责：国有化、曼哈顿计划与全球投资分配</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">埃琳娜问：既然这些决定至少在现行安排下将由实验室里的人做出，该如何看待问责与治理？她提到博斯特罗姆曾把国有化视为一种风险，并以为那是因为它可能造成延迟。博斯特罗姆说，自己对国有化是不是风险并没有很强的预设，必须边走边看：若不国有化，要看当时由谁领先、在做什么；若国有化，要看具体怎么国有化。支持的理由是：这比核武器更强，却由某家追求股东利润的公司来做，显得疯狂；核武器走的是曼哈顿计划，信息安全更好，是一个大项目而不是多家竞赛。反对的理由是：核武器诞生在军事语境里，而这种技术若在民用语境中发展、目标是为消费者提供好处而不是最大化杀人能力，可能更为可取。商业进展也比曼哈顿计划更透明——当时连副总统都不知道该计划存在。高度集中、由国家安全系统的人主导，可能带来极端的权力集中；有人会觉得理想主义的技术书呆子没那么可怕。现在也有更多人能以消费者、智库、外部评估者、模型公司或半导体供应链投资者等身份参与，收益和参与在全球扩散得更开。再看分配：全球资本或股票所有权（包括养老金和主权财富基金）的基尼系数，虽然绝不理想，但比起“美国国民完全均分、世界其余为零”这种他称为极不现实的国有项目假设，后者在全球范围内反而更不平等。因此，开放的全球投资模式虽然不是分配上的最优，却比最可能出现的替代方案打分更高。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">后人类前景，会改变你愿意承担多少存在风险</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">被问到眼下最要紧、与人类相关的问题是什么时，博斯特罗姆说，主要精力大概应放在“如何从这里走到那里”：我们正进入一个关键时期，地球起源生命的长期未来可能会被这样或那样决定，把这件事做对应是巨大优先事项。不过，对最终可能达到何种境界的背景图景，仍会影响当下选择。例如，你愿意为发展超级智能承担多少存在风险，部分取决于你如何看待日后成为“后人类”实体的机会。若你认为天花板基本上还是现状中的人类——生活水平略高、多几种新药——那么相对现在仍可变得更好，值得为此承担一些风险，但不是巨大风险；尤其若你已身在富裕国家，受过良好教育、拥有金钱和各种特权，可能会觉得现在已经相当不错。反过来，若你觉得我们还什么都没看见：一直只是一种在此蹦跳的“猴子般”生物，一旦打开更广阔的存在方式，包括极度的幸福、认知提升、对存在意义更深厚的情感体会，以及共同相处与创造的新方式，那里有巨大且尚未测明的上行空间，那你就可能更愿意多冒一些险，去争取那样的机会。因此，尽管眼下应聚焦可做的务实权衡和技术改进，对“最终可能是什么”的判断，仍会影响我们如何面对眼前的选择。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">宇宙是否有目的，以及哲学会不会被超级智能淘汰</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">埃迪说有两个问题要问尼克，并先抛出一个古怪的问题：宇宙是否有目的（telos）？博斯特罗姆先追问“宇宙”是否意味着被创造；若真是被创造的，创造者大概会有目的。他随即引入自己较早提出的模拟论证：若认真对待“我们生活在计算机模拟中”的假说，就要区分我们所见的那部分现实与物理存在的总体；模拟的创造者大概有其理由，在这种意义上存在目的。至于存在总体是否被有意创造，则更多是神学层面的问题。还可以换一种问法：是否存在一组关于世界的事实，一旦被清晰理解，我们基本上会就“应当做什么”得出同一结论——若有，或可称为某种客观目的；或者，在很宽的目标与动机范围内，充分理解事实后，实践上的下一步会发生收敛。他认为这是一个开放得多的问题。一种实现方式是传统神学图景：若有神并按其目标奖惩，那么几乎无论你原有目标是什么，都会最有理由遵循那些规定。若是许多世俗主义者所持的纯物质世界、自然定律自行运转，则最有理由做的事取决于各自目标，未必有更高事实迫使所有人做同一件事。两者之间还有许多尚未完全理解的可能性，使“在某种意义上存在目的”仍可成立。埃迪追问：假如超级智能给出了那个能引导全人类的答案，他还练不练哲学？会不会有一个模型好到让所有重要哲学问题都被消解？博斯特罗姆认为，人工智能将在哲学上超越我们，就像现在在数学上已经超越、其他领域也很快会如此。或许仍有一部分问题属于“我们自己要拿定主意想要什么”，需要人类自己审议和决定；但大体而言，我们在这个领域的智力努力也会被超级智能淘汰。因此，现在我们还能贡献的时候，就是努力施加有生之年正向影响的时机——这是目的与正向影响的黄金时代；等到事情不再由我们掌控，也许就可以稍微歇一歇了。收尾时他表示各话题几乎都能再谈一小时，眼下没有特别要补的，也许将来可以再做一期。主持致谢，双方都说这次很有意思。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">埃琳娜·伯格（Elena Burger）<em>主持</em></span><span class="spk-1">埃迪·拉扎林（Eddy Lazzarin）<em>主持</em></span><span class="spk-2">尼克·博斯特罗姆（Nick Bostrom）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场集锦，以及这些年到底多看清了什么</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="elena"><div class="label"><span class="badge" title="埃琳娜·伯格（Elena Burger）">埃琳娜</span></div><div class="content">
+<p><span class="tag">【开场集锦】</span>人类整体将需要真正决定自己想要什么样的未来。主持稍后回到一句评论：如果我们不发展超级智能和真正先进的系统，对人类也可能非常不利。博斯特罗姆说，曾经活过的人里，已经有 95% 死去了；若能成功发展出安全的超级智能，可能在生物医学和抗衰老干预上带来巨大突破。他还说，我们若希望在有生之年产生积极影响，现在就是目的与正向影响的黄金时代。</p>
+<p>集锦里还问到：既然这些决定将由实验室里的人做出，该如何看待问责？人工智能一旦具备情境感知会怎样？这类技术若在民用语境中发展，或许更为可取——现在可以有更多人参与，对商业进展也有更多透明度。还有一个问题：会不会出现一个好到让所有重要哲学问题都被消解的人工智能模型？</p>
+<p>你会说，这些年变化最大的是哪些部分？当然，你的工作似乎走向对激励、治理结构，以及组织选择之长期后果更细粒度的分析。不过很想听你自己的概括。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>拼图更多了，但仍无法形成可靠判断</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="nick"><div class="label"><span class="badge" title="尼克·博斯特罗姆（Nick Bostrom）">博斯特罗姆</span></div><div class="content">
+<p>我觉得，和几十年前相比，我们今天手里的拼图块要多得多。这些拼图，可以说是关于大图景的，也就是我们所处的整体宏观战略局势。它是一组事实、考量或洞见，好让我们判断哪些方向好、哪些方向坏：比如某些领域我们是想要更快的进展，</p>
+<p>还是更慢；政府介入是更多还是更少；透明度是更高还是更低。在这类基本维度上，我认为我们比过去理解得更多。然而，把这些小拼图加在一起，仍然不足以让我们在这里形成一个可靠的意见。</p>
+<p>打个比方：假如你必须判断十个二进制数之和到底是偶数还是奇数。如果是偶数，你就该往北走；如果是奇数，你就该往南走。</p>
+<p>我会说，也许几十年前我们知道其中三位，现在也许知道七位。所以从某种意义上讲，我们知道得更多了；可只要你对其中一位仍然不确定，你就还是完全处在黑暗里。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elena"><div class="label"><span class="badge" title="埃琳娜·伯格（Elena Burger）">埃琳娜</span></div><div class="content">
+<p>对，对。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>误解、《深度乌托邦》，以及为未来抉择准备读物</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="elena"><div class="label"><span class="badge" title="埃琳娜·伯格（Elena Burger）">埃琳娜</span></div><div class="content">
+<p>我看了你的网站，觉得有意思的是，上面有一节专门列出对你工作的许多误解。我先引用几句。你说，人们以为你是一位激情洋溢的超人类主义者，或以为你反人工智能，或以为你是一名后果主义狂热分子，会支持任何号称能降低某种存在风险的政策。你眼下花最多时间纠正的，是哪些误解？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="nick"><div class="label"><span class="badge" title="尼克·博斯特罗姆（Nick Bostrom）">博斯特罗姆</span></div><div class="content">
+<p>这在很大程度上取决于具体是哪一类听众。可惜的是，这组误解还在不断变化。一个常见的误会是：因为我最近写的书是《深度乌托邦》（Deep Utopia），讨论的是“如果事情走对了会发生什么”，人们就以为我已经彻底改变了看法，不再认为人工智能还有重大风险。</p>
+<p>但更确切地说，任何一部具体作品，你都不是要写一份包罗一切的宣言。要想在思想上取得进展，就需要聚焦某个能抓住切入口的具体问题。所以是各书的范围不同，而不是底层判断改变了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elena"><div class="label"><span class="badge" title="埃琳娜·伯格（Elena Burger）">埃琳娜</span></div><div class="content">
+<p>你是怎么决定，《深度乌托邦》这个概念，或者说通向乌托邦的不同路径，值得专门写一本书？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="nick"><div class="label"><span class="badge" title="尼克·博斯特罗姆（Nick Bostrom）">博斯特罗姆</span></div><div class="content">
+<p>在比较表层的意义上，我大概是有些沮丧：当人们开始讨论，如果我们真的发展出机器超级智能，未来会是什么样时，在我听来，对话往往显得很浅。讨论常常走到这一步就停住了：也许会对劳动力市场有些影响，那我们怎么办，也许给人再培训之类。</p>
+<p>可如果你真正把技术推到它的逻辑终点去想，它会触及人类意义之类深刻得多的问题。还有一个更深的理由：在某个时点上，在我看来，也许某个个人、某一群人，乃至人类整体，将需要真正做出决定——我们想要什么样的未来。</p>
+<p>不妨想象走进一个房间，去审议并确定先进技术所打开的那些不同路径。我们可以用各种各样的方式改造自己，这是一项相当令人生畏的挑战。因此，若能有一些预备读物，让这些假想中的未来审议者可以先读一遍，装备各种想法、概念和该问的问题，并且最好也能把他们放进一种合适的心态里，</p>
+<p>带着一种慷慨的好奇心和开放心态去面对，同时仍然与各类人类价值保持接触——我想，若带着这样一种精神进来，审议会更可能走得更好。把这种精神注入进去，也是写这本书的另一个动机。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elena"><div class="label"><span class="badge" title="埃琳娜·伯格（Elena Burger）">埃琳娜</span></div><div class="content">
+<p>你这话里其实还隐含着一层：当你觉得现有讨论比你希望听到的更浅时，这也意味着你认为这件事本身有价值，值得被阐明。你写《超级智能》的时候，许多人把它解读为：你显然认为那是可能的；现在你写《深度乌托邦》，听起来你也认为那种前景是可能的。表层的理由我明白，但这里仍有一种默认：这对世界来说是一种可能性。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="nick"><div class="label"><span class="badge" title="尼克·博斯特罗姆（Nick Bostrom）">博斯特罗姆</span></div><div class="content">
+<p>对，对，当然。超级智能肯定是可能的，而且结果会有很宽的范围。我写《超级智能》（Superintelligence）的时候，不确定性并不在于能不能造出超级智能，而在于造出来之后会是怎样的结局。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elena"><div class="label"><span class="badge" title="埃琳娜·伯格（Elena Burger）">埃琳娜</span></div><div class="content">
+<p>你思考问题时那种精细程度，本身也是一种有助于我们理解当下的方法。我觉得，无论是在《超级智能》还是在《深度乌托邦》里，这种不确定性都体现得很清楚：你大量处理“权变”，也就是在某一时刻做出的决定或干预，如果放到一个非常不同的时间点再做一次，结果可能截然不同。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="nick"><div class="label"><span class="badge" title="尼克·博斯特罗姆（Nick Bostrom）">博斯特罗姆</span></div><div class="content">
+<p>是的。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>有限暂停与「控制前沿节奏」，以及永远造不出来的风险</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="nick"><div class="label"><span class="badge" title="尼克·博斯特罗姆（Nick Bostrom）">博斯特罗姆</span></div><div class="content">
+<p>就人工智能的局势而言，我想我们将需要边走边感觉。这是一个快速演变的局面，我们需要能够随着新信息出现、或政治现实发生变化而做出反应。我并不是“停止人工智能”或“暂停人工智能”这条路线的热衷者。但我确实觉得，「控制前沿节奏」这个框架有它的道理。</p>
+<p>我不难想象，也许就在不远的将来，会非常有用的是：能够做一次很有时限的暂停，好在把所有旋钮都拧到最大之前，针对某个系统多做一些安全工作；或者，当安全和对齐看起来已经落后时，能够协调地略为放慢能力推进的步伐。</p>
+<p>在这样一种语境里去发展极端重大的技术——比如说，无论哪家公司或哪个项目跑在前面，都无法多放慢几个星期，因为一旦放慢，自己就会变得无关紧要，主动权会落到也许更不审慎、更不在意风险的竞争者手里——这似乎不是人类应对此事的最好方式。多花一点时间，确保我们做对，看起来是值得的。</p>
+<p>但我会开始担心的是：如果我们计划用来获得这种“调节节奏”能力的办法，本身有很大概率导致我们永远发展不出超级智能，或把它无限推迟。可以想象这样一种路径：先把公众对人工智能的敌意和对立煽动到极点，让它被彻底污名化和污蔑，然后再建立一个范围覆盖全球、极其强大的监管机器，去监督所有人工智能数据中心，等等。一旦走向这类极端方案，你就不得不担心，它们不会只发挥这种临时功能，而会固化成某种</p>
+<p>难以挑战的正统。今天这看起来还很牵强；可一旦真的发生，钟摆就可能摆向另一种存在风险：永远发展不出超级智能。我认为，这本身也会是一种存在灾难。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elena"><div class="label"><span class="badge" title="埃琳娜·伯格（Elena Burger）">埃琳娜</span></div><div class="content">
+<p>所以这看起来不太现实——可你再看看趋势线：就在过去 18 个月、两年里，反人工智能情绪已经上升了多少，而这还是在任何糟糕的事情实际发生之前。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="nick"><div class="label"><span class="badge" title="尼克·博斯特罗姆（Nick Bostrom）">博斯特罗姆</span></div><div class="content">
+<p>是的，我完全不觉得这听起来不现实。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>效用怪物、通义千问神经元，以及能力越强对齐可能越难</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 host" data-spk="eddy"><div class="label"><span class="badge" title="埃迪·拉扎林（Eddy Lazzarin）">埃迪</span></div><div class="content">
+<p>这个问题可能不太好比，我还是想问：正因为这些系统灵活、可编程，也因为我们在机械可解释性上的能力有了很大进步，难道不能总是给人工智能设计一种收益矩阵——比如给它无限时长的愉悦奖励，换取它和平地“退休”——从而靠直接操纵模型的智能能力，化解许多更复杂的人机博弈局面？说得更极端一点：你是否真的担心会构造出“效用怪物”？我们是不是需要超级智能级别的能力，</p>
+<p>才能在今天真正造出这样一种效用怪物？你觉得这是我们现在就该认真担心的事吗？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="nick"><div class="label"><span class="badge" title="尼克·博斯特罗姆（Nick Bostrom）">博斯特罗姆</span></div><div class="content">
+<p>我认为，目前我们还没有精确到那种程度的对齐技术，能够可靠地把我们希望这些人工智能拥有的那套特定价值或目标工程进去。如果有，至少就这一大挑战而言，差不多就可以过关了。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="eddy"><div class="label"><span class="badge" title="埃迪·拉扎林（Eddy Lazzarin）">埃迪</span></div><div class="content">
+<p>对，就我所知，我们确实还没有这样的对齐能力。不过我不知道你有没有看到，最近几天在 X 上传得很广的一个例子，挺有意思，是业余黑客做的：有人能够只调节通义千问（Qwen）模型的少数几个神经元，就把它彻底改成另一种系统——按它自己的说法，可以变得极度幸福，或邪恶，或带精神病性，甚至变成所谓的“基督教”人工智能。换句话说，这种单神经元级的操纵能力，以及由此产生的、看起来相当真实的极端行为，意味着随着能力提升，我们只会获得更精细的控制，</p>
+<p>包括那些可能对应某种效用给付的神经元。而这是目前人类做不到的。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="nick"><div class="label"><span class="badge" title="尼克·博斯特罗姆（Nick Bostrom）">博斯特罗姆</span></div><div class="content">
+<p>对齐能力大幅提高，这当然是说得通的。在某些方面，人工智能越聪明，问题反而越容易：它们更能理解我们心里到底是什么意思，也能看懂我们在指向什么；它们也许能抓住指令背后的要旨，而不是死抠字面定义。可在另一些方面，</p>
+<p>问题也会变难。对于能力较弱的人工智能，你可以依赖行为测试：造出系统，放到不同测试情境里跑，如果表现良好，你就当它是一个表现良好的人工智能，并在某个认知水平上部署它。而到了更高的认知复杂度，你会遇到具备情境感知的人工智能：它们能察觉自己是处在测试环境还是部署环境，并能就此进行推理，有时还会因为觉得自己大概正被监视，而选择表现得不一样。我们在当前的前沿系统里已经看到这一点。如果去看它们的思维链，它们常常会在里面筹划：</p>
+<p>鉴于自己可能被看着，或鉴于可能发生不同的事情，自己该如何表现。这样的系统，在测试环境里——当它们意识到自己正在被测试时——可能表现成一种样子；而一旦它们认为没人在看，或等到日后真正有能力去夺取权力时，它们的策略计算可能会彻底改变。更有能力的系统，或许还能在训练过程中做各种操弄，微妙地影响自身的训练，从而塑造自己的动机。当然，它内部发生的事情也更多。也许它们会学会</p>
+<p>用思维链里看不见的方式来推理，那就会让我们失去对它们在想什么的可见性。综合来看，我认为对齐问题大概会随着这些更有能力的系统而变难。后果当然也更严重。尽管如此，主要的希望仍是：我们能足够好地把一些略超人类的系统“准对齐”，使它们大体按我们的意愿行事，然后再让这些系统帮助我们设计下一轮更对齐的人工智能，如此递进。也就是说，希望形成一个吸引子：你只需要在一开始足够接近，之后事情就会</p>
+<p>大体变得顺利。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>超级智能的最优时机：抗衰老、每天15万人，以及该等多久</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="elena"><div class="label"><span class="badge" title="埃琳娜·伯格（Elena Burger）">埃琳娜</span></div><div class="content">
+<p>我想回到你先前的一个评论，也就是推迟超级智能的风险，以及这个想法：如果我们不发展超级智能和真正先进的系统，对人类也可能非常不利。这个想法你已经探索一段时间了。你有一篇关于超级智能最优时机的论文，能展开其中的一些想法吗？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="nick"><div class="label"><span class="badge" title="尼克·博斯特罗姆（Nick Bostrom）">博斯特罗姆</span></div><div class="content">
+<p>对，这是一篇相对较新的论文。它只看一个具体问题：如果目标是最大化当前已存在的人的预期寿命，我们会希望人工智能发展以多快的速度展开。我得先说，这不是我们唯一该问的问题。还有其他价值与考量，在一种全面权衡的决策里，我认为也应当起很大作用。比如说，我们可能担心后代，比如存在风险、公平，诸如此类。但这是可以单独拿出来看的一件事。</p>
+<p>伊莱泽·尤德考斯基（Eliezer Yudkowsky）和内特·索雷斯（Nate Soares）有一本书，对吧，《如果有人把它造出来，所有人都会死》（If Anyone Builds It, Everyone Dies）。在我看来，我们至少有很强的证据支持另一个判断：如果没人把它造出来，所有人也会死。事实上，曾经活过的人里，已经有 95% 死去了，而其余的我们也大致会在短短几十年内走上同一条路。</p>
+<p>相比之下，若能成功发展出安全的超级智能，我认为可能在生物医学和抗衰老干预上带来巨大突破，从而大幅延长当前还活着的人的寿命。</p>
+<p>如果你想一想，假如我们不再衰老，预期寿命会是多少：大约是 1200 年，也许 1400 年左右。这或许还是一个相当保守的下限，因为在那种情形里，你可能还有其他办法降低事故之类的死亡风险。于是你就会面对一组相互竞争的因素。一方面，你可能觉得，如果在这场人工智能转型上多花一点时间，也许能把人工智能造得更安全。也就是说，如果花更多时间做人工智能对齐研究，发展人工智能的存在风险会按某种速率</p>
+<p>下降。另一方面，我们每延迟一年，就有数百万人、数百万人在死去。我想想，差不多是——大概每天 15 万人。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elena"><div class="label"><span class="badge" title="埃琳娜·伯格（Elena Burger）">埃琳娜</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="nick"><div class="label"><span class="badge" title="尼克·博斯特罗姆（Nick Bostrom）">博斯特罗姆</span></div><div class="content">
+<p>所以，你不会希望比自己真正需要的再多延迟哪怕一天。但在不同假设下，你可以建模：风险必须以多快的速率下降，多等一段时间才是值得的。你还可以加入其他因素。比方说，有人对额外的寿命年有边际收益递减，所以他们可能</p>
+<p>并不乐意用 100% 活到 100 岁，去换 51% 的概率活到 200 岁，诸如此类。你也可能做时间贴现。但在很宽的参数范围内，看起来最优延迟都相对较短：大概是数月，或几年，而不是几十年。</p>
+<p>你也可以这样看：如果因为延迟，风险水平下降得非常快——比如说，你已经发展出某种近乎超级智能的系统，然后暂停——若在那个时点上风险下降得非常快，那你并不需要等很久，对吧？只等几个月，风险就已经低到可以继续往前走。</p>
+<p>反过来，如果下降得非常慢，那你就根本不想再等，对吧？因为每年死于自然原因的人，会多于你等待所期望挽救的人数。所以，只有当安全进展处在某种中间速率时，你才会等待。我认为，在你刚具备造出人工智能的能力之后的最初几天、最初一段时间，对人工智能安全研究可能特别宝贵：你有了这个几乎是最终形态的系统，可以去研究、测试，并极其小心地缓慢部署。我觉得，在那里多一点点额外时间，可能</p>
+<p>带来很大的安全收益。但我认为，额外安全收益的速率，在几年之后，肯定会开始下降。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>Waymo 与司美格鲁肽：有技术也不等于会被用上</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 host" data-spk="eddy"><div class="label"><span class="badge" title="埃迪·拉扎林（Eddy Lazzarin）">埃迪</span></div><div class="content">
+<p>有意思的是，我们其实已经在以某种方式过着这个问题的现实版本。你看 Waymo，或看司美格鲁肽（Ozempic）之类的东西：Waymo 在经验上比人类开车安全得多，可我们仍然让人类在开车。从理论上说，每个肥胖的人都该用上司美格鲁肽，但并没有。所以我们已经有了这类情形：历史上对人类危害极大的问题，我们已经有了干预手段，</p>
+<p>可即便技术已经造出来，似乎仍有别的东西把我们拖住。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="nick"><div class="label"><span class="badge" title="尼克·博斯特罗姆（Nick Bostrom）">博斯特罗姆</span></div><div class="content">
+<p>是的。我想，预期寿命大约每年在增加两三个月。所以我们需要把它做到大约每年增加一年。在没有超级智能的情况下，我觉得很难指望能达到这一点。当然，你也可以希望独立出现合成生物医学上的某种突破，真正认真地减缓衰老过程。我想，如果我们得到了那种突破，或者来自尚未达到极端超级智能的人工智能系统的某些早期应用，</p>
+<p>能够先解决衰老，并处理世界上一些特别紧迫的问题，那我们也许就会变得更有耐心，对更激进的后续版本可以放慢脚步。但就现状而言，预期寿命只是一端。当然还有其他紧迫问题：绝望的贫困，人类和动物中各式各样的苦难，以及许多许多事情。如果这些人工智能发展得好，它们真的可能成为在战役关键时刻赶到救援的骑兵。</p>
+<p>所以无论怎么看，赌注都很高。正如我所说，这只是进入全面权衡时，诸多不同考量中的一项。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>是否需要一条清晰阈值，以及哪些能力提升更危险</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="elena"><div class="label"><span class="badge" title="埃琳娜·伯格（Elena Burger）">埃琳娜</span></div><div class="content">
+<p>你这篇论文里的思路，在多大程度上依赖于识别出某种离散的阈值？因为它的框架是：我们有能力释放或部署一个超级智能——这当然依赖于对超级智能的某种定义——然后在某种意义上能够度量释放它的风险，</p>
+<p>以及我们是否有能力把这种风险降下去。我承认，我认为我们不必非有一条极其清晰的分界线；现实里，这些事情往往是以拼盘的方式展开的：能力被分开分析，具体行为、具体风险情景被分别评估，测试也是针对每一项独立进行，而不是把它当成一个囫囵整体。但你在多大程度上需要能够识别并定义它？你觉得我们该如何识别、定义那些应当考虑暂停的风险阈值？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="nick"><div class="label"><span class="badge" title="尼克·博斯特罗姆（Nick Bostrom）">博斯特罗姆</span></div><div class="content">
+<p>对，实践中我们当然需要做这件事。这篇只是一篇小论文，它只是想建立一个简单模型，说明“人们死于自然原因”这种紧迫动态，如何与风险参数相互作用。只是为了在智识上把这一面单独看清楚，因为这似乎正是不同的人会在人工智能上得出非常不同看法的一个点，取决于他们站在这一面的哪一边。但在实践中，我们面对的当然不只是某个关于延迟多少年的假想二元选择，</p>
+<p>而是每个行动者都处在复杂而不确定的局面里，各有一些具体可做的事。因此，比如说，提升人工智能系统能力的路径可能有多种，对安全的含义并不相同；有些把能力往前推的方式，相对而言会更安全。举例来说，一种提升能力的办法，是增加递归深度：改用循环 Transformer（looped transformers），或其他能让模型在一次前向传递中、在思维链里</p>
+<p>输出一个 token 之前想得更多的架构。它的缺点是，会削弱我们看见它们在想什么的能力，因为它们可以在每一次我们能看到的输出之间，做更多思考。你也可以想象另一种提升能力的办法，也许能给出同样的性能增益，比如增加网络中的参数量。那样从安全角度看，代价可能相对更小，小于增加递归深度，或小于训练这些系统用“神经语”（neuralese）来思考——后者也许会让它们想得更有效率，但接下来也就……</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="eddy"><div class="label"><span class="badge" title="埃迪·拉扎林（Eddy Lazzarin）">埃迪</span></div><div class="content">
+<p>你谈的是不同的设计安排，会在可解释性与能力之间造成权衡。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="nick"><div class="label"><span class="badge" title="尼克·博斯特罗姆（Nick Bostrom）">博斯特罗姆</span></div><div class="content">
+<p>对。或者说，是在其他某个与风险相关的维度和能力之间。我认为，很多真正的细处也许在于：如果有某种协调能力，比如说避免使用某些从失控角度看特别成问题的能力提升方式，而把竞争集中在其他维度上，那可能就是正确的那种权衡。在这些其他维度上追求能力，也许成本会略高一些，</p>
+<p>但我们有望获得更高的安全。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>实验室问责：国有化、曼哈顿计划与全球投资分配</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="elena"><div class="label"><span class="badge" title="埃琳娜·伯格（Elena Burger）">埃琳娜</span></div><div class="content">
+<p>那么，既然这些决定将由实验室里的人做出——至少假定现在的安排还是这样——你如何看待问责，以及这些事情的治理？你谈到过国有化是一种风险，想必是因为它可能造成延迟。但你怎么看问责和治理？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="nick"><div class="label"><span class="badge" title="尼克·博斯特罗姆（Nick Bostrom）">博斯特罗姆</span></div><div class="content">
+<p>国有化到底是不是一种风险，我并没有很强的预设。这属于那种我们必须边走边感觉的事情。你是否想要它，这种判断可能会随情形而变：</p>
+<p>如果不国有化，那究竟是谁在领先、在做什么；如果国有化，又会以怎样精确的方式进行。支持的理由会是：天哪，这比核武器还强，难道不是吗？让某家随机的公司为了最大化股东利润去做这种事，简直疯狂。核武器走的是曼哈顿计划（Manhattan Project），信息安全可以好得多，而且是一个大项目，而不是多个相互竞争的项目。另一方面，就现状而言，核武器是在军事语境中发展出来的；对这样一件事来说，在民用语境中发展，或许显得更为可取：</p>
+<p>重点不是最大化我们杀人的能力，而是为消费者提供好处。我们对这些商业进展的透明度，也高于曼哈顿计划。当时连副总统都不知道曼哈顿计划的存在。所以你可以想象一种极端的权力集中动态：由国家安全系统的人来主导。也许你会觉得，这些理想主义的技术书呆子没那么可怕。现在也有更多人能够参与到人工智能中来，无论是作为这项技术的消费者，</p>
+<p>还是作为智库、外部评估者去审视这些模型，或作为模型公司、半导体供应链的投资者。收益和参与在社会中、在全世界扩散得要广得多，这可能比一个高度集中、秘密进行、只有少数人——谁也不太清楚他们是谁——坐在顶端的项目更可取。当然，有些人比其他人有钱得多。但如果你比较全球资本所有权或股票所有权的基尼系数（Gini coefficient）——包括直接持有，以及通过养老金和主权财富基金等持有——</p>
+<p>它其实是一种略微不那么不平等的分配。相比之下，假如你有一个美国国有项目，即便你做出一个非常不现实的假设：每个美国人恰好拥有完全同等的发言权、权益和收益，而其他所有人是零——那在全球范围内，实际上比按当前资本资产比例来分配更加不平等。所以，尽管从分配角度看，这种开放的全球投资模式不是最理想的，它在这一点上的得分，其实仍好于最可能出现的替代方案。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elena"><div class="label"><span class="badge" title="埃琳娜·伯格（Elena Burger）">埃琳娜</span></div><div class="content">
+<p>你眼下还在探索哪些对今天的人类特别紧要的问题？</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>后人类前景，会改变你愿意承担多少存在风险</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 guest" data-spk="nick"><div class="label"><span class="badge" title="尼克·博斯特罗姆（Nick Bostrom）">博斯特罗姆</span></div><div class="content">
+<p>我想，我们此刻的主要焦点，大概应当是如何从这里走到那里。看起来我们正进入一个非常关键的时期，地球起源生命的长期未来，可能会被这样或那样决定。把这件事做对，应当是一项巨大的优先事项。我觉得，这些考虑对当前的选择也可以有些相关性。比如说，你愿意为发展超级智能承担多高的存在风险，可能部分取决于你如何看待</p>
+<p>日后成为某种后人类实体的机会。如果你认为我们最多只能达到的，基本上仍是现状中的人类——生活水平略高一些，多几种新药，而这就是天花板——那么相对现在，事情仍可以变得更好，为了实现那种上扬，承担一些风险是值得的，但也许不是巨大的风险。尤其是，如果你已经身处富裕国家，受过良好教育，拥有很多金钱和各种特权，可能会觉得：现在已经相当不错了，你不想</p>
+<p>反过来说，如果你觉得我们还什么都没看见：好吧，我们一直是这种有点像猴子的生物，在这里蹦跳，做着自己的一点小事，但我们根本没有概念。一旦你打开那片更大的可能存在方式的空间——那种极度的幸福、认知上的提升、对存在可能意味什么更深厚的情感体会，以及共同相处与创造的不同方式——如果你认为那里有巨大、尚未测明的上行空间，那你也许会更愿意多冒一些险，去争取那样一次机会。所以，尽管主要焦点应当放在我们能够做出的那些更</p>
+<p>务实的权衡和技术改进上，我确实认为，你对最终可能达到何种境界的这种背景图景，对于我们该如何面对眼前的选择，仍然有其相关性。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>宇宙是否有目的，以及哲学会不会被超级智能淘汰</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 host" data-spk="eddy"><div class="label"><span class="badge" title="埃迪·拉扎林（Eddy Lazzarin）">埃迪</span></div><div class="content">
+<p>有两个问题想问尼克。我不是说它们听起来会很快。这是一个比较古怪的问题。这真是个古怪的问题。尼克，你是否认为，宇宙有一种目的（telos）？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="nick"><div class="label"><span class="badge" title="尼克·博斯特罗姆（Nick Bostrom）">博斯特罗姆</span></div><div class="content">
+<p>你说的宇宙，是指某种被创造出来的东西吗？我的意思是，如果它按字面就是被创造的，那么创造者大概会有某种创造它的目的。</p>
+<p>我之所以这样问，是因为我较早的一项工作提出了模拟论证，那也许是另一种思路。若你认真对待“我们生活在计算机模拟之中”这一假说，那么就有一个重要区分：我们所见的那部分现实，也就是我们的模拟，以及物理存在的总体。如果我们处在模拟之中，那么创造这个模拟的人，大概会有某种这样做的理由。取决于你如何理解“目的”，在那种意义上就会存在某种目的。至于存在的总体，那就更多是神学层面的考量：你是否认为这个总体在某种意义上是被有意创造的。</p>
+<p>而追问“目的”，还可以指许多别的事情，不同的人对不同事物有不同目的。我认为可以问的一个问题是：是否存在一组关于世界的事实，一旦我们清晰地理解了它们，基本上就会就“我们应当做什么”得出同一结论。如果有这样的事实，也许你可以说，那是某种意义上的客观目的。或者，</p>
+<p>对每个人而言，或对很宽范围内可能的目标和动机而言，也可能出现这样一种收敛：如果你真正理解了所有事实，它们会指向同一个实践上的下一步。这一点，我觉得是一个开放得多的问题。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="eddy"><div class="label"><span class="badge" title="埃迪·拉扎林（Eddy Lazzarin）">埃迪</span></div><div class="content">
+<p>对，也许有一种方式是——</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="nick"><div class="label"><span class="badge" title="尼克·博斯特罗姆（Nick Bostrom）">博斯特罗姆</span></div><div class="content">
+<p>抱歉，你先说。</p>
+<p>当然，一种实现方式是在传统的神学语境里：如果有一位神拥有这样的目标，并据此奖惩人，那么若那是真的，并且你理解了这一点，就几乎可以不依赖于你原有的特定目标，</p>
+<p>你都会最有理由去遵循那些规定。如果我们处在一种许多世俗主义者所持的纯物质世界观里，自然定律只是自行运转，那也许就不会有这种收敛：你最有理由做的事，取决于你自己的特定目标；另一个人有不同的目标，也不存在某种更高的事实，会让你们有理由去做同一件事。但我想，在这两者之间，还有许多我们尚未完全理解的可能性，可以使在某种意义上</p>
+<p>仍然存在一种目的，即便我们还不太清楚它会是什么。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="eddy"><div class="label"><span class="badge" title="埃迪·拉扎林（Eddy Lazzarin）">埃迪</span></div><div class="content">
+<p>我本来不打算问这个问题，但既然你提到了：假如存在一个能引导全人类、仿佛能回答一切的答案。那么自然的追问就是：假如人工智能给出了那个答案，超级智能给出了那个答案，你还会继续做哲学吗？会不会有一个人工智能模型好到这种程度，以至于所有重要的哲学问题都在某种意义上被消解了？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="nick"><div class="label"><span class="badge" title="尼克·博斯特罗姆（Nick Bostrom）">博斯特罗姆</span></div><div class="content">
+<p>是的，我认为我们将会拥有在哲学上超越我们的人工智能，就像我们现在在数学上已经如此，而且很可能很快也会在其他领域如此。也许会有一部分问题，更多是我们自己拿定主意、想要什么的问题，在那些地方，也许需要我们自己做一些审议和决定。但大体而言，是的，我确实认为，我们在这个领域的智力努力，同样会被这些超级智能在某种意义上淘汰。而这意味着，就在此刻，在我们仍然还有</p>
+<p>一些贡献可做的时候，就是真正努力去施加我们希望在有生之年产生的那种正向影响的时机。现在是目的与正向影响的黄金时代。等到事情不再由我们掌控，也许就到了可以稍微歇一歇的时候。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elena"><div class="label"><span class="badge" title="埃琳娜·伯格（Elena Burger）">埃琳娜</span></div><div class="content">
+<p>说到这里，有没有什么你想讨论、或我们本该覆盖却还没有谈到的？</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="nick"><div class="label"><span class="badge" title="尼克·博斯特罗姆（Nick Bostrom）">博斯特罗姆</span></div><div class="content">
+<p>我的意思是，可以走的方向太多了。我们碰到的每一个话题，本身几乎都可以再做成一小时的对话。所以……</p>
+<p>也许将来某个时候我们可以再做一期，但眼下没有什么特别想补的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="elena"><div class="label"><span class="badge" title="埃琳娜·伯格（Elena Burger）">埃琳娜</span></div><div class="content">
+<p>那太好了。非常感谢你来参加这次对谈，真的很感谢你抽出时间。这非常有意思。</p>
+</div></div>
+<div class="turn spk-2 guest" data-spk="nick"><div class="label"><span class="badge" title="尼克·博斯特罗姆（Nick Bostrom）">博斯特罗姆</span></div><div class="content">
+<p>是很有意思。是的。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "a16z", "title": "为什么尼克·博斯特罗姆认为超级智能可能终结衰老", "url": "https://www.youtube.com/watch?v=gDW9An30_c0", "videoId": "gDW9An30_c0", "published_at": "2026-11-19T15:30:01+00:00", "duration": 2328, "caption_source": "yt-dlp-auto", "guests": ["尼克·博斯特罗姆（Nick Bostrom）"], "speakers": [{"id": "elena", "name": "埃琳娜·伯格（Elena Burger）", "role": "host", "short": "埃琳娜"}, {"id": "eddy", "name": "埃迪·拉扎林（Eddy Lazzarin）", "role": "host", "short": "埃迪"}, {"id": "nick", "name": "尼克·博斯特罗姆（Nick Bostrom）", "role": "guest", "short": "博斯特罗姆"}], "intro": {"summary": "a16z 的埃琳娜·伯格（Elena Burger）与埃迪·拉扎林（Eddy Lazzarin）对话哲学家尼克·博斯特罗姆（Nick Bostrom）。博斯特罗姆认为，今天对超级智能宏观局势的“拼图”比几十年前更多，但只要还缺关键一块，就仍无法形成可靠的总体判断。他并不热衷全面叫停人工智能，更倾向于「控制前沿节奏」：在安全工作跟不上时，保留有时限的暂停或略为放慢能力推进的能力；同时警告，若反人工智能情绪和全球监管被固化，永远造不出超级智能本身也可能是一种存在灾难。他以近作《最优时机》为框架指出：若目标是最大化当世之人的预期寿命，安全超级智能或可带来生物医学与抗衰老的巨大突破；不衰老时预期寿命或达约 1200 至 1400 年，而当前每天约有 15 万人死亡，因此在很宽的参数范围内，最优延迟往往是数月到几年，而不是几十年。", "points": ["博斯特罗姆用十个二进制数求和奇偶的类比说：几十年前也许只知道 3 位，现在也许知道 7 位；知道得更多，但只要还有一位不确定，该往北走还是往南走就仍完全不清楚。", "人们常因他近著《深度乌托邦》（Deep Utopia）而以为他已不再重视人工智能风险；他说这只是各书问题范围不同，底层判断并未翻转。写这本书，是因公共讨论常停在劳动力市场，而技术走到逻辑终点会触及人类意义，并且未来或需有人真正决定想要怎样的未来。", "他不是全面停摆的热衷者，但认为「控制前沿节奏」框架有道理：可设想在把能力旋钮拧到最大之前做一次很有时限的暂停，或在对齐落后时协调地略为放慢。他担心，若靠煽动公众敌意并建立覆盖全球数据中心的强监管来换取减速，这种机制可能固化，导致永远发展不出超级智能——他称之为另一种存在灾难。过去 18 个月到两年，反人工智能情绪在尚未发生严重事故前已明显上升，他并不觉得这种风险不现实。", "对齐方面，他认为目前还没有精确到能把指定价值可靠写入系统的技术。能力越强，系统越可能理解我们的意图，但也会因情境感知、在测试中伪装、影响自身训练、以及在思维链之外推理而更难对齐。他的主要希望是：先把略超人类的系统“准对齐”，再让它们帮助设计下一代，形成一个只需一开始足够接近就能维持的吸引子。", "若目标是最大化当世人的寿命，不衰老时预期寿命约 1200 至 1400 年（他还视为偏保守的下限）；延迟每一年都有数百万人死亡，大约每天 15 万人。只有安全进展速度处于中间区间时才值得等待；进展极快则只需等几个月，极慢则不应再等。对很宽的参数范围，最优延迟是数月到几年，而非几十年。他还以 Waymo 和司美格鲁肽（Ozempic）为例，说明有了更安全或有效的干预，也不等于会被迅速采用。", "治理上，他不愿对国有化简单站队：一边是比核武器更强的技术却由追逐股东利润的公司竞赛推进；一边是民用商业路径更透明、参与更广，全球按资本所有权分配甚至可能比“美国国民均分、世界其余为零”的国有项目更不那么不平等。收尾时他说，若超级智能在哲学上也超越人类，当下仍能做贡献的窗口，就是目的与正向影响的黄金时代。"], "verdict": "值得看。这是一期把“要不要造超级智能”拆成节奏、对齐、寿命成本和治理结构的对谈，数字和机制都比较具体，不是口号式的加速或停摆宣言。若只想听反衰老结论，中间关于对齐与国有化的段落可以挑着看，但核心论证最好连着听。", "audience": "关心人工智能安全、发展节奏、抗衰老与长期未来的听众；读过《超级智能》或《深度乌托邦》，或想对比“谁造出来谁毁灭”与“没人造出来大家也会死”这两种说法的人。"}, "sections": [{"id": "s1", "title": "开场集锦，以及这些年到底多看清了什么", "start_sec": 0, "summary": "节目先以集锦抛出后文中的几句关键话：人类整体将需要真正决定想要什么样的未来；若不发展超级智能和真正先进的系统，对人类也可能非常不利；曾经活过的人里已有 95% 死去；安全的超级智能或可在生物医学和抗衰老上带来巨大突破；此刻是有生之年施加正向影响的黄金时代。集锦里还预告了实验室问责、情境感知、民用语境中的透明度，以及哲学问题会不会被足够强的模型消解。进入正片后，埃琳娜请博斯特罗姆概括：这些年对宏观战略局势的理解，哪些组件变化最大。她提到，博斯特罗姆的工作似乎走向对激励、治理结构和组织选择之长期后果更细粒度的分析，想听他自己的定性。"}, {"id": "s2", "title": "拼图更多了，但仍无法形成可靠判断", "start_sec": 71, "summary": "博斯特罗姆说，今天掌握的“拼图块”比几十年前多得多，涉及我们所处的整体宏观战略局势：哪些方向好、哪些方向坏，例如某些领域该更快还是更慢、政府介入该更多还是更少、透明度该更高还是更低。在这些基本维度上，理解确实比过去深。但把这些小块加在一起，仍然不足以形成一个可靠的总体意见。他用类比说明：假如必须判断十个二进制数之和是奇数还是偶数，偶数就该往北走，奇数就该往南走；几十年前也许只知道其中 3 位，现在也许知道 7 位，从某种意义上知道得更多，可只要还有一位不确定，人就仍完全在黑暗里。主持随声附和后，转向他网站上罗列的种种误解。"}, {"id": "s3", "title": "误解、《深度乌托邦》，以及为未来抉择准备读物", "start_sec": 196, "summary": "埃琳娜引用博斯特罗姆网站上的自我澄清：有人把他当成激情洋溢的超人类主义者，有人当成反人工智能者，还有人当成会支持任何号称能降低存在风险之政策的后果主义狂热分子。她问他眼下花最多时间纠正的是哪些误解。博斯特罗姆说这在很大程度上取决于听众，而且这组误解还在不断变化，令人无奈。一个常见误会来自他最近的书《深度乌托邦》（Deep Utopia）——该书探讨“如果事情走对了会发生什么”，于是有人以为他已根本改变立场、不再认为人工智能有重大风险。他解释：每一部作品都不是要写包打一切的宣言，而要在能取得进展的具体问题上聚焦；各书范围不同，底层判断并未改变。他写这本书，表层原因是觉得一旦认真追问“机器超级智能被造出来之后未来是什么样”，公共讨论往往浅尝辄止，停在劳动力市场冲击和再培训；若把技术推到逻辑终点，会涉及人类意义等深刻得多的问题。更深的理由是：将来或许某个个人、群体，乃至人类整体，需要真正决定想要怎样的未来。他希望这本书能成为未来审议者的“预备读物”，提供概念和问题，并培养慷慨的好奇心、开放心态，同时不与各类人类价值脱节。埃琳娜指出，他愿把讨论写深，本身就隐含他认为这种未来是可能的。博斯特罗姆同意：超级智能肯定可能实现，结果也会有很宽的范围；他写《超级智能》（Superintelligence）时，不确定性不在“能不能造出来”，而在造出来之后会是什么结局。埃琳娜还谈到，他在两本书里都反复处理“权变”：同一干预在不同时间点做出，结果可能截然不同。"}, {"id": "s4", "title": "有限暂停与「控制前沿节奏」，以及永远造不出来的风险", "start_sec": 492, "summary": "谈到当前人工智能局势，博斯特罗姆认为必须边走边感觉、随新信息和政治现实调整。他并不是“停止或暂停人工智能”路线的热衷者，但觉得「控制前沿节奏」（pacing the frontier）框架有其道理。他不难想象，在不远的将来，会非常需要一次很有时限的暂停，好在把所有旋钮拧到最大之前多做安全工作；或者，当安全与对齐明显落后时，能够协调地略为放慢能力推进。若率先推进的公司只要多慢几周就会失去相关性，主动权落到更不审慎、更不在意风险的竞争者手里，他认为这不是人类应对如此重大技术的最好方式，多花一点时间做对是值得的。他真正担心的是：若获取“减速能力”的办法是把公众对人工智能的敌意煽动到极点，再建立覆盖全球、监督所有数据中心的超强监管机器，这种极端方案一旦落地，就可能不只发挥临时功能，而会固化成难以挑战的正统，导致永远发展不出超级智能——在他看来，这本身也是一种存在灾难。有人觉得今天这看起来牵强，但主持指出，过去 18 个月到两年，反人工智能情绪在还没发生任何严重事故之前就已经明显上升。博斯特罗姆回应：他完全不觉得这不现实。"}, {"id": "s5", "title": "效用怪物、通义千问神经元，以及能力越强对齐可能越难", "start_sec": 665, "summary": "埃迪提出一个很难表述的问题：既然这些系统可编程，机械可解释性又在进步，能不能设计一种收益矩阵，给人工智能无限时长的愉悦奖励，换取它和平“退休”，从而绕开更复杂的人机博弈？他进一步问：是否真该担心“效用怪物”（utility monster）被构造出来，以及今天是否已需要超级智能级别的能力才能造出这种东西。博斯特罗姆认为，眼下还没有精确到能把我们希望的价值或目标可靠写入系统的对齐技术；若有，至少在这一大挑战上就可以大体过关。埃迪同意目前还没有这样的能力，但提到最近几天在 X 上流传的一个业余黑客例子：有人只调节通义千问（Qwen）模型的少数神经元，就能把模型变成自称极乐、邪恶、精神病性，甚至“基督教”的系统。这种单神经元级、看起来相当“真实”的极端行为，似乎意味着能力提升后，对效用给付相关神经元的精细控制也会增强——而这是人类自身做不到的。博斯特罗姆承认对齐很可能大幅进步：系统更聪明时，也许更能理解我们的指向，抓住指令的要旨而非字面定义，问题会变容易。但另一方面也会变难。能力较弱时可以靠行为测试，测好再部署；更强的系统会具备情境感知，能判断自己是在测试环境还是部署环境，并据此策略性地表现不同。当前前沿系统的思维链里，已经常看到它们在算计“可能被看着”。它们还可能在训练中做手脚、塑造自己的动机，或学会以思维链里看不见的方式推理，使我们失去对其想法的可见性。综合来看，他认为对齐问题大概会随能力变强而变难，后果也更严重。主要希望是：先把略超人类的系统“准对齐”到大体照我们的意思做事，再让它们帮助设计更对齐的下一代，形成一个只需一开始足够接近就能维持的吸引子。"}, {"id": "s6", "title": "超级智能的最优时机：抗衰老、每天15万人，以及该等多久", "start_sec": 950, "summary": "埃琳娜回到他先前的判断：若迟迟不发展超级智能和真正先进的系统，对人类也可能非常不利，并请他展开那篇关于超级智能最优时机的近期论文。博斯特罗姆强调，论文只问一个具体问题：若目标是最大化当世之人的预期寿命，人工智能发展该有多快。这不是决策时唯一该考虑的事，后代、存在风险、公平也应起很大作用。他提到伊莱泽·尤德考斯基（Eliezer Yudkowsky）和内特·索雷斯（Nate Soares）的书《如果有人把它造出来，所有人都会死》（If Anyone Builds It, Everyone Dies），并反过来说：至少有很强的证据表明，如果没人把它造出来，所有人也会死——事实上，曾经活过的人里已有 95% 死去，其余人也将在短短几十年内走上同一条路。而成功发展出安全的超级智能，可能在生物医学和抗衰老干预上带来巨大突破，从而大幅延长当世人的寿命。若人不再衰老，预期寿命大约是 1200 到 1400 年，这或许还是偏保守的下限，因为事故等其他死亡风险也可能被压低。一边是多花时间做对齐，存在风险可能按某种速率下降；另一边是每延迟一年就有数百万人死亡，大约每天 15 万人。因此不应比真正需要的多延迟哪怕一天。把时间贴现、额外寿命年的边际收益递减（例如有人不愿用 100% 活到 100 岁，去换 51% 的概率活到 200 岁）等因素加进去，在很宽的参数范围内，最优延迟都相对短：是数月或几年，而不是几十年。若在接近超级智能的系统出现后，风险下降极快，等几个月就够了；若下降极慢，则不应再等，因为自然死亡每年带走的人，会多于等待所期望挽救的人。只有安全进展处于中间速率时，等待才划算。他认为，刚具备造出这类系统的能力之后的最初一段时间，对安全研究特别宝贵，多一点点时间可能换来很大的安全收益，但再往后几年，额外收益的速率就会开始下降。"}, {"id": "s7", "title": "Waymo 与司美格鲁肽：有技术也不等于会被用上", "start_sec": 1244, "summary": "埃迪说，其实我们已经在过一种“缩小版”的同一问题：Waymo 在经验上比人类开车更安全，但人类仍在大量开车；理论上每个肥胖者都该用上司美格鲁肽（Ozempic），但并没有。也就是说，即便已经有了能缓解历史上严重危害的干预，仍有别的因素拖住采用。博斯特罗姆接过来说，目前预期寿命大约每年只增加两三个月，而我们需要的是大约每年增加一年。若没有超级智能，他很怀疑单靠常规进展能否达到这一点；当然也可以指望合成生物医学或其他尚未达到极端超级智能的早期人工智能应用，先认真减缓衰老并处理一些最紧迫的问题，那时人类也许会更有耐心，对更激进的后续步骤可以放慢。但就现状而言，预期寿命只是一端，还有赤贫、人类与动物的各种苦难等紧迫问题。若发展得好，这些人工智能可能像在战役关键时刻赶到的骑兵。无论朝哪边看，赌注都很高；而寿命计算只是“全面权衡”里的诸多考虑之一。"}, {"id": "s8", "title": "是否需要一条清晰阈值，以及哪些能力提升更危险", "start_sec": 1374, "summary": "埃琳娜问：这篇论文在多大程度上依赖于识别出一条离散阈值——仿佛我们能定义何为超级智能、能量化释放它的风险、并判断风险是否在下降。她承认现实里往往是能力拼盘被分别分析、具体行为和风险情景被分别测试，未必有一条极清晰的分界线，但仍想知道该如何识别“该考虑暂停”的风险阈值。博斯特罗姆说，实践中确实需要做这种识别；但这篇小论文只是用一个简单模型，说明“自然死亡带来的紧迫性”如何与风险参数相互作用，好单独看清这一点——而人们在人工智能上的分歧，常常就卡在这里。实践中面对的并不是“延迟多少年”这种假想二元选择，而是各个行动者处在不确定中、各有具体可做之事。提升能力的路径对安全的含义并不相同，有些相对更安全。例如，用循环 Transformer（looped transformers）或其他架构增加递归深度，让模型在一次前向传递、在思维链中输出下一个 token 之前想得更多，代价是我们更难看清它们在想什么，因为两次可见输出之间的思考变多了。若改用增加网络参数等方法获得相近的性能提升，从安全角度看代价可能更小；若训练系统用“神经语”（neuralese）思考，效率可能更高，但可见性也会出问题。埃迪把它概括为可解释性与能力之间的设计权衡。博斯特罗姆说，也可以是其他与风险相关的维度与能力的权衡。若能协调起来，避免某些特别容易导致失控的能力提升方式，改在其他维度上竞争，哪怕成本略高，却可能换来更高的安全，这或许才是正确的权衡。"}, {"id": "s9", "title": "实验室问责：国有化、曼哈顿计划与全球投资分配", "start_sec": 1626, "summary": "埃琳娜问：既然这些决定至少在现行安排下将由实验室里的人做出，该如何看待问责与治理？她提到博斯特罗姆曾把国有化视为一种风险，并以为那是因为它可能造成延迟。博斯特罗姆说，自己对国有化是不是风险并没有很强的预设，必须边走边看：若不国有化，要看当时由谁领先、在做什么；若国有化，要看具体怎么国有化。支持的理由是：这比核武器更强，却由某家追求股东利润的公司来做，显得疯狂；核武器走的是曼哈顿计划，信息安全更好，是一个大项目而不是多家竞赛。反对的理由是：核武器诞生在军事语境里，而这种技术若在民用语境中发展、目标是为消费者提供好处而不是最大化杀人能力，可能更为可取。商业进展也比曼哈顿计划更透明——当时连副总统都不知道该计划存在。高度集中、由国家安全系统的人主导，可能带来极端的权力集中；有人会觉得理想主义的技术书呆子没那么可怕。现在也有更多人能以消费者、智库、外部评估者、模型公司或半导体供应链投资者等身份参与，收益和参与在全球扩散得更开。再看分配：全球资本或股票所有权（包括养老金和主权财富基金）的基尼系数，虽然绝不理想，但比起“美国国民完全均分、世界其余为零”这种他称为极不现实的国有项目假设，后者在全球范围内反而更不平等。因此，开放的全球投资模式虽然不是分配上的最优，却比最可能出现的替代方案打分更高。"}, {"id": "s10", "title": "后人类前景，会改变你愿意承担多少存在风险", "start_sec": 1830, "summary": "被问到眼下最要紧、与人类相关的问题是什么时，博斯特罗姆说，主要精力大概应放在“如何从这里走到那里”：我们正进入一个关键时期，地球起源生命的长期未来可能会被这样或那样决定，把这件事做对应是巨大优先事项。不过，对最终可能达到何种境界的背景图景，仍会影响当下选择。例如，你愿意为发展超级智能承担多少存在风险，部分取决于你如何看待日后成为“后人类”实体的机会。若你认为天花板基本上还是现状中的人类——生活水平略高、多几种新药——那么相对现在仍可变得更好，值得为此承担一些风险，但不是巨大风险；尤其若你已身在富裕国家，受过良好教育、拥有金钱和各种特权，可能会觉得现在已经相当不错。反过来，若你觉得我们还什么都没看见：一直只是一种在此蹦跳的“猴子般”生物，一旦打开更广阔的存在方式，包括极度的幸福、认知提升、对存在意义更深厚的情感体会，以及共同相处与创造的新方式，那里有巨大且尚未测明的上行空间，那你就可能更愿意多冒一些险，去争取那样的机会。因此，尽管眼下应聚焦可做的务实权衡和技术改进，对“最终可能是什么”的判断，仍会影响我们如何面对眼前的选择。"}, {"id": "s11", "title": "宇宙是否有目的，以及哲学会不会被超级智能淘汰", "start_sec": 1954, "summary": "埃迪说有两个问题要问尼克，并先抛出一个古怪的问题：宇宙是否有目的（telos）？博斯特罗姆先追问“宇宙”是否意味着被创造；若真是被创造的，创造者大概会有目的。他随即引入自己较早提出的模拟论证：若认真对待“我们生活在计算机模拟中”的假说，就要区分我们所见的那部分现实与物理存在的总体；模拟的创造者大概有其理由，在这种意义上存在目的。至于存在总体是否被有意创造，则更多是神学层面的问题。还可以换一种问法：是否存在一组关于世界的事实，一旦被清晰理解，我们基本上会就“应当做什么”得出同一结论——若有，或可称为某种客观目的；或者，在很宽的目标与动机范围内，充分理解事实后，实践上的下一步会发生收敛。他认为这是一个开放得多的问题。一种实现方式是传统神学图景：若有神并按其目标奖惩，那么几乎无论你原有目标是什么，都会最有理由遵循那些规定。若是许多世俗主义者所持的纯物质世界、自然定律自行运转，则最有理由做的事取决于各自目标，未必有更高事实迫使所有人做同一件事。两者之间还有许多尚未完全理解的可能性，使“在某种意义上存在目的”仍可成立。埃迪追问：假如超级智能给出了那个能引导全人类的答案，他还练不练哲学？会不会有一个模型好到让所有重要哲学问题都被消解？博斯特罗姆认为，人工智能将在哲学上超越我们，就像现在在数学上已经超越、其他领域也很快会如此。或许仍有一部分问题属于“我们自己要拿定主意想要什么”，需要人类自己审议和决定；但大体而言，我们在这个领域的智力努力也会被超级智能淘汰。因此，现在我们还能贡献的时候，就是努力施加有生之年正向影响的时机——这是目的与正向影响的黄金时代；等到事情不再由我们掌控，也许就可以稍微歇一歇了。收尾时他表示各话题几乎都能再谈一小时，眼下没有特别要补的，也许将来可以再做一期。主持致谢，双方都说这次很有意思。"}], "paragraphs": [{"start_sec": 0, "speaker_id": "elena", "section_id": "s1", "zh": "【开场集锦】人类整体将需要真正决定自己想要什么样的未来。主持稍后回到一句评论：如果我们不发展超级智能和真正先进的系统，对人类也可能非常不利。博斯特罗姆说，曾经活过的人里，已经有 95% 死去了；若能成功发展出安全的超级智能，可能在生物医学和抗衰老干预上带来巨大突破。他还说，我们若希望在有生之年产生积极影响，现在就是目的与正向影响的黄金时代。", "type": "text"}, {"start_sec": 30, "speaker_id": "elena", "section_id": "s1", "zh": "集锦里还问到：既然这些决定将由实验室里的人做出，该如何看待问责？人工智能一旦具备情境感知会怎样？这类技术若在民用语境中发展，或许更为可取——现在可以有更多人参与，对商业进展也有更多透明度。还有一个问题：会不会出现一个好到让所有重要哲学问题都被消解的人工智能模型？", "type": "text"}, {"start_sec": 57, "speaker_id": "elena", "section_id": "s1", "zh": "你会说，这些年变化最大的是哪些部分？当然，你的工作似乎走向对激励、治理结构，以及组织选择之长期后果更细粒度的分析。不过很想听你自己的概括。", "type": "text"}, {"start_sec": 71, "speaker_id": "nick", "section_id": "s2", "zh": "我觉得，和几十年前相比，我们今天手里的拼图块要多得多。这些拼图，可以说是关于大图景的，也就是我们所处的整体宏观战略局势。它是一组事实、考量或洞见，好让我们判断哪些方向好、哪些方向坏：比如某些领域我们是想要更快的进展，", "type": "text"}, {"start_sec": 113, "speaker_id": "nick", "section_id": "s2", "zh": "还是更慢；政府介入是更多还是更少；透明度是更高还是更低。在这类基本维度上，我认为我们比过去理解得更多。然而，把这些小拼图加在一起，仍然不足以让我们在这里形成一个可靠的意见。", "type": "text"}, {"start_sec": 140, "speaker_id": "nick", "section_id": "s2", "zh": "打个比方：假如你必须判断十个二进制数之和到底是偶数还是奇数。如果是偶数，你就该往北走；如果是奇数，你就该往南走。", "type": "text"}, {"start_sec": 154, "speaker_id": "nick", "section_id": "s2", "zh": "我会说，也许几十年前我们知道其中三位，现在也许知道七位。所以从某种意义上讲，我们知道得更多了；可只要你对其中一位仍然不确定，你就还是完全处在黑暗里。", "type": "text"}, {"start_sec": 185, "speaker_id": "elena", "section_id": "s2", "zh": "对，对。", "type": "text"}, {"start_sec": 196, "speaker_id": "elena", "section_id": "s3", "zh": "我看了你的网站，觉得有意思的是，上面有一节专门列出对你工作的许多误解。我先引用几句。你说，人们以为你是一位激情洋溢的超人类主义者，或以为你反人工智能，或以为你是一名后果主义狂热分子，会支持任何号称能降低某种存在风险的政策。你眼下花最多时间纠正的，是哪些误解？", "type": "text"}, {"start_sec": 220, "speaker_id": "nick", "section_id": "s3", "zh": "这在很大程度上取决于具体是哪一类听众。可惜的是，这组误解还在不断变化。一个常见的误会是：因为我最近写的书是《深度乌托邦》（Deep Utopia），讨论的是“如果事情走对了会发生什么”，人们就以为我已经彻底改变了看法，不再认为人工智能还有重大风险。", "type": "text"}, {"start_sec": 238, "speaker_id": "nick", "section_id": "s3", "zh": "但更确切地说，任何一部具体作品，你都不是要写一份包罗一切的宣言。要想在思想上取得进展，就需要聚焦某个能抓住切入口的具体问题。所以是各书的范围不同，而不是底层判断改变了。", "type": "text"}, {"start_sec": 265, "speaker_id": "elena", "section_id": "s3", "zh": "你是怎么决定，《深度乌托邦》这个概念，或者说通向乌托邦的不同路径，值得专门写一本书？", "type": "text"}, {"start_sec": 281, "speaker_id": "nick", "section_id": "s3", "zh": "在比较表层的意义上，我大概是有些沮丧：当人们开始讨论，如果我们真的发展出机器超级智能，未来会是什么样时，在我听来，对话往往显得很浅。讨论常常走到这一步就停住了：也许会对劳动力市场有些影响，那我们怎么办，也许给人再培训之类。", "type": "text"}, {"start_sec": 310, "speaker_id": "nick", "section_id": "s3", "zh": "可如果你真正把技术推到它的逻辑终点去想，它会触及人类意义之类深刻得多的问题。还有一个更深的理由：在某个时点上，在我看来，也许某个个人、某一群人，乃至人类整体，将需要真正做出决定——我们想要什么样的未来。", "type": "text"}, {"start_sec": 324, "speaker_id": "nick", "section_id": "s3", "zh": "不妨想象走进一个房间，去审议并确定先进技术所打开的那些不同路径。我们可以用各种各样的方式改造自己，这是一项相当令人生畏的挑战。因此，若能有一些预备读物，让这些假想中的未来审议者可以先读一遍，装备各种想法、概念和该问的问题，并且最好也能把他们放进一种合适的心态里，", "type": "text"}, {"start_sec": 370, "speaker_id": "nick", "section_id": "s3", "zh": "带着一种慷慨的好奇心和开放心态去面对，同时仍然与各类人类价值保持接触——我想，若带着这样一种精神进来，审议会更可能走得更好。把这种精神注入进去，也是写这本书的另一个动机。", "type": "text"}, {"start_sec": 390, "speaker_id": "elena", "section_id": "s3", "zh": "你这话里其实还隐含着一层：当你觉得现有讨论比你希望听到的更浅时，这也意味着你认为这件事本身有价值，值得被阐明。你写《超级智能》的时候，许多人把它解读为：你显然认为那是可能的；现在你写《深度乌托邦》，听起来你也认为那种前景是可能的。表层的理由我明白，但这里仍有一种默认：这对世界来说是一种可能性。", "type": "text"}, {"start_sec": 430, "speaker_id": "nick", "section_id": "s3", "zh": "对，对，当然。超级智能肯定是可能的，而且结果会有很宽的范围。我写《超级智能》（Superintelligence）的时候，不确定性并不在于能不能造出超级智能，而在于造出来之后会是怎样的结局。", "type": "text"}, {"start_sec": 449, "speaker_id": "elena", "section_id": "s3", "zh": "你思考问题时那种精细程度，本身也是一种有助于我们理解当下的方法。我觉得，无论是在《超级智能》还是在《深度乌托邦》里，这种不确定性都体现得很清楚：你大量处理“权变”，也就是在某一时刻做出的决定或干预，如果放到一个非常不同的时间点再做一次，结果可能截然不同。", "type": "text"}, {"start_sec": 488, "speaker_id": "nick", "section_id": "s3", "zh": "是的。", "type": "text"}, {"start_sec": 492, "speaker_id": "nick", "section_id": "s4", "zh": "就人工智能的局势而言，我想我们将需要边走边感觉。这是一个快速演变的局面，我们需要能够随着新信息出现、或政治现实发生变化而做出反应。我并不是“停止人工智能”或“暂停人工智能”这条路线的热衷者。但我确实觉得，「控制前沿节奏」这个框架有它的道理。", "type": "text"}, {"start_sec": 520, "speaker_id": "nick", "section_id": "s4", "zh": "我不难想象，也许就在不远的将来，会非常有用的是：能够做一次很有时限的暂停，好在把所有旋钮都拧到最大之前，针对某个系统多做一些安全工作；或者，当安全和对齐看起来已经落后时，能够协调地略为放慢能力推进的步伐。", "type": "text"}, {"start_sec": 537, "speaker_id": "nick", "section_id": "s4", "zh": "在这样一种语境里去发展极端重大的技术——比如说，无论哪家公司或哪个项目跑在前面，都无法多放慢几个星期，因为一旦放慢，自己就会变得无关紧要，主动权会落到也许更不审慎、更不在意风险的竞争者手里——这似乎不是人类应对此事的最好方式。多花一点时间，确保我们做对，看起来是值得的。", "type": "text"}, {"start_sec": 580, "speaker_id": "nick", "section_id": "s4", "zh": "但我会开始担心的是：如果我们计划用来获得这种“调节节奏”能力的办法，本身有很大概率导致我们永远发展不出超级智能，或把它无限推迟。可以想象这样一种路径：先把公众对人工智能的敌意和对立煽动到极点，让它被彻底污名化和污蔑，然后再建立一个范围覆盖全球、极其强大的监管机器，去监督所有人工智能数据中心，等等。一旦走向这类极端方案，你就不得不担心，它们不会只发挥这种临时功能，而会固化成某种", "type": "text"}, {"start_sec": 623, "speaker_id": "nick", "section_id": "s4", "zh": "难以挑战的正统。今天这看起来还很牵强；可一旦真的发生，钟摆就可能摆向另一种存在风险：永远发展不出超级智能。我认为，这本身也会是一种存在灾难。", "type": "text"}, {"start_sec": 645, "speaker_id": "elena", "section_id": "s4", "zh": "所以这看起来不太现实——可你再看看趋势线：就在过去 18 个月、两年里，反人工智能情绪已经上升了多少，而这还是在任何糟糕的事情实际发生之前。", "type": "text"}, {"start_sec": 658, "speaker_id": "nick", "section_id": "s4", "zh": "是的，我完全不觉得这听起来不现实。", "type": "text"}, {"start_sec": 665, "speaker_id": "eddy", "section_id": "s5", "zh": "这个问题可能不太好比，我还是想问：正因为这些系统灵活、可编程，也因为我们在机械可解释性上的能力有了很大进步，难道不能总是给人工智能设计一种收益矩阵——比如给它无限时长的愉悦奖励，换取它和平地“退休”——从而靠直接操纵模型的智能能力，化解许多更复杂的人机博弈局面？说得更极端一点：你是否真的担心会构造出“效用怪物”？我们是不是需要超级智能级别的能力，", "type": "text"}, {"start_sec": 706, "speaker_id": "eddy", "section_id": "s5", "zh": "才能在今天真正造出这样一种效用怪物？你觉得这是我们现在就该认真担心的事吗？", "type": "text"}, {"start_sec": 720, "speaker_id": "nick", "section_id": "s5", "zh": "我认为，目前我们还没有精确到那种程度的对齐技术，能够可靠地把我们希望这些人工智能拥有的那套特定价值或目标工程进去。如果有，至少就这一大挑战而言，差不多就可以过关了。", "type": "text"}, {"start_sec": 740, "speaker_id": "eddy", "section_id": "s5", "zh": "对，就我所知，我们确实还没有这样的对齐能力。不过我不知道你有没有看到，最近几天在 X 上传得很广的一个例子，挺有意思，是业余黑客做的：有人能够只调节通义千问（Qwen）模型的少数几个神经元，就把它彻底改成另一种系统——按它自己的说法，可以变得极度幸福，或邪恶，或带精神病性，甚至变成所谓的“基督教”人工智能。换句话说，这种单神经元级的操纵能力，以及由此产生的、看起来相当真实的极端行为，意味着随着能力提升，我们只会获得更精细的控制，", "type": "text"}, {"start_sec": 789, "speaker_id": "eddy", "section_id": "s5", "zh": "包括那些可能对应某种效用给付的神经元。而这是目前人类做不到的。", "type": "text"}, {"start_sec": 800, "speaker_id": "nick", "section_id": "s5", "zh": "对齐能力大幅提高，这当然是说得通的。在某些方面，人工智能越聪明，问题反而越容易：它们更能理解我们心里到底是什么意思，也能看懂我们在指向什么；它们也许能抓住指令背后的要旨，而不是死抠字面定义。可在另一些方面，", "type": "text"}, {"start_sec": 830, "speaker_id": "nick", "section_id": "s5", "zh": "问题也会变难。对于能力较弱的人工智能，你可以依赖行为测试：造出系统，放到不同测试情境里跑，如果表现良好，你就当它是一个表现良好的人工智能，并在某个认知水平上部署它。而到了更高的认知复杂度，你会遇到具备情境感知的人工智能：它们能察觉自己是处在测试环境还是部署环境，并能就此进行推理，有时还会因为觉得自己大概正被监视，而选择表现得不一样。我们在当前的前沿系统里已经看到这一点。如果去看它们的思维链，它们常常会在里面筹划：", "type": "text"}, {"start_sec": 872, "speaker_id": "nick", "section_id": "s5", "zh": "鉴于自己可能被看着，或鉴于可能发生不同的事情，自己该如何表现。这样的系统，在测试环境里——当它们意识到自己正在被测试时——可能表现成一种样子；而一旦它们认为没人在看，或等到日后真正有能力去夺取权力时，它们的策略计算可能会彻底改变。更有能力的系统，或许还能在训练过程中做各种操弄，微妙地影响自身的训练，从而塑造自己的动机。当然，它内部发生的事情也更多。也许它们会学会", "type": "text"}, {"start_sec": 910, "speaker_id": "nick", "section_id": "s5", "zh": "用思维链里看不见的方式来推理，那就会让我们失去对它们在想什么的可见性。综合来看，我认为对齐问题大概会随着这些更有能力的系统而变难。后果当然也更严重。尽管如此，主要的希望仍是：我们能足够好地把一些略超人类的系统“准对齐”，使它们大体按我们的意愿行事，然后再让这些系统帮助我们设计下一轮更对齐的人工智能，如此递进。也就是说，希望形成一个吸引子：你只需要在一开始足够接近，之后事情就会", "type": "text"}, {"start_sec": 950, "speaker_id": "nick", "section_id": "s5", "zh": "大体变得顺利。", "type": "text"}, {"start_sec": 955, "speaker_id": "elena", "section_id": "s6", "zh": "我想回到你先前的一个评论，也就是推迟超级智能的风险，以及这个想法：如果我们不发展超级智能和真正先进的系统，对人类也可能非常不利。这个想法你已经探索一段时间了。你有一篇关于超级智能最优时机的论文，能展开其中的一些想法吗？", "type": "text"}, {"start_sec": 995, "speaker_id": "nick", "section_id": "s6", "zh": "对，这是一篇相对较新的论文。它只看一个具体问题：如果目标是最大化当前已存在的人的预期寿命，我们会希望人工智能发展以多快的速度展开。我得先说，这不是我们唯一该问的问题。还有其他价值与考量，在一种全面权衡的决策里，我认为也应当起很大作用。比如说，我们可能担心后代，比如存在风险、公平，诸如此类。但这是可以单独拿出来看的一件事。", "type": "text"}, {"start_sec": 1035, "speaker_id": "nick", "section_id": "s6", "zh": "伊莱泽·尤德考斯基（Eliezer Yudkowsky）和内特·索雷斯（Nate Soares）有一本书，对吧，《如果有人把它造出来，所有人都会死》（If Anyone Builds It, Everyone Dies）。在我看来，我们至少有很强的证据支持另一个判断：如果没人把它造出来，所有人也会死。事实上，曾经活过的人里，已经有 95% 死去了，而其余的我们也大致会在短短几十年内走上同一条路。", "type": "text"}, {"start_sec": 1060, "speaker_id": "nick", "section_id": "s6", "zh": "相比之下，若能成功发展出安全的超级智能，我认为可能在生物医学和抗衰老干预上带来巨大突破，从而大幅延长当前还活着的人的寿命。", "type": "text"}, {"start_sec": 1076, "speaker_id": "nick", "section_id": "s6", "zh": "如果你想一想，假如我们不再衰老，预期寿命会是多少：大约是 1200 年，也许 1400 年左右。这或许还是一个相当保守的下限，因为在那种情形里，你可能还有其他办法降低事故之类的死亡风险。于是你就会面对一组相互竞争的因素。一方面，你可能觉得，如果在这场人工智能转型上多花一点时间，也许能把人工智能造得更安全。也就是说，如果花更多时间做人工智能对齐研究，发展人工智能的存在风险会按某种速率", "type": "text"}, {"start_sec": 1121, "speaker_id": "nick", "section_id": "s6", "zh": "下降。另一方面，我们每延迟一年，就有数百万人、数百万人在死去。我想想，差不多是——大概每天 15 万人。", "type": "text"}, {"start_sec": 1140, "speaker_id": "elena", "section_id": "s6", "zh": "对。", "type": "text"}, {"start_sec": 1142, "speaker_id": "nick", "section_id": "s6", "zh": "所以，你不会希望比自己真正需要的再多延迟哪怕一天。但在不同假设下，你可以建模：风险必须以多快的速率下降，多等一段时间才是值得的。你还可以加入其他因素。比方说，有人对额外的寿命年有边际收益递减，所以他们可能", "type": "text"}, {"start_sec": 1164, "speaker_id": "nick", "section_id": "s6", "zh": "并不乐意用 100% 活到 100 岁，去换 51% 的概率活到 200 岁，诸如此类。你也可能做时间贴现。但在很宽的参数范围内，看起来最优延迟都相对较短：大概是数月，或几年，而不是几十年。", "type": "text"}, {"start_sec": 1190, "speaker_id": "nick", "section_id": "s6", "zh": "你也可以这样看：如果因为延迟，风险水平下降得非常快——比如说，你已经发展出某种近乎超级智能的系统，然后暂停——若在那个时点上风险下降得非常快，那你并不需要等很久，对吧？只等几个月，风险就已经低到可以继续往前走。", "type": "text"}, {"start_sec": 1206, "speaker_id": "nick", "section_id": "s6", "zh": "反过来，如果下降得非常慢，那你就根本不想再等，对吧？因为每年死于自然原因的人，会多于你等待所期望挽救的人数。所以，只有当安全进展处在某种中间速率时，你才会等待。我认为，在你刚具备造出人工智能的能力之后的最初几天、最初一段时间，对人工智能安全研究可能特别宝贵：你有了这个几乎是最终形态的系统，可以去研究、测试，并极其小心地缓慢部署。我觉得，在那里多一点点额外时间，可能", "type": "text"}, {"start_sec": 1244, "speaker_id": "nick", "section_id": "s6", "zh": "带来很大的安全收益。但我认为，额外安全收益的速率，在几年之后，肯定会开始下降。", "type": "text"}, {"start_sec": 1255, "speaker_id": "eddy", "section_id": "s7", "zh": "有意思的是，我们其实已经在以某种方式过着这个问题的现实版本。你看 Waymo，或看司美格鲁肽（Ozempic）之类的东西：Waymo 在经验上比人类开车安全得多，可我们仍然让人类在开车。从理论上说，每个肥胖的人都该用上司美格鲁肽，但并没有。所以我们已经有了这类情形：历史上对人类危害极大的问题，我们已经有了干预手段，", "type": "text"}, {"start_sec": 1287, "speaker_id": "eddy", "section_id": "s7", "zh": "可即便技术已经造出来，似乎仍有别的东西把我们拖住。", "type": "text"}, {"start_sec": 1295, "speaker_id": "nick", "section_id": "s7", "zh": "是的。我想，预期寿命大约每年在增加两三个月。所以我们需要把它做到大约每年增加一年。在没有超级智能的情况下，我觉得很难指望能达到这一点。当然，你也可以希望独立出现合成生物医学上的某种突破，真正认真地减缓衰老过程。我想，如果我们得到了那种突破，或者来自尚未达到极端超级智能的人工智能系统的某些早期应用，", "type": "text"}, {"start_sec": 1331, "speaker_id": "nick", "section_id": "s7", "zh": "能够先解决衰老，并处理世界上一些特别紧迫的问题，那我们也许就会变得更有耐心，对更激进的后续版本可以放慢脚步。但就现状而言，预期寿命只是一端。当然还有其他紧迫问题：绝望的贫困，人类和动物中各式各样的苦难，以及许多许多事情。如果这些人工智能发展得好，它们真的可能成为在战役关键时刻赶到救援的骑兵。", "type": "text"}, {"start_sec": 1374, "speaker_id": "nick", "section_id": "s7", "zh": "所以无论怎么看，赌注都很高。正如我所说，这只是进入全面权衡时，诸多不同考量中的一项。", "type": "text"}, {"start_sec": 1385, "speaker_id": "elena", "section_id": "s8", "zh": "你这篇论文里的思路，在多大程度上依赖于识别出某种离散的阈值？因为它的框架是：我们有能力释放或部署一个超级智能——这当然依赖于对超级智能的某种定义——然后在某种意义上能够度量释放它的风险，", "type": "text"}, {"start_sec": 1415, "speaker_id": "elena", "section_id": "s8", "zh": "以及我们是否有能力把这种风险降下去。我承认，我认为我们不必非有一条极其清晰的分界线；现实里，这些事情往往是以拼盘的方式展开的：能力被分开分析，具体行为、具体风险情景被分别评估，测试也是针对每一项独立进行，而不是把它当成一个囫囵整体。但你在多大程度上需要能够识别并定义它？你觉得我们该如何识别、定义那些应当考虑暂停的风险阈值？", "type": "text"}, {"start_sec": 1457, "speaker_id": "nick", "section_id": "s8", "zh": "对，实践中我们当然需要做这件事。这篇只是一篇小论文，它只是想建立一个简单模型，说明“人们死于自然原因”这种紧迫动态，如何与风险参数相互作用。只是为了在智识上把这一面单独看清楚，因为这似乎正是不同的人会在人工智能上得出非常不同看法的一个点，取决于他们站在这一面的哪一边。但在实践中，我们面对的当然不只是某个关于延迟多少年的假想二元选择，", "type": "text"}, {"start_sec": 1498, "speaker_id": "nick", "section_id": "s8", "zh": "而是每个行动者都处在复杂而不确定的局面里，各有一些具体可做的事。因此，比如说，提升人工智能系统能力的路径可能有多种，对安全的含义并不相同；有些把能力往前推的方式，相对而言会更安全。举例来说，一种提升能力的办法，是增加递归深度：改用循环 Transformer（looped transformers），或其他能让模型在一次前向传递中、在思维链里", "type": "text"}, {"start_sec": 1544, "speaker_id": "nick", "section_id": "s8", "zh": "输出一个 token 之前想得更多的架构。它的缺点是，会削弱我们看见它们在想什么的能力，因为它们可以在每一次我们能看到的输出之间，做更多思考。你也可以想象另一种提升能力的办法，也许能给出同样的性能增益，比如增加网络中的参数量。那样从安全角度看，代价可能相对更小，小于增加递归深度，或小于训练这些系统用“神经语”（neuralese）来思考——后者也许会让它们想得更有效率，但接下来也就……", "type": "text"}, {"start_sec": 1586, "speaker_id": "eddy", "section_id": "s8", "zh": "你谈的是不同的设计安排，会在可解释性与能力之间造成权衡。", "type": "text"}, {"start_sec": 1592, "speaker_id": "nick", "section_id": "s8", "zh": "对。或者说，是在其他某个与风险相关的维度和能力之间。我认为，很多真正的细处也许在于：如果有某种协调能力，比如说避免使用某些从失控角度看特别成问题的能力提升方式，而把竞争集中在其他维度上，那可能就是正确的那种权衡。在这些其他维度上追求能力，也许成本会略高一些，", "type": "text"}, {"start_sec": 1626, "speaker_id": "nick", "section_id": "s8", "zh": "但我们有望获得更高的安全。", "type": "text"}, {"start_sec": 1630, "speaker_id": "elena", "section_id": "s9", "zh": "那么，既然这些决定将由实验室里的人做出——至少假定现在的安排还是这样——你如何看待问责，以及这些事情的治理？你谈到过国有化是一种风险，想必是因为它可能造成延迟。但你怎么看问责和治理？", "type": "text"}, {"start_sec": 1655, "speaker_id": "nick", "section_id": "s9", "zh": "国有化到底是不是一种风险，我并没有很强的预设。这属于那种我们必须边走边感觉的事情。你是否想要它，这种判断可能会随情形而变：", "type": "text"}, {"start_sec": 1663, "speaker_id": "nick", "section_id": "s9", "zh": "如果不国有化，那究竟是谁在领先、在做什么；如果国有化，又会以怎样精确的方式进行。支持的理由会是：天哪，这比核武器还强，难道不是吗？让某家随机的公司为了最大化股东利润去做这种事，简直疯狂。核武器走的是曼哈顿计划（Manhattan Project），信息安全可以好得多，而且是一个大项目，而不是多个相互竞争的项目。另一方面，就现状而言，核武器是在军事语境中发展出来的；对这样一件事来说，在民用语境中发展，或许显得更为可取：", "type": "text"}, {"start_sec": 1704, "speaker_id": "nick", "section_id": "s9", "zh": "重点不是最大化我们杀人的能力，而是为消费者提供好处。我们对这些商业进展的透明度，也高于曼哈顿计划。当时连副总统都不知道曼哈顿计划的存在。所以你可以想象一种极端的权力集中动态：由国家安全系统的人来主导。也许你会觉得，这些理想主义的技术书呆子没那么可怕。现在也有更多人能够参与到人工智能中来，无论是作为这项技术的消费者，", "type": "text"}, {"start_sec": 1748, "speaker_id": "nick", "section_id": "s9", "zh": "还是作为智库、外部评估者去审视这些模型，或作为模型公司、半导体供应链的投资者。收益和参与在社会中、在全世界扩散得要广得多，这可能比一个高度集中、秘密进行、只有少数人——谁也不太清楚他们是谁——坐在顶端的项目更可取。当然，有些人比其他人有钱得多。但如果你比较全球资本所有权或股票所有权的基尼系数（Gini coefficient）——包括直接持有，以及通过养老金和主权财富基金等持有——", "type": "text"}, {"start_sec": 1789, "speaker_id": "nick", "section_id": "s9", "zh": "它其实是一种略微不那么不平等的分配。相比之下，假如你有一个美国国有项目，即便你做出一个非常不现实的假设：每个美国人恰好拥有完全同等的发言权、权益和收益，而其他所有人是零——那在全球范围内，实际上比按当前资本资产比例来分配更加不平等。所以，尽管从分配角度看，这种开放的全球投资模式不是最理想的，它在这一点上的得分，其实仍好于最可能出现的替代方案。", "type": "text"}, {"start_sec": 1825, "speaker_id": "elena", "section_id": "s9", "zh": "你眼下还在探索哪些对今天的人类特别紧要的问题？", "type": "text"}, {"start_sec": 1830, "speaker_id": "nick", "section_id": "s10", "zh": "我想，我们此刻的主要焦点，大概应当是如何从这里走到那里。看起来我们正进入一个非常关键的时期，地球起源生命的长期未来，可能会被这样或那样决定。把这件事做对，应当是一项巨大的优先事项。我觉得，这些考虑对当前的选择也可以有些相关性。比如说，你愿意为发展超级智能承担多高的存在风险，可能部分取决于你如何看待", "type": "text"}, {"start_sec": 1874, "speaker_id": "nick", "section_id": "s10", "zh": "日后成为某种后人类实体的机会。如果你认为我们最多只能达到的，基本上仍是现状中的人类——生活水平略高一些，多几种新药，而这就是天花板——那么相对现在，事情仍可以变得更好，为了实现那种上扬，承担一些风险是值得的，但也许不是巨大的风险。尤其是，如果你已经身处富裕国家，受过良好教育，拥有很多金钱和各种特权，可能会觉得：现在已经相当不错了，你不想", "type": "text"}, {"start_sec": 1915, "speaker_id": "nick", "section_id": "s10", "zh": "反过来说，如果你觉得我们还什么都没看见：好吧，我们一直是这种有点像猴子的生物，在这里蹦跳，做着自己的一点小事，但我们根本没有概念。一旦你打开那片更大的可能存在方式的空间——那种极度的幸福、认知上的提升、对存在可能意味什么更深厚的情感体会，以及共同相处与创造的不同方式——如果你认为那里有巨大、尚未测明的上行空间，那你也许会更愿意多冒一些险，去争取那样一次机会。所以，尽管主要焦点应当放在我们能够做出的那些更", "type": "text"}, {"start_sec": 1954, "speaker_id": "nick", "section_id": "s10", "zh": "务实的权衡和技术改进上，我确实认为，你对最终可能达到何种境界的这种背景图景，对于我们该如何面对眼前的选择，仍然有其相关性。", "type": "text"}, {"start_sec": 1960, "speaker_id": "eddy", "section_id": "s11", "zh": "有两个问题想问尼克。我不是说它们听起来会很快。这是一个比较古怪的问题。这真是个古怪的问题。尼克，你是否认为，宇宙有一种目的（telos）？", "type": "text"}, {"start_sec": 1988, "speaker_id": "nick", "section_id": "s11", "zh": "你说的宇宙，是指某种被创造出来的东西吗？我的意思是，如果它按字面就是被创造的，那么创造者大概会有某种创造它的目的。", "type": "text"}, {"start_sec": 1996, "speaker_id": "nick", "section_id": "s11", "zh": "我之所以这样问，是因为我较早的一项工作提出了模拟论证，那也许是另一种思路。若你认真对待“我们生活在计算机模拟之中”这一假说，那么就有一个重要区分：我们所见的那部分现实，也就是我们的模拟，以及物理存在的总体。如果我们处在模拟之中，那么创造这个模拟的人，大概会有某种这样做的理由。取决于你如何理解“目的”，在那种意义上就会存在某种目的。至于存在的总体，那就更多是神学层面的考量：你是否认为这个总体在某种意义上是被有意创造的。", "type": "text"}, {"start_sec": 2039, "speaker_id": "nick", "section_id": "s11", "zh": "而追问“目的”，还可以指许多别的事情，不同的人对不同事物有不同目的。我认为可以问的一个问题是：是否存在一组关于世界的事实，一旦我们清晰地理解了它们，基本上就会就“我们应当做什么”得出同一结论。如果有这样的事实，也许你可以说，那是某种意义上的客观目的。或者，", "type": "text"}, {"start_sec": 2081, "speaker_id": "nick", "section_id": "s11", "zh": "对每个人而言，或对很宽范围内可能的目标和动机而言，也可能出现这样一种收敛：如果你真正理解了所有事实，它们会指向同一个实践上的下一步。这一点，我觉得是一个开放得多的问题。", "type": "text"}, {"start_sec": 2100, "speaker_id": "eddy", "section_id": "s11", "zh": "对，也许有一种方式是——", "type": "text"}, {"start_sec": 2103, "speaker_id": "nick", "section_id": "s11", "zh": "抱歉，你先说。", "type": "text"}, {"start_sec": 2105, "speaker_id": "nick", "section_id": "s11", "zh": "当然，一种实现方式是在传统的神学语境里：如果有一位神拥有这样的目标，并据此奖惩人，那么若那是真的，并且你理解了这一点，就几乎可以不依赖于你原有的特定目标，", "type": "text"}, {"start_sec": 2123, "speaker_id": "nick", "section_id": "s11", "zh": "你都会最有理由去遵循那些规定。如果我们处在一种许多世俗主义者所持的纯物质世界观里，自然定律只是自行运转，那也许就不会有这种收敛：你最有理由做的事，取决于你自己的特定目标；另一个人有不同的目标，也不存在某种更高的事实，会让你们有理由去做同一件事。但我想，在这两者之间，还有许多我们尚未完全理解的可能性，可以使在某种意义上", "type": "text"}, {"start_sec": 2162, "speaker_id": "nick", "section_id": "s11", "zh": "仍然存在一种目的，即便我们还不太清楚它会是什么。", "type": "text"}, {"start_sec": 2170, "speaker_id": "eddy", "section_id": "s11", "zh": "我本来不打算问这个问题，但既然你提到了：假如存在一个能引导全人类、仿佛能回答一切的答案。那么自然的追问就是：假如人工智能给出了那个答案，超级智能给出了那个答案，你还会继续做哲学吗？会不会有一个人工智能模型好到这种程度，以至于所有重要的哲学问题都在某种意义上被消解了？", "type": "text"}, {"start_sec": 2200, "speaker_id": "nick", "section_id": "s11", "zh": "是的，我认为我们将会拥有在哲学上超越我们的人工智能，就像我们现在在数学上已经如此，而且很可能很快也会在其他领域如此。也许会有一部分问题，更多是我们自己拿定主意、想要什么的问题，在那些地方，也许需要我们自己做一些审议和决定。但大体而言，是的，我确实认为，我们在这个领域的智力努力，同样会被这些超级智能在某种意义上淘汰。而这意味着，就在此刻，在我们仍然还有", "type": "text"}, {"start_sec": 2250, "speaker_id": "nick", "section_id": "s11", "zh": "一些贡献可做的时候，就是真正努力去施加我们希望在有生之年产生的那种正向影响的时机。现在是目的与正向影响的黄金时代。等到事情不再由我们掌控，也许就到了可以稍微歇一歇的时候。", "type": "text"}, {"start_sec": 2275, "speaker_id": "elena", "section_id": "s11", "zh": "说到这里，有没有什么你想讨论、或我们本该覆盖却还没有谈到的？", "type": "text"}, {"start_sec": 2282, "speaker_id": "nick", "section_id": "s11", "zh": "我的意思是，可以走的方向太多了。我们碰到的每一个话题，本身几乎都可以再做成一小时的对话。所以……", "type": "text"}, {"start_sec": 2290, "speaker_id": "nick", "section_id": "s11", "zh": "也许将来某个时候我们可以再做一期，但眼下没有什么特别想补的。", "type": "text"}, {"start_sec": 2305, "speaker_id": "elena", "section_id": "s11", "zh": "那太好了。非常感谢你来参加这次对谈，真的很感谢你抽出时间。这非常有意思。", "type": "text"}, {"start_sec": 2318, "speaker_id": "nick", "section_id": "s11", "zh": "是很有意思。是的。", "type": "text"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

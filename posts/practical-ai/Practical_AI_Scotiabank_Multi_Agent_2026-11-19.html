@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>多智能体、智能体群与人的把关｜丰业银行的人工智能实践</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="chris">克里斯·本森（Chris Benson）</option><option value="goutham">高塔姆·帕拉帕（Goutham Palapa）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Practical AI</span><span class="pill">2026-11-18T22:51:46+00:00</span></div>
+<h1>多智能体、智能体群与人的把关｜丰业银行的人工智能实践</h1>
+<p class="sub">嘉宾：高塔姆·帕拉帕博士（Dr. Goutham Palapa） · 约 44 分钟（2624 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=E_dSIQ3I2_I" target="_blank" rel="noopener">https://www.youtube.com/watch?v=E_dSIQ3I2_I</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Practical AI</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-18T22:51:46+00:00</dd></div><div class="meta-row"><dt>时长</dt><dd>约 44 分钟（2624 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>yt-dlp-auto</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>E_dSIQ3I2_I</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>《实用人工智能》本期由克里斯·本森独自主持——常规搭档丹尼尔·惠特内克（Daniel Whitenack）因几天前女儿 Dot 出生而请假。嘉宾是丰业银行（Scotiabank）人工智能与创新首席总监、著作《Invaluable》作者高塔姆·帕拉帕博士。谈话从银行何以在高度风险厌恶的行业里推进生成式人工智能和智能体系统谈起，进入如何先定义价值与成功、目前绝不让智能体脱离人去操作账户，再讲他那套来自五百强高管工作坊的价值转型框架，以及多智能体「团队」该如何模仿高绩效人类团队，而不是为了赶时髦去上「群」。</p>
+<h3>核心要点</h3><ul><li>丰业银行是加拿大五大行之一，业务覆盖北美走廊和欧非中东，不仅做零售，也包括全球财富管理、银行与资本市场、私募借贷。高塔姆为其中两个业务单元带领人工智能与创新，强调快速原型和迭代。</li><li>银行传统上极度风险厌恶；新冠期间无法再依赖线下网点，客户希望在手机上完成几乎所有事。他认为加拿大五大行正在加大生成式人工智能和智能体系统投入，追赶美国已经做了更多年的同行。</li><li>他不会在现阶段把个人金融账户交给智能体去做交易，因为可能很快连智能体在做什么都看不见；更可能先做客户服务、合规助手，或为顾问提供投资组合健康方面的支持，并且始终把人留在环内、放在舵上。</li><li>《Invaluable》来自过去五六年里超过 600 小时的工作坊、以及与财富五百强高管超过 400 次访谈。价值转型框架有八个部分，封面是章鱼；关于如何借助人工智能的那一章因世界变化太快改写了六次以上。</li><li>在近期 MCP Dev Summit 上，他们分享了五种经过大量实验后沉淀的智能体模式。他主张先模仿高绩效协作团队：业务分析、设计、测试等数字孪生，由编排者带着正反例子去执行，再用评审团评估，而不是指望「群」解决一切。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看。这是一档面向企业落地的谈话，有具体的「现在不做什么」、书籍框架来源，以及多智能体该如何模仿真实团队，而不是空谈银行数字化。中间有一段 Prediction Guard 的赞助口播，已标灰，可跳。自动字幕没有说话人标签，按主持与嘉宾轮次启发式标注，中等偏高把握。嘉宾姓名以节目介绍中的 Goutham Palapa 为准，克里斯后半也称为 Gautam。</p>
+<h3>适合人群</h3><p>在银行、受监管行业或大企业里推进生成式人工智能和智能体，或想先问「到底有没有价值」而不是怕错过的人。</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">从学术和云原生，到为丰业银行两个业务单元做人工智能</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯说明本期搭档丹尼尔因几天前女儿 Dot 出生而请假，向丹尼尔和妻子布丽塔尼（Brittany）送上祝福，然后介绍嘉宾：丰业银行人工智能与创新首席总监、著作《Invaluable》作者高塔姆·帕拉帕博士。高塔姆来自学术，教了约六年书，博士做机器学习和人工智能，自嘲是做传统或经典人工智能与机器学习的「老派」人。后来一直在云原生和应用开发领域，在 Pivotal 和 VMware 做 Tanzu，更多在云和容器、Kubernetes，帮助把应用转上云。现任首席信息官找他，请他来帮助改变银行的部分业务。现在他为两个大型业务单元推动人工智能与创新，做大量实验，并试图带入快速原型和迭代开发。丰业银行是加拿大五大行之一，在整个北美走廊和欧非中东都有布局，业务不仅是零售银行，也包括全球财富管理、银行与资本市场、私募借贷等凡与金钱和金融服务相关的事。他与全球许多聪明的团队共事，目标是帮助人们用好自己的金融资产，打开机会，提高生活质量。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">银行很保守，可新冠之后客户已经不想再去网点</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">人们传统上觉得银行保守、不一定紧跟最新技术。高塔姆同意：银行传统上极度风险厌恶，必须合规，保护客户资产也保护银行自身，风险偏好低，为的是让人永远不必担心钱在哪、随时能用上自己的财富。这些年组织变得更快，客户对服务方式的期待也变了，很多要追溯到新冠：完全虚拟，无法再去实体网点办理，所有组织都被迫回头看客户体验和客户旅程。现在人人有智能手机和应用，希望在手机上做几乎所有事，不想再找人说话或给交易加上人为摩擦。因此必须让流程面向新一代。他认为所有银行和金融机构都在看生成式人工智能，因为它能加快价值交付和上市速度。美国已经做了不少，加拿大五大行开始追赶，正大量投入生成式人工智能和智能体系统：改进流程是一回事，减少人工摩擦、改变人们与系统互动的方式是另一回事。那些先退一步、看清要创造什么业务价值、再问人工智能或其他技术能怎样帮忙的机构，才会获得巨大好处。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">先定义价值和成功，暂时绝不把账户交给智能体去交易</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">在监管和大量法律约束下，怎样挑选生成式人工智能真正能改变运营或客户互动的目标，又知道什么不该碰？高塔姆说这因组织的历史、演化和机会而异。银行能提供的服务其实是有限集合，不是巨大目录。第一步是搞清对组织而言价值是什么，它如何连接到战略要务：不仅是利润、营收和投资回报，也包括客户满意和便利。识别价值之后，还要量化成功意味着什么；再问怎样尽快达到，这时才问人工智能能如何帮忙。欺诈等领域早已使用传统机器学习；生成式和智能体系统则经历了演进：从「人、任务、智能体、机器人」，到智能体尽量把事做完的「人、任务、智能体」，再到「人与智能体团队」，最后是「由智能体运营」。探索时会先找低垂果实、不会严重冲击业务的事，再明确不该做的事。例如他现在没有胃口把个人金融账户接到智能体上去做交易，因为可能很快连智能体在做什么都看不见。今天更可能先做客户服务智能体、协助合规与风险的聊天助手，或查看客户投资组合健康、为顾问提供支持。他不认为已经激进到可以完全没有人在环内、完全由智能体做事：人还在舵上，对智能体的信任也还没到那一步。随后是 Prediction Guard 的赞助口播，谈企业里智能体身份、授权范围和人员离职后身份是否延续。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">《Invaluable》：六百多小时工作坊里磨出的八爪价值框架</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">《Invaluable》来自他此前做高管顾问和现场首席技术官时，与财富五百强高管一起做转型。目标是减少从构想到业务价值的摩擦。过去五六年，他们与这些高管做了超过 600 小时的工作坊，以及超过 400 次访谈，后来和合著者发现，行业里其实没有一套真正帮助识别价值、并交付价值的框架，于是开始写这本书。它给高管、转型推动者、变革推动者甚至技术人一个 360 度的视角：先识别对组织真正有价值的东西，再定义并量化成功，然后测量——若不测量，就不知道该转向还是坚持——再排优先级，因为并非所有事都同等重要。之后才问，在生成式和智能体时代，如何借助人工智能达到成功、交付价值；再问是什么在阻碍，去优化流程和必要的技术栈；最后把风险叠上去。它是对复杂性、生产力或价值、以及风险的综合理解，再对照组织里的杠杆和胃口，给人们一套更客观、更细致的交付方式。他们据此提出「价值转型」（Value Transform），有八个部分，封面因此用了章鱼。这套方法已在多家财富五百强用过，是多年工作的结晶。书写了约两年，尤其「如何借助人工智能」那一章因世界变化太快改写了六次以上，最后编辑说必须停下来，否则书永远出不了。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">快乐的人才有生产力；编码已变成低价值的重复劳动</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯问，在这套「战火里验证过」的流程里，人怎么放进去，才能既推进技术，又保住人性。高塔姆的首要信念是：快乐的人才有生产力。他做的一切首先是让自己的人快乐，然后自然会有很棒的事发生。创造价值的从来不是技术，技术只是加速器，真正的价值创造者是人。其次，技术根植于共情：部署技术是为了减少某种痛苦，可能是客户的痛苦，也可能是内部员工的痛苦，也就是优化流程、减少摩擦和手工苦劳。生成式人工智能改变了我们对任务的估值。编码曾是软件开发里最有价值的事之一，人们觉得软件工程师永远不会消失；这个基本假设被摇晃了。系统、智能体和应用现在能比人更快写代码，也许还不够优雅、不够企业级，但已经能把事做完。他因此兴奋：可以把编码、写文档、写测试这类系统化、可重复的事视为低价值活动，交给系统；人则被推向更高的栈，去珍视人性、创造力和人之所以为人的那些东西。克里斯以自己几十年写代码的经历说，承认「即使我自认是胜任的程序员，这也不再是向前的路」，在情绪上很难。高塔姆完全共情：当人们感知到的身份被质疑，会紧张。他经常对内对外说：别因为这些系统看起来智能，就以为它们真的智能。它们是非确定性的概率模型，只是在评估利弊、某个风险回报函数，然后执行当下看起来最最优的一步，是数学，不是智能。通用人工智能还在很多年之后，他甚至不确定是否会到那一步。人拥有创造力，理解上下文、兴趣和意图。即便提示和说明文件写得再厚，智能体仍往往不理解固有上下文和完整环境条件。人的经验来自事故、在桥上值过班、认出「这是那种模式」；智能体仍很理论，像书本知识想变街头智慧。给的指令和条件一多，它们就开始慌、开始幻觉，分不清哪一条真正重要。人能实时评估相互冲突的信息，智能体现在还不能。所以对担心的人，他会说：我们还没到能把这一切都交出去的地步，所谓赋予智能体能动性和自主，仍是一小块一小块地做。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">先模仿高绩效团队，而不是为了赶时髦去上「群」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯自己在实验带有对抗角色的「群」，想把结果做成高质量的企业架构，而不是「氛围编程」由智能体随便走。高塔姆认为这是价值线已经移动的例子：人真正想做的是系统架构师，从系统视角设计稳健系统，再交给别人去实现。最近在 MCP Dev Summit 上，他们分享了五种经过大量实验后沉淀的智能体模式。多智能体现有多种模式可用，但「群」不会解决一切，使用它要有非常具体的理由。理想情况是先模仿高绩效协作团队，把康威定律反过来用：业务分析、设计、测试等不同角色变成数字孪生，组成一支平衡的团队来解决特定问题。人先给出整体软件设计、规格和正反例子，再交给这支团队的管理者，用编排或编排者模式说「把这件事做成，这是我想要的结果，这是我不希望发生的」。然后可以观察它们互相交谈，加上共享记忆、护栏，以及一个推荐或评估「评审团」来判断是否在接近目标。这非常像今天人类的工作方式；先模仿它，才能更好地理解下一步。若问题更复杂，需要分而治之或并行处理，再去看群，或不同的敏捷发布火车。这些并不是这个时代独有的问题：去购物时两个人进两家店，就是分而治之和并行，只是对智能体必须更有意识。收尾时他提醒：实验多了，难免想把人工智能塞进每件事，已经能看到这种苗头。最重要的问题是：我们真的需要人工智能吗？那些先问这个问题、而不是因为害怕错过或因为它现在很闪亮就去做的组织，才更可能走得好。必须深挖并自问价值在哪、要去哪，而价值往往不只是监控，而是以人和客户为中心。组织存在是为了向某人交付价值；世界正变得极小，几秒就能把钱转到任何地方，目标应是尽快、向尽可能多的人和系统、在全球交付价值，并减少加在这些全球活动上的摩擦。作为个人，他相信还要问我们如何回馈：用技术改善他人的生活质量，这将是最大的驱动力，也能提升全世界的幸福指数。正是「能用技术改善人们的生活」这件事，日复一日驱动着他。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">克里斯·本森（Chris Benson）<em>主持</em></span><span class="spk-1">高塔姆·帕拉帕（Goutham Palapa）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>从学术和云原生，到为丰业银行两个业务单元做人工智能</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·本森（Chris Benson）">克里斯</span></div><div class="content">
+<p>欢迎收听新一期《实用人工智能》。我是联合主持克里斯·本森。丹尼尔·惠特内克这期不在。经常听的人知道他一直在等孩子降生，几天前他的第一个孩子、女儿 Dot 出生了。丹尼尔很明智地暂时离开节目，陪伴 Dot。希望大家和他的妻子布丽塔尼一起，向这个家庭送上祝福。言归正传，本周嘉宾经验非常丰富：丰业银行人工智能与创新首席总监、著作《Invaluable》作者高塔姆·帕拉帕博士。欢迎来到节目。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="goutham"><div class="label"><span class="badge" title="高塔姆·帕拉帕（Goutham Palapa）">高塔姆</span></div><div class="content">
+<p>谈到背景，高塔姆来自学术，大约教了六年书，博士做机器学习和人工智能，自嘲是做传统或经典人工智能与机器学习的「老派」人。后来一直在云原生和应用开发领域，在 Pivotal 和 VMware 做 Tanzu，更多在云和容器、Kubernetes，帮助把应用转上云。后来现任首席信息官找他，问他能不能来帮助改变银行的部分业务。现在他在为两个大型业务单元推动人工智能与创新，做大量实验，并试图带入快速原型、迭代开发和眼下大家都在做的那些方法。</p>
+<p>高塔姆感谢邀请，也祝贺丹尼尔：成为新父亲会把整个世界都掀翻，祝他好运。克里斯说丹尼尔大概正缺觉，他其实很想参加今天这期，两人先前还在短信，克里斯让他别再聊、回到宝宝身边。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·本森（Chris Benson）">克里斯</span></div><div class="content">
+<p>因为听众是全球性的，克里斯请他先简短介绍这家银行。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="goutham"><div class="label"><span class="badge" title="高塔姆·帕拉帕（Goutham Palapa）">高塔姆</span></div><div class="content">
+<p>丰业银行是加拿大五大行之一，在整个北美走廊和欧非中东都有很多布局。人们想到银行往往只想到零售，但他们也做全球财富管理、银行与资本市场、私募借贷等，凡与金钱和金融服务相关的事，基本都做。他有幸与全球许多聪明的个人和团队共事，整个目标是帮助人们走好自己的旅程，用好已有的金融资产，打开机会，让他们更富裕，也有更高的生活质量。这就是丰业银行的目的，而他为其中两个业务单元领导人工智能与创新。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>银行很保守，可新冠之后客户已经不想再去网点</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·本森（Chris Benson）">克里斯</span></div><div class="content">
+<p>人们传统上觉得银行保守，不一定紧跟最新技术。可高塔姆显然已经扎进去，并真正做出了一些改变。克里斯问：银行是怎样走到想请他来做这件事的，在银行世界里引入人工智能，前后看起来是什么样，又怎样和银行的其他部分相连？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="goutham"><div class="label"><span class="badge" title="高塔姆·帕拉帕（Goutham Palapa）">高塔姆</span></div><div class="content">
+<p>银行传统上极度风险厌恶，这是有充分理由的。他们必须确保合规，必须保护人们的资产，也保护银行自身。在这种风险水平下会发生很多事，所以过去银行一直非常保守，风险偏好低。他们希望人们永远不必去想钱在哪，并且始终能以创新的方式用上自己的财富。这些年，组织开始变得更快，客户对服务方式的期待也变了，其中很多要追溯到新冠：当时完全虚拟，无法再去实体建筑办理或完成任何服务，每个组织都不可避免地、被迫地回头看自己接近客户体验和客户旅程的方式。这也转化成了今天这种更现代的视角，银行也包括在内。现在人人有智能手机和应用，希望在手机上做几乎所有事，不想再去找人说话，或给交易加上人为摩擦。因此必须审视自己的流程和方法，让它们为新一代和各类人准备好。他认为，所有银行和金融机构都在看生成式人工智能和人工智能，以帮助实现这一点，因为它能加快价值交付和上市速度。银行开始这样看，尤其是加拿大五大行。美国过去已经做了不少，五大行正在追赶，于是有大量资金进入生成式人工智能和智能体系统。改进一项流程是一回事，减少人工摩擦、改变人们与我们、与系统互动的方式是另一回事。那些愿意看得更深、退一步看清自己要创造什么业务价值、再问人工智能或其他技术能怎样帮忙的组织，才会获得巨大好处。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>先定义价值和成功，暂时绝不把账户交给智能体去交易</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·本森（Chris Benson）">克里斯</span></div><div class="content">
+<p>考虑到风险状况、监管和银行周围的大量法律，高塔姆在寻找机会时如何评估？整个业务都在这些约束下运转。怎样挑选生成式人工智能能在运营或客户互动上做出实质改变的成熟目标，又怎样知道什么不该碰？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="goutham"><div class="label"><span class="badge" title="高塔姆·帕拉帕（Goutham Palapa）">高塔姆</span></div><div class="content">
+<p>这是一个非常广阔的领域，而且因组织而异，因为每个组织都有自己的历史、演化和可以改进的机会集合。若把焦点放在银行，银行能提供的服务其实只有某些种类，不是一个巨大的目录，需要做的事是有限集合。首先要找出对组织而言价值究竟是什么，它如何连接到战略要务。它不只驱动利润：作为上市公司，你想增加营收、变得更赚钱、提高投资回报，但除此之外还有客户满意，以及怎样让事情对人们更便利，战略要务有很多。识别价值之后，下一件事是理解成功的定义——识别价值并不等于知道成功意味着什么，量化成功大概是下一步。有了这两样，再问怎样尽快达到，这时才问人工智能能如何帮忙。而且不只是人工智能，办法有很多。过去在欺诈等领域，他们已经用传统人工智能和机器学习算法很久了。但现在有了生成式人工智能和智能体系统：它先是「人、任务、智能体、机器人」这种方法，后来演变成「人、任务、智能体」，智能体尽量把事做完；再往后是「人与智能体团队」，最后是「由智能体运营」。使用人工智能有多种路径。探索时，他们会先看低垂果实，也就是不会冲击自身的事，然后再看不该做的事。例如他现在大概没有胃口把自己的个人金融账户或银行账户接到智能体上，让它去做交易或办事，因为可能很快连智能体在做什么都看不见。也许今天没有这种胃口，也许会先看更简单的事，比如客户服务智能体，或帮助合规与风险的聊天助手，或查看这个人投资组合的健康状况，为顾问提供支持。他不认为会激进到说完全不会再有人在环内、完全不让人掌舵，只让智能体做事。他认为我们还没准备好，对智能体的信任也还没到那一步。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告]</span></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>《Invaluable》：六百多小时工作坊里磨出的八爪价值框架</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·本森（Chris Benson）">克里斯</span></div><div class="content">
+<p>下一段，克里斯想谈高塔姆写的书《Invaluable》：它讲什么，为什么写，以及想传递的关键信息。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="goutham"><div class="label"><span class="badge" title="高塔姆·帕拉帕（Goutham Palapa）">高塔姆</span></div><div class="content">
+<p>《Invaluable》来自大量与高管、与组织的互动。他此前做高管顾问和现场首席技术官，与财富五百强公司的高管一起做转型，举办各种工作坊、练习和访谈，帮助他们理解必须怎样改变组织——不只是技术，也包括流程和业务，因为任何转型的目标都是减少从构想到业务价值的摩擦。过去五六年，他们与这些高管做了超过 600 小时的工作坊，以及也许超过 400 次访谈。后来他和合著者开始意识到，其实没有一套真正帮助识别价值、并交付价值的框架，于是开始写，这就是《Invaluable》。它给高管、转型推动者、变革推动者甚至技术人一个 360 度的视角，帮助识别对组织真正有价值的东西，再定义并量化成功意味着什么。识别并量化成功之后，下一步是真正去测量，因为若不测量，就不知道该转向还是坚持既有方向。测量之后是确定优先级，因为并非所有事都同等重要。再然后才问：在这个生成式人工智能和智能体世界里，我怎样借助人工智能达到想要的成功，从而交付需要交付的价值。借助人工智能之后，再问是什么在阻碍我们，这就进入优化流程和必要的技术栈。最后把风险叠上去，因为做的每件事都与风险有关。它是对复杂性、对生产力或价值、以及对风险的综合理解，再看组织里有哪些杠杆和胃口，给人们一套更客观、更细致的方式，开始在组织内交付价值。他们因此提出「价值转型」，有八个不同部分要看，封面才用了章鱼，他们也很喜欢这么叫它。这套方法已经过实战检验，他们曾用它帮助多家财富五百强做转型，是他和合著者全部工作的结晶。书写了大约两年。尤其关于如何借助人工智能的那一章，因为世界变化太快，改写了六次以上，最后编辑说必须在某个时点停下来，否则书永远出不了。这是一次很好的经历。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·本森（Chris Benson）">克里斯</span></div><div class="content">
+<p>克里斯自己也在写一本后期阶段的书，同样走了好几年，对「该在哪里停下来、在哪里收住」很有共鸣，说以后可能会私下再向他请教。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>快乐的人才有生产力；编码已变成低价值的重复劳动</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·本森（Chris Benson）">克里斯</span></div><div class="content">
+<p>高塔姆以把人的共情带进来而知名。在这套复杂、经过实战检验、把人工智能引入组织的流程里，人怎么放进去？此刻这一切变得极快，对人和家庭有巨大且未预见的影响。怎样让每个人都赢，并在过程中留住人性？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="goutham"><div class="label"><span class="badge" title="高塔姆·帕拉帕（Goutham Palapa）">高塔姆</span></div><div class="content">
+<p>高塔姆想先分享自己的首要信念：快乐的人才有生产力。他做的一切首先是让自己的人快乐，然后自然会有很棒的事发生。进入这种心态并不难，因为归根到底，真正创造价值的从来不是技术，是人。技术只能是加速器，能把你带向想去的方向，但真正的价值创造者是人。他做任何事都从这副镜头开始。他坚信的第二点是：技术根植于共情。使用并在组织内部署技术，是为了减少某种痛苦。它可能是客户的痛苦，那就是客户共情，有很多方法可以让你站到客户的位置上，理解他们正在经历的痛；也可能是内部的，也就是员工共情，在那里你优化流程，减少人们正在经历的摩擦点和手工苦劳。</p>
+<p>有了人工智能，尤其是生成式人工智能和智能体，我们对任务和所做之事的估值方式真的变了。例如，编码曾是软件开发里最有价值的事之一，人们会说只要你是软件工程师或开发者，就安定了，这工作永远不会消失。可这个基本假设突然被摇晃了：你其实不再需要人去编码，甚至不该再这样，因为系统、智能体和应用现在能比人更快写代码。也许还不够高性能，不够我们作为人类会写得那样优雅，眼下也还不一定是企业级，但已经能把事做完。让他特别兴奋的是，这迫使我们重新审视自己做的每件事，识别对人类而言的高价值活动。编码、写文档、写测试这类系统化、可重复的事，现在成了低价值活动，可以交给系统去做。于是最让他兴奋的是：恰恰是人工智能，让我们真正去珍视人性、人的价值和创造力，以及所有让我们成为人的东西，并把我们推向栈的上方。我们正借助数字资产进化，这是一个惊人的时刻。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·本森（Chris Benson）">克里斯</span></div><div class="content">
+<p>克里斯说这很有洞察。他自己职业生涯大部分时间在做软件开发，也不得不做出这种调整：无论是否自认是胜任的程序员，这都不再是向前的路。这在情绪上很难。当把这种视角带进组织时，怎样让所有人，包括那些抗拒的「克里斯们」，认识到你是在把他们推向栈的上方、在给他们增压，并完成这种不容易的调整？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="goutham"><div class="label"><span class="badge" title="高塔姆·帕拉帕（Goutham Palapa）">高塔姆</span></div><div class="content">
+<p>这确实不容易。他自己也是从开发做起、一级级走上来的，完全共情。这是一种心态转变。当人们感知到的身份被质疑或被移动，当现状被打破，人们会紧张。到处是「再也不需要人了，智能体什么都能做」的炒作。他经常在组织内外对人讲：别因为我们觉得这些智能体和人工智能系统是智能的，就以为它们真的是。它们归根到底是非确定性的概率模型，只是给出一种智能的表象。它们在评估利弊、某个风险回报函数，然后执行当下必须做的、看起来最最优的一步。这不是智能，只是数学。这是他做的第一件事：教育他们，我们还没有走到通用人工智能，那还在很多年之后，他甚至不确定是否会到那一步。人所拥有的是创造力，我们理解事物的上下文、兴趣和意图。任何人若试着用套件拉起智能体，把说明文件写得尽可能厚，它仍然往往不理解固有上下文，大概也不理解完整的环境条件、情境、意图和目标。它或许明白自己该达成什么，却很可能连不起所有的点。这时就需要人类的经验：那些在事故里留下的伤疤，在桥上值过班，下一次再爆炸时能认出「这是那种模式」。这些是智能体不知道的，它们仍很理论。他把它比作有很多书本知识的人，想立刻变街头智慧，这不可能。它们能处理很多、做很多，可我们拥有上下文和意图，而且很难解释清楚。一旦给智能体的指令、条件和各种事项增加，它们就开始慌，开始幻觉，因为分不清哪一条真正重要。作为人类，我们能实时评估相互冲突的信息，智能体现在还不能。所以对非常担心的人，他会说：我们还没到能把这一切都做完的地步。我们仍以为自己在赋予智能体能动性和自主，但其实只是一小块一小块地做。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>先模仿高绩效团队，而不是为了赶时髦去上「群」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·本森（Chris Benson）">克里斯</span></div><div class="content">
+<p>克里斯对「群」很感兴趣，自己也在实验：让一群带有对抗角色的智能体互相制约，目的不是「氛围编程」、让智能体随便走，而是把人类经验带进来，得到高质量的企业架构。他请高塔姆分享如何辨别真正好的机会，而不是因为别人都在做就跟着做。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="goutham"><div class="label"><span class="badge" title="高塔姆·帕拉帕（Goutham Palapa）">高塔姆</span></div><div class="content">
+<p>他认为这是价值线已经移动的好例子。起初我们想的是开发，但作为人类，真正想做的是成为系统架构师，用稳健的方式从系统视角设计系统，再交给其他人去实现。这正是他们现在开始做的：会有一群智能体。最近在 MCP Dev Summit 上，他们分享了五种经过大量实验后沉淀下来、决定采用的智能体模式。多智能体现有多种模式可用，但「群」不会解决一切，使用它要有非常具体的理由。理想情况是先模仿我们已有的东西。人人都在谈康威定律：看组织的结构，软件就会按那种结构被做出来。不妨反过来：看一支协作的、高绩效的团队，人们做不同的事、戴不同的帽子来完成任务，再把它们变成数字孪生。于是你有业务分析智能体、设计智能体、测试智能体等，突然就有一支平衡的团队，用来解决特定问题。作为人类，你先给出软件设计、规格和从整体视角需要的一切，再交给这支团队的管理者，用编排或编排者模式说：把这件事做成，这是我需要的结果，这是我不希望发生的，并给出正面和反面的例子。那支团队会出发去做。它不必是一个「群」，但你现在可以观察它们开始彼此交谈，有共享记忆，有你放进去的各种护栏，再有一个推荐或评估「评审团」，判断是在接近目标还是没有，并帮助引导。这非常像我们今天的工作方式。他认为先模仿这一点，才能更好理解下一步该怎么走。之后若有更复杂、需要分而治之或并行处理的问题，再去看不同的技术，比如群，或不同的敏捷发布火车。模式取决于问题，而这些并不是这个时代独有的问题，人类从一开始就在解决它们。两个人去购物、要进两家不同的店，就会分而治之、并行处理，我们每天都下意识地这样做。对智能体，只是必须非常有意识。理解并意识到这并不是全新的东西，会从根本上改变你接近这些问题的方式。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·本森（Chris Benson）">克里斯</span></div><div class="content">
+<p>收尾时，克里斯想听高塔姆作为一家大型银行、一个重大行业里的企业领导者，对这一切将走向何方的想法、洞察和愿望：技术、业务，以及人的层面，人们最后会落在哪里。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="goutham"><div class="label"><span class="badge" title="高塔姆·帕拉帕（Goutham Palapa）">高塔姆</span></div><div class="content">
+<p>这是一个很深的问题。他认为，随着对智能体的实验越来越多，将人工智能塞进每件事会变得不可避免，已经能看到这种苗头。但眼下最重要的问题是：我们真的需要人工智能吗？那些会先问这个问题，而不是因为害怕错过、或因为它现在很闪亮就去做的组织，才更可能真正成功。必须深挖并自问：价值是什么，我们要去哪。很多时候价值不只是监控，很多是围绕人的。必须以人和客户为中心，始终把我们钉在那里，因为组织存在，是为了向某人创造或交付价值。下一件是：世界正变得极小，我们能在几秒内把钱转到任何地方，能飞到其他地方，必须认识到这一点，并看怎样减少加在这些全球活动上的摩擦。目标是尽快、向尽可能多的人或系统、在全球交付价值，扩大全球触及。第三件是他作为个人、而不只是作为组织代表想说的：我们可能真该问自己，该如何回馈，如何用技术改善他人的生活质量。他认为这将是最大的驱动力之一，若你去尝试，会非常充实。用技术改善人类生活质量将是终极目标，也将提升全世界的幸福指数。这是他真正向往并为之努力的事。能够拿着技术去改善人们的生活，正是日复一日驱动他的东西。克里斯认为这是很好的收束方式，常常在人们往前走时被忘掉。他感谢高塔姆分享这些洞察，并期待他继续这条旅程，将来再回节目。高塔姆也感谢这次对话。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Practical AI", "title": "多智能体、智能体群与人的把关｜丰业银行的人工智能实践", "url": "https://www.youtube.com/watch?v=E_dSIQ3I2_I", "videoId": "E_dSIQ3I2_I", "published_at": "2026-11-18T22:51:46+00:00", "duration": 2624, "caption_source": "yt-dlp-auto", "guests": ["高塔姆·帕拉帕博士（Dr. Goutham Palapa）"], "speakers": [{"id": "chris", "name": "克里斯·本森（Chris Benson）", "role": "host", "short": "克里斯"}, {"id": "goutham", "name": "高塔姆·帕拉帕（Goutham Palapa）", "role": "guest", "short": "高塔姆"}], "intro": {"summary": "《实用人工智能》本期由克里斯·本森独自主持——常规搭档丹尼尔·惠特内克（Daniel Whitenack）因几天前女儿 Dot 出生而请假。嘉宾是丰业银行（Scotiabank）人工智能与创新首席总监、著作《Invaluable》作者高塔姆·帕拉帕博士。谈话从银行何以在高度风险厌恶的行业里推进生成式人工智能和智能体系统谈起，进入如何先定义价值与成功、目前绝不让智能体脱离人去操作账户，再讲他那套来自五百强高管工作坊的价值转型框架，以及多智能体「团队」该如何模仿高绩效人类团队，而不是为了赶时髦去上「群」。", "points": ["丰业银行是加拿大五大行之一，业务覆盖北美走廊和欧非中东，不仅做零售，也包括全球财富管理、银行与资本市场、私募借贷。高塔姆为其中两个业务单元带领人工智能与创新，强调快速原型和迭代。", "银行传统上极度风险厌恶；新冠期间无法再依赖线下网点，客户希望在手机上完成几乎所有事。他认为加拿大五大行正在加大生成式人工智能和智能体系统投入，追赶美国已经做了更多年的同行。", "他不会在现阶段把个人金融账户交给智能体去做交易，因为可能很快连智能体在做什么都看不见；更可能先做客户服务、合规助手，或为顾问提供投资组合健康方面的支持，并且始终把人留在环内、放在舵上。", "《Invaluable》来自过去五六年里超过 600 小时的工作坊、以及与财富五百强高管超过 400 次访谈。价值转型框架有八个部分，封面是章鱼；关于如何借助人工智能的那一章因世界变化太快改写了六次以上。", "在近期 MCP Dev Summit 上，他们分享了五种经过大量实验后沉淀的智能体模式。他主张先模仿高绩效协作团队：业务分析、设计、测试等数字孪生，由编排者带着正反例子去执行，再用评审团评估，而不是指望「群」解决一切。"], "verdict": "值得看。这是一档面向企业落地的谈话，有具体的「现在不做什么」、书籍框架来源，以及多智能体该如何模仿真实团队，而不是空谈银行数字化。中间有一段 Prediction Guard 的赞助口播，已标灰，可跳。自动字幕没有说话人标签，按主持与嘉宾轮次启发式标注，中等偏高把握。嘉宾姓名以节目介绍中的 Goutham Palapa 为准，克里斯后半也称为 Gautam。", "audience": "在银行、受监管行业或大企业里推进生成式人工智能和智能体，或想先问「到底有没有价值」而不是怕错过的人。"}, "sections": [{"id": "s1", "title": "从学术和云原生，到为丰业银行两个业务单元做人工智能", "start_sec": 10, "summary": "克里斯说明本期搭档丹尼尔因几天前女儿 Dot 出生而请假，向丹尼尔和妻子布丽塔尼（Brittany）送上祝福，然后介绍嘉宾：丰业银行人工智能与创新首席总监、著作《Invaluable》作者高塔姆·帕拉帕博士。高塔姆来自学术，教了约六年书，博士做机器学习和人工智能，自嘲是做传统或经典人工智能与机器学习的「老派」人。后来一直在云原生和应用开发领域，在 Pivotal 和 VMware 做 Tanzu，更多在云和容器、Kubernetes，帮助把应用转上云。现任首席信息官找他，请他来帮助改变银行的部分业务。现在他为两个大型业务单元推动人工智能与创新，做大量实验，并试图带入快速原型和迭代开发。丰业银行是加拿大五大行之一，在整个北美走廊和欧非中东都有布局，业务不仅是零售银行，也包括全球财富管理、银行与资本市场、私募借贷等凡与金钱和金融服务相关的事。他与全球许多聪明的团队共事，目标是帮助人们用好自己的金融资产，打开机会，提高生活质量。"}, {"id": "s2", "title": "银行很保守，可新冠之后客户已经不想再去网点", "start_sec": 385, "summary": "人们传统上觉得银行保守、不一定紧跟最新技术。高塔姆同意：银行传统上极度风险厌恶，必须合规，保护客户资产也保护银行自身，风险偏好低，为的是让人永远不必担心钱在哪、随时能用上自己的财富。这些年组织变得更快，客户对服务方式的期待也变了，很多要追溯到新冠：完全虚拟，无法再去实体网点办理，所有组织都被迫回头看客户体验和客户旅程。现在人人有智能手机和应用，希望在手机上做几乎所有事，不想再找人说话或给交易加上人为摩擦。因此必须让流程面向新一代。他认为所有银行和金融机构都在看生成式人工智能，因为它能加快价值交付和上市速度。美国已经做了不少，加拿大五大行开始追赶，正大量投入生成式人工智能和智能体系统：改进流程是一回事，减少人工摩擦、改变人们与系统互动的方式是另一回事。那些先退一步、看清要创造什么业务价值、再问人工智能或其他技术能怎样帮忙的机构，才会获得巨大好处。"}, {"id": "s3", "title": "先定义价值和成功，暂时绝不把账户交给智能体去交易", "start_sec": 475, "summary": "在监管和大量法律约束下，怎样挑选生成式人工智能真正能改变运营或客户互动的目标，又知道什么不该碰？高塔姆说这因组织的历史、演化和机会而异。银行能提供的服务其实是有限集合，不是巨大目录。第一步是搞清对组织而言价值是什么，它如何连接到战略要务：不仅是利润、营收和投资回报，也包括客户满意和便利。识别价值之后，还要量化成功意味着什么；再问怎样尽快达到，这时才问人工智能能如何帮忙。欺诈等领域早已使用传统机器学习；生成式和智能体系统则经历了演进：从「人、任务、智能体、机器人」，到智能体尽量把事做完的「人、任务、智能体」，再到「人与智能体团队」，最后是「由智能体运营」。探索时会先找低垂果实、不会严重冲击业务的事，再明确不该做的事。例如他现在没有胃口把个人金融账户接到智能体上去做交易，因为可能很快连智能体在做什么都看不见。今天更可能先做客户服务智能体、协助合规与风险的聊天助手，或查看客户投资组合健康、为顾问提供支持。他不认为已经激进到可以完全没有人在环内、完全由智能体做事：人还在舵上，对智能体的信任也还没到那一步。随后是 Prediction Guard 的赞助口播，谈企业里智能体身份、授权范围和人员离职后身份是否延续。"}, {"id": "s4", "title": "《Invaluable》：六百多小时工作坊里磨出的八爪价值框架", "start_sec": 894, "summary": "《Invaluable》来自他此前做高管顾问和现场首席技术官时，与财富五百强高管一起做转型。目标是减少从构想到业务价值的摩擦。过去五六年，他们与这些高管做了超过 600 小时的工作坊，以及超过 400 次访谈，后来和合著者发现，行业里其实没有一套真正帮助识别价值、并交付价值的框架，于是开始写这本书。它给高管、转型推动者、变革推动者甚至技术人一个 360 度的视角：先识别对组织真正有价值的东西，再定义并量化成功，然后测量——若不测量，就不知道该转向还是坚持——再排优先级，因为并非所有事都同等重要。之后才问，在生成式和智能体时代，如何借助人工智能达到成功、交付价值；再问是什么在阻碍，去优化流程和必要的技术栈；最后把风险叠上去。它是对复杂性、生产力或价值、以及风险的综合理解，再对照组织里的杠杆和胃口，给人们一套更客观、更细致的交付方式。他们据此提出「价值转型」（Value Transform），有八个部分，封面因此用了章鱼。这套方法已在多家财富五百强用过，是多年工作的结晶。书写了约两年，尤其「如何借助人工智能」那一章因世界变化太快改写了六次以上，最后编辑说必须停下来，否则书永远出不了。"}, {"id": "s5", "title": "快乐的人才有生产力；编码已变成低价值的重复劳动", "start_sec": 1230, "summary": "克里斯问，在这套「战火里验证过」的流程里，人怎么放进去，才能既推进技术，又保住人性。高塔姆的首要信念是：快乐的人才有生产力。他做的一切首先是让自己的人快乐，然后自然会有很棒的事发生。创造价值的从来不是技术，技术只是加速器，真正的价值创造者是人。其次，技术根植于共情：部署技术是为了减少某种痛苦，可能是客户的痛苦，也可能是内部员工的痛苦，也就是优化流程、减少摩擦和手工苦劳。生成式人工智能改变了我们对任务的估值。编码曾是软件开发里最有价值的事之一，人们觉得软件工程师永远不会消失；这个基本假设被摇晃了。系统、智能体和应用现在能比人更快写代码，也许还不够优雅、不够企业级，但已经能把事做完。他因此兴奋：可以把编码、写文档、写测试这类系统化、可重复的事视为低价值活动，交给系统；人则被推向更高的栈，去珍视人性、创造力和人之所以为人的那些东西。克里斯以自己几十年写代码的经历说，承认「即使我自认是胜任的程序员，这也不再是向前的路」，在情绪上很难。高塔姆完全共情：当人们感知到的身份被质疑，会紧张。他经常对内对外说：别因为这些系统看起来智能，就以为它们真的智能。它们是非确定性的概率模型，只是在评估利弊、某个风险回报函数，然后执行当下看起来最最优的一步，是数学，不是智能。通用人工智能还在很多年之后，他甚至不确定是否会到那一步。人拥有创造力，理解上下文、兴趣和意图。即便提示和说明文件写得再厚，智能体仍往往不理解固有上下文和完整环境条件。人的经验来自事故、在桥上值过班、认出「这是那种模式」；智能体仍很理论，像书本知识想变街头智慧。给的指令和条件一多，它们就开始慌、开始幻觉，分不清哪一条真正重要。人能实时评估相互冲突的信息，智能体现在还不能。所以对担心的人，他会说：我们还没到能把这一切都交出去的地步，所谓赋予智能体能动性和自主，仍是一小块一小块地做。"}, {"id": "s6", "title": "先模仿高绩效团队，而不是为了赶时髦去上「群」", "start_sec": 2076, "summary": "克里斯自己在实验带有对抗角色的「群」，想把结果做成高质量的企业架构，而不是「氛围编程」由智能体随便走。高塔姆认为这是价值线已经移动的例子：人真正想做的是系统架构师，从系统视角设计稳健系统，再交给别人去实现。最近在 MCP Dev Summit 上，他们分享了五种经过大量实验后沉淀的智能体模式。多智能体现有多种模式可用，但「群」不会解决一切，使用它要有非常具体的理由。理想情况是先模仿高绩效协作团队，把康威定律反过来用：业务分析、设计、测试等不同角色变成数字孪生，组成一支平衡的团队来解决特定问题。人先给出整体软件设计、规格和正反例子，再交给这支团队的管理者，用编排或编排者模式说「把这件事做成，这是我想要的结果，这是我不希望发生的」。然后可以观察它们互相交谈，加上共享记忆、护栏，以及一个推荐或评估「评审团」来判断是否在接近目标。这非常像今天人类的工作方式；先模仿它，才能更好地理解下一步。若问题更复杂，需要分而治之或并行处理，再去看群，或不同的敏捷发布火车。这些并不是这个时代独有的问题：去购物时两个人进两家店，就是分而治之和并行，只是对智能体必须更有意识。收尾时他提醒：实验多了，难免想把人工智能塞进每件事，已经能看到这种苗头。最重要的问题是：我们真的需要人工智能吗？那些先问这个问题、而不是因为害怕错过或因为它现在很闪亮就去做的组织，才更可能走得好。必须深挖并自问价值在哪、要去哪，而价值往往不只是监控，而是以人和客户为中心。组织存在是为了向某人交付价值；世界正变得极小，几秒就能把钱转到任何地方，目标应是尽快、向尽可能多的人和系统、在全球交付价值，并减少加在这些全球活动上的摩擦。作为个人，他相信还要问我们如何回馈：用技术改善他人的生活质量，这将是最大的驱动力，也能提升全世界的幸福指数。正是「能用技术改善人们的生活」这件事，日复一日驱动着他。"}], "paragraphs": [{"start_sec": 10, "speaker_id": "chris", "section_id": "s1", "type": "text", "zh": "欢迎收听新一期《实用人工智能》。我是联合主持克里斯·本森。丹尼尔·惠特内克这期不在。经常听的人知道他一直在等孩子降生，几天前他的第一个孩子、女儿 Dot 出生了。丹尼尔很明智地暂时离开节目，陪伴 Dot。希望大家和他的妻子布丽塔尼一起，向这个家庭送上祝福。言归正传，本周嘉宾经验非常丰富：丰业银行人工智能与创新首席总监、著作《Invaluable》作者高塔姆·帕拉帕博士。欢迎来到节目。"}, {"start_sec": 95, "speaker_id": "goutham", "section_id": "s1", "type": "text", "zh": "高塔姆感谢邀请，也祝贺丹尼尔：成为新父亲会把整个世界都掀翻，祝他好运。克里斯说丹尼尔大概正缺觉，他其实很想参加今天这期，两人先前还在短信，克里斯让他别再聊、回到宝宝身边。"}, {"start_sec": 94, "speaker_id": "goutham", "section_id": "s1", "type": "text", "zh": "谈到背景，高塔姆来自学术，大约教了六年书，博士做机器学习和人工智能，自嘲是做传统或经典人工智能与机器学习的「老派」人。后来一直在云原生和应用开发领域，在 Pivotal 和 VMware 做 Tanzu，更多在云和容器、Kubernetes，帮助把应用转上云。后来现任首席信息官找他，问他能不能来帮助改变银行的部分业务。现在他在为两个大型业务单元推动人工智能与创新，做大量实验，并试图带入快速原型、迭代开发和眼下大家都在做的那些方法。"}, {"start_sec": 176, "speaker_id": "chris", "section_id": "s1", "type": "text", "zh": "因为听众是全球性的，克里斯请他先简短介绍这家银行。"}, {"start_sec": 196, "speaker_id": "goutham", "section_id": "s1", "type": "text", "zh": "丰业银行是加拿大五大行之一，在整个北美走廊和欧非中东都有很多布局。人们想到银行往往只想到零售，但他们也做全球财富管理、银行与资本市场、私募借贷等，凡与金钱和金融服务相关的事，基本都做。他有幸与全球许多聪明的个人和团队共事，整个目标是帮助人们走好自己的旅程，用好已有的金融资产，打开机会，让他们更富裕，也有更高的生活质量。这就是丰业银行的目的，而他为其中两个业务单元领导人工智能与创新。"}, {"start_sec": 385, "speaker_id": "chris", "section_id": "s2", "type": "text", "zh": "人们传统上觉得银行保守，不一定紧跟最新技术。可高塔姆显然已经扎进去，并真正做出了一些改变。克里斯问：银行是怎样走到想请他来做这件事的，在银行世界里引入人工智能，前后看起来是什么样，又怎样和银行的其他部分相连？"}, {"start_sec": 427, "speaker_id": "goutham", "section_id": "s2", "type": "text", "zh": "银行传统上极度风险厌恶，这是有充分理由的。他们必须确保合规，必须保护人们的资产，也保护银行自身。在这种风险水平下会发生很多事，所以过去银行一直非常保守，风险偏好低。他们希望人们永远不必去想钱在哪，并且始终能以创新的方式用上自己的财富。这些年，组织开始变得更快，客户对服务方式的期待也变了，其中很多要追溯到新冠：当时完全虚拟，无法再去实体建筑办理或完成任何服务，每个组织都不可避免地、被迫地回头看自己接近客户体验和客户旅程的方式。这也转化成了今天这种更现代的视角，银行也包括在内。现在人人有智能手机和应用，希望在手机上做几乎所有事，不想再去找人说话，或给交易加上人为摩擦。因此必须审视自己的流程和方法，让它们为新一代和各类人准备好。他认为，所有银行和金融机构都在看生成式人工智能和人工智能，以帮助实现这一点，因为它能加快价值交付和上市速度。银行开始这样看，尤其是加拿大五大行。美国过去已经做了不少，五大行正在追赶，于是有大量资金进入生成式人工智能和智能体系统。改进一项流程是一回事，减少人工摩擦、改变人们与我们、与系统互动的方式是另一回事。那些愿意看得更深、退一步看清自己要创造什么业务价值、再问人工智能或其他技术能怎样帮忙的组织，才会获得巨大好处。"}, {"start_sec": 475, "speaker_id": "chris", "section_id": "s3", "type": "text", "zh": "考虑到风险状况、监管和银行周围的大量法律，高塔姆在寻找机会时如何评估？整个业务都在这些约束下运转。怎样挑选生成式人工智能能在运营或客户互动上做出实质改变的成熟目标，又怎样知道什么不该碰？"}, {"start_sec": 518, "speaker_id": "goutham", "section_id": "s3", "type": "text", "zh": "这是一个非常广阔的领域，而且因组织而异，因为每个组织都有自己的历史、演化和可以改进的机会集合。若把焦点放在银行，银行能提供的服务其实只有某些种类，不是一个巨大的目录，需要做的事是有限集合。首先要找出对组织而言价值究竟是什么，它如何连接到战略要务。它不只驱动利润：作为上市公司，你想增加营收、变得更赚钱、提高投资回报，但除此之外还有客户满意，以及怎样让事情对人们更便利，战略要务有很多。识别价值之后，下一件事是理解成功的定义——识别价值并不等于知道成功意味着什么，量化成功大概是下一步。有了这两样，再问怎样尽快达到，这时才问人工智能能如何帮忙。而且不只是人工智能，办法有很多。过去在欺诈等领域，他们已经用传统人工智能和机器学习算法很久了。但现在有了生成式人工智能和智能体系统：它先是「人、任务、智能体、机器人」这种方法，后来演变成「人、任务、智能体」，智能体尽量把事做完；再往后是「人与智能体团队」，最后是「由智能体运营」。使用人工智能有多种路径。探索时，他们会先看低垂果实，也就是不会冲击自身的事，然后再看不该做的事。例如他现在大概没有胃口把自己的个人金融账户或银行账户接到智能体上，让它去做交易或办事，因为可能很快连智能体在做什么都看不见。也许今天没有这种胃口，也许会先看更简单的事，比如客户服务智能体，或帮助合规与风险的聊天助手，或查看这个人投资组合的健康状况，为顾问提供支持。他不认为会激进到说完全不会再有人在环内、完全不让人掌舵，只让智能体做事。他认为我们还没准备好，对智能体的信任也还没到那一步。"}, {"start_sec": 728, "speaker_id": "chris", "section_id": "s3", "type": "ad_omitted", "zh": "【广告口播，已从正文略去】本节目由 Prediction Guard 赞助。口播以企业里的「数字劳动力」为例：员工鲍勃被接入人工智能平台后，如何界定他对模型、MCP 服务器和其中工具的访问范围；他创建智能体时能否把同一范围委托出去；若与权限更大的爱丽丝共享该智能体，范围会不会被扩大；鲍勃离开组织后，该智能体身份是否还在。他们称自己做的是强大、主权、自托管的控制层，已在多家组织的生产环境中部署，用于管理整支智能体队伍。邀请听众到 predictionguard.com/practicalai 预约演示。"}, {"start_sec": 894, "speaker_id": "chris", "section_id": "s4", "type": "text", "zh": "下一段，克里斯想谈高塔姆写的书《Invaluable》：它讲什么，为什么写，以及想传递的关键信息。"}, {"start_sec": 914, "speaker_id": "goutham", "section_id": "s4", "type": "text", "zh": "《Invaluable》来自大量与高管、与组织的互动。他此前做高管顾问和现场首席技术官，与财富五百强公司的高管一起做转型，举办各种工作坊、练习和访谈，帮助他们理解必须怎样改变组织——不只是技术，也包括流程和业务，因为任何转型的目标都是减少从构想到业务价值的摩擦。过去五六年，他们与这些高管做了超过 600 小时的工作坊，以及也许超过 400 次访谈。后来他和合著者开始意识到，其实没有一套真正帮助识别价值、并交付价值的框架，于是开始写，这就是《Invaluable》。它给高管、转型推动者、变革推动者甚至技术人一个 360 度的视角，帮助识别对组织真正有价值的东西，再定义并量化成功意味着什么。识别并量化成功之后，下一步是真正去测量，因为若不测量，就不知道该转向还是坚持既有方向。测量之后是确定优先级，因为并非所有事都同等重要。再然后才问：在这个生成式人工智能和智能体世界里，我怎样借助人工智能达到想要的成功，从而交付需要交付的价值。借助人工智能之后，再问是什么在阻碍我们，这就进入优化流程和必要的技术栈。最后把风险叠上去，因为做的每件事都与风险有关。它是对复杂性、对生产力或价值、以及对风险的综合理解，再看组织里有哪些杠杆和胃口，给人们一套更客观、更细致的方式，开始在组织内交付价值。他们因此提出「价值转型」，有八个不同部分要看，封面才用了章鱼，他们也很喜欢这么叫它。这套方法已经过实战检验，他们曾用它帮助多家财富五百强做转型，是他和合著者全部工作的结晶。书写了大约两年。尤其关于如何借助人工智能的那一章，因为世界变化太快，改写了六次以上，最后编辑说必须在某个时点停下来，否则书永远出不了。这是一次很好的经历。"}, {"start_sec": 1145, "speaker_id": "chris", "section_id": "s4", "type": "text", "zh": "克里斯自己也在写一本后期阶段的书，同样走了好几年，对「该在哪里停下来、在哪里收住」很有共鸣，说以后可能会私下再向他请教。"}, {"start_sec": 1230, "speaker_id": "chris", "section_id": "s5", "type": "text", "zh": "高塔姆以把人的共情带进来而知名。在这套复杂、经过实战检验、把人工智能引入组织的流程里，人怎么放进去？此刻这一切变得极快，对人和家庭有巨大且未预见的影响。怎样让每个人都赢，并在过程中留住人性？"}, {"start_sec": 1230, "speaker_id": "goutham", "section_id": "s5", "type": "text", "zh": "高塔姆想先分享自己的首要信念：快乐的人才有生产力。他做的一切首先是让自己的人快乐，然后自然会有很棒的事发生。进入这种心态并不难，因为归根到底，真正创造价值的从来不是技术，是人。技术只能是加速器，能把你带向想去的方向，但真正的价值创造者是人。他做任何事都从这副镜头开始。他坚信的第二点是：技术根植于共情。使用并在组织内部署技术，是为了减少某种痛苦。它可能是客户的痛苦，那就是客户共情，有很多方法可以让你站到客户的位置上，理解他们正在经历的痛；也可能是内部的，也就是员工共情，在那里你优化流程，减少人们正在经历的摩擦点和手工苦劳。"}, {"start_sec": 1309, "speaker_id": "goutham", "section_id": "s5", "type": "text", "zh": "有了人工智能，尤其是生成式人工智能和智能体，我们对任务和所做之事的估值方式真的变了。例如，编码曾是软件开发里最有价值的事之一，人们会说只要你是软件工程师或开发者，就安定了，这工作永远不会消失。可这个基本假设突然被摇晃了：你其实不再需要人去编码，甚至不该再这样，因为系统、智能体和应用现在能比人更快写代码。也许还不够高性能，不够我们作为人类会写得那样优雅，眼下也还不一定是企业级，但已经能把事做完。让他特别兴奋的是，这迫使我们重新审视自己做的每件事，识别对人类而言的高价值活动。编码、写文档、写测试这类系统化、可重复的事，现在成了低价值活动，可以交给系统去做。于是最让他兴奋的是：恰恰是人工智能，让我们真正去珍视人性、人的价值和创造力，以及所有让我们成为人的东西，并把我们推向栈的上方。我们正借助数字资产进化，这是一个惊人的时刻。"}, {"start_sec": 1434, "speaker_id": "chris", "section_id": "s5", "type": "text", "zh": "克里斯说这很有洞察。他自己职业生涯大部分时间在做软件开发，也不得不做出这种调整：无论是否自认是胜任的程序员，这都不再是向前的路。这在情绪上很难。当把这种视角带进组织时，怎样让所有人，包括那些抗拒的「克里斯们」，认识到你是在把他们推向栈的上方、在给他们增压，并完成这种不容易的调整？"}, {"start_sec": 1476, "speaker_id": "goutham", "section_id": "s5", "type": "text", "zh": "这确实不容易。他自己也是从开发做起、一级级走上来的，完全共情。这是一种心态转变。当人们感知到的身份被质疑或被移动，当现状被打破，人们会紧张。到处是「再也不需要人了，智能体什么都能做」的炒作。他经常在组织内外对人讲：别因为我们觉得这些智能体和人工智能系统是智能的，就以为它们真的是。它们归根到底是非确定性的概率模型，只是给出一种智能的表象。它们在评估利弊、某个风险回报函数，然后执行当下必须做的、看起来最最优的一步。这不是智能，只是数学。这是他做的第一件事：教育他们，我们还没有走到通用人工智能，那还在很多年之后，他甚至不确定是否会到那一步。人所拥有的是创造力，我们理解事物的上下文、兴趣和意图。任何人若试着用套件拉起智能体，把说明文件写得尽可能厚，它仍然往往不理解固有上下文，大概也不理解完整的环境条件、情境、意图和目标。它或许明白自己该达成什么，却很可能连不起所有的点。这时就需要人类的经验：那些在事故里留下的伤疤，在桥上值过班，下一次再爆炸时能认出「这是那种模式」。这些是智能体不知道的，它们仍很理论。他把它比作有很多书本知识的人，想立刻变街头智慧，这不可能。它们能处理很多、做很多，可我们拥有上下文和意图，而且很难解释清楚。一旦给智能体的指令、条件和各种事项增加，它们就开始慌，开始幻觉，因为分不清哪一条真正重要。作为人类，我们能实时评估相互冲突的信息，智能体现在还不能。所以对非常担心的人，他会说：我们还没到能把这一切都做完的地步。我们仍以为自己在赋予智能体能动性和自主，但其实只是一小块一小块地做。"}, {"start_sec": 2076, "speaker_id": "chris", "section_id": "s6", "type": "text", "zh": "克里斯对「群」很感兴趣，自己也在实验：让一群带有对抗角色的智能体互相制约，目的不是「氛围编程」、让智能体随便走，而是把人类经验带进来，得到高质量的企业架构。他请高塔姆分享如何辨别真正好的机会，而不是因为别人都在做就跟着做。"}, {"start_sec": 2119, "speaker_id": "goutham", "section_id": "s6", "type": "text", "zh": "他认为这是价值线已经移动的好例子。起初我们想的是开发，但作为人类，真正想做的是成为系统架构师，用稳健的方式从系统视角设计系统，再交给其他人去实现。这正是他们现在开始做的：会有一群智能体。最近在 MCP Dev Summit 上，他们分享了五种经过大量实验后沉淀下来、决定采用的智能体模式。多智能体现有多种模式可用，但「群」不会解决一切，使用它要有非常具体的理由。理想情况是先模仿我们已有的东西。人人都在谈康威定律：看组织的结构，软件就会按那种结构被做出来。不妨反过来：看一支协作的、高绩效的团队，人们做不同的事、戴不同的帽子来完成任务，再把它们变成数字孪生。于是你有业务分析智能体、设计智能体、测试智能体等，突然就有一支平衡的团队，用来解决特定问题。作为人类，你先给出软件设计、规格和从整体视角需要的一切，再交给这支团队的管理者，用编排或编排者模式说：把这件事做成，这是我需要的结果，这是我不希望发生的，并给出正面和反面的例子。那支团队会出发去做。它不必是一个「群」，但你现在可以观察它们开始彼此交谈，有共享记忆，有你放进去的各种护栏，再有一个推荐或评估「评审团」，判断是在接近目标还是没有，并帮助引导。这非常像我们今天的工作方式。他认为先模仿这一点，才能更好理解下一步该怎么走。之后若有更复杂、需要分而治之或并行处理的问题，再去看不同的技术，比如群，或不同的敏捷发布火车。模式取决于问题，而这些并不是这个时代独有的问题，人类从一开始就在解决它们。两个人去购物、要进两家不同的店，就会分而治之、并行处理，我们每天都下意识地这样做。对智能体，只是必须非常有意识。理解并意识到这并不是全新的东西，会从根本上改变你接近这些问题的方式。"}, {"start_sec": 2359, "speaker_id": "chris", "section_id": "s6", "type": "text", "zh": "收尾时，克里斯想听高塔姆作为一家大型银行、一个重大行业里的企业领导者，对这一切将走向何方的想法、洞察和愿望：技术、业务，以及人的层面，人们最后会落在哪里。"}, {"start_sec": 2401, "speaker_id": "goutham", "section_id": "s6", "type": "text", "zh": "这是一个很深的问题。他认为，随着对智能体的实验越来越多，将人工智能塞进每件事会变得不可避免，已经能看到这种苗头。但眼下最重要的问题是：我们真的需要人工智能吗？那些会先问这个问题，而不是因为害怕错过、或因为它现在很闪亮就去做的组织，才更可能真正成功。必须深挖并自问：价值是什么，我们要去哪。很多时候价值不只是监控，很多是围绕人的。必须以人和客户为中心，始终把我们钉在那里，因为组织存在，是为了向某人创造或交付价值。下一件是：世界正变得极小，我们能在几秒内把钱转到任何地方，能飞到其他地方，必须认识到这一点，并看怎样减少加在这些全球活动上的摩擦。目标是尽快、向尽可能多的人或系统、在全球交付价值，扩大全球触及。第三件是他作为个人、而不只是作为组织代表想说的：我们可能真该问自己，该如何回馈，如何用技术改善他人的生活质量。他认为这将是最大的驱动力之一，若你去尝试，会非常充实。用技术改善人类生活质量将是终极目标，也将提升全世界的幸福指数。这是他真正向往并为之努力的事。能够拿着技术去改善人们的生活，正是日复一日驱动他的东西。克里斯认为这是很好的收束方式，常常在人们往前走时被忘掉。他感谢高塔姆分享这些洞察，并期待他继续这条旅程，将来再回节目。高塔姆也感谢这次对话。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

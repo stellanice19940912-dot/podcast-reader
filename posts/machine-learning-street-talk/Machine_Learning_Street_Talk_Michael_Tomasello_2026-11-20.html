@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>松鼠知道、语言模型却跳过的东西（迈克尔·托马塞洛）</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="tim">蒂姆·斯卡尔夫（Tim Scarfe）</option><option value="michael">迈克尔·托马塞洛（Michael Tomasello）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Machine Learning Street Talk</span><span class="pill">2026-11-19T14:22:11+00:00</span></div>
+<h1>松鼠知道、语言模型却跳过的东西（迈克尔·托马塞洛）</h1>
+<p class="sub">嘉宾：迈克尔·托马塞洛（Michael Tomasello） · 约 67 分钟（3994 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=io7qhEjJoik" target="_blank" rel="noopener">https://www.youtube.com/watch?v=io7qhEjJoik</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Machine Learning Street Talk</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-19T14:22:11+00:00</dd></div><div class="meta-row"><dt>时长</dt><dd>约 67 分钟（3994 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>yt-dlp-official</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>io7qhEjJoik</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>机器学习街头谈话的蒂姆·斯卡尔夫（Tim Scarfe）对话发展心理学家、杜克大学的迈克尔·托马塞洛（Michael Tomasello），围绕其新书《主体性的演化》。托马塞洛把主体性看作应对不可预测环境的控制系统，而不是刺激-反应或被物化的「一般智力」。他用爬行动物、松鼠跳枝和大猿的元认知，画出通向人类的分层，并主张人之为人在于共享主体、联合注意和视角；大语言模型从语言这个终点起步，跳过了这套基础设施。图灵测试在他看来远远不够。</p>
+<h3>核心要点</h3><ul><li>需要决策主体，是因为环境不可预测；最不可预测的是其他主体。学习只是子过程，恒温器理论上甚至可以不学习而行动。</li><li>他反对把一切看成模块或决定论：自然和社会会在天平上按下手指（包括情绪），但需要主体来裁决竞争的影响。</li><li>四层分类：爬行动物的基本控制、哺乳动物的意向性（松鼠能想象自己跳枝失败）、大猿的元认知，以及人类独有的共享主体。</li><li>儿童会纠正同伴、分享合作成果，黑猩猩拿到自己的奖就结束；世界上约有六千种语言，是人创造的惯例，而不是模型正在做的事。</li><li>谎言只对合作物种有效；公司、货币是塞尔所说的地位功能。他认为图灵测试远远不够，也不把市场本身当成一个主体。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看。这是一次信息密度很高的对谈，把比较心理学的分层实验直接接到大语言模型「从终点起步」的批评上，例子具体（松鼠跳枝、分裂句、指向手势、猎鹿博弈），结论也不含糊。</p>
+<h3>适合人群</h3><p>关心人工智能主体性、比较心理学、语言起源，或想理解「为什么有人认为大语言模型跳过了关键认知层」的听众。</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场集锦，以及托马塞洛如何写到《主体性的演化》</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">开场集锦先抛出后文中的几句关键话：需要决策主体，是因为环境不可预测；生物与非生物由同样基本元素构成，只是组织方式不同；人类与其他大猿的差别在于能组成共享主体；共享主体性或许能在人类把自己炸毁之前适应新世界；图灵测试远远不够。主持蒂姆·斯卡尔夫（Tim Scarfe）拿出迈克尔·托马塞洛（Michael Tomasello）的《主体性的演化》（The Evolution of Agency），称书不长但信息密度极高。托马塞洛自述是发展心理学家，第一份工作在埃默里大学的耶克斯灵长类中心看黑猩猩，发现它们既像两岁儿童又很不同；后来在德国马克斯·普朗克学会做了二十年比较研究，把儿童和大猿放进同一实验情境看细微差别；十年前因欧洲强制退休回到母校杜克大学。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">主体性是应对不可预测环境的现场决策机制</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">蒂姆把全书概括为：主体性是理解适应性行为的重要透镜，不仅对人，也横跨生命谱系；它大致是生物应对含混、处理新情境的能力。托马塞洛区分两类情况：当演化上极重要的事情发生在可预测环境里，自然会把机制「做进去」，例如呼吸、吞咽和性行为，此时不需要决策主体。需要主体的时候，是环境不可预测的时候——自然造出一种架构，让个体评估情境并以灵活行为做对当下敏感的决定。他认为最不可预测的是其他主体：猎物、捕食者、同种竞争者和合作者；两个主体彼此很难预测。因此这套机制相当于在现场派人做决定，因为自然无法提前穷尽每一种意外。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">如何定义主体性：控制回路、意志、因果效力与执行功能</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">蒂姆提到学界定义极不统一，他们也曾采访卡尔·弗里斯顿（Karl Friston），对方谈控制回路、边界和主动意义建构。他列出几个维度：意志（我是否自己行动的原因、是否出于理由、是否追求甚至获得目标，最强则是自由意志），以及因果效力（能否控制未来、实现目标）；从有外边界的感知-行动，到像恒温器那样有目标值，构成一种层级。托马塞洛大体同意，但坚持用恒温器这类控制系统作具体模型，以免自由意志讨论离开心理学。他批评许多人嘴上不是行为主义者，骨子里仍谈刺激-反应；真正的有机体带着目标主动追求，达不到就换做法。从哺乳动物起还有执行功能，有些动物有元认知：会质疑自己、抑制原计划、判断是否需要更多信息。主体是在控制自己的行动和因果效果，但并非脱离生物学的自由意志，只是在适应框架里仍有决策空间，例如追逐猎物时。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">红绿灯与蚁群：关键不是复杂度，而是控制</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">托马塞洛最爱问学生的例子是红绿灯：只按计时器工作，对面没车你也得停。要让它变聪明，必须能感知车辆、有明确目标（例如各路口等待车辆大致均衡），以及根据知觉和目标做决策的机制。这种组织与对着预先强刺激做反应的刺激-反应完全不同；恒温器只抓住基本要素。蒂姆引用书中观点：蚁群也可以有极其精巧的行为，但人类这种主体性的分界线是「我们真正控制着自己在做什么」。托马塞洛同意，并反驳「更聪明一定更好、因此必有选择压力偏好智力」：大量「笨」的生物在演化上活得很好，因为适应了环境。织蛛网已经相当复杂，关键不是复杂度，而是根据对当下情境的知觉去控制灵活行动。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">恒温器不是主体；执行层、元认知，以及他并不害怕人工智能接管世界</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">蒂姆担心「人类沙文主义」：恒温器和带摄像头的机器人吸尘器有控制特征，但他不会称之为主体。托马塞洛完全接受，解释自己用这些例子是为了消解认知科学对「小人」（homunculus）的恐惧——主体性不是脑子里另一个人，而是行动、知觉、认知、目标和欲望之间的组织。被问到最强主体性原则上能否在机器里复制、以及二战后单纯形算法和史蒂文·平克式数学理性主义是否走得太远时，他表示摇摆：早年人工智能像「缸中之脑」，只建模计算、假定知觉与目标；如今自动驾驶和无人机在结构上已很相近，问题变成还缺什么。他认为缺的是执行层：监控注意与行动、通过规划避免错误，并需要「想象性表征」去想象世界可能的样子；他怀疑蛇和龟没有这种能力。再上一层是大猿和人类的元认知：反思计划好不好、要不要更多信息、资源有没有放对。基本目标由人预装他并不介意，因为人类的进食与繁衍本来也是自然装好的；真正希望的是机器能在新情境里生成全新目标。他从七十年代就听到「人工智能要接管世界」的预言，仍把它看作应继续推进的重要工具，建议以自然主体为模型。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">预适应、学习只是子过程，以及大语言模型从终点起步</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">蒂姆指出：我们并未明确训练模型变得有主体性，它像是涌现；并引用书中达尔文的话——未来心理学将建立在逐渐获得的新心智能力之上。他问认知能力是否如地质地层一层叠一层，会不会像一堆并非为某一能力演化的「认知原子」突然组合成新能力。托马塞洛自认技术上不足以判断，但强调那需要形成新目标和新策略。他举预适应：对生拇指本为攀爬，下到稀树草原后才用于捡东西。他批评许多人工智能模型几乎只盯着学习；学习只是帮助主体做适应性决策的子过程，恒温器理论上甚至可以不学习而行动。他对强化学习的抱怨是：它只有一点主体性味道，重心仍在学习。大语言模型则有另一个问题——从人类成就的顶峰、也就是语言这个终点起步去建造通用人工智能。他不排除这种可能，但认为语言建立在更基本的认知能力之上，跳过它们直接到最后一步并不保险。他用二十世纪初活力论作类比：人们曾以为生物有特殊实体，后来发现只是同样元素的不同组织；控制系统类比也是为了抓住「新的组织方式」。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">决定论、瑞士军刀模块，以及情绪是自然按在天平上的手指</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">蒂姆提起个人主体性在美国文化中被推崇，并提到道金斯「自私的基因」、后现代的权力想象，以及乔姆斯基对安德鲁·马尔说的那句：如果你信的是别的东西，你就不会坐在现在的位置上——目标究竟从哪来？托马塞洛区分两种历史决定论：达尔文式的自然选择，以及马克思式的阶级与意识形态。他主张把这些看成影响决策的强大力量，而非决定结果。图比和科斯米德斯常举甜食吸引为例，但这并不决定他今晚一定吃冰淇淋；被吸引是生物学给定的，做不做仍由主体裁决，例如婚姻承诺，或在守约与女儿车祸之间选择。书的一个主旨就是反对决定论：自然和社会都会在天平上按下手指，但需要主体来裁决竞争的影响。谈到「大脑像瑞士军刀、不是通用学习装置」，他接受择偶、觅食等专用模块存在，也接受松鼠藏坚果这类机制，但反对「大规模模块性」——主体必须使用跨领域的一般过程：知觉、注意、学习、记忆。两个模块同时启动时（食物与性对象），仍要有一般决策过程。他还把情绪定义为自然把手指按在决策天平上：见蛇会丢下一切逃跑，可若有人拿枪逼你不许动，你也许会让蛇从脚上爬过。蒂姆转述马克·索尔姆斯的观点：情感是不可预测性的感受，用来管理不确定性；托马塞洛认为这个说法很好。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">为什么他把「智力」打上引号：比奈、智商，以及松鼠的记忆</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">蒂姆问：书里每次写到「智力」都加引号，人工智能圈子却常用这个词来谈应对新奇的适应，两者如何区分？托马塞洛追到词源：阿尔弗雷德·比奈在法国实验室受政府之托，分辨谁该上大学、谁该去职业学校，研究的是高中层面的学校式言语与抽象思维；后来智商测验把智商物化成了「智力」。他对「一般智力」有本能反感。他举反例：松鼠能记住的藏匿地点比人多，许多鸟辨别声音的能力大概更强，黑猩猩在某些用工具任务上比儿童更好。专门化非常多，「智力」太瞄准与学校绑定的言语能力，从自然界看并不是好构念。蒂姆反问：会不会主体性也被同样物化、过度简化了？托马塞洛承认可能，但认为控制系统和恒温器模型是可触摸的物理组织，因而避免了物化；他宁愿谈知识、认知、规划、预见和假设检验，而不是带着历史包袱的「智力」。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">通向人类的四层分类：爬行动物、松鼠跳枝、大猿的元认知</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">托马塞洛声明只谈通向人类的谱系，鸟类另论，并用比较生物学的模式物种方法：今天某些爬行动物被当成早期陆地脊椎动物的模型。实验显示它们是基本控制系统，只做很简单的决定。哺乳动物出现执行控制层。他举写书时见过的松鼠：本来像要跳到另一根树枝，又爬下去从旁边上去，因为它能想象自己失败——这需要表征当前并不存在之世界状态的「想象性表征」，以及用于规划、假设生成的执行层；学习也变成贝叶斯式的。他称第一层为基本主体性，随后是目标导向，这一层称为意向性主体性：形成意向和计划后，可在行动前中止。他借用丹尼尔·丹尼特的意思：死去的是假设而不是我自己。YouTube上「松鼠智胜人类、突破喂鸟器」和给松鼠搭的障碍赛，说明它们在新情境里发明新策略。第三层也是最高的个体层次，是元认知或理性主体性，他确信大猿具有：决定后继续搜集信息，难题上可以选择退出。各层对应不同生态压力：爬行动物多独居，不可预测性来自猎物；哺乳动物群居，要和同伴抢先；大猿则有大量必须智胜对方的对抗性竞争，而不只是谁先到谁得到。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">第四层：共享主体、联合注意、六千种语言，以及模型跳过的基础设施</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">第四层稍偏在旁边，却是托马塞洛大半职业生涯的焦点：人类与其他大猿的差别在于能组成共享主体。人工智能里的「主体社会」多半只是彼此反应；共享主体则是共同目标、各自角色和彼此知道的标准，一方做不好，另一方会说「你这样我们会一起失败」——一种社会性的自我调节，也是共同承诺。他们系里博士后程少哲（Shaozhe Cheng）正在用共同承诺建模这一点。认知上需要联合注意：双方都看见障碍或机会，并且知道对方也看见了。联合注意带来视角：同一对象可以是狗、动物或宠物，其他生物不能灵活切换。他追随米德、戴维森的传统，认为视角是社会性的：荒岛长大的孩子身边没有对照性的看方式，就不会获得这个概念。文化是更大的集体主体，提供语言惯例、规范和制度，既像乔姆斯基说的那样约束人，也赋能人去写诗、做新事。实验上：儿童会分享合作成果、纠正对方没扮演好的角色、一人先拿到奖仍继续帮同伴；黑猩猩拿到自己的奖就结束，也不会互相纠正。人类不仅使用语言，还创造语言。他们用Skype时代的视频实验：关掉声音后，儿童会发明新手势并惯例化。世界上有大约六千种语言。他认为大语言模型并不创造语言惯例，共享主体性才是语言的基础设施；跳过这一步去造更像人的机器，他觉得更不稳妥。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">猎鹿博弈、分裂句与指向手势：语言建立在视角之上</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">蒂姆问：文化学习比个体学习更快，人工智能主体若能彼此交谈、创造惯例，会不会也具有社会建设性？托马塞洛认为演化起点不是语言，而是协调问题。托马斯·谢林的逻辑要求在对方也在采你视角时去采对方视角。「猎鹿」是经典例子：更大猎物必须两人一起才能抓住，于是变成「我只在你去时去」，像阿伯特和科斯特洛互相谦让过门。大卫·刘易斯在《惯例》中把惯例视为协调装置，语言惯例是为了协调活动而被创造的。他主张在有人专攻成人语言的同时，也该有人自下而上研究「把头脑凑在一起」和「把惯例作成协调装置」。谈到视角，他引用戴维森：与他人交锋才让「你可能是错的」成为可能，这不同于独自从错误中学习。早期人工智能把「狗／动物／宠物」建成不同节点，但自然知觉是一次看见、多种构想，而且用词取决于听者和共同基础——「这里不许带动物」和「该养什么宠物」会逼出不同说法。语法也是视角惯例：英语分裂句「打破窗户的是弗雷德」是为了纠正对方以为是别人打破的；主动句与被动句分别取狗或猫的视角。他曾在工作坊问：若把互联网文本打乱成互不连贯的随机句子再训练，共识是模型会相当糟，因为话语固有的句间逻辑很关键。蒂姆补充乔姆斯基的批评：模型能学会「不可能的语言」，却做不好从「我」的目标与冲突出发的主体性叙事。托马塞洛以指向手势作基础设施：在共享情境里，一根食指可以表示「那是我们需要的」「那是你妹妹」或「图书馆开门了」，其概括是「你朝那边看就会明白」。若只要有用工具可以跳过这些；若要主体性，就应自下而上去建造。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s12">
+<div class="sum-top"><span class="sum-num">12</span><span class="sum-title">虚构的公司与货币、谎言为何有效，以及图灵测试远远不够</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">蒂姆把认知演化说成不断虚拟化：文化像天上的硬盘，播客在人死后仍可能被接手；并问集体主体有没有共谋和退化的一面。托马塞洛先引赫拉利和约翰·塞尔的地位功能：美元、总统、首相只因我们同意才存在；东德马克有一天不再是钱，只是纸片。我们把人变成总统、把纸变成货币；赫拉利把苹果和Meta这类公司称为虚构的法律个体，却可能是当今地球上最有力量的事物。特朗普是美国总统仍是关于世界的事实，尽管是相对于人类概念的事实。坏的一面是奥威尔式的替代现实：特朗普靠重复和「我听说他们都在说」来收编「人人都这样想大概就是对的」这种天性。谎言只对合作物种有效——黑猩猩不会说谎，因为它们不预设对方会在无利时说真话；人预期合作，所以「外面在下雨」这种话很少被怀疑。世界上的冲突几乎都是「我们对他们」：演化适应的是外貌、语言、饮食和服饰相近的群体，河对岸的人只是让人「没把握」。但愿共享主体性在人类自我毁灭前能适应农业、城市和迁徙之后的新世界。他不喜欢把市场或资本说成主体：看不见的手、交通堵塞、通胀和股灾是「第三类现象」，从个体意向中涌现却无人打算要这个结果，需要政策去调节个体决策。若只是一种谈论方式可以，若说资本「是」主体、会在达不到目标时调整，他就紧张。最后被问到「能否看起来有主体性却没有」时，他指向丹尼特的意向立场，并说走像鸭子、叫像鸭子就是鸭子；但图灵测试远远不够。哲学家内德·布洛克曾问「肉重要吗」——没有我们这种情绪、激素和神经元还算不算；当时房间里没有共识，他也没有高见。节目在互致感谢中结束，托马塞洛最后说「谢谢你，蒂姆」。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">蒂姆·斯卡尔夫（Tim Scarfe）<em>主持</em></span><span class="spk-1">迈克尔·托马塞洛（Michael Tomasello）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场集锦，以及托马塞洛如何写到《主体性的演化》</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p><span class="tag">【开场集锦】</span>需要决策主体（decision-making agent）的时候，正是环境不可预测的时候。生物与非生物由同样的基本元素构成，只是组织方式不同。人类与其他大猿的差别在于，我们能组成共享主体（shared agents）。我们的共享主体性与共享意向性，或许能在人类把自己炸毁之前，适应这个新世界。顺便说一句，图灵测试（Turing test）远远不够，连勉强够都谈不上。</p>
+<p>大家好，我是迈克尔·托马塞洛（Michael Tomasello）。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>我刚读完你的书《主体性的演化》（The Evolution of Agency），先给镜头看一下。必须承认，我脑子里一下子涌出太多想和你讨论的问题，恐怕这一期很难谈透。所以我还是建议大家去读原书：篇幅其实不长，但信息密度极高。托马塞洛教授，能不能先做一个自我介绍？你是怎么写到这本书的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>我的专业训练是发展心理学家，但一直对演化感兴趣。我的第一份工作在埃默里大学（Emory University），他们有耶克斯灵长类中心（Yerkes Primate Center）。我出去观察黑猩猩，立刻觉得：天哪，它们常常像两岁的孩子。在很多方面像年幼的人类，在很多方面又不同。这种既相似又不同，非常迷人。于是我把问题收束到：是什么让人类的认知和社会能力不同于其他灵长类。</p>
+<p>后来我在德国的马克斯·普朗克学会（Max Planck）待了二十年，我们有自己的大猿设施，做了二十年比较研究。我们算是开创了一种做法：把儿童和大猿放进同一实验情境，看那些往往相当细微、必须用实验方法才能看见的差别。欧洲多数地方对学者有强制退休，于是十年前我回到母校杜克大学（Duke University）。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>主体性是应对不可预测环境的现场决策机制</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>太好了。我觉得这本书的一句话概括是：主体性（agency）是理解适应性行为极其重要的透镜，不仅对人，而且横跨整个生命谱系。你大致把它描述为：生物应对含混、处理新情境的能力。能不能再展开一点？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>当某件事在演化上极其重要、而环境又大体可预测时，自然倾向于把机制「做进去」。比如呼吸、吞咽、性行为：这些在演化上关键，环境也相对可预期，就不需要一个做决策的主体。需要决策主体的时候，是环境不可预测的时候。于是自然母亲造出的，是一种机制、一种架构，让个体能够评估情境，并以灵活行为做出对当下敏感的决定。</p>
+<p>有人会说：天哪，所有情境在某个层面上不都是可预测的吗？对我来说，最不可预测的是其他主体——猎物、捕食者，还有同种竞争者和同种合作者。两个主体在一起，彼此其实很难预测。所以核心想法是：这套机制是为不可预测的情境准备的，相当于在现场派一个人做决定，因为自然母亲无法提前穷尽每一种可能的意外。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>如何定义主体性：控制回路、意志、因果效力与执行功能</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>我们或许该谈谈如何定义主体性。这是个很棘手的问题，我们这个圈子争论很多，也在《斯坦福哲学百科全书》（Stanford Encyclopedia of Philosophy）上花了大量时间看各种定义。我们采访卡尔·弗里斯顿（Karl Friston）时，他的说法和你有些相近：某种控制回路、某种边界、某种主动的意义建构。粗略来看，似乎有几个维度。一个是意志：我是不是自己行动的原因？我是不是出于理由而行动？我是不是在追求目标或意向，甚至在获得新目标？最强的版本是：我有没有自由意志——几乎是在做适合情境的事，却并非被情境所引起。</p>
+<p>然后还有因果效力这个很有意思的维度：能否控制未来、实现自己的目标。偏「瘦身」的定义会说：我不过有个外边界，能感知、能行动。再往上一层，像恒温器一样有一个目标值，想让环境变成某种样子。你会看到主体性好像有一种层级。这和你的想法合拍吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>大体合拍。但我用恒温器这类控制系统作为具体模型，是因为关于自由意志的许多讨论会离心理学太远。而且这本书其实是写给动物行为研究者的，后来人工智能圈子也拿去读了。可他们很多人骨子里仍在用刺激-反应：他们会说「我不是行为主义者」，却还在谈刺激和反应。不对。你面对的是一个带着目标、主动去追求的有机体；目标达不到，就会换一种做法。</p>
+<p>你刚才没提到的是：它们还有执行功能（executive function），有些动物还有元认知过程，我把后者也算执行功能的一部分。不同动物这些东西不一样，这也是书要讲的。从哺乳动物开始就有执行功能：它们会事后质疑自己，会抑制本来打算做的事，会判断是不是需要更多信息。关键在于：主体是在控制的——控制自己在做什么，控制自己在环境里造成的因果效果。</p>
+<p>当然它们不是完全自由的。我在书里差不多第二段就说：我们讨论的不是脱离生物学的自由意志，而是在有机体生物适应的框架里，仍有一块空间。比如追逐猎物时，仍有做某些决定的余地。所以你刚才的描述没问题；我之所以紧抓控制系统、控制论机制，是因为它是主体性最简形式、也包含必要元素的具体体现。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>红绿灯与蚁群：关键不是复杂度，而是控制</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="marker-line"><span class="tag">[已省略广告：Cyber Fund]</span></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>我和学生在一起时，喜欢拿一个普通、看起来很笨的机制问：你怎么把它变聪明？我最喜欢的例子是红绿灯。它只按计时器工作，对面明明没有车，你还是得停。怎么让它变聪明？办法其实只有一条：首先它必须能感知车辆；其次它要有目标，比如让各个路口等待的车辆大致均衡；然后还要有决策机制——根据我看到的和我的目标，我该怎么做才能让世界符合目标。</p>
+<p>这种组织方式，和对着预先设定的强刺激做反应的刺激-反应完全不同。恒温器之类只抓住了这套组织的基本要素，不是全部。我这本书的主体，其实就是在讲这种主体性的不同层次。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>对。你书里有一段写得很好：一个蚁群也可以有极其精巧的行为，但我们这种主体性的分界线在于——我们真正控制着自己在做什么。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>正是如此。我开篇就说，很多人工智能研究者——我还参加过一个研讨——会觉得「更聪明一定更好」，所以一定有选择压力偏好更聪明。可实际上，世界上有大量「笨」的生物在演化上活得很好，因为它们适应了自己的环境。所以关键不是复杂度：织一张蛛网已经相当复杂。关键是控制，是根据对当下情境的知觉，去控制自己的灵活行动。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>恒温器不是主体；执行层、元认知，以及他并不害怕人工智能接管世界</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>控制很重要，你也强调要「出于理由而行动」。你举过恒温器：有目标温度，能调节炉子；还有一个机器人吸尘器，可以四处移动，还带摄像头。我有点担心的是：不知道你是不是对人的主体性有某种「人类沙文主义」——它确实有你说的控制特征，但我不会说它有主体性。总觉得缺了点什么。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>我完全能接受这个说法。我的出发点稍微不同：在认知科学——人工智能是其中的一个子群——里，一谈主体性，人们就担心「小人」（homunculus），好像脑子里还有另一个人在做决定，他们很不喜欢这个。我想说的只是：我所谈的不过是一种组织方式，其基本形态在恒温器或自动吸尘器里就能看见。我不会把它们称作主体。只是这并不是旧哲学家说的那种神奇小人，或某种非物质的心智实体，而是行动、知觉、认知、目标和欲望之间的一种组织。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>那你认为，最强形式的主体性原则上能否在机器里复制？顺便提一本最近读的书，叫《非理性的决策》（The Irrational Decision），作者是伯克利一位一辈子做控制理论的教授。他说我们在过度优化上走得太远了：二战后有了单纯形算法和强大的计算机，立刻就想算「最优食谱」——尽量压成本、凑齐热量和营养。整个数学理性主义传统，也有史蒂文·平克（Steven Pinker）等人在推。这里会不会有类似问题：如果我们在做决策，难道不能做出一个比我们决策更好、甚至比我们更有主体性的计算机程序吗？你同意吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>我得说，在这一点上我有些摇摆。早年对人工智能的一个主要批评是：它像「缸中之脑」——机器本身没有目标，也不知觉世界；人们只想建模计算部分，却把知觉、目标和行动都假定好了。现在是新局面：自动驾驶汽车、无人机做的事情在结构上已经非常相近。问题就变成：还缺什么？</p>
+<p>我觉得关键之一，就是我前面提到的执行过程：你知道自己在做什么。机器还没有以正确的方式把这一点体现出来。它不是旁边多出来的一项技能，而是另一整层组织，我称之为一个「层级」。执行层观察、知觉、注意注意层和行动层正在发生的事，加以监控，并能通过预期、规划，主动避免错误。规划、假设检验都需要执行层，也需要我所说的「想象性表征」：你必须能想象世界可能是什么样。我认爬行动物，比如蛇和龟，大概没有这些——它们无法想象可能发生什么，并据此规划策略。</p>
+<p>到了这一步，即便在动物身上，我也把这称为意识的开端：我意识到自己在做什么，我在知觉并注意自己正在做的事。再上一层，我认为出现在大猿和人类——人类也是一种大猿——身上，是元认知，它是执行功能的另一种形式：我反思自己的执行规划，问这是不是好计划？能不能换一个？要不要更多信息？资源有没有放对地方，还是在浪费力气？这类元认知不是旁边的小技能，而是另一层级的运作。</p>
+<p>如果无人机或自动驾驶车能有这些执行层级的功能，能知觉世界、拥有目标——即使目标是人给装进去的——我并不特别介意，因为人类大多数最基本的目标，比如进食和繁衍，本来也是自然母亲给装好的。你真正会希望的是：在它们不知道该怎么办的新情境里，能够生成全新的目标，心想「好，这里有一个我从未有过的新目标，也许能帮我应对这个新局面」。所以我并不害怕人工智能会接管世界。我从七十年代就在这个领域，从七十年代起就有人宣称它要接管世界。我把它看作极其重要的工具，看不出有什么理由不继续推进、让它们更有主体性。我的建议是：看看自然主体如何运作，把它当作模型，看能不能帮我们走得更远。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>预适应、学习只是子过程，以及大语言模型从终点起步</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>人工智能的主体性有一点很有意思：我们并没有明确训练它们变得有主体性，它好像是某种涌现。你书里的第一句引文来自达尔文（Darwin）：在遥远的未来，心理学将建立在逐渐获得的新心智能力之上。我不知道是不是误解了你——你似乎在说，认知能力像地质地层一样一层叠一层。可当我们把镜头拉远、做外在论者而不是内在论者时，看到的是一大堆并非为某一能力而演化出来的「认知原子」，能力却在那片土壤里突然出现。人工智能会不会正在发生这种事？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>我的技术素养不够，无法对此给出有根据的判断；但要走到那一步，它必须能像我说的那样，形成新目标、形成新策略。演化里一直在发生的，叫做预适应（preadaptation）。教科书例子是：对生拇指本来是为了攀爬，后来我们下到稀树草原，它又变得适合捡东西。某种为了甲目的而适应的东西，到了新情境里，主体会创造性地想出新用法。我知道许多人工智能机制会做出令人惊讶的事，但我同样没有足够技术知识去判断那里究竟可能发生什么。</p>
+<p>我倒想说：很多人工智能模型几乎只盯着学习，一切都是学习、学习、再学习。可学习的存在，只是为了帮助主体做出适应性决策。学习是子过程，当然很重要；但理论上，也可以有一个像恒温器那样、在情境中行动却不学习的有机体。现实里，我们所知的几乎所有有机体都会把经验存下来以备后用。但学习不是一切的全部。</p>
+<p>这也是我对强化学习的一个抱怨：它有一点主体性的味道，但重心仍在学习。还有，不知道你稍后会不会谈到：大语言模型有另一个问题——它们从终点起步，从人类成就的顶峰起步，以为可以从那里建造通用人工智能。理论上我不能排除这种可能。但对我来说，语言是建在所有这些更基本的认知能力之上的。你能不能跳过它们，直接跳到最后一步？我不太有把握。</p>
+<p>书里有一个类比：二十世纪初，生物学界争论活力论（vitalism）——是什么让生物不同于非生物？有一派认为存在某种特殊实体。经过艰苦研究，我们发现：生物和非生物由同样的基本元素构成，只是组织方式不同。我在做一种一般类比，也因此紧抓控制系统这个类比：关键是一种新的组织方式。书里把通向人类的、复杂度逐渐增加的序列写得很细，就是想把这个故事讲清楚。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>决定论、瑞士军刀模块，以及情绪是自然按在天平上的手指</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>这一点让我印象很深：你说其实不必先有学习，许多行为适应单靠主体性这个透镜就能解释。从这里可以走很多方向。比如，个人主体性在美国文化里特别被推崇。你提到理查德·道金斯（Richard Dawkins）的「自私的基因」：好像有某种超级主体。后现代主义者有类似的权力想象，说这些东西寄生在我们身上。我还看过诺姆·乔姆斯基（Noam Chomsky）和英国记者安德鲁·马尔（Andrew Marr）的一段采访。马尔问：你怎么知道我在自我审查？乔姆斯基说：我不是说你在自我审查，我相信你说的都是你相信的；但我是说，如果你信的是别的东西，你就不会坐在你现在坐的位置上。这些目标到底从哪来？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>历史上大致有两种决定论。达尔文引入了自然选择：有人会把它理解成自然在控制。卡尔·马克思（Karl Marx）则说是文化：你生在某个社会阶级，带着意识形态和权力问题，是文化在决定。我认为，谈个人主体性，就应当把这些都看成影响我们如何做决定的强大力量，但它们并不决定结果。经典演化心理学家图比和科斯米德斯（Tooby and Cosmides）常举例子：我们会被甜食吸引，这有演化上的道理。但这并不绝对决定我今晚一定吃冰淇淋——我在节食，我不想吃。我控制不了那种吸引，那是生物学给定的；或者我被某个年轻漂亮的人吸引，可我结婚了，所以不会那样做。有时我们还有互相竞争的关切：我答应过别人，可女儿出了车祸，我必须在守约和去帮女儿之间做决定。</p>
+<p>书里一个主要论点，就是反对这种决定论倾向。要按「影响」来想：自然会在你的决策天平上按下它的手指，社会学也会按下一指，但你这个主体必须去裁决道德困境——你许过诺，可更重要的事来了；你想吃甜食，可你在节食。我们需要一个主体，在这些相互竞争的影响之间做裁决。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>有意思的是，即便在含混和混乱之中，不同情境下你仍可能做出很不同的事。你提到图比和科斯米德斯，我记了笔记：你引用他们说，大脑不是通用的学习或计算装置，而是高度专门化的，像瑞士军刀。能否解释一下？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>他们关注的是那些生物学信号非常强的东西，在经典表述里叫做先天模块；后来他们立场软化了一些。这些模块彼此独立，所以才叫模块：有一个择偶的计算模块，男性被女性的年轻和生育力迹象吸引，女性对男性也有相应吸引，但那是一个小模块，和觅食完全无关。觅食是另一个问题，有另一套启发式，比如寻找量最多、营养最好的东西。我并不反对这些专用模块的存在。</p>
+<p>我反对的是他们所谓的「大规模模块性」——好像一切都是模块。一旦你有一个主体，主体就必须使用跨领域的一般过程：知觉、注意、学习、记忆。这些不是针对特定领域的模块，而是当下一般决策过程要用的东西。如果同一时刻有两个模块在竞争：一个有吸引力的性对象，一份有吸引力的食物，两个模块同时启动，我到底怎么办？动物世界里专用模块很多，松鼠藏坚果就是一例，我完全接受。但至少在通向人类的这条线上，从哺乳动物开始——鸟类走的是另一条轨道，解释也不同——它们显然是有主体性的，在做决定，并受情绪影响。</p>
+<p>从演化上看，情绪就是自然把手指按在你决策的天平上。自然让你对蛇极度恐惧，你一看见蛇，其他目标全部放下，立刻离开。可如果有人拿枪指着你的头说不许动，你也许会让蛇从脚上爬过去，谁知道呢。情绪让你被他人吸引、对某些事物害怕、在某些情境里快乐、在某些事情发生时愤怒——这是自然影响你决策的方式。但做决定的仍然是你。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>这太有意思了。我采访过马克·索尔姆斯（Mark Solms），不知你是否熟悉。他说，情感是不可预测性的感受：感受让系统能够在未预测的环境中导航，也就是管理不确定性。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>这个说法很好，是个相当有意思的理论。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>为什么他把「智力」打上引号：比奈、智商，以及松鼠的记忆</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>我想谈谈主体性与智力的区分。你在书里每次写到「智力」这个词，都加上引号。人工智能圈子里，很多人谈智力，其实也是在谈应对新奇的适应，两者似乎有关系。可你对这个词相当刻薄，觉得它远更专门、也被严重误解。你怎么区分？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>我不是想跟你玩哲学，但「智力」这个概念是阿尔弗雷德·比奈（Alfred Binet）在法国实验室里造出来的：法国政府让他分辨谁该上大学、谁该去职业学校，是在高中这个层面。他研究的基本上是学校式智力：言语的、抽象的思维。后来人们做智商测验，又把智商物化成了「智力」。我对「一般智力」有一种本能的反感，所以才加上方括号式的引号——人们一说智力，常常想的就是一般智力。</p>
+<p>可松鼠能记住的藏匿地点比我们多；许多鸟能辨别的声音大概也比我们多；黑猩猩在某些方面用工具比儿童还好，尽管儿童在别的事情上会超过它们。专门化非常多。我们从世界获得知识，再以专门方式去应用。我只是觉得，「智力」太瞄准与学校绑定的言语智力。若你更多从自然界和其他动物出发，一般智力并不是最好的构念。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>或许是这样。我有时把智力想成把技能结晶化的能力：比如学开车，一开始不会，后来结晶成技能，可以自动化完成。我提起这个，是想问：会不会对主体性也能提出同样的指控——我们也在物化主体性，把它过度简化了？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>有可能。但这也正是我抓住控制系统、恒温器这种模型的原因：它变得实在了，你摸得着，是一种物理机制，就是那种组织。从这里出发，我认为不存在物化的问题。而「智力」并没有同样可以指认的东西。适应、灵活，这些我都没意见；只是因为「智力」带着我刚才说的那些历史包袱，我更愿意谈认知能力，谈从体验世界和学习中获得的知识：知识、认知、规划、预见、假设检验——用认知科学的语言，而不是智力的语言。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>通向人类的四层分类：爬行动物、松鼠跳枝、大猿的元认知</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>能不能讲讲你的核心分类？你谈主体性的演化，清楚地分了四个层次。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>我只谈通向人类的这条线，鸟类放在旁边。从我们数据比较好的第一批陆地脊椎动物开始。比较生物学通用的方法是用模式物种：我们并不知道最初的陆地脊椎动物是谁，但今天的一些爬行动物，被生物学家认为与早期爬行动物非常相似，我们可以拿它们做实验。必须小心，模式物种并不等于原初物种，但这条路走得通。用爬行动物作为第一批陆地脊椎动物的模型来做实验，会发现它们的组织就像控制系统：它们在做决定，但决定非常简单。我把它们看作基本控制系统。</p>
+<p>到了哺乳动物，出现了执行控制层，一切都围绕决策过程。看树上的松鼠：它会犹豫要不要跳到那根树枝。我写书时见过一幕，可能也写进例子里了——它看上去要跳，然后又爬下去、从另一根爬上去，因为它能想象自己失败。它们在规划和假设检验，必须拥有我所说的「想象性表征」：表征当前并不存在的世界状态。它们还需要执行层来做规划、生成假设。它们的学习是贝叶斯式的，因为这时可以有假设生成和概率。所以第一层我称作基本主体性，然后是目标导向的主体性；这一层我称为意向性主体性（intentional agency）——一旦你形成意向和计划，就可以在真正付诸行动之前把它们中止。</p>
+<p>丹尼尔·丹尼特（Daniel Dennett）好像说过类似的话：死去的是我的假设，而不是我自己。我看见了，哎呀，这条路行不通，于是我让自己免于失败。我认为哺乳动物就是这样行动的。你自家的狗整天都在这样；松鼠也是。想看极好玩的例子，去YouTube搜「squirrels outsmarting humans」、人们在后院保护喂鸟器：那些情境是新的，松鼠却在发明新策略。有人还据此给松鼠搭障碍赛。它们灵活，能创造新行为，做假设检验和规划——这些都需要执行层的组织。</p>
+<p>个体主体性的第三层，也是最高的个体层次，是元认知的或理性的主体性。我确信大猿有，其他灵长类数据还不够。它们会做出决定，结果不会立刻发生，然后去获取更多信息，以便做出更好的决定；当问题很难、它们知道自己可能出错时，也可以退出，改做概率更高的事。这种元认知是另一层灵活性。每一层我都对应一种生态压力：爬行动物大多独居，不可预测性主要来自猎物，它们多半捕食昆虫和小动物；哺乳动物突然要和群内成员竞争，因为它们群居，想得到食物就必须比同伴更快、更好地决策，否则会死；大猿则有大量对抗性竞争，必须智胜对方。多数哺乳动物更多是抢先式的争抢——谁先到谁得到；大猿则经常要互相斗智。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>第四层：共享主体、联合注意、六千种语言，以及模型跳过的基础设施</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>你刚才说四个层次。第四层稍稍偏在旁边，而这正是我职业生涯大部分时间的焦点——主体性这条线是更晚近的工作。我一生大部分研究都在问：人类与其他大猿的差别，在于我们能组成共享主体（shared agents）。我知道人工智能里有各种集体主体，有时叫「主体社会」之类，但它们多半只是彼此反应。共享主体则是：我们把头脑凑在一起，有一个共享目标，你有你的角色、我有我的角色，彼此都知道；角色还有标准——要成功，你必须以这种方式履行角色，我也必须以这种方式履行，双方都清楚。</p>
+<p>如果你没有把角色做好，我会说：嘿，你在干什么？你那边做错，我们会一起失败。于是出现一种自我调节机制，只不过这次是社会性的，是我们共同的承诺。我们系里有一位博士后程少哲（Shaozhe Cheng），很快会去英国，他正在用共同承诺来建模这种共享主体。在认知上，这意味着我们有联合注意（joint attention）：我们作为联合主体，合作追求某个目标。要做得有效，就必须共同注意沿途可能的障碍或机会，并且双方都知道对方看见了，才能形成统一策略。</p>
+<p>我研究幼儿的联合注意已经很久。它带来「视角」这个概念：我们看见的是同一事物，但我这样看、你那样看。人类认知里最有力的独特之处之一，就是同一对象可以从不同角度被看待——同一对象可以是一只狗、一种动物、或一个宠物。我们觉得这理所当然，会说「那要看你怎么看」。可其他生物没有这个：它们看见什么就是什么，不能灵活切换视角。我来自乔治·赫伯特·米德（George Herbert Mead）这类实用主义者、哲学家唐纳德·戴维森（Donald Davidson）的传统，认为这全是社会性的。我二十多年来最爱举的例子是：一个在荒岛上长大的孩子，不会获得「视角」这个概念，因为他四处看世界，身边并没有一种同时存在的、对照性的看方式。</p>
+<p>所以人类有一种独特的社会性，其基础是联合主体；而真正的助推火箭是我们称为文化的集体主体。你生在一种文化里，它给你惯例，比如语言惯例，以及关于你应当如何行事、如何思考的规范，教育就是在教这些。乔姆斯基说的那一套，从学校就开始了：他们在教你应当怎样思考，告诉你这是更好的思维方式。我们生入文化，那是带有惯例、规范、制度的集体主体。它们既像乔姆斯基强调的那样在约束你，也在赋能你：当你获得自己不必发明的语言、社会规范和惯例——只要你有能力学会——你就可以用语言写诗，做新的事情。</p>
+<p>这最后一种主体性稍稍偏在旁边，不是简单再上一层，而是一个新版本：共享主体。我个人相信它为人类所独有。其他生物也会彼此合作，但我们做了大量实验，比较黑猩猩和人类儿童：儿童分享合作成果的方式不同；黑猩猩在对方没把角色扮演好时不会纠正对方；孩子们合作时，若其中一人先拿到奖赏，仍会继续合作直到另一个也拿到；黑猩猩一拿到自己的奖赏就结束了。这些都是可观察的经验事实。我认为，人类的共享主体——包括个体之间的协作，以及作为文化群体成员的文化——正是人之为人的差别所在。</p>
+<p>再说一点我对大语言模型的看法。我每天都在用，是了不起的工具。可人类不仅使用语言，还创造了语言。我们有儿童研究：不让他们互相说话，让他们通过视频监视器交流——那还是Skype而不是Zoom的年代，孩子们知道用Skype跟爷爷奶奶讲话。然后我们说：声音没了，你们得用手势。于是他们发明新的手势，并把它们惯例化，彼此开始用同一个，再相互调整。我们创造语言惯例。世界上有六千种不同的语言。据我所知，大语言模型并不创造语言惯例，也没有围绕话题的话语往来。我在等这一天。我认为，共享主体性和共享意向性，是创造并使用语言惯例的基础设施。也许可以跳过这一步；但我觉得，更可能的是：从这些步骤开始，再把语言放上去，我们才会得到更有用、也更像人的机器。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>猎鹿博弈、分裂句与指向手势：语言建立在视角之上</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>这绝对精彩。达芬奇说过，自由来自约束，我觉得这话很漂亮。回过头来：你谈认知演化时，想象、模拟、删除策略、做认知觅食，这些都让人着迷。但我最感兴趣的是最后一步，共享主体，以及目标从何而来。你说到，眼下的人工智能还不会这种建设性的、创造出惯例的「语言主体性」。可也许将来会。演化里有身体的演化，有个体发育中学习的积累，还有文化中学习的积累，层级越高速度越快。当人工智能主体能彼此交谈、创造惯例时，会不会也能做到？你觉得，人工智能有没有可能像我们一样在社会上具有建设性？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>所以我才提到博士后程少哲正在做这类工作。在这本讲主体性的书之前，我那些理论著作谈的是共享主体。从演化上看，最初的生态挑战很可能是协调问题。你若熟悉博弈论，托马斯·谢林（Thomas Schelling）的协调问题需要一种特别的逻辑，不只是聪明：是在对方也在采你视角的同时，去采对方的视角。「猎鹿」（stag hunt）就是经典协调问题：我们各自有自己较低水平的觅食资源，这时来了更大更好的猎物，但必须两个人一起才能抓住。我不知道你会不会去；我只想在你也去的时候去，否则就是徒劳。你也只想在我也去的时候去。于是变成：我只在你去时去，你只在我去时去，像阿伯特和科斯特洛（Abbott and Costello）过门，你先请、不你先请。</p>
+<p>所以我认为，演化上的起点并不是语言，而是把心智合在一起，去解决这类必须各自履行角色、并且对此有共同知识的协调问题。哲学家大卫·刘易斯（David Lewis）有一本书就叫《惯例》（Convention），他的论点是：惯例是一种协调装置。语言惯例是人类创造出来、帮助彼此协调活动的。我从不会做原则上的论证，说我们绝不能跳过这种思维方式、直接进入语言，也许可以。但与此同时，在有人专攻成熟成人语言的时候，也该有人自下而上地问：把头脑凑在一起是什么样，把惯例创造成协调装置是什么样；有了这层基础设施，再往上叠加语言技能。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>能不能再展开一点这种视角主义？你描绘的图景是：复杂认知能力可以在集体中被分解。我们谈了主体性，我也喜欢这个想法：即便是认知、表征、知识本身，也需要分解，因为我直觉它很路径依赖。我们对大象有不同视角；由不同视角组成一个集体，似乎严格地优于一个非常聪明的主体单干。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>哲学家唐纳德·戴维森基本上是在说：与另一个人的这种交锋，才让「你可能是错的」成为可能，而且这经常发生。科学里也一样：我以为自己对，别人指出另一件事，我只好说「哎呀」。如果只有你自己，你当然也能从错误中学习，但从错误中学习，并不完全等于以另一种方式去看——那种你能采他人视角才会有的看。这一点被低估了。很久以前我和人工智能研究者聊过，在这一波现代浪潮之前，他们会说：视角？那很简单，我们给「动物」建一个节点，给「宠物」一个，给「狗」一个，没问题。可在自然世界里，你只有一次知觉：眼前这个东西，我可以把它看成一只狗、一种动物、或一个宠物。</p>
+<p>我会说，这是社会性的。在语言里，我为什么能把它叫做狗、动物、宠物，或者它、她？何时用哪个词？因为我在为听者和语境做调整：某种语境里，唯一重要的是「这里不许带动物」；另一种是「我想要一个宠物，该选哪种？你该选一只狗」；再一种是「我有没有人做伴？该不该养宠物？」取决于共同基础和对话对方的视角，我们必须以不同方式来构想事物。我认为这是语言交流被低估的一面：它在核心处就是视角性的。</p>
+<p>一谈语法，计算主义者就想谈组合可能性。多数人觉得语法很闷，我尽量说短。可你看最精巧的语法结构，比如英语里的分裂句（cleft construction）：「打破窗户的是弗雷德」（It was Fred that broke the window）。这句很奇怪，为什么不直接说「弗雷德打破了窗户」？因为你以为是别人打破的，我要纠正你：是弗雷德，不是玛丽，打破窗户的是弗雷德。这个结构的起源，就在交际情境里：我相信你有一个错误印象，我要纠正它。这是一个视角问题。不只语词是惯例，语法结构也是我们创造出来、用以某种方式看待事物的惯例。「狗在追猫」和「猫被狗追」——主动与被动，来自狗的视角或猫的视角。我们觉得这轻松得不值一提，可这一切都是在采他人的视角。我想强调的是：我们使用的语言，依赖于这些更根本的能力。</p>
+<p>大语言模型让我吃惊的一点是：它们在这件事上似乎比我预想的好得多。文本材料里有句子之间的连接、逻辑关系、视角转换。我最近在一次人工智能工作坊问：假如你把互联网上的所有东西拆成一句一句，再把顺序完全打乱，不再有连贯的文本，没有因果、逻辑或话语上的连贯，只剩一堆随机句子，用这样的材料训出来的大语言模型会是什么样？当然没人知道，但共识是：会相当糟糕。它们能做出许多「聪明」的事，原因之一就是话语里固有的逻辑——一句连着下一句。而这一切，都是语言建立在与他人拥有共同视角、同时又有不同视角的能力之上。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>有意思的是，乔姆斯基常说他不喜欢大语言模型，因为它们能学会「不可能的语言」：你哪怕把所有词都打乱，模型也能学，只是对我们来说是垃圾。可大语言模型做不到的是：真正好的作者会做有主体性的叙事，从「我」的经验、目标、冲突、阻止我实现目标的事物来写。大语言模型并不真正这样做。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>我想是这样，而这正是我所说的基础设施。我有一本关于语言演化的书，就把这些当作基础设施。比如，也许这样比较对语言模型不公平，但儿童在学会说话之前，先学会用指向手势。我几乎专门写过一本关于指向的书。我朝那边一指，如果没上下文，你会说：什么？可在恰当的情境里，我的指向可以意味任何东西：那就是我们需要的东西；那是你妹妹；图书馆开门了。我的食指可以表示任何事，因为我们处在共享情境里，彼此知道对方在想什么，并能采对方的视角。指向手势的一种概括是：你朝那边看，就会明白我的意思。你怎么明白？因为我们正以某种共同方式思考，并采彼此的视角。说大语言模型不能解释指向手势，并不完全公平；但我相信，单凭别人向你指出某物、你就知道他在说什么，这是通向语言的基础设施的一部分。我把某物举起给你看，也是有理由的。</p>
+<p>也许这层基础设施可以被跳过；如果你要的只是像现在的大语言模型这样有用的工具，当然可以跳过。但如果你想让它们有主体性，我认为你需要这层基础设施。方法论上的处方就是：试着自下而上地建造，从动物如何协调、如何采视角、如何以更简单的方式交流开始，然后再建立惯例。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s12">
+<div class="body-sec-head"><h3>虚构的公司与货币、谎言为何有效，以及图灵测试远远不够</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>太精彩了。我们前面谈认知演化，一种说法是它在不断远离物理、走向虚拟化：先是能够想象和模拟，后来形成社会性的主体，能够协调、提出目标。越虚拟化，就越像在传播和存储信息——文化就像天上那个神奇的硬盘。我明天死去，这个播客也许还能由别人接手而继续存在。这种虚拟化有没有陷阱或退化的一面？我知道你也研究过共谋，以及这些集体主体里发生的坏事。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>在谈坏事之前，关于虚拟化还有另一层。你读过赫拉利（Yuval Noah Harari）那本关于智人的书吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>读过，很多年前。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>他想指出的虚拟化是：我们活在一个想象的世界里，美元或英镑、总统、首相，这些东西只因为我们同意它们存在才存在。有一天第二次世界大战发生，或者我去过东德，东德马克曾经是钱，后来有一天就不再是钱，只是纸片。文化中的这种虚拟化，来自我们创造哲学家约翰·塞尔（John Searle）所说的地位功能（status functions）：我们把一个人变成总统，把一张纸变成货币。赫拉利认为，世界上最强大的力量之一就是公司——苹果公司是什么，Meta是什么？他称之为虚构：公司是被编造出来的、在法律上被视为个体的虚构个体，尽管显然不是直接意义上的个体。文化最擅长、也最有力量的事情之一，就是创造新的实体。塞尔在这一点上很强硬：唐纳德·特朗普是美国总统，这是关于世界的一个事实，尽管是令人遗憾的事实；它是相对于人类的事实，只因为人类创造了「总统」这个概念才存在，但它仍然是关于世界的事实。公司也许是虚构，却是当今地球上最有力量的事物。</p>
+<p>现在回到你的问题：这种虚构有没有坏的一面？有。我女儿刚在高中读乔治·奥威尔（George Orwell），我想起其中一些段落。唐纳德·特朗普极擅长用某些手法制造替代现实：把事情重复得足够多次。他总说「我听说他们都在说……」，这正好扣住我们的天性——我们想知道别人都在怎样想；然后我们会觉得，哦，我们文化里的每个人都这样想，那大概就是好的想法。他试图让人觉得人人都这样想，一遍遍重复也是同一套。这些都是在收编自然系统。谎言之所以有效，是因为我们是合作的。黑猩猩不对彼此说谎，因为它们根本不会认为你在对自己没好处的时候还会说真话。说谎有效，是因为我们都很轻信：除非对方有别的动机，我们都预期人人都会合作。如果我告诉你外面在下雨，你绝不会想到我在撒谎——我没有任何别的动机。说谎有效，是因为我们普遍的合作本性；政客们能做成那些事，也是因为我们普遍预期人们会合作。是的，它可以被用于邪恶的目的。</p>
+<p>常有人对我说：你讲人类多么合作，组成共享的、集体的主体，可世界上那么多冲突怎么办？几乎所有冲突都是「他们在攻击我们」，是我们对他们。人类这种集体意向性或集体主体性，指向的是「我们的群体」。在现代世界里，我们必须找到办法，面对不同群体彼此依存、住在同一地方这一事实。合作的阴暗面在于：我们的演化史，是和长得像我们、说话像我们、吃同样的食物、穿同样衣服的人住在一个群体里——那才是我们所适应的「我们」；河对岸的那些「我们」，长得奇怪、说话奇怪、吃些恶心的东西。不是我恨他们，是我对他们没把握。可自从农业、城市和大量迁徙以来的现代世界，是另一个世界。但愿我们的共享主体性和共享意向性，能在我们把自己炸毁之前，适应这个新世界。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>这些集体主体在多大程度上是一种趋同或自然现象？很多人把市场说成某种超级有机体。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>我不太喜欢把无生命的事物说成主体。你可以说资本倾向于流向这里或那里，但我会说，是资本家在决定它流向哪里。还有一些社会学层面的现象，比如「看不见的手」，以及同类的集体行动问题。集体行动问题里，没有人打算要那个坏结果，但人人都有意向：每个人都想尽快回家，结果造成了交通堵塞。没有人打算要堵塞，它是涌现现象，却从个体的意向性行动中涌现。「看不见的手」据说是：价格被固定在某种最大化的水平上，因为个体买家尽量用最低价格买到最好的价值，卖家则相反。</p>
+<p>这些涌现现象有时被称为「第三类现象」，社会学差不多从这里开始：它们不是由个体主体做决定直接造成的，而是涌现出来的。通货膨胀，没有人打算要它，却是人们意向性决策的产物；没有人打算要股市崩盘，它也是人们意向性决策的结果。这类负面事情，是政策制定者和政治家需要意识到的，也需要看清它们与个体决策的关联。比如对股市崩盘，可以有关于冒险的政策去缓解；若有更严格的交通法规，也许能改变堵塞——具体是什么我不知道。政治家和政策制定者需要看见这些模式，看见它们与个体决策的联系，并制定规则或法律来调节个体决策，使这些不幸的事不要发生。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>我想很多，是因为你把市场说成附生于理性的、有意向的主体之上。我个人的直觉是：最好的分析透镜是把这整个东西本身当作一个主体，而不是一堆个体理性主体的集合。你主张往下一层看而不是往上一层看，理由是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>你说这是一种有用的谈论方式，那没问题。如果你说它「是」一个主体，我就有点紧张。但如果你清楚这一点，我觉得可以。可是：资本有目标吗？资本在达不到目标时会做出调整吗？我不太确定。也许只因为我是心理学家，那是社会学层面的分析，对我来说不同。作为一种谈论方式，完全没问题；但我不确定自己愿意在实在的意义上真的把它当成一个主体。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>太好了。最后一个问题：一个系统有没有可能表现得好像有主体性，实际上却没有？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>那就是丹尼尔·丹尼特所说的意向立场（intentional stance）。是啊，我也不知道。这下要进入形而上学了。我会说：如果它走起路来像鸭子、叫起来像鸭子，那它就是鸭子。如果我们造出一样东西，真正具备所有这些品质——顺便说，图灵测试远远不够，连勉强够都谈不上——但如果有一台机器真能在这些方面都模仿得很好，那我大概会觉得它是某种主体。你可以说，它不是人类主体。我不知道。我听过哲学家内德·布洛克（Ned Block）的一场演讲，标题好像是「肉重要吗？」——肉，指的是血肉、大脑、激素。这些真的重要吗？因为按我们现在这条路走下去，它们不会拥有我们这种情绪、激素和神经元。这重要吗？我只能说，当时房间里没有共识，我也没有什么高明的见解。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="tim"><div class="label"><span class="badge" title="蒂姆·斯卡尔夫（Tim Scarfe）">蒂姆</span></div><div class="content">
+<p>太精彩了。迈克尔·托马塞洛教授，能请到你是莫大的荣幸，非常感谢。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="michael"><div class="label"><span class="badge" title="迈克尔·托马塞洛（Michael Tomasello）">托马塞洛</span></div><div class="content">
+<p>谢谢你，蒂姆。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Machine Learning Street Talk", "title": "松鼠知道、语言模型却跳过的东西（迈克尔·托马塞洛）", "url": "https://www.youtube.com/watch?v=io7qhEjJoik", "videoId": "io7qhEjJoik", "published_at": "2026-11-19T14:22:11+00:00", "duration": 3994, "caption_source": "yt-dlp-official", "guests": ["迈克尔·托马塞洛（Michael Tomasello）"], "speakers": [{"id": "tim", "name": "蒂姆·斯卡尔夫（Tim Scarfe）", "role": "host", "short": "蒂姆"}, {"id": "michael", "name": "迈克尔·托马塞洛（Michael Tomasello）", "role": "guest", "short": "托马塞洛"}], "intro": {"summary": "机器学习街头谈话的蒂姆·斯卡尔夫（Tim Scarfe）对话发展心理学家、杜克大学的迈克尔·托马塞洛（Michael Tomasello），围绕其新书《主体性的演化》。托马塞洛把主体性看作应对不可预测环境的控制系统，而不是刺激-反应或被物化的「一般智力」。他用爬行动物、松鼠跳枝和大猿的元认知，画出通向人类的分层，并主张人之为人在于共享主体、联合注意和视角；大语言模型从语言这个终点起步，跳过了这套基础设施。图灵测试在他看来远远不够。", "points": ["需要决策主体，是因为环境不可预测；最不可预测的是其他主体。学习只是子过程，恒温器理论上甚至可以不学习而行动。", "他反对把一切看成模块或决定论：自然和社会会在天平上按下手指（包括情绪），但需要主体来裁决竞争的影响。", "四层分类：爬行动物的基本控制、哺乳动物的意向性（松鼠能想象自己跳枝失败）、大猿的元认知，以及人类独有的共享主体。", "儿童会纠正同伴、分享合作成果，黑猩猩拿到自己的奖就结束；世界上约有六千种语言，是人创造的惯例，而不是模型正在做的事。", "谎言只对合作物种有效；公司、货币是塞尔所说的地位功能。他认为图灵测试远远不够，也不把市场本身当成一个主体。"], "verdict": "值得看。这是一次信息密度很高的对谈，把比较心理学的分层实验直接接到大语言模型「从终点起步」的批评上，例子具体（松鼠跳枝、分裂句、指向手势、猎鹿博弈），结论也不含糊。", "audience": "关心人工智能主体性、比较心理学、语言起源，或想理解「为什么有人认为大语言模型跳过了关键认知层」的听众。"}, "sections": [{"id": "s1", "title": "开场集锦，以及托马塞洛如何写到《主体性的演化》", "start_sec": 0, "summary": "开场集锦先抛出后文中的几句关键话：需要决策主体，是因为环境不可预测；生物与非生物由同样基本元素构成，只是组织方式不同；人类与其他大猿的差别在于能组成共享主体；共享主体性或许能在人类把自己炸毁之前适应新世界；图灵测试远远不够。主持蒂姆·斯卡尔夫（Tim Scarfe）拿出迈克尔·托马塞洛（Michael Tomasello）的《主体性的演化》（The Evolution of Agency），称书不长但信息密度极高。托马塞洛自述是发展心理学家，第一份工作在埃默里大学的耶克斯灵长类中心看黑猩猩，发现它们既像两岁儿童又很不同；后来在德国马克斯·普朗克学会做了二十年比较研究，把儿童和大猿放进同一实验情境看细微差别；十年前因欧洲强制退休回到母校杜克大学。"}, {"id": "s2", "title": "主体性是应对不可预测环境的现场决策机制", "start_sec": 115, "summary": "蒂姆把全书概括为：主体性是理解适应性行为的重要透镜，不仅对人，也横跨生命谱系；它大致是生物应对含混、处理新情境的能力。托马塞洛区分两类情况：当演化上极重要的事情发生在可预测环境里，自然会把机制「做进去」，例如呼吸、吞咽和性行为，此时不需要决策主体。需要主体的时候，是环境不可预测的时候——自然造出一种架构，让个体评估情境并以灵活行为做对当下敏感的决定。他认为最不可预测的是其他主体：猎物、捕食者、同种竞争者和合作者；两个主体彼此很难预测。因此这套机制相当于在现场派人做决定，因为自然无法提前穷尽每一种意外。"}, {"id": "s3", "title": "如何定义主体性：控制回路、意志、因果效力与执行功能", "start_sec": 236, "summary": "蒂姆提到学界定义极不统一，他们也曾采访卡尔·弗里斯顿（Karl Friston），对方谈控制回路、边界和主动意义建构。他列出几个维度：意志（我是否自己行动的原因、是否出于理由、是否追求甚至获得目标，最强则是自由意志），以及因果效力（能否控制未来、实现目标）；从有外边界的感知-行动，到像恒温器那样有目标值，构成一种层级。托马塞洛大体同意，但坚持用恒温器这类控制系统作具体模型，以免自由意志讨论离开心理学。他批评许多人嘴上不是行为主义者，骨子里仍谈刺激-反应；真正的有机体带着目标主动追求，达不到就换做法。从哺乳动物起还有执行功能，有些动物有元认知：会质疑自己、抑制原计划、判断是否需要更多信息。主体是在控制自己的行动和因果效果，但并非脱离生物学的自由意志，只是在适应框架里仍有决策空间，例如追逐猎物时。"}, {"id": "s4", "title": "红绿灯与蚁群：关键不是复杂度，而是控制", "start_sec": 471, "summary": "托马塞洛最爱问学生的例子是红绿灯：只按计时器工作，对面没车你也得停。要让它变聪明，必须能感知车辆、有明确目标（例如各路口等待车辆大致均衡），以及根据知觉和目标做决策的机制。这种组织与对着预先强刺激做反应的刺激-反应完全不同；恒温器只抓住基本要素。蒂姆引用书中观点：蚁群也可以有极其精巧的行为，但人类这种主体性的分界线是「我们真正控制着自己在做什么」。托马塞洛同意，并反驳「更聪明一定更好、因此必有选择压力偏好智力」：大量「笨」的生物在演化上活得很好，因为适应了环境。织蛛网已经相当复杂，关键不是复杂度，而是根据对当下情境的知觉去控制灵活行动。"}, {"id": "s5", "title": "恒温器不是主体；执行层、元认知，以及他并不害怕人工智能接管世界", "start_sec": 594, "summary": "蒂姆担心「人类沙文主义」：恒温器和带摄像头的机器人吸尘器有控制特征，但他不会称之为主体。托马塞洛完全接受，解释自己用这些例子是为了消解认知科学对「小人」（homunculus）的恐惧——主体性不是脑子里另一个人，而是行动、知觉、认知、目标和欲望之间的组织。被问到最强主体性原则上能否在机器里复制、以及二战后单纯形算法和史蒂文·平克式数学理性主义是否走得太远时，他表示摇摆：早年人工智能像「缸中之脑」，只建模计算、假定知觉与目标；如今自动驾驶和无人机在结构上已很相近，问题变成还缺什么。他认为缺的是执行层：监控注意与行动、通过规划避免错误，并需要「想象性表征」去想象世界可能的样子；他怀疑蛇和龟没有这种能力。再上一层是大猿和人类的元认知：反思计划好不好、要不要更多信息、资源有没有放对。基本目标由人预装他并不介意，因为人类的进食与繁衍本来也是自然装好的；真正希望的是机器能在新情境里生成全新目标。他从七十年代就听到「人工智能要接管世界」的预言，仍把它看作应继续推进的重要工具，建议以自然主体为模型。"}, {"id": "s6", "title": "预适应、学习只是子过程，以及大语言模型从终点起步", "start_sec": 986, "summary": "蒂姆指出：我们并未明确训练模型变得有主体性，它像是涌现；并引用书中达尔文的话——未来心理学将建立在逐渐获得的新心智能力之上。他问认知能力是否如地质地层一层叠一层，会不会像一堆并非为某一能力演化的「认知原子」突然组合成新能力。托马塞洛自认技术上不足以判断，但强调那需要形成新目标和新策略。他举预适应：对生拇指本为攀爬，下到稀树草原后才用于捡东西。他批评许多人工智能模型几乎只盯着学习；学习只是帮助主体做适应性决策的子过程，恒温器理论上甚至可以不学习而行动。他对强化学习的抱怨是：它只有一点主体性味道，重心仍在学习。大语言模型则有另一个问题——从人类成就的顶峰、也就是语言这个终点起步去建造通用人工智能。他不排除这种可能，但认为语言建立在更基本的认知能力之上，跳过它们直接到最后一步并不保险。他用二十世纪初活力论作类比：人们曾以为生物有特殊实体，后来发现只是同样元素的不同组织；控制系统类比也是为了抓住「新的组织方式」。"}, {"id": "s7", "title": "决定论、瑞士军刀模块，以及情绪是自然按在天平上的手指", "start_sec": 1270, "summary": "蒂姆提起个人主体性在美国文化中被推崇，并提到道金斯「自私的基因」、后现代的权力想象，以及乔姆斯基对安德鲁·马尔说的那句：如果你信的是别的东西，你就不会坐在现在的位置上——目标究竟从哪来？托马塞洛区分两种历史决定论：达尔文式的自然选择，以及马克思式的阶级与意识形态。他主张把这些看成影响决策的强大力量，而非决定结果。图比和科斯米德斯常举甜食吸引为例，但这并不决定他今晚一定吃冰淇淋；被吸引是生物学给定的，做不做仍由主体裁决，例如婚姻承诺，或在守约与女儿车祸之间选择。书的一个主旨就是反对决定论：自然和社会都会在天平上按下手指，但需要主体来裁决竞争的影响。谈到「大脑像瑞士军刀、不是通用学习装置」，他接受择偶、觅食等专用模块存在，也接受松鼠藏坚果这类机制，但反对「大规模模块性」——主体必须使用跨领域的一般过程：知觉、注意、学习、记忆。两个模块同时启动时（食物与性对象），仍要有一般决策过程。他还把情绪定义为自然把手指按在决策天平上：见蛇会丢下一切逃跑，可若有人拿枪逼你不许动，你也许会让蛇从脚上爬过。蒂姆转述马克·索尔姆斯的观点：情感是不可预测性的感受，用来管理不确定性；托马塞洛认为这个说法很好。"}, {"id": "s8", "title": "为什么他把「智力」打上引号：比奈、智商，以及松鼠的记忆", "start_sec": 1691, "summary": "蒂姆问：书里每次写到「智力」都加引号，人工智能圈子却常用这个词来谈应对新奇的适应，两者如何区分？托马塞洛追到词源：阿尔弗雷德·比奈在法国实验室受政府之托，分辨谁该上大学、谁该去职业学校，研究的是高中层面的学校式言语与抽象思维；后来智商测验把智商物化成了「智力」。他对「一般智力」有本能反感。他举反例：松鼠能记住的藏匿地点比人多，许多鸟辨别声音的能力大概更强，黑猩猩在某些用工具任务上比儿童更好。专门化非常多，「智力」太瞄准与学校绑定的言语能力，从自然界看并不是好构念。蒂姆反问：会不会主体性也被同样物化、过度简化了？托马塞洛承认可能，但认为控制系统和恒温器模型是可触摸的物理组织，因而避免了物化；他宁愿谈知识、认知、规划、预见和假设检验，而不是带着历史包袱的「智力」。"}, {"id": "s9", "title": "通向人类的四层分类：爬行动物、松鼠跳枝、大猿的元认知", "start_sec": 1914, "summary": "托马塞洛声明只谈通向人类的谱系，鸟类另论，并用比较生物学的模式物种方法：今天某些爬行动物被当成早期陆地脊椎动物的模型。实验显示它们是基本控制系统，只做很简单的决定。哺乳动物出现执行控制层。他举写书时见过的松鼠：本来像要跳到另一根树枝，又爬下去从旁边上去，因为它能想象自己失败——这需要表征当前并不存在之世界状态的「想象性表征」，以及用于规划、假设生成的执行层；学习也变成贝叶斯式的。他称第一层为基本主体性，随后是目标导向，这一层称为意向性主体性：形成意向和计划后，可在行动前中止。他借用丹尼尔·丹尼特的意思：死去的是假设而不是我自己。YouTube上「松鼠智胜人类、突破喂鸟器」和给松鼠搭的障碍赛，说明它们在新情境里发明新策略。第三层也是最高的个体层次，是元认知或理性主体性，他确信大猿具有：决定后继续搜集信息，难题上可以选择退出。各层对应不同生态压力：爬行动物多独居，不可预测性来自猎物；哺乳动物群居，要和同伴抢先；大猿则有大量必须智胜对方的对抗性竞争，而不只是谁先到谁得到。"}, {"id": "s10", "title": "第四层：共享主体、联合注意、六千种语言，以及模型跳过的基础设施", "start_sec": 2195, "summary": "第四层稍偏在旁边，却是托马塞洛大半职业生涯的焦点：人类与其他大猿的差别在于能组成共享主体。人工智能里的「主体社会」多半只是彼此反应；共享主体则是共同目标、各自角色和彼此知道的标准，一方做不好，另一方会说「你这样我们会一起失败」——一种社会性的自我调节，也是共同承诺。他们系里博士后程少哲（Shaozhe Cheng）正在用共同承诺建模这一点。认知上需要联合注意：双方都看见障碍或机会，并且知道对方也看见了。联合注意带来视角：同一对象可以是狗、动物或宠物，其他生物不能灵活切换。他追随米德、戴维森的传统，认为视角是社会性的：荒岛长大的孩子身边没有对照性的看方式，就不会获得这个概念。文化是更大的集体主体，提供语言惯例、规范和制度，既像乔姆斯基说的那样约束人，也赋能人去写诗、做新事。实验上：儿童会分享合作成果、纠正对方没扮演好的角色、一人先拿到奖仍继续帮同伴；黑猩猩拿到自己的奖就结束，也不会互相纠正。人类不仅使用语言，还创造语言。他们用Skype时代的视频实验：关掉声音后，儿童会发明新手势并惯例化。世界上有大约六千种语言。他认为大语言模型并不创造语言惯例，共享主体性才是语言的基础设施；跳过这一步去造更像人的机器，他觉得更不稳妥。"}, {"id": "s11", "title": "猎鹿博弈、分裂句与指向手势：语言建立在视角之上", "start_sec": 2635, "summary": "蒂姆问：文化学习比个体学习更快，人工智能主体若能彼此交谈、创造惯例，会不会也具有社会建设性？托马塞洛认为演化起点不是语言，而是协调问题。托马斯·谢林的逻辑要求在对方也在采你视角时去采对方视角。「猎鹿」是经典例子：更大猎物必须两人一起才能抓住，于是变成「我只在你去时去」，像阿伯特和科斯特洛互相谦让过门。大卫·刘易斯在《惯例》中把惯例视为协调装置，语言惯例是为了协调活动而被创造的。他主张在有人专攻成人语言的同时，也该有人自下而上研究「把头脑凑在一起」和「把惯例作成协调装置」。谈到视角，他引用戴维森：与他人交锋才让「你可能是错的」成为可能，这不同于独自从错误中学习。早期人工智能把「狗／动物／宠物」建成不同节点，但自然知觉是一次看见、多种构想，而且用词取决于听者和共同基础——「这里不许带动物」和「该养什么宠物」会逼出不同说法。语法也是视角惯例：英语分裂句「打破窗户的是弗雷德」是为了纠正对方以为是别人打破的；主动句与被动句分别取狗或猫的视角。他曾在工作坊问：若把互联网文本打乱成互不连贯的随机句子再训练，共识是模型会相当糟，因为话语固有的句间逻辑很关键。蒂姆补充乔姆斯基的批评：模型能学会「不可能的语言」，却做不好从「我」的目标与冲突出发的主体性叙事。托马塞洛以指向手势作基础设施：在共享情境里，一根食指可以表示「那是我们需要的」「那是你妹妹」或「图书馆开门了」，其概括是「你朝那边看就会明白」。若只要有用工具可以跳过这些；若要主体性，就应自下而上去建造。"}, {"id": "s12", "title": "虚构的公司与货币、谎言为何有效，以及图灵测试远远不够", "start_sec": 3353, "summary": "蒂姆把认知演化说成不断虚拟化：文化像天上的硬盘，播客在人死后仍可能被接手；并问集体主体有没有共谋和退化的一面。托马塞洛先引赫拉利和约翰·塞尔的地位功能：美元、总统、首相只因我们同意才存在；东德马克有一天不再是钱，只是纸片。我们把人变成总统、把纸变成货币；赫拉利把苹果和Meta这类公司称为虚构的法律个体，却可能是当今地球上最有力量的事物。特朗普是美国总统仍是关于世界的事实，尽管是相对于人类概念的事实。坏的一面是奥威尔式的替代现实：特朗普靠重复和「我听说他们都在说」来收编「人人都这样想大概就是对的」这种天性。谎言只对合作物种有效——黑猩猩不会说谎，因为它们不预设对方会在无利时说真话；人预期合作，所以「外面在下雨」这种话很少被怀疑。世界上的冲突几乎都是「我们对他们」：演化适应的是外貌、语言、饮食和服饰相近的群体，河对岸的人只是让人「没把握」。但愿共享主体性在人类自我毁灭前能适应农业、城市和迁徙之后的新世界。他不喜欢把市场或资本说成主体：看不见的手、交通堵塞、通胀和股灾是「第三类现象」，从个体意向中涌现却无人打算要这个结果，需要政策去调节个体决策。若只是一种谈论方式可以，若说资本「是」主体、会在达不到目标时调整，他就紧张。最后被问到「能否看起来有主体性却没有」时，他指向丹尼特的意向立场，并说走像鸭子、叫像鸭子就是鸭子；但图灵测试远远不够。哲学家内德·布洛克曾问「肉重要吗」——没有我们这种情绪、激素和神经元还算不算；当时房间里没有共识，他也没有高见。节目在互致感谢中结束，托马塞洛最后说「谢谢你，蒂姆」。"}], "paragraphs": [{"start_sec": 0, "speaker_id": "michael", "section_id": "s1", "type": "text", "zh": "【开场集锦】需要决策主体（decision-making agent）的时候，正是环境不可预测的时候。生物与非生物由同样的基本元素构成，只是组织方式不同。人类与其他大猿的差别在于，我们能组成共享主体（shared agents）。我们的共享主体性与共享意向性，或许能在人类把自己炸毁之前，适应这个新世界。顺便说一句，图灵测试（Turing test）远远不够，连勉强够都谈不上。"}, {"start_sec": 32, "speaker_id": "michael", "section_id": "s1", "type": "text", "zh": "大家好，我是迈克尔·托马塞洛（Michael Tomasello）。"}, {"start_sec": 35, "speaker_id": "tim", "section_id": "s1", "type": "text", "zh": "我刚读完你的书《主体性的演化》（The Evolution of Agency），先给镜头看一下。必须承认，我脑子里一下子涌出太多想和你讨论的问题，恐怕这一期很难谈透。所以我还是建议大家去读原书：篇幅其实不长，但信息密度极高。托马塞洛教授，能不能先做一个自我介绍？你是怎么写到这本书的？"}, {"start_sec": 55, "speaker_id": "michael", "section_id": "s1", "type": "text", "zh": "我的专业训练是发展心理学家，但一直对演化感兴趣。我的第一份工作在埃默里大学（Emory University），他们有耶克斯灵长类中心（Yerkes Primate Center）。我出去观察黑猩猩，立刻觉得：天哪，它们常常像两岁的孩子。在很多方面像年幼的人类，在很多方面又不同。这种既相似又不同，非常迷人。于是我把问题收束到：是什么让人类的认知和社会能力不同于其他灵长类。"}, {"start_sec": 86, "speaker_id": "michael", "section_id": "s1", "type": "text", "zh": "后来我在德国的马克斯·普朗克学会（Max Planck）待了二十年，我们有自己的大猿设施，做了二十年比较研究。我们算是开创了一种做法：把儿童和大猿放进同一实验情境，看那些往往相当细微、必须用实验方法才能看见的差别。欧洲多数地方对学者有强制退休，于是十年前我回到母校杜克大学（Duke University）。"}, {"start_sec": 115, "speaker_id": "tim", "section_id": "s2", "type": "text", "zh": "太好了。我觉得这本书的一句话概括是：主体性（agency）是理解适应性行为极其重要的透镜，不仅对人，而且横跨整个生命谱系。你大致把它描述为：生物应对含混、处理新情境的能力。能不能再展开一点？"}, {"start_sec": 140, "speaker_id": "michael", "section_id": "s2", "type": "text", "zh": "当某件事在演化上极其重要、而环境又大体可预测时，自然倾向于把机制「做进去」。比如呼吸、吞咽、性行为：这些在演化上关键，环境也相对可预期，就不需要一个做决策的主体。需要决策主体的时候，是环境不可预测的时候。于是自然母亲造出的，是一种机制、一种架构，让个体能够评估情境，并以灵活行为做出对当下敏感的决定。"}, {"start_sec": 195, "speaker_id": "michael", "section_id": "s2", "type": "text", "zh": "有人会说：天哪，所有情境在某个层面上不都是可预测的吗？对我来说，最不可预测的是其他主体——猎物、捕食者，还有同种竞争者和同种合作者。两个主体在一起，彼此其实很难预测。所以核心想法是：这套机制是为不可预测的情境准备的，相当于在现场派一个人做决定，因为自然母亲无法提前穷尽每一种可能的意外。"}, {"start_sec": 236, "speaker_id": "tim", "section_id": "s3", "type": "text", "zh": "我们或许该谈谈如何定义主体性。这是个很棘手的问题，我们这个圈子争论很多，也在《斯坦福哲学百科全书》（Stanford Encyclopedia of Philosophy）上花了大量时间看各种定义。我们采访卡尔·弗里斯顿（Karl Friston）时，他的说法和你有些相近：某种控制回路、某种边界、某种主动的意义建构。粗略来看，似乎有几个维度。一个是意志：我是不是自己行动的原因？我是不是出于理由而行动？我是不是在追求目标或意向，甚至在获得新目标？最强的版本是：我有没有自由意志——几乎是在做适合情境的事，却并非被情境所引起。"}, {"start_sec": 271, "speaker_id": "tim", "section_id": "s3", "type": "text", "zh": "然后还有因果效力这个很有意思的维度：能否控制未来、实现自己的目标。偏「瘦身」的定义会说：我不过有个外边界，能感知、能行动。再往上一层，像恒温器一样有一个目标值，想让环境变成某种样子。你会看到主体性好像有一种层级。这和你的想法合拍吗？"}, {"start_sec": 306, "speaker_id": "michael", "section_id": "s3", "type": "text", "zh": "大体合拍。但我用恒温器这类控制系统作为具体模型，是因为关于自由意志的许多讨论会离心理学太远。而且这本书其实是写给动物行为研究者的，后来人工智能圈子也拿去读了。可他们很多人骨子里仍在用刺激-反应：他们会说「我不是行为主义者」，却还在谈刺激和反应。不对。你面对的是一个带着目标、主动去追求的有机体；目标达不到，就会换一种做法。"}, {"start_sec": 347, "speaker_id": "michael", "section_id": "s3", "type": "text", "zh": "你刚才没提到的是：它们还有执行功能（executive function），有些动物还有元认知过程，我把后者也算执行功能的一部分。不同动物这些东西不一样，这也是书要讲的。从哺乳动物开始就有执行功能：它们会事后质疑自己，会抑制本来打算做的事，会判断是不是需要更多信息。关键在于：主体是在控制的——控制自己在做什么，控制自己在环境里造成的因果效果。"}, {"start_sec": 388, "speaker_id": "michael", "section_id": "s3", "type": "text", "zh": "当然它们不是完全自由的。我在书里差不多第二段就说：我们讨论的不是脱离生物学的自由意志，而是在有机体生物适应的框架里，仍有一块空间。比如追逐猎物时，仍有做某些决定的余地。所以你刚才的描述没问题；我之所以紧抓控制系统、控制论机制，是因为它是主体性最简形式、也包含必要元素的具体体现。"}, {"start_sec": 428, "speaker_id": "tim", "section_id": "s4", "type": "ad_omitted", "ad_brand": "Cyber Fund"}, {"start_sec": 471, "speaker_id": "michael", "section_id": "s4", "type": "text", "zh": "我和学生在一起时，喜欢拿一个普通、看起来很笨的机制问：你怎么把它变聪明？我最喜欢的例子是红绿灯。它只按计时器工作，对面明明没有车，你还是得停。怎么让它变聪明？办法其实只有一条：首先它必须能感知车辆；其次它要有目标，比如让各个路口等待的车辆大致均衡；然后还要有决策机制——根据我看到的和我的目标，我该怎么做才能让世界符合目标。"}, {"start_sec": 511, "speaker_id": "michael", "section_id": "s4", "type": "text", "zh": "这种组织方式，和对着预先设定的强刺激做反应的刺激-反应完全不同。恒温器之类只抓住了这套组织的基本要素，不是全部。我这本书的主体，其实就是在讲这种主体性的不同层次。"}, {"start_sec": 540, "speaker_id": "tim", "section_id": "s4", "type": "text", "zh": "对。你书里有一段写得很好：一个蚁群也可以有极其精巧的行为，但我们这种主体性的分界线在于——我们真正控制着自己在做什么。"}, {"start_sec": 552, "speaker_id": "michael", "section_id": "s4", "type": "text", "zh": "正是如此。我开篇就说，很多人工智能研究者——我还参加过一个研讨——会觉得「更聪明一定更好」，所以一定有选择压力偏好更聪明。可实际上，世界上有大量「笨」的生物在演化上活得很好，因为它们适应了自己的环境。所以关键不是复杂度：织一张蛛网已经相当复杂。关键是控制，是根据对当下情境的知觉，去控制自己的灵活行动。"}, {"start_sec": 594, "speaker_id": "tim", "section_id": "s5", "type": "text", "zh": "控制很重要，你也强调要「出于理由而行动」。你举过恒温器：有目标温度，能调节炉子；还有一个机器人吸尘器，可以四处移动，还带摄像头。我有点担心的是：不知道你是不是对人的主体性有某种「人类沙文主义」——它确实有你说的控制特征，但我不会说它有主体性。总觉得缺了点什么。"}, {"start_sec": 627, "speaker_id": "michael", "section_id": "s5", "type": "text", "zh": "我完全能接受这个说法。我的出发点稍微不同：在认知科学——人工智能是其中的一个子群——里，一谈主体性，人们就担心「小人」（homunculus），好像脑子里还有另一个人在做决定，他们很不喜欢这个。我想说的只是：我所谈的不过是一种组织方式，其基本形态在恒温器或自动吸尘器里就能看见。我不会把它们称作主体。只是这并不是旧哲学家说的那种神奇小人，或某种非物质的心智实体，而是行动、知觉、认知、目标和欲望之间的一种组织。"}, {"start_sec": 668, "speaker_id": "tim", "section_id": "s5", "type": "text", "zh": "那你认为，最强形式的主体性原则上能否在机器里复制？顺便提一本最近读的书，叫《非理性的决策》（The Irrational Decision），作者是伯克利一位一辈子做控制理论的教授。他说我们在过度优化上走得太远了：二战后有了单纯形算法和强大的计算机，立刻就想算「最优食谱」——尽量压成本、凑齐热量和营养。整个数学理性主义传统，也有史蒂文·平克（Steven Pinker）等人在推。这里会不会有类似问题：如果我们在做决策，难道不能做出一个比我们决策更好、甚至比我们更有主体性的计算机程序吗？你同意吗？"}, {"start_sec": 740, "speaker_id": "michael", "section_id": "s5", "type": "text", "zh": "我得说，在这一点上我有些摇摆。早年对人工智能的一个主要批评是：它像「缸中之脑」——机器本身没有目标，也不知觉世界；人们只想建模计算部分，却把知觉、目标和行动都假定好了。现在是新局面：自动驾驶汽车、无人机做的事情在结构上已经非常相近。问题就变成：还缺什么？"}, {"start_sec": 781, "speaker_id": "michael", "section_id": "s5", "type": "text", "zh": "我觉得关键之一，就是我前面提到的执行过程：你知道自己在做什么。机器还没有以正确的方式把这一点体现出来。它不是旁边多出来的一项技能，而是另一整层组织，我称之为一个「层级」。执行层观察、知觉、注意注意层和行动层正在发生的事，加以监控，并能通过预期、规划，主动避免错误。规划、假设检验都需要执行层，也需要我所说的「想象性表征」：你必须能想象世界可能是什么样。我认爬行动物，比如蛇和龟，大概没有这些——它们无法想象可能发生什么，并据此规划策略。"}, {"start_sec": 864, "speaker_id": "michael", "section_id": "s5", "type": "text", "zh": "到了这一步，即便在动物身上，我也把这称为意识的开端：我意识到自己在做什么，我在知觉并注意自己正在做的事。再上一层，我认为出现在大猿和人类——人类也是一种大猿——身上，是元认知，它是执行功能的另一种形式：我反思自己的执行规划，问这是不是好计划？能不能换一个？要不要更多信息？资源有没有放对地方，还是在浪费力气？这类元认知不是旁边的小技能，而是另一层级的运作。"}, {"start_sec": 905, "speaker_id": "michael", "section_id": "s5", "type": "text", "zh": "如果无人机或自动驾驶车能有这些执行层级的功能，能知觉世界、拥有目标——即使目标是人给装进去的——我并不特别介意，因为人类大多数最基本的目标，比如进食和繁衍，本来也是自然母亲给装好的。你真正会希望的是：在它们不知道该怎么办的新情境里，能够生成全新的目标，心想「好，这里有一个我从未有过的新目标，也许能帮我应对这个新局面」。所以我并不害怕人工智能会接管世界。我从七十年代就在这个领域，从七十年代起就有人宣称它要接管世界。我把它看作极其重要的工具，看不出有什么理由不继续推进、让它们更有主体性。我的建议是：看看自然主体如何运作，把它当作模型，看能不能帮我们走得更远。"}, {"start_sec": 986, "speaker_id": "tim", "section_id": "s6", "type": "text", "zh": "人工智能的主体性有一点很有意思：我们并没有明确训练它们变得有主体性，它好像是某种涌现。你书里的第一句引文来自达尔文（Darwin）：在遥远的未来，心理学将建立在逐渐获得的新心智能力之上。我不知道是不是误解了你——你似乎在说，认知能力像地质地层一样一层叠一层。可当我们把镜头拉远、做外在论者而不是内在论者时，看到的是一大堆并非为某一能力而演化出来的「认知原子」，能力却在那片土壤里突然出现。人工智能会不会正在发生这种事？"}, {"start_sec": 1034, "speaker_id": "michael", "section_id": "s6", "type": "text", "zh": "我的技术素养不够，无法对此给出有根据的判断；但要走到那一步，它必须能像我说的那样，形成新目标、形成新策略。演化里一直在发生的，叫做预适应（preadaptation）。教科书例子是：对生拇指本来是为了攀爬，后来我们下到稀树草原，它又变得适合捡东西。某种为了甲目的而适应的东西，到了新情境里，主体会创造性地想出新用法。我知道许多人工智能机制会做出令人惊讶的事，但我同样没有足够技术知识去判断那里究竟可能发生什么。"}, {"start_sec": 1085, "speaker_id": "michael", "section_id": "s6", "type": "text", "zh": "我倒想说：很多人工智能模型几乎只盯着学习，一切都是学习、学习、再学习。可学习的存在，只是为了帮助主体做出适应性决策。学习是子过程，当然很重要；但理论上，也可以有一个像恒温器那样、在情境中行动却不学习的有机体。现实里，我们所知的几乎所有有机体都会把经验存下来以备后用。但学习不是一切的全部。"}, {"start_sec": 1145, "speaker_id": "michael", "section_id": "s6", "type": "text", "zh": "这也是我对强化学习的一个抱怨：它有一点主体性的味道，但重心仍在学习。还有，不知道你稍后会不会谈到：大语言模型有另一个问题——它们从终点起步，从人类成就的顶峰起步，以为可以从那里建造通用人工智能。理论上我不能排除这种可能。但对我来说，语言是建在所有这些更基本的认知能力之上的。你能不能跳过它们，直接跳到最后一步？我不太有把握。"}, {"start_sec": 1187, "speaker_id": "michael", "section_id": "s6", "type": "text", "zh": "书里有一个类比：二十世纪初，生物学界争论活力论（vitalism）——是什么让生物不同于非生物？有一派认为存在某种特殊实体。经过艰苦研究，我们发现：生物和非生物由同样的基本元素构成，只是组织方式不同。我在做一种一般类比，也因此紧抓控制系统这个类比：关键是一种新的组织方式。书里把通向人类的、复杂度逐渐增加的序列写得很细，就是想把这个故事讲清楚。"}, {"start_sec": 1270, "speaker_id": "tim", "section_id": "s7", "type": "text", "zh": "这一点让我印象很深：你说其实不必先有学习，许多行为适应单靠主体性这个透镜就能解释。从这里可以走很多方向。比如，个人主体性在美国文化里特别被推崇。你提到理查德·道金斯（Richard Dawkins）的「自私的基因」：好像有某种超级主体。后现代主义者有类似的权力想象，说这些东西寄生在我们身上。我还看过诺姆·乔姆斯基（Noam Chomsky）和英国记者安德鲁·马尔（Andrew Marr）的一段采访。马尔问：你怎么知道我在自我审查？乔姆斯基说：我不是说你在自我审查，我相信你说的都是你相信的；但我是说，如果你信的是别的东西，你就不会坐在你现在坐的位置上。这些目标到底从哪来？"}, {"start_sec": 1340, "speaker_id": "michael", "section_id": "s7", "type": "text", "zh": "历史上大致有两种决定论。达尔文引入了自然选择：有人会把它理解成自然在控制。卡尔·马克思（Karl Marx）则说是文化：你生在某个社会阶级，带着意识形态和权力问题，是文化在决定。我认为，谈个人主体性，就应当把这些都看成影响我们如何做决定的强大力量，但它们并不决定结果。经典演化心理学家图比和科斯米德斯（Tooby and Cosmides）常举例子：我们会被甜食吸引，这有演化上的道理。但这并不绝对决定我今晚一定吃冰淇淋——我在节食，我不想吃。我控制不了那种吸引，那是生物学给定的；或者我被某个年轻漂亮的人吸引，可我结婚了，所以不会那样做。有时我们还有互相竞争的关切：我答应过别人，可女儿出了车祸，我必须在守约和去帮女儿之间做决定。"}, {"start_sec": 1422, "speaker_id": "michael", "section_id": "s7", "type": "text", "zh": "书里一个主要论点，就是反对这种决定论倾向。要按「影响」来想：自然会在你的决策天平上按下它的手指，社会学也会按下一指，但你这个主体必须去裁决道德困境——你许过诺，可更重要的事来了；你想吃甜食，可你在节食。我们需要一个主体，在这些相互竞争的影响之间做裁决。"}, {"start_sec": 1465, "speaker_id": "tim", "section_id": "s7", "type": "text", "zh": "有意思的是，即便在含混和混乱之中，不同情境下你仍可能做出很不同的事。你提到图比和科斯米德斯，我记了笔记：你引用他们说，大脑不是通用的学习或计算装置，而是高度专门化的，像瑞士军刀。能否解释一下？"}, {"start_sec": 1490, "speaker_id": "michael", "section_id": "s7", "type": "text", "zh": "他们关注的是那些生物学信号非常强的东西，在经典表述里叫做先天模块；后来他们立场软化了一些。这些模块彼此独立，所以才叫模块：有一个择偶的计算模块，男性被女性的年轻和生育力迹象吸引，女性对男性也有相应吸引，但那是一个小模块，和觅食完全无关。觅食是另一个问题，有另一套启发式，比如寻找量最多、营养最好的东西。我并不反对这些专用模块的存在。"}, {"start_sec": 1545, "speaker_id": "michael", "section_id": "s7", "type": "text", "zh": "我反对的是他们所谓的「大规模模块性」——好像一切都是模块。一旦你有一个主体，主体就必须使用跨领域的一般过程：知觉、注意、学习、记忆。这些不是针对特定领域的模块，而是当下一般决策过程要用的东西。如果同一时刻有两个模块在竞争：一个有吸引力的性对象，一份有吸引力的食物，两个模块同时启动，我到底怎么办？动物世界里专用模块很多，松鼠藏坚果就是一例，我完全接受。但至少在通向人类的这条线上，从哺乳动物开始——鸟类走的是另一条轨道，解释也不同——它们显然是有主体性的，在做决定，并受情绪影响。"}, {"start_sec": 1628, "speaker_id": "michael", "section_id": "s7", "type": "text", "zh": "从演化上看，情绪就是自然把手指按在你决策的天平上。自然让你对蛇极度恐惧，你一看见蛇，其他目标全部放下，立刻离开。可如果有人拿枪指着你的头说不许动，你也许会让蛇从脚上爬过去，谁知道呢。情绪让你被他人吸引、对某些事物害怕、在某些情境里快乐、在某些事情发生时愤怒——这是自然影响你决策的方式。但做决定的仍然是你。"}, {"start_sec": 1670, "speaker_id": "tim", "section_id": "s7", "type": "text", "zh": "这太有意思了。我采访过马克·索尔姆斯（Mark Solms），不知你是否熟悉。他说，情感是不可预测性的感受：感受让系统能够在未预测的环境中导航，也就是管理不确定性。"}, {"start_sec": 1688, "speaker_id": "michael", "section_id": "s7", "type": "text", "zh": "这个说法很好，是个相当有意思的理论。"}, {"start_sec": 1691, "speaker_id": "tim", "section_id": "s8", "type": "text", "zh": "我想谈谈主体性与智力的区分。你在书里每次写到「智力」这个词，都加上引号。人工智能圈子里，很多人谈智力，其实也是在谈应对新奇的适应，两者似乎有关系。可你对这个词相当刻薄，觉得它远更专门、也被严重误解。你怎么区分？"}, {"start_sec": 1711, "speaker_id": "michael", "section_id": "s8", "type": "text", "zh": "我不是想跟你玩哲学，但「智力」这个概念是阿尔弗雷德·比奈（Alfred Binet）在法国实验室里造出来的：法国政府让他分辨谁该上大学、谁该去职业学校，是在高中这个层面。他研究的基本上是学校式智力：言语的、抽象的思维。后来人们做智商测验，又把智商物化成了「智力」。我对「一般智力」有一种本能的反感，所以才加上方括号式的引号——人们一说智力，常常想的就是一般智力。"}, {"start_sec": 1790, "speaker_id": "michael", "section_id": "s8", "type": "text", "zh": "可松鼠能记住的藏匿地点比我们多；许多鸟能辨别的声音大概也比我们多；黑猩猩在某些方面用工具比儿童还好，尽管儿童在别的事情上会超过它们。专门化非常多。我们从世界获得知识，再以专门方式去应用。我只是觉得，「智力」太瞄准与学校绑定的言语智力。若你更多从自然界和其他动物出发，一般智力并不是最好的构念。"}, {"start_sec": 1831, "speaker_id": "tim", "section_id": "s8", "type": "text", "zh": "或许是这样。我有时把智力想成把技能结晶化的能力：比如学开车，一开始不会，后来结晶成技能，可以自动化完成。我提起这个，是想问：会不会对主体性也能提出同样的指控——我们也在物化主体性，把它过度简化了？"}, {"start_sec": 1860, "speaker_id": "michael", "section_id": "s8", "type": "text", "zh": "有可能。但这也正是我抓住控制系统、恒温器这种模型的原因：它变得实在了，你摸得着，是一种物理机制，就是那种组织。从这里出发，我认为不存在物化的问题。而「智力」并没有同样可以指认的东西。适应、灵活，这些我都没意见；只是因为「智力」带着我刚才说的那些历史包袱，我更愿意谈认知能力，谈从体验世界和学习中获得的知识：知识、认知、规划、预见、假设检验——用认知科学的语言，而不是智力的语言。"}, {"start_sec": 1914, "speaker_id": "tim", "section_id": "s9", "type": "text", "zh": "能不能讲讲你的核心分类？你谈主体性的演化，清楚地分了四个层次。"}, {"start_sec": 1926, "speaker_id": "michael", "section_id": "s9", "type": "text", "zh": "我只谈通向人类的这条线，鸟类放在旁边。从我们数据比较好的第一批陆地脊椎动物开始。比较生物学通用的方法是用模式物种：我们并不知道最初的陆地脊椎动物是谁，但今天的一些爬行动物，被生物学家认为与早期爬行动物非常相似，我们可以拿它们做实验。必须小心，模式物种并不等于原初物种，但这条路走得通。用爬行动物作为第一批陆地脊椎动物的模型来做实验，会发现它们的组织就像控制系统：它们在做决定，但决定非常简单。我把它们看作基本控制系统。"}, {"start_sec": 1995, "speaker_id": "michael", "section_id": "s9", "type": "text", "zh": "到了哺乳动物，出现了执行控制层，一切都围绕决策过程。看树上的松鼠：它会犹豫要不要跳到那根树枝。我写书时见过一幕，可能也写进例子里了——它看上去要跳，然后又爬下去、从另一根爬上去，因为它能想象自己失败。它们在规划和假设检验，必须拥有我所说的「想象性表征」：表征当前并不存在的世界状态。它们还需要执行层来做规划、生成假设。它们的学习是贝叶斯式的，因为这时可以有假设生成和概率。所以第一层我称作基本主体性，然后是目标导向的主体性；这一层我称为意向性主体性（intentional agency）——一旦你形成意向和计划，就可以在真正付诸行动之前把它们中止。"}, {"start_sec": 2073, "speaker_id": "michael", "section_id": "s9", "type": "text", "zh": "丹尼尔·丹尼特（Daniel Dennett）好像说过类似的话：死去的是我的假设，而不是我自己。我看见了，哎呀，这条路行不通，于是我让自己免于失败。我认为哺乳动物就是这样行动的。你自家的狗整天都在这样；松鼠也是。想看极好玩的例子，去YouTube搜「squirrels outsmarting humans」、人们在后院保护喂鸟器：那些情境是新的，松鼠却在发明新策略。有人还据此给松鼠搭障碍赛。它们灵活，能创造新行为，做假设检验和规划——这些都需要执行层的组织。"}, {"start_sec": 2134, "speaker_id": "michael", "section_id": "s9", "type": "text", "zh": "个体主体性的第三层，也是最高的个体层次，是元认知的或理性的主体性。我确信大猿有，其他灵长类数据还不够。它们会做出决定，结果不会立刻发生，然后去获取更多信息，以便做出更好的决定；当问题很难、它们知道自己可能出错时，也可以退出，改做概率更高的事。这种元认知是另一层灵活性。每一层我都对应一种生态压力：爬行动物大多独居，不可预测性主要来自猎物，它们多半捕食昆虫和小动物；哺乳动物突然要和群内成员竞争，因为它们群居，想得到食物就必须比同伴更快、更好地决策，否则会死；大猿则有大量对抗性竞争，必须智胜对方。多数哺乳动物更多是抢先式的争抢——谁先到谁得到；大猿则经常要互相斗智。"}, {"start_sec": 2195, "speaker_id": "michael", "section_id": "s10", "type": "text", "zh": "你刚才说四个层次。第四层稍稍偏在旁边，而这正是我职业生涯大部分时间的焦点——主体性这条线是更晚近的工作。我一生大部分研究都在问：人类与其他大猿的差别，在于我们能组成共享主体（shared agents）。我知道人工智能里有各种集体主体，有时叫「主体社会」之类，但它们多半只是彼此反应。共享主体则是：我们把头脑凑在一起，有一个共享目标，你有你的角色、我有我的角色，彼此都知道；角色还有标准——要成功，你必须以这种方式履行角色，我也必须以这种方式履行，双方都清楚。"}, {"start_sec": 2277, "speaker_id": "michael", "section_id": "s10", "type": "text", "zh": "如果你没有把角色做好，我会说：嘿，你在干什么？你那边做错，我们会一起失败。于是出现一种自我调节机制，只不过这次是社会性的，是我们共同的承诺。我们系里有一位博士后程少哲（Shaozhe Cheng），很快会去英国，他正在用共同承诺来建模这种共享主体。在认知上，这意味着我们有联合注意（joint attention）：我们作为联合主体，合作追求某个目标。要做得有效，就必须共同注意沿途可能的障碍或机会，并且双方都知道对方看见了，才能形成统一策略。"}, {"start_sec": 2320, "speaker_id": "michael", "section_id": "s10", "type": "text", "zh": "我研究幼儿的联合注意已经很久。它带来「视角」这个概念：我们看见的是同一事物，但我这样看、你那样看。人类认知里最有力的独特之处之一，就是同一对象可以从不同角度被看待——同一对象可以是一只狗、一种动物、或一个宠物。我们觉得这理所当然，会说「那要看你怎么看」。可其他生物没有这个：它们看见什么就是什么，不能灵活切换视角。我来自乔治·赫伯特·米德（George Herbert Mead）这类实用主义者、哲学家唐纳德·戴维森（Donald Davidson）的传统，认为这全是社会性的。我二十多年来最爱举的例子是：一个在荒岛上长大的孩子，不会获得「视角」这个概念，因为他四处看世界，身边并没有一种同时存在的、对照性的看方式。"}, {"start_sec": 2400, "speaker_id": "michael", "section_id": "s10", "type": "text", "zh": "所以人类有一种独特的社会性，其基础是联合主体；而真正的助推火箭是我们称为文化的集体主体。你生在一种文化里，它给你惯例，比如语言惯例，以及关于你应当如何行事、如何思考的规范，教育就是在教这些。乔姆斯基说的那一套，从学校就开始了：他们在教你应当怎样思考，告诉你这是更好的思维方式。我们生入文化，那是带有惯例、规范、制度的集体主体。它们既像乔姆斯基强调的那样在约束你，也在赋能你：当你获得自己不必发明的语言、社会规范和惯例——只要你有能力学会——你就可以用语言写诗，做新的事情。"}, {"start_sec": 2479, "speaker_id": "michael", "section_id": "s10", "type": "text", "zh": "这最后一种主体性稍稍偏在旁边，不是简单再上一层，而是一个新版本：共享主体。我个人相信它为人类所独有。其他生物也会彼此合作，但我们做了大量实验，比较黑猩猩和人类儿童：儿童分享合作成果的方式不同；黑猩猩在对方没把角色扮演好时不会纠正对方；孩子们合作时，若其中一人先拿到奖赏，仍会继续合作直到另一个也拿到；黑猩猩一拿到自己的奖赏就结束了。这些都是可观察的经验事实。我认为，人类的共享主体——包括个体之间的协作，以及作为文化群体成员的文化——正是人之为人的差别所在。"}, {"start_sec": 2537, "speaker_id": "michael", "section_id": "s10", "type": "text", "zh": "再说一点我对大语言模型的看法。我每天都在用，是了不起的工具。可人类不仅使用语言，还创造了语言。我们有儿童研究：不让他们互相说话，让他们通过视频监视器交流——那还是Skype而不是Zoom的年代，孩子们知道用Skype跟爷爷奶奶讲话。然后我们说：声音没了，你们得用手势。于是他们发明新的手势，并把它们惯例化，彼此开始用同一个，再相互调整。我们创造语言惯例。世界上有六千种不同的语言。据我所知，大语言模型并不创造语言惯例，也没有围绕话题的话语往来。我在等这一天。我认为，共享主体性和共享意向性，是创造并使用语言惯例的基础设施。也许可以跳过这一步；但我觉得，更可能的是：从这些步骤开始，再把语言放上去，我们才会得到更有用、也更像人的机器。"}, {"start_sec": 2635, "speaker_id": "tim", "section_id": "s11", "type": "text", "zh": "这绝对精彩。达芬奇说过，自由来自约束，我觉得这话很漂亮。回过头来：你谈认知演化时，想象、模拟、删除策略、做认知觅食，这些都让人着迷。但我最感兴趣的是最后一步，共享主体，以及目标从何而来。你说到，眼下的人工智能还不会这种建设性的、创造出惯例的「语言主体性」。可也许将来会。演化里有身体的演化，有个体发育中学习的积累，还有文化中学习的积累，层级越高速度越快。当人工智能主体能彼此交谈、创造惯例时，会不会也能做到？你觉得，人工智能有没有可能像我们一样在社会上具有建设性？"}, {"start_sec": 2704, "speaker_id": "michael", "section_id": "s11", "type": "text", "zh": "所以我才提到博士后程少哲正在做这类工作。在这本讲主体性的书之前，我那些理论著作谈的是共享主体。从演化上看，最初的生态挑战很可能是协调问题。你若熟悉博弈论，托马斯·谢林（Thomas Schelling）的协调问题需要一种特别的逻辑，不只是聪明：是在对方也在采你视角的同时，去采对方的视角。「猎鹿」（stag hunt）就是经典协调问题：我们各自有自己较低水平的觅食资源，这时来了更大更好的猎物，但必须两个人一起才能抓住。我不知道你会不会去；我只想在你也去的时候去，否则就是徒劳。你也只想在我也去的时候去。于是变成：我只在你去时去，你只在我去时去，像阿伯特和科斯特洛（Abbott and Costello）过门，你先请、不你先请。"}, {"start_sec": 2783, "speaker_id": "michael", "section_id": "s11", "type": "text", "zh": "所以我认为，演化上的起点并不是语言，而是把心智合在一起，去解决这类必须各自履行角色、并且对此有共同知识的协调问题。哲学家大卫·刘易斯（David Lewis）有一本书就叫《惯例》（Convention），他的论点是：惯例是一种协调装置。语言惯例是人类创造出来、帮助彼此协调活动的。我从不会做原则上的论证，说我们绝不能跳过这种思维方式、直接进入语言，也许可以。但与此同时，在有人专攻成熟成人语言的时候，也该有人自下而上地问：把头脑凑在一起是什么样，把惯例创造成协调装置是什么样；有了这层基础设施，再往上叠加语言技能。"}, {"start_sec": 2826, "speaker_id": "tim", "section_id": "s11", "type": "text", "zh": "能不能再展开一点这种视角主义？你描绘的图景是：复杂认知能力可以在集体中被分解。我们谈了主体性，我也喜欢这个想法：即便是认知、表征、知识本身，也需要分解，因为我直觉它很路径依赖。我们对大象有不同视角；由不同视角组成一个集体，似乎严格地优于一个非常聪明的主体单干。"}, {"start_sec": 2867, "speaker_id": "michael", "section_id": "s11", "type": "text", "zh": "哲学家唐纳德·戴维森基本上是在说：与另一个人的这种交锋，才让「你可能是错的」成为可能，而且这经常发生。科学里也一样：我以为自己对，别人指出另一件事，我只好说「哎呀」。如果只有你自己，你当然也能从错误中学习，但从错误中学习，并不完全等于以另一种方式去看——那种你能采他人视角才会有的看。这一点被低估了。很久以前我和人工智能研究者聊过，在这一波现代浪潮之前，他们会说：视角？那很简单，我们给「动物」建一个节点，给「宠物」一个，给「狗」一个，没问题。可在自然世界里，你只有一次知觉：眼前这个东西，我可以把它看成一只狗、一种动物、或一个宠物。"}, {"start_sec": 2948, "speaker_id": "michael", "section_id": "s11", "type": "text", "zh": "我会说，这是社会性的。在语言里，我为什么能把它叫做狗、动物、宠物，或者它、她？何时用哪个词？因为我在为听者和语境做调整：某种语境里，唯一重要的是「这里不许带动物」；另一种是「我想要一个宠物，该选哪种？你该选一只狗」；再一种是「我有没有人做伴？该不该养宠物？」取决于共同基础和对话对方的视角，我们必须以不同方式来构想事物。我认为这是语言交流被低估的一面：它在核心处就是视角性的。"}, {"start_sec": 3012, "speaker_id": "michael", "section_id": "s11", "type": "text", "zh": "一谈语法，计算主义者就想谈组合可能性。多数人觉得语法很闷，我尽量说短。可你看最精巧的语法结构，比如英语里的分裂句（cleft construction）：「打破窗户的是弗雷德」（It was Fred that broke the window）。这句很奇怪，为什么不直接说「弗雷德打破了窗户」？因为你以为是别人打破的，我要纠正你：是弗雷德，不是玛丽，打破窗户的是弗雷德。这个结构的起源，就在交际情境里：我相信你有一个错误印象，我要纠正它。这是一个视角问题。不只语词是惯例，语法结构也是我们创造出来、用以某种方式看待事物的惯例。「狗在追猫」和「猫被狗追」——主动与被动，来自狗的视角或猫的视角。我们觉得这轻松得不值一提，可这一切都是在采他人的视角。我想强调的是：我们使用的语言，依赖于这些更根本的能力。"}, {"start_sec": 3113, "speaker_id": "michael", "section_id": "s11", "type": "text", "zh": "大语言模型让我吃惊的一点是：它们在这件事上似乎比我预想的好得多。文本材料里有句子之间的连接、逻辑关系、视角转换。我最近在一次人工智能工作坊问：假如你把互联网上的所有东西拆成一句一句，再把顺序完全打乱，不再有连贯的文本，没有因果、逻辑或话语上的连贯，只剩一堆随机句子，用这样的材料训出来的大语言模型会是什么样？当然没人知道，但共识是：会相当糟糕。它们能做出许多「聪明」的事，原因之一就是话语里固有的逻辑——一句连着下一句。而这一切，都是语言建立在与他人拥有共同视角、同时又有不同视角的能力之上。"}, {"start_sec": 3196, "speaker_id": "tim", "section_id": "s11", "type": "text", "zh": "有意思的是，乔姆斯基常说他不喜欢大语言模型，因为它们能学会「不可能的语言」：你哪怕把所有词都打乱，模型也能学，只是对我们来说是垃圾。可大语言模型做不到的是：真正好的作者会做有主体性的叙事，从「我」的经验、目标、冲突、阻止我实现目标的事物来写。大语言模型并不真正这样做。"}, {"start_sec": 3233, "speaker_id": "michael", "section_id": "s11", "type": "text", "zh": "我想是这样，而这正是我所说的基础设施。我有一本关于语言演化的书，就把这些当作基础设施。比如，也许这样比较对语言模型不公平，但儿童在学会说话之前，先学会用指向手势。我几乎专门写过一本关于指向的书。我朝那边一指，如果没上下文，你会说：什么？可在恰当的情境里，我的指向可以意味任何东西：那就是我们需要的东西；那是你妹妹；图书馆开门了。我的食指可以表示任何事，因为我们处在共享情境里，彼此知道对方在想什么，并能采对方的视角。指向手势的一种概括是：你朝那边看，就会明白我的意思。你怎么明白？因为我们正以某种共同方式思考，并采彼此的视角。说大语言模型不能解释指向手势，并不完全公平；但我相信，单凭别人向你指出某物、你就知道他在说什么，这是通向语言的基础设施的一部分。我把某物举起给你看，也是有理由的。"}, {"start_sec": 3312, "speaker_id": "michael", "section_id": "s11", "type": "text", "zh": "也许这层基础设施可以被跳过；如果你要的只是像现在的大语言模型这样有用的工具，当然可以跳过。但如果你想让它们有主体性，我认为你需要这层基础设施。方法论上的处方就是：试着自下而上地建造，从动物如何协调、如何采视角、如何以更简单的方式交流开始，然后再建立惯例。"}, {"start_sec": 3353, "speaker_id": "tim", "section_id": "s12", "type": "text", "zh": "太精彩了。我们前面谈认知演化，一种说法是它在不断远离物理、走向虚拟化：先是能够想象和模拟，后来形成社会性的主体，能够协调、提出目标。越虚拟化，就越像在传播和存储信息——文化就像天上那个神奇的硬盘。我明天死去，这个播客也许还能由别人接手而继续存在。这种虚拟化有没有陷阱或退化的一面？我知道你也研究过共谋，以及这些集体主体里发生的坏事。"}, {"start_sec": 3388, "speaker_id": "michael", "section_id": "s12", "type": "text", "zh": "在谈坏事之前，关于虚拟化还有另一层。你读过赫拉利（Yuval Noah Harari）那本关于智人的书吗？"}, {"start_sec": 3400, "speaker_id": "tim", "section_id": "s12", "type": "text", "zh": "读过，很多年前。"}, {"start_sec": 3404, "speaker_id": "michael", "section_id": "s12", "type": "text", "zh": "他想指出的虚拟化是：我们活在一个想象的世界里，美元或英镑、总统、首相，这些东西只因为我们同意它们存在才存在。有一天第二次世界大战发生，或者我去过东德，东德马克曾经是钱，后来有一天就不再是钱，只是纸片。文化中的这种虚拟化，来自我们创造哲学家约翰·塞尔（John Searle）所说的地位功能（status functions）：我们把一个人变成总统，把一张纸变成货币。赫拉利认为，世界上最强大的力量之一就是公司——苹果公司是什么，Meta是什么？他称之为虚构：公司是被编造出来的、在法律上被视为个体的虚构个体，尽管显然不是直接意义上的个体。文化最擅长、也最有力量的事情之一，就是创造新的实体。塞尔在这一点上很强硬：唐纳德·特朗普是美国总统，这是关于世界的一个事实，尽管是令人遗憾的事实；它是相对于人类的事实，只因为人类创造了「总统」这个概念才存在，但它仍然是关于世界的事实。公司也许是虚构，却是当今地球上最有力量的事物。"}, {"start_sec": 3511, "speaker_id": "michael", "section_id": "s12", "type": "text", "zh": "现在回到你的问题：这种虚构有没有坏的一面？有。我女儿刚在高中读乔治·奥威尔（George Orwell），我想起其中一些段落。唐纳德·特朗普极擅长用某些手法制造替代现实：把事情重复得足够多次。他总说「我听说他们都在说……」，这正好扣住我们的天性——我们想知道别人都在怎样想；然后我们会觉得，哦，我们文化里的每个人都这样想，那大概就是好的想法。他试图让人觉得人人都这样想，一遍遍重复也是同一套。这些都是在收编自然系统。谎言之所以有效，是因为我们是合作的。黑猩猩不对彼此说谎，因为它们根本不会认为你在对自己没好处的时候还会说真话。说谎有效，是因为我们都很轻信：除非对方有别的动机，我们都预期人人都会合作。如果我告诉你外面在下雨，你绝不会想到我在撒谎——我没有任何别的动机。说谎有效，是因为我们普遍的合作本性；政客们能做成那些事，也是因为我们普遍预期人们会合作。是的，它可以被用于邪恶的目的。"}, {"start_sec": 3609, "speaker_id": "michael", "section_id": "s12", "type": "text", "zh": "常有人对我说：你讲人类多么合作，组成共享的、集体的主体，可世界上那么多冲突怎么办？几乎所有冲突都是「他们在攻击我们」，是我们对他们。人类这种集体意向性或集体主体性，指向的是「我们的群体」。在现代世界里，我们必须找到办法，面对不同群体彼此依存、住在同一地方这一事实。合作的阴暗面在于：我们的演化史，是和长得像我们、说话像我们、吃同样的食物、穿同样衣服的人住在一个群体里——那才是我们所适应的「我们」；河对岸的那些「我们」，长得奇怪、说话奇怪、吃些恶心的东西。不是我恨他们，是我对他们没把握。可自从农业、城市和大量迁徙以来的现代世界，是另一个世界。但愿我们的共享主体性和共享意向性，能在我们把自己炸毁之前，适应这个新世界。"}, {"start_sec": 3688, "speaker_id": "tim", "section_id": "s12", "type": "text", "zh": "这些集体主体在多大程度上是一种趋同或自然现象？很多人把市场说成某种超级有机体。"}, {"start_sec": 3700, "speaker_id": "michael", "section_id": "s12", "type": "text", "zh": "我不太喜欢把无生命的事物说成主体。你可以说资本倾向于流向这里或那里，但我会说，是资本家在决定它流向哪里。还有一些社会学层面的现象，比如「看不见的手」，以及同类的集体行动问题。集体行动问题里，没有人打算要那个坏结果，但人人都有意向：每个人都想尽快回家，结果造成了交通堵塞。没有人打算要堵塞，它是涌现现象，却从个体的意向性行动中涌现。「看不见的手」据说是：价格被固定在某种最大化的水平上，因为个体买家尽量用最低价格买到最好的价值，卖家则相反。"}, {"start_sec": 3748, "speaker_id": "michael", "section_id": "s12", "type": "text", "zh": "这些涌现现象有时被称为「第三类现象」，社会学差不多从这里开始：它们不是由个体主体做决定直接造成的，而是涌现出来的。通货膨胀，没有人打算要它，却是人们意向性决策的产物；没有人打算要股市崩盘，它也是人们意向性决策的结果。这类负面事情，是政策制定者和政治家需要意识到的，也需要看清它们与个体决策的关联。比如对股市崩盘，可以有关于冒险的政策去缓解；若有更严格的交通法规，也许能改变堵塞——具体是什么我不知道。政治家和政策制定者需要看见这些模式，看见它们与个体决策的联系，并制定规则或法律来调节个体决策，使这些不幸的事不要发生。"}, {"start_sec": 3831, "speaker_id": "tim", "section_id": "s12", "type": "text", "zh": "我想很多，是因为你把市场说成附生于理性的、有意向的主体之上。我个人的直觉是：最好的分析透镜是把这整个东西本身当作一个主体，而不是一堆个体理性主体的集合。你主张往下一层看而不是往上一层看，理由是什么？"}, {"start_sec": 3868, "speaker_id": "michael", "section_id": "s12", "type": "text", "zh": "你说这是一种有用的谈论方式，那没问题。如果你说它「是」一个主体，我就有点紧张。但如果你清楚这一点，我觉得可以。可是：资本有目标吗？资本在达不到目标时会做出调整吗？我不太确定。也许只因为我是心理学家，那是社会学层面的分析，对我来说不同。作为一种谈论方式，完全没问题；但我不确定自己愿意在实在的意义上真的把它当成一个主体。"}, {"start_sec": 3908, "speaker_id": "tim", "section_id": "s12", "type": "text", "zh": "太好了。最后一个问题：一个系统有没有可能表现得好像有主体性，实际上却没有？"}, {"start_sec": 3918, "speaker_id": "michael", "section_id": "s12", "type": "text", "zh": "那就是丹尼尔·丹尼特所说的意向立场（intentional stance）。是啊，我也不知道。这下要进入形而上学了。我会说：如果它走起路来像鸭子、叫起来像鸭子，那它就是鸭子。如果我们造出一样东西，真正具备所有这些品质——顺便说，图灵测试远远不够，连勉强够都谈不上——但如果有一台机器真能在这些方面都模仿得很好，那我大概会觉得它是某种主体。你可以说，它不是人类主体。我不知道。我听过哲学家内德·布洛克（Ned Block）的一场演讲，标题好像是「肉重要吗？」——肉，指的是血肉、大脑、激素。这些真的重要吗？因为按我们现在这条路走下去，它们不会拥有我们这种情绪、激素和神经元。这重要吗？我只能说，当时房间里没有共识，我也没有什么高明的见解。"}, {"start_sec": 3990, "speaker_id": "tim", "section_id": "s12", "type": "text", "zh": "太精彩了。迈克尔·托马塞洛教授，能请到你是莫大的荣幸，非常感谢。"}, {"start_sec": 3992, "speaker_id": "michael", "section_id": "s12", "type": "text", "zh": "谢谢你，蒂姆。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

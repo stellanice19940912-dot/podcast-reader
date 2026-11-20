@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>软件工厂与代码评审｜哈乔特·吉尔谈 Code Rabbit</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="gergely">格尔盖伊·奥罗斯（Gergely Orosz）</option><option value="harjot">哈乔特·吉尔（Harjot Gill）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">The Pragmatic Engineer</span><span class="pill">2026-11-18T18:03:02+00:00</span></div>
+<h1>软件工厂与代码评审｜哈乔特·吉尔谈 Code Rabbit</h1>
+<p class="sub">嘉宾：哈乔特·吉尔（Harjot Gill） · 约 88 分钟（5252 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=4Cjb7691GJ8" target="_blank" rel="noopener">https://www.youtube.com/watch?v=4Cjb7691GJ8</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>The Pragmatic Engineer</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-18T18:03:02+00:00</dd></div><div class="meta-row"><dt>时长</dt><dd>约 88 分钟（5252 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>yt-dlp-auto</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>4Cjb7691GJ8</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>《务实工程师》对谈人工智能代码评审创业公司 Code Rabbit 首席执行官哈乔特·吉尔。他写了三十年代码，这是第三家创业公司，却从未像现在这样大量交付：单月合并约 5000 个拉取请求，个人人工智能花费大约每月 25 万到 27.5 万美元。他提出几个刺耳观点：人类代码评审已经死了，但人类仍要评审发布；工程师若造成太多回归，会被拿走「驾照」、暂时失去直接上生产的权利；在竞争激烈的领域，800 万美元种子轮可能已经不够支撑软件工厂。主持并不完全同意通宵打断睡眠去给智能体发提示，也不认为所有创业公司都该这样烧钱，但觉得「驾照」这个做法很值得借鉴。</p>
+<h3>核心要点</h3><ul><li>他的拉取请求量在 7 月从大约最多 100 到 200 个跃升到超过 1000 个，后来单月超过 5000；公司周提交也从 7 月大约 300 到 500 个，升到超过 5000。多数请求其实是在修持续集成、不稳定测试和缓存，做「清洁」和爬坡，而不是堆功能。</li><li>招聘标准之一是：过去 30 天里有品味地交付至少 1000 个拉取请求，或至少玩过 500 小时《文明》《异星工厂》这类模拟策略游戏。</li><li>约 40 人的工程团队，正在给自己做过去脸书、网飞用成千上万工程师才需要的渐进发布、合并队列和在生产中测试。Slack 机器人产品用 TLA+ 建模，并投入确定性模拟和 Lean 定理。</li><li>他把工作分成「陶轮」和「工厂」：在 Codex 里大约 20 个对话，其中一两个是逐条打磨界面，大约 18 个是工厂式、让智能体自己跑的任务。有的拉取请求成本大约 150 美元，有的可能到几千美元。</li><li>人类代码评审在他看来已经死了，评审的对象变成每一次发布；符合条件的实习生也可以直接上生产。回归会被追溯到引入它的请求，暴露时间过长、警告够多，就会被拿走驾照，经过带人工评审的考察期再放行。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看，尤其若你在做开发工具或正在把智能体引进交付流程。这是一档密度很高、带具体数字和做法的长访谈，不是空谈「全押人工智能」。主持收尾时的保留也很重要：通宵打断睡眠去喂智能体，以及「所有创业公司都该每月烧掉数十万美元」，他并不推荐照搬。开头有一段 Turbo Buffer 赞助，已标灰。自动字幕把姓名听成 Harjit / Cold Rabbit，已按公开资料订正为 Harjot Gill 与 Code Rabbit；说话人按轮次启发式标注，中等偏高把握。</p>
+<h3>适合人群</h3><p>关心人工智能如何改变代码评审、持续交付和创业公司成本结构，或想听一套已经跑在约 40 人团队里的「软件工厂」做法的工程师和创始人。</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">一个月 5000 个拉取请求，以及每月 25 万美元的个人账单</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">开场就抛出数字：哈乔特一个人的人工智能花费大约每月 25 万到 27.5 万美元。人类一天能做的决策，可以驱动数百万美元的支出。他的热门判断是：以前写「烂代码」的是人，不是人工智能；只要能对照某种标准做验证，人工智能现在写的烂代码更少，速度上去之后缺陷不是更多而是更少。招聘有两条门槛：过去 30 天里有品味地交付至少 1000 个拉取请求，或至少玩过 500 小时《文明》《异星工厂》这类模拟策略游戏——在策略游戏里长大的人，现在跟这些智能体合作会更成功。作为 Code Rabbit 首席执行官，他单月合并约 5000 个拉取请求。写了三十年代码，这是第三家创业公司，却从未像现在这样大量交付。本期还会谈到「人类代码评审已死」、工程师的「驾照」，以及「800 万美元种子轮已经不够」这个他并不完全同意的观点。拐点出现在最近三到四个月，大约在 Codex 等模型开始能做可上生产的真实工作之后。7 月之前他大约最多 100 到 200 个请求，7 月超过 1000，再往后到 5000。这种规模下什么都会坏，作为领导者，他大量请求是在修交付流程里的瓶颈：持续集成、不稳定测试、缓存这类清洁和爬坡工作，真正逐条打磨界面的战术功能一天也许只有一两个。他认为这个数字大概还能再高十倍，远没到智能体能力的顶峰。团队很多人用 Opus 5.5 配 Claude Code，他本人爱用 Codex 桌面应用，用了三十年 NeoVim 之后，几乎不再进编辑器。真正在做的是让尽可能多的智能体保持忙碌。他睡眠很少，因为若知道该造什么，压缩时间里能创造的价值非常惊人。这些请求不是无聊的垃圾请求。通勤时他住在东湾，过海湾大桥上班，特斯拉完全自动驾驶大约占百分之九十七；现在只要隔几分钟看路即可，于是把笔记本上的 Codex 会话打开，开车时发指令。用他的话说：一个人工智能在开车，另一个人工智能在开公司，而他在掌舵。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">从 Kubernetes 服务网格，到发现代码评审会成为瓶颈</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">交付加快后，生意的每个部分都得按智能体的速度走。市场和营销成了瓶颈，于是他把营销基础也改造成智能体化，单独建了仓库。他们有数百万美元的谷歌广告花费，用一个循环看广告表现，由智能体提出文案和关键词改动，再开出拉取请求；合并后就部署到谷歌广告，一切都写在代码里。哈乔特在宾夕法尼亚大学读博士，目标就是把想法孵化出来商业化，并做了技术转化。第一家创业公司赶上微服务和 Kubernetes 兴起，做可观测性，避免应用在黑色星期五高峰里级联崩溃。当时市场对 Kubernetes 服务网格胃口很大，接着生成式人工智能来了。2021 年在 Flux Ninja，他们用过自动补全的「老前辈」Tabnine，接触 GitHub Copilot 是顿悟时刻，而且他认为还在 ChatGPT 出现之前。团队本来就快，代码评审已经是瓶颈，有人在做堆叠的拉取请求，他们自研并开源了名为 SPR 的工具，但在 Copilot 之后代码量继续涨，仍不理想。他当时作为一线写代码的领导者就判断：人工智能将写下大部分代码。创办 Code Rabbit 时，他们清楚评审会成为瓶颈，但按 Snyk 等 GitHub 生态公司的市值来估，仍偏保守；没想到市场要大得多，连传统不会买这类工具的人，包括许多个人用户，也排队来买人工智能代码评审，尽管他们并不面向个人销售。对作为创业者的他来说，写代码是手段，重要的是多快能把想法拿出来验证。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">40 人的团队，为什么也需要脸书那套发布工厂</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">要让智能体在写软件的近处验证自己的工作，他们做了大量形式化方法。大约八个月前做 Slack 机器人产品时，先用 TLA+ 建模这个分布式系统，再实现，并大量投入模拟。代码评审只是对外销售的一块，背后还有大约一百件必须做的事。他们投资本地确定性模拟，最近也开始用 Lean 定理，甚至用在计费服务这类希望尽可能正确的软件上。发布被看成《文明》里的回合：每次发布都是智能体从环境里学习的机会。功能常在特性开关下做渐进放量，比如先给百分之十的开源用户，智能体观察性能和日志，稳定后再扩大。格尔盖伊指出，这种自动、分阶段放量，过去主要是脸书在数十亿用户上砸重金做出来的，离开那种体量很难、也很贵，人工智能之前还得上机器学习。Code Rabbit 大约 40 名工程师，脸书大约 7.5 万人，可他们已经给自己做成了。哈乔特的看法是：过去网飞、脸书用成千上万工程师，从合并队列到在生产中测试所需的那套工具，现在 30 到 40 人的小团队，只要正确使用智能体、有正确的抽象和「软件工厂」，就会交付得像脸书那样多，因而也需要同样精密的风险控制、持续集成和缓存。对曾在脸书经历过那套发布的人来说，这是把产品做出来卖给更多团队的黄金机会。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">陶轮与工厂：人类代码评审已死，但人类仍要评审发布</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">「软件工厂」对他意味着两种用法。一种像陶轮：打开浏览器做标注，在与 Claude Code 或 Codex 的交互里一锤一锤塑造软件，尤其是界面；人一天的决策容量大概只能认真做一两个这样的战术对话。他在 Codex 里通常开着大约 20 个对话，其中两个是这种，大约 18 个更像工厂：他知道可以让智能体自己跑。聊天界面适合一锤一锤地塑造，却不是规模化调度智能体舰队的正确界面。清洁和维护工厂的工作，本该在云端沙箱里跑，不该由他在凌晨三点醒来，而应像工厂的早晚班；他们在班加罗尔有团队，可以跟随太阳。有时他们看每个拉取请求的价格，他的大约 150 美元，有的人可能到几千美元，那时就要问：他们到底在做你的工作，还是别人的工作。作为领导者，只要能看见价值，他就愿意花钱：比如 Slack 里的机器人在 Code Rabbit 响应所有 Datadog 告警时，价值很清楚。那么代码评审死了吗？格尔盖伊看到许多仍在做人类评审的团队更像走过场，「LGTM」却不再认真读、不再留言，优步等公司也在改流程，因为请求实在太多。哈乔特说：人类代码评审已经死了，但人类评审没有死，某种评审仍然必须发生。设计师等非工程师也开始写代码，Datadog 一类的后台智能体看到告警就会自己开请求。规划层和评审门仍要存在，并落在拉取请求上。他们对模式变化等做风险管理，有的请求走快速通道上生产，甚至让实习生直接上生产。人类仍然评审更高阶的抽象。为了 SOC 2，他们对「变更」的定义变成了一次发布：在 Slack 里看每个请求的风险指标，决定放行还是回滚。人类评审的是发布，不再是一条条请求。承担这件事的仍是软件工程师：他们不必再盯代码本身，但要理解每次发布在承担什么风险。大型表迁移这类会在生产里出事的变更，仍需要把部落知识带进来。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">工程师的驾照，以及用 TLA+ 先建模再写代码</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">驾驶智能体几乎像考驾照。他们让开发者对交付承担责任：有评审豁免名单，也有必须经过人类评审的分组，依据经验和过往表现。他们会看生产里回归存在了多久，并在修复时把问题追溯到引入它的请求。若有人不负责任，比如硬提示、没有把变更跟到生产，暴露时间有时会到 100 小时，要等客户指出来才发现没有做好质量保证。警告够多，就拿走驾照，让你重新走代码评审，经过一段带人工评审的考察期，再允许自行发布。他们想建立的文化是：开发者有责任不把这些智能体开下悬崖。格尔盖伊喜欢这个比喻，因为他觉得整个行业的质量都在下滑。回到产品，代码评审是少数「专用套件」仍然非常适用的场景：需要兼顾广度和深度、需要好的召回和精确率，而法律、财务等工作正被通用的 Claude Code 吃掉。他们有智能体一直在看开源数据，用来微调套件。形式化方法从大约二三月做 Slack 机器人时开始，那个产品有队列、可操纵的消息、关闭沙箱和预热空闲等复杂状态机。TLA+ 不擅长纯算法，却很适合消息、行动者和交互。当时 Codex 5.3 还没有现在的 Astra 那么强，先建模、确保状态机正确再写代码，才让它成功；上了 TLA+ 之后，确实找出了当初忽略的竞态。模拟也有帮助，他们做了整套可模糊、可尝试不同交错的模拟套件。公司周提交同样在 8 月出现拐点：7 月大约不到 1000，可能只有 300 到 500，后来超过 5000。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">800 万美元还够不够，以及主持并不想照搬的那些部分</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">格尔盖伊提到，哈乔特曾转发一位创始工程师的分享：对方为做一款大型多人游戏，云支出一年高达 3200 万美元。哈乔特评论说，在 Code Rabbit 和其他地方看到类似轨迹：即便超过 800 万美元的大型种子轮，也可能不再够用来建造软件业务、软件工厂、高质量 token，以及大规模运行持续集成、沙箱和其他基础设施。到了这个地步，有的更小创业公司存在的意义，只是把想法输送给拥有更多 token 的更大创业公司。他说，在推特上很难讲清细微之处，但若你做的是超高速增长、风险资本支持、又处在竞争激烈赛道上的生意，现在可能需要更多资本，因为瓶颈已经变了。以前主要是为人才付钱，去找来自网飞、谷歌、脸书的工程师；现在还要为工厂本身付钱。主持收尾时说，很少和如此「全押人工智能」的人谈过。听到单人单月大约 20 万美元的账单，他一开始就怀疑，谈完后也仍然怀疑。他不同意、也不推荐半夜起来给智能体发提示、把睡眠让路给「别让智能体堵住」；若真想全天候跑，他宁可把更长的学习任务放到云上，也不认为这是一场让笔记本利用率永远百分之一百的比赛。他理解，当一家约 40 人的公司像 Code Rabbit 这样每月烧掉大量人工智能费用时，资金会很快见底；在开发工具里，为了极快做出自定义持续集成这类产品，这样花也许说得通。但在卖人工智能开发工具之外的创业公司，他看不出只为比对手稍快一点上市，就该大规模砸钱。他确实看到这个市场有多卷：不只是 Code Rabbit 的 40 人工程团队在推新产品，Ramp、Shopify、各家人工智能实验室和大公司都在抢同一块。在这种背景下，速度对小创业公司很重要，花钱换更快构建，有时说得通。他真正喜欢的，是工程师若造成太多回归就被拿走驾照：不管人工智能成不成功，这都能逼人更在乎可靠性和交付质量。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">格尔盖伊·奥罗斯（Gergely Orosz）<em>主持</em></span><span class="spk-1">哈乔特·吉尔（Harjot Gill）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>一个月 5000 个拉取请求，以及每月 25 万美元的个人账单</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="harjot"><div class="label"><span class="badge" title="哈乔特·吉尔（Harjot Gill）">哈乔特</span></div><div class="content">
+<p>我一个人的人工智能花费，大约每月 25 万，大概 27.5 万美元那种。格尔盖伊说这数字让人震惊。哈乔特说，就是他一个人。人类一天能做的决策更多，可以驱动数百万美元的支出。这也许是热门判断：以前写「烂代码」的是人，不是人工智能。他越来越意识到，只要能对照某种标准做验证，人工智能现在写的烂代码其实更少。过去多数团队在没有验证时，就会把低质量的东西送出去。他们看到的是：速度上去之后，缺陷不是更多，而是更少。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">格尔盖伊</span></div><div class="content">
+<p>他们在招人，申请者必须满足两条标准之一：过去 30 天里有品味地交付至少 1000 个拉取请求，或至少玩过 500 小时《文明》《异星工厂》这类模拟策略游戏。若一个人是玩策略游戏长大的，哈乔特认为现在跟这些智能体合作会非常成功。当一家创业公司的首席执行官因为全押人工智能智能体和软件工厂，单月合并 5000 个拉取请求，看起来会是什么样？这位首席执行官是哈乔特·吉尔，领导人工智能代码评审创业公司 Code Rabbit。他写了三十年代码，这是第三家创业公司，却从未像现在这样大量交付。今天会谈到：为什么他说人类代码评审已经死了，但人工智能代码评审比以往更重要；工程师的「驾照」，也就是交付太多漏洞就会失去上生产的权利；以及那个刺耳观点——800 万美元种子轮已经不够支撑一家软件创业公司，而格尔盖伊会反驳。若你想看一位真正「全押人工智能」、又极度亲自动手的创始人兼工程师如何运作，这期就是为你准备的。格尔盖伊说自己远没有哈乔特那么「全押」，但理解他的想法、以及他对竞争空前激烈的开发工具行业的看法，仍然很有启发。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告]</span></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">格尔盖伊</span></div><div class="content">
+<p>欢迎哈乔特。上个月的拉取请求超过 5000 个，这是怎么做到的？在这个时点，机器几乎在建造机器，他说自己现在主要是让智能体保持忙碌。这些请求都在做什么？他作为首席执行官，不是还要把大量时间花在经营公司、协调和救火上吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="harjot"><div class="label"><span class="badge" title="哈乔特·吉尔（Harjot Gill）">哈乔特</span></div><div class="content">
+<p>这一切大约从模型真正能做可上生产的真实工作开始，Codex 是他看到的一个拐点。公司大概两年了，生成式人工智能也走了一段时间，但最近三到四个月是一次大的拐点。格尔盖伊也在图上看到：到 7 月之前大约最多 100 到 200 个，7 月超过 1000 个。那种规模下什么都会坏。作为领导者，他一直在做的一件关键事，就是怎样让团队更有效率，大量拉取请求是在修交付流程里的瓶颈。当然也会做一两个战术功能，用一条条消息驱动智能体去打磨界面；但代码量的大头，说出来也许难以置信，其实是清洁工作：修持续集成、不稳定测试，或修分布式系统、修缓存。这些爬坡就是这些请求在做的事。现在还很不最优，这个数字大概还能再高十倍，他们甚至还没碰到这些智能体能做的顶峰。7 月、8 月真正拉开的，两边模型供应商的能力几乎齐头并进。团队很多人用 Opus 5.5 配 Claude Code，他本人一直是 Codex 的粉丝，尤其爱用 Codex 桌面应用。写了三十年代码，做过三家创业公司，多数时候还戴着首席技术官的帽子，一辈子都是 NeoVim 和编辑器里的人，还公开过很多人在用的点文件；现在完全是另一个区域，自从改用 Codex 桌面应用，他就不再泡在编辑器里了。</p>
+<p>从那以后，真正的问题变成：同一时间能让多少智能体保持忙碌。另一方面是，他睡眠并不多。若你真的知道该造什么，正在创造的价值非常惊人，他从未见过事情能在公司里以如此压缩的时间框架移动。这不只是数量，这些也不是无聊的垃圾请求。格尔盖伊问，睡眠被吃进夜里，主要用 Codex 和其他工具跑智能体；通勤时别人听播客或音乐，他却有「作弊码」。哈乔特住在东湾，上班要过海湾大桥，车上有特斯拉完全自动驾驶，他非常喜欢，大约百分之九十七的路程是它在开，几乎就是自己在开。以前还会提醒你握住方向盘，现在只要隔几分钟看路就可以。于是他的作弊码是：旁边放着开着 Codex 会话的笔记本，开车时发送指令。有点好笑：一个人工智能在开车，另一个人工智能在开公司，而他在掌舵。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>从 Kubernetes 服务网格，到发现代码评审会成为瓶颈</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="harjot"><div class="label"><span class="badge" title="哈乔特·吉尔（Harjot Gill）">哈乔特</span></div><div class="content">
+<p>对 Code Rabbit 这类公司来说，交付一旦加快，生意的每个部分都得按智能体的速度走。他们发现自己交付太多，注意力和营销反而成了瓶颈，于是回头把营销基础也重构成非常智能体化的，单独建了仓库。他们有数百万美元的谷歌广告花费，针对关键词和不同文案的方式是：一个循环先看广告表现，再由某个智能体提出代码改动，开出拉取请求去部署广告。合并那个请求，就部署到谷歌广告上。到了这个地步，一切都写在代码里。</p>
+<p>他走的路是到费城，在宾夕法尼亚大学读博士，目标很清楚：孵化一个好想法，再带出去商业化，也确实做了大学的技术转化。第一家创业公司也是一个拐点，当时微服务和 Kubernetes 正在兴起，他们看到可观测性会变得重要，要避免应用在黑色星期五高峰里发生级联崩溃。很有意思的是，当时市场对 Kubernetes 服务网格胃口很大，接着生成式人工智能突然来了。他第一次有感觉，是碰到 GitHub Copilot。2021 年在 Flux Ninja，他们已经在用一些人工智能，Tabnine 是其中之一，可以说是自动补全的「老前辈」。顿悟时刻他认为还在 ChatGPT 出现之前。当时团队已经很快，代码评审已经是瓶颈，有人在做堆叠的拉取请求，他们自研并开源了名为 SPR 的工具，但在 Copilot 之后代码量继续涨，仍不理想。事情已经很清楚：人工智能将写下大部分代码。这在当时并不是普遍看法。他之所以这样想，是因为自己就在场上，作为领导者仍在一线写代码，大量工作其实是清洁：确保开发者更有效率，加上各种检查器和工具，好走得更快。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">格尔盖伊</span></div><div class="content">
+<p>即便六个月前，也很难预测软件开发会演化成现在这样。创办 Code Rabbit，是不是就建立在这种预判上？哈乔特说，他们其实没有意识到机会会这么大。有一点是清楚的：它会成为瓶颈。但他们当时看的是 Snyk 等 GitHub 生态公司的市值，因为安装就在这个生态里，想的是代码质量智能体，以为市值会在那个量级。没想到市场要大得多，连传统不会买那些工具的人，也排队来买人工智能代码评审。尽管他们并不面向个人销售，仍有大量用户和个人在为产品付费。对作为创业者的他来说，写代码只是达到目的的手段，他想尽快走到最终价值和验证。他享受写代码，但那不是做公司最享受的部分，关键是能多快把一个想法拿出去。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>40 人的团队，为什么也需要脸书那套发布工厂</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="harjot"><div class="label"><span class="badge" title="哈乔特·吉尔（Harjot Gill）">哈乔特</span></div><div class="content">
+<p>看软件开发时，你希望给智能体一种手段，在它正在做软件开发的近处验证自己的工作。说起来也许难以置信，他们做了大量形式化方法。大约八个月前第一次做 Slack 机器人产品时，先用 TLA+ 建模这个分布式系统会做什么，再去实现，并大量投入模拟。扩大代码开发的方式里，代码评审只是他们对外宣传的一块，背后还有大约一百件必须做的事。他们大量投资本地确定性模拟，最近也开始投资 Lean 定理。Lean 也是一种形式化方法，常用于数学证明，但也可以用来做希望尽可能正确的软件，比如计费服务。他们已经有一批 Lean 定理，节目后还可以展示。这些都是爬坡：先让它们在本地爬，再走到下一步。发布被看成《文明》里的回合：每结束一回合，你就学到东西。每次发布都是智能体从环境里学习的机会。很多时候他们会在特性开关下发布，做渐进放量，比如先给百分之十的开源用户，智能体观察性能和日志，直到稳定，再做更宽的放量。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">格尔盖伊</span></div><div class="content">
+<p>这种分阶段、越放越宽的做法，是脸书做了很久的事，他们有数十亿量级的用户，并建了自动化系统。离开脸书，格尔盖伊并不知道还有多少公司做成过自动放量，原因之一是这通常只有在你真有数亿用户时才成立，否则很难，而且是一笔大投资。自动化很难建，人工智能之前还需要某种机器学习，成本会一层层加上去。可现在哈乔特描述的是，一家按人数比脸书小得多的公司——脸书大约 7.5 万人，Code Rabbit 大约 40 名工程师——已经给自己做成了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="harjot"><div class="label"><span class="badge" title="哈乔特·吉尔（Harjot Gill）">哈乔特</span></div><div class="content">
+<p>他们的看法是：过去网飞、脸书用成千上万工程师去交付，从合并队列到各种流程，那种规模所需的工具，小团队现在也会需要。30 到 40 人的团队，若正确使用智能体，有正确的抽象，再加上整套「软件工厂」概念，就会交付得像脸书那样多。这意味着他们在生产中测试、管理风险、管理持续集成和缓存的那套精密做法，小团队场景里同样需要。这是一个黄金机会：若你曾在脸书经历过他们摸索这些事的阶段，现在走出去做产品，市场变大了，需要这些产品的人比以往任何时候都多。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>陶轮与工厂：人类代码评审已死，但人类仍要评审发布</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="harjot"><div class="label"><span class="badge" title="哈乔特·吉尔（Harjot Gill）">哈乔特</span></div><div class="content">
+<p>「软件工厂」是一个现在用得很多的词，对他意味着什么？即便在用人工智能建造时，也有两种用法。一种更像陶轮：你在与 Claude Code 或 Codex 的交互里，一锤一锤塑造软件。比如做界面时，他开着浏览器做标注，每发一条消息都在塑造，但用的是人工智能。作为人类，他的决策容量一天大概只能认真做一两个这样的战术对话。他在 Codex 里通常开着大约 20 个对话，其中两个是这种，大约 18 个更像工厂概念：他知道可以让智能体自己跑。问题是，现在的聊天并不是以这种规模调度智能体舰队的正确界面。聊天很适合一锤一锤地塑造软件。有些事他们仍在摸索。首先，围绕交付软件、维护工厂的那些清洁工作，大概应该放在云端沙箱里，不该由他在凌晨三点醒来。那更像工厂里的早班和晚班。幸好他们在班加罗尔有团队，可以跟随太阳。</p>
+<p>有时他们会看每个拉取请求的价格。他的大概是 150 美元一个，有的人可能到几千美元。那时就要问：他们到底在做你的工作，还是别人的工作？作为领导者，只要能看见价值加在哪，他就愿意花钱。比如在 Slack 里，当 Code Rabbit 的机器人响应所有 Datadog 告警时，他清楚看见它在加价值。那么必须问：代码评审死了吗？尤其是人类代码评审，有很多迹象表明它已经到了最后阶段。格尔盖伊接触到仍在做这件事的团队，觉得有点像演戏：一句「LGTM，看起来不错」，人们不再留言，也不再读。优步等公司正在改流程，让人更容易看到代码评审在做什么，因为他们也知道，请求越来越多，人们花在阅读上的时间越来越少。哈乔特说：你说得对，人类代码评审已经死了，但人类评审没有死，某种评审仍然必须发生。与此同时，设计师和原本不是软件工程师的人，现在也在写代码，因为他们知道该造什么。很多设计师正在交付代码。你也有后台智能体，比如 Datadog 现在会在看到告警时自己开出拉取请求，说我来替你做。这意味着规划层和评审门仍然必须存在于某处，并落在拉取请求上，因为上游正在涌入。有时你还想看模式，因为那是更结构性的变化。他们在 Code Rabbit 内部做这类风险管理。有的请求走快速通道上生产，他们甚至让实习生直接上生产。所以人类代码评审已经死了，但人类仍然在评审某些更高阶的抽象。这与 SOC 2 合规的做法也很有意思：在 Code Rabbit，对「变更」的定义现在是一次发布。他们在 Slack 消息里汇总每个请求正在承担的风险指标，有最小风险、有高风险，并在那里决定是放行还是回滚。人类现在评审的是每一次发布，而不是一条条拉取请求。所谓人类，仍然是软件工程师：他们不必再盯代码本身，但要理解每次发布在承担什么风险。比如你在一张大表上写迁移，生产里可能会崩，这类部落知识仍要被带进来。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>工程师的驾照，以及用 TLA+ 先建模再写代码</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="harjot"><div class="label"><span class="badge" title="哈乔特·吉尔（Harjot Gill）">哈乔特</span></div><div class="content">
+<p>他还把驾驶这些智能体，看成几乎像拿驾照。他们对正在交付的开发者也加上责任。若你在评审豁免名单上，就可以在没有人类评审的情况下上生产；另一些分组则必须经过人类评审，依据是经验和过往表现。这听起来像他们逐渐建立的信任。做法是：看生产里回归存在了多久。因为修复时会看代码，他们能把问题追溯到引入它的那个请求。若有人不负责任，比如在那里做硬提示，或没有把变更跟到生产，有时会有 100 小时的暴露，意味着要等有人、甚至客户指出来，才发现回归了，而你没有做好质量保证。警告够多，就拿走你的驾照，让你重新走代码评审，经过一段带人工评审的考察期，再允许自行发布。他们想建立的文化是：开发者同样有责任，不把这些智能体开下悬崖。格尔盖伊老实说很喜欢这个驾照比喻，因为他常担心质量，也看到整个行业的质量似乎都在下滑，原因就是事情更多了，花在上面的注意力却更少。</p>
+<p>从生意上看，他们可能在每一单上亏钱，因为自己在为这些调用付钱，但换来的是把产品做得更好，长期希望更有价值。定价也与此有关。这是行业里少数「专用套件」仍然适用的场景之一：其他很多事正在被通用的 Claude Code 吃掉，法律、财务也在做通用工作，但代码评审是一个既要广度也要深度、需要很好召回和精确率的问题，定制套件在这里非常有效。开源数据也在帮他们微调，他有几个智能体一直在看开源。形式化方法方面，他们从大约二三月做 Slack 机器人时开始用。那个产品有分布式状态，有消息队列，可以操纵消息，还有关闭沙箱、预热和空闲等复杂状态机。TLA+ 模型不太适合纯算法，却很适合消息、行动者和交互，所以他们用了它。当时 Codex 5.3 还不像现在的 Astra 那么强，让 5.3 成功的办法，是先建模，确保状态机做对，再写代码。上了 TLA+ 之后，确实找出了最初实现里被忽略的竞态。模拟也有帮助。二三月他们投入了两种技术：整套可模糊、可尝试不同交错的模拟套件，同时用 TLA+ 建模并探索不同状态、找漏洞。公司周提交也出现了和哈乔特个人类似的拐点：7 月大约不到 1000，可能只有 500 或 300，后来超过 5000。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>800 万美元还够不够，以及主持并不想照搬的那些部分</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="gergely"><div class="label"><span class="badge" title="格尔盖伊·奥罗斯（Gergely Orosz）">格尔盖伊</span></div><div class="content">
+<p>格尔盖伊转到成本。哈乔特曾转发一位创始工程师的分享：对方为做一款大型多人游戏，云支出一年高达 3200 万美元。哈乔特评论说，在 Code Rabbit 和其他地方看到类似轨迹：即便超过 800 万美元的大型种子轮，也可能不再够用来建造软件业务、软件工厂、高质量 token，以及大规模运行持续集成、沙箱和其他基础设施，好以这种规模交付软件。到了这个地步，有的更小创业公司存在的意义，只是把想法输送给拥有更多 token 的更大创业公司。这里有很多刺耳的话。推特不一定适合讲清细微之处，但他观察到了这个趋势。哈乔特说，创业公司在软件工厂上花很多钱，将会不可避免。你可以经营多种软件生意，但若做的是超高速增长、风险资本支持、又处在这些竞争激烈赛道上的公司，现在可能需要更多资本，因为瓶颈已经变了。以前主要是为人才付钱，去找来自网飞、谷歌、脸书的工程师，他们自己会成为创始人，再从同一个池子里招人；现在工厂本身就要钱。</p>
+<p>感谢哈乔特。格尔盖伊说，他想不起还曾和哪个人谈得如此「全押人工智能」。需要说清楚的是：听到单人单月大约 20 万美元的人工智能账单，他一开始就怀疑，谈完后也仍然相当怀疑。他不同意、也不推荐哈乔特那种半夜起来给智能体发提示、把睡眠让路、好让智能体不被堵住的做法。这听起来很没效率。若真想让智能体在你睡觉时也一直跑，他宁可去看云上更长的学习任务。他其实也不认为必须执着于让智能体一直跑，这不是一场让本地笔记本利用率永远百分之一百的比赛。当哈乔特假定所有创业公司都会像他们这家约 40 人的公司那样，烧掉数百万的人工智能费用，资金会很快见底，这一点他理解。他也理解，在开发工具里，为了像 Code Rabbit 那样极快做出自定义持续集成这类新产品，这样花也许说得通。但在卖人工智能开发工具之外的创业公司，他看不出只为比对手稍快一点上市，就该大规模砸钱。他确实看懂的是，今天人工智能开发工具赛道有多卷：不只是 Code Rabbit 用 40 人的工程团队推新产品，Ramp、Shopify、各家人工智能实验室和大公司都在抢同一块市场。在这种背景下，他理解速度对小创业公司为什么重要，以及花钱让构建更快，有时说得通。他真正喜欢的一个做法，是工程师若造成太多回归，就会被拿走驾照。不管人工智能成不成功，他喜欢这个主意，因为它能逼工程师更在乎可靠性和交付有质量的代码。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "The Pragmatic Engineer", "title": "软件工厂与代码评审｜哈乔特·吉尔谈 Code Rabbit", "url": "https://www.youtube.com/watch?v=4Cjb7691GJ8", "videoId": "4Cjb7691GJ8", "published_at": "2026-11-18T18:03:02+00:00", "duration": 5252, "caption_source": "yt-dlp-auto", "guests": ["哈乔特·吉尔（Harjot Gill）"], "speakers": [{"id": "gergely", "name": "格尔盖伊·奥罗斯（Gergely Orosz）", "role": "host", "short": "格尔盖伊"}, {"id": "harjot", "name": "哈乔特·吉尔（Harjot Gill）", "role": "guest", "short": "哈乔特"}], "intro": {"summary": "《务实工程师》对谈人工智能代码评审创业公司 Code Rabbit 首席执行官哈乔特·吉尔。他写了三十年代码，这是第三家创业公司，却从未像现在这样大量交付：单月合并约 5000 个拉取请求，个人人工智能花费大约每月 25 万到 27.5 万美元。他提出几个刺耳观点：人类代码评审已经死了，但人类仍要评审发布；工程师若造成太多回归，会被拿走「驾照」、暂时失去直接上生产的权利；在竞争激烈的领域，800 万美元种子轮可能已经不够支撑软件工厂。主持并不完全同意通宵打断睡眠去给智能体发提示，也不认为所有创业公司都该这样烧钱，但觉得「驾照」这个做法很值得借鉴。", "points": ["他的拉取请求量在 7 月从大约最多 100 到 200 个跃升到超过 1000 个，后来单月超过 5000；公司周提交也从 7 月大约 300 到 500 个，升到超过 5000。多数请求其实是在修持续集成、不稳定测试和缓存，做「清洁」和爬坡，而不是堆功能。", "招聘标准之一是：过去 30 天里有品味地交付至少 1000 个拉取请求，或至少玩过 500 小时《文明》《异星工厂》这类模拟策略游戏。", "约 40 人的工程团队，正在给自己做过去脸书、网飞用成千上万工程师才需要的渐进发布、合并队列和在生产中测试。Slack 机器人产品用 TLA+ 建模，并投入确定性模拟和 Lean 定理。", "他把工作分成「陶轮」和「工厂」：在 Codex 里大约 20 个对话，其中一两个是逐条打磨界面，大约 18 个是工厂式、让智能体自己跑的任务。有的拉取请求成本大约 150 美元，有的可能到几千美元。", "人类代码评审在他看来已经死了，评审的对象变成每一次发布；符合条件的实习生也可以直接上生产。回归会被追溯到引入它的请求，暴露时间过长、警告够多，就会被拿走驾照，经过带人工评审的考察期再放行。"], "verdict": "值得看，尤其若你在做开发工具或正在把智能体引进交付流程。这是一档密度很高、带具体数字和做法的长访谈，不是空谈「全押人工智能」。主持收尾时的保留也很重要：通宵打断睡眠去喂智能体，以及「所有创业公司都该每月烧掉数十万美元」，他并不推荐照搬。开头有一段 Turbo Buffer 赞助，已标灰。自动字幕把姓名听成 Harjit / Cold Rabbit，已按公开资料订正为 Harjot Gill 与 Code Rabbit；说话人按轮次启发式标注，中等偏高把握。", "audience": "关心人工智能如何改变代码评审、持续交付和创业公司成本结构，或想听一套已经跑在约 40 人团队里的「软件工厂」做法的工程师和创始人。"}, "sections": [{"id": "s1", "title": "一个月 5000 个拉取请求，以及每月 25 万美元的个人账单", "start_sec": 0, "summary": "开场就抛出数字：哈乔特一个人的人工智能花费大约每月 25 万到 27.5 万美元。人类一天能做的决策，可以驱动数百万美元的支出。他的热门判断是：以前写「烂代码」的是人，不是人工智能；只要能对照某种标准做验证，人工智能现在写的烂代码更少，速度上去之后缺陷不是更多而是更少。招聘有两条门槛：过去 30 天里有品味地交付至少 1000 个拉取请求，或至少玩过 500 小时《文明》《异星工厂》这类模拟策略游戏——在策略游戏里长大的人，现在跟这些智能体合作会更成功。作为 Code Rabbit 首席执行官，他单月合并约 5000 个拉取请求。写了三十年代码，这是第三家创业公司，却从未像现在这样大量交付。本期还会谈到「人类代码评审已死」、工程师的「驾照」，以及「800 万美元种子轮已经不够」这个他并不完全同意的观点。拐点出现在最近三到四个月，大约在 Codex 等模型开始能做可上生产的真实工作之后。7 月之前他大约最多 100 到 200 个请求，7 月超过 1000，再往后到 5000。这种规模下什么都会坏，作为领导者，他大量请求是在修交付流程里的瓶颈：持续集成、不稳定测试、缓存这类清洁和爬坡工作，真正逐条打磨界面的战术功能一天也许只有一两个。他认为这个数字大概还能再高十倍，远没到智能体能力的顶峰。团队很多人用 Opus 5.5 配 Claude Code，他本人爱用 Codex 桌面应用，用了三十年 NeoVim 之后，几乎不再进编辑器。真正在做的是让尽可能多的智能体保持忙碌。他睡眠很少，因为若知道该造什么，压缩时间里能创造的价值非常惊人。这些请求不是无聊的垃圾请求。通勤时他住在东湾，过海湾大桥上班，特斯拉完全自动驾驶大约占百分之九十七；现在只要隔几分钟看路即可，于是把笔记本上的 Codex 会话打开，开车时发指令。用他的话说：一个人工智能在开车，另一个人工智能在开公司，而他在掌舵。"}, {"id": "s2", "title": "从 Kubernetes 服务网格，到发现代码评审会成为瓶颈", "start_sec": 463, "summary": "交付加快后，生意的每个部分都得按智能体的速度走。市场和营销成了瓶颈，于是他把营销基础也改造成智能体化，单独建了仓库。他们有数百万美元的谷歌广告花费，用一个循环看广告表现，由智能体提出文案和关键词改动，再开出拉取请求；合并后就部署到谷歌广告，一切都写在代码里。哈乔特在宾夕法尼亚大学读博士，目标就是把想法孵化出来商业化，并做了技术转化。第一家创业公司赶上微服务和 Kubernetes 兴起，做可观测性，避免应用在黑色星期五高峰里级联崩溃。当时市场对 Kubernetes 服务网格胃口很大，接着生成式人工智能来了。2021 年在 Flux Ninja，他们用过自动补全的「老前辈」Tabnine，接触 GitHub Copilot 是顿悟时刻，而且他认为还在 ChatGPT 出现之前。团队本来就快，代码评审已经是瓶颈，有人在做堆叠的拉取请求，他们自研并开源了名为 SPR 的工具，但在 Copilot 之后代码量继续涨，仍不理想。他当时作为一线写代码的领导者就判断：人工智能将写下大部分代码。创办 Code Rabbit 时，他们清楚评审会成为瓶颈，但按 Snyk 等 GitHub 生态公司的市值来估，仍偏保守；没想到市场要大得多，连传统不会买这类工具的人，包括许多个人用户，也排队来买人工智能代码评审，尽管他们并不面向个人销售。对作为创业者的他来说，写代码是手段，重要的是多快能把想法拿出来验证。"}, {"id": "s3", "title": "40 人的团队，为什么也需要脸书那套发布工厂", "start_sec": 1003, "summary": "要让智能体在写软件的近处验证自己的工作，他们做了大量形式化方法。大约八个月前做 Slack 机器人产品时，先用 TLA+ 建模这个分布式系统，再实现，并大量投入模拟。代码评审只是对外销售的一块，背后还有大约一百件必须做的事。他们投资本地确定性模拟，最近也开始用 Lean 定理，甚至用在计费服务这类希望尽可能正确的软件上。发布被看成《文明》里的回合：每次发布都是智能体从环境里学习的机会。功能常在特性开关下做渐进放量，比如先给百分之十的开源用户，智能体观察性能和日志，稳定后再扩大。格尔盖伊指出，这种自动、分阶段放量，过去主要是脸书在数十亿用户上砸重金做出来的，离开那种体量很难、也很贵，人工智能之前还得上机器学习。Code Rabbit 大约 40 名工程师，脸书大约 7.5 万人，可他们已经给自己做成了。哈乔特的看法是：过去网飞、脸书用成千上万工程师，从合并队列到在生产中测试所需的那套工具，现在 30 到 40 人的小团队，只要正确使用智能体、有正确的抽象和「软件工厂」，就会交付得像脸书那样多，因而也需要同样精密的风险控制、持续集成和缓存。对曾在脸书经历过那套发布的人来说，这是把产品做出来卖给更多团队的黄金机会。"}, {"id": "s4", "title": "陶轮与工厂：人类代码评审已死，但人类仍要评审发布", "start_sec": 1241, "summary": "「软件工厂」对他意味着两种用法。一种像陶轮：打开浏览器做标注，在与 Claude Code 或 Codex 的交互里一锤一锤塑造软件，尤其是界面；人一天的决策容量大概只能认真做一两个这样的战术对话。他在 Codex 里通常开着大约 20 个对话，其中两个是这种，大约 18 个更像工厂：他知道可以让智能体自己跑。聊天界面适合一锤一锤地塑造，却不是规模化调度智能体舰队的正确界面。清洁和维护工厂的工作，本该在云端沙箱里跑，不该由他在凌晨三点醒来，而应像工厂的早晚班；他们在班加罗尔有团队，可以跟随太阳。有时他们看每个拉取请求的价格，他的大约 150 美元，有的人可能到几千美元，那时就要问：他们到底在做你的工作，还是别人的工作。作为领导者，只要能看见价值，他就愿意花钱：比如 Slack 里的机器人在 Code Rabbit 响应所有 Datadog 告警时，价值很清楚。那么代码评审死了吗？格尔盖伊看到许多仍在做人类评审的团队更像走过场，「LGTM」却不再认真读、不再留言，优步等公司也在改流程，因为请求实在太多。哈乔特说：人类代码评审已经死了，但人类评审没有死，某种评审仍然必须发生。设计师等非工程师也开始写代码，Datadog 一类的后台智能体看到告警就会自己开请求。规划层和评审门仍要存在，并落在拉取请求上。他们对模式变化等做风险管理，有的请求走快速通道上生产，甚至让实习生直接上生产。人类仍然评审更高阶的抽象。为了 SOC 2，他们对「变更」的定义变成了一次发布：在 Slack 里看每个请求的风险指标，决定放行还是回滚。人类评审的是发布，不再是一条条请求。承担这件事的仍是软件工程师：他们不必再盯代码本身，但要理解每次发布在承担什么风险。大型表迁移这类会在生产里出事的变更，仍需要把部落知识带进来。"}, {"id": "s5", "title": "工程师的驾照，以及用 TLA+ 先建模再写代码", "start_sec": 1830, "summary": "驾驶智能体几乎像考驾照。他们让开发者对交付承担责任：有评审豁免名单，也有必须经过人类评审的分组，依据经验和过往表现。他们会看生产里回归存在了多久，并在修复时把问题追溯到引入它的请求。若有人不负责任，比如硬提示、没有把变更跟到生产，暴露时间有时会到 100 小时，要等客户指出来才发现没有做好质量保证。警告够多，就拿走驾照，让你重新走代码评审，经过一段带人工评审的考察期，再允许自行发布。他们想建立的文化是：开发者有责任不把这些智能体开下悬崖。格尔盖伊喜欢这个比喻，因为他觉得整个行业的质量都在下滑。回到产品，代码评审是少数「专用套件」仍然非常适用的场景：需要兼顾广度和深度、需要好的召回和精确率，而法律、财务等工作正被通用的 Claude Code 吃掉。他们有智能体一直在看开源数据，用来微调套件。形式化方法从大约二三月做 Slack 机器人时开始，那个产品有队列、可操纵的消息、关闭沙箱和预热空闲等复杂状态机。TLA+ 不擅长纯算法，却很适合消息、行动者和交互。当时 Codex 5.3 还没有现在的 Astra 那么强，先建模、确保状态机正确再写代码，才让它成功；上了 TLA+ 之后，确实找出了当初忽略的竞态。模拟也有帮助，他们做了整套可模糊、可尝试不同交错的模拟套件。公司周提交同样在 8 月出现拐点：7 月大约不到 1000，可能只有 300 到 500，后来超过 5000。"}, {"id": "s6", "title": "800 万美元还够不够，以及主持并不想照搬的那些部分", "start_sec": 3295, "summary": "格尔盖伊提到，哈乔特曾转发一位创始工程师的分享：对方为做一款大型多人游戏，云支出一年高达 3200 万美元。哈乔特评论说，在 Code Rabbit 和其他地方看到类似轨迹：即便超过 800 万美元的大型种子轮，也可能不再够用来建造软件业务、软件工厂、高质量 token，以及大规模运行持续集成、沙箱和其他基础设施。到了这个地步，有的更小创业公司存在的意义，只是把想法输送给拥有更多 token 的更大创业公司。他说，在推特上很难讲清细微之处，但若你做的是超高速增长、风险资本支持、又处在竞争激烈赛道上的生意，现在可能需要更多资本，因为瓶颈已经变了。以前主要是为人才付钱，去找来自网飞、谷歌、脸书的工程师；现在还要为工厂本身付钱。主持收尾时说，很少和如此「全押人工智能」的人谈过。听到单人单月大约 20 万美元的账单，他一开始就怀疑，谈完后也仍然怀疑。他不同意、也不推荐半夜起来给智能体发提示、把睡眠让路给「别让智能体堵住」；若真想全天候跑，他宁可把更长的学习任务放到云上，也不认为这是一场让笔记本利用率永远百分之一百的比赛。他理解，当一家约 40 人的公司像 Code Rabbit 这样每月烧掉大量人工智能费用时，资金会很快见底；在开发工具里，为了极快做出自定义持续集成这类产品，这样花也许说得通。但在卖人工智能开发工具之外的创业公司，他看不出只为比对手稍快一点上市，就该大规模砸钱。他确实看到这个市场有多卷：不只是 Code Rabbit 的 40 人工程团队在推新产品，Ramp、Shopify、各家人工智能实验室和大公司都在抢同一块。在这种背景下，速度对小创业公司很重要，花钱换更快构建，有时说得通。他真正喜欢的，是工程师若造成太多回归就被拿走驾照：不管人工智能成不成功，这都能逼人更在乎可靠性和交付质量。"}], "paragraphs": [{"start_sec": 0, "speaker_id": "harjot", "section_id": "s1", "type": "text", "zh": "我一个人的人工智能花费，大约每月 25 万，大概 27.5 万美元那种。格尔盖伊说这数字让人震惊。哈乔特说，就是他一个人。人类一天能做的决策更多，可以驱动数百万美元的支出。这也许是热门判断：以前写「烂代码」的是人，不是人工智能。他越来越意识到，只要能对照某种标准做验证，人工智能现在写的烂代码其实更少。过去多数团队在没有验证时，就会把低质量的东西送出去。他们看到的是：速度上去之后，缺陷不是更多，而是更少。"}, {"start_sec": 33, "speaker_id": "gergely", "section_id": "s1", "type": "text", "zh": "他们在招人，申请者必须满足两条标准之一：过去 30 天里有品味地交付至少 1000 个拉取请求，或至少玩过 500 小时《文明》《异星工厂》这类模拟策略游戏。若一个人是玩策略游戏长大的，哈乔特认为现在跟这些智能体合作会非常成功。当一家创业公司的首席执行官因为全押人工智能智能体和软件工厂，单月合并 5000 个拉取请求，看起来会是什么样？这位首席执行官是哈乔特·吉尔，领导人工智能代码评审创业公司 Code Rabbit。他写了三十年代码，这是第三家创业公司，却从未像现在这样大量交付。今天会谈到：为什么他说人类代码评审已经死了，但人工智能代码评审比以往更重要；工程师的「驾照」，也就是交付太多漏洞就会失去上生产的权利；以及那个刺耳观点——800 万美元种子轮已经不够支撑一家软件创业公司，而格尔盖伊会反驳。若你想看一位真正「全押人工智能」、又极度亲自动手的创始人兼工程师如何运作，这期就是为你准备的。格尔盖伊说自己远没有哈乔特那么「全押」，但理解他的想法、以及他对竞争空前激烈的开发工具行业的看法，仍然很有启发。"}, {"start_sec": 104, "speaker_id": "gergely", "section_id": "s1", "type": "ad_omitted", "zh": "【广告口播，已从正文略去】本集由 Turbo Buffer 赞助。格尔盖伊演示自己做的新版《务实工程师》搜索 pragmaticengineer.com/search。他不满 Substack 只能做关键词搜索，找不到他和肯特·贝克一起取笑某家大型咨询公司、也就是麦肯锡的那篇。他用 Codex 和 Turbo Buffer，从构想到部署只用了三小时，把文章倒进去，由它处理嵌入和全文检索，效果比 Substack 好。他认为，若让每个刊物都有这种搜索，用别的系统往往要做大量分片、索引也很贵；在 Turbo Buffer 里，每个刊物只是一个命名空间，放在对象存储上没有计算成本，活跃的会被拉进 NVMe 和内存缓存。这也是它能扩展到数亿个命名空间、以及 Ramp、Harvey、Notion 这类多租户人工智能产品会建在它上面的原因。邀请到 turbobuffer.com/pragmatic 查看。"}, {"start_sec": 209, "speaker_id": "gergely", "section_id": "s1", "type": "text", "zh": "欢迎哈乔特。上个月的拉取请求超过 5000 个，这是怎么做到的？在这个时点，机器几乎在建造机器，他说自己现在主要是让智能体保持忙碌。这些请求都在做什么？他作为首席执行官，不是还要把大量时间花在经营公司、协调和救火上吗？"}, {"start_sec": 247, "speaker_id": "harjot", "section_id": "s1", "type": "text", "zh": "这一切大约从模型真正能做可上生产的真实工作开始，Codex 是他看到的一个拐点。公司大概两年了，生成式人工智能也走了一段时间，但最近三到四个月是一次大的拐点。格尔盖伊也在图上看到：到 7 月之前大约最多 100 到 200 个，7 月超过 1000 个。那种规模下什么都会坏。作为领导者，他一直在做的一件关键事，就是怎样让团队更有效率，大量拉取请求是在修交付流程里的瓶颈。当然也会做一两个战术功能，用一条条消息驱动智能体去打磨界面；但代码量的大头，说出来也许难以置信，其实是清洁工作：修持续集成、不稳定测试，或修分布式系统、修缓存。这些爬坡就是这些请求在做的事。现在还很不最优，这个数字大概还能再高十倍，他们甚至还没碰到这些智能体能做的顶峰。7 月、8 月真正拉开的，两边模型供应商的能力几乎齐头并进。团队很多人用 Opus 5.5 配 Claude Code，他本人一直是 Codex 的粉丝，尤其爱用 Codex 桌面应用。写了三十年代码，做过三家创业公司，多数时候还戴着首席技术官的帽子，一辈子都是 NeoVim 和编辑器里的人，还公开过很多人在用的点文件；现在完全是另一个区域，自从改用 Codex 桌面应用，他就不再泡在编辑器里了。"}, {"start_sec": 360, "speaker_id": "harjot", "section_id": "s1", "type": "text", "zh": "从那以后，真正的问题变成：同一时间能让多少智能体保持忙碌。另一方面是，他睡眠并不多。若你真的知道该造什么，正在创造的价值非常惊人，他从未见过事情能在公司里以如此压缩的时间框架移动。这不只是数量，这些也不是无聊的垃圾请求。格尔盖伊问，睡眠被吃进夜里，主要用 Codex 和其他工具跑智能体；通勤时别人听播客或音乐，他却有「作弊码」。哈乔特住在东湾，上班要过海湾大桥，车上有特斯拉完全自动驾驶，他非常喜欢，大约百分之九十七的路程是它在开，几乎就是自己在开。以前还会提醒你握住方向盘，现在只要隔几分钟看路就可以。于是他的作弊码是：旁边放着开着 Codex 会话的笔记本，开车时发送指令。有点好笑：一个人工智能在开车，另一个人工智能在开公司，而他在掌舵。"}, {"start_sec": 463, "speaker_id": "harjot", "section_id": "s2", "type": "text", "zh": "对 Code Rabbit 这类公司来说，交付一旦加快，生意的每个部分都得按智能体的速度走。他们发现自己交付太多，注意力和营销反而成了瓶颈，于是回头把营销基础也重构成非常智能体化的，单独建了仓库。他们有数百万美元的谷歌广告花费，针对关键词和不同文案的方式是：一个循环先看广告表现，再由某个智能体提出代码改动，开出拉取请求去部署广告。合并那个请求，就部署到谷歌广告上。到了这个地步，一切都写在代码里。"}, {"start_sec": 569, "speaker_id": "harjot", "section_id": "s2", "type": "text", "zh": "他走的路是到费城，在宾夕法尼亚大学读博士，目标很清楚：孵化一个好想法，再带出去商业化，也确实做了大学的技术转化。第一家创业公司也是一个拐点，当时微服务和 Kubernetes 正在兴起，他们看到可观测性会变得重要，要避免应用在黑色星期五高峰里发生级联崩溃。很有意思的是，当时市场对 Kubernetes 服务网格胃口很大，接着生成式人工智能突然来了。他第一次有感觉，是碰到 GitHub Copilot。2021 年在 Flux Ninja，他们已经在用一些人工智能，Tabnine 是其中之一，可以说是自动补全的「老前辈」。顿悟时刻他认为还在 ChatGPT 出现之前。当时团队已经很快，代码评审已经是瓶颈，有人在做堆叠的拉取请求，他们自研并开源了名为 SPR 的工具，但在 Copilot 之后代码量继续涨，仍不理想。事情已经很清楚：人工智能将写下大部分代码。这在当时并不是普遍看法。他之所以这样想，是因为自己就在场上，作为领导者仍在一线写代码，大量工作其实是清洁：确保开发者更有效率，加上各种检查器和工具，好走得更快。"}, {"start_sec": 825, "speaker_id": "gergely", "section_id": "s2", "type": "text", "zh": "即便六个月前，也很难预测软件开发会演化成现在这样。创办 Code Rabbit，是不是就建立在这种预判上？哈乔特说，他们其实没有意识到机会会这么大。有一点是清楚的：它会成为瓶颈。但他们当时看的是 Snyk 等 GitHub 生态公司的市值，因为安装就在这个生态里，想的是代码质量智能体，以为市值会在那个量级。没想到市场要大得多，连传统不会买那些工具的人，也排队来买人工智能代码评审。尽管他们并不面向个人销售，仍有大量用户和个人在为产品付费。对作为创业者的他来说，写代码只是达到目的的手段，他想尽快走到最终价值和验证。他享受写代码，但那不是做公司最享受的部分，关键是能多快把一个想法拿出去。"}, {"start_sec": 1003, "speaker_id": "harjot", "section_id": "s3", "type": "text", "zh": "看软件开发时，你希望给智能体一种手段，在它正在做软件开发的近处验证自己的工作。说起来也许难以置信，他们做了大量形式化方法。大约八个月前第一次做 Slack 机器人产品时，先用 TLA+ 建模这个分布式系统会做什么，再去实现，并大量投入模拟。扩大代码开发的方式里，代码评审只是他们对外宣传的一块，背后还有大约一百件必须做的事。他们大量投资本地确定性模拟，最近也开始投资 Lean 定理。Lean 也是一种形式化方法，常用于数学证明，但也可以用来做希望尽可能正确的软件，比如计费服务。他们已经有一批 Lean 定理，节目后还可以展示。这些都是爬坡：先让它们在本地爬，再走到下一步。发布被看成《文明》里的回合：每结束一回合，你就学到东西。每次发布都是智能体从环境里学习的机会。很多时候他们会在特性开关下发布，做渐进放量，比如先给百分之十的开源用户，智能体观察性能和日志，直到稳定，再做更宽的放量。"}, {"start_sec": 1139, "speaker_id": "gergely", "section_id": "s3", "type": "text", "zh": "这种分阶段、越放越宽的做法，是脸书做了很久的事，他们有数十亿量级的用户，并建了自动化系统。离开脸书，格尔盖伊并不知道还有多少公司做成过自动放量，原因之一是这通常只有在你真有数亿用户时才成立，否则很难，而且是一笔大投资。自动化很难建，人工智能之前还需要某种机器学习，成本会一层层加上去。可现在哈乔特描述的是，一家按人数比脸书小得多的公司——脸书大约 7.5 万人，Code Rabbit 大约 40 名工程师——已经给自己做成了。"}, {"start_sec": 1173, "speaker_id": "harjot", "section_id": "s3", "type": "text", "zh": "他们的看法是：过去网飞、脸书用成千上万工程师去交付，从合并队列到各种流程，那种规模所需的工具，小团队现在也会需要。30 到 40 人的团队，若正确使用智能体，有正确的抽象，再加上整套「软件工厂」概念，就会交付得像脸书那样多。这意味着他们在生产中测试、管理风险、管理持续集成和缓存的那套精密做法，小团队场景里同样需要。这是一个黄金机会：若你曾在脸书经历过他们摸索这些事的阶段，现在走出去做产品，市场变大了，需要这些产品的人比以往任何时候都多。"}, {"start_sec": 1241, "speaker_id": "harjot", "section_id": "s4", "type": "text", "zh": "「软件工厂」是一个现在用得很多的词，对他意味着什么？即便在用人工智能建造时，也有两种用法。一种更像陶轮：你在与 Claude Code 或 Codex 的交互里，一锤一锤塑造软件。比如做界面时，他开着浏览器做标注，每发一条消息都在塑造，但用的是人工智能。作为人类，他的决策容量一天大概只能认真做一两个这样的战术对话。他在 Codex 里通常开着大约 20 个对话，其中两个是这种，大约 18 个更像工厂概念：他知道可以让智能体自己跑。问题是，现在的聊天并不是以这种规模调度智能体舰队的正确界面。聊天很适合一锤一锤地塑造软件。有些事他们仍在摸索。首先，围绕交付软件、维护工厂的那些清洁工作，大概应该放在云端沙箱里，不该由他在凌晨三点醒来。那更像工厂里的早班和晚班。幸好他们在班加罗尔有团队，可以跟随太阳。"}, {"start_sec": 1506, "speaker_id": "harjot", "section_id": "s4", "type": "text", "zh": "有时他们会看每个拉取请求的价格。他的大概是 150 美元一个，有的人可能到几千美元。那时就要问：他们到底在做你的工作，还是别人的工作？作为领导者，只要能看见价值加在哪，他就愿意花钱。比如在 Slack 里，当 Code Rabbit 的机器人响应所有 Datadog 告警时，他清楚看见它在加价值。那么必须问：代码评审死了吗？尤其是人类代码评审，有很多迹象表明它已经到了最后阶段。格尔盖伊接触到仍在做这件事的团队，觉得有点像演戏：一句「LGTM，看起来不错」，人们不再留言，也不再读。优步等公司正在改流程，让人更容易看到代码评审在做什么，因为他们也知道，请求越来越多，人们花在阅读上的时间越来越少。哈乔特说：你说得对，人类代码评审已经死了，但人类评审没有死，某种评审仍然必须发生。与此同时，设计师和原本不是软件工程师的人，现在也在写代码，因为他们知道该造什么。很多设计师正在交付代码。你也有后台智能体，比如 Datadog 现在会在看到告警时自己开出拉取请求，说我来替你做。这意味着规划层和评审门仍然必须存在于某处，并落在拉取请求上，因为上游正在涌入。有时你还想看模式，因为那是更结构性的变化。他们在 Code Rabbit 内部做这类风险管理。有的请求走快速通道上生产，他们甚至让实习生直接上生产。所以人类代码评审已经死了，但人类仍然在评审某些更高阶的抽象。这与 SOC 2 合规的做法也很有意思：在 Code Rabbit，对「变更」的定义现在是一次发布。他们在 Slack 消息里汇总每个请求正在承担的风险指标，有最小风险、有高风险，并在那里决定是放行还是回滚。人类现在评审的是每一次发布，而不是一条条拉取请求。所谓人类，仍然是软件工程师：他们不必再盯代码本身，但要理解每次发布在承担什么风险。比如你在一张大表上写迁移，生产里可能会崩，这类部落知识仍要被带进来。"}, {"start_sec": 1830, "speaker_id": "harjot", "section_id": "s5", "type": "text", "zh": "他还把驾驶这些智能体，看成几乎像拿驾照。他们对正在交付的开发者也加上责任。若你在评审豁免名单上，就可以在没有人类评审的情况下上生产；另一些分组则必须经过人类评审，依据是经验和过往表现。这听起来像他们逐渐建立的信任。做法是：看生产里回归存在了多久。因为修复时会看代码，他们能把问题追溯到引入它的那个请求。若有人不负责任，比如在那里做硬提示，或没有把变更跟到生产，有时会有 100 小时的暴露，意味着要等有人、甚至客户指出来，才发现回归了，而你没有做好质量保证。警告够多，就拿走你的驾照，让你重新走代码评审，经过一段带人工评审的考察期，再允许自行发布。他们想建立的文化是：开发者同样有责任，不把这些智能体开下悬崖。格尔盖伊老实说很喜欢这个驾照比喻，因为他常担心质量，也看到整个行业的质量似乎都在下滑，原因就是事情更多了，花在上面的注意力却更少。"}, {"start_sec": 2974, "speaker_id": "harjot", "section_id": "s5", "type": "text", "zh": "从生意上看，他们可能在每一单上亏钱，因为自己在为这些调用付钱，但换来的是把产品做得更好，长期希望更有价值。定价也与此有关。这是行业里少数「专用套件」仍然适用的场景之一：其他很多事正在被通用的 Claude Code 吃掉，法律、财务也在做通用工作，但代码评审是一个既要广度也要深度、需要很好召回和精确率的问题，定制套件在这里非常有效。开源数据也在帮他们微调，他有几个智能体一直在看开源。形式化方法方面，他们从大约二三月做 Slack 机器人时开始用。那个产品有分布式状态，有消息队列，可以操纵消息，还有关闭沙箱、预热和空闲等复杂状态机。TLA+ 模型不太适合纯算法，却很适合消息、行动者和交互，所以他们用了它。当时 Codex 5.3 还不像现在的 Astra 那么强，让 5.3 成功的办法，是先建模，确保状态机做对，再写代码。上了 TLA+ 之后，确实找出了最初实现里被忽略的竞态。模拟也有帮助。二三月他们投入了两种技术：整套可模糊、可尝试不同交错的模拟套件，同时用 TLA+ 建模并探索不同状态、找漏洞。公司周提交也出现了和哈乔特个人类似的拐点：7 月大约不到 1000，可能只有 500 或 300，后来超过 5000。"}, {"start_sec": 3295, "speaker_id": "gergely", "section_id": "s6", "type": "text", "zh": "格尔盖伊转到成本。哈乔特曾转发一位创始工程师的分享：对方为做一款大型多人游戏，云支出一年高达 3200 万美元。哈乔特评论说，在 Code Rabbit 和其他地方看到类似轨迹：即便超过 800 万美元的大型种子轮，也可能不再够用来建造软件业务、软件工厂、高质量 token，以及大规模运行持续集成、沙箱和其他基础设施，好以这种规模交付软件。到了这个地步，有的更小创业公司存在的意义，只是把想法输送给拥有更多 token 的更大创业公司。这里有很多刺耳的话。推特不一定适合讲清细微之处，但他观察到了这个趋势。哈乔特说，创业公司在软件工厂上花很多钱，将会不可避免。你可以经营多种软件生意，但若做的是超高速增长、风险资本支持、又处在这些竞争激烈赛道上的公司，现在可能需要更多资本，因为瓶颈已经变了。以前主要是为人才付钱，去找来自网飞、谷歌、脸书的工程师，他们自己会成为创始人，再从同一个池子里招人；现在工厂本身就要钱。"}, {"start_sec": 5105, "speaker_id": "gergely", "section_id": "s6", "type": "text", "zh": "感谢哈乔特。格尔盖伊说，他想不起还曾和哪个人谈得如此「全押人工智能」。需要说清楚的是：听到单人单月大约 20 万美元的人工智能账单，他一开始就怀疑，谈完后也仍然相当怀疑。他不同意、也不推荐哈乔特那种半夜起来给智能体发提示、把睡眠让路、好让智能体不被堵住的做法。这听起来很没效率。若真想让智能体在你睡觉时也一直跑，他宁可去看云上更长的学习任务。他其实也不认为必须执着于让智能体一直跑，这不是一场让本地笔记本利用率永远百分之一百的比赛。当哈乔特假定所有创业公司都会像他们这家约 40 人的公司那样，烧掉数百万的人工智能费用，资金会很快见底，这一点他理解。他也理解，在开发工具里，为了像 Code Rabbit 那样极快做出自定义持续集成这类新产品，这样花也许说得通。但在卖人工智能开发工具之外的创业公司，他看不出只为比对手稍快一点上市，就该大规模砸钱。他确实看懂的是，今天人工智能开发工具赛道有多卷：不只是 Code Rabbit 用 40 人的工程团队推新产品，Ramp、Shopify、各家人工智能实验室和大公司都在抢同一块市场。在这种背景下，他理解速度对小创业公司为什么重要，以及花钱让构建更快，有时说得通。他真正喜欢的一个做法，是工程师若造成太多回归，就会被拿走驾照。不管人工智能成不成功，他喜欢这个主意，因为它能逼工程师更在乎可靠性和交付有质量的代码。"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
