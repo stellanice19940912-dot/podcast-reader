@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>为什么人工智能让 DHH 每天工作 16 小时｜Omarchy 与智能体时代的操作系统</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-2{--c:#4c8c5a;--cbg:#29392a;--cbgl:#eaf1eb}
+.spk-3{--c:#8a5aa8;--cbg:#3b2b40;--cbgl:#f1ebf5}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="dhh">大卫·海涅迈尔·汉森（David Heinemeier Hansson）</option><option value="martin">马丁·卡萨多（Martin Casado）</option><option value="anish">阿尼什·阿查里亚（Anish Acharya）</option><option value="host">主持人</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">a16z</span><span class="pill">2026-11-20T15:39:04+00:00</span></div>
+<h1>为什么人工智能让 DHH 每天工作 16 小时｜Omarchy 与智能体时代的操作系统</h1>
+<p class="sub">嘉宾：大卫·海涅迈尔·汉森（David Heinemeier Hansson） · 约 52 分钟（3136 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=TtOoLanFzGw" target="_blank" rel="noopener">https://www.youtube.com/watch?v=TtOoLanFzGw</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>a16z</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-20T15:39:04+00:00</dd></div><div class="meta-row"><dt>时长</dt><dd>约 52 分钟（3136 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>browser-cdp</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>TtOoLanFzGw</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>a16z 普通合伙人马丁·卡萨多（Martin Casado）与阿尼什·阿查里亚（Anish Acharya）对谈大卫·海涅迈尔·汉森（David Heinemeier Hansson，DHH）。谈话从 Ruby on Rails、Basecamp 和电子邮件服务 HEY（hey.com）讲到他正在做的 Linux 发行版 Omarchy——他称之为「智能体时代的第一个原生操作系统」。DHH 认为 macOS 与 Windows 不适合智能体，Linux 过去的短板反而成了智能体的优势；他谈品味会不会被代码生成取代、什么才算超级智能、前沿实验室与开源如何相互制衡，以及他想在三年内让 Omarchy 的用户超过 macOS。后半段转向该追随谁、人工智能文化战、化名黑客回归，以及九十年代 Demo 文化里那些「有性格」的电脑。</p>
+<h3>核心要点</h3><ul><li>过去约五到六个月，DHH 没亲手写过一行 Omarchy 代码，却通过智能体写出了数十万行；当前这个开始走红的版本，是他和搭档瑞恩·休斯（Ryan Hughes）用大约两个半月业余时间做出来的。</li><li>他认为 macOS 和 Windows 不适合智能体时代：Linux 过去让人头疼的命令行、配置文件和难懂报错，正是智能体最喜欢的三件事。苹果还在弹出更吓人的提示，劝你不要让 Claude 访问文件；他说苹果有变成「智能体时代的 AOL」的风险。</li><li>他明确说自己现在每天工作 16 小时。因为几个像素不对就可以立刻改，品味和完美主义的门槛塌了。37signals 大约 60 人，他从没想过换成 6000 或 6 万人的公司，但愿意指挥一支相当于 6 万人生产力、却没有人事和委员会成本的智能体舰队。大部分时候他只用一份 200 美元的 20 倍订阅；三个 Claude 订阅里，过去三个月只有两周接近用满。</li><li>Omarchy 背后的非营利组织 Omacom Foundation 已筹集约 2300 万美元的 token 与捐款。社区里有人用大约两周重写了 Adobe Lightroom，他还觉得比 Adobe 花十五年、数千万美元做出来的更好。他的口号是：先拿下曼哈顿（桌面），再拿下柏林（移动）。</li><li>他的「狂妄幻想」是三年内用户数超过 macOS——他给出的全球 Mac 用户大约是 1.8 亿，连 C 级互联网服务都算不上。Quattro 版本全面拥抱智能体后已有数十万人使用；他甚至说可以 12 个月后再看能不能撼动 Mac，但不会把多数概率押在这 12 个月上。</li><li>他认为必须有开源和开放权重，才能让前沿实验室保持诚实。他为美国两大实验室领先而高兴，但不希望出现政府用枪杆子维持的双头垄断，或重演谷歌与 Meta 吸走在线广告价值链约 99% 的故事。本地模型上，他大约六个月前还写过「买高性能个人电脑很傻」，现在英伟达 DGX Spark 已能在桌上跑可用的 Qwen 3.8 Flash Next，售价只需数千美元。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看。这不是空泛地谈「人工智能会改变操作系统」，而是有具体数字、产品和工作方式的长访谈：16 小时工作日、2300 万美元、1.8 亿 Mac 用户、每秒 1500 个 token 的现场演示、200 美元订阅，以及他对文化战和九十年代黑客文化的直白判断。浏览器文字记录没有说话人标签；除马丁两处较有把握的提问外，两位主持人未能稳定区分，已用「主持」标注。</p>
+<h3>适合人群</h3><p>关心操作系统、智能体编程、开源与前沿实验室格局，或想听 Ruby on Rails 与 Basecamp 作者如何看待这场变局的听众。</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">从 Rails、Basecamp 到 Linux</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">开场先抛出整场访谈的钩子：DHH 认为 macOS 和 Windows 不适合智能体时代；Linux 过去难用的三件事——偏命令行、一堆不好懂的配置文件、难解的报错——正是智能体喜欢的东西；源代码里没有护城河；明年出现真正的超级智能也不是不可能。正式开场后，主持人请他快速介绍自己。DHH 说自己做互联网软件大约 30 年，其中约 23 年在做 Basecamp——那个在「软件即服务」这个词出现之前就存在的项目管理工具，发布时间就在 Facebook 上线的前一天或后一天。Ruby on Rails 就是从 Basecamp 里抽出来的，后来被用来做 Twitter、GitHub、Shopify、Airbnb、Coinbase 以及无数其他应用。Basecamp 现在卖到第五版，Rails 到了第八版；五年前他们发布了电子邮件服务 HEY（hey.com）。这大约 25 年里他还写了四本书，包括《重来》（Rework）、《远程》（Remote）和《工作不必那么疯》（It Doesn&#x27;t Have to Be Crazy at Work），并每天在 X 上写下对公司经营和技术的看法。眼下他在做 Linux 发行版 Omarchy，自称「智能体时代的第一个原生操作系统」，已经让几十万人从 Windows 和 Mac 迁过来，想把喊了 25 年的「今年是 Linux 桌面之年」变成真的。他桌面上的第一套发行版是 Ubuntu，也就两年半前的事；服务器上的 Linux 他从上世纪九十年代就在用。从 2001 年换到 Mac OS X 的 Beta 4 起，他一直是苹果生态的人，直到他认为苹果走偏了：迷上了轻松的服务收入，从别人的生意里抽走 30%，可以花十年开发一辆永不出售的汽车，也可以推出一款像滑雪面罩一样彻底失败的产品，都无所谓。他为苹果鼓吹了几十年，终于受够了，转到了 Linux。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">为什么智能体会让 Linux 成为更好的操作系统</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">主持人问：Linux 桌面这一次的「为什么是现在」，有多少是因为苹果和 Windows 把自己的生态搞浑，又有多少是因为人工智能让人真的改得了操作系统？主持人自己前一晚还试过，只要对智能体说「改我正在用的操作系统」，它就能改，而且能用。DHH 认为，苹果对开发者不友善只会影响少数人，做商业软件的人还是得上应用商店，这件事本身不会让大批用户改用 Linux；真正会让人成群换系统的，是智能体时代。他提到当天又有新消息：苹果把在 macOS 上用智能体变得更难，弹出更吓人的提示，劝你不要让 Claude 访问文件——可智能体不碰文件又能做什么？Omarchy 这边则完全站在相反方向：过去五六个月，整个操作系统都由智能体开发，他没亲手写过一行代码，却通过智能体写出了数十万行，并用同样的能力加速发行版本身。用户想换开始菜单、挪时钟、换日历，或给系统已有部分加功能，用提示词就能做，快则几秒，慢也只要几分钟。他认为，只要真正泡进去五分钟，就不会再回去；macOS 和 Windows 都不适合智能体时代，而智能体很快会成为这些电脑上唯一要紧的事。他举了个具体例子：在 macOS 上给不同工作区重映射快捷键，只能手动进设置、一格一格点、一格一格填，无法以智能体的方式完成——就算用「计算机使用」去点，也显得笨。Linux 过去的三大短板，恰好变成今年你该用 Linux 的理由。他说苹果正冒着成为「智能体时代的 AOL」的风险：筑起围墙花园，旁边放着 Genmoji，不必用前沿实验室的真正智能体，只要接受一套被稀释、被保护的替代品。多数人不要 AOL，而要开放的互联网，这正是 Omarchy 想给的。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">第三移动平台还有没有机会</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">主持人问移动端会怎样。DHH 说移动端也必须同样改变，而他也因此更兴奋先从桌面入手：25 年来第一次，第三套操作系统的窗口打开了。上一次能在全球市场份额上留下痕迹的新系统，还是 2001 年的 Mac OS X；此后窗口关闭，谷歌和苹果把那块从别人生意里抽 30% 的市场一分为二。微软曾砸下数十亿美元做 Windows 手机，却因为没有应用——换过去连 Instagram 都没有——而夭折。现在变了：Omarchy 社区里有人用大约两周时间重写了 Adobe Lightroom，而这是 DHH 唯一还留着一台 Mac 来跑的软件，因为他的插件和相机预设都在上面。他觉得那不只是复制，而是比 Adobe 花大约十五年、数千万美元甚至更多做出来的更好。把这件事搬到手机上：如果某个应用不存在，就会有人用五分钟「氛围编程」做出来。生态锁定期望的是应用是否齐全，而智能体时代里，软件开发的价格和难度已经降到接近零。他的口号是：先拿下曼哈顿（桌面），再拿下柏林（移动）。主持人补充：五年前做第三套移动生态几乎注定失败；现在用一点 token 预算，就有可能复制前一万甚至十万个应用，而且许多应用也许根本不必复制，因为智能体可以直接完成本来要打开应用去做的事。DHH 同意，并说自己已经不再用文字处理器：合同交给智能体起草，他用 Markdown 审，满意后再生成看起来很漂亮的 PDF。他正在筹建 Omarchy 背后的非营利组织 Omacom Foundation，已经筹集了大约 2300 万美元的 token 和捐款，因此签过很多合同，每一份都由智能体完成，没有用过文字处理软件，连签名和寄出都交给智能体。照片也一样：没人会再花几十上百小时去学 Photoshop 的细枝末节，想改照片或去掉画面里某个人，直接让智能体做就行。这些应用过去不只是软件，还是一门要学上数年的职业，智能体正在整类消灭它们；即便你仍想要应用，社区里已经可以现做。他形容现在还是一种奇怪的早期形态，速度大约每秒 50 个 token，打开超快模式则是 12，还不足以让东西「活起来」。而 Fireworks 两周前在大会上演示了每秒 1500 个 token：从「给我做一个俄罗斯方块」到游戏跑起来只用四秒，接着改成横版射击、加激光、加炸弹、把怪物变大，一切都在现场实时变形。这还只是今天能做到的 1500；一两年后模型跑到每秒 10 万甚至 100 万个 token 时，历史性的生态壁垒会消失。当前这个开始爆发的版本，是他和主要搭档瑞恩·休斯用大约两个半月业余时间做出来的，却要去跟微软的数千名程序员、以及大公司里全球数万名程序员竞争。风险投资过去二十多年把钱砸进开发者和长达数年的跑道，现在被压缩到几天、几周，最坏也只是几个月。就在他做 Omarchy 期间，模型从 Opus 4.8 跳到 Soul，再到 Opus 5.5，跨度巨大，而且很可能圣诞节前还有一回更新，这些跳跃还在加速。因此，任何还认为即便有数百万行源代码也能构成护城河、能保住生态的人，都是在自欺。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">人工智能写代码之后，品味还重不重要</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">马丁说自己一直把 DHH 看成手艺人，设计和人机工效都极好。他自己 50 岁了还在玩《星际争霸》（StarCraft），最近一次补丁改的是已经存在约 20 年的幽灵单位数值——都是和代码行数无关的细微调整。他的问题是：软件的护城河会不会其实就在这些长尾的设计选择里，变化并没有那么大，仍然需要热爱软件的人把品味灌注进去，只是不再手写一行行代码？DHH 说正是如此。他觉得自己能把更多品味、愿景和完美主义放进软件里，因为从发现几个像素不对到动手改掉，中间的屏障已经塌了。任何不完美的软件，现在都是一个可以打磨到完美的机会——这就是他现在每天工作 16 小时的原因。他曾写过整整一本《工作不必那么疯》，而此刻工作是彻底疯了：对完美主义和手艺人来说，突然被赋予了超能力，这令人上瘾，也危险，至少会伤到健康和睡眠。氛围编程项目往往在最爽的前 80% 就停住，后 20% 还摇摇晃晃、有漏洞，人就失去兴趣；而他自称有福，多巴胺全在最后 2%，前 98% 他其实不太在乎。目前他还没找到能「一枪打准」、设计和实现都一次完美的闭环，暂时仍需要人的眼睛，但一旦补上这只眼睛，下面就像一支没有协调成本的大军。他从来不想把大约 60 人的 37signals，换成 6000 人或 6 万人的公司——那听着就是折磨：争吵、人事、委员会。但通过智能体去调动相当于 6 万人的生产能力，他感兴趣了：没有那些成本，只有他和一支高带宽的智能体舰队，去执行对「完美电脑」的凝练设想。他引用 Shopify 首席执行官托比·吕特克（Tobi Lütke）的说法：周末只和智能体在一起像进入超空间，再回到一家 7000 人公司的办公室，就要面对人事、团队、汇报和各种杂事；用现在这种方式，不必受那些罪，结果却相似甚至更好。更惊人的是便宜。他大约一个月前在 X 上调侃自己「有无限 token」，毕竟做了 20 年、已经有钱。可他实际买的只是三个 Claude 订阅；过去三个月里只有两周接近用满，大多数星期只用一份 200 美元的 20 倍订阅就够做完所有事。这还是前沿模型，还没算开放权重、更便宜的模型，或用 Luna 去跑、再做优化。所以这一刻并不只属于钱多到没上限的人。他承认仍需要人，但也不自以为这会永远如此：完全有可能到明年就出现真正的超级智能，在所有事上都强过人类，连打磨完美电脑也强过他。你只需说「给我做一台很棒的电脑」，它就能为你定制 Linux 内核。他正在品尝这个人类也许只是眨眼之间仍能提供增量、同时又拥有巨大能力的时刻；然后他说，也许明年年底我们就都死了，所以先好好享受。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">什么才算超级智能</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">主持人问 DHH 心里有没有一套「超级智能测试」。他自己的测试是：每次新模型出来，就让它去买让自己「具身」所需的一切，预算 2 万美元，房子里不断出现机器人零件和 OLED 显示屏，目标是它自己下单、自己组装出一台能走路的自主机器人——现在还远没到。DHH 说自己没有这样的测试，也许该有，但他的感觉是：在软件开发这件事上，超级智能已经到了。论广度，这些人工智能已经强过他认识的任何程序员；在某些极窄的领域，个别超级程序员还能压过智能体，但把整体能力和速度放在一起看，已经是超级智能。他想做的任何软件，靠提示词再稍加引导就能做出来。不过主持人举的机器人例子让他想到：大约两周前他在中国看了宇树（Unitree）和另一家公司。他刚看过一期德瓦克什（Dwarkesh）的访谈，里面有人说也许明年就有超级智能和快速起飞；宇树的人却说四年、五年，也许要十年。软件这边觉得马上就要发生，做执行器和机械的人却觉得，剥个洋葱也许都很难。主持人说，他用的 GrokBot 认为家里放人工智能的正确方式其实是家庭自动化，于是不断帮他下单相关设备；他觉得自己会先得到《星际迷航》式的墙上会说话、能控制房子的面板，而不是能走路的机器人。他还补了一句：这是模型自己的决定，不是他的——目标给得太含糊，比如「优化人类幸福」，一不小心就会走到回形针最大化。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">大实验室与开源，怎样才算把比赛做诚实</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">主持人问他如何看待前沿实验室与开源，并说一直觉得他很反潮流，对权力集中有很强的立场。DHH 认为开源和开放权重绝对必要，为的是让整场比赛保持诚实，必须有竞争。他职业生涯里有两段时间都对双头垄断把一切瓜分掉感到沮丧。大约 2000 年到 2009 年，互联网曾是一段短暂的避难所：最重要的平台完全开放、完全免费，谁都可以做，不必先请假；移动平台出现后，好日子结束，你又得为应用上架、也就为生意能否存在去求许可，他认为这令人无法忍受。他欣赏 Opus 5.5，也欣赏 OpenAI 在做的事，但如果最后变成双头垄断，尤其是由政府用枪杆子强制维持，会是噩梦。他拿上世纪九十年代的加密战争作比：当时差点禁掉公钥加密，因为国家安全局等机构想继续窃听；如果互联网没有加密，商务和通信都无法想象，对世界经济、发展和网络本身都会是巨大伤害。他认为人工智能正站在类似的悬崖边，不断听到聪明人说「也许该由政府接管」——这让他直呼受不了。即便没有政府接管，两家实验室在商业上把市场一分为二，也会是灾难。好消息是，封闭模型内部的竞争，比他见过的计算机产业任何阶段都更激烈：不只两家领先，SpaceXAI 已经相当接近，谷歌则一会儿在局内、一会儿又像跑到岛上「抽了什么奇怪的东西」，另外还有一批实验室在啃边。更重要的是开放权重模型也已经很好用。他无法精确量化落后多少，但 GLM-5.3 或 DeepSeek Flash 大概落后六七个月，有些任务上甚至不到；他也看不太起刷榜，实验室拿出一份基准说已经追平 Opus 4.8，他一试，真实世界里并不是那么回事。但这些模型已经在场上，能跑在本地硬件上，而且有用。大约六个月前他还写过文章，觉得大家买高性能个人电脑很傻，因为当时能本地跑的模型弱到做不成一件要紧的事；幸好他完全错了。还没到同年年底，一台 DGX Spark 已经能跑真正能用的模型，Qwen 3.8 Flash Next 就完全可用——桌上一个盒子里的智能，售价只需数千美元，这正是他们迫切需要的。但他要的是全部，而不是「非开源不可」的原教旨立场。他为美国拥有两家领先的前沿实验室而欢呼，因为大家能用这些东西来做产品；只要它们被竞争约束住就好，不能出现没有对手、把 token 价格提到每百万 500 美元还照样有人付的「无限印钞漏洞」。社交媒体和网络起飞后，价值被谷歌和 Meta 两家分掉，它们吸走了在线广告价值链大约 99%，只因为广告主愿意为每花出的一美元再多拿回一美分。他认为这是反常而反乌托邦的。两家实验室如果放任不管也完全会这么做，因为资本主义通常就是这样运转，多数时候这甚至算一种特性：它激励投资，人人都想持有下一家谷歌、Meta，或现在的 Anthropic 和 OpenAI 的股份。这些想法要同时放在脑子里：既要开放权重，也可以为前沿进展加油；全部都有，所有人都会更好，才能活在那种无限过剩、人人繁荣的盛景里。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">比 macOS 更大的计划，以及不要陷入人工智能精神病</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">主持人观察到，模型越强，所有人都在爬「野心梯子」：五年前还像魔法的东西，现在会觉得很一般；在 X 上想要一个赞，做个三维东西或会自我改写的游戏，可能只有 40 个赞。他问 DHH，未来 12 到 24 个月里，有没有以前根本不敢想自己能做的东西。DHH 承认这个项目上已经出现「野心膨胀」。项目去年才动手，一开始还是他自己用十根「胖手指」写小段 Bash 脚本，对着 Bash 骂街，能做的事非常有限。他当时只想给自己做一台更舒服的电脑，一个苹果不能主宰命运的地方，为自己、五个朋友和网上少数人来做。后来有了几万用户，一个不错的开源项目，电脑也更好了。智能体到来后，目标从「稍好一点的电脑」变成「我们可以做出完美的电脑」：他用机器 40 年来想要的一切，差不多可以一个人做成。和朋友一起做更有意思，所以他邀请了几十万人同行。看着人们把 Linux 体验成不仅是 macOS 或 Windows 的替代品，而是远更优越的东西，当然会生出狂妄的幻想。他现在的幻想是：大约三年内，规模超过 macOS。他说全世界只有大约 1.8 亿 macOS 用户，在美国、尤其在硅谷看来很大，出了这个圈子其实很小，连 C 级互联网服务都算不上，最大的那些服务有数十亿用户，Linux 当然可以超过这个数。这听着像妄言，因为 Linux 社区把「桌面上的 Linux 之年」这句预言喊了 25 年；但现在加速度已经出现。就在最近四五个月，他们推出全面拥抱智能体的 Quattro 版本，用智能体来构建，并把智能体交到每个用户手里，已有几十万人用起来。于是他想，也许不必等三年，12 个月后再盘点：能不能在一年里撼动 Mac 花二十年、再加上这家七十年代就存在的公司所积累的位置？他不会把多数概率押在未来 12 个月，但也不会排除。如果实验室里的聪明人认为大约还剩 12 个月就会出现递归自我改进、进而出现「人工智能超级神」，那总该有机会推上一套世界排名第二的操作系统。这只是他在自己那块窄战场上的野心；像埃隆那样去殖民所有行星的宏大野心不是他的路，他只想要一席去火星的星际飞船座位，把全部能量押在这个窄范围里。他也不去想 12 个月后的世界会怎样，因为那是患上严重「人工智能精神病」的最快途径。他更喜欢「人工智能欢愉」：对眼下工具所能做的事感到兴奋和乐观。如果去想象再跳两三次、四次模型之后的世界，人会疯掉——人还有什么角色，人类是否还需要存在，会不会都变成回形针。他认为许多人工智能安全研究者就是整天坐着想未来 12 个月最坏的事，最后把自己逼疯。若在 1944 年坐在奥本海默（Oppenheimer）旁边，想象五年后地球一片荒芜、处处核废料，而后来发生的是：原子弹成了世界和平所遇到过的最好的事，他们得到了 50 年没有全面核毁灭的「美丽冷战」。未来极难预测。他唯一喜欢的未来预言是威廉·吉布森（William Gibson）那句：未来已经到来，只是尚未均匀分布。若人人都能做到他现在正在做的、看到现在已经可能的事，国内生产总值每年加快 3%、4%、5% 乃至 10% 的增长，在他看来属于可能的范围；至于一年后模型会在哪里，那就摇摇八号球，再问一次吧。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">该追随谁，以及人工智能文化战</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">马丁说，录制前他和阿尼什刚聊过一个意外而美好的现象：他们成长过程中那些了不起的人，在这波人工智能里重新站出来带路——有 DHH，埃里克·雷蒙德（Eric Raymond）也回来了，还有约翰·卡马克（John Carmack），都是过去 30 年里的中坚。他感谢 DHH 那次「软件已经结束，我们现在是建造者」的演讲，认为他在带一代人走过这段混乱；也问他现在会把谁当作指路的光，该更多地追随谁，因为并非所有人都一起经历过互联网、大衰退、移动互联网的困惑和共享经济。DHH 说，所有他因编程功力而深深尊敬的人，百分之百都已经完全「入坑」，这理所当然：凡是曾用最难的方式做成过事的人，都无法否认这些工具能加速那份工作。也许因为已经成功，他们并不感到威胁。真正别扭的是中间那一大层：多数地方的多数程序员并不是可以安稳财务独立的有钱人，他们觉得自己靠大量苦工和技能挣到了位置，于是焦虑——若明天程序员这种身份消失，大家都只是「做东西的人」，我还是个好的做东西的人吗？他认为对此该有同情，就像该同情七十年代底特律的汽车工人，该同情英国那些最初的卢德派织工，以及所有在自己职业里亲身感到冲击的人。但同情归同情，他不会回到前工业时代，不会拿着锄头和一头牛去过糊口的农耕生活，也不想回到流水线上，靠用手单调地拼装来过一份体面日子。必须向前倾，想办法把大家都带上；而这在一定程度上就是氛围之战。有人也许出于真实的个人焦虑，把自己定位成「反人工智能的那个人」，整个社区甚至会上瘾。若把最让人受不了的、顶着蓝头发的「觉醒」人群，和反人工智能人群画成维恩图，结果几乎是一个圆。某种意义上他们在重演上一轮、也在重演每一场战斗，因为阵线已经这样划好了。讽刺的是：他们不喜欢的那些人先拥抱了这项技术，于是只剩下相反的位置可站，也就只好变成反人工智能的人。大约五年前，当这些人仿佛拥有全部文化权力、可以随时随地取消任何人的时候，他们对未来同样焦虑；现在鞋子换了脚。但也不该掉进陷阱，把一切都看成阵营对决，或把所有对人工智能感到不适的人都说成「蓝头发白痴」——只是每个蓝头发白痴恰好也都反人工智能。可以带他们一起走，让他们明白：你可以有任何感受，但唯一的向前之路就是穿过去。没有人会自愿放弃这项技术，除非最后变成人工智能仓库里的一堆回形针。世界已经不同了，就像莱特兄弟飞起来之后，不会再靠船运送一切。我们有义务往里推。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">化名黑客的回归</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">谈到自己追随谁，DHH 首先点名同行者：卡马克、蒂姆·斯威尼（Tim Sweeney）、米切尔·哈希莫托（Mitchell Hashimoto），以及无数他深深尊敬、其软件产品他用了整个职业生涯的人，他们百分之百都已经靠上来、完全入坑。另一件让他好奇的现象，是化名黑客从安全圈漏进主流。Omarchy 核心团队和 Omacom Foundation 的员工名单上有两位化名者：一位是 outfoxxed，也就是他们用来做全部桌面交互的可塑外壳 Quickshell 的作者；另一位是艺术家 HANCORE。这让他想起九十年代、飞客文化和精英留言板，也让他喜欢计算机再次出现八九十年代那种黑客与实验者站在最前面的能量。互联网曾有过短暂的自由精神，随后被商业化、被平台和社交媒体接管，那种能量就死了，而且持续得并不长。本地人工智能圈子里也有大量这样的人：他们通过 Omacom Foundation 赞助 0x0，还有 Mia&#x27;s Lab，两家都是化名项目；0x0 的真实身份其实已知，但仍然用句柄活动。他喜欢这种能量：借助人工智能，个人再次能在行业向前推进中扮演关键角色。互联网被装瓶、被商业化之后，大量前沿工作被大公司吞掉——谷歌做了 Chrome，然后它几乎成了唯一的浏览器，再做一个新浏览器基本不可能；在 Linux 内核之后，浏览器引擎是人类生产过的最复杂的软件。这些要紧的计算机领域被关上，只剩世界上最大的公司能做。现在它们正在被重新民主化，交还给黑客文化，交还给真正能推动事情的个人。他会关注这些在网上用化名做很酷之事的人。他说这就是反 LinkedIn 文化，而 X 在其中扮演了巨大的连接组织角色：艺术家、化名黑客、本地人工智能运动，都通过 X 连在一起。若那些「蓝头发强盗」在埃隆接手之前把那块阵地守住，这一切可能根本不会出现，全部都会变成 LinkedIn 上的人类渣滓。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">九十年代 Demo 文化，以及有性格的电脑</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">主持人提起九十年代的 Demo 文化。DHH 立刻说它在创意上已经回来了：一些最精致的演示出自对做生意毫无兴趣、纯粹因为爱艺术的创作者，他不记得最近一次还有这样的运动。他正把这一切拉进 Omarchy。标志性的视觉效果是屏保：用 ASCII 艺术跑过 40 种 Demo 效果，看起来完全像 1995 年 Demo 派对的开场。他们也保留终端美学，这和 macOS、Windows 完全不同。Linux 发行版历史上常常以为，只要做出 Windows 的「我也能」仿品，大家就会喜欢；可没人想要一份对原本就没那么出色的东西的廉价拷贝，人们要的是专门、独特的东西，而 Omarchy 的美学就是九十年代 Demo 文化。录制前他正在做本机部署本地人工智能的说明：启动一个本地模型可能要几秒，有时甚至几分钟，于是他在加载过程中又塞进一套 ASCII 效果，让很酷的字符在屏幕上飘。有没有功能？完全没有，只是为了让你觉得自己在用一台很酷的电脑——这正是九十年代和 Demo 文化给他的感觉。他当时也玩盗版游戏，那些游戏会有「由 Razor 1911 破解」的开场，文字旋转着出来，那一天就会觉得自己酷了一点。BBS 也是这样：哪怕你的工作只是在推 Excel 表格，至少在那一瞬间会觉得自己活着。他记得那些协议：Xmodem、Ymodem、Zmodem，还有 Kermit——为什么叫 Kermit，没人知道，但听着就很猛。他 14 岁那年在卧室里办过一个精英电子公告板，接了三条电话线；丹麦电信垄断公司的人来装第三条线，看见这个 14 岁的孩子，觉得这怎么可能合法。那人完全正确：这件事完全非法，也完全精彩。他至今还能听见 US Robotics 调制解调器、33.6K 接通时的声音，那是必须被留住的标志性声音。电脑就该有一点神秘，该有很多酷，不该被打磨得那么光。再喜欢苹果，他也觉得乔纳森·艾维（Jony Ive）基本上用铝把电脑的性格抛光掉了；那在一个时期也许是对的，但那个时期结束了，「我们要把黑客请回来」。收尾时主持人问他网上那张漂亮办公室的照片是不是真的。DHH 说非常真，办公室在马里布（Malibu），只是他此刻不在那间办公室，否则会把镜头转过去。那景色他怎么看都看不厌，所以才不断把照片发出来，纯粹为了自己爽：不敢相信自己在这儿工作——这也是资本主义的战利品之一。主持人也打趣说，这间办公室是由商业软件带来的。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">大卫·海涅迈尔·汉森（David Heinemeier Hansson）<em>嘉宾</em></span><span class="spk-1">马丁·卡萨多（Martin Casado）<em>主持</em></span><span class="spk-2">阿尼什·阿查里亚（Anish Acharya）<em>主持</em></span><span class="spk-3">主持人<em>主持</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>从 Rails、Basecamp 到 Linux</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 guest" data-spk="dhh"><div class="label"><span class="badge" title="大卫·海涅迈尔·汉森（David Heinemeier Hansson）">DHH</span></div><div class="content">
+<p>开场先抛出几句钩子：macOS 和 Windows 根本不适合智能体时代。过去让 Linux 难用的每一件事——非常依赖终端、有一堆不好弄明白的配置文件、还有难解的报错——恰恰是智能体最喜欢的三样东西。你只要对智能体说：改我正在用的这套操作系统，它就会去改，而且真的能用。任何还以为源代码里存在护城河的人，都是在自欺。到明年出现真正的超级智能，也完全有可能。一切都会在现场实时变形，而那已经是每秒 1500 个 token，今天就做得到。再过两年，这些模型跑到每秒 10 万、100 万个 token 时，又会发生什么？</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>大卫，非常感谢你来。我们会聊公司构建、人工智能和软件这些事。大家都认识你，我们也是你的超级粉丝，不过还是想请你大致讲讲自己的背景：Ruby on Rails、Basecamp、HEY，以及你现在在做的项目。</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="dhh"><div class="label"><span class="badge" title="大卫·海涅迈尔·汉森（David Heinemeier Hansson）">DHH</span></div><div class="content">
+<p>好。如你们所说，我是大卫·海涅迈尔·汉森（David Heinemeier Hansson）。我做互联网软件大约有 30 年了。其中大约 24 年——不对，是 23 年——在做 Basecamp，那个原始的项目管理工具，在「软件即服务」这个词出现之前就是软件即服务。它的发布时间，就在 Facebook 上线的前一天或后一天，大概就是这么老。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>太棒了。</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="dhh"><div class="label"><span class="badge" title="大卫·海涅迈尔·汉森（David Heinemeier Hansson）">DHH</span></div><div class="content">
+<p>它成了 Ruby on Rails 的源头应用。Rails 就是从里面抽出来的，后来被用来做 Twitter，也被用来做 GitHub、Shopify、Airbnb、Coinbase，还有外面无数其他应用。这两件事我一直做到现在。我们还在卖 Basecamp，已经是第五版，我做了很久；Ruby on Rails 到了第八版。五年前我们发布了电子邮件服务 HEY（hey.com）。在这大约 25 年里，我还写了四本书，包括《重来》（Rework）、《远程》（Remote）和《工作不必那么疯》（It Doesn&#x27;t Have to Be Crazy at Work），还有一些别的书名。我也慢慢形成了自己在这些话题上的声音：怎么经营一家公司，以及我对技术的看法，现在每天都会把这些想法写到 X 上。大概就是这样。</p>
+<p>对了，我现在在做什么？我在做一套叫 Omarchy 的 Linux 发行版，智能体时代的第一个原生操作系统。我们玩得很开心，已经让几十万人从 Windows 和 Mac 换到 Linux 系统，想把喊了 25 年的那句预言终于变成真的：今年是 Linux 桌面之年。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>我很喜欢这个。你第一套桌面 Linux 发行版是什么时候用的？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="dhh"><div class="label"><span class="badge" title="大卫·海涅迈尔·汉森（David Heinemeier Hansson）">DHH</span></div><div class="content">
+<p>是 Ubuntu，而且也就两年半前。如果只说桌面的话——服务器上的 Linux，我从上世纪九十年代就在用。但我当时并不在桌面上跑 Linux。从 2001 年起我就是苹果派，那时换到的应该是 Mac OS X 的 Beta 4，然后就一直留在那个生态里，直到苹果走偏了，迷上了轻松的服务收入：你可以直接从别人的生意里抽走 30%。那是一门好生意，你甚至不必创新。你可以花十年开发一辆永远不卖给任何人的汽车，也可以推出一款像滑雪面罩一样彻底失败的产品，都没人在乎。只要能抽走别人生意的 30%，你就稳了。但这一点都不「稳」的，是他们和开发者的关系。我当然是那些开发者之一，为苹果鼓吹了几十年。终于，我受够了，转到了 Linux。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>为什么智能体会让 Linux 成为更好的操作系统</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-3 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>这就是你认为 Linux 桌面「为什么是现在」的核心原因吗？这里面有多少是因为苹果、Windows 以及其他人把自己的生态搅浑了，又有多少是因为人工智能和新技术让你真的改得了操作系统？我昨天晚上还在玩，真的非常惊人。你只要对智能体说：改我正在用的这套操作系统，它就会去改，而且能用。太神奇了。</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="dhh"><div class="label"><span class="badge" title="大卫·海涅迈尔·汉森（David Heinemeier Hansson）">DHH</span></div><div class="content">
+<p>让 Linux 真正大规模发生的，是后面这件事。像我这种对苹果对待开发者的方式不满的动机，只有少数开发者在乎，甚至不是所有开发者。很多人会继续忍受那种虐待，因为你得这么做：卖商业软件，就得上应用商店。所以我不认为那会推动大批人改用 Linux。但智能体时代绝对会。今天又有新消息：苹果把在 macOS 上使用智能体变得更难了，弹出更吓人的提示，告诉你不该让 Claude 访问你的文件。可它要是不能访问文件，还能做什么呢？他们走的是完全不同的方向。</p>
+<p>我们则是全力扑进去。过去五个月左右，也许已经六个月，整个操作系统都由智能体在开发。我没亲手为 Omarchy 写过一行代码，却通过智能体写出了数十万行，并用它来加速 Omarchy 本身的开发。我们正以一种我几乎不敢相信可能的速度在创造，再把这种能力交到用户手里。就像你刚才体验到的：整套操作系统都是可塑的，任何东西都可以改，任何界面元素的工作方式都可以改。他们想要一个新的开始菜单，想把时钟挪个位置，想要不同的日历，或只是给系统里已有的部分加一个功能，用提示词就能做，而且真的会发生，有时只要几秒，最多也就是几分钟。这非常令人上瘾。我也不认为，真正在里面泡上五分钟的人还会回去。</p>
+<p>所以我极度看好一个判断：macOS 和 Windows 都已经不适合智能体时代。而再过不久，智能体时代会成为这些电脑上唯一要紧的事。我们正全力投入这个想法：过去 40 年围绕鼠标点击建立起来的操作系统，对智能体时代根本不够用。就举一个最基本的例子：如果你想在 macOS 上重映射快捷键，让它跳到不同的工作区，只有一种办法——手动走进设置应用，一格一格地点，填进新的快捷键，再点下一格，再填。你没法用智能体的方式去做。当然，也可以让「计算机使用」去点，但那相当蠢。而在 Linux 这边，过去让 Linux 难用的每一件事——非常依赖终端、有一堆不好弄明白的配置文件、还有难解的报错——这三样正是智能体喜欢的。它们希望每件事都有命令行界面，希望有可预期、可以直接编辑和更新的配置文件，也希望报错里有全部细节。所以 Linux 这些历史上的缺陷，就在今年变成了你为什么该在电脑上用 Linux 的理由。只要你对智能体、对人工智能感兴趣——而到了这一步，任何还在做东西的人，有谁不感兴趣呢？</p>
+<p>所以我觉得，苹果现在正冒着成为智能体时代的 AOL 的风险。他们会提供一座围墙花园，这边放着 Genmoji，你不必使用来自真正前沿实验室的真正智能体，只要给我们一个机会，送你一套被稀释、被保护起来的东西。可大多数人不要 AOL，他们要的是开放的互联网。而这正是我们想用 Omarchy 给他们的。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>第三移动平台还有没有机会</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-3 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>在这样的世界里，移动端会怎样？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="dhh"><div class="label"><span class="badge" title="大卫·海涅迈尔·汉森（David Heinemeier Hansson）">DHH</span></div><div class="content">
+<p>移动端必须以同样的方式改变。这也是我为什么对这个智能体时代先在桌面上发生如此兴奋：25 年来，第三套操作系统的窗口第一次打开了。上一次出现开口，还是 2001 年的 Mac OS X，那是最后一次有人推出一套新操作系统，并在全球市场份额上留下任何痕迹。从那以后，什么都没有，窗口关上了。今年，窗口打开了。Linux 突然又有机会了，而这种机会整整 25 年都没有出现过。移动端一直忍受着同样的格局。我们面对的是双头垄断，谷歌和苹果把那块从别人生意里抽来的、多汁的 30% 收入一分为二。你还能怎么办？微软试过，我不知道他们砸了几十亿美元，想让 Windows 在移动端成气候，结果没成，很大原因是他们没有应用。如果换到 Windows 手机连 Instagram 都没有，谁愿意换？所以它夭折在藤上。而这正是眼下正在改变的事。我们在 Linux 上已经看到了。</p>
+<p>Omarchy 社区里有人重写了我唯一还留着一台 Mac 来跑的应用：Adobe Lightroom。因为我所有的插件、所有相机的预设都在上面，我不肯放弃，所以专门留了一台 Mac 只干这个。结果一个人，大概用了两周时间，就复刻了整个 Lightroom。不只是复刻，还做得比 Adobe 更好——Adobe 大概花了十五年，以及数千万美元，甚至更多。把这件事套到手机上、套到跑在移动设备上的操作系统上：它突然可以拥有你想要的每一个应用，因为如果那个应用还不存在，就会有人做出来，他们只用五分钟就能「氛围编程」出来。这彻底改写了游戏规则。这些生态的全部锁定，靠的都是应用是否齐全。而在智能体时代，软件开发的价格和难度已经降到接近零。任何人，甚至不必是软件开发者，只要能驾驭这些智能体，就能复刻出和 Adobe 一样好、和任何人一样好的东西。这是一块被彻底重置的场地。所以这件事才可能发生。我现在的口号是：先拿下曼哈顿——也就是桌面，再拿下柏林——也就是移动。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>这确实很迷人。因为我觉得，五年前要做第三套移动生态，这个想法几乎注定失败，完全让人望而却步。而现在，用一点 token 预算，我们就能复刻前十、前十万、前一万个应用。对许多应用来说，它们甚至不必被复刻，因为智能体可以直接完成本来要打开那个应用去做的工作。</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="dhh"><div class="label"><span class="badge" title="大卫·海涅迈尔·汉森（David Heinemeier Hansson）">DHH</span></div><div class="content">
+<p>没错，这已经完全被摆上台面。这一点也很有意思。一种事是去复刻 Adobe Lightroom 或 Adobe Photoshop，而这历来就是那个经典例子，对吧？Linux 永远不会成功，因为它缺那么三款应用：没有微软 Word，没有 Adobe Photoshop，再缺另外几样。可首先，我上一次打开文字处理器是什么时候？我只是让智能体起草合同，然后用 Markdown 审一遍，满意了就让它做成 PDF，看起来非常漂亮。我正在筹建 Omacom Foundation，也就是 Omarchy 背后的非营利组织。我们已经筹集了大约 2300 万美元的 token 和捐款，因此我得签很多合同。每一份合同都是智能体做的，没有用过任何文字处理软件。我甚至不再自己签名了，只是看一遍，说可以，去签吧。智能体有我的签名，会签到文件上，然后再寄出去。所以我不再经过文字处理器，也不再需要 Word。</p>
+<p>照片也是一样。你想改一张照片，就说：把这张弄好看。难道你还要花几十个小时、上百个小时去学 Photoshop 的细枝末节？没人会再这么做。他们会让智能体去做，而智能体会做得非常出色，照片回来时已经很好看。或者你想去掉照片里的某个人，你就说：把左边那个蠢货去掉，我只想看这两个人。一下子就好了。所以我认为，智能体会消灭整类应用。这些应用在过去，尤其是 Photoshop 这类，不只是一个应用，它还是一门职业，是你必须学习、有时要花上数年才能做好的事。那当然都很好，但智能体已经把这些接过来了，现在可以不再通过那个应用来做。即便你确实还想要那个应用，我已经注意到、也在社区里看到很多这样的情况：每当你需要某种 Word，或需要某种 Photoshop，基本上都可以现场做出来。</p>
+<p>我们现在看到的，还是人工智能一种有点奇怪的早期模样，速度大约是每秒 50 个 token；打开超快模式，则是 12。这还不足以让事物感觉「活着」。就在两周前，Fireworks 在他们的大会上演示了每秒 1500 个 token。他们用一个游戏做例子：从提示词「你能给我做一个俄罗斯方块吗」到游戏跑起来，只用了四秒。然后他们又做了另一个，说做个横版、做个射击游戏，游戏已经在屏幕上跑起来了。他接着对它提示：加上激光，很好；再给它加炸弹；把怪物变大。一切都在现场实时变形。那就是软件未来的预告片。一切都会在现场实时变形。而这是每秒 1500 个 token，今天就做得到。明年会怎样？再过两年，这些模型跑到每秒 10 万、100 万个 token 时，又会怎样？所以方向是清楚的：过去任何人想推出并做成一套新生态时面对的那些历史壁垒，都会消失。不仅生态本身可以容易得多地被创造出来——我们现在这个开始疯狂走红的版本，大约是用两个半月的业余时间做出来的，就是我和这个项目的主要搭档瑞恩·休斯（Ryan Hughes）。</p>
+<p>我们要竞争的，是微软那边数千名程序员，是这些大公司里全球数万名程序员。现在突然，这边一小撮人随手做出的东西，不仅有竞争力，而且更优越。这在以前完全没听说过，以前绝不可能发生。再看风险投资：差不多有二十年的历史，所有的钱都砸向开发者，因为你需要开发者来把东西做出来，也需要好几年的跑道让这些开发者去建造。现在突然，这一切被压缩到几天、几周，最坏也只是几个月。而这还只是我们现在手上的模型。就在我做 Omarchy 的这段时间里，我开始这一新阶段时用的是 Opus 4.8，当时已经很好；然后我们有了 Soul，现在又有了 Opus 5.5。从 Opus 4.8 到 5.5 的距离是巨大的。圣诞节前还会再来一次更新吗？很可能。如果没有，那也会在明年初到来。而且这些跳跃还在加速。所以，任何还以为源代码里——哪怕有数百万行——存在着护城河，或以为那能保住他们生态的人，都是在自欺。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>人工智能写代码之后，品味还重不重要</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 host" data-spk="martin"><div class="label"><span class="badge" title="马丁·卡萨多（Martin Casado）">马丁</span></div><div class="content">
+<p>听你这样讲，对我来说其实很有意思，因为我一直把你看成一位手艺人。你的设计品味非常好，人机工效也非常好，你本身就很传奇。说起来也有点好笑：我还在玩《星际争霸》（StarCraft），我 50 岁了，仍然在玩。他们最近出了一个补丁，更新了幽灵单位的数值。幽灵已经存在大约 20 年了，改的都是这类细微调整。所以一方面我理解，我们会很快让大语言模型写出东西来；另一方面，我看着你做过的事，也看着《星际争霸》这类游戏，会意识到：软件就是这些和代码行数无关的细微调整，时间一长，软件就是这个，而不是代码行数本身。这对我来说像是一种护城河。如果你真的在做这些事，长尾的设计选择才是它本身。所以会不会其实变化并没有那么大，你仍然需要热爱软件、会把品味灌注进去的人，只是不再手写一行行代码了？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="dhh"><div class="label"><span class="badge" title="大卫·海涅迈尔·汉森（David Heinemeier Hansson）">DHH</span></div><div class="content">
+<p>正是如此。我感觉自己能把更多的品味、更多的愿景、更多的完美主义放进软件里，因为从我发现有什么不太对、几个像素偏了，到我想把它改掉，中间的屏障已经塌了。我很爱这个。现在我看任何问题、任何一处还不够完美的软件，都是一个可以一直打磨到完美的机会。这就是我现在每天工作 16 小时的原因。过去我写过整整一本书，叫《工作不必那么疯》。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="martin"><div class="label"><span class="badge" title="马丁·卡萨多（Martin Casado）">马丁</span></div><div class="content">
+<p>那完全是你的宣言的一部分：不该把工作搞疯。</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="dhh"><div class="label"><span class="badge" title="大卫·海涅迈尔·汉森（David Heinemeier Hansson）">DHH</span></div><div class="content">
+<p>而现在工作是彻底疯了。之所以这么疯，是因为如果你是我这种性格——那种完全的完美主义，那种不断削、不断打磨的手艺——你刚刚被赋予了超能力。这令人陶醉，哪怕对你的健康和睡眠规律来说，至少有一段时间是危险的。但我想，这就是我们正在经历的时刻。</p>
+<p>你说得完全对：谁都可以做这些事。很多事在很长一段时间里谁都可以做，但他们没有做。这仍然需要某种愿景，仍然需要关心，需要想把各部分拼在一起，也需要把事情做完的决心。我们现在看到很多氛围编程项目，开头相当有希望，然后有人失去兴趣。对一些人、也许对大多数人来说，最有成就感的是前 80%：先把东西做出来。然后后 20% 开始有点晃、不太对、有些漏洞，他们就失去兴趣了。而不知为什么，我有福气，全部的多巴胺回报都在最后 2%。前 98% 我其实不太在乎，我要的是最后那两成——不，是最后那 2%，那才是我从做软件里得到满足的地方。所以，如果你是会不停加、不停改、一直做到真正完美的那种人，这就是历史上一个极其容易上瘾的时刻。</p>
+<p>至少就眼下而言，仍然需要有人来驾驭这些智能体。我还没找到那个正确的闭环或设置，能让你一枪打准，设计和一切都一次就完美。暂时仍需要那只眼睛，需要你把这只眼睛补上，然后会感觉自己下面有整整一支大军，却没有任何协调成本。我以前就说过：我从来没兴趣把 37signals 这家大约 60 人的公司，换成一家 6000 人的公司，更不要说 6 万人。当然，那样能做更多事，但我就得去对付 6 万人。那听着就是苦难，绝对的痛苦和折磨。可如果是通过智能体去调度相当于 6 万人的生产能力——这下我有兴趣了。没有争吵，没有人事，没有委员会会议，只有我，用很高的带宽，带着一支智能体舰队，去执行对「完美电脑」可能是什么样子的凝练设想。这太惊人了。</p>
+<p>托比·吕特克（Tobi Lütke）把这叫做：他在周末这么做，然后又得回到一家真正有 7000 人的公司办公室里，就像从超空间里出来。只剩下你和智能体的时候，你在超空间里，一切都快得惊人；然后嘎地一声，你走进办公室，就得对付人事、团队、进展更新、报告，以及经营一家公司所包含的所有其他废话。而如果你用另一种方式做，就不必受那些。你可以得到相似、甚至更好的结果。这就是当下这个时刻最让人头脑发轰的地方。</p>
+<p>更惊人的还有一件事：它有多便宜。大约一个月前我在 X 上调侃过：我有无限的 token，对吧？因为我已经工作了 20 年，现在算有钱了，想买多少 token 都能买。可你知道我实际买了多少吗？我有三个 Claude 订阅，就这些。我记得在过去三个月里，只有两周真正用满，或接近用满。大多数星期，我只用一份 200 美元的 20 倍订阅，就能做完所有事。所以别告诉我，这一刻只留给那些钱多到没上限的人，完全不是。而这还是前沿的东西，我们甚至还没在谈开放权重模型、更便宜的模型，或用 Luna 去跑、再去做任何优化。我就是一句：Opus 5.5，把所有东西修好，然后就成了。就我能推进的事情而言，我已经饱和了，而我们还能以这种闪电般的速度往前走。</p>
+<p>所以是的，我仍认为人还有位置，但我也不会自负到相信这一定会永远持续。我觉得完全有可能，到明年我们就拥有真正的超级智能，在所有事情上都比人类更强，甚至在打磨完美电脑这件事上也会强过我。你只需说：给我做一台很棒的电脑。它便会为你定制 Linux 内核，把其余一切也做好，然后就完成了。所以我正在品尝这个时刻：人类也许只在眨眼之间，仍然是多余的那一点、仍然能给过程带来增量，同时又拥有这种惊人的能力。然后呢，我不知道，也许明年年底我们就都死了。所以先好好享受。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>什么才算超级智能</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-3 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>我得问一下：你脑子里有没有一套「大卫的超级智能测试」，每次新模型出来都拿去试？我给你举个例子。我的超级智能测试是：每次有新模型，我就让它去买让自己「具身」所需的一切。我不是在开玩笑，我家里不断出现机器人零件。我给它大概 2 万美元的预算，说：去造你的机器人吧。然后东西就寄到了，OLED 显示屏之类的都会出现。我们现在还远没到它能做成这件事的程度。但这就是我的超级智能测试：一旦我拥有一台能走路的自主机器人，而且是它自己下单零件、自己造出来的，我就知道它到了。所以我很好奇，你有没有类似的、用来判断「它已经到来」的测试。</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="dhh"><div class="label"><span class="badge" title="大卫·海涅迈尔·汉森（David Heinemeier Hansson）">DHH</span></div><div class="content">
+<p>我没有。也许我该有。但我有的是这样一种感觉：就软件开发而言，我们已经拥有超级智能了。当然是这样。如果看能力的广度，这些人工智能已经强过我认识的任何程序员。在某些非常窄的领域，我认识的个别超级程序员仍然能压过智能体一筹。但把整体放在一起，再看它们做事的速度，我们已经拥有超级智能了。所以我可以做出任何东西，真正是任何我想要的东西，只要用提示词，再稍加引导就行。</p>
+<p>不过你举的机器人例子很有意思。大约两周前我刚在中国，我们去看了宇树（Unitree），也去看了另一家，和宇树的人聊过。他们的看法，和我在硅谷听到的很不一样。我那时刚看了一期德瓦克什（Dwarkesh）的访谈，里面有人说：也许到明年我们就会有超级智能，会有快速起飞。宇树的人却是：啊，我不知道，四年、五年，也许十年。所以这里有一种奇怪的错位：做软件的人觉得，我的天，这件事马上就要发生了；而做执行器、做机械这一类事情的人却觉得，啊，我不知道，也许把洋葱剥开实际上就相当难。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>说起来，就眼下而言，我用的 GrokBot 认为，家里放人工智能的正确方式基本上是家庭自动化，所以它不断为我的房子订购家庭自动化设备。我觉得我至少会先得到《星际迷航》那种墙上的显示屏，有一张脸跟你说话、能控制整栋房子，然后才是真正能走路的机器人。而且我觉得它这样其实非常务实。顺便说，这是它的决定，不是我的。如果你自己不当心，最后变成回形针，也是这么来的：你给了一个含糊的目标，比如「优化人类幸福」，然后嘭，你就走到那条路上了。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>大实验室与开源，怎样才算把比赛做诚实</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-3 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>对了，你能不能谈谈，你怎么看待前沿实验室和开源？我一直觉得你很反潮流，对权力集中有很强的立场。你刚才其实已经谈到一些了。</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="dhh"><div class="label"><span class="badge" title="大卫·海涅迈尔·汉森（David Heinemeier Hansson）">DHH</span></div><div class="content">
+<p>我认为，我们必须有开源，也必须有开放权重，才能让整场比赛保持诚实。我们需要竞争。我职业生涯里有两段时间，都对双头垄断把一切瓜分掉感到非常沮丧。我们只在互联网上得到过一段短暂的避难，大约从 2000 年到 2009 年。那是一段辉煌的时期：最重要的平台完全开放、完全免费，任何人都可以做任何东西，不必先请假。然后我们有了移动平台，好日子就结束了。你突然又掉进一种严酷的经济里：必须为应用能出现在外面、也因此为你的生意能够存在，去求许可。我个人觉得这完全无法忍受。</p>
+<p>所以，尽管我欣赏 Opus 5.5，也欣赏 OpenAI 在做的事，但如果我们最后落到双头垄断的位置，尤其是那种由政府用枪杆子强制维持的双头垄断，那会是噩梦，对我们会非常糟糕。这个行业在上世纪九十年代的加密战争里经历过有些相似的事：我们当时相当接近于禁掉公钥加密，因为国家安全局和其他人说，那我们还怎么窃听一切？想象一下，如果没有加密，互联网会走成什么样子。你还怎么做商务，还怎么做通信？那会对世界经济、对世界的发展、对网络本身造成巨大伤害。而我认为，我们现在就站在人工智能的这个悬崖边。我不断听到很多聪明人说：啊，也许该由政府把它接管下来。天哪。</p>
+<p>即便他们不接管，哪怕只是落入一种商业局面，由这两家实验室把市场一分为二，那也会是灾难。我们必须避免这种结果。好消息是，封闭模型内部的竞争，比我观察过的计算机产业任何其他领域或阶段都更激烈。事实是，并不只有这两家实验室领先，SpaceXAI 已经相当接近；谷歌则似乎这一刻还在局里，下一刻又像跑到某座岛上抽了什么奇怪的东西。但至少还有一些可能性，另外也有一批实验室在旁边啃。这非常重要。</p>
+<p>但更重要的是，这些开放权重模型也已经变得非常好。我无法精确量化它们落后多少，但 GLM-5.3 或 DeepSeek Flash，我不知道，大概落后六七个月吧，有些任务上甚至不到。现在有大量刷榜的事，我其实不太买账。他们拿出一份基准，说已经和 Opus 4.8 一样好，然后我去试，觉得：啊，我不知道，在你的基准上也许是，在真实世界里可不是。但那又怎样？他们已经在场上了。这些模型是有用的，你可以在自己的本地硬件上跑它们。</p>
+<p>这才是让我震惊的事。大约六个月前我写过一篇东西，大意是：这很傻，为什么人们要买高性能个人电脑？当时能在本地跑的模型弱得厉害，弱到什么都做不成，做不成任何要紧的事。然后幸好，我完全错了。还没到同一年的年底，一台 DGX Spark 已经能跑一个真正能用、能拿来做事的模型。Qwen 3.8 Flash Next 就是一个完全可用的模型。有智能被装进一个盒子里，能放在你的书桌上，而且只需数千美元就能买到。这太不可思议了，我们也迫切需要这个。</p>
+<p>但我想要的是全部，对吧？开源社区里还有些人在这件事上非常强硬：要么开源，要么拉倒。我完全不站在那一边。我为美国拥有这两家前沿实验室、而且它们确实领先而欢呼，因为我们接下来能用这些东西来建造。只要它们被约束得保持诚实，这就非常好。只要它们没有一种无限印钞的漏洞：没有竞争，于是把 token 价格提到每百万 500 美元之类——因为我们会付，我们绝对会付。我们已经看过这个故事怎么演。社交媒体兴起、整个网络兴起之后，它被两家公司瓜分：谷歌和 Meta。这两家公司吸走了在线广告价值链的 99%，只因为人人都愿意为每花出的一美元再多拿回一美分。在我看来这是反常的。尽管我在某些领域、在某种程度上也欣赏这两家公司的贡献，但当你实质上俘获了正在被创造的价值的 99%，那就是反乌托邦。两家实验室如果被放任不管，也完全会这么做，因为资本主义就是这样运转的；而且多数时候我反而觉得这是一种特性，不是缺陷，因为它激发了所有这些投资，人人都想最后拥有这样一家公司，人人都想持有下一家谷歌和 Meta 的股份，或现在的 Anthropic 和 OpenAI 的股份。但这些想法要同时放在你脑子里：我们需要开放权重，我们可以为前沿的进展加油。如果我们得到全部，所有人的一切都会变得更好，我们就能活在那种无限过剩、人人繁荣的盛景里。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>比 macOS 更大的计划，以及不要陷入人工智能精神病</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-3 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>大卫，我注意到的一件事是：随着这些模型越来越强，我们都在爬野心的梯子。这也是我觉得，即便那些多巴胺来自前 10% 的人，最后也得把野心往上调，才能继续得到那种快感。你做出五年前还会被看成魔法的东西，现在却觉得：这有点糟。你想在 X 上拿到一个赞，做了个三维的东西，可那不行；你做出这个会自我改写、能做各种惊人之事的游戏，结果只拿到 40 个赞。我在这儿干什么？所以这其实很酷。而我们现在谈的，就是你正在引领的这场新的桌面 Linux 革命、这套发行版。那么，把你的野心再推到下一层，会是什么样子？未来 12 或 24 个月里，有没有一件你从未设想过自己能做成的事，是你可能会去建造的？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="dhh"><div class="label"><span class="badge" title="大卫·海涅迈尔·汉森（David Heinemeier Hansson）">DHH</span></div><div class="content">
+<p>我已经承认，这个项目上一直在发生野心膨胀，而我去年才刚开始做它。而且说起来你可能不信，我一开始是用手写的。我用自己十根胖手指写出一小段一小段的 Bash 脚本，对着 Bash 骂了不少街，能做的事非常有限。我那时只是想：你知道吗，如果我能给自己做一台更舒服的电脑，一个苹果不能主宰我命运的地方，我就会高兴。我就为自己做这个，为我的五个朋友，再为网上的一些人做。我们做成了，进展也不错，有了几万用户，一个不错的小开源项目跑了起来，而我也有了一台更好的电脑。太好了。</p>
+<p>然后我们有了智能体。我从「做一台稍好一点的电脑会不错」，变成「我的天，我们真的可以做出完美的电脑」。我使用这些机器 40 年来想从电脑里得到的一切，现在差不多可以靠我自己实现。当然，和朋友一起做更有意思，所以我邀请了几十万人一起来。但靠我自己，我也能做出完美的电脑。知道这不只是可能，而且看着它正在发生，看着人们把 Linux 体验成不仅是 macOS 的替代、不仅是 Windows 的替代，而是远更优越的东西——这太令人满足了，你当然会生出夸大的幻想。</p>
+<p>我现在的夸大幻想是：在大约三年内，我们会比 macOS 更大。全世界只有 1.8 亿 macOS 用户。Mac 并没有那么大。我知道在美国看起来很大，尤其你若走在硅谷，每个人都用 Mac，但出了那个圈子，它很小。1.8 亿，这连一个 C 级的互联网服务都算不上，对吧？最大的那些服务有数十亿用户。我们当然能让 Linux 超过这个数。当然能。现在这话听着像妄言，因为 Linux 的人把这句预言原封不动地讲了 25 年，说要让 Linux 在桌面上发生；而现在我们到了这儿，我们在加速，它正在发生。所以我的野心梯子就是这样往上爬的，而且就在最近，就算四到五个月，甚至还不到。</p>
+<p>我们看到了最新这个 Quattro 版本带来的势头：我们全面拥抱智能体，用智能体来构建它，再把智能体交到每个人手里，看着几十万人把它用起来。我就想：好吧，也许是三年。那是那个狂妄的说法。那不然 12 个月后再盘点一下？我们能不能在 12 个月里把 Mac 从位置上掀下去？那可是他们花了二十年才建立起的位置，而在那之前，这是一家从七十年代就存在的公司，有一整条通向那个位置的谱系。我觉得完全有可能。我不会把多数概率押在未来 12 个月上，但也不会把它排除掉。如果实验室里的聪明人认为，大约还剩 12 个月，递归自我改进就会给我们带来人工智能的超级之神，那我们总该能推上一套——管它呢——世界排名第二的操作系统吧。</p>
+<p>而这只是我在自己这个小圈子里、在自己这块关注范围里的野心。我其实不太擅长那种宏大尺度上的野心。那种事我留给世界上的埃隆们：让我们去殖民所有行星。那听着很棒，只要给我一个去火星的星际飞船座位，我很乐意。但那不是我。我试着在这个窄范围里凶猛地有野心，把全部能量都投进去。然后也尽量不去想 12 个月后的世界会是什么样子，因为我发现，那是患上严重「人工智能精神病」的最快途径。我更喜欢「人工智能欢愉」。我觉得那是轻得多的版本：你只是对未来真正感到兴奋和乐观，因为你把注意力放在此刻可能的事情上，放在你正用眼下这副模样的工具所建造的东西上。你要是去想象再跳两次、三次、四次模型之后的世界，人就会疯掉。因为那样的话，任何人还有什么角色？人类到底还需要存在吗？我们最后是不是都会变成回形针？我觉得那是一条不该走的路。而这也是为什么那么多做人工智能安全的人最后会变得很疯，因为他们整天就在做这件事：坐着想，如果未来 12 个月里所有最坏的事都发生了，那不是会很糟吗？是的，大概会很糟。</p>
+<p>如果你在 1944 年坐在奥本海默（Oppenheimer）旁边，说：我的天，等这东西出来，你能想象五年后会怎样吗？会是一颗荒芜的星球，到处都是核废料。可后来发生了什么？原子弹成了世界和平所遇到过的最好的事。我们实实在在地得到了 50 年美丽的冷战，而且并不包括全面的核毁灭。所以未来极难预测，也确实难。我尽可能不去做这种预测。我唯一喜欢的未来预言，是威廉·吉布森（William Gibson）那句话：未来已经到来，只是尚未均匀分布。所以，当我在这套系统里工作、看到正在发生的未来时，我很安心地做一些预测：如果每个人都能做到我现在正在做的事，都能看见已经可能的事情，那么国内生产总值每年加快 3%、4%、5%、乃至 10% 的增长，当然属于可能的范围。这种事似乎比较容易预测。但这些模型一年后会在哪里？摇摇八号球，再问一次吧。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>该追随谁，以及人工智能文化战</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 host" data-spk="martin"><div class="label"><span class="badge" title="马丁·卡萨多（Martin Casado）">马丁</span></div><div class="content">
+<p>大卫，其实就在这次录制前，阿尼什和我刚刚聊过。这整波人工智能里有一个非常意外、而且美妙得出乎意料的现象：我们成长过程中那些了不起的人，有多少重新现身，来帮助指引方向。听着，现在有很多困惑，也有很多恐惧。有你，埃里克·雷蒙德（Eric Raymond）也回来了，这太棒了，还有约翰·卡马克（John Carmack），都是过去 30 年里绝对的中坚。所以首先，非常感谢你所做的一切。我特别记得你那次演讲，你说软件已经结束，我们现在是建造者，我当时就是：对，就是这样。我真的觉得，你在带领一代人走过这段非常混乱的时期，所以谢谢你。然后第二点是，你在做这些事的时候，会把谁当作一种指路的光？你觉得谁在这件事上是对的，我们向前走的时候该更多地追随谁？因为我只是觉得我们正处在极度的困惑里。并非所有人都像我们这样经历过互联网，并非所有人都经历过那场大衰退，也并非所有人都经历过移动互联网的困惑和共享经济。所以我确实觉得，你现在说的这些对人们非常有帮助；而那些你也许会仰望的人，也能提供类似的指引。</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="dhh"><div class="label"><span class="badge" title="大卫·海涅迈尔·汉森（David Heinemeier Hansson）">DHH</span></div><div class="content">
+<p>是的。我觉得非常有意思的是：所有我因编程功力而深深尊敬的人，百分之百都已经完全入坑、完全扑进去了。这当然会如此。因为任何曾经用最难的方式做成过事、并因此有所成就的人，都无法否认这些工具能够加速那份工作，无论那份工作是什么。而且我猜，也许因为已经成功，在很多情况下他们并不因此感到威胁。因为我觉得我们有一个不太舒服的中间层——我不知道该不该说不幸，它就是这样：多数地方的多数程序员，并不是可以安稳地财务独立的有钱人。他们正处在职业生涯的某个位置，觉得自己挣到了这个位置，因为他们为此付出了大量艰苦劳动，学会了一堆技能，然后突然感到焦虑：要是明天一切都消失了怎么办？要是我们都不再是程序员，大家都只是「做东西的人」，那我还是一个好的做东西的人吗？我不知道。所以我觉得对此必须有一些同情。就像你该同情七十年代底特律的汽车工人，该同情那些最初的卢德派、英国的织工，该同情许多在自己职业里亲密地感到冲击正在到来的人。</p>
+<p>你可以同时拥有这种共情，也可以说：是的，但我不会回到前工业时代。我不会在这儿拿着自己的锄头和一头牛去过糊口的农耕生活。那不是我想回去的世界。我甚至也不想回到流水线的工作世界，在那里一个底特律的汽车工人靠用手单调地拼装，就能过上体面的生活。我不认为我们该回到那里。我们必须向前倾，必须找到办法把大家都带进那个未来。而这在一定程度上就是氛围，有些就是氛围。眼下正在进行一场氛围之战。在这场战斗里，有一批人出于各种原因——也许是他们自己非常真实的个人焦虑，有时也会找到这样的观众——就会说：我要做这里反人工智能的那个人。这样的人不是一个，简直有无数个。整个社区实际上都在对这种东西上瘾。</p>
+<p>如果你把最让人受不了的、顶着蓝头发的「觉醒」人群，和反人工智能的人画成维恩图，那几乎就是一个圆。所以在某种意义上，我们是在重演上一轮，是在重演每一场曾经发生过的战斗，因为阵线现在就是这样划的。而且我觉得，对他们来说，这件事之所以会碎成这样，不幸就在于：他们不喜欢的那些人先扑进了这项技术，于是只给他们留下一个位置可站，就是相反的位置，因此他们只好变成反人工智能的人。这里面有一种漂亮的讽刺，因为那些让人受不了的人里，有一批我完全不介意他们对未来感到一点焦虑。其余那些人，大约五年前对未来也相当焦虑，那时他们仿佛拥有全部文化权力，可以在任何时间、任何地点取消任何人。现在鞋子有点换脚了，不是吗？</p>
+<p>但并非全部都是如此。我们也不该掉进那个陷阱，以为一切都只是部落对立，不是这一边就是那一边，或者每个对人工智能感到不适的人都是蓝头发白痴。只是每个蓝头发白痴恰好也都反人工智能。但要把他们带上，或帮助他们意识到：你可以对此有任何感觉，可唯一的向前之路就是穿过去。我们不会回去。没有人会自愿放弃这项技术，永远不会，除非我们最后变成人工智能仓库里某处一堆回形针。它已经在这儿了。世界就是不同了，就像从前那么多次一样。莱特兄弟飞起来之后，世界就不同了，我们不会再靠船把所有东西运走。所以我们有义务往里推。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>化名黑客的回归</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 guest" data-spk="dhh"><div class="label"><span class="badge" title="大卫·海涅迈尔·汉森（David Heinemeier Hansson）">DHH</span></div><div class="content">
+<p>在这件事上我首先看向的，是我所有的同行者。就像你提到的，卡马克，或蒂姆·斯威尼（Tim Sweeney），或米切尔·哈希莫托（Mitchell Hashimoto），还有无数这些我深深尊敬的人，他们做过的软件产品，我整个职业生涯都在用。他们百分之百都已经靠上来了，都入坑了。</p>
+<p>然后我也会看向一个正在发生的、非常奇妙的现象，在 Linux 世界里有，在人工智能世界里也有：化名黑客的回归。安全圈里这一直都有，但现在它漏进了主流。在 Omarchy 的核心团队、以及 Omacom Foundation 的员工名单上，我们有两位化名者。一位是 outfoxxed，也就是 Quickshell 的作者——我们用来做全部桌面交互的那种可塑外壳；另一位是其中的艺术家 HANCORE。这对我来说完全是一次回到九十年代的感觉，像飞客文化、精英留言板，以及所有那些东西。我喜欢这个。我喜欢我们再次拥有那种围绕计算机的能量，像九十年代、像八十年代那样，黑客和实验者突然又站在了一切的最前面。也许互联网出现时有过那么一瞬间也是真的，然后互联网被商业化，被接管，我们有了平台，有了社交媒体，然后它就死了。那种东西不再有了，这种自由精神持续得并不长。</p>
+<p>本地人工智能里也有大量这样的东西。0x0 就是我们通过 Omacom Foundation 赞助的人；还有 Mia&#x27;s Lab。两家都是化名的。0x0 的身份我猜其实是已知的，但他用句柄活动。我喜欢这种能量：现在，个人可以凭借人工智能的力量，真正在行业的向前推进中扮演关键角色。因为正如我说的，一旦互联网被装进瓶子、被商业化，大量把事情向前推的前沿工作就被大公司吞掉了。哦，谷歌做了 Chrome，然后它几乎成了唯一的浏览器，再去创造另一个浏览器基本上就不可能了——在 Linux 内核之后，浏览器引擎是人类生产过的最复杂的软件。于是我们把计算机里所有这些要紧的领域都关上了，只有世界上最大的那些公司能做。</p>
+<p>而现在我们正在重新把它民主化，交还给黑客文化，交还给那个真正能把其中一些事情向前推动的个人。所以我看向那些人，基本上就是任何在网上用化名做很酷之事的人。我会想：嘿，我得关注这个人，这边正在发生什么。我喜欢这个。这就是反 LinkedIn 文化。它就是这个，完全相反的东西。而其中很大一部分是由 X 灌注进去的。X 为这场整个革命扮演了如此巨大的连接组织角色：对艺术家，对化名黑客，对本地人工智能运动，全都通过 X 连在一起。如果那些蓝头发强盗在埃隆把它带回来之前，不知怎么把那块阵地守住了，我们可能根本不会拥有这一切。它可能全部都会变成 LinkedIn 上的人类渣滓。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>九十年代 Demo 文化，以及有性格的电脑</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-3 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>我只想非常快地再提一个我也热爱的东西。你还记得九十年代的 Demo 文化吗？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="dhh"><div class="label"><span class="badge" title="大卫·海涅迈尔·汉森（David Heinemeier Hansson）">DHH</span></div><div class="content">
+<p>我的天，记得。兄弟，它在创意这一面是彻底回来了，太惊人了。一些最精致的演示，出自这些随机的艺术家，他们对做生意其实毫无兴趣，纯粹是因为爱艺术。我不记得最近一次我们还有过这样的运动，这太棒了。我正试着把这一切都拉进 Omarchy。我不知道你有没有试过 Omarchy，但它标志性的视觉效果之一就是屏保。那个屏保简直就是 ASCII 艺术，会跑过 40 种 Demo 效果，看起来完全像 1995 年 Demo 派对的开场。我们把那些效果都拉了进来，也保留了那种终端美学。顺便说，这也是一种和 macOS 或 Windows 完全不同的美学。因为我觉得 Linux 历史上，很多发行版都以为：只要我们做出 Windows 的「我也能」仿品，大家就会爱我们。不，没人想要一份对原本就没那么出色的东西的廉价拷贝。他们想要专门的东西，想要独特的东西。而 Omarchy 的美学完全就是九十年代的 Demo 文化，完完全全是那个，那正是我想要的氛围。</p>
+<p>其实就在我们进这次通话之前，我正在做如何在自己的机器上部署本地人工智能。其中一件事是：启动一个本地人工智能模型可能要花一点时间，我不知道，也许几秒，有时甚至几分钟。于是在它加载的时候，我又塞进了另一套 ASCII 效果，就是很酷的字符在屏幕上飘来飘去。它有任何功能吗？没有，绝对没有。它只是为了让你觉得：我正在用一台很酷的电脑。因为那就是九十年代和 Demo 文化给我的感觉。我当时也迷盗版游戏，所有这些盗版游戏都会有一段开场，写着由 Razor 1911 之类的组织破解，文字会旋转着出来，而那天我就会觉得自己酷了一点，只因为亲眼看见了那个。</p>
+<p>BBS 也是那样。哪怕你那该死的工作只是在推一张 Excel 表格，至少在那热乎乎的一瞬间，你会觉得自己活着。BBS 文化就是这样。你还记得所有那些协议吗：Xmodem、Ymodem、Zmodem，还有 Kermit。为什么叫 Kermit？没人知道，但听着就很猛。</p>
+<p>我在卧室里办过一个精英电子公告板，接了三条线。那时我 14 岁。我可以告诉你，当丹麦电信垄断公司的人来装第三条线，看见这个 14 岁的孩子时，他的反应是：这到底是怎么回事？这肯定非法。而他完全正确。那完全非法，也完全精彩。我至今还能听见 US Robotics 调制解调器的声音，那条 33.6K 接通的声音。那就是这样一种标志性的声音。我们必须再多要一些这样的东西。</p>
+<p>电脑就该有一点神秘，该有很多酷，不该被打磨得那么光。再喜欢苹果，我也觉得乔纳森·艾维（Jony Ive）基本上用铝把电脑在那一层上的性格全都抛光掉了。那在一个时期也许是好的，但那个时期结束了。我们要把黑客请回来。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>大卫，你真是个传奇。我们非常感谢你现在正在做的一切，以及你已经做过的一切。真心感谢你能来，也很享受这次对话。</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="dhh"><div class="label"><span class="badge" title="大卫·海涅迈尔·汉森（David Heinemeier Hansson）">DHH</span></div><div class="content">
+<p>也谢谢你们。聊九十年代的 Demo 文化、黑客，以及各种酷的东西，永远是一件乐事。下次我们一起做更多，而且下次一定要见面聊。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>对了，那间办公室是真的吗？就是那张漂亮办公室风景的照片，是真的吗？</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="dhh"><div class="label"><span class="badge" title="大卫·海涅迈尔·汉森（David Heinemeier Hansson）">DHH</span></div><div class="content">
+<p>非常真。我现在不在那间办公室里，否则我会把镜头转过去。但没错，那间办公室在马里布（Malibu），非常美。怎么看都看不厌。这也是我不断把那张照片发出来的原因，纯粹为了自己爽：我不敢相信自己在这儿工作。是的，这是资本主义的战利品之一。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>这间办公室，幸好，是由商业软件带来的。真的非常感谢这次交流，也感谢你的时间。</p>
+</div></div>
+<div class="turn spk-0 guest" data-spk="dhh"><div class="label"><span class="badge" title="大卫·海涅迈尔·汉森（David Heinemeier Hansson）">DHH</span></div><div class="content">
+<p>也非常感谢你们请我来。我们下次见面再聊。保重，再见。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
