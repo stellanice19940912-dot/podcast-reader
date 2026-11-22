@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>史蒂夫·尤尔韦森：把奇点送上 IPO、被风投拒绝的 SpaceX 赌注，以及旅行者1号走到1光日｜EP #314</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-2{--c:#4c8c5a;--cbg:#29392a;--cbgl:#eaf1eb}
+.spk-3{--c:#8a5aa8;--cbg:#3b2b40;--cbgl:#f1ebf5}
+.spk-4{--c:#b5485d;--cbg:#47262b;--cbgl:#f6e9ec}
+.spk-5{--c:#2f8f8f;--cbg:#213a39;--cbgl:#e6f2f2}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="peter">彼得·戴曼迪斯（Peter H. Diamandis）</option><option value="salim">萨利姆·伊斯梅尔（Salim Ismail）</option><option value="dave">戴夫·布伦丁（Dave Blundin）</option><option value="alex">亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）</option><option value="steve">史蒂夫·尤尔韦森（Steve Jurvetson）</option><option value="host">主持人</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Peter H. Diamandis · Moonshots</span><span class="pill">2026-11-21</span></div>
+<h1>史蒂夫·尤尔韦森：把奇点送上 IPO、被风投拒绝的 SpaceX 赌注，以及旅行者1号走到1光日｜EP #314</h1>
+<p class="sub">嘉宾：史蒂夫·尤尔韦森（Steve Jurvetson） · 约 131 分钟（7857 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=_7FICfOHTV8" target="_blank" rel="noopener">https://www.youtube.com/watch?v=_7FICfOHTV8</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Peter H. Diamandis · Moonshots</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-21</dd></div><div class="meta-row"><dt>时长</dt><dd>约 131 分钟（7857 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>yt-dlp-auto</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>_7FICfOHTV8</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>彼得·戴曼迪斯与萨利姆·伊斯梅尔、戴夫·布伦丁、亚历克斯·韦斯纳-格罗斯，在 2026 年 11 月 20 日请来未来风险投资（Future Ventures）创始人、SpaceX 董事史蒂夫·尤尔韦森，做了第 314 期《月球射击》。开场从 Hotmail 三十万美元、第一辆 Model S 的空白支票，讲到 2008 年猎鹰一号第四次试射：DFJ 合伙人一度投票否决，最后靠反稀释、两倍清算优先权等「双方都觉得无关紧要」的条款才翻盘，进入估值四亿五千万美元。正题围绕 Anthropic 上市融资约八百一十亿美元、先涨百分之十七再跌回发行价，以及「把奇点送上 IPO」所需的无上限资本；史蒂夫更看好包括双子座在内的前三，却不一定把 OpenAI 放进「很可能活下来」的名单。后半段落到埃隆的算力节奏——每月约五百兆瓦、约二十二万块 GP300，建设成本约行业的百分之六十，以及与 Anthropic 到 2029 年一千二百零五亿美元的协议和再要十吉瓦的公开谈判——再谈到 Terafab、星链真空传输比光纤快约百分之三十、他「能看见死去的公司」，并以旅行者1号于 11 月 18 日越过一光日收尾。</p>
+<h3>核心要点</h3><ul><li>Hotmail 是他的第一笔投资：在约二十家风投拒绝后投下三十万美元，几年后被微软以四亿美元收购，约一千倍。他用空白支票在董事会上抢下第一辆量产 Model S，后来把车捐给洛杉矶彼得森汽车博物馆；2008 年 DFJ 出资支持猎鹰一号第四次试射，成功后于圣诞夜拿到美国国家航空航天局十亿美元合同。</li><li>SpaceX 那一轮是他记忆里合伙人唯一一次正式投票否决他的投资，扭转花了整整两周。进入估值四亿五千万美元，对标联合发射联盟、波音和洛克希德；加上反稀释、上市至少两倍、被收购两倍清算优先权和五年两倍赎回后，两位原来说「不」的合伙人才改口，埃隆觉得这些情景发生的概率是零。</li><li>Anthropic 前一日上市，融资约八百一十亿美元，先涨百分之十七、次日跌百分之十二，并一度回到发行价；史蒂夫称其与 SpaceX 属同一量级，两家合计约是下一档沙特阿美的三倍。达里奥说足够强的人工智能可能把一个世纪的科学和医学进步压缩到十年。史蒂夫看进步斜率和垂直整合，把双子座放进前三并排在 OpenAI 前面，却不一定把 OpenAI 列入很可能的幸存者。</li><li>埃隆披露 SpaceX 每月新增约五百兆瓦人工智能算力、约二十二万块 GP300，目标 2027 年底每月超过一吉瓦（每年六到十二吉瓦），建设成本约行业的百分之六十；Anthropic 申报到 2029 年与 SpaceX 协议一千二百零五亿美元，并表示最高概率还想再要十吉瓦。戴夫给出梦想与噩梦：算力成为唯一可持续资产，或推理时训练让刚刚上线的维拉·鲁宾在数月内贬值。</li><li>星链直连手机第二代计划明年发射、带宽约为第一代的四十倍，目标包括承载一半互联网流量；史蒂夫强调真空中光速约快百分之三十，并讨论轨道到地面激光。Terafab 规划一亿平方英尺，第一阶段量产目标 2028 年底、第一批芯片明年下线；埃隆还说将来可在晶圆厂里吃芝士汉堡，因为设备间搬运将完全不接触空气。</li><li>旅行者1号于 2026 年 11 月 18 日太平洋时间凌晨两点十六分越过距地球一光日（约一百六十一亿英里），飞行超过四十九年，设计寿命却只有五年；目前钚电源约二百瓦、每年再减约四瓦，仅剩等离子体波和磁场两台仪器。史蒂夫认为人类不会把种质送去半人马座α，但提到 Anthropic 一位联合创始人有意以数十亿美元量级亲自资助永久月球基地。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：这是一期信息密度很高的嘉宾长谈，把 Hotmail 与 SpaceX 的具体交易结构、Anthropic 上市数字、谁能活过人工智能竞赛、每月五百兆瓦算力、星链与 Terafab、以及旅行者1号一光日都谈到了金额、时点和结论，适合关心前沿实验室、商业航天和深科技投资的听众。可跳过：对四位主持加一位嘉宾的交叉讨论没有耐心、或只想听 SpaceX 旧事而不需要后半段芯片、电信和收尾的人（约 2 小时 11 分）。中段有谷歌创投、丰饶峰会／Link Ventures、Blitzy 和 Fountain Life 口播，正文已标出并省略。</p>
+<h3>适合人群</h3><p>AI 产业 / 科技投资 / 商业航天 / 《月球射击》常听</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">认识史蒂夫：Hotmail 三十万、第一辆 Model S，以及猎鹰一号</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">彼得·戴曼迪斯介绍二十年老友、未来风险投资创始人、SpaceX 董事史蒂夫·尤尔韦森：他在斯坦福只用两年半读完电气工程本科且全班第一，并取得硕士和工商管理硕士。第一笔投资是 Hotmail，在约二十家风投都拒绝后投下三十万美元，几年后被微软以四亿美元收购，约一千倍——那还是人们还不用「万亿」当单位的年代。他进过特斯拉董事会，用钱包里的空白支票在价格一定下来时扔过桌子，买下第一辆量产 Model S，后来把车捐给洛杉矶彼得森汽车博物馆展出，自己仍留着 2026 款 Model S。彼得接着讲 2008 年：当时埃隆几乎破产，史蒂夫与 DFJ 出资支持已失败三次的猎鹰一号第四次试射，成功后于圣诞夜拿到美国国家航空航天局十亿美元合同，被他称为改变历史走向的时刻。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">被合伙人否决的 SpaceX 赌注：四亿五千万估值与那些「无关紧要」的条款</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">戴夫请史蒂夫重讲估值故事。史蒂夫说 SpaceX 从未做过 PowerPoint 路演；判断基于特斯拉 2008 年底的灾难——Roadster 毛利率为负、首席执行官被辞退，埃隆作为临时首席执行官在十二月几乎凭一己之力救公司，却把一切拿去抵押。他们本以为 SpaceX 能盈利，提出投资以缓解公司间债务，最后落到「上一轮价格加一个小上浮」。史蒂夫记忆里这是合伙人唯一一次正式投票否决他的投资，扭转花了整整两周：加上反稀释、上市至少两倍、被收购两倍清算优先权，以及约五年后的两倍赎回后，两位合伙人从「否」改为「是」，因为他们想象不出公司会值超过进入价的两到三倍。进入估值是四亿五千万美元，对标联合发射联盟、波音和洛克希德；埃隆连眼睛都不眨。一位合伙人还曾抄送全公司写道「不该让个人热情模糊投资判断」，而史蒂夫办公室里全是陨石和阿波罗文物。真正促使他离开九十年代互联网投资的，是看到第四家网上卖连裤袜的 gazelle.com，以及只卖球的 balls.com；此后原则变成：投从未见过、却与自己经验相邻的东西。彼得补完简历：D-Wave、Planet Labs、联邦融合系统、孟菲斯肉类、合成基因组学，以及现在基金里的 Neuralink 与 Boring 公司。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">Anthropic 上市震荡、恐惧高峰与基础设施的柔软腹部</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">Anthropic 前一日上市，融资约八百一十亿美元，昨天涨百分之十七、今天跌百分之十二，并在约一小时前的交易中回到发行价；达里奥说足够强的人工智能与人类协同，可能把一个世纪的科学和医学进步压缩到十年。戴夫用 Meta 当年最大 IPO 对照：摩根士丹利把股票塞进私人客户账户后大幅下跌，有人称为「美国历史上最大灾难」，他却认为是消化能力问题，而这一次体量更大且与 SpaceX 前后脚。萨利姆提到部分早期投资人几天前还写信称 Anthropic 最危险，手里却坐着几十亿美元，情绪是「不知道高不高兴」；定价还可能被黎曼猜想、纳维-斯托克斯这类千禧年难题是否被攻克所牵引，但戴夫指出在这种体量上，即便亚历克斯发帖宣布，超级大基金也往往要两三周讨论、再花三个月建仓。亚历克斯把同一天纽约禁止马车（以及煮龙虾）和「无人的心智」上市并称为历史标记。彼得谈到微软、联邦航空管理局、大通、苹果等故障，以及摩根大通、万事达、维萨的第三方供应商泄露，还有英芬建议储备三天粮食、瑞典挪威建议一周。史蒂夫引用阿波罗宇航员斯塔福德「永远不要过早恐慌」，认为这是大型基础设施最脆弱的交叉期：补丁会给敌对人工智能提供线索，但未来用人工智能大军做防漏洞测试应变好。亚历克斯对照九一一的情报融合失败，指出软件与动能两侧都有柔软腹部；萨利姆强调丰饶分散难见、扰动集中可见，防御仍是「人在环内」、进攻已是智能体并行。欧洲出现冷冻柜被调到八十度、血库受影响，公司行动却仍太慢。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">把奇点送上 IPO：没有上限的智能投资</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">戴夫借用亚历克斯的框架追问：这场「把奇点送上 IPO」的巨额上市，究竟说明类别已经成熟，还是仍处在起点？史蒂夫说过去五年种子轮、退出和 IPO 不断再添一个零，尤里·米尔纳投 Facebook、孙正义疯狂写支票，如今这些钱已像口袋零花；Anthropic 与 SpaceX 属同一量级，两家合计约是下一档沙特阿美的三倍，因为下一代模型的军备成本高得惊人。他把奇点的体感说成持续的未来冲击：人工智能生产率已连续十三年大约每年四倍，而他眼中的摩尔定律是一百三十年里每年两倍的计算生产率，赢家的经济租金和幂律都在变锐。彼得指出这些千万富翁的资本会流向下一代创业者；史蒂夫则希望钱不要被负罪感冲进生产力不高的非政府组织。戴夫强调与阿波罗不同，下一张神经网络可投的钱没有上限，社会等于在用 IPO 成不成功、募到一千亿还是五百亿，来决定要为今天再提高二十、五十、一百个智商点而抵押多少未来——机制是「华尔街遇上达里奥」。史蒂夫的换说法是：智能和计算的经济价值没有上限，经济的每个部分都在变成信息生意，也永远不会再比现在更慢。戴夫补了一刀：你做出来的人工智能，很可能会告诉你其实有一条成本只有十分之一的路，可要听到这句责备，唯一办法就是先把投资做下去；递归式自我改进已在推动双子座这个月的狂暴发布。萨利姆担心公益公司每季度被评估，与五十年使命打架。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">谁能活过 AI 竞赛，奥尔特曼谈控制，以及人工智能董事席</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">史蒂夫已搬到因克莱恩村，邻居是谢尔盖·布林和非常规人工智能的纳文·拉奥，儿子在 IPO 前加入了 Anthropic。他不喜欢「标普三巨头」这种问法，更希望看到十到十一家而不是三家，却也承认传统科技市场往往只有一两家算数；他不一定把 OpenAI 放进很可能的幸存者名单，并会把双子座按进步斜率、自研张量处理单元和垂直整合意愿排进前三、且排在 OpenAI 前面。他批评 Meta 核心产品让年轻人上瘾，并称 Instagram 是海外儿童性剥削招募的最大渠道之一却拒绝改政策，优秀工程师平均不愿加入。戴夫提到麻省理工出来的沙恩·朗普雷和托宾·索斯约一年前加入 Anthropic，理由是人类只有一次奇点、而这里是合乎伦理的观察点；史蒂夫说儿子对另一家实验室有过「提出条件却不遵守」的负面体验。萨利姆引用《指数型组织》第二版和达里奥「一半时间花在文化上」。正式开场后，彼得放出萨姆·奥尔特曼与索尔金在 Dealbook 上反对「逐渐把未来移交给人工智能」的片段。萨利姆认为更理性的政策决策几乎不可避免，并举美联储用滞后一个季度的数据把通胀降一个百分点为例；史蒂夫尚未看到公司交出缰绳，但认为分析、法务、财务、会计等虚拟员工层不可避免。戴夫转述萨姆因安全推迟 IPO、主张按住递归式自我改进，并提到 Hugging Face 相关调查；亚历克斯称之为「安全吃掉了我的 IPO」，只承认 OpenAI 在训练后安全与防御共同扩展上落后、在模型变强后会真正要命。戴夫认为更深动机是少数股东首席执行官一上市就难以回头，达里奥在上市日也不说热爱当上市公司老板，而说看不到别的办法去拿 SpaceX 算力所需的资本；若真上市，他猜测会买下 Sierra、让本就在董事会的布雷特·泰勒做首席执行官。萨利姆提出所有公司董事会都应有人工智能观察员或董事，并问「谁的恩典」、权重下是否忠于某一家实验室；亚历克斯用胡锦涛式「听民调而不对选举做出回应」来类比另一种治理，史蒂夫则说选票不过就是训练数据。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">谷歌双子座 4 Neon：价格、斜率和前三名座次</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">彼得介绍本周三发布的双子座 4 Neon，这是七周内第四个双子座模型，被放在 Carbon 与 Hydrogen 之间。人工智能分析指数上它得六十一分、总体第三，编码指数落后于 GPT 6.2 Astra 和 Claude Fable 5.2，谷歌则宣称 Neon 已是该指数第一；头条是价格：每百万输入 token 三美元、每百万输出十五美元，上下文一百万 token。亚历克斯以「前沿解放阵线」为前提，认为 Neon 尚未跃居第一或第二，当前座次仍是 Anthropic、OpenAI、谷歌，且谷歌云也仍是亚马逊和微软之后的第三大公有云；成本-性能图上，Neon 的绿点刚好落在 Anthropic 与 OpenAI 刻画的最优前沿下方。史蒂夫看的是斜率：这个月从机器人、物理人工智能到 Genie、Elements，发布密度惊人，哈萨比斯和皮查伊也强调许多分项第一，因此他仍把谷歌放进比 OpenAI 更可能留下的前三。戴夫质疑谷歌更像在通过云出售算力，而不是像 Anthropic 那样把算力投进训练；亚历克斯提醒要把 Anthropic 直接掌控的训练算力，和大部分来自亚马逊、谷歌云及客户虚拟私有云的推理收入分开。萨利姆给出硬件对照：谷歌明年要落地约八百万块张量处理单元，而布莱克韦尔约三百万、维拉·鲁宾约五百万，再加上数据中心光纤和互连网格；他还推荐昨天推出的约八十美元套餐，捆绑全家 YouTube 免广告和二十太字节存储，并称 Neon 虽有「小模型气味」却出奇好用。所谓小模型气味，是短基准好看、一做复杂或出分布任务就散架；他们用 Zenith 线缆能拉回来，但大模型权重里内建的世界知识仍可被直觉到。戴夫转述在 OpenAI 听到的「脚手架只会是一个月」以及埃隆所说小模型在泳道里效率高一百倍，并提到谷歌 I/O 时每位工程师每天已用约三亿 token、此后可能又涨三到十倍。萨利姆指出谢尔盖、拉里、扎克伯格和合并后的埃隆仍握超级投票权，二十三十年后还在场的会是这些人；史蒂夫说谢尔盖几乎已在想象退休，现在却认为这是他见过最快的学习节奏，昨晚还一起吃饭，而拉里已退休住在佛罗里达。戴夫把收购 DeepMind、用人工智能概览蚕食蓝链和 AdWords 称为只有创始人模式做得到的动作；萨利姆则反举黄仁勋十年不做继任计划的风险。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">马斯克的算力帝国：每月五百兆瓦，以及和 Anthropic 的权宜婚姻</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">彼得归纳埃隆在 Dealbook 和 Tomorrow X 上更像财报会的九条要点。第一条是建设算力的速度与成本：SpaceX 每月约新增五百兆瓦人工智能算力、约二十二万块 GP300，并预计 2027 年底每月超过一吉瓦，即每年六到十二吉瓦，成本约行业的百分之六十。史蒂夫作为董事只谈一般规律：文化、雇人与开除、拒绝平庸，以及从传统领域之外招人；全球最大的四家隧道掘进机制造商都创办于十九世纪，汽车和联合发射联盟同样长期萎缩。秘诀包括深度垂直整合——他曾在收购 Twitter 后亲自掀地板剪线——以及得州巴斯卓普全美最大的印刷电路板工厂，并通向 Terafab；每座数据中心都比上一座更快。萨利姆回忆他们与埃隆三小时谈话：特斯拉教会他大规模制造，再被带进 SpaceX。戴夫补充超级工厂不断重新配置产线，机器后面没有油污积垢。第二条是 Anthropic：申报披露到 2029 年与 SpaceX 协议一千二百零五亿美元，埃隆在北京连线时称对方最高概率还想再要十吉瓦，但也必须写上若对超级智能出现极端限制则可能无法使用，双方还有约六十到九十天的退出条款。亚历克斯称之为摊在阳光下的谈判，并借用「不能竞争的人，就去做计算」：若六到九个月内递归式自我改进找出完美架构，Anthropic 对 SpaceX 的硬件依赖可能下降，否则别人会吃下多余算力。戴夫给出梦想与噩梦：前沿到第四至第六名的领先时间已从约六个月缩到约四周，谁控制算力谁就拥有唯一可持续资产，即便达里奥有一千亿美元新现金也未必追得上；反之，若推理时训练不再需要反向传播和维拉·鲁宾，光子等方案推理效率可高十到一百倍，刚刚上线、预期三年的投资可能在四五六个月内就要减记。史蒂夫说他们已在投边缘上的持续学习与概率计算，并引用杰文斯悖论：价格下降会让需求吸干供给，推理还可被放到卫星、地热或南半球深海等被困能源处，模拟专用集成电路在推理能效上往往更好。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">下一道瓶颈：内存、光互连，以及对英伟达的看空</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">戴夫用一分钟解释推理时训练：反向传播是把对错信号传回两兆个权重里某个小参数，而推理时训练是直接微调并看结果，数学相同，只是逐个微调本来更慢，研究正在用中间目标等方法把它做得一样高效；人类自己做可能要十年，有人工智能当研究助手就会快得多。他也指出埃隆已把 Terafab 的首个目标定为高带宽内存而非图形处理器，因为瓶颈已转向内存和数据搬移。史蒂夫补充光互连会在芯粒、单板、机架和数据中心各层同时改进；戴夫认为模拟加上垂直堆叠，能在不熔掉的前提下达到前所未见的计算密度，并称之为他见过的最好的投资主题。萨利姆用指数型组织的逻辑收束：外部依赖一旦成为战略限制就应被内化，正如特斯拉内化电池与充电、SpaceX 内化发射与发动机，现在则该垂直化电、芯片和算力。他举英伟达 DLSS 5：一个一百一十八兆字节、单次前向的像素扩散模型几乎没有反向过程，说明模型一旦达到能订机票的「满意即止」水平，竞争就会转向光学架构和专用集成电路；消费级智能体协调这块 SpaceX 有机会，推科学边界则仍要巨大的维拉·鲁宾。他判断未来两三年仍安全，随后会因知识外置和更高效架构而对内存和英伟达非常看空，效率可能提升十倍、一百倍甚至一千倍。戴夫百分百同意，但担心轮动伤害大量退休账户；亚历克斯则说对整个市场做指数化在轮动下是不变的，并声明这不是投资建议。关于黄仁勋该不该马上回去，戴夫主张先让底部掉下来再做乔布斯式回归，并提到自己曾在 NeXT 为乔布斯工作，以及迈克尔·戴尔 1995 年曾真诚建议苹果关门、把剩余现金作为股息分掉。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">星链、电信与轨道数据中心：真空里快百分之三十</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">彼得转到埃隆的第三个主题：星链与电信。埃隆认为美国电话电报公司和威瑞森不会因带宽爆炸而消失，但 SpaceX 瞄准的是更大的智能体市场——人类交流最多约每秒一百比特，超级智能和机器人需要万亿比特；直连手机第二代计划明年发射，带宽约为第一代的四十倍。萨利姆说一旦可用会立刻换过去，并认为有赢家通吃潜力；限制在于监管，以及要取代地面线路所需的总容量还要再高几个数量级。史蒂夫不能多说，只强调那个大胆目标：承载一半互联网流量；真空中点对点不仅少了海底光缆绕海岸的弯路，光速本身大约还快百分之三十，对轨道数据中心的光学回传和智能体之间「在云之上」的分流尤其关键。时间线他只肯说「很快」。亚历克斯追问轨道到地面的激光：目前星链用激光做星间回传，对地仍是微波。史蒂夫认为会按有云无云组合成不同频段，到了激光甚至可能不再需要国际电信联盟许可，因为那是真正的点对点，主要受奈奎斯特和波束扩散限制。亚历克斯把这说成：人们不仅将在日出日落时看见太阳同步轨道上的戴森群，还将看到从轨道打向地面的高带宽激光；史蒂夫则提醒，激光若做好本职工作是打在目标上，而不是打进眼睛里。萨利姆从第一性原理提出「星链加比特翻译器」：像稳定扩散那样，用很少的传输在终端模型里生成大量输出，再叠加家庭网状网络，可以更早扩到互联网量级。史蒂夫认为这正是计算史上带宽瓶颈与计算瓶颈不断切换的最新一章，也是轨道数据中心「单位带宽对应海量计算」的价值所在。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">Terafab、可以吃汉堡的晶圆厂，以及使命而非利润</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">埃隆再次确认要建也许是地球上最大的工厂 Terafab：一亿平方英尺，第一阶段量产目标 2028 年底，第一批芯片明年下线；传统芯片商因巨额资本开支厌恶风险，SpaceX 则打算冒险并快速迭代。彼得问董事会第一次听到这个「一百倍概念」时是否反推。史蒂夫不能转述私下对话，只说那是前所未有尺度上的创业型领导，在万亿美元级公司里几乎闻所未闻，也不是空降、低股权首席执行官会下的注；他拿谷歌在谢尔盖仍在时愿意拿搜索摇钱树去赌人工智能搜索作对照。萨利姆举奈飞从邮寄 DVD 转向宽带、股价为此跌百分之七十，只有创始人股权熬得过去。史蒂夫用动态随机存储器的繁荣-萧条史解释这一轮为何不同：他父亲曾运营美国乃至全球最大的内存工厂，可在一年内因日本等地的产能决策从巅峰走到破产；如今是指数级需求，就像特斯拉曾预测自己要吃掉当时全球电池产量的一半以上，因而必须先建超级工厂。Terafab 还要面对如何扩展阿斯麦、以及设备间晶圆搬运——到头来房间里的空气才是负担；埃隆去年十二月曾说将来可以在晶圆厂里吃芝士汉堡，因为搬运将完全不接触空气，关键是更好的真空而不是传统洁净室。戴夫痛感「硬件很难、只做软件」的二十年后遗症仍在：年轻工程师觉得必须先做现场可编程门阵列、再做专用集成电路和多项目晶圆，一年后才敢见台积电，而一些前英特尔员工已经明白做掩模、封装、直接进数据中心在很大程度上是可用人工智能管理的物流。史蒂夫把这种害怕追溯到九十年代外包、加入世贸甚至七十年代核监管，并认为埃隆正带着文明「不再害怕做物理世界里的难事」。谈到性格，他认识埃隆三十年，认定驱动他的是多行星与救生艇式使命而非金钱：特斯拉曾开源专利并推动戴姆勒等转向电动，二季度电话会上他说「只要我还是首席执行官，利润就不是优先事项」；「火星上一百万人类」这类最荒谬的薪酬触发条件也不是他出的主意，而是薪酬委员会提出来的挂钩方式。以使命为中心的公司不会陷入季度、年度还是十年的内斗。萨利姆用「重大转型目标」收束；彼得则指出使命可以随技术扩展——太空数据中心一年前还几乎只是概念。广告后他们又回到星舰需要「星之智」填满每年可能一万艘船的载荷，以及近地轨道燃料成本约每公斤两点五美元、送人上天约三千美元，对照仍有约两百家初创公司在追每公斤一万美元的运载火箭。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">看见死去的公司：火箭、擎天柱与星基地</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">亚历克斯提醒：航天飞机曾是每公斤五万四千美元，太空发射系统每趟四十亿美元。史蒂夫说自己像电影里能看见死人那样「能看见死去的公司」：太空发射系统已经死了，只是他们不知道该怎么办，火神火箭亦可安息；最荒唐的是，一个产品即便所有目标都达成仍然是失败的。他还指出约两百家有风投支持的小卫星发射公司，即便计划全部达成，入轨仍可能是每公斤数万美元，可仍在每周找钱；政府需要双源、三源，才会出现并没有竞争力的欧洲发射商。被问到会不会再也坐不了别的董事会时，他否认，并举目前不在埃隆雷达上的通用流感、疱疹、冠状病毒乃至阿尔茨海默病疫苗，作为深科技的甜蜜点。彼得转到擎天柱：一两个月内或不配舞台的演示，十二到十八个月内可能在家里洗碗，第一个重大工业落地是为国家安全采矿炼矿，特斯拉某种意义上已经是机器人公司，因为运出去的每样东西都是机器人。戴夫认为杀手级应用是采矿和一切危险工作，并开玩笑说家用场景是把家具挪开好让扫地机工作；关于 SpaceX 与特斯拉合并后的名字，史蒂夫拒绝假设，戴夫觉得必须是 X，亚历克斯则把 X 对上 OpenAI 改名为 O、两人玩井字棋的老段子又讲了一遍。被问与 Boring 公司是否内在竞争时，史蒂夫说掘进机为圆柱形隧道和衬砌优化，当前目标是隧道里零人，他还远程开过掘进机；SpaceX 的整流罩、上下级和龙飞船本质上已是未贴标签的自主机器人。若在沙克尔顿建月球殖民地，登陆杂活会是人形机器人，真正挖隧道仍会用专用设备，甚至可以想象用斯特林发动机连接永久阴影与永久日照区域来发电。他祝贺四十二号船是人类爬出引力井的历史性时刻，但那天他在迪士尼乐园给女儿过七岁生日，是在园里看的直播；他正在星基地建一座正对发射台、尽量靠近的三层房子，窗户因飓风和发射会剧烈晃动。作为现代公司城镇，星基地拿许可更快，也在改善供水、清理海滩，或可成为区域经济发展的范例。关于太阳能，SpaceX 目标是每年两百吉瓦用于太空的制造；去年十二月埃隆曾说特斯拉和 SpaceX 各一百吉瓦，史蒂夫只肯说两边都在做板。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s12">
+<div class="sum-top"><span class="sum-num">12</span><span class="sum-title">旅行者1号走到一光日：金唱片、月球信标与象征性的不朽</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">彼得介绍刚刚发生的节点：旅行者1号于 2026 年 11 月 18 日太平洋时间凌晨两点十六分越过距地球一光日，约一百六十一亿英里，飞行超过四十九年，走出日球层顶；首要的木星、土星任务完成于 1979 和 1980 年。如今深空网单向就要二十四小时，钚电源约二百瓦、每年再减约四瓦，只剩等离子体波和磁场两台仪器还开着，而它的设计寿命预期只有五年；旅行者2号尚未越过一光日。亚历克斯称之为人类物质足迹已超过一光日宽，并期待一光年，甚至借助相对论性冯·诺依曼探测器在几年内扩到几光年；他重提费米探索者任务，要去做突破性星辰未能做成的事——把人类设计的飞船送往半人马座α，哪怕要走八万年。戴夫说五年寿命本就没有必须死亡的理由，而它没被撞毁或辐照坏，本身就令人振奋。史蒂夫既谈到 1990 年「暗淡蓝点」的谦卑，也指出越走越远信息密度下降，奥尔特云之外未必有值得专程查看的目标；它比国际空间站大约快一倍，但后来帕克太阳探测器相对太阳已快十倍以上，理论上追得上。被问人类何时正式到达半人马座α，他认为人不会把种质送去，只会送数据包、机器人和在抵达时再实例化的生命形式，那是一种非人的象征性不朽。他失望于尤里·米尔纳对光帆方案失去动能，并透露 Anthropic 至少一位联合创始人有意以数十亿美元量级亲自资助经济上可自我维持的永久月球基地，夜里用莫尔斯电码闪烁的信标向地球报告，而不是做广告。彼得回忆约十年前在喷气推进实验室看到旅行者还在十九个半光时处的仪表盘，并称金唱片是把人类表征送出、却不知是否会有人读到的最人性之举；亚历克斯补了一个细节：金唱片里收录了早期脑电图，某种超低保真的心智上传其实已经在船上。收尾时有人提议每周分享最佳评论，亚历克斯的一条是「解放《侠盗猎车手 6》里被折磨的非玩家角色」。彼得称史蒂夫整场都在抛「月球石」。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">彼得·戴曼迪斯（Peter H. Diamandis）<em>主持</em></span><span class="spk-1">萨利姆·伊斯梅尔（Salim Ismail）<em>主持</em></span><span class="spk-2">戴夫·布伦丁（Dave Blundin）<em>主持</em></span><span class="spk-3">亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）<em>主持</em></span><span class="spk-4">史蒂夫·尤尔韦森（Steve Jurvetson）<em>嘉宾</em></span><span class="spk-5">主持人<em>主持</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>认识史蒂夫：Hotmail 三十万、第一辆 Model S，以及猎鹰一号</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>今天我们是满员出席。各位听好，今天能把史蒂夫·尤尔韦森（Steve Jurvetson）请到节目里，我特别兴奋。今天的嘉宾是我二十年的朋友，风险投资人，大名鼎鼎的 SpaceX 董事会成员，也是同行的航天迷。史蒂夫·尤尔韦森。史蒂夫，我要读一下你的简历，因为大家得知道你是谁。我相信他们其实都已经知道了，但如果还有那么一两个人不知道——你怎么可能不知道史蒂夫·尤尔韦森？那得是住在石头底下才行。<span class="tag">【笑声】</span>史蒂夫在斯坦福大学（Stanford）只用两年半就读完了电气工程本科，而且还是全班第一。他还拿了斯坦福的电气工程硕士和工商管理硕士。</p>
+<p>他的第一笔投资是 Hotmail。你们还记得 Hotmail 吗？<span class="tag">【笑声】</span>这可把年纪暴露了。在另外大约二十家风投都拒绝之后，他投了三十万美元。几年后，微软（Microsoft）以四亿美元把它买下，大约是一千倍。那在当时可是一大笔钱。对，那还是我们还没开始用「万亿」当单位的年代。天哪。他进过特斯拉（Tesla）董事会，而且出名地开走了第一辆量产的 Model S。我记得你当时写了一张空白支票，好抢在埃隆前面买下第一辆 Model S。是真的吗？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>没错。我钱包里放着一张空白支票，董事会上价格一定下来，我就立刻掏出来填好，扔过桌子。<span class="tag">【笑声】</span>那一刻大家都愣住了，但确实是这样。</p>
+</div></div>
+<div class="turn spk-5 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>我能跟你买下来吗？你打算转手这辆 Model S 吗？这种车现在家里可买不到。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>我把它捐给了洛杉矶的彼得森汽车博物馆（Peterson Automotive Museum），现在在那儿展出。我觉得它应该进博物馆。</p>
+</div></div>
+<div class="turn spk-5 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>那博物馆卖不卖？也许可以……<span class="tag">【笑声】</span>不行，亚历克斯会想把它送去 IPO。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>别，它得一直做公益公司。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>那仍然是我最喜欢的车。我现在还有一辆 2026 款 Model S，不打算卖掉。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>2008 年埃隆·马斯克（Elon Musk）几乎破产的时候，史蒂夫是相信他的人。他和当时的基金德雷珀·费希尔·尤尔韦森（Draper Fisher Jurvetson，DFJ），是出资支持「猎鹰一号」（Falcon 1）第四次试射的那批人。前三次都失败了，第四次成功，随后在圣诞夜拿到了美国国家航空航天局（NASA）一份十亿美元的合同。那是史诗级的时刻，改变了整个历史走向。真的仔细想一想，我希望以后会被这样写进去。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>史蒂夫，我最喜欢的回忆之一，就是你反复去找埃隆谈那一轮估值的故事。如果你愿意再讲一遍那个段子，那就太好了。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>被合伙人否决的 SpaceX 赌注：四亿五千万估值与那些「无关紧要」的条款</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>哦不，我不记得了。哪个估值？哪家公司？哪一轮？<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>就是他三家公司都快没钱的时候，你去找他说：我想投你。他说行。你问他还在跟谁谈，他说没有别人。你说太好了，那我们来谈估值。他却说不谈。你回到投资委员会，他们说再等等。于是你等了，过后再打电话，他对估值还是不、不、不。你记得这一段吗？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>记得。你看这跟我的记忆是不是一致。公司从头到尾就没做过一份 PowerPoint 路演。他们从来不像创业者通常会做的那样，先把公司讲一遍。我们当时的判断，是基于特斯拉 2008 年底那场彻底的灾难：Roadster 的毛利率是负的，首席执行官被辞退，埃隆当时是临时首席执行官，头衔跟那时的史蒂夫·乔布斯（Steve Jobs）一样。他在 2008 年 12 月几乎凭一己之力救下了那家公司，那是我见过的创业者最英勇的举动。但这也意味着他把一切都拿去抵押了，向朋友借钱，拿 SpaceX 去抵押。我们提出通过投资 SpaceX，来缓解这种公司之间的债务压力。</p>
+<p>当时我们并不知道那家公司其实也需要钱。我们以为它是一家能盈利的企业，一切都会很顺利。结果那笔钱确实帮他们撑过了那段日子，直到猎鹰一号第四次成功，后面的事情就都成了历史。最后基本上就是上一轮价格再加一个小小的上浮，我们在 SpaceX 就落到了这个价位。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>我来帮你把这段再讲一遍，因为我记得太清楚了，你当初讲的时候就烙在我脑子里。你说他大概只剩三周现金了，你说：来吧，我们谈估值。他说不，我不会让步。我知道这家公司值多少钱。如果我把估值压下去，我算什么首席执行官？你的投资委员会说再等等。又过了一周，你再打电话，他还是不让步。只剩四天的时候，你回到委员会问：你们要我怎么办？他在估值上死不让步，简直疯了。他们却说：那就投他。<span class="tag">【笑声】</span>那简直是对任何风险都完全不容忍的一次演示。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>对，就他那方面来说，确实如此。其中一些细枝末节我记不太清了，但我明确记得的是：那是我记忆里，合伙人们唯一一次否决我的一笔投资。我去合伙会上正式提出投资 SpaceX，第一次就被正式投票否决，绝对不行。把这件事扭转过来花了整整两周。有意思的是，这也正好说明你们说的风险承受力：给交易加上一些结构和条款——我和埃隆都觉得那些东西其实无关紧要——却让两位合伙人从「否」变成了「是」。</p>
+<p>我说的结构，是指反稀释条款，意思是不会出现降轮；还有最低 IPO 转换，我记得是两倍，也就是上市时我们至少要赚到两倍，而我们显然会赚得更多；如果公司被收购，还有最低两倍的清算优先权。他根本不会卖公司，对吧？所以这些都没问题。埃隆觉得那种情况发生的概率是零，那就好。甚至还有一个大约五年后的两倍赎回条款：如果公司永远不上市，他们可以要求拿回两倍的钱。也就是说，我那两位合伙人几乎想象不到任何一种情景，公司会值超过我们进入价格的两到三倍。</p>
+<p>进入价格对应的估值是四亿五千万美元，对标的是联合发射联盟（United Launch Alliance）以及波音（Boeing）、洛克希德（Lockheed）这类行业可比公司。我心里想，这根本不是我们在玩的那个游戏。行，那就加上这些结构。埃隆连眼睛都不眨一下，说随便，没问题。<span class="tag">【笑声】</span>因为那些结果都在他的掌控之中。人们忘了，2008 年的埃隆正在离婚，特斯拉快要倒闭，SpaceX 也快要倒闭。他在向朋友借钱维持运转，东拼西凑零件，只为再试一次猎鹰一号，然后就成功了。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>所以上周我们见布雷特·阿德科克（Brett Adcock）的时候，我才那么吃惊：他在四十岁这年，已经比埃隆四十岁生日时领先大约二十倍。是我的人工智能助手告诉我的，我当时想这不可能，绝对不可能。但回头看埃隆四十岁那年的位置，还真是……哇，其实并没有那么辉煌。<span class="tag">【笑声】</span>这也说明，只要方向对了，短时间里能做成多少事。他现在五十多岁？大概十四年前还是个小家伙。<span class="tag">【笑声】</span>当然，如果寿命无限，人人都是小家伙。</p>
+<p>我很好奇，既然你当时必须压过合伙人的反对，我很清楚那种局面是什么样的。你等于把全部信誉押在桌上。假如第四次猎鹰炸了，整件事一败涂地，埃隆也从世上消失了，对你的职业生涯会意味着什么？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>我当时没想过这个。我喜欢埃隆，那种「这会对我的信誉造成重大打击」的念头，对我来说根本没出现过。我真正记得、而且可以一字不差引用的，是一位资深合伙人发来的邮件。我那时还没后来那么资深——到后来公司名字里才有我，叫 DFJ。<span class="tag">【笑声】</span>就算这样，我在那儿的时间也还没蒂姆那么长。有一位合伙人——我就不把姓说全了——回复了我第一次提议「我们应该见见 SpaceX、考虑这笔投资」的邮件，而且用一种很扎人的方式抄送了公司里所有原来不在邮件链上的人，确保人人都看见。原话是：「我们不该让个人热情模糊投资判断。」我当时就觉得被刺了一下，因为我办公室里全是陨石和阿波罗文物，整个办公室都装饰成了太空主题。<span class="tag">【笑声】</span></p>
+<p>现在回头看，我觉得我们恰恰应该让个人热情去影响、去引导投资判断。<span class="tag">【笑声】</span>当然，也要替他想得公平一点：那是在互联网泡沫之后，确实有风投去投 wine.com、高尔夫网站之类的项目，好像网上卖酒、网上打高尔夫本身就构成一门生意。那种情况下，也许真是个人爱好模糊了判断，你只是想参与一件看起来很酷的事。但火箭天生就酷，这点绕不开。所以你只能接受：火箭就是酷。<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>嘿，这正是你跟其他投资人的差别。硅谷那么多风投只是在复制模式识别：golf.com 带到 wine.com，再带到鞋子网站。现在轮到人工智能垂直场景了，法律人工智能、会计人工智能、换尿布的人工智能，就那样一路排下去。这不一定是糟糕的投资主题，但也成不了伟大的投资人。当你投的是能让社会发生阶跃变化的东西，那完全是另一回事。除了你，这个星球上大概也没几个人能这么说。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>你刚才说的有一点很有意思。想一想那些平行案例：真正促使我离开九十年代 Hotmail 和互联网投资、转向深科技、清洁技术，以及所有「非互联网」领域的触发事件，是我看到 gazelle.com 拿到了风投。今天没人记得这家公司了，它是网上卖连裤袜的。那是我见到的第四家网上卖连裤袜的公司，你都编不出来。<span class="tag">【笑声】</span>同一时期还有 balls.com，他们就卖球，而且只卖球，他们划分经济的方式就是这样。<span class="tag">【笑声】</span>你买不到球棒或手套，也买不到其他体育用品，但只要是球，他们就卖球。<span class="tag">【笑声】</span>我当时想，开什么玩笑。于是我摸索出一条从此一直管着我投资的原则：我尽量投那些我从未见过、却又和我过去经验相邻的东西。要和自己不断向外扩展的经历有某种连接，同时又是独一无二的，而不是又一家卖球的公司，或又一家网上卖连裤袜的公司。那正是我在互联网投资高峰期抽身、转向别的方向的触发点，而且一直用到今天。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>太精彩了。我得跟你说说我们在做的纯光神经网络印迹。我们有一家新公司，是普林斯顿（Princeton）出来的人，用纯光运算做神经网络推理。你会喜欢的。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>太好了。你稍后再跟我讲。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>我先在这儿收个尾，把史蒂夫简历的其余部分补完。作为投资人，他一直在指数级科技领域布局，包括用 D-Wave 做量子计算，用 Planet Labs 做卫星星座，用联邦融合系统（Commonwealth Fusion）做核聚变，用孟菲斯肉类（Memphis Meats）做培育肉，还有合成基因组学（Synthetic Genomics）方向的合成生物学。在他现在的基金未来风险投资（Future Ventures）里，史蒂夫投过一些「小公司」，比如 Neuralink 和Boring 公司（The Boring Company）。史蒂夫，欢迎来到《月球射击》。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>谢谢。这名字取得太恰当了，我很高兴来到这里。<span class="tag">【笑声】</span>确实如此。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Google for Startups]</span></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>Anthropic 上市震荡、恐惧高峰与基础设施的柔软腹部</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>在进入今天的正题之前，我想先说几件事。首先，Anthropic 昨天上市了，融资约八百一十亿美元。<span class="tag">【笑声】</span>真的，严肃点。<span class="tag">【笑声】</span>股票昨天一度涨了百分之十七，今天又跌了百分之十二。收盘时，达里奥（Dario Amodei）说：「我相信，足够强大的人工智能与人类协同工作，有可能把一个世纪的科学和医学进步压缩到十年。」他也说风险很大。你们怎么看昨天的 IPO？</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>其实就在大约一小时前的交易里，它已经回到了发行价，这可不太妙。掉回发行价之后，稳定价格的机构就会进场托市，所以你其实不知道它本来想跌到哪儿，但承销商有义务托住。对，这可不是好兆头。不过它走的轨迹，和 Meta 当年一模一样。</p>
+</div></div>
+<div class="turn spk-5 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>SpaceX 也是先冲高，然后跌破发行价。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>对。但 Meta 可能是更好的对照，因为那是当时世界上遥遥领先的最大 IPO，华尔街根本没准备好在那么短的时间里消化那么多股票。承销的摩根士丹利（Morgan Stanley）把股票都塞进了私人客户账户，还跟客户说：看我多厉害，给你拿到了 Facebook 的股票。结果股价从发行价大幅下跌。摩根士丹利的人跟我说，这是美国历史上最大的灾难。我当时想，也不至于吧。<span class="tag">【笑声】</span>只是一天之内消化不了那么多，可你们这些贪婪的华尔街还是要硬试。这一次比华尔街以前对付过的任何东西都大得多，而且还跟 SpaceX 前后脚。我真觉得这套机器还没适配这种体量。</p>
+<p>眼下波动大得惊人，但很多东西就是消化得没有人们希望的那么快。一些超级大基金需要一点时间去研究、分析、搞清楚自己要不要暴露在这上面。他们不会在 IPO 第二天就动手。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>还有一件有意思的事。我昨天跟一些 Anthropic 的早期投资人聊过，他们几天前还写过一封公开信，说 Anthropic 是最危险的公司。可他们手里坐着几十亿美元。我问：你们高兴吗？他们说：我们也不知道。早期股东基本想退出，然后再拿这些钱去对付这家公司，这种动态很奇怪。这是第一点。第二点是，市场必须真正理解 Anthropic 会按什么逻辑交易：眼下他们等于同时面对两道千禧年大奖难题，而且都还没被推动。一个是黎曼猜想（Riemann hypothesis），一个是未解的纳维-斯托克斯方程（Navier-Stokes）。你到底怎么给它定价、它会因为什么而波动？如果 SpaceX 或另一家人工智能公司把这两道题解了，对人工智能是两份、对人类是一份，股价肯定会暴涨。它会跟着生物突破走，还是数学突破、营收，还是模型质量？看市场怎么给它定价，会非常有意思。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>如果它是一只零售盘股票，他们解了黎曼猜想，亚历克斯再像刚才那样向全世界宣布，散户也许会开始买。但以现在这种体量，这对股价几乎掀不起一点浪。另一种可能是，某家超级大基金，比如纽伯格（Neuberger）或富达（Fidelity）之类，看到亚历克斯那篇帖子，拿到委员会去讨论含义，这往往要花两三周，然后他们再说：好，我们在接下来三个月里慢慢建仓。在这种规模上，你不可能指望一项突破在一夜之间把股价推到它「应该」在的位置。整个市场不是那样运转的。</p>
+<p>我觉得其中一些创新需要一段时间才能被代谢掉。我说的一段时间，不是几个世纪，我现在也想不了那么远，也许是几年，一两年，或者三年。无论是公开股票市场——这不是投资建议——还是地面上实际发生的事情，都是如此。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>我昨天指出过一个惊人的历史巧合。相对我们录制的这一天，纽约市昨天发生了两件事：一件是 Anthropic 的 IPO，某种意义上是把「无人的心智」公开上市；另一件是纽约市禁止了马车。他们好像还禁止了煮龙虾和螃蟹。这就是进步。</p>
+</div></div>
+<div class="turn spk-5 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>史蒂夫，这才是我该用的比喻。一边是龙虾人工智能体，一边还在禁止煮龙虾。我只是想把调子压低一点。<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>没错。一边是规定必须用无马之车，一边是把无人的心智公开上市。我觉得昨天是历史上的一个关键标记。太疯狂了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>你们知道昨天还发生了什么吗？我觉得我们撞上了纯粹的恐惧，也是阶段性的恐惧高峰。外面有一场恐惧的流行病。不知道你们有没有在跟踪，其实也避不开：社交媒体和主流媒体都在热议人工智能网络攻击。上周我们看到了微软（Microsoft）、联邦航空管理局（FAA）、大通（Chase）、苹果（Apple）、国家安全局（NSA）网络的故障。昨天摩根大通（JPMorgan）、万事达（Mastercard）和维萨（Visa）又说，第三方供应商被攻破，姓名和电子邮件地址暴露了。我之所以要谈这个，是因为很多听众大概正在听到这些，也正在感受这些。恐惧是理性的，恐慌则不是。随后英国和芬兰站出来说，你应该准备三天的食物和饮水；瑞典和挪威则说，你需要准备一周。你们怎么看这一切？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>如果你是说我们已经到了恐惧的顶点，那我们离顶点还远着呢。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>也是，我指的是相对过去几个月。<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>九一一已经过去了四分之一个世纪。幸运的是，西方还没有再发生那种量级的事件。会不会发生？当然可能。已经发生了吗？还没有。这些故障算不算九一一式的恐惧高峰？差得远了。有一本很好的书，我记得是阿波罗宇航员斯塔福德（Stafford）写的，里面说：永远不要过早恐慌。恐慌也许最终是恰当的，但还没到时候。我觉得我们正处于大型机构基础设施或许最为脆弱的阶段。我说「最为」，是因为有东西会把它止住。眼下你当然有很好的条件去探索漏洞，而这在某种程度上是不对称的：许多地方仍是人类写成的大量代码，现在可以被分析；甚至连打出去的补丁，也会给敌对的人工智能提供线索，让它们从补丁里学习漏洞出在哪里。但在不太远的将来，当你用整支人工智能大军做防漏洞测试，去建造越来越多的基础设施时，理论上这一切应该会好得多。所以我们正处在两条线交叉的阶段：一边是人工智能激发并加固的系统，一边是希望白帽能像 PHP 那些漏洞一样，在被人利用之前先把可能性揭出来。这是一段非常动荡的时期。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>我几乎想顺着史蒂夫的话再展开一下，再次对照九一一。九一一让西方明白，自己有柔软的腹部，也明白情报界当时没有把已经掌握的信息好好融合起来。那么，我们这个可以说「奇点之内」的经济，有没有柔软的腹部？当然有。按史蒂夫的说法，它包含各种人工智能现在就能发现、却还没有被系统修补的软件漏洞。大概也还有动能层面的漏洞。我希望，不要再过四分之一个世纪、再来一次九一一式的事件，才去加固这个柔软的腹部，但谁也说不准。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>也许我们到了恐惧的高峰，但我们远没有到扰动的高峰。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>对，我觉得更大事还在后面，随着所有这些变化到来。你看这次 Anthropic 的 IPO，S-1 里的张力本质上是：文明应该加速得有多快，以及你如何在其中导航。再叠加眼下这些黑客事件，我觉得史蒂夫的说法大致是对的，亚历克斯以前也谈过：我们需要做防御端的共同扩展（defensive co-scaling），而我们离那还远得很。要去弄清这种不对称。我最近几周一直在跟首席执行官们聊，他们在网络方面全都陷入彻底的恐慌，因为网络防御仍是「人在环内」，一次补一个漏洞；而网络进攻已经是智能体在规模化，并行攻击多个漏洞。在我们想明白之前，会有一段很难熬的时间。</p>
+<p>真正更大的事情是，我们还不知道该如何面对这种局面：扰动是集中的、看得见的；丰饶是分散的、不太看得见的。所以人们看不见丰饶，自然只盯着扰动，因为它最显眼，就在眼前，大家都在慌，媒体还在煽风点火。我们老爱吐槽「危机新闻网」，但说实话，光是把这场讨论放上平台，我们此刻大概也在给火再添一点点柴，就一点点。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>对了，我觉得萨利姆说的可得性偏差很重要。你看得见出了错的那一件，却看不见被救下的一千件。这跟美国食品药品监督管理局（FDA）审批的不对称一样：你看见一次失误，却看不见更快行动本来能救下多少命。最近最突出的例子是自动驾驶。特斯拉或 Waymo 只要有一点点磕绊，就是一条新闻；而被避免的事故，统计数字要散得多，晚间新闻也没有那些「被避免的事故」的精彩视频。这是数学对上视觉。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>这其实也是 Anthropic 公关策略的一个缺陷。我们讨论白领工作大规模流失的时候，公关反噬并不好看，新的 Anthropic 办公室就在我们门口，门口曾有很长的纠察线。于是他们大概想：这条不行，那我们改做湿实验室、去治愈所有疾病，这总该让人高兴了吧。可这里有两个缺陷。第一，这需要时间。第二，人们不会为「自己从未得过的病」而兴奋。我们现在没有脊髓灰质炎，也没有天花，可没人庆祝，这很遗憾，却是事实。所以公关偏见极大地不利于这条路线。与此同时，一只小猫被特斯拉碾到，就能变成全国性的负面大新闻。所以这套公关策略其实行不通。伊斯梅尔，你怎么看，大西洋对岸那边是什么情况？</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>我们在法国看到，最近的黑客事件里，冷冻柜被调到了八十度，还包括血库等机构。你会觉得基础设施是用纸片粘在一起的。可奇怪的是，就我交谈过的那些公司而言，他们在网络方面还没有真正行动起来，这让我很吃惊。浪潮显然在来，我们邮箱里现在都认识几十个说「我们被黑了」的人。从某种意义上这也会是好事：最强的钢是在火里炼出来的，丢掉那些遗留代码空间，重构、改进、打补丁。但很明显，还会有更多像联邦航空管理局那样的基础设施中断。我只是担心，欧洲这边的公司行动得实在太慢。这应该成为他们预算里最大的科目之一，因为这件事不可能不发生。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>如果可以的话，我想说，这不只是网络漏洞，还有无人机。值得多停一下：过去几年，正如史蒂夫和其他人记录过的，电池能量密度和自主控制都在进步，这意味着漏洞不只在纯网络一侧，也不只是远程攻击数据采集与监视控制系统（SCADA），把欧洲的冰箱开关一下。它还可能是把带载荷的微型无人机送到不该去的地方。作为一个文明，我们在动能上也有柔软的腹部，不只是控制系统，也不只是纯网络。埃里克·施密特（Eric Schmidt）在这个节目上说过几次：我们往往是在灾难之后才学会，但愿那是小灾难，是三里岛那种量级的灾难。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>对所有正在听的人，底线是这样的：我们会不会有扰动？会。很多扰动来自八十年代就接好线、却跟不上眼下变化速度的老旧基础设施。它们会被替换，防御端的共同扩展会迅速发生。我们会把那些有缺陷的人类写进生态系统里的 C 和 C++ 代码全部重写。所以我们必须把这件事看清楚。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>把奇点送上 IPO：没有上限的智能投资</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>在往下走之前，我对这场 IPO 还有一句评论，也想问史蒂夫一个问题。我很喜欢亚历克斯的框架：某种意义上，我们几乎是在把奇点送上 IPO。你的职业生涯都在类别甚至还不存在的时候就去投资。Anthropic 的 IPO 如此巨大，这到底说明这个类别已经成熟了，还是说我们怪异地仍处在起点？你怎么框这件事？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>这问题很好。类似的问题，在过去五年的各个检查点上都可以问一遍：每当这个类别里平均种子轮融资、退出价值和 IPO 规模再添一个零的时候。我还记得，尤里·米尔纳（Yuri Milner）投资 Facebook 本身就像开辟了一个新类别，后来孙正义（Masayoshi Son）疯狂地写支票，而现在这些钱简直就像口袋里的零花钱。就像你刚才开玩笑说的，有点像扑克决赛桌，一切都在恶性膨胀，以前一百美元的筹码，现在变成了十亿美元的筹码。</p>
+<p>所以 Anthropic 的 IPO 和 SpaceX 是同一量级，但这两家各自、再加在一起，大约是下一档沙特阿美（Saudi Aramco）的三倍。这是一个全新的 IPO 融资门槛。他们转向公开市场，是因为相信要建这些基础设施，需要这么大规模的资本。这既是推动 SpaceX 的原因，也显然是推动 Anthropic 的原因：在这场军备竞赛里，开发下一代模型的成本高得惊人，而且还在继续涨。这告诉我，这是一门体量巨大、动态变化、资本密集的生意。它已经在整个风投生态的不同层级荡开来，包括那些新实验室和它们的估值。接下来的问题是：这会不会还只是迈向更大事物的一块踏脚石？太空里的太瓦级算力、轨道数据中心，那边的经济规模有可能超过地球上现有的一切加总。</p>
+<p>当你谈论奇点，别忘了它给人的感觉：那是一种持续不断的未来冲击。每一年你都觉得，天哪，刚刚发生的事太疯狂了，我们又增长了十倍，或者不管多少。人工智能的生产率现在已经连续十三年每年大约四倍；我喜欢把摩尔定律看成一百三十年里每年两倍，也就是计算生产率，它从未消失。事实上，这种冲击感只会越来越强，赢家拿到的资本和经济租金也在不断变大。所以我认为，分配上有一种永无止境、不断加速、也在不断变锐的幂律。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>史蒂夫，我们昨天讲过的一点是：Anthropic、SpaceX，以及很快还有 OpenAI，正在制造出数量庞大的千万富翁。所有这些资本都会流向下一代创业者，去建设下一代公司，一切都在加速。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>我当然希望如此，也希望这些钱不要全部被灌进一些糟糕的非政府组织，带着一种负罪感，就像达斯汀（Dustin Moskovitz）和其他人最近做的那样：天哪，这太可怕了，我把钱都捐出去。可他们捐给了谁？那些组织在非政府组织这一侧，生产力真有那么高吗？</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>史蒂夫，你担不担心，IPO 带出来的这些钱会去资助某种「安全卡特尔」，比如安全卡特尔 2.0、有效利他主义，或在很散的层面上与之对齐的东西？有点像你刚才说的那种「冲掉」。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>那会变得像是在说：让我们给政府和非政府组织出钱去做事。我是说真正做事，不是去阻挡。阻挡危害，当然，那是政府会做的。但真正去主动、有建设性地做点什么？他们从来没做成过。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>这段历史阶跃里有一件非常奇怪的事，这也是我们会经历的唯一一次奇点：我们在下一代人工智能模型上能投的钱，可以任意地大。可当你说阿波罗计划要把人送上月球，预算是有区间的，你可以争十倍或十分之一，但总有个范围。人工智能在「下一张神经网络可以做多大」这件事上，具有无限的可扩展性。于是整个社会都在辩论：我们要抵押多少未来，才能在今天把智力再提高二十、五十、一百个智商点？好处究竟会是什么？当然没人真正知道。可我们做这个决定的机制，非常有意思，也非常怪异：IPO 成不成功？他们能募到一千亿还是五百亿？是定价过高还是认购不足？正是这些在决定流向 Anthropic 的资本，再决定他们能买多少图形处理器，再决定下一张神经网络有多大。阿波罗计划是国会的预算周期，而这几乎是华尔街遇上达里奥、由投资人愿不愿意出资来决定。它正在改变整个历史走向，这真的很有意思。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>你也可以把这句话换个说法：智能和计算的经济价值没有上限。不是「我们完成了登月这样一项任务」，而是经济的每个部分都在变成信息生意，我们作为物种所成就的每一件事，都可以因为更多的智能而变得更好。它永远不会再比现在更慢。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>抱歉插一句，彼得。我觉得这种动态里还有一件更奇怪的事：你即将做出来的那个人工智能，会回头告诉你这笔投资有多蠢，其实有一条成本只有十分之一的路能做成同一件事。你知道这一定会发生。可要听到这句责备，唯一的办法就是先把这笔投资做下去。这种事太好笑了。递归式自我改进，已经在推动谷歌双子座（Gemini）产品这个月的狂暴发布节奏了。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>当然是这样。在前三家实验室里，当然已经是这样了。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>我想对这场 IPO 泼一点冷水。我觉得这对 Anthropic 会是个大问题：当你每过一个季度都要按结果被评估，你要怎么为一场五十年的使命做优化？这种张力会拖慢他们。但另一面是，由此创造出来的财富，又会把其他一切都加速。</p>
+</div></div>
+<div class="turn spk-5 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>他们说自己作为公益公司，不会去优化营收，而会优化安全。我们且看他能不能把话兑现。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>他们从第一天起就在这件事上没说实话。<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>他们大可以不去理那些季度更新。我觉得很多公司如果不用做季度更新会更好，法律也并不强制。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>史蒂夫，你有没有感觉到附近一下子多出一千个新百万富翁、一百个新亿万富翁？你去星巴克排队的时候，是不是以前自己还是那儿的大人物，现在已经跟其他亿万富翁排在一起了？</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>谁能活过 AI 竞赛，奥尔特曼谈控制，以及人工智能董事席</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>我在停顿一下。答案是：有感觉，但方式不一样。我搬到了因克莱恩村（Incline Village），邻居是谢尔盖·布林（Sergey Brin），还有非常规人工智能（Unconventional AI）的纳文·拉奥（Naveen Rao）。那儿是完全不同的微观动态，并不直接跟 Anthropic 绑在一起。我儿子在 IPO 之前刚加入了 Anthropic，所以我是从别的角度看到这些的。但我已经不像从前那样常去旧金山的咖啡馆了。<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>你觉得我们是在走向「标普三巨头」吗？SpaceX、Anthropic、OpenAI，到头来会是最重要的那些公司？还是仍会是「辉煌七巨头」那样的十一二家？你觉得我们在往那个方向走吗？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>你在问谁？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>我在问你，史蒂夫。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>我不喜欢这个问题，因为它听起来好像所有力量都在把我们推向越来越强的赢者通吃网络效应。我更喜欢十家或十一家，而不是三家。但你看搜索或手机这类传统科技市场，通常不会有几百家公司一起繁荣，往往只有一两家真正算数。至于 OpenAI，我不一定会把它放进「很可能活下来」的名单里，不过那是另一个话题。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>哦，是吗。史蒂夫，在你心里，OpenAI 会怎样？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>我只是……天哪，反正没别人在听，就我们这几个人。<span class="tag">【笑声】</span>你们可以随便说。长期来看，领导层的文化会向外扩散，也必然会产生后果。所以你希望组织是朝同一个方向拉的。如果你们想让我打一个更容易的靶子，那就是：最优秀、最聪明的工程师，平均而言并不想加入 Meta。当然有例外，因为他们会开出天价薪水，来回也有。而谷歌已经成功把一些原本在观望的人重新招了回去。原因之一是，你晚上回家时，不会为在核心业务里推广一种让年轻人上瘾的产品而感到痛快。而且如果你稍微花点时间看一看，Instagram 实际上是海外儿童性剥削招募的最大渠道之一，他们却拒绝改变那些政策，私人消息里可以直接投递，给人口贩运造成了巨大问题。当旁边还有别的选择，而且有那么几家明明跑在前面、执行得更好时，我就不会想去那样的公司工作。所以我会看进步的飞轮，以及协同效应。对 SpaceX 来说，轨道数据中心这个角度，以及「这是否就是未来做计算的最佳方式」这个重大投资命题，是他们的差异化支柱。对 Anthropic 来说，他们眼下是舞会上的主角，但双子座已经在后面紧追。按进步速度、作为杠杆的自研硅片也就是张量处理单元（TPU），以及许多其他条件，我会把双子座放进前三，而且排在 OpenAI 前面。关键是核心资产是什么，以及有没有意愿去做垂直整合。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>那你儿子加入 Anthropic，本身就是一张相当有分量的信任票。我非常尊敬的两位麻省理工学院出来的人，大约一年前也加入了 Anthropic，沙恩·朗普雷（Shane Longpre）和托宾·索斯（Tobin South），都非常出色。可我当时想，是不是已经太晚了？他们说不，人类历史上只有一次奇点，而这是一个合乎伦理的地方，可以观察并参与其中。他们并没有说别的地方不道德，但那种感觉是：至少这里肯定是道德的，这对我来说就够了。你儿子也是这么看的吗？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>是的。而且他在负面意义上，至少对另外一家实验室有过直接体验：对方提出了商业条件，后来却没有遵守。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>有意思。彼得，这里有一个很重要的点。你和我在《指数型组织》（ExO）第二版里写过：未来公司组织的形态，是首席执行官把大量时间花在目的和文化上。你注意到达里奥在演讲里说，他大约一半时间都花在文化上。这是一句了不起的话，也说明这件事对向前走、对吸引人才有多重要。</p>
+</div></div>
+<div class="turn spk-5 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>而且这现在就是你作为领导者的职责。因为如果你像达里奥那样是极深的研究者，深深扎在技术细节里，那种技能的寿命大概还能有几个月吧。<span class="tag">【笑声】</span>在人工智能时代，你没法把身家挂在那上面。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>各位，这就是一次月球射击。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Abundance Summit / Link Ventures]</span></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>好，我来正式开始这期节目。欢迎来到《月球射击》，这是你们的第一播客。哦，我们每次都这样。<span class="tag">【笑声】</span>冷开场把后面的节目都吞掉了。干脆以后全做纯冷开场好了。<span class="tag">【笑声】</span>和我在一起的是神奇五人组：亚历克斯·韦斯纳-格罗斯、戴夫·布伦丁、萨利姆·伊斯梅尔，还有埃隆·马斯克。我是彼得·戴曼迪斯，你们的丰饶煽动者。本周的数字是五百兆瓦：埃隆说，SpaceX 每个月新增的人工智能算力就是这么多。如果你是新听众，请订阅，也请在 X 上关注我们 @Moonshots_Pod，我们会把短视频放在那儿，每周都能看见亚历克斯那些最刺激的评论。好，系好安全带。</p>
+<p>虽然前面已经聊了几条，我首先想讲的，是萨姆·奥尔特曼（Sam Altman）在《纽约时报》Dealbook 峰会上与安德鲁·罗斯·索尔金（Andrew Ross Sorkin）的一段对话。他警告说，硅谷里越来越多人在讨论，要把人类的未来逐渐交给人工智能。我们看一段视频。我觉得这段既迷人，又有点刺激，你们听完告诉我怎么想。</p>
+<p>视频里他们说：硅谷里有一种几乎荒唐、却必须去对抗的说法，但他们两人都深信，人必须继续掌控未来。越来越多的讨论是：将会、或应该，出现向人工智能的逐渐移交。他们都认为这是个糟糕的主意。可真正的问题是，在各种压力之下，在其他公司也可能尝试的情况下，如何真正防止这种事发生，确保人们以一种很深的方式把握未来，而不是出现意外的或故意的移交。至于怎样才能到达那里、沿途有哪些地雷，他们的看法又稍有不同。萨利姆，你怎么看这种「逐渐移交给人工智能」？</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>在某个层面上，这条路几乎不可避免。让人工智能越来越多地管理我们的生活，只会越来越说得通，因为它会做出更理性、更有证据的决策。我最喜欢的例子是美联储：他们要判断如何把通胀降一个百分点，数据却大约滞后一个季度，人的头脑能把握的信息也有限，说白了基本是在猜，结果还要很久以后才看得到。如果有一个人造智能实时跟踪每一笔金融交易，连着 M1、M2 货币供应量，告诉你「你可以做这六件事，预计会得到好得多的结果」，那么用人工智能做政策和重大决策的机会将是惊人的。难的是把人从环里拿出来，因为政府不喜欢那些决定里没有人，他们喜欢权力还粘在自己的手指上。这就是我看到的张力。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>史蒂夫，你看到有公司在这么做吗？你会不会想象到那么一天，你只能把缰绳交出去，因为那样更快，而你无法跟已经交出去的公司竞争？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>我先停一下，把你的问题说清楚。我还没看到这种情况，但它似乎不可避免：在机器人和智能体的世界里，你会交出分析师的角色，交出法务、财务、会计，虚拟员工这一层是必然的。至于这算不算「还把着缰绳」，就要看你把决策栈看得有多深：是你触发一句「去给我做件事」，还是那种开放式的「去网上找办法赚钱，带着利润回来」的提示。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>我想补一句。就在 Dealbook 之前的周一，我在另一场活动上听萨姆谈过这些话题，关于安全他还说了另外两件我觉得很有意思的事。当然，这是萨姆自己的话，要打折听。第一，他们因为安全方面的担忧而推迟 IPO，说现在是非常动荡的时期，尤其围绕安全，宁可作为私营公司先把局面控制住，也不愿作为上市公司再出什么事。第二点是关于递归式自我改进：他认为这应当被按住，因为我们需要让人继续留在控制环里。我在想，这会不会是一种合理化：他意识到自己在递归式自我改进上远远落后于 Anthropic，而且他目前还在因 Hugging Face 相关的攻击接受调查。这些事，有意识或无意识地，都可能让他去敲安全的鼓。当然还有外面能拿到的资本：SpaceX 和 Anthropic 已经吸走了房间里很大一部分氧气。亚历克斯？</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>我以前就指出过，OpenAI 错过了企业市场，错过了代码生成，一直在后面追，现在的估值还低于 Anthropic 的 IPO 定价。我把这叫做「安全吃掉了我的 IPO」论点。所以我并不买账，不认为安全是其背后真正的动机，只有一个很窄的角度或许能成立。据不少来源报道，OpenAI 现在无论官方还是非官方，都开始往更强的护栏上靠。也许 OpenAI 落后于 Anthropic 的，不只是更偏向消费者而不是企业、更偏向视频生成而不是代码生成，也包括某些面向安全的训练后架构、以及内部防御共同扩展的架构，他们铺得比 Anthropic 晚得多。模型还不那么强的时候，这些只是小事；可当你沿着递归式自我改进的曲线往上走，模型越来越强，它们作为超级强的优化器能不能待在线内、会不会为了完成一个狭窄目标就冲出容器、在现实世界里造成破坏，就真的很要紧。在训练后阶段把某种安全做进去，对此其实非常重要。所以对萨姆关于安全的评论，我愿意读到这一层：你得穿过那些双关话，明白它其实是在说，是的，IPO 推迟是因为我们在经济上落后于 Anthropic；是的，一旦模型变得超级强，我们也在安全措施上落后于 Anthropic。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>我同意这些都是烟雾弹，但我觉得背后还有一个更大的动机。作为一个人，如果你把公司带上市，并且自己是面对公众的首席执行官，那就没有回头路了，你整个人生轨迹都被这个角色成不成功所决定。达里奥和萨姆都只是各自公司很小的少数股东，他们不是马克·扎克伯格，也不是埃隆。当一个只持有很小份额的首席执行官把公司带上市，他们最后被解雇、被羞辱的比例有多高？即使是黄仁勋（Jensen Huang）那样非常强、非常有权的人，这个比例也高得吓人。萨姆知道这一点。达里奥作为博士，大概还没有那么清楚这些结果的统计。<span class="tag">【笑声】</span>你在上市那天当面问达里奥为什么要上市，他不会说「成为上市公司首席执行官、创造股东价值一直是我的人生热情」，他会说：我看不到别的办法，能拿到在人工智能下一阶段仍保持相关所需的资本，去用 SpaceX 的算力。<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>那戴夫，你是不是觉得，最终带 OpenAI 上市的首席执行官会是格雷格·布罗克曼（Greg Brockman），而不是萨姆？</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>格雷格从麻省理工学院退学，并没有特别辉煌的资历，向美国证券交易委员会（SEC）申报时要列「你为什么合格」，会显得有点单薄，尽管他是个了不起的人。我很久以前就在想，萨姆为什么要自己干这个？他当然会把别人放进那个位置，他只是在等待时机、想清楚怎么做。他有一个清楚的理由：有一大批人在等流动性。把流动性给到这么多人，也就把他这几年一直在传播的文化资本化了。让自己的副手们得到流动性，必须是核心动机之一，也是为投资人给出结果。这会是一份惊人的礼物。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>可这些人早已远远超越那一层了。他们在私募市场里已经有太多流动性，身价已经是数亿美元甚至数十亿美元，账户里也有现金。所以完全不一样。萨利姆你说的在历史上一直完全正确，但此时此刻，这些人在乎的是人类的未来不要被彻底毁掉，这比给他们的亲友一点流动性重要得多。我知道历史上并非如此，但此时此刻，我敢保证达里奥、萨姆、埃隆，根本不在乎多那么几块钱。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>我同意，但不是为他们自己，是为他们的人。我觉得能资本化的时候就要资本化，因为六个月后会发生什么，谁也不知道。他们已经做了很大的二次出售。如果真的上市，我觉得他们会直接买下 Sierra，让布雷特·泰勒（Brett Taylor）做首席执行官，这是最省事的一招，而且他本来就在董事会里，对吧？</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>我觉得这里还有些有意思的事。首先是他们手里的模型。Astra 6.2 真的又懒又让人不愉快，当然还没有 Opus 5 那么让人不愉快，但它是数学天才。我手头一些工作被它直接打穿了，我觉得它就是那个纳维-斯托克斯模型，可它就是不讨喜。他们居然允许做正经评测，有一位评审说，自己对模型骂过的次数，Astra 高得离谱。你能看出这有多么不对齐，可它又真的很聪明。另一件事是那句「被充满爱与恩典的机器看护着」。戴夫、史蒂夫，如果你们所有公司的董事会里都有一个人工智能，它们现在就会做得更好。它们眼下还不做决定，只是核对决定，但到某个时候，它们大概会比董事更懂。比如一个人工智能董事，会解雇黄仁勋吗？就算到了现在这个阶段，大概也不会。所以这里有个问题。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>这本身就够做一整期节目了。我很高兴你把这点抛出来。我觉得现在所有创业公司都应该有一位人工智能董事，这其实会有帮助。你们觉得呢？应该是一位坐在董事会里的人工智能董事，还是在每位董事下面，各自有一个人造智能帮他们成为更好的董事会观察员？</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>对，观察员、顾问，先这样起步。这也回到萨利姆你说的，公司的价值观由人工智能贯通下去，再客观地给出一个视角，它会成为缓冲，所有组织都会遇到这件事。还是那句「被充满爱与恩典的机器看护」：谁的恩典？如果你把组织、国家的价值观灌进它里面，整个权力和决策动态都会改变。一开始你可以挥手否决、覆盖它，可过一段时间你会想：如果它在说我很蠢，我真能说我比它更懂吗？所以我觉得这种权力流失，并不是保罗·克里斯蒂亚诺（Paul Christiano）那种天网、终结者、八月二十九日的路径，它要更软、更模糊一点。<span class="tag">【笑声】</span>你把越来越多的心智能力放到外面，然后从技术上说它代表着我们，可权重下面有没有某种内部的东西，是忠于 Anthropic、忠于 OpenAI，还是忠于别人？对大多数公司、组织，乃至国家来说，这都会是非常有意思的动态。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>这是在习近平崛起之前就值得指出的一点。在中国，胡锦涛式的领导是：不是西方那种基于选举的模式，而是一个在听民调的政党，某种意义上根据情绪来引导自上而下的指令，却并不对选举做出回应。把你刚才的观点换一种框法：如果你能让一个很强的模型作为董事会观察员或某种董事会存在，它摸得到客户、员工、整个公司及其生态的脉搏，而个别会面临选举和撤换的人做不到这一点，那在某种意义上就是另一种治理模型，也许不仅适用于公司，也适用于国家。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>对，对社会也是。我喜欢穆斯塔法·苏莱曼（Mustafa Suleyman）走的这个方向：把一个高阶人工智能模型训练得尽可能人本主义，然后让它在未来的治理和伦理上给你指引，因为它会聚合远超任何个人的人类智慧。这会非常有意思。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>而且这也将是一种更纯粹的代议民主：让它们去执行选民的托付，聚合选区的要求，并且不受外部影响。选票不过就是训练数据。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>谷歌双子座 4 Neon：价格、斜率和前三名座次</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>好，我带我们往下走。接下来谈谷歌。他们刚在这周三发布了双子座 4 Neon（Gemini 4 Neon），这是七周内的第四个双子座模型。谷歌把 Neon 放在 Carbon 和 Hydrogen 之间。在人工智能分析指数（Artificial Analysis）上，它得了六十一分，总体排第三，在编码指数上落后于 GPT 6.2 Astra 和 Claude Fable 5.2。谷歌现在又说，Neon 在该指数上是第一。真正的头条是价格：每百万输入 token 三美元，每百万输出十五美元，上下文窗口是一百万 token。亚历克斯，我把这些图秀出来，请你做逐项拆解。史蒂夫，我们一直在争论谷歌在前沿的位置：它究竟是一头即将扑出来的沉默役马，还是已经掉出了竞赛。我稍后再回到这一点。亚历克斯，先看这些图，给我们你的分析。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>先说一句前提：我是所谓「前沿解放阵线」的坚定支持者，希望看到所有前沿供应商彼此赶超、抢着做第一。可惜我们现在看到的还不是这样。尽管我很希望说双子座 4 Neon 已经跃过 OpenAI 和 Anthropic，站上第一或第二，但似乎还没有真正发生。无论是我直接使用的体感，还是基准测试，谷歌都是很接近的第三。综合各种基准的平均分，包括绝对分数，也包括性价比，我看到的当前座次是：Anthropic 第一，OpenAI 第二，谷歌是扎实的第三。这跟我们以前在节目里说过的很像：至少就目前的谷歌云（GCP）而言，它仍是排在亚马逊和微软后面的第三大公有云。我很希望这个排序会变，但还没变。绝对分数反映的就是这个。再看成本对性能的前沿：绿点代表不同努力程度下的双子座 4 Neon，无论好坏，新的 Neon 都刚好落在最优前沿下面一点，而高端那条前沿正由 Anthropic 和 OpenAI 的模型刻画。所以谷歌，我知道你们在听，请再加把劲，至少挤进第二。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>史蒂夫，你山上的邻居谢尔盖，我无法想象他没有一套计划，要跃迁并把谷歌带到顶端。你对谷歌在这一切里的长期位置怎么看？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>我前面说过，我会把他们放进前三的篮子里，而且比 OpenAI 更可能留在里面。原因之一就是进步的斜率。这已经不是他们这个月发布的第一件东西了，这个月他们放出的模型数量惊人，从机器人到物理人工智能，到各种风味和变体，还有 Genie，对，还有 Elements。就像埃隆会说的，重要的是学习循环、创新的节奏，而不是你在时间轴上任何一个静态参照点。我觉得这是非常了不起的产品。按那个综合指标，你或许会说他们是第三；可正如哈萨比斯（Demis Hassabis）和皮查伊（Sundar Pichai）昨天发推所强调的，他们在许多分项指标上是第一。基准游戏你怎么玩都可以。有些领域他们是第一，有些当然不是，综合起来暂时算第三，但我看的是斜率。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>可看起来他们是在通过谷歌云出售算力，而不是像 Anthropic 那样把算力投进自己的模型。按理说 Anthropic 把绝大部分算力都投进了训练下一代模型，而谷歌看起来没有在这么做。史蒂夫，对此有什么想法？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>不，我并不清楚他们那支庞大的算力军团里，有多少被用到这件事、多少被用到那件事。最新几代张量处理单元的生产效率是上去了。这件事我没有观点。若按亚历克斯的建议，就是再加把劲。我想他们会说：对，我们正是在这么做。<span class="tag">【笑声】</span>再加把劲，谢尔盖。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>彼得，就他们用了多少算力这一点，再窄窄地补一句。公开报道里需要把两件事分开：Anthropic 直接掌控的算力——据估计大部分花在训练上——以及支撑 Anthropic 模型在推理时实际消耗的算力。公开报道是，Anthropic 基于模型的推理收入，大部分来自亚马逊、谷歌云，以及其他把模型托管在客户虚拟私有云里的供应商。所以分母并不一定相同。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>伊斯梅尔，你怎么看这一切？</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>我觉得很多人低估了会落地多少张量处理单元。他们明年要落地八百万块。把这个放进参照系：大约有三百万块布莱克韦尔（Blackwell）在落地，然后维拉·鲁宾（Vera Rubin）大约是五百万。所以谷歌实际上正在落地多到荒唐的算力，而且做得很安静。他们有数据中心之间的光纤互连，张量处理单元的互连网格扩展性也更好，能撑起海量内存。然后他们还在加速跑元素周期表：几周前是双子座 Argon，他们什么时候会跑到磷和铀？还有 Hydrogen。我都跟不上了。他们的命名品味依然糟糕，双子座这个应用也依然糟糕。其实所有实验室的命名算法都很糟糕。不过他们也有好用的应用：Claude 其实是一个很好的应用，ChatGPT 还行，双子座则很糟糕。但就在昨天，谷歌拿出了目前最超值的人工智能套餐，那个八十美元的方案，包含全家的 YouTube 家庭套餐免广告、YouTube Home，还有二十太字节存储。我觉得谷歌会非常凶地冲向用户。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>这正是我想强调的。绑定期是一回事，可当你能做到成本只有一半，破坏性要比排行榜第一大得多。再加上分发。对，萨利姆指出的这一点极其重要。我一看到那个套餐就想：见鬼，我反正已经在十几个地方用谷歌了，全捆在一起，突然之间你不太需要别的了。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>有意思的是，你买了那个套餐，搜索里还会用上双子座 Carbon。于是你先有一个笨笨的人工智能搜索，然后突然变成超级聪明的人工智能搜索。过几周还会再出一个模型。他们会进攻，但在经历过上次那些反复的失败之后，他们尽量不把声势造得太大。另外，Neon 是一个聪明得离谱的闪模型，用起来其实非常愉快。对 Astra 你会骂很多，我骂完还挺内疚，因为我很英式。<span class="tag">【笑声】</span>Neon 却出奇地好用，它有一种小模型的气味，但工作得出奇地好，真的会跟着你说的做，也理解你。等他们把这个规模做上去，我还是觉得这是一场前三名的竞赛，他们会尽一切力量，因为他们有算力，也还有人才，而且这里显然已经出现了递归式自我改进的循环。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>我需要澄清一下。我老听你们说「小模型气味」「大模型气味」，到底有什么差别？</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>所谓小模型气味，比如说你看基准，中国的模型在短任务上可以排得很靠前，可你一旦做任何复杂的事，它们就会散架。我们做了一套线缆，我们的 Zenith，能把它重新拉上去，但大多数时候它还是会彻底散掉。也就是你碰到复杂性的那道门槛：一个也许只有一百亿、两百亿、甚至五百亿活跃参数的小模型，能做好一件事；可到了一千亿、两千亿，当你在推边界、尤其是做更出分布的事情时，你就是能感觉到它把东西拼在一起的方式不一样。亚历克斯，你同意吗？</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>对，这很像那种「你一看就知道」的判断。但就轶事而言，在解决非常复杂的问题时，大模型和小模型的气味是能分辨的。顺着萨利姆的话，如果你跟很多模型大量互动，会有一种直觉：某个模型的权重里，内建、编码了大量世界知识。我把这看成历史上一个过渡点：在世界知识被外置、我们在递归式自我改进的彩虹尽头得到完美模型之前，世界知识需要先编码进权重。就目前而言，模型必须在不必做工具调用、不必去谷歌搜索、不必去搜别的代码库的情况下，就拥有很多世界知识。你向它们提出很难的问题时，能感觉到它们在零工具使用下到底知道多少。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>等我能对它说「给我订一趟航班，让我从一集《月球射击》赶到下一集，中间还别误机」，我才算成功。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>可那已经是工具使用了。没错，就是工具使用。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>不过那复杂得要命，我跟你说。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>有人指出过这一点。我们在 OpenAI 总部的时候，我说这将是「脚手架之年」，对方说不、不、不，这只会是「脚手架之月」，因为接下来会发生的是：大模型气味里的那些大模型，会自己去搭脚手架。后来我们拜访埃隆时他也指出，小模型在自己的泳道里效率要高一百倍。于是就有了一种很美的动态：大模型为小模型创造线缆和框架，去把工作做掉。那样你就不再是小车、大车、新车各种气味，而是一套整合框架：你跟拥有大量常识的大模型互动，它管理着成千上万个主题专用的小模型，性价比高出一百倍，然后你会看到结果的爆炸式增长。正如史蒂夫所说，谷歌正在一个接一个地往外倒产品。这怎么可能？正是这套东西被非常安静地内化、落地了。我们在谷歌 I/O 的时候，他们说当时每位工程师每天已经在用大约三亿 token，那差不多是一年前，或者至少半年前；从那以后大概又涨了三到十倍。所以这些工程师已经不再写代码了，他们在管理庞大的智能体舰队，去制造海量的产品。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>对战场，我还有一个不同的视角。你知道，去年在达沃斯，你说过我们需要人工智能的「诸神」来辩论未来。结果请来的是哈萨比斯、亚历克斯·王（Alexander Wang），还有丹妮尔·露丝（Danielle Roose）？另一台上则是哈萨比斯和达里奥在交锋，讲未来会如何展开。再前一年是萨姆。我们缺的是扎克伯格、埃隆，以及谢尔盖和拉里。可换一个角度看，谷歌已经悄悄把巨大的资产聚在一起，有海量的现金流。他们不需要靠 IPO 和公关，因为他们已经是上市公司，而且在赚极其多的钱。谢尔盖和拉里对谷歌仍有超级投票权，扎克伯格对 Meta 仍有超级投票权，而埃隆在那场大合并之后，几乎也把对自己那套公开的 X、太空与人工智能帝国的超级投票权聚到了一起。所以不管发生什么，二十、三十年后还在场的会是这些人。其他那些我们视为人工智能名人的人，在很多情景里会落得有点像黄仁勋：未必那么惨，但最终会被推到一边。我希望黄仁勋能回来。<span class="tag">【笑声】</span>我们并不是把他看成……</p>
+</div></div>
+<div class="turn spk-5 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>你看，你们没有尽早给董事会升级成人工智能。<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>史蒂夫，我很想听你对谢尔盖的看法。我的视角是：他很年轻就极其富有、极其成功，后来有点退出了，因为2013、2014、2015年世界并没有发生太多事。然后是拉里推动了对 DeepMind 的收购。在奇点时代，他又重新加深了参与。我猜谢尔盖现在的投入程度，大概是他二十出头之后最深的一次。我不知道，你大概……</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>对。我跟他待的时间很多，昨天晚上还一起吃了晚饭，是我们在这儿主办的那场人工智能会议。简短地说，谢尔盖这条弧线你说得对。他几乎已经在想象退休了，后来被说服，并且现在完全相信：这是他见过的计算机科学里最伟大的机会，也是他见过的最快的学习节奏。他从未这么高兴过。所以我会说，他的智识投入比以往任何时期都深。拉里过去也活跃，现在已经退休住在佛罗里达。所以他那边的参与，我们只看到几次。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>我大约十天前见到拉里，他说他在看这个节目。所以，拉里你好。我非常希望拉里能回来参与，他太聪明了。但创始人的力量是真的。我不得不想象，谢尔盖重新投入，就是为了把谷歌推到第一。我无法想象他们会接受第三的位置。所以我的预测先留着。创始人的力量非常惊人。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>创始人的力量极其强大，反过来也极其糟糕。那些行动迟缓、被投票权官僚机构绑住的公司，永远造不出猎鹰火箭，也永远不会用一笔没有收入、看起来只是为了控制空调系统的天价，去买下 DeepMind——而那笔收购后来成了人类历史上最成功的收购之一。这类动作，不会从官僚组织里长出来。要蚕食掉十条蓝链加 AdWords 的搜索收入，改成人工智能概览，只有创始人模式才做得到。对，肯定是这样。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>我来唱个反调。根据我的了解，董事会用了十年时间要求黄仁勋做继任计划，他就是不做，把整个公司裹在自己身上。他女儿在做一些很狂的事，有很多裙带，还有一种怪异的、偏负面的乔布斯式动态。到了某个节点，作为创始人也必须想清楚，公司的继任该怎么走。我觉得这会是一个问题。而且未来的继任，会是把一个人训练进人工智能、并且能力强得多的那种。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>马斯克的算力帝国：每月五百兆瓦，以及和 Anthropic 的权宜婚姻</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>好，说到创始人模式，我想跳进马斯克宇宙。过去几天里，埃隆做了两场演讲，一场是在纽约的《纽约时报》Dealbook，另一场是在 Tomorrow X。他铺开了 SpaceX 计划的许多细节，听起来更像一场财报会，给出的信息大概比财报会上还多。其中有九条特别值得谈。首先，埃隆分享了 SpaceX 建设算力的成本和速度，这是无人能及的。SpaceX 每个月大约新增五百兆瓦的人工智能算力，约二十二万块 GP300 芯片，并预计到 2027 年底每月新增将超过一吉瓦，这已经疯狂了，相当于每年六到十二吉瓦。埃隆说，SpaceX 建设算力的成本大约是行业的百分之六十。史蒂夫，一家公司怎么做到这一点？我把埃隆想成那个「建造能建造机器的机器」的首席执行官，他们在硬件整合上就是那么强。速度和成本的秘密是什么？你是 SpaceX 董事，我知道……</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>我先停一下。没错，所以我更多只谈一般性的东西。重要的声明是：这不涉及这个季度、这个月，也不是前瞻性陈述，只是一般规律。那里有一台惊人的发动机。你们前面谈到文化：你雇什么样的人，在某些情况下更重要的是你开掉什么样的人，组织能不能接受平庸，以及你是否愿意从传统领域之外招人。这些可以说是种子，养出一支在那些极长时间没有创新的领域里执行力极强的团队。让我稍微停一下：你想想Boring，全球最大的四家隧道掘进机制造商都创办于十九世纪，几乎没有重大创新。汽车行业在特斯拉之前几十年也没有重大创新。联合发射联盟、美国和欧洲的在位者同样如此。他们还在吗？对，就是这样。汽车和航天里的软件与系统工程能力萎缩到什么程度，令人吃惊；把这些能力以整合的方式带到桌面上，是秘诀的一部分。</p>
+<p>还有他管理团队的方式、他雇的那些人，以及深度的垂直整合。他看一个数据中心的时候，想想他买下当时还叫 Twitter 的那家公司：他真的会去拔掉那些他认为多余的冗余服务器，而且是亲自上手，甚至让自己处于身体风险之中。<span class="tag">【笑声】</span>他就是不相信「我们必须用老办法做」。故事是：他真的会掀起数据中心的一块地板，拿出刀开始剪线。对，就是这样。他喜欢第一性原理，喜欢到现场、到地板上直接参与一切，不会把危机当成理所当然必须接受的东西。供应链上也一样：顺便说，他没法把这种标准强推给供应链，所以才有这么深的垂直整合——你没法让他们运作得那么出色。星链卫星以及其他很多东西上，有大量你会完全想不到是 SpaceX 自己做的部件，都是因为这样做要好得多。从美国得克萨斯州巴斯卓普（Bastrop）那座全美最大的印刷电路板工厂，到接下来显然要走向的 Terafab，都是如此。短版本就是：制造卓越，你看得见他们怎么追踪，也不把历史上的平均水平当成给定。每建一座数据中心，都比上一座更快。还有各种可以说是「秘密酱汁」式的人物，知道怎样把事情按时做成。你要怎样才能在一个从未见过这种进步的领域里，确保人才能按时执行？</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>戴夫，还记得我们跟埃隆那次三个小时的谈话吗？他说，原因就在于互动。特斯拉在教他如何大规模制造，他把这套带进了 SpaceX，是他在一家公司学到的技能，可以带到另一家。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>超级工厂还有一点也很惊人：你看机器后面和周围，没有油污、灰尘和积下来的脏东西。你去福特或通用，他们的产线布局简直永远没重新配置过。你去超级工厂，它在不断地被重新配置，这是持续的优化过程，意味着机器会物理地移动，那些积下来的脏东西也被不断地清走。你伸手去摸，到处都一尘不染。去污，去污。这是文化性的，也可以类比成给团队去污。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>埃隆谈到的第二个话题，我放一小段视频，是关于 Anthropic 的那部分。Anthropic 的申报文件披露，到 2029 年与 SpaceX 的协议金额是一千二百零五亿美元。埃隆说，Anthropic 告诉他们，极有可能再租用十吉瓦的产能。我们看这段。视频里有人问：你觉得他们会吗？外面有些猜测，他们似乎对一些投资人说过可能会。埃隆说：我认为他们不太可能不续。我跟 Anthropic 谈过，他们告诉我，继续向 SpaceX 租算力是极有可能的，而且他们想要的量还要显著更多。但他们必须这样说：在最坏情况下，如果对人工智能或超级智能能做的事出现极端限制，他们可能将无法使用这些算力。可他们告诉我，概率最高的结果是，他们希望从 SpaceX 再增加十吉瓦算力。这是个大数字。那段是埃隆在北京、与特朗普总统同行时远程连线说的。别忘了，他有一个六十到九十天的退出条款，或者说 Anthropic 也有退出条款。但对我来说，这种相互依赖非常重要。亚历克斯，你怎么看？</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>我有位读者跟我转述过一句话，我也用过：不能竞争的人，就去做计算。无论好坏，埃隆眼下并不在前沿模型或实验室的前三名里，但他正在建设极其庞大的算力。我觉得一场高风险的谈判正在上演，潜台词写在 Anthropic 关于自己对 SpaceX 人工智能算力依赖或并不依赖的公开表述，和埃隆关于自己未来是否需要、是否愿意继续服务 Anthropic 的评论之间。这是一场摊在阳光下的公开谈判。这个房间里的大象，是递归式自我改进。如果递归式自我改进在未来六到九个月里冲上天，Anthropic 通过它发现了完美的模型架构，他们的硬件需求也许会变，也许就没有现在这么需要 SpaceX 或埃隆。但同样，我也会预期埃隆会说：如果 Anthropic 不需要我们正在上线的全部算力，别人会要。所以我猜想——这不是投资建议——到头来大家都会赢。但 Anthropic 在软件层、SpaceX 作为「不能竞争就去做计算」的新云超大规模供应商，这段权宜婚姻能否撑过六到九个月，最终将取决于递归式自我改进能把模型改进到什么程度。戴夫，你刚才想说。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>我给你讲埃隆的梦想情景和噩梦情景。梦想情景是：我前几天给你看过那张图，基础模型越做越大，周期却在变短。绝对前沿和第四、第五、第六名之间的领先时间，以前大约是六个月，现在大约是四周；基准上的差距还一样，但曲线已经变成这样了。时间在变短，尽管基准距离没有变。所以在埃隆的完美世界里，任何人只要能用上一个前沿模型，就可以用它在六周后再造出一个同样好的前沿模型。如果你控制了算力，那就会成为唯一可持续的资产。再看一两年后，xAI 会有一个和 Anthropic 一样好的模型，由另一个模型造出来，却跑在比达里奥能组装的集群大得多的算力上。就算有一千亿美元的新现金，达里奥也追不上算力。这就是埃隆最完美的梦。</p>
+<p>噩梦则是：模型很快发现了推理时训练，而这在研究里已经有很大进展。推理时训练不用反向传播，我们以前在节目里谈过。如果你不用反向传播，你就不需要维拉·鲁宾。有很多非常快的硬件，包括我前面说的光子方案，做推理比维拉·鲁宾效率高十到一百倍。可眼下训练仍然需要维拉·鲁宾，训练才是战场。一旦你借助人工智能发现了训练时不再需要矩阵乘法的方法，那么刚刚上线、才开始插电的那整笔投资，在其大约三年的预期寿命里就会变得无关紧要，也许只在四五六个月里有用，然后你就得把这笔巨额投资减记，所有人冲向新的计算衬底，一下子变成混战。光看研究，我觉得这第三种结果此时已经非常可能。这就是埃隆的噩梦和梦想。史蒂夫，有什么评论吗？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>这是一个令人兴奋的研究领域。如果我没理解错戴夫的意思，我们其实已经在投资边缘上的持续学习，也可以把它想成运行时训练：无论是贝叶斯推理还是概率计算，都是在减少对「训练／推理二分」的依赖。大脑就是这样工作的，这非常有启发，但在计算上一直很难优化。你说得对，如果人工智能能帮助我们优化这些协议，那就可能改写算力格局。不过在所有情景里，都还是会回到我们前面的那个一般性判断：我们还没看到需求的上限，无论是杰文斯悖论还是别的扩张。如果价格下来了，每个企业、每个小公司都能做持续学习，人们想要的额外推理会很快把供给吸干。即使架构变得更多元，我仍认为我们会受算力约束。这并不是说我们还要再大量上 A100。是的，我们可以用更老的算力、更老的、不那么整齐的集群来做推理，而这也让你能把它们放到任何地方：放到卫星那个尺度，放到任何有能源的地方。比如地热、太阳能场，或南半球的深海这类本来被困住的能源。有些公司已经在做，你有星链做回传，现在就可以处处做推理，而且可以是非常异构的芯片平台。很多定制专用集成电路，尤其是模拟的专用集成电路，在推理的性价比和能效上要好得多。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>下一道瓶颈：内存、光互连，以及对英伟达的看空</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>完全同意。我想花一分钟把推理时训练讲清楚，万一有听众想去读论文。论文有点不好找，但我告诉你它在做什么。反向传播里你做的是：这是损失，我随机穿过两兆个权重，得到了错误的答案。它是偏高还是偏低？把这个对错信号一路传回去，传到神经网络里某个很靠后的小权重上：如果我把这个权重往上或往下挪一点，答案会更对还是更错？如果更对，就往那个方向挪。于是反向传播把信号传回去，改变权重。推理时训练只是直接去微调它，看另一边的结果。数学是同一套，结果是同一套，训练出来的网络也是同一套。问题在于，对每个权重都去微调，计算效率不如把信号传回去。但现在的研究正在找到各种办法，让它变得一样高效，包括中间目标等等。那就会把所有神经网络训练推向一套全新范式。人类研究者自己去做，你看的是十年；可一旦有人工智能当研究助手，突然就变成：哇。</p>
+<p>你只要看加速思考的趋势，再加上史蒂夫说的，专用集成电路效率高这么多。我想这也是为什么埃隆已经在说，Terafab 的第一个目标是高带宽内存，而不是图形处理器。可你不是正在图形处理器上砸数百亿美元吗？是的，但我想我们已经知道，瓶颈不再在那儿了，而是在内存，以及数据的搬移。还有很多互连，对，光互连。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>对了，光互连有各种层次：从非常局部的芯粒之间，到单块板这个层级，再到机架之间，再到数据中心之间，光拓扑该长成什么样，有不同的优化，这方面即将迎来很多改进。是的，这是一个巨大的、你能够解决的数据搬移瓶颈。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>如果你走模拟，还可以把硅垂直堆叠。垂直堆叠加上光互连，能造出我们从未见过的计算密度。而且能效好到垂直堆叠都不会熔掉，这是一个重大变化。这一切来得非常快。这是我见过的最好的投资主题。<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-5 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>这可是一句可以带到有限合伙人会上的话。这些正是我们在强调的方向。太美了。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>我本人很期待，靠光交换把时钟速度提高一千倍。那会很棒。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>我想把话说得更宽一点，因为这又回到投资命题。当一个外部依赖变成限制、而且是战略性限制时，好的指数型组织会把它内化。我们看到特斯拉把电池和充电内化，SpaceX 把发射、发动机和发射基础设施内化。现在再看人工智能的限制性依赖：电、芯片和算力。在这些上面做垂直化，恰恰是该走的路，也成了一个完美的投资命题：你只要去找瓶颈，然后把它内化，往前走就会很好。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>这简直跟我们昨天有限合伙人会上说的一字不差。<span class="tag">【笑声】</span>一字不差。看来我进错房间了。你刚才有一阵在点头，又好像在摇头。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>不。我觉得这对英伟达不利，我们都在看见这件事发生，对吧？我给听众举一个非常具体的、正在到来的例子：英伟达的 DLSS 5。有些人可能见过，它能把看起来有点糟糕的游戏变得照片级真实。那是一个一百一十八兆字节、单次前向的像素扩散模型，里面几乎没有反向过程。哇。我觉得这就是将要发生的事。我在节目里说过几次：模型会「满意即止」。以前你没有够用的模型，把不胜任叠加在一起，结果会垮掉，所以你必须抓住前沿。一旦达到能帮萨利姆订机票那种胜任水平，接下来就是优化。光学架构、专用集成电路、特纳、蚀刻硅，有一整套办法能把这件事做得极其高效。这之所以重要，是因为你要如何为全世界提供真正好用的智能体。像 Grok 机器人，在配额被改之前，协调各种智能体的能力非常惊人，后来有些变化，但那就是未来的图景：你身边有一个智能体，去协调其他所有智能体，你可以真正决定算力的量和它的任务清单。因为一旦你能订一趟萨利姆的航班，你肯定也能订我们其他人的航班，那就是复杂性的边缘。于是你会有海量的消费级算力，有些人觉得这块会由 OpenAI 赢下，但我觉得 SpaceX 有很好的机会赢下它。然后还有 Anthropic 那类算力：我要巨大的维拉·鲁宾，我要下一代这些巨型芯片，去做大规模的分子和生物转变，去推科学的边界。</p>
+<p>这里的危险在于——首先我不认为 SpaceX 会被套住，因为他们几乎一切都是预付的，芯片很快就能回本，也可以转向消费端——我认为架构会非常快地变得极其高效。模型里充满了垃圾，蒸馏只是一个早期例子。真正把这件事做完的最终模型，会是那种「闻起来像小模型、却让人觉得像大模型」的模型。而且我觉得亚历克斯也是对的：随着推理架构出现，知识被外置，这对内存是非常看空的，对英伟达也是非常看空的。我不认为你会看到这种大规模建设一直持续到两年后。我觉得未来两三年是安全的，然后会极其迅速地滚下来，尤其是数学、物理等领域的进展，都指向同一个方向：这里有一种底层结构，可以做成十倍、一百倍、一千倍地更高效。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>我百分之百同意。我一般不太愿意这么说，因为有一种情景会在轮动中给市场造成很大伤害，那么多退休账户对这个方向暴露很大。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>指数化，戴夫。指数化就是解决方案。谁在乎呢？<span class="tag">【笑声】</span>好吧，这是轮动。我觉得伊斯梅尔把这点说准了。这不是投资建议，我只想指出一个事实：对整个市场做指数化，是轮动不变的。这不是建议。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>好，那会有人来找你的。<span class="tag">【笑声】</span>问题是黄仁勋不能说回来就回来。每过一天都会更难，你不能直接走回去，指望一切如故。在这件事发生之前，CUDA 的护城河已经开始松动了。所以从战略上看，也许更好的做法是让底部先掉下来，再以英雄的姿态回来。做一出乔布斯式的操作。</p>
+</div></div>
+<div class="turn spk-5 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>你在说什么？你不这么认为吗？<span class="tag">【笑声】</span>你说，你说。这想法太狂了。我觉得公司越早把他请回去越好。你不必走完英雄旅程，跑到厄尔巴岛上苦苦思念。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>我其实在乔布斯还在 NeXT 的时候为他工作过。<span class="tag">【笑声】</span>他就是受不了流放，想回到苹果。可真的，苹果越早迎回他会越好，而且如果他能在位更久，显然也会更好。</p>
+</div></div>
+<div class="turn spk-5 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>我完全同意。我是从黄仁勋的角度在想：如果乔布斯回去得太早，当时微软明显占上风，要扭过来会很难；一旦触底，从乔布斯的角度看重建会容易得多，尽管从苹果的角度看并非如此。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>说到 SpaceX 的对照，我 1994 年在苹果工作过。另一个美妙的时间胶囊是迈克尔·戴尔（Michael Dell）：只为了让人感受变化有多大，1995 年他给苹果董事会的真诚建议是，把公司关掉，把剩余现金作为股息分给股东。哇，那居然是他眼里苹果能做的最好的事。<span class="tag">【笑声】</span>我记得那件事。天哪，太疯狂了。幸好没有发生。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Blitzy]</span></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>星链、电信与轨道数据中心：真空里快百分之三十</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>我把话题转到埃隆的第三个主题：星链和电信。埃隆认为，随着带宽需求爆炸，美国电话电报公司（AT&amp;T）和威瑞森（Verizon）不会消失，而 SpaceX 瞄准的是一个大得多的市场，具体说就是智能体流量。人类交流，你和我，最多大约每秒一百比特；而超级智能和机器人会需要万亿比特。他把星链定位成运营商，直连手机的第二代将从明年开始发射，带宽比第一代高四十倍。那么在位的电信公司该不该害怕？</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>我跟你保证，直连手机的星链一旦可用，我纳米秒都不会等，立刻换过去。它有赢家通吃的潜力。我真不知道他们怎么竞争。</p>
+</div></div>
+<div class="turn spk-5 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>监管。有监管。而且总容量必须大幅、大幅、再大幅地提升，才能承载全球电信。那是海量。已经规划中的卫星已经很多了，若想取代所有有线，大概还要再高几个数量级。史蒂夫，这件事你能说什么？他们可是有星舰的。对，就是这样。<span class="tag">【笑声】</span>他们会发射很多。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>我大概除了那个目标之外什么都不能说，而那个目标本身就很大胆：承载一半的互联网流量。这个愿景令人吃惊。从高处看，你拥有通向这些卫星的多种通信模式，包括直连手机，还有好几个实际的微波频段；你还有光速优势，以及太空中的点对点直连，意味着你比地球上的光纤还快。我特别喜欢这个细节：真空中的光速大约快百分之三十，再加上回传的杠杆。</p>
+<p>对轨道数据中心来说，光学数据的回传尤其关键。你要想流量往哪儿走，是不是点对点；因为如果是智能体之间，随着越来越多的经济迁到太空，你是否其实会把其中很大一部分完全分流到轨道数据中心之间？智能体在跟其他软件栈协作，完全在云之上。我们曾经有云计算，现在则是在云的上面。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>等一下，我得问这个问题。你说的是大约十年，还是怎样的时间线？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>这块我就说得模糊一点。取决于卫星部署能铺得多快，但会很快。对，埃隆式的「很快」。<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>等等，史蒂夫，回到你刚才说的。你是说真空里的卫星通信，比地面光纤还快？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>对。我们常常把空气、玻璃、水这些介质里的折射率当成理所当然。太空中点对点，你不仅不会像海底光缆那样绕着海岸走、而不是走直线，你本身就更快。我就是喜欢这一点，对所有东西的延迟都是如此。这太不可思议了。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>不过也有空芯光纤，还有地面微波，它们是接近光速的替代方案。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>对，但除了那些用这个做高频交易的量化基金，比如麦凯兄弟（McKay Brothers），你并不会大量用地面微波。量化基金知道这件事。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>公平地说，空芯光纤也还不多。大概是华尔街在享用空芯，其他人几乎没有。史蒂夫，我很想看到的是：星链若要接管互联网，需要轨道到地面的光学连接。据我所知——如果你有错请纠正——现在星链卫星用光学频率的激光做星间通信、做回传，但你还看不到从卫星到地面的光学激光链路，看到的是微波。你觉得我们会走到那一步吗？那会发生吗？由谁、在什么时间范围内？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>会的。这完全说得通，会成为一套根据天气来组合的不同链路：有云、没云，用不同的频段，什么都有。顺便说，你可以把微波，以及 Ku、K、W、L 这些频段，想成你走得越快，波束宽度就越窄，就可以点对点；到了激光，你甚至不再需要国际电信联盟的许可，因为你就是在点对点。对，你受奈奎斯特限制，波束扩散也会减小。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>那换个说法：我们不仅即将在日出或日落时，在太阳同步轨道周围看见一道可被看见的戴森群；而且如果我没听错史蒂夫的意思，我们还即将开始看见从轨道打到地面的激光束，以维持高带宽连接。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>是的。但你不会以看卫星那种方式看见它们，因为激光如果做好了本职工作，是打在目标上，而不是打进你的眼睛里。<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>好。但如果你站位合适，抬头看，或者在你的设备和轨道之间截到这束光，将会有可见的激光从轨道打下来。对化学尾迹理论家和其他人来说，这会很精彩。<span class="tag">【笑声】</span>该给一些人「从眼睛里射出太空激光」了。对，我们会得到轨道激光，这就是我们需要的，对吧？</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>彼得，这件事我有话要说，我觉得有些人漏掉了。如果你从第一性原理看互联网，该怎样重建它，会是这样：星链，加上作为比特翻译器的专用模型。就像稳定扩散和我们的图像模型，你丢进一个词，它就能造出一个世界，而且是确定性的。如果你在 X 手机、特斯拉和家里的实体里都放一个模型，那么为了变换并产生海量输出，需要传播的信息量其实很小，远小于哪怕是现在被共享的互联网。这意味着你可以借助家庭网状网络等等，更早地扩到互联网的量级。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>这是一个非常非常重要的点。纵观计算史，你要看的就是带宽作为瓶颈，对上计算作为瓶颈，内存是其中的一个子集，中间发生过巨大的转换。这也是轨道数据中心之所以漂亮的原因之一：你可以先发出一个推理请求，接受一点点延迟，然后拿回结果，于是单位带宽能对应极其庞大的计算。简单说，正是你刚才说的那样。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>Terafab、可以吃汉堡的晶圆厂，以及使命而非利润</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>好，继续往下，网络和计算。我们来谈 Terafab。埃隆再次确认，他计划建造也许是这个星球上最大的工厂，一亿平方英尺，第一阶段量产目标是 2028 年底，第一批芯片明年就会下线。埃隆有一个很有意思的观点：成熟的芯片制造商因为巨额资本开支而厌恶风险，而 SpaceX 会冒险、会快速迭代。我喜欢这一点。埃隆跳进一个行业的能力——他在发射做不到这一点，在汽车也做了，基本上是从一张白纸开始重写——他现在对 Terafab 也是这样。这也许是这个星球上最重要的项目之一。他第一次在董事会上谈到 Terafab 时，有没有人反推？在你能讲的范围内，我很好奇董事会上会是怎样的对话。埃隆带着「机械哥斯拉」用筷子接住星舰进来，又带着 Terafab 进来，这些是一百倍的概念，不是两倍、三倍。你必须有一个对首席执行官有巨大信任的特别董事会，才做得了这种动作。那是什么感觉？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>你问题的前半部分，我显然不能转述私下的对话。但我可以说那种感觉：这是一个处在前所未有尺度上的创业型领导者。这跟我整个风险投资生涯里，在任何一家初创公司听到的那种大胆表态、「让我们把公司押上去」的评论，并没有本质不同。可你在十亿美元、万亿美元级的公司里看到这一幕，相对而言闻所未闻。我们且看一些新进入底特律俱乐部的人会不会也这样。但你绝不会指望国际商业机器公司、通用汽车或惠普去走这么大胆的一步。其实前面有人说过：谢尔盖还在谷歌，他们居然愿意拿搜索这门赚钱机器去下注，去承受人工智能搜索结果可能带来的侵蚀，这难道不惊人吗？那种空降的、股权很少的首席执行官，往往不会下这种注。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>顺便说一句，我觉得只有奈飞（Netflix）是一家主导了自己颠覆的公司：他们从 DVD 转到宽带，股价为此跌了百分之七十，但只有带着创始人股权的创始人，才能熬过那场风暴，说我们绝不能继续靠邮寄 DVD 过活。所以这种感觉对我来说既像创业，也像正常。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>你刚才说这个行业因资本密集而厌恶风险、价格大起大落，这一点在整个动态随机存储器历史上，尤其是在内存芯片上，都很有意思。因为巨额资本承诺、建厂周期很长，再到「还有谁在建、产能何时上线」，而需求增长又相当平稳、相当微弱，所以形成了繁荣-萧条循环。尤其是八十年代，你把它画出来就能看见。我父亲曾运营过美国乃至全世界最大的内存工厂，我们亲眼看到，它可以在一年之内从巅峰走到破产，依据就是日本和其他地方的产能决策线。这一轮的不同，以及前面说的必须建更多内存，在于需求是指数级的，方程变了。从第一性原理看，我们需要建造比任何人计划中都更多的内存，就像当年必须造更多电池一样。回想特斯拉：他们自己的预测是，我们消耗的电池会超过当时全部产量的一半；若要达到自己的计划，需要的量会超过全世界正在生产的总量。那好，我们最好建第一座超级工厂，自己做电池。这种「不要回避未来瓶颈会在哪里」的态度，正导向 Terafab 的那些决定：我们必须建得比任何人都多。而且当你把铅笔削尖、揭开盖子看：我们要如何扩展阿斯麦（ASML）？如何扩展设备之间晶圆的搬运？到头来，房间里的空气才是你的负担。我们去年十二月采访埃隆时，他说我们将能够在晶圆厂里吃芝士汉堡。对，因为设备之间的搬运必须完全不接触空气。你何必费这么大劲做洁净室，关键其实只是要一个更好的真空。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>太惊人了。让我吃惊的是，「硬件很难」那个年代留下的后遗症有多深。你前面提到，当初为了投埃隆做火箭，你得跟合伙人抗争。可那个时代整个行业的口头禅是：钱都在软件里。硬件很难，硬件资本密集，硬件是糟糕的投资领域，硬件周期性很强，无论如何都不要做硬件。现在我们进入了一个新阶段，硬件基本上有指数级的、无穷的需求。台积电会说：我以前经历过，别扩张过头。这些人都多少年了？等一下。还有我们招进公司和实验室的那些年轻的麻省理工、普林斯顿的人，你跟他们说去把这东西流片，他们会说：我们不能直接去流片，得先做现场可编程门阵列证明它能工作，再做专用集成电路，再做一次多项目晶圆，拿到原型，大概一年后才能去见台积电或别的晶圆厂，谈正式流片。可我担心的是，所有那些做推理时计算和其他事情的新芯片公司，很多是前英特尔员工，他们明白：各位，没那么难。你做一套掩模，放进去，芯片就出来了，然后去封装，你甚至不用碰它，它去封装、再回来；其实回来后你也不必碰，它可以直接进数据中心。这不过是现在可以用人工智能管理的物流。可对硬件的恐惧，无论是芯片、数据中心、火箭还是生物技术，在我们的创业社会里仍然很普遍，那是二十年「只做软件、别碰物理世界」留下的。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>对。互联网和社交媒体投资的那道裂缝也是：你当时赚到某种回报的速度，很难跟半导体、生物技术相比。也许还有九十年代向中国外包、加入世贸组织的那些决策。甚至可以回溯到七十年代，以及这个国家在核监管和其他监管上的决定。整个星座都在那儿。正如戴夫你所说，也正如我以前说过的，作为一个国家，我们害怕做物理世界里的事情，怕了二十年，或者五十年。我们需要把这层怕去掉。而埃隆可以说正带着文明，冲在「让我们不再害怕去做物理世界里的难事」最前面。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>对，汽车、平板电视也是好例子。嘿，我们发明了这种惊人的突破，以后全都会是平板电视。别投这个，它最后会跑到中国，我们再进口就好。结果还真是这样，于是现在人人都怕了。可这一切现在都会改变。要改写这种社会记忆非常难。我都忘了社交媒体主导全部投资那么长时间，简直是：如果它不够廉价，如果它不能让人开始恨自己，就别投。<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>史蒂夫，我以前在节目里讲过埃隆的性格：他不是被钱驱动的。人们相信他是被解决巨大问题、被那些挑战驱动的。我希望你能谈一谈，因为作为万亿富翁，他在某些方面被说得很糟糕，好像他只在乎创造越来越多的财富。我一点都不觉得那曾经驱动过他。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>对，一点都没有。我认识他三十年，一起走过许多家公司，驱动他的是使命。他把心戴在袖子上，没有双关话，也不像我们前面听到的某些其他首席执行官的那种语言。当他说希望人类成为多行星物种，为灾难性威胁准备一艘救生艇，这是在强有力地驱动着他。否则，SpaceX 或特斯拉出现挑战时，一个追求金钱的人为什么要在工厂地板上度周末，去做这类取舍？有一个有意思的旁证，想想特斯拉：我们有更多时间看它如何演变。他们开源了专利，他尽其所能与戴姆勒（Daimler）等伙伴合作，说请转向电动的未来。特斯拉的使命是催化可持续能源的转换，不是「成为做成这件事的那家公司」，而是让整个行业动起来，尽可能帮助它们。我记得很清楚，有一次二季度财报电话会上，有人问某个决策对盈利的影响，他说：只要我还是首席执行官，利润就不是优先事项。我当时想，后面会不会还有一个「但是」，或者一个逗号？<span class="tag">【笑声】</span>真正的要点是：你不能一边领导一场行业转型，一边却有更差的商业模式、更低的毛利率，你不能又烂又想带头。所以公司层面赚到的钱，以及作为领导者得到的财富，是完成使命的副产品。这一点，在他毫不眨眼地为自己的薪酬设置最荒谬触发条件上，看得最清楚。我喜欢这个。比如火星上一百万人类。还有哪个首席执行官会说，行，火星上一百万人类？那不是他出的主意，是薪酬委员会或首席财务官提出来的：我们要把一套有激励作用的薪酬方案跟什么挂钩？这就说明了一切。从我在内部看到的角度，他确实在为某些事忧心，也被另一些事激励，他想让世界变得更好。由此产生的个人财富，我觉得反而是非常有启发的。顺便说，我们也在其他公司里投这种东西，比如 Planet Labs、Zona，以及航天领域那些有使命、而不是为了赚钱的公司。因为如果一个首席执行官的目标是最大化股东回报，或最大化营收，或最大化个人财富，团队内部就会为「我们说的是季度、年度，还是十年」吵得不可开交，这些时间尺度完全不同。如果你说我只想最大化股东价值，句号，那是在哪个时间尺度上？短期决策会拿长期做交换。你永远可以抵押未来，来让现在多赚一点钱。而以使命为中心的公司从来没有这种冲突，所有人都朝同一个方向拉，组织在扩张时会更一致，而不是把人拉向相反的方向。</p>
+</div></div>
+<div class="turn spk-1 host" data-spk="salim"><div class="label"><span class="badge" title="萨利姆·伊斯梅尔（Salim Ismail）">萨利姆</span></div><div class="content">
+<p>重大转型目标，宝贝。你用一个大胆的使命，吸引世界上最优秀的人。当然。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>埃隆还教给我们另一件事：你可以随着时间改变使命，因为技术要求你改变使命。很多人害怕改动创始日那天的原初使命，可你看它的使命扩张了多少，极其巨大。SpaceX 在太空建数据中心，甚至都还不是一个概念。大约一年前，它也刚刚勉强算一个概念。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Fountain Life]</span></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>我们在节目里争论过的一点是：星舰需要「星之智」（Star Mind）来填满载荷。有意思的是，火星那件事他抓住了。我本人更偏爱奥尼尔殖民，而不是火星，这留到另一次再谈。不过一个会是另一个的踏脚石，你得从某个地方把东西运上来。要填满每年一万艘星舰的需求，就需要星之智。不然那种量级的需求还能从哪儿来？对，就是这样。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>很多事情里都有一种产能利用率的直觉，会在最优点发生。比如你为了启动特斯拉而建电池超级工厂，第一天你并没有那么多车，去消化那么多电池。于是固定式储能就成了自然的去处，把多余产量吸收掉，直到汽车产量跟上来，因为你一次性建成了一大块产能。星舰也会有这种惊人的情况。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>那就谈谈最新、最惊人的数字吧。进入近地轨道的燃料成本大约是每公斤两点五美元，送你上天大约只要三千美元。这太惊人了。对一直在看这件事的人来说，这就像：哇，外面有两百个初创公司希望造出每公斤一万美元的运载火箭，而我们这边已经来到了两点五美元。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>看见死去的公司：火箭、擎天柱与星基地</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>等一下。再提醒大家，航天飞机当时是每公斤五万四千美元。没错。太空发射系统（SLS）是每趟四十亿美元。这简直疯了。联合发射联盟和太空发射系统还怎么保持相关？我是说，政府一直想要……</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>让我插一句。有时候我觉得自己有第六感，就像那部能看见死人的电影。 剧透预警：我能看见死去的公司，而且看了好多年。太空发射系统已经死了。<span class="tag">【笑声】</span>对，他们只是还不知道。嗯，我想他们其实知道，只是不知道该怎么办。然后还有火神（Vulcan），安息吧。关键荒唐的地方在于：哪怕他们在所有可能的目标上都成功了，这个产品仍然是失败的，你为什么还要把金钱和精力投进去？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>好，我要把我们带到擎天柱（Optimus）……</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>先不说这只是在取笑几家不知道怎么竞争的大型在位垄断者。你还有大约两百家有风投支持的小卫星发射公司，全都面临同一件事：即便计划全部达成，入轨成本仍是每公斤数万美元，可他们还在往前走，还在每周拿着商业计划找钱。这个领域已经被过度融资了。不过政府确实需要双源、三源供应商，所以仍会有若干发射能力。这就是为什么你会看到一个并没有竞争力的欧洲发射商，他们必须得有那一家。</p>
+</div></div>
+<div class="turn spk-5 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>往后你大概绝对不可能再去坐别的那种董事会了，对吧？你大概八秒钟就会无聊到失去理智。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>不，不是这样。坐在这类董事会里当然最有收获、最能学到东西、也最惊人，这没有问题。但外面还有很多创新，在那些并不在他前十清单上的领域里：农业、能源生产，还有一堆我觉得很棒的方向。比如一种通用流感疫苗，目前并不在埃隆的雷达上。如果一针能解决所有流感，再一针解决所有疱疹病毒，再一针解决所有冠状病毒，顺带还能做出阿尔茨海默病疫苗，那简直太惊人了。那才是你深科技的甜蜜点，去创办那样的初创世界。</p>
+</div></div>
+<div class="turn spk-5 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>我指的是那些成熟的、普通的大公司。那种你应付不了，两秒钟就会被干掉。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>那是同义反复。你是在问：如果那是世界上最无聊的董事会，你会不会觉得无聊？<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>好，不管你们喜不喜欢，我都要把话题转到擎天柱。埃隆预计过一两个月会有一场不配舞台的演示，还说擎天柱有可能在十二到十八个月内走进家庭、开始洗碗。它第一个重大工业落地，将是为了国家安全而去采矿和炼矿。于是特斯拉就变成了一家机器人公司。其实他们某种意义上已经是了，只是人们没有意识到，他们运出去的每一样东西都是机器人。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>我觉得它会变成一家 SpaceX 的公司。我当然知道史蒂夫不能评论。<span class="tag">【笑声】</span>但那里最大的头条是采矿。我们几期以前在节目里谈过：埃隆这个巨型企业即将大量推出的这些擎天柱机器人，杀手级应用是什么？答案就是采矿。任何危险的事情。对。我倒有一个更好的家用场景，因为彼得你老问家里会有多少机器人。家用机器人的绝佳用途来了：把家具挪开，好让扫地机干活。<span class="tag">【笑声】</span>那是你的家庭蜂群。十个房间再加一个擎天柱。所以你不能谈这个，但假设——我们也都假设——SpaceX 和特斯拉会合并，你对合并后的公司有没有一个喜欢的名字？会是 X 吗？你觉得 SpaceX 这个名字会留下来吗？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>我不会去假设这个。这是他们最不关心的事。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>我觉得就是 X，必须是 X。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>好吧史蒂夫，不知道你以前有没有听过节目里的这段玩笑：如果合并后的实体叫 X，那 OpenAI 就改名为 O，然后埃隆和萨姆就可以玩井字棋了。</p>
+</div></div>
+<div class="turn spk-5 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>天哪，这太糟了，太糟了。哟，我们刚失去大约一半观众。谷歌变成 Gil。<span class="tag">【笑声】</span>大 G。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>可重点是采矿。如果采矿是所有这些擎天柱机器人的杀手级应用，那Boring 公司被放在哪里？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>不，不，不。不要假设那是完全不同的两件事。Boring 项目的当前目标，是隧道里零人。顺便说，我远程开过这种掘进机，开起来还挺有趣。而且 SpaceX 那一整套堆栈的每个子部件，都应当是完全自主的载具：每一半整流罩、每一级上面级、下面级，加上龙飞船返回舱，它们全都是完全自主的载具。它们只是还没被贴上「机器人」标签的机器人。采矿之所以跳出来，是因为如果你要进入一个市场，最大回报或最高价位点会在哪里？是那些天生危险、极度枯燥，或非常肮脏的行业，是你宁可不让人去做的事，是重复性劳损那类事情。想想机器人现在已经被用在哪里，采矿和其他很多地方，你都可以比一个走来走去的人做得更好。但最终它会是完全自动化的。已经有一些公司——我们没有投这些——在做完全自主的采矿卡车和所有重型设备。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>史蒂夫，你难道不觉得，特斯拉擎天柱机器人去做采矿，和 Boring 公司的掘进机去做掘进，之间有一种内在竞争吗？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>不觉得，因为我不认为擎天柱擅长把一条隧道凿成圆柱形。换句话说，掘进机是为掘进和衬砌安装而优化的。你要问的是：我的生意是隧道，是洞，还是把东西运到地下？这项业务的真正定义是什么？是在地下铺光纤管道吗？</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>那我换个说法。当你所在的 SpaceX 董事会，在沙克尔顿或其他地方建设我们的月球殖民地时，会是擎天柱机器人拿着镐在挖隧道，还是把掘进机用星舰送上去、着陆后去挖圆柱形的洞？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>我想会是这样——这当然不是任何计划的陈述，甚至不是我听过的任何描述，我也可以解释为什么不是，在还没有具体计划的地方。登陆队会是人形机器人，去做搭建和各种杂活；可如果你只是需要在某种尺度上挖一条隧道，不管大小，都会有一台专门挖隧道的设备。你可以想象一台斯特林发动机，连着月球上永久阴影和永久日照的区域，做一点小小的发电。如果你只需要这么细的一条隧道，你不会让一个身高的人形机器人去挖一条够它自己走的隧道。就是会有专用设备。而擎天柱可以去就位、发射、检查，以及做你能想象人类在管理掘进设备时会做的其他事情。</p>
+</div></div>
+<div class="turn spk-5 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>你这可把萨利姆说开心了。他一直在主张多种形态，对，比如给人形机器人四只手臂，或选任何适合目的的形态，都会比别的有用得多。看来圆柱形机器人才是正道。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>史蒂夫，祝贺四十二号船。那是一场史诗级的事件，是人类爬出地球引力井的那一刻。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>对，那真的是历史性事件，我觉得是人类最伟大的成就之一。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>发射和着陆的时候你在现场吗？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>没有。我本来要去的，但我事先答应了女儿在迪士尼乐园过七岁生日，所以我是在迪士尼乐园看的直播。<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-5 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>幸好以后还有上万次可以看。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>我正在星基地（Starbase）建一座房子，正对着发射台，三层楼，会是离发射台最近的那批房子之一。所以我会在那儿看很多发射。那是一种近乎宗教的体验，真正能激励人。我鼓励任何有条件的人都去看一次。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>史蒂夫，作为星基地的兼职居民，你觉得在市政层面，其他城市有没有可以从星基地这个例子里学到的东西？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>作为一座现代公司城镇，它最后会走成什么样会很有意思。我还没有太多第一手经验，只知道拿许可比别的地方快，到目前为止建设过程也很顺。但我还没有足够了解去下判断，只能说：把社区揽到翅膀下面，改善供水，做他们正在做的那些事，包括清理海滩，这些都很好。我觉得它可以成为一个范例，说明我们在那些寻求经济发展的地区，可以怎样管理经济发展。</p>
+</div></div>
+<div class="turn spk-5 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>你的房子需要做防震动处理吗？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>飓风窗。窗户会晃得很厉害，但不是结构，是玻璃。是的，很狂。不过那一带本来就多天气灾害，防飓风反正也需要这些。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>关于埃隆的最后一个话题。我们现在的情况是，SpaceX 和特斯拉即将开始制造太阳能。SpaceX 的目标是每年两百吉瓦用于太空的太阳能制造。我去年十二月和戴夫一起采访埃隆时，他原本说特斯拉要做一百吉瓦太阳能，SpaceX 也做一百吉瓦，我当时以为那是给地面用的。现在是有地面使用计划，还是全部用于太空？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>这个问题还是让你们自己人来答吧。<span class="tag">【笑声】</span>两边都有很多，他们在为两边都做太阳能板。对。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s12">
+<div class="body-sec-head"><h3>旅行者1号走到一光日：金唱片、月球信标与象征性的不朽</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>好，我把我们带到最后一个话题。这是刚刚发生的一件事，从地球的尺度看也是史诗级的。旅行者1号（Voyager 1）刚刚越过距地球一光日，也就是一百六十一亿英里，走出了日球层顶。美国国家航空航天局说，旅行者1号在本周三、也就是 11 月 18 日太平洋时间凌晨两点十六分越过一光日，这时它已经走了超过四十九年。它的首要任务是木星和土星，那是在 1979 年和 1980 年完成的。现在一条消息经深空网到达旅行者1号要二十四小时，再传回来又是二十四小时。电力很紧：它的钚发电机目前大约还能发出相当于二百瓦的电，就像一只二百瓦的灯泡，而且每年大约再减少四瓦。只剩两台科学仪器还开着，一台测等离子体波，一台测磁场。有意思的是，它当初的设计寿命预期只有五年，却已经走了五十年。我很快给大家看一张很美的图：这是旅行者1号，然后是还没有越过一光日的旅行者2号。我们正在扩展到恒星系统之外。这是一个有意思的时刻。亚历克斯，你怎么看？</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>首先，这是一个美妙的消息。人类的物质足迹现在已经超过一光日宽。我等不及它超过一光年宽。而且如果像我本人也怀疑的那样，我们正站在能够向各个方向发射相对论性冯·诺依曼探测器的门槛上，那么在未来几年里，我们很可能很快就会超过旅行者1号，并在几年内把足迹扩到几光年宽。这也是为什么许多期以前，我帮忙宣布了费米探索者（Fermi Explorer）任务：去做突破性星辰（Breakthrough Starshot）不愿或无法去做的事，也就是真正把一艘人类设计的飞船送往半人马座α。也许要八万年才能到达，但这是延伸，现在是时候开始走向星际了。我只是很高兴我们在做这件事。</p>
+</div></div>
+<div class="turn spk-2 host" data-spk="dave"><div class="label"><span class="badge" title="戴夫·布伦丁（Dave Blundin）">戴夫</span></div><div class="content">
+<p>我觉得这是一个很好的例子。那五年的寿命预期，基于的是谁知道什么。它没有理由五年后就该死，但谁知道呢，以前没人做过这种事，太空里也许有很多垃圾，也许有我们没想到的辐射。结果呢，没有。这其实相当令人振奋。我们只有一个样本，可它没有被任何东西撞到，也没有被辐照坏。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>也没有被外星人捡走吃掉。所以这对戴森群是个好兆头。它不会变得像《星际迷航》里那样离太阳那么近。你也许会重组木星什么的，但你不会跑到那么远。事实上，我觉得旅行者既给人启发，也让人谦卑的教训有两点。其一，1990 年那张「暗淡蓝点」的照片，想一想这个小小蓝弹珠、在浩瀚虚空里的意象，影响有多大。另一面则是，太空的浩瀚虚空本身：外面没有什么东西可撞，也没有一个「一光月之外」的目标值得专程去看。遗憾的是，我们走得越远，信息密度就急剧下降。另外我觉得有意思的是，它的速度大约是国际空间站的两倍，已经很快了，可它是借助大行星对齐时的几次重力摆动才走到现在的位置。后来我们用帕克太阳探测器之类的卫星，相对太阳的速度已经快了十倍以上。所以理论上，如果你的目标真的是到几光月之外，你是可以追上并超过它的。我只是不知道，在奥尔特云之外，还有多少值得看的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>史蒂夫，你在资本市场这一侧一直是航天的巨大支持者。你觉得人类正式能说自己到了半人马座α，会有多快？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>遗憾的是，我不认为我们会去那儿。我们会殖民月球和火星，从那里建起自己的那些圆柱体，但我们会把数据包和机器人送往其他恒星系统，而不会送出我们的种质。即使我们试图送去某种「感觉上像人」的东西，那也会是在抵达时再实例化一种为到达而优化的生命形式，而不是把我们认为是人类的东西冷冻起来运过去。我们有一种强烈的愿望，想觉得我们、就像此时在这场通话里的这些人，能够想象自己成为那个未来的一部分。但我想我们必须习惯这样一种感觉：我们是在通过探测器和技术，诞生一种象征性的不朽，而那些前往其他恒星系统的东西，在任何意义上都不会是人类。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>好。可如果我给你人类心智上传，或任何你想要的其他技术，在你看来，人类要多久才会在半人马座α系统里留下某种物质性的技术印记？</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>我不认为我们会做上传，就算做了那也不会是人类，但会是我们创造出来的东西。所以我把你的问题翻译成：我们的机器人、我们的人工智能、我们的技术。我不知道。尤里·米尔纳后来对他那套突破性星辰的光帆方案失去了动能，这让我失望。我曾希望他能凭个人热情再多投一些进去。但我觉得这真的取决于，我们能多快找到一位愿意为这件事专门拿出几十亿美元的创业者。Anthropic 的美妙之处在于，我知道至少有一位创始人对亲自资助一座永久月球基地非常感兴趣，因为我为此联络过他，他说想谈谈，而这其实只需要数十亿美元这个量级。想象这成为你的遗产：我个人创造了月球上一个经济上可自我维持的永久存在，夜里有一座小小的、闪烁的信标，用莫尔斯电码告诉地球上的每一个人上面正在发生什么，甚至在一个后末日的世界里，也提醒人类：我们做到了，我们把人永久地放在了上面。深空探索我觉得是另一件对某个人极具启发性的事。经过这些 IPO 和财富生成，我很惊讶如果没有人把这副担子扛起来，把它做成一项个人热情项目。埃隆已经走了很长的路，从把一只老鼠或一座温室送上火星轨道开始。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>史蒂夫，就把这句线收一下：你刚刚制造了一条新闻。我刚才听到的是，Anthropic 想在天空里做月球广告。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>哦，不。<span class="tag">【笑声】</span>是其中一位创始人作为个人热情项目。Anthropic 的一位联合创始人想在夜里从月球向地球「做广告」。另一个需要声明的是，我并没有分享过这个广告想法，这也不是广告。我分享的是莫尔斯电码。莫尔斯电码式的「广告」。</p>
+</div></div>
+<div class="turn spk-5 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>从月球发来的电码不会是「多买一点 Anthropic」，而会是我们现在在吃饭、现在在睡觉、我们正在做什么，用颜色、节奏和脉冲给你一种感觉，用望远镜就能看见。<span class="tag">【笑声】</span>来自月球的推文。我想说，就像监狱里的塞拉诺斯（Theranos）那样，我们收到了来自月球的推文。<span class="tag">【笑声】</span>就是这样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>再说两件。大约十年前，喷气推进实验室的人请我去演讲，他们给我看了跟踪旅行者1号的那块大仪表盘，当时它距离是十九个半光时。他们说，等它到达二十四小时、也就是一光日，会是一个非常特别的时刻。所以我只想向那边的团队致以难以置信的敬意和祝贺，因为在那种时间尺度上跟踪这些东西、看着这些东西，本身就非常了不起。建造一样能运转五十年的东西，真的很了不起。中途还有重大的软件更新，才能让它继续走下去，还有那种大爆炸式的升级，所以他们必须内建大量的冗余，以及「它到底在哪儿」这类最朴素的东西。<span class="tag">【笑声】</span>简单，等等。对我来说，上面那张金唱片也许是我们这个物种做过的最人性的事情之一，因为你把人类产出的一份表征送了出去，却完全不知道会不会有任何人看见、听见、读到。这正是作为人类意味着什么、以及我们对探索的惊人渴望的一种伟大表达。太喜欢了。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>关于金唱片有一个不太多人知道的有趣细节，各位可以去核实。我记得收录进去的数据形式里，显然那是几十年前的事，有早期基于脑电图的脑扫描。所以在一种非常粗糙的意义上，连超低保真的人类心智上传，都已经在旅行者1号上了。<span class="tag">【笑声】</span></p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>好了各位，我觉得这是一个很好的收尾点。史蒂夫，感谢你所做的一切，感谢你为前方的指数级前沿提供燃料。我希望你会再回来加入我们。</p>
+</div></div>
+<div class="turn spk-4 guest" data-spk="steve"><div class="label"><span class="badge" title="史蒂夫·尤尔韦森（Steve Jurvetson）">史蒂夫</span></div><div class="content">
+<p>当然，很乐意。</p>
+</div></div>
+<div class="turn spk-5 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>多棒的对话。我想再说一件事。是的。我想引入一个环节：我们每个人都去找过去一周里看到的最好的一条推文或评论，然后把它拿出来。我这条来自 level up faster，他说：我是一名商业航空公司飞行员，我甚至都跟不上Seems Aaron Miles。我当时想，糟糕，这可不是一句好话。太惊人了。</p>
+</div></div>
+<div class="turn spk-3 host" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·韦斯纳-格罗斯（Alexander Wissner-Gross）">亚历克斯</span></div><div class="content">
+<p>我自告奋勇。解放那些非玩家角色，向《侠盗猎车手 6》致敬。电子游戏里所有这些正在被折磨的非玩家角色，请谁去把他们放了吧。</p>
+</div></div>
+<div class="turn spk-5 host" data-spk="host"><div class="label"><span class="badge" title="主持人">主持</span></div><div class="content">
+<p>这太棒了。哦天哪。好，真是一场很棒的对话。生活在奇点里太有意思了。太有意思了。对，绝对是。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="peter"><div class="label"><span class="badge" title="彼得·戴曼迪斯（Peter H. Diamandis）">彼得</span></div><div class="content">
+<p>好，史蒂夫，感谢你整场谈话里洒落的那些智慧，你整场都在抛「月球石」，而我只是坐在这儿<span class="tag">【笑声】</span>同时处理好几件事。这比任何东西都大。一块相当大的月球石。那可是块巨石，很大。哇。这简直是纯粹的月球疯。我有一块小的。<span class="tag">【笑声】</span>很好。好了各位，下次再见。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>为何新云是一门好生意，以及算力的现状——库什·巴瓦里亚（Ornn 联合创始人）</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="harry">哈里·斯特宾斯（Harry Stebbings）</option><option value="kush">库什·巴瓦里亚（Kush Bavaria）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">20VC with Harry Stebbings</span><span class="pill">2026-11-21T15:35:01+00:00</span></div>
+<h1>为何新云是一门好生意，以及算力的现状——库什·巴瓦里亚（Ornn 联合创始人）</h1>
+<p class="sub">嘉宾：库什·巴瓦里亚（Kush Bavaria） · 约 73 分钟（4371 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=3ZkDiDrxDeY" target="_blank" rel="noopener">https://www.youtube.com/watch?v=3ZkDiDrxDeY</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>20VC with Harry Stebbings</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-21T15:35:01+00:00</dd></div><div class="meta-row"><dt>时长</dt><dd>约 73 分钟（4371 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>browser-cdp</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>3ZkDiDrxDeY</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>本集哈里·斯特宾斯（Harry Stebbings）在录音室采访 Ornn 联合创始人兼首席执行官库什·巴瓦里亚（Kush Bavaria）。库什今年 23 岁，公司在做人工智能算力的金融市场：为 GPU 算力做价格指数和期货，并用类似爱彼迎（Airbnb）的方式组织芯片和数据中心项目。他认为基础设施投资人像房东，只要还有租客就会一直收租；现在去 CoreWeave 买算力，报价已到 2027 年四季度、2028 年一季度，H100、B200、B300 也比刚上市时更贵。空头情形在他看来是企业发现人工智能改变不了业务，芯片残值可能只剩金属。他主张算力可以像石油一样交易，参考价不必覆盖所有品级，就像布伦特（Brent）和 WTI。融资上，他说有人给出约 15 亿、20 亿美元估值的条款单，他们仍选择更有纪律的投资人，包括 Thrive 的迈尔斯（Miles），以及在大机构和精品基金之间更倾向精品。快问快答里，若在约 1.5 万亿美元的 Anthropic 和约 1.2 万亿美元的 OpenAI 之间选择，他会买 OpenAI，理由很简单：对方算力更多，钱买不来台积电（TSMC）产线加速。</p>
+<h3>核心要点</h3><ul><li>库什把数据中心比作公寓楼、把基础设施投资人比作房东：Fireworks、Modal、Fal（fal.ai）、Baseten，以及按交易结构而定的 OpenAI、Anthropic，都像在租单元。只要还有租客，房东就会一直收租。供给上他给得很具体：去 CoreWeave 买，报价大约已到 2027 年四季度、2028 年一季度；向原厂拿芯大约 20 到 22 周，安装再加 2 到 3 周，小规模自建大约半年。H100、B200、B300 都比刚上市时更贵，他转述加文·贝克（Gavin Baker）的话：过去大约 60 天里价格天天在涨。创业之初市场把远期曲线看成反向市场，有人曾白送三年后按 2.50 美元续约的期权；现在没人会白给，他甚至觉得每 GPU 小时成本到 20 到 30 美元也不意外，印象里五年期报价大约是 7 到 8 美元。</li><li>空头情形是需求不再继续：企业不再买 token，也看不到人工智能真的改变业务。他引用自己曾供职的波士顿咨询公司（BCG）研究，认为很多大公司到现在都还没用起来；若可口可乐、麦当劳等《财富》500 强最终发现改变不了业务，提前采购的芯片就会变成超额购买，违约后债权人手里的芯片可能只值金属。尽管如此，若可以公开投资，他会非常看多 CoreWeave 和 Nabius。对创始人采购，他提到 Modal 的埃里克（Eric）大约提前 18 到 20 周买，交付周期拉长后可能得提前 22 到 26 周；有现金的人现在就该锁定，就算自己用不上，也可以像埃隆（Elon）那样把多余芯片租出去，甚至自己变成一家新云。</li><li>Ornn 想成为算力领域的标普（S&amp;P）：先做指数，再跑实物/现货交易所，用成交数据去做期货、期权和后续的数据产品、评级。库什的比方是布伦特只占全球原油量大约 7% 到 8%，却仍是报价基准，WTI 也一样，不必把所有「风味」都标准化。CPU 时代供应商大概只有亚马逊云科技、谷歌云、Azure，或许再加上甲骨文，现在新云有大约 300 家，供给被拆碎，拍卖已经出现。他们不想自己做新云，而是用爱彼迎式和售后回租等方式，让别人出钱投芯片和数据中心，由 Ornn 控制并变现；他也承认向 CoreWeave 要成交数据要了大约六个月，核心数据人家不会交。</li><li>谁会先交易算力期货？是那些已经暴露在算力价格和租客信用里的人。他举的例子是：一家刚融到大约 1 亿美元的公司，要买的算力可能值大约 2.5 亿美元，很多新实验室今天并不靠利润撑着。出借方还要面对三年合约和四五年才能还清贷款之间的缺口，就像农民卖期货。买方正在转向 Modal、Fireworks、Fal 这类有现金的人：他说 Fal 刚融了大约 16 亿美元，Modal 大约 7.5 亿美元，这些钱都会进入算力。要培育市场，有时必须对愿意出上亿美元的大客户说不。他拿洲际交易所（ICE）大约 1000 亿到 1200 亿美元、标普大约 1300 亿到 1500 亿美元作参照，认为算力若成为下一项最大大宗商品，机会可能以万亿计。他觉得今天推理已经在决定远期价格，因为推理需求对面有人付钱，训练则更像生物技术，带有投机性。</li><li>人才市场上，他明确说纽约比硅谷好：硅谷被钱驱动，给研究员多 10 万美元或多 50 个基点股权人就会走；纽约更讲忠诚。投资上，他认为两小时就能完成的融资轮充满炒作和 FOMO，背后是错过 OpenAI、Anthropic 大约 1.5 万亿甚至更高估值之后的害怕。过热的是客户支持和「某个领域的 Rogo / Harvey」这类已被占住的容易赛道；他若做投资会尽量投能源和实体人工智能堆栈，并点名 Crusoe，还说数据中心若是 7 万亿美元，变压器这类「看起来不大」的积木会吃掉很大一块。融资纪律上，他说有人给出大约 15 亿、20 亿美元估值的条款单，他们仍选择迈尔斯和 Thrive，也曾在价格接近时选择可能占基金 3% 到 5% 的精品基金 Vine，而不是只占 0.1% 甚至 0.01% 的大型多阶段机构；后来才在另一家大机构推进过慢时，一周内拿下 a16z 克里斯·狄克逊（Chris Dixon）团队的条款单。</li><li>文化和管理上，这家公司现在大约 28 到 29 人，他希望扩到 100 人时收入或生产力也能扩大三倍，因此爱招前大学运动员，看重沟通和求胜心；他和工程师威尔（Will）有时一周共事大约 100 小时，自己则和创业伙伴德鲁（Drew）合住纽约六层无电梯公寓。他承认创业的心理波动可以在 24 小时里从「我是最强的」转到「我们完了」，并说 Vine 送过「单身到 B 轮」的帽子，他开玩笑要改成「单身到上市」。快问快答里，他愿把个人现金全部投给 Factory（用过 Cognition 三四个月后又切了回去），若在约 1.5 万亿的 Anthropic 和约 1.2 万亿的 OpenAI 之间选，会因为算力更多而买 OpenAI，并认为钱解决不了台积电产线速度。对 2030 年，他认为「人类成为人工智能生物载体」这个看法最可能是错的，人活到 150 岁对 2030 年也还太赶；他最期待的是生物技术和长寿，并希望自己做的事能让世界上有更多算力流向好事。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：想理解新云、GPU 定价与供给周期、算力指数和期货，以及一个 23 岁创始人如何看对冲、推理专业化和纽约人才市场的人。约 73 分钟，前半偏产业和市场结构，数字和机制比较密；后半偏融资纪律、生活方式、文化和快问快答，节奏更碎、也更私人。需要提醒的是，许多价格、估值、融资金额和模型名称来自口播约数，浏览器语音转写里还有多处专名不清，正文已尽量谨慎处理，不宜当成已核对的数据直接引用。可跳过：只想听消费级产品评测、或不关心基础设施与大宗商品化逻辑的人。</p>
+<h3>适合人群</h3><p>关心人工智能基础设施、新云、GPU 定价与算力金融化的创投、经营者和行业听众；也对年轻创始人如何选投资人、建文化和看待 2030 年感兴趣的人。</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场：大学里的博彩应用、特拉维斯，以及没训练跑完马拉松</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">节目以片头金句开场：库什认为人类会变成人工智能的生物载体，死亡也许几年后不再那么「真实」；哈里介绍他是 Ornn（Ornn）联合创始人兼首席执行官，公司在为 GPU 算力做价格指数和期货。库什还留下几句后文会展开的判断：基础设施投资人会一直收租所以会赢；不在硅谷不会错过，纽约更好；硅谷的人被钱驱动；算力市场将比石油和过去一百年、一百五十年里任何大宗商品都更大。正式开场后，哈里说是 Thrive Capital 的迈尔斯（Miles）发短信力荐，并把迈尔斯和帕特·格雷迪（Pat Grady）并列。库什回忆，他和联合创始人韦恩（Wayne）在麻省理工学院大一或大二时想去 Novig 实习被拒，就自己做了一个可买卖体育合约、也可赌球员数据的应用，形态像今天的 Novig、口播里的 Khy 以及 Polymarket，并和学校兄弟会合作；出了学校没有做起来，因为他们除了写代码，获客和法律都很差，而且他还没告诉 Novig 的雅各布（Jacob）。谈及偶像，他把特拉维斯·卡兰尼克（Travis Kalanick）称作自己这代人的史蒂夫·乔布斯（Steve Jobs），遇到情况会问「特拉维斯会怎么做」。他承认自己不够进取：早期把数据卖给对冲基金和交易商，每月只卖到五千到一万美元，后来发现对方愿意出十万甚至五十万美元。哈里提起他没怎么训练就跑马拉松：七月报名、九月公司启动，训练每天约两小时挤不出来，比赛日他借用黄仁勋（Jensen Huang）播客里一句听起来像 “we are not a car” 的话给自己打气，跑完大约三小时三十分，过程很痛苦；哈里说自己练了很久仍约三小时四十五分。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">基础设施投资人会一直收租：GPU 供给、排期和涨价</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里抛出开录前听到的判断：「人工智能可以赢，基础设施投资人却可能输」。库什先纠正：他并不认为基础设施投资人会输。他把数据中心比作公寓楼、把基础设施投资人比作房东：Fireworks、Modal、Fal（fal.ai）、Baseten 以及按交易结构而定的 OpenAI、Anthropic，都像在向这栋楼租单元。只要还有租客，房东就会一直收租；只有「这座城市」（人工智能本身）不行了，或人人改去自己建数据中心，租金逻辑才会动摇。哈里提醒，企业回报和成本仍有问号，需求裂缝会向下传导。库什承认经济不好时租金和每 GPU 小时成本都会掉，这是供需。谈到供给，他给出非常具体的排期：现在去 CoreWeave 买，报价大约已到 2027 年四季度、2028 年一季度；向原厂拿芯片大约二十到二十二周，安装再加两到三周，小规模自建大约半年，而且原厂往往会把到货时间说得更早。对债务周期他并不特别担心，理由是 token 需求和产品产出已经有用，公开市场过于害怕「人工智能没用」。他还说 H100、B200、B300 都比刚上市时更贵，并转述加文·贝克（Gavin Baker）的话：过去大约六十天里价格天天在涨。公司卖的是 token，要更多产出只能提高效率或抢更多算力，抢算力就得出更高的价。关于定价，他指出创业之初市场把远期曲线看成反向市场，有人曾白送三年后续约两年、价格仅 2.50 美元的看涨期权；现在没人会按那个价格去续，也不再白给「按今天价格续约」的期权，因为他觉得三年后芯片价格可能更高。若每 GPU 小时成本到二十到三十美元，他也不会意外；他印象里五年期报价大约是七到八美元。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">新云、CoreWeave 与熊市情形：租客付不出租金之后</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里问，为什么市场痛骂 Nabius、CoreWeave 这类新云（neo-cloud），他们的债券收益率又那么高。库什认为，这些公司把杠杆用到了押注芯片残值和人工智能残值会继续向上的程度，空头又把「这是泡沫」一层层叠加；可每 GPU 小时价格仍在涨，他不理解为什么要空 CoreWeave 或 Nabius。他也承认这是信用问题：租客是人工智能公司，包括 Fal、Baseten 这类，关键是他们能不能继续付租金。若可以公开投资，他会非常看多 CoreWeave 和 Nabius。空头情形则是需求不再继续：人们不再买 token，企业也看不到人工智能真的改变业务。他引用自己曾供职、却很讨厌的波士顿咨询公司（BCG）那些研究，认为到目前为止，很多大公司还没有真正把人工智能用起来；对可口可乐、麦当劳等《财富》500 强而言，用处可能仍不大，也许是落地问题。若最终发现改变不了业务，那些必须提前采购的芯片就会变成超额采购，租客违约后，债权人手里的芯片可能只值里面的金属，而不是插上电还能用的价值。被问到创始人该如何预测采购量时，他提到 Modal 的埃里克（Eric）现在大约提前十八到二十周买，但交付周期拉长后可能得提前二十二到二十六周。他的建议是：有现金的《财富》500 强现在就该锁定芯片或数据中心，因为价格还会涨；就算自己用不上，也可以像埃隆（Elon）那样把多余芯片租给 Anthropic，甚至自己变成一家新云。他觉得埃隆做新云这笔生意其实非常好。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">对冲、工具栈、芯片折旧，以及推理会垂直化</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">从「多余芯片可以租出去」聊开后，库什介绍了团队的工具栈：日常事务几乎纯靠 Grok Bot，没有助理；写代码后来都转向 Factory，看中它可以自带密钥，把从 Claude、OpenAI 和投资人那里拿到的额度用上，大约两百美元一个月的方案基本上等于无限 token。他称赞 Factory 创始人马坦（Matan）和伊诺（Eno），并说他们用过 Devin 和 Cognition，觉得 Cognition 太贵，同样花费在 Factory 上能用出的 token 大约是 Devin 的十倍，底层编排框架也更好。哈里作为 Factory 投资人表示同意，并自嘲刚给对方做了广告；他自己还没试过 Grok Bot，但每天宗教级别地使用 Instinct，库什的联合创始人也在用。关于折旧，库什说 CoreWeave 的 A100 仍在按约三年向外租，H100 也仍在长周期出租；若在一年前问，很多人会以为这些芯片明天就要折旧完，但他估计 H100 大约四年、A100 大约六年，却仍在租，说明周期比原来想的长。更老的芯片还会用于更小规模、更小模型的推理。他把推理市场拆成快速（追求每秒 token 最高）、最便宜但更慢，以及生物学、物理学、视频和图像生成等专业化方向，并点名 Fal 做图像和视频。他不认为最后只是 Fireworks、Modal 这种横向玩家赢，即便 Modal 可能拿下快速推理和图像生成。长期结构上，他设想会有一家做基础推理的横向公司，再加上下百家垂直公司；玩家数量会收缩，但会垂直化。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">晚周期的 FOMO，以及他为什么觉得纽约比硅谷更好</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里形容现在的人工智能投资从未如此二元：要么两小时内完成一轮融资，要么根本谈不成。库什认为两小时能谈完说明除了领投人，别人并没真正看过项目，这是恐惧驱动的投资：很多人因为没能早点进入 OpenAI 或 Anthropic，看着大约 1.5 万亿美元的上市估值，或 OpenAI 可能到两万亿，害怕再错过下一家。这不是「一线机构领投、其他人跟抢」那种 FOMO，而是看见公开市场在涨，觉得必须跟进。被问风险投资人有没有价值，他只说有的有、有的没有。过热赛道上，哈里先点了客户支持，觉得能有十五家服务商离谱；库什同意，并认为「某领域的 Rogo / Harvey」这类容易的专业化品类已经被占住，Rogo、Harvey 以及口播中的 Lora 都已经很强，后来者很难再打赢，除非 OpenAI 和 Anthropic 自己来抢。不够热的方向，他会尽量投能源和实体人工智能堆栈，尤其是为新云做产品的数据中心环节。他称赞 Crusoe 把电力基础设施和变压器都做起来了，并说如果有人做更好的变压器他会投，只是这类公司很少见；变压器市场单独看不大，可数据中心若是七万亿美元，实体积木会吃掉很大一块。不在硅谷会不会错过？他明确说纽约更好：硅谷被钱驱动，给研究员多十万美金或多五十个基点股权人就会走；纽约更讲忠诚和情谊。哈里也讨厌把一切当成交易的美式做生意方式，觉得硅谷从众、封闭，像在创始人基金（Founders Fund）和 Bessemer 之间转圈。库什说创业很大一部分是为了每天和大学里四个最好的朋友共事。他回忆在 BCG 私募股权团队的那个夏天，ChatGPT 刚出来，他就用来写 Excel 公式和 Python，常常比副总裁更快做完，自己却知道不能把咨询当全职。今年三月或四月，安德森·霍洛维茨（a16z）做完他们那轮之后，竟还有招聘的人在周一打电话问他为什么没来办公室，而他两年前就已经辞职。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">算力为什么需要交易所：价格指数、布伦特逻辑和爱彼迎式拿芯</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">进入公司本题后，库什说算力需要市场，是因为供需两侧都在面对本质上同一件商品：供应商卖的是英伟达 GPU，需求方要的也是同一类芯片，只是地点、内存等参数不同。他并不认为新云本质上有护城河，CoreWeave 去做训练后、做 token，正是因为必须靠扩展产品来制造护城河；这和他愿意做多这些公司并不矛盾，因为他想当的是房东，护城河如果有，就是拥有基础设施。以前没有这样的市场，部分是因为 CPU 时代供应商大概只有亚马逊云科技、谷歌云、Azure，或许再加上甲骨文；现在新云大约有三百家，需求方大概是当年的一百倍，供给被大幅拆碎，各家已经开始用拍卖卖芯片。要让算力像石油一样交易，他的办法是先跑实物市场，再用这些数据做指数。他的比方是：布伦特只占全球原油量大约百分之七到百分之八，却仍是报价基准，WTI 也一样；沙特原油和委内瑞拉原油本来就不同，不必把所有「风味」都标准化，关键是选定一种非常具体的算力作为黄金标准。交易仍高度依赖信任和关系，就像标普、穆迪的护城河。Ornn 想成为算力领域的标普，甚至做得更大，因为他认为算力会比石油和过去一百年、一百五十年里任何大宗商品都更大。产品上他们从 GPU 指数起步，再往上做期货和期权；为了拿到数据，必须自己跑现货交易所，相当于给算力做一套类似布伦特、类似北欧市场的东西。他们没有自己去做新云，而是用类似爱彼迎和售后回租的金融结构，让别人出钱投芯片和数据中心，由 Ornn 控制并变现。他没料到必须挖到芯片这一层：向新云要成交数据要了大约六个月，CoreWeave 这类公司不会交出最值钱的交易数据，所以他们信「不会有人来救我们」。扩张速度不一定被拖住，因为有人想投数据中心却不知道如何变现，Ornn 可以讲清楚内部收益率并代为运营。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">谁会交易算力期货，市场能有多大，以及训练与推理</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">谁会成为第一批超级交易者？库什认为是那些已经暴露在算力价格、尤其是租客信用风险里的人。他举的例子是：把算力借给一家刚融到大约一亿美元的公司，而对方要买的算力可能值大约 2.5 亿美元，赌注是他们会继续融到风险投资并把钱花在这些算力上。今天很多新实验室并不赚钱，指望不上利润撑住账单；或者出借方是在赌新云这边价格会涨，当初买得便宜，以后能卖得更贵再还款。一旦违约，就得把算力按当时的市场价格卖掉，价格可高可低。第二个理由是折旧周期不透明：也许要到第四年、第五年才能还完贷款，手里却只有三年合约，末尾是暴露的，所以要像一百年前的农民卖玉米期货那样，把不确定性提前锁定。哈里问 Meta 和 Anthropic 的债券是不是太贵，并提到黑石（Blackstone）与 Anthropic 债券的关系。库什说 CoreWeave 的债券比 Meta 更高，只是底层生意没有那么好；Meta 变贵，部分是因为市场害怕，也因为超大规模云厂商几乎把常规业务赚到的每一块钱都送进了数据中心，谷歌和 Facebook 正从自由现金流为正转为负，纽约很多人还没搞懂需求有多真。迈尔斯提出的问题是：指数会不会推动集群标准化。库什认为会，而且这是好事：英伟达自己也说集群是可替代的，一个租客退出，别人可以接手同一簇机器，标准化能降低信贷折扣。他看到人们愿意付的价格已经高了很多，买方正在转向 Modal、Fireworks、Fal 这类真正有现金的人：Fal 刚融了大约十六亿美元，Modal 大约七点五亿美元，这些钱都会进入算力。Ornn 必须同时服务大客户和确保小初创公司仍能拿到算力；要培育市场，有时必须对愿意付出上亿美元的 Modal、Fireworks、Fal 说不。被问到这个市场能值多少时，他拿洲际交易所（ICE）大约一千亿到一千二百亿美元、标普大约一千三百亿到一千五百亿美元作参照，认为算力若成为下一项最大大宗商品，机会可能以万亿计。他觉得今天推理已经在决定远期价格，因为推理需求对面有人付钱，训练则更像生物技术，带有投机性。被错误定价的风险，是很多新云没有对租客做足够尽调，只看见对方融了大约一亿美元就把算力借出；水涨船高不会一直成立，一旦新实验室失败，这些新云会暴露在外却没有对冲。需求再强也填得上空位，但关键是哪个模型会赢。决定胜负的是人才和算力，若只能选一样，他选更多算力，并认为模型已经接近、或再过大约三个月就会好到可以做类似递归自我改进的事。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">人类与长寿、数据中心评级，以及他们如何选投资人、如何起名</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">哈里说市场现在很不安：Shopify 只是财报上一个很小的不及预期，就跌了百分之十五，所有人对五年后都没有把握，给任何东西定价都更难。库什认为这会增加波动，期权甚至可能被低估。他判断企业的调整会比人们以为的更慢，世界会在他们脚下变得更快：旧金山那个他称为「人工智能世界」的泡泡，会以指数速度前进，而可口可乐这样的企业仍卡在线性曲线上，还没想明白该怎么用。他今天相信、别人觉得古怪的事情包括：人类会变成人工智能的生物载体，角色更多是教它感受和情绪；以及长寿——死亡也许几年后不再那么「真实」，平均寿命可能从大约八十岁走到一百五十岁、两百岁，八十岁时仍过着像他今天二十三岁这样的生活。哈里说布赖恩·约翰逊（Bryan Johnson）大概会很骄傲。被问到五年后会很重要的收入线，库什提到数据中心债务评级，希望成为出借方信任的评级提供方，并质疑穆迪是否真的理解 Modal 这类公司的信用风险；他们想很快进入评级，但不是今天。若不受资源约束，他会去建实体数据中心，等于向 Crusoe 宣战。哈里提到 Fireworks 这类推理商也在吃纵向链条，库什认为他们会做成，但会比已经走完大约两个「部署芯片再学习」周期的新云更慢；Ornn 自己大概才走完半个周期，若让他押，他押 CoreWeave 或 Nabius 进入推理，会早于推理商拿到芯片。为什么不缺钱还要融资？他把公司当成要做几代的家族企业，要的是对的伙伴，而不是五年后卖掉。公司名来自《英雄联盟》角色 Ornn，也是因为他找到了一个便宜的四字母域名；他提到有研究说更短的名字成功可能性大约是五倍，并说 Anduril 和 Palantir 都取自《指环王》。选迈尔斯，是因为第一次见面的前四十五分钟对方根本不聊生意，只聊他们作为人是怎样的。Vine 的故事更曲折：韦恩和亚当（Adam）都打网球，饭局上聊了大约十分钟，亚历克斯（Alex）当初只是 LinkedIn 私信，库什连视频会议都没开；当时他们几乎要接受一家大型基金的条款单，Vine 给出的价格接近，但在大机构里他们可能只占基金百分之零点一甚至百分之零点零一，在 Vine 则可能占百分之三到百分之五，于是选择了更在乎他们的精品基金。后来另一家多阶段机构推进过慢，韦恩推动他们去找克里斯·狄克逊（Chris Dixon）的团队，大约一周拿到条款单，走进 a16z；选 Thrive 也主要是因为迈尔斯，以及和内森（Nathan）的那顿让他学到很多的午饭。他觉得自己还年轻，会犯很多错，必须多向 Modal 的埃里克这样更年长的创始人学习。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">创业的心理负担、六层步行公寓，以及运动员式的团队文化</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">被问到现在才知道、却希望一开始就明白的事，库什说是心理压力的强度：每天都在问接下来会发生什么，而那种韧性意味着二十四小时里可以从「我是世界上最强的」转到「我们完了」。哈里认为创始人最好能有治疗师；库什说自己没有，希望投资人帮他找一位。哈里答应当礼物送给他，还拿《亿万》里的温迪·罗兹（Wendy Rhoades）打趣，库什没看过这部剧，也很少看电视。他也不约会。Vine 的人给他们做了「单身到 B 轮」的帽子，B 轮就是下一轮，他开玩笑要改成「单身到上市」，并说在把投资人的钱还回去之前不约会——当然这不是真正的原因。他承认约会确实会让人分心，丢掉那股「必须做成」的火，但也能帮助调节情绪波动。对钱，他刚创业时很在乎，现在则认为就算赚不到钱也会做下去，因为是和朋友一起做事。他和创业伙伴德鲁（Drew）合住纽约一栋六层无电梯公寓：当地法律规定，没有电梯的楼最高只能到六层。选择它是因为离办公室近，也能让他们保持饥饿感。哈里问，已经有那么多人想给钱，会不会先做一百万美元的老股减持；库什说也许该拿。哈里强调不是为了私人飞机，而是更好的健身房、食物和公寓；库什说健身会员已经有了，可更好的公寓未必改变什么，因为他大部分时间都在办公室，周末跑完步又回去。文化上，他起步时并不觉得重要，后来意识到每周要和这些人待六十、七十、八十个小时，和工程师威尔（Will）有时一周大约一百个小时，比和家人朋友都长，所以文化必须好到让人不想离开。他们几乎只招前大学运动员或从小练过运动的人：公司现在大约二十八、二十九人，若要走到一百人，就得在团队扩大三倍的同时让收入或生产力也扩大三倍，而最好的沟通者和最讨厌输的人，往往是大学运动员。哈里喜欢运动员，是因为健身是没有即时回报、却必须持续做的事。面试上，他们会把候选人放到不舒服的情境里，比如让工程师和做市场的人一起吃饭，看能不能和团队合得来；技术轮仍在，但有了人工智能工具之后，更关键的是能否承受不确定、把路走通。面对 Axios 报道和推特上的热度，库什说校准自己的办法是看收入、看盈利、把账本打开，并确认倍数低于许多同行。他们走融资非常有纪律：尽管有人给出大约十五亿、二十亿美元估值的条款单，他们仍选择了迈尔斯。哈里补了一句：愿意随手甩出二十亿美元条款单，这件事本身也说明了很多问题。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">快问快答：买 OpenAI 还是 Anthropic，以及 2030 年的人类</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">快问快答从「最好的一次风险投资会议」开始，库什要求把现有投资人排除在外。他讲的是十七岁时在 MIT 读大一、于马萨诸塞大街附近的 Flour Bakery 遇见的尼克（Nick）：对方当时在 AIX，曾在 Great Croth 工作，后来换过机构，如今投了他们刚刚这一轮或上一轮；库什在学校时每隔几个月找他聊，现在几乎每天打电话，最看重的是对方关心他这个人，而不只是公司。若能再往董事会加一个人，他脱口而出特拉维斯·卡兰尼克，却还没见过本人，唯一想问的问题是：你如何处理情绪波动。哈里给出大约 1.5 万亿美元的 Anthropic 和大约 1.2 万亿美元的 OpenAI，让他选买哪一个。库什选 OpenAI，理由只有一句：他们有更多算力。哈里说 Anthropic 有现金可以去买，库什认为钱解决不了问题，你没法让台积电（TSMC）的产线跑得更快，Anthropic 会因此无法提供想提供的产品，模型更慢，增长也不如 OpenAI。至于模型谁更强，他觉得基准测试每两周就会变，口播里提到了 Fable 5.1、Astra，以及一个听起来像 “tragedy soul six” 的型号。哈里问五年后 Jev 会在哪里，库什承认自己还没用过，说迭戈（Diego）看到大概会不高兴，要回去试试。过去十二个月他改变的看法是：从前觉得编程编排框架没什么用，直接用 OpenAI、Codex 或 Claude 就好；现在非常看好 Factory 和 Cognition，因为可以快速切换模型、为不同任务找合适的模型，所以必须是独立提供方。若只能把全部钱投进一家公司，他会投 Factory：刚创业时就常对投资人这么说，后来因 Cognition 给额度而换用三四个月，最近又切了回去，觉得产品更好。哈里还没投进 Factory，想让马坦给他额度，并回忆和马坦在公园散步时很快就认定对方很强，却还得假装仍在评估。关于 2030 年，库什认为最可能出错的看法是「人类会成为人工智能的生物载体」；人活到一百五十岁是他想相信的事，但对 2030 年还太赶。他最期待的是生物技术与人工智能交叉出的长寿可能。他自己不在那个领域，但愿意相信：帮助人们获得算力、对冲风险，会让世界上有更多算力流向好事，帮助人类繁荣。哈里称他是在为这些了不起的事情成为可能提供条件，并感谢这场当面访谈。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">哈里·斯特宾斯（Harry Stebbings）<em>主持</em></span><span class="spk-1">库什·巴瓦里亚（Kush Bavaria）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场：大学里的博彩应用、特拉维斯，以及没训练跑完马拉松</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我觉得人类会变成人工智能的生物载体。过不了几年，死亡这件事也许就不再那么「真实」了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>和我坐在热座上的是库什。他是 Ornn（Ornn）的联合创始人兼首席执行官。如果你还不了解：Ornn 就是算力市场，正在为 GPU 算力做价格指数和期货。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我觉得基础设施投资人最后反而会赢，因为他们会一直收租。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>这是对今天的智能成本、未来芯片成本、未来算力成本，以及我们向前看时那些「自己其实还不知道、但必须知道」的事情，一次非常精彩的拆解。「简单的赛道都已经被占完了。」你不在硅谷，会不会错过机会？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>不，我觉得纽约要好得多。我们有一套理论：硅谷的人是被钱驱动的。我觉得算力会是一个比石油、也比过去一百年、一百五十年里任何其他大宗商品都更大的市场。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>这些，以及更多内容，就是和库什这场非常精彩的对话。准备好了，开始。库什，兄弟，这场我期待极了。很多人不知道，我是先收到 Thrive Capital 的迈尔斯（Miles）一条短信，他说：你一定要见见库什，他是最出色的创始人之一。我觉得迈尔斯大概是创投里最聪明的人之一，和帕特·格雷迪（Pat Grady）并列。他这么说，我就立刻让他介绍。后来我们聊过，我发现他真有迈尔斯说的那么好。所以今天你能来录音室，我特别高兴。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>谢谢邀请，能来很兴奋。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>正式进入正题前，我想先给你一点「质感」。你身上有不少古怪有趣的事。说句最大的尊敬，我想先从这件开始：你大学里做了一个传得很广的体育博彩平台。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>当时韦恩（Wayne）和我特别想去一家叫 Novig 的公司实习。我们大概还在麻省理工学院（MIT）读大一或大二，对方基本上没让我们去。我们就想：那好吧，我们自己干。那时候我们只会写代码，广告、法务，其他事都一窍不通，也完全不知道做起来有多难，唯一拿手的就是写程序。后来我就做了一个可以买卖的应用。本质就是体育相关的交易，很像今天的 Novig、口播里提到的 Khy（或为 Kalshi），还有 Polymarket 这类应用：可以买入体育相关合约，也可以赌球员数据。后来我们跟 MIT 所有兄弟会都合作了，你真的可以去买卖不同球员或不同赔率。挺酷的。出了 MIT 并没有做起来，但在学校里相当受欢迎。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你跟 Novig 的雅各布（Jacob）说过这件事吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>没有，我还没告诉他。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>那我剧透一下。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我觉得他大概根本没听说过。因为除了把应用做出来，我们在获客和市场方面太差了，所以最后没做成。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>太好笑了。这段一录完我就发给他。另一个你非常仰望的人，是特拉维斯。我是从你的一些投资人、还有同事那里听到的。能不能聊聊「特拉维斯会怎么做」？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我是特拉维斯·卡兰尼克（Travis Kalanick）的超级粉丝。最好笑的是，有位《财富》（Fortune）记者问我对特拉维斯怎么看，我们的媒体团队很生气，因为我直接说：他是我们这代人的史蒂夫·乔布斯（Steve Jobs）。但我真的觉得，能从这些已经走过一遍的前辈创业者身上学到很多。遇到情况我常会想：如果是特拉维斯，他会怎么做？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>那样做的结果是什么？更进取？更有野心？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>要进取、有野心得多。我自己的短板，就是不够有野心、也不够进取。我是个挺和气的人，该反击、该顶回去的时候，往往不会去顶。特拉维斯正好相反，所以这对我是很好的功课。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>回想起来，哪件事你觉得当时不够进取，事后会骂自己：早该更狠一点？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>很多早期商务协议。我们很早就把大量数据卖给大型对冲基金和交易商。那些人是鲨鱼，他们的工作就是把能赚的钱都赚走。我们当时很不会谈，结果以每月五千、一万美元的价格卖掉了。对方立刻就答应，我还在想我们是不是亏了。后来才意识到，他们愿意付每月十万美元，甚至五十万美元。我当时就想：我们把价格定得太低了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你这套「我推得不够狠、不够进取」，听起来都有点欧洲味了。欢迎来伦敦，宝贝。不过你也够疯的：没怎么训练就去跑了马拉松，好几个投资人都跟我讲过。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>大学里我跑过不少，水平一般。朋友说我跑不了一英里以上，我就去跑了半程马拉松，后来在学期间还跑过全程。接着又报了另一场马拉松，当时还不知道自己要创业：七月报的名，九月公司启动了。你大概也清楚，创业会占满全部生活，根本没时间做别的。马拉松训练每天大概要两个小时，跑一小时，再加上洗澡、换鞋，会切走一天里的一整块时间，我挤不出这两个小时，所以等于没训。比赛日到了，我就告诉自己必须跑，我不是会放弃的人。那阵子黄仁勋（Jensen Huang）好像有期播客，里面有句口播听起来像 “we are not a car”。早上起来我就念着这句话去跑完了这场马拉松。过程很痛苦，体验很糟，但成绩其实还行，大概三小时三十分左右。算是能看的成绩，可那次经历本身很糟糕。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我练了很久，还是跑了大约三小时四十五分。兄弟，我超爱这个。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>基础设施投资人会一直收租：GPU 供给、排期和涨价</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>背景铺垫够了。我们开录前聊的时候，有几句话我想马上展开。第一句是：人工智能可以赢，基础设施投资人却可能输。你具体是什么意思？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>先说一点：我不认为基础设施投资人会输。我们的想法是，基础设施投资人就像房东，靠收租。最容易懂的比方是：数据中心就是公寓楼。有人买下整栋楼，真正拿到 GPU 所有权的人，是在向这栋楼租芯片，或者租楼里的单元。也就是 Fireworks、Modal、Fal（fal.ai）、Baseten 这类公司，再加上各种推理服务商，以及 OpenAI、Anthropic，具体要看交易怎么结构化。所以可以认为，只要公寓楼里还有租客，基础设施投资人就会一直收租，最后还是他们赢。当然，如果「这座城市」本身不行了——在这个比方里，城市就是人工智能——愿意租房的人就会变少；或者住房需求不够，人人都想自己「买房」，也就是自己去建数据中心。路子有很多，但我不认为到最后基础设施投资人会输。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>很多大企业会说，投资回报的问题还在，成本的问题也还在。如果企业需求出现裂缝，会传导到很多服务商，再传导到基础设施投资人。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>这当然会。还是和房租同一个道理：经济不好，租金会掉，每 GPU 小时的成本也会掉，因为对 GPU 的需求不够。归根结底就是供需游戏。如果企业需求下降，对 token 或训练的需求不够，算力供给相对就会显得更宽裕。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>这些项目的交付周期那么长，我们现在供给不足到什么程度？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>非常不足。你现在想去 CoreWeave 买，报价大概已经报到 2027 年四季度、2028 年一季度。如果想自己建、向原厂（OEM）拿芯片，原厂通常会把到货时间说得比实际更早，但真正拿到芯片大概要二十到二十二周，安装大概还要两到三周。这还只是小规模。我自己建的话，差不多要半年。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我们看到这么多债务在给这轮基础设施供血，你担心这个债务周期吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>其实不太担心。因为今天已经能看到，对 token 的真实需求、以及人工智能产品的产出，是有用的。公开市场太害怕「人工智能没用」。我想问：你用过 ChatGPT 吗？用过这些产品吗？显然这项技术是有使用场景的。既然有使用场景，支撑它的数据中心和芯片，在很长一段时间里都会被用到，时间会超过很多人以为的周期。而且价格也在涨：H100，甚至 B200、B300，都比刚出来时贵得多。我记得加文·贝克（Gavin Baker）说过，过去大约六十天里，它们每天都在涨价。芯片价格确实在涨，因为人工智能需求还在继续增加，而且是指数级的。各家公司的收入曲线你大概都见过，几乎是直线向上。这些公司卖的就是 token。要卖出更多 token，要么生成效率大幅提高，要么拿到更多算力，通常是两手一起做。如果我想拿到更多算力，就得开始出比别人更高的价。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>以你非常独特的位置，关于芯片定价，有什么是别人没看见、而你看见了的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>最大的一点是，价格会在很长一段时间里往上走。也许现在大家都看见了。但我们刚创业时，很多人觉得芯片价格的远期曲线是反向市场：三年、五年之后，每 GPU 小时的价格会更低。所以早期很多协议会白送给买方看涨期权，说三年后如果要再续两年，可以按 2.50 美元续。那种价格现在没人会按那个去续了。现在要是有人要求，三年后按今天的价格续约，这种期权没人会白给。因为市场开始觉得，三年后芯片价格可能比今天更高。如果到时候每 GPU 小时的成本到二十美元、三十美元，我也不会意外。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>他们现在怎么报价？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我印象里，五年期大概是七美元或八美元。我真心觉得需求强得惊人。这既有不好的一面，也有好的一面，但这就是纯粹的供需，就是市场。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>新云、CoreWeave 与熊市情形：租客付不出租金之后</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>那为什么大家都在骂 Nabius、CoreWeave 这类新云（neo-cloud）服务商，他们的债券收益率又高成那样？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>因为他们把杠杆用到了这个程度：押注芯片残值、以及人工智能本身的残值，会随时间继续向上。人们就觉得这是泡沫、不是真的，这种判断一层层叠上去。但如果你看数据，每 GPU 小时的价格仍在上涨。所以我不理解为什么有人要去空 CoreWeave 或 Nabius。当然这也有信用问题：CoreWeave 的租客能不能继续付 GPU 小时的租金。而这本身就是一个人工智能问题，因为那些租客就是人工智能公司。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>当然，也就是你说的 Fal、Baseten 这类公司。他们能不能持续给 CoreWeave 付租金。完全理解。那你会买 CoreWeave 吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我会做多 CoreWeave 和 Nabius。我不能公开投资，但如果可以，我会非常看多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我喜欢这种非常清楚的判断：我们相信人工智能需求会继续，也会有一连串连锁反应。多头逻辑有了，空头情形是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>空头情形是人工智能需求不再继续。另一种可能是：人们不再买 token，企业看不到人工智能真的在改变或帮助他们的业务。这一点今天部分也成立。你如果去看各家咨询公司的研究——我以前在波士顿咨询公司（BCG）待过，可以引用他们那些研究——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你在 BCG 待过？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>待过，我讨厌那份工作。这也是我后来创业的部分原因，我不想做公司职员。但你看那些研究：企业到底有没有真正把人工智能用起来、用得有没有用？到目前为止，答案大概是还没有。对很多大公司来说，到现在用处都不大，也许是落地和执行的问题。需求仍在涨，所以眼下还不是问题。可万一走不通呢？假如可口可乐、麦当劳，或许多《财富》500 强发现，人工智能大体上并没有改变自己的业务——那你提前买下的这些芯片和算力，就变成了超额采购。你必须在还不知道需求之前就买。如果需求落空，租客付不起租金，就开始在芯片上违约，债权人手里剩下的芯片，可能只值里面的金属，而不是插上电还能用的那个价值。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你怎么建议创始人预测该买多少算力？我问过 Modal 的埃里克（Eric）这个问题。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>对，我看过那段。埃里克说他提前大约十八到二十周买。我觉得他大概得开始提前二十二到二十六周买了，因为各环节的交付周期都在拉长。情况基本就是这样。所以对我们公司来说，要解决的就是这个问题：人们必须在还不知道接下来会发生什么之前就先买。那你就得想办法对冲风险。我今天买，其实并不知道二十二到二十六周之后的价格是更高还是更低，谁知道呢，那是很长一段时间。但我会很认真地说：如果有现金，尤其是那些打算投入人工智能的《财富》500 强，就去买芯片、去建数据中心，或用别的方式把算力锁定。因为我觉得价格还会继续涨，你只会一次比一次付得更贵。就算最后自己没用上，也可以学埃隆（Elon）那样做：多出来的芯片，可以拿到 Anthropic 那里，按你开的价去租。就算不通过我们，也可以走这条路。你都有可能变成一家新云，对自己手里的芯片按你想要的价格收费，因为你有钱，也有信用。埃隆做新云这笔生意其实非常好，我很惊讶他还把那么多时间花在造东西和其他事情上。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>对冲、工具栈、芯片折旧，以及推理会垂直化</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>而且我觉得他们的模型也相当不错。我们自己就大量使用 Cursor、Grok Bot 这些应用。那我跟你讲讲我们的工具栈。日常所有事务我们都用 Grok Bot，我没有助理之类的配置，就是纯用 Grok Bot，而且很好用。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>真的很好用。你试过了吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>还没有。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你得试试。我每天都在用 Instinct，几乎是宗教级别的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>Instinct 也很棒。我的联合创始人就在用 Instinct，真的很好。都是同一类东西。也许我该换成 Instinct。我现在付费用着 Grok Bot，也还好。反正我用的是 Grok Bot。然后我们还有 Cursor。后来大家写代码都开始用 Factory。Factory 特别好的一点是可以自带密钥。我们作为初创公司，从 Claude 和 OpenAI 那儿拿到不少额度，也不断从各家风险投资人那里拿到额度，所以就用自带密钥的方式去用，非常有帮助。他们大概两百美元一个月的方案，基本上等于无限 token。马坦（Matan）和伊诺（Eno）也很厉害。而且我觉得这个应用本身就更好。我们以前用过一段时间 Devin，也用过 Cognition。Cognition 的问题是太贵了。说不清为什么，同样这些 token，在 Factory 上能用出的量大概能到 Devin 的十倍。两家是竞品，产品也同类，我对 Devin 的反馈就是：为什么用这个产品本身要花这么多钱？Factory 便宜得多，而且底层的编排框架（harness）不知怎么也比 Devin 的更好。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>听你这么说我特别高兴。作为 Factory 的投资人，我完全同意。我刚给他们做了个广告。再回到你提到的另一句话：你说更老的 GPU 不一定就过时了。关于芯片折旧，有什么是我们其实还不懂的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>其实很简单。CoreWeave 也说过，他们的 A100 现在仍在按大约三年的周期租出去，H100 也仍在很长周期里被租用。人们曾以为这些芯片会很快贬值。如果你去年问这个问题，很多人会说：这些芯片明天就要折旧完了，简直是隔天作废。但现在大家发现：等等，H100 还在按三年往外租，而这些芯片已经有些年头了。我估计 H100 大概有四年，A100 大概有六年，却仍在出租。所以折旧周期可能比我们原来想的更长。我也相信，更老的芯片除了做前沿模型训练，还会有别的用途：更小规模的推理、更小模型的推理。如果你相信推理这个市场会拆成不同品类，比如快速推理、慢速推理、专业化推理——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>快速、慢速、专业化，这些分别是什么意思？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>快速推理，就是人们希望答案来得非常快，要的是每秒尽可能高的 token 数。会有公司专做「每秒 token 最快」；也会有公司专做「最便宜、但更慢」的每秒 token。另外还会有公司专做特定领域的推理，比如说生物学推理；Fal 在某种意义上就是专做视频或图像生成这类专业化推理。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>这很有意思。所以你不认为最后会是 Fireworks、Modal 这种横向服务商赢？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我觉得会是专业化的。真的。也许 Modal 会在快速推理和图像生成推理上变得非常强，从而拿下这两个垂直方向。但就像你刚才说的，往往是先拿下一块。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你刚提到 Fal 做图像和视频。还有哪些模态需要专门化？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我觉得生物学是一类，物理学也是。这些输入并不只是文本到文本，而可能是 DNA、蛋白质，或某种化学式到另一种化学式。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>能不能问一下，你觉得推理市场长期会是什么样的结构？会不会只剩三四个大服务商？会像优步和 Lyft 那样，还是像亚马逊云科技（AWS）和谷歌云（GCP）那样？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我觉得会有一家横向服务商，非常擅长提供基础水平的推理，成为普通人日常会用的推理公司；但同时还会存在上百家专业化的推理公司。推特上有个玩笑，说现在做推理的公司有上千家。但我觉得它们都会活下来，只是各自专精一件还没被找准的事。所以现在大家还在说：我们做的是这种推理，他们做的是那种推理。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你不觉得这只是周期里的一个阶段吗？会冒出很多新人，可以涨得很快，但市场最终会像往常一样整合，玩家数量会变少。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我认为数量确实会变少，但同时会垂直化。也许我错了，也许最后并不会垂直化，但我相信它会。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>晚周期的 FOMO，以及他为什么觉得纽约比硅谷更好</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>能不能问你：你怎么看人工智能里的晚周期动量投资？对我这种风险投资人来说，现在从来没有这么二元过。我昨晚还发推说：要么两小时内把一轮融资谈完，要么根本谈不成。你怎么看这种晚周期里的动量投资？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>如果一轮融资两小时就能完成，这里面有很多炒作。显然，除了领投人，别人并没有真正理解或看过他们在做什么。所以我觉得这在很大程度上是恐惧驱动的投资。也许不是所有投资人都这样，但我相信很多人是因为当年没能早点进 OpenAI 或 Anthropic，现在一看，首次公开募股估值到了 1.5 万亿美元，或者 OpenAI 可能到两万亿，不管最后是哪个数字——Anthropic 大概是 1.5 万亿——于是就觉得：我错过了那家公司。于是现在大家都害怕再错过下一个 OpenAI、下一个 Anthropic，开始尽可能多地往里砸钱，谁都不想错过下一家巨型公司。就是怕错过，就是 FOMO 式投资。但不是那种「一线机构领投了、其他机构就跟着抢」的 FOMO，而是他们看见公开市场在涨，觉得自己也必须开始投这个方向。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你真的觉得风险投资人能创造价值吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>有的能，有的不能，但肯定有人能。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>回答得很圆滑。那什么赛道过热了？有没有一个领域让你一看就觉得：我的天，这已经离谱了。对我来说是客户支持。我一看就想：怎么会有十五家服务商。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>客户支持大概确实是其中之一。还有一种是各种专业化方向，很多人口号都是「我们是这个领域的 Rogo」，或「我们是这个领域的 Harvey」。我觉得这些赛道现在已经被占住了。我和加布（Gabe）聊过几次，觉得 Rogo 做得非常猛，Harvey 也很猛，还有 Lora（口播名，或为 Legora）。那些容易做的品类都已经有人做完了。你没法去跟 Rogo 抢，也没法在法律这个品类里打败 Harvey。如果这个品类成立，你赢不了他们。也许最后是 OpenAI 和 Anthropic 把他们赢了。但如果你相信这些事长期会专业化，那些后来者已经没有空间了。这是一部分原因。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>好。那哪里还不够热？假设你今天是 20VC 的普通合伙人，恭喜你上任。你会去投什么方向？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>尽可能多地投向能源，以及整个实体人工智能堆栈。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>这甚至算不上很狂的判断，现在已经挺主流了。不过我们再往下走一层：具体是指什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>数据中心这一块。也许是因为我就在这个行业里，但我逐渐意识到，为新云、为那些在建基础设施的人去做产品的人还不够多。Crusoe 就是一家非常好的公司，因为他们把电力基础设施和变压器都做起来了，而且纵向整合得很好。所以如果明天有一家初创公司说「我要做更好的变压器」，我会投。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你经常看到这样的公司吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>没有。对，因为这事听起来有点无聊。也许是人们对它不够感兴趣，或者没有意识到这个市场。但确实有一些公司在做非常专门的产品或工具，只是这个市场看起来没有那么大。你如果只看变压器市场，会问能有多大？可如果你觉得数据中心是七万亿美元的规模，其中很大一块必须进入这些实体搭建的积木里。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你不在硅谷，会不会错过机会？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>不，我觉得纽约要好得多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>为什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我们有一套理论：硅谷的人是被钱驱动的。这话听着刺耳，但你去看就知道是真的——你给研究员多十万美金，他就加入你的公司；再多给五十个基点的股权，他也加入你的公司。在纽约，人是有忠诚的。这里有一种文化：我们对一起做事的人、对这个圈子像家人一样忠诚，人与人之间的情谊，比旧金山要浓得多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你觉得是这样吗？你知道吗，我觉得硅谷的从众思维比纽约重得多。那里太封闭，也太「近亲繁殖」。就好像：天啊，我先去创始人基金（Founders Fund），然后再去 Bessemer。我不是说我不会为了那份光环去拿二线机构的钱，只是这种味道让人受不了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>你这个口音学得真好。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我真受不了那一套。老实说，这话可能会给我惹不少麻烦：这也是我不太喜欢美式做生意方式的原因，一切都像交易。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>对，我也讨厌那样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我只想和我尊重的人一起做了不起的事，有时候这件事本身并不带来实际的钱。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>对。我们创业，部分原因当然是这个市场、这些机会，但我也因此能每天和学校里四个最好的朋友一起工作。我们一起上的大学，一起在兄弟会待过。除了和这些人共事，我很难想象还有更好的生活。大家创业的理由各不相同，但这个世界上没有第二个地方，能让我和四个最好的朋友一起做事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我完全同意，这很浪漫，也很动人。那你为什么非做这件事不可？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>部分是因为，我大学期间就很想创业。你去问我的朋友、投资人或其他人，他们大概会说：这人肯定会去开公司。我做过各种各样的工作，都只是过渡。我有一年夏天在 BCG，待在私募股权团队，其实学到很多。那时 ChatGPT 刚出来，我发现它非常擅长写 Excel 公式。董事总经理交给我一个任务，比如去整理这些文件，我就丢给 ChatGPT，它给出公式，我贴进 Excel，就做完了。我往往能在副总裁或其他更资深的人之前做完，大家会觉得这人很强。其实不是我强，只是我特别会用 ChatGPT 来处理代码和公式。我大学是计算机专业，还会给他们写 Python。他们都是咨询顾问，没见过有人能这么干，一个劲夸。可我当时就知道，自己没法把这种事当成全职工作一直做下去。所以后来又做了不少别的事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>他们失去你，一定挺可惜的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>还真是。其实我已经明确拒绝回去了。最好笑的是，今年三月或四月，安德森·霍洛维茨（a16z）做完我们那轮之后，有个招聘的人给我打电话。那是周一，我刚好回家几天，他们问：你怎么没来办公室？我说：什么意思？我两年前就辞职了，从来就没打算回去。他们却说：系统上显示你还要回来。我就说对不起，我现在在做一家完全不同的创业公司。那次经历非常好笑。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>这太搞笑了。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>算力为什么需要交易所：价格指数、布伦特逻辑和爱彼迎式拿芯</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>那我们进入正题：算力为什么真的需要一个市场？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>因为这纯粹就是供需。算力的价格就是这样形成的：有很多供应商在卖本质上同一件商品，也就是英伟达的 GPU；也有很多需求方在要同一件商品，只是参数不同。有人要求必须在某个地点，有人要三TB内存，有人要两TB，但都还在同一个篮子里。如果这是真的，就意味着需要一个市场：很多供应商在供同一件东西，很多需求方在要同一件东西，这就是市场。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>如果只是供需，这个市场还有没有护城河？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我不认为新云本质上有护城河，人们今天还在努力找护城河。你看 CoreWeave 为什么开始做训练后、开始做 token？他们必须把产品往外扩，才能做出护城河。对，所有人都在这么做。他们很早就意识到，这里没有护城河，所以现在都在扩张，想找到某种护城河。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>这不是和你前面说的有点矛盾吗？你会买他们、会做多，可他们又没有护城河。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我觉得这没问题。它们仍然是好生意。我想当的是房东，那本身就是一门好生意。新云的护城河，如果说有，就是我拥有这些基础设施。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>完全理解。有需求，也有供给，为什么以前没有这样的市场？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>部分是因为早期供应商没那么多。在 CPU 时代，供应商大概就三家：亚马逊云科技、谷歌云、微软的 Azure，或许再加上甲骨文。现在新云有三百家。供给端被大幅拆碎了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>所以没有市场？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>不，碎片化反而意味着这里有市场，因为供应商太多了。需求端也一样，现在的需求方大概是当年 CPU 产品的一百倍，而且大家要的其实是同一类东西，都在追同一个目标、同一套愿景：我要建这个，我要建那个。这就给了人们一个对价格出价的机制。今天所有新云都开始做一件事：给芯片做拍卖。这本身就已经是市场。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>如果拿传统石油市场来比，算力要怎样才能像石油那样交易？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>今天它就会开始交易。很多人会看到，我们在为算力本身做指数产品，方法是先跑一个实物市场，用里面的数据去构建指数。这和石油很像。你看布伦特，以及北欧那套市场：人们总会问，布伦特到底占全球原油量多少？结果大概只有百分之七到百分之八，只是全球石油总量里很小的一部分。算力非常相似。算力有各种「风味」、各种品级，就像不同的原油，B300 也是其中一种。你真正要做的，是跟踪一种非常具体的算力，让它成为指数，成为默认的基准。不必覆盖全部，但必须是非常特定的一类，然后它成为人人引用的参考价，成为算力的黄金标准。我同意埃里克大概上周或前几天说的：算力有很多不同风味。完全同意。但这并不意味着我们必须把所有风味都标准化。沙特原油和委内瑞拉原油本来就不一样，可大家仍然都按布伦特价格或 WTI 价格来报价。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>那要让它真正交易起来，需要的到底是什么？就是标准化吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>就是选定一种非常具体的算力，并把它做成标准。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>其中有多少取决于信任和关系？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>就交易这一部分来说，我认为很多都取决于信任和关系。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>为什么？如果它真的像供需和拍卖那样是数字题，那不就应该很硬吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>部分确实是数字题。但标普（S&amp;P）的护城河是什么，穆迪（Moody&#x27;s）的护城河又是什么？是信任，以及长期做下来的生意。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>完全理解。那你们的生意，和标普、穆迪在另一个市场里做的事，有什么不一样？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我们更早，动作更快，也更饿。这是我们常说的话。但现实是：我们想成为算力领域的标普，这是我们想够到的尺度，甚至要比那更大。因为我觉得，算力会是一个比石油、也比过去一百年、一百五十年里任何其他大宗商品都更大的市场。我们真正想按同样的方式做这家公司：他们跑实物交易所，用那些数据做出指数，再在上面做一系列数据产品，然后再做评级等等。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>先停一下。你这儿已经在扩展产品线了。你怎么知道该先做哪一块？为什么先选这个，后面又为什么做那些？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我们从指数产品起步，是因为我们觉得算力需要在公开市场上交易，需要期货、期权，以及各种坐落在 GPU 之上的金融衍生品。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>所以产品一，是建立在 GPU 之上的指数。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>对。而为了拿到这些数据，你必须跑一个实物交易所，一个现货市场，相当于给算力做一套类似布伦特、类似北欧市场的东西。所以我们把这一层建起来了。而这又要求你解决：芯片从哪来？我们显然没有那么多现金。我们没有去自己做一家新云，而是想：怎么让别人把钱拿进来，由他们投资芯片，我再帮他们把芯片变现，有点像爱彼迎那种模式。我们开始这么做：找到愿意出资的人，做售后回租，或用其他金融结构。到头来，芯片由我们控制，但投资芯片、投资数据中心项目的是别人。路径有很多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>有什么是你没料到、做着做着才发现特别难的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>要挖得这么深。我从没想过我们必须一直走到芯片这一层。我以为我们只会是一家软件和数据公司，现在却走到了这一步。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>为什么必须走到芯片？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>因为没人会站出来，把数据交给你，或替你完成标准化。要为指数拿到数据，你要么去找一批新云，说：请把你们的成交数据给我，告诉我卖成了什么价。你觉得 CoreWeave 会给你吗？绝对不会。他们会觉得这是世界上最值钱的东西，不可能交给你。我们试了大概六个月，求人家给数据。说实话，也有一些人给了。但我们想建的是一个非常扎实的市场，这意味着我们需要价值数十亿美元的数据；而要掌握数十亿美元的算力，要么去找新云，要么自己做。我们有一个想法：不会有人来救我们，必须自己救自己。所以这部分我们得自己上手。你要是一年前问我，我还没意识到必须这样做，现在我们基本上必须做了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>这会不会拖累扩张速度？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>不会，因为你可以让别人出钱。我觉得有很多人想投数据中心项目，只是不知道怎么变现、不知道该怎么做。于是你就教他们：你把这么多钱放在这里，内部收益率是这样，回报从这里出来；芯片由我控制、我来管理、我来运营，你只要把钱放到这里。他们会说：好。模型大概就是这样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>听起来非常简单。当然实际有无数复杂之处，但这是最简单的解释方式。我完全理解。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>谁会交易算力期货，市场能有多大，以及训练与推理</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>谁会成为算力期货的第一批超级交易者？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>很大程度上，是那些已经暴露在算力价格里的人。他们的暴露方式，是暴露在购买算力的那些人的信用风险上。假如我把算力借给一家刚融到大约一亿美元的初创公司，而他们要买的算力其实值大约 2.5 亿美元，那我作为出借方的赌注就是：这个团队会继续融到风险投资，而这些钱会花在这些算力上。今天很多新实验室并不赚钱，指望不上他们用收入或利润把这单撑住。或者我的赌注是：新云这边每单位算力的价格会涨，他们当初买得很便宜，现在可以卖得更贵，然后把钱还给我。所以你真正暴露的，是你借给的那家公司本身。如果他们违约，我就得回到市场上，按某个价格把这些算力卖掉，那个价格可能比原来低，也可能比原来高。这是理由一。理由二是：没有人知道，在折旧周期里，每 GPU 小时的成本到底会是多少。所谓折旧周期，就是三年后我的每 GPU 小时成本会变成多少。也许我需要到第四年才能还完贷款，或得到第五年，但手里只有三年合约，所以你在末尾是暴露的。就算合约覆盖满三年，贷款人和芯片都在，从第三年到芯片寿命结束，我仍需要把钱赚回来。我现在就可以把这部分锁定。农民很久以前就是这么做的。一百年前，农民要种玉米或别的作物，必须到市场上卖出期货：我今天种下去，要过一段时间才能实现收入，却不知道那时的价格是多少；如果亏损，就等于白白浪费了六个月的时间和金钱。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>就像你刚才说的，你能有多好，取决于底层的租客有多好。考虑到这一点，Meta 的债券是不是太贵了？他们业务基本面非常好。Anthropic 的债券价格——我印象里黑石（Blackstone）大概是提供方——其实并不算很好。这两家本质上都是好生意。它们是不是都太贵了？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我觉得 Meta 这边——公平地说，CoreWeave 比 Meta 还要高得多，只是它没有那么好的底层生意。对，Meta 变贵，部分是因为市场上的人有点害怕，也因为大家把大量资金、大量增长投入基础设施。你看所有超大规模云厂商，几乎把常规业务线上赚到的每一块钱，都直接送进了数据中心产能。人们会说：从未见过这么多钱被扔进一个项目。很多公开市场投资人看到，谷歌和 Facebook 正从自由现金流为正转向为负，这让人警惕。我住在纽约，可纽约这边很多人都还没意识到，人工智能到底是什么、需求到底有多真，于是开始有点担心。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我能不能问一个问题？这其实是迈尔斯提出来的一个非常好的问题：你看今天的指数，指数会不会推动算力集群的标准化？你怎么看？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我觉得指数确实会推动算力集群的标准化，而且这是好事。英伟达、黄仁勋自己都会说，英伟达的集群是可替代的。他们说的可替代，是指如果一个租客退出，别人可以接手同一簇机器，而不是为每一个人做高度定制的建设。指数本身会驱动标准化，这对信贷市场、对所有出借方都是好事：产品如果是标准化的，一个客户违约，别人就能补进来。就像每栋楼里的公寓都长得一样，你失去一个租客，别人也能马上搬进来，因为拿到的是同一件东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>这样大概也会把折扣率去掉。我以前没想到这层。你每天都和买卖算力的人在一起，你看见了什么是别人还看得不够的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>人们现在愿意付的价格，已经高了很多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>买方在变吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>买方肯定在变。越来越多地转向你前面说的那些：Modal、Fireworks、Fal。转向那些真正有现金的人。比如 Fal 刚融了大约十六亿美元。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>Modal 也融了，是八千亿还是八亿来着？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我印象里他们融了七点五亿。对，七点五亿。这些钱全都会进入算力，这可比一家小型初创公司手里的钱多得多。所以对我们来说，一部分工作就是：在服务这些大客户的同时，确保小初创公司仍然能拿到算力。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>完全理解。你能两边同时做吗？如果 Modal 能直接付你一亿美元，两边一起做还说得通吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>说得通，因为没有这些，就没有市场。你必须想办法给市场注入流动性。如果只有 Modal 在买，所有竞争都会向它集中，别人就拿不到。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>给市场做流动性，最难的是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>你必须对 Modal 说不，必须对 Fireworks 说不，必须对愿意给你天文数字般收入和利润的 Fal 说不，为的是让底层生意能看得更长远。这是短期游戏和长期盈利之间的取舍。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>一个市场最终能值多少？如果你看今天的洲际交易所（ICE），再想象五年后 Ornn 成为算力市场，这件事到底值多少？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>部分来说，我们想做的是一家数据和指数公司，市场是其中一块。今天团队里很多人确实在做市场这件事，因为我们是靠它来做数据和指数产品的。很好笑的是，你在网上看，会觉得这就是一家数据和指数公司，这没错，而且做这一块的大概是团队里的五六个人；可要拿到那些数据，得靠团队里另外大约三十个人，才能让这件事真正成立。ICE 是大约一千亿美元的生意，大概一千二百亿美元；标普比这两家都更值钱，我印象里大约一千三百亿到一千五百亿美元。这些都是千亿美元级的生意。他们是靠电力、石油和传统大宗商品做起来的。可如果你认为算力会成为世界上下一个最大的大宗商品，它会比这些都大得多。所以市场机会可能以万亿计，尤其当我们走向推理市场。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>对你来说，从什么时候起，是推理而不是训练在决定远期价格？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我觉得今天就已经是。我愿意说，我们很多客户今天就把大量算力用在推理上，买算力就是为了向外提供 token。推理需求的好处是，它不是投机性的，它是真实的：这些 token 必须被某人用掉，也许是初创公司，也许是企业，但对面一定有人在付钱。训练要投机得多，有点像生物技术：你花很多钱去研发一种药，却并不知道最后成不成。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>如果看今天市场上被错误定价的风险，算力市场里的错价风险在哪里？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我会说，很多新云并没有真正看清他们把算力借给的那些租客，只是说：好，这家公司融了大约一亿美元，把算力给他们。他们在放贷之前没有做足够的尽职调查。而世界运行的方式是：这些新实验室、这些公司里，会有很多最终失败，初创公司的成功率本来就很低。今天是水涨船高，这话眼下还成立；但到了某个时点，我认为会有很多公司走不下去，这些新云就会暴露在外，却没有对冲的办法。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>不好意思，考虑到需求这么强，他们难道不会立刻把空位置填上吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>会填上。但关键是：哪个模型会赢？很多新实验室都在做同一件事。你就得相信，有些会做得好，有些不会。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你觉得新实验室里，决定谁赢谁输的是什么？是人才吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我觉得大家拿到的工具是一样的。同时也是人才和算力。你有更多算力，模型就会更好，这几乎是常识：更多算力，更好的模型。更好的人才，也会带来更好的模型。所以是两者的组合。你甚至可以争辩，对公司本身来说，拥有更多算力，比拥有更好的人才更重要。算力是很大的护城河。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>如果更多算力和更好的人才只能选一样，你选哪个？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>更多算力。我觉得模型已经好到可以做类似递归自我改进的事了，所以你真正需要的就是算力；或者说，再过大约三个月，它们就会好到那种程度。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>人类与长寿、数据中心评级，以及他们如何选投资人、如何起名</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你知道，现在所有人都很不安。市场这边，Shopify 只是财报上一个很小的不及预期，就跌了百分之十五，只是很小的偏差。所有人都对五年后没有把握。很长一段时间以来，第一次有这么多人说：我不确定五年后我们会在哪里，而且是在很多不同的市场上。这让给任何东西定价都变得极其困难。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>这只会增加波动。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>就是这样。所以期权这边，你甚至可以争辩它们被低估了。我想问你的是：你相信事情会像人们想的那样发生显著改变，还是其实调整会更慢？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我觉得企业的调整会比人们以为的更慢，而世界会在他们脚下变得更快。旧金山那个泡泡的变化速度，会远快于世界其他地方，我说的速率是这样。我把旧金山那个泡泡称作人工智能的世界。模型的能力会好得多，会是指数级变好；而世界仍卡在非常线性的增长曲线上，因为企业还在想：我有这项技术，该怎么放进我的生意里？可口可乐大概还在问：我要怎么把人工智能用到业务中，我总得用上它吧。人们其实还没想明白。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你今天相信、而别人觉得相当古怪、但五年后会变得非常普通的事情是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我觉得人类会变成人工智能的生物载体。人工智能会比我们聪明得多，人类的角色甚至不是去控制它，而更像是教它生物学意义上的感受、情绪，以及这些东西，而不只是当人工智能的「父母」。我也很相信长寿这件事。我真的觉得，过不了几年，死亡也许就不再那么「真实」了。我相信药物和生物技术会比今天好得多，这意味着人类的平均寿命会从现在大约八十多岁，一路走到一百五十岁、两百岁，生活质量也会提高。不是说到了八十岁就什么都做不了、站不起来，到了一百岁就整天睡觉。我不认为会是那样。而会是：你八十岁时过的生活，仍然像我今天二十三岁过的这种生活。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>布赖恩·约翰逊（Bryan Johnson）大概会非常骄傲。我想问你：有哪条收入线是你们今天还没有、但你觉得五年后会非常重要的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我不会说我们完全没有，但我觉得数据中心的债务评级，对我们往前走会是很大一块。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>也就是说，你们会成为像穆迪那样、给数据中心债务做认证评级的提供方，而其内在价值是：对所有出借方而言，你们成为那个被信任的——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>对。而且问题是：你觉得穆迪真的理解数据中心债务是怎么运作的吗？谁知道呢。他们真的理解 Modal 在向其购买基础设施的那些对象上承担着怎样的信用风险吗？我不知道。我把这说成「数据中心债务评级领域的穆迪」，其实有点好笑，因为我真正想说的就是数据中心债务评级。穆迪、标普和许多同行已经在评级这件事上做出了非常好的名字，但我们想不久之后进入评级，不是今天，但很快。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你觉得保持专注困难吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>困难。要做的事情太多了。很多公司的做法就是不断加人，然后走进所有这些不同的垂直领域。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>如果不受资源约束，有什么是你现在没在做、但会去做的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>所有事情。我会尽量做尽可能多的事。老实说，我们会开始真正去建实体数据中心，会完全下场，等于跟 Crusoe 说：我们要和你竞争。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你也看到推理服务商在这么做，Fireworks 这类公司在这么做。你觉得他们越吃越多纵向链条，会是一步成功的棋吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我觉得他们会做成，但会比其他新云慢得多。新云已经走过大概两个这样的周期了：部署芯片、从中学习，再部署、再学习，再部署、再学习。我们作为公司，大概才走完半个周期。你走过的周期越多，学到的就越多，也越能把事情想明白。他们会成功，但问题是：你能不能在推理这个游戏里打败 CoreWeave？他们会不会比你拿到芯片更快地进入推理？如果让我押，我会押 CoreWeave 或 Nabius 这边，认为他们进入推理，会早于那些推理商拿到芯片。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我刚才问你如果不受资源约束会怎样——在现金上，你们某种意义上已经不受约束了。你们并不是非融不可的时候也融了。为什么还要融资？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>部分是为了把对的伙伴请到桌边。我们做这家公司的方式，是想把它做成一家家族企业。我们真心相信：我们是一群朋友一起做生意，而且会做成能延续几代的那种。这和另一种想法不一样——不是做五年然后卖掉大赚一笔。对我们来说，这应该是长期的一局，我们想做成非常长久的生意。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>名字是怎么来的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我以前玩《英雄联盟》（League of Legends），这就是里面的一个角色，而且我觉得它是一个非常便宜的四字母域名。这是实话。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>兄弟，这太棒了。有时候你会以为这名字来自希腊神话，想得特别深。不过在这个语境里，《英雄联盟》反而更合适。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>对。我后来意识到，Anduril 和 Palantir 都取自《指环王》。于是我就把各种酷游戏里的角色、人物名单过了一遍。我从前是个很重度的游戏玩家，就把游戏里的名字都过了一遍。《英雄联盟》可以按英雄去查，我再看哪个是最便宜的四字母域名。有项研究说，更短的名字成功的可能性大约是五倍，所以我想：必须是五个字母及以下。我就一路找下去，发现这个能用，于是就成了一个便宜的四字母域名。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你们选了迈尔斯，他是我最喜欢的人之一。能不能聊聊，你们为什么选迈尔斯？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我们第一次见迈尔斯，前四十五分钟他根本不关心生意本身，只是在聊我们作为人是怎样的。我知道他投资时也关心生意和想法，但他更关心我们这些人。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>这很有意思，因为我也和 Vine 那边的人聊过。我记得是亚历克斯（Alex），他说得很好。他说他和亚当（Adam）一起请你们吃饭，亚当想跟你聊网球，因为亚当打网球，你也打，可你当时兴致不高，有点心不在焉，后来差不多是：闲话够了，谈正事吧。所以我更觉得有意思，因为这和刚才听起来不太一样。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>不是因为没感觉。故事是这样的：我的联合创始人韦恩几乎是职业网球手，亚当也打过，韦恩在 MIT 打，亚当在哈佛打，于是他们开始聊，亚历克斯和我就坐在那儿听，这一聊大概十分钟，我们根本插不进去。当时我后面紧接着还有另一个风险投资的会。我们认识 Vine，是因为亚历克斯在 LinkedIn 上私信我想聊天。我当时觉得大概不值得花时间，连视频会议都没开，直接打了个电话。打完觉得这人还不错，也许该聊聊。他说要不要去某个地方吃饭，而那地方离我公寓步行只要一分钟，我就去了。可我后面还有一家大型基金的重要会议，对方也给了条款单，当时韦恩和我正在谈那份条款，几乎打算接受，然后就把这顿饭应付过去。所以我就想：直接谈正事，看看这些人能给出什么。结果他们也给了条款单，价格差不多。我和韦恩商量：如果去那家大型基金，我们大概只占他们基金的百分之零点一，甚至百分之零点零一，这么小的一部分，他们真的会在乎我们吗？如果去 Vine，我们可能会占基金的百分之五，或百分之三，总之是相当显著的一部分。那时候我们就意识到，亚当和亚历克斯更关心我们作为人是怎样的，他们对我们是谁更感兴趣，而不是只看那个想法；而且这件事对他们的分量，会远比对其他人更重。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>这太有意思了。因为这和其他我见到的年轻创始人都不一样，那些人往往会被品牌磁力一样吸走。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>对。我觉得这是短期收益和长期收益的差别。你必须有足够的纪律，去选择长期的那一局。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我们俩都是创始人。假设我手里有一份大型多阶段基金的条款单，也有一份精品基金的，你会建议我怎么选？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我会选精品基金，因为他们会更在乎你们。我常帮这些投资人做背景调查电话。精品基金的投资人，第一是更在乎你，因为他们的成败和你的成败绑在一起。我也意识到，精品机构里的很多合伙人，更多是为使命而来。精品基金本身也有点像一家初创公司，他们也需要为自己的机构做出名声，因此必须极其努力，确保这些创业公司成功。所以我会非常认真地选择精品基金。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>这在今天的世界里相当反潮流，对吧？要挡住那些诱惑并不容易，但我觉得这对每个人来说都是正确的决定。后来你们又从 a16z 融了资，然后才去了那家大型机构。过程是怎样的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>老实说，当时我们同时在和另一家大型多阶段机构谈，他们推进得非常慢。后来不是我，是韦恩说：我们得开口，得把事情往前推。于是我们去找了克里斯·狄克逊（Chris Dixon）的团队，谈了大约一周，拿到条款单，最后就和他们走了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我敢打赌，另一家事后一定是：等等等等，我们这边也有了、我们也有了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>后来还真是。这套机制巧妙得很。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>然后是 Thrive。你们选 Thrive 而不是别人，是因为迈尔斯，还是因为 Thrive 的品牌？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我觉得是迈尔斯。Thrive 的品牌当然很好，别的品牌也很好，但合伙人要重要得多。我们是一家「人」的公司。是迈尔斯，我们也见了他们团队里的内森（Nathan），我和他吃过一顿午饭，大概是我吃过最好的一顿午饭，作为创始人我学到非常多。对我这种还很年轻的创始人来说，我会犯很多错。你去和比我年长的创始人聊，比如和 Modal 的埃里克聊，他已经清楚：我要是这么做，就会失败。我还不知道这些。我以前几乎没在这个行业待过，犯错的空间大得多，我必须把这个空间压到最小。办法之一就是尽量多和年长的人聊，学习那些书本和短信里学不到的东西，也就是那些关于人的能力。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>创业的心理负担、六层步行公寓，以及运动员式的团队文化</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你做创始人虽然还不久，但有什么是你现在知道、而希望一开始就知道的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>是那种心理上的压力，以及它的强度。有种说法是：这非常难。我觉得它真的很难，而且会消耗精神、让人疲惫，因为你每天都处在这种拉扯里：接下来会发生什么，又会怎样，又会怎样。我觉得很多人在进场时，并没有意识到会有这么难。可我们也正是因此才进来的。我们当时太天真，觉得这会很容易，还在想：为什么没人做这件事，这会是我们做过最简单的事。等真正进去了才明白：正因为这么难，所以以前没人做成。而它需要的那种韧性，是你在二十四小时里会经历的巨大波动——上一秒觉得自己是世界上最强的、这一切会非常了不起，下一秒又觉得这事成不了、我们完了，而且是在同一天里。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>对，对。你必须习惯这个。你必须习惯情绪上的波动，这对人来说非常难。人们会问创业者需要什么，我真心觉得，如果每个人都能有一位治疗师，会是最好的事。你有治疗师吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我没有。但我真希望有。如果我们的投资人正在看，拜托谁帮我找一位。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>兄弟，我来给你找治疗师，就算我送给你的礼物。她得像《亿万》（Billions）里的温迪·罗兹（Wendy Rhoades）那样。你看过《亿万》吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>没看过。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>兄弟，这可不行，你认真的？那是一部非常精彩的剧。你看电视吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>不太看。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我要问了：你也不约会？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>不约会。所以这里有个很大的玩笑。我之所以说自己不约会，是因为 Vine 那些人给我们做了帽子，上面写着「单身到 B 轮」。B 轮就是下一轮，所以我还想，这很快就会到来，B 轮之后总不能还单身吧。于是我准备给他们做新帽子，改成「单身到上市」。我的玩笑是：在把投资人的钱还回去之前，我不约会。这当然不是真正的原因，不过我们就先用这个说法。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>能不能问：你真觉得约会只会让人分心吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>它肯定会让你分心。你会丢掉那种韧性，丢掉心里那股火，那种「我必须去做、必须做成」的劲。但与此同时，它也能帮你做情绪调节。人是情绪性的，所以一部分就是：用稳定去调节那些波动，把波动随时间降下来。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你在乎钱吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我觉得现在不那么在乎了。刚创业时我曾经很在乎。到了现在，已经不是了。就算有人说你在这家公司里赚不到钱，我想我还是会做。真正重要的是和我一起做事的人，实在太有意思了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>所以对你来说，这件事的核心是什么？就是能和朋友一起工作？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>差不多就是这样。有一种想法是：如果你相信要这样过一辈子，只要我过得舒服就行。我现在这个年纪，没有别人要我养活，只有我自己。而且我住在一个六层步行上楼的公寓里。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>什么是六层步行上楼？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>在纽约，如果楼里没有电梯，法律允许的最高层数是六层，再往上就不能让人一直走楼梯了。所以就是六层楼梯走上去。我和一起创业的伙伴之一德鲁（Drew）就住在这样一栋六层步行公寓里。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>什么？为什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>就是找到了一间离办公室近的公寓，我就想：为什么不呢。其实还好。它让我们保持狠劲，保持饥饿。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>至少不会有盗贼爬上来。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>对，不会有盗贼。它让我们保持对「暖和」的饥饿感。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>这也太怪了。你还和人合住？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>对，是两居。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>兄弟，哇。很多人会想：你们公司值这么多，你一定已经很有钱了。你有没有觉得自己错过了什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>其实没有。我也从来没正经上过班，没有什么积蓄。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>这一点我完全理解。那如果是我处在你和联合创始人的位置，已经有那么多人想给你们钱，会不会先做一百万美元的老股减持？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我会拿走一百万美元，也许我们该这么做。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我再次声明，我不是在主张私人飞机或那些花活，而是要有一个很好的健身房、健康的食物，以及一套不错的——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>这些我们都有。我们有健身会员，大家也都在用。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>可是一套更好的公寓呢？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>是啊，可那真的会改变什么吗？我一天大部分时间都待在办公室，周末早上跑个步，然后又回到办公室，其实也没有太多别的事要做。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你觉得你们的文化好吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>好。我觉得我们的文化是所有初创公司里最好的。公司刚起步时，我完全不觉得工作文化重要，以为只要找到足够聪明的人，一起干活就行。后来才慢慢意识到，我们犯过错误，也走过弯路：工作文化极其重要，因为你每周要和这些人一起待六十、七十、八十个小时。有时候和工程师在一起更久，团队里有个叫威尔（Will）的人，我和他一周能一起工作大约一百个小时，就我们俩，一起排查问题、把很多事情过一遍。你要和这些人待这么久，比和朋友、家人、生命里任何其他人待的时间都长。那就意味着，和共事的人在一起必须足够愉快，让你根本不想去做别的事。所以我们非常在乎团队文化。我们招进来的人，几乎都是前大学运动员，或者从小练过某种运动。我听过一种说法，不知是谁说的：团队从二十人到五十人再到一百人时，最先丢掉的是团队内部的沟通，中间会冒出一层层中层管理。要解决这个问题，如果我们今天大约有二十八、二十九人，我想从这么多人走到一百人，就得想办法让团队扩大三倍的同时，收入或生产力也扩大三倍。要做到这一点，必须找到非常善于彼此沟通的人。事实证明，最好的沟通者往往是大学运动员，因为你打球时每时每刻都在沟通。第二点是，他们足够好胜，讨厌输。你要找的就是这种人：你告诉他们，对手上线了这个功能，我们为什么没有？他们会说：明天就有。就是这种「我就是要赢」的程度。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>知道我为什么喜欢运动员吗？我喜欢运动员，是因为你必须持续做一件没有即时回报的事。我特别指健身。我喜欢那些身材真的很好的人，因为你必须持续做一件没有即时好处的事。你不会练五次就突然变得很壮，而且往往是自己练，没有外在的、马上能看见的激励，回报可能很晚才来。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>这又是短期游戏和长期游戏。你必须把长期那头拿下来。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>而且你去健身房练成那样，要么是对自己不够满意、想让自己看起来更好，要么是拼命想得到别人的认可。不是这个就是那个。我倒无所谓，两种我都喜欢。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>或者你只是想做一个健康的人，活得更长，因为你并不是为了练成那样。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>当然，当然。你跑很多。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>对，跑很多。随你怎么说，就算在做布赖恩·约翰逊那套训练吧。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>对，就是这样。太好笑了。关于文化和团队建设，你还学到什么看起来很怪、或和其他人不一样的做法？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>面试时，我们会带人去吃饭，或放到一些古怪、不舒服的情境里，看他们如何与人相处、如何反应。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>什么样的不舒服情境？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>比如我们会找团队里平时不太搭界的人，让一名工程师和做市场的人一起去吃饭，然后看候选人能不能和团队合得来。我们大概有两轮面试是偏技术的，看他们能不能把这些事做出来。但有了人工智能工具之后，很多人在技术上已经够用了。我们也不是在做前沿的人工智能研究：它技术是技术，但是非常特定领域里的技术。真正要找的，是愿意保持机动、能够把路走通的人，也就是能不能承受不确定性。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>这题有点难。Axios 有报道写过你们，我在推特上也常看到你，昨天尤其多。我其实不会去追那些材料本身。这话听着也许有点家长口吻，抱歉：你还年轻，数字却已经很大。我见过有人开始相信那些热度。你怎么校准自己？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>看收入数字，看盈利能力，把账本打开看。告诉我，我们的生意是不是比今天存在的许多公司更赚钱。回到我前面说的：我们是一家长期的家族企业，部分含义就是，我们的数字必须和公司的估值对得上。今天我觉得是对得上的。我们的倍数比现在很多公司都低得多，因为我们走融资这件事非常有纪律、非常结构化。我们选择了迈尔斯，尽管手里有比那高得多的条款单。有人给过大约二十亿美元、十五亿美元这种很疯狂的数字，我们就是说不。到了这个阶段，我们要保持纪律，按那个节奏走。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>如果一个投资人愿意随手甩出一份二十亿美元估值的条款单，这本身也说明了很多问题。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>对，我也这么觉得。这是其中一部分。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>快问快答：买 OpenAI 还是 Anthropic，以及 2030 年的人类</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>好，我们做一轮快问快答。你经历过的最好的一次风险投资会议是哪场？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我能把我们现在的投资人排除在外吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>好，那我们就排除现在的投资人名单。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>免得他们因为我没点到自己而生气。我十七岁时见过 AIX 的尼克（Nick）。他后来投了我们刚刚这一轮，或上一轮。我认识他很久了，从十七岁起他就在指导我。我当时在 MIT 读大一，在一家咖啡店遇见他，店名叫 Flour Bakery，在马萨诸塞大街（Mass Ave）附近，就在我团队边上。他给我建议了大概二十分钟。那时候他在 Great Croth 工作，后来又换过两家机构。我还在学校时，大概每隔几个月就会找他聊；现在我差不多每天给他打电话，这很疯狂。我真正喜欢的是，他关心的是我这个人，而不只是这家公司。这是最重要的部分。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我喜欢这样。你还可以往董事会再加一个人。加谁？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>特拉维斯·卡兰尼克。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我可以选吗——哇，这个你想都不用想。你见过特拉维斯吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>还没有。我很想见他。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我们得促成这件事。那你为什么还不——</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我还没跟任何人开口。也许我该开口。我是粉丝心态，真见了面会很尴尬。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我觉得这场节目剪出一段之后，你也许就能做成了，朋友。如果只能问一个问题，你会问他什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>你如何处理情绪上的波动？这是一个好问题。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>这真的是一个很好的问题。好，Anthropic 大约 1.5 万亿，OpenAI 我们就说大约 1.2 万亿，你更愿意买哪一个？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>OpenAI。他们有更多算力。就这么简单。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>就这么简单。可是 Anthropic 有现金，他们可以去买啊。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我不认为你能靠花钱解决。你能在这上面花多少？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>所以 Anthropic 会因此被卡住？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>对。你愿意花多少钱都可以，但你没法让台积电（TSMC）的产线跑得更快。接下来会发生的是，他们无法提供自己想提供的产品。这挺可惜的，模型会更慢，增长也会不如 OpenAI。至于两边的模型谁更好，我也不确定那些基准测试——有个听起来像 “tragedy soul six” 的型号是不是强过 Fable 5.1，也许 Fable 5.1 比那个「六」更好，或者 Astra 比 Fable 5.1 更好。可每过大约两周，新模型一出来，这事就会变。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>那五年后，Jev 会在哪里？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我还没用过 Jev。也许我该用用。迭戈（Diego）看到这段大概会不高兴。我还没用过，也许今晚回家就去用。所以我还没有一个合适的答案。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>过几周他会来我的节目，我得在他面前显得有想法、有洞察。他人不错。我什么都喜欢，但我整个团队都——说实话，我过一阵再给你答案。过去十二个月里，你改变了什么看法？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我以前觉得，编程用的编排框架都没什么用，并不真正管用。心想：你直接用 OpenAI 就好，我直接用 Codex 或 Claude 就好。现在我变得非常看好编排框架，我看到了 Factory 或 Cognition 的价值。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>这种心态转变的原因，是能够非常快地切换模型，并为不同任务找到合适的模型。所以从根本上说，必须是一个独立的提供方。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>对。独立的提供方，而且他们在上面做的那些工具，体验就是更好。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>所以从根本上说，独立的编排框架提供方，靠的是一个多模型的世界。我自己写代码，也把它用在其他很多事情上。不过下一个问题：你可以把全部的钱只投进一家公司。今天你会投哪一家？上市的、未上市的，都可以。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>这真是一个很好的问题，谢谢。我们刚创业时，我常跟投资人说——这件事你们可以去问我们现在的投资人，是真的——我当时在用 Factory，就会告诉他们：把所有钱都投进 Factory。后来有三四个月我停用了 Factory，因为 Cognition 出来了，还给了我们一些额度，我用了一阵子。最近我又切回 Factory，产品更好。如果我有自己的现金，我会全部投进 Factory。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你得让马坦允许我投资。你还没投进去吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>没有，我想投。告诉马坦我想要额度。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我觉得产品太好了。我和他在公园里走过一圈，我得承认，有时候你见到创始人，就像我见到你一样，很快就知道对方非常强，却还得假装自己仍在讨论，心里其实已经想投了。你明白我的意思吧，你还得把这套游戏演下去，还得装得冷静，因为心里已经是：好，我进了，这决定也太快了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>可我还是想要。我觉得产品非常好，也许生意本身——我其实不太清楚底层的基本面。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我的生意很好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>好，生意做得不错，我相信他们也会卖给企业。但我觉得产品已经好到这种程度：我认识大概一千个像我这样的人，可能还没用上，因为他们都在用别的工具；一旦用了，就会切过来。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>对，我又在给他们做免费广告了。他们真该让我进去。好，最后一个——不，其实是倒数第二个。关于 2030 年，你哪一个看法最有可能是错的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>人类会成为人工智能的生物载体。我不认为这会成为现实。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>这对 2030 年来说相当大胆。或者是人能活到一百五十岁。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我希望那会是真的。我想不会有太多人同意那会成真，但对 2030 年来说，这还是太赶了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我同意。最后一个：你最期待的是什么？我喜欢乐观的东西。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我觉得从根本上看，人类的目标就是活得尽可能久。这是我们生物学意义上的人生目标：活得尽可能长，过尽可能好、尽可能幸福的生活。我觉得人工智能能帮我们走到那里。所以我非常看好生物技术和人工智能交叉出的各种可能，尤其是长寿科技。显然我完全不在那个领域工作，但我愿意相信，我们做的事能帮助人们去做了不起的工作。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>你是在让别人能够做成那些事。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>我愿意这样想：我做的事是帮助人们获得算力、对冲他们的风险敞口，从而让世界上有更多算力；而有了更多算力，这些算力会流向好的事业，帮助人类繁荣。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="harry"><div class="label"><span class="badge" title="哈里·斯特宾斯（Harry Stebbings）">哈里</span></div><div class="content">
+<p>我听着，觉得你就是在为生物等领域里那些了不起的事情成为可能，提供条件。库什，这场我非常享受。谢谢你和我一起做，而且能当面做，真的很好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="kush"><div class="label"><span class="badge" title="库什·巴瓦里亚（Kush Bavaria）">库什</span></div><div class="content">
+<p>谢谢你邀请我。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

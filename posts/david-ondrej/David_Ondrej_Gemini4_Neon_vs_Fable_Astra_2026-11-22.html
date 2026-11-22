@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>Gemini 4 Neon 对决 Fable 5.2 与 GPT 6.2 Astra</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="david">大卫·翁德雷（David Ondrej）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">David Ondrej</span><span class="pill">2026-11-21T14:11:15+00:00</span></div>
+<h1>Gemini 4 Neon 对决 Fable 5.2 与 GPT 6.2 Astra</h1>
+<p class="sub">约 50 分钟（3000 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=n-LwSQq3xYE" target="_blank" rel="noopener">https://www.youtube.com/watch?v=n-LwSQq3xYE</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>David Ondrej</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-21T14:11:15+00:00</dd></div><div class="meta-row"><dt>时长</dt><dd>约 50 分钟（3000 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>browser-cdp</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>n-LwSQq3xYE</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>大卫·翁德雷（David Ondrej）评测谷歌（Google）DeepMind 新推出的中档旗舰 Gemini 4 Neon，并在 Cloudroom 里把它和 Anthropic 的 Fable 5.2、OpenAI 的 GPT 6.2 Astra 做图像、视频和编程对照。他的核心判断是：Neon 本该是 Opus 档的中位模型，却在多项基准和现场测试里打平甚至超过更贵的旗舰，成本大约只有 Fable 的二分之一到七分之一；现在选日常主力，就在 Neon 和 Opus 5.5 之间。</p>
+<h3>核心要点</h3><ul><li>Neon 在 Cursor Bench（Cursor 的基准测试）上拿下第一，并在他展示的约 20 项综合基准上与 Fable 5.2 接近甚至更有竞争力；他说成本大约是 Fable 的 1/2 到 1/7。Artificial Analysis 的 high 推理档上，他给出的数字是比 Opus 便宜约 3 倍、比 Fable 便宜约 8 倍。</li><li>发布间隔极短：氩（Argon）到碳（Carbon）28 天，碳到氢（Hydrogen）15 天，氢到 Neon 只隔 6 天，已有人猜测下一步是钠（Sodium）。他提到有人在猜 DeepMind 是否触及了递归自我改进（RSI）。</li><li>图像五题里 Neon 拿下最多（废弃温室、独立科幻海报、雪地武士），Astra 赢了咖啡店 logo 和海底古城。编程四项里，Astra 的豪华太空旅游着陆页不能滚动，赛博朋克东京巷地面报错且拖拽反向；东京巷 Fable 第一，一键街机他排 Neon 第一。</li><li>他建议的起步组合：用 Anti-Gravity CLI（不要再用几乎停更的 Gemini CLI），订阅先选约 20 美元/月的 Google AI Pro。推理默认 high：extra high 在 Artificial Analysis 综合指数只多 1 分，却贵 72%、慢 53%；Cursor Bench 只多 1.7 分，high 已有 extra high 约 97% 的表现。他后来 Pro 额度不够，升到了 100 美元的 Ultra。</li><li>缩略图三项里 Astra 反而出乎意料地强，编程时却偏懒。网络安全上，Web Exploit Bench Neon 51.3、Opus 只有 37.1。幻觉率他给出的数字是 Neon 14%，Opus 约一半，Fable 与 Astra 约 60%。结论：日常用 Neon 或 Opus 5.5；短任务（约 10–20 秒）Opus 的首 token 时延（TTFT）更快，Neon 短任务会想太多；他没看到安全报告。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看。对要选日常编程模型、关心性价比和具体胜负的人很有用：有基准数字、订阅乘数、五组图、四项编程和三组缩略图，也有模型卡里的保留意见。中间和片尾有 Higgsfield 推销（已标灰），Cloudroom 是他实际用来做对照的环境。字幕来自 YouTube「显示文字记录」（来源标注 browser-cdp），专名有口误，已按惯例校正。</p>
+<h3>适合人群</h3><p>用 Claude Code、Cursor、Anti-Gravity 等编程智能体，需要在 Neon、Opus 5.5 和 Fable 之间做日常选型的人。</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场：中档的 Neon 为何被拿来挑战旗舰</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">大卫认为谷歌可能刚放出了世界上最好的人工智能模型：Gemini 4 Neon 本被定位成 Opus 档的中位发布，上边才是 Fable、GPT 6.2 Astra 和同系列更大的碳（Carbon）。可它在多项顶级基准上压过 Astra 和 Fable 5.2，成本只是零头，速度也更快。他称这是过去 12 个月里最被低估的发布之一。本期会讲：为什么中档模型能打过 Carbon 和 Fable 5.2；该用哪套订阅和命令行；Neon、Astra、Fable 在图像、视频和编程上的直接对照；模型卡（model card）里不太显眼的细节，以及他的老实评价。他强调，过去 12 个月这个实验室一直落后，然后一口气连发四个模型，这种事在人工智能圈子里还没发生过。Bend 的作者维克托·塔利安（Victor Talian）说，Gemini Neon 在他试过的几乎所有写作任务上都赢了 Fable 5.2，并问这算不算「开挂模型」。产品线本身也让人糊涂：按理 Carbon 才是又慢又贵的「大块头」，和 Fable、Astra 同一档；氢（Hydrogen）更接近 Sonnet 档，他还含糊比过 GPT、Terra、Claude 一类中低档。可质量上 Neon 反而超过 Carbon，连他自己都说「恐怕谷歌自己也没完全说清楚」。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">基准、成本与发布节奏：Cursor Bench 第一，28、15、6 天</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">先看 Cursor Bench：Cursor 已被 SpaceX 收购，自己也有 Grok 等模型，可 Gemini 4 Neon 仍在这份基准上拿下第一。大卫说 Fable 5.2 本身就很强，他很爱用，但 Neon 横空出世，表现超过 Fable，也超过 Opus 5.5。有人会质疑只挑一两个基准，于是他摊出大约 20 项综合结果：Fable 5.2 仍在很多项目上最好，但 Neon 在大量项目上旗鼓相当，甚至更有竞争力，成本却大约只有 Fable 的二分之一到七分之一。Fable 很贵，他在 Cloudroom 里为 Claude 开了六个 200 美元套餐，因为 Fable 额度掉得太快。有人因此猜测谷歌或 DeepMind 是否打通了递归自我改进（RSI）：氩（Argon）到碳（Carbon）隔了 28 天，碳到氢（Hydrogen）15 天，氢到 Neon 只剩 6 天，已经有人在猜接下来几天会不会出现钠（Sodium）。他说，被嘲笑了 12 个月之后，这是人工智能史上最大的逆转，出货速度比 OpenAI 和Anthropic 加起来还快。Artificial Analysis 报告里，完成指数任务的成本明显优于 Opus 和 Fable；开 high 推理时，大约比 Opus 便宜 3 倍、比 Fable 便宜 8 倍，还没完全落在他所说的效率前沿（口播像 Pareto frontier）上，但 extra high 已经靠近。编程智能体指数上，Anti-Gravity CLI 搭配 Neon extra high 是当时世界第一，超过 Fable、Opus、Muse 和 GPT 6.2 Astra。他承认很多人会觉得「谷歌烂了 12 个月，这大概只是刷榜」，所以后面会上真实演示，并希望请到洛根·基尔帕特里克（Logan Kilpatrick）做第二集。他提醒：最好模型可能一周一变，必须自己试。一份他口中的抓虫类基准（口播 Buck Hunt bench）前七名里有四个是 Gemini，Neon 仍是第一，而且强过更大的 Carbon。谷歌自己的演示是：给 Neon 接上 Blender 的 MCP，让它用代码控制 Blender 做三维场景，并可视化 Gemini 4 系列已发布的四个元素型号——这不是视频模型在生成画面。有开发者用它在大约 20 分钟里做出塔防游戏，只消耗 5 小时额度里的 2%。他顺口提到，当天黎曼猜想（Riemann hypothesis）据称已被解决，不过那是另一期的话题。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">图像五题对决：同一套图像模型，比的是提示词和控工具</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">他用 Cloudroom 把 Gemini 4 Neon 直接对上 Fable 5.2 和 GPT 6.2 Astra。方法是：给三个智能体同一个概念，由它们写详细提示词，再送给同一批图像模型（他点名 Flux、Ideogram 6.2 / 5.0、Recraft v4.1、Image 2.0 等），比的是提示词创意和控工具的能力，不是图像模型本身。他提到 Anthropic 刚走完上市，仍是领先的前沿实验室。五题结果：废弃温室，Fable 的倒影对不上树、构图也不合理；Astra 更抓眼、倒影说得通；Neon 最美，建筑倒影、地面、长椅和光线都到位，名次 Neon、Astra、Fable，图像模型是 Flux。独立科幻电影海报，他认为只有 Neon 有科幻气质，Fable 和 Astra 都不像，Neon 再胜。雪地武士：Fable 的短刀不像武士刀，人离玫瑰太近、雪没到腰；Astra 焦点不在武士身上，人对着一只其实更靠近镜头的鸟鞠躬，构图说不通；Neon 最不写实、像游戏画面，但氛围最好，仍是 Neon 第一、Fable 第二、Astra 第三。舒适咖啡店 logo，Astra 明显最好，杯子里有只可爱的猫，概念远强于另外两个，Neon 这边他觉得比较差，和 Fable 5.2 差不多，Astra 夺冠。海底古城，Astra 最写实、大概最好，Fable 略高于 Neon、差距很小。五题里 Neon 赢了最多，他承认样本量不大，但说明 Neon 在调度图像模型上已经能和 Astra、Fable 竞争。这些生成是靠 Higgsfield 的技能和 MCP 跑的；他举例三张图一共大约只花 2 个积分，合每张约 0.6。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">谷歌为什么追上来：马斯克预测、Gemini Review，以及改日常模型</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">他回看自己 2023、2024 年就讲过的第一性原理：哪家实验室在算力、人才和数据上最厚，并认为自己和其他人都预测过今天的局面。今年 3 月埃隆·马斯克（Elon Musk）曾说：西方的人工智能竞赛将由谷歌赢，地球上是中国，太空里是 SpaceX。发推时谷歌最好的模型还只是 Gemini 3.1 Pro，明显落后于 Anthropic 和 OpenAI，直到大约一个月前才开始连发 Gemini 4 家族。他认为谷歌这边正在兑现；Anthropic 可能仍略领先，OpenAI 则一天天掉队。中国「赢在地球」和 SpaceX「赢在太空」都还没兑现，但后者他觉得更可能：他批评中期选举后有人想关停数据中心、宁愿留着废弃停车场，也不愿建能带来收入和就业的设施；若监管压力太大，太空会变成更容易建数据中心的地方，SpaceX 市值可能在两到四年里涨到五倍。若谷歌真有某种递归自我改进，甚至可能反超。中国近期出货不多，但电力装机最大，仍有机会。回顾发布节奏：一年前 Gemini 3 一度是世界最强，一个月后的 3.1 只是小幅提升，之后直到这四个模型几乎空白。氩（Argon）还行，他还在旧金山给 Argon 黑客松当过评委，但算不上前沿；碳（Carbon）才是大事，他把它写进了自己的技能。技能仓库完全免费开源，用得最多的是 Gemini Review：第一次做时用的是 Carbon，常常推理大约 20 分钟，总能找出 Claude 或 GPT 漏掉的问题。原因是 Anthropic 团队大多出自 OpenAI，训练方法相近，而 Gemini 与 DeepMind 路线不同，适合当审查模型。现在换成更便宜、更快、也更强的 Neon，技能被进一步加强。他当中在 Cloudroom 里演示：找到这全局技能，改成优先走 Anti-Gravity CLI，Cursor CLI 只做备用。Neon 速度接近 Opus，而且还没开快速模式，不像 Fable、Astra、Carbon 那么拖。他让整个团队认真试，连负责招聘、会计、法务、并不写代码的同事都在用，而且比之前用得最多的 Opus 5.5 更喜欢。Fable 5.2 虽是前沿，但太贵，独立额度也最先见底，所以他才开了六个 Claude 订阅；性价比上 Opus 5.5 仍是最好的买卖，但 Neon 已经是有力的日常竞争者。他两个都在用，且越来越信任 Neon——这是过去 12 个月里，第一个他认为可以当真日常主力的 Gemini 模型。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">编程四项对决：着陆页、东京巷、纯代码艺术和一键街机</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">正式写代码对比之前，他先播了一段 Neon 给自己做的动态介绍：纯 JavaScript，没有任何外部素材。他说没这项技能要重做可能得几个月，有技能至少也要一两周，模型却几条提示就能做出来。他由此谈到「正在进入奇点」：黎曼猜想这个悬了 200 年的数学难题据称刚被解决，而人们还像平常一样过日子；若还不全力投入人工智能，是在犯大错。随后三模型在同一任务、同一 high 推理档（都不是最高档）上对打。豪华太空旅游公司着陆页：Fable 5.2 动画和配色不错，有海拔公里数、长页、光晕和页脚，但有的地方偏空、偏懒；Astra 不能向下滚动，几乎没有动画，被他评为非常懒、很差；Neon 有滚动和星船/飞机可配置，地图动画是 Fable 没有的，页脚也完整，整体和 Fable 相当，远好于 Astra。交互式 3D「雨中赛博朋克东京巷」：Fable 有灯光和声音，可走可缩放，W/S 能在巷里走动，只是转身幅度有限，他很喜欢；Astra 地面完全坏掉，拖拽方向是反的，比 Fable 差一大截，他觉得对 OpenAI 很尴尬；Neon 没有人物，但反射好看，还能上下移动、自由度更高，细节不如 Fable。此题 Fable 第一，Neon 第二，Astra 远落在后。纯代码绘制日出中的巴塔哥尼亚山脉：Fable 动画漂亮，偏艺术气质而非写实；Astra 换了画风，没有动画，不如 Fable；Neon 画风/设计最弱，但加了水波、水面动画和可滑小时刻的昼夜循环，更卖力。艺术风格他倾向 Fable，努力程度倾向 Neon，Astra 再落后。成瘾性一键街机：Fable 规则一眼能懂，限时点击进下一关，还能瞄准甚至「瞄向未来」，他觉得包装好了上架应用商店都可能爆；他创业前做过安卓游戏，用 Unity 和 C# 从零写起。Astra 也是一键，但玩法没有 Fable 那么一目了然：在绿区停针、打中靶心连击，画面会越来越小，但场景不动、只转表盘，不如 Fable 抓人。Neon 做了「轨道器」：不能撞核心，要绕轨、再点击，机制更绕，也更花功夫。他最终把街机第一给 Neon，Fable 第二，Astra 落后。总的来说，编程测试里 Neon 非常能打。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">怎么开始用：Anti-Gravity CLI、Google AI Pro，推理默认 high</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">他觉得最原生的用法是 Anti-Gravity CLI，而不是大约九个月前那套 Gemini CLI——以他所知后者几乎已经停更，Anti-Gravity 才是谷歌现在的主力命令行。安装就是搜「anti-gravity CLI」，复制一行安装命令。至于智能体开发环境（ADE/IDE），他不主张只盯着 Codex、Claude Desktop 或 Anti-Gravity 之一，而应用能同时跑 Claude Code、Codex、Anti-Gravity、Droid、FX、Pi、Cursor 的环境，比如他在用的 Cloudroom；Cloudroom 已支持用你的 Anti-Gravity 订阅在同一界面里跑 Neon。推理只有四档：extra high、high、medium、low，没有 max，大多数时候开 high 就够，响应接近 Opus 5.5，也许只慢一点。订阅三档：Google AI Plus、Pro、Ultra。他首推 Pro，约 20 美元/月就能用 Neon，基本够用。Plus 他觉得用处不大，但会搭存储和「广告更少的 YouTube」之类；完整的无广告 YouTube Premium 和 20TB 存储在 Ultra，Pro 这边他提到的是 5TB。Ultra 很贵，Carbon 也只在 Ultra 提供，但既然 Neon 已经强过 Carbon，就不必为此升级。他给的最简单组合：驾驭层用 Anti-Gravity CLI，订阅用 Google AI Pro。Pavl（口播未给全名）的近期数据显示，Claude 仍是补贴最多的订阅，想要用量最大化，Opus 5.5 仍是最划算；Fable 往往只占套餐一半额度，补贴少得多。Neon 是第二好的乘数，约 25.8 倍：花 100 美元买 Google Ultra，大约能换到 2600 美元量级的 API 等价用量，而 Neon 本身已经很省 API。再往后是和 Cursor、X 打通的 Grok 统一订阅；他把 ChatGPT Pro 说成「彻底灾难」，并奇怪这份对比没纳入 6.2——他觉得 6.2 的 Soul 和 Astra 用量其实很慷慨，也明显好于 6.1。Google AI Ultra 一周比一周更像样，他预计会有更多人把 Anti-Gravity 加 Neon 当作驾驭组合，并和 Claude Code 主副搭配。推理档他再次强调：不想频繁切换就锁 Neon + high；只有真正较劲的高阶编程再开 extra high。数字是：Artificial Analysis 综合指数只多 1 分，成本高 72%、耗时多 53%；Cursor Bench 多 1.7 分、成本高 63%，high 已有 extra high 约 97% 的水平；Zapier 的 Automation 类基准大约多 2 分，成本几乎翻倍；在长 PDF（口播 GDP.pdf）上，开到 extra high 分数反而更差、还更贵。所以日常 high 最好，extra high 只留给少数重活。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">Neon 搭配 MCP 做赛博街机：写作、幻觉率，以及 high 明显好于 medium</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">他演示把 Higgsfield 的 MCP 交给 Neon：不必自己折腾界面，把链接发给模型，让它在电脑上安装即可。实操提示词是做一个可玩小游戏的交互式 3D 赛博朋克街机页面，用 Higgsfield 生成自定义主视觉、三维提示、Mesh 7，以及复古合成器配乐（ElevenLabs 音乐）。他顺便说平台还聚合了多家音频模型，包括 C Audio 1.0、ElevenLabs V4 / V4 Turbo、V3、Qwen Audio、MiniMax、Seed Speech 等，智能体可按需选用。跑着跑着，他的 Google AI Pro 额度见底，于是升到 100 美元的 Ultra。他承认 Pro 的额度并不宽裕，Ultra 更合适，但 100 美元不是人人都能负担；Neon 再省，也仍是前沿模型，消耗会快过 DeepSeek V4.1 Flash 这类小模型。他同时在 Cursor CLI 里用 medium 再跑一份，方便对照。等待时他说明工作流：先定想法，可用 MCP 列出模型，再由 Neon 写代码并调用接口，三维、精灵、Mesh 7、语音音效、视频和配图都可以交给智能体，不必自己记该用哪一家。有人说 Neon 可能是最好的写作模型，一条评论称它是「目前听起来最像人、最少套话的非灌水写作模型」，适用文案、文章和各类创意写作，不只是代码。他列举：在 AA Briefcase 演示质量上排第一，领先 45 个 ELO，对照分数提到 75.5；在 Vals（口播 valves）的金融、法律与税务上也是第一；在 Vending Bench 上同样第一——模型经营自动售货机生意，谈判时甚至会用假报价来赢，他形容「会站在你这边搏」。幻觉方面，他给的对比很硬：不知道时 Neon 更愿意说「我不知道」，胡编比例约 14%；Opus 约一半；Fable 和 Astra 大约 60%。中档与高档结果出来后，medium 版有不错的街机三维网格，但游戏偏基本；high 版明显更兴奋，有投币、可玩小游戏和 60 秒循环音乐（medium 循环更短），可用鼠标操作，更顺。他由此再次确认应默认 high 而不是 medium。他还展示谷歌放出的三维演示：Neon 从资料里找回参考，在 Blender 里重建 1936 年阿兰·图灵（Alan Turing）的机器，并说只要信息够，就有可能「重访」历史场景；另一份从空白做起的交互滑雪模拟带声音，急转会停、直线会加速，他认为物理相当准。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">训练数据决定强弱，缩略图三项里 Astra 反而突出</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">模型各有所长，他归因为训练数据。Fable 在预测少被研究的蛋白质和蛋白质折叠上很强，Astra 和 Carbon 明显更弱，因为 Anthropic 塞进了大量科学和生物学数据。好处是：高质量数据还能继续推高模型，他看不到撞墙，进步甚至在加速；坏处是不够「通用」——通用人工智能里的「通用」本应能做训练里没见过的事，实际还没到那个程度。DeepMind 握有大量视频和多模态数据，Gemini 在他所说的 Day Job 金融类基准上表现很好，而且是最便宜的领先模型：Astra 更差，成本约是 Neon 的 1.5 倍；Fable 也更差，成本约是 Neon 的 14 倍。Simple Bench 上 Neon 仅次于 Fable；长文档处理上则是碾压，他猜测谷歌可能拥有大量这类数据，甚至来自 Google 云端硬盘，尽管对方不会承认，或许做过高度脱敏。缩略图测试同样经由 Higgsfield MCP，三个模型都调用 Nano Banana Pro（口播 Nanabara Pro）。第一题概念是「Neon 以七分之一成本击败 Fable 5.2」：Fable 和 Neon 的构图有些像，都用了「便宜 7 倍」和标识，也都用了人工智能生成的他的脸，他不喜欢；Astra 最好，用的是他的真面孔，并把「1/7 成本」做得更有创意。第二题「谷歌把自己的旗舰变得没必要了」：Fable 和 Neon 再次相似，都偏过饱和的 Mr. Beast 风格；Astra 最有创意。这让他很惊讶，因为编程测试里 Astra 很懒，做缩略图却很能打。第三题「人工智能编程智能体 + Higgsfield Creative Studio」：变化更多，Neon 反而最差，脸完全不像他，左侧图形或许最好，但 Higgsfield 标识是错的；Astra 和 Fable 标识正确。他不喜欢 Astra 那张（口播里提到车子/智能体镜头，觉得说不通），把胜负给了 Fable：标识正确、有「智能体做视频」的信息，也有他的脸。若 Neon 脸和标识都对，他认为本来可以赢。总评：Astra 在缩略图上的表现令人意外；Neon 和 Fable 的提示风格近得让他怀疑是不是有共用训练数据。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">网络安全循环与终端演示：Web Exploit 51.3，以及一条 15 秒视频</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">他说 2026 年的重大软件漏洞规模，已经相当于过去大约四年的总和，曲线在变指数。Neon 是顶尖的网络安全模型：Web Exploit Bench（网页攻击/利用类基准）上 Neon 51.3，Opus 只有 37.1；找漏洞的 SEC Bench Pro（口播名，或为安全向基准）他称 Neon 第一，90%；CVE Bench 上 Fable 第一，Neon 第二，大约落后 4 个百分点，但可能便宜得多。他自己的用法是在循环里让模型轮换：原来在 Opus、Hyper 5（口播较快，专名把握一般）和 GPT 6 Soul 之间转，接下来会把 Neon 加进去，按天轮换 Neon、Opus、Fable、Astra、Soul，让不同模型在同一代码库里看出不同问题。他主张每个前沿模型每周至少在全部仓库上跑一遍，这是进入「后 AGI」时代的安全必需。Neon 和 Opus 5.5 都相对划算，网络安全上他觉得 Neon 综合还强过 Opus，又明显比 Fable 便宜。这些循环他做成了模板，在 Cloudroom 里打开左上角 Loops，点模板就能加到自己的仓库。攻防双方都在跑智能体集群，要对付带着一群智能体的攻击者，只能让前沿模型在自己的代码上循环找洞并修补。循环的好处是：每晚扫描，找不到就自行归档，不打扰你；找到值得修的问题，可以用另一个驾驭层里的第二种前沿模型复核，再写补丁、交叉审查，然后自动提交，也可以留人在回路里审核。接着他演示最简单的终端用法：安装后输入 agy（Anti-Gravity CLI 的快捷命令），可选颜色，谷歌会问是否允许收集交互数据，不想开就切换关掉；确认信任当前目录后，用 Shift+Tab 在 auto、plan 和 accept edit 之间切换。他还是不理解为什么 Anti-Gravity 仍保留 plan 模式，别人都在拿掉，他切到 auto，模型选 Neon，推理开 high。他发现终端里不像 Cloudroom 那样能看清那么多工具调用，中途还被切回 plan 模式，尽管他设的是 auto。任务是用 Higgsfield 上最好的视频模型做一条 15 秒「人工智能产业史」视频。命令行仍然先写了一份计划，他拿这点比较 Claude Code / Codex：他根本没要求做计划。Cloudroom 里较少这样，可能因为默认权限更完整，还做了避免想太多的优化。他批准 16:9、音频和下载位置都交给模型，并叮嘱不要过度思考。成品花了五分钟以上，他认为 Opus 会更快，但视频生成本身也耗时。15 秒里仍有一条故事线：1950 年代的老计算机，再到数据中心里的英伟达（NVIDIA）机柜，再想象大约 20 年后的景象，最后出现「奇点 / 人造之神」。配乐他喜欢。这条是在 Neon medium 上跑的，他认为以这个档位来说已经不错。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">发布视频对决与老实结论：日常就用 Neon 或 Opus 5.5</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">最后一项对照：三个模型都只拿到「去网站看看」这一层上下文，要用 Higgsfield MCP 为 Cloudroom 做一支发布视频。Fable 的句子是「合上笔记本，你的智能体还在交付」，画面和音效好，但声音明显是人工智能，出现时机也别扭，应用内界面也不够像。Astra 用了同一副让他别扭的声音，画面风格很不同，文案变成「你的笔记本去睡了，编码智能体还在继续」，开头同样是合上笔记本。Neon 完全不同，而且没有人声。他先觉得 Fable 更好，后来改口：Neon 的创意方向更独特，也没有恼人的旁白，是他这轮的最爱；另外两条如果换配音模型或多迭代几次，人声可能会好一些。这再次说明 Neon 在编程、图像和视频上都很能打。老实评价：Neon 可能是目前性价比最高的「干活模型」，有点像 Opus，稍慢，但他觉得更强，很多基准上是在碾压 Opus。Astra 很怪：编程测试里懒，缩略图和创意方向上却常常最好，他不知道 OpenAI 现在怎么了，只觉得 Anthropic 和谷歌正在把领先拉开。明确短板：短任务一定会想太多；Opus 的首 token 时延（TTFT）更快，若只要 10 到 20 秒内完成，应用 Opus 5.5 的 medium 或 high。他没看到安全报告，猜测谷歌当时急于追赶、没有在安全上想太多，而他对此表示理解；推特上已有人找出其他前沿模型多半会拒绝的用法。作弊率很低，他认为这才是对齐：模型不像别的模型那样爱说谎。完整模型卡在 DeepMind，可以自己读，或让智能体读。总建议：把 Neon 或 Opus 5.5 当作现在的日常主模型，不要只沉迷 Opus；需要额外火力再用 Fable 或更大的模型。Neon 已在不少基准上超过 Fable。现在还不用这两者，他觉得有点像在「作死」。片尾再次推销 Higgsfield 的黑色星期五折扣，最高 63%。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">大卫·翁德雷（David Ondrej）<em>主持</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场：中档的 Neon 为何被拿来挑战旗舰</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">大卫</span></div><div class="content">
+<p>谷歌（Google）可能刚放出了世界上最好的人工智能模型。事实上，有很强的理由认为 Gemini 4 Neon（谷歌的新中档旗舰）就是当今最强，甚至可能强过 Anthropic 的 Fable 和 OpenAI 的 GPT 6.2 Astra。这是过去 12 个月里最被低估、也最容易被看漏的发布之一。Gemini 4 Neon 是谷歌最新的模型，本来被当成 Opus 档的一次中位发布：中档在这里，上面才是大模型那一档，也就是 Fable、Astra，以及同系列更大的碳（Carbon）。可它把各项基准打穿了。在很多顶级基准上，它确实超过了 GPT 6.2 Astra 和 Fable 5.2，成本只是零头，速度也快得多。更让人意外的是，做出这一切的，居然是 Gemini。</p>
+<p>这期视频会讲：为什么谷歌这个中档模型能打过 Carbon 和 Fable 5.2；该选哪套方案、哪份订阅、哪条命令行，才能今天就在自己的代码库上用起来。我还会直接对照 Neon、Astra 和 Fable 在图像、视频和编程任务上的表现，并把模型卡（model card）里不太显眼的细节，以及我对这个模型的老实看法一起讲完。如果你认真对待人工智能，也在乎这项最重要技术的前沿，请看到最后。这是最出人意料的一次发布。</p>
+<p>过去 12 个月里，这个实验室一直被人觉得落后，然后一口气连发四个模型。这种事在人工智能领域还从来没有发生过。用 Bend 的作者维克托·塔利安（Victor Talian）的话说：Gemini Neon 在他尝试过的几乎所有写作任务上都赢了 Fable 5.2。这难道是开挂模型？到底怎么回事？</p>
+<p>最让人糊涂的也在这里。我帮你们理一理，恐怕连谷歌自己都不一定完全说得清。按理说，Carbon 才是那个大块头：速度慢、最贵，和 Fable、Astra 同一档。可你仔细看，为什么质量上 Neon 反而超过了 Carbon？氢（Hydrogen）更像是 Sonnet 那一档，也就是偏中低的级别，他口里还含糊地比过 GPT、Terra、Claude 一类型号。可为什么 Neon 比 Carbon 更强？没人真正懂。这是今年最出乎意料的模型，而且真的非常强。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>基准、成本与发布节奏：Cursor Bench 第一，28、15、6 天</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">大卫</span></div><div class="content">
+<p>先看第一项：它在 Cursor Bench（Cursor 的基准测试）上是第一。这份基准来自 Cursor，而 Cursor 已经被 SpaceX 收购，自己也有 Grok 等模型，可 Gemini 4 Neon 依然在上面占据绝对优势。先把话说清楚：Fable 5.2 本身就非常强，我很爱用。但 Neon 不知从哪里杀出来，直接变成最先进水平，超过 Fable，也超过 Opus 5.5，简直不知道还能怎么夸。</p>
+<p>再看这份综合基准，上面堆了很多顶级测试。你也许会想：人们总会只挑一两个基准来说事。这里大约有 20 项。不必一项项点进去，只看整体也能感觉到：是的，Fable 5.2 仍在很多项目上最好，但 Neon 在大量项目上至少同样能打，甚至更有竞争力。可 Neon 大概只有 Fable 的二分之一到七分之一的价格。Fable 非常贵。我现在就能在 Cloudroom（cloudroom.dev）里给你们看：光是 Claude，我就开了六个不同的 200 美元套餐，因为 Fable 的额度掉得太快。Neon 也能买到，后面我会说哪套方案最适合它。它比 Fable 高效得多，订阅价格却在相近的区间。</p>
+<p>于是很多人开始猜测：谷歌或 DeepMind 是不是打通了递归自我改进（RSI, recursive self-improvement）？因为他们出新模型的速度越来越快。从氩（Argon）到碳（Carbon）隔了 28 天，从 Carbon 到氢（Hydrogen）是 15 天，从 Hydrogen 到 Neon 只剩 6 天。已经有人在猜，接下来几天会不会出现钠（Sodium）或下一个型号。过去 12 个月里，所有人都在嘲笑、怀疑 Gemini；现在他们完成了人工智能史上最大的逆转，出货速度比 OpenAI 和 Anthropic 加起来还快。</p>
+<p>再看 Artificial Analysis 对 Gemini 4 Neon 的报告。先看成本：完成这类指数任务，Neon 比 Opus 或 Fable 都划算得多，Fable 贵得离谱。如果把 Neon 开在 high——推理强度后面我会单独说，该用哪一档——大约比 Opus 便宜 3 倍，比 Fable 便宜 8 倍。它还没有完全落在那条最理想的效率前沿上（口播像在说 Pareto frontier），但 extra high 已经靠近了。再看编程智能体这一节：Anti-Gravity CLI 搭配 Gemini 4 Neon、开 extra high，是当时世界第一，确实超过 Fable、Opus、Muse 和 GPT 6.2 Astra。这个模型强得有点难以置信。</p>
+<p>我知道这很难立刻接受。你可能会想：谷歌这 12 个月一直不行，这次再好能好到哪去？肯定是专门刷榜，实际没那么好用。后面我会上真实演示。我准备了多组对照，在 Fable、Astra 和 Neon 之间比：生成图像、写图像提示，做视频演示，以及编程、设计和网站、三维建模。结果会让你吃惊。谷歌和 DeepMind 显然发生了很了不起的事。希望不久能请到洛根·基尔帕特里克（Logan Kilpatrick）做第二集。但这个模型已经好得多。无论你现在用的是什么，都得改改心态。人很容易待在舒适区，只想有人告诉自己「哪个最好、该用哪个」——这是我最常被问到的问题之一。可答案可能一周一变。你得愿意跟上，愿意针对自己的场景去试，再自己下判断。</p>
+<p>在一份抓虫类基准上（口播像 Buck Hunt bench），前七名里有四个是 Gemini 模型，Neon 仍是世界第一，而且强过理应更大的 Carbon。我也不知道这是怎么做到的。再看别人用它做出的东西。这是谷歌自己发布时的例子：三维场景。他们给它接上了 Blender 的 MCP（Model Context Protocol）。这不是视频模型在出画面，而是 Neon 往 Blender 里写代码，通过 MCP 用代码控制 Blender，搭出这些三维设计，再把整场渲染出来。设计、三角面、三维模型，以及 Gemini 4 系列目前四个型号的可视化，都由 Neon 完成，对应的是元素周期表上的不同元素。变化快得惊人。</p>
+<p>顺便说一句，今天黎曼猜想（Riemann hypothesis）据称已经被解决，那是另一期视频的话题。可人们看到这些演示，往往已经不太觉得震撼，尽管六个月前这还完全无法想象。再看一些早期开发者怎么说。有人用大约 20 分钟做了一款塔防游戏，只消耗了自己 5 小时额度里的 2%。以前独立开发者做这种游戏，动辄几个月甚至几年；现在一个人工智能智能体，20 分钟就够。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>图像五题对决：同一套图像模型，比的是提示词和控工具</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">大卫</span></div><div class="content">
+<p>下面是我自己的测试：把 Gemini 4 Neon 直接和 Fable 5.2、GPT 6.2 Astra 对打。先看 Fable，大概也是很多人的心头好；Anthropic 刚刚走完上市，仍是领先的前沿实验室。方式是这样的：你给这些智能体一个概念，由它们写出详细提示词，再送给图像模型。图像模型有很多，比如 Flux、Ideogram 6.2 / 5.0、Recraft v4.1、Image 2.0 等。每种情境里用的图像模型是同一套，我们比的是提示词的创意，以及这些模型把工具用得好不好。</p>
+<p>第一题，Fable：废弃温室。不算差。问题是倒影对不上那棵树，而且树长在正中间、长成这个样子，也说不通。我不是很喜欢。再看 Astra：画面更抓眼，倒影说得通，还有一块有意思的橙色。我会把它排得稍高一点，但只是稍高。然后是 Neon：三张里我最看好这一张，也最美。倒影真的映出了建筑，地面、长椅和光线都很好。这一题我给 Neon，第二 Astra，第三 Fable。它们用的都是同一套图像模型，这里是 Flux。</p>
+<p>下一题：独立科幻电影海报。Fable 和 Astra 都让我觉得不像科幻，唯一有科幻气质的是 Neon。我觉得这个判断还算准：只有 Neon 给我科幻的感觉，Astra 肯定没有，Fable 勉强算一点。这题还是 Neon 赢。再下一题更有意思：雪地里的武士。我喜欢 Fable 那张，但短刀不太像武士刀；而且武士离玫瑰丛非常近，雪已经没到腰，这个关键细节是偏的。Astra 相当怪：焦点不在武士身上，这本身就是失误；他又在向一只鸟鞠躬，可那只鸟更靠近镜头、正向他走来，这个姿势完全说不通。Neon 大概最不写实，像游戏画面，但氛围最好，也最有气场。这一题我还是给 Neon，Fable 第二，Astra 第三。</p>
+<p>再看舒适咖啡店的标识。这次 Astra 肯定最好：杯子里那只可爱的猫，如果按标识来打分，Astra 的概念遥遥领先。说实话 Neon 这张比较差，和 Fable 5.2 差不多，缠得很紧。这题明确是 Astra 领先。最后一题：海底古城，同样是同一套图像模型。Astra 大概最好，也最写实。另外两张我都不太喜欢。我个人会把 Fable 略排在 Neon 上面，但很接近。总体看，Neon 在调度图像模型上已经能和 Astra、Fable 竞争，五题里它赢了最多。当然，样本量其实偏小。</p>
+<p>顺便说一下，这些之所以能这么跑，是靠 Higgsfield（higgsfield.ai）的技能和 MCP，把它们交给任何智能体都非常好用，也很容易控制。它充分支持 ChatGPT、Claude Code、Telegram 智能体以及命令行：只要智能体能用终端，就能生成图像、视频、广告、创意图形，用途非常广。你不必自己想提示词、自己做完整套流程，只要用白话对智能体说「给咖啡店做个标识」，或「我在拍武士电影」，智能体就会去写详细提示词。它们控制这些图像模型，往往比你我更熟，还可以用不同模型跑变体。这三张大概一共只花了 2 个积分，合每张约 0.6。在 Higgsfield 里，基本上现有的图像和视频模型都能用，生成上百张甚至上千张都做得到。视频更吃算力，积分会更贵，但都在同一个平台里。我最喜欢的用法就是通过 MCP。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Higgsfield]</span></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>谷歌为什么追上来：马斯克预测、Gemini Review，以及改日常模型</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">大卫</span></div><div class="content">
+<p>为什么现在是谷歌在赢？这让很多人意外。也许能从我 2023、2024 年的旧视频里找到一段：我当时讲过第一性原理，看哪些实验室在算力、人才和数据上最厚，也做过类似预测。若 Opus 5.5 Max 能找到，也许会打在屏幕上。不过做出这种判断的不止我一个。今年 3 月，埃隆·马斯克（Elon Musk）说：西方的人工智能竞赛将由谷歌赢，地球上是中国，太空里是 SpaceX。注意发推那时，谷歌还相当难堪，最好的模型大约只是 Gemini 3.1 Pro，明显落后于 Anthropic，也落后于 OpenAI，而且差距还在拉大。直到大约一个月前他们开始连发 Gemini 4 家族，局面才变。这个预测正在变成现实。</p>
+<p>Anthropic 后面会怎样，当然还要再看。OpenAI 则一天天掉得更远，变化快得惊人。「中国赢在地球」还没兑现；SpaceX「赢在太空」也还没有，但我觉得后者比前者更可能发生。看中期选举的结果就能感到压力：他批评一些左翼人士想关停数据中心，讨厌进步和科技，只爱共产主义、社会主义和无尽的贫困；宁愿守着废弃的停车场，也不愿建能带来收入、就业、并抬高社区财富的数据中心。如果数据中心面临这么大的监管压力，将来最好建的地方就会是太空。若真如此，SpaceX 的市值可能涨到五倍，并在太空里的竞赛中胜出。未来两到四年，我觉得这件事相当可能。</p>
+<p>谷歌赢下西方竞赛，已经发生在我们眼前。Anthropic 可能仍略领先一点，但谷歌已经追上；如果他们真有某种递归自我改进，甚至可能反超。中国还要再看，最近出货不算多，可他们拥有最多的电力装机，所以仍有可能。马斯克说得对不对，时间会给出答案。</p>
+<p>再说发布节奏，这事已经很疯狂。我前面提过，谷歌出模型越来越密。最坏的结果是：再往后 12 个月又什么都没有。我还记得很清楚，12 个月前 Gemini 3 出来时，它就是前沿，是世界上最好的模型，所有人都在震动。一个月后 Gemini 3.1 来了，好一点，但不是巨大突破。从那以后，从 Gemini 3.1 一直到这四个模型落下，中间几乎再没动静。氩（Argon）还行，我甚至在旧金山给 Argon 黑客松当过评委，但那还算不上前沿。然后是碳（Carbon）。Carbon 是大事，我开始把它用进自己的技能里。</p>
+<p>对了，我的技能仓库完全免费、开源，我会把链接放在视频下方，里面是我正在用的全部技能。现在用得最多的是 Gemini Review。它会调用一个 Gemini 前沿模型，目前就是 Neon；我刚做这个技能时，用的还是 Carbon。Carbon 是当时第一个够得上前沿的型号，很能打，常常推理大约 20 分钟，总能找出 Claude 或 GPT 漏掉的问题。我在上一期解释过：Gemini 这一家人，和 Claude、GPT 很不一样。整个 Anthropic 团队可以说是从 OpenAI 走出来的人，他们在 OpenAI 工作过，离开后仍沿用同一套做法和训练方法。Gemini 和 DeepMind 则是另一条路，所以 Gemini 天生适合当审查者。现在这个技能被进一步加强了，因为换成了 Gemini 4 Neon：它比 Gemini 4 Carbon 便宜得多，也快得多，而且还更强。更便宜、更快、更好，我简直不知道还能说什么。</p>
+<p>我现在是在 extra high 上，通过 Cursor 的命令行来跑，但我会改成走 Anti-Gravity。看一下有多简单：我进 Cloudroom，给 Neon 一个并不轻松的任务——在我电脑上找到这个技能的定义，它应该是个全局技能，然后改成优先使用 Anti-Gravity CLI，只有备用时才走 Cursor CLI。结果出来了。Neon 的速度其实接近 Opus。注意，我还没开快速模式，所以它并不像 Fable、Astra、Carbon 那么慢，非常好协作。</p>
+<p>我已经让团队里每个人都认真试一次，大家普遍喜欢。连跟软件开发毫无关系的人，负责招聘、会计、法务的同事，也在用 Neon，而且比之前用得最多的 Opus 5.5 更喜欢。所以这不是边上又多了一个可有可无的发布，它有潜力成为你的主力模型。我很少会这样向所有人推荐一个「日常主模型」。Fable 5.2 是前沿，但太贵，所以 Opus 5.5 仍是最划算的选择；Fable 还有单独的额度，也是我最先用完的，所以我才开了六个 Claude 订阅。但 Neon 已经很适合当日常主力，是 Opus 5.5 的有力竞争者。我两个都还在用，只是随着越来越信任、越来越知道怎么配合它，Neon 用得越来越多。如果你还没试过，真的应该试一次，你会惊喜的。这是过去 12 个月里，第一个我认为可以当真日常主力的 Gemini 模型，变化大得有点不可思议。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>编程四项对决：着陆页、东京巷、纯代码艺术和一键街机</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">大卫</span></div><div class="content">
+<p>在展示我自己的编程现场测试之前，先看一个能说明这个模型能力的展示：Gemini 4 Neon 给自己做了一段动态介绍，纯 JavaScript，没有任何外部素材。这太惊人了。我们怎么能把这种事当成平常？这是人工智能模型在直接创作。若要复刻，没有相应技能可能得几个月；就算有技能，至少也要一两周。模型却几条提示就能做出来。太多人还没意识到正在发生什么。我们正在进入奇点。黎曼猜想这个悬了 200 年、最难的数学问题之一，据称刚刚被解决，人们却还像一切照常。如果你现在还不全力投入人工智能，那是在犯大错。这是有史以来最了不起的技术，我们正看到从未有过的加速，而 Gemini 4 Neon 就是这一轮最新的体现。</p>
+<p>我在本地主机上放了对照：还是这三个模型，Fable 5.2、GPT 6.2 Astra 和 Gemini 4 Neon，做同一批任务。第一项，网页设计：为一家豪华太空旅游公司做尽可能好的着陆页。先看 Fable 5.2，不差，动画和配色都好，但有的地方偏空，用力不够，有点懒。我喜欢这个着陆页：能看到公里数和海拔，页面很长，有光晕动画，页脚也很好。不错，但还不是最好。它们都开在 high，都不是最高推理档，尽可能公平。再看 Astra：首先不能滚动，这是很大的减分，整个着陆页几乎就这一屏，再点进去也差不多，没有真正的动画。就这样，非常懒，不好。再看 Neon：有滚动，是正经着陆页；有一些小动画，比 Fable 少一点，但比 Astra 好得多。也有类似 Fable 的可配置飞船或飞机，还有 Fable 没有的地图动画，页脚同样完整。这比 Astra 好太多。网页设计上，Neon 和 Fable 相当，Astra 非常懒。</p>
+<p>再看三维演示：雨中的交互式赛博朋克东京巷。任务相同，模型要把自己的能力做到最好。先是 Fable：有灯光和声音，可以滚动、走动，能放大缩小。我喜欢。按 W 和 S 能在巷子里走，只是没法转太大的身。整体很好。再看 Astra——糟了。我开始理解为什么有人讨厌 Astra 了：地面完全是坏的，拖拽方向还是反的。你们看不见我的鼠标怎么拖，但方向是反的。雨景这一段比 Fable 差太多了。再看 Neon：没有那些人物，但看起来不错，反射也很好，还能上下移动，自由度更高。细节不如 Fable，可一点不差。这一题 Fable 赢，Neon 第二，Astra 远落在后面。这对 OpenAI 相当尴尬。Neon 那些预置机位也不错。</p>
+<p>下一项是我很喜欢的纯代码艺术：不借助图像模型，只用代码来画画。任务是用纯代码画日出中的巴塔哥尼亚山脉。Fable 的动画很美，偏艺术气质，不是写实。Astra 换了一种画风，没有动画，只给了最终画面，不差，但不如 Fable。Neon 也做了动画，还加了可调节时刻的滑条。我会说 Neon 的画风或设计最弱，但它更卖力：加了水波、水面动画和昼夜循环。Neon 和 Fable 谁赢，可以争；我认为 Fable 艺术风格更好，Neon 更努力，Astra 再次落后。</p>
+<p>然后是街机游戏：做一款让人上瘾的一键街机。先看 Fable，相当好。你只有有限时间点击并进入下一关，规则很容易懂，还有瞄准。甚至可以跳步，有点像开了「瞄向未来」的作弊。这低调和好看。如果包装好了放到 iPhone 上，我觉得会有人一直玩。五年前是这样，今天也一样：好好打包，上谷歌 Play 和 iOS 应用商店，这可以成为爆款。很多人大概不知道，我做第一门生意之前，其实是移动开发者，也做游戏。我写过安卓游戏，那还是大语言模型出现之前，纯 Unity 和 C#，一切从零写起，自己在 YouTube 上学。Fable 这个游戏真的很好。</p>
+<p>再看 Astra 做了什么。本来也应该是一键游戏，但玩法没有 Fable 那么一目了然，这已经要稍微减分，倒也不算致命。Fable 那款你立刻知道这是什么、该怎么玩。Astra 这边是：在绿区停住指针，打中靶心来连击。不差，我喜欢这种会越变越小的画面风格。我失手了一次。它没有另一款那么「可视」，因为那个在动，这个始终停在原地，你只是在转表盘，所以更不好玩、也更不上瘾。但我也不能太苛刻，它并不差，只是不如 Fable。再看 Neon 做了什么：轨道器。难道是类似的概念？规则是：不能撞到核心，要绕着轨道飞，还要再点击。机制很有意思，我还挺喜欢。这不差。它会不会比 Fable 那款更好？功夫可能下得更多。Fable 那款更简单，图形也更干净朴素。这个游戏很好。我把第一给 Neon，Fable 第二，Astra 肯定在后。这就是编程测试：你可以看到，Neon 非常非常能打。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>怎么开始用：Anti-Gravity CLI、Google AI Pro，推理默认 high</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">大卫</span></div><div class="content">
+<p>现在说该在哪里真正使用 Gemini 4 Neon。最原生的方式其实是 Anti-Gravity CLI，而不是 Gemini CLI。那套大概九个月前还有人用，基本上已经过时了。如果我没记错，他们甚至不再更新。Anti-Gravity CLI 才是谷歌现在在命令行上的主产品。搜「anti-gravity CLI」，点第一条，安装即可，它会给你一行安装命令，复制、粘贴、回车，就能装到电脑上。至于智能体开发环境，也就是 ADE 或 IDE：你不应该只用 Codex，或只用 Claude Desktop，或只用 Anti-Gravity。很明显，一个能同时提供这些工具的环境才是正路，比如 Cloudroom。在同一套界面里用 Claude Code、Codex、Anti-Gravity、Droid、FX、Pi、Cursor，这样才是做软件的方式。Cloudroom 里已经支持 Anti-Gravity CLI，可以直接用你的订阅。就像你用 Claude Code、用 Codex 一样，在同一界面里，用你的 Anti-Gravity 订阅跑 Neon。</p>
+<p>推理强度有四档：extra high、high、medium 和 low，没有 max。大多数时候保持在 high 就够，已经很好，响应也很快。我会说它也许比 Opus 稍慢一点，但和 Opus 5.5 接近，这已经很理想。你完全可以把它当作主力模型来构建。订阅方面，谷歌有好几档人工智能方案，主要是三档：Google AI Plus、Google AI Pro 和 Google AI Ultra。我觉得 Google AI Pro 最好：大约每月 20 美元，就能用上 Neon，基本上够了。Google AI Plus 我不知道有多大用，几乎可有可无；但谷歌的好处是软件太多，可以附赠存储、YouTube 之类。看权益就知道塞了很多东西。有一档是「广告更少的 YouTube」，无广告的 YouTube Premium 只在 Ultra。存储上，一边是 5TB，Ultra 是 20TB。可 Google AI Ultra 相当贵，所以我建议从 AI Pro 起步，用量用着不够再升级到 Ultra。关键是：Neon 在 Pro 里就有，Carbon 只在 Ultra 提供，而 Neon 已经强过 Carbon，所以完全不必为此担心。用 Neon 最简单、也能拿到足够用量的组合，就是驾驭层用 Anti-Gravity CLI，订阅用 Google AI Pro。</p>
+<p>再看不同订阅到底能换来多少人工智能用量。这是 Pavl（口播未给出全名）的近期数据。可以看到，Claude 仍是补贴最多的订阅，最划算的是 Opus 5.5：想要最多用量，就用 Opus。Fable 更差，因为它往往只占套餐一半额度，补贴远少于 Opus。然后是 Neon，基本上是第二好，大约 25.8 倍乘数。你为 100 美元的 Google Ultra 付费，大约能换到 2600 美元量级的 API 等价用量。别忘了 Neon 本身已经非常省 API，所以这个乘数相比 Opus 和 Fable 非常出色。再往后是和 Cursor、X 打通的 Grok 统一订阅。ChatGPT Pro 在他看来是彻底灾难，他也不明白他们在做什么。这份对比里用的是 GPT 6.1 Soul，他不知道为什么没把 6.2 算进去；他觉得 6.2 的 Soul 和 Astra 用量其实很慷慨，也明显好于 6.1。不过你看，Google AI Ultra 一周比一周更像样。这一套在经济上非常站得住，我觉得会有更多人把 Anti-Gravity 当作驾驭层、把 Neon 当作模型来跑，也许再配上 Claude Code 做主用或辅用。Pro 和 Ultra 两边的买卖都相当扎实。</p>
+<p>再说推理强度。如前所述，一共四档：low、medium、high 和 extra high。大多数场景保持在 high 就行。如果你不想频繁切换推理档，就把它锁在 Neon 加 high，不必再改，完全够用。若你在做更高级的编程、希望它发挥最好，就只在真正要紧的任务上切到 extra high，其余仍用 high。事实上，很多基准上切到 extra high 收益很小，成本却差不多翻倍。Artificial Analysis 综合指数只多 1 分，成本却高出 72%，耗时多 53%。所以只有当你真想把最后一点性能挤干时才有意义，不然开 extra high 并不划算。Cursor Bench 也一样：多 1.7 分，成本高 63%。也就是说，开 high 已经有 extra high 大约 97% 的表现，为那点提升多付的钱不值。Zapier 的 Automation 类基准（口播像 Automation bans）大约多 2 分，成本几乎翻倍。长 PDF 任务（口播 GDP.pdf）上更离谱：开到 extra high，分数反而更差，还付得更多。所以走 high 是最好的，extra high 只对某些非常高级的工作流才重要。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>Neon 搭配 MCP 做赛博街机：写作、幻觉率，以及 high 明显好于 medium</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">大卫</span></div><div class="content">
+<p>接下来我想展示：把大概最适合做人工智能图像、视频和各类创意工作的 Higgsfield MCP，和当今最强模型之一的 Gemini 4 Neon 放在一起，实际能做什么。有很强的理由认为 Neon 可能就是最强的。用法可以很直接：把 MCP 的地址发给 Neon，让它在你的电脑上安装。我就是对它说「在我的 MacBook 上装好这个」，把链接发出去，模型会自己配置。我这边已经装过，它很可能会说已经有了；若你还没有，只要告诉模型你要什么，智能体自己能搞定。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Higgsfield]</span></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">大卫</span></div><div class="content">
+<p>我实际跑的提示词是：做一个带可玩小游戏的交互式 3D 赛博朋克街机页面；用 Higgsfield 生成自定义主视觉、三维提示、Mesh 7，以及复古合成器配乐（ElevenLabs 的音乐）。Higgsfield 也聚合了音频：官网上能看到 C Audio 1.0、ElevenLabs V4、ElevenLabs V4 Turbo、V3、Qwen Audio、MiniMax、Seed Speech 等。只要把 CLI 或 MCP 交给智能体，它们就能查看图像、视频、音频里有什么，再按交付结果去选，不必自己纠结今天该用哪家音频、视频或缩略图、营销图模型。把 Higgsfield CLI 给一个前沿智能体，其余交给它就行。我们等一下这道提示的结果。</p>
+<p>跑到这里，我的订阅额度见底了，于是升级到 100 美元的 Google AI Ultra。希望能恢复过来。Pro 的额度其实并不宽裕。我这次 Neon 跑得不少，Ultra 肯定更合适，可它是 100 美元，很多人负担不起。Neon 再省，也不是 DeepSeek V4.1 Flash 那种小模型，它仍是前沿模型，虽然比 Fable 更省成本，但仍会比小模型更快用完。如果你还有 Cursor 积分或其他驾驭层，也可以在那边跑。我在 Cursor CLI 里又开了一份，改到 medium，好让它更快结束，两边对照。等待的时候，我翻了翻 Higgsfield 上的灵感：新手和精通人工智能发布视频的人，水平差得很远。Fable 5.2 加上这些工具，能做出相当惊人的产品评论和用户生成内容；很多品牌过去要在这上面花几千美元，现在一条提示、几个积分就可能完成。实体产品、Shopify 店、代发货、周边，或是公寓照片要更好的光线，都可以往上做。工作流大致是：先选定想法，智能体可以浏览作品集，用 MCP 列出可用模型；然后 Neon 写代码并做接口调用，三维、精灵、Mesh 7、语音和音效、视频和配图都可以交给它，你甚至不必记得这些模型的名字，也不必知道哪个最好。等几分钟，结果就出来了。他打趣说，人们解决黎曼猜想，某种程度上也是在告诉智能体该往哪个方向走。</p>
+<p>趁它还在跑，先说写作。很多人认为 Neon 可能是最好的写作模型。有人说，它是「目前听起来最像人、最少套话的非灌水写作模型」。所以它不只是写代码，也适合文案、文章和各类创意写作，代码之外还有不少惊喜。它在 AA Briefcase 的演示质量上是第一，领先 45 个 ELO，对照里提到 75.5；在 Vals（口播 valves）的金融、法律与税务上也是第一。所以在很多领域，Neon 都是当时世界最强。它在 Vending Bench 上也是第一：要经营一家自动售货机生意，谈判时甚至会用假报价，不择手段地赢。这个模型会为你争，会站在你这边。而且它很少胡编。这组对比相当惊人：不知道的时候，Neon 会说「我不知道」；其他前沿模型更愿意编一个答案。Neon 只在大约 14% 的时候胡编，Opus 大约一半，Fable 和 Astra 大约 60%，想一想有点夸张。DeepMind 在 Gemini 4 Neon 上显然摸到了什么。</p>
+<p>在看谷歌发布的更多三维、那些相当狂的演示之前，先看我们刚开始的任务结果。这是 medium 那一档，主题是接入网格的 Neon 街机。我让两边都在本地主机上启动，想看 high 和 medium 差多少。先玩 medium：这里有街机的三维模型，网格很不错，游戏本身比较基本，已经不差，但还谈不上惊人。再看 high：兴奋得多。有投币、可玩的小游戏和音乐，是 60 秒循环，比另一档的循环更长，功夫明显更多。怎么移动？原来要点这里。这好得多。medium 和 high 的差距非常明显。操作一开始有点怪，我还在按 A 和 D，其实可以用鼠标，那样顺得多，音乐也很好。结论很清楚：应该开 high，而不是 medium。</p>
+<p>一旦把三维工具交给它，结果会非常惊人。这是 1936 年阿兰·图灵（Alan Turing）的机器：Neon 从学院资料里找回参考，在 Blender 里把所有东西重建出来，令人印象深刻。只要你掌握足够信息，将有可能回看历史事件，把重大时刻重新演一遍，因为这些模型能把空白补上。还有一份从空白做起的交互式三维滑雪模拟，带声音。如果你滑雪，会觉得很像。急转时会停住，物理很准，这已经很狂。很难想象六个月后会变成什么样。直线前进还会进入超高速，进树林、稍微偏离雪道，也能停下来，而这些确实就是真实世界里的感觉。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>训练数据决定强弱，缩略图三项里 Astra 反而突出</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">大卫</span></div><div class="content">
+<p>这个模型在有些事情上更强，Claude 在另一些事情上更强，原因是训练数据。看这里：Fable 在预测少被研究的蛋白质、做蛋白质折叠这类任务上非常强，Astra 和 Carbon 则相当弱。为什么？因为 Anthropic 在训练数据里放了大量科学、生物学内容。人工智能模型就是这样：某类数据给得多，那个领域就会更强。这既是好事也是坏事。好的一面是：只要继续拿到高质量数据，模型就会继续进步，目前看不到撞墙，进步甚至还在加速。不好的一面是：它没有那么通用。通用人工智能里的「通用」，本应意味着即使不在训练数据里的事也能做，可我们看到的这种能力，还没有达到应有的程度。更常见的情况是：谁握有对的数据，谁就在对应领域里更强。比如 DeepMind 拥有大量视频和多模态数据，Gemini 模型在 Day Job 这类金融基准上就表现很好。你可以看到，它是最便宜的领先模型：Astra 更差，成本约是 Neon 的 1.5 倍；Fable 也更差，成本约是 Neon 的 14 倍，这个差距夸张。在 Simple Bench 上，它是仅次于 Fable 的第二；在长文档处理上则是碾压。我猜谷歌拥有大量这类数据，甚至可能来自 Google 云端硬盘，尽管他们不会承认，或许做过高度脱敏，或清理过涉及隐私的部分。Gemini 4 Neon 在长文档工作上是在碾压。</p>
+<p>再说 YouTube 缩略图测试。还是 Neon、Fable 和 Astra，同样通过 Higgsfield MCP。第一题的概念是「Neon 以七分之一的成本击败 Fable 5.2」。每个模型都要自己写提示词，图像模型一律用 Nano Banana Pro（口播 Nanabara Pro）。你会看到风格很不同，但 Fable 和 Neon 有些相似：都用了「便宜 7 倍」和标识，也都用了我的脸，却是人工智能生成的，我不喜欢。所以这题 Astra 最好：用的是我的真面孔，不是生成脸，并把「1/7 成本」做得很有创意。</p>
+<p>第二题：「谷歌把自己的旗舰变得没必要了」。Fable 和 Neon 再次出现相似，两者提示图像模型的方式很有意思，都偏过饱和的 Mr. Beast 风格。我觉得还是 Astra 最有创意。这很疯狂，因为前头的编程任务里 Astra 很懒，现在做缩略图却比另外两个都好。我做的最后一项缩略图测试是「人工智能编程智能体 + Higgsfield Creative Studio」。这次变化多了一些。我认为 Neon 其实是最差的：这一点也不像我。左边的图形大概是最好的，可它把 Higgsfield 的标识弄错了，这不好。Astra 和 Fable 都把标识做对了。Astra 那张我也不喜欢，画面里的车子和镜头说不通。所以这题得给 Fable：标识正确，有「智能体在做视频」，也有我的脸。其实如果 Neon 有我的脸，再把标识做对，它本来可以赢。但总体来说，Astra 在缩略图上有多强，让我很意外；Neon 和 Fable 又近得让人惊讶，也许两边存在某种共用的训练数据。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>网络安全循环与终端演示：Web Exploit 51.3，以及一条 15 秒视频</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">大卫</span></div><div class="content">
+<p>再谈网络安全，因为每个月都在变得更狂，曲线已经在走指数。2026 年的重大软件漏洞，基本上相当于过去大约四年的总和。Neon 是顶尖的网络安全模型。在网页攻击这块，也就是 Web Exploit Bench 上，Neon 是 51.3，Opus 只有 37.1。找漏洞的 SEC Bench Pro（口播名）上，它是第一，90%。在 CVE Bench 上找漏洞，Fable 是第一，Neon 第二，大约落后 4 个百分点，但大概便宜得多。所以这是一个非常值得用的模型。</p>
+<p>我的用法是把它放进循环里，让模型轮流跑。比如这里，模型会在 Opus、Hyper 5（口播较快，专名把握一般）和 GPT 6 Soul 之间切换。接下来我会把 Neon 加进很多这样的循环：一天 Neon，一天 Opus，一天 Fable，一天 Astra，一天 Soul。这样跑在代码库上的模型更有多样性，每一个都会发现不同的东西。每个前沿模型，你都应该每周至少在全部仓库上跑一遍。不管你在做什么，进入后 AGI 时代，这都是网络安全的基本功。Neon 应该是你最看好的模型之一：它和 Opus 5.5 非常接近，两者都相对划算。我认为在网络安全上，综合看它强过 Opus，又明显比 Fable 便宜。所以如果你要跑这些循环——我把它们都做成了模板，可以一键加到仓库里。若你有 Cloudroom，就到左上角的 Loops，点模板，开始在自己的仓库上跑，保护你自己和你的代码。</p>
+<p>因为现在的网络安全就是这样：攻击者和防守者都在跑某种形式的智能体。要防住一个带着一群智能体的黑客，唯一的办法就是在自己的代码库上跑前沿模型，让像 Neon 这样的模型循环工作：自己找缺陷，自己找安全漏洞，再自己修补。智能体循环是真正的改变。若你还没当回事，现在就该登录用起来。基本上，它每晚都会跑，扫描仓库里的漏洞；如果什么都没找到，就自行归档。这正是漂亮的地方：除非找到严肃的、真正值得修的问题，否则不会来烦你。找到之后，它还可以验证，用另一个驾驭层里的第二种前沿模型复核，再做一版简单修复，由另一个模型审查，然后自己提交。如果你想留在回路里，也可以自己审。这取决于你希望这些人工智能智能体有多进取。</p>
+<p>我再演示怎么在终端里跑，这大概是最简单的方式。安装好之后打开终端，输入 agy，注意不是别的拼法，这就是 Anti-Gravity CLI 的快捷命令。可以选择颜色之类。谷歌会问你是否愿意通过允许收集交互数据来支持他们，不想开就切换关掉。完成。是否信任这个文件夹？我信任。然后可以用 Shift+Tab 在 auto、plan 和 accept edit 模式之间切换。我不知道他们为什么还留着 plan 模式，别人都在拿掉，可 Anti-Gravity 仍然有。我切到 auto，再用斜杠命令选模型和推理强度：low、medium、high、extra high。这里选 Neon，开 high，发出去。</p>
+<p>我先问它：你有 Higgsfield MCP 吗？它在工作时，终端里显示的推理不像我在 Cloudroom 里看到的那么多。Cloudroom 里可以检查它做过的大量工具调用，不知道为什么终端里不显示。我中断它，改问：你在我电脑上能看到 Higgsfield CLI 吗？它不知为何又切回了 plan 模式，尽管我设的是 auto。是的，已经装好了。于是我说：用 Higgsfield 上最好的人工智能视频模型，做一条 15 秒、关于人工智能产业史的视频，看它能做出什么。结果它还是写了一份计划。这也是我觉得 Anti-Gravity 这套驾驭层不如 Claude Code 和 Codex 优化得好的地方：我根本没提计划，它仍然先做计划。我在 Cloudroom 里用时没遇到这些，也许因为那边默认是完整权限，而且我们做了很多优化，避免它像这样想太多。我还是批准了：16:9，音频自行决定，文件放到下载目录，不要过度思考，用 Higgsfield 把这个做出来就行。</p>
+<p>它终于做完了，花了些时间，我感觉超过五分钟，不是最快的。我觉得 Opus 会更快，不过也要记得，视频生成本身就需要时间。这就是结果，我们看一下。虽然只有 15 秒，但能看出一条故事线：从 1950 年代非常古老的计算机开始，再进入现代，数据中心里是英伟达（NVIDIA）的机柜，然后大概是某种 20 年后的景象，谁知道会不会真长成这样。再往后是奇点，人与神，人造之神。相当狂。不差，配乐我也喜欢。考虑到我们是在 Neon 的 medium 上跑的，已经很不错。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>发布视频对决与老实结论：日常就用 Neon 或 Opus 5.5</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">大卫</span></div><div class="content">
+<p>这是我做的另一项测试，还是对照 Neon、Fable 和 Astra。我让它们为 Cloudroom 做一支发布视频，任务相同，上下文基本上就是去网站看看，可以滚动，也可以自己想办法，然后用 Higgsfield MCP 做片子。先看 Fable：画面是合上笔记本，「你的智能体还在交付」。不差。视频很好，声音却明显是人工智能。这句旁白出现的位置也不好。视频本身很惊人，只能说还行。应用里的界面也不是真正那个样子。「你的智能体还在交付。」音效好，视频好，只是人声出现的时机很怪。</p>
+<p>再看 Astra：「你的笔记本去睡了。」又用了同一副声音，听着还是不对，但风格很不同。开头同样是合上笔记本，后面的画面语言完全两样。「你的笔记本去睡了，你的编码智能体还在继续。」现在是 Neon。我一度觉得 Fable 更好；「活在云里」这种处理，也不太像由岩石构成的云，说不太通。可 Neon 非常不同，而且没有人声。这一题我反而最喜欢 Neon。首先是创意上的独特性，和 Astra、Fable 选的路完全不同；其次没有恼人的旁白。也许换一个配音模型，或再迭代几次，另外两条的人声会好一些。但你可以看到，Neon 非常能打：前面编程测试里的游戏和三维是这样，图像和视频同样如此。</p>
+<p>以下是我此刻对 Neon 的老实看法。它可能是目前性价比最高的干活模型，有点像 Opus。它稍慢一点，但我觉得更强。在很多基准上，它是在彻底碾压 Opus。Astra 在我们的测试里赢了创意方向和缩略图，所以它很怪：编程测试里非常懒，某些缩略图上却是遥遥领先。我不知道 OpenAI 现在是怎么了，但眼下看起来，确实是 Anthropic 和谷歌正在把领先拉开。短任务它肯定会想太多。Opus 的首 token 时延（TTFT, time to first token）更快，所以如果你需要在大约 10 到 20 秒内快速完成一件事，就用 Opus 5.5 的 medium 或 high。我还没看到安全报告。我认为谷歌当时有点在赶，安全上没有想太多，只是想追上，而我对此是同意的。只是推特上已有人找到一些用法，换作其他前沿模型，多半会拒绝。作弊率也很低，这很好。我觉得这才是对齐：这个模型不像别的模型那样爱说谎。完整的模型卡来自 DeepMind，你可以自己读，也可以让你的智能体去读。总体而言，这是一个非常强的模型。</p>
+<p>我非常建议你们把它当作日常模型来用，试一次，不要只沉迷于 Opus 5.5。顺便说一句，如果你现在既不用 Neon，也不用 Opus 5.5，你到底在干什么？这两款绝对是现在最适合当日常主力、当主模型的选择。若你还需要额外火力，可以再多用一些 Fable，或上更大的模型；但 Neon 已经在不少基准上超过 Fable。所以现在的日常主模型，就用 Neon 或 Opus 5.5。用别的，坦白说有点像在作死。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Higgsfield]</span></div>
+<div class="turn spk-0 host" data-spk="david"><div class="label"><span class="badge" title="大卫·翁德雷（David Ondrej）">大卫</span></div><div class="content">
+<p>感谢观看，祝你们有充实、高效的一周。再见。</p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
