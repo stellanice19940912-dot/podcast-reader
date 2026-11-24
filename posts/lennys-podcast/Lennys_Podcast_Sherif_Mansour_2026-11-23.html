@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>为什么「人人都是构建者」行不通｜谢里夫·曼苏尔（Sherif Mansour）的现实检验</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="lenny">莱尼·拉奇茨基（Lenny Rachitsky）</option><option value="sherif">谢里夫·曼苏尔（Sherif Mansour）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Lenny&#x27;s Podcast</span><span class="pill">2026-11-22</span></div>
+<h1>为什么「人人都是构建者」行不通｜谢里夫·曼苏尔（Sherif Mansour）的现实检验</h1>
+<p class="sub">嘉宾：谢里夫·曼苏尔（Sherif Mansour） · 约 82 分钟（4898 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=hRtmV1mCBSE" target="_blank" rel="noopener">https://www.youtube.com/watch?v=hRtmV1mCBSE</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Lenny&#x27;s Podcast</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-22</dd></div><div class="meta-row"><dt>时长</dt><dd>约 82 分钟（4898 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>YouTube 无可用官方或自动 VTT（普通 yt-dlp 报 “The page needs to be reloaded”）；同批 chrome:/home/box/chrome-profile/Fork-3 cookies 路径（约265枚 cookie）同样失败并报页面需刷新；最终用浏览器「Show transcript / 内容转文字」成功，654条线索，覆盖 0:00–1:21:29（末条4889秒／时长4898秒）；caption_source=browser-cdp（不是 yt-dlp-chrome-cookies）；中文为全文翻译并按话题分段；赞助口播已标灰（WorkOS、DX）；说话人按主持／嘉宾问答轮次推断（Show transcript 无说话人标签，中等把握）；ASR 已校正 Phamms 为产品经理，Share／Sharief／Sheriff 为谢里夫·曼苏尔（Sherif Mansour），Lassen／Alassian／Atassian／lasting 为 Atlassian，Jurro／Jura 为 Jira，Robo／rubber／rover chat 与 rover agents 为罗沃（Rovo）聊天与智能体，Enthropic 为 Anthropic，Replet 为 Replit，scam／arbback 为 SCIM／RBAC，works.com 为 workos.com，lennisdata.com／lennispodcast.com 为 lennysdata.com／lennyspodcast.com，Nome／Gnome Sigal 为诺姆·西格尔（Noam Segal），Iet Norny 为林妮特·诺尼（Lynette Noni），balsamic 为 Balsamiq，AP pack 为亚太（APAC），inoff／colloccated 为到岗／同地办公，steal the ship 为掌舵（steer the ship），shed／shared bra 为共享大脑。</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>hRtmV1mCBSE</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>莱尼·拉奇茨基对话阿特拉斯西亚（Atlassian）人工智能与产品工艺负责人谢里夫·曼苏尔（Sherif Mansour）。他在 Atlassian 待了17年，曾是 Confluence 的第一位产品经理，也是公司首位杰出产品经理（Distinguished PM），现在同时负责全公司的产品管理工艺与人工智能产品战略。面对「人人都是 AI 构建者、产品经理快没了」的流行叙事，他用公司内部的实验给出现实检验：吞吐不再是瓶颈，方向才是。访谈还覆盖优秀产品经理如何打造「共享大脑」、总经理／科学家／艺术家三角、为何更要招初级、何时可以从方案出发，以及「把人工智能焊上去」为何常常是对的策略。</p>
+<h3>核心要点</h3><ul><li>优秀产品经理的核心不是独自拍板，而是填补三类上下文缺口——客户、产品与市场、所处业务——打造团队的「共享大脑」；他常说要远离 Jira 待办，把判断依据交给工程师和设计师。2010年 Confluence 的复选框／任务功能，就来自一位工程师在客户访谈里看到红星、绿星后的顿悟。</li><li>产品管理工艺三角由乔夫·雷德芬（Joff Redfern）提出：总经理、科学家、艺术家，很少有人三面都精通。谢里夫自认是偏艺术家型，并与互补的贾米尔·瓦利亚尼（Jamil Valliani）搭档；他拿首席执行官迈克·坎农-布鲁克斯（Mike Cannon-Brookes）当「三面都能做好」的罕见例子。</li><li>Atlassian 把部分产品经理和设计师编进「全员都是 AI 构建者、没有专职产品经理或设计师」的小队：头几周觉得前所未有地快，约一个月后大家回到传统分工。结论写进内部博文《掌舵，而不是划船》：吞吐变便宜了，缺的是掌舵的人。这与莱尼即将发布的就业报告一致——开放的产品经理职位最多，用户研究全球仅约108个空缺。</li><li>招聘上，体验与品味（艺术家型）、能带来新工作方式的人，以及「除了人工智能几乎没按别的方式做过事」的初级，都在上升。他反驳「有了人工智能就不用招初级」：自己12岁的儿子从 Scratch 直接跳到氛围编程。他引用一项内外部研究（博客里写过，口播先说约30%、又说确切约38%）称初级更愿尝试新工具，资深则更擅长识别「人工智能垃圾」并在已用工具上拿到质量。</li><li>两个反常识：有时可以从方案出发——例如先推出罗沃聊天（Rovo Chat）和罗沃智能体做「画布」，再把高频用例产品化；Confluence 白板里把便利贴归组；Jira 与 Confluence 里每月近1000万个在循环中运行的智能体。对已有用户基数的产品，「把人工智能焊到现有工作流上」往往是让客户从人工智能新手走到人工智能原生的正确路径，因为客户已在 Jira 里建模了海量业务工作流。</li><li>要语境、不要热门观点；新经理最常见的错误是过早、过度放手。与有愿景的创始人共事，要先补上对方已经走到「第10章」的上下文；他经验里他们约有99%的时候是对的。若仍不同意，问清谁做决定，对团队同时陈述正反理由。收束时他提醒：你是别人给你机会的产物，问问自己在为谁创造机会。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：做中大型组织产品管理、带团队、或在人工智能时代重新定义产品经理职责的人，会听到大量可执行框架和 Atlassian 内部案例；可跳过：完全不关心产品管理、只想听具体功能演示的人（约1小时21分）。</p>
+<h3>适合人群</h3><p>产品经理、产品负责人和正在用人工智能改造产品组织的从业者</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">开场预告：人人都是构建者为何行不通</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">预告里，莱尼先抛出人工智能兴起后「产品经理要过时了」的说法。谢里夫接着讲述 Atlassian 的一次实验：把部分产品经理和设计师编进全员都是「AI 构建者」的团队，头几周有人觉得比以往任何时候都快，大约一个月后大家却回到了传统岗位。他们的结论是：吞吐不是问题，方向才是，需要更多人来掌舵。莱尼提到外界不断要求产品经理亲自交付代码；谢里夫回应，产品经理往往是最差的方案设计师之一，能用上工具不等于是领域专家，人工智能会同时放大长处和短处。谈到优秀产品经理，他强调他们并不拥有决策本身，而拥有决策速度，核心工作是填补上下文、打造「共享大脑」。招聘方面，他反驳「不必再招初级」：初级会带来不同的工作方式，他12岁的儿子已从 Scratch 直接跳到氛围编程，并觉得这才正常。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">优秀产品经理：填补上下文缺口，打造共享大脑</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">正式开场中，莱尼介绍谢里夫是 Atlassian 人工智能与产品工艺负责人，曾深度参与 Jira 等重要产品，并长期思考如何培养和招聘产品经理。谢里夫认为，在中大型组织里，优秀产品经理最大的工作是填补三类上下文：客户、产品与市场、所处业务，和跨职能团队尤其是工程师一起建立共享大脑，而不是自己做完所有决策。他称在 Atlassian 做过最难的事就是扩展产品团队：超过二三十人，信任和共享大脑会裂开，「我们和他们」的文化开始出现。他常说要远离 Jira 待办——你觉得某张卡片更重要，是因为你有别人没有的上下文，应该把这些依据交给产品工程师、功能负责人和设计师。早期他曾因决策堆积向经理吐槽，对方让他多做战略；他后来明白，规模化的办法是共享大脑，例如尽量不在没有工程师在场时做客户访谈，因为亲历的顿悟和共情远胜一份总结报告。正面例子包括：让工程师试用不同人工智能工具并回来分享、在欧洲一年两度的客户活动中让工程师守展。他也讲了2010年的 Confluence 故事：客户在表情符号出现前就用红星、绿星标记未完成和已完成事项，一位工程师因此提出在文档里放复选框，当时网页文档里放任务还几乎没有先例。产品经理应朝「平等、没有额外职权、靠影响推动」那一端努力，而不是把规格丢出去命令执行。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">产品经理三角：总经理、科学家与艺术家；不必样样精通</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">乔夫·雷德芬（Joff Redfern）加入后提出「产品管理工艺三角」：总经理、科学家、艺术家，代表更自然的产品发现方式。科学家以假设为驱动，常见于增长和 A/B 测试；总经理看 TAM、利润和收入；艺术家受愿景、体验和情绪牵引，往往先画方案再倒推问题。问「你最喜欢的产品，怎样把它做得更好」，常常能看出对方落在哪一边。很少有人三面都真正精通，但基本水平上三样都能做的人，很适合从零到一或创业团队；组织变大后，才有余力让人专盯某一类工作。类型与项目不匹配，是很多人「突然失灵」的原因，换对项目后往往能恢复能量。谢里夫自嘲是「最差的总经理型」，却在高管团队负责人工智能和产品；他公开短板，是为了给别人安全空间。他选择朝天生擅长的方向狂奔，并与完全相反的贾米尔·瓦利亚尼（Jamil Valliani）互补搭档。早期要做「职业发现」，公开庆祝短板，同时守住会议、战略和品味的基线。他强调不必成为史蒂夫·乔布斯；像首席执行官迈克·坎农-布鲁克斯（Mike Cannon-Brookes）那样，既能指出投影偏了五个像素和边距问题，又能推翻商业模式、从数据里看出别人没看到的东西，这样的人极其罕见。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">职业跃迁：早期、资深产品经理与经理分别要突破什么</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">对早期产品经理，谢里夫认为最关键的解锁是：在恰当时机，给他们一个刚好高出当前水平、且专门发挥其长处的机会。他举例曾意识到一位叫蕾切尔（Rachel）的同事更偏科学家型、而产品已进入增长，于是自己退下让她接手。他在 Atlassian 待了17年，公司成长不断带来能发挥他长处的新机会，领导者的工作就是看见并传递这种机会。给还在早期的听众的信号是：当有人具体称赞你在某类项目上的表现，就去分析那种工作，并向经理表明你想做更多类似的事，也可以用三角框架说明自己的位置。到了 L6 或刚做经理的阶段，他觉得人往往已找到节奏，「加速」不一定等于升级数，也可以是去尝试完全不同的事。他提到团队里一位刚庆祝入职十年的同事，长期深耕人工智能等领域的定价与包装，并持续在业务里寻找同类工作。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">人工智能时代为何更需要产品经理：方向才是瓶颈</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">莱尼预告即将发布的科技就业市场报告：在人工智能时代，开放的产品经理职位比任何其他角色都多，工程师职位在放缓，设计非常平坦，用户研究全球大约只有108个空缺。这与「产品经理要过时了」的旧叙事正好相反。谢里夫用 Atlassian 的实验回应：他们组建几支全员都是 AI 构建者、没有专职产品经理或设计师的小队，头几周速度惊人，约一个月后大家回到传统分工，因为吞吐正在变便宜，方向才是问题。他为此写了内部博文《掌舵，而不是划船》。细微差别在于：创业公司或大组织里的从零到一项目，人人都上手构建是合理的；但当团队有几十、成百上千名工程师时，缺的是掌舵的人。莱尼把它概括为：人人都能构建带来混乱和大量原型，现在更需要对齐、判断「这是否够好、能否打到目标」。谢里夫用 Balsamiq 线框图时代类比：工具让人人都能画线框，并不使人人成为方案专家；人工智能同样会放大长处和短处。他用文氏图形容：各工艺的圈子都在变大，但并没有重叠成一个，专业化对质量和品味仍然必要。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">产品经理该怎么用人工智能；招聘里什么在升、什么在降</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">莱尼给出光谱：一端是产品经理开始交付生产代码，另一端是完全不碰人工智能。谢里夫把答案接回起点——产品经理拥有的是决策速度，先问怎样让团队更快，再问人工智能能否帮忙。正确做法是先识别上下文缺口：若缺的是客户共情，就让团队参与并加速补上；若是愿景不清，原型可能有用；若是市场动态不清，可以派智能体做分析并和团队一起消化。在多数中大型团队里，生产代码已不是需要再加速的瓶颈，除非是创业公司或全新小队。谈到招聘，他在较大组织里看到上升的是更偏艺术家型、以体验为导向的人，因为当人人用上同样的智能，品味更重要。第二是能带来新文化、改变人工智能时代工作方式的人；面试要问到「用它做摘要」之下，看他们能带来哪些新的工作方法。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">为何更要招初级，以及如何早期识别「艺术家」气质</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">第三件上升的事与流行叙事相反：去招那些除了人工智能几乎没按别的方式做过事的初级。谢里夫认为，让成熟员工忘掉旧方法再学新方法很难；大学刚出来的人、以及他那个从 Scratch 直接跳到氛围编程的12岁儿子，把新方法当成默认。初级不擅长识别「人工智能垃圾」，资深却一眼能看出来，因此要组建互补队伍。Atlassian 因此更偏向多招初级。他们还办「AI 构建者周」，各工艺同时停下来摆弄工具：年轻人爱展示酷炫演示，资深更抓评测和质量，这本身就是多样化团队的价值。助理产品经理同期背景多样，有艺术学位，也有法律与科技背景。他提到一项内外部研究（发过博客，口播先说约30%、又说确切约38%）：初级更愿采用新工具，资深则在已用工具上质量更高。艺术家型常从愿景和方案倒推，是数据知情而非数据驱动；拿起白板笔就画、原型更顺，是早期信号。即便没有领域经验，助理产品经理的 Loom 作业也能看出差异：有人先讲 TAM 和商业论证，有人走完端到端旅程并谈愉悦点。他用一双儿女的自然偏好说明天性与教养都在。设计职位停滞，莱尼怀疑产品经理补上了缺口；谢里夫的主要假设是市场还没真正意识到体验将更重要。他强调在 Atlassian 工作17年来，设计对路线图的驱动从未如此关键，并半开玩笑说：现在就该「趁低买入」设计师。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">何时可以从方案出发：画布、牛路与已有资产</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">产品经理常被教导绝不要从方案出发。谢里夫认为「先问问题是什么」仍然值得问，但有时从方案开始反而是发现机会的最快办法。三年前 Atlassian 做罗沃聊天（Rovo Chat）和罗沃智能体时，曾争论要不要给通用画布，还是直接做「总结」之类的功能按钮。他们后来发现，先给画布，再把高频用例产品化，往往更快：例如 Confluence 白板里用聊天给便利贴归组，体验很差，于是做成可选中便利贴再自动归主题的功能。另一个数据是：Jira 与 Confluence 里每月在循环中运行的智能体已接近1000万个，用于分诊、生成代码或审阅合同等；有些会继续留给客户自建，有些则做成原生能力，比如人工智能分诊。他称之为「给牛走过的路铺上路面」。第二条路径是产品战略：先看今天已有的资产和方案，再回答在哪里竞争、如何取胜。他举亚马逊书店为例——杰夫·贝佐斯（Jeff Bezos）从已经极其庞大的库存出发，问还有什么也需要这种规模，于是走向「万物商店」。莱尼这才知道 Confluence 白板，功能类似 Miro 或 FigJam，可嵌入文档、加智能体、把便利贴变成 Jira 工单。谢里夫也提醒：有了人工智能，团队更容易躲在仪表盘后，和真人交谈反而变少了。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">「把人工智能焊上去」为何常常是对的策略</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">抓人标题常说：不要把人工智能焊进产品，要重新想象工作流。谢里夫同意应该做重新想象的练习，但若已有成熟产品和数百万用户，更好的办法往往是理解现有流程，再把人工智能焊上去，而不是从头重写。客户已在 Jira 里建模了海量业务工作流，而且远不止软件团队：应用商店审批、向电信公司投诉，都可能走 Jira 工单。公式是：先看产品里有哪些人类工作流，刚性的或非正式的，再问智能体可以在哪些步骤上创造价值或提高效率。他们在 Jira 工作流的列和卡片上加入智能体，让其在循环中运行、价值可被衡量；不行就把智能体拿掉，或改进评测。对已有用户群，产品团队的工作是帮助客户从人工智能新手过渡到人工智能原生。从营销上你不会说「焊上去」，但字面上他们就是这样做的。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">要语境、不要热门观点；管理者为何仍重要</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">谢里夫希望这场对话带来更多细微差别：每一条产品建议，大概都有完全相反、却同样有效的建议，关键是理解它在什么语境下成立。例如从零到一项目适合 AI 构建者，但多数已有开发者的组织，问题仍是船要驶向哪里。他回忆刚进 Atlassian 时 Confluence 还没有产品经理，靠的是「产品工程师」，他为此写过博客——他们是共享上下文的拥护者，能帮助产品经理规模化。莱尼介绍 lennysdata.com 上的播客文字记录 MCP，以及诺姆·西格尔（Noam Segal）做的、能展示每场争论两边的工具，并请谢里夫留下想进入这个数据集的话。谢里夫再次列举误解：人人都是构建者、所有产品经理都一样、产品经理做所有决策，以及「要参与高管层战略就必须当管理者」。Atlassian 已有多位杰出产品经理和工程师在高管层工作，并支持个人贡献者与管理者双轨，也可按阶段切换。莱尼认为「不再需要管理者、或管理者必须同时做个人贡献者」并不对，做好管理很难同时做有分量的个人贡献工作。谢里夫说公司两种模式都有：管理幅度下限一般三到四人，大多数约八九人；有人少带人并负责项目，有人多带人、更多做教练。新经理最常见的错误是放手太快、太彻底；最优秀的管理者会走进评审，和团队一起探索选项、把结果做成，而不是以为忘了给智能体写上「要简单」就够了。创造空间是对的，但团队喜欢看到管理者以身作则。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">与有愿景的创始人共事，以及意见不合时的透明框架</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">谢里夫常用看电影作比：强愿景型创始人已经看到第10章，你可能还在第3章，团队还在第1章。这时最危险的是毫无信念地执行命令。就他的经验，这些想得极深的人约有99%的时候是对的，你的工作是追问「你是怎么得出这个结论的」，尽快补上上下文缺口，再带着其他人走。他提醒不要简单把这归成「薪酬最高的人的意见」（HIPPO）；在企业级 B2B 里，一个人在领域里做了多年，和每处只待一年，是不一样的。若追上顿悟后仍不同意，要把分歧说出来，并问清：这是你的决定还是我的？谁拥有决定。对方其实经常说「我不同意，但希望由你来决定」；即便不同意，也要支持并往前走。对团队则同时陈述正反理由和取舍，不点名个人，并主动代表房间里那个相反论点。最优秀的产品经理能反驳自己；他在评审里爱问「我们为什么不要做这个」。莱尼提到达什·肖（Dash Shaw）的 flash tags 框架，用 #FYI、建议、推荐或恳求来标明力度。谢里夫说 Atlassian 创始人也会讲「这是很强的观点，但不是我的决定」，可干系人并不总是打标签，产品经理要在房间里问清信念强度：这是将继续探索的坚定信念，还是仅作输入、由团队自己决定。收束时他请听众分享带语境的故事，并问：你在为谁创造机会？因为你自己也是别人给你机会的产物。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s12">
+<div class="sum-top"><span class="sum-num">12</span><span class="sum-title">闪电轮：童书与地图里的 Gemini，以及开放文化</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">闪电轮里，谢里夫最常和孩子们读《监狱治疗师》（The Prison Healer，作者林妮特·诺尼）和《翼羽传奇》（The Wingfeather Saga）；他自己则常读《圣经》，在人工智能走向不确定时获得踏实感。最近喜欢的影视是《Hail Mary计划》（Project Hail Mary），莱尼补充自己一位远房表姐在片中饰演俄罗斯科学家。他因近因偏差提到的人工智能产品，是澳大利亚和 Apple CarPlay 里加入 Gemini 的 Google 地图：人不用离开地图就能按行程做问答游戏，至少让孩子们离开屏幕半小时——莱尼笑称这正是「把人工智能焊到已有工作流上」。座右铭是把个人与职业身份解开；他和附近的电工、砖瓦匠一起打球，提醒不要把工作当成全部身份。莱尼引用「唯一会记得你加班到很晚的，是你的孩子」。镜头后是妻子把多件有故事的 Atlassian T恤拆开、缝成的生日纪念牌，涉及 Confluence Questions、第一支质量保障团队、越南办公室等；他为公司20周年走过110件衬衫并做成 YouTube 视频。谈到文化，Atlassian 的价值观包括「开放的公司」，高管评审通常会录下来放进 Loom，可搜索、提问，也可用智能体梳理。他有一个正在由数据科学家验证的假设：远程的人可能比同地办公的人更能从人工智能拿到成果，因为远程会写得更多、分享得更多。莱尼补充，自己报告里远程工作已在各行业大致停滞于10%到20%。最后谢里夫请听众遇到「不该再招初级」这类抓人标题时，先问它在什么语境下成立，再决定要不要放大。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">莱尼·拉奇茨基（Lenny Rachitsky）<em>主持</em></span><span class="spk-1">谢里夫·曼苏尔（Sherif Mansour）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>开场预告：人人都是构建者为何行不通</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>人工智能兴起之后，很多人说：产品经理要过时了，我们不再需要他们。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>有一段时间，尤其是大约一年前，流行的叙事是「人人都在成为 AI 构建者」。我们把一部分产品经理和设计师编进一支团队，全员都是 AI 构建者，没有专职的产品经理或设计师。</p>
+<p>我记得头几周去跟其中一位产品经理对一下，他说：「太不可思议了，我们比以往任何时候都快。」大约一个月后他回来说：「大家都回到了各自的传统岗位。」我们这才意识到，吞吐不是问题，方向才是问题。我需要更多人来掌舵。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>尽管我们不断听到这种说法：产品经理应该交付代码，应该亲自上手构建。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>产品经理其实是世界上最差的方案设计师之一。你能用上某个工具，并不意味着你就是那个领域的专家。人工智能非常擅长放大你的长处，同样也会放大你的短处。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>你花了很多时间思考，怎样才算一位优秀的产品经理。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>他们并不「拥有」决策本身。产品经理拥有的是决策速度。他们工作里最大、最重要的部分，其实就是在填补上下文。最优秀的产品经理，会在任何规模的产品或软件团队里，想着如何打造一个「共享大脑」。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>你在招聘产品经理时，哪些要求正在上升？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>这话可能有点冲。我经常要打破的一个误解是：你再也不需要招初级了。他们会给团队带来不同的工作方式。我12岁的儿子用「氛围编程」（vibe coding）给自己做游戏。他从 Scratch 直接跳到了氛围编程，中间整个语法那一套都跳过了，而且觉得这才是正常的。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>优秀产品经理：填补上下文缺口，打造共享大脑</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>谢里夫，非常感谢你来到这里。欢迎来到节目。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>能来真的太好了，谢谢你邀请我。我是长期听众、第一次上节目，感觉有点不真实，但很高兴能在这里。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>我经常听到这句话。你是阿特拉斯西亚（Atlassian）的人工智能与产品工艺负责人，你和团队打造了产品领域里一些最重要、最有影响力的产品——Jira，听说过吗？你这份工作里很特别的一点是：你花大量时间思考怎样才算优秀的产品经理，如何培养他们、如何招聘他们，把很大精力放在产品管理这门工艺和这项技能上。我就问一个大问题，看能谈到哪里。</p>
+<p>在任何中型到大型组织里，怎样才算一位优秀的产品经理？我特意把范围放在这里，因为我觉得这和创业公司很不一样。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>我觉得，他们工作里最大、最重要的部分——用眼下人人都爱说的词「上下文」来讲——就是在填补上下文。他们在给人类填上下文，现在大概也在给智能体填。他们明白，把产品往前推的最好办法，并不是自己把所有决策都揽下来。</p>
+<p>这是我很喜欢打破的一个流行误解：产品经理做所有决策。其实关键在于，你能不能和跨职能团队、尤其是工程师，一起建立一个共享大脑。我常跟团队说，有三类上下文：客户上下文，产品与市场上下文，以及你所处业务的上下文。你要一直在填补这些缺口。</p>
+<p>莱尼，有人前几天问我：你在 Atlassian 做过最难的事是什么？毫无疑问，就是扩展产品团队。一旦规模上去，什么都会裂开：信任会裂，共享大脑会裂，「我们和他们」的文化开始形成。任何超过二三十人的规模化组织，都会碰到这个。所以，作为一个集体，在这三类上下文上建立一个共享大脑就变得关键——因为只要把上下文交到每个人手里，他们就能走得更快。</p>
+<p>我常对产品经理说：你的工作是远离 Jira 的待办列表。他们会说：「等等，你在 Atlassian 工作，怎么能这么讲？」我说先听我说完。远离你的待办，是因为：你为什么觉得这张卡片比那张更重要？一定是你脑子里有些上下文，团队其他人没有。那你怎样把这些上下文交给产品工程师、功能负责人和设计师，让他们自己就能做这些判断？</p>
+<p>当然，你可能永远没法把自己「做没」，但你始终在填补上下文缺口。今年可能是愿景缺口，下个季度可能是客户缺口，也可能是格局缺口。你一直在补上下文。我想，最优秀的产品经理，就是那些在任何规模的产品或软件团队里，都在想着如何打造共享大脑的人。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>这个建议有一个很大的含义，因为我觉得很多人不会认为这就是「优秀产品经理」的定义。这是一个很有意思、也很独特的看法：你的工作是给团队提供上下文，而不是自己做决策。你甚至说过，产品经理的工作不是做决策，而是帮助团队做出更好的决策，途径就是给他们上下文。</p>
+<p>也就是说，你的工作是让团队掌握全部信息，从而大家都能做出正确决策，而不是由你去说服他们，或由你来当决策者。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>对。我记得职业生涯很早的时候，我坐下来跟经理说：这太疯狂了，我要做的决策太多了，团队都卡在我这里，这个方向、那个方向，都等我。我连着吐槽了大概十分钟，她看着我，我能感觉到她其实目光都穿过我了，没怎么在听，然后说：「谢里夫，你只要多花点时间在战略性的事情上。」我说：那这些事你哪来的时间？我光是规划冲刺、想下一步做什么，就已经忙不过来了。</p>
+<p>后来你会明白，让你和团队都能规模化的最好办法，就是确保每个人都有一个共享大脑。很简单的例子：我尽量从不在没有工程师在场的情况下做客户访谈。否则你只是在自己脑子里建上下文。当然，我可以自己做访谈，再让智能体把内容总结出来交给别人，说「这是发现」。可如果你和我坐在同一通电话里，莱尼，你自己产生的顿悟、你对客户建立起来的共情，要比有人递过来一份「客户发现报告」强上一面。</p>
+<p>这就是在填补客户上下文，而且要想办法让更多工程师因此感到有权做判断。产品和战略上下文也一样：你可以让团队一起做愿景、一起看市场格局、一起试用不同工具，而不是一个人做完，再从山上下来把指令交给大家。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：WorkOS]</span></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>我很想再听一些实际例子：怎样做会做得很糟，以及产品经理怎样才能把上下文分享做得特别有效。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>如果你觉得某件事比另一件更重要，先问自己：我为什么得出这个结论？把你的思考倒过来拆一遍，看看是什么让你意识到这一点，以及你正在告知的那个人为什么不知道。可能是因为他们没有那些定量或定性的数据点，没有参与其中；也可能是因为他们没在那些会上，手里没有那份信息。你要一直想：我能做些什么，带大家一起走这段旅程。</p>
+<p>最好的设计师就是一个很好的例子：他们不一定是把设计交出去就完了，而是让团队一起共创、一起探索概念。他们之后也许会把这些收束、打磨、完成，可一旦团队参与了这个过程，他们的顿悟会完全不一样。</p>
+<p>再举一个例子：前几天有位产品经理，让团队里每位工程师都去试用不同的人工智能工具，回来讲哪些有用、哪些没用。这通常不是我们会做的事，我们可能会说「让产品经理或设计师去试就好」。可把每个人都拉进过程里，影响非常大。</p>
+<p>我们刚结束一场在欧洲举办的、一年两度的客户活动。我们会尽量把工程师带到展位上，让他们和我以及其他人一起守展，直面客户、听反馈。这些都是一起建立共享大脑的方式。</p>
+<p>当然，每个项目开头，你可能还是自己做决策、把事情先推动起来，但作为产品经理，你的工作始终是：我怎样从这件事里退开？怎样在愿景上取得更好的对齐？他们把这件事放进路线图，我不同意——我为什么不同意？也许是我有一些战略信念，还没有和团队建成共享大脑；也许是我错了、他们对了。你要一直去找缺口在哪里，再用什么样的活动把缺口补上。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>很有意思。可以把它想成一个光谱：不同公司里产品经理的运作方式不一样。一端是他们就是老板，做所有决策，基本等于团队的管理者；另一端是他们完全平等，在决策上没有任何额外权力。你觉得产品经理应该处在光谱的哪一端？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>他们应该始终朝着「平等、没有额外权力」那一端去努力。再想想，理论上产品经理本来就没有下属。一个在小队里工作的产品经理没有向他汇报的人，必须在没有职权的情况下施加影响，这是定义使然。</p>
+<p>这里有两种运作模式：一种是「我把规格交出去，你就按规格做」；另一种是「我要让大家都认同这个愿景，我们一起做」，直到最好的工程师几乎会主动提出用怎样的功能来解决客户问题。</p>
+<p>我很喜欢讲一个旧故事。那是2010年，我还在做 Confluence。我们见到一组客户——那时表情符号甚至还不存在——他们已经在 Confluence 页面里插入各种小图标。如果你只看定量数据，可能会想：人们在用这些图标，那我们就多做一些图标、给更多样式就好。</p>
+<p>可在其中一次客户通话里，我们特别注意到，他们会在会议记录里放红星和绿星，而且多家客户、不同体系里都有类似做法。我们问为什么。他们说：红星是还没做的事，绿星是已经做完的事。当时一位工程师开完会就说：我们为什么不直接在 Confluence 页面里放一个复选框，让他们在应用里把这件事做完？</p>
+<p>别忘了，那是2010年，当时还没有人在网页上这样做，在文档编辑器里放任务还不是一个已经存在的概念。她只是因为观察客户时有了顿悟，就把这件事做出来了。否则我们不会得到这个。这类例子还有很多。当他们被带进这段旅程，你其实是在让他们在各自的领域里成为「迷你产品经理」。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>产品经理三角：总经理、科学家与艺术家；不必样样精通</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>我知道你还有一套框架，用来思考产品经理的原型：有「艺术家」型产品经理，还有另外几种。很多人一听到产品经理，就以为只有一种人。其实成为成功的产品经理，可以有不同的路。请谈谈这套框架。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>我们有一套框架，其实是乔夫·雷德芬（Joff Redfern）加入公司后创建的，他分享给我，后来我们就一直沿用。外面有很多种产品经理框架，我觉得你选一套并坚持用，就会有用。他称之为「产品管理工艺三角」：一边是总经理，一边是科学家，一边是艺术家。三角形的位置，代表你更自然地会怎样做产品发现。</p>
+<p>比如，科学家型产品经理会非常以假设为驱动，可以想成增长团队，会做大量 A/B 测试。总经理型会更多从 TAM、业务、利润和收入这些角度看问题。艺术家型则更受情绪、愿景和体验牵引。</p>
+<p>我觉得这套框架很有帮助，因为经典做法「随便往团队里扔一个产品经理」并不是正确的事。不要往问题上堆人头，而要先想：我们要的是哪种产品经理，怎样把他和这项工作更好地匹配起来。</p>
+<p>我们在校准、比较产品经理时会大量用它，招聘时也是。你会问一个很普通的问题，比如「你最喜欢的产品是什么，怎样把它做得更好」。从他们的回答里，往往能看出他们落在三角的哪一边。</p>
+<p>总经理型把「怎样做得更好」答成：这里有一个新的商业机会，TAM 有这么大，我要去衡量，诸如此类。科学家型会从一个假设出发，说可以测试这些不同变体。艺术家型则会先画出某种视觉上的愿景，再倒推问题是什么——他们往往先有一个想呈现的方案体验，因为直觉、使用感受或其他原因，他们在情感上被那个目的地牵引，然后往回做。</p>
+<p>所以当有人说「这个团队需要一位新的产品经理」时，我会问：我们要看的是哪种工作？更需要艺术家、科学家，还是总经理？也有产品经理会说「这三样我都想做」。现实是，我职业生涯里很少见到三样都能真正做好的人。</p>
+<p>不过，很多人可以在一个基本水平上三样都做，这对从零到一的项目、创业公司之类非常宝贵——你需要什么就做什么，才能拿到结果。这种文化在较小的从零到一项目或创业团队里很常见。公司越大，你越有余力去说：我们需要有人专心盯这块产品、这个领域的增长指标。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>我喜欢这套框架，原因有很多。第一，它说明你可以以不同方式取得成功，不必成为某一种特定的产品经理。第二，它也能解释你现在为什么过得很难、甚至在失败：你可能只是对当前这支团队来说，类型不对。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>莱尼，我遇到过太多次了：有人在某个项目上找不到节奏，换一种类型的项目后就反弹回来，重新有了能量。这样的例子我可以举出很多，而且经常发生。经典做法就是找到最适合那个人的工作。这不是往问题上堆产品经理人头。谁能想到，多样化团队到现在依然重要？我们需要怎样的人，他们如何与其他人互补，要做的是怎样的工作，你要按这些来匹配。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>我知道你还有一个我也很认同的看法：你不必样样精通，作为员工如此，作为产品经理也是如此。相反，要搞清楚自己擅长什么，并把精力放在那里。这和这套框架是连在一起的。请展开讲讲。我觉得这也是很多人相信的一个迷思。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>说起来也有点私心，莱尼，这会让我自己好受一些。Atlassian 内部的一个常年玩笑是：我大概是有史以来最差的总经理型。如果事情是经营业务，千万别交给谢里夫。可我现在在高管团队，是人工智能负责人，也在管产品。我很喜欢大家可以拿这个开玩笑，因为这会给其他人一个安全空间，让他们也愿意公开自己的短板。</p>
+<p>人们碰到短板时，通常有两个选择。一是努力把那件事做好。可有时这涉及左脑右脑、天性和教养的问题，你可能要付出比别人多得多的努力。我发现在职业生涯里更有用的做法——我也曾试过「我要把那项补上」——其实是找到自己擅长的事，不顾一切地朝那个方向冲，先把其他事放下，再在身边组建一支能补上其他能力的多样化团队。</p>
+<p>我是非常偏艺术家型的产品经理，可我负责 Atlassian 的人工智能。我有一位互补的搭档贾米尔·瓦利亚尼（Jamil Valliani），他和我完全相反。我们在一起是非常好的团队，我很感谢他：在我的短板上他闪光，在他的短板上我闪光，合在一起就很强。</p>
+<p>所以我常说，如果你还在职业生涯早期，尽量多试不同的事去发现自己——我们做产品发现，你也应该做职业发现，发现自己天生擅长什么。然后你有两个选择：把它补均衡，或者继续朝天生擅长的方向跑。我的建议始终是：朝你天生擅长的方向跑，并公开庆祝自己的短板，这样才能组建互补的团队，也给其他人一个可以同样分享的安全空间。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>我认同，重要的是你不能在某些事上很糟糕。大概有一条基线：会议要够好，战略要够好，艺术家那种品味也要够好，但你不必在每个类别里都做到最好。对吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>对。这又是一个误解：人人都想成为史蒂夫·乔布斯那样，好像自己什么都擅长。莱尼，别误会，公司里确实有少数人做得到。我会拿我们的首席执行官、联合创始人迈克·坎农-布鲁克斯（Mike Cannon-Brookes）当例子。他会跟你做战略评审，指出你的投影为什么偏了五个像素、左边的内边距和外边距不对；然后告诉你商业模式完全错了，并把它翻过来；接着再把数据里外看一遍，讲出一些你完全没意识到的东西。这样的人极其难找。但绝大多数人，找到自己擅长的领域，并一直在那个领域走下去就好。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>职业跃迁：早期、资深产品经理与经理分别要突破什么</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>那我问你：当你辅导职业生涯早期的人，以及更后期的人，如果只能选一两个最常见、能让他们突然加速的「解锁点」，会是什么？先说早期，再说更后期，在产品管理这个方向上。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>在恰当的时机，给他们一个刚好高出当前水平的机会，这一点非常关键。而且这个机会必须非常刻意，要专门发挥他们的长处。</p>
+<p>比如我想起一位曾和我一起做某款新产品早期工作的产品经理，那是几年前我们上线的。我意识到她当时更偏科学家型思维，而产品已经进入增长阶段，我可能不是带这块的最佳人选，于是我退到一边，对蕾切尔（Rachel）说：这块工作或许该由你来接手。</p>
+<p>所以关键是：你要清楚每个人处在旅程的哪一段，也能看见他们想去哪里、擅长什么，然后等待合适的机会。作为领导者，你的工作就是看见这个机会出现——也许是把他们调到另一个团队，或其他安排。这就是给人机会的甜蜜点。</p>
+<p>我很幸运在这里待了17年。每次我环顾四周，因为公司一直在成长，总会有新的机会，而这些机会恰好能发挥我的长处。同样地，我也该为我团队里的人做这件事，把机会传下去。在业务内部识别机会，是一件非常重要、却不太被充分谈论的事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>如果一位早期产品经理在听，他们会想：我该寻找怎样的机会，才最可能加速自己的职业发展？有哪些信号说明这是一个可能加速职业生涯的好机会？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>很可能是从有人告诉你「这件事你做得很好」开始。这通常是个好信号，说明那类工作是你擅长的。如果你感觉自己找到了，而且人们特别喜欢你在某个项目上的表现，喜欢你在某个领域带领增长的方式，或喜欢你解决某个客户问题的方式，那就去分析那种项目：我当时是怎么做的，为什么有效。下一步再问：还有哪些类似的项目我可以去做，并把这告诉你的经理。</p>
+<p>我常跟大家说，和经理的一次高质量谈话可以是：拿出一套框架，比如说「我觉得我在这个三角里处在这里」——用哪套框架都行，外面有很多。无论你还在探索，还是想在已经擅长的事情上变得更好，都告诉他们：我想做更多这样的事，我想要下一个机会。这本身就是你能为自己迈出的很大一步。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>那比如说一位高级产品经理，L6，甚至刚做经理不久的人，从那个点再往前，最常见的加速解锁是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>我觉得到了 L6，你其实已经找到了自己的节奏。所以你面临的决策也许不是「加速」——如果你说的加速是指升职加薪的级数。也许你想走多样化的路，去尝试完全不同的事。你也可以说那算不算加速职业生涯？我仍然认为那是在加速职业生涯。当然，你也可以继续追逐同类工作，这一点同样关键。</p>
+<p>就在昨天，我们刚庆祝团队里一位女士在 Atlassian 工作满十年。她找到了自己真正擅长的工作，负责我们在人工智能等领域里大量的定价和包装，而且做得非常好。她不断在业务各处找到与此对齐的工作，继续追逐这类事，因为她知道自己在这上面做得很好。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>人工智能时代为何更需要产品经理：方向才是瓶颈</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>好，我想谈一件刚出炉、我还没跟任何人分享过的事。等这期播出时，这份报告大概已经发布了。我在做一份科技就业市场现状报告，一年会做几次，大概做过三次，主要看科技行业的招聘趋势，包括产品、工程、设计等。</p>
+<p>眼下最有意思的一个结论是：在人工智能时代，产品经理似乎受益最多。我们看到，开放的产品经理职位比任何其他角色都多。工程师的开放职位其实在放缓，设计非常平坦，情况不太好看。用户研究则相当糟糕：目前全球科技公司大概只有100个开放的用户研究职位，确切地说是108个。</p>
+<p>有意思的是，人工智能刚兴起时，很多人说产品经理要结束了，不再需要他们，把他们去掉就好。结果出人意料，这反而是眼下最兴旺的角色。我其实发过帖子预测过这一点，现在感觉挺好。那我问你：你觉得为什么会这样？为什么产品经理在人工智能时代反而表现这么好？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>莱尼，有一个误解我已经试着打破很久了，对我们的客户、在 Atlassian 内部都是如此，我也为此写过文章。有一段时间，尤其是大约一年前，叙事好像是人人都在成为 AI 构建者。如果把「AI 构建者」定义得更清楚一点：就是把大部分时间花在用人工智能构建软件的人，而且有人觉得只要有 AI 构建者就够了，各种角色正在合成一个。</p>
+<p>我可以分享一个内部案例，也许能给你的数据点做个补充。我们当时想：也许趋势真的是往这边走，那就把它当成一门工艺来看，试着组建几支「AI 构建者」小队。我们把一部分产品经理和设计师调进几支这样的团队，去做产品，全员都是 AI 构建者，没有专职的产品经理或设计师，只是他们来自不同工艺背景。</p>
+<p>我记得在一次一对一里，去跟其中一支团队的一位产品经理对进度。头几周他说：太不可思议了，你一直在构建，感觉好极了，我们从未移动得这么快。早期真的非常惊人，好像人人都要成为 AI 构建者。我当时想：哇，真的会走到这一步吗？大约一个月后他回来说：大家都回到了各自的传统岗位。我说：这是什么意思？</p>
+<p>事后听起来非常显而易见：我们意识到，吞吐不是我们的问题，方向才是我们的问题。吞吐正在变便宜。我为此写过一篇内部博文，叫《掌舵，而不是划船》（Direct the ship, don&#x27;t row it）。当时有很多产品经理来问我们：我该写代码吗？我需要会写代码吗？我们确实有不少产品经理以某种方式提交过代码。但有一个重要的细微差别：如果你在创业公司，大家跑得很快，每个人都需要什么都做，这一点我完全认同；或者在一家大公司里做一个从零到一的项目，也可以。可当你有成百上千、甚至上万名工程师，或者至少有几十名工程师时，你的问题是方向，而不是你能多快把东西做出来。</p>
+<p>所以，真正在帮助大家掌舵的人，而不是更多吞吐，才是关键。我想这大概能支持你看到的结果，莱尼：吞吐更多了，所以需要更多人来掌舵。这可能正反映在你们看到的、产品经理招聘增加的数据上。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>这个回答太好了。我能想象很多人听着会一直点头，觉得正是如此。尽管我们不断听到「产品经理应该交付代码、应该亲自构建」。我想顺着几个方向往下谈。</p>
+<p>如果把你的话再落实一层：人工智能让任何人都能构建，于是带来大量混乱、大量原型和大量想法。而数据大概在说明的是：现在缺的是——我们到底在做什么？大家需要对齐，需要更多认同，需要产品经理最擅长的那些事。还有：这个东西够好吗？是不是我们想要的？能不能打到目标？现在想起来，这一切都说得通，所以我们才需要更多产品经理。有意思的是，我们原来以为会是相反的结果，对其他工艺也曾有过类似的判断。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>莱尼，我猜你大概经历过 Balsamiq 线框图那一波，对吧？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>当然经历过。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>当时的承诺是：人人都能做线框图，线框图变得很容易。那还是在人工智能原型和 Atlassian 这些之前。Balsamiq 爆发了，我们用过一大堆线框工具，好像把线框图给解放了。我在 Atlassian 的那一时期学到了很多。</p>
+<p>我学到的第一点是：是的，人人都能做原型或线框。可实际上，产品经理往往是世界上最差的方案设计师之一。你能用上这个工具，并不意味着你就是这个领域的专家。当然，有些产品经理，尤其更偏艺术家型的，线框会明显做得更好。人工智能非常擅长放大你的长处，同样也会放大你的短处。</p>
+<p>所以在那个世界里我们学到：专家和专业化仍然重要。你只能让人工智能做到与你在该专业上的认知相当的水平，因为你得会提示它。我们在线框图时代看到了这一点，现在在原型时代又看到了：人人都能生成，这当然很好，也确实能加快决策。但我在所有产品经理和设计师身上看到的是：每个人的圈子都在变大。可以把它想成文氏图，这些圈子并没有重叠到一起，只是同样在变大。既然是同样变大，它们就没有被压缩。要提升最终出来的质量和品味，专业化仍然需要。这一点也常常被忽略。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>产品经理该怎么用人工智能；招聘里什么在升、什么在降</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>我喜欢这个。这里又有一个有趣的光谱。一端是：产品经理现在就是工程师，交付生产代码已经是你工作的一部分。另一端是：干脆别碰人工智能，继续做你以前做的事。你花了很多时间思考职业阶梯、校准，以及成功的产品经理该是什么样子。那么，你觉得产品经理在用人工智能做原型、是否该交付代码这些事上，现在怎样才算合适？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>我会把它接回到最上面，莱尼：他们的工作是确保团队能走得更快。他们并不拥有决策本身，产品经理拥有的是决策速度。所以他们在想：我怎样帮团队更快地推进。第二个问题才是：人工智能能不能在其中任何一件事上帮到我。我觉得这才是对的心态。</p>
+<p>比如说，你意识到客户共情和客户认知是一个很大的问题，是团队的一个上下文缺口，他们因为不理解这个人设和那个人设，没法做出正确的微观决策。那你大概会想：怎样让他们参与到过程里，同时怎样用人工智能加快补上这个缺口。</p>
+<p>我会回到起点，先看你今天的团队：哪些地方感觉没咬合好，缺口是什么，再看人工智能能如何帮忙。是因为愿景方向不清吗？那原型也许能帮你把愿景做得更清楚。也许是他们对市场动态理解不够，那你可以派出一批智能体去做分析，并和团队一起把这件事做出来。先说清上下文缺口是什么问题，再用人工智能去帮着解决，这才是正确的路径。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>我喜欢这个答案。交付生产代码、在决策上卡脖子，几乎不太可能还是瓶颈。在大多数情况下，那反而是你最不需要再加速的事，因为它现在已经太容易了。除非像你说的，是创业公司、全新团队，或只是一位产品经理在独立推进某件事。非常好。</p>
+<p>还是在人工智能这个话题上。你招过很多产品经理，也面试过很多。我很喜欢问：你现在招聘时，哪些要求正在上升？有哪些正在出现的新技能、习惯或特质？哪些又在下降，变得没那么重要了？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>先把语境说细一点：在较大的组织里，我认为上升的是更偏艺术家型的产品经理。原因是，当每个人都能用上同样的智能时，品味变得比以往任何时候都更重要。你的节目里已经谈得很多了。人们显然在更偏向以体验为导向的产品经理，这肯定是在上升的。</p>
+<p>另一件明显在上升的事是：如果你已经有一支既有团队，你会问，在人工智能的世界里，我怎样重塑团队里每一个人的工作方式。这时你面对的问题往往是文化变革——如果把文化定义为工作被完成的方式。所以在面试和面试流程里，我常会看：这个人能给团队带来怎样的新文化，尤其是他们如何改变我们在人工智能时代的工作方式。</p>
+<p>问他们如何与人工智能共事，是一个很有意思的问题，而且要问到「用它来做摘要」这一层之下。因为你也在看文化上的增量。「是否人工智能原住民」是一个很相对的说法，但你始终在看：这个人能带来哪些新的工作方式。这大概是第二点。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>为何更要招初级，以及如何早期识别「艺术家」气质</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>第三点，莱尼，我觉得这和外面的一些叙事是唱反调的：去招那些除了人工智能、几乎没按别的方式做过事的人。这话可能有点冲。也许他们的「人工智能垃圾」（AI slop）水平更高，但他们成长过程中并不知道还有别的做法。我这里特别说的是初级。</p>
+<p>我经常要向很多成熟组织打破的一个误解就是：你再也不需要招初级了。我问为什么，他们说：因为人工智能可以替我做那些事，等等。可我会问：作为组织，你们现在碰到的问题是什么？常见的答案是：我有一支需要转型、需要学习新工作方式的队伍。</p>
+<p>我不知道你怎么想，但对我来说，先把旧的工作方式忘掉，再学会新的，非常难。从大学里直接找到一个人，要容易得多——他们可能一直在用新方法完成作业，或者根本不知道还有别的做法。我很喜欢用我儿子当例子：12岁的他用氛围编程给自己做游戏，从 Scratch 这种可视化编程语言直接跳到了氛围编程，整个语法那一套都跳过了，而且觉得这才是正常的。</p>
+<p>我常常感到震惊。他会直接否定某个模型，说：「爸，这个 Gemini 不太行，它做了这样那样。」我说：这要是换人做，大概得四天。他却一副「嗯，那又怎样」的样子。所以绕了这么一大圈想说的是：你要找的第三类人，尤其是对已经有成熟团队的组织来说，就是初级——他们会给团队带来不同的工作方式。</p>
+<p>初级并不擅长识别人工智能垃圾，因为他们还没有领域专长。可你现有的团队、资深的人、已经专业化的人，对人工智能垃圾一眼就能看出来，因为他们非常懂这个领域。所以你其实是在思考，怎样在初级和资深之间建立一支互补的队伍，让他们一起工作。</p>
+<p>我会说，这就是第三件大事。我们确实明显更偏向多招初级、而不是更多资深，因为我们的语境是：已经有一支成熟的团队，正在学习如何改变工作方式——世界上每个组织大概都是如此。于是你会问：我能带进来一个「还不知道还有别的做法」的人吗？</p>
+<p>我们会办「AI 构建者周」，莱尼，那些周非常有意思。我们会拿出一周，所有工艺都停下来，工程、设计等同时去摆弄人工智能，这一点很重要。初级或更年轻的人往往在展示各种很酷的演示和工具；资深的人则更偏向识别垃圾、评测和质量问题。你会注意到这种自然的引力，然后感叹：这就是多样化团队，而且在人工智能时代，多样化团队依然非常重要。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：DX]</span></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>谢里夫，这场对话我非常喜欢，里面有太多好东西。回到初级这一点，对职业生涯更早、或刚离开学校想进入产品经理岗位的听众来说，这会很有鼓舞。有没有一些趋势，关于最优秀的年轻初级都来自哪里？他们还在上大学吗？是计算机科学，还是 MBA？这方面有什么观察？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>这方面我没有什么特别独特的分享。我觉得仍然是一个组合，包括计算机科学。上周我去悉尼和我们的助理产品经理（APM）同期见了面，大家聚在一起，背景相当多样：有艺术学位的，也有法律与科技背景的。你看的还是批判性思维这些一贯的东西，好奇心要非常强，愿意尝试不同的事。他们没有畏惧，什么都愿试，因为他们没按别的方式做过。</p>
+<p>我们内外部都有数字可以说明这一点，莱尼，包括面向客户的研究团队。我发过一篇博客，数字大概是——我先说差不多30%，确切地说好像是38%——初级比资深更愿意采用新工具，内部和客户侧都是如此。反过来，资深在已经使用的工具上能拿到更高的质量和更好的生产力，但他们不太愿意尝试不同的工作方式。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>如果把这三件「正在上升」的事连起来：艺术家型产品经理；能带来开放心态、愿意尝试和实验的文化的人，因为变化太快；以及第三类，更新的、本质上是人工智能原住民的劳动力。文氏图几乎就是：偏艺术的、又比较新的初级产品经理。那再回到艺术家型产品经理，请再多讲讲那是什么样子。听众会想：我是那种人吗？我怎样成为那种人？你也自称是这类人，作为艺术家型，你到底擅长什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>艺术家型产品经理，是相对于总经理型或科学家型而言的。他们带领产品发现，很大程度上是通过愿景。他们往往真的会从方案出发，再倒推回问题——这听起来又很反主流，因为他们在某个领域里有直觉。他们更关注体验，而不是数字；更准确地说，他们是「数据知情」，而不是「数据驱动」。在增长上，我希望有人更偏数据驱动而不是数据知情，你需要这种健康的张力。</p>
+<p>一个很好的信号是：你会看到不同产品经理拿出的一堆原型，艺术家型做出来的往往更合乎逻辑，或者流程更顺。还有一个我常说的信号：当你们在房间里讨论一个概念，有人会不自觉地拿起白板笔就画，问「我们说的是这个，还是那个？」这通常是个相当好的信号。</p>
+<p>在一个更多厂商、软件更便宜的世界里，会有更多人拥有同一套功能。体验比以往任何时候都更重要。我并不相信人人都会去跟智能体聊天、而聊天界面就是最终界面，我认为会有很多种界面。所以体验仍然非常重要。当更多人能更便宜、更快、更容易地做出更多东西时，体验就可能成为你的差异化之一。因此这些艺术家在这样的世界里是很好的资产。你要做的是补齐团队，确保技能是组合的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>我想象，要找到「刚进入产品管理、同时又非常擅长这一点」的组合会很难。我的直觉是，你需要做一段时间，才能建立起那种直觉和艺术家式的体验感。是这样，还是不是？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>不一定。有人刚把上一期助理产品经理、以及即将到来的新一期的作业，用 Loom 录了一段发给我。我在上上星期看了几段，非常有意思。他们确实没有领域经验，我们给他们的练习是为一件具体的事做一个应用，但你能从他们选择如何呈现、如何讲述「为什么要做这个应用」的叙事里，很早就能捕捉到那种艺术家气质。</p>
+<p>比如说，有一段 Loom 里，对方还没走到任何体验，就先把图表过了一遍：这是商业论证，这是 TAM，等等，体验部分几乎一笔带过。另一位候选人则把端到端旅程走了一遍，还谈到了愉悦点，说这会是一种与人建立情感连接的方式。他们同样没有领域经验，但你可以看到，他们做产品发现的方式更视觉。所以至少可以很早识别出这种气质。</p>
+<p>莱尼，我有两个孩子。儿子很擅长数学和逻辑，女儿就是喜欢画画。他们在同一个家庭长大，小时候我们给他们读的也是同样的书——至少我自以为是这样——可你还是能看见他们在工作和思考风格上的自然偏好。所以这里既有天性，也有教养。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>也就是说，并不是你可以通过训练，把自己变成艺术家型产品经理这种原型。更多是：你本来就是这样的人，然后你积累足够的经验，真正把它做好。告诉我如果你不同意。大概是：这就是你，然后你可以变得更好，也可以把其他一些事情学得更好，但——你在点头。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>我觉得，加速你天生擅长的事更容易，加速你必须学着去做的事更难。这其实适用于任何事情。那能不能训练出艺术家？完全可以，你至少可以帮人识别这些东西。只是更难，没有那么容易。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>我喜欢这又是一个反叙事。你一直在用这个词：好了，我们再也不需要初级了，他们完了，没有职业道路了。你甚至可以争辩，他们现在反而是我们唯一想招的人。我知道你不是这个意思，但他们如此开放，对现在可能的事如此原生，又没有卡在旧方法里，也许这才是我们需要的人；而卡在旧方法里的人，只是在拖慢我们。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>多样化团队的理论到今天仍然成立，在人工智能的世界里甚至更成立。它就是这么真。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>我看到的数据是：设计师职位没有在增长，科技行业聘用的设计师数量几乎停滞。我在想，是不是因为像你描述的那样，产品经理更多地补上了这块缺口。我并不是说设计师不再有用、不再重要、不再出色。我其实很惊讶，在你所说的「体验是巨大机会和差异化」的这个时代，设计师没有更兴旺。可眼下数据就是这样，我很想把这一点挖深一点。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>我还有另一些假设。其中一个我不知道对不对：市场可能还没有真正过那个「啊哈」时刻——还没有真正意识到，体验比其他任何事都更重要。如果倒回去，我们说过所有产品经理有一天都会成为构建者，现在我们正在学到，事实显然不是这样。我觉得还有一个误解有待打破或被证明：在人工智能时代，设计比以往任何时候都更重要。因为当每个人都能用上同样的东西，真正会起作用的，只剩下你为什么更喜欢某一个。我的主要假设是，这也许只是反映了我们此刻所处的阶段。</p>
+<p>我只能说，在 Atlassian，设计在驱动路线图上所扮演的角色，从未像现在这样重要，而我已经在这里17年了。我深信不疑：体验将会最重要。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>太好了。那我们记下这一条：现在就囤设计师。趁还没人意识到这是机会，趁低买入，把他们放进车库，跟备用水放一起。好，我自己也一直有同样的感觉。也就是说，你觉得我们也许还没有充分意识到，这是一个巨大的差异化和取胜机会。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>是的。我们会看到这个判断对不对。这是我目前的假设。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>何时可以从方案出发：画布、牛路与已有资产</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>好。我想回到你提到的几个反叙事，因为它们非常有意思。其中一个你已经稍稍碰到、但值得再多花一点时间的是：不要从方案出发。产品经理不断被教导：不要脑子里先有方案，要从问题和客户痛点出发，甚至先不要谈方案。你的感觉是，在很多情况下这其实并不成立。谈谈你的经历和学到的东西。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>对，我觉得这又是一个误解。经典场景是：会议上有人说了点什么，你如果想显得聪明，就会说「大家先慢一点，我们到底要解决什么问题？」然后就像把讨论拉了回来，看起来很厉害。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>对，问得漂亮。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>说真的，这仍是一个好问题，「问题是什么」依然值得问。我只是觉得，大家不够常谈的是：有时候，从方案出发反而是很好的开始方式。我可以举几个例子。</p>
+<p>第一，当你隐约觉得某个领域有苗头，想发现哪些东西可以被产品化时，从方案出发是可以的。就说近期在 Atlassian 的例子：我们有罗沃聊天（Rovo Chat），是使用我们平台时的人工智能助手；还有罗沃智能体（Rovo Agents），可以部署在 Jira、Confluence 等工作流的循环里。</p>
+<p>信不信由你，莱尼，三年半前——现在大概三年了，人工智能变得真快——我们刚做智能体和罗沃聊天的时候，内部还在争论该不该把这些放进去。当时的理论是：为什么要放一个通用聊天，为什么要让人自己创建智能体？为什么不直接产品化，做出人们想要的功能，而不是给他们一块通用画布？别把聊天放进去，不如在 Confluence 页面上放一个「总结」按钮，而不是一个聊天按钮。</p>
+<p>可你常常会学到：给人们一块画布，有时反而是发现主要问题、再把其中一些产品化的最快路径。一个简单例子：在 Confluence 白板里，客户可以画便利贴、一起协作。一个常见场景是用罗沃聊天，把便利贴归到共同主题里。但若回到我们刚才谈的体验，用聊天来做这件事，体验其实很糟：你得打字，还要说清哪些便利贴要归组、怎么选。于是显然可以把这个用例产品化，让团队直接选中一批便利贴，决定把它们归到不同主题，再由人工智能去完成。这就是一个很好的例子：你把聊天里已经出现的用例产品化了，而聊天本身仍是那个无限用例。</p>
+<p>再举一个例子：客户很喜欢这样用——我们每月在 Jira 和 Confluence 的循环里运行的智能体，已经接近1000万个。你可以把一张工单交给智能体，由它来做分诊，或生成代码，或审阅法律合同，这些在 Jira 里都很常见，人们把智能体放进循环里。于是我们可以学习他们都在循环里放哪些智能体：有些我们会继续留给无限用例，让客户自己去构建；有些我们会做成原生能力，比如做一个人工智能分诊功能，做到产品里。从客户已经在用的方案出发，理解他们在做什么，能帮你看清问题，再把他们的手工变通，产品化成一套能力。</p>
+<p>这是一种相当常见的策略。我听有人把它叫做「给牛走过的路铺上路面」：草地上已经有一条牛走出来的路，那为什么不把它做成正路呢？从客户的方案出发，是一种很好的路径。</p>
+<p>第二个大的点，其实是产品战略。最好的产品战略，往往从你今天已经拥有哪些资产、哪些方案开始，因为你要回答「我们在哪里竞争」以及「我们如何取胜」。要回答如何取胜，你必须看自己作为公司、业务和产品，拥有哪些独特的东西。</p>
+<p>我最喜欢给大家举的经典例子是亚马逊书店。他们建了一个库存规模离谱的书店。如果你读过杰夫·贝佐斯（Jeff Bezos）的书，他是从方案出发的：还有什么东西也需要如此夸张的库存规模？那如果做成「万物商店」呢？所以，在产品战略思考里从方案出发，是另一种很好的策略。我常跟团队说：先写下你今天拥有的资产，再写下你的信念，看看这两者之间，对未来走向有没有连接。</p>
+<p>给人们一块画布去尝试，再把他们手工做出来的方案产品化，是一个好策略；做产品战略时，从「你今天有哪些方案、它们能独特地解决哪些问题」出发，同样是。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>明白了。所以这是在说明：在哪些路径上，从方案出发是好的。你并不是说永远从方案出发，或这样做总是有好处。本质上，大多数情况下你其实不会，除了这两种情形。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>对。我其实不确定是不是「大多数情况」，但重要的是理解这些情形。我会说，很多客户发现，其实就是在学习客户正试图用你的产品做什么，然后试着把它做得更好。所以在大多数产品里，你实际上是在观察客户为自己创造一个方案，然后说：让我来帮你把这个做得更好。如果非要估一个比例，会很有意思：你是否在大多数时候，都在不自觉地从客户已经有的手工方案出发。我觉得这是做探索时值得想的一件事。顺便说，有了人工智能，团队已经不太够经常去和真人谈话了，躲在更多仪表盘后面变得容易得多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>对了，我原来不知道你们还有白板这个产品。所以这有点像 Miro、FigJam 那样的东西？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>对，就是 Confluence 白板，用量很大。客户可以在 Confluence 里嵌入白板，加上智能体，实时协作，贴便利贴，再把它们变成 Jira 工单，这些都有。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>所以这是 Confluence 里的一个功能。好，有些人可能不知道它存在，我以前就不知道。这也算给白板产品做了一次很好的营销。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>本来没打算做成营销，但我觉得这是一个好例子。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>「把人工智能焊上去」为何常常是对的策略</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>好。你还有另一个反叙事，是关于人工智能的：很多人担心只是把人工智能「焊」到现有产品上，而你的感觉是，在很多情况下这其实是对的。请谈谈。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>莱尼，这类标题很抓人：不要把人工智能焊进你的产品，你应该重新想象工作流。这一点我当然相信。可细微之处在于：如果你已经有一款成熟产品、今天就有东西在运转，让它走向人工智能原生的最好办法，往往是先理解产品里已经存在的流程，然后真的把人工智能焊上去。这听起来不太好听，你可能不会这样对外宣传，但请先想一秒。</p>
+<p>你已经有一款产品，有数百万用户。我见到有些人、也和一些创业公司或产品公司聊过，他们说：我们要从头重写产品。我说，你可以那样做。可更好的办法，难道不是去演化，而不是彻底推倒重来吗？</p>
+<p>我刚讲过的罗沃智能体就是一个好例子。客户已经在 Jira 里建模了数十亿个业务工作流。很多人有一个误解，以为 Jira 主要给软件团队用；其实大量非软件团队也在用。有段时间，你要上架应用商店、走审批，会经过像 Jira 这样的工单系统；你向电信公司投诉一项服务，也会进到 Jira 工单。客户已经在我们的平台上建模了海量工作流。</p>
+<p>所以当问题变成「智能体将如何帮助人类把工作往前推」时，我们看的是：产品里已经存在哪些人类工作流。这是一个很好的公式：先问我的产品里有哪些人类工作流。有些是刚性的，有人已经明确界定过；有些是非正式的，小写的 workflow，只是人在做某件事。然后你再看：智能体可以在工作流的哪些步骤上辅助，以创造新价值、提高效率，或其他目标。</p>
+<p>于是在 Jira 工作流里，我们基本上就是加上了把智能体放到列和卡片等位置的能力。莱尼，这算「焊上去」吗？如果我要做一个人工智能原生的工作跟踪工具，我大概本来也会这样做：先把工作流建好，再让智能体在其中某些环节上工作。</p>
+<p>所以我给外面团队的信息是：是的，你应该把重新想象工作流当作一次练习来做，但要看客户今天在哪里。如果你已经有稳定的用户群，你的工作是帮助他们从人工智能新手走到人工智能原生，你也是在把这批客户群体过渡过去。所以要想他们在哪里工作，以及你能在这些工作流里怎样慢慢引入人工智能。这又是一个误解。从营销角度，你大概不会说「焊上去」；可从字面上看，我们就是让你把一个智能体焊到 Jira 工作流里，放进循环，让它一次次运行，而且价值可被衡量。如果不行，你可以把智能体拿掉，或把给智能体的评测做得更好。这里能做的事情有很多。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>要语境、不要热门观点；管理者为何仍重要</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>我喜欢这些看法。开始录制前我问过你，这场对话你有什么目标，你谈到：在构建产品这件事上，我们需要更多细微差别。外面有太多热门观点、会传播的短视频，人们就觉得「我必须那样做」。我自己也有责任：有人在这档节目里说了一句话，公司里就有人拿来当唯一做法，说「莱尼的播客就是这么讲的」，这是我很讨厌的。所以我喜欢你在这里做的事：给所有这些人们以为是真理的说法加上更多层次，我们也一直在谈各种光谱和梯度。请再多讲讲，你为什么觉得这一点重要。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>产品这个领域里有一句老话：你收到的每一条关于如何做产品的建议，大概都有人拿着完全相反的建议，而且同样有效。作为产品团队、产品经理或产品负责人，你要理解那些建议是在怎样的语境下才奏效的，而细微差别往往就在这里被丢掉了。</p>
+<p>我们刚才谈的「AI 构建者」就是一个很好的例子。即便在大组织里，从零到一的项目，我也完全赞成放上 AI 构建者这类角色。可对大多数已经有开发者可用的组织来说，这并不是他们的问题，他们的问题是船要驶向哪里。建议被给出的语境极其重要。「从方案而不是从问题出发」也一样：我同样会主张从问题出发，只是相反的那一面谈得不够多。</p>
+<p>这也能给人们信心：我这样做事，到底对不对？可我会问：真的有唯一正确的方式吗？如果你做了什么、又学到了什么，就分享给这个世界。有一段时间我常写博客，把学到的每条工艺教训都写出来。我们内部谈得最多的一件事，就是如何在内部扩展产品管理。</p>
+<p>我回到刚进 Atlassian 的时候：当时 Confluence 上没有产品经理，我们靠的是后来被称为「产品工程师」的那些人。我弄明白了产品工程师是什么，发现外面还没有被编码下来的术语，就写了一篇博客，讲我学到的关于产品工程师的事。你会发现，产品工程师能帮助产品经理规模化，他们是我们前面说的那种共享上下文的拥护者。这些细微之处我觉得谈得还不够。所以我也很感谢你做这些访谈，听人们分享自己的层次。这是更需要发生的事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>是啊，我有时也挺为难：有人分享一个观点，很多人会说「这是错的，你为什么不反驳？」我发现最能规模化的做法，是把不同视角都放到这里，而不是试图让所有人对齐成唯一做法，然后让听众自己决定什么适合自己。</p>
+<p>其实有人做了一个很好玩的项目。不知道大家是否知道：你去 lennysdata.com，可以连到一个 MCP，里面有我所有播客的文字记录。你很快也会被「吸」进去。我的通讯文章也在里面，可以按你想要的任何方式使用。有人做了一个工具，能展示每场争论的两边。我想就是诺姆·西格尔（Noam Segal）。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>那太棒了。就是那些相互矛盾的建议。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>没错。我很想看到那样的仪表盘：这条建议为什么有效，那条相反的建议又为什么有效。真的很好。</p>
+<p>那你有没有什么话，想喂进这个将永远留在数据集里的 MCP？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>我觉得今天已经讲了不少误解。我们谈过「人人都是构建者」、AI 构建者的误解；谈过「所有产品经理都一样」——艺术家、科学家、总经理只是一套可用的框架；也谈过「产品经理做所有决策」。</p>
+<p>还有一个，莱尼，是管理。产品管理职业生涯里，几乎每个人在大多数组织中都会走到一个分叉：我想参与那个战略讨论、那场战略闭门会，可看起来能去的人似乎都是管理者。我自己也经历过，于是觉得「所以我必须去管理」，并在这个分叉上做决定。</p>
+<p>所以另一个需要帮忙打破的误解是：你必须当管理者，才能参与大公司高管层面的重大战略决策。我们在 Atlassian 正努力做更多这件事，现在已经有多位杰出产品经理和工程师在高管层面工作。我们非常支持个人贡献者和管理者的双轨职业道路，也有很多人会按所处的阶段在两条路之间切换——启动一个从零到一的项目时，他们可能先管一个小团队，等它变大后再退回来。我们应该更多地庆祝这一点，因为它发挥的是那个人的长处。我们有很多个人贡献者，同样在高管层面做贡献。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>对，这也关系到一个我自己一直有的反叙事：总有人说我们不再需要管理者，或者管理者也应该同时做个人贡献者。我觉得这不是个好主意。我觉得管理者其实非常重要，而且要成为一位好管理者，很难同时再做有分量的个人贡献者工作。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>确实很难。这里你可以有两种世界观：如果你要做管理，就多管一些，比如带十到十五个人；或者我们希望管理者只带三到四个人，同时自己也负责一个项目。现实是，Atlassian 两种都有，我们同样尽量发挥每个人的长处，这样才能拿到最好的结果。</p>
+<p>至于管理者的管理幅度，我们一般会说至少要有三到四个人作为下限，大多数大概在八九个人这个量级。确实也有些管理者只带几个人、同时负责项目，有些则带很多人，更多地扮演教练角色。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>那我问你：对刚上任的产品经理管理者来说，你发现他们碰到的最大问题，或者说最该修的一件事，是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>我看到的第一件事是：他们放手太快、也放得太彻底，并以为这就是最好的行为。这话听起来可能有点反主流。我认为我们在 Atlassian 有过的、并且还在这里的最优秀领导者——我应该说领导者，管理者和领导者可以是两件不同的事：好的领导者不一定是好的管理者，反过来也一样。而那些既是优秀管理者、又是优秀领导者的人，能够走进团队，帮他们把结果做成。</p>
+<p>我可以坐在一次产品评审里说：「这还不够简单。」这并不是团队坐在那里说「哦对不起，我忘了跟智能体写上要简单」。最优秀的管理者会说：我们一起来探索一些选项，然后走进去，帮团队一起把结果做成。</p>
+<p>这会是我的第一观察：他们放得太开，几乎完全拉远，让团队自己去做。创造空间是对的，别误会；可当团队看到管理者以身作则时，他们是喜欢的。我觉得在人工智能的世界里，这一点会更加重要。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>与有愿景的创始人共事，以及意见不合时的透明框架</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>这是很好的建议。也许是最后一个问题。我听不少人说，你和创始人、高管在他们做的那些大型产品主题演讲上合作非常密切。我很喜欢主题演讲，这可不是大多数人会说的话。你也和首席执行官、联合创始人一起做他们的创始人演讲之类的事。关于与最顶层的人共事，你学到了什么，可能对那些和高层合作感到吃力的人有帮助？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>莱尼，这可是个危险的「最后一个问题」。毫不夸张地说，和一个强愿景型领导者共事——在创始人主导的公司里往往仍然如此——就像你和我一起看电影：他们已经看到第10章，你还在第3章，而团队其他人还在第1章。他们说了一些话，你的第一反应往往是：等等，什么？你确定吗？</p>
+<p>这时候，作为与那位干系人、领导者或愿景型领导共事的人，你可以做两件事。你可以选择执行命令，照做并往下传。可危险在于，你是在没有信念的情况下做这件事，只因为老板让我做。</p>
+<p>或者，你的工作可以是去理解：绝大多数时候，你可以争论这位干系人或创始人是对还是错，就我的经验而言，他们大约有99%的时候是对的。我后来意识到，他们在那件事上想得比其他任何人都深得多。把他们带到那里的那些顿悟，我现在的工作就是补上这个上下文缺口：他们是怎么走到那一步的，我是否对这件事有信念。</p>
+<p>我常常会先说：我还没想清楚，是什么让你得出那个结论？我在尽快赶到第10章。一旦我到了那里，我就知道该怎样带着其他人一起走。所以面对这些领导者，他们往往已经想了很久，先从信任开始。</p>
+<p>这里的反叙事是所谓的河马，也就是「薪酬最高的人的意见」（HIPPO，Highest Paid Person&#x27;s Opinion）——这个缩写我刚刚说乱了。另一面的说法是：不过是某个干系人把自己的宠物项目提出来。在公司里这种情况当然存在，别误会。可当你知道有人在这个领域里想得特别深，尤其在企业级 B2B 里，我会说：一个人在这个领域做了好几年，和「我在这里待一年、那里待一年」是完全不同的，做出大的改变需要时间。所以先假设他们对了、你错了，去补那个上下文缺口。有时你会证明他们是错的，但那不是目标，目标是给客户拿到最好的结果，然后你才能带团队一起走这段旅程。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>那如果到头来你其实不同意，怎么办？我觉得很多人都经历过这种时刻，心里觉得「这是个坏主意」。如果在这种情况下有什么建议：你已经追上了对方的顿悟，仍然不同意，而且觉得自己有很好的理由。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>我仍然会把这一点说出来，然后问：这件事你有没有非常强的信念？以及：做这个决定的人是你，还是我？谁拥有这个决定，把话讲得非常透明。如果他们觉得「我想做这个决定」，或者「我希望由你来决定」——顺便说，后一种情况比你想象的要多得多，他们会说「我不同意，但我希望由你来拥有这个决定」。即便我不同意，我也会支持你，并一起往前走。要培养这种关系，透明是关键。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>可当你要把它传达给自己的团队、而你又不同意时，你会怎么做？是不是永远都要站在这个决定后面？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>不。我会把两边的论点都摆出来，说明为什么我认为其中一方更强，同时也会同样有力地论证相反的一面。最近就有一个例子，我们在给某件事做品牌，我觉得那是「最不坏的选项」。我会说：我认为这边的利是这些、弊是这些；如果你主张相反的选项，利是这些、弊是这些。我们已经决定走这一边。我尽量不把某个个人点名出来。两边都是正当的取舍，我们选择往这边走。</p>
+<p>你需要把房间里每个人心里想着的那个相反论点说出来，并体面地代表它。我发现，最优秀的产品经理能够反驳自己，能给出他们「不该做这件事」的很好理由。真正盲目的人会说：我这个是最好的，我们绝对该选这个，这是世界上最好的选项。我在评审里很喜欢问：我们为什么不要做这个？有时对方会说：我还没想过为什么不该做。我会说：你也应该为相反的一面做论证，感觉自己在智识上真正摔打过，然后再往前走。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>这是非常好的建议。我再简单提一点：当一个有权力的人分享观点时，很多人会把它当成「这就是我们必须做的」。达什·肖（Dash Shaw）有一个很好的框架，他称之为 flash tags：当他分享一个观点时，会标上「#FYI」，表示这只是告知；或者这是一个建议、一个推荐，或一个恳求。这是一种很好的方式，让本身就有权力的人说清楚：我只是告知，你不必做；或者这是恳求，请你去做。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>是的，我们的创始人也经常这样做。他们会说「这是很强的观点，但不是我的决定」之类。可很多时候，人们在讨论里并不会事先给这段话打上标签。所以我会对产品经理说：你在房间里的工作，就是去问那个澄清问题，问对方在这件事上的信念有多强。经典的复述技巧会放在最后，但在这个过程中就要说清楚：这是一个我们将进一步探索的坚定信念，还是我们将作为输入、由我们自己来决定的东西。把这一点讲明白。有时我会把这事交回给产品经理，因为干系人并不总是会在结尾或开头加上那个标签。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>真觉得我们可以就你这些年学到的技巧和战术再谈好几个小时，能一直聊下去。我还是先停在这里，好为以后再做一集、往下挖留出时间。在进入非常精彩的闪电轮之前，你还有什么想分享的，或想再强调一次的吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>对你的听众，我想说：细微差别很重要，这一点我们已经谈过了，所以请分享你们的故事。另一件我想强调的是：你之所以成为今天的你，是因为有别人为你创造了机会。所以问问自己：你在为谁创造机会？如果听完或看完这期，你脑子里想不出那个名字，就试着去找到一个你能够支持、能够为他发声的人，因为你相信他们，想给他们一次机会。记住你自己是从哪里走来的，我想说的就是这个。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s12">
+<div class="body-sec-head"><h3>闪电轮：童书与地图里的 Gemini，以及开放文化</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>我喜欢这一点。好，谢里夫，我们进入非常精彩的闪电轮。我有五个问题，准备好了吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>我们开始吧。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>开始。第一个问题：有哪两三本书，是你发现自己最常推荐给别人的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>我经常和孩子们一起读书。最近我们在读《监狱治疗师》（The Prison Healer），作者我想是林妮特·诺尼（Lynette Noni），是一本发生在监狱场景里的奇幻、反乌托邦越狱故事，和孩子们一起读非常棒。我自己则经常读《圣经》，会反复回来默想，它也给我一种在人工智能走向不确定时的踏实感。</p>
+<p>不过我读的大多数还是童书。另一本和孩子们一起读的是《翼羽传奇》（The Wingfeather Saga），非常好看，讲的是一群其实是某个王国继承人、自己却还不知道的孩子，后来克服逆境走到那一步。所以我读了很多童书。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>最近最喜欢的电影或剧集？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>《Hail Mary计划》（Project Hail Mary）非常棒。我看很多电影都会哭，这部也完全被打动，很能引发思考，也很有感情。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>说个有趣的事：我的一位表姐，就是那部电影里的俄罗斯科学家。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>太厉害了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>算是比较远房的亲戚，但确实有亲缘。她演得非常好。好，下一个问题：你最近发现、或正在很投入使用的，最喜欢或最有意思的人工智能产品是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>这完全是近因偏差。喜欢的人工智能产品有好几款，我只说最近这一件。我们带孩子开长途车，Google 地图在澳大利亚和 Apple CarPlay 里加入了 Gemini。不知道你有没有看到。我们开车时，有时放音乐，有时打开人工智能来玩游戏，比如一路上路程游戏或问答，轮流来，大家一边开车一边对着人工智能喊，非常好玩。</p>
+<p>可真正让我觉得精彩的，是在地图视图里直接加入了 Gemini。这是关于产品工作流邻近性的一课：我人就在地图里，不会关掉它再另开一个人工智能去对话，而是直接在这里跟 Gemini 聊，而且它高度贴合这次行程。我们会说：我们正往这个目的地开，然后一起玩关于目的地的问答游戏。那是一次在车里非常愉悦的体验：我还能看着地图，同时和人工智能说话，孩子们也很开心，至少让他们离开屏幕半小时。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>他们只是把人工智能焊上去了吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>哈，我喜欢你这样接。完全是回调。他们把它焊到了已有的工作流上。这会是你能做的一些最好的策略。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>好例子，说明你是对的。我们继续。</p>
+<p>好，最后两个问题。最喜欢的人生座右铭：有没有一句你在工作或生活里常常回到、觉得非常有用的话？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>人们说我在工作里很放松、很好玩，总是开玩笑。莱尼，老实说，这通常是我处理紧张的方式。他们会问我为什么。我总是提醒自己：作为一个人，要把自己和职业身份解开，这在科技行业尤其难；去庆祝工作之外的那个个体，是我们做得还不够的一件重要的事。</p>
+<p>我很喜欢和住在附近的人一起打球，有点像旗标橄榄球那样的活动。他们都不在科技行业，有电工、砖瓦匠，做着各种不同的工作，但都是很棒的人。提醒人们不要把自己的工作和身份绑死，我觉得是一件健康的事，也能让你在工作和生活里都更可持续。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>我分享一句在这档节目里出现过几次、总能打到人心里的话：唯一会记得你加班到很晚的，是你的孩子。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>太对了。我读过类似的一句话：没有人去参加葬礼时，墓碑上会写「这人工作多么拼命」。悼词里也从来不会是这个。这也是另一种提醒。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>对，他们完成了季度指标。</p>
+<p>好，最后一个问题。我一直好奇你身后在发生什么，那些很好玩的东西是什么？请解释一下。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>这是 Atlassian 的T恤文化：我们常常做一件T恤，来讲述公司历史上的某个时刻。比如 Confluence Questions 曾经是一个应用；有的衬衫对应我们有了第一支质量保障团队，有的对应我们在越南开设办公室。每一件衬衫背后都有一个故事，我很喜欢收集它们。公司越大，把故事讲给团队听就越重要。我有好几百件这样的衬衫。</p>
+<p>有一天，我妻子把我的衬衫拆了，作为生日惊喜，做了一块巨大的牌子，把我最喜欢、每件背后都有故事的那些衬衫缝在一起。这就是你看到的那个。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>这非常贴心。我也想象得出它可能糟到什么程度：你对我的衬衫做了什么？这些我已经研究好几年了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>我还写过一篇内部博客，标题是「我妻子拆了我的 Atlassian 衬衫」，大家先是一脸问号，再去看详情。后来公司20周年庆，我把110件衬衫走了一遍，录了一段视频放到 YouTube 上，非常有意思，每一件背后的故事讲下来，本身就很让人满足。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>再简短问一句：Atlassian 有没有什么独特的文化仪式，可能让大家听着觉得有意思？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>有很多。我们是一家极度透明的公司，「开放的公司」是我们的价值观之一。几乎每一次高管评审通常都会被录下来，可以在 Loom 里搜索、找到、提问，也可以让人工智能智能体去过一遍。这里的透明度，每个新加入的人都会说：我从未经历过这样的事。我很久没在其他地方从头做起了，已经习惯了，可他们会说：天哪，这些内容什么时候才看得完？所以我会说，默认开放。</p>
+<p>有意思的是，莱尼，这也部分是因为我们有 Confluence，以及我们这种产品的特性，人们就是会去记录、去创造，而且默认开放。在人工智能的世界里，分享上下文变得关键。对事情采取默认开放的态度，长期来看对公司更好，因为它意味着人工智能和人都能接触到更多上下文。这里的开放程度令人难以置信，也相当疯狂，但人们喜欢它。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>这非常有意思。过去也有一些公司这样做，GitLab 就是一个好例子。有意思的是，现在人工智能可以读过所有东西，再告诉你需要知道什么，这会改变局面。理论上，它可能让一些也许不该被那么容易、那么快看到的东西暴露出来；另一方面，它也如你所说，给了你做更好决策所需的全部上下文。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>莱尼，我有一个正在验证的理论。我们有「团队随处办公」政策，只要我们有法律实体，你就可以在自己喜欢的地方工作。有些人选择大量远程，有些人不是。举个例子，我团队里有一部分在美国西岸，他们很多人喜欢到岗文化，各有原因；亚太地区则有些人更喜欢分布式文化。</p>
+<p>我的一个假设是：远程的人，可能比同地办公的人更能从人工智能中拿到成果。我们正让一批数据科学家去验证这一点，会是一个很有意思的判断。其中的道理是：你远程时往往会写得更多、在数字渠道上分享得更多；而当你在一起时，则会更多地用白板。两种路子都好，你也需要两种。但这也许是对「回到办公室文化」的又一个对位点。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>回到我正在写的那份报告：其实远程工作已经见顶，在各行业大概停滞在10%、15%到20%这个区间。如果它随着人工智能再次上升，会很值得观察。</p>
+<p>好了，我还在不停提问，但该收了。谢里夫，这真是一场很棒、很深、也很重要的对话，我觉得会帮到很多人。你刚才谈到机会，我想这期也会为不少人打开新的机会。非常感谢你来到这里。最后一个差点忘问的问题：听众有什么方式可以帮到你？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>如果你在社交媒体上看到一条很会抓人的单行标题，比如「你不该再招初级了」，不管是什么，去做那个追问细微差别的人：为什么这对你有效？为什么对你无效？不要在还没理解语境之前，就去放大那一种看法。我觉得这不只适用于产品，也适用于社会上的许多事。要有细微差别。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="lenny"><div class="label"><span class="badge" title="莱尼·拉奇茨基（Lenny Rachitsky）">莱尼</span></div><div class="content">
+<p>太好了。谢里夫，非常感谢你来到这里，感谢你的时间和这次机会。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="sherif"><div class="label"><span class="badge" title="谢里夫·曼苏尔（Sherif Mansour）">谢里夫</span></div><div class="content">
+<p>谢谢你，莱尼。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：订阅与评分号召]</span></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>

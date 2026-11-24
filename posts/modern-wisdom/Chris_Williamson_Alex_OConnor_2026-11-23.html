@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>无神论论证里最大的漏洞——亚历克斯·奥康纳</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="chris">克里斯·威廉姆森（Chris Williamson）</option><option value="alex">亚历克斯·奥康纳（Alex O’Connor）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Chris Williamson</span><span class="pill">2026-11-22</span></div>
+<h1>无神论论证里最大的漏洞——亚历克斯·奥康纳</h1>
+<p class="sub">嘉宾：亚历克斯·奥康纳（Alex O’Connor） · 约 14 分钟（811 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=fOFOOivcg5Q" target="_blank" rel="noopener">https://www.youtube.com/watch?v=fOFOOivcg5Q</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Chris Williamson</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-22</dd></div><div class="meta-row"><dt>时长</dt><dd>约 14 分钟（811 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>yt-dlp-chrome-cookies</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>fOFOOivcg5Q</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>在这段约 13 分半的对谈里，克里斯·威廉姆森问亚历克斯·奥康纳：还有没有科学永远解释不了的东西。亚历克斯从意识谈起，认为意识不是宇宙里与桌子、椅子并列的又一样东西，而是你用来经验地探究世界的工具本身；再把这一论点推进到唯物主义——科学只描述物质如何表现，并不能告诉你电子或原子「是什么」。两人一路讲到中观派的空、直接可及的意识经验，以及把基础意识与神相比时，印度传统里的梵、漩涡比喻，和斯宾诺莎的「神或自然」。</p>
+<h3>核心要点</h3><ul><li>克里斯问：还有没有科学永远解释不了的领域。亚历克斯说，意识这一类东西本身就很独特：它不是宇宙里与桌子、椅子、耳朵、手并列的又一件事物，其他东西都是透过意识被看见的。他把意识比作一把能修好世上几乎一切的扳手——扳手坏了，却不能再用这把扳手去修它。关掉意识再去做实验、写记录、整理成数学推理，是做不到的。</li><li>克里斯问：研究意识是不是让无神论更难辩护。亚历克斯纠正：更难辩护的是常常跟无神论绑在一起的唯物主义。你可以认为意识无法解释、是基础性的、存在于微小原子里，或完全是幻觉，这些都不必然通向信神；不必信神，也可以相信心智是非物质的。但作为一套关于世界的理论，唯物主义几乎无法辩护。</li><li>他用伯特兰·罗素（Bertrand Russell）的老问题往下追：宇宙由物质构成，物质是原子，原子由质子和电子构成，电子是带负电的基本粒子——靠近另一个负电粒子就会互相排斥。这只说明它会做什么，没有说明它是什么。科学是描述性事业，告诉你事物如何表现，并不给你关于实体的理解，就像国际象棋规则不能告诉你棋子是用什么做的。物体也不是因为牛顿运动定律才运动，定律只是描述运动发生之后会怎样。想用科学解释根本实在「是什么」，好比木匠研究棋规来决定国王棋子该用什么材料，是把两件不同的事混在一起。</li><li>大多数科学家其实同意：科学不会告诉你实在之实体的基础本性，有人甚至说「它所是的，不过就是它所做的」。克里斯觉得这有点奇怪。亚历克斯顺着问：那个「在做这件事」的东西又是什么？他提到卡洛·罗韦利（Carlo Rovelli）近期出书，为这种观点做了相当好的辩护。可当有人自称唯物主义者时，听起来是在主张宇宙由什么构成，而不只是它如何表现；一旦拆开，实体却无法定义。若唯物主义只是「除了科学能描述的，再没有别的」，那就变成：唯一存在的只有行为，却没有那个在表现行为的东西。他认为在实在的根基处，你没有可以站立的地面，而这只是在给科学划界，并不等于侮辱科学——正如说棋规解释不了音乐理论，并不是在贬低棋规。</li><li>克里斯指出差异在于：科学曾希望能描述一切，仿佛一切都该能被「棋规」说清。亚历克斯认为，若有人真这么想，是在骗自己。科学无法解释自己的前提，任何方法都不能在这个意义上自我说明。逻辑的基本定律、他人心智的存在、外部世界的存在，都无法用科学证明；你一开始做观察，就已经在假定外部世界存在。不是先有科学再得到经验，而是先有经验，再通过经验去做科学。</li><li>在实在底部，好像有一种空虚。佛教中观派（Madhyamaka）也有类似的「空」：宇宙没有实体，只有相互作用。但亚历克斯相信世界里有一种真实的「存在性」（isness），谜题就是它到底是什么。批评者会问：语言一旦开口，就是在谈论它，而不是把握它；不可还原的实体要怎么解释？他认为宇宙里你唯一能直接接触、不需要也不能向别人解释、却清清楚楚知道的东西，就是意识经验。克里斯追问：如果宇宙在根本上是经验性的，这跟说它是神又能差多少？亚历克斯说要看你怎么把这个说法落到实处。克里斯再问：很多人的神圣体验会被科学范围内或邻近的工具拿来评估，而亚历克斯又主张经验性理解超出科学范围，那「神的体验该怎么评估」岂不是变得很棘手。亚历克斯转向神秘主义传统里的合一：那不是在跟神聊天，而是感到自己是神性、或宇宙基础意识的一种表达。印度传统里的梵（Brahman）更接近「我们都在其中游泳的大洋」，而不是有意志并创造宇宙的存在者；自我像水里的漩涡，可区分、也在做事，却不能从海里捞走。唯心论者和泛心论者把万物看成意识的显现，迷幻药带来的「与自然合一」，也被他理解成「我们都是同一个东西的表达」，就像树叶发现自己同属一个有机体。西方这一思路最主要的思想家是斯宾诺莎（Spinoza）。很多人说「我相信斯宾诺莎的神」，意思却是自己是热爱科学的无神论者，以为斯宾诺莎只是把神拉下来等同于自然；亚历克斯纠正：斯宾诺莎是把自然提升到神性，认为只有一种终极实体，他称之为「神或自然」（God or nature），那是我们都在其中活动的基础。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：约 13 分半，把「科学解释不了意识与物质实体」讲得很具体，从扳手隐喻、罗素对电子的追问、国际象棋类比，讲到中观派的空、梵与漩涡，以及斯宾诺莎的「神或自然」。可跳过：若已听过两人更长的完整访谈，或对意识哲学、无神论与唯物主义的概念辨析不感兴趣。片头有 Modern Wisdom 年度复盘口播，片尾有 Momentous 睡眠补剂赞助，正文已标灰。</p>
+<h3>适合人群</h3><p>关心意识哲学、科学边界、唯物主义与无神论辩论，或想听亚历克斯·奥康纳如何把这些论证讲清楚的人。</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">意识不是宇宙里的又一样东西：扳手隐喻</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">开场广告之后，克里斯问：还有没有别的领域，是科学永远解释不了的。亚历克斯说他不太确定，但意识这一类东西本身就很独特。意识跟宇宙里其他任何东西都不一样：它不是与桌子、椅子、耳朵、手并列的又一件事物，其他那些东西都是透过意识被看见的。所以，若有人觉得「科学能解释这个、解释那个，偏偏解释不了这一件」听着别扭，问题正在于意识并不是坐在宇宙里的「又一样东西」，而是你用来经验地探究周围世界的工具本身。他把意识比作一把非常厉害的扳手，世上好像没有什么是它修不好的；可扳手一旦坏了，就不能再用这把扳手去修它。关掉意识，再去尝试做科学、做实验、写记录、整理成数学推理，是做不到的。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">更难辩护的是唯物主义，而不必然是无神论</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯问：研究意识是不是让无神论更难辩护。亚历克斯说，更难辩护的是唯物主义。你可以认为意识完全无法解释，可以认为它是基础性的，可以认为微小的原子里也有意识，也可以认为意识完全是幻觉——这些看法都不必然跟信不信神有关。你不必信神，也可以相信心智是非物质的，这两件事并没有绑在一起。不过，常常跟无神论绑在一起的唯物主义，作为一套关于世界的理论，他觉得几乎无法辩护。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">物质是什么：罗素的追问与国际象棋类比</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">亚历克斯开始拆「唯物主义」这个词：宇宙由物质构成，物质是原子之类的东西，原子由质子和电子构成，电子是带负电的基本粒子——靠近另一个负电粒子就会互相排斥。这是伯特兰·罗素（Bertrand Russell）早就碰到过的老问题：你一路追问下来，得到的只是它会做什么，而不是它是什么，不是我们正在与之相互作用的那个东西的真正本性。他认为这个问题科学回答不了，因为科学是描述性事业：它告诉你事物如何表现、会做什么，并不告诉你它们是什么，就像国际象棋规则不能告诉你棋子是用什么做的。物体也不是因为牛顿运动定律才运动，定律只是在描述物体被推动之后会怎么动。想用科学去解释根本实在「是什么」，等于对原子做行为主义，好比木匠研究棋规来决定国王棋子该用什么材料——完全是另一回事。他并不认为，要解决这个问题就只能接受某些关于意识的古怪观点；他只是说，科学不会告诉你实在之实体的基础本性，而且大多数科学家其实都同意这一点。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">只有行为、没有承载者：罗韦利与唯物主义的空洞</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">科学家常会说：那又怎样？它所是的，不过就是它所做的，仅此而已。克里斯觉得这有点奇怪，不过也许就是这样。亚历克斯接上：那「在做这件事」的东西又是什么？他提到卡洛·罗韦利（Carlo Rovelli）大概是近年来为这种观点辩护得最好的人之一，刚出的一本书他觉得写得相当好。可当有人说「我是唯物主义者」时，听起来是在主张宇宙由什么构成，而不只是它如何表现；一旦拆开，这种实体却简直无法定义。若唯物主义者真正想说的只是「除了科学所能描述的，我不相信还有别的」，这个观点就会变得很怪：唯一存在的只有行为，却没有那个在表现这些行为的东西，总得有某种实体吧。对他来说，有意思的是：在实在的根基处，你没有可以站立的地面，实在的实体对科学完全不可穿透，而且他认为科学永远也回答不了。他强调，这不是标新立异地攻击科学，而只是在划定边界——说棋规永远解释不了音乐理论，并不是在侮辱棋规。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">科学无法证明自身前提，经验必须在先</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">克里斯指出一个差别：科学曾希望能描述一切，仿佛一切都该能被「棋规」说清。亚历克斯认为，若有人真这么想，是在骗自己。科学能解释一切吗？它能解释自己的前提吗？没有任何方法可以在这个意义上自我说明，总会有我们触及不到的东西。很平凡地讲：逻辑的基本定律无法用科学证明；你也无法科学地证明他人的心智存在，或外部世界存在——你一开始做观察，就已经在假定外部世界存在了。这样做没问题，但不要声称这是从科学出发才得到的。不是先有科学再得到经验，而是先有经验，再通过经验去做科学。经验必须在先。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">底部的空与「存在性」：唯一能直接把握的是意识经验</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">亚历克斯说，在实在的底部好像有一种空虚。有些哲学家认为实在在这个意义上真的是空的；佛教中观派（Madhyamaka）也有类似的「空」：宇宙没有实体，只有相互作用。这听起来有点奇怪。可如果像他一样，相信世界里真有一种「存在性」（isness），谜题就是：它到底是什么？批评者会问：你要用什么方法解释这种存在性？一旦使用语言、解释概念，你就是在谈论它，而不是把握它本身；如果实在的本性是不可还原的实体，要怎么解释？他认为问得好。宇宙里你唯一能直接接触、不是间接、不需要被解释、甚至无法向别人解释、却清清楚楚知道的东西，就是意识经验。那是你唯一直接经验到的东西。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">基础意识与神：梵、漩涡与斯宾诺莎的「神或自然」</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">亚历克斯说，如果宇宙在根本上是经验性的。克里斯立刻问：这跟说它是神，又能差多少？亚历克斯说，那要看你怎么把这个说法落到实处。克里斯再追：很多人会有神圣的、令人敬畏的体验，而这些体验又会被一整套或属于科学、或与科学相近的工具拿来检讨；如果被批评的恰恰是经验，而描述和评估我们对世界的经验性理解又超出科学范围，那「神的体验该怎么评估」岂不是变得很棘手。亚历克斯转向神秘主义和强调体验的传统里的合一：那不是一切如常地跟神聊天，而是感到自己与神性相连，自己就是这种神性、或宇宙基础意识的一种表达。他认为印度传统把这一点把握得更好。梵（Brahman）是他们指称终极实在的词，有时被人当成跟「神」差不多，但并不完全一样：他们不把它想成一个有意志、存在并创造宇宙的存在者，而把梵想成我们都在其中游泳的大洋。自我像水里的漩涡，可以指认、也在做事，却只是大洋的一种表达，不能从海里捞起来搬到别处。唯心论者、泛心论者通常把世上的一切看成意识的显现，宗教体验就是对这一点的觉察。有人吃了迷幻药觉得与自然合一，「我跟那边那棵树是同一个东西」听起来荒唐，除非从「我们都是同一个东西的表达」来理解，就像树叶发现自己同属一个有机体。西方这一思路最主要的思想家是斯宾诺莎（Spinoza）。很多人说「我相信斯宾诺莎的神」，意思却是：我是无神论者，而且我热爱科学，以为斯宾诺莎只是把神拉下来等同于自然。亚历克斯纠正：斯宾诺莎是把自然提升到神性，认为只有一种终极实体，他称之为「神或自然」（God or nature），并不太在乎你怎么称呼它，那是我们都在其中活动的基础。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">克里斯·威廉姆森（Chris Williamson）<em>主持</em></span><span class="spk-1">亚历克斯·奥康纳（Alex O’Connor）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>意识不是宇宙里的又一样东西：扳手隐喻</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="marker-line"><span class="tag">[已省略广告：Modern Wisdom 年度复盘]</span></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>还有没有别的领域，是你觉得科学永远解释不了的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O’Connor）">亚历克斯</span></div><div class="content">
+<p>我不太确定。意识这一类东西，是不是本身就很独特？我觉得它确实是。意识跟宇宙里其他任何东西都不一样。它不只是宇宙里的又一件事物。不是说有桌子、椅子、你的耳朵、你的手，然后再加上意识。其他那些东西，都是透过意识被看见的。所以这会让人听着别扭：你的意思是，科学能解释这个、解释那个，偏偏解释不了这一件？问题是，意识并不是坐在宇宙里、跟其他东西并列的「又一样东西」。</p>
+<p>它是你用来经验地探究周围世界的工具本身。就像你有一把非常厉害的扳手，世界上好像没有什么是这把扳手修不好的。然后扳手坏了。你想：那我们再用这把扳手去修扳手不就行了？做不到。因为它就是你用来检查其余世界的那件工具。意识就是这样。把意识关掉，再去尝试做科学，看看你能走多远。试着在自己处于无意识状态的情况下，去调查世界、做实验、把结果写下来、再整理成数学推理——你做不到。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>更难辩护的是唯物主义，而不必然是无神论</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>那是不是意味着，研究意识让无神论更难辩护了？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O’Connor）">亚历克斯</span></div><div class="content">
+<p>我觉得，它让唯物主义更难辩护了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>能解释一下吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O’Connor）">亚历克斯</span></div><div class="content">
+<p>你可以认为意识完全无法解释，可以认为意识是基础性的，可以认为意识存在于微小的原子里，也可以认为意识完全是幻觉。这些看法，都不必然跟你信不信神有关。你不必信神，也可以相信心智是非物质的。这两件事并没有绑在一起。不过，常常跟无神论绑在一起的唯物主义，作为一套关于世界的理论，我觉得几乎无法辩护。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>物质是什么：罗素的追问与国际象棋类比</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O’Connor）">亚历克斯</span></div><div class="content">
+<p>唯物主义到底是什么意思？就是说宇宙由物质构成。那物质又是什么？原子之类的东西，对吧？好，那原子是什么？这其实是个老问题，伯特兰·罗素（Bertrand Russell）就碰到过。原子由质子和电子构成。那电子又是什么？一种带负电的基本粒子。这又是什么意思？意思是：如果它靠近另一个带负电的粒子，两者会互相排斥。好，这说的是它会做什么。可它本身是什么？我们正在与之相互作用的那个东西，其真正的本性是什么？</p>
+<p>这个问题科学回答不了，因为科学是一项描述性的事业。这并不是在贬低科学。它当然回答不了。它告诉你事物如何表现、事物会做什么，并不告诉你它们是什么。它不能给你一种关于实体的理解，就像国际象棋规则不能告诉你棋子是用什么做的。它描述的是宇宙里事物如何运动。物体并不是因为牛顿运动定律才运动的；牛顿运动定律只是在描述，物体被推动之后会怎么动。</p>
+<p>所以，想用科学去解释根本实在「是什么」，在我看来是个错误。科学本质上是在描述事物如何表现，这有点像对原子做行为主义。这就好比木匠想弄清楚国王棋子该用什么材料来做，却去研究国际象棋规则——完全是另一回事。我不认为科学能做成这件事。那么，实在的基础材料到底是什么？也许唯一的答案就是：我们不知道，也没有途径去触及。我并不是说，要解决这个问题就只能接受某些关于意识的古怪观点。我只是想说，科学不会告诉你实在之实体的基础本性是什么。而且大多数科学家其实都同意这一点。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>只有行为、没有承载者：罗韦利与唯物主义的空洞</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O’Connor）">亚历克斯</span></div><div class="content">
+<p>他们会说：那又怎样？它所是的，不过就是它所做的，仅此而已。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>我觉得这有点奇怪，不过也许就是这样：它所是的，不过就是它所做的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O’Connor）">亚历克斯</span></div><div class="content">
+<p>正是如此。那接下来的问题就是：那个「在做这件事」的东西，又是什么？你到底在说什么？卡洛·罗韦利（Carlo Rovelli）大概是近年来为这种观点辩护得最好的人之一，他刚出的一本书，我觉得辩护得相当好。但关键是：当有人说「我是唯物主义者」时，我想知道他是什么意思。听起来他们是在主张宇宙由什么构成，而不只是它如何表现、它做什么，而是它到底是什么，它的实体是什么。可你把它拆开来看，会发现这件事简直无法定义。</p>
+<p>所以，唯物主义者真正想说的，也许只是：除了科学所能描述的东西，我不相信还有别的。这没问题。可这样一来，这个观点听起来就很怪：你等于在说，唯一存在的只有行为，却没有那个在表现这些行为的东西。总得有某种实体吧。对我来说，有意思的是：在实在的根基处，你根本没有可以站立的地面。实在的实体对科学完全不可穿透，而且我认为科学永远也回答不了这个问题。我再强调一遍，科学家大体上也同意这一点。这并不是某种标新立异、攻击科学的批评，而只是在划定边界。说国际象棋规则永远解释不了音乐理论，并不是在侮辱棋规；说科学方法永远无法告诉你，它所解释的那些东西的实体是什么，同样不是在侮辱科学。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>科学无法证明自身前提，经验必须在先</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>差别在于，科学曾希望能描述一切，仿佛一切都该能被「棋规」说清。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O’Connor）">亚历克斯</span></div><div class="content">
+<p>如果有人真这么想，那我觉得他们是在骗自己。科学能解释一切吗？科学能解释它自己的前提吗？没有任何方法可以在这个意义上自我说明。总会有一些东西是我们触及不到的。很平凡地讲，就有一些东西是科学无法触及的。逻辑的基本定律无法用科学证明。你无法科学地证明他人的心智存在，也无法科学地证明外部世界存在。你一开始做观察，就已经在假定外部世界存在了。你可以这样做，没问题，但不要声称这是从科学出发才得到的。你不是先有科学，再得到经验。你是先有经验，再通过经验去做科学。经验必须在先。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>底部的空与「存在性」：唯一能直接把握的是意识经验</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O’Connor）">亚历克斯</span></div><div class="content">
+<p>于是，在实在的底部，好像有一种空虚。有些哲学家就认为，实在在这个意义上真的是空的。佛教的中观派（Madhyamaka）也有类似的「空」的观念：他们认为宇宙没有实体，只有相互作用。这听起来都有点奇怪。但如果你像我一样，认为那里确实有某种东西，世界里真有一种实实在在的「存在性」（isness），那么谜题就是：它到底是什么？</p>
+<p>批评者可能会说：好吧亚历克斯，那你要怎么解释这种「存在性」？你能用什么方法去描述或解释一个东西的本性？因为一旦你使用语言、试图解释一个概念，你其实是在谈论它，而不是在把握它本身。如果实在的本性是这种不可还原的实体，你要怎么解释它？问得好。那么，宇宙里有哪一样东西，是你可以直接接触到的——不是间接的，而是直接的？你清清楚楚知道它是什么，不需要被解释，甚至无法向别人解释，但你就是知道。答案就是意识经验。那是你唯一直接经验到的东西。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>基础意识与神：梵、漩涡与斯宾诺莎的「神或自然」</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O’Connor）">亚历克斯</span></div><div class="content">
+<p>如果宇宙在根本上是经验性的——</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>这跟说它是神，又能差多少？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O’Connor）">亚历克斯</span></div><div class="content">
+<p>那要看你怎么把这个说法落到实处，用哲学家爱讲的话来说。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>你之前提到，很多人会有那种神圣的、令人敬畏的体验。然后这种体验又会被一整套工具拿来检讨和评估，其中不少工具要么就在科学范围之内，要么跟科学挨得很近。如果被批评的恰恰是经验，而你又说，描述和评估我们对世界的经验性理解，从根本上超出了科学的范围——那这不是让「神的体验该怎么评估」这件事，变得有点……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="alex"><div class="label"><span class="badge" title="亚历克斯·奥康纳（Alex O’Connor）">亚历克斯</span></div><div class="content">
+<p>对，所以我才会觉得，神秘主义和强调体验的传统里，有一种合一的成分。那不是一种交流。不是说你还一切如常，只是在跟神聊天。你会感到自己与这种神性相连，自己就像是这种神性的某种表达。如果你认为，我们所谓的神，最好被理解成宇宙的基础意识，那你自己也是那种意识的一种表达。在这一点上，印度传统把握得更好。</p>
+<p>他们所说的梵（Brahman），是他们用来指称终极实在的词，有时被人当成跟「神」差不多，但并不完全一样。他们不把它想成一个有意志、存在并创造宇宙的存在者，而把梵想成我们都在其中游泳的那片大洋。他们常用这类比喻：你的自我，就像水里的一个漩涡。你可以指着它说，它是个可区分的东西，也在做着某些事，但它只是这片大洋的一种表达，无法从大洋里分离出去。你不能把它从海里捞起来，搬到别处去。它只是这片大洋表达自身的一种方式。</p>
+<p>所以，对唯心论者、泛心论者，以及所有认为宇宙在根本上是有意识的人来说，他们通常会把世界上存在的一切，都看成意识的显现。于是，在他们的解释里，宗教体验就会是对这一点的一种觉察、一种认出。比如有人吃了迷幻药，觉得自己与自然合一，感到某种联结。这到底是什么意思？「我跟一切是一体的」究竟能指什么？难道说我跟那边那棵树是同一个东西？这听起来很荒唐；除非你从另一个层面来看：我们都是同一个东西的表达。就像树上的每片叶子彼此对看，然后说：看，我们其实是同一个大的有机体。我觉得他们想讲的大概就是这个。所以放在宗教语境里，意思就是：我们都是基础意识的表达。</p>
+<p>西方传统里，这一思路最主要的思想家是斯宾诺莎（Spinoza）。很多人会说「我相信的是斯宾诺莎的神」，而他们的意思其实是：我是无神论者，而且我热爱科学。人们常以为，斯宾诺莎只是把神的观念拉下来，等同于自然，然后说「自然就是神」。不是的。斯宾诺莎是把自然提升到了神性的高度。他认为只有一种终极实体，他著名的说法是「神或自然」（God or nature）。他并不太在乎你叫它什么，但他说，那就是我们都在其中活动的那个基础性的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>插一句。很多订阅的人跟我们说，他们在 Apple Podcast、Spotify 和 YouTube 上明明点过订阅或关注，却被取消了。麻烦你往下看一眼，是不是也遇到了这种情况。不少人都碰到过。订阅之后，你可以比别人更早知道新一集，也是对节目的支持，我会很高兴。检查一下，点一下，就好了。谢谢。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Momentous 睡眠补剂]</span></div>
+<div class="turn spk-0 host" data-spk="chris"><div class="label"><span class="badge" title="克里斯·威廉姆森（Chris Williamson）">克里斯</span></div><div class="content">
+<p>你缩了一下。你又缩了一下。<span class="tag">【笑声】</span></p>
+</div></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Chris Williamson", "title": "无神论论证里最大的漏洞——亚历克斯·奥康纳", "url": "https://www.youtube.com/watch?v=fOFOOivcg5Q", "videoId": "fOFOOivcg5Q", "published_at": "2026-11-22", "duration": 811, "caption_source": "yt-dlp-chrome-cookies", "guests": ["亚历克斯·奥康纳（Alex O’Connor）"], "speakers": [{"id": "chris", "name": "克里斯·威廉姆森（Chris Williamson）", "role": "host", "short": "克里斯"}, {"id": "alex", "name": "亚历克斯·奥康纳（Alex O’Connor）", "role": "guest", "short": "亚历克斯"}], "intro": {"summary": "在这段约 13 分半的对谈里，克里斯·威廉姆森问亚历克斯·奥康纳：还有没有科学永远解释不了的东西。亚历克斯从意识谈起，认为意识不是宇宙里与桌子、椅子并列的又一样东西，而是你用来经验地探究世界的工具本身；再把这一论点推进到唯物主义——科学只描述物质如何表现，并不能告诉你电子或原子「是什么」。两人一路讲到中观派的空、直接可及的意识经验，以及把基础意识与神相比时，印度传统里的梵、漩涡比喻，和斯宾诺莎的「神或自然」。", "points": ["克里斯问：还有没有科学永远解释不了的领域。亚历克斯说，意识这一类东西本身就很独特：它不是宇宙里与桌子、椅子、耳朵、手并列的又一件事物，其他东西都是透过意识被看见的。他把意识比作一把能修好世上几乎一切的扳手——扳手坏了，却不能再用这把扳手去修它。关掉意识再去做实验、写记录、整理成数学推理，是做不到的。", "克里斯问：研究意识是不是让无神论更难辩护。亚历克斯纠正：更难辩护的是常常跟无神论绑在一起的唯物主义。你可以认为意识无法解释、是基础性的、存在于微小原子里，或完全是幻觉，这些都不必然通向信神；不必信神，也可以相信心智是非物质的。但作为一套关于世界的理论，唯物主义几乎无法辩护。", "他用伯特兰·罗素（Bertrand Russell）的老问题往下追：宇宙由物质构成，物质是原子，原子由质子和电子构成，电子是带负电的基本粒子——靠近另一个负电粒子就会互相排斥。这只说明它会做什么，没有说明它是什么。科学是描述性事业，告诉你事物如何表现，并不给你关于实体的理解，就像国际象棋规则不能告诉你棋子是用什么做的。物体也不是因为牛顿运动定律才运动，定律只是描述运动发生之后会怎样。想用科学解释根本实在「是什么」，好比木匠研究棋规来决定国王棋子该用什么材料，是把两件不同的事混在一起。", "大多数科学家其实同意：科学不会告诉你实在之实体的基础本性，有人甚至说「它所是的，不过就是它所做的」。克里斯觉得这有点奇怪。亚历克斯顺着问：那个「在做这件事」的东西又是什么？他提到卡洛·罗韦利（Carlo Rovelli）近期出书，为这种观点做了相当好的辩护。可当有人自称唯物主义者时，听起来是在主张宇宙由什么构成，而不只是它如何表现；一旦拆开，实体却无法定义。若唯物主义只是「除了科学能描述的，再没有别的」，那就变成：唯一存在的只有行为，却没有那个在表现行为的东西。他认为在实在的根基处，你没有可以站立的地面，而这只是在给科学划界，并不等于侮辱科学——正如说棋规解释不了音乐理论，并不是在贬低棋规。", "克里斯指出差异在于：科学曾希望能描述一切，仿佛一切都该能被「棋规」说清。亚历克斯认为，若有人真这么想，是在骗自己。科学无法解释自己的前提，任何方法都不能在这个意义上自我说明。逻辑的基本定律、他人心智的存在、外部世界的存在，都无法用科学证明；你一开始做观察，就已经在假定外部世界存在。不是先有科学再得到经验，而是先有经验，再通过经验去做科学。", "在实在底部，好像有一种空虚。佛教中观派（Madhyamaka）也有类似的「空」：宇宙没有实体，只有相互作用。但亚历克斯相信世界里有一种真实的「存在性」（isness），谜题就是它到底是什么。批评者会问：语言一旦开口，就是在谈论它，而不是把握它；不可还原的实体要怎么解释？他认为宇宙里你唯一能直接接触、不需要也不能向别人解释、却清清楚楚知道的东西，就是意识经验。克里斯追问：如果宇宙在根本上是经验性的，这跟说它是神又能差多少？亚历克斯说要看你怎么把这个说法落到实处。克里斯再问：很多人的神圣体验会被科学范围内或邻近的工具拿来评估，而亚历克斯又主张经验性理解超出科学范围，那「神的体验该怎么评估」岂不是变得很棘手。亚历克斯转向神秘主义传统里的合一：那不是在跟神聊天，而是感到自己是神性、或宇宙基础意识的一种表达。印度传统里的梵（Brahman）更接近「我们都在其中游泳的大洋」，而不是有意志并创造宇宙的存在者；自我像水里的漩涡，可区分、也在做事，却不能从海里捞走。唯心论者和泛心论者把万物看成意识的显现，迷幻药带来的「与自然合一」，也被他理解成「我们都是同一个东西的表达」，就像树叶发现自己同属一个有机体。西方这一思路最主要的思想家是斯宾诺莎（Spinoza）。很多人说「我相信斯宾诺莎的神」，意思却是自己是热爱科学的无神论者，以为斯宾诺莎只是把神拉下来等同于自然；亚历克斯纠正：斯宾诺莎是把自然提升到神性，认为只有一种终极实体，他称之为「神或自然」（God or nature），那是我们都在其中活动的基础。"], "verdict": "值得看：约 13 分半，把「科学解释不了意识与物质实体」讲得很具体，从扳手隐喻、罗素对电子的追问、国际象棋类比，讲到中观派的空、梵与漩涡，以及斯宾诺莎的「神或自然」。可跳过：若已听过两人更长的完整访谈，或对意识哲学、无神论与唯物主义的概念辨析不感兴趣。片头有 Modern Wisdom 年度复盘口播，片尾有 Momentous 睡眠补剂赞助，正文已标灰。", "audience": "关心意识哲学、科学边界、唯物主义与无神论辩论，或想听亚历克斯·奥康纳如何把这些论证讲清楚的人。"}, "sections": [{"id": "s1", "title": "意识不是宇宙里的又一样东西：扳手隐喻", "start_sec": 22, "summary": "开场广告之后，克里斯问：还有没有别的领域，是科学永远解释不了的。亚历克斯说他不太确定，但意识这一类东西本身就很独特。意识跟宇宙里其他任何东西都不一样：它不是与桌子、椅子、耳朵、手并列的又一件事物，其他那些东西都是透过意识被看见的。所以，若有人觉得「科学能解释这个、解释那个，偏偏解释不了这一件」听着别扭，问题正在于意识并不是坐在宇宙里的「又一样东西」，而是你用来经验地探究周围世界的工具本身。他把意识比作一把非常厉害的扳手，世上好像没有什么是它修不好的；可扳手一旦坏了，就不能再用这把扳手去修它。关掉意识，再去尝试做科学、做实验、写记录、整理成数学推理，是做不到的。"}, {"id": "s2", "title": "更难辩护的是唯物主义，而不必然是无神论", "start_sec": 110, "summary": "克里斯问：研究意识是不是让无神论更难辩护。亚历克斯说，更难辩护的是唯物主义。你可以认为意识完全无法解释，可以认为它是基础性的，可以认为微小的原子里也有意识，也可以认为意识完全是幻觉——这些看法都不必然跟信不信神有关。你不必信神，也可以相信心智是非物质的，这两件事并没有绑在一起。不过，常常跟无神论绑在一起的唯物主义，作为一套关于世界的理论，他觉得几乎无法辩护。"}, {"id": "s3", "title": "物质是什么：罗素的追问与国际象棋类比", "start_sec": 148, "summary": "亚历克斯开始拆「唯物主义」这个词：宇宙由物质构成，物质是原子之类的东西，原子由质子和电子构成，电子是带负电的基本粒子——靠近另一个负电粒子就会互相排斥。这是伯特兰·罗素（Bertrand Russell）早就碰到过的老问题：你一路追问下来，得到的只是它会做什么，而不是它是什么，不是我们正在与之相互作用的那个东西的真正本性。他认为这个问题科学回答不了，因为科学是描述性事业：它告诉你事物如何表现、会做什么，并不告诉你它们是什么，就像国际象棋规则不能告诉你棋子是用什么做的。物体也不是因为牛顿运动定律才运动，定律只是在描述物体被推动之后会怎么动。想用科学去解释根本实在「是什么」，等于对原子做行为主义，好比木匠研究棋规来决定国王棋子该用什么材料——完全是另一回事。他并不认为，要解决这个问题就只能接受某些关于意识的古怪观点；他只是说，科学不会告诉你实在之实体的基础本性，而且大多数科学家其实都同意这一点。"}, {"id": "s4", "title": "只有行为、没有承载者：罗韦利与唯物主义的空洞", "start_sec": 274, "summary": "科学家常会说：那又怎样？它所是的，不过就是它所做的，仅此而已。克里斯觉得这有点奇怪，不过也许就是这样。亚历克斯接上：那「在做这件事」的东西又是什么？他提到卡洛·罗韦利（Carlo Rovelli）大概是近年来为这种观点辩护得最好的人之一，刚出的一本书他觉得写得相当好。可当有人说「我是唯物主义者」时，听起来是在主张宇宙由什么构成，而不只是它如何表现；一旦拆开，这种实体却简直无法定义。若唯物主义者真正想说的只是「除了科学所能描述的，我不相信还有别的」，这个观点就会变得很怪：唯一存在的只有行为，却没有那个在表现这些行为的东西，总得有某种实体吧。对他来说，有意思的是：在实在的根基处，你没有可以站立的地面，实在的实体对科学完全不可穿透，而且他认为科学永远也回答不了。他强调，这不是标新立异地攻击科学，而只是在划定边界——说棋规永远解释不了音乐理论，并不是在侮辱棋规。"}, {"id": "s5", "title": "科学无法证明自身前提，经验必须在先", "start_sec": 360, "summary": "克里斯指出一个差别：科学曾希望能描述一切，仿佛一切都该能被「棋规」说清。亚历克斯认为，若有人真这么想，是在骗自己。科学能解释一切吗？它能解释自己的前提吗？没有任何方法可以在这个意义上自我说明，总会有我们触及不到的东西。很平凡地讲：逻辑的基本定律无法用科学证明；你也无法科学地证明他人的心智存在，或外部世界存在——你一开始做观察，就已经在假定外部世界存在了。这样做没问题，但不要声称这是从科学出发才得到的。不是先有科学再得到经验，而是先有经验，再通过经验去做科学。经验必须在先。"}, {"id": "s6", "title": "底部的空与「存在性」：唯一能直接把握的是意识经验", "start_sec": 415, "summary": "亚历克斯说，在实在的底部好像有一种空虚。有些哲学家认为实在在这个意义上真的是空的；佛教中观派（Madhyamaka）也有类似的「空」：宇宙没有实体，只有相互作用。这听起来有点奇怪。可如果像他一样，相信世界里真有一种「存在性」（isness），谜题就是：它到底是什么？批评者会问：你要用什么方法解释这种存在性？一旦使用语言、解释概念，你就是在谈论它，而不是把握它本身；如果实在的本性是不可还原的实体，要怎么解释？他认为问得好。宇宙里你唯一能直接接触、不是间接、不需要被解释、甚至无法向别人解释、却清清楚楚知道的东西，就是意识经验。那是你唯一直接经验到的东西。"}, {"id": "s7", "title": "基础意识与神：梵、漩涡与斯宾诺莎的「神或自然」", "start_sec": 493, "summary": "亚历克斯说，如果宇宙在根本上是经验性的。克里斯立刻问：这跟说它是神，又能差多少？亚历克斯说，那要看你怎么把这个说法落到实处。克里斯再追：很多人会有神圣的、令人敬畏的体验，而这些体验又会被一整套或属于科学、或与科学相近的工具拿来检讨；如果被批评的恰恰是经验，而描述和评估我们对世界的经验性理解又超出科学范围，那「神的体验该怎么评估」岂不是变得很棘手。亚历克斯转向神秘主义和强调体验的传统里的合一：那不是一切如常地跟神聊天，而是感到自己与神性相连，自己就是这种神性、或宇宙基础意识的一种表达。他认为印度传统把这一点把握得更好。梵（Brahman）是他们指称终极实在的词，有时被人当成跟「神」差不多，但并不完全一样：他们不把它想成一个有意志、存在并创造宇宙的存在者，而把梵想成我们都在其中游泳的大洋。自我像水里的漩涡，可以指认、也在做事，却只是大洋的一种表达，不能从海里捞起来搬到别处。唯心论者、泛心论者通常把世上的一切看成意识的显现，宗教体验就是对这一点的觉察。有人吃了迷幻药觉得与自然合一，「我跟那边那棵树是同一个东西」听起来荒唐，除非从「我们都是同一个东西的表达」来理解，就像树叶发现自己同属一个有机体。西方这一思路最主要的思想家是斯宾诺莎（Spinoza）。很多人说「我相信斯宾诺莎的神」，意思却是：我是无神论者，而且我热爱科学，以为斯宾诺莎只是把神拉下来等同于自然。亚历克斯纠正：斯宾诺莎是把自然提升到神性，认为只有一种终极实体，他称之为「神或自然」（God or nature），并不太在乎你怎么称呼它，那是我们都在其中活动的基础。"}], "paragraphs": [{"start_sec": 0, "type": "ad_omitted", "ad_brand": "Modern Wisdom 年度复盘", "section_id": "s1", "zh": "Modern Wisdom 年度复盘"}, {"start_sec": 22, "type": "text", "speaker_id": "chris", "section_id": "s1", "zh": "还有没有别的领域，是你觉得科学永远解释不了的？"}, {"start_sec": 27, "type": "text", "speaker_id": "alex", "section_id": "s1", "zh": "我不太确定。意识这一类东西，是不是本身就很独特？我觉得它确实是。意识跟宇宙里其他任何东西都不一样。它不只是宇宙里的又一件事物。不是说有桌子、椅子、你的耳朵、你的手，然后再加上意识。其他那些东西，都是透过意识被看见的。所以这会让人听着别扭：你的意思是，科学能解释这个、解释那个，偏偏解释不了这一件？问题是，意识并不是坐在宇宙里、跟其他东西并列的「又一样东西」。"}, {"start_sec": 63, "type": "text", "speaker_id": "alex", "section_id": "s1", "zh": "它是你用来经验地探究周围世界的工具本身。就像你有一把非常厉害的扳手，世界上好像没有什么是这把扳手修不好的。然后扳手坏了。你想：那我们再用这把扳手去修扳手不就行了？做不到。因为它就是你用来检查其余世界的那件工具。意识就是这样。把意识关掉，再去尝试做科学，看看你能走多远。试着在自己处于无意识状态的情况下，去调查世界、做实验、把结果写下来、再整理成数学推理——你做不到。"}, {"start_sec": 110, "type": "text", "speaker_id": "chris", "section_id": "s2", "zh": "那是不是意味着，研究意识让无神论更难辩护了？"}, {"start_sec": 115, "type": "text", "speaker_id": "alex", "section_id": "s2", "zh": "我觉得，它让唯物主义更难辩护了。"}, {"start_sec": 119, "type": "text", "speaker_id": "chris", "section_id": "s2", "zh": "能解释一下吗？"}, {"start_sec": 122, "type": "text", "speaker_id": "alex", "section_id": "s2", "zh": "你可以认为意识完全无法解释，可以认为意识是基础性的，可以认为意识存在于微小的原子里，也可以认为意识完全是幻觉。这些看法，都不必然跟你信不信神有关。你不必信神，也可以相信心智是非物质的。这两件事并没有绑在一起。不过，常常跟无神论绑在一起的唯物主义，作为一套关于世界的理论，我觉得几乎无法辩护。"}, {"start_sec": 148, "type": "text", "speaker_id": "alex", "section_id": "s3", "zh": "唯物主义到底是什么意思？就是说宇宙由物质构成。那物质又是什么？原子之类的东西，对吧？好，那原子是什么？这其实是个老问题，伯特兰·罗素（Bertrand Russell）就碰到过。原子由质子和电子构成。那电子又是什么？一种带负电的基本粒子。这又是什么意思？意思是：如果它靠近另一个带负电的粒子，两者会互相排斥。好，这说的是它会做什么。可它本身是什么？我们正在与之相互作用的那个东西，其真正的本性是什么？"}, {"start_sec": 187, "type": "text", "speaker_id": "alex", "section_id": "s3", "zh": "这个问题科学回答不了，因为科学是一项描述性的事业。这并不是在贬低科学。它当然回答不了。它告诉你事物如何表现、事物会做什么，并不告诉你它们是什么。它不能给你一种关于实体的理解，就像国际象棋规则不能告诉你棋子是用什么做的。它描述的是宇宙里事物如何运动。物体并不是因为牛顿运动定律才运动的；牛顿运动定律只是在描述，物体被推动之后会怎么动。"}, {"start_sec": 217, "type": "text", "speaker_id": "alex", "section_id": "s3", "zh": "所以，想用科学去解释根本实在「是什么」，在我看来是个错误。科学本质上是在描述事物如何表现，这有点像对原子做行为主义。这就好比木匠想弄清楚国王棋子该用什么材料来做，却去研究国际象棋规则——完全是另一回事。我不认为科学能做成这件事。那么，实在的基础材料到底是什么？也许唯一的答案就是：我们不知道，也没有途径去触及。我并不是说，要解决这个问题就只能接受某些关于意识的古怪观点。我只是想说，科学不会告诉你实在之实体的基础本性是什么。而且大多数科学家其实都同意这一点。"}, {"start_sec": 274, "type": "text", "speaker_id": "alex", "section_id": "s4", "zh": "他们会说：那又怎样？它所是的，不过就是它所做的，仅此而已。"}, {"start_sec": 277, "type": "text", "speaker_id": "chris", "section_id": "s4", "zh": "我觉得这有点奇怪，不过也许就是这样：它所是的，不过就是它所做的。"}, {"start_sec": 281, "type": "text", "speaker_id": "alex", "section_id": "s4", "zh": "正是如此。那接下来的问题就是：那个「在做这件事」的东西，又是什么？你到底在说什么？卡洛·罗韦利（Carlo Rovelli）大概是近年来为这种观点辩护得最好的人之一，他刚出的一本书，我觉得辩护得相当好。但关键是：当有人说「我是唯物主义者」时，我想知道他是什么意思。听起来他们是在主张宇宙由什么构成，而不只是它如何表现、它做什么，而是它到底是什么，它的实体是什么。可你把它拆开来看，会发现这件事简直无法定义。"}, {"start_sec": 311, "type": "text", "speaker_id": "alex", "section_id": "s4", "zh": "所以，唯物主义者真正想说的，也许只是：除了科学所能描述的东西，我不相信还有别的。这没问题。可这样一来，这个观点听起来就很怪：你等于在说，唯一存在的只有行为，却没有那个在表现这些行为的东西。总得有某种实体吧。对我来说，有意思的是：在实在的根基处，你根本没有可以站立的地面。实在的实体对科学完全不可穿透，而且我认为科学永远也回答不了这个问题。我再强调一遍，科学家大体上也同意这一点。这并不是某种标新立异、攻击科学的批评，而只是在划定边界。说国际象棋规则永远解释不了音乐理论，并不是在侮辱棋规；说科学方法永远无法告诉你，它所解释的那些东西的实体是什么，同样不是在侮辱科学。"}, {"start_sec": 360, "type": "text", "speaker_id": "chris", "section_id": "s5", "zh": "差别在于，科学曾希望能描述一切，仿佛一切都该能被「棋规」说清。"}, {"start_sec": 366, "type": "text", "speaker_id": "alex", "section_id": "s5", "zh": "如果有人真这么想，那我觉得他们是在骗自己。科学能解释一切吗？科学能解释它自己的前提吗？没有任何方法可以在这个意义上自我说明。总会有一些东西是我们触及不到的。很平凡地讲，就有一些东西是科学无法触及的。逻辑的基本定律无法用科学证明。你无法科学地证明他人的心智存在，也无法科学地证明外部世界存在。你一开始做观察，就已经在假定外部世界存在了。你可以这样做，没问题，但不要声称这是从科学出发才得到的。你不是先有科学，再得到经验。你是先有经验，再通过经验去做科学。经验必须在先。"}, {"start_sec": 415, "type": "text", "speaker_id": "alex", "section_id": "s6", "zh": "于是，在实在的底部，好像有一种空虚。有些哲学家就认为，实在在这个意义上真的是空的。佛教的中观派（Madhyamaka）也有类似的「空」的观念：他们认为宇宙没有实体，只有相互作用。这听起来都有点奇怪。但如果你像我一样，认为那里确实有某种东西，世界里真有一种实实在在的「存在性」（isness），那么谜题就是：它到底是什么？"}, {"start_sec": 447, "type": "text", "speaker_id": "alex", "section_id": "s6", "zh": "批评者可能会说：好吧亚历克斯，那你要怎么解释这种「存在性」？你能用什么方法去描述或解释一个东西的本性？因为一旦你使用语言、试图解释一个概念，你其实是在谈论它，而不是在把握它本身。如果实在的本性是这种不可还原的实体，你要怎么解释它？问得好。那么，宇宙里有哪一样东西，是你可以直接接触到的——不是间接的，而是直接的？你清清楚楚知道它是什么，不需要被解释，甚至无法向别人解释，但你就是知道。答案就是意识经验。那是你唯一直接经验到的东西。"}, {"start_sec": 493, "type": "text", "speaker_id": "alex", "section_id": "s7", "zh": "如果宇宙在根本上是经验性的——"}, {"start_sec": 497, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "这跟说它是神，又能差多少？"}, {"start_sec": 503, "type": "text", "speaker_id": "alex", "section_id": "s7", "zh": "那要看你怎么把这个说法落到实处，用哲学家爱讲的话来说。"}, {"start_sec": 509, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "你之前提到，很多人会有那种神圣的、令人敬畏的体验。然后这种体验又会被一整套工具拿来检讨和评估，其中不少工具要么就在科学范围之内，要么跟科学挨得很近。如果被批评的恰恰是经验，而你又说，描述和评估我们对世界的经验性理解，从根本上超出了科学的范围——那这不是让「神的体验该怎么评估」这件事，变得有点……"}, {"start_sec": 551, "type": "text", "speaker_id": "alex", "section_id": "s7", "zh": "对，所以我才会觉得，神秘主义和强调体验的传统里，有一种合一的成分。那不是一种交流。不是说你还一切如常，只是在跟神聊天。你会感到自己与这种神性相连，自己就像是这种神性的某种表达。如果你认为，我们所谓的神，最好被理解成宇宙的基础意识，那你自己也是那种意识的一种表达。在这一点上，印度传统把握得更好。"}, {"start_sec": 590, "type": "text", "speaker_id": "alex", "section_id": "s7", "zh": "他们所说的梵（Brahman），是他们用来指称终极实在的词，有时被人当成跟「神」差不多，但并不完全一样。他们不把它想成一个有意志、存在并创造宇宙的存在者，而把梵想成我们都在其中游泳的那片大洋。他们常用这类比喻：你的自我，就像水里的一个漩涡。你可以指着它说，它是个可区分的东西，也在做着某些事，但它只是这片大洋的一种表达，无法从大洋里分离出去。你不能把它从海里捞起来，搬到别处去。它只是这片大洋表达自身的一种方式。"}, {"start_sec": 625, "type": "text", "speaker_id": "alex", "section_id": "s7", "zh": "所以，对唯心论者、泛心论者，以及所有认为宇宙在根本上是有意识的人来说，他们通常会把世界上存在的一切，都看成意识的显现。于是，在他们的解释里，宗教体验就会是对这一点的一种觉察、一种认出。比如有人吃了迷幻药，觉得自己与自然合一，感到某种联结。这到底是什么意思？「我跟一切是一体的」究竟能指什么？难道说我跟那边那棵树是同一个东西？这听起来很荒唐；除非你从另一个层面来看：我们都是同一个东西的表达。就像树上的每片叶子彼此对看，然后说：看，我们其实是同一个大的有机体。我觉得他们想讲的大概就是这个。所以放在宗教语境里，意思就是：我们都是基础意识的表达。"}, {"start_sec": 677, "type": "text", "speaker_id": "alex", "section_id": "s7", "zh": "西方传统里，这一思路最主要的思想家是斯宾诺莎（Spinoza）。很多人会说「我相信的是斯宾诺莎的神」，而他们的意思其实是：我是无神论者，而且我热爱科学。人们常以为，斯宾诺莎只是把神的观念拉下来，等同于自然，然后说「自然就是神」。不是的。斯宾诺莎是把自然提升到了神性的高度。他认为只有一种终极实体，他著名的说法是「神或自然」（God or nature）。他并不太在乎你叫它什么，但他说，那就是我们都在其中活动的那个基础性的东西。"}, {"start_sec": 713, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "插一句。很多订阅的人跟我们说，他们在 Apple Podcast、Spotify 和 YouTube 上明明点过订阅或关注，却被取消了。麻烦你往下看一眼，是不是也遇到了这种情况。不少人都碰到过。订阅之后，你可以比别人更早知道新一集，也是对节目的支持，我会很高兴。检查一下，点一下，就好了。谢谢。"}, {"start_sec": 736, "type": "ad_omitted", "ad_brand": "Momentous 睡眠补剂", "section_id": "s7", "zh": "Momentous Nightly Sleep"}, {"start_sec": 788, "type": "text", "speaker_id": "chris", "section_id": "s7", "zh": "你缩了一下。你又缩了一下。【笑声】"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
