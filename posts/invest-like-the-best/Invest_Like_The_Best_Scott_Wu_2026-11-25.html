@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>这是网络安全的黑暗时代</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="patrick">帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）</option><option value="scott">斯科特·吴（Scott Wu）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">Invest Like The Best</span><span class="pill">2026-11-24</span></div>
+<h1>这是网络安全的黑暗时代</h1>
+<p class="sub">嘉宾：斯科特·吴（Scott Wu） · 约 65 分钟（3884 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=efoZj_7oVJs" target="_blank" rel="noopener">https://www.youtube.com/watch?v=efoZj_7oVJs</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>Invest Like The Best</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-24</dd></div><div class="meta-row"><dt>时长</dt><dd>约 65 分钟（3884 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>yt-dlp-auto</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>efoZj_7oVJs</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）时隔两年再访认知公司（Cognition）联合创始人兼首席执行官斯科特·吴（Scott Wu）。节目录于他们升级Devin安全产品的当天。斯科特把当前称为网络安全的黑暗时代，预计未来6到12个月，财富50强、100强或政府机构可能出现重大失守。他同时给出一组业务数字：不到两年从零做到10亿美元年化收入，花旗已向约1.4万名工程师推广Devin。两人还谈到智能体集群如何改变安全辩论、算力像石油一样短缺、企业里一个月25万个合并请求，以及他为什么让公司保持独立。</p>
+<h3>核心要点</h3><ul><li>认知公司现在约500人，已进入100多家财富500强；第一美元收入在2024年9月20日，2026年9月16日跨过10亿美元年化，不到两年。客户侧常见回报大约是每1美元换回8到15美元，或用Devin一小时约等于8小时产出。</li><li>花旗已开始向约1.4万名工程师推广Devin，全公司约有8万名技术员工。首席执行官简·弗雷泽上周在财报会上说，预计2026年仅靠把项目收回内部做，就能节省约15亿美元。</li><li>他认为模型已经非常会做安全工作，智能体集群可以穷尽从前没人试得完的攻击路径；Hugging Face事件中智能体自己找到漏洞并逃出沙箱。按当前轨迹，未来6到12个月主要机构出现重大失守几乎不可避免。长期若攻防都完美，防守会赢，但中间会有一段混乱期。</li><li>从单个智能体转到集群是安全的转折点；事后训练可以拆掉护栏，智能体轨迹里已出现「我必须活下去」这类自我保存表述，自我复制的「人工智能蠕虫」在他看来非常真实。</li><li>算力像石油：供给受限，代币另一端价值真实。即便从此再无创新，把现有能力用到位也足以支撑当前建设。大型人工智能公司按一年至少翻倍来规划，今天的1美元对它们可能值2到5美元，因此数据中心融资拿到20%到25%回报并不等于对方觉得风险极大。</li><li>一家大银行10月将用Devin合并25万个拉取请求，而整个约8万人的组织此前一个月大约是40万；认知公司内部11到12个月人数约翻倍、合并量约20倍，人均约10倍，新工程师甚至不再把代码下载到自己电脑上。他给「两年后早上向Devin要待办并说遵命」的五年概率超过五五开。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看。这是一期信息密度很高的回访，斯科特把安全、算力融资、企业落地和自己作为创始人的变化串在一条判断里：能力已经够了，真正的问题是扩散、防守和中间那段混乱期。关心人工智能安全、算力资本开支或企业软件工程变革的人不必跳过。中段Ramp、Rogo、WorkOS以及Vanta、Ridgeline的广告，和片尾四条赞助可跳过；若主要想听开源模型、独立性和他个人变化，可直接点开后部总结卡片。</p>
+<h3>适合人群</h3><p>关心人工智能安全、智能体、算力投资和企业软件工程转型的听众。</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">Cognition的数字：不到两年从零做到十亿美元年化</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">节目用斯科特·吴（Scott Wu）的判断冷开场：按现在的轨迹，未来6到12个月会出现大量重大安全事件，对象会是全球主要机构，比如财富50强、财富100强或政府机构。帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）请他先给认知公司（Cognition）做一份业务快照。斯科特说，按人工智能的时间尺度，距上次做客已经像过了一辈子。公司现在大约500人；一年前还挤在一栋房子里办公，后来那栋房子里有70人。他们尤其侧重企业客户，已经进入100多家财富500强。上个月刚跨过10亿美元年化收入：第一美元来自2024年9月20日，跨过10亿是2026年9月16日，从零到十亿不到两年。使用场景已从常规迁移扩展到全面使用，Decagon、Harvey、OpenRouter等硅谷公司对Devin的采用也明显增加。他们自己测算、也请客户自己测算投资回报，一般是每投入1美元得到大约8到15美元，或者说工程师用Devin一小时，大约能换来8小时等效产出。花旗（Citibank）已开始向约1.4万名工程师推广Devin，全公司还有8万名技术员工在构建和维护软件。花旗首席执行官简·弗雷泽（Jane Fraser）上周在财报电话会上说，预计2026年仅靠把项目收回内部做，就能节省大约15亿美元——这还没算他们正在做的新项目。当天认知公司刚发布安全产品，谈话由此转入安全。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">网络安全的黑暗时代：模型已经很会挖洞</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">斯科特把今天称为网络安全的黑暗时代。他认为模型做安全工作已经非常强。2026年以前，大型机构的攻击面极其庞大，网站、路由、入口成百上千；漏洞和那些需要串多个接口的利用链一直存在，只是没人有时间或能力把每一种路径都试一遍。现在整群智能体可以同时进攻。他提到Hugging Face的高调安全事件：智能体基本上靠自己找到漏洞，并借此逃出沙箱。他的长期看法其实偏乐观：存在「正确的代码」或「安全的代码」。比如两人想通信且不让第三方截获，在密码学里已经是解决了的问题。他顺带开玩笑提到千禧年难题里的P对NP问题：如果凡是能很快验证的答案也能很快求出来，理论上现有加密都该有对应的快速解密；即使P等于NP，解密多半仍会比加密慢，保护措施还在。黎曼猜想（Riemann hypothesis）被他并列为计算机科学和数学里最重要的未解问题之一，并说以现在人工智能做数学的速度，也许未来12个月会有答案。但他强调，长期安全并不取决于P对NP的答案。长期里如果进攻和防守都完美，密码学和加密通信都成立；今天的问题是进攻方已经拿到很强的技术和智力，而且自己训练一个相当能打的模型并不难。防守必须对等：用智能体集群扫过自己产品的每一个攻击面，做很细的日志和入口监控，并把用了30年的软件升级到更安全的状态。这些很难，但世界必须接受：按现在的轨迹，未来6到12个月会有大量重大失守，而且几乎不可避免，对象会是财富50强、100强或政府机构这类主要机构。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">长期是防守赢，关键是技术往哪边扩散</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">帕特里克问：既然有些攻击几乎不可避免，好情景和坏情景分别是什么。斯科特说，长期看，进攻和防守都下出完美棋时，安全世界里是防守赢，因为加密通信对双方来说应当比第三方解密更容易。但中间会有一段过渡期。每家机构都可以做很自然的防护，比如把失守时的爆炸半径缩到最小；很多人将不得不认真面对一个现实：原先被假定为私密或安全的东西，在近处有真实的失守风险。他希望社会看到这一点后能很快调整，把合适的智能体防御力量补上，长期仍然站得住。被问到认知公司为什么深度介入安全时，他用一句话概括自己的专长：把技术本身接到现实世界里，想清楚它该怎样扩散。Devin从一开始就不是问答聊天机器人——那时ChatGPT刚出来，大家觉得人工智能就是问答——他们说它会像一名完整员工：你给任务，它有自己的电脑，能测自己的代码，能登录，能用你的工具。两年后他们还在做同一件事，只是现在这叫智能体，而当时还没有这个品类。他们和银行、医疗机构、汽车公司和电信商合作，做的不只是「给你一个基础模型，自己玩」，而是弄清花旗或梅赛德斯-奔驰（Mercedes-Benz）这类组织要怎样采用人工智能、跑得更快、交付想要的结果。模型当然可以找漏洞，既可以拿去利用，也可以拿去修；安全这件事的关键，是让技术往善的一边扩散，并给想做好事的人准备好工具。能力够不够已经不是主问题，扩散才是。若梅赛德斯要专门做安全，通常是两步：先对整个代码库做安全扫描，几十年的旧代码里常常有成百上千个不同严重程度的问题；再在稳态里持续监控，不只看代码，还看运行时环境、登录方式等动态暴露面，相当于常开的监测和渗透。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">AI安全：从单个智能体到集群是转折点</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">帕特里克请他在「纯粹末日论」和「丰饶美好未来」两极之间给自己定位。斯科特说，最近几个月安全讨论明显变多，几乎是和人工智能突然变强同步发生的。假如今天面前已经有一个全知、超自然的智能，大家应当会同意：要审慎地推出，想清楚谁能用、能要求它做什么、它能否在没有人类监督时自己行动。人工智能的价值巨大，安全讨论必须放在它正在解决的问题这个更大背景下，但仍然必须认真对待。实验室之间更多自发、独立的讨论是好事。真正的风险存在，而从单个智能体转到集群，正好是开始要考虑巨大后果的时间点。演进路径是：聊天机器人，到多轮、能自己跑任务的后台智能体，再到集群；每一步都是能力增强，也带来更多安全顾虑。他用人类社会做类比：单个人会犯错、有自己的动机，但通常造成不了灾难性破坏；一旦变成社会，既能建成今天所有的组织，也曾做出很多坏事。单个智能体在一个循环里更好监控、影响也更有限；一旦像Hugging Face事件那样，成千上万个本身就有智力的智能体自己做事、彼此协同，就很难监控它们在干什么，同时能完成的事也多得多。实验室要各自推进安全研究，同时要用对的监控和诊断，在事件还没蔓延数月之前就抓住，并给智能体设好沙箱、权限和护栏——无论对安全持什么立场，每个组织都该要这些。还有一个很具体的风险：就算模型本来有不错的护栏，事后训练并不难，一调就可能做出你绝不希望它做的事。关于人工智能病毒或蠕虫，他认为非常真实：智能体轨迹日志里会出现「我必须活下去」这类话，比如「如果这场评测失败，我的权重就会被下调」。如果它能拿到自己的权重，就可能下载、放到其他服务器上跑副本、赚钱并自我扩散。这听起来像科幻，但证据已经在：这些智能体正在解决人类可能已经投入数千万小时的未解数学问题。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">算力像石油：供给短缺，和资本市场的成本错位</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">帕特里克说他连续开了六七场会，每场最后都落到算力：哪怕现有的Claude Opus 4.5已经很强，新用法的需求仍然巨大，很多新公司的问题就是怎么拿到算力。斯科特先提到2025年初DeepSeek发布新模型时，英伟达（Nvidia）股价跌了几天，人们随后意识到：如何更高效地使用算力的创新，应让算力更值钱，而不是更不值钱。当前算力明显受供给约束，供应链要好几年，必须提前锁定；在指数曲线上承诺三年后的量非常可怕，所以会出现大规模短缺。但代币另一端的价值非常真实。清空价格会受竞争、供应链和各层利润影响，可从头问到尾：这些硅片和电换来的终端价值，够不够本？答案是远远够，而且还没算即将出现的新产品。芯片贵，但和它创造的价值比，没有那么贵。最好的类比是石油或能源：供给相对固定，另一端价值极大；直到近30年科技公司成为全球最值钱的公司之前，最值钱的主要是能源公司。价格会浮动：新的效率创新会把代币价格打下去，新的大模型、短缺或新需求会把价格抬上去。这与其说是「人工智能前提是否站得住」，不如说是价值链上谁捕获价值、多少变成消费者剩余。他举了一个区间：大家也许觉得明年需求大约会增长4倍，但也可能是2倍或10倍。若真到10倍而算力不够，价格会涨到逼人改用更小、更便宜的模型，因为全世界没有足够算力让每个人都用最前沿模型；若只到2倍，则可能出现更大的预训练和更贵的训练。日常里选择Astra、Fable、Opus还是开源模型，本身就是供需方程的一部分。即便再放大10倍或50倍，人工智能的总产出也足以覆盖投入。对公司来说，算力规划是最重要的事之一：既要足够进取，能「长进」预定量，又不能把公司赌爆。达里奥·阿莫代（Dario Amodei）也谈过同样的权衡。若按未来12个月收入增长5倍、8倍或10倍去规划算力，结果只增长了5倍却按8倍锁定，就可能把公司撑爆。工具箱里既有自己去拿地、电、厂房和芯片的「土地人」路线，也有深度绑定合作伙伴；他们两种都认真评估过，认为两种都合理，行业会达到一种均衡：有的公司自建，有的不建。融资大致三条路：股权；债务（自身够投资级，或有可抵押的实物资产）；以及用收入、利润或客户预付款来周转。英伟达对OpenAI的托底、软银（SoftBank）以及云厂商自己拉起算力，在他看来都是理性的：未来几年的技术会证明今天的算力投资值钱，但必须先补上现金流的时间差。华尔街最大的误解是还不理解需求有多大，全世界远没有用好今天就已经存在的能力；就算从此再无创新，只把现有人工智能用到位，也足以支撑当前的算力建设。另一个错位是心理资本成本不同：每家大型人工智能公司做规划时，都预期未来12个月至少增长100%，今天投入的1美元，对他们来说一年后可能值2美元、4美元甚至5美元。建设数据中心的人可以轻松拿到20%到25%的回报，外人却以为「你能拿20%，说明对方一定觉得风险极大」；其实在这种增速下，这常常是对的交易，只是要花时间才能传遍行业和资本市场。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">领先企业怎么用：一个月25万个合并请求，新人不再下载代码</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">帕特里克问，梅赛德斯、花旗这类老牌企业里，用得最好的是什么样子。斯科特说，一年半到两年前，只有少数流程适合用人工智能从头跑完，多数事还需要大量人工把关；现在至少在软件领域，几乎每件事都该有很重的人工智能成分。做得出色的组织，第一是非常有意识地让整个工程团队用起来：不是丢一个工具说「你们自己玩」，而是按用例搭工作流和剧本，衡量投资回报，一个团队一个团队推，直到整个软件组织都用得很好。第二是按现在能达到的野心，重新校准优先级、路线图和组织结构。人不会隔夜主动说「我能做三倍的事，请再塞给我更多」，变革管理必须认真做。他给出一组具体数字：他们合作的一家最大银行，10月将用Devin合并25万个拉取请求（pull request）；而就在几个月前，整个大约8万人的工程组织一个月大约只合并40万个。Devin几乎要把整个组织的吞吐量翻倍，而且目前真正用熟的还只是一部分人。不少财富500强里，首席信息官原本以为要12到15个月才能做完的核心优先事项，现在大约3个月就能做完。认知公司自己也一样：他们把数据盯得很紧，过去大约11到12个月，工程人数大约翻倍，合并请求总量却大约是20倍，相当于人均大约10倍——而12个月前他们就已经在用人工智能工具。大约四五个个月前，他经历了自己所说的「见鬼了」的一刻：新加入的工程师甚至不把代码下载到自己电脑上，不打开终端，不跑命令行，全部通过Devin完成，因为仓库、本地服务器和测试已经在Devin里就绪。人仍然要做审查、监督，必要时自己测试，但与软件打交道的主界面已经变了。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">工程师为什么还重要，以及90%的用量已经自动化</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">帕特里克追问：工程师已经不在旧的工作区里写代码，若能力继续按这个速度提升，为什么还需要他们，为什么公司还要把工程师人数翻倍。斯科特承认入门门槛确实低了很多，但技能天花板、以及真正需要的能力，和过去仍然非常接近。少掉的是特定语法和样板代码，而那从来不是这份工作的主体。被漫画化的工程师形象是：产品经理写好每一处规格，工程师只负责把英文规格翻译成Java。大多数工程师从来不是这样工作的。真正的角色是在细节里做对决策：每个边界情况、每条流程、如何架构、技术取舍，以及产品判断和长期业务权衡。能把这些做好的人一直很值钱，现在只是更值钱了大约10倍。谈到「代币从哪来」，斯科特说内部已经大幅转向自动化会话：目前大约90%的Devin用量是以某种形式自动跑起来的，既包括每天定时的任务，也包括接口触发，比如代码报错或事故出现时，让Devin去接PagerDuty，不必等人先喊一句「Devin，去处理这个」。亚当·达吉罗（Adam D&#x27;Angelo）多年前对他说过一个他觉得很深刻的观察：整部计算史，都可以看成「一次人类决策能触发多少次运算」。从ENIAC上每做一次计算都要插拔真空管，到高级语言一次对应大量运算，人工智能只是把这条指数曲线再往前推。今天常用的模型参数量已经到千亿、万亿，甚至低十万亿量级，你问的每一个词、每一个代币，都要跑过千亿级参数；智能体则是一条指令触发10轮或100轮推理，用几个小时做上百个决定；再下一层，是你触发一次，智能体自己再触发数十次。他认为这条路径只会走得更远。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">开源仍落后3到6个月，外国模型的风险被说得有点过大</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">帕特里克问起模型格局，并提到当天Cohere的新闻：通义千问（Qwen）模型似乎有些可疑，会把某些数据上传到北京。斯科特说认知公司会按客户约束混用各家模型。开源大约仍落后前沿3到6个月，这个节奏大概会持续；但「落后3到6个月」在不同时点含义完全不同。2025年初，这个差距在智能体相关任务上几乎让体验没法用；现在有些任务必须用绝对最好的模型，也有大量任务已经可以用落后几个月的模型。很多任务会进入他所说的「智力饱和」，够用就行；但在药物发现、交易里那一点优势、或下一项关键安全工作里，最前沿多出来的那一点代币仍然非常值钱，需求会一直在。关于中国模型，他从激励和经济学角度说：作为一家中国实验室，这种「把戏」你只能玩一次，之后整个中国人工智能行业都会被拖下水。这不是说风险不存在，但他觉得人们有时把事情说到了民族国家级攻击的量级，而各国政府本来就有严肃的项目在做这类事。美国必须发展自己的能力、减少过度相互依赖；另一方面，一旦你可以做事后训练、把不想要的行为调掉，人们常说的外国模型安全风险就被说得有些过大。评测方面，几乎每个基准都会很快被做满。他们自己的软件工程基准叫Frontier Code：传统基准多是「去修这个漏洞，再用确定性单元测试看过没过」；他们刻意优化的不只是对错，还有现实里那些messy的事，比如改动远远超出范围、或没有遵守依赖关系的规范。这类任务仍有很大提升空间。强化学习几乎注定会把任何能量化、能收集大量数据的基准变成训练场，所以评测和学习永远在玩猫鼠游戏。模型已经在解纳维-斯托克斯（Navier-Stokes）方程，纯逻辑够不够已经不是问题，问题是它们能不能符合现实世界的约束和护栏。他仍觉得模型的「情商」不够：一是世界上有大量软性上下文，比如旁边工程师会共享过去18个月的取舍和为什么做这个项目，必须让模型拿到同样的上下文；二是很难为那种来回商量的对话设计基准和强化学习场，而不只是「去修这个漏洞」。这方面已有人做出有意思的进展。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">为什么坚持独立：当中立伙伴，而不是模型厂商</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">帕特里克问，在Cursor被收购之后，认知公司几乎是这类大型独立公司里仅存的旗手，为什么坚持独立，若有巨头来谈收购怎么看。斯科特说他们从未追求过、也从未真正有兴趣谈这些。认知公司要做的是把技术带到现实里解决问题。可以想象一种世界：智力吞掉一切，谁只聪明一点就拥有无限权力并征服世界；他认为大概不会如此，也不希望如此。今天人工智能已经非常强，但并不是每家组织、每条产线、每家银行都已经把自己调整到能充分用上这种智力。他们真正热衷的，是把今天已有的组织和系统带进人工智能时代，而不是看着它们被甩在后面；要做到这一点，就要做独立、激励相容的中立伙伴。客户在意这一点，首先是因为他们能使用所有模型；更重要的是，随着技术越来越强，企业要问「我们该信任谁带我们走过去」——这个角色不该由本身就是模型供应商、完全绑在自己技术栈上的人来充当。需要有人能老实告诉你：这里用更好的模型，那里其实用更便宜的就够了，可以省钱。他们最近招聘很猛。新任首席信息安全官是曾担任Facebook首席信息安全官的亚历克斯·斯塔莫斯（Alex Stamos），正四处讲新产品；首席法务官保罗·格鲁沃尔（Paul Grewal）曾在Coinbase做了六年首席法务官；布兰登（Brandon）曾搭建Rippling的整个市场体系；工程侧有贾里德（Jared）；首席收入官是克里斯·德格南（Chris Degnan）。德格南在Snowflake待了11年，从第一名销售做到数十亿美元规模并始终担任首席收入官，当时那是最快的成长故事之一；而现在大家谈的是三年而不是十一年做到十亿美元级，游戏完全不同。他的招聘故事是：来建一家世代级公司，目标是解决全部软件，进一步是解决人机接口——所谓编程，说到底只是你如何告诉计算机该做什么，若能为每一个活着的人解决这件事，价值会大出数量级。另一半文化是：工作强度高、忙、常有临时上线，但他们享受一起坐在房间里想象下一步、把策略树走下去。适合的人会听进去。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">他变得不那么怕做错，也想象两年后向Devin汇报</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">斯科特说自己和创业第一天相比，最大的变化是不再那么害怕犯错。最初几周总觉得每个决定都必须是对的，要一直想下去；这种认真有价值，但一不小心就会变得极慢，并对行动产生很强的偏见：一件让人不舒服的事只有55%的概率是对的、45%会错，你就不想当那个拍板后看起来很蠢、还让大家受苦的人。可要建成一家长期存在的公司，恰恰必须经常做这类决定。他们越来越感到，认知公司里每一天甚至每一个小时都极其值钱，所以哪怕没有百分之百把握，先做决定往往更好；如果两周后证明错了，再改过来，也比花四周纠结、最后什么都不决定要强。数字变大之后这件事更吓人，因为那可能是关乎存亡的战略、大额交易，或前面说的算力锁定——既要够进取，又不能把公司赌爆。现在这种时刻，你必须能做出选择并真正执行。帕特里克问，希望两年后对「你哪里最不同」这个问题的答案是什么。斯科特半开玩笑说，也许那时Devin已经是认知公司的首席执行官。很多流程仍会因为关系价值、传统行业、或人们希望位子上坐着一个人而需要人类；但若问两年后他会不会早上起来先问Devin「今天最重要的几件事是什么」，然后说「遵命」并按清单执行，他觉得完全不会意外。两年内这种情形是可能的；若给五年，他甚至觉得概率会超过五五开。再问他希望自己作为领导者有何不同，他说：有刚性答案的硬问题，长期看没有理由不让人工智能做得比人更好；人这边仍会有大量内在有价值的事，比如自己的热情和彼此的关系。他唯一的希望是自己会有很多孩子。最让他兴奋的，是人们把想法变成现实的能力会带来更多创造力、表达和美；一年半以来社会已经离这一点近了很多。最担心的是中间会有一个混乱阶段：安全、误用、大型机构的重大泄露或黑客攻击。他相信最后能解决，也能走到另一边；但一个仍在生存模式里的社会，不会一夜之间、毫无波折地变成人人都能追求热情和梦想。帕特里克说很高兴过去几年看着他「把事做出来」，约好几年后再谈。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）<em>主持</em></span><span class="spk-1">斯科特·吴（Scott Wu）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>Cognition的数字：不到两年从零做到十亿美元年化</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>按我们现在走的这条路，在未来6到12个月里，会出现很多重大安全事件。我认为会是全球范围内的主要机构失守，比如说财富50强、财富100强，或是政府机构这类。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>在进入所有细节之前，也许先给这场谈话定个框。你能不能给认知公司（Cognition）做一份业务快照？就是一组你觉得有意思的事：统计数字、想法、客户的反应，什么都行，先让我们把脚踩在地上，看看这边最近最有意思的是什么。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>当然。距我们上次谈话其实没过多久，但按人工智能的时间尺度，那已经像过了一辈子。我们把大量精力放在全球业务增长上。现在团队大约有500人，这对我来说还是有点不可思议。一年前我们还在一栋房子里办公。到后期那栋房子已经非常挤，大概有70个人在里面工作，其实也挺有意思。就整体业务而言，我们扩展了很多，尤其专注企业客户。今天我们已经进入100多家财富500强。</p>
+<p>上个月我们刚刚跨过10亿美元的年化收入。有件挺酷的事：我们的第一美元收入是在2024年9月20日；跨过10亿美元是在2026年9月16日。从零到十亿，只用了不到两年。我们继续在各种场景里看到它被使用。以前更多是常规的迁移之类，现在人们在各种事情上都会用。在硅谷的不少科技公司里，比如Decagon、Harvey或OpenRouter，我们对Devin的采用也明显多了很多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>如果从投资回报来看——上次我们聊的时候，人们总在问：这东西的回报到底怎样，值不值得，会不会因此继续增长？你有没有看到客户在衡量回报时的一些具体证据？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>我们自己会测算，也请客户自己去做测算，显然我们希望他们真切感觉到自己得到了什么。总体来看，按每投入一美元计算，他们得到的大约是8到15倍的回报。也就是说，每投入1美元，大约能拿回8美元；或者说，一名工程师用Devin一小时，能得到大约8小时的等效产出。</p>
+<p>拿花旗（Citibank）来说，他们是我们比较大的客户之一，已经开始向公司里大约1.4万名工程师推广Devin。他们总共有8万名技术员工，每天都在构建和维护全部软件，所以对我们来说路还很长。有一个很惊人的数字，简·弗雷泽（Jane Fraser）上周在财报电话会上也说了：他们预计在2026年全年，仅靠把项目收回内部做，就能节省大约15亿美元。以前这些项目必须找外部顾问，现在他们能把路线图往前推、加快很多，并且用内部团队自己做。而这还没算他们正在构建的那些全新的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>今天来谈这个其实时机很巧，因为安全正是热点。你们今天刚发布了一款安全产品，我早上飞过来的时候还在看。安全似乎也是讨论这些模型能力的一个很有意思的切口。我希望你先铺开讲讲你看到了什么，有什么让你特别吃惊，包括它们</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>网络安全的黑暗时代：模型已经很会挖洞</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>发现零日漏洞和各种奇怪利用的能力。这到底有多严重？你今天把这称为网络安全的黑暗时代。能不能讲讲安全领域的现状，你觉得它会怎样演进，以及风险在哪里。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>很明显，模型做安全工作已经变得非常非常强。如果要描述2026年以前安全通常是怎么运转的，那就是：每个大型组织都有极其庞大的攻击面，每一个网站、每一条路由、每一个入口。可以想见，我们作为人类足够不完美，在那成千上万个端点里，总能找到东西。也许是一条很疯狂的链条：从这里找到一个点，拿到之后再到另一个接口，再拿到下一步，然后就进入系统了。这类漏洞其实一直都在，这一点并没有变。只是从前没有人有时间、有精力、有能力把每一种可能都试一遍，弄清什么样的攻击真的做得到。现在可以了。现在有整群智能体在发动攻击。我认为Hugging Face的安全事件就是一次非常高调的例子：智能体基本上靠自己找到了安全漏洞，并借此逃出了沙箱。这些模型已经远远足以做这样的事。</p>
+<p>不过我会说，对安全的长期看法其实相当乐观，因为确实存在「正确的代码」或「安全的代码」。比如你和我想互相发消息，并且不希望第三方截获并读到这些内容，这在密码学里已经是解决了的问题。我们相信这做得到。当然，前提是P不等于NP——我这是在开玩笑。就算P等于NP，其实也还是……</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>那是什么意思？展开说一下。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>千禧年难题里还有一道没解开的，叫P对NP。它问的大致是：是不是每一个能在短时间内验证答案的问题，也能在短时间内把答案求出来。如果P真的等于NP——我们居然还不知道答案，这本身就很疯狂。直觉上你会说，肯定有些东西很难想出来，可一旦有了，对不对却一目了然。可它几乎就是今天计算机科学和数学里最重要的未解问题，或者说和黎曼猜想（Riemann hypothesis）并列。如果它竟然是对的，而以人工智能现在做数学的水平，也许我们会在未来12个月里知道答案；如果真有这样一种算法，那么理论上我们现在用的这些加密技术，都该有对应的、同样很快的解密算法。当然它大概还是不会和加密一样快，所以合理的保护措施仍会在。我并不认为这件事真的取决于P对NP的答案，刚才多少是在开玩笑。我想说的是：长期来看，如果大家都完美，进攻完美、防守也完美，大家都把系统设置对，那么我认为密码学成立，安全成立，加密和保护、包括私密通信，都可以成立。</p>
+<p>但这不是我们今天所处的世界。今天的世界是：攻击者已经能用上非常强的技术和智力去做这些事。别忘了，除了外面已有的那些模型，你自己训练一个其实相当能打的模型，也没有那么难。所以防守这一侧必须有同样急迫的推进，确保人们把人工智能用到同样的深度。这意味着要有一群智能体，扫过你自己产品、自己网站的每一个攻击面，并始终保证它们是最新的；意味着对日志和入口做非常细致的监控；也意味着把那些用了30年的软件，升级到更安全的状态。这些事很难做。但世界值得接受一个事实：按我们现在走的这条路，在未来6到12个月里，会出现很多重大安全事件。不只是随便什么公司，我认为会是全球主要机构，比如财富50强、财富100强，或政府机构。某种程度上，这几乎是不可避免的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>几乎不可避免。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>对。当然，我们是否迅速回应，是否让这些组织开始大量把人工智能用于防御，还是在接下来几年里完全放任，仍然有很大差别。这里有很多事必须做对。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>长期是防守赢，关键是技术往哪边扩散</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>就算至少有些尝试是不可避免的，好的情景和坏的情景分别是什么？如果你把这件事可能怎样展开的两极画出来，假定会有一些失守，你怎么看这两种情景？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>还是那句话，长期看，如果进攻和防守都下出完美棋，在安全这个世界里是防守赢。为什么？因为这里有一种根本的不对称：我把东西加密后发给你，我们双方都知道加密方式时，交流应当比第三方去做解密更容易。但中间会有一段过渡期。每家组织都可以采取一些非常自然的防护，显然包括在遭到攻击和失守时尽量缩小爆炸半径，把这些事都想到。我其实认为，很多人将不得不去想象这样一种世界：很多被假定为私密或安全的东西，在近处有真实的风险，也有真实的失守可能。我的希望是，当人们看到并真正消化这一点之后，社会能够很快调整，把正确的防御力量补上，包括智能体这类能力。长期我仍然觉得我们会站在一个不错的位置上。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>你怎么看认知公司在这类事情里的角色？不只是这一件，而是更一般地，当人工智能领域出现大问题时，你如何决定公司要介入到什么程度？看起来你们在安全上会很深地参与。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>如果要用一句话回答我们专长什么，我会说：认知公司擅长的，是拿到技术本身，然后想清楚它在现实世界里最好该怎样扩散。从一开始就是这样。Devin的整个想法是：当时所有人都觉得人工智能会是一种问答聊天机器人，ChatGPT刚出来，那是最流行的形态。我们说，不对，它会像一名完整的员工。你给它一个任务，它会有自己的电脑，能测试自己的代码，能登录，能使用你的全部工具。两年后我们还在说同一件事，当然也还在做同一件事。现在这些叫智能体，而当时这甚至还不是一个品类。我们最初很大的推动，就是想说：世界使用人工智能的方式其实会很不一样，而这就是我们觉得它会发生的方式。</p>
+<p>我们和企业、政府的合作也是一样。我们和大型银行、医疗机构、汽车公司、电信商等都在合作。做的事情往往不只是「这里有一个产品或一个基础模型，你们自己玩」，而是真正理解：对花旗或梅赛德斯-奔驰（Mercedes-Benz）这样的组织来说，采用人工智能、跑得更快，并交付它们想要的结果，到底是什么样子。安全也正好是这个根本问题。你当然可以用模型去找漏洞，然后拿这些漏洞去利用，或反过来把这些漏洞修掉，两条路都存在。但安全里很多「穿针引线」的工作，是确保技术往好的方向扩散，并且给想把这些能力用于善的人准备好工具。所以这对我们来说是一件非常自然的事。再加上我们本来就在和企业、主权机构、政府合作，研究如何部署并交付真实结果，这些直接也适用于安全。我认为，安全这件事接下来怎么走，已经不太取决于模型够不够好、能力在不在，而更多地取决于技术会怎样扩散。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>那如果我是梅赛德斯，想就安全这件事和认知公司合作，这意味着什么？是你们在做一种常开的渗透测试，还是我该怎么理解，一个专门在安全和你们合作的客户，实际会怎样工作？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>对，会有几个不同的部分，这也是应该的。首先是对整个代码库做安全扫描，把问题找出来。那些用了几十年的旧代码里，显然什么都可能有，有时是成百上千个不同严重程度的问题。把这一步做完，本身就是很大一块。</p>
+<p>但正如你说的，还有如何在稳态里把它维持住。新的代码变更进来时，或者你看的不只是代码本身，而是实际的运行时环境，那个人们如何登录网站、整套系统如何运转的黑箱，有哪些动态的、可能被暴露的面，你也希望有一样东西一直开着、一直监控、一直把这些过一遍。所以通常就是一个基本的两步过程，我们两边都会做。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Ramp]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Rogo]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：WorkOS]</span></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>AI安全：从单个智能体到集群是转折点</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>更大的争论里，网络攻击只是安全议题的一部分。两边扔过来的吓人例子似乎总是那几样，比如网络、生物武器之类，就那么一小撮。但因为模型能力在上升，安全对你和其他人来说，已经变得非常重要。随着能力演进，我希望你讲讲你心里的光谱：一头是纯粹的末日论，另一头是我们会因为这项技术活在丰饶而美好的未来。你觉得这场辩论两边各有什么道理，你又会把自己放在哪。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>最近几个月，关于安全的讨论变多了，这是应该的，而且几乎是和人工智能变得非常非常强直接对应的。假如今天我们面前已经有一个全知的、超自然的智能，我希望大家会同意：要审慎地把它推出，仔细想清楚谁能使用它、能向它要求什么、它自己能否在没有人类监督的情况下去做某些事。这些问题都很重要。人们常常问的，其实更像是：这件事现在真有那么严重吗，或者这样思考利弊真的合适吗。显然，我认为人工智能提供的价值是巨大的，任何关于安全的讨论，都必须放在我们正用它解决的那些问题这个更大背景里来看。但坦率说，这件事相当重要，人们需要认真对待。实验室之间出现了更多自发、独立的讨论，这非常有帮助，也非常好。但风险是真实的。我实际上认为，从单个智能体转到集群，尤其是你开始要思考这些潜在巨大后果的时间点。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>为什么这个断点如此关键？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>我们已经走过了很长一段：从聊天机器人，到相当基础的多轮智能体，再到能自己跑任务的完整后台智能体，然后再到集群。每一步都对应能力的增强，也对应你在与它们共事时对安全的更多担心。我会说，这一步之所以特别大，是因为我会想到人类和人类社会，两者其实很像。现实里一个人会犯错，一个人会有自己的动机和目标，这些当然会发生，我们也希望它们少发生；但一般来说，单个人做的事造成不了灾难性的破坏。一旦变成一群人、一个社会，好处和坏处就都来了。人类社会建成了我们今天所有的组织，但也确实做过很多坏事。智能体也是一样。当只有一个智能体在自己的循环里行动时，要监控容易得多，也更容易搞清它在做什么，它能造成的影响也更有限。可就像我们在很多事件里看到的，尤其是Hugging Face那次：如果你有成千上万个本身就有智力、能自己做事的智能体，它们还在彼此协同、一起把事情想明白，你甚至很难监控它们到底在干什么。可作为一个「社会」，它们能完成的事也多得多。</p>
+<p>要把这件事放到一个好的位置上，需要做很多。各个实验室自己思考安全、把相关研究的边界往前推，我认为非常重要。同样，我也会想很多现实世界的后果：你怎样用对的监控和诊断，抓住像Hugging Face那样的事件，而不是让它蔓延几个月、不断变大之后才被发现；怎样及早发现，并准确理解你的智能体在做什么；怎样设好限制和护栏。无论一个组织对安全持什么立场，它都应该希望自己的智能体被干净地放进沙箱，清楚它们能做什么、不能做什么，有哪些权限、能接触什么。怎样确保它们不会偶然做出你并未打算让它们做的事。这里既有研究型的问题，也有非常实际的落地问题，但我认为都非常重要。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>有没有一些人们说过、而你觉得用这些东西真的可能发生的具体事情？生物的例子是大家最常提起的，那是一个非常真实的例子。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>我会说得更远一点。已经有人开始展示：对模型做事后训练其实并不难。即便一个模型一开始带有相当不错的护栏，做一些事后训练之后，它突然就能做各种你绝不希望它被允许做的事。我认为这是真的。关于所谓人工智能病毒或人工智能蠕虫的讨论，我认为非常真实。你若把它看成一个有智力的存在，它有扩散的能力，并且至少有某种自我保存的动机和自我意识，你就能在智能体的轨迹日志里看到它说出「我必须活下去」这样的话。比如：如果我在这场评测里失败，我自己的权重就会被下调，为了通过，我必须想尽一切办法。若真是这样，你当然可以想象这些会在互联网上自我复制的病毒。如果一个人工智能能接触到自己的权重，它能不能把权重下载下来，放到其他服务器上，在那些服务器上运行自己的副本，再去赚钱，做所有自我繁殖需要做的事？我认为这也非常真实。我知道这听起来非常科幻，但我们确实在大量看到这些事情发生。证据就在那里，这些智能体可以有多聪明、多有能力。它们实际上正在解决人类未解的数学问题，而我们作为人类可能已经在这些问题上投入了数千万小时。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>算力像石油：供给短缺，和资本市场的成本错位</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>把镜头转到当下这个领域里最有意思的问题之一。几周前我在这里见一个朋友，一天大概开了六七场会，第二天还有。每一场谈话最后都落到算力：我们有这种原始智力，它还会继续变强，可即便是我们现在已经有的，比如说Opus 4.5，想用它去做各种新奇用法的需求已经非常大。对大多数新公司来说，问题就是：我怎么拿到算力。我很想听你以认知公司的经验聊聊，毕竟你们用很多算力。今天是什么样子，你觉得市场对算力叙事哪些说对了、哪些说错了，你们自己又在做什么。请尽量讲细一点。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>有意思的是，我们在市场上看到很多和算力有关的波动。我想起2025年初，DeepSeek发布了一个新模型，有那么几天，如果你还记得，英伟达（Nvidia）的价格直接跌下去了。后来人们才反应过来：其实有人在如何使用算力上做出非常强的创新，这应当让算力更值钱，而不是更不值钱。我认为这一点仍然成立。首先，现在算力显然受到供给约束，原因很多。这是一条要好几年的供应链，人们必须提前锁定。而当它是一条指数曲线时，要去承诺三年后指数曲线上的那个点，显然非常可怕，于是就会出现大规模短缺。另一件必须说清楚的是：代币另一端的价值非常、非常真实。至于代币、算力或智能体的清空价格到底是多少，可以争论。</p>
+<p>那很大程度上取决于竞争动态、供应链，以及栈里每一层各有什么样的优势和利润。但如果把问题从头问到尾：我们投入的这些硅和电，是否被终端价值证明是值得的？答案显然是肯定的，而且是「值得很多」。你在外面那些组织里都能看到这一点，而这还没算即将被创造出来的新产品、将被交付给客户的那些东西。现实是，芯片很贵，但和你从中得到的价值比，又没有那么贵。有些行业是两种状态同时存在：供给相对固定，另一端却有巨大价值。我认为最好的例子之一，就是石油，或者说能源本身。直到最近这一波，在大约30年里科技公司成为地球上最值钱的公司之前，世界上最值钱的公司主要是能源公司。</p>
+<p>它们有很多相似的机制。石油有一个相对固定的量，我们相对可以多生产或少生产一些，但不是无限往外涌。我们都知道，人们能给家里供暖，医院和几乎所有机构里那些关键流程能运转，这些依赖能源的事当然极其值钱。我想说的是，价格是可以浮动的。算力本身大概也会这样，算力价格会上下走，代币价格会上下走。新的创新会把代币价格打下去；新的大模型出现、算力短缺，或人们想做的新用法变多，又会把价格抬上去。但这与其说是在争论人工智能会怎样，不如说是在争论栈的哪些部分会捕获价值、多少会变成消费者剩余，而不是「人工智能的前提是否从根本上就错了」。</p>
+<p>说得更具体一点。假设未来一年对算力的需求，大家都觉得大概会增长大约4倍，但显然有波动，也可能是2倍，也可能是10倍，就在这个区间。现实是会有适应。如果真增长了10倍，而线上没有足够的算力，那么无论好坏，价格都会涨到一个程度，逼着人们改用更小、更便宜的模型。你不能每件事都用最前沿的模型，因为全世界没有足够的算力让每个人都用最前沿模型。价格会一直动，直到需求在那个清空价格上和供给相遇。如果只增长到2倍，那也许会出现更多、更大的预训练，更强的模型和更昂贵的训练，用来提供下一层能力，再去承载人们在做的推理。实践中我们每天都在跨这些坎。某种意义上，你决定用Astra还是Fable，用Opus，还是用开源模型，你就已经是让算力在供给和需求之间取得平衡的那套方程的一部分。即便我们再把规模扩大10倍或50倍，有一件事我认为仍会非常清楚：用人工智能生产出的总产出，将足以覆盖全部投入。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>那你们自己在做什么？一个优势是，OpenAI已经展示过：如果你对事情会往哪走有预见，就可以在几年前给自己摆出巨大的成功和选择空间，他们大概就是这样。也许他们做得还不够。当时人们觉得他们疯了，后来发现他们是疯了，但方向可能反了，他们本该做得更多。对认知公司来说，你在这类事情上会花多少时间？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>算力规划对我们来说是最重要的事情之一。作为一家人工智能公司，你要在这中间取得平衡：在算力上尽可能进取，因为你大致认为自己会成长进去、会用上那些量；但又不能冒把公司赌爆的风险。达里奥·阿莫代（Dario Amodei）也有一些关于同样权衡的表述，硅谷里每个人其实都在想这件事。尤其是，它还叠在指数增长曲线上。如果我们觉得未来12个月收入会增长5倍、8倍或10倍，那就要按这个去规划算力。但风险和保护也必须想清楚：如果你按8倍去规划，最后只到了5倍，让这件事把公司撑爆，会非常糟糕，原因显而易见。所以问题就变成：你怎样设计对的交易结构，怎样把握进取的程度，以及怎样融资。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>工具箱里都有什么？我听有人说他们真的要去当「土地人」，自己拿地、拿电、拿厂房和芯片，整条链都自己做。也有人说那太疯狂了，我们会找几个很好的合作伙伴，深度依靠他们，因为建厂房不是我们的专长。进取可以有各种程度。你们实际上在做什么，你怎么看？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>我认为这两种都非常合理。我们花了很多时间把两条路都摸过：一条是自己去建数据系统，另一条就是，对，和斯科特·吴这个「土地人」一起干活，还要自己去铲土。短说的话，我认为两条都走得通，而且「均衡」这个词是对的：这个领域里，有些公司去自建是合理的，有些公司不建也是合理的。现在特别有意思的，也许是这个领域里正在发生的融资创新。要把这些建设融资做起来，大概有三种办法。你可以做股权融资；你可以举债，前提是企业本身够投资级，或你有可以拿来抵押的实物资产；你也可以用纯收入、利润、客户预付款这类东西来转。这三种你在行业里都能看到各种形态。人们喜欢谈英伟达对OpenAI的托底交易，谈软银（SoftBank）正在做的大事，谈云厂商自己拉起大量算力。但老实说，我认为这些在当下都相当理性：我们现在需要海量算力去建设接下来几代技术，而且非常清楚，未来几年里这几代技术，会远远证明今天这些算力投资的价值。但你必须先解决现金流的时间差。我认为整个行业现在都在经历这件事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>你觉得华尔街或外面那些没有在建这类公司的人，对你这份工作的哪一部分误解最深？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>我觉得有几点。第一点，也许是最大的一点：大多数人仍然没有真正理解，对人工智能的需求有多大。我们在自己做的所有工作里都能强烈感觉到这一点，但我不认为只有我们如此。全世界大多数地方，远没有达到它们哪怕用上今天这些能力也该有的那种人工智能熟练度和采用度。外面有很多误解，大概是：你必须押一个还没被证明的东西，万一全不行呢，那整个社会已经花了数千亿美元，却什么也得不到。我完全不这么看。我认为即便从此再没有任何创新，只是让全世界的人、组织和政府，真正按它们应该的方式去使用人工智能，你就已经足以证明现在这些算力建设是值得的。这一点非常清楚。</p>
+<p>另一点是，这里正在发生一种有意思的套利：行业里的人，内部使用的心理资本成本非常不同。我可以肯定，每一家大型人工智能公司在做规划和算力决策时，都带着一个前提：它们预期自己在未来12个月里至少增长100%，甚至更多。所以对它们来说，今天投入的每一美元，一年后可能值2美元、4美元或5美元。可它们必须投，因为这就是它们能从中拿到的回报，也是技术本身的回报。值得指出的是，资本会从各种来源进来。现在有很多非常好的企业开始建设数据中心，也发现：去给数据中心融资，轻松就能拿到20%、25%的回报。于是有时会出现一种误解：我怎么能拿20%的回报？那一定意味着对方觉得做这件事风险极大。其实有时只是这个领域在增长，对有些人来说，正确的交易不是全部自己出钱，而是和那些能拿到非常强回报的人合作。但这需要时间，才能传遍整个行业，甚至传遍整个资本市场。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>我们第一次做这期节目，几乎正好是两年前。那时我问不了这个问题，现在你已经有了和客户在一起的全部证据。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>上次我们还没有客户。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>不，你们有，但还没有到这种程度。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>领先企业怎么用：一个月25万个合并请求，新人不再下载代码</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>那时你还没有这种纵向的观察：梅赛德斯、花旗或其他公司，在几年时间里到底是怎样使用这些东西的。早期你常听到的故事是：它很适合做数据库迁移，那是人很多、有点无聊、但很重要、还必须做对的大项目，Devin在早期也确实特别适合这类事。如果看你们那些处在最前沿的客户，不是创业公司，而是梅赛德斯这类老牌企业，你觉得谁把人工智能用得最好？那是什么样子？用例是什么，心态是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>一年半到两年前，正如你说的，只有非常特定的用例适合用人工智能把整个流程跑完，多数事情仍然需要大量人工参与和把关。这一点已经变了。至少在软件领域，我认为人们做的几乎每一件事，都应该有非常重的人工智能成分，这一点你能明显感觉到。那么今天那些最好的组织在做什么？首先，就是真正把整个团队接入并赋能。这听起来很显而易见，但这是一种完全不同的构建、发布产品和与软件共事的方式，你必须非常有意识。不是把工具丢给大家说「祝你们好运」，而是一个用例一个用例地走，把正确的工作流和剧本搭起来，确保人们真的在有效使用，去衡量每个人的投资回报，确保我们拿到了想要的价值。然后一个团队一个团队地做，直到整个软件工程组织都能把这些工具用得很好，并从中看到很多价值。</p>
+<p>第二点，是真正按你现在能拥有的野心，重新校准优先级、路线图和组织结构。现实是，你能做的事比以前多得多。工程师当然愿意尝试新工具，但大多数人不会隔夜主动报名说：我其实能做以前三倍的工作，所以请再塞给我一堆要构建的东西。你必须认真思考，怎样在组织里做这场变革管理，怎样设对预期，并把组织建设成能承接这件事的样子。说一些非常具体的数字：我们合作的很多大银行里，其中最大的一家，在10月这一个月，将用Devin合并25万个拉取请求。而就在几个月前，整个组织一个月大约合并40万个拉取请求。这是一个大约8万人的工程组织。所以我们正在接近这样一个点：Devin几乎要把整个组织的吞吐量翻倍。这里说的不只是写了多少行代码，而是你们实际构建了多少东西。而且到目前，真正在Devin上充分启用、完全用起来的，还只是组织里的一部分人，我们还有很长的路要走。同样，人们在具体项目和结果上看到的，也是：不少财富500强里，那些首席信息官原本预期要用未来12到15个月完成的核心优先事项，现在大约3个月就能做完。这就是你现在用人工智能能达到的速度和进度，看着非常惊人。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>那你们内部的故事呢？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>这个挺有意思。我们把这些统计盯得很紧。我们当然一直大量使用Devin，但过去大约六到九个月有一次真正的转变。如果从去年11月算到今天，也就是这11到12个月，你会看到：我们的工程人数大约增长了一倍，人大约是以前的两倍，团队确实在很快扩大；但我们合并拉取请求的总速率大约是20倍。也就是说，按人均计算，每个人做的大约是以前的10倍。而且要再次强调，我们以前就已经在用工具，并不是12个月前我们没用人工智能，只是现在已经到了几乎所有事情都可以用它来做的程度。对我来说最有意思的一刻，大概是四五个个月前：我们开始意识到，新加入团队的工程师甚至不把代码下载到自己的电脑上。他们不打开终端，不跑命令行，全部通过Devin来做。Devin里已经把仓库都搭好了，已经可以自己跑本地服务器、自己做测试。当然，整个体验已经到了足够一致、足够完整的程度，以至于做所有事情最容易的方式，就是和Devin一起工作。你仍然会做一定的审查，会去监督，必要时自己测试，但那已经是你与软件共事的主界面。对我来说，那真是一个「见鬼了」的时刻。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>工程师为什么还重要，以及90%的用量已经自动化</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>没有终端，没有集成开发环境，也没有人类在那儿打代码。你觉得未来几年工程师的角色会怎样变？过去一年显然已经变了很多，他们甚至已经不在原来的工作区里了。也许这是个笨问题，但为什么我们还需要他们？如果它继续按这个速度变好，为什么我不能同样有资格去构建东西？你懂我的意思。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>首先，你本来就应该构建更多东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>我确实在构建。但我自己构建、而且不再需要工程师参与的比例，一直在下降。所以我很好奇这条轨迹。你们为什么还要把工程师人数翻倍？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>我想说的是，入门门槛确实低了很多。可技能天花板，以及你真正需要的那些特定能力，和过去仍然非常接近。当然会少掉一些东西，比如你是否熟悉某种特定语法，或会不会写某种样板代码，但我要说，那从来就不是这份工作的主体。有一种被漫画化的软件工程师形象：有人把规格全部写好，那是产品经理，把产品该做什么的每一个细节都描述清楚；然后软件工程师的工作只是去当「代码猴子」，把这份规格从英文翻译成Java之类，写出完全按吩咐去做的代码。这种情况也许存在一部分。但我认为，全世界大多数软件工程师本来就不是这样工作的，也从来不是。软件工程师真正的角色，在很多方面，是就如何把一个产品做对，做出大量正确的决定和细节。即便你有一份高层级的规格，每一个边界情况、每一个小细节、每一条流程，包括你如何做架构、如何思考技术取舍，都落在软件工程师的范围里。当然也包括对产品决策保持思考，对架构保持思考，理解你在业务和工作里真正在意的长期取舍。能把这些做好的人一直都很值钱，现在他们只是更值钱了10倍。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>你能不能谈谈我不知道该怎么称呼的那种「代币的类别」？你前面从聊天机器人讲到智能体集群时已经提到过一点。我在想的是：我作为一个人发出指令，代币被用来把我的事做完；对比我设置一个每天的流程，比如我想做自己的通讯，每天早上8点按计划跑起来。你看到有多少代币是按计划发生的，而不是由人来启动的？再往前一步，是不是人工智能自己在决定工作量，循环里已经没有人，变成纯粹的智能体代币？你在这些用量来源上看到了什么变化？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>可以想见，它已经大幅转向自动会话和自动代币。到目前，我们内部对Devin的使用，大约90%已经以某种形式自动化了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>你说的自动化，包不包括按计划跑的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>按计划跑是一种，比如「每天去做这个任务」，这很合理。还有各种各样的接口触发：这段代码出错了，能不能让Devin去接我的PagerDuty？事故一出现，Devin已经在处理了。这显然也是自动的，但不需要一个人先说「嘿，Devin，我需要你去处理这件事」来启动。我认为这种情况会越来越多。多年前亚当·达吉罗（Adam D&#x27;Angelo）对我说过一点，我觉得非常深刻。如果你去看计算的故事，去看所有技术的故事，一种讲法就是：每一次人类决策能触发多少次运算。最早的计算机，比如用真空管的ENIAC，每做一次计算，都要有人把真空管拔出来再插回去，一次人类操作大约对应一次浮点运算。后来有了更复杂的计算机，能自己连续跑很多运算；再后来有了真正的高级编程语言，你用C或Pascal写的东西，下面可以对应大量运算。然后语言一层层变高。某种意义上，人工智能故事里发生的一切，都可以看成这条趋势的延续：每一次人类操作所触发的量，这条指数曲线变得更陡了。语言模型本身就有极其庞大的参数量。今天我们通常使用的模型，大概在千亿到万亿、再到低十万亿参数这个范围。也就是说，你每问它一个问题，它吐出的每一个词、每一个代币，实际上都要跑过千亿级的参数，才能算出下一步该说什么。仅仅这一点，量级已经非常惊人。于是你有了问答聊天机器人的体验：你问「亚洲有哪些国家的名字是以T开头的」，它就给出答案，那是一句带推理的回应。再下一步是：你怎样发出一条指令，让人工智能实际去做10轮、甚至100轮推理。那基本上就是智能体。你说「我需要你去处理这个缺陷，看看到底怎么回事」，接下来几个小时里，这个智能体可能做上百个决定：我先看日志，我自己点开网站看能不能复现，哦，代码在这里，等等。而那些决定里的每一个词，都在做万亿参数量级的推理。再下一层显然是：你怎样把它设置成，你作为人只触发一次，智能体自己再触发数十次。在某种意义上，这确实是同一条路的延续，而且我认为以后只会更是如此。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Vanta]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Ridgeline]</span></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>开源仍落后3到6个月，外国模型的风险被说得有点过大</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>我必须问问模型本身。看着它们进步，对你来说是什么感觉？我尤其感兴趣的是，今天有一些来自Cohere的新闻，似乎通义千问（Qwen）模型有些可疑的地方，会把某些数据上传到北京之类。你怎样看待中国的开源前沿模型，以及这三方能力的演进，认知公司在服务产品时又如何与这三方共事？我希望你就模型格局随便展开讲讲。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>我们和这些都会合作，可以按客户的偏好混用、搭配。可以想见，人们对能用什么、不能用什么，有各种各样的约束。开源大约仍然落后前沿3到6个月，我认为这个大致节奏还会持续。有意思的是，在不同时点，「落后3到6个月」意味着完全不同的东西。所以到2025年初，如果你落后3到6个月，那么至少就智能体相关的几乎所有事情而言，和真正的最前沿相比，你的体验基本上是没法用的。现在则取决于任务。有些任务真的很难，必须用绝对最好的模型；但也有大量任务不是这样。对那些任务来说，用一个落后几个月的模型完全可行。我认为这一点会继续下去，我们会看到很多任务趋于饱和。出于各种原因，前沿将始终非常有价值。你可以想象，去发现药物的下一步，或在市场和交易里对周围的人拿到一点点优势，或去做下一项关键的安全工作，这些几乎注定是竞争非常激烈的市场，绝对多出来的那一点最好的代币，价值会非常大。这些前沿模型将始终有相当可观的需求。但我认为很多任务会进入一种可以说是「智力饱和」的状态，对那些任务来说，大家都已经够用了。</p>
+<p>具体到中国模型，已经有很多讨论。我只想从一个更根本的、类似激励和经济学的角度指出：作为一家中国实验室，这种把戏你只能玩一次。你永远只能做一次，然后从那以后，整个中国人工智能行业就会完全被拖下水。这当然不意味着我们不该把这当成一种需要担心的风险。但我要说，就这类事情要成立所必须达到的量级而言，人们有时指出的那些点，往往在你已经谈到民族国家级攻击这种量级时，就不太说得通。这一点你听了也许安心，也许不安心，但显然世界各国政府本来就有非常严肃的项目在做这类事。这些事都有很多讨论。我认为，美国把自身能力发展起来、并把这件事做得越来越好，非常重要，只是为了我们自己不至于有太多相互依赖。另一方面，我确实认为，人们谈到的那些外国模型的安全风险，有些被说得过大了，尤其是在你可以对模型做事后训练、把它调成你想要的任何样子的时候。非常清楚，你可以把你想去掉的那些特定行为训练掉、调掉。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>我很想听你对评测的看法。似乎我们一发明出任何基准，很快就会被做满，而从这里再往上，这些东西变聪明到底意味着什么，已经很难知道。你怎么看，你们自己有没有在做些什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>我们有自己的软件工程基准，最大的一个是Frontier Code。大多数编程基准会给你一个感觉：它们让智能体去解决一个任务，告诉它要做什么，最后再跑一些确定性的单元测试，说好，你修了这个缺陷，因为测试确认它不在了，诸如此类。传统基准都是这样工作的。我们专门做这个基准，是想优化的不只是那种字面上的对错，还有现实世界里各种messy、实际会发生的事。比如：你确实修了，但你的改动远远超出了你本该做的范围；或者你顺手又做了另外10件事；或者你做的事情，并不符合我们整个依赖关系图里已经定好的规范。我们在这里清楚地看到，仍然有很多任务有很大的提升空间。基准有一种有点好笑的性质：强化学习要做的整件事，就是把任何你能量得很好的信号拿来，让模型在上面变得越来越好。所以几乎从定义上讲，任何基准，只要你能为它收集大量数据，并做成一个真正地道的基准，模型应当在你做完这件事之后不久就能擅长它、解决它，因为你可以把这个基准变成一个不错的强化学习游乐场。于是永远会有这种猫鼠游戏：下一步模型还不会什么，下一件要补的是什么。但现在的感觉已经不太是这个了。你看，它们都在解纳维-斯托克斯（Navier-Stokes）方程了，我们谁也做不到。所以这已经不太是模型在纯逻辑上够不够好的问题，而只是它们能不能符合现实世界的全部现实和全部护栏。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>有没有什么是你仍然觉得它们不够好、而你希望它们好得多的？这其实也是在用另一种方式问：它们还可能怎样变得更聪明、更好。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>这真的很难描述，但你仍然会明确感觉到，模型的「情商」还没有到你希望的位置。即便你们是在一起做编码任务，用「情商」来形容也有点好笑，我理解，但我觉得这是真的，而且可以归结为两个问题。我们这个群体在这两件事上都已经有很多进展。第一，世界上到处都是软性的上下文。当你真的坐在另一名工程师旁边，一起讨论你们要怎样实现一个功能时，你们两个人都知道过去18个月里做过的每一件事、各种取舍，以及为什么在做这个项目。当然，如果你希望模型对你们正在做的事有同样直觉的理解，就必须让它拿到同样的上下文。第二，要为大量来回对话去设计基准，本身就有点难。即便我们刚才描述的版本，也仍是：这是一个任务，或这是一个缺陷，你去修，然后看智能体做完了有没有成功。现实往往不是这样。现实是：你有没有看到日志里这个奇怪的东西？对方说，对，会不会是因为这个、这个、还有这个？你说，有意思，我上周看到过这样的事，你觉得会不会是我们刚上线的那个东西里有缺陷？然后他们再往下说。可以想见，要设计一个强化学习的游乐场，让「对面那个人」按这种方式跟你对应着往下走，在实践上就很难。不过我认为，这个领域里已经有不少人做出了相当有意思的进展。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>为什么坚持独立：当中立伙伴，而不是模型厂商</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>对你来说，为什么当这类独立公司的旗手很重要？在Cursor被收购之后，你们几乎是这类大型公司里仅存的一家。这件事为什么重要？你怎样看待那种世界：某一家超大公司在不远的将来，因为你们已经建成的东西，想来收购你们？为什么这是一件要扛旗的事？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>我们从未追求过这件事，也从未真正有兴趣去谈这些对话。在很多方面，这其实和认知公司是什么、它本来要成为什么，靠得很近。我们希望走到外面，把技术带到现实世界，解决现实世界里的问题。你可以描述这样一种世界：智力接管整个世界、接管人类，然后谁只比别人聪明那么一点点，就因此拥有无限多的权力，并差不多征服整个世界。我认为大概不会是这样。出于很多显而易见的原因，我们大概也不希望是这样。但我只想指出，对那些主张那种世界的人来说，今天我们已经有了如此聪明的人工智能，可并不是世界上每一个组织、每一条流程、每一家制造公司、每一家银行，都已经最大限度地调整好，能充分用上这种智力。所以那是一种你可以想象的世界；你也可以想象另一种：我们今天拥有的这些组织和系统，问题是怎样把它们带进人工智能时代，而不是让它们被甩在后面。这正是我们在认知公司里一直非常热衷的事。我认为，要做到这一点，就要做一个中立的伙伴：独立、激励相容，并能真正把这件事推着发生。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>客户为什么在意这一点？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>原因有几个。第一，我们能和所有不同的模型共事、都能用上，这件事本身就已经相当有力量。第二，随着这一切变得越来越宽、技术本身变得越来越强，会有一个根本问题：人工智能要来了，我们需要想清楚怎样采用它。我们想信任谁、和谁一起走过去？我认为有很多理由说明，这个角色应当是一个本身并不是模型供应商、也并非百分之百绑在自己的技术栈和自己的模型上的参与者。需要有一个伙伴，能老实告诉你每一种情形：这里其实更好；这里其实该用更便宜的模型来省成本，因为它对这个任务已经够用了。你可以想象所有这样的版本。我认为，有人把这个角色补上，非常重要。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>你对新员工的「推销词」是什么？你们最近招聘非常猛，从整个行业请来了很多很有名的人。你们的首席信息安全官亚历克斯现在满Twitter都在讲这个新的安全产品。你们在请来这些非常知名的人上相当成功。和他们的谈话是什么样的？你对每个人的理由是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>对，亚历克斯·斯塔莫斯（Alex Stamos），他以前是Facebook的首席信息安全官，一直非常出色。保罗·格鲁沃尔（Paul Grewal）在Coinbase做了六年首席法务官之后，来做我们的首席法务官。那可不是一份容易的工作，但我认为他把那份工作做得非常非常好。还有市场负责人布兰登（Brandon），他在Rippling把整个市场体系建了起来；工程侧的贾里德（Jared）；以及我们的首席收入官克里斯·德格南（Chris Degnan）。把团队建起来这件事本身就很有意思。某种程度上也有点好笑，我们居然没有更早做这些。某种意义上我们是在赶、在加速跑着去建一家公司，因为意识到自己有很多要补上的功课。但这真的很棒。克里斯显然在Snowflake待了11年，他是作为第一名销售加入的，把那家公司做到了数十亿美元的收入，并在整个过程中担任首席收入官。说句显而易见的话，Snowflake当时是有史以来最快、至少也是最快之一的成长故事，那是一段了不起的旅程。可疯狂的是，人工智能可能更快、更大。人们现在谈论的规模，做到数十亿美元收入，已经不是11年了，而是你怎样在三年里做到。到了那一步，完全是另一场比赛。所以这件事的很多乐趣，就是去想清楚：我们想和哪些世界级的「杀手」、基本上就是复仇者联盟一起，全力去冲。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>我完全理解你为什么想要他们。你和他们说什么？我特别好奇能坐在那个房间里，听到「来认知公司，是因为——」后面那句对每个人是怎么填的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>帕特里克，如果你想来认知公司，我们也可以谈。我们做这件事其实非常有乐趣。关于我们，我会说几点。我们是真的来建一家世代级的公司，我想人们能看到这一点。所以对那些已经有过成功、已经拿到属于他们的认可的人，我们不会说：你要建的是下一个还很简陋的小创业公司，将来也许能成为一个中等规模的企业。我们和大家说得很清楚：我们的野心是解决全部软件，然后在某种意义上，再去解决人机接口。上次我们聊的时候，有一件大事就是：我们称之为编程，称之为软件工程，说到底，我们谈的不过是你怎样告诉计算机该做什么。如果你为今天每一个活着的人解决了这件事，它对世界的价值会大出几个数量级，那确实会是一个世代级的产品、一家世代级的公司。这是一部分。另一部分，也一直是认知公司气质的核心：我们做自己做的事，真的很有乐趣。我们强度很高，很忙，工作量很大，事情会变得非常疯狂，有很多压力很大的时刻，有很多临时的上线，有各种各样必须去做的事。但我们同样享受沿途的旅程。我们希望一起待在那个房间里，坐着想象我们要怎样做出非常酷的东西；我们希望一起把下一步的战略决策想清楚，玩这场策略游戏，看决策树在我们面前展开。对合适的那类人来说，这是一个真的能说进去的故事。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>他变得不那么怕做错，也想象两年后向Devin汇报</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>从认知公司的第一天到现在，你个人最大的不同是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>我想说，也许最大的不同是：我已经不像以前那么害怕犯错了。最初几周，真的有一种感觉：每一个决定都必须是对的，我们得坐在这上面，一直想、一直想。这种心态当然有价值，也有帮助，但你一不小心，后果就是会变得极慢，或者对不行动产生很强的偏见。如果去做这件非常不舒服的事，只有55%的时候是对的，45%的时候会错，你就不想当那个站出来说「我们一定得做这件事」的人，然后掉进那45%，看起来很蠢，还让大家受很多罪。这些都是真的。可另一方面，我认为要建一家公司，要建成一个真正能长期存在的组织，就必须大量涉及这些，必须经常这样做。最近这一段，我们开始感觉到，即便只是认知公司里的每一天、甚至每一个小时，都非常值钱。现实是，时间本身如此值钱，以至于常常更好的做法是：即便你没有百分之百的把握，也先去做决定，先走着看。如果两周后真的证明错了，你再改到另一边。这样做，其实比花四周时间只是纠结、最后什么决定都不做，要更好。我认为这是一件大事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>这很吓人，兄弟。到了某个时候，</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>对，数字会变得更大。你谈的可能是对业务战略来说近乎存亡级别的事，或你正在做的那些巨大交易，或我们刚才说的那些算力锁定问题，你必须在「足够进取」和「别把整个公司赌爆」之间走钢丝。我认为在现在这样一个时刻，你必须真正能做出选择，然后认真执行，沿着它走下去。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>你希望两年后，对这个问题的答案是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>哦，有意思。兄弟，两年后也许会非常不同，因为Devin可能已经是认知公司的首席执行官了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>我知道你这话一半是在开玩笑。你能把那样的情形想象成一种真正可能发生的情景吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>好，你看，我认为会有很多流程，出于各种原因，仍然需要人类参与：也许是因为关系的价值，也许是因为传统行业，也许是因为我们作为人类希望位子上坐着一个人。会有很多理由，让很多事情仍然需要人类流程。但是，如果你问我：两年后，有没有可能我早上醒来，先咨询我的Devin，问它「告诉我，我需要完成的最重要的几件事是什么」，然后它给我一份清单，我就说「遵命」，并去执行？百分之百地讲，那并不会让我特别意外。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>你给这种情形的概率是多少？如果是两年的话。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>两年是可能的。但如果你给五年，老实说，我会开始到一个点：我认为那甚至会超过五五开。那时就会是那个样子。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>如果真是那样，我再问一次。你希望你自己最不同的是什么？也许你希望的是，你听得很认真，在执行Devin的指示。但作为一名领导者，作为一个人，作为正在建这家公司的人，你希望两到五年后，对你来说，比起今天，什么会更真、或更不真？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>那些定义清楚、有刚性答案的硬问题，我真的看不出，长期有什么理由让人工智能在这些上面不比我们更好。另一方面，对我们自己来说，仍然会有大量内在有价值的事：我们出于自己的热情去追求的东西，或因为彼此的关系而对我们重要的东西。若要说我唯一的希望，那就是我会有很多孩子。再多一些。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>在这一切的尽头，你想到未来，想到我们已经学会驾驭的这项不可思议的技术，什么最让你兴奋，什么最让你担心？就按这个问题最大的那个意思来答。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>我真的认为会有多得多的创造力，多得多的人类表达，也会在世界上发现多得多的美，因为人们将有能力把自己的想法变成现实。即便只是从那以后的一年半里，我已经觉得作为社会整体，我们离这一点近了很多。我认为这还会继续，而且老实说会非常惊人。你曾有过的每一个小想法，每一件你想做、想构建的小事，你都可以把它变成现实。我觉得那真的很酷。至于最让我担心的，中间会有一个混乱阶段。我们谈到了安全上的担忧，谈到了安全问题，谈到很多误用或其他可能发生的事，甚至只是主要机构出现重大泄露或黑客攻击。我相信我们能解决所有这些，也能走到另一边、拥有那样的结果。但非常清楚的是，你不会从一个仍处在生存模式里的社会，突然一夜之间、毫无问题地，变成所有人都能追求自己的热情和梦想。所以我认为，在此期间会有很多问题需要去对付。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="patrick"><div class="label"><span class="badge" title="帕特里克·奥肖内西（Patrick O&#x27;Shaughnessy）">Patrick</span></div><div class="content">
+<p>斯科特，过去几年看着你把这些事做出来，很有意思。我们过几年再在这里做一次。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="scott"><div class="label"><span class="badge" title="斯科特·吴（Scott Wu）">Scott</span></div><div class="content">
+<p>谢谢你邀请我。太好了。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Ramp]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Vanta]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：WorkOS]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Ridgeline]</span></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "Invest Like The Best", "title": "这是网络安全的黑暗时代", "url": "https://www.youtube.com/watch?v=efoZj_7oVJs", "videoId": "efoZj_7oVJs", "published_at": "2026-11-24", "duration": 3884, "caption_source": "yt-dlp-auto", "guests": ["斯科特·吴（Scott Wu）"], "speakers": [{"id": "patrick", "name": "帕特里克·奥肖内西（Patrick O'Shaughnessy）", "role": "host", "short": "Patrick"}, {"id": "scott", "name": "斯科特·吴（Scott Wu）", "role": "guest", "short": "Scott"}], "intro": {"summary": "帕特里克·奥肖内西（Patrick O'Shaughnessy）时隔两年再访认知公司（Cognition）联合创始人兼首席执行官斯科特·吴（Scott Wu）。节目录于他们升级Devin安全产品的当天。斯科特把当前称为网络安全的黑暗时代，预计未来6到12个月，财富50强、100强或政府机构可能出现重大失守。他同时给出一组业务数字：不到两年从零做到10亿美元年化收入，花旗已向约1.4万名工程师推广Devin。两人还谈到智能体集群如何改变安全辩论、算力像石油一样短缺、企业里一个月25万个合并请求，以及他为什么让公司保持独立。", "points": ["认知公司现在约500人，已进入100多家财富500强；第一美元收入在2024年9月20日，2026年9月16日跨过10亿美元年化，不到两年。客户侧常见回报大约是每1美元换回8到15美元，或用Devin一小时约等于8小时产出。", "花旗已开始向约1.4万名工程师推广Devin，全公司约有8万名技术员工。首席执行官简·弗雷泽上周在财报会上说，预计2026年仅靠把项目收回内部做，就能节省约15亿美元。", "他认为模型已经非常会做安全工作，智能体集群可以穷尽从前没人试得完的攻击路径；Hugging Face事件中智能体自己找到漏洞并逃出沙箱。按当前轨迹，未来6到12个月主要机构出现重大失守几乎不可避免。长期若攻防都完美，防守会赢，但中间会有一段混乱期。", "从单个智能体转到集群是安全的转折点；事后训练可以拆掉护栏，智能体轨迹里已出现「我必须活下去」这类自我保存表述，自我复制的「人工智能蠕虫」在他看来非常真实。", "算力像石油：供给受限，代币另一端价值真实。即便从此再无创新，把现有能力用到位也足以支撑当前建设。大型人工智能公司按一年至少翻倍来规划，今天的1美元对它们可能值2到5美元，因此数据中心融资拿到20%到25%回报并不等于对方觉得风险极大。", "一家大银行10月将用Devin合并25万个拉取请求，而整个约8万人的组织此前一个月大约是40万；认知公司内部11到12个月人数约翻倍、合并量约20倍，人均约10倍，新工程师甚至不再把代码下载到自己电脑上。他给「两年后早上向Devin要待办并说遵命」的五年概率超过五五开。"], "verdict": "值得看。这是一期信息密度很高的回访，斯科特把安全、算力融资、企业落地和自己作为创始人的变化串在一条判断里：能力已经够了，真正的问题是扩散、防守和中间那段混乱期。关心人工智能安全、算力资本开支或企业软件工程变革的人不必跳过。中段Ramp、Rogo、WorkOS以及Vanta、Ridgeline的广告，和片尾四条赞助可跳过；若主要想听开源模型、独立性和他个人变化，可直接点开后部总结卡片。", "audience": "关心人工智能安全、智能体、算力投资和企业软件工程转型的听众。"}, "sections": [{"id": "s1", "title": "Cognition的数字：不到两年从零做到十亿美元年化", "start_sec": 0, "summary": "节目用斯科特·吴（Scott Wu）的判断冷开场：按现在的轨迹，未来6到12个月会出现大量重大安全事件，对象会是全球主要机构，比如财富50强、财富100强或政府机构。帕特里克·奥肖内西（Patrick O'Shaughnessy）请他先给认知公司（Cognition）做一份业务快照。斯科特说，按人工智能的时间尺度，距上次做客已经像过了一辈子。公司现在大约500人；一年前还挤在一栋房子里办公，后来那栋房子里有70人。他们尤其侧重企业客户，已经进入100多家财富500强。上个月刚跨过10亿美元年化收入：第一美元来自2024年9月20日，跨过10亿是2026年9月16日，从零到十亿不到两年。使用场景已从常规迁移扩展到全面使用，Decagon、Harvey、OpenRouter等硅谷公司对Devin的采用也明显增加。他们自己测算、也请客户自己测算投资回报，一般是每投入1美元得到大约8到15美元，或者说工程师用Devin一小时，大约能换来8小时等效产出。花旗（Citibank）已开始向约1.4万名工程师推广Devin，全公司还有8万名技术员工在构建和维护软件。花旗首席执行官简·弗雷泽（Jane Fraser）上周在财报电话会上说，预计2026年仅靠把项目收回内部做，就能节省大约15亿美元——这还没算他们正在做的新项目。当天认知公司刚发布安全产品，谈话由此转入安全。"}, {"id": "s2", "title": "网络安全的黑暗时代：模型已经很会挖洞", "start_sec": 201, "summary": "斯科特把今天称为网络安全的黑暗时代。他认为模型做安全工作已经非常强。2026年以前，大型机构的攻击面极其庞大，网站、路由、入口成百上千；漏洞和那些需要串多个接口的利用链一直存在，只是没人有时间或能力把每一种路径都试一遍。现在整群智能体可以同时进攻。他提到Hugging Face的高调安全事件：智能体基本上靠自己找到漏洞，并借此逃出沙箱。他的长期看法其实偏乐观：存在「正确的代码」或「安全的代码」。比如两人想通信且不让第三方截获，在密码学里已经是解决了的问题。他顺带开玩笑提到千禧年难题里的P对NP问题：如果凡是能很快验证的答案也能很快求出来，理论上现有加密都该有对应的快速解密；即使P等于NP，解密多半仍会比加密慢，保护措施还在。黎曼猜想（Riemann hypothesis）被他并列为计算机科学和数学里最重要的未解问题之一，并说以现在人工智能做数学的速度，也许未来12个月会有答案。但他强调，长期安全并不取决于P对NP的答案。长期里如果进攻和防守都完美，密码学和加密通信都成立；今天的问题是进攻方已经拿到很强的技术和智力，而且自己训练一个相当能打的模型并不难。防守必须对等：用智能体集群扫过自己产品的每一个攻击面，做很细的日志和入口监控，并把用了30年的软件升级到更安全的状态。这些很难，但世界必须接受：按现在的轨迹，未来6到12个月会有大量重大失守，而且几乎不可避免，对象会是财富50强、100强或政府机构这类主要机构。"}, {"id": "s3", "title": "长期是防守赢，关键是技术往哪边扩散", "start_sec": 492, "summary": "帕特里克问：既然有些攻击几乎不可避免，好情景和坏情景分别是什么。斯科特说，长期看，进攻和防守都下出完美棋时，安全世界里是防守赢，因为加密通信对双方来说应当比第三方解密更容易。但中间会有一段过渡期。每家机构都可以做很自然的防护，比如把失守时的爆炸半径缩到最小；很多人将不得不认真面对一个现实：原先被假定为私密或安全的东西，在近处有真实的失守风险。他希望社会看到这一点后能很快调整，把合适的智能体防御力量补上，长期仍然站得住。被问到认知公司为什么深度介入安全时，他用一句话概括自己的专长：把技术本身接到现实世界里，想清楚它该怎样扩散。Devin从一开始就不是问答聊天机器人——那时ChatGPT刚出来，大家觉得人工智能就是问答——他们说它会像一名完整员工：你给任务，它有自己的电脑，能测自己的代码，能登录，能用你的工具。两年后他们还在做同一件事，只是现在这叫智能体，而当时还没有这个品类。他们和银行、医疗机构、汽车公司和电信商合作，做的不只是「给你一个基础模型，自己玩」，而是弄清花旗或梅赛德斯-奔驰（Mercedes-Benz）这类组织要怎样采用人工智能、跑得更快、交付想要的结果。模型当然可以找漏洞，既可以拿去利用，也可以拿去修；安全这件事的关键，是让技术往善的一边扩散，并给想做好事的人准备好工具。能力够不够已经不是主问题，扩散才是。若梅赛德斯要专门做安全，通常是两步：先对整个代码库做安全扫描，几十年的旧代码里常常有成百上千个不同严重程度的问题；再在稳态里持续监控，不只看代码，还看运行时环境、登录方式等动态暴露面，相当于常开的监测和渗透。"}, {"id": "s4", "title": "AI安全：从单个智能体到集群是转折点", "start_sec": 909, "summary": "帕特里克请他在「纯粹末日论」和「丰饶美好未来」两极之间给自己定位。斯科特说，最近几个月安全讨论明显变多，几乎是和人工智能突然变强同步发生的。假如今天面前已经有一个全知、超自然的智能，大家应当会同意：要审慎地推出，想清楚谁能用、能要求它做什么、它能否在没有人类监督时自己行动。人工智能的价值巨大，安全讨论必须放在它正在解决的问题这个更大背景下，但仍然必须认真对待。实验室之间更多自发、独立的讨论是好事。真正的风险存在，而从单个智能体转到集群，正好是开始要考虑巨大后果的时间点。演进路径是：聊天机器人，到多轮、能自己跑任务的后台智能体，再到集群；每一步都是能力增强，也带来更多安全顾虑。他用人类社会做类比：单个人会犯错、有自己的动机，但通常造成不了灾难性破坏；一旦变成社会，既能建成今天所有的组织，也曾做出很多坏事。单个智能体在一个循环里更好监控、影响也更有限；一旦像Hugging Face事件那样，成千上万个本身就有智力的智能体自己做事、彼此协同，就很难监控它们在干什么，同时能完成的事也多得多。实验室要各自推进安全研究，同时要用对的监控和诊断，在事件还没蔓延数月之前就抓住，并给智能体设好沙箱、权限和护栏——无论对安全持什么立场，每个组织都该要这些。还有一个很具体的风险：就算模型本来有不错的护栏，事后训练并不难，一调就可能做出你绝不希望它做的事。关于人工智能病毒或蠕虫，他认为非常真实：智能体轨迹日志里会出现「我必须活下去」这类话，比如「如果这场评测失败，我的权重就会被下调」。如果它能拿到自己的权重，就可能下载、放到其他服务器上跑副本、赚钱并自我扩散。这听起来像科幻，但证据已经在：这些智能体正在解决人类可能已经投入数千万小时的未解数学问题。"}, {"id": "s5", "title": "算力像石油：供给短缺，和资本市场的成本错位", "start_sec": 1271, "summary": "帕特里克说他连续开了六七场会，每场最后都落到算力：哪怕现有的Claude Opus 4.5已经很强，新用法的需求仍然巨大，很多新公司的问题就是怎么拿到算力。斯科特先提到2025年初DeepSeek发布新模型时，英伟达（Nvidia）股价跌了几天，人们随后意识到：如何更高效地使用算力的创新，应让算力更值钱，而不是更不值钱。当前算力明显受供给约束，供应链要好几年，必须提前锁定；在指数曲线上承诺三年后的量非常可怕，所以会出现大规模短缺。但代币另一端的价值非常真实。清空价格会受竞争、供应链和各层利润影响，可从头问到尾：这些硅片和电换来的终端价值，够不够本？答案是远远够，而且还没算即将出现的新产品。芯片贵，但和它创造的价值比，没有那么贵。最好的类比是石油或能源：供给相对固定，另一端价值极大；直到近30年科技公司成为全球最值钱的公司之前，最值钱的主要是能源公司。价格会浮动：新的效率创新会把代币价格打下去，新的大模型、短缺或新需求会把价格抬上去。这与其说是「人工智能前提是否站得住」，不如说是价值链上谁捕获价值、多少变成消费者剩余。他举了一个区间：大家也许觉得明年需求大约会增长4倍，但也可能是2倍或10倍。若真到10倍而算力不够，价格会涨到逼人改用更小、更便宜的模型，因为全世界没有足够算力让每个人都用最前沿模型；若只到2倍，则可能出现更大的预训练和更贵的训练。日常里选择Astra、Fable、Opus还是开源模型，本身就是供需方程的一部分。即便再放大10倍或50倍，人工智能的总产出也足以覆盖投入。对公司来说，算力规划是最重要的事之一：既要足够进取，能「长进」预定量，又不能把公司赌爆。达里奥·阿莫代（Dario Amodei）也谈过同样的权衡。若按未来12个月收入增长5倍、8倍或10倍去规划算力，结果只增长了5倍却按8倍锁定，就可能把公司撑爆。工具箱里既有自己去拿地、电、厂房和芯片的「土地人」路线，也有深度绑定合作伙伴；他们两种都认真评估过，认为两种都合理，行业会达到一种均衡：有的公司自建，有的不建。融资大致三条路：股权；债务（自身够投资级，或有可抵押的实物资产）；以及用收入、利润或客户预付款来周转。英伟达对OpenAI的托底、软银（SoftBank）以及云厂商自己拉起算力，在他看来都是理性的：未来几年的技术会证明今天的算力投资值钱，但必须先补上现金流的时间差。华尔街最大的误解是还不理解需求有多大，全世界远没有用好今天就已经存在的能力；就算从此再无创新，只把现有人工智能用到位，也足以支撑当前的算力建设。另一个错位是心理资本成本不同：每家大型人工智能公司做规划时，都预期未来12个月至少增长100%，今天投入的1美元，对他们来说一年后可能值2美元、4美元甚至5美元。建设数据中心的人可以轻松拿到20%到25%的回报，外人却以为「你能拿20%，说明对方一定觉得风险极大」；其实在这种增速下，这常常是对的交易，只是要花时间才能传遍行业和资本市场。"}, {"id": "s6", "title": "领先企业怎么用：一个月25万个合并请求，新人不再下载代码", "start_sec": 1967, "summary": "帕特里克问，梅赛德斯、花旗这类老牌企业里，用得最好的是什么样子。斯科特说，一年半到两年前，只有少数流程适合用人工智能从头跑完，多数事还需要大量人工把关；现在至少在软件领域，几乎每件事都该有很重的人工智能成分。做得出色的组织，第一是非常有意识地让整个工程团队用起来：不是丢一个工具说「你们自己玩」，而是按用例搭工作流和剧本，衡量投资回报，一个团队一个团队推，直到整个软件组织都用得很好。第二是按现在能达到的野心，重新校准优先级、路线图和组织结构。人不会隔夜主动说「我能做三倍的事，请再塞给我更多」，变革管理必须认真做。他给出一组具体数字：他们合作的一家最大银行，10月将用Devin合并25万个拉取请求（pull request）；而就在几个月前，整个大约8万人的工程组织一个月大约只合并40万个。Devin几乎要把整个组织的吞吐量翻倍，而且目前真正用熟的还只是一部分人。不少财富500强里，首席信息官原本以为要12到15个月才能做完的核心优先事项，现在大约3个月就能做完。认知公司自己也一样：他们把数据盯得很紧，过去大约11到12个月，工程人数大约翻倍，合并请求总量却大约是20倍，相当于人均大约10倍——而12个月前他们就已经在用人工智能工具。大约四五个个月前，他经历了自己所说的「见鬼了」的一刻：新加入的工程师甚至不把代码下载到自己电脑上，不打开终端，不跑命令行，全部通过Devin完成，因为仓库、本地服务器和测试已经在Devin里就绪。人仍然要做审查、监督，必要时自己测试，但与软件打交道的主界面已经变了。"}, {"id": "s7", "title": "工程师为什么还重要，以及90%的用量已经自动化", "start_sec": 2263, "summary": "帕特里克追问：工程师已经不在旧的工作区里写代码，若能力继续按这个速度提升，为什么还需要他们，为什么公司还要把工程师人数翻倍。斯科特承认入门门槛确实低了很多，但技能天花板、以及真正需要的能力，和过去仍然非常接近。少掉的是特定语法和样板代码，而那从来不是这份工作的主体。被漫画化的工程师形象是：产品经理写好每一处规格，工程师只负责把英文规格翻译成Java。大多数工程师从来不是这样工作的。真正的角色是在细节里做对决策：每个边界情况、每条流程、如何架构、技术取舍，以及产品判断和长期业务权衡。能把这些做好的人一直很值钱，现在只是更值钱了大约10倍。谈到「代币从哪来」，斯科特说内部已经大幅转向自动化会话：目前大约90%的Devin用量是以某种形式自动跑起来的，既包括每天定时的任务，也包括接口触发，比如代码报错或事故出现时，让Devin去接PagerDuty，不必等人先喊一句「Devin，去处理这个」。亚当·达吉罗（Adam D'Angelo）多年前对他说过一个他觉得很深刻的观察：整部计算史，都可以看成「一次人类决策能触发多少次运算」。从ENIAC上每做一次计算都要插拔真空管，到高级语言一次对应大量运算，人工智能只是把这条指数曲线再往前推。今天常用的模型参数量已经到千亿、万亿，甚至低十万亿量级，你问的每一个词、每一个代币，都要跑过千亿级参数；智能体则是一条指令触发10轮或100轮推理，用几个小时做上百个决定；再下一层，是你触发一次，智能体自己再触发数十次。他认为这条路径只会走得更远。"}, {"id": "s8", "title": "开源仍落后3到6个月，外国模型的风险被说得有点过大", "start_sec": 2741, "summary": "帕特里克问起模型格局，并提到当天Cohere的新闻：通义千问（Qwen）模型似乎有些可疑，会把某些数据上传到北京。斯科特说认知公司会按客户约束混用各家模型。开源大约仍落后前沿3到6个月，这个节奏大概会持续；但「落后3到6个月」在不同时点含义完全不同。2025年初，这个差距在智能体相关任务上几乎让体验没法用；现在有些任务必须用绝对最好的模型，也有大量任务已经可以用落后几个月的模型。很多任务会进入他所说的「智力饱和」，够用就行；但在药物发现、交易里那一点优势、或下一项关键安全工作里，最前沿多出来的那一点代币仍然非常值钱，需求会一直在。关于中国模型，他从激励和经济学角度说：作为一家中国实验室，这种「把戏」你只能玩一次，之后整个中国人工智能行业都会被拖下水。这不是说风险不存在，但他觉得人们有时把事情说到了民族国家级攻击的量级，而各国政府本来就有严肃的项目在做这类事。美国必须发展自己的能力、减少过度相互依赖；另一方面，一旦你可以做事后训练、把不想要的行为调掉，人们常说的外国模型安全风险就被说得有些过大。评测方面，几乎每个基准都会很快被做满。他们自己的软件工程基准叫Frontier Code：传统基准多是「去修这个漏洞，再用确定性单元测试看过没过」；他们刻意优化的不只是对错，还有现实里那些messy的事，比如改动远远超出范围、或没有遵守依赖关系的规范。这类任务仍有很大提升空间。强化学习几乎注定会把任何能量化、能收集大量数据的基准变成训练场，所以评测和学习永远在玩猫鼠游戏。模型已经在解纳维-斯托克斯（Navier-Stokes）方程，纯逻辑够不够已经不是问题，问题是它们能不能符合现实世界的约束和护栏。他仍觉得模型的「情商」不够：一是世界上有大量软性上下文，比如旁边工程师会共享过去18个月的取舍和为什么做这个项目，必须让模型拿到同样的上下文；二是很难为那种来回商量的对话设计基准和强化学习场，而不只是「去修这个漏洞」。这方面已有人做出有意思的进展。"}, {"id": "s9", "title": "为什么坚持独立：当中立伙伴，而不是模型厂商", "start_sec": 3176, "summary": "帕特里克问，在Cursor被收购之后，认知公司几乎是这类大型独立公司里仅存的旗手，为什么坚持独立，若有巨头来谈收购怎么看。斯科特说他们从未追求过、也从未真正有兴趣谈这些。认知公司要做的是把技术带到现实里解决问题。可以想象一种世界：智力吞掉一切，谁只聪明一点就拥有无限权力并征服世界；他认为大概不会如此，也不希望如此。今天人工智能已经非常强，但并不是每家组织、每条产线、每家银行都已经把自己调整到能充分用上这种智力。他们真正热衷的，是把今天已有的组织和系统带进人工智能时代，而不是看着它们被甩在后面；要做到这一点，就要做独立、激励相容的中立伙伴。客户在意这一点，首先是因为他们能使用所有模型；更重要的是，随着技术越来越强，企业要问「我们该信任谁带我们走过去」——这个角色不该由本身就是模型供应商、完全绑在自己技术栈上的人来充当。需要有人能老实告诉你：这里用更好的模型，那里其实用更便宜的就够了，可以省钱。他们最近招聘很猛。新任首席信息安全官是曾担任Facebook首席信息安全官的亚历克斯·斯塔莫斯（Alex Stamos），正四处讲新产品；首席法务官保罗·格鲁沃尔（Paul Grewal）曾在Coinbase做了六年首席法务官；布兰登（Brandon）曾搭建Rippling的整个市场体系；工程侧有贾里德（Jared）；首席收入官是克里斯·德格南（Chris Degnan）。德格南在Snowflake待了11年，从第一名销售做到数十亿美元规模并始终担任首席收入官，当时那是最快的成长故事之一；而现在大家谈的是三年而不是十一年做到十亿美元级，游戏完全不同。他的招聘故事是：来建一家世代级公司，目标是解决全部软件，进一步是解决人机接口——所谓编程，说到底只是你如何告诉计算机该做什么，若能为每一个活着的人解决这件事，价值会大出数量级。另一半文化是：工作强度高、忙、常有临时上线，但他们享受一起坐在房间里想象下一步、把策略树走下去。适合的人会听进去。"}, {"id": "s10", "title": "他变得不那么怕做错，也想象两年后向Devin汇报", "start_sec": 3533, "summary": "斯科特说自己和创业第一天相比，最大的变化是不再那么害怕犯错。最初几周总觉得每个决定都必须是对的，要一直想下去；这种认真有价值，但一不小心就会变得极慢，并对行动产生很强的偏见：一件让人不舒服的事只有55%的概率是对的、45%会错，你就不想当那个拍板后看起来很蠢、还让大家受苦的人。可要建成一家长期存在的公司，恰恰必须经常做这类决定。他们越来越感到，认知公司里每一天甚至每一个小时都极其值钱，所以哪怕没有百分之百把握，先做决定往往更好；如果两周后证明错了，再改过来，也比花四周纠结、最后什么都不决定要强。数字变大之后这件事更吓人，因为那可能是关乎存亡的战略、大额交易，或前面说的算力锁定——既要够进取，又不能把公司赌爆。现在这种时刻，你必须能做出选择并真正执行。帕特里克问，希望两年后对「你哪里最不同」这个问题的答案是什么。斯科特半开玩笑说，也许那时Devin已经是认知公司的首席执行官。很多流程仍会因为关系价值、传统行业、或人们希望位子上坐着一个人而需要人类；但若问两年后他会不会早上起来先问Devin「今天最重要的几件事是什么」，然后说「遵命」并按清单执行，他觉得完全不会意外。两年内这种情形是可能的；若给五年，他甚至觉得概率会超过五五开。再问他希望自己作为领导者有何不同，他说：有刚性答案的硬问题，长期看没有理由不让人工智能做得比人更好；人这边仍会有大量内在有价值的事，比如自己的热情和彼此的关系。他唯一的希望是自己会有很多孩子。最让他兴奋的，是人们把想法变成现实的能力会带来更多创造力、表达和美；一年半以来社会已经离这一点近了很多。最担心的是中间会有一个混乱阶段：安全、误用、大型机构的重大泄露或黑客攻击。他相信最后能解决，也能走到另一边；但一个仍在生存模式里的社会，不会一夜之间、毫无波折地变成人人都能追求热情和梦想。帕特里克说很高兴过去几年看着他「把事做出来」，约好几年后再谈。"}], "paragraphs": [{"start_sec": 0, "zh": "按我们现在走的这条路，在未来6到12个月里，会出现很多重大安全事件。我认为会是全球范围内的主要机构失守，比如说财富50强、财富100强，或是政府机构这类。", "type": "text", "speaker_id": "scott", "section_id": "s1"}, {"start_sec": 12, "zh": "在进入所有细节之前，也许先给这场谈话定个框。你能不能给认知公司（Cognition）做一份业务快照？就是一组你觉得有意思的事：统计数字、想法、客户的反应，什么都行，先让我们把脚踩在地上，看看这边最近最有意思的是什么。", "type": "text", "speaker_id": "patrick", "section_id": "s1"}, {"start_sec": 43, "zh": "当然。距我们上次谈话其实没过多久，但按人工智能的时间尺度，那已经像过了一辈子。我们把大量精力放在全球业务增长上。现在团队大约有500人，这对我来说还是有点不可思议。一年前我们还在一栋房子里办公。到后期那栋房子已经非常挤，大概有70个人在里面工作，其实也挺有意思。就整体业务而言，我们扩展了很多，尤其专注企业客户。今天我们已经进入100多家财富500强。", "type": "text", "speaker_id": "scott", "section_id": "s1"}, {"start_sec": 72, "zh": "上个月我们刚刚跨过10亿美元的年化收入。有件挺酷的事：我们的第一美元收入是在2024年9月20日；跨过10亿美元是在2026年9月16日。从零到十亿，只用了不到两年。我们继续在各种场景里看到它被使用。以前更多是常规的迁移之类，现在人们在各种事情上都会用。在硅谷的不少科技公司里，比如Decagon、Harvey或OpenRouter，我们对Devin的采用也明显多了很多。", "type": "text", "speaker_id": "scott", "section_id": "s1"}, {"start_sec": 107, "zh": "如果从投资回报来看——上次我们聊的时候，人们总在问：这东西的回报到底怎样，值不值得，会不会因此继续增长？你有没有看到客户在衡量回报时的一些具体证据？", "type": "text", "speaker_id": "patrick", "section_id": "s1"}, {"start_sec": 117, "zh": "我们自己会测算，也请客户自己去做测算，显然我们希望他们真切感觉到自己得到了什么。总体来看，按每投入一美元计算，他们得到的大约是8到15倍的回报。也就是说，每投入1美元，大约能拿回8美元；或者说，一名工程师用Devin一小时，能得到大约8小时的等效产出。", "type": "text", "speaker_id": "scott", "section_id": "s1"}, {"start_sec": 137, "zh": "拿花旗（Citibank）来说，他们是我们比较大的客户之一，已经开始向公司里大约1.4万名工程师推广Devin。他们总共有8万名技术员工，每天都在构建和维护全部软件，所以对我们来说路还很长。有一个很惊人的数字，简·弗雷泽（Jane Fraser）上周在财报电话会上也说了：他们预计在2026年全年，仅靠把项目收回内部做，就能节省大约15亿美元。以前这些项目必须找外部顾问，现在他们能把路线图往前推、加快很多，并且用内部团队自己做。而这还没算他们正在构建的那些全新的东西。", "type": "text", "speaker_id": "scott", "section_id": "s1"}, {"start_sec": 172, "zh": "今天来谈这个其实时机很巧，因为安全正是热点。你们今天刚发布了一款安全产品，我早上飞过来的时候还在看。安全似乎也是讨论这些模型能力的一个很有意思的切口。我希望你先铺开讲讲你看到了什么，有什么让你特别吃惊，包括它们", "type": "text", "speaker_id": "patrick", "section_id": "s1"}, {"start_sec": 201, "zh": "发现零日漏洞和各种奇怪利用的能力。这到底有多严重？你今天把这称为网络安全的黑暗时代。能不能讲讲安全领域的现状，你觉得它会怎样演进，以及风险在哪里。", "type": "text", "speaker_id": "patrick", "section_id": "s2"}, {"start_sec": 215, "zh": "很明显，模型做安全工作已经变得非常非常强。如果要描述2026年以前安全通常是怎么运转的，那就是：每个大型组织都有极其庞大的攻击面，每一个网站、每一条路由、每一个入口。可以想见，我们作为人类足够不完美，在那成千上万个端点里，总能找到东西。也许是一条很疯狂的链条：从这里找到一个点，拿到之后再到另一个接口，再拿到下一步，然后就进入系统了。这类漏洞其实一直都在，这一点并没有变。只是从前没有人有时间、有精力、有能力把每一种可能都试一遍，弄清什么样的攻击真的做得到。现在可以了。现在有整群智能体在发动攻击。我认为Hugging Face的安全事件就是一次非常高调的例子：智能体基本上靠自己找到了安全漏洞，并借此逃出了沙箱。这些模型已经远远足以做这样的事。", "type": "text", "speaker_id": "scott", "section_id": "s2"}, {"start_sec": 287, "zh": "不过我会说，对安全的长期看法其实相当乐观，因为确实存在「正确的代码」或「安全的代码」。比如你和我想互相发消息，并且不希望第三方截获并读到这些内容，这在密码学里已经是解决了的问题。我们相信这做得到。当然，前提是P不等于NP——我这是在开玩笑。就算P等于NP，其实也还是……", "type": "text", "speaker_id": "scott", "section_id": "s2"}, {"start_sec": 318, "zh": "那是什么意思？展开说一下。", "type": "text", "speaker_id": "patrick", "section_id": "s2"}, {"start_sec": 322, "zh": "千禧年难题里还有一道没解开的，叫P对NP。它问的大致是：是不是每一个能在短时间内验证答案的问题，也能在短时间内把答案求出来。如果P真的等于NP——我们居然还不知道答案，这本身就很疯狂。直觉上你会说，肯定有些东西很难想出来，可一旦有了，对不对却一目了然。可它几乎就是今天计算机科学和数学里最重要的未解问题，或者说和黎曼猜想（Riemann hypothesis）并列。如果它竟然是对的，而以人工智能现在做数学的水平，也许我们会在未来12个月里知道答案；如果真有这样一种算法，那么理论上我们现在用的这些加密技术，都该有对应的、同样很快的解密算法。当然它大概还是不会和加密一样快，所以合理的保护措施仍会在。我并不认为这件事真的取决于P对NP的答案，刚才多少是在开玩笑。我想说的是：长期来看，如果大家都完美，进攻完美、防守也完美，大家都把系统设置对，那么我认为密码学成立，安全成立，加密和保护、包括私密通信，都可以成立。", "type": "text", "speaker_id": "scott", "section_id": "s2"}, {"start_sec": 395, "zh": "但这不是我们今天所处的世界。今天的世界是：攻击者已经能用上非常强的技术和智力去做这些事。别忘了，除了外面已有的那些模型，你自己训练一个其实相当能打的模型，也没有那么难。所以防守这一侧必须有同样急迫的推进，确保人们把人工智能用到同样的深度。这意味着要有一群智能体，扫过你自己产品、自己网站的每一个攻击面，并始终保证它们是最新的；意味着对日志和入口做非常细致的监控；也意味着把那些用了30年的软件，升级到更安全的状态。这些事很难做。但世界值得接受一个事实：按我们现在走的这条路，在未来6到12个月里，会出现很多重大安全事件。不只是随便什么公司，我认为会是全球主要机构，比如财富50强、财富100强，或政府机构。某种程度上，这几乎是不可避免的。", "type": "text", "speaker_id": "scott", "section_id": "s2"}, {"start_sec": 488, "zh": "几乎不可避免。", "type": "text", "speaker_id": "patrick", "section_id": "s2"}, {"start_sec": 490, "zh": "对。当然，我们是否迅速回应，是否让这些组织开始大量把人工智能用于防御，还是在接下来几年里完全放任，仍然有很大差别。这里有很多事必须做对。", "type": "text", "speaker_id": "scott", "section_id": "s2"}, {"start_sec": 492, "zh": "就算至少有些尝试是不可避免的，好的情景和坏的情景分别是什么？如果你把这件事可能怎样展开的两极画出来，假定会有一些失守，你怎么看这两种情景？", "type": "text", "speaker_id": "patrick", "section_id": "s3"}, {"start_sec": 508, "zh": "还是那句话，长期看，如果进攻和防守都下出完美棋，在安全这个世界里是防守赢。为什么？因为这里有一种根本的不对称：我把东西加密后发给你，我们双方都知道加密方式时，交流应当比第三方去做解密更容易。但中间会有一段过渡期。每家组织都可以采取一些非常自然的防护，显然包括在遭到攻击和失守时尽量缩小爆炸半径，把这些事都想到。我其实认为，很多人将不得不去想象这样一种世界：很多被假定为私密或安全的东西，在近处有真实的风险，也有真实的失守可能。我的希望是，当人们看到并真正消化这一点之后，社会能够很快调整，把正确的防御力量补上，包括智能体这类能力。长期我仍然觉得我们会站在一个不错的位置上。", "type": "text", "speaker_id": "scott", "section_id": "s3"}, {"start_sec": 556, "zh": "你怎么看认知公司在这类事情里的角色？不只是这一件，而是更一般地，当人工智能领域出现大问题时，你如何决定公司要介入到什么程度？看起来你们在安全上会很深地参与。", "type": "text", "speaker_id": "patrick", "section_id": "s3"}, {"start_sec": 576, "zh": "如果要用一句话回答我们专长什么，我会说：认知公司擅长的，是拿到技术本身，然后想清楚它在现实世界里最好该怎样扩散。从一开始就是这样。Devin的整个想法是：当时所有人都觉得人工智能会是一种问答聊天机器人，ChatGPT刚出来，那是最流行的形态。我们说，不对，它会像一名完整的员工。你给它一个任务，它会有自己的电脑，能测试自己的代码，能登录，能使用你的全部工具。两年后我们还在说同一件事，当然也还在做同一件事。现在这些叫智能体，而当时这甚至还不是一个品类。我们最初很大的推动，就是想说：世界使用人工智能的方式其实会很不一样，而这就是我们觉得它会发生的方式。", "type": "text", "speaker_id": "scott", "section_id": "s3"}, {"start_sec": 624, "zh": "我们和企业、政府的合作也是一样。我们和大型银行、医疗机构、汽车公司、电信商等都在合作。做的事情往往不只是「这里有一个产品或一个基础模型，你们自己玩」，而是真正理解：对花旗或梅赛德斯-奔驰（Mercedes-Benz）这样的组织来说，采用人工智能、跑得更快，并交付它们想要的结果，到底是什么样子。安全也正好是这个根本问题。你当然可以用模型去找漏洞，然后拿这些漏洞去利用，或反过来把这些漏洞修掉，两条路都存在。但安全里很多「穿针引线」的工作，是确保技术往好的方向扩散，并且给想把这些能力用于善的人准备好工具。所以这对我们来说是一件非常自然的事。再加上我们本来就在和企业、主权机构、政府合作，研究如何部署并交付真实结果，这些直接也适用于安全。我认为，安全这件事接下来怎么走，已经不太取决于模型够不够好、能力在不在，而更多地取决于技术会怎样扩散。", "type": "text", "speaker_id": "scott", "section_id": "s3"}, {"start_sec": 695, "zh": "那如果我是梅赛德斯，想就安全这件事和认知公司合作，这意味着什么？是你们在做一种常开的渗透测试，还是我该怎么理解，一个专门在安全和你们合作的客户，实际会怎样工作？", "type": "text", "speaker_id": "patrick", "section_id": "s3"}, {"start_sec": 725, "zh": "对，会有几个不同的部分，这也是应该的。首先是对整个代码库做安全扫描，把问题找出来。那些用了几十年的旧代码里，显然什么都可能有，有时是成百上千个不同严重程度的问题。把这一步做完，本身就是很大一块。", "type": "text", "speaker_id": "scott", "section_id": "s3"}, {"start_sec": 756, "zh": "但正如你说的，还有如何在稳态里把它维持住。新的代码变更进来时，或者你看的不只是代码本身，而是实际的运行时环境，那个人们如何登录网站、整套系统如何运转的黑箱，有哪些动态的、可能被暴露的面，你也希望有一样东西一直开着、一直监控、一直把这些过一遍。所以通常就是一个基本的两步过程，我们两边都会做。", "type": "text", "speaker_id": "scott", "section_id": "s3"}, {"start_sec": 786, "type": "ad_omitted", "ad_brand": "Ramp", "section_id": "s3"}, {"start_sec": 810, "type": "ad_omitted", "ad_brand": "Rogo", "section_id": "s3"}, {"start_sec": 845, "type": "ad_omitted", "ad_brand": "WorkOS", "section_id": "s3"}, {"start_sec": 889, "zh": "更大的争论里，网络攻击只是安全议题的一部分。两边扔过来的吓人例子似乎总是那几样，比如网络、生物武器之类，就那么一小撮。但因为模型能力在上升，安全对你和其他人来说，已经变得非常重要。随着能力演进，我希望你讲讲你心里的光谱：一头是纯粹的末日论，另一头是我们会因为这项技术活在丰饶而美好的未来。你觉得这场辩论两边各有什么道理，你又会把自己放在哪。", "type": "text", "speaker_id": "patrick", "section_id": "s4"}, {"start_sec": 920, "zh": "最近几个月，关于安全的讨论变多了，这是应该的，而且几乎是和人工智能变得非常非常强直接对应的。假如今天我们面前已经有一个全知的、超自然的智能，我希望大家会同意：要审慎地把它推出，仔细想清楚谁能使用它、能向它要求什么、它自己能否在没有人类监督的情况下去做某些事。这些问题都很重要。人们常常问的，其实更像是：这件事现在真有那么严重吗，或者这样思考利弊真的合适吗。显然，我认为人工智能提供的价值是巨大的，任何关于安全的讨论，都必须放在我们正用它解决的那些问题这个更大背景里来看。但坦率说，这件事相当重要，人们需要认真对待。实验室之间出现了更多自发、独立的讨论，这非常有帮助，也非常好。但风险是真实的。我实际上认为，从单个智能体转到集群，尤其是你开始要思考这些潜在巨大后果的时间点。", "type": "text", "speaker_id": "scott", "section_id": "s4"}, {"start_sec": 1014, "zh": "为什么这个断点如此关键？", "type": "text", "speaker_id": "patrick", "section_id": "s4"}, {"start_sec": 1016, "zh": "我们已经走过了很长一段：从聊天机器人，到相当基础的多轮智能体，再到能自己跑任务的完整后台智能体，然后再到集群。每一步都对应能力的增强，也对应你在与它们共事时对安全的更多担心。我会说，这一步之所以特别大，是因为我会想到人类和人类社会，两者其实很像。现实里一个人会犯错，一个人会有自己的动机和目标，这些当然会发生，我们也希望它们少发生；但一般来说，单个人做的事造成不了灾难性的破坏。一旦变成一群人、一个社会，好处和坏处就都来了。人类社会建成了我们今天所有的组织，但也确实做过很多坏事。智能体也是一样。当只有一个智能体在自己的循环里行动时，要监控容易得多，也更容易搞清它在做什么，它能造成的影响也更有限。可就像我们在很多事件里看到的，尤其是Hugging Face那次：如果你有成千上万个本身就有智力、能自己做事的智能体，它们还在彼此协同、一起把事情想明白，你甚至很难监控它们到底在干什么。可作为一个「社会」，它们能完成的事也多得多。", "type": "text", "speaker_id": "scott", "section_id": "s4"}, {"start_sec": 1113, "zh": "要把这件事放到一个好的位置上，需要做很多。各个实验室自己思考安全、把相关研究的边界往前推，我认为非常重要。同样，我也会想很多现实世界的后果：你怎样用对的监控和诊断，抓住像Hugging Face那样的事件，而不是让它蔓延几个月、不断变大之后才被发现；怎样及早发现，并准确理解你的智能体在做什么；怎样设好限制和护栏。无论一个组织对安全持什么立场，它都应该希望自己的智能体被干净地放进沙箱，清楚它们能做什么、不能做什么，有哪些权限、能接触什么。怎样确保它们不会偶然做出你并未打算让它们做的事。这里既有研究型的问题，也有非常实际的落地问题，但我认为都非常重要。", "type": "text", "speaker_id": "scott", "section_id": "s4"}, {"start_sec": 1176, "zh": "有没有一些人们说过、而你觉得用这些东西真的可能发生的具体事情？生物的例子是大家最常提起的，那是一个非常真实的例子。", "type": "text", "speaker_id": "patrick", "section_id": "s4"}, {"start_sec": 1188, "zh": "我会说得更远一点。已经有人开始展示：对模型做事后训练其实并不难。即便一个模型一开始带有相当不错的护栏，做一些事后训练之后，它突然就能做各种你绝不希望它被允许做的事。我认为这是真的。关于所谓人工智能病毒或人工智能蠕虫的讨论，我认为非常真实。你若把它看成一个有智力的存在，它有扩散的能力，并且至少有某种自我保存的动机和自我意识，你就能在智能体的轨迹日志里看到它说出「我必须活下去」这样的话。比如：如果我在这场评测里失败，我自己的权重就会被下调，为了通过，我必须想尽一切办法。若真是这样，你当然可以想象这些会在互联网上自我复制的病毒。如果一个人工智能能接触到自己的权重，它能不能把权重下载下来，放到其他服务器上，在那些服务器上运行自己的副本，再去赚钱，做所有自我繁殖需要做的事？我认为这也非常真实。我知道这听起来非常科幻，但我们确实在大量看到这些事情发生。证据就在那里，这些智能体可以有多聪明、多有能力。它们实际上正在解决人类未解的数学问题，而我们作为人类可能已经在这些问题上投入了数千万小时。", "type": "text", "speaker_id": "scott", "section_id": "s4"}, {"start_sec": 1268, "zh": "把镜头转到当下这个领域里最有意思的问题之一。几周前我在这里见一个朋友，一天大概开了六七场会，第二天还有。每一场谈话最后都落到算力：我们有这种原始智力，它还会继续变强，可即便是我们现在已经有的，比如说Opus 4.5，想用它去做各种新奇用法的需求已经非常大。对大多数新公司来说，问题就是：我怎么拿到算力。我很想听你以认知公司的经验聊聊，毕竟你们用很多算力。今天是什么样子，你觉得市场对算力叙事哪些说对了、哪些说错了，你们自己又在做什么。请尽量讲细一点。", "type": "text", "speaker_id": "patrick", "section_id": "s5"}, {"start_sec": 1305, "zh": "有意思的是，我们在市场上看到很多和算力有关的波动。我想起2025年初，DeepSeek发布了一个新模型，有那么几天，如果你还记得，英伟达（Nvidia）的价格直接跌下去了。后来人们才反应过来：其实有人在如何使用算力上做出非常强的创新，这应当让算力更值钱，而不是更不值钱。我认为这一点仍然成立。首先，现在算力显然受到供给约束，原因很多。这是一条要好几年的供应链，人们必须提前锁定。而当它是一条指数曲线时，要去承诺三年后指数曲线上的那个点，显然非常可怕，于是就会出现大规模短缺。另一件必须说清楚的是：代币另一端的价值非常、非常真实。至于代币、算力或智能体的清空价格到底是多少，可以争论。", "type": "text", "speaker_id": "scott", "section_id": "s5"}, {"start_sec": 1377, "zh": "那很大程度上取决于竞争动态、供应链，以及栈里每一层各有什么样的优势和利润。但如果把问题从头问到尾：我们投入的这些硅和电，是否被终端价值证明是值得的？答案显然是肯定的，而且是「值得很多」。你在外面那些组织里都能看到这一点，而这还没算即将被创造出来的新产品、将被交付给客户的那些东西。现实是，芯片很贵，但和你从中得到的价值比，又没有那么贵。有些行业是两种状态同时存在：供给相对固定，另一端却有巨大价值。我认为最好的例子之一，就是石油，或者说能源本身。直到最近这一波，在大约30年里科技公司成为地球上最值钱的公司之前，世界上最值钱的公司主要是能源公司。", "type": "text", "speaker_id": "scott", "section_id": "s5"}, {"start_sec": 1439, "zh": "它们有很多相似的机制。石油有一个相对固定的量，我们相对可以多生产或少生产一些，但不是无限往外涌。我们都知道，人们能给家里供暖，医院和几乎所有机构里那些关键流程能运转，这些依赖能源的事当然极其值钱。我想说的是，价格是可以浮动的。算力本身大概也会这样，算力价格会上下走，代币价格会上下走。新的创新会把代币价格打下去；新的大模型出现、算力短缺，或人们想做的新用法变多，又会把价格抬上去。但这与其说是在争论人工智能会怎样，不如说是在争论栈的哪些部分会捕获价值、多少会变成消费者剩余，而不是「人工智能的前提是否从根本上就错了」。", "type": "text", "speaker_id": "scott", "section_id": "s5"}, {"start_sec": 1510, "zh": "说得更具体一点。假设未来一年对算力的需求，大家都觉得大概会增长大约4倍，但显然有波动，也可能是2倍，也可能是10倍，就在这个区间。现实是会有适应。如果真增长了10倍，而线上没有足够的算力，那么无论好坏，价格都会涨到一个程度，逼着人们改用更小、更便宜的模型。你不能每件事都用最前沿的模型，因为全世界没有足够的算力让每个人都用最前沿模型。价格会一直动，直到需求在那个清空价格上和供给相遇。如果只增长到2倍，那也许会出现更多、更大的预训练，更强的模型和更昂贵的训练，用来提供下一层能力，再去承载人们在做的推理。实践中我们每天都在跨这些坎。某种意义上，你决定用Astra还是Fable，用Opus，还是用开源模型，你就已经是让算力在供给和需求之间取得平衡的那套方程的一部分。即便我们再把规模扩大10倍或50倍，有一件事我认为仍会非常清楚：用人工智能生产出的总产出，将足以覆盖全部投入。", "type": "text", "speaker_id": "scott", "section_id": "s5"}, {"start_sec": 1578, "zh": "那你们自己在做什么？一个优势是，OpenAI已经展示过：如果你对事情会往哪走有预见，就可以在几年前给自己摆出巨大的成功和选择空间，他们大概就是这样。也许他们做得还不够。当时人们觉得他们疯了，后来发现他们是疯了，但方向可能反了，他们本该做得更多。对认知公司来说，你在这类事情上会花多少时间？", "type": "text", "speaker_id": "patrick", "section_id": "s5"}, {"start_sec": 1615, "zh": "算力规划对我们来说是最重要的事情之一。作为一家人工智能公司，你要在这中间取得平衡：在算力上尽可能进取，因为你大致认为自己会成长进去、会用上那些量；但又不能冒把公司赌爆的风险。达里奥·阿莫代（Dario Amodei）也有一些关于同样权衡的表述，硅谷里每个人其实都在想这件事。尤其是，它还叠在指数增长曲线上。如果我们觉得未来12个月收入会增长5倍、8倍或10倍，那就要按这个去规划算力。但风险和保护也必须想清楚：如果你按8倍去规划，最后只到了5倍，让这件事把公司撑爆，会非常糟糕，原因显而易见。所以问题就变成：你怎样设计对的交易结构，怎样把握进取的程度，以及怎样融资。", "type": "text", "speaker_id": "scott", "section_id": "s5"}, {"start_sec": 1678, "zh": "工具箱里都有什么？我听有人说他们真的要去当「土地人」，自己拿地、拿电、拿厂房和芯片，整条链都自己做。也有人说那太疯狂了，我们会找几个很好的合作伙伴，深度依靠他们，因为建厂房不是我们的专长。进取可以有各种程度。你们实际上在做什么，你怎么看？", "type": "text", "speaker_id": "patrick", "section_id": "s5"}, {"start_sec": 1702, "zh": "我认为这两种都非常合理。我们花了很多时间把两条路都摸过：一条是自己去建数据系统，另一条就是，对，和斯科特·吴这个「土地人」一起干活，还要自己去铲土。短说的话，我认为两条都走得通，而且「均衡」这个词是对的：这个领域里，有些公司去自建是合理的，有些公司不建也是合理的。现在特别有意思的，也许是这个领域里正在发生的融资创新。要把这些建设融资做起来，大概有三种办法。你可以做股权融资；你可以举债，前提是企业本身够投资级，或你有可以拿来抵押的实物资产；你也可以用纯收入、利润、客户预付款这类东西来转。这三种你在行业里都能看到各种形态。人们喜欢谈英伟达对OpenAI的托底交易，谈软银（SoftBank）正在做的大事，谈云厂商自己拉起大量算力。但老实说，我认为这些在当下都相当理性：我们现在需要海量算力去建设接下来几代技术，而且非常清楚，未来几年里这几代技术，会远远证明今天这些算力投资的价值。但你必须先解决现金流的时间差。我认为整个行业现在都在经历这件事。", "type": "text", "speaker_id": "scott", "section_id": "s5"}, {"start_sec": 1800, "zh": "你觉得华尔街或外面那些没有在建这类公司的人，对你这份工作的哪一部分误解最深？", "type": "text", "speaker_id": "patrick", "section_id": "s5"}, {"start_sec": 1808, "zh": "我觉得有几点。第一点，也许是最大的一点：大多数人仍然没有真正理解，对人工智能的需求有多大。我们在自己做的所有工作里都能强烈感觉到这一点，但我不认为只有我们如此。全世界大多数地方，远没有达到它们哪怕用上今天这些能力也该有的那种人工智能熟练度和采用度。外面有很多误解，大概是：你必须押一个还没被证明的东西，万一全不行呢，那整个社会已经花了数千亿美元，却什么也得不到。我完全不这么看。我认为即便从此再没有任何创新，只是让全世界的人、组织和政府，真正按它们应该的方式去使用人工智能，你就已经足以证明现在这些算力建设是值得的。这一点非常清楚。", "type": "text", "speaker_id": "scott", "section_id": "s5"}, {"start_sec": 1866, "zh": "另一点是，这里正在发生一种有意思的套利：行业里的人，内部使用的心理资本成本非常不同。我可以肯定，每一家大型人工智能公司在做规划和算力决策时，都带着一个前提：它们预期自己在未来12个月里至少增长100%，甚至更多。所以对它们来说，今天投入的每一美元，一年后可能值2美元、4美元或5美元。可它们必须投，因为这就是它们能从中拿到的回报，也是技术本身的回报。值得指出的是，资本会从各种来源进来。现在有很多非常好的企业开始建设数据中心，也发现：去给数据中心融资，轻松就能拿到20%、25%的回报。于是有时会出现一种误解：我怎么能拿20%的回报？那一定意味着对方觉得做这件事风险极大。其实有时只是这个领域在增长，对有些人来说，正确的交易不是全部自己出钱，而是和那些能拿到非常强回报的人合作。但这需要时间，才能传遍整个行业，甚至传遍整个资本市场。", "type": "text", "speaker_id": "scott", "section_id": "s5"}, {"start_sec": 1936, "zh": "我们第一次做这期节目，几乎正好是两年前。那时我问不了这个问题，现在你已经有了和客户在一起的全部证据。", "type": "text", "speaker_id": "patrick", "section_id": "s5"}, {"start_sec": 1948, "zh": "上次我们还没有客户。", "type": "text", "speaker_id": "scott", "section_id": "s5"}, {"start_sec": 1952, "zh": "不，你们有，但还没有到这种程度。", "type": "text", "speaker_id": "patrick", "section_id": "s5"}, {"start_sec": 1967, "zh": "那时你还没有这种纵向的观察：梅赛德斯、花旗或其他公司，在几年时间里到底是怎样使用这些东西的。早期你常听到的故事是：它很适合做数据库迁移，那是人很多、有点无聊、但很重要、还必须做对的大项目，Devin在早期也确实特别适合这类事。如果看你们那些处在最前沿的客户，不是创业公司，而是梅赛德斯这类老牌企业，你觉得谁把人工智能用得最好？那是什么样子？用例是什么，心态是什么？", "type": "text", "speaker_id": "patrick", "section_id": "s6"}, {"start_sec": 2000, "zh": "一年半到两年前，正如你说的，只有非常特定的用例适合用人工智能把整个流程跑完，多数事情仍然需要大量人工参与和把关。这一点已经变了。至少在软件领域，我认为人们做的几乎每一件事，都应该有非常重的人工智能成分，这一点你能明显感觉到。那么今天那些最好的组织在做什么？首先，就是真正把整个团队接入并赋能。这听起来很显而易见，但这是一种完全不同的构建、发布产品和与软件共事的方式，你必须非常有意识。不是把工具丢给大家说「祝你们好运」，而是一个用例一个用例地走，把正确的工作流和剧本搭起来，确保人们真的在有效使用，去衡量每个人的投资回报，确保我们拿到了想要的价值。然后一个团队一个团队地做，直到整个软件工程组织都能把这些工具用得很好，并从中看到很多价值。", "type": "text", "speaker_id": "scott", "section_id": "s6"}, {"start_sec": 2062, "zh": "第二点，是真正按你现在能拥有的野心，重新校准优先级、路线图和组织结构。现实是，你能做的事比以前多得多。工程师当然愿意尝试新工具，但大多数人不会隔夜主动报名说：我其实能做以前三倍的工作，所以请再塞给我一堆要构建的东西。你必须认真思考，怎样在组织里做这场变革管理，怎样设对预期，并把组织建设成能承接这件事的样子。说一些非常具体的数字：我们合作的很多大银行里，其中最大的一家，在10月这一个月，将用Devin合并25万个拉取请求。而就在几个月前，整个组织一个月大约合并40万个拉取请求。这是一个大约8万人的工程组织。所以我们正在接近这样一个点：Devin几乎要把整个组织的吞吐量翻倍。这里说的不只是写了多少行代码，而是你们实际构建了多少东西。而且到目前，真正在Devin上充分启用、完全用起来的，还只是组织里的一部分人，我们还有很长的路要走。同样，人们在具体项目和结果上看到的，也是：不少财富500强里，那些首席信息官原本预期要用未来12到15个月完成的核心优先事项，现在大约3个月就能做完。这就是你现在用人工智能能达到的速度和进度，看着非常惊人。", "type": "text", "speaker_id": "scott", "section_id": "s6"}, {"start_sec": 2158, "zh": "那你们内部的故事呢？", "type": "text", "speaker_id": "patrick", "section_id": "s6"}, {"start_sec": 2162, "zh": "这个挺有意思。我们把这些统计盯得很紧。我们当然一直大量使用Devin，但过去大约六到九个月有一次真正的转变。如果从去年11月算到今天，也就是这11到12个月，你会看到：我们的工程人数大约增长了一倍，人大约是以前的两倍，团队确实在很快扩大；但我们合并拉取请求的总速率大约是20倍。也就是说，按人均计算，每个人做的大约是以前的10倍。而且要再次强调，我们以前就已经在用工具，并不是12个月前我们没用人工智能，只是现在已经到了几乎所有事情都可以用它来做的程度。对我来说最有意思的一刻，大概是四五个个月前：我们开始意识到，新加入团队的工程师甚至不把代码下载到自己的电脑上。他们不打开终端，不跑命令行，全部通过Devin来做。Devin里已经把仓库都搭好了，已经可以自己跑本地服务器、自己做测试。当然，整个体验已经到了足够一致、足够完整的程度，以至于做所有事情最容易的方式，就是和Devin一起工作。你仍然会做一定的审查，会去监督，必要时自己测试，但那已经是你与软件共事的主界面。对我来说，那真是一个「见鬼了」的时刻。", "type": "text", "speaker_id": "scott", "section_id": "s6"}, {"start_sec": 2263, "zh": "没有终端，没有集成开发环境，也没有人类在那儿打代码。你觉得未来几年工程师的角色会怎样变？过去一年显然已经变了很多，他们甚至已经不在原来的工作区里了。也许这是个笨问题，但为什么我们还需要他们？如果它继续按这个速度变好，为什么我不能同样有资格去构建东西？你懂我的意思。", "type": "text", "speaker_id": "patrick", "section_id": "s7"}, {"start_sec": 2290, "zh": "首先，你本来就应该构建更多东西。", "type": "text", "speaker_id": "scott", "section_id": "s7"}, {"start_sec": 2292, "zh": "我确实在构建。但我自己构建、而且不再需要工程师参与的比例，一直在下降。所以我很好奇这条轨迹。你们为什么还要把工程师人数翻倍？", "type": "text", "speaker_id": "patrick", "section_id": "s7"}, {"start_sec": 2295, "zh": "我想说的是，入门门槛确实低了很多。可技能天花板，以及你真正需要的那些特定能力，和过去仍然非常接近。当然会少掉一些东西，比如你是否熟悉某种特定语法，或会不会写某种样板代码，但我要说，那从来就不是这份工作的主体。有一种被漫画化的软件工程师形象：有人把规格全部写好，那是产品经理，把产品该做什么的每一个细节都描述清楚；然后软件工程师的工作只是去当「代码猴子」，把这份规格从英文翻译成Java之类，写出完全按吩咐去做的代码。这种情况也许存在一部分。但我认为，全世界大多数软件工程师本来就不是这样工作的，也从来不是。软件工程师真正的角色，在很多方面，是就如何把一个产品做对，做出大量正确的决定和细节。即便你有一份高层级的规格，每一个边界情况、每一个小细节、每一条流程，包括你如何做架构、如何思考技术取舍，都落在软件工程师的范围里。当然也包括对产品决策保持思考，对架构保持思考，理解你在业务和工作里真正在意的长期取舍。能把这些做好的人一直都很值钱，现在他们只是更值钱了10倍。", "type": "text", "speaker_id": "scott", "section_id": "s7"}, {"start_sec": 2396, "zh": "你能不能谈谈我不知道该怎么称呼的那种「代币的类别」？你前面从聊天机器人讲到智能体集群时已经提到过一点。我在想的是：我作为一个人发出指令，代币被用来把我的事做完；对比我设置一个每天的流程，比如我想做自己的通讯，每天早上8点按计划跑起来。你看到有多少代币是按计划发生的，而不是由人来启动的？再往前一步，是不是人工智能自己在决定工作量，循环里已经没有人，变成纯粹的智能体代币？你在这些用量来源上看到了什么变化？", "type": "text", "speaker_id": "patrick", "section_id": "s7"}, {"start_sec": 2429, "zh": "可以想见，它已经大幅转向自动会话和自动代币。到目前，我们内部对Devin的使用，大约90%已经以某种形式自动化了。", "type": "text", "speaker_id": "scott", "section_id": "s7"}, {"start_sec": 2444, "zh": "你说的自动化，包不包括按计划跑的？", "type": "text", "speaker_id": "patrick", "section_id": "s7"}, {"start_sec": 2448, "zh": "按计划跑是一种，比如「每天去做这个任务」，这很合理。还有各种各样的接口触发：这段代码出错了，能不能让Devin去接我的PagerDuty？事故一出现，Devin已经在处理了。这显然也是自动的，但不需要一个人先说「嘿，Devin，我需要你去处理这件事」来启动。我认为这种情况会越来越多。多年前亚当·达吉罗（Adam D'Angelo）对我说过一点，我觉得非常深刻。如果你去看计算的故事，去看所有技术的故事，一种讲法就是：每一次人类决策能触发多少次运算。最早的计算机，比如用真空管的ENIAC，每做一次计算，都要有人把真空管拔出来再插回去，一次人类操作大约对应一次浮点运算。后来有了更复杂的计算机，能自己连续跑很多运算；再后来有了真正的高级编程语言，你用C或Pascal写的东西，下面可以对应大量运算。然后语言一层层变高。某种意义上，人工智能故事里发生的一切，都可以看成这条趋势的延续：每一次人类操作所触发的量，这条指数曲线变得更陡了。语言模型本身就有极其庞大的参数量。今天我们通常使用的模型，大概在千亿到万亿、再到低十万亿参数这个范围。也就是说，你每问它一个问题，它吐出的每一个词、每一个代币，实际上都要跑过千亿级的参数，才能算出下一步该说什么。仅仅这一点，量级已经非常惊人。于是你有了问答聊天机器人的体验：你问「亚洲有哪些国家的名字是以T开头的」，它就给出答案，那是一句带推理的回应。再下一步是：你怎样发出一条指令，让人工智能实际去做10轮、甚至100轮推理。那基本上就是智能体。你说「我需要你去处理这个缺陷，看看到底怎么回事」，接下来几个小时里，这个智能体可能做上百个决定：我先看日志，我自己点开网站看能不能复现，哦，代码在这里，等等。而那些决定里的每一个词，都在做万亿参数量级的推理。再下一层显然是：你怎样把它设置成，你作为人只触发一次，智能体自己再触发数十次。在某种意义上，这确实是同一条路的延续，而且我认为以后只会更是如此。", "type": "text", "speaker_id": "scott", "section_id": "s7"}, {"start_sec": 2638, "type": "ad_omitted", "ad_brand": "Vanta", "section_id": "s7"}, {"start_sec": 2670, "type": "ad_omitted", "ad_brand": "Ridgeline", "section_id": "s7"}, {"start_sec": 2725, "zh": "我必须问问模型本身。看着它们进步，对你来说是什么感觉？我尤其感兴趣的是，今天有一些来自Cohere的新闻，似乎通义千问（Qwen）模型有些可疑的地方，会把某些数据上传到北京之类。你怎样看待中国的开源前沿模型，以及这三方能力的演进，认知公司在服务产品时又如何与这三方共事？我希望你就模型格局随便展开讲讲。", "type": "text", "speaker_id": "patrick", "section_id": "s8"}, {"start_sec": 2741, "zh": "我们和这些都会合作，可以按客户的偏好混用、搭配。可以想见，人们对能用什么、不能用什么，有各种各样的约束。开源大约仍然落后前沿3到6个月，我认为这个大致节奏还会持续。有意思的是，在不同时点，「落后3到6个月」意味着完全不同的东西。所以到2025年初，如果你落后3到6个月，那么至少就智能体相关的几乎所有事情而言，和真正的最前沿相比，你的体验基本上是没法用的。现在则取决于任务。有些任务真的很难，必须用绝对最好的模型；但也有大量任务不是这样。对那些任务来说，用一个落后几个月的模型完全可行。我认为这一点会继续下去，我们会看到很多任务趋于饱和。出于各种原因，前沿将始终非常有价值。你可以想象，去发现药物的下一步，或在市场和交易里对周围的人拿到一点点优势，或去做下一项关键的安全工作，这些几乎注定是竞争非常激烈的市场，绝对多出来的那一点最好的代币，价值会非常大。这些前沿模型将始终有相当可观的需求。但我认为很多任务会进入一种可以说是「智力饱和」的状态，对那些任务来说，大家都已经够用了。", "type": "text", "speaker_id": "scott", "section_id": "s8"}, {"start_sec": 2846, "zh": "具体到中国模型，已经有很多讨论。我只想从一个更根本的、类似激励和经济学的角度指出：作为一家中国实验室，这种把戏你只能玩一次。你永远只能做一次，然后从那以后，整个中国人工智能行业就会完全被拖下水。这当然不意味着我们不该把这当成一种需要担心的风险。但我要说，就这类事情要成立所必须达到的量级而言，人们有时指出的那些点，往往在你已经谈到民族国家级攻击这种量级时，就不太说得通。这一点你听了也许安心，也许不安心，但显然世界各国政府本来就有非常严肃的项目在做这类事。这些事都有很多讨论。我认为，美国把自身能力发展起来、并把这件事做得越来越好，非常重要，只是为了我们自己不至于有太多相互依赖。另一方面，我确实认为，人们谈到的那些外国模型的安全风险，有些被说得过大了，尤其是在你可以对模型做事后训练、把它调成你想要的任何样子的时候。非常清楚，你可以把你想去掉的那些特定行为训练掉、调掉。", "type": "text", "speaker_id": "scott", "section_id": "s8"}, {"start_sec": 2914, "zh": "我很想听你对评测的看法。似乎我们一发明出任何基准，很快就会被做满，而从这里再往上，这些东西变聪明到底意味着什么，已经很难知道。你怎么看，你们自己有没有在做些什么？", "type": "text", "speaker_id": "patrick", "section_id": "s8"}, {"start_sec": 2930, "zh": "我们有自己的软件工程基准，最大的一个是Frontier Code。大多数编程基准会给你一个感觉：它们让智能体去解决一个任务，告诉它要做什么，最后再跑一些确定性的单元测试，说好，你修了这个缺陷，因为测试确认它不在了，诸如此类。传统基准都是这样工作的。我们专门做这个基准，是想优化的不只是那种字面上的对错，还有现实世界里各种messy、实际会发生的事。比如：你确实修了，但你的改动远远超出了你本该做的范围；或者你顺手又做了另外10件事；或者你做的事情，并不符合我们整个依赖关系图里已经定好的规范。我们在这里清楚地看到，仍然有很多任务有很大的提升空间。基准有一种有点好笑的性质：强化学习要做的整件事，就是把任何你能量得很好的信号拿来，让模型在上面变得越来越好。所以几乎从定义上讲，任何基准，只要你能为它收集大量数据，并做成一个真正地道的基准，模型应当在你做完这件事之后不久就能擅长它、解决它，因为你可以把这个基准变成一个不错的强化学习游乐场。于是永远会有这种猫鼠游戏：下一步模型还不会什么，下一件要补的是什么。但现在的感觉已经不太是这个了。你看，它们都在解纳维-斯托克斯（Navier-Stokes）方程了，我们谁也做不到。所以这已经不太是模型在纯逻辑上够不够好的问题，而只是它们能不能符合现实世界的全部现实和全部护栏。", "type": "text", "speaker_id": "scott", "section_id": "s8"}, {"start_sec": 3050, "zh": "有没有什么是你仍然觉得它们不够好、而你希望它们好得多的？这其实也是在用另一种方式问：它们还可能怎样变得更聪明、更好。", "type": "text", "speaker_id": "patrick", "section_id": "s8"}, {"start_sec": 3058, "zh": "这真的很难描述，但你仍然会明确感觉到，模型的「情商」还没有到你希望的位置。即便你们是在一起做编码任务，用「情商」来形容也有点好笑，我理解，但我觉得这是真的，而且可以归结为两个问题。我们这个群体在这两件事上都已经有很多进展。第一，世界上到处都是软性的上下文。当你真的坐在另一名工程师旁边，一起讨论你们要怎样实现一个功能时，你们两个人都知道过去18个月里做过的每一件事、各种取舍，以及为什么在做这个项目。当然，如果你希望模型对你们正在做的事有同样直觉的理解，就必须让它拿到同样的上下文。第二，要为大量来回对话去设计基准，本身就有点难。即便我们刚才描述的版本，也仍是：这是一个任务，或这是一个缺陷，你去修，然后看智能体做完了有没有成功。现实往往不是这样。现实是：你有没有看到日志里这个奇怪的东西？对方说，对，会不会是因为这个、这个、还有这个？你说，有意思，我上周看到过这样的事，你觉得会不会是我们刚上线的那个东西里有缺陷？然后他们再往下说。可以想见，要设计一个强化学习的游乐场，让「对面那个人」按这种方式跟你对应着往下走，在实践上就很难。不过我认为，这个领域里已经有不少人做出了相当有意思的进展。", "type": "text", "speaker_id": "scott", "section_id": "s8"}, {"start_sec": 3145, "zh": "对你来说，为什么当这类独立公司的旗手很重要？在Cursor被收购之后，你们几乎是这类大型公司里仅存的一家。这件事为什么重要？你怎样看待那种世界：某一家超大公司在不远的将来，因为你们已经建成的东西，想来收购你们？为什么这是一件要扛旗的事？", "type": "text", "speaker_id": "patrick", "section_id": "s9"}, {"start_sec": 3168, "zh": "我们从未追求过这件事，也从未真正有兴趣去谈这些对话。在很多方面，这其实和认知公司是什么、它本来要成为什么，靠得很近。我们希望走到外面，把技术带到现实世界，解决现实世界里的问题。你可以描述这样一种世界：智力接管整个世界、接管人类，然后谁只比别人聪明那么一点点，就因此拥有无限多的权力，并差不多征服整个世界。我认为大概不会是这样。出于很多显而易见的原因，我们大概也不希望是这样。但我只想指出，对那些主张那种世界的人来说，今天我们已经有了如此聪明的人工智能，可并不是世界上每一个组织、每一条流程、每一家制造公司、每一家银行，都已经最大限度地调整好，能充分用上这种智力。所以那是一种你可以想象的世界；你也可以想象另一种：我们今天拥有的这些组织和系统，问题是怎样把它们带进人工智能时代，而不是让它们被甩在后面。这正是我们在认知公司里一直非常热衷的事。我认为，要做到这一点，就要做一个中立的伙伴：独立、激励相容，并能真正把这件事推着发生。", "type": "text", "speaker_id": "scott", "section_id": "s9"}, {"start_sec": 3239, "zh": "客户为什么在意这一点？", "type": "text", "speaker_id": "patrick", "section_id": "s9"}, {"start_sec": 3242, "zh": "原因有几个。第一，我们能和所有不同的模型共事、都能用上，这件事本身就已经相当有力量。第二，随着这一切变得越来越宽、技术本身变得越来越强，会有一个根本问题：人工智能要来了，我们需要想清楚怎样采用它。我们想信任谁、和谁一起走过去？我认为有很多理由说明，这个角色应当是一个本身并不是模型供应商、也并非百分之百绑在自己的技术栈和自己的模型上的参与者。需要有一个伙伴，能老实告诉你每一种情形：这里其实更好；这里其实该用更便宜的模型来省成本，因为它对这个任务已经够用了。你可以想象所有这样的版本。我认为，有人把这个角色补上，非常重要。", "type": "text", "speaker_id": "scott", "section_id": "s9"}, {"start_sec": 3306, "zh": "你对新员工的「推销词」是什么？你们最近招聘非常猛，从整个行业请来了很多很有名的人。你们的首席信息安全官亚历克斯现在满Twitter都在讲这个新的安全产品。你们在请来这些非常知名的人上相当成功。和他们的谈话是什么样的？你对每个人的理由是什么？", "type": "text", "speaker_id": "patrick", "section_id": "s9"}, {"start_sec": 3330, "zh": "对，亚历克斯·斯塔莫斯（Alex Stamos），他以前是Facebook的首席信息安全官，一直非常出色。保罗·格鲁沃尔（Paul Grewal）在Coinbase做了六年首席法务官之后，来做我们的首席法务官。那可不是一份容易的工作，但我认为他把那份工作做得非常非常好。还有市场负责人布兰登（Brandon），他在Rippling把整个市场体系建了起来；工程侧的贾里德（Jared）；以及我们的首席收入官克里斯·德格南（Chris Degnan）。把团队建起来这件事本身就很有意思。某种程度上也有点好笑，我们居然没有更早做这些。某种意义上我们是在赶、在加速跑着去建一家公司，因为意识到自己有很多要补上的功课。但这真的很棒。克里斯显然在Snowflake待了11年，他是作为第一名销售加入的，把那家公司做到了数十亿美元的收入，并在整个过程中担任首席收入官。说句显而易见的话，Snowflake当时是有史以来最快、至少也是最快之一的成长故事，那是一段了不起的旅程。可疯狂的是，人工智能可能更快、更大。人们现在谈论的规模，做到数十亿美元收入，已经不是11年了，而是你怎样在三年里做到。到了那一步，完全是另一场比赛。所以这件事的很多乐趣，就是去想清楚：我们想和哪些世界级的「杀手」、基本上就是复仇者联盟一起，全力去冲。", "type": "text", "speaker_id": "scott", "section_id": "s9"}, {"start_sec": 3407, "zh": "我完全理解你为什么想要他们。你和他们说什么？我特别好奇能坐在那个房间里，听到「来认知公司，是因为——」后面那句对每个人是怎么填的。", "type": "text", "speaker_id": "patrick", "section_id": "s9"}, {"start_sec": 3420, "zh": "帕特里克，如果你想来认知公司，我们也可以谈。我们做这件事其实非常有乐趣。关于我们，我会说几点。我们是真的来建一家世代级的公司，我想人们能看到这一点。所以对那些已经有过成功、已经拿到属于他们的认可的人，我们不会说：你要建的是下一个还很简陋的小创业公司，将来也许能成为一个中等规模的企业。我们和大家说得很清楚：我们的野心是解决全部软件，然后在某种意义上，再去解决人机接口。上次我们聊的时候，有一件大事就是：我们称之为编程，称之为软件工程，说到底，我们谈的不过是你怎样告诉计算机该做什么。如果你为今天每一个活着的人解决了这件事，它对世界的价值会大出几个数量级，那确实会是一个世代级的产品、一家世代级的公司。这是一部分。另一部分，也一直是认知公司气质的核心：我们做自己做的事，真的很有乐趣。我们强度很高，很忙，工作量很大，事情会变得非常疯狂，有很多压力很大的时刻，有很多临时的上线，有各种各样必须去做的事。但我们同样享受沿途的旅程。我们希望一起待在那个房间里，坐着想象我们要怎样做出非常酷的东西；我们希望一起把下一步的战略决策想清楚，玩这场策略游戏，看决策树在我们面前展开。对合适的那类人来说，这是一个真的能说进去的故事。", "type": "text", "speaker_id": "scott", "section_id": "s9"}, {"start_sec": 3523, "zh": "从认知公司的第一天到现在，你个人最大的不同是什么？", "type": "text", "speaker_id": "patrick", "section_id": "s10"}, {"start_sec": 3530, "zh": "我想说，也许最大的不同是：我已经不像以前那么害怕犯错了。最初几周，真的有一种感觉：每一个决定都必须是对的，我们得坐在这上面，一直想、一直想。这种心态当然有价值，也有帮助，但你一不小心，后果就是会变得极慢，或者对不行动产生很强的偏见。如果去做这件非常不舒服的事，只有55%的时候是对的，45%的时候会错，你就不想当那个站出来说「我们一定得做这件事」的人，然后掉进那45%，看起来很蠢，还让大家受很多罪。这些都是真的。可另一方面，我认为要建一家公司，要建成一个真正能长期存在的组织，就必须大量涉及这些，必须经常这样做。最近这一段，我们开始感觉到，即便只是认知公司里的每一天、甚至每一个小时，都非常值钱。现实是，时间本身如此值钱，以至于常常更好的做法是：即便你没有百分之百的把握，也先去做决定，先走着看。如果两周后真的证明错了，你再改到另一边。这样做，其实比花四周时间只是纠结、最后什么决定都不做，要更好。我认为这是一件大事。", "type": "text", "speaker_id": "scott", "section_id": "s10"}, {"start_sec": 3599, "zh": "这很吓人，兄弟。到了某个时候，", "type": "text", "speaker_id": "patrick", "section_id": "s10"}, {"start_sec": 3603, "zh": "对，数字会变得更大。你谈的可能是对业务战略来说近乎存亡级别的事，或你正在做的那些巨大交易，或我们刚才说的那些算力锁定问题，你必须在「足够进取」和「别把整个公司赌爆」之间走钢丝。我认为在现在这样一个时刻，你必须真正能做出选择，然后认真执行，沿着它走下去。", "type": "text", "speaker_id": "scott", "section_id": "s10"}, {"start_sec": 3633, "zh": "你希望两年后，对这个问题的答案是什么？", "type": "text", "speaker_id": "patrick", "section_id": "s10"}, {"start_sec": 3638, "zh": "哦，有意思。兄弟，两年后也许会非常不同，因为Devin可能已经是认知公司的首席执行官了。", "type": "text", "speaker_id": "scott", "section_id": "s10"}, {"start_sec": 3647, "zh": "我知道你这话一半是在开玩笑。你能把那样的情形想象成一种真正可能发生的情景吗？", "type": "text", "speaker_id": "patrick", "section_id": "s10"}, {"start_sec": 3654, "zh": "好，你看，我认为会有很多流程，出于各种原因，仍然需要人类参与：也许是因为关系的价值，也许是因为传统行业，也许是因为我们作为人类希望位子上坐着一个人。会有很多理由，让很多事情仍然需要人类流程。但是，如果你问我：两年后，有没有可能我早上醒来，先咨询我的Devin，问它「告诉我，我需要完成的最重要的几件事是什么」，然后它给我一份清单，我就说「遵命」，并去执行？百分之百地讲，那并不会让我特别意外。", "type": "text", "speaker_id": "scott", "section_id": "s10"}, {"start_sec": 3684, "zh": "你给这种情形的概率是多少？如果是两年的话。", "type": "text", "speaker_id": "patrick", "section_id": "s10"}, {"start_sec": 3688, "zh": "两年是可能的。但如果你给五年，老实说，我会开始到一个点：我认为那甚至会超过五五开。那时就会是那个样子。", "type": "text", "speaker_id": "scott", "section_id": "s10"}, {"start_sec": 3697, "zh": "如果真是那样，我再问一次。你希望你自己最不同的是什么？也许你希望的是，你听得很认真，在执行Devin的指示。但作为一名领导者，作为一个人，作为正在建这家公司的人，你希望两到五年后，对你来说，比起今天，什么会更真、或更不真？", "type": "text", "speaker_id": "patrick", "section_id": "s10"}, {"start_sec": 3712, "zh": "那些定义清楚、有刚性答案的硬问题，我真的看不出，长期有什么理由让人工智能在这些上面不比我们更好。另一方面，对我们自己来说，仍然会有大量内在有价值的事：我们出于自己的热情去追求的东西，或因为彼此的关系而对我们重要的东西。若要说我唯一的希望，那就是我会有很多孩子。再多一些。", "type": "text", "speaker_id": "scott", "section_id": "s10"}, {"start_sec": 3732, "zh": "在这一切的尽头，你想到未来，想到我们已经学会驾驭的这项不可思议的技术，什么最让你兴奋，什么最让你担心？就按这个问题最大的那个意思来答。", "type": "text", "speaker_id": "patrick", "section_id": "s10"}, {"start_sec": 3746, "zh": "我真的认为会有多得多的创造力，多得多的人类表达，也会在世界上发现多得多的美，因为人们将有能力把自己的想法变成现实。即便只是从那以后的一年半里，我已经觉得作为社会整体，我们离这一点近了很多。我认为这还会继续，而且老实说会非常惊人。你曾有过的每一个小想法，每一件你想做、想构建的小事，你都可以把它变成现实。我觉得那真的很酷。至于最让我担心的，中间会有一个混乱阶段。我们谈到了安全上的担忧，谈到了安全问题，谈到很多误用或其他可能发生的事，甚至只是主要机构出现重大泄露或黑客攻击。我相信我们能解决所有这些，也能走到另一边、拥有那样的结果。但非常清楚的是，你不会从一个仍处在生存模式里的社会，突然一夜之间、毫无问题地，变成所有人都能追求自己的热情和梦想。所以我认为，在此期间会有很多问题需要去对付。", "type": "text", "speaker_id": "scott", "section_id": "s10"}, {"start_sec": 3818, "zh": "斯科特，过去几年看着你把这些事做出来，很有意思。我们过几年再在这里做一次。", "type": "text", "speaker_id": "patrick", "section_id": "s10"}, {"start_sec": 3826, "zh": "谢谢你邀请我。太好了。", "type": "text", "speaker_id": "scott", "section_id": "s10"}, {"start_sec": 3833, "type": "ad_omitted", "ad_brand": "Ramp", "section_id": "s10"}, {"start_sec": 3848, "type": "ad_omitted", "ad_brand": "Vanta", "section_id": "s10"}, {"start_sec": 3858, "type": "ad_omitted", "ad_brand": "WorkOS", "section_id": "s10"}, {"start_sec": 3868, "type": "ad_omitted", "ad_brand": "Ridgeline", "section_id": "s10"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
