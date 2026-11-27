@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>猎捕捕食者的黑客：被黑之前先做这三件事｜瑞恩·「零日」·蒙哥马利（Ryan &quot;0day&quot; Montgomery）</title>
+<style>
+:root{--bg:#0c0a09;--bg-card:#1c1917;--text:#f5f5f4;--text-muted:#a8a29e;--border:#292524;--link:#60a5fa;--tag-bg:#44403c;--tag-text:#d6d3d1;--hl:#854d0e;--shadow:0 1px 2px rgba(0,0,0,.35);--radius:12px;--max:760px}
+html.light{--bg:#f7f5f2;--bg-card:#fff;--text:#1c1917;--text-muted:#78716c;--border:#e7e5e4;--link:#2563eb;--tag-bg:#e7e5e4;--tag-text:#57534e;--hl:#fde68a;--shadow:0 1px 2px rgba(28,25,23,.04)}
+*{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;font-family:"PingFang SC","Hiragino Sans GB","Noto Sans SC","Noto Sans CJK SC","Source Han Sans SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;font-size:17px;line-height:1.8;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased}
+a{color:var(--link)}
+.wrap{max-width:var(--max);margin:0 auto;padding:28px 20px 80px}
+header.hero,.card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px 22px;box-shadow:var(--shadow);margin-bottom:22px}
+.card{padding:18px 24px}
+.eyebrow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.pill{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--tag-bg);color:var(--tag-text);font-weight:500}
+.pill.accent{background:#172554;color:#93c5fd}html.light .pill.accent{background:#eff6ff;color:#2563eb}
+h1{font-size:1.45rem;line-height:1.35;margin:0 0 14px;font-weight:700}
+.sub{color:var(--text-muted);font-size:.95rem;margin:0 0 8px}
+.yt-link{word-break:break-all;text-decoration:none;border-bottom:1px solid var(--link)}
+details.meta{margin-top:16px;border-top:1px solid var(--border);padding-top:12px}
+details summary{cursor:pointer;color:var(--text-muted);font-size:.9rem;user-select:none;list-style:none}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"▸ ";display:inline-block;transition:transform .15s}
+details[open]>summary::before{transform:rotate(90deg)}
+.meta-grid{display:grid;gap:8px;margin:12px 0 0}
+.meta-row{display:grid;grid-template-columns:88px 1fr;gap:8px;font-size:.88rem}.meta-row dt{color:var(--text-muted)}.meta-row dd{margin:0}
+.intro h3{font-size:.85rem;color:var(--text-muted);margin:14px 0 4px;font-weight:600}.intro h3:first-child{margin-top:0}.intro p{margin:0}.intro ul{margin:0;padding-left:1.2em}
+.verdict{border-left:3px solid var(--link);padding-left:12px}
+.t{color:var(--text-muted);font-variant-numeric:tabular-nums;font-weight:400;font-size:.85em;margin-right:8px}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin:0 0 22px;padding:0 4px;font-size:13px;color:var(--text-muted)}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+.legend em{font-style:normal;font-size:11px;margin-left:4px;opacity:.7}
+main.transcript{display:flex;flex-direction:column;gap:14px}
+.turn{display:grid;grid-template-columns:116px 1fr;gap:12px;align-items:start}
+.transcript.plain .turn,.turn.plain{display:block;grid-template-columns:none}
+.transcript.plain .label,.turn.plain .label{display:none}
+.transcript.plain .content,.turn.plain .content{padding:14px 18px;border-radius:12px;background:var(--cbg,rgba(255,255,255,.04));border-left:3px solid var(--c,#3b6ea5)}
+.transcript.plain .content p{margin:0 0 .85em}.transcript.plain .content p:last-child{margin-bottom:0}
+.label{padding-top:10px}
+.badge{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:8px;white-space:nowrap;max-width:112px;overflow:hidden;text-overflow:ellipsis;background:var(--cbg);color:var(--c)}
+html.light .badge{background:var(--cbgl)}
+.content{background:var(--bg-card);border:1px solid var(--border);border-left:4px solid var(--c);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow);min-width:0}
+.content p{margin:0 0 .85em}.content p:last-child{margin-bottom:0}
+.tag{display:inline-block;font-size:11.5px;line-height:1.4;padding:1px 7px;margin:0 2px;border-radius:6px;background:var(--tag-bg);color:var(--tag-text);font-weight:500;vertical-align:1px}
+.marker-line{text-align:center;padding:4px 0}.marker-line .tag{font-size:12px;opacity:.85}
+footer.note{margin-top:36px;padding-top:16px;border-top:1px solid var(--border);color:var(--text-muted);font-size:.85rem;text-align:center}
+#prog{position:fixed;top:0;left:0;height:3px;background:var(--link);width:0;z-index:50}
+#bar{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);display:none;gap:8px;align-items:center;padding:8px 16px;flex-wrap:wrap}html.js #bar{display:flex}
+#bar input,#bar select,button{font:inherit;font-size:13px;padding:4px 10px;border:1px solid var(--border);border-radius:6px;background:var(--bg-card);color:var(--text)}
+button{cursor:pointer}#bar .sp{flex:1}#cnt{font-size:12px;color:var(--text-muted)}
+mark{background:var(--hl);color:inherit;border-radius:2px}mark.cur{outline:2px solid var(--link)}
+.hide{display:none!important}
+#top{position:fixed;right:20px;bottom:24px;width:42px;height:42px;border-radius:50%;display:none}html.js #top.on{display:block}
+@media(max-width:560px){.turn{grid-template-columns:1fr;gap:6px}.label{padding-top:0}.wrap{padding:20px 12px 60px}header.hero{padding:20px 16px}}
+
+
+/* two-layer: summaries → body */
+.summaries{margin:0 0 28px}
+.sum-head{margin:0 0 14px}
+.sum-head h2{font-size:1.15rem;margin:0 0 4px;font-weight:700}
+.sum-hint{margin:0;color:var(--text-muted);font-size:.88rem}
+.sum-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;counter-reset:none}
+.sum-item{margin:0}
+.sum-card{display:block;text-decoration:none;color:inherit;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s}
+.sum-card:hover{border-color:var(--link);box-shadow:0 0 0 1px var(--link)}
+.sum-top{display:flex;align-items:baseline;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.sum-num{flex:0 0 auto;width:1.6em;height:1.6em;border-radius:50%;background:var(--link);color:#fff;font-size:12px;font-weight:700;display:inline-flex;align-items:center;justify-content:center}
+.sum-title{font-weight:700;font-size:1.02rem;flex:1;min-width:0}
+.sum-go{font-size:12px;color:var(--link);white-space:nowrap;font-weight:500}
+.sum-body{margin:0 0 .7em;color:var(--text);font-size:.95rem;line-height:1.75}
+.sum-body:last-child{margin-bottom:0}
+.body-div{margin:28px 0 12px;padding-top:18px;border-top:1px solid var(--border)}
+.body-h{font-size:1.15rem;margin:0;font-weight:700}
+.body-sec{margin:0 0 22px;scroll-margin-top:56px}
+.body-sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 10px;flex-wrap:wrap}
+.body-sec-head h3{font-size:1.05rem;margin:0;font-weight:700}
+.back-sum{font-size:12px;color:var(--link);text-decoration:none;white-space:nowrap}
+.back-sum:hover{text-decoration:underline}
+
+/* per-speaker colors */
+.spk-0{--c:#3b6ea5;--cbg:#25313f;--cbgl:#e7eef4}
+.spk-1{--c:#c0663a;--cbg:#4a2f21;--cbgl:#f7ede7}
+.spk-x{--c:#78716c;--cbg:#36322f;--cbgl:#efeeed}
+</style></head><body>
+<div id="prog"></div>
+<div id="bar"><input id="q" type="search" placeholder="搜索全文…" size="14"><button id="prev" type="button">↑</button><button id="next" type="button">↓</button><span id="cnt"></span>
+<select id="spk"><option value="">全部发言人</option><option value="steven">史蒂文·巴特利特（Steven Bartlett）</option><option value="ryan">瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）</option></select><span class="sp"></span><button id="theme" type="button" title="切换明暗">🌓</button></div>
+<div class="wrap">
+<header class="hero">
+<div class="eyebrow"><span class="pill accent">The Diary Of A CEO</span><span class="pill">2026-11-26</span></div>
+<h1>猎捕捕食者的黑客：被黑之前先做这三件事｜瑞恩·「零日」·蒙哥马利（Ryan &quot;0day&quot; Montgomery）</h1>
+<p class="sub">嘉宾：瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery） · 约 105 分钟（6312 秒）</p>
+<p class="sub">链接：<a class="yt-link" href="https://www.youtube.com/watch?v=Uj81Qo15wBc" target="_blank" rel="noopener">https://www.youtube.com/watch?v=Uj81Qo15wBc</a></p>
+<details class="meta"><summary>元信息 / 字幕说明</summary><dl class="meta-grid"><div class="meta-row"><dt>节目</dt><dd>The Diary Of A CEO</dd></div><div class="meta-row"><dt>发布时间</dt><dd>2026-11-26</dd></div><div class="meta-row"><dt>时长</dt><dd>约 105 分钟（6312 秒）</dd></div><div class="meta-row"><dt>字幕来源</dt><dd>yt-dlp-auto</dd></div><div class="meta-row"><dt>视频 ID</dt><dd>Uj81Qo15wBc</dd></div></dl></details></header>
+<section class="card intro">
+<h3>一句话概述</h3><p>史蒂文·巴特利特采访伦理黑客瑞恩·「零日」·蒙哥马利。瑞恩用20分钟从主持人身上翻出旧邮箱、密码和童年住址，演示「饼干」、假免费网络、智能灯泡和内藏电脑的充电线，并花相当篇幅讲764如何诱拐和敲诈弱势儿童。他给出可操作的防护：冻结信用、VLAN、关掉飞行模式里关不掉的蓝牙、YubiKey，以及和孩子建立开放关系。</p>
+<h3>核心要点</h3><ul><li>他用执法专用工具OSI Pilot，20分钟内从史蒂文很久以前的个人邮箱和独特旧密码出发，做反向密码搜索，连出其他邮箱、电话、12年前的健身房、成长的房子，并用反向人脸识别找到照片。英国的《通用数据保护条例》挡不住他因访问美国而被两个州卖给数据经纪商的记录。即使像他母亲那样一辈子不用电脑，CVS或赌场泄露也会留下足迹。</li><li>国家公共数据泄露涉及28亿条记录，美国约3亿人，他几乎可以肯定超过30岁的人住过的地址、电话和完整社保号都已在外。免费查询网站是npd.pentester.com，若在其中应冻结信用，以阻止他人用你的名义办卡、贷款或买车。</li><li>「饼干」可做断联并捕获四次握手，带回家以每秒约两万次尝试破解；几乎所有路由器的过渡模式会降级到WPA2。苹果飞行模式关不掉蓝牙，必须在设置里关掉。假的「Flight Story Free」网络弹出谷歌登录后，立刻抓住邮箱和密码。智能灯泡多数先把指令送到中国云再回到家里，可用VLAN隔离；内藏电脑的O.MG充电线能以每秒300字符模拟键盘，并靠快捷指令偷出联系人和照片。</li><li>拼作K-A-R的车载警报即使车主从未开通，也可能让约220万辆美国车辆被远程解锁或锁死，因为旧应用里留下了近乎明文的主密钥。大疆无人机可被断电、关掉避障并被取走无线密码；美国要求的远程识别和注册，使序列号可以追到操控者姓名。Flock是向执法部门出售街边车牌数据的私营公司。</li><li>764是针对儿童的虚无主义暴力极端组织，已被视为国内恐怖组织，约58个联邦调查局外勤办事处动员，公开调查目标超过500个。他们用数百页手册教人诱拐和敲诈，不要钱，只要孩子伤害自己、他人或动物；加入某些频道还需要「犯罪证明」。与尼日利亚式要钱的色情敲诈不同。</li><li>给家长的核心不是先没收设备，而是开放关系和预防：他推荐未赞助的监控应用Bark，并强调Roblox等游戏上也有针对普通孩子的捕食者。他自己在佛罗里达中部一个小县刚参与逮捕30到31人，对象都是14岁以下儿童。技术上，他建议VPN、即使是Mac也要杀毒、开高级数据保护、使用YubiKey；但也警告会话Cookie可在无密码的情况下绕过双重验证。</li></ul>
+<h3>值得看 / 可跳过</h3><p class="verdict">值得看：这是一期约1小时45分钟的高密度访谈，既有当场演示的具体攻击路径和数字，也有764部分难得的、基于手册原文和公开案例的说明，对关心个人隐私、智能家居和儿童网络安全的人信息量很大。可跳过：若你只想听产品发布或轻松对谈，后半关于诱拐、自残和自杀的内容非常沉重，不适合所有情境，尤其不适合与年幼孩子一起收听。开场订阅号召，以及Bon Charge、Lovable、Progressive、Wayfair和片尾推荐视频，可直接略过。</p>
+<h3>适合人群</h3><p>关心个人隐私、智能家居和设备安全的听众，以及需要了解儿童如何在游戏和社交平台上被诱拐、敲诈的家长。</p>
+</section>
+<nav class="summaries" id="summaries">
+<div class="sum-head"><h2>逐段总结</h2><p class="sum-hint">点某一段可跳到下方对应原文</p></div>
+<ol class="sum-list">
+<li class="sum-item">
+<a class="sum-card" href="#sec-s1">
+<div class="sum-top"><span class="sum-num">1</span><span class="sum-title">冷开场：20分钟能挖出什么，以及名为764的组织</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">瑞恩·蒙哥马利（Ryan “0day” Montgomery）开门见山说，若声称你的手机完全安全，那是在说谎；人们也往往不知道自己正被陌生人看着。廉价的摄像头或亚马逊上买来的设备都不可轻信，因为几乎都能被黑。他用20分钟就从史蒂文·巴特利特（Steven Bartlett）身上翻出了数据泄露里的旧邮箱、12年前常去的健身房，以及一些旧密码。瑞恩说自己9岁就加入黑客论坛，几乎没见过什么黑不了的东西，现在则做儿童犯罪和反人口贩运相关工作。他带来几件设备作预告：「饼干」（the biscuit）可做无线网络和蓝牙攻击，也能让手机几乎没法用，演播室里的人当时就在收到通知；有的装置外表像薄荷糖，却能让摄像头和 Ring 门铃掉线；还有能黑无人机的设备，以及内藏微型计算机、外表不像普通充电线的线缆。他查过这些设备如何联网，几乎都和中国通信，他对此的担忧甚至超过有人窃听他的电话。被问及线上线下安全的最基本做法时，他说会从自己家里实际在做的事讲起。史蒂文随即问什么是764。瑞恩称其为虚无主义的撒旦崇拜团体，专门伤害他人：寻找在学校被霸凌、有自杀念头的孩子，手上有多本数百页的手册，教人如何敲诈和诱拐受害者，对象有时是八到十一岁的儿童，而且发生在各个平台上。他想让家长看见这会怎样落到别人孩子身上。展示例子时史蒂文几乎看不下去，瑞恩说「这还不算什么」。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s2">
+<div class="sum-top"><span class="sum-num">2</span><span class="sum-title">20分钟里，从史蒂文身上翻出了什么</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">史蒂文提到，瑞恩曾对塔克·卡尔森（Tucker Carlson）说，只需几分钟就能用相对简单的手法找到对方的社保号、房契、驾照，甚至签名。他问：若再加几个同样厉害的朋友、给你一小时，普通听众会被挖出什么？瑞恩说很多，并当场展示他用20分钟在史蒂文身上找到的东西。工具叫 OSI Pilot（口播里一度作 Ocean Pilot），是他们做给执法部门用的，普通人没有账号。瑞恩从数据泄露里定位到史蒂文很久以前的个人邮箱，再靠一个非常独特的旧密码做反向密码搜索，带出生日和其他邮箱，进而连到账号和电话号码、12年前健身房的地图位置，并用内置的反向人脸识别找到不同来源的照片。史蒂文甚至已不记得那个密码。瑞恩强调这些都是公开信息，而且大部分是自动完成的：Pentester 作为他们的主公司，做了约40种工具，用来识别一个人并帮助清理数字足迹。这套系统通常还会拉出社保号、旧的 MySpace 主页，或某个被泄露网站上的私信；他这次特意只翻旧材料，并没有把更吓人的部分全部展示出来。自动结果里出现了史蒂文在英国长大的那栋房子，以及他出过的书——软件还称他为英国高知名度企业家，瑞恩说自己此前不知道有这本书。尽管史蒂文作为英国人受《通用数据保护条例》（GDPR）等隐私法保护，但他在美国停留过，就有两个州把他的信息卖给了数据经纪商；他们正在帮他删除这些数据。这套平台的另一面是帮执法部门在标识极少时找人，有时只有用户名或电话，甚至没有姓名，目标是凭最细的面包屑也要把人找到。非自动部分里，瑞恩还找到一份早已下架、但被归档的火车优惠卡请愿，上面有史蒂文的签名。他觉得奇怪的是，谷歌（Google）一边常说不能帮你找人做开源情报，却在人工智能摘要里推广正在收集史蒂文信息的数据经纪商网站。瑞恩还举了自己母亲的例子：她一辈子没用过电脑，但在 CVS 或沃尔格林（Walgreens）留过电话，年轻时去过的美高梅（MGM）赌场也被黑过，姓名、生日和地址因此进入泄露库，再经数据经纪商扩散，任何人都能找到住址。普通人往往误以为自己在网上是安全的。他通常会先讲捕食者如何藏匿、自己如何识别，再用同一套技术讲如何自保。反向人脸识别的风险是：一位父亲在孩子球赛背景里被拍到，自己都不知道网上有这张照片，却可能暴露孩子、配偶、学校和居住区域。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s3">
+<div class="sum-top"><span class="sum-num">3</span><span class="sum-title">9岁学黑客，11岁摇头丸，以及拦住教室里的枪击</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">瑞恩的起点是9岁：祖父把电脑带回家，美国在线（AOL）当时在寄带14天试用的免费软盘，外形和他文身上的软盘、电脑面板上的图标对得上。他把盘放进去，看见AOL的三角形从纸盒里来到屏幕上，第一次意识到物质世界可以走进数字世界，从此停不下来，想弄清电脑里的一切，并过早地通过AOL即时通讯加入社区。他看见别人做各种攻击，觉得既危险又「酷」：屏幕上往下滚的文字、把人踢出聊天室的 booter 或 punter。要学这些，只能认识愿意教你漏洞的人。他后来说，如果那些导师知道自己在和一个小男孩说话，大概不会那么愿意交流。十二三岁时他看起来比同龄人更老，身上已有文身和穿孔。史蒂文提到他大约十一二岁就开始吃摇头丸，后来滚成海洛因成瘾。瑞恩说不是立刻到海洛因，摇头丸来自费城的锐舞，其中一场上过新闻、叫「上帝的地下室」（God&#x27;s Basement），就在一座教堂的地下室，现场有氯胺酮和摇头丸，门卫让他这个年纪极小的孩子进了门。大约15岁「最糟」的时候，除了海洛因，还有苯二氮䓬和兴奋剂；他说有一位精神科医生同时开了这些处方药（非法的当然除外）：每天三片Xanax，相当于6毫克，七十多毫克的Vyvanse，下午失效后再加30毫克阿迪罗（Adderall），中间还换成过利他林（Ritalin），具体剂量记不清。根源上，他觉得自己长得和周围人不一样，被霸凌、融入不了；妈妈一直在，爸爸缺席更多，父亲仍在和成瘾搏斗，并进进出出过监狱。他强调责任在自己，不是因为家里没父亲或母亲没尽力，母亲已经做了所能做的一切；那时他觉得自己像「剪刀手爱德华」，放在今天也许不会有那么大的麻烦。他进过局子，第一次是因为社区里的大麻植株，妈妈听信警察「我们只是来拿走、别担心」，开门后植株被抬出家门，整个街区都看见，让她很难堪；他事后认为如果当时不让警察进屋，对方需要令状，自己本有机会先处理掉。他此后被送进寄宿机构、康复中心和拘留所。在一所寄宿机构里，他在身后听见一个男孩说自己有枪，那支枪是上满弹的，计划是杀光教室里的人、用枪威胁抢走钥匙，再和另一个学员逃离。瑞恩拦住了这件事，院方因担心报复把他送回家，随后他被送回法庭；他原以为非暴力、只有毒品相关记录的自己可能被撤诉，结果被送进比寄宿机构更糟的少年拘留中心，之后又进了另一家康复机构，这样的循环发生过很多次。真正改变是最后一次因毒品被捕、被判了更长刑期：他在未满18岁时被控持有并意图贩卖，这是很重的「毒贩」罪名，假释一直到21岁，并在县看守所牢房里待了很久，有时比州监狱更难熬。关键不是怕坐牢本身，而是终于离开那些让他难以保持清醒的人、地点和事物。时间够长之后，他体会到没有物质时有多好。费城肯辛顿（Kensington）被他称为「僵尸之地」：他们谈话时史蒂文在网上看直播，就能看见有人在严寒里弯折着身子、像站着睡着。瑞恩说那时还没有芬太尼、美托咪定（medetomidine，口播作 metatomdine）和甲苯噻嗪（xylazine，口播作 xyzine）这些会吞噬血肉、导致坏死甚至截肢的东西；而芬太尼已经夺走了几乎所有他一起长大的人，以及一半的家人，包括他最好的朋友。他承认自己起初喜欢毒品的感觉，直到发现一觉醒来旁边是个怪物：人人都以为自己可以一周不碰、和别人不一样，结果总是耐受越来越大、越来越贵，为了钱做出疯狂的事，然后进监狱、进机构，或死去。离开的原因不是某句话或某本书，而是在牢房里离开那些物质足够久。假释一结束，他就离开宾夕法尼亚，再也没有回去，并创办了三家规模较大、口碑不错的物质滥用和心理健康康复机构；旧合伙人现在还在做、开了更多家，声誉仍然很好，而他把它们卖掉了。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s4">
+<div class="sum-top"><span class="sum-num">4</span><span class="sum-title">执法为何找他：28亿条记录泄露，以及苹果和安卓谁更安全</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">史蒂文问，执法部门为什么要找瑞恩合作、他们自己拿不到什么。瑞恩说，不是他们没有热情，尤其是做「侵害儿童的网络犯罪」（ICAC）的人，而是他们受训使用的工具和方法有些过时，可能拿不到他掌握的数据点，或缺设备取证、反向人脸识别的方法，也可能没有预算去买一家他不愿点名的公司每年十万美元的人脸搜索服务。在联邦层面，他常被用来识别更难定位的组织，比如764及其相关小团体。764是一个虚无主义的撒旦崇拜团体，由得克萨斯州的一个孩子创建；虚无主义在他的简短解释里就是「对一切都不在乎」。对美国公民尤其重要的是国家公共数据（National Public Data，NPD）泄露：有28亿条记录被暴露到网上，而美国大约有3亿人，这意味着几乎每个人都受影响。他补充，这不是已证实的统计，但几乎可以肯定，如果你超过30岁，你住过的每个地址、电话号码和完整的社保号都已经在外面。危害包括有人用你的名字办信用卡、打电话假冒你、盗用身份。他提供完全免费的查询网站 npd.pentester.com：填姓、名、出生年份，再试遍住过的州，就能看到自己是否在这次泄露里。若在其中，关键是冻结信用记录——冻结本身不会做别的，只是阻止他人以你的名义办卡、贷款、按揭或买车。谈到设备安全感，他认为iPhone大体上比安卓更安全。安卓可以安装第三方应用，其中可能包含远程访问木马（RAT）：他可以在电脑上用一行命令生成APK，通过邮件发送，或在有物理接触时插入手机、授予全部权限，然后在远端完全控制这部手机，而你完全看不到有人接入。iPhone通常做不到这一点，除非用「零日漏洞」，也就是尚未被发现、还没有人知道它存在的漏洞；有一家公司正在接连找到这类漏洞，使针对iPhone的攻击变得更可能。苹果在加密和恢复难度上做得很好，即便收到传票，也无法提供只在手机上解密的内容，他提到的术语是安全隔离区（Secure Enclave）。他不会说手机完全安全，但认为用iPhone被攻击的可能性比安卓低得多。史蒂文转述一位安全专家的话：若有权势的人想进你的手机，他们就能进去。瑞恩完全同意，并提到以色列的NSO集团和「飞马」（Pegasus）：据他所知，输入一个电话号码并回车，经NSO授权（需付费）后就能在无任何提示的情况下完全访问手机，看摄像头、读短信、下载照片、监听通话；这些年来随着苹果修补，他们也在迭代。最近几周，随着更多人用上强大的人工智能模型，针对iOS的攻击一个接一个。史蒂文引用萨姆·奥尔特曼（Sam Altman）大约一周前的话说，人工智能意味着必须彻底重新思考网上安全；今年早些时候有过一阵他口中的恐慌，人们修了一些漏洞，却没有真正理解指数式变化——模型会更聪明，可能发现远超传统黑客威胁模型的、甚至硬件层面的漏洞；安全负责人和首席信息安全官还在紧张，但多数机构负责人已经把注意力移开，不能再只靠打补丁，而要改用同样的技术去做新的防御盾。瑞恩很同意，同时说他自己并不认为现在的「人工智能」真的具有人工的智能，它只是极擅长组合已有数据里的模式，训练来自已存在的书、谷歌、维基百科和各平台；它不能凭空发明一种打开盒子的新方法。真正让他觉得更可怕的是人工通用智能（AGI）。史蒂文反问：人脑不也是看见「手柄」这种形状就会去拉吗？瑞恩说，大语言模型会认出那是手柄的形状，但若没有关于这个特定盒子和手柄的信息，被问「怎么换掉这个手柄」时就可能「幻觉」，比如猜「打开盖子看看下面有没有螺丝」，那只是最好的猜测，它并不知道盖子下面是什么。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s5">
+<div class="sum-top"><span class="sum-num">5</span><span class="sum-title">有人把特警队派到他家：764为何要针对他</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">史蒂文问，有了人工智能之后，瑞恩现在会采取哪些几年前没有的防范。瑞恩说他必须比大多数人更小心，因为他已经大量出现在互联网上，而后面会细讲的那些团体正在针对他：有人出现在他家，有特警队被派到他家，也就是所谓的「诈警」（swatting）；还有人利用免费的美国邮政（USPS）纸箱，一箱又一箱空盒子寄到他家，专门为了惹烦。做这些事的是764及其分支或与「公社」相关的团体，他们非常恨他。这不是偏执或焦虑：这些人有公开刺伤、向别人窗户砸砖的记录。他举了一个例子：他们把砖头砸进一个女孩汽车的后挡风玻璃，她因此心脏病发作去世，而且她有孩子，相当于双重谋杀。这些是危险的人，所以他会尽可能把能从网上撤下的数据撤掉。他们在意他，既是因为他在曝光这些组织，也是因为他们想要「名声」：谁能去诈警瑞恩·蒙哥马利或史蒂文·巴特利特，本身就是一种资本；他们做的很多事并没有道理。764现在已被视为国内恐怖组织，美国每个联邦调查局（FBI）外勤办事处都已介入，相关分支也在做同样的事。这正是他来这档节目的主要原因：他希望家长意识到这些人的危险。他提前警告，接下来要展示的内容，九岁、十岁、十一岁的孩子每天都可能接触到，而且你大概永远忘不掉。他们商定先看设备，再把最黑暗的部分放到最后。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s6">
+<div class="sum-top"><span class="sum-num">6</span><span class="sum-title">「饼干」：无线攻击、飞行模式关不掉的蓝牙，以及假的免费网络</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">瑞恩拿出的第一件设备叫「饼干」，壳体是3D打印的，按钮掉了是他自己的责任。它可以发起无线网络和蓝牙攻击，也有其他功能。打开后有一颗小LED，并有配套的iPhone应用可以连接。它能「驾车侦察」，也就是查看周围所有无线网络和蓝牙设备；还有一个反监视按钮，用来寻找身后那些共享同一MAC地址（设备标识符）的装置。史蒂文以为这是防御工具，瑞恩说它攻防两用，有嗅探、攻击和扫描。演示中他们扫描接入点，选中一个叫 Flight Story 的网络，再根据信号强度定位路由器位置，然后做「断联」（deauth）并捕获握手：攻击会把设备打下线，对方一旦重连，就会产生所谓的四次握手；把这个文件带回家，再用密码字典去破解。字典可以是一个200亿字节量级的巨大文本，再通过规则把首字母大写、末尾加数字和符号，膨胀成200GB甚至TB级；然后对这份已经抓到的握手每秒尝试大约两万次，不必再待在那个网络附近，也不用一次次真实去连。如何防御？用更新的WPA3。但几乎所有路由器都处于一种「过渡模式」，会降级到WPA2，从而使这种攻击仍然可行，所以眼下能做的并不多。接着他做了另一个演示：即便把手机开到飞行模式，再按下播放，iPad上仍会弹出iCloud传送、电话号码一类通知；对某些设备，这甚至会让手机直接崩溃。演播室里所有人都在收到这些弹窗。原理是它在以极高频率广播，假装有苹果设备靠近、要完成设置，于是弹窗一个接一个，手机几乎没法用。关键在于：苹果的飞行模式并不会关掉蓝牙，必须进入设置里把蓝牙真正关掉，才能阻止这类连接。瑞恩认为这是烦人但相对无害的攻击，可预见的伤害主要是你正要打电话或做事时被通知淹没。他还演示了强制门户：广播一个看起来开放、名叫「Flight Story Free」的网络；史蒂文一点击，就弹出谷歌登录页，另一侧立刻出现「Stephen at AOL」和密码「test」。攻击一停，那个网络就像从未存在过。这种攻击的危险正在于它太简单——瑞恩年轻时做起来还更难，现在桌上几乎每台设备都能做。对在世界各地连接公共无线网络的人来说，这意味着登录页就能把邮箱和密码收走；再想到酒店网络要你填房号和信用卡来「验证」或付费上网，仅凭强制门户就已经非常危险，而一旦和别人进入同一网络，风险还会更大。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s7">
+<div class="sum-top"><span class="sum-num">7</span><span class="sum-title">智能灯泡和默认密码：陌生人如何看见你家</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">瑞恩提到欧洲超市近期被黑，损失达数百万美元，食物变质，因为冰箱是直接面向互联网的，这是许多物联网或智能家居设备的问题。法国还有三家血库被黑，他记得是血浆冰箱暴露在网上，温度被改到230华氏度，他换算大约是122摄氏度。所幸发现得足够快，血浆被保住了；可对救命用的血液下手，黑客圈子里也有人是没有心的。廉价甚至昂贵的亚马逊产品，常常使用默认凭据，并把自身暴露到网上。他演示的设备可以进入网络，寻找所有已连接的装置，对它们尝试全部默认密码和一些内置的基本攻击，其中很多会是摄像头，并给出一个网址，让你能在手机上看直播。如果设备面向互联网，攻击者不必在现场，远程就能看。还有一些位于明网的网站会索引这些信息，输入城市或州名就能列出大量敞开的摄像头，他不愿点名，以免给人提供窥探别人家里的途径。很多人不知道自己正被陌生人看着。把笔记本电脑摄像头遮住是聪明的。一旦机器上了木马，攻击者可以看摄像头、听麦克风、看到包括退格和拼错在内的每一次按键，读完整文件系统，甚至让文件看起来进了回收站被删掉，实际上还在。木马的来路包括和正常软件绑在一起下载，以及零日漏洞。他刚提到的一个新团体演示了「Signal」上的一次性点击漏洞：打开一份PDF，手机就会被完全攻破、拿到最高权限。他本人也用Signal，眼下对打开PDF感到害怕。说到这只灯泡，他建议不要信任家里任何联网设备，这不是阴谋论：他查过它们如何通信，几乎都在中国生产，并与中国的云服务器通信。你让灯泡变红，多数情况下并不是手机直接到灯泡，而是手机先到中国，再从中国到你家路由器，再到灯泡。若对方决定发起恶意固件更新，这些已经在你家网络里、表面工作正常的设备，就可能作为跳板进入电脑、手机或摄像头。解决办法很简单：请家里懂技术的人，或雇人做虚拟局域网（VLAN），把这类设备和重要设备分到不同网段，让被黑的设备困在沙箱里。这是他自家在做的事。他演示：若借上厕所的机会，把亚马逊上同类灯泡拧进浴室，灯泡会广播一个名叫 nightlight 的无线网络，连上后访问它的IP，界面叫「黑客的夜灯」，刷新就能看到整栋楼里的网络。它能发起攻击、拒绝服务、抓握手，还能在没有无线密码的情况下监听未加密流量；若办公室或家里用的是老旧、廉价的摄像头系统，甚至能直接出画面。事后可以把颜色调成和浴室一致，把攻击载荷留下来运行，人离开后站在房子外面连上它的网络取走数据，不必再把灯泡取回来。你永远不会知道这只灯泡是恶意的；而且原厂出售时并不带这种能力，是这只灯泡像其他灯泡一样被黑之后才变成这样。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s8">
+<div class="sum-top"><span class="sum-num">8</span><span class="sum-title">办公室里的暗桩、能解锁200万辆车的警报，以及无人机和Flock</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">广告之后，史蒂文说，很多大公司会清扫办公室，就是怕有员工或清洁工在里面放这类装置；他听说上个月OpenAI发现办公室里被一名团队成员放置了设备，他们相信此人与外国对手有关。瑞恩并不惊讶，并拿出看起来像薄荷糖的装置：其实是他多年前做的无线断联器，插上电按一下就能把摄像头、Ring门铃等设备打下线，至今仍能用；他不愿在现场演示，以免把团队也打掉线。他又插上一个看上去完全普通、买自亚马逊的智能插头，它并不发光，却会在手机上出现一个无线网络，用来观察网络上摄像头、报警系统、手机、音频设备等的行为，并通过MAC地址前缀识别设备属于哪家公司，功能与那只灯泡类似，重点是无线侦察、判断网络行为并窃取密码。他的核心建议是：无论贵贱都要小心购买，越便宜风险可能越大，而且这类设备不应放在主网络上，应单独组网。几乎所有联网的东西都能被黑，他同意这一点，自己几乎没见过什么是从未被攻击过的。他拼作K-A-R的车载警报系统，常在经销商卖车时作为套餐推销，很多人在金融环节会拒绝，但经销商往往已经装进车里，车主开回家却毫不知情。研究人员后来发现，即便从未安装过控制应用、也不知情、更没付费，只要这套系统在车上，攻击者就能完全控制：解锁、使车辆无法移动、改诊断信息、按喇叭、开后备箱。这家公司的一个旧应用里把主密钥以近乎明文的方式留在了应用中，美国大约有220万辆车受影响，实际可能更多。他可以用手里的设备寻找受影响的车辆并按下「锁死」键，车就会再也开不走，除非有人做反向操作。这类装置走的是蓝牙而非互联网，补丁办法是：到应用商店下载他们的应用看自己的车是否配备，或在前挡风玻璃上找他们的标志，然后把固件升级到最新。史蒂文的洛杉矶好友几个月前凌晨两点拍到：有人把车停在他的路虎揽胜旁边，在笔记本前坐了三四分钟，揽胜自行启动，对方下车走过去开走，车至今没找回，而且据他所知这类事在揽胜上相当常见。瑞恩说自己不是职业偷车人，途径可能是与服务器相连的远程启动、经销商凭证，或车辆自身的漏洞。目前较流行的一种，最初是一些俄罗斯人出售定制固件，只要你按了钥匙遥控器上任意键——锁、解锁、紧急或后备箱——就能克隆，并与滚动码系统对齐。老式车库门是拨码开关那种永不改变的静态码，滚一次就永远有效；滚动码每次按键数字都会变，锁端知道下一个数是什么，而这种攻击能与之对齐并完整克隆遥控器。另一台设备能黑无人机，还能从执法人员的执法记录仪、车顶灯或电台识别他们在哪里、距离多远，并能关闭摄像头、做大量无线和蓝牙攻击。若对方是大疆（DJI）这类常见品牌，他可以让无人机断电、取走它原来连接的无线密码、关掉避障、控制它能飞多远，对方毫无察觉；当然也可以迫使它坠毁。他记得大约2022年起要求开启远程识别（Remote ID），会显示无人机在空中的位置、GPS，以及操控者站在哪里；美国还要求注册无人机，于是可凭序列号去查牌照和姓名。所以飞无人机既有被攻击的风险，也有隐私风险：若有人打算在他家上空悄悄飞，他对你的了解会比你以为的更多。这台设备上的Flock检测也非常好用。Flock是美国一家私营公司，在公共场所设置朝向街道的摄像头，拍摄车牌并传输各类数据；执法部门向私营公司购买这些数据，从而绕开宪法去定位人。英国观众更习惯公共摄像头，美国原本没有这一套。这台设备能定位这些摄像头的大致位置。有人用钢锯去砍、去拆甚至去打，他不鼓励任何这类行为，但大规模监视眼下是非常大的议题。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s9">
+<div class="sum-top"><span class="sum-num">9</span><span class="sum-title">电磁脉冲、广告ID、内藏电脑的充电线，以及几秒钟复制的酒店房卡</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">史蒂文转述瑞恩一句让他发冷的话：中国在寻找进入美国技术的隐秘途径，这让他对谁在听自己的电话变得敏感。瑞恩却说，相比有人听他电话，他更担心的是对方送来电磁脉冲（EMP）。电磁脉冲会让所有技术和电子设备失效，是严重的挑衅；若不用核武器，而是让电网和移动网络倒下，就会失去互联网、银行账户、移动通信、交通控制，以及任何内含芯片的东西。他提到开源、非营利的Meshtastic：像对讲机，却是用手机连接后发短信，有的外形像旧黑莓，能看见当地社区的公开对话。若电网和移动网络都断了，仍可用它通信；若要发私信，则是端到端加密，政府读不了，删除后也无法恢复。天线本身到不了75英里，但中间的设备会像网状网络一样把信息弹出去，路过的人若去看，只能看见有一条消息经过，看不见内容。用的人越多，网络越强。若还要更小心，就放进法拉第袋。袋的材料他不确定，猜想是某种铝，锡箔纸在技术上也能用。他与某些联邦机构谈话时，会把自己的和对方的手机都放进法拉第袋，这几乎是默认要求；与其说是怕对话被听，不如说是怕位置数据暴露谁和谁在一起。这引出移动广告标识（MAID或广告ID）：打开应用时「是否允许跟踪」所读取的那个标识，会记录手机当时在哪里，卖给数据经纪商，再卖给第三方，某些情况下包括执法部门甚至公众。于是有映射软件能显示史蒂文每周哪一天、什么时间去哪家店，以及热点位置。这是一种不使用政府技术的监视，公众和私营机构都在为这些数据付钱。办法是在所有应用里关掉跟踪，风险会小很多，但仍有可能。他接着展示著名的O.MG恶意充电线：外表是普通的iPhone线，他用橙色标记以免和真充电器混用，里面却有一台微型计算机，能以每秒300个字符的速度模拟键盘敲击。若手机是解锁的，还可结合地理围栏，在进入或离开某区域时自动触发载荷，例如用快捷指令导出全部联系人，发到某个服务器或邮箱，再把自身从设备上彻底移除，之后它就只是一根普通充电线。演示中这根线甚至不必插墙，只靠手机供电，就会发出名为om.g的网络；他连上后打出「zero day was here」之类的字。最容易的用法是建一个快捷指令：下载全部照片、点允许访问、发到服务器、邮箱或短信，而不一定要在手机上安装病毒。这根线也能当键盘记录器：若键盘是USB-C转USB-A，把它接在中间即可捕获按键。史蒂文问，中央情报局和政府是否拥有更高一层的装备。瑞恩说这是个好概括：有些方法值得公开，因为人们知道后可以管理风险；有些最好不说，免得攻击者变得更聪明，其中也包括一些他不能谈的事。最后他拿出酒店房卡和「Chameleon Ultra」，这是一种射频识别和近场通信的读写器，能读门禁卡、复制，或在本机模拟，或写到另一张卡上，让系统以为进来的是史蒂文·巴特利特。他隔着钱包也能读到一张万事达卡。更现实的场景是：背包里放大型铜线圈天线，走在拥挤的地铁里批量抓门禁卡——门禁卡和酒店房卡比信用卡更容易被克隆和复制，信用卡「复制后直接挥卡支付」更多是炫技，真正的威胁是有人能进你家或办公室，而且看起来就像是你本人在开门。史蒂文手里的射频屏蔽钱包在演示中并没有挡住，瑞恩怀疑它可能是假的，不推荐这个牌子，但大多数真正的屏蔽钱包是有效的。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s10">
+<div class="sum-top"><span class="sum-num">10</span><span class="sum-title">普通人能做的便宜防护：VPN、杀毒、硬件密钥</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">被问及线上线下安全最基础、也最便宜的做法时，瑞恩建议先使用虚拟专用网络（VPN），它能掩盖你的IP地址，阻止互联网服务商追踪并出售你的数据，也减少网站根据IP把你的浏览行为串起来，在公共或共享网络上再多一层隐私。电脑上应安装杀毒软件，即便是Mac也不例外：Mac只是攻击面不同，并不像有些人所说的那样无法被黑，远程访问或安装恶意软件仍然有办法。他自己的手机开着高级数据保护（Advanced Data Protection，ADP），社交媒体也处于锁定模式，需要自拍和实体硬件密钥才能进入。他提到YubiKey：任何允许使用它的地方他都会用。家里有大量监控和安防，还有一些他不愿细讲的专有手段，用来识别突然出现在家门口的陌生人。他经营一家安全公司，必须保护好自己；敲敲木头，他们的平台至今没有被黑过。过去四年里他稍微公开之后，最糟的是他和亲人被「人肉」曝光。公开数据经纪商上的资料他可以帮忙删除，但无法把数据从黑客的硬盘上拿走，泄露一旦发生就拿不回来。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s11">
+<div class="sum-top"><span class="sum-num">11</span><span class="sum-title">764：针对弱势儿童的虚无主义极端团体</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">瑞恩要谈的最难受的部分是764及其分支。764是这个组织原来的名字，现在仍有人以此自称，也有他不愿点名的分支名称——他强调不说这些名字和用户名，正因为那正是他们想要的：恶名和 cred。他们的全部目的，是诱骗弱势儿童先交出裸照，再以此威胁孩子伤害自己、杀死自己的宠物、甚至伤害别人，好让那些照片不被发给家人、朋友或学校。已有多起与这些团体相关的自杀，这件事几乎占去他近两年的注意力。联邦调查局大约58个外勤办事处都已动员，公开信息里目前有500多个目标在调查中。官网上将其称为针对儿童和弱势人群的虚无主义暴力极端组织，问题并不限于某一地区，也不仅发生在Roblox或Minecraft，而是所有平台。诱饵阶段常从游戏或聊天网站开始，寻找已经有心理健康问题、在学校被霸凌、有自杀念头的孩子，并发布「门诊心理健康中心」或「心理支持小组」一类广告。其中一条写着：若你有精神疾病、没有父亲、有恋父问题、精神分裂、边缘型人格，或是女性，就来加入。他们此时并不是直接拉人入会，而是利用孩子的心理问题，把人养成「男女朋友」，直到对方交出裸照，再逼其自残，或伤害他人和宠物。诱饵也可能来自动漫群组或黑金属、血腥内容的网站，有的孩子只是处于叛逆期，并不理解这些人不是来帮自己的。他们有多本数百页的手册，专门教如何诱拐和敲诈。手册里写：诱拐是常见且容易取得控制的方法，要让受害者以为你是她的神、永远占有她；可在Roblox、X（前Twitter）、Reddit、Instagram上找人；花大量时间、假装能共情、一起玩游戏，称呼她公主、亲爱的；再提出做男女朋友，然后要裸照和个人信息；若她本来不自残，就必须敲诈，若她已经在自残，几乎一定会按要求去割。敲诈部分写明：必须先会诱拐，才能拿到信息和裸照；要有地址、姓名、电话和裸照，再威胁发给父母、对其家庭「诈警」、泄露个人信息；逼她做「血字」、割字、杀死猫、自杀。手册还写「不要说有内容就行，没人想看只划破表皮的痕迹」，他们要的是带用户名和团体名的、留下深疤的伤口，对象有时是八到十一岁的儿童。他展示的影像包括：一个女孩被逼剪掉头发，对方要求在30秒内做「粉丝标记」，也就是在身上割下用户名，否则就发布裸照，并说「这只是第一步」；这些内容在论坛、Telegram和Discord上流传。另一例中，父亲中途介入，对方自称27岁，当着父亲的面说刚看到约16岁女儿的胸部，并辱骂父亲；通话断开后，女孩仍被允许继续和这些人聊天，瑞恩认为父亲本应更清醒地切断。他没有播放孩子自残的画面，但提到最近最血腥的一例：一个13岁男孩在看似浴室的地方上吊自杀，聊天室里的人看着他死去，还在笑，因为他被说服一旦裸照发出去，整个人生就结束了。他第二次上肖恩·瑞恩（Shawn Ryan）的节目之后，还有一个女孩在停车场用电缆上吊，直播聊天里有人说如果她裸着会更「火」，后来她死了。还有人被逼砍掉仓鼠的头，墙上用血写着「你的神现在在哪里」，而这些在他们嘴里只是「猫抓」。史蒂文说自己已经看够了，瑞恩说这还不算什么：被拉进这些团体的小孩子整天被迫观看其他受害者身上发生的事。764最初的那个孩子据他所知是在Minecraft上找人，后来到了Roblox。与常见的、以要钱为目的的「尼日利亚式」色情敲诈不同，这些人不要钱，只要你伤害自己、伤害别人或伤害动物。想加入某些私密频道，还必须提交「犯罪证明」。</p>
+</a></li>
+<li class="sum-item">
+<a class="sum-card" href="#sec-s12">
+<div class="sum-top"><span class="sum-num">12</span><span class="sum-title">犯罪证明、家长该做什么，以及没有密码也能登录</span><span class="sum-go">查看原文 →</span></div>
+<p class="sum-body">「犯罪证明」是指展示自己的受害者、在现实中伤害别人、纵火或造成重大破坏，以证明自己够「忠心」。他举了一个极其残酷的例子：两个成年人，其中一人在Discord上当着团体成员的面把对方的喉咙切开，而对方正在观看，好让自己加入组织。有些人已被找到，有些还没有，部分影像仍在公开流传，瑞恩的全部重心就是抓住他们。这些团体有数千名成员；联邦调查局公开谈到的目标超过500个。私密频道往往需要犯罪证明才能进入，公开频道则能看见成千上万的人。他们从中得不到别的，只有团体内部的「名声」。史蒂文读到司法部网站上，764这个全球暴力极端网络的头目上个月刚承认共谋罪。分析这些人有何共同点、是否有精神疾病？瑞恩说不必当医生也能看出来，他的解释就是「邪恶」：能把无辜的孩子逼到伤害自己或别人、只为在网上朋友面前获得名声，还能怎么诊断？被问及家长能做什么时，他说自己最大的成就不是逮捕本身，而是预防：你可以逮捕一千个捕食者或成员，却消灭不了他们的存在；若能让一个孩子从一开始就不要变成受害者，在他看来比逮捕更重要。他自己不是家长，不能规定哪一套适合你的孩子，但若孩子还非常年幼，他会先在设备上安装监控软件。他推荐Bark，并非因为赞助，只是认可这家公司：它会监测捕食行为、霸凌，以及家长自己设定的触发词。更重要的是与孩子的关系。他和史蒂文年纪相仿，自己小时候如果妈妈要手机，他并不在乎，因为生活围着滑板和自行车转，并不围着互联网，即便他是电脑极客；他和妈妈非常亲近，毒品、女朋友、别人犯罪，都可以说，妈妈也总知道他在哪里、出了事该去哪里接。今天的孩子把设备当成与世界的连接，像另一只手；若直接拿走平板、手机或游戏机，他们就不会再信任你，而下一次会用朋友的设备去做。因此必须先有开放的关系，让孩子知道这些团体存在，而且他们既针对弱势儿童，也针对只是在游戏应用上玩的孩子，其中最大的儿童游戏就是Roblox；除此之外还有真正的性侵捕食者。他能在几秒内找到正在寻找小男孩或小女孩的人。最近一次行动在佛罗里达中部一个很小的县，正式逮捕了30到31人，全都在寻找14岁以下的孩子；其中一人以前在迪士尼扮过米老鼠，到一户人家时带了大约100片尿布，想让爸爸和孩子都打扮成婴儿，是恋童加上尿布癖。互联网可以非常危险，关键是孩子愿意告诉你真相，而不是因为害怕惩罚而隐瞒。他还展示YubiKey：每次按下都会生成独一无二的密钥，苹果在深层安全设置里也建议使用；这个型号不是指纹识别，而是插入手机或电脑后用手指轻触，生成的数字每次都会变，通常与短信验证和密码一起，构成三种认证。除了密码，还有会话和Cookie：普通人关掉浏览器再打开Facebook却仍保持登录，靠的就是Cookie。数据泄露或电脑中毒时，这些会话也可能被一并偷走；若用你的会话替换我的再刷新，某些情况下我就能以你的身份登录，完全不需要密码，YubiKey和双重验证都会被绕过。有的平台会发现IP不同，但若机器上已经有恶意软件，攻击者仍可假扮成你。用Pentester可以看到这类「窃取日志」是否存在。展望未来，史蒂文认为隐私在各种形式上都将越来越像神话，深度伪造、用他的声音给家人打电话让对方做事，都会更严重。瑞恩的总建议是：做好准备，跟上人工智能，了解本地模型，以及Claude Code、Grok、Codex这类工具，学习人们如何用它们开发应用、加固服务、检查家里的漏洞，并不需要先成为电脑天才。同时要对收到的数字通信更怀疑，不要急着点击。钓鱼仍在通过短信和邮件发生，比如让你去银行、去买礼品卡；新的手法是语音和视频。史蒂文说，自己旗下一家公司曾因此损失20万美元；「CEO日记」早期，有团队成员入职第一周以为邮件来自他，出门买了1000英镑的礼品卡寄出，钱就没了。基础检查包括：核对域名有没有多出来的字母、名字是否拼对、电话是否正确。若有任何怀疑，把截图丢进ChatGPT一类工具，问这是不是真的、该怎么办，这也是他告诉家人的做法。他强调自己仍然喜爱人工智能，它极具冲击力，能比人类更快找到数百个漏洞，也在解决许多医学问题，但依据的是已有数据；现在拥有的，和未来可能出现、会更可怕的那种能力，并不是一回事。节目结尾的传统问题是：「对你来说，好的生活意味着什么？」瑞恩说：有一个家，亲近上帝，取得成功，能养活家人，并帮助尽可能多的人。</p>
+</a></li>
+</ol></nav>
+<div class="body-div" id="body"><h2 class="body-h">原文</h2></div>
+<div class="legend"><span class="spk-0">史蒂文·巴特利特（Steven Bartlett）<em>主持</em></span><span class="spk-1">瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）<em>嘉宾</em></span></div>
+<main class="transcript" id="main">
+<section class="body-sec" id="sec-s1">
+<div class="body-sec-head"><h3>冷开场：20分钟能挖出什么，以及名为764的组织</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>如果我告诉你，你的手机构是完全安全的，那是在说谎。而且很多人根本不知道，自己正被陌生人看着。比如这样一台摄像头，或你在亚马逊（Amazon）上买的廉价产品，都不要轻易相信，因为几乎什么都能被黑。我们也可以先从我用20分钟在你身上找到的东西讲起。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>噢，该死。我就怕你会这么做。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>我只是搜了一个我能确定的邮箱。我是从数据泄露里定位到它的。这是你12年前常去的那家健身房。这里还有你的一些旧密码。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>我的天。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>我之所以知道这么多，是因为我9岁就加入了黑客论坛，几乎没见过什么是黑不了的。现在我的工作是打击针对儿童的犯罪，以及反人口贩运。这是个很黑暗的话题，我后面会讲。不过我先带了几样我觉得你会感兴趣的设备。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>好，那就先看设备。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>先说这个，它叫「饼干」（the biscuit）。它可以发起无线网络和蓝牙攻击，也能让你的手机基本上没法用。你演播室里的人现在应该都在收到那些通知。下一件，这些不是薄荷糖。这个装置能让摄像头、Ring 门铃掉线。这个可以黑无人机。你能看出来这根不是普通的 iPhone 充电线吗？这根线里面有一台微型计算机。另外我必须说，我查过这些设备如何与互联网通信，它们几乎都在和中国通信。相比有人听我的电话，我更担心的是这些东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>那线上和线下安全，最基本该做些什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>我最想建议你的，也是我自己家里实际在做的那些事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>你说有些让人不舒服的事想跟我谈。什么是764？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>他们是虚无主义的撒旦崇拜团体，一心只想伤害人。他们寻找在学校被霸凌、有自杀念头的孩子，手上有多本数百页的手册，教人如何敲诈和诱拐受害者。有时候对象是八岁、九岁、十岁、十一岁的儿童，而且这发生在所有平台上。我想展示一下它会怎样落到别人的孩子身上，因为我希望家长意识到这些人有多危险。我先给你们看一些例子。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>天哪，我看不下去。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>这还不算什么。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>别，求你，我看不了。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：The Diary Of A CEO]</span></div>
+</section>
+<section class="body-sec" id="sec-s2">
+<div class="body-sec-head"><h3>20分钟里，从史蒂文身上翻出了什么</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>瑞恩，我听你对塔克·卡尔森（Tucker Carlson）说过，只需几分钟，你就能用相对简单的黑客手法找到他的社保号、房契、驾照，好像还有签名。如果是你再加几个同样擅长这些的朋友，我给你一小时，你觉得此刻在听的普通人会被挖出什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>会很多。我们也可以先从我用20分钟在你身上找到的东西讲起。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>噢，该死。开始吧。我就怕你会这么做。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>根据之前的沟通，我猜你会有这种反应。别担心，我没做太出格的事。这些都是非常公开的信息，只是让你看看外面已经有什么。我可以把你的电脑拿过来走一遍吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>当然可以。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>这个工具只给执法部门用，叫 OSI Pilot，必须是执法人员，我们不会给你开账号。我搜的是那个我能够确认的邮箱。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>你怎么会知道那是我的邮箱？那是我很久很久以前的个人邮箱。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>我是从数据泄露里定位到的，也就是一些网站被黑、数据外泄之后。我们先识别出这个密码，它带出了生日；因为这个密码非常独特，我们又做了反向密码搜索，于是找到了其他邮箱。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>我其实已经不记得那个密码了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>那另一个你记得吗？这个我不想大声说出来。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>记得，记得。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>就是靠这两个，我们拿到了后面所有信息。这些是与之关联的账号，由此还能拼出电话的一部分。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>对，那是我的电话号码。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>这里是地图，至少能看到你12年前常去的那家健身房。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>我的天。我以前……天哪。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>这里还有一些照片，来源不同，但显然都是你。我们在 OSI Pilot 里内置了反向人脸识别，然后会给出一份摘要。我特意只翻你的旧材料。对了，这些都是自动完成的。Pentester 是我们的主公司，做了大约40种工具，用来识别一个人，并帮助他们清理数字足迹。这套东西就是要把你尽可能挖深。</p>
+<p>通常它还会拉出社保号，也许是你旧的 MySpace 主页，或某个被泄露网站上的私信。它本来还能显示更多，我没全部展示，因为我知道你连把电话卷进来都有点紧张。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>不，我不介意。我觉得这很有意思。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>谢谢。我不知道这是不是你现在的地址，这是自动结果。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>那是我在英国长大的那栋房子。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>好。它还提到了你的书，挺厉害的。我甚至不知道你出过书。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>这大概是最得罪人的部分了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>我真的不知道。看，软件还在夸你：英国高知名度企业家史蒂文·巴特利特。有意思的是，你人在英国，有《通用数据保护条例》（GDPR）这类隐私法保护；但因为你在美国待过，就有两个州把你的信息抓出来卖给了数据经纪商。我们正在帮你把那些数据删掉。另一面，则是我们帮执法部门在标识很少的情况下找人：有时只有一个用户名，有时只有电话，有时连姓名都没有。这套平台的全部意义，就是凭最细的一后面包屑，不惜一切也要把人找到。刚才那些是自动完成的，非自动的部分都在这里。我们花了20分钟查你，找到的就是这些。</p>
+<p>比如你那份火车优惠卡请愿，我发现它已经被拿下了，那是很久以前的事。你可以看到这里有你的签名，但站点已经没了，内容是被归档的，所以要找到它更难一点。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>说真的，我完全忘了这件事，太久了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>我还想给你们看这个，我们觉得挺好笑的。谷歌（Google）通常会说：我们不能帮你联系某个人，不能帮你调查一个人，或做开源情报。但现在谷歌却像在说：你在这个网站、那个网站上——这些都是我们正在力争把你撤下来的数据经纪商——而谷歌却在自己的人工智能摘要里推广它们。我觉得这相当奇怪。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>你又不是罪犯，我们不是在你身上找犯罪证据，更多是在核实你是谁、你的数字足迹是什么。它不是「CEO日记」那一层公开形象，而是把许多彼此关联的碎片拼成一张大地图，用来提高确定性和把握。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>正是这样。而且这些人几乎都只躲在一个用户名后面。如果运气好找到一张脸，我们就能从这张脸再转出去，看有没有能识别出他们的照片，后面我也会给你举例。这里还有域名、这些年用过的用户名和化名、网站，一大堆东西。要点你们应该已经明白了。</p>
+<p>就算你自以为完全没有数字足迹，比如从不碰电脑，也未必如此。我妈妈就是个好例子：她这辈子没用过电脑，我一点都没夸张。可她还是有数字足迹，因为她去 CVS 或沃尔格林（Walgreens）时会留下电话，也许还有邮箱；年轻时去过赌场，美高梅（MGM）也被黑过，她的数据就在那次泄露里，里面有姓名、生日和地址。她自己都不知道自己有足迹，然后数据经纪商把这些卖掉，数据四处扩散，现在任何人都能找到你住在哪里、找到你的信息。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>你觉得普通人是不是都误以为自己在网上是安全的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>绝对是。正因为如此，我才要把这一点讲清楚。我通常的讲法是：先讲捕食者那部分，他们如何藏匿、我如何识别他们，然后再讲你可以如何用同一套技术保护自己。原因就在这里——人们不觉得自己在外面有多少信息。就拿反向人脸识别来说，想想普通的父亲，孩子在打球，有人拍到他坐在球赛背景里。除非他自己去搜，否则根本不知道网上有这张照片。而那张照片不仅可能识别出他，还可能识别出他的孩子、妻子、他们上的学校、住在哪个区域。然后他才会说：我不想让那张照片留在上面，因为我不想有数字足迹。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>你这些东西是怎么学来的，瑞恩？</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s3">
+<div class="body-sec-head"><h3>9岁学黑客，11岁摇头丸，以及拦住教室里的枪击</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>这得从一个很长的故事讲起。你是问我怎么开始碰电脑，还是问怎么开始黑客？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>两个都想听。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>我9岁那年，祖父把一台电脑带回家。我本来没兴趣，毕竟是个孩子。那时候美国在线（AOL）还在寄免费试用的软盘，就像我这上文身的这张软盘，上面是加入互联网的14天试用。我不知道那是什么意思，只看见它的形状和祖父那台电脑面板上的图标对得上，就把盘放了进去。我记得AOL的三角形从纸盒里来到了屏幕上。那么小的年纪，我看见一样东西从物质世界走进数字世界，完全被迷住了。这件事听起来很基本，可它当时就是让我震惊的东西。从那以后我就没停过，想弄清那台电脑里的一切是怎么运作的，并过早地通过AOL即时通讯加入了各种社区。</p>
+<p>我看见有人在做各种各样的攻击，就想学，因为那看起来很酷。有些有点危险，有些视觉上就很炫，比如屏幕上往下滚的文字；还有把人踢出聊天室的 booter，或所谓的 punter。那时有一堆这样的词。要学，就只能认识那些手里有漏洞、又愿意教你的人，这些东西后来慢慢拼在一起。如果那些愿意花时间的导师知道自己在和一个小男孩说话，我并不觉得他们还会那么愿意跟我交流。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>那大概是你十二三岁的时候。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对。你要是看我那个年纪的照片，会觉得我比一般十二三岁的孩子更显老，因为我已经一身文身和穿孔。我的过去本来就很乱。如果你想听，我们也可以讲。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>确实惊人，因为你差不多十一二岁就开始吃摇头丸。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>从那里似乎就滚成了海洛因成瘾。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>不是立刻到海洛因，先是摇头丸。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>11岁怎么能搞到摇头丸？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>费城的锐舞。有一场后来上了新闻，叫「上帝的地下室」（God&#x27;s Basement），非常公开，我就去过。我当时极小，可他们让我进了门。那是费城一座教堂的地下室，里面什么药都有，氯胺酮、摇头丸。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>可你才十一二岁。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对，但你也看到我当时长什么样了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>你确实看起来更老一点。我这儿有你大概14岁的照片。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对，十三四岁。旁边是我叔叔乔治（George）。那张很好笑，是我一个做摄影的朋友拍的。然后这张是我最糟的时候。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>15岁。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>现在看这张照片还是觉得不可思议。大概15岁，海洛因，还有苯二氮䓬、兴奋剂，安迪罗（Adderall）、Vyvanse、利他林（Ritalin），几乎所有药丸。如果你听过我在别的节目里讲，会知道有一位精神科医生把这些同时开给了我——非法的那些当然除外：每天三片Xanax，相当于6毫克，七十多毫克的Vyvanse，下午药效过后再加30毫克安迪罗把人拉回来，中间还换成过某种剂量的利他林，具体我记不清了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>问题的根子在哪里？这种行为、这种情绪上的失调，根源是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>大概是因为我跟周围人不一样，看起来就不一样。有点像你的故事，我成长的地方种族构成也不同，家里也有各种事在发生。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>你父母在身边吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>妈妈一定在。爸爸在我生命的很长时间里没那么在。他现在仍在和他自己的问题搏斗。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>成瘾。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对，成瘾。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>而且他进出过监狱。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>是的。但这不是因为家里没有父亲。也不是我妈妈的错，她做得非常出色，已经做了她所能做的一切。那不是别人的问题，是我自己。我知道自己当时还是个孩子，大脑还没发育完全，但我是环境的产物。我因为与众不同被霸凌得很厉害，怎么都融不进去。如果我现在还是照片里那副样子，我相当有把握不会有那么大的麻烦。可那时候我看起来就像「剪刀手爱德华」，完全不是普通孩子。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>后来你进了局子。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对，进过。第一次是因为很蠢的事，比如大麻植株。我惹了麻烦，有缓刑。那些植株甚至不是我的，是附近的人的，我却被控了。我妈妈人很友善，去了警察局。警察说：我们只是过来拿走，别担心；如果你不让我们进，我们就在外面等令状再拿，但别担心。然后他们把植株从家里搬了出去。我妈妈本来不知道它们在，后来当然知道了。植株被拿出家门，整个街区都看见了，让她很难堪。如果她当时什么都不跟警察说——她只是不懂——他们进不了门，我本来有机会先把那些东西处理掉。但这只是后来发生的无数件事里的一件：寄宿机构、康复中心、拘留所，所有可能的地方我都去过。如果你听过我的故事，会知道有一次在寄宿机构里，我不得不阻止一间教室被开枪扫射。你听过这件事吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>听过。你当时在一家寄宿机构，那里有个男孩告诉你他有枪。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>他没有告诉我，是我在身后听见的。他有枪，而且是上满弹的。他的计划是杀死教室里的每一个人，用武器抢走老师或工作人员的钥匙，再和另一个学员一起逃出那家机构。我阻止了这件事。他们因为担心报复，把我送回了家。然后我被送回法庭。我以为他们也许会撤掉我的指控，因为我从来没有暴力或恶劣的罪名，所有指控都和毒品有关。结果他们把我送回了少年拘留中心，那比寄宿机构糟糕得多。再后来我又进了另一家康复机构。那是他们第十次左右想把我从系统里弄出去，这种事在我身上发生过一次又一次。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>是什么改变了？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>改变发生在我最后一次因毒品被捕、被判了更长刑期的时候。我在牢房里坐了很久，一直到21岁。我是在未满18岁时被控的，罪名是持有并意图贩卖，也就是毒贩的罪名，很重。幸好当时未满18岁，但假释一直到21岁。我在县看守所的牢房里待了很长时间，有些时候那比州监狱的牢房更难熬。真正起作用的，不只是我害怕坐牢，而是离开了那些让我难以保持清醒的人、地点和事物。责任我认：是我犯了错，是我迷上了这些毒品，自己停不下来。但离开它们足够久，给了我改变生活的能力。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>也就是离开那些在纵容某些事情的人。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对。你知道费城的肯辛顿（Kensington）吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>不知道。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>那地方就像僵尸之地。我现在如果在油管上搜「Kensington Live」，我敢用一切来担保，你会看见有人在街角，身体弯到一边，在严寒里站着睡着。看着就让人恶心。我童年大部分时间就是在那里度过的。但那时候还没有芬太尼，没有美托咪定（medetomidine），也没有甲苯噻嗪（xylazine）。</p>
+<p>现在这些东西会吞噬人的血肉。有人胳膊上缠着绷带，因为手臂和腿在坏死，甚至被截肢。问题已经严重到这种地步。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>我简直不敢相信自己看见的。我刚搜了肯辛顿费城。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>直播。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>有两个人弯着身子。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对，对折着。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>明白了。就在我们谈话的这一刻，那些对折着的人看起来像睡着了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>芬太尼几乎杀死了每一个和我一起长大的人，也带走了我一半的家人，包括我最好的朋友。我这一辈子再也不会碰那些东西，当然是怕死。但说实话，我起初是喜欢毒品的，觉得那感觉很好。后来发生的，就是会发生在每个人身上的事：你发现自己一觉醒来，旁边是个怪物。你总会觉得「我跟那个出问题的人不同，我可以一周不碰，我可以这样、可以那样」。可结局总是一样：耐受越来越大，越来越贵，你得做疯狂的事去搞钱、去弄到那些毒品，然后要么进监狱，要么进机构，要么死去。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>所以那就是你的故事转折、决定拿人生做点别的事的时刻，再往后的某个时点。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对。不是因为有人对我说了什么了不起的话，我也没读哪本书。就是在牢房里待得够久，离开那些物质，意识到没有它们时自己有多好。假释一结束，我就离开了宾夕法尼亚，再也没有回去。然后我开办了物质滥用机构，也就是心理健康和戒毒康复机构。当时开了三家，规模比较大，口碑也很好。我的旧合伙人现在还在做，已经开了更多家，声誉仍然很好。后来我把它们卖掉了。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s4">
+<div class="body-sec-head"><h3>执法为何找他：28亿条记录泄露，以及苹果和安卓谁更安全</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>后来到了某个时点，你开始和执法部门合作。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>我觉得这很耐人寻味。执法部门为什么要和你合作？他们会对你说什么，需要什么帮助？你有什么是他们自己接触不到的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>他们受训使用的许多工具和方法，有些有点过时。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>明白。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>不是他们没有热情，他们有，尤其是做「侵害儿童的网络犯罪」（ICAC）的那些人。他们用的某个工具也许本身很好用，但拿不到我们掌握的那些数据点；或者他们需要获取某台设备，或需要一种反向人脸识别的方法。也许他们没有预算，去付给某家我不愿点名的公司每年十万美元，只为了搜一张脸；也许他们想查一个用户名。能帮他们训练的场景有无数种。不过在联邦层面，在地方机构之外，他们通常找我，是为了识别更难定位的组织，比如764以及与「公社」（the comm）相关的那些小团体。你熟悉虚无主义这个词吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>大概知道。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>简单说，就是对一切都不在乎。所以他们是一个虚无主义的撒旦崇拜团体，由得克萨斯州的一个孩子创建。对美国公民来说，尤其要知道国家公共数据（National Public Data，NPD）这次泄露。有28亿条记录被暴露到了互联网上。很多人并不知道这件事。美国大约有3亿人，28亿条记录意味着几乎每个人都受影响。这不是已经证实的统计，但几乎可以肯定：如果你超过30岁，你住过的每个地址、你的电话号码、完整的社保号，都已经在外面了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>那潜在的危害是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>他们可以以你的名义办信用卡，可以打电话假冒你，可以盗用你的身份，花样很多。想查自己在不在这次泄露里，可以去 npd.pentester.com，完全免费：填上名、姓、出生年份，再把你住过的州都试一遍，它会告诉你有没有受影响。知道这一点很重要，因为你接下来需要做的是冻结信用记录。信用记录对我、对大多数人都很重要。冻结信用记录本身不会做别的，它只是阻止别人以你的名义办卡、贷款、按揭或买车。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>我们都有这些设备：iPhone、iPad、电脑，还有家里的各种装置。大家似乎默认它们是安全的。是这样吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>大体上，我会说是的。在我看来，它比安卓更安全。我不认为安卓对任何人来说是个好主意，尤其是因为它可以安装第三方应用，而那可能意味着远程访问木马。你知道那是什么吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>不知道，不过从名字大概能猜到。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>名字已经把意思说完了。很多时候，我在电脑上用一行命令就能生成一个APK，也就是安卓应用。我可以把那个文件用邮件发给你；如果我能直接接触到你的手机，也可以插上去安装，打开那个应用，授予全部权限，然后从远程完全控制你的手机，而你完全看不到我有任何接入。iPhone 有点不同，通常做不到这一点，除非你有「零日漏洞」，也就是一个从未被发现、还没有人知道它存在的漏洞，所以才叫零日。有一家公司正在接连找到这类漏洞，这让针对 iPhone 的攻击成为可能，而以前没那么常见。苹果在加密数据、加大恢复难度上做得非常好。当苹果收到传票时，它们能提供一些信息，但给不了那些只在你手机上解密的内容。我记得苹果的说法是安全隔离区（Secure Enclave）。但如果我告诉你手机完全安全，那是在说谎，它并不完全安全。只是我觉得，用 iPhone 被攻击的可能性比用安卓低得多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>什么都能被黑。我前几天和一个安全专家聊，他说物理安全我们还能做些事；可如果是高知名度的人，有权势的人想进你的手机，他们就能进去。他也上过这档节目。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>这完全是真的。除了我刚才说的那些团体，还有一个非常公开的，是以色列的NSO集团。你应该听说过「飞马」（Pegasus），现在很有名。我经常收到邮件，有人以为自己中了飞马。据我所知，你只要输入一个电话号码，按下回车。谁能用飞马，得由NSO授权，他们得为此付钱。然后他们就完全进入你的手机，你不会有任何提示。它在后台运行，他们可以看你的摄像头、读短信、下载照片、为所欲为、监听通话。这是非常危险、非常糟糕的攻击，已经存在很多年。随着苹果修补，我相信他们也在迭代。以前很长一段时间里，我只熟悉飞马这一种；而最近几周，针对 iOS 的攻击一个接一个。我觉得这最终会冷下来，但眼下很新，因为很多人开始用上这些强大的人工智能模型。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>萨姆·奥尔特曼（Sam Altman）大约上周刚说过类似的话。他谈的是，有了人工智能，我们必须彻底重新思考网上安全是怎么一回事。问题正在朝我们过来，可我觉得无论是机构负责人、国家还是个人，都还没有足够认真地对待。今年早些时候有过一阵他所说的恐慌，情况后来似乎好了一些，人们确实修了一些漏洞。但这也是人们没有真正理解指数式变化的又一个例子：模型能找到一批安全漏洞，大家就以为那大概就是全部漏洞，或模型今后能找到的全部漏洞。大多数人并没有接着说：模型还会聪明得多，它们大概能找到疯狂的漏洞，远超我们以为黑客能做的那些，甚至是硬件层面的、让人难以置信的东西。于是人们修了一些漏洞，安全专业人士和首席信息安全官还在紧张，但大体上，多数机构负责人已经把注意力移开了，而模型还在往前走。我不再认为我们能把所有漏洞都补上，必须彻底改换防御模型，用同样的技术去做一种新的防御盾。我觉得这是巨大的安全问题。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>我完全同意。这些模型是越来越聪明了。但有一点对大家很重要：所谓「人工智能」，我个人并不认为它真的具有人工的智能。它非常擅长把模式组合在一起。人工智能是基于已经存在的数据来训练的：你身后那些书、整个互联网、整个谷歌、整个维基百科、所有平台。你用已经存在的东西去训练这些模型，再造一个巨大的、彼此连通的神经网络。然后你说，我想谈谈这个盒子。如果你问「我怎么打开这个盒子」，它会看这些变量、建立连接，再根据已有信息给出打开盒子的最佳示例。它并不能以一种「人工地智能」的方式，自己发明一种打开盒子的新方法。各家公司、尤其是人工智能公司，都在寻找所谓的人工通用智能（AGI）。我相信到了那一步，它会比现在可怕得多。它对生活很有用，可是没有良心、也没有感知，又怎么能谈得上智能呢？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>可就你刚才那个盒子的比方来说，我的大脑不也是这样工作的吗？我看见那个，想这是个盒子，那是手柄的形状。我从没见过那个具体的手柄，但我见过手柄。于是我的大脑说：拉它。而这正是大语言模型会走的那种处理方式。它不必见过这个特定的手柄，也能知道那是手柄。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对，它会知道那是手柄的形状。但如果它没有关于那个特定手柄的信息，而你问「我怎么把那个手柄换掉」，它若既不了解那个盒子、也不了解那个手柄，就可能出现他们所说的「幻觉」。模型也许会说：打开盖子，看看下面有没有螺丝。它会给出一个最好的猜测，但它不会知道这个盖子下面到底有什么。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>桌上这些都是什么？这个盒子里到底是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>是你让我把背包里剩下的设备放进盒子的。这些是我做了笔记、觉得你会感兴趣的。我不知道你想往哪个方向聊。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>对我来说，真正重要的是：普通公众走在街上，对这个世界、对自己有多安全、人工智能对他们的人身安全意味着什么，都有一种既定的感觉。我只是想先揭开安全的现实：网络安全、数据安全。我曾以为我拥有的一切都是安全的，以为我放到网上的信息也相对安全。采访了许多间谍和中情局（CIA）的人之后，我才开始意识到也许并非如此。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s5">
+<div class="body-sec-head"><h3>有人把特警队派到他家：764为何要针对他</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>随着人工智能靠岸，你说你对此感到担心。你现在会采取哪些几年前也许还没有的防范？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>我必须采取和大多数人不同的防范，因为我已经大量出现在网上，再加上我们后面会讲到的那些团体正在针对我。于是有人出现在我家，有特警队被派到我家。你一定知道所谓的「诈警」。还有美国邮政的纸箱，因为是免费的，他们就一箱又一箱空盒子寄到我家，故意惹人烦。另一方面，他们还会做别的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>是谁在做这些？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>是「公社」，或764，或这些团体的分支。那些人非常恨我，会用尽一切办法找我。所以我必须格外小心，这不是出于偏执或焦虑。他们有公开刺伤、向别人窗户砸砖的证据。有一个例子：他们把砖头砸进一个女孩汽车的后挡风玻璃，不是成年妇女，是一个女孩。她心脏病发作，去世了，而且她有孩子，所以这是双重谋杀。这些人是危险的。因此我会格外小心，尽可能把我能从网上撤下的数据撤掉。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>他们为什么在意你？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>因为我在曝光他们。另外他们也想要名声。也许更少是因为组织被曝光，更多是想成为那个去诈警瑞恩·蒙哥马利、或诈警史蒂文·巴特利特的人。他们做的大多数事情并没有道理，后面你会看到。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>能先给我的听众一点背景吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>要讲清楚背景，就很难不直接进入那个话题。你想现在就讲吗？因为它马上就会非常黑暗。我们可以先看设备，也可以先讲那个。真的很暗，我不知道你想不想用那个来结束这次谈话。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>这些设备和那件事有关吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>没有，并不相关。怎么安排都可以。我只是知道，你大概永远忘不掉，所以我必须提前告诉你。这也是我最想上这档节目的原因：我希望家长意识到这些人和这些团体有多危险。我们国家现在已经认真得多了，每个联邦调查局外勤办事处都已介入，它现在被视为国内恐怖组织。具体就是764以及与「公社」相连、在做同样事情的那些分支。那是什么，我稍后会再细讲。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>好，那我们先看设备，再把这部分放到最后。这样比较合理，万一我需要……</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对，那会很难熬。但我还是会给你看，也希望你知道：这些孩子每天都在接触这些东西。我说的是九岁、十岁、十一岁的孩子，他们暴露在我接下来要展示的内容里。那会让你震惊。我并不是很了解你，但我能感觉到你有一颗心，你会明白这有多么荒谬。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s6">
+<div class="body-sec-head"><h3>「饼干」：无线攻击、飞行模式关不掉的蓝牙，以及假的免费网络</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>我们桌上这些设备是什么，能做什么，为什么重要？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>每一件都有自己的用途，有些能力还会交叉。这个叫「饼干」。你摸一下就知道，只是一个3D打印的外壳。按钮掉了，那是我的责任。它可以发起无线网络和蓝牙攻击，还有一些别的功能。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>你说的无线网络攻击和蓝牙攻击，具体是什么意思？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>我刚刚已经把它打开了，你看得到那颗小LED。它会向外广播。他们还有一个iOS应用，真正的iPhone应用，我可以连上去。等一下，好了。现在这就是我连上「饼干」的状态。然后你可以做「驾车侦察」，也就是看到周围所有的无线网络和蓝牙设备。这里还有一个反监视按钮，用来寻找身后那些共享同一MAC地址的设备。MAC地址只是设备上的一个标识符。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>所以这是防御装置，不是攻击装置。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>两样都是。它有嗅探、攻击和扫描。我现在专门在无线网络这一层。比如我们扫描接入点，点加号，就能看到周围的一切。这里有 Flight Story，我们点它。选中之后，我可以用信号强度来定位那台路由器、也就是目标实际在哪里。然后进入攻击，我可以做所谓的「断联攻击」（deauth）。如果我再选择捕获握手，它一开始会尝试连接这个网络，实际上却会把那台手机或设备打下线；对方一重连，就会产生所谓的四次握手。你可以把这个握手文件存在手机或其他设备上，带回家再去破解密码。到这一步，你不必再待在那个无线网络附近。只要拿到网络掉线、设备重连时捕获的那次四次握手就行。我可以用密码字典，也就是一个装满各种单词和文本的巨大文件，也许有20GB。假设你的密码是 Password123 再加一个感叹号，规则集可能会把首字母大写、末尾加数字和符号，并把所有符号都试一遍，于是那个20GB的文件变成200GB，甚至TB级。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>也就是把每一种密码都试一遍。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对，针对那份握手去试每一种密码。这时你不必再连上无线网络、输入密码、再断开。你大概可以每秒试两万次，破解密码的机会就大得多。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>那怎样才能阻止这种事发生？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>使用WPA3，这是较新的无线网络安全技术。但几乎所有路由器都处于一种「过渡模式」，会降级到WPA2，从而使这种攻击仍然可行。所以眼下能做的并不多。我现在把手机开到飞行模式，然后按一下上面的播放。你看你的iPad：iCloud传送、电话号码都弹出来了。对某些设备，这会直接让手机崩溃。可我们现在明明在飞行模式，按理不该再发送任何东西。这里每一个人都在收到这些通知。飞行模式开、关都一样。你再按那个播放，我的设备、你的设备，所有东西都会立刻弹出这些窗口，手机会基本上没法用。我可以从旁边走过，专门弹出这些东西，让你没法使用设备。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>它是怎么做到的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>它在广播，假装这些是正在靠近你的iPad或手机的苹果设备，并试图完成设置，而且发送频率非常高，于是设备就一个接一个地弹窗。有意思的是，苹果把手机开到飞行模式，并不会关掉蓝牙。你真正要做的，是进入设置，从设置里把蓝牙关掉。那样才能阻止别人用蓝牙连上你的手机。这是一种无害但烦人的攻击，我能预见的唯一伤害，是你正要打电话或做事时被通知淹没，什么都做不成。如果你想停掉它，关掉蓝牙就行。就是这个小小的「饼干」造成的。它还能做更多，我只是先给你两个例子。</p>
+<p>趁我们还站在这里，我再快速给你看「饼干」的强制门户。我把它命名为 Flight Story，然后发起免费网络攻击。我现在正在广播一个叫「Flight Story Free」的网络，你看得到。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>所以你刚刚造出了这个无线网络，看起来是开放、可以连接的。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>对。那我连上去。</p>
+<p>看不见画面的人要知道：我一点击这个无线网络，就弹出了谷歌登录页。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>而在我这边，它立刻弹出来，给了我你的 Stephen at AOL，密码是 test。然后我把攻击停掉，那个网络就像从未存在过。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>这是一种相当危险的攻击。你知道它为什么危险吗？因为它太简单了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>确实太简单了。</p>
+<p>我年轻的时候，做这件事还要更困难一点。现在你可以买到这样的设备，而且桌上几乎每一台都能做完全相同的攻击。我决定用「饼干」给你看，但几乎每台都行。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>正因为这一点。我们都会在世界各地连接各种无线网络。而你刚刚演示了，在公共场所连上一个网络，就可能把我的密码、邮箱或其他东西收走。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>收走的会非常多。想想你的酒店房间：你进门后它问你房号，再让你提供信用卡号码来验证，或为上网付费。仅凭强制门户，开放的无线网络就能从人身上拿到太多东西。还没算技术细节，一旦你和别人进入同一网络，事情就会变得危险。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s7">
+<div class="body-sec-head"><h3>智能灯泡和默认密码：陌生人如何看见你家</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>你那儿有只灯泡，我还有台灯。你为什么要带一只灯泡？你知道欧洲那些超市最近被黑的事吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>不知道。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>损失达数百万美元，食物也变质了，因为他们的冰箱是直接面向互联网的。这是很多人在物联网设备、也就是智能家居设备上会碰到的问题。你听说那三家血库了吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>在法国，有三家血库被黑，我记得是血浆。那些存放血浆的冰箱暴露在互联网上，温度被改到230华氏度。我不太确定换成摄氏是多少，反正非常热，我想大约是122摄氏度。所幸根据我读到的，他们发现得足够快，血浆被保住了。可你要想想，那是救命用的血，得是什么样的人，才下得了这种手。你从中什么也得不到。黑客圈子里也有一些完全没有心的人。很多人没有意识到，也许就是这样一台摄像头，或你在亚马逊上买的廉价产品，哪怕是贵的，也可能把自己暴露到网上，让别人看见，而且常常用的是默认凭据。比如这台设备，它的一种攻击是进入网络，寻找所有已连接的装置，然后对它们尝试全部默认密码，再加上一些已经写进去的基本攻击。其中很多最后会是摄像头，它会给你一个网址，你就能在手机上看那场直播。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>等一下。也就是说，假如我门口有门铃，或屋里有摄像头，它就能黑进去，然后你能在手机上看？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对，完全可以。而且如果它面向互联网，你还能在远程看，不必在现场。能这么做的设备非常多，也有网站会把这类信息索引起来。那些网站我不愿点名，因为我不想让人去窥探别人的房子。但它们就在明网上，你只要输入一个城市或州的名字，就能看到大量对着外面敞开的摄像头。人们完全不知道自己正被陌生人看着。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>很多人会担心自己设备上的摄像头被黑，不少人连笔记本电脑的摄像头都会遮住。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>遮住笔记本摄像头是聪明的。我可以给你看看攻击者那一侧是什么样子：我可以看你的网络摄像头，听你的麦克风，看到你在电脑上敲下的每一个键，包括退格、拼错、空格。我可以读完整的文件系统，也可以让文件看起来进了回收站、被你删掉了，实际上还在。只要对方机器上有木马或病毒，可能性几乎是无限的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>把木马弄到别人机器上有多容易？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>取决于场景。有人下载的软件会和木马绑在一起，这种情况会发生。也有零日漏洞，就像我们刚才说的，一部iPhone或安卓可能会收到一条短信，或一条Signal消息。最近就有一个新漏洞：你在Signal里打开一份PDF，手机就会被完全攻破，拿到最高权限。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>也就是说，有人只需发给你一份PDF，你打开，手机就完全被黑了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对。我刚说的那个新团体刚刚演示了这一点。这是所谓的「一次点击」，只要点一下，漏洞就会生效，并能完全进入iPhone。非常吓人。我自己也用Signal，所以眼下我对打开PDF是有点害怕的。这些事让我很震惊，不过我是个极客，感受可能不太一样。再说这只灯泡。关于家里面向互联网的设备，我最想建议你的就是：不要信任它们中的任何一台。我这样说，不是因为我是戴锡箔帽的阴谋论者。我查过这些设备如何与互联网通信，它们几乎都在和中国通信。它们在中国生产，通常是在和中国的云服务器通信。当你说「我想让这只灯泡变红」，多数情况下并不是从你的手机直接到灯泡再变红，而是从你的手机到中国，再从中国到你的路由器，从路由器到灯泡，然后再回来。这样一来，假如中国决定敌视我们，想接管这些设备，他们就可以推送恶意的固件或软件更新。而这些设备已经在你家的网络里。你可以想象，一只表面上工作完全正常的智能设备，一旦被换上恶意固件，在某些情形下就能作为跳板进入你的电脑、手机或摄像头，获得你从未打算给出去的更多权限。</p>
+<p>这个问题的解决办法其实非常简单：如果你家里有懂技术的人，或有这样的朋友，或愿意雇一个人，就请他们做一个虚拟局域网，也就是VLAN。它把一部分设备放在网络的一个分段上，把重要设备放在另一个分段。这样无论是有人像我接下来演示的那样去攻击这只灯泡，还是某家公司，或有人攻击了在中国的那家公司，这些设备被黑之后也会被困在网络上的沙箱里。这就是我自己家里实际在做的事。</p>
+<p>比方说，我跟你说我要去洗手间，站起来走出去，包里带着这个，而我已经在你家。我很有可能把这只灯泡拧进你浴室的某个灯座。大多数人浴室里至少有这样一只灯泡。我就会像现在这样，把原来的灯泡取下来，换上一只从亚马逊买来的、可以用同样方式被攻击的灯泡。现在灯泡已经在里面了。我连上去，连的是一个叫 nightlight 的网络。这只灯泡自己在发出一个无线网络名称。然后我访问这只灯泡的IP地址，界面是「黑客的夜灯」。一点刷新，你看，这栋楼里的网络都在这里。</p>
+<p>从这里我可以发起攻击、拒绝服务、抓握手。我也可以监听未加密的通信。所以即便没有无线密码，假如你办公室或家里用的是老旧或廉价的摄像头系统，我也能用这只灯泡去监视那些未加密的流量，直接看到摄像头画面，而完全不需要你的无线密码。只因为这只灯泡在这个网络上。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>也就是说，理论上你用一只灯泡就能黑进我的摄像头系统，看着我。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对。还有一种情况是用这只灯泡作为跳板进入你的网络。再说回颜色：假如这不是你浴室原来的颜色，我可能会把亮度和冷暖调到接近，也许调成你浴室原来的那种颜色，然后离开。我布置好的攻击载荷会继续运行。之后我不必再进去把这只灯泡取回来，只要站在房子外面，连上它的网络，取走我想要的数据就行。你永远不会知道那只灯泡是恶意的。但同时也要记住，那家公司出售时并没有赋予它这种能力，是这只灯泡被黑了，方式和另一只灯泡被黑是一样的。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Bon Charge]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Lovable]</span></div>
+</section>
+<section class="body-sec" id="sec-s8">
+<div class="body-sec-head"><h3>办公室里的暗桩、能解锁200万辆车的警报，以及无人机和Flock</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>很多全球最大的公司会花很多时间清扫办公室，就是怕有员工、清洁工或其他人在里面放置这类装置。我听说上个月OpenAI发现，办公室里被一名团队成员放置了一些设备。</p>
+<p>而且他们相信此人与外国对手有关。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>是的，对此我并不惊讶。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>你看到那则报道了吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>我没看到那则报道，但我能理解，而且这类事可以做得相当巧妙。这些并不是薄荷糖。这是一个能让摄像头、Ring门铃掉线的装置。我很多年前做的，到今天还能用。它是一个无线断联器，一插上电就会出现一个界面，我按一下就能把这些设备打下线。我不想在这里演示，因为它也可能把你的团队打下线。如果我不告诉你，我想你不会知道这是什么。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>我刚才还在想你为什么要带薄荷糖。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>就是这样，这类东西可以做得很好。再给你看这个智能插头。它没有什么特别的，这两样都不是专用的黑客设备，只是你会在亚马逊上买、以为安全的智能家居产品。这些设备可以被改装、被黑，并以你不曾打算的方式进入你的网络。我想给正在看的人一个真实例子，而不只是口头说说。这是一个智能插头，我只是把它插到插座上，它甚至不会亮灯。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>所以你把一个看起来很普通的插头插进插座，然后你手机上就出现了一个无线网络。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>正是如此。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>那个无线网络能做什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>在这个例子里，它会检查你网络上那些设备的行为：摄像头、报警系统、手机、音频设备，几乎所有东西。你能从这些MAC地址识别它们。这些MAC地址有一个被分配好的前缀，有点像域名，数据库会告诉你它属于哪家公司。这台设备能做那只灯泡能做的所有无线攻击，但它的重点是无线侦察，判断网络行为，并窃取密码，这些它都能做。我想说的核心是：对你买的东西要非常小心，贵的便宜的都一样。越便宜，我觉得风险可能越大。但我不认为你应该把它们放在主网络上，应该给这类设备单独做一个网络。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>听起来你是在说，几乎所有连上互联网的东西都能被黑。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>我完全同意。这辈子我几乎没见过什么是没被黑过的。我从很小就一直在电脑上，所有东西至少在某个时点都被攻击过。这个你应该知道。你熟悉那个拼作K-A-R的车载警报系统吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>不熟。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>在我看来这是个很疯狂的情况。K-A-R是一套会装进车里的大型警报系统。你去经销商买车时，会被推销这套警报套餐。很多人在金融环节会说：我不想要，没关系。但经销商往往已经把东西装进车里了。于是你把车开走，什么都没想。过了几年，研究人员发现了这个控制应用的攻击。即便你从未安装过它，甚至不知道它在自己车上，也没有为之付费，只要它存在于车里，攻击者就能完全控制：解锁你的车，让车无法移动，更改各种诊断信息，按喇叭，打开后备箱，几乎所有事情，完全控制你的车。而这家公司犯了一个大错：在一个旧应用里，把主密钥以近乎明文的方式就那样留在了应用中，藏着，但能被找到。美国大约有220万辆车受影响，这是大概的数字，实际可能更多。我只要打开这台设备，寻找受这一漏洞影响的车辆，如果我想让它们无法移动，按下那个锁死键，车就再也开不走了，除非有人去做反向操作。因为这些装置走的是蓝牙而不是互联网，唯一的补丁是：你得知道自己的车配备了这套警报。你可以到应用商店下载他们的应用，看你的车在不在其中，或在前挡风玻璃上找他们的标志，然后把固件升级到最新。这样才能去掉攻击者锁车、开门、关门的可能。我特别想提这件事，因为它关系到数百万人，而大多数人根本不知道。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>我在洛杉矶的一个好朋友，其实也上过这档节目，几个月前大概凌晨两点给我发了一段视频。他的路虎揽胜（Range Rover）停在家门外，有人把车开到旁边，拿着笔记本坐了大约三四分钟，然后你就看见揽胜自己启动了。那人下车走过马路，坐进揽胜把车开走了。</p>
+<p>车至今没找回。而且我听说这类事相当常见，尤其是揽胜。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>那要看是哪一种车。我不是职业偷车人，但我知道，很大概率存在某种连到服务器的远程启动功能；也可能和经销商有关，攻击者拿到了某个经销商员工的凭证；也可能是车辆自身的漏洞。我不能确定。但攻击一辆车的方法非常多，我也在新闻和社交媒体上展示过一些。眼下比较流行的一种，最初是一些俄罗斯人在出售定制固件，能够偷走钥匙遥控器。无论你按的是锁、解锁、紧急还是后备箱，按哪个键都无所谓，只需按一下，就能克隆那个遥控器，并与滚动码系统对齐，而那正是难的部分。年纪大一些的观众会记得，以前车库门后面是拨码开关，那是静态码，数字永远不变，你拿到一次，就永远能用同一个数打开。滚动码系统则是每次按键数字都会变，锁这一端知道下一个数会是什么。而这种针对汽车的攻击，能与钥匙遥控器对齐，并把遥控器完整克隆下来。</p>
+<p>再看这台设备，它可以黑无人机，能从执法人员的执法记录仪、车上的灯条或电台识别他们，告诉你警察在哪里、距离你有多远。它能让摄像头失效，能做大量无线和蓝牙攻击。但我觉得它最厉害的一点是：假如你有一台大疆（DJI）这类非常流行的无人机，我可以让这台设备把它断电，取走它原来连接的无线密码，关掉避障，控制它能飞离操控者多远，而他们毫无察觉。当然，你也可以迫使无人机坠毁。你还能找到操控者的个人信息，因为所有无人机在大约2022年之后——这一点请再核实——被要求开启远程识别。远程识别会显示无人机在空中的位置、GPS坐标，以及你拿着遥控器站在哪里。美国还要求注册无人机。于是你就能用序列号识别天上是谁的无人机、他们站在哪里，再拿序列号去查牌照、查到姓名。所以飞无人机不仅在攻击一侧很危险，在隐私一侧也很危险。如果你的计划是在我家上空飞一架无人机，还想保持隐身，我对你的了解会比你以为的更多。</p>
+<p>再给你看一个很厉害的功能，就是这上面的Flock检测，好用得不可思议。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>什么是Flock检测？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>你熟悉Flock摄像头吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>不熟。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>Flock是一家私营公司，在美国很多人对此非常不满。它在公共场所设置朝向街道的摄像头，拍摄车牌并传输各种数据。英国的观众肯定更习惯这类公共摄像头，但美国原本没有这一套。于是这家私营公司有了这些摄像头，而执法部门向私营公司购买数据，从而绕开宪法，去定位人们在哪里。这台设备能识别它们在哪里，并把位置缩到相当精确。有人用钢锯去砍、去拆，甚至用东西去打，搞得相当激烈。我并不鼓励任何这类行为，但大规模监视眼下是一个非常大的话题。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s9">
+<div class="body-sec-head"><h3>电磁脉冲、广告ID、内藏电脑的充电线，以及几秒钟复制的酒店房卡</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>我听你说过一句相当让人发冷的话：你觉得中国在寻找进入美国技术的隐秘途径，这让你对谁在听你的电话变得很敏感。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>是的。中国非常强大。相比他们听我的电话，我现在更担心的是他们朝我们送来电磁脉冲。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>什么是电磁脉冲？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>电磁脉冲会让我们所有技术、所有电子设备失效。那会是一次严重的挑衅。假如他们选择这条路而不是送一枚核弹过来，我们可能失去互联网，也就意味着失去银行账户、移动通信，失去一切。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>大概也包括交通控制。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对，一切，换句话说，任何里面有芯片的东西。这正好让我想到另一件事。你熟悉Meshtastic吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>不熟。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>我并不是末日预备者或阴谋论者，虽然听起来可能有点像。但有这类设备就很好。你可以去了解一下，它本质上有点像对讲机：对讲机是按下按钮、对方回答；它则是发短信，你用手机连上去。有的外形像旧时的黑莓，能打字，屏幕上能看到社区里的对话。就在我们现在录音的这地方，当地所有使用它的人——比你以为的要多——他们彼此的公开对话我们都能看见。若电网、移动网络全都倒下，你仍可以使用Meshtastic。它是开源的，免费，不是哪家公司在靠它赚钱，也不是营利公司。如果我现在想给你发一条私信，它是完全端到端加密的，政府读不了，删除后也无法恢复。我用这台设备发到你那边，就算你在75英里外，这根天线本身到不了75英里，但你我之间的那些设备会把它弹出去。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>像一个网络。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对，像一张网，这就是Meshtastic。但那些帮我把加密消息传给你的人，如果他们去看，只能看见有一条消息经过了他们的设备，看不见消息里是什么。用的人越多，网络就越好、越强。所以在电网停电、移动网络中断、需要一种通信方式的时候，这类设备值得拥有。如果你还要更保险、更小心，就放进法拉第袋。我看现场好像有一个。它的作用，是阻止信号进去或出来。设备放进去再折起来，无论这个袋子具体怎么用，信号进不来，设备的信号也出不去。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>它是什么材料做的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>我不知道确切材料，猜想是某种铝，因为铝是有效的。严格来说，锡箔纸也能用。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>人们也会这样对待自己的手机吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>会。我和某些联邦机构谈话时，会把自己的手机和他们的手机都放进法拉第袋。这几乎是一种不必再说的要求。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>为什么要这样做？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>这部分我不能多谈。除了那个显而易见的原因：有人可能定位到这些设备在哪里，也就是谁和谁在一起。与其说是听对话，不如说是位置数据。</p>
+<p>这正好让我想到另一件想告诉你的事：移动广告标识。你听说过MAID或广告ID吗？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>没有。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>移动广告标识做的是这样的事。你有没有看到，打开一个应用时它会问：是否允许此应用跟踪？你一点同意，就是在对外广播这个广告标识。各种东西会读取它，而这个标识会说明这部手机当时在哪里，然后被卖给数据经纪商。经纪商再把信息卖给第三方，某些情况下包括执法部门，甚至公众。于是有映射软件能说：史蒂文每周这一天、这个时间会去这家店，这些是根据你的移动广告标识画出的热点。这是另一种监视人的方式，并不使用政府技术，它是公开的、私营的，而且他们在为这些数据付钱。应对办法是在所有应用里关掉跟踪，这样你就不用那么担心，但仍有可能。</p>
+<p>还有一件设备我还没给你看，就是那根恶意充电线。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>在这里。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>这看起来是一根普通的iPhone线。我在上面做了橙色标记，免得和我真正的充电器混在一起。它一插进你的手机，就能以每秒300个字符的速度自动敲击。我演示的时候你会看到有多快。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>自动敲击是什么意思？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>意思是，如果我想输入hello再按回车，或回到主屏幕，或在手机里跳来跳去，我可以用这根线去模拟一块键盘。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>那如果我用了这根充电器，可能造成的负面影响是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>如果你的设备是解锁的，而我又能用上它——它带地理围栏，所以如果你在某个特定区域，或发生了某件事，载荷可能会在插着的时候自动触发。假如目标是导出你手机里的全部联系人，它可以在iPhone上创建一个快捷指令，导出全部联系人，发到某个服务器或邮箱或某个地方，再把自己从设备上彻底移除，然后它就只是一根普通充电器，你永远不会知道它曾经存在过。我演示一下，让你有个概念。有意思的是，这根充电器里面有一台微型计算机。它看起来像普通充电器，但里面有一台电脑。你看，它创建了一个叫om.g的网络。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>看到了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>这是我的手机，那是「受害者」的手机。这根线并没有插到别的电源上，但它在从这部手机取电，发出一个我能用自己手机连上的网络。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>即使没有插电。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对，即使没有插电，因为手机给了里面那台微型计算机足够的电。我连上这根线，做一件非恶意的事。你看，线插着，它在运行，你正在用手机，然后它打出了「zero day was here. Thanks for watching DAC」。所以只要这根线插着，你基本上就能黑掉对方的手机。</p>
+<p>基本上是的。只要对方手机是解锁的，或者你可以把载荷设定成在他们走出某个范围、或进入某个区域时自动触发，也就是地理围栏。这个例子里我只是让你看它打字有多快。我再运行一次，你看那个速度。每秒300个字符。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>而风险在于，它还可以访问其他东西、下载其他东西，再把它们发出去，比如黑掉她的照片，发给别人。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>最容易的做法就是创建一个快捷指令，然后说：下载全部照片，按下「允许访问所有照片」，发到服务器，发到邮箱，用短信发出去，随你想怎样，而不一定要在手机上安装病毒。这根线也能当键盘记录器。假如你的键盘是USB-C转USB-A，而不是C对C，我可以把这样一根线接在中间，捕获那块键盘上敲下的按键。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>我在想，你能够接触到、也能够展示的这些，是一个层次；而中央情报局和政府，大概会有另一层次的装备和软件。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>嗯。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>这样概括很好：有些事情值得讲出来，因为人们知道这些攻击存在之后，就有办法去管理风险；有些事情最好不说，因为你会发现有坏人在用这些方法。</p>
+<p>所以有些事你不能谈。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对。有些不仅是我不能谈，而且谈也不聪明，因为你不想让攻击者变得更聪明。还有最后一件设备。我带了一些酒店房卡。这里一张，这里还有一张。然后这个叫Chameleon Ultra，只是一个射频识别和近场通信的读写器，也就是门禁卡那一类，比如小区泳池或这栋楼的门禁。它能读那张卡，复制它，或在这台设备上模拟，或写到另一张卡上，于是那张卡可以让我进入大楼，系统会以为我是史蒂文·巴特利特。你还有一个射频屏蔽物，是个道具。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>有一个钱包。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对，我稍后会说明它为什么重要。我们再拿出几张信用卡。隔着钱包我也能做，不过现在先拿出来。我连上钥匙串上的这台设备，走蓝牙。它提示把卡贴上去。这是我做的一个小程序，只为给你演示，并没有公开出去。它会告诉你是哪一类卡。比如这张，它显示是我最常见的那种。这是一张Visa，这是另一家酒店，这是昨晚另一家酒店的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>所以你刚才只是把这些凭证存进了自己的笔记本。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>基本上是这样。有些需要所谓的破解，但用合适的电脑，可以很快做完。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>也就是说，如果你从我身边走过，碰一下我的酒店房卡，理论上你就能进我的酒店房间。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对，完全可以，尤其是酒店房卡。再比如隔着钱包，我这样晃一下，就能读到里面的万事达卡。更好的例子是：我在背包里放一个大天线，整个背包绕上铜线圈，然后走在拥挤的地铁或火车里，去抓那些更容易被克隆和复制的门禁卡。信用卡那件事更多是一个很酷的功能，而不是真能复制后直接挥卡支付。真正更危险的，是酒店房卡和门禁卡。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>因为那样人就能进你家。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对，进你家或办公室，而且看起来就像是你本人在尝试进入。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>你是说我手里这个东西能起到帮助。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>它本应阻止这种可能。你把它给我，我把刚才能读到的信用卡放进去。噢，它并没有在屏蔽。这不是有效的射频屏蔽。不知为什么没挡住。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>也许它根本不是真的射频屏蔽钱包。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对，可能只是假的，或类似的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>那我们就当它是假的。但道理还在：你确实可以买到能阻止这种事的射频屏蔽钱包。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对，大多数是真能用的。这个牌子我不推荐，不管它是什么。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>我也不知道这是什么牌子，但我不推荐。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：Progressive]</span></div>
+<div class="marker-line"><span class="tag">[已省略广告：Wayfair]</span></div>
+</section>
+<section class="body-sec" id="sec-s10">
+<div class="body-sec-head"><h3>普通人能做的便宜防护：VPN、杀毒、硬件密钥</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>回到个人安全。对正在听的人来说，瑞恩，线上和线下安全最基础、也最简单便宜的做法是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>简单便宜的做法，首先是使用虚拟专用网络，也就是VPN，它能对互联网掩盖你的IP地址，阻止你的互联网服务商追踪你在做什么并把数据卖掉，也能减少某些网站根据IP把你的浏览行为串在一起。在公共网络或共享网络上，它还会多加一层隐私。电脑上我建议安装某种杀毒软件，如果还没有的话，即便你用的是Mac。Mac仍然有办法被远程访问，或被装上恶意软件。我知道有人说Mac无法被黑，并非如此，它只是攻击面和Windows不同。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>你还做了哪些一般人不会做的事？你用的是普通手机吗？有没有开锁定模式？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>有。我的手机开着高级数据保护模式，也就是ADP。我所有的社交媒体档案也处于锁定模式，需要自拍，也需要实体硬件密钥。你熟悉YubiKey吗？任何允许使用它的地方，我都会用YubiKey。家里有大量监控和安防，还有一些我不愿细讲的专有手段，但对识别突然出现在家门口的新面孔非常有用。说得简单一点，我经营一家安全公司，自己必须保护好。敲敲木头，我们的平台至今没有被黑过。过去四年我稍微公开之后，最糟的是有人把我和我爱的人「人肉」曝光。这件事我控制不了。我可以从公开的数据经纪商那里删掉我的数据，但删不掉泄露，你没法把数据从黑客的硬盘上拿走。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s11">
+<div class="body-sec-head"><h3>764：针对弱势儿童的虚无主义极端团体</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>跟我说说这个。你说有些让人不舒服的事想跟我谈。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对，这又得用到我的笔记本。是764，以及它的分支，这一点很重要，因为764是这个组织原来的名字。现在仍有人说自己是764的成员，也有人在用我不愿点名的分支名称。我不会说出任何团体名或用户名。我觉得在开始展示这些人有多令人作呕之前，必须先说清楚：我们不会提他们的名字，因为那正是他们想要的。他们会看这期视频，无论我们把他们说得多糟，他们要的就是恶名和 cred。他们的全部目的，是诱骗一个弱势儿童不仅交出自己的裸照——这本身已经很可怕——还要让这个孩子伤害自己的身体、杀死自己的宠物、去杀人，或做任何事，好让那张照片不被发给家人、朋友或学校。他们正让这些孩子对自己做最可怕的事，包括自杀。已经有多起与这些团体和分支相关的自杀，这件事几乎成了我近两年来注意力的中心。联邦调查局方面，我想大约58个外勤办事处都已动员，目前公开信息里有500多个目标正在调查。我想展示一下这个过程是怎样发生的，以及它怎样落到别人的孩子身上。这是真事。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>天哪。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>会很难看。我先做个说明：我不是为了博点击才讲这些。我告诉你，是因为这些东西看起来、读起来、看下去都非常难受。但请记住，儿童每天都在接触这些，有些孩子甚至一整天都暴露其中，他们看到的比这更糟。我不会展示任何会影响正在进行的调查、或属于不公开材料的东西，这些内容在外面已经存在，不会有联邦机构因此打电话来要。但请记住，孩子们正在看到我接下来要展示的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>我正在看联邦调查局的网站。这篇文章警告说，有一个虚无主义的暴力极端组织，在网上针对儿童和弱势人群。</p>
+<p>叫764。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对。这是一个严重的问题，不是只在某个地区偶然发生的事。它不仅出现在Roblox、Minecraft或其他某个平台上，而是出现在所有平台上。我先从诱饵阶段讲起，他们从哪里把孩子诱过来：可能是电子游戏，也可能是聊天网站。很多时候，他们寻找的已经是弱势的孩子，有心理健康问题，在学校被霸凌，有自杀念头。他们会发出广告，说来加入他们的「门诊健康中心」，或加入心理健康支持小组。我给你看一些例子。这一条写着：如果你属于以下情况，就来加入——有精神疾病、没有父亲、有恋父问题、精神分裂、边缘型人格，或是女性。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>这些广告是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>是在不同平台上、由764及其分支成员发布的广告，用来引诱有心理健康问题的儿童加入他们。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>所以他们是在拉你加入764。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>此刻还不是。他们是在利用这个孩子已经有心理健康问题这一点，试着把人养成自己的男朋友或女朋友，直到对方交出裸照。裸照一经交出，他们就会试图让对方伤害自己、自残，或做比这更多的事，去伤害别人，或伤害宠物。这里面的内容非常多，今天我只给你看一些表层的东西，但已经非常令人不安。这些只是我整理的诱饵图片，很多事情就是从这里开始的。它可能来自动漫群组，也可能来自某个黑金属、血腥内容的网站。有一个具体的孩子就是从那里来的，她喜欢血腥的东西，只是一个有点「叛逆」的少年，有点像我当年，虽然我当时喜欢的是摇滚一类不同的东西。我完全能想象自己加入一个团体，却不知道这些人并不是来帮我的，而是想诱拐我，甚至真的让我去死。</p>
+<p>接下来就是诱拐阶段。他们有真正的书，这些只是书里的截图。如果大声读出来……</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>这是谁在说，又是说给谁听？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>是团体成员在分享这些文件，也就是多本数百页的手册，教人如何敲诈和诱拐受害者。这是他们经常做的事，他们把整个生命都用来伤害别人。这很难想象，但你看完这些就会相信。手册里写：诱拐是非常常用、也很容易取得控制的方法。通常一旦你诱拐了受害者，她就会照你说的做，无论你要求什么。你必须让受害者以为你是她的神，你占有她，而且永远如此。你可以在Roblox这类游戏上，或在X（前Twitter）、Reddit、Instagram这类社交平台上找到受害者。找到之后，你必须在她身上花大量时间，让她觉得你能理解很多事，和她一起玩游戏。交谈一小段时间后，给她起可爱的昵称，比如公主、亲爱的、宝贝，这会让她更依恋你，因为女性喜欢被这样称呼。聊了一阵之后，你要请她做你的女朋友，她多半会答应。一旦她在你的控制下，你就可以开始向她要东西，比如裸照、个人信息。如果她本来没有自残，你就必须敲诈她；如果她已经在自残，几乎可以肯定，她会为了你那些肮脏的需求去割自己。这是关于诱拐的部分。</p>
+<p>这个文件夹里还有很多类似的截图，专门是诱拐，以及他们彼此怎么说话。有一份指南指示成员把受害者养成给764生产内容的人，并建议特别针对弱势对象，比如有抑郁或精神疾病的人。你可以看到墙上用血写满了这些人的用户名，还有撒旦式的字迹。他们究竟是不是真正的撒旦崇拜者很难说，但他们喜欢那种「叛逆」的风格，会让人做倒十字、五角星，那就是他们的风格。这里有一个人在开始敲诈之前说：我真的很抱歉，我非常爱你，你是世界上最美丽、最可爱、最甜、最讨人喜欢的女孩，唯一的问题是你不是我的女孩，而我想让你是。我知道自己有时有点「要求多」，我很抱歉，我会改。他一路说下去，让女孩觉得安心，觉得他想和自己在一起。可那并不是他们的目标。他们的目标是进入下一阶段。我直接讲敲诈。这出自同一本数百页的色情敲诈手册，只是其中一页截图。上面写：要开始敲诈，你必须先会诱拐。没有诱拐，你拿不到任何信息或裸照；一旦诱拐成功，你几乎就控制了她。要正确地敲诈一个女性，你必须掌握以下个人信息：地址、姓名、电话号码和裸照。有了这些，你就可以开始威胁她，比如把裸照发给她的父母，对她「诈警」，泄露个人信息。如果她不照做，例如做血字、割字、杀死她家的猫、自杀。如果你一切都做对了，最后就该得到你想要的。记住，永远不要说「有内容就行」，因为没人想看只划破表皮的痕迹。他们要的是带用户名和团体名的、留下深疤的伤口，而对象有时是八岁、九岁、十岁、十一岁的儿童。有几段我必须给你看，当然你也可以选择不看，但这很重要。这些女孩里，除了最近的一个，并不是都在真正伤害自己。这个女孩被逼着剪掉头发，听起来好像没有那么残忍，但配上他们接下来会说的计划，请大家做好准备。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>画面里有人说：该死的剪刀。好了，把头发拿来，是时候剪了。这是真的吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>是真的。</p>
+<p>对方说：把马尾全部剪掉，现在就剪。女孩问：我能不能做点别的，比如粉丝标记？所谓粉丝标记，就是在身上某个地方割下用户名。他说：你有30秒。如果不在30秒内做，我们就把裸照发出去。</p>
+<p>我想要点已经清楚了，不必把这段视频看完。而这还只是第一步。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>所以他说这只是第一步。这段视频是怎么流到公开场合的？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>这些人会在论坛上分享。你可以在Telegram群组里，也可以在聊天应用Discord里。这一例就是在一个论坛上被分享的。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>所以你是从论坛上拿到的。我们有得到她的许可吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>它已经在其他地方公开存在了。当然我不想识别任何受害者，那与我的目标正好相反。这一例里，她在额头上涂了睫毛膏，和切割有关。我并不完全清楚中间发生了什么，但重要的是，对质进行到一半时，父亲介入了。你看这里发生了什么。对方后来当着父亲的面说：我顺便说一下，我27岁，我想让你女儿为我做一些事。父亲说要报警。对方辱骂他，还说自己刚看到她的胸部，她大概16岁，自己27岁，让她把衣服掀起来。父亲再说要报警。然后通话断了。可这个女孩在父亲刚刚亲眼看到这一切之后，仍然被允许继续和这些人聊天。情况已经非常清楚，她处在危险之中。在我看来，一个父亲本应比这更清醒。所以我才想把这一例特别展示出来。我不会给你看孩子们切割自己的视频。但有一个最近的、我觉得最血腥的例子：一个13岁的男孩，在看似浴室的地方上吊，结束了自己的生命，聊天室里的人看着他死去。这个13岁的孩子被说服，一旦把自己的裸照发出去，整个人生就完了，于是他在直播的观众面前自杀。根据我看到的证据和我的经验，那些人在他死去时还在笑。我还记得，第二次上完肖恩·瑞恩（Shawn Ryan）的节目之后，有一个女孩在停车场用电缆上吊，直播聊天里有人说，如果她裸着上吊会更「火」，后来她死了。我不知道该用什么词称呼他们。他们是邪恶的，是恶魔。还有人切割仓鼠的头，我想你不必看见也能明白。敲诈步骤、指南、被敲诈的女孩，都是同一类情况：割字，用血在墙上写字，有一句大概是「你的神现在在哪里」，在嘲讽上帝。而这些全都涉及未成年人。这些在他们嘴里，只是「猫抓」。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>我想我已经看够了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>这还不算什么。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>我知道。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>这些小孩子整天都在说这些、看这些。一旦被拉进这些团体，这就是他们被灌入的东西。他们还被强迫观看，同样的事如何发生在其他受害者身上。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>这些事发生在哪些平台上？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>所有平台。最初创建764的那个孩子，我记得是在Minecraft上找人，后来到了Roblox。他们的全部目标就是寻找弱势儿童，把他们带到某个平台，说服他们交出裸照，再利用这张牌。这和很多在尼日利亚等地的诈骗类似：那些人会假装成名人，聊到你交出裸照，照片一到手就要钱，通常未必真的把照片发出去，但会继续用恐惧敲诈。而在这里，他们不要钱。他们只想让你伤害自己，伤害别人，或伤害动物，或做出疯狂的事。还有另一面，是那些想加入这个团体的人，他们必须提交所谓的「犯罪证明」。</p>
+</div></div>
+</section>
+<section class="body-sec" id="sec-s12">
+<div class="body-sec-head"><h3>犯罪证明、家长该做什么，以及没有密码也能登录</h3><a class="back-sum" href="#summaries">↑ 返回总结</a></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>犯罪证明的意思是：看，这些是我的受害者；看，我在现实里伤害了某个人；看，我在纵火，或做了造成重大破坏的事，以证明你在他们眼中是一个够忠心、够想加入的人。有一个例子极其残忍，不过是两个成年人：一个人和另一个人在通话。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>天哪，我看不下去。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>这还不算什么。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>我看不了。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>视频的后半段，他把对方的喉咙整个切开，而且是在Discord上做的。那个团体成员正在观看，好让他加入其中一个组织，而他就这样杀了这个人。我手里还有多段类似的视频。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>这个人被找到了吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>有些被找到了，有些还没有，但有些仍然公开存在着，他们终将被抓住。这正是我全部的重心。我知道这很难看，可这就是有些人每天都在看的东西。这些孩子对此毫无控制权，他们觉得自己的人生已经结束了。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>这些团体有多大？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>里面有数千名成员。联邦调查局公开谈到的目标超过500个。若你因为某种原因加入其中一个团体，还进得去的话——就像我说的，某些私密频道需要犯罪证明才能进——在公开频道里你能看见成千上万的人。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>这个问题我绕了很久，觉得可能根本没有答案。我想问很多次：他们从中得到了什么？可看起来并没有答案。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>我真希望能告诉你。我真心希望能给你一个答案。可他们从中得不到任何东西，除了在团体内部的名声。不过当这些人被逮捕时——我在司法部网站上读到：全球暴力极端网络764的头目承认共谋罪。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>这是上个月的事。他们分析这些人时，有什么共同点？他们是有精神疾病吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>我想我们不必当医生也能看出来。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>那到底是什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>我觉得他们就是邪恶的。我的解释就是这样，否则你还能怎么称呼？一个能把无辜的孩子逼到伤害自己、伤害别人，只为在网上的朋友面前获得名声的人，你会给他什么诊断？</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>是的，邪恶似乎是唯一的词。我想正在看的家长，大概不只是家长，都会在想：我能做什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>这正是一个该问的好问题。我可以把这些合上了。我不想展示，正如你不想看，可我每天都在做这件事，我一半的人生花在这上面。看到一个人被逮捕当然很好，但家长问我最大的成就是什么时，我的回答是：最大的成就，是一开始就创造出预防。你可以逮捕一千个捕食者，逮捕一千个团体成员，却消灭不了他们的存在。如果你能让一个受害者从一开始就不要变成受害者，我相信你做的比逮捕更好。我当然支持尽可能地逮捕，但若能阻止一个孩子先成为受害者，在我看来就是胜利。所以当家长问能做什么时，有几件事。作为家长，你要选择什么对你的孩子最合适。我自己还不是家长，不能告诉你你的孩子会如何反应。但第一件事，如果他们还非常年幼，我会在他们的设备上安装监控软件。如果需要我可以点名，外面有做这件事的公司。Bark是一个很好的应用，我没有收他们赞助，只是喜欢这家公司。它不仅监测捕食行为，也监测霸凌，以及家长自己想设定的触发词，还有很多有用的功能。我很推荐用它来做监测。</p>
+<p>但我觉得最重要的，首先是你和孩子的关系。你和我年纪差不多。我们小的时候，如果我妈妈对我说「把手机给我」，我会说「好，拿去」，并不在乎。那对我不是什么大事，因为我在外面滑滑板、骑BMX，生活并不围着互联网转。即便我是个电脑极客，也能说自己一半甚至一半以上的人生并不围着电脑转。我和妈妈非常亲近，我觉得什么都可以告诉她，哪怕她不想听，包括毒品，包括我身边的女朋友，包括有人在犯罪。她总是会让我停下来，有时会哭，但我对她非常坦白，我很高兴如此，因为她知道，也总知道我在哪里：如果我消失了，或陷入糟糕的处境，哪怕她想把我从那里弄出来，无论情况怎样，她都知道该去哪里接我。回到原来那一点：如果她要拿走我的手机，我不会在乎，那不是大事。可现在的孩子，这些很小就被给予iPad和iPhone的孩子——我个人并不赞同这样做，但就算你还是给了——他们会极度害怕你拿走设备，因为那是他们与世界的连接，像是他们的附属肢体，像是要拿走一只手。你看一群孩子待在一起，通常都坐在那里刷社交媒体、点赞，整个相处时间都在用设备。如果你拿走他们的设备、游戏机或电脑，他们就不会再信任你，而下一次会用朋友的设备去做下一件坏事。所以我觉得非常重要的是，你和孩子有开放的关系，让他们知道世界上存在这些坏事，存在我刚才展示的那些团体，而且他们专门针对弱势儿童。他们也针对只是在游戏应用上玩的孩子，其中最大的儿童游戏就是Roblox。他们到处寻找孩子。不仅是这些邪教式团体的成员，还有真正的性侵捕食者。</p>
+<p>如果你看过我的任何节目，就会看到，我可以在几秒钟内找到一个正在寻找小男孩或小女孩的人。我刚刚做完一次行动，正式逮捕了30到31人，全都在寻找14岁以下的孩子，而且都在佛罗里达中部一个很小的县里。其中一人以前在迪士尼扮过米老鼠。他到那户人家时，带了大约100片尿布，想让爸爸和孩子都打扮成婴儿。所以他既有恋童，还有尿布癖。互联网可以非常危险。非常重要的是，你的孩子愿意告诉你正在发生的真相，而不是因为害怕报复或后果而隐瞒。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>还有什么是我们没谈到、却最应该谈的，瑞恩？还剩下什么吗？你刚才提到用YubiKey。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对，YubiKey。如果你想看，我可以给你看一个。基本上，你每按一次这个按钮，它就会生成一把独一无二的密钥。在苹果系统的后端，如果你深入安全设置，它会建议你若想要真正的设备安全，就去准备一个这样的东西。因为你需要这件实体设备，才能解锁相应的东西。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>它是指纹识别吗？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>这个不是指纹仪，是触控。你把它插进手机或电脑，用手指轻触，它就会生成那个数字，而且每次按下，数字都会变。它有时会和短信验证、密码一起用，于是你需要这三种认证才能进入。我觉得这是值得拥有的东西。另外还要知道，外面流出去的并不只有密码。你熟悉会话和Cookie吗？对不了解的人来说：电脑中毒，或某个数据库被泄露时，可能包含会话Cookie。普通人关掉浏览器、退出Facebook，再打开Chrome、点进Facebook，却发现自己仍保持登录，靠的就是Cookie，会话就是这样工作的。在数据泄露里，或某台电脑被感染时，这些会话也可能被一并带走。如果我用你已登录的会话替换我的会话，再刷新页面，某些情况下我就会以你的身份登录，完全不需要密码。这就绕过了YubiKey，绕过了双重验证，绕过了所有东西。有的平台可能会说，这看起来像一个不同的IP地址；但如果你因为已经有了那个会话，而机器上又有恶意软件，你现在就可以假扮成他们。如果来自数据泄露，你就要看这个网站是否真的能识别出来。用Pentester可以看到这些「窃取日志」是否存在。我不是想反复推销，但用它确实能看见。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>我已经获得了足够多的信息，有很多需要想的。未来也会和过去很不一样。随着人工智能的发展，我觉得我们刚才描述的很多事情都会被放大，也许会变得更容易。防御希望能在某种程度上跟上，但我就是觉得，隐私这个概念在各种形式上大概都会越来越像神话。人工智能的其他可能还包括深度伪造，比如模拟我的声音，打给我的家人，让他们去做某件事，这类事只会更糟。对观众来说，有没有一个总的、可以收束的态度？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>做好准备。也有一些平台和做法能让情况对你更有利。随着人工智能推进，我建议你和其他人一样，开始跟上这趟车：了解本地的人工智能模型，了解哪怕是第三方的工具，比如Claude Code、Grok、Codex。了解人们如何用它们开发应用，如何用它们加固自己的服务，如何用人工智能检查自己家里的漏洞。你不必是电脑天才，也不必先掌握所有术语，也能使用这类工具。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>另外还有一点，就是对收到的数字通信更怀疑。这也是我在努力做的。我收到一封邮件，哪怕是一条WhatsApp消息，第一反应都是先质疑它是不是真的，并尽量不要去点击。</p>
+<p>对。这种事一直在发生，也发生在我、我的商业伙伴和朋友身上。有时他们会通过短信钓鱼，有时通过邮件，比如：你能不能去银行跑一趟，或去买这些礼品卡寄给某个人。那是老派的钓鱼。新派的做法是，你可以发一条语音，或把我的视频通过WhatsApp发给我的同事。在老派钓鱼里，我旗下有一家公司就因为这个原因损失了20万美元。而在「CEO日记」早期，我们公司里也有团队成员，入职第一周收到一封以为是我写的邮件，离开办公室，到店里买了一张1000英镑的礼品卡，寄给了那个他们以为是我的人，钱就这样没了。</p>
+<p>所以这是一个必须更加警惕的时刻。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>是的，我同意。我们可以把钓鱼的基本检查再过一遍，但我希望大多数正在看的人已经知道：检查域名，确认它就是那个域名。如果写的是example.com，确认中间没有多出一个L或E。如果是一个名字，确认拼写正确。如果是电话号码，确认是正确的号码。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>还有，当你收到东西、不敢确定是不是真的时，截个图，丢进某个人工智能，问它。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对，这是个好主意，也可以这样做。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>这也是我告诉家人的做法：只要有任何怀疑，截图，放进ChatGPT或类似工具，问：这是真的吗？我该怎么办？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对。另外，不要误会我前面的话，我仍然喜爱人工智能。我觉得它极其令人惊叹。它是在已有数据的基础上发现新东西。我希望我的意思准确传达到了：我不是说人工智能没有能力。它正在找到数百个漏洞，是人类无法以接近的速度找到的，而且还会更多。它也在解决各种医学问题，做了很多事，但依据的是我们已有的数据。我不是说这不令人惊叹。我只是想让你知道，我们现在拥有的，和未来可能拥有的，并不是一回事，而后者会让人害怕。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>瑞恩，我们有一个结尾传统，上一任嘉宾会留下一个问题给下一位，并不知道会留给谁。留给你的问题是：对你来说，好的生活意味着什么？</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>对我来说，好的生活意味着有一个家，亲近上帝，取得成功，能够养活我的家人，并帮助我能帮助的尽可能多的人。</p>
+</div></div>
+<div class="turn spk-0 host" data-spk="steven"><div class="label"><span class="badge" title="史蒂文·巴特利特（Steven Bartlett）">史蒂文</span></div><div class="content">
+<p>阿门。我们到这里。谢谢你。</p>
+</div></div>
+<div class="turn spk-1 guest" data-spk="ryan"><div class="label"><span class="badge" title="瑞恩·蒙哥马利（Ryan &quot;0day&quot; Montgomery）">瑞恩</span></div><div class="content">
+<p>非常感谢。就是这些。非常感谢。</p>
+</div></div>
+<div class="marker-line"><span class="tag">[已省略广告：The Diary Of A CEO]</span></div>
+</section>
+</main><footer class="note">字幕整理稿 · 仅供阅读参考</footer>
+</div>
+<button id="top" type="button" title="回到顶部">↑</button>
+<script id="data" type="application/json">{"channel": "The Diary Of A CEO", "title": "猎捕捕食者的黑客：被黑之前先做这三件事｜瑞恩·「零日」·蒙哥马利（Ryan \"0day\" Montgomery）", "url": "https://www.youtube.com/watch?v=Uj81Qo15wBc", "videoId": "Uj81Qo15wBc", "published_at": "2026-11-26", "duration": 6312, "caption_source": "yt-dlp-auto", "guests": ["瑞恩·蒙哥马利（Ryan \"0day\" Montgomery）"], "intro": {"summary": "史蒂文·巴特利特采访伦理黑客瑞恩·「零日」·蒙哥马利。瑞恩用20分钟从主持人身上翻出旧邮箱、密码和童年住址，演示「饼干」、假免费网络、智能灯泡和内藏电脑的充电线，并花相当篇幅讲764如何诱拐和敲诈弱势儿童。他给出可操作的防护：冻结信用、VLAN、关掉飞行模式里关不掉的蓝牙、YubiKey，以及和孩子建立开放关系。", "points": ["他用执法专用工具OSI Pilot，20分钟内从史蒂文很久以前的个人邮箱和独特旧密码出发，做反向密码搜索，连出其他邮箱、电话、12年前的健身房、成长的房子，并用反向人脸识别找到照片。英国的《通用数据保护条例》挡不住他因访问美国而被两个州卖给数据经纪商的记录。即使像他母亲那样一辈子不用电脑，CVS或赌场泄露也会留下足迹。", "国家公共数据泄露涉及28亿条记录，美国约3亿人，他几乎可以肯定超过30岁的人住过的地址、电话和完整社保号都已在外。免费查询网站是npd.pentester.com，若在其中应冻结信用，以阻止他人用你的名义办卡、贷款或买车。", "「饼干」可做断联并捕获四次握手，带回家以每秒约两万次尝试破解；几乎所有路由器的过渡模式会降级到WPA2。苹果飞行模式关不掉蓝牙，必须在设置里关掉。假的「Flight Story Free」网络弹出谷歌登录后，立刻抓住邮箱和密码。智能灯泡多数先把指令送到中国云再回到家里，可用VLAN隔离；内藏电脑的O.MG充电线能以每秒300字符模拟键盘，并靠快捷指令偷出联系人和照片。", "拼作K-A-R的车载警报即使车主从未开通，也可能让约220万辆美国车辆被远程解锁或锁死，因为旧应用里留下了近乎明文的主密钥。大疆无人机可被断电、关掉避障并被取走无线密码；美国要求的远程识别和注册，使序列号可以追到操控者姓名。Flock是向执法部门出售街边车牌数据的私营公司。", "764是针对儿童的虚无主义暴力极端组织，已被视为国内恐怖组织，约58个联邦调查局外勤办事处动员，公开调查目标超过500个。他们用数百页手册教人诱拐和敲诈，不要钱，只要孩子伤害自己、他人或动物；加入某些频道还需要「犯罪证明」。与尼日利亚式要钱的色情敲诈不同。", "给家长的核心不是先没收设备，而是开放关系和预防：他推荐未赞助的监控应用Bark，并强调Roblox等游戏上也有针对普通孩子的捕食者。他自己在佛罗里达中部一个小县刚参与逮捕30到31人，对象都是14岁以下儿童。技术上，他建议VPN、即使是Mac也要杀毒、开高级数据保护、使用YubiKey；但也警告会话Cookie可在无密码的情况下绕过双重验证。"], "verdict": "值得看：这是一期约1小时45分钟的高密度访谈，既有当场演示的具体攻击路径和数字，也有764部分难得的、基于手册原文和公开案例的说明，对关心个人隐私、智能家居和儿童网络安全的人信息量很大。可跳过：若你只想听产品发布或轻松对谈，后半关于诱拐、自残和自杀的内容非常沉重，不适合所有情境，尤其不适合与年幼孩子一起收听。开场订阅号召，以及Bon Charge、Lovable、Progressive、Wayfair和片尾推荐视频，可直接略过。", "audience": "关心个人隐私、智能家居和设备安全的听众，以及需要了解儿童如何在游戏和社交平台上被诱拐、敲诈的家长。"}, "speakers": [{"id": "steven", "name": "史蒂文·巴特利特（Steven Bartlett）", "role": "host", "short": "史蒂文"}, {"id": "ryan", "name": "瑞恩·蒙哥马利（Ryan \"0day\" Montgomery）", "role": "guest", "short": "瑞恩"}], "sections": [{"id": "s1", "title": "冷开场：20分钟能挖出什么，以及名为764的组织", "start_sec": 0, "summary": "瑞恩·蒙哥马利（Ryan “0day” Montgomery）开门见山说，若声称你的手机完全安全，那是在说谎；人们也往往不知道自己正被陌生人看着。廉价的摄像头或亚马逊上买来的设备都不可轻信，因为几乎都能被黑。他用20分钟就从史蒂文·巴特利特（Steven Bartlett）身上翻出了数据泄露里的旧邮箱、12年前常去的健身房，以及一些旧密码。瑞恩说自己9岁就加入黑客论坛，几乎没见过什么黑不了的东西，现在则做儿童犯罪和反人口贩运相关工作。他带来几件设备作预告：「饼干」（the biscuit）可做无线网络和蓝牙攻击，也能让手机几乎没法用，演播室里的人当时就在收到通知；有的装置外表像薄荷糖，却能让摄像头和 Ring 门铃掉线；还有能黑无人机的设备，以及内藏微型计算机、外表不像普通充电线的线缆。他查过这些设备如何联网，几乎都和中国通信，他对此的担忧甚至超过有人窃听他的电话。被问及线上线下安全的最基本做法时，他说会从自己家里实际在做的事讲起。史蒂文随即问什么是764。瑞恩称其为虚无主义的撒旦崇拜团体，专门伤害他人：寻找在学校被霸凌、有自杀念头的孩子，手上有多本数百页的手册，教人如何敲诈和诱拐受害者，对象有时是八到十一岁的儿童，而且发生在各个平台上。他想让家长看见这会怎样落到别人孩子身上。展示例子时史蒂文几乎看不下去，瑞恩说「这还不算什么」。"}, {"id": "s2", "title": "20分钟里，从史蒂文身上翻出了什么", "start_sec": 147, "summary": "史蒂文提到，瑞恩曾对塔克·卡尔森（Tucker Carlson）说，只需几分钟就能用相对简单的手法找到对方的社保号、房契、驾照，甚至签名。他问：若再加几个同样厉害的朋友、给你一小时，普通听众会被挖出什么？瑞恩说很多，并当场展示他用20分钟在史蒂文身上找到的东西。工具叫 OSI Pilot（口播里一度作 Ocean Pilot），是他们做给执法部门用的，普通人没有账号。瑞恩从数据泄露里定位到史蒂文很久以前的个人邮箱，再靠一个非常独特的旧密码做反向密码搜索，带出生日和其他邮箱，进而连到账号和电话号码、12年前健身房的地图位置，并用内置的反向人脸识别找到不同来源的照片。史蒂文甚至已不记得那个密码。瑞恩强调这些都是公开信息，而且大部分是自动完成的：Pentester 作为他们的主公司，做了约40种工具，用来识别一个人并帮助清理数字足迹。这套系统通常还会拉出社保号、旧的 MySpace 主页，或某个被泄露网站上的私信；他这次特意只翻旧材料，并没有把更吓人的部分全部展示出来。自动结果里出现了史蒂文在英国长大的那栋房子，以及他出过的书——软件还称他为英国高知名度企业家，瑞恩说自己此前不知道有这本书。尽管史蒂文作为英国人受《通用数据保护条例》（GDPR）等隐私法保护，但他在美国停留过，就有两个州把他的信息卖给了数据经纪商；他们正在帮他删除这些数据。这套平台的另一面是帮执法部门在标识极少时找人，有时只有用户名或电话，甚至没有姓名，目标是凭最细的面包屑也要把人找到。非自动部分里，瑞恩还找到一份早已下架、但被归档的火车优惠卡请愿，上面有史蒂文的签名。他觉得奇怪的是，谷歌（Google）一边常说不能帮你找人做开源情报，却在人工智能摘要里推广正在收集史蒂文信息的数据经纪商网站。瑞恩还举了自己母亲的例子：她一辈子没用过电脑，但在 CVS 或沃尔格林（Walgreens）留过电话，年轻时去过的美高梅（MGM）赌场也被黑过，姓名、生日和地址因此进入泄露库，再经数据经纪商扩散，任何人都能找到住址。普通人往往误以为自己在网上是安全的。他通常会先讲捕食者如何藏匿、自己如何识别，再用同一套技术讲如何自保。反向人脸识别的风险是：一位父亲在孩子球赛背景里被拍到，自己都不知道网上有这张照片，却可能暴露孩子、配偶、学校和居住区域。"}, {"id": "s3", "title": "9岁学黑客，11岁摇头丸，以及拦住教室里的枪击", "start_sec": 569, "summary": "瑞恩的起点是9岁：祖父把电脑带回家，美国在线（AOL）当时在寄带14天试用的免费软盘，外形和他文身上的软盘、电脑面板上的图标对得上。他把盘放进去，看见AOL的三角形从纸盒里来到屏幕上，第一次意识到物质世界可以走进数字世界，从此停不下来，想弄清电脑里的一切，并过早地通过AOL即时通讯加入社区。他看见别人做各种攻击，觉得既危险又「酷」：屏幕上往下滚的文字、把人踢出聊天室的 booter 或 punter。要学这些，只能认识愿意教你漏洞的人。他后来说，如果那些导师知道自己在和一个小男孩说话，大概不会那么愿意交流。十二三岁时他看起来比同龄人更老，身上已有文身和穿孔。史蒂文提到他大约十一二岁就开始吃摇头丸，后来滚成海洛因成瘾。瑞恩说不是立刻到海洛因，摇头丸来自费城的锐舞，其中一场上过新闻、叫「上帝的地下室」（God's Basement），就在一座教堂的地下室，现场有氯胺酮和摇头丸，门卫让他这个年纪极小的孩子进了门。大约15岁「最糟」的时候，除了海洛因，还有苯二氮䓬和兴奋剂；他说有一位精神科医生同时开了这些处方药（非法的当然除外）：每天三片Xanax，相当于6毫克，七十多毫克的Vyvanse，下午失效后再加30毫克阿迪罗（Adderall），中间还换成过利他林（Ritalin），具体剂量记不清。根源上，他觉得自己长得和周围人不一样，被霸凌、融入不了；妈妈一直在，爸爸缺席更多，父亲仍在和成瘾搏斗，并进进出出过监狱。他强调责任在自己，不是因为家里没父亲或母亲没尽力，母亲已经做了所能做的一切；那时他觉得自己像「剪刀手爱德华」，放在今天也许不会有那么大的麻烦。他进过局子，第一次是因为社区里的大麻植株，妈妈听信警察「我们只是来拿走、别担心」，开门后植株被抬出家门，整个街区都看见，让她很难堪；他事后认为如果当时不让警察进屋，对方需要令状，自己本有机会先处理掉。他此后被送进寄宿机构、康复中心和拘留所。在一所寄宿机构里，他在身后听见一个男孩说自己有枪，那支枪是上满弹的，计划是杀光教室里的人、用枪威胁抢走钥匙，再和另一个学员逃离。瑞恩拦住了这件事，院方因担心报复把他送回家，随后他被送回法庭；他原以为非暴力、只有毒品相关记录的自己可能被撤诉，结果被送进比寄宿机构更糟的少年拘留中心，之后又进了另一家康复机构，这样的循环发生过很多次。真正改变是最后一次因毒品被捕、被判了更长刑期：他在未满18岁时被控持有并意图贩卖，这是很重的「毒贩」罪名，假释一直到21岁，并在县看守所牢房里待了很久，有时比州监狱更难熬。关键不是怕坐牢本身，而是终于离开那些让他难以保持清醒的人、地点和事物。时间够长之后，他体会到没有物质时有多好。费城肯辛顿（Kensington）被他称为「僵尸之地」：他们谈话时史蒂文在网上看直播，就能看见有人在严寒里弯折着身子、像站着睡着。瑞恩说那时还没有芬太尼、美托咪定（medetomidine，口播作 metatomdine）和甲苯噻嗪（xylazine，口播作 xyzine）这些会吞噬血肉、导致坏死甚至截肢的东西；而芬太尼已经夺走了几乎所有他一起长大的人，以及一半的家人，包括他最好的朋友。他承认自己起初喜欢毒品的感觉，直到发现一觉醒来旁边是个怪物：人人都以为自己可以一周不碰、和别人不一样，结果总是耐受越来越大、越来越贵，为了钱做出疯狂的事，然后进监狱、进机构，或死去。离开的原因不是某句话或某本书，而是在牢房里离开那些物质足够久。假释一结束，他就离开宾夕法尼亚，再也没有回去，并创办了三家规模较大、口碑不错的物质滥用和心理健康康复机构；旧合伙人现在还在做、开了更多家，声誉仍然很好，而他把它们卖掉了。"}, {"id": "s4", "title": "执法为何找他：28亿条记录泄露，以及苹果和安卓谁更安全", "start_sec": 1175, "summary": "史蒂文问，执法部门为什么要找瑞恩合作、他们自己拿不到什么。瑞恩说，不是他们没有热情，尤其是做「侵害儿童的网络犯罪」（ICAC）的人，而是他们受训使用的工具和方法有些过时，可能拿不到他掌握的数据点，或缺设备取证、反向人脸识别的方法，也可能没有预算去买一家他不愿点名的公司每年十万美元的人脸搜索服务。在联邦层面，他常被用来识别更难定位的组织，比如764及其相关小团体。764是一个虚无主义的撒旦崇拜团体，由得克萨斯州的一个孩子创建；虚无主义在他的简短解释里就是「对一切都不在乎」。对美国公民尤其重要的是国家公共数据（National Public Data，NPD）泄露：有28亿条记录被暴露到网上，而美国大约有3亿人，这意味着几乎每个人都受影响。他补充，这不是已证实的统计，但几乎可以肯定，如果你超过30岁，你住过的每个地址、电话号码和完整的社保号都已经在外面。危害包括有人用你的名字办信用卡、打电话假冒你、盗用身份。他提供完全免费的查询网站 npd.pentester.com：填姓、名、出生年份，再试遍住过的州，就能看到自己是否在这次泄露里。若在其中，关键是冻结信用记录——冻结本身不会做别的，只是阻止他人以你的名义办卡、贷款、按揭或买车。谈到设备安全感，他认为iPhone大体上比安卓更安全。安卓可以安装第三方应用，其中可能包含远程访问木马（RAT）：他可以在电脑上用一行命令生成APK，通过邮件发送，或在有物理接触时插入手机、授予全部权限，然后在远端完全控制这部手机，而你完全看不到有人接入。iPhone通常做不到这一点，除非用「零日漏洞」，也就是尚未被发现、还没有人知道它存在的漏洞；有一家公司正在接连找到这类漏洞，使针对iPhone的攻击变得更可能。苹果在加密和恢复难度上做得很好，即便收到传票，也无法提供只在手机上解密的内容，他提到的术语是安全隔离区（Secure Enclave）。他不会说手机完全安全，但认为用iPhone被攻击的可能性比安卓低得多。史蒂文转述一位安全专家的话：若有权势的人想进你的手机，他们就能进去。瑞恩完全同意，并提到以色列的NSO集团和「飞马」（Pegasus）：据他所知，输入一个电话号码并回车，经NSO授权（需付费）后就能在无任何提示的情况下完全访问手机，看摄像头、读短信、下载照片、监听通话；这些年来随着苹果修补，他们也在迭代。最近几周，随着更多人用上强大的人工智能模型，针对iOS的攻击一个接一个。史蒂文引用萨姆·奥尔特曼（Sam Altman）大约一周前的话说，人工智能意味着必须彻底重新思考网上安全；今年早些时候有过一阵他口中的恐慌，人们修了一些漏洞，却没有真正理解指数式变化——模型会更聪明，可能发现远超传统黑客威胁模型的、甚至硬件层面的漏洞；安全负责人和首席信息安全官还在紧张，但多数机构负责人已经把注意力移开，不能再只靠打补丁，而要改用同样的技术去做新的防御盾。瑞恩很同意，同时说他自己并不认为现在的「人工智能」真的具有人工的智能，它只是极擅长组合已有数据里的模式，训练来自已存在的书、谷歌、维基百科和各平台；它不能凭空发明一种打开盒子的新方法。真正让他觉得更可怕的是人工通用智能（AGI）。史蒂文反问：人脑不也是看见「手柄」这种形状就会去拉吗？瑞恩说，大语言模型会认出那是手柄的形状，但若没有关于这个特定盒子和手柄的信息，被问「怎么换掉这个手柄」时就可能「幻觉」，比如猜「打开盖子看看下面有没有螺丝」，那只是最好的猜测，它并不知道盖子下面是什么。"}, {"id": "s5", "title": "有人把特警队派到他家：764为何要针对他", "start_sec": 1804, "summary": "史蒂文问，有了人工智能之后，瑞恩现在会采取哪些几年前没有的防范。瑞恩说他必须比大多数人更小心，因为他已经大量出现在互联网上，而后面会细讲的那些团体正在针对他：有人出现在他家，有特警队被派到他家，也就是所谓的「诈警」（swatting）；还有人利用免费的美国邮政（USPS）纸箱，一箱又一箱空盒子寄到他家，专门为了惹烦。做这些事的是764及其分支或与「公社」相关的团体，他们非常恨他。这不是偏执或焦虑：这些人有公开刺伤、向别人窗户砸砖的记录。他举了一个例子：他们把砖头砸进一个女孩汽车的后挡风玻璃，她因此心脏病发作去世，而且她有孩子，相当于双重谋杀。这些是危险的人，所以他会尽可能把能从网上撤下的数据撤掉。他们在意他，既是因为他在曝光这些组织，也是因为他们想要「名声」：谁能去诈警瑞恩·蒙哥马利或史蒂文·巴特利特，本身就是一种资本；他们做的很多事并没有道理。764现在已被视为国内恐怖组织，美国每个联邦调查局（FBI）外勤办事处都已介入，相关分支也在做同样的事。这正是他来这档节目的主要原因：他希望家长意识到这些人的危险。他提前警告，接下来要展示的内容，九岁、十岁、十一岁的孩子每天都可能接触到，而且你大概永远忘不掉。他们商定先看设备，再把最黑暗的部分放到最后。"}, {"id": "s6", "title": "「饼干」：无线攻击、飞行模式关不掉的蓝牙，以及假的免费网络", "start_sec": 1996, "summary": "瑞恩拿出的第一件设备叫「饼干」，壳体是3D打印的，按钮掉了是他自己的责任。它可以发起无线网络和蓝牙攻击，也有其他功能。打开后有一颗小LED，并有配套的iPhone应用可以连接。它能「驾车侦察」，也就是查看周围所有无线网络和蓝牙设备；还有一个反监视按钮，用来寻找身后那些共享同一MAC地址（设备标识符）的装置。史蒂文以为这是防御工具，瑞恩说它攻防两用，有嗅探、攻击和扫描。演示中他们扫描接入点，选中一个叫 Flight Story 的网络，再根据信号强度定位路由器位置，然后做「断联」（deauth）并捕获握手：攻击会把设备打下线，对方一旦重连，就会产生所谓的四次握手；把这个文件带回家，再用密码字典去破解。字典可以是一个200亿字节量级的巨大文本，再通过规则把首字母大写、末尾加数字和符号，膨胀成200GB甚至TB级；然后对这份已经抓到的握手每秒尝试大约两万次，不必再待在那个网络附近，也不用一次次真实去连。如何防御？用更新的WPA3。但几乎所有路由器都处于一种「过渡模式」，会降级到WPA2，从而使这种攻击仍然可行，所以眼下能做的并不多。接着他做了另一个演示：即便把手机开到飞行模式，再按下播放，iPad上仍会弹出iCloud传送、电话号码一类通知；对某些设备，这甚至会让手机直接崩溃。演播室里所有人都在收到这些弹窗。原理是它在以极高频率广播，假装有苹果设备靠近、要完成设置，于是弹窗一个接一个，手机几乎没法用。关键在于：苹果的飞行模式并不会关掉蓝牙，必须进入设置里把蓝牙真正关掉，才能阻止这类连接。瑞恩认为这是烦人但相对无害的攻击，可预见的伤害主要是你正要打电话或做事时被通知淹没。他还演示了强制门户：广播一个看起来开放、名叫「Flight Story Free」的网络；史蒂文一点击，就弹出谷歌登录页，另一侧立刻出现「Stephen at AOL」和密码「test」。攻击一停，那个网络就像从未存在过。这种攻击的危险正在于它太简单——瑞恩年轻时做起来还更难，现在桌上几乎每台设备都能做。对在世界各地连接公共无线网络的人来说，这意味着登录页就能把邮箱和密码收走；再想到酒店网络要你填房号和信用卡来「验证」或付费上网，仅凭强制门户就已经非常危险，而一旦和别人进入同一网络，风险还会更大。"}, {"id": "s7", "title": "智能灯泡和默认密码：陌生人如何看见你家", "start_sec": 2390, "summary": "瑞恩提到欧洲超市近期被黑，损失达数百万美元，食物变质，因为冰箱是直接面向互联网的，这是许多物联网或智能家居设备的问题。法国还有三家血库被黑，他记得是血浆冰箱暴露在网上，温度被改到230华氏度，他换算大约是122摄氏度。所幸发现得足够快，血浆被保住了；可对救命用的血液下手，黑客圈子里也有人是没有心的。廉价甚至昂贵的亚马逊产品，常常使用默认凭据，并把自身暴露到网上。他演示的设备可以进入网络，寻找所有已连接的装置，对它们尝试全部默认密码和一些内置的基本攻击，其中很多会是摄像头，并给出一个网址，让你能在手机上看直播。如果设备面向互联网，攻击者不必在现场，远程就能看。还有一些位于明网的网站会索引这些信息，输入城市或州名就能列出大量敞开的摄像头，他不愿点名，以免给人提供窥探别人家里的途径。很多人不知道自己正被陌生人看着。把笔记本电脑摄像头遮住是聪明的。一旦机器上了木马，攻击者可以看摄像头、听麦克风、看到包括退格和拼错在内的每一次按键，读完整文件系统，甚至让文件看起来进了回收站被删掉，实际上还在。木马的来路包括和正常软件绑在一起下载，以及零日漏洞。他刚提到的一个新团体演示了「Signal」上的一次性点击漏洞：打开一份PDF，手机就会被完全攻破、拿到最高权限。他本人也用Signal，眼下对打开PDF感到害怕。说到这只灯泡，他建议不要信任家里任何联网设备，这不是阴谋论：他查过它们如何通信，几乎都在中国生产，并与中国的云服务器通信。你让灯泡变红，多数情况下并不是手机直接到灯泡，而是手机先到中国，再从中国到你家路由器，再到灯泡。若对方决定发起恶意固件更新，这些已经在你家网络里、表面工作正常的设备，就可能作为跳板进入电脑、手机或摄像头。解决办法很简单：请家里懂技术的人，或雇人做虚拟局域网（VLAN），把这类设备和重要设备分到不同网段，让被黑的设备困在沙箱里。这是他自家在做的事。他演示：若借上厕所的机会，把亚马逊上同类灯泡拧进浴室，灯泡会广播一个名叫 nightlight 的无线网络，连上后访问它的IP，界面叫「黑客的夜灯」，刷新就能看到整栋楼里的网络。它能发起攻击、拒绝服务、抓握手，还能在没有无线密码的情况下监听未加密流量；若办公室或家里用的是老旧、廉价的摄像头系统，甚至能直接出画面。事后可以把颜色调成和浴室一致，把攻击载荷留下来运行，人离开后站在房子外面连上它的网络取走数据，不必再把灯泡取回来。你永远不会知道这只灯泡是恶意的；而且原厂出售时并不带这种能力，是这只灯泡像其他灯泡一样被黑之后才变成这样。"}, {"id": "s8", "title": "办公室里的暗桩、能解锁200万辆车的警报，以及无人机和Flock", "start_sec": 3016, "summary": "广告之后，史蒂文说，很多大公司会清扫办公室，就是怕有员工或清洁工在里面放这类装置；他听说上个月OpenAI发现办公室里被一名团队成员放置了设备，他们相信此人与外国对手有关。瑞恩并不惊讶，并拿出看起来像薄荷糖的装置：其实是他多年前做的无线断联器，插上电按一下就能把摄像头、Ring门铃等设备打下线，至今仍能用；他不愿在现场演示，以免把团队也打掉线。他又插上一个看上去完全普通、买自亚马逊的智能插头，它并不发光，却会在手机上出现一个无线网络，用来观察网络上摄像头、报警系统、手机、音频设备等的行为，并通过MAC地址前缀识别设备属于哪家公司，功能与那只灯泡类似，重点是无线侦察、判断网络行为并窃取密码。他的核心建议是：无论贵贱都要小心购买，越便宜风险可能越大，而且这类设备不应放在主网络上，应单独组网。几乎所有联网的东西都能被黑，他同意这一点，自己几乎没见过什么是从未被攻击过的。他拼作K-A-R的车载警报系统，常在经销商卖车时作为套餐推销，很多人在金融环节会拒绝，但经销商往往已经装进车里，车主开回家却毫不知情。研究人员后来发现，即便从未安装过控制应用、也不知情、更没付费，只要这套系统在车上，攻击者就能完全控制：解锁、使车辆无法移动、改诊断信息、按喇叭、开后备箱。这家公司的一个旧应用里把主密钥以近乎明文的方式留在了应用中，美国大约有220万辆车受影响，实际可能更多。他可以用手里的设备寻找受影响的车辆并按下「锁死」键，车就会再也开不走，除非有人做反向操作。这类装置走的是蓝牙而非互联网，补丁办法是：到应用商店下载他们的应用看自己的车是否配备，或在前挡风玻璃上找他们的标志，然后把固件升级到最新。史蒂文的洛杉矶好友几个月前凌晨两点拍到：有人把车停在他的路虎揽胜旁边，在笔记本前坐了三四分钟，揽胜自行启动，对方下车走过去开走，车至今没找回，而且据他所知这类事在揽胜上相当常见。瑞恩说自己不是职业偷车人，途径可能是与服务器相连的远程启动、经销商凭证，或车辆自身的漏洞。目前较流行的一种，最初是一些俄罗斯人出售定制固件，只要你按了钥匙遥控器上任意键——锁、解锁、紧急或后备箱——就能克隆，并与滚动码系统对齐。老式车库门是拨码开关那种永不改变的静态码，滚一次就永远有效；滚动码每次按键数字都会变，锁端知道下一个数是什么，而这种攻击能与之对齐并完整克隆遥控器。另一台设备能黑无人机，还能从执法人员的执法记录仪、车顶灯或电台识别他们在哪里、距离多远，并能关闭摄像头、做大量无线和蓝牙攻击。若对方是大疆（DJI）这类常见品牌，他可以让无人机断电、取走它原来连接的无线密码、关掉避障、控制它能飞多远，对方毫无察觉；当然也可以迫使它坠毁。他记得大约2022年起要求开启远程识别（Remote ID），会显示无人机在空中的位置、GPS，以及操控者站在哪里；美国还要求注册无人机，于是可凭序列号去查牌照和姓名。所以飞无人机既有被攻击的风险，也有隐私风险：若有人打算在他家上空悄悄飞，他对你的了解会比你以为的更多。这台设备上的Flock检测也非常好用。Flock是美国一家私营公司，在公共场所设置朝向街道的摄像头，拍摄车牌并传输各类数据；执法部门向私营公司购买这些数据，从而绕开宪法去定位人。英国观众更习惯公共摄像头，美国原本没有这一套。这台设备能定位这些摄像头的大致位置。有人用钢锯去砍、去拆甚至去打，他不鼓励任何这类行为，但大规模监视眼下是非常大的议题。"}, {"id": "s9", "title": "电磁脉冲、广告ID、内藏电脑的充电线，以及几秒钟复制的酒店房卡", "start_sec": 3591, "summary": "史蒂文转述瑞恩一句让他发冷的话：中国在寻找进入美国技术的隐秘途径，这让他对谁在听自己的电话变得敏感。瑞恩却说，相比有人听他电话，他更担心的是对方送来电磁脉冲（EMP）。电磁脉冲会让所有技术和电子设备失效，是严重的挑衅；若不用核武器，而是让电网和移动网络倒下，就会失去互联网、银行账户、移动通信、交通控制，以及任何内含芯片的东西。他提到开源、非营利的Meshtastic：像对讲机，却是用手机连接后发短信，有的外形像旧黑莓，能看见当地社区的公开对话。若电网和移动网络都断了，仍可用它通信；若要发私信，则是端到端加密，政府读不了，删除后也无法恢复。天线本身到不了75英里，但中间的设备会像网状网络一样把信息弹出去，路过的人若去看，只能看见有一条消息经过，看不见内容。用的人越多，网络越强。若还要更小心，就放进法拉第袋。袋的材料他不确定，猜想是某种铝，锡箔纸在技术上也能用。他与某些联邦机构谈话时，会把自己的和对方的手机都放进法拉第袋，这几乎是默认要求；与其说是怕对话被听，不如说是怕位置数据暴露谁和谁在一起。这引出移动广告标识（MAID或广告ID）：打开应用时「是否允许跟踪」所读取的那个标识，会记录手机当时在哪里，卖给数据经纪商，再卖给第三方，某些情况下包括执法部门甚至公众。于是有映射软件能显示史蒂文每周哪一天、什么时间去哪家店，以及热点位置。这是一种不使用政府技术的监视，公众和私营机构都在为这些数据付钱。办法是在所有应用里关掉跟踪，风险会小很多，但仍有可能。他接着展示著名的O.MG恶意充电线：外表是普通的iPhone线，他用橙色标记以免和真充电器混用，里面却有一台微型计算机，能以每秒300个字符的速度模拟键盘敲击。若手机是解锁的，还可结合地理围栏，在进入或离开某区域时自动触发载荷，例如用快捷指令导出全部联系人，发到某个服务器或邮箱，再把自身从设备上彻底移除，之后它就只是一根普通充电线。演示中这根线甚至不必插墙，只靠手机供电，就会发出名为om.g的网络；他连上后打出「zero day was here」之类的字。最容易的用法是建一个快捷指令：下载全部照片、点允许访问、发到服务器、邮箱或短信，而不一定要在手机上安装病毒。这根线也能当键盘记录器：若键盘是USB-C转USB-A，把它接在中间即可捕获按键。史蒂文问，中央情报局和政府是否拥有更高一层的装备。瑞恩说这是个好概括：有些方法值得公开，因为人们知道后可以管理风险；有些最好不说，免得攻击者变得更聪明，其中也包括一些他不能谈的事。最后他拿出酒店房卡和「Chameleon Ultra」，这是一种射频识别和近场通信的读写器，能读门禁卡、复制，或在本机模拟，或写到另一张卡上，让系统以为进来的是史蒂文·巴特利特。他隔着钱包也能读到一张万事达卡。更现实的场景是：背包里放大型铜线圈天线，走在拥挤的地铁里批量抓门禁卡——门禁卡和酒店房卡比信用卡更容易被克隆和复制，信用卡「复制后直接挥卡支付」更多是炫技，真正的威胁是有人能进你家或办公室，而且看起来就像是你本人在开门。史蒂文手里的射频屏蔽钱包在演示中并没有挡住，瑞恩怀疑它可能是假的，不推荐这个牌子，但大多数真正的屏蔽钱包是有效的。"}, {"id": "s10", "title": "普通人能做的便宜防护：VPN、杀毒、硬件密钥", "start_sec": 4439, "summary": "被问及线上线下安全最基础、也最便宜的做法时，瑞恩建议先使用虚拟专用网络（VPN），它能掩盖你的IP地址，阻止互联网服务商追踪并出售你的数据，也减少网站根据IP把你的浏览行为串起来，在公共或共享网络上再多一层隐私。电脑上应安装杀毒软件，即便是Mac也不例外：Mac只是攻击面不同，并不像有些人所说的那样无法被黑，远程访问或安装恶意软件仍然有办法。他自己的手机开着高级数据保护（Advanced Data Protection，ADP），社交媒体也处于锁定模式，需要自拍和实体硬件密钥才能进入。他提到YubiKey：任何允许使用它的地方他都会用。家里有大量监控和安防，还有一些他不愿细讲的专有手段，用来识别突然出现在家门口的陌生人。他经营一家安全公司，必须保护好自己；敲敲木头，他们的平台至今没有被黑过。过去四年里他稍微公开之后，最糟的是他和亲人被「人肉」曝光。公开数据经纪商上的资料他可以帮忙删除，但无法把数据从黑客的硬盘上拿走，泄露一旦发生就拿不回来。"}, {"id": "s11", "title": "764：针对弱势儿童的虚无主义极端团体", "start_sec": 4569, "summary": "瑞恩要谈的最难受的部分是764及其分支。764是这个组织原来的名字，现在仍有人以此自称，也有他不愿点名的分支名称——他强调不说这些名字和用户名，正因为那正是他们想要的：恶名和 cred。他们的全部目的，是诱骗弱势儿童先交出裸照，再以此威胁孩子伤害自己、杀死自己的宠物、甚至伤害别人，好让那些照片不被发给家人、朋友或学校。已有多起与这些团体相关的自杀，这件事几乎占去他近两年的注意力。联邦调查局大约58个外勤办事处都已动员，公开信息里目前有500多个目标在调查中。官网上将其称为针对儿童和弱势人群的虚无主义暴力极端组织，问题并不限于某一地区，也不仅发生在Roblox或Minecraft，而是所有平台。诱饵阶段常从游戏或聊天网站开始，寻找已经有心理健康问题、在学校被霸凌、有自杀念头的孩子，并发布「门诊心理健康中心」或「心理支持小组」一类广告。其中一条写着：若你有精神疾病、没有父亲、有恋父问题、精神分裂、边缘型人格，或是女性，就来加入。他们此时并不是直接拉人入会，而是利用孩子的心理问题，把人养成「男女朋友」，直到对方交出裸照，再逼其自残，或伤害他人和宠物。诱饵也可能来自动漫群组或黑金属、血腥内容的网站，有的孩子只是处于叛逆期，并不理解这些人不是来帮自己的。他们有多本数百页的手册，专门教如何诱拐和敲诈。手册里写：诱拐是常见且容易取得控制的方法，要让受害者以为你是她的神、永远占有她；可在Roblox、X（前Twitter）、Reddit、Instagram上找人；花大量时间、假装能共情、一起玩游戏，称呼她公主、亲爱的；再提出做男女朋友，然后要裸照和个人信息；若她本来不自残，就必须敲诈，若她已经在自残，几乎一定会按要求去割。敲诈部分写明：必须先会诱拐，才能拿到信息和裸照；要有地址、姓名、电话和裸照，再威胁发给父母、对其家庭「诈警」、泄露个人信息；逼她做「血字」、割字、杀死猫、自杀。手册还写「不要说有内容就行，没人想看只划破表皮的痕迹」，他们要的是带用户名和团体名的、留下深疤的伤口，对象有时是八到十一岁的儿童。他展示的影像包括：一个女孩被逼剪掉头发，对方要求在30秒内做「粉丝标记」，也就是在身上割下用户名，否则就发布裸照，并说「这只是第一步」；这些内容在论坛、Telegram和Discord上流传。另一例中，父亲中途介入，对方自称27岁，当着父亲的面说刚看到约16岁女儿的胸部，并辱骂父亲；通话断开后，女孩仍被允许继续和这些人聊天，瑞恩认为父亲本应更清醒地切断。他没有播放孩子自残的画面，但提到最近最血腥的一例：一个13岁男孩在看似浴室的地方上吊自杀，聊天室里的人看着他死去，还在笑，因为他被说服一旦裸照发出去，整个人生就结束了。他第二次上肖恩·瑞恩（Shawn Ryan）的节目之后，还有一个女孩在停车场用电缆上吊，直播聊天里有人说如果她裸着会更「火」，后来她死了。还有人被逼砍掉仓鼠的头，墙上用血写着「你的神现在在哪里」，而这些在他们嘴里只是「猫抓」。史蒂文说自己已经看够了，瑞恩说这还不算什么：被拉进这些团体的小孩子整天被迫观看其他受害者身上发生的事。764最初的那个孩子据他所知是在Minecraft上找人，后来到了Roblox。与常见的、以要钱为目的的「尼日利亚式」色情敲诈不同，这些人不要钱，只要你伤害自己、伤害别人或伤害动物。想加入某些私密频道，还必须提交「犯罪证明」。"}, {"id": "s12", "title": "犯罪证明、家长该做什么，以及没有密码也能登录", "start_sec": 5454, "summary": "「犯罪证明」是指展示自己的受害者、在现实中伤害别人、纵火或造成重大破坏，以证明自己够「忠心」。他举了一个极其残酷的例子：两个成年人，其中一人在Discord上当着团体成员的面把对方的喉咙切开，而对方正在观看，好让自己加入组织。有些人已被找到，有些还没有，部分影像仍在公开流传，瑞恩的全部重心就是抓住他们。这些团体有数千名成员；联邦调查局公开谈到的目标超过500个。私密频道往往需要犯罪证明才能进入，公开频道则能看见成千上万的人。他们从中得不到别的，只有团体内部的「名声」。史蒂文读到司法部网站上，764这个全球暴力极端网络的头目上个月刚承认共谋罪。分析这些人有何共同点、是否有精神疾病？瑞恩说不必当医生也能看出来，他的解释就是「邪恶」：能把无辜的孩子逼到伤害自己或别人、只为在网上朋友面前获得名声，还能怎么诊断？被问及家长能做什么时，他说自己最大的成就不是逮捕本身，而是预防：你可以逮捕一千个捕食者或成员，却消灭不了他们的存在；若能让一个孩子从一开始就不要变成受害者，在他看来比逮捕更重要。他自己不是家长，不能规定哪一套适合你的孩子，但若孩子还非常年幼，他会先在设备上安装监控软件。他推荐Bark，并非因为赞助，只是认可这家公司：它会监测捕食行为、霸凌，以及家长自己设定的触发词。更重要的是与孩子的关系。他和史蒂文年纪相仿，自己小时候如果妈妈要手机，他并不在乎，因为生活围着滑板和自行车转，并不围着互联网，即便他是电脑极客；他和妈妈非常亲近，毒品、女朋友、别人犯罪，都可以说，妈妈也总知道他在哪里、出了事该去哪里接。今天的孩子把设备当成与世界的连接，像另一只手；若直接拿走平板、手机或游戏机，他们就不会再信任你，而下一次会用朋友的设备去做。因此必须先有开放的关系，让孩子知道这些团体存在，而且他们既针对弱势儿童，也针对只是在游戏应用上玩的孩子，其中最大的儿童游戏就是Roblox；除此之外还有真正的性侵捕食者。他能在几秒内找到正在寻找小男孩或小女孩的人。最近一次行动在佛罗里达中部一个很小的县，正式逮捕了30到31人，全都在寻找14岁以下的孩子；其中一人以前在迪士尼扮过米老鼠，到一户人家时带了大约100片尿布，想让爸爸和孩子都打扮成婴儿，是恋童加上尿布癖。互联网可以非常危险，关键是孩子愿意告诉你真相，而不是因为害怕惩罚而隐瞒。他还展示YubiKey：每次按下都会生成独一无二的密钥，苹果在深层安全设置里也建议使用；这个型号不是指纹识别，而是插入手机或电脑后用手指轻触，生成的数字每次都会变，通常与短信验证和密码一起，构成三种认证。除了密码，还有会话和Cookie：普通人关掉浏览器再打开Facebook却仍保持登录，靠的就是Cookie。数据泄露或电脑中毒时，这些会话也可能被一并偷走；若用你的会话替换我的再刷新，某些情况下我就能以你的身份登录，完全不需要密码，YubiKey和双重验证都会被绕过。有的平台会发现IP不同，但若机器上已经有恶意软件，攻击者仍可假扮成你。用Pentester可以看到这类「窃取日志」是否存在。展望未来，史蒂文认为隐私在各种形式上都将越来越像神话，深度伪造、用他的声音给家人打电话让对方做事，都会更严重。瑞恩的总建议是：做好准备，跟上人工智能，了解本地模型，以及Claude Code、Grok、Codex这类工具，学习人们如何用它们开发应用、加固服务、检查家里的漏洞，并不需要先成为电脑天才。同时要对收到的数字通信更怀疑，不要急着点击。钓鱼仍在通过短信和邮件发生，比如让你去银行、去买礼品卡；新的手法是语音和视频。史蒂文说，自己旗下一家公司曾因此损失20万美元；「CEO日记」早期，有团队成员入职第一周以为邮件来自他，出门买了1000英镑的礼品卡寄出，钱就没了。基础检查包括：核对域名有没有多出来的字母、名字是否拼对、电话是否正确。若有任何怀疑，把截图丢进ChatGPT一类工具，问这是不是真的、该怎么办，这也是他告诉家人的做法。他强调自己仍然喜爱人工智能，它极具冲击力，能比人类更快找到数百个漏洞，也在解决许多医学问题，但依据的是已有数据；现在拥有的，和未来可能出现、会更可怕的那种能力，并不是一回事。节目结尾的传统问题是：「对你来说，好的生活意味着什么？」瑞恩说：有一个家，亲近上帝，取得成功，能养活家人，并帮助尽可能多的人。"}], "paragraphs": [{"start_sec": 0, "type": "text", "zh": "如果我告诉你，你的手机构是完全安全的，那是在说谎。而且很多人根本不知道，自己正被陌生人看着。比如这样一台摄像头，或你在亚马逊（Amazon）上买的廉价产品，都不要轻易相信，因为几乎什么都能被黑。我们也可以先从我用20分钟在你身上找到的东西讲起。", "speaker_id": "ryan", "section_id": "s1"}, {"start_sec": 18, "type": "text", "zh": "噢，该死。我就怕你会这么做。", "speaker_id": "steven", "section_id": "s1"}, {"start_sec": 20, "type": "text", "zh": "我只是搜了一个我能确定的邮箱。我是从数据泄露里定位到它的。这是你12年前常去的那家健身房。这里还有你的一些旧密码。", "speaker_id": "ryan", "section_id": "s1"}, {"start_sec": 26, "type": "text", "zh": "我的天。", "speaker_id": "steven", "section_id": "s1"}, {"start_sec": 28, "type": "text", "zh": "我之所以知道这么多，是因为我9岁就加入了黑客论坛，几乎没见过什么是黑不了的。现在我的工作是打击针对儿童的犯罪，以及反人口贩运。这是个很黑暗的话题，我后面会讲。不过我先带了几样我觉得你会感兴趣的设备。", "speaker_id": "ryan", "section_id": "s1"}, {"start_sec": 42, "type": "text", "zh": "好，那就先看设备。", "speaker_id": "steven", "section_id": "s1"}, {"start_sec": 44, "type": "text", "zh": "先说这个，它叫「饼干」（the biscuit）。它可以发起无线网络和蓝牙攻击，也能让你的手机基本上没法用。你演播室里的人现在应该都在收到那些通知。下一件，这些不是薄荷糖。这个装置能让摄像头、Ring 门铃掉线。这个可以黑无人机。你能看出来这根不是普通的 iPhone 充电线吗？这根线里面有一台微型计算机。另外我必须说，我查过这些设备如何与互联网通信，它们几乎都在和中国通信。相比有人听我的电话，我更担心的是这些东西。", "speaker_id": "ryan", "section_id": "s1"}, {"start_sec": 78, "type": "text", "zh": "那线上和线下安全，最基本该做些什么？", "speaker_id": "steven", "section_id": "s1"}, {"start_sec": 85, "type": "text", "zh": "我最想建议你的，也是我自己家里实际在做的那些事。", "speaker_id": "ryan", "section_id": "s1"}, {"start_sec": 89, "type": "text", "zh": "你说有些让人不舒服的事想跟我谈。什么是764？", "speaker_id": "steven", "section_id": "s1"}, {"start_sec": 91, "type": "text", "zh": "他们是虚无主义的撒旦崇拜团体，一心只想伤害人。他们寻找在学校被霸凌、有自杀念头的孩子，手上有多本数百页的手册，教人如何敲诈和诱拐受害者。有时候对象是八岁、九岁、十岁、十一岁的儿童，而且这发生在所有平台上。我想展示一下它会怎样落到别人的孩子身上，因为我希望家长意识到这些人有多危险。我先给你们看一些例子。", "speaker_id": "ryan", "section_id": "s1"}, {"start_sec": 117, "type": "text", "zh": "天哪，我看不下去。", "speaker_id": "steven", "section_id": "s1"}, {"start_sec": 118, "type": "text", "zh": "这还不算什么。", "speaker_id": "ryan", "section_id": "s1"}, {"start_sec": 118, "type": "text", "zh": "别，求你，我看不了。", "speaker_id": "steven", "section_id": "s1"}, {"start_sec": 118, "type": "ad_omitted", "ad_brand": "The Diary Of A CEO", "section_id": "s1"}, {"start_sec": 147, "type": "text", "zh": "瑞恩，我听你对塔克·卡尔森（Tucker Carlson）说过，只需几分钟，你就能用相对简单的黑客手法找到他的社保号、房契、驾照，好像还有签名。如果是你再加几个同样擅长这些的朋友，我给你一小时，你觉得此刻在听的普通人会被挖出什么？", "speaker_id": "steven", "section_id": "s2"}, {"start_sec": 177, "type": "text", "zh": "会很多。我们也可以先从我用20分钟在你身上找到的东西讲起。", "speaker_id": "ryan", "section_id": "s2"}, {"start_sec": 180, "type": "text", "zh": "噢，该死。开始吧。我就怕你会这么做。", "speaker_id": "steven", "section_id": "s2"}, {"start_sec": 186, "type": "text", "zh": "根据之前的沟通，我猜你会有这种反应。别担心，我没做太出格的事。这些都是非常公开的信息，只是让你看看外面已经有什么。我可以把你的电脑拿过来走一遍吗？", "speaker_id": "ryan", "section_id": "s2"}, {"start_sec": 197, "type": "text", "zh": "当然可以。", "speaker_id": "steven", "section_id": "s2"}, {"start_sec": 198, "type": "text", "zh": "这个工具只给执法部门用，叫 OSI Pilot，必须是执法人员，我们不会给你开账号。我搜的是那个我能够确认的邮箱。", "speaker_id": "ryan", "section_id": "s2"}, {"start_sec": 209, "type": "text", "zh": "你怎么会知道那是我的邮箱？那是我很久很久以前的个人邮箱。", "speaker_id": "steven", "section_id": "s2"}, {"start_sec": 215, "type": "text", "zh": "我是从数据泄露里定位到的，也就是一些网站被黑、数据外泄之后。我们先识别出这个密码，它带出了生日；因为这个密码非常独特，我们又做了反向密码搜索，于是找到了其他邮箱。", "speaker_id": "ryan", "section_id": "s2"}, {"start_sec": 233, "type": "text", "zh": "我其实已经不记得那个密码了。", "speaker_id": "steven", "section_id": "s2"}, {"start_sec": 233, "type": "text", "zh": "那另一个你记得吗？这个我不想大声说出来。", "speaker_id": "ryan", "section_id": "s2"}, {"start_sec": 237, "type": "text", "zh": "记得，记得。", "speaker_id": "steven", "section_id": "s2"}, {"start_sec": 239, "type": "text", "zh": "就是靠这两个，我们拿到了后面所有信息。这些是与之关联的账号，由此还能拼出电话的一部分。", "speaker_id": "ryan", "section_id": "s2"}, {"start_sec": 244, "type": "text", "zh": "对，那是我的电话号码。", "speaker_id": "steven", "section_id": "s2"}, {"start_sec": 247, "type": "text", "zh": "这里是地图，至少能看到你12年前常去的那家健身房。", "speaker_id": "ryan", "section_id": "s2"}, {"start_sec": 253, "type": "text", "zh": "我的天。我以前……天哪。", "speaker_id": "steven", "section_id": "s2"}, {"start_sec": 259, "type": "text", "zh": "这里还有一些照片，来源不同，但显然都是你。我们在 OSI Pilot 里内置了反向人脸识别，然后会给出一份摘要。我特意只翻你的旧材料。对了，这些都是自动完成的。Pentester 是我们的主公司，做了大约40种工具，用来识别一个人，并帮助他们清理数字足迹。这套东西就是要把你尽可能挖深。", "speaker_id": "ryan", "section_id": "s2"}, {"start_sec": 286, "type": "text", "zh": "通常它还会拉出社保号，也许是你旧的 MySpace 主页，或某个被泄露网站上的私信。它本来还能显示更多，我没全部展示，因为我知道你连把电话卷进来都有点紧张。", "speaker_id": "ryan", "section_id": "s2"}, {"start_sec": 302, "type": "text", "zh": "不，我不介意。我觉得这很有意思。", "speaker_id": "steven", "section_id": "s2"}, {"start_sec": 304, "type": "text", "zh": "谢谢。我不知道这是不是你现在的地址，这是自动结果。", "speaker_id": "ryan", "section_id": "s2"}, {"start_sec": 307, "type": "text", "zh": "那是我在英国长大的那栋房子。", "speaker_id": "steven", "section_id": "s2"}, {"start_sec": 309, "type": "text", "zh": "好。它还提到了你的书，挺厉害的。我甚至不知道你出过书。", "speaker_id": "ryan", "section_id": "s2"}, {"start_sec": 316, "type": "text", "zh": "这大概是最得罪人的部分了。", "speaker_id": "steven", "section_id": "s2"}, {"start_sec": 316, "type": "text", "zh": "我真的不知道。看，软件还在夸你：英国高知名度企业家史蒂文·巴特利特。有意思的是，你人在英国，有《通用数据保护条例》（GDPR）这类隐私法保护；但因为你在美国待过，就有两个州把你的信息抓出来卖给了数据经纪商。我们正在帮你把那些数据删掉。另一面，则是我们帮执法部门在标识很少的情况下找人：有时只有一个用户名，有时只有电话，有时连姓名都没有。这套平台的全部意义，就是凭最细的一后面包屑，不惜一切也要把人找到。刚才那些是自动完成的，非自动的部分都在这里。我们花了20分钟查你，找到的就是这些。", "speaker_id": "ryan", "section_id": "s2"}, {"start_sec": 378, "type": "text", "zh": "比如你那份火车优惠卡请愿，我发现它已经被拿下了，那是很久以前的事。你可以看到这里有你的签名，但站点已经没了，内容是被归档的，所以要找到它更难一点。", "speaker_id": "ryan", "section_id": "s2"}, {"start_sec": 393, "type": "text", "zh": "说真的，我完全忘了这件事，太久了。", "speaker_id": "steven", "section_id": "s2"}, {"start_sec": 396, "type": "text", "zh": "我还想给你们看这个，我们觉得挺好笑的。谷歌（Google）通常会说：我们不能帮你联系某个人，不能帮你调查一个人，或做开源情报。但现在谷歌却像在说：你在这个网站、那个网站上——这些都是我们正在力争把你撤下来的数据经纪商——而谷歌却在自己的人工智能摘要里推广它们。我觉得这相当奇怪。", "speaker_id": "ryan", "section_id": "s2"}, {"start_sec": 423, "type": "text", "zh": "你又不是罪犯，我们不是在你身上找犯罪证据，更多是在核实你是谁、你的数字足迹是什么。它不是「CEO日记」那一层公开形象，而是把许多彼此关联的碎片拼成一张大地图，用来提高确定性和把握。", "speaker_id": "steven", "section_id": "s2"}, {"start_sec": 442, "type": "text", "zh": "正是这样。而且这些人几乎都只躲在一个用户名后面。如果运气好找到一张脸，我们就能从这张脸再转出去，看有没有能识别出他们的照片，后面我也会给你举例。这里还有域名、这些年用过的用户名和化名、网站，一大堆东西。要点你们应该已经明白了。", "speaker_id": "ryan", "section_id": "s2"}, {"start_sec": 468, "type": "text", "zh": "就算你自以为完全没有数字足迹，比如从不碰电脑，也未必如此。我妈妈就是个好例子：她这辈子没用过电脑，我一点都没夸张。可她还是有数字足迹，因为她去 CVS 或沃尔格林（Walgreens）时会留下电话，也许还有邮箱；年轻时去过赌场，美高梅（MGM）也被黑过，她的数据就在那次泄露里，里面有姓名、生日和地址。她自己都不知道自己有足迹，然后数据经纪商把这些卖掉，数据四处扩散，现在任何人都能找到你住在哪里、找到你的信息。", "speaker_id": "ryan", "section_id": "s2"}, {"start_sec": 510, "type": "text", "zh": "你觉得普通人是不是都误以为自己在网上是安全的？", "speaker_id": "steven", "section_id": "s2"}, {"start_sec": 510, "type": "text", "zh": "绝对是。正因为如此，我才要把这一点讲清楚。我通常的讲法是：先讲捕食者那部分，他们如何藏匿、我如何识别他们，然后再讲你可以如何用同一套技术保护自己。原因就在这里——人们不觉得自己在外面有多少信息。就拿反向人脸识别来说，想想普通的父亲，孩子在打球，有人拍到他坐在球赛背景里。除非他自己去搜，否则根本不知道网上有这张照片。而那张照片不仅可能识别出他，还可能识别出他的孩子、妻子、他们上的学校、住在哪个区域。然后他才会说：我不想让那张照片留在上面，因为我不想有数字足迹。", "speaker_id": "ryan", "section_id": "s2"}, {"start_sec": 548, "type": "text", "zh": "你这些东西是怎么学来的，瑞恩？", "speaker_id": "steven", "section_id": "s2"}, {"start_sec": 569, "type": "text", "zh": "这得从一个很长的故事讲起。你是问我怎么开始碰电脑，还是问怎么开始黑客？", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 580, "type": "text", "zh": "两个都想听。", "speaker_id": "steven", "section_id": "s3"}, {"start_sec": 582, "type": "text", "zh": "我9岁那年，祖父把一台电脑带回家。我本来没兴趣，毕竟是个孩子。那时候美国在线（AOL）还在寄免费试用的软盘，就像我这上文身的这张软盘，上面是加入互联网的14天试用。我不知道那是什么意思，只看见它的形状和祖父那台电脑面板上的图标对得上，就把盘放了进去。我记得AOL的三角形从纸盒里来到了屏幕上。那么小的年纪，我看见一样东西从物质世界走进数字世界，完全被迷住了。这件事听起来很基本，可它当时就是让我震惊的东西。从那以后我就没停过，想弄清那台电脑里的一切是怎么运作的，并过早地通过AOL即时通讯加入了各种社区。", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 643, "type": "text", "zh": "我看见有人在做各种各样的攻击，就想学，因为那看起来很酷。有些有点危险，有些视觉上就很炫，比如屏幕上往下滚的文字；还有把人踢出聊天室的 booter，或所谓的 punter。那时有一堆这样的词。要学，就只能认识那些手里有漏洞、又愿意教你的人，这些东西后来慢慢拼在一起。如果那些愿意花时间的导师知道自己在和一个小男孩说话，我并不觉得他们还会那么愿意跟我交流。", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 683, "type": "text", "zh": "那大概是你十二三岁的时候。", "speaker_id": "steven", "section_id": "s3"}, {"start_sec": 685, "type": "text", "zh": "对。你要是看我那个年纪的照片，会觉得我比一般十二三岁的孩子更显老，因为我已经一身文身和穿孔。我的过去本来就很乱。如果你想听，我们也可以讲。", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 699, "type": "text", "zh": "确实惊人，因为你差不多十一二岁就开始吃摇头丸。", "speaker_id": "steven", "section_id": "s3"}, {"start_sec": 706, "type": "text", "zh": "对。", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 707, "type": "text", "zh": "从那里似乎就滚成了海洛因成瘾。", "speaker_id": "steven", "section_id": "s3"}, {"start_sec": 709, "type": "text", "zh": "不是立刻到海洛因，先是摇头丸。", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 712, "type": "text", "zh": "11岁怎么能搞到摇头丸？", "speaker_id": "steven", "section_id": "s3"}, {"start_sec": 715, "type": "text", "zh": "费城的锐舞。有一场后来上了新闻，叫「上帝的地下室」（God's Basement），非常公开，我就去过。我当时极小，可他们让我进了门。那是费城一座教堂的地下室，里面什么药都有，氯胺酮、摇头丸。", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 732, "type": "text", "zh": "可你才十一二岁。", "speaker_id": "steven", "section_id": "s3"}, {"start_sec": 735, "type": "text", "zh": "对，但你也看到我当时长什么样了。", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 736, "type": "text", "zh": "你确实看起来更老一点。我这儿有你大概14岁的照片。", "speaker_id": "steven", "section_id": "s3"}, {"start_sec": 741, "type": "text", "zh": "对，十三四岁。旁边是我叔叔乔治（George）。那张很好笑，是我一个做摄影的朋友拍的。然后这张是我最糟的时候。", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 751, "type": "text", "zh": "15岁。", "speaker_id": "steven", "section_id": "s3"}, {"start_sec": 752, "type": "text", "zh": "现在看这张照片还是觉得不可思议。大概15岁，海洛因，还有苯二氮䓬、兴奋剂，安迪罗（Adderall）、Vyvanse、利他林（Ritalin），几乎所有药丸。如果你听过我在别的节目里讲，会知道有一位精神科医生把这些同时开给了我——非法的那些当然除外：每天三片Xanax，相当于6毫克，七十多毫克的Vyvanse，下午药效过后再加30毫克安迪罗把人拉回来，中间还换成过某种剂量的利他林，具体我记不清了。", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 793, "type": "text", "zh": "问题的根子在哪里？这种行为、这种情绪上的失调，根源是什么？", "speaker_id": "steven", "section_id": "s3"}, {"start_sec": 799, "type": "text", "zh": "大概是因为我跟周围人不一样，看起来就不一样。有点像你的故事，我成长的地方种族构成也不同，家里也有各种事在发生。", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 810, "type": "text", "zh": "你父母在身边吗？", "speaker_id": "steven", "section_id": "s3"}, {"start_sec": 813, "type": "text", "zh": "妈妈一定在。爸爸在我生命的很长时间里没那么在。他现在仍在和他自己的问题搏斗。", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 816, "type": "text", "zh": "成瘾。", "speaker_id": "steven", "section_id": "s3"}, {"start_sec": 817, "type": "text", "zh": "对，成瘾。", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 818, "type": "text", "zh": "而且他进出过监狱。", "speaker_id": "steven", "section_id": "s3"}, {"start_sec": 821, "type": "text", "zh": "是的。但这不是因为家里没有父亲。也不是我妈妈的错，她做得非常出色，已经做了她所能做的一切。那不是别人的问题，是我自己。我知道自己当时还是个孩子，大脑还没发育完全，但我是环境的产物。我因为与众不同被霸凌得很厉害，怎么都融不进去。如果我现在还是照片里那副样子，我相当有把握不会有那么大的麻烦。可那时候我看起来就像「剪刀手爱德华」，完全不是普通孩子。", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 855, "type": "text", "zh": "后来你进了局子。", "speaker_id": "steven", "section_id": "s3"}, {"start_sec": 857, "type": "text", "zh": "对，进过。第一次是因为很蠢的事，比如大麻植株。我惹了麻烦，有缓刑。那些植株甚至不是我的，是附近的人的，我却被控了。我妈妈人很友善，去了警察局。警察说：我们只是过来拿走，别担心；如果你不让我们进，我们就在外面等令状再拿，但别担心。然后他们把植株从家里搬了出去。我妈妈本来不知道它们在，后来当然知道了。植株被拿出家门，整个街区都看见了，让她很难堪。如果她当时什么都不跟警察说——她只是不懂——他们进不了门，我本来有机会先把那些东西处理掉。但这只是后来发生的无数件事里的一件：寄宿机构、康复中心、拘留所，所有可能的地方我都去过。如果你听过我的故事，会知道有一次在寄宿机构里，我不得不阻止一间教室被开枪扫射。你听过这件事吗？", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 913, "type": "text", "zh": "听过。你当时在一家寄宿机构，那里有个男孩告诉你他有枪。", "speaker_id": "steven", "section_id": "s3"}, {"start_sec": 916, "type": "text", "zh": "他没有告诉我，是我在身后听见的。他有枪，而且是上满弹的。他的计划是杀死教室里的每一个人，用武器抢走老师或工作人员的钥匙，再和另一个学员一起逃出那家机构。我阻止了这件事。他们因为担心报复，把我送回了家。然后我被送回法庭。我以为他们也许会撤掉我的指控，因为我从来没有暴力或恶劣的罪名，所有指控都和毒品有关。结果他们把我送回了少年拘留中心，那比寄宿机构糟糕得多。再后来我又进了另一家康复机构。那是他们第十次左右想把我从系统里弄出去，这种事在我身上发生过一次又一次。", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 967, "type": "text", "zh": "是什么改变了？", "speaker_id": "steven", "section_id": "s3"}, {"start_sec": 967, "type": "text", "zh": "改变发生在我最后一次因毒品被捕、被判了更长刑期的时候。我在牢房里坐了很久，一直到21岁。我是在未满18岁时被控的，罪名是持有并意图贩卖，也就是毒贩的罪名，很重。幸好当时未满18岁，但假释一直到21岁。我在县看守所的牢房里待了很长时间，有些时候那比州监狱的牢房更难熬。真正起作用的，不只是我害怕坐牢，而是离开了那些让我难以保持清醒的人、地点和事物。责任我认：是我犯了错，是我迷上了这些毒品，自己停不下来。但离开它们足够久，给了我改变生活的能力。", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 1023, "type": "text", "zh": "也就是离开那些在纵容某些事情的人。", "speaker_id": "steven", "section_id": "s3"}, {"start_sec": 1023, "type": "text", "zh": "对。你知道费城的肯辛顿（Kensington）吗？", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 1027, "type": "text", "zh": "不知道。", "speaker_id": "steven", "section_id": "s3"}, {"start_sec": 1028, "type": "text", "zh": "那地方就像僵尸之地。我现在如果在油管上搜「Kensington Live」，我敢用一切来担保，你会看见有人在街角，身体弯到一边，在严寒里站着睡着。看着就让人恶心。我童年大部分时间就是在那里度过的。但那时候还没有芬太尼，没有美托咪定（medetomidine），也没有甲苯噻嗪（xylazine）。", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 1050, "type": "text", "zh": "现在这些东西会吞噬人的血肉。有人胳膊上缠着绷带，因为手臂和腿在坏死，甚至被截肢。问题已经严重到这种地步。", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 1064, "type": "text", "zh": "我简直不敢相信自己看见的。我刚搜了肯辛顿费城。", "speaker_id": "steven", "section_id": "s3"}, {"start_sec": 1069, "type": "text", "zh": "直播。", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 1070, "type": "text", "zh": "有两个人弯着身子。", "speaker_id": "steven", "section_id": "s3"}, {"start_sec": 1072, "type": "text", "zh": "对，对折着。", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 1073, "type": "text", "zh": "明白了。就在我们谈话的这一刻，那些对折着的人看起来像睡着了。", "speaker_id": "steven", "section_id": "s3"}, {"start_sec": 1079, "type": "text", "zh": "芬太尼几乎杀死了每一个和我一起长大的人，也带走了我一半的家人，包括我最好的朋友。我这一辈子再也不会碰那些东西，当然是怕死。但说实话，我起初是喜欢毒品的，觉得那感觉很好。后来发生的，就是会发生在每个人身上的事：你发现自己一觉醒来，旁边是个怪物。你总会觉得「我跟那个出问题的人不同，我可以一周不碰，我可以这样、可以那样」。可结局总是一样：耐受越来越大，越来越贵，你得做疯狂的事去搞钱、去弄到那些毒品，然后要么进监狱，要么进机构，要么死去。", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 1133, "type": "text", "zh": "所以那就是你的故事转折、决定拿人生做点别的事的时刻，再往后的某个时点。", "speaker_id": "steven", "section_id": "s3"}, {"start_sec": 1138, "type": "text", "zh": "对。不是因为有人对我说了什么了不起的话，我也没读哪本书。就是在牢房里待得够久，离开那些物质，意识到没有它们时自己有多好。假释一结束，我就离开了宾夕法尼亚，再也没有回去。然后我开办了物质滥用机构，也就是心理健康和戒毒康复机构。当时开了三家，规模比较大，口碑也很好。我的旧合伙人现在还在做，已经开了更多家，声誉仍然很好。后来我把它们卖掉了。", "speaker_id": "ryan", "section_id": "s3"}, {"start_sec": 1175, "type": "text", "zh": "后来到了某个时点，你开始和执法部门合作。", "speaker_id": "steven", "section_id": "s4"}, {"start_sec": 1177, "type": "text", "zh": "对。", "speaker_id": "ryan", "section_id": "s4"}, {"start_sec": 1178, "type": "text", "zh": "我觉得这很耐人寻味。执法部门为什么要和你合作？他们会对你说什么，需要什么帮助？你有什么是他们自己接触不到的？", "speaker_id": "steven", "section_id": "s4"}, {"start_sec": 1187, "type": "text", "zh": "他们受训使用的许多工具和方法，有些有点过时。", "speaker_id": "ryan", "section_id": "s4"}, {"start_sec": 1192, "type": "text", "zh": "明白。", "speaker_id": "steven", "section_id": "s4"}, {"start_sec": 1192, "type": "text", "zh": "不是他们没有热情，他们有，尤其是做「侵害儿童的网络犯罪」（ICAC）的那些人。他们用的某个工具也许本身很好用，但拿不到我们掌握的那些数据点；或者他们需要获取某台设备，或需要一种反向人脸识别的方法。也许他们没有预算，去付给某家我不愿点名的公司每年十万美元，只为了搜一张脸；也许他们想查一个用户名。能帮他们训练的场景有无数种。不过在联邦层面，在地方机构之外，他们通常找我，是为了识别更难定位的组织，比如764以及与「公社」（the comm）相关的那些小团体。你熟悉虚无主义这个词吗？", "speaker_id": "ryan", "section_id": "s4"}, {"start_sec": 1249, "type": "text", "zh": "大概知道。", "speaker_id": "steven", "section_id": "s4"}, {"start_sec": 1251, "type": "text", "zh": "简单说，就是对一切都不在乎。所以他们是一个虚无主义的撒旦崇拜团体，由得克萨斯州的一个孩子创建。对美国公民来说，尤其要知道国家公共数据（National Public Data，NPD）这次泄露。有28亿条记录被暴露到了互联网上。很多人并不知道这件事。美国大约有3亿人，28亿条记录意味着几乎每个人都受影响。这不是已经证实的统计，但几乎可以肯定：如果你超过30岁，你住过的每个地址、你的电话号码、完整的社保号，都已经在外面了。", "speaker_id": "ryan", "section_id": "s4"}, {"start_sec": 1296, "type": "text", "zh": "那潜在的危害是什么？", "speaker_id": "steven", "section_id": "s4"}, {"start_sec": 1296, "type": "text", "zh": "他们可以以你的名义办信用卡，可以打电话假冒你，可以盗用你的身份，花样很多。想查自己在不在这次泄露里，可以去 npd.pentester.com，完全免费：填上名、姓、出生年份，再把你住过的州都试一遍，它会告诉你有没有受影响。知道这一点很重要，因为你接下来需要做的是冻结信用记录。信用记录对我、对大多数人都很重要。冻结信用记录本身不会做别的，它只是阻止别人以你的名义办卡、贷款、按揭或买车。", "speaker_id": "ryan", "section_id": "s4"}, {"start_sec": 1340, "type": "text", "zh": "我们都有这些设备：iPhone、iPad、电脑，还有家里的各种装置。大家似乎默认它们是安全的。是这样吗？", "speaker_id": "steven", "section_id": "s4"}, {"start_sec": 1351, "type": "text", "zh": "大体上，我会说是的。在我看来，它比安卓更安全。我不认为安卓对任何人来说是个好主意，尤其是因为它可以安装第三方应用，而那可能意味着远程访问木马。你知道那是什么吗？", "speaker_id": "ryan", "section_id": "s4"}, {"start_sec": 1367, "type": "text", "zh": "不知道，不过从名字大概能猜到。", "speaker_id": "steven", "section_id": "s4"}, {"start_sec": 1371, "type": "text", "zh": "名字已经把意思说完了。很多时候，我在电脑上用一行命令就能生成一个APK，也就是安卓应用。我可以把那个文件用邮件发给你；如果我能直接接触到你的手机，也可以插上去安装，打开那个应用，授予全部权限，然后从远程完全控制你的手机，而你完全看不到我有任何接入。iPhone 有点不同，通常做不到这一点，除非你有「零日漏洞」，也就是一个从未被发现、还没有人知道它存在的漏洞，所以才叫零日。有一家公司正在接连找到这类漏洞，这让针对 iPhone 的攻击成为可能，而以前没那么常见。苹果在加密数据、加大恢复难度上做得非常好。当苹果收到传票时，它们能提供一些信息，但给不了那些只在你手机上解密的内容。我记得苹果的说法是安全隔离区（Secure Enclave）。但如果我告诉你手机完全安全，那是在说谎，它并不完全安全。只是我觉得，用 iPhone 被攻击的可能性比用安卓低得多。", "speaker_id": "ryan", "section_id": "s4"}, {"start_sec": 1452, "type": "text", "zh": "什么都能被黑。我前几天和一个安全专家聊，他说物理安全我们还能做些事；可如果是高知名度的人，有权势的人想进你的手机，他们就能进去。他也上过这档节目。", "speaker_id": "steven", "section_id": "s4"}, {"start_sec": 1466, "type": "text", "zh": "这完全是真的。除了我刚才说的那些团体，还有一个非常公开的，是以色列的NSO集团。你应该听说过「飞马」（Pegasus），现在很有名。我经常收到邮件，有人以为自己中了飞马。据我所知，你只要输入一个电话号码，按下回车。谁能用飞马，得由NSO授权，他们得为此付钱。然后他们就完全进入你的手机，你不会有任何提示。它在后台运行，他们可以看你的摄像头、读短信、下载照片、为所欲为、监听通话。这是非常危险、非常糟糕的攻击，已经存在很多年。随着苹果修补，我相信他们也在迭代。以前很长一段时间里，我只熟悉飞马这一种；而最近几周，针对 iOS 的攻击一个接一个。我觉得这最终会冷下来，但眼下很新，因为很多人开始用上这些强大的人工智能模型。", "speaker_id": "ryan", "section_id": "s4"}, {"start_sec": 1540, "type": "text", "zh": "萨姆·奥尔特曼（Sam Altman）大约上周刚说过类似的话。他谈的是，有了人工智能，我们必须彻底重新思考网上安全是怎么一回事。问题正在朝我们过来，可我觉得无论是机构负责人、国家还是个人，都还没有足够认真地对待。今年早些时候有过一阵他所说的恐慌，情况后来似乎好了一些，人们确实修了一些漏洞。但这也是人们没有真正理解指数式变化的又一个例子：模型能找到一批安全漏洞，大家就以为那大概就是全部漏洞，或模型今后能找到的全部漏洞。大多数人并没有接着说：模型还会聪明得多，它们大概能找到疯狂的漏洞，远超我们以为黑客能做的那些，甚至是硬件层面的、让人难以置信的东西。于是人们修了一些漏洞，安全专业人士和首席信息安全官还在紧张，但大体上，多数机构负责人已经把注意力移开了，而模型还在往前走。我不再认为我们能把所有漏洞都补上，必须彻底改换防御模型，用同样的技术去做一种新的防御盾。我觉得这是巨大的安全问题。", "speaker_id": "steven", "section_id": "s4"}, {"start_sec": 1661, "type": "text", "zh": "我完全同意。这些模型是越来越聪明了。但有一点对大家很重要：所谓「人工智能」，我个人并不认为它真的具有人工的智能。它非常擅长把模式组合在一起。人工智能是基于已经存在的数据来训练的：你身后那些书、整个互联网、整个谷歌、整个维基百科、所有平台。你用已经存在的东西去训练这些模型，再造一个巨大的、彼此连通的神经网络。然后你说，我想谈谈这个盒子。如果你问「我怎么打开这个盒子」，它会看这些变量、建立连接，再根据已有信息给出打开盒子的最佳示例。它并不能以一种「人工地智能」的方式，自己发明一种打开盒子的新方法。各家公司、尤其是人工智能公司，都在寻找所谓的人工通用智能（AGI）。我相信到了那一步，它会比现在可怕得多。它对生活很有用，可是没有良心、也没有感知，又怎么能谈得上智能呢？", "speaker_id": "ryan", "section_id": "s4"}, {"start_sec": 1720, "type": "text", "zh": "可就你刚才那个盒子的比方来说，我的大脑不也是这样工作的吗？我看见那个，想这是个盒子，那是手柄的形状。我从没见过那个具体的手柄，但我见过手柄。于是我的大脑说：拉它。而这正是大语言模型会走的那种处理方式。它不必见过这个特定的手柄，也能知道那是手柄。", "speaker_id": "steven", "section_id": "s4"}, {"start_sec": 1743, "type": "text", "zh": "对，它会知道那是手柄的形状。但如果它没有关于那个特定手柄的信息，而你问「我怎么把那个手柄换掉」，它若既不了解那个盒子、也不了解那个手柄，就可能出现他们所说的「幻觉」。模型也许会说：打开盖子，看看下面有没有螺丝。它会给出一个最好的猜测，但它不会知道这个盖子下面到底有什么。", "speaker_id": "ryan", "section_id": "s4"}, {"start_sec": 1767, "type": "text", "zh": "桌上这些都是什么？这个盒子里到底是什么？", "speaker_id": "steven", "section_id": "s4"}, {"start_sec": 1771, "type": "text", "zh": "是你让我把背包里剩下的设备放进盒子的。这些是我做了笔记、觉得你会感兴趣的。我不知道你想往哪个方向聊。", "speaker_id": "ryan", "section_id": "s4"}, {"start_sec": 1782, "type": "text", "zh": "对我来说，真正重要的是：普通公众走在街上，对这个世界、对自己有多安全、人工智能对他们的人身安全意味着什么，都有一种既定的感觉。我只是想先揭开安全的现实：网络安全、数据安全。我曾以为我拥有的一切都是安全的，以为我放到网上的信息也相对安全。采访了许多间谍和中情局（CIA）的人之后，我才开始意识到也许并非如此。", "speaker_id": "steven", "section_id": "s4"}, {"start_sec": 1804, "type": "text", "zh": "随着人工智能靠岸，你说你对此感到担心。你现在会采取哪些几年前也许还没有的防范？", "speaker_id": "steven", "section_id": "s5"}, {"start_sec": 1816, "type": "text", "zh": "我必须采取和大多数人不同的防范，因为我已经大量出现在网上，再加上我们后面会讲到的那些团体正在针对我。于是有人出现在我家，有特警队被派到我家。你一定知道所谓的「诈警」。还有美国邮政的纸箱，因为是免费的，他们就一箱又一箱空盒子寄到我家，故意惹人烦。另一方面，他们还会做别的。", "speaker_id": "ryan", "section_id": "s5"}, {"start_sec": 1852, "type": "text", "zh": "是谁在做这些？", "speaker_id": "steven", "section_id": "s5"}, {"start_sec": 1853, "type": "text", "zh": "是「公社」，或764，或这些团体的分支。那些人非常恨我，会用尽一切办法找我。所以我必须格外小心，这不是出于偏执或焦虑。他们有公开刺伤、向别人窗户砸砖的证据。有一个例子：他们把砖头砸进一个女孩汽车的后挡风玻璃，不是成年妇女，是一个女孩。她心脏病发作，去世了，而且她有孩子，所以这是双重谋杀。这些人是危险的。因此我会格外小心，尽可能把我能从网上撤下的数据撤掉。", "speaker_id": "ryan", "section_id": "s5"}, {"start_sec": 1895, "type": "text", "zh": "他们为什么在意你？", "speaker_id": "steven", "section_id": "s5"}, {"start_sec": 1896, "type": "text", "zh": "因为我在曝光他们。另外他们也想要名声。也许更少是因为组织被曝光，更多是想成为那个去诈警瑞恩·蒙哥马利、或诈警史蒂文·巴特利特的人。他们做的大多数事情并没有道理，后面你会看到。", "speaker_id": "ryan", "section_id": "s5"}, {"start_sec": 1919, "type": "text", "zh": "能先给我的听众一点背景吗？", "speaker_id": "steven", "section_id": "s5"}, {"start_sec": 1922, "type": "text", "zh": "要讲清楚背景，就很难不直接进入那个话题。你想现在就讲吗？因为它马上就会非常黑暗。我们可以先看设备，也可以先讲那个。真的很暗，我不知道你想不想用那个来结束这次谈话。", "speaker_id": "ryan", "section_id": "s5"}, {"start_sec": 1935, "type": "text", "zh": "这些设备和那件事有关吗？", "speaker_id": "steven", "section_id": "s5"}, {"start_sec": 1937, "type": "text", "zh": "没有，并不相关。怎么安排都可以。我只是知道，你大概永远忘不掉，所以我必须提前告诉你。这也是我最想上这档节目的原因：我希望家长意识到这些人和这些团体有多危险。我们国家现在已经认真得多了，每个联邦调查局外勤办事处都已介入，它现在被视为国内恐怖组织。具体就是764以及与「公社」相连、在做同样事情的那些分支。那是什么，我稍后会再细讲。", "speaker_id": "ryan", "section_id": "s5"}, {"start_sec": 1971, "type": "text", "zh": "好，那我们先看设备，再把这部分放到最后。这样比较合理，万一我需要……", "speaker_id": "steven", "section_id": "s5"}, {"start_sec": 1977, "type": "text", "zh": "对，那会很难熬。但我还是会给你看，也希望你知道：这些孩子每天都在接触这些东西。我说的是九岁、十岁、十一岁的孩子，他们暴露在我接下来要展示的内容里。那会让你震惊。我并不是很了解你，但我能感觉到你有一颗心，你会明白这有多么荒谬。", "speaker_id": "ryan", "section_id": "s5"}, {"start_sec": 1996, "type": "text", "zh": "我们桌上这些设备是什么，能做什么，为什么重要？", "speaker_id": "steven", "section_id": "s6"}, {"start_sec": 1999, "type": "text", "zh": "每一件都有自己的用途，有些能力还会交叉。这个叫「饼干」。你摸一下就知道，只是一个3D打印的外壳。按钮掉了，那是我的责任。它可以发起无线网络和蓝牙攻击，还有一些别的功能。", "speaker_id": "ryan", "section_id": "s6"}, {"start_sec": 2016, "type": "text", "zh": "你说的无线网络攻击和蓝牙攻击，具体是什么意思？", "speaker_id": "steven", "section_id": "s6"}, {"start_sec": 2019, "type": "text", "zh": "我刚刚已经把它打开了，你看得到那颗小LED。它会向外广播。他们还有一个iOS应用，真正的iPhone应用，我可以连上去。等一下，好了。现在这就是我连上「饼干」的状态。然后你可以做「驾车侦察」，也就是看到周围所有的无线网络和蓝牙设备。这里还有一个反监视按钮，用来寻找身后那些共享同一MAC地址的设备。MAC地址只是设备上的一个标识符。", "speaker_id": "ryan", "section_id": "s6"}, {"start_sec": 2054, "type": "text", "zh": "所以这是防御装置，不是攻击装置。", "speaker_id": "steven", "section_id": "s6"}, {"start_sec": 2056, "type": "text", "zh": "两样都是。它有嗅探、攻击和扫描。我现在专门在无线网络这一层。比如我们扫描接入点，点加号，就能看到周围的一切。这里有 Flight Story，我们点它。选中之后，我可以用信号强度来定位那台路由器、也就是目标实际在哪里。然后进入攻击，我可以做所谓的「断联攻击」（deauth）。如果我再选择捕获握手，它一开始会尝试连接这个网络，实际上却会把那台手机或设备打下线；对方一重连，就会产生所谓的四次握手。你可以把这个握手文件存在手机或其他设备上，带回家再去破解密码。到这一步，你不必再待在那个无线网络附近。只要拿到网络掉线、设备重连时捕获的那次四次握手就行。我可以用密码字典，也就是一个装满各种单词和文本的巨大文件，也许有20GB。假设你的密码是 Password123 再加一个感叹号，规则集可能会把首字母大写、末尾加数字和符号，并把所有符号都试一遍，于是那个20GB的文件变成200GB，甚至TB级。", "speaker_id": "ryan", "section_id": "s6"}, {"start_sec": 2146, "type": "text", "zh": "也就是把每一种密码都试一遍。", "speaker_id": "steven", "section_id": "s6"}, {"start_sec": 2147, "type": "text", "zh": "对，针对那份握手去试每一种密码。这时你不必再连上无线网络、输入密码、再断开。你大概可以每秒试两万次，破解密码的机会就大得多。", "speaker_id": "ryan", "section_id": "s6"}, {"start_sec": 2163, "type": "text", "zh": "那怎样才能阻止这种事发生？", "speaker_id": "steven", "section_id": "s6"}, {"start_sec": 2166, "type": "text", "zh": "使用WPA3，这是较新的无线网络安全技术。但几乎所有路由器都处于一种「过渡模式」，会降级到WPA2，从而使这种攻击仍然可行。所以眼下能做的并不多。我现在把手机开到飞行模式，然后按一下上面的播放。你看你的iPad：iCloud传送、电话号码都弹出来了。对某些设备，这会直接让手机崩溃。可我们现在明明在飞行模式，按理不该再发送任何东西。这里每一个人都在收到这些通知。飞行模式开、关都一样。你再按那个播放，我的设备、你的设备，所有东西都会立刻弹出这些窗口，手机会基本上没法用。我可以从旁边走过，专门弹出这些东西，让你没法使用设备。", "speaker_id": "ryan", "section_id": "s6"}, {"start_sec": 2225, "type": "text", "zh": "它是怎么做到的？", "speaker_id": "steven", "section_id": "s6"}, {"start_sec": 2226, "type": "text", "zh": "它在广播，假装这些是正在靠近你的iPad或手机的苹果设备，并试图完成设置，而且发送频率非常高，于是设备就一个接一个地弹窗。有意思的是，苹果把手机开到飞行模式，并不会关掉蓝牙。你真正要做的，是进入设置，从设置里把蓝牙关掉。那样才能阻止别人用蓝牙连上你的手机。这是一种无害但烦人的攻击，我能预见的唯一伤害，是你正要打电话或做事时被通知淹没，什么都做不成。如果你想停掉它，关掉蓝牙就行。就是这个小小的「饼干」造成的。它还能做更多，我只是先给你两个例子。", "speaker_id": "ryan", "section_id": "s6"}, {"start_sec": 2286, "type": "text", "zh": "趁我们还站在这里，我再快速给你看「饼干」的强制门户。我把它命名为 Flight Story，然后发起免费网络攻击。我现在正在广播一个叫「Flight Story Free」的网络，你看得到。", "speaker_id": "ryan", "section_id": "s6"}, {"start_sec": 2310, "type": "text", "zh": "所以你刚刚造出了这个无线网络，看起来是开放、可以连接的。", "speaker_id": "steven", "section_id": "s6"}, {"start_sec": 2313, "type": "text", "zh": "对。那我连上去。", "speaker_id": "steven", "section_id": "s6"}, {"start_sec": 2310, "type": "text", "zh": "对。", "speaker_id": "ryan", "section_id": "s6"}, {"start_sec": 2318, "type": "text", "zh": "看不见画面的人要知道：我一点击这个无线网络，就弹出了谷歌登录页。", "speaker_id": "steven", "section_id": "s6"}, {"start_sec": 2319, "type": "text", "zh": "而在我这边，它立刻弹出来，给了我你的 Stephen at AOL，密码是 test。然后我把攻击停掉，那个网络就像从未存在过。", "speaker_id": "ryan", "section_id": "s6"}, {"start_sec": 2332, "type": "text", "zh": "这是一种相当危险的攻击。你知道它为什么危险吗？因为它太简单了。", "speaker_id": "steven", "section_id": "s6"}, {"start_sec": 2337, "type": "text", "zh": "确实太简单了。", "speaker_id": "ryan", "section_id": "s6"}, {"start_sec": 2338, "type": "text", "zh": "我年轻的时候，做这件事还要更困难一点。现在你可以买到这样的设备，而且桌上几乎每一台都能做完全相同的攻击。我决定用「饼干」给你看，但几乎每台都行。", "speaker_id": "ryan", "section_id": "s6"}, {"start_sec": 2353, "type": "text", "zh": "正因为这一点。我们都会在世界各地连接各种无线网络。而你刚刚演示了，在公共场所连上一个网络，就可能把我的密码、邮箱或其他东西收走。", "speaker_id": "steven", "section_id": "s6"}, {"start_sec": 2366, "type": "text", "zh": "收走的会非常多。想想你的酒店房间：你进门后它问你房号，再让你提供信用卡号码来验证，或为上网付费。仅凭强制门户，开放的无线网络就能从人身上拿到太多东西。还没算技术细节，一旦你和别人进入同一网络，事情就会变得危险。", "speaker_id": "ryan", "section_id": "s6"}, {"start_sec": 2390, "type": "text", "zh": "你那儿有只灯泡，我还有台灯。你为什么要带一只灯泡？你知道欧洲那些超市最近被黑的事吗？", "speaker_id": "steven", "section_id": "s7"}, {"start_sec": 2395, "type": "text", "zh": "不知道。", "speaker_id": "ryan", "section_id": "s7"}, {"start_sec": 2395, "type": "text", "zh": "损失达数百万美元，食物也变质了，因为他们的冰箱是直接面向互联网的。这是很多人在物联网设备、也就是智能家居设备上会碰到的问题。你听说那三家血库了吗？", "speaker_id": "steven", "section_id": "s7"}, {"start_sec": 2416, "type": "text", "zh": "在法国，有三家血库被黑，我记得是血浆。那些存放血浆的冰箱暴露在互联网上，温度被改到230华氏度。我不太确定换成摄氏是多少，反正非常热，我想大约是122摄氏度。所幸根据我读到的，他们发现得足够快，血浆被保住了。可你要想想，那是救命用的血，得是什么样的人，才下得了这种手。你从中什么也得不到。黑客圈子里也有一些完全没有心的人。很多人没有意识到，也许就是这样一台摄像头，或你在亚马逊上买的廉价产品，哪怕是贵的，也可能把自己暴露到网上，让别人看见，而且常常用的是默认凭据。比如这台设备，它的一种攻击是进入网络，寻找所有已连接的装置，然后对它们尝试全部默认密码，再加上一些已经写进去的基本攻击。其中很多最后会是摄像头，它会给你一个网址，你就能在手机上看那场直播。", "speaker_id": "ryan", "section_id": "s7"}, {"start_sec": 2494, "type": "text", "zh": "等一下。也就是说，假如我门口有门铃，或屋里有摄像头，它就能黑进去，然后你能在手机上看？", "speaker_id": "steven", "section_id": "s7"}, {"start_sec": 2505, "type": "text", "zh": "对，完全可以。而且如果它面向互联网，你还能在远程看，不必在现场。能这么做的设备非常多，也有网站会把这类信息索引起来。那些网站我不愿点名，因为我不想让人去窥探别人的房子。但它们就在明网上，你只要输入一个城市或州的名字，就能看到大量对着外面敞开的摄像头。人们完全不知道自己正被陌生人看着。", "speaker_id": "ryan", "section_id": "s7"}, {"start_sec": 2532, "type": "text", "zh": "很多人会担心自己设备上的摄像头被黑，不少人连笔记本电脑的摄像头都会遮住。", "speaker_id": "steven", "section_id": "s7"}, {"start_sec": 2541, "type": "text", "zh": "遮住笔记本摄像头是聪明的。我可以给你看看攻击者那一侧是什么样子：我可以看你的网络摄像头，听你的麦克风，看到你在电脑上敲下的每一个键，包括退格、拼错、空格。我可以读完整的文件系统，也可以让文件看起来进了回收站、被你删掉了，实际上还在。只要对方机器上有木马或病毒，可能性几乎是无限的。", "speaker_id": "ryan", "section_id": "s7"}, {"start_sec": 2577, "type": "text", "zh": "把木马弄到别人机器上有多容易？", "speaker_id": "steven", "section_id": "s7"}, {"start_sec": 2580, "type": "text", "zh": "取决于场景。有人下载的软件会和木马绑在一起，这种情况会发生。也有零日漏洞，就像我们刚才说的，一部iPhone或安卓可能会收到一条短信，或一条Signal消息。最近就有一个新漏洞：你在Signal里打开一份PDF，手机就会被完全攻破，拿到最高权限。", "speaker_id": "ryan", "section_id": "s7"}, {"start_sec": 2602, "type": "text", "zh": "也就是说，有人只需发给你一份PDF，你打开，手机就完全被黑了。", "speaker_id": "steven", "section_id": "s7"}, {"start_sec": 2604, "type": "text", "zh": "对。我刚说的那个新团体刚刚演示了这一点。这是所谓的「一次点击」，只要点一下，漏洞就会生效，并能完全进入iPhone。非常吓人。我自己也用Signal，所以眼下我对打开PDF是有点害怕的。这些事让我很震惊，不过我是个极客，感受可能不太一样。再说这只灯泡。关于家里面向互联网的设备，我最想建议你的就是：不要信任它们中的任何一台。我这样说，不是因为我是戴锡箔帽的阴谋论者。我查过这些设备如何与互联网通信，它们几乎都在和中国通信。它们在中国生产，通常是在和中国的云服务器通信。当你说「我想让这只灯泡变红」，多数情况下并不是从你的手机直接到灯泡再变红，而是从你的手机到中国，再从中国到你的路由器，从路由器到灯泡，然后再回来。这样一来，假如中国决定敌视我们，想接管这些设备，他们就可以推送恶意的固件或软件更新。而这些设备已经在你家的网络里。你可以想象，一只表面上工作完全正常的智能设备，一旦被换上恶意固件，在某些情形下就能作为跳板进入你的电脑、手机或摄像头，获得你从未打算给出去的更多权限。", "speaker_id": "ryan", "section_id": "s7"}, {"start_sec": 2709, "type": "text", "zh": "这个问题的解决办法其实非常简单：如果你家里有懂技术的人，或有这样的朋友，或愿意雇一个人，就请他们做一个虚拟局域网，也就是VLAN。它把一部分设备放在网络的一个分段上，把重要设备放在另一个分段。这样无论是有人像我接下来演示的那样去攻击这只灯泡，还是某家公司，或有人攻击了在中国的那家公司，这些设备被黑之后也会被困在网络上的沙箱里。这就是我自己家里实际在做的事。", "speaker_id": "ryan", "section_id": "s7"}, {"start_sec": 2748, "type": "text", "zh": "比方说，我跟你说我要去洗手间，站起来走出去，包里带着这个，而我已经在你家。我很有可能把这只灯泡拧进你浴室的某个灯座。大多数人浴室里至少有这样一只灯泡。我就会像现在这样，把原来的灯泡取下来，换上一只从亚马逊买来的、可以用同样方式被攻击的灯泡。现在灯泡已经在里面了。我连上去，连的是一个叫 nightlight 的网络。这只灯泡自己在发出一个无线网络名称。然后我访问这只灯泡的IP地址，界面是「黑客的夜灯」。一点刷新，你看，这栋楼里的网络都在这里。", "speaker_id": "ryan", "section_id": "s7"}, {"start_sec": 2803, "type": "text", "zh": "从这里我可以发起攻击、拒绝服务、抓握手。我也可以监听未加密的通信。所以即便没有无线密码，假如你办公室或家里用的是老旧或廉价的摄像头系统，我也能用这只灯泡去监视那些未加密的流量，直接看到摄像头画面，而完全不需要你的无线密码。只因为这只灯泡在这个网络上。", "speaker_id": "ryan", "section_id": "s7"}, {"start_sec": 2828, "type": "text", "zh": "也就是说，理论上你用一只灯泡就能黑进我的摄像头系统，看着我。", "speaker_id": "steven", "section_id": "s7"}, {"start_sec": 2834, "type": "text", "zh": "对。还有一种情况是用这只灯泡作为跳板进入你的网络。再说回颜色：假如这不是你浴室原来的颜色，我可能会把亮度和冷暖调到接近，也许调成你浴室原来的那种颜色，然后离开。我布置好的攻击载荷会继续运行。之后我不必再进去把这只灯泡取回来，只要站在房子外面，连上它的网络，取走我想要的数据就行。你永远不会知道那只灯泡是恶意的。但同时也要记住，那家公司出售时并没有赋予它这种能力，是这只灯泡被黑了，方式和另一只灯泡被黑是一样的。", "speaker_id": "ryan", "section_id": "s7"}, {"start_sec": 2887, "type": "ad_omitted", "ad_brand": "Bon Charge", "section_id": "s7"}, {"start_sec": 2928, "type": "ad_omitted", "ad_brand": "Lovable", "section_id": "s7"}, {"start_sec": 3016, "type": "text", "zh": "很多全球最大的公司会花很多时间清扫办公室，就是怕有员工、清洁工或其他人在里面放置这类装置。我听说上个月OpenAI发现，办公室里被一名团队成员放置了一些设备。", "speaker_id": "steven", "section_id": "s8"}, {"start_sec": 3039, "type": "text", "zh": "而且他们相信此人与外国对手有关。", "speaker_id": "steven", "section_id": "s8"}, {"start_sec": 3041, "type": "text", "zh": "是的，对此我并不惊讶。", "speaker_id": "ryan", "section_id": "s8"}, {"start_sec": 3043, "type": "text", "zh": "你看到那则报道了吗？", "speaker_id": "steven", "section_id": "s8"}, {"start_sec": 3043, "type": "text", "zh": "我没看到那则报道，但我能理解，而且这类事可以做得相当巧妙。这些并不是薄荷糖。这是一个能让摄像头、Ring门铃掉线的装置。我很多年前做的，到今天还能用。它是一个无线断联器，一插上电就会出现一个界面，我按一下就能把这些设备打下线。我不想在这里演示，因为它也可能把你的团队打下线。如果我不告诉你，我想你不会知道这是什么。", "speaker_id": "ryan", "section_id": "s8"}, {"start_sec": 3073, "type": "text", "zh": "我刚才还在想你为什么要带薄荷糖。", "speaker_id": "steven", "section_id": "s8"}, {"start_sec": 3074, "type": "text", "zh": "就是这样，这类东西可以做得很好。再给你看这个智能插头。它没有什么特别的，这两样都不是专用的黑客设备，只是你会在亚马逊上买、以为安全的智能家居产品。这些设备可以被改装、被黑，并以你不曾打算的方式进入你的网络。我想给正在看的人一个真实例子，而不只是口头说说。这是一个智能插头，我只是把它插到插座上，它甚至不会亮灯。", "speaker_id": "ryan", "section_id": "s8"}, {"start_sec": 3108, "type": "text", "zh": "所以你把一个看起来很普通的插头插进插座，然后你手机上就出现了一个无线网络。", "speaker_id": "steven", "section_id": "s8"}, {"start_sec": 3115, "type": "text", "zh": "正是如此。", "speaker_id": "ryan", "section_id": "s8"}, {"start_sec": 3116, "type": "text", "zh": "那个无线网络能做什么？", "speaker_id": "steven", "section_id": "s8"}, {"start_sec": 3118, "type": "text", "zh": "在这个例子里，它会检查你网络上那些设备的行为：摄像头、报警系统、手机、音频设备，几乎所有东西。你能从这些MAC地址识别它们。这些MAC地址有一个被分配好的前缀，有点像域名，数据库会告诉你它属于哪家公司。这台设备能做那只灯泡能做的所有无线攻击，但它的重点是无线侦察，判断网络行为，并窃取密码，这些它都能做。我想说的核心是：对你买的东西要非常小心，贵的便宜的都一样。越便宜，我觉得风险可能越大。但我不认为你应该把它们放在主网络上，应该给这类设备单独做一个网络。", "speaker_id": "ryan", "section_id": "s8"}, {"start_sec": 3160, "type": "text", "zh": "听起来你是在说，几乎所有连上互联网的东西都能被黑。", "speaker_id": "steven", "section_id": "s8"}, {"start_sec": 3165, "type": "text", "zh": "我完全同意。这辈子我几乎没见过什么是没被黑过的。我从很小就一直在电脑上，所有东西至少在某个时点都被攻击过。这个你应该知道。你熟悉那个拼作K-A-R的车载警报系统吗？", "speaker_id": "ryan", "section_id": "s8"}, {"start_sec": 3178, "type": "text", "zh": "不熟。", "speaker_id": "steven", "section_id": "s8"}, {"start_sec": 3179, "type": "text", "zh": "在我看来这是个很疯狂的情况。K-A-R是一套会装进车里的大型警报系统。你去经销商买车时，会被推销这套警报套餐。很多人在金融环节会说：我不想要，没关系。但经销商往往已经把东西装进车里了。于是你把车开走，什么都没想。过了几年，研究人员发现了这个控制应用的攻击。即便你从未安装过它，甚至不知道它在自己车上，也没有为之付费，只要它存在于车里，攻击者就能完全控制：解锁你的车，让车无法移动，更改各种诊断信息，按喇叭，打开后备箱，几乎所有事情，完全控制你的车。而这家公司犯了一个大错：在一个旧应用里，把主密钥以近乎明文的方式就那样留在了应用中，藏着，但能被找到。美国大约有220万辆车受影响，这是大概的数字，实际可能更多。我只要打开这台设备，寻找受这一漏洞影响的车辆，如果我想让它们无法移动，按下那个锁死键，车就再也开不走了，除非有人去做反向操作。因为这些装置走的是蓝牙而不是互联网，唯一的补丁是：你得知道自己的车配备了这套警报。你可以到应用商店下载他们的应用，看你的车在不在其中，或在前挡风玻璃上找他们的标志，然后把固件升级到最新。这样才能去掉攻击者锁车、开门、关门的可能。我特别想提这件事，因为它关系到数百万人，而大多数人根本不知道。", "speaker_id": "ryan", "section_id": "s8"}, {"start_sec": 3319, "type": "text", "zh": "我在洛杉矶的一个好朋友，其实也上过这档节目，几个月前大概凌晨两点给我发了一段视频。他的路虎揽胜（Range Rover）停在家门外，有人把车开到旁边，拿着笔记本坐了大约三四分钟，然后你就看见揽胜自己启动了。那人下车走过马路，坐进揽胜把车开走了。", "speaker_id": "steven", "section_id": "s8"}, {"start_sec": 3344, "type": "text", "zh": "车至今没找回。而且我听说这类事相当常见，尤其是揽胜。", "speaker_id": "steven", "section_id": "s8"}, {"start_sec": 3349, "type": "text", "zh": "那要看是哪一种车。我不是职业偷车人，但我知道，很大概率存在某种连到服务器的远程启动功能；也可能和经销商有关，攻击者拿到了某个经销商员工的凭证；也可能是车辆自身的漏洞。我不能确定。但攻击一辆车的方法非常多，我也在新闻和社交媒体上展示过一些。眼下比较流行的一种，最初是一些俄罗斯人在出售定制固件，能够偷走钥匙遥控器。无论你按的是锁、解锁、紧急还是后备箱，按哪个键都无所谓，只需按一下，就能克隆那个遥控器，并与滚动码系统对齐，而那正是难的部分。年纪大一些的观众会记得，以前车库门后面是拨码开关，那是静态码，数字永远不变，你拿到一次，就永远能用同一个数打开。滚动码系统则是每次按键数字都会变，锁这一端知道下一个数会是什么。而这种针对汽车的攻击，能与钥匙遥控器对齐，并把遥控器完整克隆下来。", "speaker_id": "ryan", "section_id": "s8"}, {"start_sec": 3392, "type": "text", "zh": "再看这台设备，它可以黑无人机，能从执法人员的执法记录仪、车上的灯条或电台识别他们，告诉你警察在哪里、距离你有多远。它能让摄像头失效，能做大量无线和蓝牙攻击。但我觉得它最厉害的一点是：假如你有一台大疆（DJI）这类非常流行的无人机，我可以让这台设备把它断电，取走它原来连接的无线密码，关掉避障，控制它能飞离操控者多远，而他们毫无察觉。当然，你也可以迫使无人机坠毁。你还能找到操控者的个人信息，因为所有无人机在大约2022年之后——这一点请再核实——被要求开启远程识别。远程识别会显示无人机在空中的位置、GPS坐标，以及你拿着遥控器站在哪里。美国还要求注册无人机。于是你就能用序列号识别天上是谁的无人机、他们站在哪里，再拿序列号去查牌照、查到姓名。所以飞无人机不仅在攻击一侧很危险，在隐私一侧也很危险。如果你的计划是在我家上空飞一架无人机，还想保持隐身，我对你的了解会比你以为的更多。", "speaker_id": "ryan", "section_id": "s8"}, {"start_sec": 3525, "type": "text", "zh": "再给你看一个很厉害的功能，就是这上面的Flock检测，好用得不可思议。", "speaker_id": "ryan", "section_id": "s8"}, {"start_sec": 3528, "type": "text", "zh": "什么是Flock检测？", "speaker_id": "steven", "section_id": "s8"}, {"start_sec": 3529, "type": "text", "zh": "你熟悉Flock摄像头吗？", "speaker_id": "ryan", "section_id": "s8"}, {"start_sec": 3531, "type": "text", "zh": "不熟。", "speaker_id": "steven", "section_id": "s8"}, {"start_sec": 3532, "type": "text", "zh": "Flock是一家私营公司，在美国很多人对此非常不满。它在公共场所设置朝向街道的摄像头，拍摄车牌并传输各种数据。英国的观众肯定更习惯这类公共摄像头，但美国原本没有这一套。于是这家私营公司有了这些摄像头，而执法部门向私营公司购买数据，从而绕开宪法，去定位人们在哪里。这台设备能识别它们在哪里，并把位置缩到相当精确。有人用钢锯去砍、去拆，甚至用东西去打，搞得相当激烈。我并不鼓励任何这类行为，但大规模监视眼下是一个非常大的话题。", "speaker_id": "ryan", "section_id": "s8"}, {"start_sec": 3591, "type": "text", "zh": "我听你说过一句相当让人发冷的话：你觉得中国在寻找进入美国技术的隐秘途径，这让你对谁在听你的电话变得很敏感。", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 3605, "type": "text", "zh": "是的。中国非常强大。相比他们听我的电话，我现在更担心的是他们朝我们送来电磁脉冲。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 3615, "type": "text", "zh": "什么是电磁脉冲？", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 3616, "type": "text", "zh": "电磁脉冲会让我们所有技术、所有电子设备失效。那会是一次严重的挑衅。假如他们选择这条路而不是送一枚核弹过来，我们可能失去互联网，也就意味着失去银行账户、移动通信，失去一切。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 3634, "type": "text", "zh": "大概也包括交通控制。", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 3635, "type": "text", "zh": "对，一切，换句话说，任何里面有芯片的东西。这正好让我想到另一件事。你熟悉Meshtastic吗？", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 3642, "type": "text", "zh": "不熟。", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 3642, "type": "text", "zh": "我并不是末日预备者或阴谋论者，虽然听起来可能有点像。但有这类设备就很好。你可以去了解一下，它本质上有点像对讲机：对讲机是按下按钮、对方回答；它则是发短信，你用手机连上去。有的外形像旧时的黑莓，能打字，屏幕上能看到社区里的对话。就在我们现在录音的这地方，当地所有使用它的人——比你以为的要多——他们彼此的公开对话我们都能看见。若电网、移动网络全都倒下，你仍可以使用Meshtastic。它是开源的，免费，不是哪家公司在靠它赚钱，也不是营利公司。如果我现在想给你发一条私信，它是完全端到端加密的，政府读不了，删除后也无法恢复。我用这台设备发到你那边，就算你在75英里外，这根天线本身到不了75英里，但你我之间的那些设备会把它弹出去。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 3714, "type": "text", "zh": "像一个网络。", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 3714, "type": "text", "zh": "对，像一张网，这就是Meshtastic。但那些帮我把加密消息传给你的人，如果他们去看，只能看见有一条消息经过了他们的设备，看不见消息里是什么。用的人越多，网络就越好、越强。所以在电网停电、移动网络中断、需要一种通信方式的时候，这类设备值得拥有。如果你还要更保险、更小心，就放进法拉第袋。我看现场好像有一个。它的作用，是阻止信号进去或出来。设备放进去再折起来，无论这个袋子具体怎么用，信号进不来，设备的信号也出不去。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 3751, "type": "text", "zh": "它是什么材料做的？", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 3752, "type": "text", "zh": "我不知道确切材料，猜想是某种铝，因为铝是有效的。严格来说，锡箔纸也能用。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 3759, "type": "text", "zh": "人们也会这样对待自己的手机吗？", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 3761, "type": "text", "zh": "会。我和某些联邦机构谈话时，会把自己的手机和他们的手机都放进法拉第袋。这几乎是一种不必再说的要求。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 3771, "type": "text", "zh": "为什么要这样做？", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 3772, "type": "text", "zh": "这部分我不能多谈。除了那个显而易见的原因：有人可能定位到这些设备在哪里，也就是谁和谁在一起。与其说是听对话，不如说是位置数据。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 3791, "type": "text", "zh": "这正好让我想到另一件想告诉你的事：移动广告标识。你听说过MAID或广告ID吗？", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 3794, "type": "text", "zh": "没有。", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 3795, "type": "text", "zh": "移动广告标识做的是这样的事。你有没有看到，打开一个应用时它会问：是否允许此应用跟踪？你一点同意，就是在对外广播这个广告标识。各种东西会读取它，而这个标识会说明这部手机当时在哪里，然后被卖给数据经纪商。经纪商再把信息卖给第三方，某些情况下包括执法部门，甚至公众。于是有映射软件能说：史蒂文每周这一天、这个时间会去这家店，这些是根据你的移动广告标识画出的热点。这是另一种监视人的方式，并不使用政府技术，它是公开的、私营的，而且他们在为这些数据付钱。应对办法是在所有应用里关掉跟踪，这样你就不用那么担心，但仍有可能。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 3838, "type": "text", "zh": "还有一件设备我还没给你看，就是那根恶意充电线。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 3843, "type": "text", "zh": "在这里。", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 3843, "type": "text", "zh": "这看起来是一根普通的iPhone线。我在上面做了橙色标记，免得和我真正的充电器混在一起。它一插进你的手机，就能以每秒300个字符的速度自动敲击。我演示的时候你会看到有多快。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 3859, "type": "text", "zh": "自动敲击是什么意思？", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 3860, "type": "text", "zh": "意思是，如果我想输入hello再按回车，或回到主屏幕，或在手机里跳来跳去，我可以用这根线去模拟一块键盘。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 3872, "type": "text", "zh": "那如果我用了这根充电器，可能造成的负面影响是什么？", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 3879, "type": "text", "zh": "如果你的设备是解锁的，而我又能用上它——它带地理围栏，所以如果你在某个特定区域，或发生了某件事，载荷可能会在插着的时候自动触发。假如目标是导出你手机里的全部联系人，它可以在iPhone上创建一个快捷指令，导出全部联系人，发到某个服务器或邮箱或某个地方，再把自己从设备上彻底移除，然后它就只是一根普通充电器，你永远不会知道它曾经存在过。我演示一下，让你有个概念。有意思的是，这根充电器里面有一台微型计算机。它看起来像普通充电器，但里面有一台电脑。你看，它创建了一个叫om.g的网络。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 3966, "type": "text", "zh": "看到了。", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 3969, "type": "text", "zh": "这是我的手机，那是「受害者」的手机。这根线并没有插到别的电源上，但它在从这部手机取电，发出一个我能用自己手机连上的网络。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 3980, "type": "text", "zh": "即使没有插电。", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 3981, "type": "text", "zh": "对，即使没有插电，因为手机给了里面那台微型计算机足够的电。我连上这根线，做一件非恶意的事。你看，线插着，它在运行，你正在用手机，然后它打出了「zero day was here. Thanks for watching DAC」。所以只要这根线插着，你基本上就能黑掉对方的手机。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 4013, "type": "text", "zh": "基本上是的。只要对方手机是解锁的，或者你可以把载荷设定成在他们走出某个范围、或进入某个区域时自动触发，也就是地理围栏。这个例子里我只是让你看它打字有多快。我再运行一次，你看那个速度。每秒300个字符。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 4033, "type": "text", "zh": "而风险在于，它还可以访问其他东西、下载其他东西，再把它们发出去，比如黑掉她的照片，发给别人。", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 4043, "type": "text", "zh": "最容易的做法就是创建一个快捷指令，然后说：下载全部照片，按下「允许访问所有照片」，发到服务器，发到邮箱，用短信发出去，随你想怎样，而不一定要在手机上安装病毒。这根线也能当键盘记录器。假如你的键盘是USB-C转USB-A，而不是C对C，我可以把这样一根线接在中间，捕获那块键盘上敲下的按键。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 4071, "type": "text", "zh": "我在想，你能够接触到、也能够展示的这些，是一个层次；而中央情报局和政府，大概会有另一层次的装备和软件。", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 4085, "type": "text", "zh": "嗯。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 4085, "type": "text", "zh": "这样概括很好：有些事情值得讲出来，因为人们知道这些攻击存在之后，就有办法去管理风险；有些事情最好不说，因为你会发现有坏人在用这些方法。", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 4106, "type": "text", "zh": "所以有些事你不能谈。", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 4108, "type": "text", "zh": "对。有些不仅是我不能谈，而且谈也不聪明，因为你不想让攻击者变得更聪明。还有最后一件设备。我带了一些酒店房卡。这里一张，这里还有一张。然后这个叫Chameleon Ultra，只是一个射频识别和近场通信的读写器，也就是门禁卡那一类，比如小区泳池或这栋楼的门禁。它能读那张卡，复制它，或在这台设备上模拟，或写到另一张卡上，于是那张卡可以让我进入大楼，系统会以为我是史蒂文·巴特利特。你还有一个射频屏蔽物，是个道具。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 4159, "type": "text", "zh": "有一个钱包。", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 4160, "type": "text", "zh": "对，我稍后会说明它为什么重要。我们再拿出几张信用卡。隔着钱包我也能做，不过现在先拿出来。我连上钥匙串上的这台设备，走蓝牙。它提示把卡贴上去。这是我做的一个小程序，只为给你演示，并没有公开出去。它会告诉你是哪一类卡。比如这张，它显示是我最常见的那种。这是一张Visa，这是另一家酒店，这是昨晚另一家酒店的。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 4203, "type": "text", "zh": "所以你刚才只是把这些凭证存进了自己的笔记本。", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 4210, "type": "text", "zh": "基本上是这样。有些需要所谓的破解，但用合适的电脑，可以很快做完。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 4223, "type": "text", "zh": "也就是说，如果你从我身边走过，碰一下我的酒店房卡，理论上你就能进我的酒店房间。", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 4231, "type": "text", "zh": "对，完全可以，尤其是酒店房卡。再比如隔着钱包，我这样晃一下，就能读到里面的万事达卡。更好的例子是：我在背包里放一个大天线，整个背包绕上铜线圈，然后走在拥挤的地铁或火车里，去抓那些更容易被克隆和复制的门禁卡。信用卡那件事更多是一个很酷的功能，而不是真能复制后直接挥卡支付。真正更危险的，是酒店房卡和门禁卡。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 4272, "type": "text", "zh": "因为那样人就能进你家。", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 4274, "type": "text", "zh": "对，进你家或办公室，而且看起来就像是你本人在尝试进入。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 4282, "type": "text", "zh": "你是说我手里这个东西能起到帮助。", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 4285, "type": "text", "zh": "它本应阻止这种可能。你把它给我，我把刚才能读到的信用卡放进去。噢，它并没有在屏蔽。这不是有效的射频屏蔽。不知为什么没挡住。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 4297, "type": "text", "zh": "也许它根本不是真的射频屏蔽钱包。", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 4298, "type": "text", "zh": "对，可能只是假的，或类似的东西。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 4304, "type": "text", "zh": "那我们就当它是假的。但道理还在：你确实可以买到能阻止这种事的射频屏蔽钱包。", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 4311, "type": "text", "zh": "对，大多数是真能用的。这个牌子我不推荐，不管它是什么。", "speaker_id": "ryan", "section_id": "s9"}, {"start_sec": 4316, "type": "text", "zh": "我也不知道这是什么牌子，但我不推荐。", "speaker_id": "steven", "section_id": "s9"}, {"start_sec": 4316, "type": "ad_omitted", "ad_brand": "Progressive", "section_id": "s9"}, {"start_sec": 4386, "type": "ad_omitted", "ad_brand": "Wayfair", "section_id": "s9"}, {"start_sec": 4439, "type": "text", "zh": "回到个人安全。对正在听的人来说，瑞恩，线上和线下安全最基础、也最简单便宜的做法是什么？", "speaker_id": "steven", "section_id": "s10"}, {"start_sec": 4453, "type": "text", "zh": "简单便宜的做法，首先是使用虚拟专用网络，也就是VPN，它能对互联网掩盖你的IP地址，阻止你的互联网服务商追踪你在做什么并把数据卖掉，也能减少某些网站根据IP把你的浏览行为串在一起。在公共网络或共享网络上，它还会多加一层隐私。电脑上我建议安装某种杀毒软件，如果还没有的话，即便你用的是Mac。Mac仍然有办法被远程访问，或被装上恶意软件。我知道有人说Mac无法被黑，并非如此，它只是攻击面和Windows不同。", "speaker_id": "ryan", "section_id": "s10"}, {"start_sec": 4503, "type": "text", "zh": "你还做了哪些一般人不会做的事？你用的是普通手机吗？有没有开锁定模式？", "speaker_id": "steven", "section_id": "s10"}, {"start_sec": 4510, "type": "text", "zh": "有。我的手机开着高级数据保护模式，也就是ADP。我所有的社交媒体档案也处于锁定模式，需要自拍，也需要实体硬件密钥。你熟悉YubiKey吗？任何允许使用它的地方，我都会用YubiKey。家里有大量监控和安防，还有一些我不愿细讲的专有手段，但对识别突然出现在家门口的新面孔非常有用。说得简单一点，我经营一家安全公司，自己必须保护好。敲敲木头，我们的平台至今没有被黑过。过去四年我稍微公开之后，最糟的是有人把我和我爱的人「人肉」曝光。这件事我控制不了。我可以从公开的数据经纪商那里删掉我的数据，但删不掉泄露，你没法把数据从黑客的硬盘上拿走。", "speaker_id": "ryan", "section_id": "s10"}, {"start_sec": 4569, "type": "text", "zh": "跟我说说这个。你说有些让人不舒服的事想跟我谈。", "speaker_id": "steven", "section_id": "s11"}, {"start_sec": 4572, "type": "text", "zh": "对，这又得用到我的笔记本。是764，以及它的分支，这一点很重要，因为764是这个组织原来的名字。现在仍有人说自己是764的成员，也有人在用我不愿点名的分支名称。我不会说出任何团体名或用户名。我觉得在开始展示这些人有多令人作呕之前，必须先说清楚：我们不会提他们的名字，因为那正是他们想要的。他们会看这期视频，无论我们把他们说得多糟，他们要的就是恶名和 cred。他们的全部目的，是诱骗一个弱势儿童不仅交出自己的裸照——这本身已经很可怕——还要让这个孩子伤害自己的身体、杀死自己的宠物、去杀人，或做任何事，好让那张照片不被发给家人、朋友或学校。他们正让这些孩子对自己做最可怕的事，包括自杀。已经有多起与这些团体和分支相关的自杀，这件事几乎成了我近两年来注意力的中心。联邦调查局方面，我想大约58个外勤办事处都已动员，目前公开信息里有500多个目标正在调查。我想展示一下这个过程是怎样发生的，以及它怎样落到别人的孩子身上。这是真事。", "speaker_id": "ryan", "section_id": "s11"}, {"start_sec": 4670, "type": "text", "zh": "天哪。", "speaker_id": "steven", "section_id": "s11"}, {"start_sec": 4671, "type": "text", "zh": "会很难看。我先做个说明：我不是为了博点击才讲这些。我告诉你，是因为这些东西看起来、读起来、看下去都非常难受。但请记住，儿童每天都在接触这些，有些孩子甚至一整天都暴露其中，他们看到的比这更糟。我不会展示任何会影响正在进行的调查、或属于不公开材料的东西，这些内容在外面已经存在，不会有联邦机构因此打电话来要。但请记住，孩子们正在看到我接下来要展示的东西。", "speaker_id": "ryan", "section_id": "s11"}, {"start_sec": 4716, "type": "text", "zh": "我正在看联邦调查局的网站。这篇文章警告说，有一个虚无主义的暴力极端组织，在网上针对儿童和弱势人群。", "speaker_id": "steven", "section_id": "s11"}, {"start_sec": 4727, "type": "text", "zh": "叫764。", "speaker_id": "steven", "section_id": "s11"}, {"start_sec": 4728, "type": "text", "zh": "对。这是一个严重的问题，不是只在某个地区偶然发生的事。它不仅出现在Roblox、Minecraft或其他某个平台上，而是出现在所有平台上。我先从诱饵阶段讲起，他们从哪里把孩子诱过来：可能是电子游戏，也可能是聊天网站。很多时候，他们寻找的已经是弱势的孩子，有心理健康问题，在学校被霸凌，有自杀念头。他们会发出广告，说来加入他们的「门诊健康中心」，或加入心理健康支持小组。我给你看一些例子。这一条写着：如果你属于以下情况，就来加入——有精神疾病、没有父亲、有恋父问题、精神分裂、边缘型人格，或是女性。", "speaker_id": "ryan", "section_id": "s11"}, {"start_sec": 4781, "type": "text", "zh": "这些广告是什么？", "speaker_id": "steven", "section_id": "s11"}, {"start_sec": 4782, "type": "text", "zh": "是在不同平台上、由764及其分支成员发布的广告，用来引诱有心理健康问题的儿童加入他们。", "speaker_id": "ryan", "section_id": "s11"}, {"start_sec": 4790, "type": "text", "zh": "所以他们是在拉你加入764。", "speaker_id": "steven", "section_id": "s11"}, {"start_sec": 4791, "type": "text", "zh": "此刻还不是。他们是在利用这个孩子已经有心理健康问题这一点，试着把人养成自己的男朋友或女朋友，直到对方交出裸照。裸照一经交出，他们就会试图让对方伤害自己、自残，或做比这更多的事，去伤害别人，或伤害宠物。这里面的内容非常多，今天我只给你看一些表层的东西，但已经非常令人不安。这些只是我整理的诱饵图片，很多事情就是从这里开始的。它可能来自动漫群组，也可能来自某个黑金属、血腥内容的网站。有一个具体的孩子就是从那里来的，她喜欢血腥的东西，只是一个有点「叛逆」的少年，有点像我当年，虽然我当时喜欢的是摇滚一类不同的东西。我完全能想象自己加入一个团体，却不知道这些人并不是来帮我的，而是想诱拐我，甚至真的让我去死。", "speaker_id": "ryan", "section_id": "s11"}, {"start_sec": 4857, "type": "text", "zh": "接下来就是诱拐阶段。他们有真正的书，这些只是书里的截图。如果大声读出来……", "speaker_id": "ryan", "section_id": "s11"}, {"start_sec": 4871, "type": "text", "zh": "这是谁在说，又是说给谁听？", "speaker_id": "steven", "section_id": "s11"}, {"start_sec": 4875, "type": "text", "zh": "是团体成员在分享这些文件，也就是多本数百页的手册，教人如何敲诈和诱拐受害者。这是他们经常做的事，他们把整个生命都用来伤害别人。这很难想象，但你看完这些就会相信。手册里写：诱拐是非常常用、也很容易取得控制的方法。通常一旦你诱拐了受害者，她就会照你说的做，无论你要求什么。你必须让受害者以为你是她的神，你占有她，而且永远如此。你可以在Roblox这类游戏上，或在X（前Twitter）、Reddit、Instagram这类社交平台上找到受害者。找到之后，你必须在她身上花大量时间，让她觉得你能理解很多事，和她一起玩游戏。交谈一小段时间后，给她起可爱的昵称，比如公主、亲爱的、宝贝，这会让她更依恋你，因为女性喜欢被这样称呼。聊了一阵之后，你要请她做你的女朋友，她多半会答应。一旦她在你的控制下，你就可以开始向她要东西，比如裸照、个人信息。如果她本来没有自残，你就必须敲诈她；如果她已经在自残，几乎可以肯定，她会为了你那些肮脏的需求去割自己。这是关于诱拐的部分。", "speaker_id": "ryan", "section_id": "s11"}, {"start_sec": 4957, "type": "text", "zh": "这个文件夹里还有很多类似的截图，专门是诱拐，以及他们彼此怎么说话。有一份指南指示成员把受害者养成给764生产内容的人，并建议特别针对弱势对象，比如有抑郁或精神疾病的人。你可以看到墙上用血写满了这些人的用户名，还有撒旦式的字迹。他们究竟是不是真正的撒旦崇拜者很难说，但他们喜欢那种「叛逆」的风格，会让人做倒十字、五角星，那就是他们的风格。这里有一个人在开始敲诈之前说：我真的很抱歉，我非常爱你，你是世界上最美丽、最可爱、最甜、最讨人喜欢的女孩，唯一的问题是你不是我的女孩，而我想让你是。我知道自己有时有点「要求多」，我很抱歉，我会改。他一路说下去，让女孩觉得安心，觉得他想和自己在一起。可那并不是他们的目标。他们的目标是进入下一阶段。我直接讲敲诈。这出自同一本数百页的色情敲诈手册，只是其中一页截图。上面写：要开始敲诈，你必须先会诱拐。没有诱拐，你拿不到任何信息或裸照；一旦诱拐成功，你几乎就控制了她。要正确地敲诈一个女性，你必须掌握以下个人信息：地址、姓名、电话号码和裸照。有了这些，你就可以开始威胁她，比如把裸照发给她的父母，对她「诈警」，泄露个人信息。如果她不照做，例如做血字、割字、杀死她家的猫、自杀。如果你一切都做对了，最后就该得到你想要的。记住，永远不要说「有内容就行」，因为没人想看只划破表皮的痕迹。他们要的是带用户名和团体名的、留下深疤的伤口，而对象有时是八岁、九岁、十岁、十一岁的儿童。有几段我必须给你看，当然你也可以选择不看，但这很重要。这些女孩里，除了最近的一个，并不是都在真正伤害自己。这个女孩被逼着剪掉头发，听起来好像没有那么残忍，但配上他们接下来会说的计划，请大家做好准备。", "speaker_id": "ryan", "section_id": "s11"}, {"start_sec": 5126, "type": "text", "zh": "画面里有人说：该死的剪刀。好了，把头发拿来，是时候剪了。这是真的吗？", "speaker_id": "steven", "section_id": "s11"}, {"start_sec": 5132, "type": "text", "zh": "是真的。", "speaker_id": "ryan", "section_id": "s11"}, {"start_sec": 5136, "type": "text", "zh": "对方说：把马尾全部剪掉，现在就剪。女孩问：我能不能做点别的，比如粉丝标记？所谓粉丝标记，就是在身上某个地方割下用户名。他说：你有30秒。如果不在30秒内做，我们就把裸照发出去。", "speaker_id": "ryan", "section_id": "s11"}, {"start_sec": 5160, "type": "text", "zh": "我想要点已经清楚了，不必把这段视频看完。而这还只是第一步。", "speaker_id": "ryan", "section_id": "s11"}, {"start_sec": 5169, "type": "text", "zh": "所以他说这只是第一步。这段视频是怎么流到公开场合的？", "speaker_id": "steven", "section_id": "s11"}, {"start_sec": 5173, "type": "text", "zh": "这些人会在论坛上分享。你可以在Telegram群组里，也可以在聊天应用Discord里。这一例就是在一个论坛上被分享的。", "speaker_id": "ryan", "section_id": "s11"}, {"start_sec": 5184, "type": "text", "zh": "所以你是从论坛上拿到的。我们有得到她的许可吗？", "speaker_id": "steven", "section_id": "s11"}, {"start_sec": 5186, "type": "text", "zh": "它已经在其他地方公开存在了。当然我不想识别任何受害者，那与我的目标正好相反。这一例里，她在额头上涂了睫毛膏，和切割有关。我并不完全清楚中间发生了什么，但重要的是，对质进行到一半时，父亲介入了。你看这里发生了什么。对方后来当着父亲的面说：我顺便说一下，我27岁，我想让你女儿为我做一些事。父亲说要报警。对方辱骂他，还说自己刚看到她的胸部，她大概16岁，自己27岁，让她把衣服掀起来。父亲再说要报警。然后通话断了。可这个女孩在父亲刚刚亲眼看到这一切之后，仍然被允许继续和这些人聊天。情况已经非常清楚，她处在危险之中。在我看来，一个父亲本应比这更清醒。所以我才想把这一例特别展示出来。我不会给你看孩子们切割自己的视频。但有一个最近的、我觉得最血腥的例子：一个13岁的男孩，在看似浴室的地方上吊，结束了自己的生命，聊天室里的人看着他死去。这个13岁的孩子被说服，一旦把自己的裸照发出去，整个人生就完了，于是他在直播的观众面前自杀。根据我看到的证据和我的经验，那些人在他死去时还在笑。我还记得，第二次上完肖恩·瑞恩（Shawn Ryan）的节目之后，有一个女孩在停车场用电缆上吊，直播聊天里有人说，如果她裸着上吊会更「火」，后来她死了。我不知道该用什么词称呼他们。他们是邪恶的，是恶魔。还有人切割仓鼠的头，我想你不必看见也能明白。敲诈步骤、指南、被敲诈的女孩，都是同一类情况：割字，用血在墙上写字，有一句大概是「你的神现在在哪里」，在嘲讽上帝。而这些全都涉及未成年人。这些在他们嘴里，只是「猫抓」。", "speaker_id": "ryan", "section_id": "s11"}, {"start_sec": 5392, "type": "text", "zh": "我想我已经看够了。", "speaker_id": "steven", "section_id": "s11"}, {"start_sec": 5394, "type": "text", "zh": "这还不算什么。", "speaker_id": "ryan", "section_id": "s11"}, {"start_sec": 5396, "type": "text", "zh": "我知道。", "speaker_id": "steven", "section_id": "s11"}, {"start_sec": 5396, "type": "text", "zh": "这些小孩子整天都在说这些、看这些。一旦被拉进这些团体，这就是他们被灌入的东西。他们还被强迫观看，同样的事如何发生在其他受害者身上。", "speaker_id": "ryan", "section_id": "s11"}, {"start_sec": 5410, "type": "text", "zh": "这些事发生在哪些平台上？", "speaker_id": "steven", "section_id": "s11"}, {"start_sec": 5412, "type": "text", "zh": "所有平台。最初创建764的那个孩子，我记得是在Minecraft上找人，后来到了Roblox。他们的全部目标就是寻找弱势儿童，把他们带到某个平台，说服他们交出裸照，再利用这张牌。这和很多在尼日利亚等地的诈骗类似：那些人会假装成名人，聊到你交出裸照，照片一到手就要钱，通常未必真的把照片发出去，但会继续用恐惧敲诈。而在这里，他们不要钱。他们只想让你伤害自己，伤害别人，或伤害动物，或做出疯狂的事。还有另一面，是那些想加入这个团体的人，他们必须提交所谓的「犯罪证明」。", "speaker_id": "ryan", "section_id": "s11"}, {"start_sec": 5454, "type": "text", "zh": "犯罪证明的意思是：看，这些是我的受害者；看，我在现实里伤害了某个人；看，我在纵火，或做了造成重大破坏的事，以证明你在他们眼中是一个够忠心、够想加入的人。有一个例子极其残忍，不过是两个成年人：一个人和另一个人在通话。", "speaker_id": "ryan", "section_id": "s12"}, {"start_sec": 5489, "type": "text", "zh": "天哪，我看不下去。", "speaker_id": "steven", "section_id": "s12"}, {"start_sec": 5491, "type": "text", "zh": "这还不算什么。", "speaker_id": "ryan", "section_id": "s12"}, {"start_sec": 5493, "type": "text", "zh": "我看不了。", "speaker_id": "steven", "section_id": "s12"}, {"start_sec": 5493, "type": "text", "zh": "视频的后半段，他把对方的喉咙整个切开，而且是在Discord上做的。那个团体成员正在观看，好让他加入其中一个组织，而他就这样杀了这个人。我手里还有多段类似的视频。", "speaker_id": "ryan", "section_id": "s12"}, {"start_sec": 5506, "type": "text", "zh": "这个人被找到了吗？", "speaker_id": "steven", "section_id": "s12"}, {"start_sec": 5508, "type": "text", "zh": "有些被找到了，有些还没有，但有些仍然公开存在着，他们终将被抓住。这正是我全部的重心。我知道这很难看，可这就是有些人每天都在看的东西。这些孩子对此毫无控制权，他们觉得自己的人生已经结束了。", "speaker_id": "ryan", "section_id": "s12"}, {"start_sec": 5529, "type": "text", "zh": "这些团体有多大？", "speaker_id": "steven", "section_id": "s12"}, {"start_sec": 5530, "type": "text", "zh": "里面有数千名成员。联邦调查局公开谈到的目标超过500个。若你因为某种原因加入其中一个团体，还进得去的话——就像我说的，某些私密频道需要犯罪证明才能进——在公开频道里你能看见成千上万的人。", "speaker_id": "ryan", "section_id": "s12"}, {"start_sec": 5548, "type": "text", "zh": "这个问题我绕了很久，觉得可能根本没有答案。我想问很多次：他们从中得到了什么？可看起来并没有答案。", "speaker_id": "steven", "section_id": "s12"}, {"start_sec": 5562, "type": "text", "zh": "我真希望能告诉你。我真心希望能给你一个答案。可他们从中得不到任何东西，除了在团体内部的名声。不过当这些人被逮捕时——我在司法部网站上读到：全球暴力极端网络764的头目承认共谋罪。", "speaker_id": "ryan", "section_id": "s12"}, {"start_sec": 5582, "type": "text", "zh": "这是上个月的事。他们分析这些人时，有什么共同点？他们是有精神疾病吗？", "speaker_id": "steven", "section_id": "s12"}, {"start_sec": 5594, "type": "text", "zh": "我想我们不必当医生也能看出来。", "speaker_id": "ryan", "section_id": "s12"}, {"start_sec": 5598, "type": "text", "zh": "那到底是什么？", "speaker_id": "steven", "section_id": "s12"}, {"start_sec": 5600, "type": "text", "zh": "我觉得他们就是邪恶的。我的解释就是这样，否则你还能怎么称呼？一个能把无辜的孩子逼到伤害自己、伤害别人，只为在网上的朋友面前获得名声的人，你会给他什么诊断？", "speaker_id": "ryan", "section_id": "s12"}, {"start_sec": 5617, "type": "text", "zh": "是的，邪恶似乎是唯一的词。我想正在看的家长，大概不只是家长，都会在想：我能做什么？", "speaker_id": "steven", "section_id": "s12"}, {"start_sec": 5627, "type": "text", "zh": "这正是一个该问的好问题。我可以把这些合上了。我不想展示，正如你不想看，可我每天都在做这件事，我一半的人生花在这上面。看到一个人被逮捕当然很好，但家长问我最大的成就是什么时，我的回答是：最大的成就，是一开始就创造出预防。你可以逮捕一千个捕食者，逮捕一千个团体成员，却消灭不了他们的存在。如果你能让一个受害者从一开始就不要变成受害者，我相信你做的比逮捕更好。我当然支持尽可能地逮捕，但若能阻止一个孩子先成为受害者，在我看来就是胜利。所以当家长问能做什么时，有几件事。作为家长，你要选择什么对你的孩子最合适。我自己还不是家长，不能告诉你你的孩子会如何反应。但第一件事，如果他们还非常年幼，我会在他们的设备上安装监控软件。如果需要我可以点名，外面有做这件事的公司。Bark是一个很好的应用，我没有收他们赞助，只是喜欢这家公司。它不仅监测捕食行为，也监测霸凌，以及家长自己想设定的触发词，还有很多有用的功能。我很推荐用它来做监测。", "speaker_id": "ryan", "section_id": "s12"}, {"start_sec": 5698, "type": "text", "zh": "但我觉得最重要的，首先是你和孩子的关系。你和我年纪差不多。我们小的时候，如果我妈妈对我说「把手机给我」，我会说「好，拿去」，并不在乎。那对我不是什么大事，因为我在外面滑滑板、骑BMX，生活并不围着互联网转。即便我是个电脑极客，也能说自己一半甚至一半以上的人生并不围着电脑转。我和妈妈非常亲近，我觉得什么都可以告诉她，哪怕她不想听，包括毒品，包括我身边的女朋友，包括有人在犯罪。她总是会让我停下来，有时会哭，但我对她非常坦白，我很高兴如此，因为她知道，也总知道我在哪里：如果我消失了，或陷入糟糕的处境，哪怕她想把我从那里弄出来，无论情况怎样，她都知道该去哪里接我。回到原来那一点：如果她要拿走我的手机，我不会在乎，那不是大事。可现在的孩子，这些很小就被给予iPad和iPhone的孩子——我个人并不赞同这样做，但就算你还是给了——他们会极度害怕你拿走设备，因为那是他们与世界的连接，像是他们的附属肢体，像是要拿走一只手。你看一群孩子待在一起，通常都坐在那里刷社交媒体、点赞，整个相处时间都在用设备。如果你拿走他们的设备、游戏机或电脑，他们就不会再信任你，而下一次会用朋友的设备去做下一件坏事。所以我觉得非常重要的是，你和孩子有开放的关系，让他们知道世界上存在这些坏事，存在我刚才展示的那些团体，而且他们专门针对弱势儿童。他们也针对只是在游戏应用上玩的孩子，其中最大的儿童游戏就是Roblox。他们到处寻找孩子。不仅是这些邪教式团体的成员，还有真正的性侵捕食者。", "speaker_id": "ryan", "section_id": "s12"}, {"start_sec": 5845, "type": "text", "zh": "如果你看过我的任何节目，就会看到，我可以在几秒钟内找到一个正在寻找小男孩或小女孩的人。我刚刚做完一次行动，正式逮捕了30到31人，全都在寻找14岁以下的孩子，而且都在佛罗里达中部一个很小的县里。其中一人以前在迪士尼扮过米老鼠。他到那户人家时，带了大约100片尿布，想让爸爸和孩子都打扮成婴儿。所以他既有恋童，还有尿布癖。互联网可以非常危险。非常重要的是，你的孩子愿意告诉你正在发生的真相，而不是因为害怕报复或后果而隐瞒。", "speaker_id": "ryan", "section_id": "s12"}, {"start_sec": 5899, "type": "text", "zh": "还有什么是我们没谈到、却最应该谈的，瑞恩？还剩下什么吗？你刚才提到用YubiKey。", "speaker_id": "steven", "section_id": "s12"}, {"start_sec": 5908, "type": "text", "zh": "对，YubiKey。如果你想看，我可以给你看一个。基本上，你每按一次这个按钮，它就会生成一把独一无二的密钥。在苹果系统的后端，如果你深入安全设置，它会建议你若想要真正的设备安全，就去准备一个这样的东西。因为你需要这件实体设备，才能解锁相应的东西。", "speaker_id": "ryan", "section_id": "s12"}, {"start_sec": 5930, "type": "text", "zh": "它是指纹识别吗？", "speaker_id": "steven", "section_id": "s12"}, {"start_sec": 5932, "type": "text", "zh": "这个不是指纹仪，是触控。你把它插进手机或电脑，用手指轻触，它就会生成那个数字，而且每次按下，数字都会变。它有时会和短信验证、密码一起用，于是你需要这三种认证才能进入。我觉得这是值得拥有的东西。另外还要知道，外面流出去的并不只有密码。你熟悉会话和Cookie吗？对不了解的人来说：电脑中毒，或某个数据库被泄露时，可能包含会话Cookie。普通人关掉浏览器、退出Facebook，再打开Chrome、点进Facebook，却发现自己仍保持登录，靠的就是Cookie，会话就是这样工作的。在数据泄露里，或某台电脑被感染时，这些会话也可能被一并带走。如果我用你已登录的会话替换我的会话，再刷新页面，某些情况下我就会以你的身份登录，完全不需要密码。这就绕过了YubiKey，绕过了双重验证，绕过了所有东西。有的平台可能会说，这看起来像一个不同的IP地址；但如果你因为已经有了那个会话，而机器上又有恶意软件，你现在就可以假扮成他们。如果来自数据泄露，你就要看这个网站是否真的能识别出来。用Pentester可以看到这些「窃取日志」是否存在。我不是想反复推销，但用它确实能看见。", "speaker_id": "ryan", "section_id": "s12"}, {"start_sec": 6023, "type": "text", "zh": "我已经获得了足够多的信息，有很多需要想的。未来也会和过去很不一样。随着人工智能的发展，我觉得我们刚才描述的很多事情都会被放大，也许会变得更容易。防御希望能在某种程度上跟上，但我就是觉得，隐私这个概念在各种形式上大概都会越来越像神话。人工智能的其他可能还包括深度伪造，比如模拟我的声音，打给我的家人，让他们去做某件事，这类事只会更糟。对观众来说，有没有一个总的、可以收束的态度？", "speaker_id": "steven", "section_id": "s12"}, {"start_sec": 6081, "type": "text", "zh": "做好准备。也有一些平台和做法能让情况对你更有利。随着人工智能推进，我建议你和其他人一样，开始跟上这趟车：了解本地的人工智能模型，了解哪怕是第三方的工具，比如Claude Code、Grok、Codex。了解人们如何用它们开发应用，如何用它们加固自己的服务，如何用人工智能检查自己家里的漏洞。你不必是电脑天才，也不必先掌握所有术语，也能使用这类工具。", "speaker_id": "ryan", "section_id": "s12"}, {"start_sec": 6116, "type": "text", "zh": "另外还有一点，就是对收到的数字通信更怀疑。这也是我在努力做的。我收到一封邮件，哪怕是一条WhatsApp消息，第一反应都是先质疑它是不是真的，并尽量不要去点击。", "speaker_id": "steven", "section_id": "s12"}, {"start_sec": 6138, "type": "text", "zh": "对。这种事一直在发生，也发生在我、我的商业伙伴和朋友身上。有时他们会通过短信钓鱼，有时通过邮件，比如：你能不能去银行跑一趟，或去买这些礼品卡寄给某个人。那是老派的钓鱼。新派的做法是，你可以发一条语音，或把我的视频通过WhatsApp发给我的同事。在老派钓鱼里，我旗下有一家公司就因为这个原因损失了20万美元。而在「CEO日记」早期，我们公司里也有团队成员，入职第一周收到一封以为是我写的邮件，离开办公室，到店里买了一张1000英镑的礼品卡，寄给了那个他们以为是我的人，钱就这样没了。", "speaker_id": "steven", "section_id": "s12"}, {"start_sec": 6185, "type": "text", "zh": "所以这是一个必须更加警惕的时刻。", "speaker_id": "steven", "section_id": "s12"}, {"start_sec": 6192, "type": "text", "zh": "是的，我同意。我们可以把钓鱼的基本检查再过一遍，但我希望大多数正在看的人已经知道：检查域名，确认它就是那个域名。如果写的是example.com，确认中间没有多出一个L或E。如果是一个名字，确认拼写正确。如果是电话号码，确认是正确的号码。", "speaker_id": "ryan", "section_id": "s12"}, {"start_sec": 6212, "type": "text", "zh": "还有，当你收到东西、不敢确定是不是真的时，截个图，丢进某个人工智能，问它。", "speaker_id": "steven", "section_id": "s12"}, {"start_sec": 6216, "type": "text", "zh": "对，这是个好主意，也可以这样做。", "speaker_id": "ryan", "section_id": "s12"}, {"start_sec": 6219, "type": "text", "zh": "这也是我告诉家人的做法：只要有任何怀疑，截图，放进ChatGPT或类似工具，问：这是真的吗？我该怎么办？", "speaker_id": "steven", "section_id": "s12"}, {"start_sec": 6230, "type": "text", "zh": "对。另外，不要误会我前面的话，我仍然喜爱人工智能。我觉得它极其令人惊叹。它是在已有数据的基础上发现新东西。我希望我的意思准确传达到了：我不是说人工智能没有能力。它正在找到数百个漏洞，是人类无法以接近的速度找到的，而且还会更多。它也在解决各种医学问题，做了很多事，但依据的是我们已有的数据。我不是说这不令人惊叹。我只是想让你知道，我们现在拥有的，和未来可能拥有的，并不是一回事，而后者会让人害怕。", "speaker_id": "ryan", "section_id": "s12"}, {"start_sec": 6270, "type": "text", "zh": "瑞恩，我们有一个结尾传统，上一任嘉宾会留下一个问题给下一位，并不知道会留给谁。留给你的问题是：对你来说，好的生活意味着什么？", "speaker_id": "steven", "section_id": "s12"}, {"start_sec": 6275, "type": "text", "zh": "对我来说，好的生活意味着有一个家，亲近上帝，取得成功，能够养活我的家人，并帮助我能帮助的尽可能多的人。", "speaker_id": "ryan", "section_id": "s12"}, {"start_sec": 6290, "type": "text", "zh": "阿门。我们到这里。谢谢你。", "speaker_id": "steven", "section_id": "s12"}, {"start_sec": 6292, "type": "text", "zh": "非常感谢。就是这些。非常感谢。", "speaker_id": "ryan", "section_id": "s12"}, {"start_sec": 6292, "type": "ad_omitted", "ad_brand": "The Diary Of A CEO", "section_id": "s12"}]}</script>
+<script>
+(function(){
+// Progressive enhancement only. Content is static HTML; every feature is isolated so one failure can't affect others.
+function safe(f){try{f()}catch(e){}}
+var doc=document,root=doc.documentElement,$=function(s){return doc.querySelector(s)},all=function(s){return Array.prototype.slice.call(doc.querySelectorAll(s))};
+function mq(q){try{return !!(window.matchMedia&&window.matchMedia(q).matches)}catch(e){return false}}
+var store={get:function(k){try{return window.localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{window.localStorage.setItem(k,v)}catch(e){}}};
+safe(function(){root.classList.add('js')});
+// theme
+safe(function(){
+ if(store.get('tp-theme')==='light')root.classList.add('light');
+ $('#theme').onclick=function(){var l=root.classList.toggle('light');store.set('tp-theme',l?'light':'dark')}});
+safe(function(){$('#spk').onchange=function(e){var v=e.target.value;
+ all('.turn').forEach(function(t){t.classList.toggle('hide',!!v&&t.getAttribute('data-spk')!==v)});all('.marker-line').forEach(function(a){a.classList.toggle('hide',!!v)})}});
+// progress, back-to-top
+safe(function(){p=$('#prog'),top=$('#top');
+ function onS(){safe(function(){var st=window.pageYOffset||root.scrollTop,mh=root.scrollHeight-window.innerHeight;p.style.width=(mh>0?st/mh*100:0)+'%';top.classList.toggle('on',st>600);})}
+ window.addEventListener('scroll',onS);onS();top.onclick=function(){try{window.scrollTo(0,0)}catch(e){}}});
+// search
+safe(function(){var M=doc.querySelector('.wrap'),marks=[],cur=-1,cnt=$('#cnt'),q=$('#q'),tm;
+ function clear(){marks.forEach(function(m){var t=doc.createTextNode(m.textContent),pa=m.parentNode;pa.replaceChild(t,m);pa.normalize()});marks=[];cur=-1}
+ function go(d){if(!marks.length)return;if(cur>=0)marks[cur].classList.remove('cur');cur=(cur+d+marks.length)%marks.length;var m=marks[cur];m.classList.add('cur');
+  try{m.scrollIntoView({block:'center'})}catch(e){m.scrollIntoView()}cnt.textContent=(cur+1)+'/'+marks.length}
+ function run(){safe(function(){clear();var s=q.value.trim();if(!s){cnt.textContent='';return}
+  var sl=s.toLowerCase(),w=doc.createTreeWalker(M,NodeFilter.SHOW_TEXT,null,false),ns=[];while(w.nextNode())ns.push(w.currentNode);
+  ns.forEach(function(n){var t=n.nodeValue,tl=t.toLowerCase(),i=tl.indexOf(sl);if(i<0)return;var fr=doc.createDocumentFragment(),j=0;
+   while(i>=0){fr.appendChild(doc.createTextNode(t.slice(j,i)));var m=doc.createElement('mark');m.textContent=t.slice(i,i+s.length);fr.appendChild(m);marks.push(m);j=i+s.length;i=tl.indexOf(sl,j)}
+   fr.appendChild(doc.createTextNode(t.slice(j)));n.parentNode.replaceChild(fr,n)});
+  cnt.textContent=marks.length?'':'无结果';go(1)})}
+ q.oninput=function(){clearTimeout(tm);tm=setTimeout(run,200)};
+ q.onkeydown=function(e){if(e.key==='Enter')go(e.shiftKey?-1:1)};$('#next').onclick=function(){go(1)};$('#prev').onclick=function(){go(-1)}});
+})();
+</script></body></html>
